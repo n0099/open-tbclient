@@ -9,6 +9,7 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
     private String album;
     private long authorId;
     private String authorName;
+    private String authorNameShow;
     private String business;
     private int createTime;
     private int flag;
@@ -183,5 +184,13 @@ public class BaseGroupData extends AbstractImageProvider implements Serializable
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(this.portrait);
         return arrayList;
+    }
+
+    public void setAuthorNameShow(String str) {
+        this.authorNameShow = str;
+    }
+
+    public String getAuthorNameShow() {
+        return this.authorNameShow;
     }
 }

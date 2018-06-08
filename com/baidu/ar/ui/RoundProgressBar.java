@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.ar.util.o;
+import com.baidu.ar.util.Utils;
 /* loaded from: classes3.dex */
 public class RoundProgressBar extends View {
     private Paint a;
@@ -79,8 +79,8 @@ public class RoundProgressBar extends View {
         this.b = -570425345;
         this.c = -16747521;
         this.d = -1;
-        this.e = o.a(context, 30.0f);
-        this.f = o.a(context, 5.0f);
+        this.e = Utils.dipToPx(context, 30.0f);
+        this.f = Utils.dipToPx(context, 5.0f);
         this.g = 100;
         this.i = true;
         this.j = 0;
@@ -183,6 +183,19 @@ public class RoundProgressBar extends View {
         if (i <= this.g) {
             this.h = i;
             postInvalidate();
+        }
+    }
+
+    public void setProgressSync(int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException("progress not less than 0");
+        }
+        if (i > this.g) {
+            i = this.g;
+        }
+        if (i <= this.g) {
+            this.h = i;
+            invalidate();
         }
     }
 

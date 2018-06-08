@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private int dXe;
+    private int eir;
     private List<b> parent_menu = new ArrayList();
     private long update_time;
 
-    public boolean aCQ() {
-        return this.dXe == 1;
+    public boolean aHL() {
+        return this.eir == 1;
     }
 
-    public void nq(int i) {
-        this.dXe = i;
+    public void nC(int i) {
+        this.eir = i;
     }
 
     public long getUpdate_time() {
@@ -24,11 +24,11 @@ public class c {
         this.update_time = j;
     }
 
-    public List<b> aCR() {
+    public List<b> aHM() {
         return this.parent_menu;
     }
 
-    public void bW(List<b> list) {
+    public void cb(List<b> list) {
         this.parent_menu = list;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -13,7 +13,7 @@ public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
         super(2921025);
         this.mOriginData = new ArrayList();
         this.mIds = new ArrayList();
-        if (!v.w(list2) && !v.w(list)) {
+        if (!w.z(list2) && !w.z(list)) {
             this.mOriginData.addAll(list2);
             this.mIds.addAll(list);
         }

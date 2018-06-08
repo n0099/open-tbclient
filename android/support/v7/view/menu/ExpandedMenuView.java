@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public final class ExpandedMenuView extends ListView implements MenuBuilder.ItemInvoker, MenuView, AdapterView.OnItemClickListener {
     private static final int[] TINT_ATTRS = {16842964, 16843049};
@@ -49,7 +49,7 @@ public final class ExpandedMenuView extends ListView implements MenuBuilder.Item
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         invokeItem((MenuItemImpl) getAdapter().getItem(i));
     }
 

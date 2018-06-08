@@ -4,9 +4,10 @@ import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.ar.util.IoUtils;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.jni.Asc;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.net.URLEncoder;
@@ -40,13 +41,13 @@ public final class g {
             new StringBuilder().append(byteArray.length);
             bytes = F.getInstance().ae(byteArray, a2);
         }
-        new StringBuilder().append(bytes.length).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(new String(bytes));
+        new StringBuilder().append(bytes.length).append(",").append(new String(bytes));
         byte[] bytes2 = l.a(f.a(context)).getBytes();
         new StringBuilder().append(new String(bytes2));
         byte[] ar = asc.ar(a2, bytes2);
         new StringBuilder().append(ar.length);
         new StringBuilder().append(Base64.encodeToString(ar, 0));
-        String str7 = "sign=" + a + "&appkey=" + str5 + "&timestamp=" + valueOf + "&skey=" + URLEncoder.encode(encodeToString, "utf-8");
+        String str7 = "sign=" + a + "&appkey=" + str5 + "&timestamp=" + valueOf + "&skey=" + URLEncoder.encode(encodeToString, IoUtils.UTF_8);
         if (!TextUtils.isEmpty(str3)) {
             str7 = str7 + str3;
         }
@@ -70,7 +71,7 @@ public final class g {
             byte[] dr = asc.dr(decode, bytes2);
             new StringBuilder().append(new String(dr));
             String optString2 = jSONObject.optString("response");
-            new StringBuilder().append(jSONObject.optString("request_id"));
+            new StringBuilder().append(jSONObject.optString(StatisticConstants.REQUEST_ID));
             new StringBuilder().append(optString2);
             byte[] decode2 = Base64.decode(optString2, 0);
             new StringBuilder().append(decode2.length);

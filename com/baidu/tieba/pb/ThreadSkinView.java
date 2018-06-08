@@ -10,16 +10,15 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.d.a;
-import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fbe;
-    private a.C0217a fbf;
+    private a.C0234a fmA;
+    private SkinInfo fmz;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -41,27 +40,27 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0217a c0217a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0234a c0234a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fbe != skinInfo && c0217a != null) {
-            this.fbf = c0217a;
-            this.fbf.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fbf.cd(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.fbf.cd("obj_url", skinInfo.url);
-            this.fbf.cd("obj_name", skinInfo.monitor_id);
-            this.fbf.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fbf.save();
+        if (this.fmz != skinInfo && c0234a != null) {
+            this.fmA = c0234a;
+            this.fmA.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.fmA.cl(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.fmA.cl("obj_url", skinInfo.url);
+            this.fmA.cl("obj_name", skinInfo.monitor_id);
+            this.fmA.cl(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.fmA.save();
         }
-        this.fbe = skinInfo;
-        int af = l.af(tbPageContext.getPageActivity());
+        this.fmz = skinInfo;
+        int ah = l.ah(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.width = af;
+        layoutParams.width = ah;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
-            String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split = skinInfo.skin_size.split(",");
             if (split.length > 1) {
                 int g = com.baidu.adp.lib.g.b.g(split[0].trim(), -1);
                 int g2 = com.baidu.adp.lib.g.b.g(split[1].trim(), -1);
@@ -82,14 +81,14 @@ public class ThreadSkinView extends TbImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (this.fbe != null && !StringUtils.isNull(this.fbe.url)) {
-            if (this.fbf != null) {
-                this.fbf.ee(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fbf.cd(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fbf.save();
+    public void onClick(View view) {
+        if (this.fmz != null && !StringUtils.isNull(this.fmz.url)) {
+            if (this.fmA != null) {
+                this.fmA.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.fmA.cl(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.fmA.save();
             }
-            ax.wf().c(this.mTbPageContext, new String[]{this.fbe.url});
+            ay.zG().c(this.mTbPageContext, new String[]{this.fmz.url});
         }
     }
 }

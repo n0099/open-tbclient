@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String bcH;
-    private String dvW;
-    private String dvX;
-    private String dvY;
-    private String dvZ;
+    private String bkR;
+    private String dHg;
+    private String dHh;
+    private String dHi;
+    private String dHj;
     private String mImgUrl;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.dvW = String.valueOf(esportRank.rank);
-            this.dvX = esportRank.text;
-            this.bcH = esportRank.url;
+            this.dHg = String.valueOf(esportRank.rank);
+            this.dHh = esportRank.text;
+            this.bkR = esportRank.url;
             if (esportRank.user != null) {
-                this.dvY = esportRank.user.steam_name;
-                this.dvZ = esportRank.user.steam_portrait;
+                this.dHi = esportRank.user.steam_name;
+                this.dHj = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String avT() {
+    public String aAL() {
         return this.mTitle;
     }
 
-    public String avU() {
-        return this.dvW;
+    public String aAM() {
+        return this.dHg;
     }
 
-    public String avV() {
-        return this.dvX;
+    public String aAN() {
+        return this.dHh;
     }
 
-    public String avW() {
-        return this.dvY;
+    public String aAO() {
+        return this.dHi;
     }
 
-    public String avX() {
-        return this.dvZ;
+    public String aAP() {
+        return this.dHj;
     }
 
-    public String avY() {
+    public String aAQ() {
         return this.mImgUrl;
     }
 
-    public void mz(String str) {
+    public void nk(String str) {
         this.mImgUrl = str;
     }
 
-    public String avZ() {
-        return this.bcH;
+    public String aAR() {
+        return this.bkR;
     }
 
-    public void mA(String str) {
-        this.bcH = str;
+    public void nl(String str) {
+        this.bkR = str;
     }
 }

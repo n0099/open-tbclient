@@ -1,11 +1,9 @@
 package android.support.graphics.drawable;
 
 import android.animation.Animator;
-import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
-import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -23,7 +21,10 @@ import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.graphics.drawable.Animatable2Compat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.content.res.TypedArrayUtils;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
@@ -33,15 +34,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@TargetApi(21)
 /* loaded from: classes2.dex */
-public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implements Animatable {
+public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implements Animatable2Compat {
     private static final String ANIMATED_VECTOR = "animated-vector";
     private static final boolean DBG_ANIMATION_VECTOR_DRAWABLE = false;
     private static final String LOGTAG = "AnimatedVDCompat";
     private static final String TARGET = "target";
     private AnimatedVectorDrawableCompatState mAnimatedVectorState;
-    private ArgbEvaluator mArgbEvaluator;
+    private ArrayList<Animatable2Compat.AnimationCallback> mAnimationCallbacks;
+    private Animator.AnimatorListener mAnimatorListener;
+    private android.animation.ArgbEvaluator mArgbEvaluator;
     AnimatedVectorDrawableDelegateState mCachedConstantStateDelegate;
     final Drawable.Callback mCallback;
     private Context mContext;
@@ -131,6 +133,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
 
     private AnimatedVectorDrawableCompat(@Nullable Context context, @Nullable AnimatedVectorDrawableCompatState animatedVectorDrawableCompatState, @Nullable Resources resources) {
         this.mArgbEvaluator = null;
+        this.mAnimatorListener = null;
+        this.mAnimationCallbacks = null;
         this.mCallback = new Drawable.Callback() { // from class: android.support.graphics.drawable.AnimatedVectorDrawableCompat.1
             @Override // android.graphics.drawable.Drawable.Callback
             public void invalidateDrawable(Drawable drawable) {
@@ -159,9 +163,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     public Drawable mutate() {
         if (this.mDelegateDrawable != null) {
             this.mDelegateDrawable.mutate();
-            return this;
         }
-        throw new IllegalStateException("Mutate() is not supported for older platform");
+        return this;
     }
 
     @Nullable
@@ -204,10 +207,10 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        if (this.mDelegateDrawable != null) {
-            return new AnimatedVectorDrawableDelegateState(this.mDelegateDrawable.getConstantState());
+        if (this.mDelegateDrawable == null || Build.VERSION.SDK_INT < 24) {
+            return null;
         }
-        return null;
+        return new AnimatedVectorDrawableDelegateState(this.mDelegateDrawable.getConstantState());
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -222,7 +225,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             return;
         }
         this.mAnimatedVectorState.mVectorDrawable.draw(canvas);
-        if (isStarted()) {
+        if (this.mAnimatedVectorState.mAnimatorSet.isStarted()) {
             invalidateSelf();
         }
     }
@@ -333,14 +336,10 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     @Override // android.graphics.drawable.Drawable
     public void setAutoMirrored(boolean z) {
         if (this.mDelegateDrawable != null) {
-            this.mDelegateDrawable.setAutoMirrored(z);
+            DrawableCompat.setAutoMirrored(this.mDelegateDrawable, z);
         } else {
             this.mAnimatedVectorState.mVectorDrawable.setAutoMirrored(z);
         }
-    }
-
-    static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
-        return theme == null ? resources.obtainAttributes(attributeSet, iArr) : theme.obtainStyledAttributes(attributeSet, iArr, 0, 0);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -351,44 +350,42 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         }
         int eventType = xmlPullParser.getEventType();
         int depth = xmlPullParser.getDepth() + 1;
-        while (eventType != 1) {
-            if (xmlPullParser.getDepth() >= depth || eventType != 3) {
-                if (eventType == 2) {
-                    String name = xmlPullParser.getName();
-                    if (ANIMATED_VECTOR.equals(name)) {
-                        TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, AndroidResources.styleable_AnimatedVectorDrawable);
-                        int resourceId = obtainAttributes.getResourceId(0, 0);
-                        if (resourceId != 0) {
-                            VectorDrawableCompat create = VectorDrawableCompat.create(resources, resourceId, theme);
-                            create.setAllowCaching(false);
-                            create.setCallback(this.mCallback);
-                            if (this.mAnimatedVectorState.mVectorDrawable != null) {
-                                this.mAnimatedVectorState.mVectorDrawable.setCallback(null);
-                            }
-                            this.mAnimatedVectorState.mVectorDrawable = create;
+        while (eventType != 1 && (xmlPullParser.getDepth() >= depth || eventType != 3)) {
+            if (eventType == 2) {
+                String name = xmlPullParser.getName();
+                if (ANIMATED_VECTOR.equals(name)) {
+                    TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_ANIMATED_VECTOR_DRAWABLE);
+                    int resourceId = obtainAttributes.getResourceId(0, 0);
+                    if (resourceId != 0) {
+                        VectorDrawableCompat create = VectorDrawableCompat.create(resources, resourceId, theme);
+                        create.setAllowCaching(false);
+                        create.setCallback(this.mCallback);
+                        if (this.mAnimatedVectorState.mVectorDrawable != null) {
+                            this.mAnimatedVectorState.mVectorDrawable.setCallback(null);
                         }
-                        obtainAttributes.recycle();
-                    } else if ("target".equals(name)) {
-                        TypedArray obtainAttributes2 = resources.obtainAttributes(attributeSet, AndroidResources.styleable_AnimatedVectorDrawableTarget);
-                        String string = obtainAttributes2.getString(0);
-                        int resourceId2 = obtainAttributes2.getResourceId(1, 0);
-                        if (resourceId2 != 0) {
-                            if (this.mContext != null) {
-                                setupAnimatorsForTarget(string, AnimatorInflater.loadAnimator(this.mContext, resourceId2));
-                            } else {
-                                throw new IllegalStateException("Context can't be null when inflating animators");
-                            }
-                        }
-                        obtainAttributes2.recycle();
-                    } else {
-                        continue;
+                        this.mAnimatedVectorState.mVectorDrawable = create;
                     }
+                    obtainAttributes.recycle();
+                } else if ("target".equals(name)) {
+                    TypedArray obtainAttributes2 = resources.obtainAttributes(attributeSet, AndroidResources.STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET);
+                    String string = obtainAttributes2.getString(0);
+                    int resourceId2 = obtainAttributes2.getResourceId(1, 0);
+                    if (resourceId2 != 0) {
+                        if (this.mContext != null) {
+                            setupAnimatorsForTarget(string, AnimatorInflaterCompat.loadAnimator(this.mContext, resourceId2));
+                        } else {
+                            obtainAttributes2.recycle();
+                            throw new IllegalStateException("Context can't be null when inflating animators");
+                        }
+                    }
+                    obtainAttributes2.recycle();
+                } else {
+                    continue;
                 }
-                eventType = xmlPullParser.next();
-            } else {
-                return;
             }
+            eventType = xmlPullParser.next();
         }
+        this.mAnimatedVectorState.setupAnimatorSet();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -411,6 +408,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         return false;
     }
 
+    @RequiresApi(24)
     /* loaded from: classes2.dex */
     private static class AnimatedVectorDrawableDelegateState extends Drawable.ConstantState {
         private final Drawable.ConstantState mDelegateState;
@@ -457,7 +455,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class AnimatedVectorDrawableCompatState extends Drawable.ConstantState {
-        ArrayList<Animator> mAnimators;
+        AnimatorSet mAnimatorSet;
+        private ArrayList<Animator> mAnimators;
         int mChangingConfigurations;
         ArrayMap<Animator, String> mTargetNameMap;
         VectorDrawableCompat mVectorDrawable;
@@ -489,6 +488,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                         this.mAnimators.add(clone);
                         this.mTargetNameMap.put(clone, str);
                     }
+                    setupAnimatorSet();
                 }
             }
         }
@@ -506,6 +506,13 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         @Override // android.graphics.drawable.Drawable.ConstantState
         public int getChangingConfigurations() {
             return this.mChangingConfigurations;
+        }
+
+        public void setupAnimatorSet() {
+            if (this.mAnimatorSet == null) {
+                this.mAnimatorSet = new AnimatorSet();
+            }
+            this.mAnimatorSet.playTogether(this.mAnimators);
         }
     }
 
@@ -527,7 +534,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             String propertyName = objectAnimator.getPropertyName();
             if ("fillColor".equals(propertyName) || "strokeColor".equals(propertyName)) {
                 if (this.mArgbEvaluator == null) {
-                    this.mArgbEvaluator = new ArgbEvaluator();
+                    this.mArgbEvaluator = new android.animation.ArgbEvaluator();
                 }
                 objectAnimator.setEvaluator(this.mArgbEvaluator);
             }
@@ -540,7 +547,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             setupColorAnimator(animator);
         }
         if (this.mAnimatedVectorState.mAnimators == null) {
-            this.mAnimatedVectorState.mAnimators = new ArrayList<>();
+            this.mAnimatedVectorState.mAnimators = new ArrayList();
             this.mAnimatedVectorState.mTargetNameMap = new ArrayMap<>();
         }
         this.mAnimatedVectorState.mAnimators.add(animator);
@@ -549,43 +556,15 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
-        if (this.mDelegateDrawable != null) {
-            return ((AnimatedVectorDrawable) this.mDelegateDrawable).isRunning();
-        }
-        ArrayList<Animator> arrayList = this.mAnimatedVectorState.mAnimators;
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            if (arrayList.get(i).isRunning()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isStarted() {
-        ArrayList<Animator> arrayList = this.mAnimatedVectorState.mAnimators;
-        if (arrayList == null) {
-            return false;
-        }
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            if (arrayList.get(i).isRunning()) {
-                return true;
-            }
-        }
-        return false;
+        return this.mDelegateDrawable != null ? ((AnimatedVectorDrawable) this.mDelegateDrawable).isRunning() : this.mAnimatedVectorState.mAnimatorSet.isRunning();
     }
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
         if (this.mDelegateDrawable != null) {
             ((AnimatedVectorDrawable) this.mDelegateDrawable).start();
-        } else if (!isStarted()) {
-            ArrayList<Animator> arrayList = this.mAnimatedVectorState.mAnimators;
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                arrayList.get(i).start();
-            }
+        } else if (!this.mAnimatedVectorState.mAnimatorSet.isStarted()) {
+            this.mAnimatedVectorState.mAnimatorSet.start();
             invalidateSelf();
         }
     }
@@ -594,12 +573,119 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     public void stop() {
         if (this.mDelegateDrawable != null) {
             ((AnimatedVectorDrawable) this.mDelegateDrawable).stop();
+        } else {
+            this.mAnimatedVectorState.mAnimatorSet.end();
+        }
+    }
+
+    @RequiresApi(23)
+    private static boolean unregisterPlatformCallback(AnimatedVectorDrawable animatedVectorDrawable, Animatable2Compat.AnimationCallback animationCallback) {
+        return animatedVectorDrawable.unregisterAnimationCallback(animationCallback.getPlatformCallback());
+    }
+
+    @Override // android.support.graphics.drawable.Animatable2Compat
+    public void registerAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
+        if (this.mDelegateDrawable != null) {
+            registerPlatformCallback((AnimatedVectorDrawable) this.mDelegateDrawable, animationCallback);
+        } else if (animationCallback != null) {
+            if (this.mAnimationCallbacks == null) {
+                this.mAnimationCallbacks = new ArrayList<>();
+            }
+            if (!this.mAnimationCallbacks.contains(animationCallback)) {
+                this.mAnimationCallbacks.add(animationCallback);
+                if (this.mAnimatorListener == null) {
+                    this.mAnimatorListener = new AnimatorListenerAdapter() { // from class: android.support.graphics.drawable.AnimatedVectorDrawableCompat.2
+                        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                        public void onAnimationStart(Animator animator) {
+                            ArrayList arrayList = new ArrayList(AnimatedVectorDrawableCompat.this.mAnimationCallbacks);
+                            int size = arrayList.size();
+                            for (int i = 0; i < size; i++) {
+                                ((Animatable2Compat.AnimationCallback) arrayList.get(i)).onAnimationStart(AnimatedVectorDrawableCompat.this);
+                            }
+                        }
+
+                        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                        public void onAnimationEnd(Animator animator) {
+                            ArrayList arrayList = new ArrayList(AnimatedVectorDrawableCompat.this.mAnimationCallbacks);
+                            int size = arrayList.size();
+                            for (int i = 0; i < size; i++) {
+                                ((Animatable2Compat.AnimationCallback) arrayList.get(i)).onAnimationEnd(AnimatedVectorDrawableCompat.this);
+                            }
+                        }
+                    };
+                }
+                this.mAnimatedVectorState.mAnimatorSet.addListener(this.mAnimatorListener);
+            }
+        }
+    }
+
+    @RequiresApi(23)
+    private static void registerPlatformCallback(@NonNull AnimatedVectorDrawable animatedVectorDrawable, @NonNull Animatable2Compat.AnimationCallback animationCallback) {
+        animatedVectorDrawable.registerAnimationCallback(animationCallback.getPlatformCallback());
+    }
+
+    private void removeAnimatorSetListener() {
+        if (this.mAnimatorListener != null) {
+            this.mAnimatedVectorState.mAnimatorSet.removeListener(this.mAnimatorListener);
+            this.mAnimatorListener = null;
+        }
+    }
+
+    @Override // android.support.graphics.drawable.Animatable2Compat
+    public boolean unregisterAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
+        if (this.mDelegateDrawable != null) {
+            unregisterPlatformCallback((AnimatedVectorDrawable) this.mDelegateDrawable, animationCallback);
+        }
+        if (this.mAnimationCallbacks == null || animationCallback == null) {
+            return false;
+        }
+        boolean remove = this.mAnimationCallbacks.remove(animationCallback);
+        if (this.mAnimationCallbacks.size() == 0) {
+            removeAnimatorSetListener();
+            return remove;
+        }
+        return remove;
+    }
+
+    @Override // android.support.graphics.drawable.Animatable2Compat
+    public void clearAnimationCallbacks() {
+        if (this.mDelegateDrawable != null) {
+            ((AnimatedVectorDrawable) this.mDelegateDrawable).clearAnimationCallbacks();
             return;
         }
-        ArrayList<Animator> arrayList = this.mAnimatedVectorState.mAnimators;
-        int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            arrayList.get(i).end();
+        removeAnimatorSetListener();
+        if (this.mAnimationCallbacks != null) {
+            this.mAnimationCallbacks.clear();
+        }
+    }
+
+    public static void registerAnimationCallback(Drawable drawable, Animatable2Compat.AnimationCallback animationCallback) {
+        if (drawable != null && animationCallback != null && (drawable instanceof Animatable)) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                registerPlatformCallback((AnimatedVectorDrawable) drawable, animationCallback);
+            } else {
+                ((AnimatedVectorDrawableCompat) drawable).registerAnimationCallback(animationCallback);
+            }
+        }
+    }
+
+    public static boolean unregisterAnimationCallback(Drawable drawable, Animatable2Compat.AnimationCallback animationCallback) {
+        if (drawable == null || animationCallback == null || !(drawable instanceof Animatable)) {
+            return false;
+        }
+        if (Build.VERSION.SDK_INT >= 24) {
+            return unregisterPlatformCallback((AnimatedVectorDrawable) drawable, animationCallback);
+        }
+        return ((AnimatedVectorDrawableCompat) drawable).unregisterAnimationCallback(animationCallback);
+    }
+
+    public static void clearAnimationCallbacks(Drawable drawable) {
+        if (drawable != null && (drawable instanceof Animatable)) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                ((AnimatedVectorDrawable) drawable).clearAnimationCallbacks();
+            } else {
+                ((AnimatedVectorDrawableCompat) drawable).clearAnimationCallbacks();
+            }
         }
     }
 }

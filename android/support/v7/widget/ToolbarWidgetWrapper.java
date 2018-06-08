@@ -24,7 +24,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ToolbarWidgetWrapper implements DecorToolbar {
     private static final int AFFECTS_LOGO_MASK = 3;
@@ -126,7 +126,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 if (ToolbarWidgetWrapper.this.mWindowCallback != null && ToolbarWidgetWrapper.this.mMenuPrepared) {
                     ToolbarWidgetWrapper.this.mWindowCallback.onMenuItemSelected(0, this.mNavItem);
                 }
@@ -473,12 +473,12 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // android.support.v7.widget.DecorToolbar
-    public void setCustomView(View view2) {
+    public void setCustomView(View view) {
         if (this.mCustomView != null && (this.mDisplayOpts & 16) != 0) {
             this.mToolbar.removeView(this.mCustomView);
         }
-        this.mCustomView = view2;
-        if (view2 != null && (this.mDisplayOpts & 16) != 0) {
+        this.mCustomView = view;
+        if (view != null && (this.mDisplayOpts & 16) != 0) {
             this.mToolbar.addView(this.mCustomView);
         }
     }
@@ -502,19 +502,19 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
             private boolean mCanceled = false;
 
             @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-            public void onAnimationStart(View view2) {
+            public void onAnimationStart(View view) {
                 ToolbarWidgetWrapper.this.mToolbar.setVisibility(0);
             }
 
             @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-            public void onAnimationEnd(View view2) {
+            public void onAnimationEnd(View view) {
                 if (!this.mCanceled) {
                     ToolbarWidgetWrapper.this.mToolbar.setVisibility(i);
                 }
             }
 
             @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-            public void onAnimationCancel(View view2) {
+            public void onAnimationCancel(View view) {
                 this.mCanceled = true;
             }
         });

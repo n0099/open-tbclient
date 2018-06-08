@@ -23,10 +23,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ShareWebActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,25 +35,25 @@ import tbclient.FrsPage.StarContriRecord;
 import tbclient.FrsPage.StarRank;
 /* loaded from: classes2.dex */
 public class FrsStarRankAndTaskContainer extends LinearLayout implements View.OnClickListener {
-    private StarRank dvd;
-    private TextView dvo;
-    private TextView dvp;
-    private TextView dvq;
-    private ImageView dvr;
-    private ViewGroup dvs;
-    private ViewGroup dvt;
-    private ListView dvu;
-    private a dvv;
-    private d dvw;
-    private int dvx;
-    private Runnable dvy;
+    private TextView dEB;
+    private TextView dEC;
+    private TextView dED;
+    private ImageView dEE;
+    private ViewGroup dEF;
+    private ViewGroup dEG;
+    private ListView dEH;
+    private a dEI;
+    private d dEJ;
+    private int dEK;
+    private Runnable dEL;
+    private StarRank dEq;
     private Handler handler;
     private Runnable mRunnable;
     private TbPageContext mTbPageContext;
 
     static /* synthetic */ int b(FrsStarRankAndTaskContainer frsStarRankAndTaskContainer) {
-        int i = frsStarRankAndTaskContainer.dvx + 1;
-        frsStarRankAndTaskContainer.dvx = i;
+        int i = frsStarRankAndTaskContainer.dEK + 1;
+        frsStarRankAndTaskContainer.dEK = i;
         return i;
     }
 
@@ -64,12 +64,12 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
     public FrsStarRankAndTaskContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.handler = new Handler();
-        this.dvx = 0;
-        this.dvy = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.1
+        this.dEK = 0;
+        this.dEL = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.1
             @Override // java.lang.Runnable
             public void run() {
-                if (FrsStarRankAndTaskContainer.this.dvu != null) {
-                    FrsStarRankAndTaskContainer.this.dvu.smoothScrollToPositionFromTop(FrsStarRankAndTaskContainer.b(FrsStarRankAndTaskContainer.this), 0, 300);
+                if (FrsStarRankAndTaskContainer.this.dEH != null) {
+                    FrsStarRankAndTaskContainer.this.dEH.smoothScrollToPositionFromTop(FrsStarRankAndTaskContainer.b(FrsStarRankAndTaskContainer.this), 0, 300);
                 }
                 FrsStarRankAndTaskContainer.this.handler.removeCallbacksAndMessages(null);
                 FrsStarRankAndTaskContainer.this.handler.postDelayed(this, 3000L);
@@ -78,7 +78,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.4
             @Override // java.lang.Runnable
             public void run() {
-                FrsStarRankAndTaskContainer.this.dvu.setSelection(FrsStarRankAndTaskContainer.this.dvx);
+                FrsStarRankAndTaskContainer.this.dEH.setSelection(FrsStarRankAndTaskContainer.this.dEK);
             }
         };
         init();
@@ -95,7 +95,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         this.handler.removeCallbacksAndMessages(null);
-        avS();
+        aAb();
     }
 
     private void init() {
@@ -103,26 +103,26 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         setOrientation(0);
         setPadding(l.e(context, d.e.tbds35), l.e(context, d.e.tbds30), l.e(context, d.e.tbds35), 0);
         LayoutInflater.from(getContext()).inflate(d.i.view_frs_star_rank_and_task, (ViewGroup) this, true);
-        this.dvo = (TextView) findViewById(d.g.rank_number);
-        this.dvp = (TextView) findViewById(d.g.user_contributions);
-        this.dvq = (TextView) findViewById(d.g.star_task);
-        this.dvr = (ImageView) findViewById(d.g.image_rank_icon);
-        this.dvt = (ViewGroup) findViewById(d.g.task_container);
-        this.dvs = (ViewGroup) findViewById(d.g.rank_container);
-        this.dvt.setOnClickListener(this);
-        this.dvs.setOnClickListener(this);
-        this.dvu = (ListView) findViewById(d.g.rank_scroll);
-        this.dvu.setClickable(false);
-        this.dvu.setFocusable(false);
-        this.dvu.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.2
+        this.dEB = (TextView) findViewById(d.g.rank_number);
+        this.dEC = (TextView) findViewById(d.g.user_contributions);
+        this.dED = (TextView) findViewById(d.g.star_task);
+        this.dEE = (ImageView) findViewById(d.g.image_rank_icon);
+        this.dEG = (ViewGroup) findViewById(d.g.task_container);
+        this.dEF = (ViewGroup) findViewById(d.g.rank_container);
+        this.dEG.setOnClickListener(this);
+        this.dEF.setOnClickListener(this);
+        this.dEH = (ListView) findViewById(d.g.rank_scroll);
+        this.dEH.setClickable(false);
+        this.dEH.setFocusable(false);
+        this.dEH.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.2
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-                if (FrsStarRankAndTaskContainer.this.dvs != null) {
-                    FrsStarRankAndTaskContainer.this.dvs.performClick();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+                if (FrsStarRankAndTaskContainer.this.dEF != null) {
+                    FrsStarRankAndTaskContainer.this.dEF.performClick();
                 }
             }
         });
-        this.dvu.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.3
+        this.dEH.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.view.FrsStarRankAndTaskContainer.3
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
@@ -135,8 +135,8 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
             }
         });
-        this.dvv = new a(getContext());
-        this.dvu.setAdapter((ListAdapter) this.dvv);
+        this.dEI = new a(getContext());
+        this.dEH.setAdapter((ListAdapter) this.dEI);
         onChangeSkinType();
     }
 
@@ -144,7 +144,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         String string;
         int i;
         if (starRank != null) {
-            this.dvd = starRank;
+            this.dEq = starRank;
             if (starRank.rank_ranking.intValue() > 0 && starRank.rank_ranking.intValue() <= 1000) {
                 Locale locale = Locale.CHINA;
                 String string2 = getResources().getString(d.k.star_rank_number);
@@ -155,48 +155,48 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
             } else {
                 string = getResources().getString(d.k.no_bang);
             }
-            this.dvo.setText(string);
-            this.dvp.setText(starRank.user_task_notice);
-            if (!v.w(this.dvd.user_task_info)) {
-                int size = this.dvd.user_task_info.size();
+            this.dEB.setText(string);
+            this.dEC.setText(starRank.user_task_notice);
+            if (!w.z(this.dEq.user_task_info)) {
+                int size = this.dEq.user_task_info.size();
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < size) {
-                    if (this.dvd.user_task_info.get(i2) == null) {
+                    if (this.dEq.user_task_info.get(i2) == null) {
                         i = i3;
                     } else {
-                        i = this.dvd.user_task_info.get(i2).task_status.intValue() == 1 ? i3 + 1 : i3;
+                        i = this.dEq.user_task_info.get(i2).task_status.intValue() == 1 ? i3 + 1 : i3;
                     }
                     i2++;
                     i3 = i;
                 }
-                this.dvq.setText(String.format(Locale.CHINA, getResources().getString(d.k.see_task), Integer.valueOf(i3), Integer.valueOf(size)));
+                this.dED.setText(String.format(Locale.CHINA, getResources().getString(d.k.see_task), Integer.valueOf(i3), Integer.valueOf(size)));
             } else {
-                this.dvq.setText(d.k.no_have_task);
+                this.dED.setText(d.k.no_have_task);
             }
-            this.dvv.setData(starRank.contri_record_list);
-            avS();
+            this.dEI.setData(starRank.contri_record_list);
+            aAb();
         }
     }
 
-    public void avS() {
-        if (this.dvv.getCount() != 0) {
-            this.handler.removeCallbacks(this.dvy);
-            this.handler.postDelayed(this.dvy, 3000L);
+    public void aAb() {
+        if (this.dEI.getCount() != 0) {
+            this.handler.removeCallbacks(this.dEL);
+            this.handler.postDelayed(this.dEL, 3000L);
         }
     }
 
     public void onChangeSkinType() {
-        ak.h(this.dvo, d.C0126d.cp_cont_i);
-        ak.c(this.dvr, d.f.icon_frs_idol_ranking);
-        ak.i(this.dvs, d.f.bg_fts_star_rank_entrance);
-        ak.i(this.dvt, d.f.bg_frs_star_task_entrance);
-        this.dvq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow12_white_right), (Drawable) null);
-        ak.h(this.dvq, d.C0126d.cp_cont_i);
-        ak.h(this.dvp, d.C0126d.cp_cont_i);
-        this.dvv.notifyDataSetChanged();
-        if (this.dvw != null) {
-            this.dvw.avR();
+        al.h(this.dEB, d.C0141d.cp_cont_i);
+        al.c(this.dEE, d.f.icon_frs_idol_ranking);
+        al.i(this.dEF, d.f.bg_fts_star_rank_entrance);
+        al.i(this.dEG, d.f.bg_frs_star_task_entrance);
+        this.dED.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_white_right), (Drawable) null);
+        al.h(this.dED, d.C0141d.cp_cont_i);
+        al.h(this.dEC, d.C0141d.cp_cont_i);
+        this.dEI.notifyDataSetChanged();
+        if (this.dEJ != null) {
+            this.dEJ.aAa();
         }
     }
 
@@ -211,7 +211,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         }
 
         void setData(List<StarContriRecord> list) {
-            if (!v.w(list)) {
+            if (!w.z(list)) {
                 this.data.clear();
                 this.data.addAll(list);
                 notifyDataSetChanged();
@@ -220,7 +220,7 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (v.w(this.data)) {
+            if (w.z(this.data)) {
                 return 0;
             }
             return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -237,38 +237,38 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             b bVar;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.mContext).inflate(d.i.item_star_rank_user_contri, viewGroup, false);
+            if (view == null) {
+                view = LayoutInflater.from(this.mContext).inflate(d.i.item_star_rank_user_contri, viewGroup, false);
                 bVar = new b();
-                bVar.dvA = (TextView) view2.findViewById(d.g.contri_desc);
-                bVar.tvUserName = (TextView) view2.findViewById(d.g.contri_username);
-                view2.setTag(bVar);
+                bVar.dEN = (TextView) view.findViewById(d.g.contri_desc);
+                bVar.tvUserName = (TextView) view.findViewById(d.g.contri_username);
+                view.setTag(bVar);
             } else {
-                bVar = (b) view2.getTag();
+                bVar = (b) view.getTag();
             }
             StarContriRecord starContriRecord = this.data.get(i % this.data.size());
             if (starContriRecord == null) {
                 return null;
             }
             bVar.tvUserName.setText(starContriRecord.user_name);
-            bVar.dvA.setText(starContriRecord.record_notice);
+            bVar.dEN.setText(starContriRecord.record_notice);
             bVar.tvUserName.requestLayout();
             if (UtilHelper.isCurrentAccount(String.valueOf(starContriRecord.user_id))) {
-                ak.h(bVar.dvA, d.C0126d.common_color_10326);
-                ak.h(bVar.tvUserName, d.C0126d.common_color_10326);
-                return view2;
+                al.h(bVar.dEN, d.C0141d.common_color_10326);
+                al.h(bVar.tvUserName, d.C0141d.common_color_10326);
+                return view;
             }
-            ak.h(bVar.dvA, d.C0126d.cp_cont_i);
-            ak.h(bVar.tvUserName, d.C0126d.cp_cont_i);
-            return view2;
+            al.h(bVar.dEN, d.C0141d.cp_cont_i);
+            al.h(bVar.tvUserName, d.C0141d.cp_cont_i);
+            return view;
         }
     }
 
     /* loaded from: classes2.dex */
     private static class b {
-        TextView dvA;
+        TextView dEN;
         TextView tvUserName;
 
         private b() {
@@ -276,20 +276,20 @@ public class FrsStarRankAndTaskContainer extends LinearLayout implements View.On
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2 == this.dvt) {
-            TiebaStatic.log(new al("c12880"));
-            if (az.aK(getContext())) {
-                if (this.dvw == null) {
-                    this.dvw = new d();
+    public void onClick(View view) {
+        if (view == this.dEG) {
+            TiebaStatic.log(new am("c12880"));
+            if (ba.aU(getContext())) {
+                if (this.dEJ == null) {
+                    this.dEJ = new d();
                 }
-                this.dvw.a(getContext(), this.dvd);
+                this.dEJ.a(getContext(), this.dEq);
             }
-        } else if (view2 == this.dvs) {
-            if (this.mTbPageContext != null && this.dvd != null) {
-                this.mTbPageContext.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.mTbPageContext.getContext(), "", this.dvd.url, true)));
+        } else if (view == this.dEF) {
+            if (this.mTbPageContext != null && this.dEq != null) {
+                this.mTbPageContext.sendMessage(new CustomMessage(2002001, new ShareWebActivityConfig(this.mTbPageContext.getContext(), "", this.dEq.url, true)));
             }
-            TiebaStatic.log(new al("c12879"));
+            TiebaStatic.log(new am("c12879"));
         }
     }
 

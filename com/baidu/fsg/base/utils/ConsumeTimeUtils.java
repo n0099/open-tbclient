@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.utils;
 
 import android.os.SystemClock;
+import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes2.dex */
 public class ConsumeTimeUtils {
     TimeResult a;
@@ -61,7 +62,7 @@ public class ConsumeTimeUtils {
         public String buildLog() {
             StringBuilder sb = new StringBuilder();
             if (ConsumeTimeUtils.this.c != null) {
-                sb.append(ConsumeTimeUtils.this.c + ":");
+                sb.append(ConsumeTimeUtils.this.c + SystemInfoUtil.COLON);
             }
             sb.append(" task last " + getDurationMesc() + " millisecond about " + getDurationSecond() + " second");
             return sb.toString();

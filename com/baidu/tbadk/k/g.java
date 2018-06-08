@@ -1,16 +1,12 @@
 package com.baidu.tbadk.k;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class g extends l {
-    public int pageType;
+public class g {
+    protected BdUniqueId mId = BdUniqueId.gen();
+    protected int mSubType = 0;
 
-    public g(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        super(i, z, responsedMessage, j, j2, j3, z2, j4);
-        this.pageType = 0;
-    }
-
-    public g() {
-        this.pageType = 0;
+    public void fk(int i) {
+        this.mSubType = i;
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.fsg.base.utils.support;
 
-import android.support.v4.media.TransportMediator;
 import android.support.v4.view.MotionEventCompat;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -996,7 +995,7 @@ public class Base64 {
                             if (read < 0) {
                                 break;
                             }
-                        } while (this.f[read & TransportMediator.KEYCODE_MEDIA_PAUSE] <= -5);
+                        } while (this.f[read & 127] <= -5);
                         if (read < 0) {
                             break;
                         }
@@ -1101,7 +1100,7 @@ public class Base64 {
                     }
                     this.g = 0;
                 }
-            } else if (this.f[i & TransportMediator.KEYCODE_MEDIA_PAUSE] > -5) {
+            } else if (this.f[i & 127] > -5) {
                 byte[] bArr2 = this.h;
                 int i3 = this.g;
                 this.g = i3 + 1;
@@ -1110,7 +1109,7 @@ public class Base64 {
                     this.out.write(this.d, 0, Base64.b(this.h, 0, this.d, 0, this.e));
                     this.g = 0;
                 }
-            } else if (this.f[i & TransportMediator.KEYCODE_MEDIA_PAUSE] != -5) {
+            } else if (this.f[i & 127] != -5) {
                 throw new IOException("Invalid character in Base64 data.");
             }
         }

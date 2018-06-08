@@ -37,7 +37,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.bJ().j(getActivity());
+        a.ex().i(getActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -61,15 +61,15 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         return true;
     }
 
@@ -85,7 +85,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view2) {
+    public boolean onLongClick(View view) {
         return false;
     }
 
@@ -146,8 +146,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.fp().d(this.mId);
-        a.bJ().k(getActivity());
+        c.ig().d(this.mId);
+        a.ex().j(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -155,7 +155,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.fp().e(this.mId);
+        c.ig().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -204,13 +204,13 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         this.mHandler.postDelayed(this.preLoadRunnable, 100L);
     }
 
-    private void refreshImage(View view2) {
-        if (view2 != null) {
-            if (view2 instanceof com.baidu.adp.newwidget.ImageView.h) {
-                ((com.baidu.adp.newwidget.ImageView.h) view2).refresh();
+    private void refreshImage(View view) {
+        if (view != null) {
+            if (view instanceof com.baidu.adp.newwidget.ImageView.h) {
+                ((com.baidu.adp.newwidget.ImageView.h) view).refresh();
             }
-            if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
+            if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     refreshImage(viewGroup.getChildAt(i));

@@ -7,14 +7,14 @@ public class Voice implements Parcelable {
     public static final Parcelable.Creator<Voice> CREATOR = new Parcelable.Creator<Voice>() { // from class: com.baidu.tbadk.core.voice.service.Voice.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: dM */
+        /* renamed from: dO */
         public Voice[] newArray(int i) {
             return new Voice[i];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: i */
+        /* renamed from: j */
         public Voice createFromParcel(Parcel parcel) {
             Voice voice = new Voice();
             voice.setDuration((int) parcel.readLong());

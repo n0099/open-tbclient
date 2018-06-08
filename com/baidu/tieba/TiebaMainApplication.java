@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.k.q;
+import com.baidu.tbadk.k.n;
 /* loaded from: classes.dex */
 public class TiebaMainApplication extends TbadkApplication {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -10,7 +10,7 @@ public class TiebaMainApplication extends TbadkApplication {
     public void attachBaseContext(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
         super.attachBaseContext(context);
-        q.Hd().W(currentTimeMillis);
+        n.Kx().aa(currentTimeMillis);
     }
 
     @Override // com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -20,6 +20,6 @@ public class TiebaMainApplication extends TbadkApplication {
         if (getSplash() != null) {
             getSplash().hide();
         }
-        q.Hd().X(System.currentTimeMillis());
+        n.Kx().ab(System.currentTimeMillis());
     }
 }

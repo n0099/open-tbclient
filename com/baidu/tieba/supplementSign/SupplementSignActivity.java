@@ -15,12 +15,12 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     private int forumId;
-    private final String guf = "signSuccess";
+    private final String gFD = "signSuccess";
     private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int gug = 0;
-    private int guh = 0;
-    private int gui = 0;
-    private CustomMessageListener guj = new CustomMessageListener(2001194) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
+    private int gFE = 0;
+    private int gFF = 0;
+    private int gFG = 0;
+    private CustomMessageListener gFH = new CustomMessageListener(2001194) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,9 +44,9 @@ public class SupplementSignActivity extends TbWebViewActivity {
                     if (!StringUtils.isNull(str3)) {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
-                            SupplementSignActivity.this.gug = jSONObject.optInt("all");
-                            SupplementSignActivity.this.guh += jSONObject.optInt("signed", 0);
-                            SupplementSignActivity.this.gui = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.gui;
+                            SupplementSignActivity.this.gFE = jSONObject.optInt("all");
+                            SupplementSignActivity.this.gFF += jSONObject.optInt("signed", 0);
+                            SupplementSignActivity.this.gFG = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.gFG;
                         } catch (Throwable th) {
                             BdLog.e(th);
                         }
@@ -57,34 +57,34 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 return false;
             }
         });
-        this.mView.ah(false);
-        MessageManager.getInstance().registerListener(this.guj);
+        this.mView.ak(false);
+        MessageManager.getInstance().registerListener(this.gFH);
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mView.pn();
+        this.mView.sI();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
         intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.gug);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.guh);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.gui);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.gFE);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.gFF);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.gFG);
         super.finish(-1, intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.mWebView != null) {
             this.mWebView.destroy();
             this.mWebView = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.guj);
+        MessageManager.getInstance().unRegisterListener(this.gFH);
     }
 }

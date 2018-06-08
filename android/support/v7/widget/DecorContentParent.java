@@ -7,7 +7,7 @@ import android.support.v7.view.menu.MenuPresenter;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.Window;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public interface DecorContentParent {
     boolean canShowOverflowMenu();

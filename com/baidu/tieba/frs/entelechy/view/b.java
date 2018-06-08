@@ -15,60 +15,60 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends a {
-    private bd alf;
-    private com.baidu.tbadk.core.view.userLike.c cpg;
-    public TextView dfP;
-    public EntelechyUserLikeButton dfQ;
-    private CommonUserLikeButton.a dfR;
-    private View.OnClickListener dfS;
+    private bd atn;
+    private com.baidu.tbadk.core.view.userLike.c cxK;
+    public TextView dpe;
+    public EntelechyUserLikeButton dpf;
+    private CommonUserLikeButton.a dpg;
+    private View.OnClickListener dph;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         this.mSkinType = 3;
-        this.dfR = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
+        this.dpg = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
             @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
-            public void dD(int i) {
-                b.this.ky(i);
+            public void dF(int i) {
+                b.this.kD(i);
             }
         };
-        this.dfS = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
+        this.dph = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (b.this.alf != null && b.this.alf.rP() != null && !StringUtils.isNull(b.this.alf.rP().getName_show()) && !StringUtils.isNull(b.this.alf.rP().getUserId()) && b.this.alf.rU() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.alf.rP().getUserId(), b.this.alf.rP().getName_show(), b.this.alf.rU(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            public void onClick(View view) {
+                if (b.this.atn != null && b.this.atn.vm() != null && !StringUtils.isNull(b.this.atn.vm().getName_show()) && !StringUtils.isNull(b.this.atn.vm().getUserId()) && b.this.atn.vr() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.atn.vm().getUserId(), b.this.atn.vm().getName_show(), b.this.atn.vr(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.dfP = new TextView(tbPageContext.getPageActivity());
-        this.dfP.setIncludeFontPadding(false);
-        this.dfP.setTextSize(0, l.e(tbPageContext.getPageActivity(), d.e.ds24));
+        this.dpe = new TextView(tbPageContext.getPageActivity());
+        this.dpe.setIncludeFontPadding(false);
+        this.dpe.setTextSize(0, l.e(tbPageContext.getPageActivity(), d.e.ds24));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = l.e(tbPageContext.getPageActivity(), d.e.ds6);
-        this.dfP.setLayoutParams(layoutParams);
-        this.dfP.setOnClickListener(this.dfS);
-        this.byb.addView(this.dfP, 1);
-        this.dfQ = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
-        this.dfQ.setFanNumCallBack(this.dfR);
+        this.dpe.setLayoutParams(layoutParams);
+        this.dpe.setOnClickListener(this.dph);
+        this.bGe.addView(this.dpe, 1);
+        this.dpf = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
+        this.dpf.setFanNumCallBack(this.dpg);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, l.e(this.mPageContext.getPageActivity(), d.e.ds56));
         layoutParams2.addRule(11);
         layoutParams2.addRule(3, d.g.header_divider);
         layoutParams2.rightMargin = l.e(this.mPageContext.getPageActivity(), d.e.ds32);
         layoutParams2.topMargin = l.e(this.mPageContext.getPageActivity(), d.e.ds24);
-        this.dfQ.setLayoutParams(layoutParams2);
-        ((ViewGroup) getView()).addView(this.dfQ);
-        this.cpg = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.dfQ);
-        this.cpg.setFromType("1");
-        this.cpg.h(bdUniqueId);
+        this.dpf.setLayoutParams(layoutParams2);
+        ((ViewGroup) getView()).addView(this.dpf);
+        this.cxK = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.dpf);
+        this.cxK.setFromType("1");
+        this.cxK.h(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,29 +77,29 @@ public class b extends a {
     public void a(bd bdVar) {
         super.a(bdVar);
         if (bdVar != null) {
-            this.alf = bdVar;
-            if (bdVar.rP() != null) {
-                this.cpg.a(bdVar.rP());
-                ky(bdVar.rP().getFansNum());
-                if (!this.alf.rS()) {
-                    this.dfQ.setVisibility(8);
-                } else if (this.alf.rP().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.alf.rP().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                    this.dfQ.setVisibility(8);
+            this.atn = bdVar;
+            if (bdVar.vm() != null) {
+                this.cxK.a(bdVar.vm());
+                kD(bdVar.vm().getFansNum());
+                if (!this.atn.vp()) {
+                    this.dpf.setVisibility(8);
+                } else if (this.atn.vm().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.atn.vm().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    this.dpf.setVisibility(8);
                     return;
-                } else if (this.alf.rP().getGodUserData() != null && this.alf.rP().getGodUserData().getIsLike()) {
-                    if (this.alf.rP().getGodUserData().getIsFromNetWork()) {
-                        this.dfQ.setVisibility(8);
+                } else if (this.atn.vm().getGodUserData() != null && this.atn.vm().getGodUserData().getIsLike()) {
+                    if (this.atn.vm().getGodUserData().getIsFromNetWork()) {
+                        this.dpf.setVisibility(8);
                     } else {
-                        this.dfQ.setVisibility(0);
-                        this.dfQ.d(true, 1);
+                        this.dpf.setVisibility(0);
+                        this.dpf.d(true, 1);
                     }
                 } else {
-                    this.dfQ.setVisibility(0);
+                    this.dpf.setVisibility(0);
                 }
             }
-            int i = ((RelativeLayout.LayoutParams) this.byc.getLayoutParams()).height;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dfQ.getLayoutParams();
-            if (bdVar.sj() != null) {
+            int i = ((RelativeLayout.LayoutParams) this.bGf.getLayoutParams()).height;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dpf.getLayoutParams();
+            if (bdVar.vG() != null) {
                 layoutParams.topMargin = i + l.e(this.mPageContext.getPageActivity(), d.e.ds4);
             } else {
                 layoutParams.topMargin = l.e(this.mPageContext.getPageActivity(), d.e.ds24);
@@ -111,8 +111,8 @@ public class b extends a {
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
         if (this.mSkinType != i) {
-            ak.h(this.dfP, d.C0126d.cp_cont_d);
-            this.dfQ.onChangeSkinType(i);
+            al.h(this.dpe, d.C0141d.cp_cont_d);
+            this.dpf.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
@@ -123,20 +123,20 @@ public class b extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ky(int i) {
-        if (this.dfP != null) {
+    public void kD(int i) {
+        if (this.dpe != null) {
             String string = this.mPageContext.getResources().getString(d.k.fans_default_name_god_user);
-            if (this.alf != null && !StringUtils.isNull(this.alf.rU()) && this.alf.rU().equals(this.mForumName)) {
-                if (this.alf.rS()) {
-                    String format = String.format(string, an.v(i));
-                    this.dfP.setVisibility(0);
-                    this.dfP.setText(format);
+            if (this.atn != null && !StringUtils.isNull(this.atn.vr()) && this.atn.vr().equals(this.mForumName)) {
+                if (this.atn.vp()) {
+                    String format = String.format(string, ao.y(i));
+                    this.dpe.setVisibility(0);
+                    this.dpe.setText(format);
                     return;
                 }
-                this.dfP.setVisibility(8);
+                this.dpe.setVisibility(8);
                 return;
             }
-            this.dfP.setText(this.mPageContext.getResources().getString(d.k.default_personalized_name));
+            this.dpe.setText(this.mPageContext.getResources().getString(d.k.default_personalized_name));
         }
     }
 }

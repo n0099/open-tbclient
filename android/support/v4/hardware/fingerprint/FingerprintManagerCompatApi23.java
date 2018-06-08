@@ -1,30 +1,47 @@
 package android.support.v4.hardware.fingerprint;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.CancellationSignal;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import java.security.Signature;
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RequiresApi(23)
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public final class FingerprintManagerCompatApi23 {
-    private static FingerprintManager getFingerprintManager(Context context) {
-        return (FingerprintManager) context.getSystemService(FingerprintManager.class);
+    private static FingerprintManager getFingerprintManagerOrNull(Context context) {
+        if (context.getPackageManager().hasSystemFeature("android.hardware.fingerprint")) {
+            return (FingerprintManager) context.getSystemService(FingerprintManager.class);
+        }
+        return null;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @SuppressLint({"MissingPermission"})
     public static boolean hasEnrolledFingerprints(Context context) {
-        return getFingerprintManager(context).hasEnrolledFingerprints();
+        FingerprintManager fingerprintManagerOrNull = getFingerprintManagerOrNull(context);
+        return fingerprintManagerOrNull != null && fingerprintManagerOrNull.hasEnrolledFingerprints();
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @SuppressLint({"MissingPermission"})
     public static boolean isHardwareDetected(Context context) {
-        return getFingerprintManager(context).isHardwareDetected();
+        FingerprintManager fingerprintManagerOrNull = getFingerprintManagerOrNull(context);
+        return fingerprintManagerOrNull != null && fingerprintManagerOrNull.isHardwareDetected();
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @SuppressLint({"MissingPermission"})
     public static void authenticate(Context context, CryptoObject cryptoObject, int i, Object obj, AuthenticationCallback authenticationCallback, Handler handler) {
-        getFingerprintManager(context).authenticate(wrapCryptoObject(cryptoObject), (CancellationSignal) obj, i, wrapCallback(authenticationCallback), handler);
+        FingerprintManager fingerprintManagerOrNull = getFingerprintManagerOrNull(context);
+        if (fingerprintManagerOrNull != null) {
+            fingerprintManagerOrNull.authenticate(wrapCryptoObject(cryptoObject), (CancellationSignal) obj, i, wrapCallback(authenticationCallback), handler);
+        }
     }
 
     private static FingerprintManager.CryptoObject wrapCryptoObject(CryptoObject cryptoObject) {

@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.HeadSdk;
 /* loaded from: classes.dex */
 public class x {
-    private String XR;
-    private String XS;
-    private String XT;
-    private String XU;
-    private int XV;
+    private String afS;
+    private String afT;
+    private String afU;
+    private String afV;
+    private int afW;
 
     public void a(HeadSdk headSdk) {
         if (headSdk != null) {
-            this.XR = headSdk.head_pic;
-            this.XS = headSdk.head_text;
-            this.XT = headSdk.sdk_name;
-            this.XU = headSdk.sdk_params;
-            this.XV = headSdk.head_type.intValue();
+            this.afS = headSdk.head_pic;
+            this.afT = headSdk.head_text;
+            this.afU = headSdk.sdk_name;
+            this.afV = headSdk.sdk_params;
+            this.afW = headSdk.head_type.intValue();
         }
     }
 }

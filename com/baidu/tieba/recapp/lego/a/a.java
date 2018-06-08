@@ -3,23 +3,23 @@ package com.baidu.tieba.recapp.lego.a;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Build;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 /* loaded from: classes3.dex */
 public class a {
-    public static boolean D(Activity activity) {
+    public static boolean E(Activity activity) {
         Resources resources;
         int identifier;
-        if (!aKR() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", Constants.OS_TYPE_VALUE)) <= 0) {
+        if (!aPO() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE)) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean aKR() {
-        return aKS() >= 14;
+    public static boolean aPO() {
+        return aPP() >= 14;
     }
 
-    public static int aKS() {
+    public static int aPP() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

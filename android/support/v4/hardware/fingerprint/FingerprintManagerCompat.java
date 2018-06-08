@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.hardware.fingerprint.FingerprintManagerCompatApi23;
 import android.support.v4.os.CancellationSignal;
 import java.security.Signature;
@@ -134,6 +135,7 @@ public final class FingerprintManagerCompat {
         }
     }
 
+    @RequiresApi(23)
     /* loaded from: classes2.dex */
     private static class Api23FingerprintManagerCompatImpl implements FingerprintManagerCompatImpl {
         @Override // android.support.v4.hardware.fingerprint.FingerprintManagerCompat.FingerprintManagerCompatImpl

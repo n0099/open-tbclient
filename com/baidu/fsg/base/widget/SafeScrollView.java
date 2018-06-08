@@ -88,22 +88,22 @@ public class SafeScrollView extends ScrollView {
         this.h = onkeyboardstatuschangelistener;
     }
 
-    private void a(View view2) {
-        if (view2 instanceof ViewGroup) {
+    private void a(View view) {
+        if (view instanceof ViewGroup) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < ((ViewGroup) view2).getChildCount()) {
-                    a(((ViewGroup) view2).getChildAt(i2));
+                if (i2 < ((ViewGroup) view).getChildCount()) {
+                    a(((ViewGroup) view).getChildAt(i2));
                     i = i2 + 1;
                 } else {
                     return;
                 }
             }
-        } else if ((view2 instanceof EditText) && view2.hasWindowFocus() && view2.getVisibility() == 0 && view2.isShown() && view2.isEnabled()) {
+        } else if ((view instanceof EditText) && view.hasWindowFocus() && view.getVisibility() == 0 && view.isShown() && view.isEnabled()) {
             this.d++;
-            if (this.d == 1 && (view2 instanceof SafeKeyBoardEditText)) {
-                this.f = (SafeKeyBoardEditText) view2;
+            if (this.d == 1 && (view instanceof SafeKeyBoardEditText)) {
+                this.f = (SafeKeyBoardEditText) view;
             }
         }
     }
@@ -123,12 +123,12 @@ public class SafeScrollView extends ScrollView {
         this.g.hideSoftKeyBoard();
     }
 
-    public void showKeyBoard(ViewGroup viewGroup, SafeKeyBoardEditText safeKeyBoardEditText, View view2) {
-        if (safeKeyBoardEditText.getUseSafeKeyBoard() && view2 != null) {
+    public void showKeyBoard(ViewGroup viewGroup, SafeKeyBoardEditText safeKeyBoardEditText, View view) {
+        if (safeKeyBoardEditText.getUseSafeKeyBoard() && view != null) {
             if (this.g.mPopupWindow == null || !this.g.mPopupWindow.isShowing()) {
                 this.g.init(this.e, viewGroup, this);
             }
-            this.g.showSoftKeyBoard(safeKeyBoardEditText, view2);
+            this.g.showSoftKeyBoard(safeKeyBoardEditText, view);
             return;
         }
         RimGlobalUtils.showInputMethod(this.e, safeKeyBoardEditText);

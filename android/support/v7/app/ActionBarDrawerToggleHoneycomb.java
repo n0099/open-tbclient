@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import java.lang.reflect.Method;
+@RequiresApi(11)
 /* loaded from: classes2.dex */
 class ActionBarDrawerToggleHoneycomb {
     private static final String TAG = "ActionBarDrawerToggleHoneycomb";

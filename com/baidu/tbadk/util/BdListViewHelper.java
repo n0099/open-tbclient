@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int aNn = com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds320);
+    public static final int aVl = com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds320);
 
     /* loaded from: classes.dex */
     public enum HeadType {
@@ -43,10 +43,10 @@ public class BdListViewHelper {
         return textView;
     }
 
-    public static void a(View view2, HeadType headType, boolean z) {
-        if (view2 != null && headType != null) {
+    public static void a(View view, HeadType headType, boolean z) {
+        if (view != null && headType != null) {
             Context context = TbadkCoreApplication.getInst().getContext();
-            AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view2.getLayoutParams();
+            AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
             if (z) {
                 layoutParams.height = a(headType);
             } else if (HeadType.DEFAULT == headType) {
@@ -54,7 +54,7 @@ public class BdListViewHelper {
             } else {
                 layoutParams.height = com.baidu.adp.lib.util.l.e(context, d.e.ds240) + UtilHelper.getLightStatusBarHeight();
             }
-            view2.setLayoutParams(layoutParams);
+            view.setLayoutParams(layoutParams);
         }
     }
 

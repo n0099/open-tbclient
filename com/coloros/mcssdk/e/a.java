@@ -5,21 +5,21 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long hng;
-    long hnh;
-    int hni;
-    String hnk;
+    long hzc;
+    long hzd;
+    int hze;
+    String hzg;
     String title;
-    String hnj = "08:00-22:00";
-    int hnl = 0;
-    int hnm = 0;
+    String hzf = "08:00-22:00";
+    int hzh = 0;
+    int hzi = 0;
 
-    public void dc(long j) {
-        this.hng = j;
+    public void dj(long j) {
+        this.hzc = j;
     }
 
-    public void dd(long j) {
-        this.hnh = j;
+    public void dk(long j) {
+        this.hzd = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -37,42 +37,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hns);
-        sb.append(",taskID:" + this.hnt);
+        sb.append("messageID:" + this.hzo);
+        sb.append(",taskID:" + this.hzp);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hnk);
+        sb.append(",rule:" + this.hzg);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hni);
-        sb.append(",startTime:" + this.hng);
-        sb.append(",endTime:" + this.hnh);
-        sb.append(",balanceTime:" + this.hni);
-        sb.append(",timeRanges:" + this.hnj);
-        sb.append(",forcedDelivery:" + this.hnl);
-        sb.append(",distinctBycontent:" + this.hnm);
+        sb.append(",balanceTime:" + this.hze);
+        sb.append(",startTime:" + this.hzc);
+        sb.append(",endTime:" + this.hzd);
+        sb.append(",balanceTime:" + this.hze);
+        sb.append(",timeRanges:" + this.hzf);
+        sb.append(",forcedDelivery:" + this.hzh);
+        sb.append(",distinctBycontent:" + this.hzi);
         return sb.toString();
     }
 
-    public void vA(String str) {
+    public void vJ(int i) {
+        this.hze = i;
+    }
+
+    public void vK(int i) {
+        this.hzh = i;
+    }
+
+    public void vL(int i) {
+        this.hzi = i;
+    }
+
+    public void wu(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hnj = str;
+        this.hzf = str;
     }
 
-    public void vB(String str) {
-        this.hnk = str;
-    }
-
-    public void vr(int i) {
-        this.hni = i;
-    }
-
-    public void vs(int i) {
-        this.hnl = i;
-    }
-
-    public void vt(int i) {
-        this.hnm = i;
+    public void wv(String str) {
+        this.hzg = str;
     }
 }

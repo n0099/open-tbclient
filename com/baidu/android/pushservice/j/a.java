@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.ar.util.IoUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -49,7 +50,7 @@ public class a {
                 try {
                     byte[] bArr = new byte[fileInputStream.available()];
                     fileInputStream.read(bArr);
-                    jSONObject = new JSONObject(BaiduAppSSOJni.getDecrypted(context, "", new String(bArr, "utf-8")));
+                    jSONObject = new JSONObject(BaiduAppSSOJni.getDecrypted(context, "", new String(bArr, IoUtils.UTF_8)));
                 } catch (Exception e) {
                     fileInputStream2 = fileInputStream;
                     if (fileInputStream2 != null) {

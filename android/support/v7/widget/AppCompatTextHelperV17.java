@@ -3,11 +3,14 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.RequiresApi;
 import android.support.v7.appcompat.R;
 import android.util.AttributeSet;
 import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(17)
 /* loaded from: classes2.dex */
-class AppCompatTextHelperV17 extends AppCompatTextHelper {
+public class AppCompatTextHelperV17 extends AppCompatTextHelper {
     private TintInfo mDrawableEndTint;
     private TintInfo mDrawableStartTint;
 
@@ -16,8 +19,9 @@ class AppCompatTextHelperV17 extends AppCompatTextHelper {
         super(textView);
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.v7.widget.AppCompatTextHelper
-    void loadFromAttributes(AttributeSet attributeSet, int i) {
+    public void loadFromAttributes(AttributeSet attributeSet, int i) {
         super.loadFromAttributes(attributeSet, i);
         Context context = this.mView.getContext();
         AppCompatDrawableManager appCompatDrawableManager = AppCompatDrawableManager.get();
@@ -31,8 +35,9 @@ class AppCompatTextHelperV17 extends AppCompatTextHelper {
         obtainStyledAttributes.recycle();
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // android.support.v7.widget.AppCompatTextHelper
-    void applyCompoundDrawablesTints() {
+    public void applyCompoundDrawablesTints() {
         super.applyCompoundDrawablesTints();
         if (this.mDrawableStartTint != null || this.mDrawableEndTint != null) {
             Drawable[] compoundDrawablesRelative = this.mView.getCompoundDrawablesRelative();

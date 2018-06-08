@@ -19,11 +19,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class AdBaseWebView extends WebView {
-    private b bcW;
-    private b bcX;
-    private d bcY;
-    private c bcZ;
-    private e bda;
+    private b blg;
+    private b blh;
+    private d bli;
+    private c blj;
+    private e blk;
     private com.baidu.tieba.tbadkCore.e.c jsCallback;
     private Context mContext;
     private WebViewClient mWebViewClient;
@@ -50,22 +50,22 @@ public class AdBaseWebView extends WebView {
 
     public AdBaseWebView(Context context) {
         super(context);
-        this.bcW = null;
+        this.blg = null;
         this.mContext = null;
-        this.bcX = null;
-        this.bcY = null;
-        this.bcZ = null;
-        this.bda = null;
+        this.blh = null;
+        this.bli = null;
+        this.blj = null;
+        this.blk = null;
         this.mContext = context;
         init();
     }
 
     public void setDownloadEnabled(boolean z) {
         if (z) {
-            if (this.bcX == null) {
+            if (this.blh == null) {
                 initDownload();
             }
-            setOnLoadUrlListener(this.bcX);
+            setOnLoadUrlListener(this.blh);
             return;
         }
         setOnLoadUrlListener(null);
@@ -73,12 +73,12 @@ public class AdBaseWebView extends WebView {
 
     public AdBaseWebView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bcW = null;
+        this.blg = null;
         this.mContext = null;
-        this.bcX = null;
-        this.bcY = null;
-        this.bcZ = null;
-        this.bda = null;
+        this.blh = null;
+        this.bli = null;
+        this.blj = null;
+        this.blk = null;
         this.mContext = context;
         init();
     }
@@ -126,7 +126,7 @@ public class AdBaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.o((Activity) AdBaseWebView.this.getContext())) {
+            if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.n((Activity) AdBaseWebView.this.getContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -134,7 +134,7 @@ public class AdBaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.o((Activity) AdBaseWebView.this.getContext())) {
+            if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.n((Activity) AdBaseWebView.this.getContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -142,7 +142,7 @@ public class AdBaseWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.o((Activity) AdBaseWebView.this.getContext())) {
+            if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.n((Activity) AdBaseWebView.this.getContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -151,7 +151,7 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if (AdBaseWebView.this.jsCallback == null || !AdBaseWebView.this.jsCallback.onJsPrompt(str2, jsPromptResult)) {
-                if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.o((Activity) AdBaseWebView.this.getContext())) {
+                if ((AdBaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.g.n((Activity) AdBaseWebView.this.getContext())) {
                     return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
                 }
                 return true;
@@ -168,8 +168,8 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (AdBaseWebView.this.bcY != null) {
-                AdBaseWebView.this.bcY.b(webView, str);
+            if (AdBaseWebView.this.bli != null) {
+                AdBaseWebView.this.bli.b(webView, str);
             }
         }
 
@@ -181,15 +181,15 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (AdBaseWebView.this.bcZ != null) {
-                AdBaseWebView.this.bcZ.onPageFinished(webView, str);
+            if (AdBaseWebView.this.blj != null) {
+                AdBaseWebView.this.blj.onPageFinished(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (AdBaseWebView.this.bcW != null) {
-                return AdBaseWebView.this.bcW.shouldOverrideUrlLoading(webView, str);
+            if (AdBaseWebView.this.blg != null) {
+                return AdBaseWebView.this.blg.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -197,8 +197,8 @@ public class AdBaseWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
-            if (AdBaseWebView.this.bda != null) {
-                AdBaseWebView.this.bda.onReceivedError(webView, i, str, str2);
+            if (AdBaseWebView.this.blk != null) {
+                AdBaseWebView.this.blk.onReceivedError(webView, i, str, str2);
             }
         }
 
@@ -212,28 +212,28 @@ public class AdBaseWebView extends WebView {
     }
 
     public void setOnLoadUrlListener(b bVar) {
-        this.bcW = bVar;
+        this.blg = bVar;
     }
 
     public void setOnPageStartedListener(d dVar) {
-        this.bcY = dVar;
+        this.bli = dVar;
     }
 
     public void setOnPageFinishedListener(c cVar) {
-        this.bcZ = cVar;
+        this.blj = cVar;
     }
 
     public void setOnReceivedErrorListener(e eVar) {
-        this.bda = eVar;
+        this.blk = eVar;
     }
 
     private void initDownload() {
-        this.bcX = new b() { // from class: com.baidu.tieba.ad.browser.AdBaseWebView.1
+        this.blh = new b() { // from class: com.baidu.tieba.ad.browser.AdBaseWebView.1
             @Override // com.baidu.tieba.ad.browser.AdBaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
                     try {
-                        com.baidu.tbadk.browser.a.O(AdBaseWebView.this.mContext, str);
+                        com.baidu.tbadk.browser.a.R(AdBaseWebView.this.mContext, str);
                     } catch (Exception e2) {
                         BdLog.e(e2.toString());
                     }
@@ -247,12 +247,12 @@ public class AdBaseWebView extends WebView {
     public void destroy() {
         super.destroy();
         this.mWebViewClient = null;
-        this.bcW = null;
+        this.blg = null;
         this.mContext = null;
-        this.bcX = null;
-        this.bcY = null;
-        this.bcZ = null;
-        this.bda = null;
+        this.blh = null;
+        this.bli = null;
+        this.blj = null;
+        this.blk = null;
         this.jsCallback = null;
     }
 }

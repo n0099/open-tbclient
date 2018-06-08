@@ -18,26 +18,26 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
     @Deprecated
     public static final int FLAG_AUTO_REQUERY = 1;
     public static final int FLAG_REGISTER_CONTENT_OBSERVER = 2;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected boolean mAutoRequery;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected ChangeObserver mChangeObserver;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected Context mContext;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected Cursor mCursor;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected CursorFilter mCursorFilter;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected DataSetObserver mDataSetObserver;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected boolean mDataValid;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected FilterQueryProvider mFilterQueryProvider;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected int mRowIDColumn;
 
-    public abstract void bindView(View view2, Context context, Cursor cursor);
+    public abstract void bindView(View view, Context context, Cursor cursor);
 
     public abstract View newView(Context context, Cursor cursor, ViewGroup viewGroup);
 
@@ -124,29 +124,29 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         if (!this.mDataValid) {
             throw new IllegalStateException("this should only be called when the cursor is valid");
         }
         if (!this.mCursor.moveToPosition(i)) {
             throw new IllegalStateException("couldn't move cursor to position " + i);
         }
-        if (view2 == null) {
-            view2 = newView(this.mContext, this.mCursor, viewGroup);
+        if (view == null) {
+            view = newView(this.mContext, this.mCursor, viewGroup);
         }
-        bindView(view2, this.mContext, this.mCursor);
-        return view2;
+        bindView(view, this.mContext, this.mCursor);
+        return view;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.SpinnerAdapter
-    public View getDropDownView(int i, View view2, ViewGroup viewGroup) {
+    public View getDropDownView(int i, View view, ViewGroup viewGroup) {
         if (this.mDataValid) {
             this.mCursor.moveToPosition(i);
-            if (view2 == null) {
-                view2 = newDropDownView(this.mContext, this.mCursor, viewGroup);
+            if (view == null) {
+                view = newDropDownView(this.mContext, this.mCursor, viewGroup);
             }
-            bindView(view2, this.mContext, this.mCursor);
-            return view2;
+            bindView(view, this.mContext, this.mCursor);
+            return view;
         }
         return null;
     }

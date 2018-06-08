@@ -4,10 +4,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
+@RequiresApi(19)
 /* loaded from: classes2.dex */
 class DocumentsContractApi19 {
+    private static final int FLAG_VIRTUAL_DOCUMENT = 512;
     private static final String TAG = "DocumentFile";
 
     DocumentsContractApi19() {
@@ -15,6 +18,10 @@ class DocumentsContractApi19 {
 
     public static boolean isDocumentUri(Context context, Uri uri) {
         return DocumentsContract.isDocumentUri(context, uri);
+    }
+
+    public static boolean isVirtual(Context context, Uri uri) {
+        return isDocumentUri(context, uri) && (getFlags(context, uri) & 512) != 0;
     }
 
     public static String getName(Context context, Uri uri) {
@@ -31,6 +38,10 @@ class DocumentsContractApi19 {
             return null;
         }
         return rawType;
+    }
+
+    public static long getFlags(Context context, Uri uri) {
+        return queryForLong(context, uri, "flags", 0L);
     }
 
     public static boolean isDirectory(Context context, Uri uri) {
@@ -73,7 +84,11 @@ class DocumentsContractApi19 {
     }
 
     public static boolean delete(Context context, Uri uri) {
-        return DocumentsContract.deleteDocument(context.getContentResolver(), uri);
+        try {
+            return DocumentsContract.deleteDocument(context.getContentResolver(), uri);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public static boolean exists(Context context, Uri uri) {

@@ -10,62 +10,62 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: axW */
-    public T afY() {
-        return (T) this.cuf;
+    /* renamed from: aCR */
+    public T ajG() {
+        return (T) this.cCJ;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.cuf == 0) {
+        if (this.cCJ == 0) {
             return false;
         }
-        return ((n) this.cuf).isPlayStarted();
+        return ((n) this.cCJ).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.cuf == 0) {
+        if (this.cCJ == 0) {
             return false;
         }
-        return ((n) this.cuf).isPlaying();
+        return ((n) this.cCJ).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.cuf != 0) {
-            ((n) this.cuf).startPlay();
+        if (this.cCJ != 0) {
+            ((n) this.cCJ).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.cuf != 0) {
-            ((n) this.cuf).stopPlay();
+        if (this.cCJ != 0) {
+            ((n) this.cCJ).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.cuf == 0) {
+        if (this.cCJ == 0) {
             return null;
         }
-        return ((n) this.cuf).getVideoContainer();
+        return ((n) this.cCJ).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.cuf == 0) {
+        if (this.cCJ == 0) {
             return null;
         }
-        return ((n) this.cuf).getPlayUrl();
+        return ((n) this.cCJ).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.cuf == 0) {
+        if (this.cCJ == 0) {
             return 0;
         }
-        return ((n) this.cuf).getCurrentPosition();
+        return ((n) this.cCJ).getCurrentPosition();
     }
 }

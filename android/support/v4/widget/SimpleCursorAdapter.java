@@ -10,11 +10,11 @@ import android.widget.TextView;
 /* loaded from: classes2.dex */
 public class SimpleCursorAdapter extends ResourceCursorAdapter {
     private CursorToStringConverter mCursorToStringConverter;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected int[] mFrom;
     String[] mOriginalFrom;
     private int mStringConversionColumn;
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected int[] mTo;
     private ViewBinder mViewBinder;
 
@@ -25,7 +25,7 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
 
     /* loaded from: classes2.dex */
     public interface ViewBinder {
-        boolean setViewValue(View view2, Cursor cursor, int i);
+        boolean setViewValue(View view, Cursor cursor, int i);
     }
 
     @Deprecated
@@ -46,13 +46,13 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     }
 
     @Override // android.support.v4.widget.CursorAdapter
-    public void bindView(View view2, Context context, Cursor cursor) {
+    public void bindView(View view, Context context, Cursor cursor) {
         ViewBinder viewBinder = this.mViewBinder;
         int length = this.mTo.length;
         int[] iArr = this.mFrom;
         int[] iArr2 = this.mTo;
         for (int i = 0; i < length; i++) {
-            View findViewById = view2.findViewById(iArr2[i]);
+            View findViewById = view.findViewById(iArr2[i]);
             if (findViewById != null) {
                 if (viewBinder != null ? viewBinder.setViewValue(findViewById, cursor, iArr[i]) : false) {
                     continue;

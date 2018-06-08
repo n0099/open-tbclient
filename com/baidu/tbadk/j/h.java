@@ -5,17 +5,17 @@ import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class h implements c {
     @Override // com.baidu.tbadk.j.c
-    public void a(View view2, View view3, boolean z) {
-        RelativeLayout relativeLayout = (RelativeLayout) view2;
+    public void a(View view, View view2, boolean z) {
+        RelativeLayout relativeLayout = (RelativeLayout) view;
         if (z) {
-            relativeLayout.addView(view3, 0);
+            relativeLayout.addView(view2, 0);
         } else {
-            relativeLayout.addView(view3);
+            relativeLayout.addView(view2);
         }
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -1;
         layoutParams.addRule(14);
-        view3.setLayoutParams(layoutParams);
+        view2.setLayoutParams(layoutParams);
     }
 }

@@ -1,6 +1,5 @@
 package android.support.v7.widget;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.AttrRes;
@@ -32,7 +31,6 @@ class AppCompatPopupWindow extends PopupWindow {
         init(context, attributeSet, i, 0);
     }
 
-    @TargetApi(11)
     public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         super(context, attributeSet, i, i2);
         init(context, attributeSet, i, i2);
@@ -55,25 +53,24 @@ class AppCompatPopupWindow extends PopupWindow {
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
+    public void showAsDropDown(View view, int i, int i2) {
         if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-            i2 -= view2.getHeight();
+            i2 -= view.getHeight();
         }
-        super.showAsDropDown(view2, i, i2);
+        super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
-    @TargetApi(19)
-    public void showAsDropDown(View view2, int i, int i2, int i3) {
+    public void showAsDropDown(View view, int i, int i2, int i3) {
         if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-            i2 -= view2.getHeight();
+            i2 -= view.getHeight();
         }
-        super.showAsDropDown(view2, i, i2, i3);
+        super.showAsDropDown(view, i, i2, i3);
     }
 
     @Override // android.widget.PopupWindow
-    public void update(View view2, int i, int i2, int i3, int i4) {
-        super.update(view2, i, (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) ? i2 - view2.getHeight() : i2, i3, i4);
+    public void update(View view, int i, int i2, int i3, int i4) {
+        super.update(view, i, (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) ? i2 - view.getHeight() : i2, i3, i4);
     }
 
     private static void wrapOnScrollChangedListener(final PopupWindow popupWindow) {
@@ -100,7 +97,7 @@ class AppCompatPopupWindow extends PopupWindow {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportOverlapAnchor(boolean z) {
         if (COMPAT_OVERLAP_ANCHOR) {
             this.mOverlapAnchor = z;
@@ -109,7 +106,7 @@ class AppCompatPopupWindow extends PopupWindow {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean getSupportOverlapAnchor() {
         return COMPAT_OVERLAP_ANCHOR ? this.mOverlapAnchor : PopupWindowCompat.getOverlapAnchor(this);
     }

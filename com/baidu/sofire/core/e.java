@@ -13,12 +13,13 @@ import android.util.Log;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.biometrics.base.d.h;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.l;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.PathClassLoader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -427,7 +428,7 @@ public final class e {
             packageInfo.versionName = optJSONObject.optString(NotifyType.VIBRATE);
             ApplicationInfo applicationInfo = new ApplicationInfo();
             applicationInfo.className = optJSONObject.optString("n");
-            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(Constants.DOT)) {
+            if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                 applicationInfo.className = packageInfo.packageName + applicationInfo.className;
             }
             applicationInfo.theme = optJSONObject.optInt(Info.kBaiduTimeKey);
@@ -440,7 +441,7 @@ public final class e {
                     if (jSONObject2 != null) {
                         ActivityInfo activityInfo = new ActivityInfo();
                         activityInfo.name = jSONObject2.optString("n");
-                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(Constants.DOT)) {
+                        if (!TextUtils.isEmpty(activityInfo.name) && activityInfo.name.startsWith(".")) {
                             activityInfo.name = packageInfo.packageName + activityInfo.name;
                         }
                         activityInfo.packageName = packageInfo.packageName;
@@ -483,7 +484,7 @@ public final class e {
     private void a(ApkInfo apkInfo, String str, String str2) throws Throwable {
         HashSet hashSet = new HashSet();
         a(apkInfo, str, hashSet, new StringBuilder(), true, false);
-        String str3 = ":" + System.getProperty("java.library.path");
+        String str3 = SystemInfoUtil.COLON + System.getProperty("java.library.path");
         if (Build.VERSION.SDK_INT >= 25) {
             str3 = "";
         }
@@ -498,7 +499,7 @@ public final class e {
             } catch (Throwable th) {
                 com.baidu.sofire.b.d.a(th);
             }
-            str4 = str6 != null ? str5 + ":" + str6 + str3 : str5 + str3;
+            str4 = str6 != null ? str5 + SystemInfoUtil.COLON + str6 + str3 : str5 + str3;
         } else {
             try {
                 if (Build.VERSION.SDK_INT >= 8 && hashSet.contains(Build.CPU_ABI2)) {
@@ -1152,7 +1153,7 @@ public final class e {
                 if (name.endsWith(".dex") && !nextEntry.isDirectory() && z2) {
                     String str6 = apkInfo.dataDir;
                     e(str6);
-                    File file3 = new File(str6, apkInfo.key + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".dex");
+                    File file3 = new File(str6, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".dex");
                     try {
                         new StringBuilder().append(file3.getAbsolutePath());
                         file3.delete();

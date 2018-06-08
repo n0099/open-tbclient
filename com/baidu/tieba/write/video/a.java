@@ -5,35 +5,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> hfC;
+    private List<VideoTitleData> hrx;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0237a {
+    public static class C0254a {
         public View divider;
         public TextView title;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.w(this.hfC)) {
+        if (w.z(this.hrx)) {
             return 0;
         }
-        return this.hfC.size();
+        return this.hrx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: va */
+    /* renamed from: vs */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) v.c(this.hfC, i);
+        return (VideoTitleData) w.c(this.hrx, i);
     }
 
     @Override // android.widget.Adapter
@@ -42,29 +42,29 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        C0237a c0237a;
-        if (view2 == null) {
-            view2 = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.video_activity_title_item, (ViewGroup) null);
-            C0237a c0237a2 = new C0237a();
-            c0237a2.title = (TextView) view2.findViewById(d.g.title);
-            c0237a2.divider = view2.findViewById(d.g.divider_line);
-            ak.h(c0237a2.title, d.C0126d.cp_cont_b);
-            ak.j(c0237a2.divider, d.C0126d.cp_bg_line_c);
-            view2.setTag(c0237a2);
-            c0237a = c0237a2;
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        C0254a c0254a;
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.video_activity_title_item, (ViewGroup) null);
+            C0254a c0254a2 = new C0254a();
+            c0254a2.title = (TextView) view.findViewById(d.g.title);
+            c0254a2.divider = view.findViewById(d.g.divider_line);
+            al.h(c0254a2.title, d.C0141d.cp_cont_b);
+            al.j(c0254a2.divider, d.C0141d.cp_bg_line_c);
+            view.setTag(c0254a2);
+            c0254a = c0254a2;
         } else {
-            c0237a = (C0237a) view2.getTag();
+            c0254a = (C0254a) view.getTag();
         }
-        ak.i(view2, d.f.addresslist_item_bg);
+        al.i(view, d.f.addresslist_item_bg);
         if (getItem(i) != null) {
-            c0237a.title.setText("#" + getItem(i).name + "#");
+            c0254a.title.setText("#" + getItem(i).name + "#");
         }
-        return view2;
+        return view;
     }
 
-    public void dM(List<VideoTitleData> list) {
-        this.hfC = list;
+    public void dS(List<VideoTitleData> list) {
+        this.hrx = list;
         notifyDataSetChanged();
     }
 }

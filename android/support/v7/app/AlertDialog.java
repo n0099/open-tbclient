@@ -46,7 +46,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
     }
 
     static int resolveDialogTheme(@NonNull Context context, @StyleRes int i) {
-        if (i < 16777216) {
+        if (((i >>> 24) & 255) < 1) {
             TypedValue typedValue = new TypedValue();
             context.getTheme().resolveAttribute(R.attr.alertDialogTheme, typedValue, true);
             return typedValue.resourceId;
@@ -68,22 +68,23 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         this.mAlert.setTitle(charSequence);
     }
 
-    public void setCustomTitle(View view2) {
-        this.mAlert.setCustomTitle(view2);
+    public void setCustomTitle(View view) {
+        this.mAlert.setCustomTitle(view);
     }
 
     public void setMessage(CharSequence charSequence) {
         this.mAlert.setMessage(charSequence);
     }
 
-    public void setView(View view2) {
-        this.mAlert.setView(view2);
+    public void setView(View view) {
+        this.mAlert.setView(view);
     }
 
-    public void setView(View view2, int i, int i2, int i3, int i4) {
-        this.mAlert.setView(view2, i, i2, i3, i4);
+    public void setView(View view, int i, int i2, int i3, int i4) {
+        this.mAlert.setView(view, i, i2, i3, i4);
     }
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     void setButtonPanelLayoutHint(int i) {
         this.mAlert.setButtonPanelLayoutHint(i);
     }
@@ -157,13 +158,13 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
-        public Builder setTitle(CharSequence charSequence) {
+        public Builder setTitle(@Nullable CharSequence charSequence) {
             this.P.mTitle = charSequence;
             return this;
         }
 
-        public Builder setCustomTitle(View view2) {
-            this.P.mCustomTitleView = view2;
+        public Builder setCustomTitle(@Nullable View view) {
+            this.P.mCustomTitleView = view;
             return this;
         }
 
@@ -172,7 +173,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
-        public Builder setMessage(CharSequence charSequence) {
+        public Builder setMessage(@Nullable CharSequence charSequence) {
             this.P.mMessage = charSequence;
             return this;
         }
@@ -182,7 +183,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
-        public Builder setIcon(Drawable drawable) {
+        public Builder setIcon(@Nullable Drawable drawable) {
             this.P.mIcon = drawable;
             return this;
         }
@@ -345,17 +346,17 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
-        public Builder setView(View view2) {
-            this.P.mView = view2;
+        public Builder setView(View view) {
+            this.P.mView = view;
             this.P.mViewLayoutResId = 0;
             this.P.mViewSpacingSpecified = false;
             return this;
         }
 
-        @RestrictTo({RestrictTo.Scope.GROUP_ID})
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         @Deprecated
-        public Builder setView(View view2, int i, int i2, int i3, int i4) {
-            this.P.mView = view2;
+        public Builder setView(View view, int i, int i2, int i3, int i4) {
+            this.P.mView = view;
             this.P.mViewLayoutResId = 0;
             this.P.mViewSpacingSpecified = true;
             this.P.mViewSpacingLeft = i;
@@ -371,7 +372,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return this;
         }
 
-        @RestrictTo({RestrictTo.Scope.GROUP_ID})
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
         public Builder setRecycleOnMeasureEnabled(boolean z) {
             this.P.mRecycleOnMeasure = z;
             return this;

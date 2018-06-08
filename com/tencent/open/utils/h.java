@@ -257,7 +257,7 @@ public class h {
 
     public static int a(String str) {
         if ("shareToQQ".equals(str)) {
-            return Constants.REQUEST_QQ_SHARE;
+            return 10103;
         }
         if ("shareToQzone".equals(str)) {
             return Constants.REQUEST_QZONE_SHARE;

@@ -2,28 +2,28 @@ package com.baidu.tieba.personPolymeric.c;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fLx = BdUniqueId.gen();
-    public List<com.baidu.adp.widget.ListView.h> fLA;
-    public boolean fLy;
-    public String fLz;
+    public static final BdUniqueId fWJ = BdUniqueId.gen();
+    public String Bf;
+    public boolean fWK;
+    public String fWL;
+    public List<com.baidu.adp.widget.ListView.h> fWM;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
-    public String va;
 
     public void parserProtoBuf(User user) {
-        if (user != null && !v.w(user.gift_list)) {
+        if (user != null && !w.z(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
-            this.va = user.name;
-            this.fLz = user.name_show;
+            this.Bf = user.name;
+            this.fWL = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.fLy = false;
+                this.fWK = false;
             } else {
-                this.fLy = true;
+                this.fWK = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.fLA = new ArrayList();
+            this.fWM = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.fLA.add(oVar);
+                    this.fWM.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.w(this.fLA);
+        return !w.z(this.fWM);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fLx;
+        return fWJ;
     }
 }

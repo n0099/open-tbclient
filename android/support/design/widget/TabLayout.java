@@ -1,6 +1,8 @@
 package android.support.design.widget;
 
-import android.annotation.TargetApi;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -8,7 +10,6 @@ import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
@@ -19,16 +20,17 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.StringRes;
 import android.support.design.R;
-import android.support.design.widget.ValueAnimatorCompat;
 import android.support.v4.util.Pools;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.PointerIconCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.ActivityChooserView;
+import android.support.v7.widget.TooltipCompat;
 import android.text.Layout;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -43,7 +45,6 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -74,7 +75,7 @@ public class TabLayout extends HorizontalScrollView {
     private DataSetObserver mPagerAdapterObserver;
     private final int mRequestedTabMaxWidth;
     private final int mRequestedTabMinWidth;
-    private ValueAnimatorCompat mScrollAnimator;
+    private ValueAnimator mScrollAnimator;
     private final int mScrollableTabMinWidth;
     private OnTabSelectedListener mSelectedListener;
     private final ArrayList<OnTabSelectedListener> mSelectedListeners;
@@ -97,7 +98,7 @@ public class TabLayout extends HorizontalScrollView {
     ViewPager mViewPager;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface Mode {
     }
@@ -112,7 +113,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface TabGravity {
     }
@@ -520,28 +521,28 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public void addView(View view2) {
-        addViewInternal(view2);
+    public void addView(View view) {
+        addViewInternal(view);
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public void addView(View view2, int i) {
-        addViewInternal(view2);
+    public void addView(View view, int i) {
+        addViewInternal(view);
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup, android.view.ViewManager
-    public void addView(View view2, ViewGroup.LayoutParams layoutParams) {
-        addViewInternal(view2);
+    public void addView(View view, ViewGroup.LayoutParams layoutParams) {
+        addViewInternal(view);
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
-        addViewInternal(view2);
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+        addViewInternal(view);
     }
 
-    private void addViewInternal(View view2) {
-        if (view2 instanceof TabItem) {
-            addTabFromItemView((TabItem) view2);
+    private void addViewInternal(View view) {
+        if (view instanceof TabItem) {
+            addTabFromItemView((TabItem) view);
             return;
         }
         throw new IllegalArgumentException("Only TabItem instances can be added to TabLayout");
@@ -627,22 +628,31 @@ public class TabLayout extends HorizontalScrollView {
             int scrollX = getScrollX();
             int calculateScrollXForTab = calculateScrollXForTab(i, 0.0f);
             if (scrollX != calculateScrollXForTab) {
-                if (this.mScrollAnimator == null) {
-                    this.mScrollAnimator = ViewUtils.createAnimator();
-                    this.mScrollAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
-                    this.mScrollAnimator.setDuration(300L);
-                    this.mScrollAnimator.addUpdateListener(new ValueAnimatorCompat.AnimatorUpdateListener() { // from class: android.support.design.widget.TabLayout.1
-                        @Override // android.support.design.widget.ValueAnimatorCompat.AnimatorUpdateListener
-                        public void onAnimationUpdate(ValueAnimatorCompat valueAnimatorCompat) {
-                            TabLayout.this.scrollTo(valueAnimatorCompat.getAnimatedIntValue(), 0);
-                        }
-                    });
-                }
+                ensureScrollAnimator();
                 this.mScrollAnimator.setIntValues(scrollX, calculateScrollXForTab);
                 this.mScrollAnimator.start();
             }
             this.mTabStrip.animateIndicatorToPosition(i, 300);
         }
+    }
+
+    private void ensureScrollAnimator() {
+        if (this.mScrollAnimator == null) {
+            this.mScrollAnimator = new ValueAnimator();
+            this.mScrollAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
+            this.mScrollAnimator.setDuration(300L);
+            this.mScrollAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: android.support.design.widget.TabLayout.1
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    TabLayout.this.scrollTo(((Integer) valueAnimator.getAnimatedValue()).intValue(), 0);
+                }
+            });
+        }
+    }
+
+    void setScrollAnimatorListener(Animator.AnimatorListener animatorListener) {
+        ensureScrollAnimator();
+        this.mScrollAnimator.addListener(animatorListener);
     }
 
     private void setSelectedTabView(int i) {
@@ -712,7 +722,11 @@ public class TabLayout extends HorizontalScrollView {
         if (this.mMode == 0) {
             View childAt = this.mTabStrip.getChildAt(i);
             View childAt2 = i + 1 < this.mTabStrip.getChildCount() ? this.mTabStrip.getChildAt(i + 1) : null;
-            return ((((int) ((((childAt2 != null ? childAt2.getWidth() : 0) + (childAt != null ? childAt.getWidth() : 0)) * f) * 0.5f)) + childAt.getLeft()) + (childAt.getWidth() / 2)) - (getWidth() / 2);
+            int width = childAt != null ? childAt.getWidth() : 0;
+            int width2 = childAt2 != null ? childAt2.getWidth() : 0;
+            int left = (childAt.getLeft() + (width / 2)) - (getWidth() / 2);
+            int i2 = (int) ((width2 + width) * 0.5f * f);
+            return ViewCompat.getLayoutDirection(this) == 0 ? i2 + left : left - i2;
         }
         return 0;
     }
@@ -780,8 +794,8 @@ public class TabLayout extends HorizontalScrollView {
         }
 
         @NonNull
-        public Tab setCustomView(@Nullable View view2) {
-            this.mCustomView = view2;
+        public Tab setCustomView(@Nullable View view) {
+            this.mCustomView = view;
             updateView();
             return this;
         }
@@ -893,7 +907,7 @@ public class TabLayout extends HorizontalScrollView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public class TabView extends LinearLayout implements View.OnLongClickListener {
+    public class TabView extends LinearLayout {
         private ImageView mCustomIconView;
         private TextView mCustomTextView;
         private View mCustomView;
@@ -912,6 +926,7 @@ public class TabLayout extends HorizontalScrollView {
             setGravity(17);
             setOrientation(1);
             setClickable(true);
+            ViewCompat.setPointerIcon(this, PointerIconCompat.getSystemIcon(getContext(), 1002));
         }
 
         @Override // android.view.View
@@ -946,14 +961,12 @@ public class TabLayout extends HorizontalScrollView {
         }
 
         @Override // android.view.View
-        @TargetApi(14)
         public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
             super.onInitializeAccessibilityEvent(accessibilityEvent);
             accessibilityEvent.setClassName(ActionBar.Tab.class.getName());
         }
 
         @Override // android.view.View
-        @TargetApi(14)
         public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
             accessibilityNodeInfo.setClassName(ActionBar.Tab.class.getName());
@@ -1097,36 +1110,7 @@ public class TabLayout extends HorizontalScrollView {
                     imageView.requestLayout();
                 }
             }
-            if (!z && !TextUtils.isEmpty(contentDescription)) {
-                setOnLongClickListener(this);
-                return;
-            }
-            setOnLongClickListener(null);
-            setLongClickable(false);
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            int[] iArr = new int[2];
-            Rect rect = new Rect();
-            getLocationOnScreen(iArr);
-            getWindowVisibleDisplayFrame(rect);
-            Context context = getContext();
-            int width = getWidth();
-            int height = getHeight();
-            int i = iArr[1] + (height / 2);
-            int i2 = (width / 2) + iArr[0];
-            if (ViewCompat.getLayoutDirection(view2) == 0) {
-                i2 = context.getResources().getDisplayMetrics().widthPixels - i2;
-            }
-            Toast makeText = Toast.makeText(context, this.mTab.getContentDescription(), 0);
-            if (i < rect.height()) {
-                makeText.setGravity(8388661, i2, (iArr[1] + height) - rect.top);
-            } else {
-                makeText.setGravity(81, 0, height);
-            }
-            makeText.show();
-            return true;
+            TooltipCompat.setTooltipText(this, z ? null : contentDescription);
         }
 
         public Tab getTab() {
@@ -1141,9 +1125,10 @@ public class TabLayout extends HorizontalScrollView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class SlidingTabStrip extends LinearLayout {
-        private ValueAnimatorCompat mIndicatorAnimator;
+        private ValueAnimator mIndicatorAnimator;
         private int mIndicatorLeft;
         private int mIndicatorRight;
+        private int mLayoutDirection;
         private int mSelectedIndicatorHeight;
         private final Paint mSelectedIndicatorPaint;
         int mSelectedPosition;
@@ -1152,6 +1137,7 @@ public class TabLayout extends HorizontalScrollView {
         SlidingTabStrip(Context context) {
             super(context);
             this.mSelectedPosition = -1;
+            this.mLayoutDirection = -1;
             this.mIndicatorLeft = -1;
             this.mIndicatorRight = -1;
             setWillNotDraw(false);
@@ -1193,6 +1179,15 @@ public class TabLayout extends HorizontalScrollView {
 
         float getIndicatorPosition() {
             return this.mSelectedPosition + this.mSelectionOffset;
+        }
+
+        @Override // android.widget.LinearLayout, android.view.View
+        public void onRtlPropertiesChanged(int i) {
+            super.onRtlPropertiesChanged(i);
+            if (Build.VERSION.SDK_INT < 23 && this.mLayoutDirection != i) {
+                requestLayout();
+                this.mLayoutDirection = i;
+            }
         }
 
         @Override // android.widget.LinearLayout, android.view.View
@@ -1310,26 +1305,26 @@ public class TabLayout extends HorizontalScrollView {
                 }
             }
             if (i4 != left || i3 != right) {
-                ValueAnimatorCompat createAnimator = ViewUtils.createAnimator();
-                this.mIndicatorAnimator = createAnimator;
-                createAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
-                createAnimator.setDuration(i2);
-                createAnimator.setFloatValues(0.0f, 1.0f);
-                createAnimator.addUpdateListener(new ValueAnimatorCompat.AnimatorUpdateListener() { // from class: android.support.design.widget.TabLayout.SlidingTabStrip.1
-                    @Override // android.support.design.widget.ValueAnimatorCompat.AnimatorUpdateListener
-                    public void onAnimationUpdate(ValueAnimatorCompat valueAnimatorCompat) {
-                        float animatedFraction = valueAnimatorCompat.getAnimatedFraction();
+                ValueAnimator valueAnimator = new ValueAnimator();
+                this.mIndicatorAnimator = valueAnimator;
+                valueAnimator.setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
+                valueAnimator.setDuration(i2);
+                valueAnimator.setFloatValues(0.0f, 1.0f);
+                valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: android.support.design.widget.TabLayout.SlidingTabStrip.1
+                    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                    public void onAnimationUpdate(ValueAnimator valueAnimator2) {
+                        float animatedFraction = valueAnimator2.getAnimatedFraction();
                         SlidingTabStrip.this.setIndicatorPosition(AnimationUtils.lerp(i4, left, animatedFraction), AnimationUtils.lerp(i3, right, animatedFraction));
                     }
                 });
-                createAnimator.addListener(new ValueAnimatorCompat.AnimatorListenerAdapter() { // from class: android.support.design.widget.TabLayout.SlidingTabStrip.2
-                    @Override // android.support.design.widget.ValueAnimatorCompat.AnimatorListenerAdapter, android.support.design.widget.ValueAnimatorCompat.AnimatorListener
-                    public void onAnimationEnd(ValueAnimatorCompat valueAnimatorCompat) {
+                valueAnimator.addListener(new AnimatorListenerAdapter() { // from class: android.support.design.widget.TabLayout.SlidingTabStrip.2
+                    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+                    public void onAnimationEnd(Animator animator) {
                         SlidingTabStrip.this.mSelectedPosition = i;
                         SlidingTabStrip.this.mSelectionOffset = 0.0f;
                     }
                 });
-                createAnimator.start();
+                valueAnimator.start();
             }
         }
 

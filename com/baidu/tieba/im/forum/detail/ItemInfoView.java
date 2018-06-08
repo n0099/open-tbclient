@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.editortools.emotiontool.b;
 import com.baidu.tieba.d;
 import java.util.List;
@@ -20,7 +20,7 @@ import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView dYB;
+    private TextView ejO;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -36,14 +36,14 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(d.i.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.dYB = (TextView) findViewById(d.g.info_brief_content);
+        this.ejO = (TextView) findViewById(d.g.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
-        if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !an.isEmpty(recommendForumInfo.slogan))) {
-            this.dYB.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
+        if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !ao.isEmpty(recommendForumInfo.slogan))) {
+            this.ejO.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.dYB.setText(getResources().getString(d.k.forum_detail_info_no_brief));
+            this.ejO.setText(getResources().getString(d.k.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.gb(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.gA(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -73,8 +73,8 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        ak.c(this.dYB, d.C0126d.common_color_10177, 1);
+        al.c(this.ejO, d.C0141d.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
-        forumDetailActivity.getLayoutMode().u(this);
+        forumDetailActivity.getLayoutMode().onModeChanged(this);
     }
 }

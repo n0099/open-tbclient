@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes2.dex */
 public interface ae {
-    void a(TbPageContext tbPageContext, View view2, int i, boolean z, BdUniqueId bdUniqueId);
+    void a(TbPageContext tbPageContext, View view, int i, boolean z, BdUniqueId bdUniqueId);
 
     void changeSkinType(int i);
 

@@ -9,6 +9,7 @@ import android.content.res.XmlResourceParser;
 import android.graphics.Movie;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -105,16 +106,19 @@ class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(21)
     public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
         return this.mResources.getDrawable(i, theme);
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(15)
     public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
         return this.mResources.getDrawableForDensity(i, i2);
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(21)
     public Drawable getDrawableForDensity(int i, int i2, Resources.Theme theme) {
         return this.mResources.getDrawableForDensity(i, i2, theme);
     }
@@ -180,6 +184,7 @@ class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
+    @RequiresApi(15)
     public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         this.mResources.getValueForDensity(i, i2, typedValue, z);
     }

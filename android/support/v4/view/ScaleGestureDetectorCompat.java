@@ -1,64 +1,32 @@
 package android.support.v4.view;
 
 import android.os.Build;
+import android.view.ScaleGestureDetector;
 /* loaded from: classes2.dex */
 public final class ScaleGestureDetectorCompat {
-    static final ScaleGestureDetectorImpl IMPL;
-
-    /* loaded from: classes2.dex */
-    interface ScaleGestureDetectorImpl {
-        boolean isQuickScaleEnabled(Object obj);
-
-        void setQuickScaleEnabled(Object obj, boolean z);
-    }
-
-    /* loaded from: classes2.dex */
-    private static class BaseScaleGestureDetectorImpl implements ScaleGestureDetectorImpl {
-        BaseScaleGestureDetectorImpl() {
-        }
-
-        @Override // android.support.v4.view.ScaleGestureDetectorCompat.ScaleGestureDetectorImpl
-        public void setQuickScaleEnabled(Object obj, boolean z) {
-        }
-
-        @Override // android.support.v4.view.ScaleGestureDetectorCompat.ScaleGestureDetectorImpl
-        public boolean isQuickScaleEnabled(Object obj) {
-            return false;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private static class ScaleGestureDetectorCompatKitKatImpl implements ScaleGestureDetectorImpl {
-        ScaleGestureDetectorCompatKitKatImpl() {
-        }
-
-        @Override // android.support.v4.view.ScaleGestureDetectorCompat.ScaleGestureDetectorImpl
-        public void setQuickScaleEnabled(Object obj, boolean z) {
-            ScaleGestureDetectorCompatKitKat.setQuickScaleEnabled(obj, z);
-        }
-
-        @Override // android.support.v4.view.ScaleGestureDetectorCompat.ScaleGestureDetectorImpl
-        public boolean isQuickScaleEnabled(Object obj) {
-            return ScaleGestureDetectorCompatKitKat.isQuickScaleEnabled(obj);
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 19) {
-            IMPL = new ScaleGestureDetectorCompatKitKatImpl();
-        } else {
-            IMPL = new BaseScaleGestureDetectorImpl();
-        }
-    }
-
     private ScaleGestureDetectorCompat() {
     }
 
+    @Deprecated
     public static void setQuickScaleEnabled(Object obj, boolean z) {
-        IMPL.setQuickScaleEnabled(obj, z);
+        setQuickScaleEnabled((ScaleGestureDetector) obj, z);
     }
 
+    public static void setQuickScaleEnabled(ScaleGestureDetector scaleGestureDetector, boolean z) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            scaleGestureDetector.setQuickScaleEnabled(z);
+        }
+    }
+
+    @Deprecated
     public static boolean isQuickScaleEnabled(Object obj) {
-        return IMPL.isQuickScaleEnabled(obj);
+        return isQuickScaleEnabled((ScaleGestureDetector) obj);
+    }
+
+    public static boolean isQuickScaleEnabled(ScaleGestureDetector scaleGestureDetector) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            return scaleGestureDetector.isQuickScaleEnabled();
+        }
+        return false;
     }
 }

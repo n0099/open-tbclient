@@ -3,7 +3,7 @@ package com.baidu.sofire.b;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
 import org.apache.http.cookie.ClientCookie;
@@ -28,7 +28,7 @@ public final class h {
             switch (c) {
                 case 1:
                     String str3 = str + "\r\n{libpath=" + d.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.e.a().d(str2).libPath.split(":")) {
+                    for (String str4 : com.baidu.sofire.core.e.a().d(str2).libPath.split(SystemInfoUtil.COLON)) {
                         if (str4.startsWith("/data/data/")) {
                             File file = new File(str4);
                             if (!file.exists()) {
@@ -42,7 +42,7 @@ public final class h {
                                 while (i < length) {
                                     File file2 = listFiles[i];
                                     i++;
-                                    str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + l.a(file2) + "}\r\n";
+                                    str3 = str3 + "\r\n{" + file2.getAbsolutePath() + SystemInfoUtil.COLON + l.a(file2) + "}\r\n";
                                 }
                             }
                         }
@@ -75,11 +75,11 @@ public final class h {
             JSONArray jSONArray = new JSONArray();
             long j = 0;
             for (File file : filesDir.listFiles()) {
-                if (file.isDirectory() && file.getName().startsWith(Constants.DOT)) {
+                if (file.isDirectory() && file.getName().startsWith(".")) {
                     j += a(file, jSONArray);
                 }
             }
-            return ((str2 + "\r\n") + jSONArray.toString()) + "\r\nAllFileSize=" + j;
+            return ((str2 + SystemInfoUtil.LINE_END) + jSONArray.toString()) + "\r\nAllFileSize=" + j;
         } catch (Throwable th) {
             return str;
         }

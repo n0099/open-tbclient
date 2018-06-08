@@ -2,35 +2,35 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Q(int i) {
+    protected void R(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "nickname_activity";
+        return "android_net_delete";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ev() {
-        return null;
+    protected String[] hm() {
+        return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ew() {
+    protected int hn() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ex() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ey() {
+    protected int hp() {
         return 10;
     }
 
-    public static boolean fz() {
-        return com.baidu.adp.lib.b.d.eE().ak("nickname_activity") == 1;
+    public static boolean ip() {
+        return com.baidu.adp.lib.b.d.hv().aw("android_net_delete") == 1;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet.b;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateParsingException;
 import java.security.cert.X509Certificate;
@@ -47,7 +46,7 @@ public class d implements HostnameVerifier {
                     String name = x509Certificate.getSubjectDN().getName();
                     if (!TextUtils.isEmpty(name) && name.contains("CN=")) {
                         int indexOf = name.indexOf("CN=") + 3;
-                        int indexOf2 = name.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP, indexOf);
+                        int indexOf2 = name.indexOf(",", indexOf);
                         if (v.equals(indexOf2 > indexOf ? name.substring(indexOf, indexOf2) : name.substring(indexOf))) {
                             return true;
                         }

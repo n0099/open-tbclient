@@ -1,6 +1,5 @@
 package com.google.zxing.qrcode.decoder;
 
-import android.support.v4.media.TransportMediator;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
@@ -259,7 +258,7 @@ final class DecodedBitStreamParser {
     private static int parseECIValue(BitSource bitSource) throws FormatException {
         int readBits = bitSource.readBits(8);
         if ((readBits & 128) == 0) {
-            return readBits & TransportMediator.KEYCODE_MEDIA_PAUSE;
+            return readBits & 127;
         }
         if ((readBits & 192) == 128) {
             return ((readBits & 63) << 8) | bitSource.readBits(8);

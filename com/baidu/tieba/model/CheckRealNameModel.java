@@ -14,8 +14,8 @@ public class CheckRealNameModel extends BdBaseModel {
     public static final String TYPE_APP_FIRST_START = "app_first_start";
     public static final String TYPE_LIVE_SHARE = "live_share";
     public static final String TYPE_PB_SHARE = "pb_share";
-    private a eRj;
-    private com.baidu.adp.framework.listener.a eRk;
+    private a fcB;
+    private com.baidu.adp.framework.listener.a fcC;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,24 +24,24 @@ public class CheckRealNameModel extends BdBaseModel {
 
     public CheckRealNameModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eRk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456) { // from class: com.baidu.tieba.model.CheckRealNameModel.1
+        this.fcC = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456) { // from class: com.baidu.tieba.model.CheckRealNameModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
                     if (((responsedMessage instanceof CheckRealNameHttpResponseMessage) || (responsedMessage instanceof CheckRealNameSocketResponseMessage)) && (responsedMessage.getOrginalMessage().getExtra() instanceof CheckRealNameRequestNetMessage)) {
                         CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = (CheckRealNameRequestNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                        if (CheckRealNameModel.this.eRj != null) {
-                            CheckRealNameModel.this.eRj.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
+                        if (CheckRealNameModel.this.fcB != null) {
+                            CheckRealNameModel.this.fcB.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
                         }
                     }
                 }
             }
         };
-        aRx();
-        registerListener(this.eRk);
+        aWu();
+        registerListener(this.fcC);
     }
 
-    private void aRx() {
+    private void aWu() {
         com.baidu.tieba.tbadkCore.a.a.a(309456, CheckRealNameSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
     }
@@ -56,7 +56,7 @@ public class CheckRealNameModel extends BdBaseModel {
         return false;
     }
 
-    public void pA(String str) {
+    public void qo(String str) {
         CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
         checkRealNameRequestNetMessage.setObjSource(str);
         sendMessage(checkRealNameRequestNetMessage);
@@ -69,16 +69,16 @@ public class CheckRealNameModel extends BdBaseModel {
         sendMessage(checkRealNameRequestNetMessage);
     }
 
-    public void aRy() {
+    public void aWv() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_CHECK_REAL_NAME, getUniqueId());
         MessageManager.getInstance().removeMessage(309456, getUniqueId());
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.eRk);
+        MessageManager.getInstance().unRegisterListener(this.fcC);
     }
 
     public void a(a aVar) {
-        this.eRj = aVar;
+        this.fcB = aVar;
     }
 }

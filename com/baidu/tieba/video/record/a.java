@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean mX(boolean z) {
+    public static boolean nd(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -74,14 +74,14 @@ public class a {
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int G = G(activity);
+        int H = H(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + G) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + H) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - G) + 360) % 360;
+        return ((cameraInfo.orientation - H) + 360) % 360;
     }
 
-    public static int G(Activity activity) {
+    public static int H(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:
@@ -100,7 +100,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0227a());
+        Collections.sort(supportedPreviewSizes, new C0244a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -138,12 +138,13 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0227a implements Comparator<Camera.Size> {
-        private C0227a() {
+    private static class C0244a implements Comparator<Camera.Size> {
+        private C0244a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
+        /* renamed from: b */
         public int compare(Camera.Size size, Camera.Size size2) {
             return size.width != size2.width ? size.width - size2.width : size.height - size2.height;
         }

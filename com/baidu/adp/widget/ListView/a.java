@@ -23,7 +23,7 @@ public abstract class a<T, V extends q.a> {
 
     protected abstract V onCreateViewHolder(ViewGroup viewGroup);
 
-    protected abstract View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v);
+    protected abstract View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -40,22 +40,22 @@ public abstract class a<T, V extends q.a> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.baidu.adp.widget.ListView.a<T, V extends com.baidu.adp.widget.ListView.q$a> */
     /* JADX WARN: Multi-variable type inference failed */
-    public View getView(int i, View view2, ViewGroup viewGroup, T t) {
-        View view3;
-        if (needCreateNewHolder(view2)) {
+    public View getView(int i, View view, ViewGroup viewGroup, T t) {
+        View view2;
+        if (needCreateNewHolder(view)) {
             this.viewholder = (V) onCreateViewHolder(viewGroup);
-            view3 = this.viewholder.getView();
+            view2 = this.viewholder.getView();
             if (BdBaseApplication.getInst().isDebugMode()) {
                 BdLog.i("convertView is creating" + this.viewholder.getClass().getName());
             }
         } else {
-            view3 = view2;
+            view2 = view;
         }
-        return onFillViewHolder(i, view3, viewGroup, t, (q.a) view3.getTag());
+        return onFillViewHolder(i, view2, viewGroup, t, (q.a) view2.getTag());
     }
 
-    private boolean needCreateNewHolder(View view2) {
-        return view2 == null || view2.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
+    private boolean needCreateNewHolder(View view) {
+        return view == null || view.getTag() == null || this.viewholder == null || !this.viewholder.getClass().isAssignableFrom(view.getTag().getClass()) || !view.getTag().getClass().isAssignableFrom(this.viewholder.getClass());
     }
 
     public V onCreateViewHolder(ViewGroup viewGroup, T t) {

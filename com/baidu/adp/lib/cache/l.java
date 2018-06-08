@@ -10,27 +10,27 @@ public interface l<T> {
     /* loaded from: classes.dex */
     public static class b<T> {
         public String key;
-        public long rA;
-        public long rN;
         public T value;
+        public long xN;
+        public long ya;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends l<T> {
-        String ep();
+        String hg();
 
-        k<T> eq();
+        k<T> hh();
 
-        void er();
+        void hi();
     }
 
     void a(String str, a<T> aVar);
 
     void a(String str, T t, long j);
 
-    b<T> ab(String str);
+    b<T> an(String str);
 
-    void ac(String str);
+    void ao(String str);
 
     void b(String str, T t, long j);
 

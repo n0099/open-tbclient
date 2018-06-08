@@ -22,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    public HandlerC0080a a = new HandlerC0080a(j.a());
+    public HandlerC0097a a = new HandlerC0097a(j.a());
     e b;
     public Context c;
     com.baidu.sofire.rp.d.a.a d;
@@ -37,8 +37,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.rp.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0080a extends Handler {
-        public HandlerC0080a(Looper looper) {
+    public class HandlerC0097a extends Handler {
+        public HandlerC0097a(Looper looper) {
             super(looper);
         }
 

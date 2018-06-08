@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet.beans.business.core.utils;
 
 import android.text.TextUtils;
-import com.baidu.ar.util.Constants;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
@@ -74,14 +73,14 @@ public abstract class StringUtils {
         if (TextUtils.isEmpty(str)) {
             return "0.00";
         }
-        if (str.contains(Constants.DOT)) {
-            int indexOf = str.indexOf(Constants.DOT);
+        if (str.contains(".")) {
+            int indexOf = str.indexOf(".");
             String substring = str.substring(indexOf + 1);
             String substring2 = str.substring(0, indexOf);
             if (substring.length() < 2) {
                 substring = substring + "0";
             }
-            return substring2 + Constants.DOT + substring;
+            return substring2 + "." + substring;
         }
         return str + ".00";
     }

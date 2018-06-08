@@ -12,7 +12,7 @@ public class FrameHelper {
         CUSTOM
     }
 
-    public static TYPE A(int i) {
+    public static TYPE B(int i) {
         if (i >= 0 && i < 1000000) {
             return TYPE.SOCKET;
         }
@@ -26,15 +26,15 @@ public class FrameHelper {
         return null;
     }
 
-    public static boolean B(int i) {
+    public static boolean C(int i) {
         return i >= 1000000 && i < 2000000;
     }
 
-    public static boolean C(int i) {
+    public static boolean D(int i) {
         return i >= 0 && i < 1000000;
     }
 
-    public static boolean D(int i) {
+    public static boolean E(int i) {
         return i >= 2000000 && i < 3000000;
     }
 

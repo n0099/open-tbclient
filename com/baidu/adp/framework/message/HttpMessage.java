@@ -191,24 +191,24 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT oT;
+        private SORT vp;
 
         public a(SORT sort) {
-            this.oT = null;
-            this.oT = sort;
+            this.vp = null;
+            this.vp = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: b */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.oT == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.vp == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.B(i);
+        return FrameHelper.C(i);
     }
 
     public boolean setNeedProgress() {
@@ -263,5 +263,9 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
 
     public String getUserAgent() {
         return this.mUserAgent;
+    }
+
+    public HashMap<String, Object> getParams() {
+        return this.mParams;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.hybrid.a;
 
 import android.content.ClipboardManager;
+import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.hybrid.l;
 import com.baidu.tbadk.core.hybrid.n;
@@ -15,7 +16,7 @@ public class a extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String pf() {
+    public String sB() {
         return "TBHY_COMMON_Clipboard";
     }
 
@@ -26,12 +27,12 @@ public class a extends n {
             String optString = jSONObject.optString("message");
             if (!StringUtils.isNull(optString)) {
                 ((ClipboardManager) getContext().getSystemService("clipboard")).setText(optString.trim());
-                jSONObject2.put("status", 0);
+                jSONObject2.put(NotificationCompat.CATEGORY_STATUS, 0);
                 jSONObject2.put("message", "");
                 return jSONObject2;
             }
         }
-        jSONObject2.put("status", -1);
+        jSONObject2.put(NotificationCompat.CATEGORY_STATUS, -1);
         jSONObject2.put("message", "无效内容");
         return jSONObject2;
     }

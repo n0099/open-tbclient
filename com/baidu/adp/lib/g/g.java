@@ -26,7 +26,7 @@ public class g {
         if (eVar == null) {
             return false;
         }
-        return o(eVar.getPageActivity());
+        return n(eVar.getPageActivity());
     }
 
     public static final boolean a(Dialog dialog, Activity activity) {
@@ -60,7 +60,7 @@ public class g {
     }
 
     public static final boolean a(PopupWindow popupWindow) {
-        if (popupWindow == null || ad(popupWindow.getContentView().getContext()) || !p(popupWindow.getContentView())) {
+        if (popupWindow == null || af(popupWindow.getContentView().getContext()) || !p(popupWindow.getContentView())) {
             return false;
         }
         popupWindow.dismiss();
@@ -69,7 +69,7 @@ public class g {
 
     public static final boolean a(PopupWindow popupWindow, Activity activity) {
         if (popupWindow != null && activity != null) {
-            if (!ad(activity) && p(activity.getWindow().getDecorView())) {
+            if (!af(activity) && p(activity.getWindow().getDecorView())) {
                 popupWindow.dismiss();
                 return true;
             }
@@ -78,52 +78,52 @@ public class g {
         return a(popupWindow);
     }
 
-    public static final boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
-        if (popupWindow == null || view2 == null || ad(view2.getContext()) || !p(view2)) {
+    public static final boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
+        if (popupWindow == null || view == null || af(view.getContext()) || !p(view)) {
             return false;
         }
         try {
-            popupWindow.showAtLocation(view2, i, i2, i3);
+            popupWindow.showAtLocation(view, i, i2, i3);
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view2) {
-        if (popupWindow == null || view2 == null || ad(view2.getContext()) || !p(view2)) {
+    public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
+        if (popupWindow == null || view == null || af(view.getContext()) || !p(view)) {
             return false;
         }
         try {
-            popupWindow.showAsDropDown(view2);
+            popupWindow.showAsDropDown(view);
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view2, int i, int i2) {
-        if (popupWindow == null || view2 == null || ad(view2.getContext()) || !p(view2)) {
+    public static final boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
+        if (popupWindow == null || view == null || af(view.getContext()) || !p(view)) {
             return false;
         }
         try {
-            popupWindow.showAsDropDown(view2, i, i2);
+            popupWindow.showAsDropDown(view, i, i2);
             return true;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public static final boolean o(Activity activity) {
-        if (activity == null || ad(activity)) {
+    public static final boolean n(Activity activity) {
+        if (activity == null || af(activity)) {
             return false;
         }
         return p(activity.getWindow().getDecorView()) || !activity.getWindow().isActive();
     }
 
-    private static final boolean p(View view2) {
+    private static final boolean p(View view) {
         IBinder windowToken;
-        if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+        if (view != null && (windowToken = view.getWindowToken()) != null) {
             try {
                 if (windowToken.isBinderAlive()) {
                     if (windowToken.pingBinder()) {
@@ -136,7 +136,7 @@ public class g {
         return false;
     }
 
-    private static final boolean ad(Context context) {
+    private static final boolean af(Context context) {
         if (context instanceof Activity) {
             return ((Activity) context).isFinishing();
         }

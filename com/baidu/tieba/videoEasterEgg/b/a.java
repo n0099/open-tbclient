@@ -1,15 +1,15 @@
 package com.baidu.tieba.videoEasterEgg.b;
 /* loaded from: classes3.dex */
 public interface a {
-    void bzo();
+    void bEu();
 
-    void bzp();
+    void bEv();
 
-    void bzq();
+    void bEw();
 
-    void bzr();
+    void bEx();
 
-    void bzs();
+    void bEy();
 
     void onClose();
 

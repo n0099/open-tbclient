@@ -9,9 +9,9 @@ import com.baidu.tieba.d;
 public class h extends a {
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        View view2 = getView();
-        if (view2 != null) {
-            ((ViewStub) view2.findViewById(d.g.viewstub_interview_live_info)).inflate();
+        View view = getView();
+        if (view != null) {
+            ((ViewStub) view.findViewById(d.g.viewstub_interview_live_info)).inflate();
         }
     }
 

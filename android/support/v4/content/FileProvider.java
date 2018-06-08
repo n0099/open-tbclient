@@ -10,6 +10,7 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
+import android.support.annotation.GuardedBy;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import java.io.File;
@@ -32,6 +33,7 @@ public class FileProvider extends ContentProvider {
     private PathStrategy mStrategy;
     private static final String[] COLUMNS = {"_display_name", "_size"};
     private static final File DEVICE_ROOT = new File("/");
+    @GuardedBy("sCache")
     private static HashMap<String, PathStrategy> sCache = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */

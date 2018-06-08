@@ -9,11 +9,10 @@ import android.net.wifi.ScanResult;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.File;
 import java.util.List;
 import java.util.Locale;
@@ -26,28 +25,28 @@ import java.util.concurrent.TimeoutException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
-    private static a Pc = null;
+    private static a Xi = null;
     private static final String k = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/";
     private static final String l = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/ls.db";
     private String b = null;
     private boolean c = false;
     private boolean d = false;
-    private double Pd = 0.0d;
-    private double NW = 0.0d;
-    private double Pe = 0.0d;
+    private double e = 0.0d;
+    private double f = 0.0d;
+    private double g = 0.0d;
     private double h = 0.0d;
-    private double OH = 0.0d;
+    private double WQ = 0.0d;
     private volatile boolean j = false;
     private Handler m = new Handler();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class AsyncTaskC0052a extends AsyncTask<Boolean, Void, Boolean> {
-        private AsyncTaskC0052a() {
+    public class AsyncTaskC0068a extends AsyncTask<Boolean, Void, Boolean> {
+        private AsyncTaskC0068a() {
         }
 
-        /* synthetic */ AsyncTaskC0052a(a aVar, com.baidu.location.e.b bVar) {
+        /* synthetic */ AsyncTaskC0068a(a aVar, com.baidu.location.e.b bVar) {
             this();
         }
 
@@ -176,7 +175,7 @@ public final class a {
                         return;
                     }
                     ContentValues contentValues = new ContentValues();
-                    String encode2 = Jni.encode2(scanResult.BSSID.replace(":", ""));
+                    String encode2 = Jni.encode2(scanResult.BSSID.replace(SystemInfoUtil.COLON, ""));
                     try {
                         Cursor rawQuery = sQLiteDatabase.rawQuery("select * from wof where id = \"" + encode2 + "\";", null);
                         if (rawQuery == null || !rawQuery.moveToFirst()) {
@@ -199,7 +198,7 @@ public final class a {
                         }
                         if (!z) {
                             contentValues.put("mktime", Double.valueOf(bDLocation.getLongitude() + 113.2349d));
-                            contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf(bDLocation.getLatitude() + 432.1238d));
+                            contentValues.put("time", Double.valueOf(bDLocation.getLatitude() + 432.1238d));
                             contentValues.put("bc", (Integer) 1);
                             contentValues.put("cc", (Integer) 1);
                             contentValues.put("ac", Integer.valueOf(currentTimeMillis));
@@ -216,14 +215,14 @@ public final class a {
                                     contentValues.put("cc", Integer.valueOf(i6));
                                 } else {
                                     contentValues.put("mktime", Double.valueOf(bDLocation.getLongitude() + 113.2349d));
-                                    contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf(bDLocation.getLatitude() + 432.1238d));
+                                    contentValues.put("time", Double.valueOf(bDLocation.getLatitude() + 432.1238d));
                                     contentValues.put("bc", (Integer) 1);
                                     contentValues.put("cc", (Integer) 1);
                                     contentValues.put("ac", Integer.valueOf(currentTimeMillis));
                                 }
                             } else {
                                 contentValues.put("mktime", Double.valueOf((((d * i2) + bDLocation.getLongitude()) / (i2 + 1)) + 113.2349d));
-                                contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf((((d2 * i2) + bDLocation.getLatitude()) / (i2 + 1)) + 432.1238d));
+                                contentValues.put("time", Double.valueOf((((d2 * i2) + bDLocation.getLatitude()) / (i2 + 1)) + 432.1238d));
                                 contentValues.put("bc", Integer.valueOf(i2 + 1));
                                 contentValues.put("ac", Integer.valueOf(currentTimeMillis));
                             }
@@ -260,9 +259,9 @@ public final class a {
             try {
                 this.b = str;
                 if (rawQuery.moveToFirst()) {
-                    this.NW = rawQuery.getDouble(1) - 1235.4323d;
-                    this.Pd = rawQuery.getDouble(2) - 4326.0d;
-                    this.Pe = rawQuery.getDouble(3) - 2367.3217d;
+                    this.f = rawQuery.getDouble(1) - 1235.4323d;
+                    this.e = rawQuery.getDouble(2) - 4326.0d;
+                    this.g = rawQuery.getDouble(3) - 2367.3217d;
                     this.c = true;
                 }
                 if (rawQuery != null) {
@@ -303,7 +302,7 @@ public final class a {
         double d;
         boolean z = false;
         double d2 = 0.0d;
-        if (!aVar.b() || !com.baidu.location.a.e.mU().g()) {
+        if (!aVar.b() || !com.baidu.location.a.e.qi().g()) {
             return;
         }
         System.currentTimeMillis();
@@ -318,8 +317,8 @@ public final class a {
                     String string = jSONObject2.getString("clf");
                     if (string.equals("0")) {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("point");
-                        d2 = Double.parseDouble(jSONObject3.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X));
-                        d = Double.parseDouble(jSONObject3.getString(Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y));
+                        d2 = Double.parseDouble(jSONObject3.getString("x"));
+                        d = Double.parseDouble(jSONObject3.getString("y"));
                         f = Float.parseFloat(jSONObject2.getString("radius"));
                     } else {
                         String[] split = string.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
@@ -330,7 +329,7 @@ public final class a {
                     if (z) {
                         float f2 = 4326.0f + f;
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Double.valueOf(d2 + 1235.4323d));
+                        contentValues.put("time", Double.valueOf(d2 + 1235.4323d));
                         contentValues.put("tag", Float.valueOf(f2));
                         contentValues.put("type", Double.valueOf(d + 2367.3217d));
                         contentValues.put("ac", Integer.valueOf(currentTimeMillis));
@@ -415,10 +414,10 @@ public final class a {
                 break;
             }
             if (i5 > 0) {
-                stringBuffer.append(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
+                stringBuffer.append(",");
             }
             i5++;
-            stringBuffer.append("\"").append(Jni.encode2(scanResult.BSSID.replace(":", ""))).append("\"");
+            stringBuffer.append("\"").append(Jni.encode2(scanResult.BSSID.replace(SystemInfoUtil.COLON, ""))).append("\"");
         }
         Cursor cursor2 = null;
         try {
@@ -433,8 +432,8 @@ public final class a {
                         if (i7 > 8 && i7 > i6) {
                             cursor.moveToNext();
                         } else if (this.c) {
-                            Location.distanceBetween(d6, d5, this.Pe, this.NW, new float[1]);
-                            if (fArr[0] > this.Pd + 2000.0d) {
+                            Location.distanceBetween(d6, d5, this.g, this.f, new float[1]);
+                            if (fArr[0] > this.e + 2000.0d) {
                                 cursor.moveToNext();
                             } else {
                                 z3 = true;
@@ -512,7 +511,7 @@ public final class a {
                     if (i3 > 0) {
                         this.d = true;
                         this.h = d3 / i3;
-                        this.OH = d4 / i3;
+                        this.WQ = d4 / i3;
                     }
                 }
                 if (cursor != null) {
@@ -547,7 +546,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String ad(boolean z) {
+    public String ag(boolean z) {
         boolean z2;
         boolean z3;
         double d;
@@ -555,15 +554,15 @@ public final class a {
         double d3 = 0.0d;
         if (this.d) {
             d2 = this.h;
-            d = this.OH;
+            d = this.WQ;
             d3 = 246.4d;
             z2 = true;
             z3 = true;
         } else if (this.c) {
-            d2 = this.NW;
-            d = this.Pe;
-            d3 = this.Pd;
-            z2 = com.baidu.location.a.e.mU().g();
+            d2 = this.f;
+            d = this.g;
+            d3 = this.e;
+            z2 = com.baidu.location.a.e.qi().g();
             z3 = true;
         } else {
             z2 = false;
@@ -597,20 +596,20 @@ public final class a {
             boolean z = queryNumEntries > 10000;
             boolean z2 = queryNumEntries2 > 10000;
             if (z || z2) {
-                new AsyncTaskC0052a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+                new AsyncTaskC0068a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
             }
             sQLiteDatabase.close();
         } catch (Exception e2) {
         }
     }
 
-    public static synchronized a np() {
+    public static synchronized a qC() {
         a aVar;
         synchronized (a.class) {
-            if (Pc == null) {
-                Pc = new a();
+            if (Xi == null) {
+                Xi = new a();
             }
-            aVar = Pc;
+            aVar = Xi;
         }
         return aVar;
     }
@@ -631,7 +630,7 @@ public final class a {
                     }
                 } catch (TimeoutException e2) {
                     if (z) {
-                        com.baidu.location.c.f.nm().a("old offlineLocation Timeout Exception!");
+                        com.baidu.location.c.f.qz().a("old offlineLocation Timeout Exception!");
                     }
                     futureTask.cancel(true);
                     newSingleThreadExecutor.shutdown();
@@ -649,7 +648,7 @@ public final class a {
     }
 
     public void a(String str, com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, BDLocation bDLocation) {
-        boolean z = (aVar.b() && com.baidu.location.a.e.mU().g()) ? false : true;
+        boolean z = (aVar.b() && com.baidu.location.a.e.qi().g()) ? false : true;
         boolean z2 = bDLocation == null || bDLocation.getLocType() != 161 || (!"wf".equals(bDLocation.getNetworkLocationType()) && bDLocation.getRadius() >= 300.0f);
         if (iVar.a == null) {
             z2 = true;
@@ -661,24 +660,24 @@ public final class a {
         new b(this, null).execute(str, aVar, iVar, bDLocation);
     }
 
-    public BDLocation ac(boolean z) {
-        com.baidu.location.f.a nE = com.baidu.location.f.c.nI().nE();
-        String g = nE != null ? nE.g() : null;
-        com.baidu.location.f.i nO = com.baidu.location.f.k.nR().nO();
-        BDLocation a = nO != null ? a(g, nO.a, true) : null;
+    public BDLocation af(boolean z) {
+        com.baidu.location.f.a qR = com.baidu.location.f.c.qV().qR();
+        String g = qR != null ? qR.g() : null;
+        com.baidu.location.f.i rb = com.baidu.location.f.k.re().rb();
+        BDLocation a = rb != null ? a(g, rb.a, true) : null;
         if (a != null && a.getLocType() == 66) {
             StringBuffer stringBuffer = new StringBuffer(1024);
             stringBuffer.append(String.format(Locale.CHINA, "&ofl=%f|%f|%f", Double.valueOf(a.getLatitude()), Double.valueOf(a.getLongitude()), Float.valueOf(a.getRadius())));
-            if (nO != null && nO.a() > 0) {
+            if (rb != null && rb.a() > 0) {
                 stringBuffer.append("&wf=");
-                stringBuffer.append(nO.b(15));
+                stringBuffer.append(rb.b(15));
             }
-            if (nE != null) {
-                stringBuffer.append(nE.h());
+            if (qR != null) {
+                stringBuffer.append(qR.h());
             }
             stringBuffer.append("&uptype=oldoff");
-            stringBuffer.append(com.baidu.location.h.c.nS().a(false));
-            stringBuffer.append(com.baidu.location.a.a.mS().c());
+            stringBuffer.append(com.baidu.location.h.c.rf().a(false));
+            stringBuffer.append(com.baidu.location.a.a.qg().c());
             stringBuffer.toString();
         }
         return a;

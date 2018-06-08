@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.hybrid;
 import android.util.Log;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b aem = new a();
-    private static final b aen = new c();
-    private static final boolean aeo;
+    private static final b amo = new a();
+    private static final b amp = new c();
+    private static final boolean amq;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -38,34 +38,34 @@ public class e {
 
         @Override // com.baidu.tbadk.core.hybrid.e.b
         public void k(String str, String str2, String str3) {
-            al alVar = new al("c10729");
-            alVar.ac("obj_param1", str);
-            alVar.ac("obj_param2", str2);
-            alVar.ac("obj_param3", str3);
+            am amVar = new am("c10729");
+            amVar.ah("obj_param1", str);
+            amVar.ah("obj_param2", str2);
+            amVar.ah("obj_param3", str3);
             if (BdBaseApplication.getInst() != null) {
-                TiebaStatic.log(alVar);
+                TiebaStatic.log(amVar);
             }
         }
     }
 
     public static void k(String str, String str2, String str3) {
-        if (aeo) {
-            aem.k(str, str2, str3);
+        if (amq) {
+            amo.k(str, str2, str3);
         }
-        aen.k(str, str2, str3);
+        amp.k(str, str2, str3);
     }
 
-    public static void df(String str) {
-        if (aeo) {
-            aem.k(null, null, str);
+    public static void dE(String str) {
+        if (amq) {
+            amo.k(null, null, str);
         }
     }
 
     public static void l(String str, String str2, String str3) {
-        df(str3);
+        dE(str3);
     }
 
     static {
-        aeo = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        amq = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

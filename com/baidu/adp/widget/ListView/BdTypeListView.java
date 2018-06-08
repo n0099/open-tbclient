@@ -36,17 +36,17 @@ public class BdTypeListView extends BdListView implements m<BdTypeListView> {
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (BdTypeListView.this.mTypeAdapter != null) {
-                    BdTypeListView.this.mTypeAdapter.a(adapterView, view2, i, j);
+                    BdTypeListView.this.mTypeAdapter.a(adapterView, view, i, j);
                 }
             }
         });
         super.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.2
             @Override // android.widget.AdapterView.OnItemLongClickListener
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (BdTypeListView.this.mTypeAdapter != null) {
-                    return BdTypeListView.this.mTypeAdapter.b(adapterView, view2, i, j);
+                    return BdTypeListView.this.mTypeAdapter.b(adapterView, view, i, j);
                 }
                 return false;
             }

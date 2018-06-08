@@ -36,8 +36,8 @@ public class ListFragment extends Fragment {
     };
     private final AdapterView.OnItemClickListener mOnClickListener = new AdapterView.OnItemClickListener() { // from class: android.support.v4.app.ListFragment.2
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            ListFragment.this.onListItemClick((ListView) adapterView, view2, i, j);
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+            ListFragment.this.onListItemClick((ListView) adapterView, view, i, j);
         }
     };
 
@@ -68,8 +68,8 @@ public class ListFragment extends Fragment {
     }
 
     @Override // android.support.v4.app.Fragment
-    public void onViewCreated(View view2, Bundle bundle) {
-        super.onViewCreated(view2, bundle);
+    public void onViewCreated(View view, Bundle bundle) {
+        super.onViewCreated(view, bundle);
         ensureList();
     }
 
@@ -85,7 +85,7 @@ public class ListFragment extends Fragment {
         super.onDestroyView();
     }
 
-    public void onListItemClick(ListView listView, View view2, int i, long j) {
+    public void onListItemClick(ListView listView, View view, int i, long j) {
     }
 
     public void setListAdapter(ListAdapter listAdapter) {
@@ -176,22 +176,22 @@ public class ListFragment extends Fragment {
 
     private void ensureList() {
         if (this.mList == null) {
-            View view2 = getView();
-            if (view2 == null) {
+            View view = getView();
+            if (view == null) {
                 throw new IllegalStateException("Content view not yet created");
             }
-            if (view2 instanceof ListView) {
-                this.mList = (ListView) view2;
+            if (view instanceof ListView) {
+                this.mList = (ListView) view;
             } else {
-                this.mStandardEmptyView = (TextView) view2.findViewById(INTERNAL_EMPTY_ID);
+                this.mStandardEmptyView = (TextView) view.findViewById(INTERNAL_EMPTY_ID);
                 if (this.mStandardEmptyView == null) {
-                    this.mEmptyView = view2.findViewById(16908292);
+                    this.mEmptyView = view.findViewById(16908292);
                 } else {
                     this.mStandardEmptyView.setVisibility(8);
                 }
-                this.mProgressContainer = view2.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
-                this.mListContainer = view2.findViewById(INTERNAL_LIST_CONTAINER_ID);
-                View findViewById = view2.findViewById(16908298);
+                this.mProgressContainer = view.findViewById(INTERNAL_PROGRESS_CONTAINER_ID);
+                this.mListContainer = view.findViewById(INTERNAL_LIST_CONTAINER_ID);
+                View findViewById = view.findViewById(16908298);
                 if (!(findViewById instanceof ListView)) {
                     if (findViewById == null) {
                         throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");

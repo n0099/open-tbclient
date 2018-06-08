@@ -29,22 +29,22 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return K(this.mUrl, "nonavigationbar");
+        return N(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return K(this.mUrl, "noshare");
+        return N(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return K(this.mUrl, "nomenu");
+        return N(this.mUrl, "nomenu");
     }
 
-    public boolean cj(String str) {
-        return K(str, "blank");
+    public boolean cK(String str) {
+        return N(str, "blank");
     }
 
-    public boolean K(String str, String str2) {
+    public boolean N(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
@@ -91,7 +91,7 @@ public class BaseWebViewFragment extends BaseFragment {
             }
             String findSubString2 = findSubString("<img src=\"", "\"");
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.awW = Uri.parse(findSubString2);
+                dVar.aFj = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString("<meta name=\"shareurl\" content=\"", "\"");
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -108,7 +108,7 @@ public class BaseWebViewFragment extends BaseFragment {
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.awW = Uri.parse(str4);
+            dVar.aFj = Uri.parse(str4);
         }
         return dVar;
     }

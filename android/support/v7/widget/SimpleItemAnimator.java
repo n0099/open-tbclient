@@ -35,11 +35,11 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
     public boolean animateDisappearance(@NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo, @Nullable RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo2) {
         int i = itemHolderInfo.left;
         int i2 = itemHolderInfo.top;
-        View view2 = viewHolder.itemView;
-        int left = itemHolderInfo2 == null ? view2.getLeft() : itemHolderInfo2.left;
-        int top = itemHolderInfo2 == null ? view2.getTop() : itemHolderInfo2.top;
+        View view = viewHolder.itemView;
+        int left = itemHolderInfo2 == null ? view.getLeft() : itemHolderInfo2.left;
+        int top = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.top;
         if (!viewHolder.isRemoved() && (i != left || i2 != top)) {
-            view2.layout(left, top, view2.getWidth() + left, view2.getHeight() + top);
+            view.layout(left, top, view.getWidth() + left, view.getHeight() + top);
             return animateMove(viewHolder, i, i2, left, top);
         }
         return animateRemove(viewHolder);

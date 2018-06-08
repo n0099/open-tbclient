@@ -2,13 +2,15 @@ package android.support.v7.view.menu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v4.internal.view.SupportSubMenu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RequiresApi(14)
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,8 +49,8 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderView(View view2) {
-        getWrappedObject().setHeaderView(view2);
+    public SubMenu setHeaderView(View view) {
+        getWrappedObject().setHeaderView(view);
         return this;
     }
 

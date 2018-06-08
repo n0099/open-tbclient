@@ -5,15 +5,16 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompatBase;
 import android.support.v4.app.RemoteInputCompatBase;
 import android.util.SparseArray;
 import android.widget.RemoteViews;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(19)
 /* loaded from: classes2.dex */
-public class NotificationCompatKitKat {
+class NotificationCompatKitKat {
     NotificationCompatKitKat() {
     }
 
@@ -80,17 +81,6 @@ public class NotificationCompatKitKat {
         }
     }
 
-    public static Bundle getExtras(Notification notification) {
-        return notification.extras;
-    }
-
-    public static int getActionCount(Notification notification) {
-        if (notification.actions != null) {
-            return notification.actions.length;
-        }
-        return 0;
-    }
-
     public static NotificationCompatBase.Action getAction(Notification notification, int i, NotificationCompatBase.Action.Factory factory, RemoteInputCompatBase.RemoteInput.Factory factory2) {
         Notification.Action action = notification.actions[i];
         Bundle bundle = null;
@@ -99,21 +89,5 @@ public class NotificationCompatKitKat {
             bundle = (Bundle) sparseParcelableArray.get(i);
         }
         return NotificationCompatJellybean.readAction(factory, factory2, action.icon, action.title, action.actionIntent, bundle);
-    }
-
-    public static boolean getLocalOnly(Notification notification) {
-        return notification.extras.getBoolean(NotificationCompatExtras.EXTRA_LOCAL_ONLY);
-    }
-
-    public static String getGroup(Notification notification) {
-        return notification.extras.getString(NotificationCompatExtras.EXTRA_GROUP_KEY);
-    }
-
-    public static boolean isGroupSummary(Notification notification) {
-        return notification.extras.getBoolean(NotificationCompatExtras.EXTRA_GROUP_SUMMARY);
-    }
-
-    public static String getSortKey(Notification notification) {
-        return notification.extras.getString(NotificationCompatExtras.EXTRA_SORT_KEY);
     }
 }

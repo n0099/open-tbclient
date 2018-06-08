@@ -28,7 +28,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public enum EnumC0020a {
+    public enum EnumC0028a {
         alarmMsgInfoId,
         msgId,
         sendtime,
@@ -148,7 +148,7 @@ public class a {
         private static final String a = "CREATE TABLE StatisticsInfo (" + j.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + j.packageName.name() + " TEXT NOT NULL, " + j.open_type.name() + " TEXT NOT NULL, " + j.msgid.name() + " TEXT, " + j.app_open_time.name() + " TEXT NOT NULL, " + j.app_close_time.name() + " TEXT NOT NULL, " + j.use_duration.name() + " TEXT NOT NULL, " + j.extra.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
         private static final String c = "CREATE TABLE MsgArriveApp (" + h.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + h.msgId.name() + " TEXT NOT NULL, " + h.timeStamp.name() + " LONG NOT NULL);";
-        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0020a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0020a.msgId.name() + " TEXT NOT NULL, " + EnumC0020a.sendtime.name() + " LONG NOT NULL, " + EnumC0020a.showtime.name() + " LONG NOT NULL, " + EnumC0020a.expiretime.name() + " LONG NOT NULL, " + EnumC0020a.msgEnable.name() + " INTEGER, " + EnumC0020a.isAlarm.name() + " INTEGER);";
+        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0028a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0028a.msgId.name() + " TEXT NOT NULL, " + EnumC0028a.sendtime.name() + " LONG NOT NULL, " + EnumC0028a.showtime.name() + " LONG NOT NULL, " + EnumC0028a.expiretime.name() + " LONG NOT NULL, " + EnumC0028a.msgEnable.name() + " INTEGER, " + EnumC0028a.isAlarm.name() + " INTEGER);";
         private static final String e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
         private static final String f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
         private static final String g = "CREATE TABLE NoDisturb (" + i.pkgName.name() + " TEXT NOT NULL, " + i.startHour.name() + " INTEGER, " + i.startMinute.name() + " INTEGER, " + i.endHour.name() + " INTEGER, " + i.endMinute.name() + " INTEGER);";
@@ -295,7 +295,7 @@ public class a {
                 return -1;
             }
             try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0020a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                cursor = e2.query("AlarmMsgInfo", null, EnumC0028a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
             } catch (Exception e3) {
                 cursor2 = null;
             } catch (Throwable th) {
@@ -311,7 +311,7 @@ public class a {
             }
             try {
                 if (cursor.getCount() > 0) {
-                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0020a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0020a.msgId + " = " + str);
+                    e2.execSQL("UPDATE AlarmMsgInfo SET " + EnumC0028a.msgEnable.name() + " = " + i2 + " WHERE " + EnumC0028a.msgId + " = " + str);
                 }
                 if (cursor != null) {
                     cursor.close();
@@ -426,12 +426,12 @@ public class a {
             SQLiteDatabase e2 = e(context);
             if (e2 != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(EnumC0020a.msgId.name(), aVar.a);
-                contentValues.put(EnumC0020a.sendtime.name(), Long.valueOf(aVar.b));
-                contentValues.put(EnumC0020a.showtime.name(), Long.valueOf(aVar.c));
-                contentValues.put(EnumC0020a.expiretime.name(), Long.valueOf(aVar.d));
-                contentValues.put(EnumC0020a.isAlarm.name(), Integer.valueOf(aVar.e));
-                contentValues.put(EnumC0020a.msgEnable.name(), Integer.valueOf(aVar.f));
+                contentValues.put(EnumC0028a.msgId.name(), aVar.a);
+                contentValues.put(EnumC0028a.sendtime.name(), Long.valueOf(aVar.b));
+                contentValues.put(EnumC0028a.showtime.name(), Long.valueOf(aVar.c));
+                contentValues.put(EnumC0028a.expiretime.name(), Long.valueOf(aVar.d));
+                contentValues.put(EnumC0028a.isAlarm.name(), Integer.valueOf(aVar.e));
+                contentValues.put(EnumC0028a.msgEnable.name(), Integer.valueOf(aVar.f));
                 try {
                     j2 = e2.insert("AlarmMsgInfo", null, contentValues);
                     m.b("AlarmMsgInfoEnum:  insert into database", context);
@@ -1115,7 +1115,7 @@ public class a {
             }
             com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
             try {
-                query = e2.query("AlarmMsgInfo", null, EnumC0020a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                query = e2.query("AlarmMsgInfo", null, EnumC0028a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
             } catch (Exception e3) {
             } catch (Throwable th) {
                 th = th;
@@ -1130,11 +1130,11 @@ public class a {
             try {
                 if (query.getCount() > 0) {
                     query.moveToFirst();
-                    aVar.b = query.getLong(query.getColumnIndex(EnumC0020a.sendtime.name()));
-                    aVar.c = query.getLong(query.getColumnIndex(EnumC0020a.showtime.name()));
-                    aVar.d = query.getLong(query.getColumnIndex(EnumC0020a.expiretime.name()));
-                    aVar.e = query.getInt(query.getColumnIndex(EnumC0020a.isAlarm.name()));
-                    aVar.f = query.getInt(query.getColumnIndex(EnumC0020a.msgEnable.name()));
+                    aVar.b = query.getLong(query.getColumnIndex(EnumC0028a.sendtime.name()));
+                    aVar.c = query.getLong(query.getColumnIndex(EnumC0028a.showtime.name()));
+                    aVar.d = query.getLong(query.getColumnIndex(EnumC0028a.expiretime.name()));
+                    aVar.e = query.getInt(query.getColumnIndex(EnumC0028a.isAlarm.name()));
+                    aVar.f = query.getInt(query.getColumnIndex(EnumC0028a.msgEnable.name()));
                 }
                 if (query != null) {
                     query.close();
@@ -1175,12 +1175,12 @@ public class a {
                     while (rawQuery.moveToNext()) {
                         try {
                             com.baidu.android.pushservice.h.a aVar = new com.baidu.android.pushservice.h.a();
-                            aVar.a = rawQuery.getString(rawQuery.getColumnIndex(EnumC0020a.msgId.name()));
-                            aVar.b = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0020a.sendtime.name()));
-                            aVar.c = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0020a.showtime.name()));
-                            aVar.d = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0020a.expiretime.name()));
-                            aVar.e = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0020a.isAlarm.name()));
-                            aVar.f = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0020a.msgEnable.name()));
+                            aVar.a = rawQuery.getString(rawQuery.getColumnIndex(EnumC0028a.msgId.name()));
+                            aVar.b = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0028a.sendtime.name()));
+                            aVar.c = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0028a.showtime.name()));
+                            aVar.d = rawQuery.getLong(rawQuery.getColumnIndex(EnumC0028a.expiretime.name()));
+                            aVar.e = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0028a.isAlarm.name()));
+                            aVar.f = rawQuery.getInt(rawQuery.getColumnIndex(EnumC0028a.msgEnable.name()));
                             if (aVar.f == 0 || aVar.d < System.currentTimeMillis()) {
                                 d(context, aVar.a);
                             }
@@ -1239,10 +1239,10 @@ public class a {
                 return;
             }
             try {
-                cursor = e2.query("AlarmMsgInfo", null, EnumC0020a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
+                cursor = e2.query("AlarmMsgInfo", null, EnumC0028a.msgId.name() + " = " + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, null, null, null, null);
                 if (cursor != null) {
                     try {
-                        e2.delete("AlarmMsgInfo", EnumC0020a.msgId.name() + "= ?", new String[]{str});
+                        e2.delete("AlarmMsgInfo", EnumC0028a.msgId.name() + "= ?", new String[]{str});
                     } catch (Exception e3) {
                         if (cursor != null) {
                             cursor.close();

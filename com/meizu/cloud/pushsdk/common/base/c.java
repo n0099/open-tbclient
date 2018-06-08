@@ -2,6 +2,7 @@ package com.meizu.cloud.pushsdk.common.base;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.meizu.cloud.pushsdk.common.util.Logger;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -74,7 +75,7 @@ public class c implements Logger.Callback {
                 sb.append(": ");
                 sb.append(str2);
                 this.b.append((CharSequence) this.c.a(sb.toString().getBytes(Charset.forName("UTF-8"))));
-                this.b.append((CharSequence) "\r\n");
+                this.b.append((CharSequence) SystemInfoUtil.LINE_END);
                 this.b.flush();
             }
         } catch (Exception e) {

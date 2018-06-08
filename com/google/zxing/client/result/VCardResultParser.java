@@ -2,7 +2,6 @@ package com.google.zxing.client.result;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.google.zxing.Result;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -21,7 +20,7 @@ public final class VCardResultParser extends ResultParser {
     private static final Pattern EQUALS = Pattern.compile("=");
     private static final Pattern SEMICOLON = Pattern.compile(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
     private static final Pattern UNESCAPED_SEMICOLONS = Pattern.compile("(?<!\\\\);+");
-    private static final Pattern COMMA = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private static final Pattern COMMA = Pattern.compile(",");
     private static final Pattern SEMICOLON_OR_COMMA = Pattern.compile("[;,]");
 
     /* JADX DEBUG: Method merged with bridge method */

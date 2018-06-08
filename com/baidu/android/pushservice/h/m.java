@@ -5,11 +5,13 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.util.IoUtils;
 import com.baidu.fsg.base.utils.PhoneUtils;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,7 +41,7 @@ public final class m {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
-            hashMap.put("os", Constants.OS_TYPE_VALUE);
+            hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
             InputStream inputStream2 = null;
             long j = 1000;
             int i = 0;
@@ -157,7 +159,7 @@ public final class m {
             return null;
         }
         try {
-            return com.baidu.android.pushservice.k.b.a(bArr, "utf-8");
+            return com.baidu.android.pushservice.k.b.a(bArr, IoUtils.UTF_8);
         } catch (UnsupportedEncodingException e3) {
             return null;
         }
@@ -184,7 +186,7 @@ public final class m {
                     intent.putExtra("method", "com.baidu.android.pushservice.action.ENBALE_APPSTAT");
                     intent.setClass(this.b, PushService.class);
                     PendingIntent service = PendingIntent.getService(this.b.getApplicationContext(), 0, intent, 268435456);
-                    AlarmManager alarmManager = (AlarmManager) this.b.getSystemService("alarm");
+                    AlarmManager alarmManager = (AlarmManager) this.b.getSystemService(NotificationCompat.CATEGORY_ALARM);
                     alarmManager.cancel(service);
                     alarmManager.set(1, SystemClock.elapsedRealtime() + i2, service);
                 }

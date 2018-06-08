@@ -2,64 +2,63 @@ package com.baidu.tieba.tbadkCore.d;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a gyD;
-    private final int gyE = 10;
-    private final int gyF = PushConstants.WORK_RECEIVER_EVENTCORE_ERROR;
-    public String gyG = null;
-    public boolean akf = false;
+    private com.baidu.adp.lib.stats.a gKf;
+    private final int gKg = 10;
+    private final int gKh = 3000;
+    public String gKi = null;
+    public boolean asn = false;
 
     public b(String str) {
         U(str, false);
     }
 
     public void U(String str, boolean z) {
-        this.gyG = str;
-        this.akf = z;
-        this.gyD = new com.baidu.adp.lib.stats.a("dbg");
+        this.gKi = str;
+        this.asn = z;
+        this.gKf = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.gyD.fA();
+        this.gKf.iq();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bso;
-        if (this.gyD != null && (bso = bso()) != null) {
+        e bxt;
+        if (this.gKf != null && (bxt = bxt()) != null) {
             if (z) {
-                if (bso.gyL != null) {
-                    bso.gyL.num++;
+                if (bxt.gKn != null) {
+                    bxt.gKn.num++;
                     if (z2) {
-                        bso.gyL.gyI += j2;
-                        bso.gyL.size += j;
+                        bxt.gKn.gKk += j2;
+                        bxt.gKn.size += j;
                     } else {
-                        bso.gyL.gyJ++;
+                        bxt.gKn.gKl++;
                     }
                 } else {
                     return;
                 }
-            } else if (bso.gyM != null) {
-                bso.gyM.num++;
+            } else if (bxt.gKo != null) {
+                bxt.gKo.num++;
                 if (z2) {
-                    bso.gyM.gyI += j3;
-                    bso.gyM.size += j;
+                    bxt.gKo.gKk += j3;
+                    bxt.gKo.size += j;
                     j2 = j3;
                 } else {
-                    bso.gyM.gyJ++;
+                    bxt.gKo.gKl++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.gyD = null;
+            this.gKf = null;
             if (z2) {
-                c.a(bso, 10);
+                c.a(bxt, 10);
             }
-            if (this.gyG == "frsStat") {
+            if (this.gKi == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append(SocialConstants.PARAM_ACT, "frs");
@@ -76,34 +75,34 @@ public class b {
     }
 
     public void destory() {
-        e bso;
-        if (this.gyD != null && (bso = bso()) != null && bso.gyN != null) {
-            long fB = this.gyD.fB();
-            if (fB > 3000) {
-                d dVar = bso.gyN;
-                dVar.gyI = fB + dVar.gyI;
-                bso.gyN.num++;
-                c.a(bso, 10);
+        e bxt;
+        if (this.gKf != null && (bxt = bxt()) != null && bxt.gKp != null) {
+            long ir = this.gKf.ir();
+            if (ir > 3000) {
+                d dVar = bxt.gKp;
+                dVar.gKk = ir + dVar.gKk;
+                bxt.gKp.num++;
+                c.a(bxt, 10);
             }
         }
     }
 
-    private e bso() {
-        return c.l(this.gyG, getNetType(), this.akf);
+    private e bxt() {
+        return c.l(this.gKi, getNetType(), this.asn);
     }
 
     private String getNetType() {
-        int gV = j.gV();
-        if (gV == 0) {
+        int jJ = j.jJ();
+        if (jJ == 0) {
             return "N";
         }
-        if (gV == 1) {
+        if (jJ == 1) {
             return "WIFI";
         }
-        if (gV == 3) {
+        if (jJ == 3) {
             return "3G";
         }
-        if (gV != 2) {
+        if (jJ != 2) {
             return "N";
         }
         return "2G";

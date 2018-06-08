@@ -1,5 +1,6 @@
 package com.baidu.location;
 
+import com.baidu.ar.util.SystemInfoUtil;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
@@ -72,7 +73,7 @@ public class Jni {
             i2 = h;
         }
         try {
-            String[] split = b(d2, d3, i2, 132456).split(":");
+            String[] split = b(d2, d3, i2, 132456).split(SystemInfoUtil.COLON);
             dArr[0] = Double.parseDouble(split[0]);
             dArr[1] = Double.parseDouble(split[1]);
         } catch (UnsatisfiedLinkError e2) {

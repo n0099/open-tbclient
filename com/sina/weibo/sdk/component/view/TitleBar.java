@@ -49,7 +49,7 @@ public class TitleBar extends RelativeLayout {
         this.mLeftBtn.setLayoutParams(layoutParams);
         this.mLeftBtn.setOnClickListener(new View.OnClickListener() { // from class: com.sina.weibo.sdk.component.view.TitleBar.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 if (TitleBar.this.mClickListener != null) {
                     TitleBar.this.mClickListener.onLeftBtnClicked();
                 }

@@ -2,7 +2,6 @@ package com.baidu.android.pushservice.f;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.ar.util.Constants;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -251,6 +250,6 @@ public class b {
 
     private static boolean b(HttpURLConnection httpURLConnection) {
         String headerField = httpURLConnection.getHeaderField(HTTP.CONTENT_ENCODING);
-        return !TextUtils.isEmpty(headerField) && headerField.contains(Constants.ZIP_SUFFIX);
+        return !TextUtils.isEmpty(headerField) && headerField.contains("zip");
     }
 }

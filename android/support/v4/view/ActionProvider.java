@@ -13,7 +13,7 @@ public abstract class ActionProvider {
     private SubUiVisibilityListener mSubUiVisibilityListener;
     private VisibilityListener mVisibilityListener;
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public interface SubUiVisibilityListener {
         void onSubUiVisibilityChanged(boolean z);
@@ -63,14 +63,14 @@ public abstract class ActionProvider {
     public void onPrepareSubMenu(SubMenu subMenu) {
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void subUiVisibilityChanged(boolean z) {
         if (this.mSubUiVisibilityListener != null) {
             this.mSubUiVisibilityListener.onSubUiVisibilityChanged(z);
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSubUiVisibilityListener(SubUiVisibilityListener subUiVisibilityListener) {
         this.mSubUiVisibilityListener = subUiVisibilityListener;
     }
@@ -82,7 +82,7 @@ public abstract class ActionProvider {
         this.mVisibilityListener = visibilityListener;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void reset() {
         this.mVisibilityListener = null;
         this.mSubUiVisibilityListener = null;

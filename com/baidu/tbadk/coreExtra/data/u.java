@@ -1,54 +1,54 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class u {
-    private String atE;
-    private long atF;
-    private long atG;
-    private long atH;
-    private String atI;
-    private String atJ;
+    private String aBL;
+    private long aBM;
+    private long aBN;
+    private long aBO;
+    private String aBP;
+    private String aBQ;
 
     public void parseJson(String str) {
-        if (!an.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.atE = jSONObject.optString("splash_video_url");
-                this.atF = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.atG = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.atH = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.atI = jSONObject.optString("splash_video_h5_url");
-                this.atJ = jSONObject.optString("splash_video_h5_text");
+                this.aBL = jSONObject.optString("splash_video_url");
+                this.aBM = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.aBN = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.aBO = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.aBP = jSONObject.optString("splash_video_h5_url");
+                this.aBQ = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String yM() {
-        return this.atE;
+    public String Cm() {
+        return this.aBL;
     }
 
-    public long yN() {
-        return this.atF;
+    public long Cn() {
+        return this.aBM;
     }
 
-    public long yO() {
-        return this.atG;
+    public long Co() {
+        return this.aBN;
     }
 
-    public long yP() {
-        return this.atH;
+    public long Cp() {
+        return this.aBO;
     }
 
-    public String yQ() {
-        return this.atI;
+    public String Cq() {
+        return this.aBP;
     }
 
-    public String yR() {
-        return this.atJ;
+    public String Cr() {
+        return this.aBQ;
     }
 }

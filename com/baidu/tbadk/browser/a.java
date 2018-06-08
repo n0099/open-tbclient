@@ -18,14 +18,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ah;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String L(String str, String str2) {
+    public static String O(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -38,7 +38,7 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void M(Context context, String str) {
+    public static void O(Context context, String str) {
         b(context, true, str);
     }
 
@@ -50,7 +50,7 @@ public class a {
         a(context, str2, str, true, true, true, true, z);
     }
 
-    public static void f(Context context, String str, String str2) {
+    public static void g(Context context, String str, String str2) {
         a(context, str, str2, true, true, true, true, true);
     }
 
@@ -67,7 +67,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        pb();
+        sw();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -82,7 +82,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        pb();
+        sw();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -94,11 +94,25 @@ public class a {
         }
     }
 
-    public static void N(Context context, String str) {
-        M(context, str);
+    public static void P(Context context, String str) {
+        sw();
+        try {
+            if (!StringUtils.isNull(str)) {
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, true, false);
+                tbWebViewActivityConfig.setNoShare(true);
+                tbWebViewActivityConfig.setMenu(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    public static void O(Context context, String str) {
+    public static void Q(Context context, String str) {
+        O(context, str);
+    }
+
+    public static void R(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -113,7 +127,7 @@ public class a {
     }
 
     public static String b(String str, List<Pair<String, String>> list) {
-        if (!an.isEmpty(str) && list != null) {
+        if (!ao.isEmpty(str) && list != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") < 0) {
@@ -133,7 +147,7 @@ public class a {
     }
 
     public static String appendCuidParam(String str) {
-        if (!an.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ao.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -153,10 +167,10 @@ public class a {
     }
 
     public static String appendVersionCode(String str) {
-        return (an.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ao.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void ar(Context context) {
+    public static void aB(Context context) {
         CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -167,7 +181,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.qe().cD(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.tA().db(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -195,7 +209,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void pb() {
-        new ag("open_webview", true).start();
+    private static void sw() {
+        new ah("open_webview", true).start();
     }
 }

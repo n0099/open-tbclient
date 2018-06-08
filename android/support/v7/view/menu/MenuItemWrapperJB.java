@@ -1,7 +1,7 @@
 package android.support.v7.view.menu;
 
-import android.annotation.TargetApi;
 import android.content.Context;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v4.internal.view.SupportMenuItem;
 import android.support.v4.view.ActionProvider;
@@ -10,8 +10,8 @@ import android.view.ActionProvider;
 import android.view.MenuItem;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
-@TargetApi(16)
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RequiresApi(16)
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class MenuItemWrapperJB extends MenuItemWrapperICS {
     /* JADX INFO: Access modifiers changed from: package-private */

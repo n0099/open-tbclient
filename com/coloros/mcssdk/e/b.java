@@ -8,17 +8,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String hnn = null;
+    public static final String hzj = null;
     private String content;
-    private String hno;
-    private String hnp;
-    private String hnq;
-    private String hnr;
-    private int oj;
+    private String hzk;
+    private String hzl;
+    private String hzm;
+    private String hzn;
     private String params;
     private int responseCode = -2;
+    private int uI;
 
-    public static List<e> q(String str, String str2, String str3, String str4) {
+    public static List<e> r(String str, String str2, String str3, String str4) {
         ArrayList arrayList;
         JSONException e;
         if (TextUtils.isEmpty(str)) {
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.vG(jSONObject.getString(str3));
+                    eVar.wA(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -49,8 +49,8 @@ public class b extends c {
         return arrayList;
     }
 
-    public int cM() {
-        return this.oj;
+    public int fB() {
+        return this.uI;
     }
 
     public String getContent() {
@@ -67,7 +67,7 @@ public class b extends c {
     }
 
     public void setAppKey(String str) {
-        this.hno = str;
+        this.hzk = str;
     }
 
     public void setContent(String str) {
@@ -75,18 +75,18 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hns + ",taskID:" + this.hnt + ",appPackage:" + this.appPackage + ",appKey:" + this.hno + ",appSecret:" + this.hnp + ",registerID:" + this.hnq + ",sdkVersion:" + this.hnr + ",command:" + this.oj + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hzo + ",taskID:" + this.hzp + ",appPackage:" + this.appPackage + ",appKey:" + this.hzk + ",appSecret:" + this.hzl + ",registerID:" + this.hzm + ",sdkVersion:" + this.hzn + ",command:" + this.uI + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void vC(String str) {
-        this.hnp = str;
+    public void vM(int i) {
+        this.uI = i;
     }
 
-    public void vu(int i) {
-        this.oj = i;
-    }
-
-    public void vv(int i) {
+    public void vN(int i) {
         this.responseCode = i;
+    }
+
+    public void ww(String str) {
+        this.hzl = str;
     }
 }

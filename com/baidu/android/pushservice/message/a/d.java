@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.ar.util.IoUtils;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +36,7 @@ public class d extends c {
                     String d = d.d(context);
                     HashMap hashMap = new HashMap();
                     com.baidu.android.pushservice.e.b.a(hashMap);
-                    hashMap.put("device_type", "3");
+                    hashMap.put(StatisticConstants.DEVICE_TYPE, "3");
                     hashMap.put(LegoListActivityConfig.PARAMS, d);
                     int i = 0;
                     do {
@@ -108,7 +110,7 @@ public class d extends c {
         jSONObject.put("channel_id", a);
         jSONObject.put("cuid", a2);
         jSONObject.put("aksinfo", c);
-        return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), "utf-8");
+        return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), IoUtils.UTF_8);
     }
 
     @Override // com.baidu.android.pushservice.message.a.c

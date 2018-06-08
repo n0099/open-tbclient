@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
+import com.baidu.ar.util.IoUtils;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -223,7 +224,7 @@ public class SocialApiIml extends BaseApi {
         settings.setDatabaseEnabled(true);
         String str2 = "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.b.getOpenId() + "_" + this.b.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>";
         String a2 = g.a().a(context, "http://qzs.qq.com");
-        bVar.loadDataWithBaseURL(a2, str2, "text/html", "utf-8", a2);
+        bVar.loadDataWithBaseURL(a2, str2, "text/html", IoUtils.UTF_8, a2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

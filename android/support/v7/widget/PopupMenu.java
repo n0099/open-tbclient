@@ -36,17 +36,17 @@ public class PopupMenu {
         boolean onMenuItemClick(MenuItem menuItem);
     }
 
-    public PopupMenu(@NonNull Context context, @NonNull View view2) {
-        this(context, view2, 0);
+    public PopupMenu(@NonNull Context context, @NonNull View view) {
+        this(context, view, 0);
     }
 
-    public PopupMenu(@NonNull Context context, @NonNull View view2, int i) {
-        this(context, view2, i, R.attr.popupMenuStyle, 0);
+    public PopupMenu(@NonNull Context context, @NonNull View view, int i) {
+        this(context, view, i, R.attr.popupMenuStyle, 0);
     }
 
-    public PopupMenu(@NonNull Context context, @NonNull View view2, int i, @AttrRes int i2, @StyleRes int i3) {
+    public PopupMenu(@NonNull Context context, @NonNull View view, int i, @AttrRes int i2, @StyleRes int i3) {
         this.mContext = context;
-        this.mAnchor = view2;
+        this.mAnchor = view;
         this.mMenu = new MenuBuilder(context);
         this.mMenu.setCallback(new MenuBuilder.Callback() { // from class: android.support.v7.widget.PopupMenu.1
             @Override // android.support.v7.view.menu.MenuBuilder.Callback
@@ -61,7 +61,7 @@ public class PopupMenu {
             public void onMenuModeChange(MenuBuilder menuBuilder) {
             }
         });
-        this.mPopup = new MenuPopupHelper(context, this.mMenu, view2, false, i2, i3);
+        this.mPopup = new MenuPopupHelper(context, this.mMenu, view, false, i2, i3);
         this.mPopup.setGravity(i);
         this.mPopup.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: android.support.v7.widget.PopupMenu.2
             @Override // android.widget.PopupWindow.OnDismissListener

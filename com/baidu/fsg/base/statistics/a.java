@@ -36,7 +36,7 @@ public class a {
                 FileOutputStream openFileOutput = context.openFileOutput(str, z ? 32768 : 0);
                 if (openFileOutput != null) {
                     try {
-                        openFileOutput.write(str2.getBytes(a));
+                        openFileOutput.write(str2.getBytes("utf-8"));
                     } catch (Throwable th2) {
                         fileOutputStream = openFileOutput;
                         th = th2;
@@ -78,7 +78,7 @@ public class a {
             if (b2 == null) {
                 return "";
             }
-            return new String(b2, a);
+            return new String(b2, "utf-8");
         } catch (Exception e) {
             return "";
         }

@@ -1,12 +1,10 @@
 package android.support.v4.app;
 
-import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.RemoteInputCompatBase;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class NotificationCompatBase {
 
@@ -15,7 +13,7 @@ public class NotificationCompatBase {
 
         /* loaded from: classes2.dex */
         public interface Factory {
-            Action build(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInputCompatBase.RemoteInput[] remoteInputArr, boolean z);
+            Action build(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInputCompatBase.RemoteInput[] remoteInputArr, RemoteInputCompatBase.RemoteInput[] remoteInputArr2, boolean z);
 
             Action[] newArray(int i);
         }
@@ -23,6 +21,8 @@ public class NotificationCompatBase {
         public abstract PendingIntent getActionIntent();
 
         public abstract boolean getAllowGeneratedReplies();
+
+        public abstract RemoteInputCompatBase.RemoteInput[] getDataOnlyRemoteInputs();
 
         public abstract Bundle getExtras();
 
@@ -60,11 +60,5 @@ public class NotificationCompatBase {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public abstract PendingIntent getReplyPendingIntent();
-    }
-
-    public static Notification add(Notification notification, Context context, CharSequence charSequence, CharSequence charSequence2, PendingIntent pendingIntent, PendingIntent pendingIntent2) {
-        notification.setLatestEventInfo(context, charSequence, charSequence2, pendingIntent);
-        notification.fullScreenIntent = pendingIntent2;
-        return notification;
     }
 }

@@ -21,6 +21,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -33,6 +34,7 @@ import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.meizu.cloud.pushsdk.PushManager;
@@ -717,7 +719,7 @@ public final class m {
 
     public static void a(Context context, Intent intent, long j) {
         PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, 268435456);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
         alarmManager.cancel(broadcast);
         alarmManager.set(3, SystemClock.elapsedRealtime() + j, broadcast);
     }
@@ -741,7 +743,7 @@ public final class m {
         a2.putExtra("tinyMessageHead", kVar);
         a2.putExtra("msgBody", bArr);
         PendingIntent service = PendingIntent.getService(context, i, a2, 134217728);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
             if (Build.VERSION.SDK_INT < 19) {
                 alarmManager.set(0, aVar.c, service);
@@ -776,7 +778,7 @@ public final class m {
         try {
             Context applicationContext = context.getApplicationContext();
             k.a(applicationContext, 8, "");
-            com.coloros.mcssdk.a.bFq().b(applicationContext, str, str2, bVar);
+            com.coloros.mcssdk.a.bKu().b(applicationContext, str, str2, bVar);
         } catch (Exception e) {
         }
     }
@@ -1709,7 +1711,7 @@ public final class m {
             int i = 0;
             while (i < allByName.length) {
                 i++;
-                str2 = str2 + ":" + allByName[i].getHostAddress();
+                str2 = str2 + SystemInfoUtil.COLON + allByName[i].getHostAddress();
             }
             return str2.length() > 1 ? str2.substring(1) : str2;
         } catch (Exception e) {
@@ -2502,7 +2504,7 @@ public final class m {
             if (a2.length() > 1000) {
                 a2 = a2.substring(500);
             }
-            str = a2 + ":" + str;
+            str = a2 + SystemInfoUtil.COLON + str;
         }
         j.a(context, "com.baidu.android.pushservice.MESSAGE_IDS_RECEIVED", str);
         return false;

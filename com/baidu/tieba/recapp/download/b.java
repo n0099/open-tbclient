@@ -2,31 +2,31 @@ package com.baidu.tieba.recapp.download;
 
 import android.os.Handler;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.q;
+import com.baidu.tbadk.core.util.r;
 /* loaded from: classes3.dex */
 public class b {
-    private q ahm = null;
-    private com.baidu.tbadk.core.util.a.a ahl = null;
+    private r apt = null;
+    private com.baidu.tbadk.core.util.a.a aps = null;
 
     public b() {
-        vh();
+        yI();
     }
 
-    public void eY() {
-        if (this.ahm != null) {
-            this.ahm.eY();
+    public void hP() {
+        if (this.apt != null) {
+            this.apt.hP();
         }
     }
 
     public void setUrl(String str) {
-        this.ahl.wh().wk().mUrl = str;
+        this.aps.zI().zL().mUrl = str;
     }
 
-    private void vh() {
-        this.ahl = new com.baidu.tbadk.core.util.a.a();
-        this.ahm = new c(this.ahl);
-        this.ahl.wh().wk().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
-        com.baidu.adp.lib.network.a.a.ao(TbadkCoreApplication.getInst().getCuid());
+    private void yI() {
+        this.aps = new com.baidu.tbadk.core.util.a.a();
+        this.apt = new c(this.aps);
+        this.aps.zI().zL().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        com.baidu.adp.lib.network.a.a.aA(TbadkCoreApplication.getInst().getCuid());
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3) {
@@ -34,11 +34,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        vi().wh().a(this.ahm);
-        return this.ahm.a(str, handler, i, i2, i3, z);
+        yJ().zI().a(this.apt);
+        return this.apt.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a vi() {
-        return this.ahl;
+    public com.baidu.tbadk.core.util.a.a yJ() {
+        return this.aps;
     }
 }

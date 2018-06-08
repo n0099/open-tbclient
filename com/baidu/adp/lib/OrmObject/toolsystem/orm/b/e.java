@@ -8,15 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements c {
-    private JSONObject qC;
+    private JSONObject wR;
 
     public e(JSONObject jSONObject) {
-        this.qC = jSONObject;
+        this.wR = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> dN() {
-        Iterator<String> keys = this.qC.keys();
+    public Set<String> gE() {
+        Iterator<String> keys = this.wR.keys();
         if (keys != null) {
             HashSet hashSet = new HashSet();
             while (keys.hasNext()) {
@@ -31,13 +31,13 @@ public class e implements c {
     }
 
     public Object getObject(String str) {
-        return this.qC.opt(str);
+        return this.wR.opt(str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void d(String str, Object obj) {
         try {
-            this.qC.putOpt(str, obj);
+            this.wR.putOpt(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -48,9 +48,9 @@ public class e implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h l = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.l(object);
-            if (l != null) {
-                return l.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h o = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.o(object);
+            if (o != null) {
+                return o.g(cVar);
             }
             return object;
         }

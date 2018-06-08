@@ -10,6 +10,6 @@ public class b implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2001178, f.NF().NG());
+        return new CustomResponsedMessage<>(2001178, f.Re().Rf());
     }
 }

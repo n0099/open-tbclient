@@ -9,67 +9,67 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.viewpager.bannerflow.b;
 import com.baidu.tbadk.core.view.viewpager.c;
 import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BannerFlowView extends FrameLayout {
-    private com.baidu.tbadk.core.view.viewpager.b aqT;
-    private IndicatorView aqW;
-    private ViewPager ars;
-    private b art;
+    private com.baidu.tbadk.core.view.viewpager.b aza;
+    private IndicatorView azd;
+    private ViewPager azy;
+    private b azz;
     private View mBottomLine;
 
     public BannerFlowView(Context context) {
         super(context);
-        aM(context);
+        aW(context);
     }
 
     public BannerFlowView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        aM(context);
+        aW(context);
     }
 
-    private void aM(Context context) {
-        this.ars = new ViewPager(context);
-        this.aqW = new IndicatorView(context);
-        this.aqW.setSpacing(0);
-        xz();
-        this.aqT = new com.baidu.tbadk.core.view.viewpager.b(context, this.ars, this.aqW, null);
-        this.art = new b(context, a.arr);
-        this.aqT.setAutoScrollIntervalTime(TbConfig.NOTIFY_SOUND_INTERVAL);
-        this.aqT.a(context, this.art);
-        addView(this.ars, new FrameLayout.LayoutParams(-1, -1));
+    private void aW(Context context) {
+        this.azy = new ViewPager(context);
+        this.azd = new IndicatorView(context);
+        this.azd.setSpacing(0);
+        Ba();
+        this.aza = new com.baidu.tbadk.core.view.viewpager.b(context, this.azy, this.azd, null);
+        this.azz = new b(context, a.azx);
+        this.aza.setAutoScrollIntervalTime(TbConfig.NOTIFY_SOUND_INTERVAL);
+        this.aza.a(context, this.azz);
+        addView(this.azy, new FrameLayout.LayoutParams(-1, -1));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 85;
         layoutParams.setMargins(0, 0, l.e(context, d.e.ds20), l.e(context, d.e.ds16));
-        addView(this.aqW, layoutParams);
+        addView(this.azd, layoutParams);
         this.mBottomLine = new View(context);
-        this.mBottomLine.setBackgroundColor(ak.getColor(d.C0126d.common_color_10043));
+        this.mBottomLine.setBackgroundColor(al.getColor(d.C0141d.common_color_10043));
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.e(context, d.e.ds1));
         layoutParams2.gravity = 80;
         addView(this.mBottomLine, layoutParams2);
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.aqT.setMaxScrollCountLimit(i);
+        this.aza.setMaxScrollCountLimit(i);
     }
 
     public void setData(List<h> list) {
-        this.ars.removeAllViews();
-        this.aqT.setDatas(list);
+        this.azy.removeAllViews();
+        this.aza.setDatas(list);
     }
 
-    private void xz() {
-        this.aqW.setSelector(ak.getDrawable(d.f.icon_diandian_white_s));
-        this.aqW.setDrawable(ak.getDrawable(d.f.icon_diandian_white_n));
+    private void Ba() {
+        this.azd.setSelector(al.getDrawable(d.f.icon_diandian_white_s));
+        this.azd.setDrawable(al.getDrawable(d.f.icon_diandian_white_n));
     }
 
     public void setOnItemClickListener(c.a<a, b.a> aVar) {
-        if (this.art != null) {
-            this.art.setOnItemClickListener(aVar);
+        if (this.azz != null) {
+            this.azz.setOnItemClickListener(aVar);
         }
     }
 }

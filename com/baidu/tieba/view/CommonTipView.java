@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
@@ -101,7 +101,7 @@ public class CommonTipView extends TextView {
             public void onAnimationEnd(Animation animation) {
                 CommonTipView.this.onDestroy();
                 CommonTipView.this.setVisibility(8);
-                com.baidu.adp.lib.g.e.fw().postDelayed(CommonTipView.this.mRunnable, 600L);
+                com.baidu.adp.lib.g.e.im().postDelayed(CommonTipView.this.mRunnable, 600L);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -153,6 +153,13 @@ public class CommonTipView extends TextView {
         }
     }
 
+    public void hide() {
+        ViewGroup viewGroup = (ViewGroup) getParent();
+        if (viewGroup != null) {
+            viewGroup.removeView(this);
+        }
+    }
+
     public void setTipDuration(int i) {
         if (i > 0) {
             this.mDuration = i;
@@ -160,12 +167,13 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        ak.d(this, d.C0126d.common_color_10260, i);
-        ak.b(this, d.C0126d.cp_cont_g, 1, i);
+        al.d(this, d.C0141d.common_color_10260, i);
+        al.b(this, d.C0141d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {
         removeCallbacks(this.mHideTipRunnable);
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mRunnable);
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.mRunnable);
+        hide();
     }
 }

@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a mq;
-    private SparseArray<String> mr;
+    private static volatile a sO;
+    private SparseArray<String> sP;
 
-    public static a bY() {
-        if (mq == null) {
+    public static a eM() {
+        if (sO == null) {
             synchronized (a.class) {
-                if (mq == null) {
-                    mq = new a();
+                if (sO == null) {
+                    sO = new a();
                 }
             }
         }
-        return mq;
+        return sO;
     }
 
     private a() {
-        this.mr = null;
-        this.mr = new SparseArray<>();
+        this.sP = null;
+        this.sP = new SparseArray<>();
     }
 
-    public void f(List<String> list) {
+    public void i(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                E(str);
+                Q(str);
             }
         }
     }
 
-    private void E(String str) {
+    private void Q(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.mr.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.mr.get(i) + " 重复");
+                    if (this.sP.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.sP.get(i) + " 重复");
                     }
-                    this.mr.put(i, name);
+                    this.sP.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String z(int i) {
-        String str = this.mr.get(i);
+    public String A(int i) {
+        String str = this.sP.get(i);
         if (str != null) {
             return str;
         }

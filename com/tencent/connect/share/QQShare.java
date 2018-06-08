@@ -296,7 +296,7 @@ public class QQShare extends BaseApi {
                 f.c("openSDK_LOG.QQShare", "doShareToQQ, last listener is not null, cancel it.");
             }
             if (a(intent)) {
-                a(activity, Constants.REQUEST_QQ_SHARE, intent, true);
+                a(activity, 10103, intent, true);
             }
         }
         String str = Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;

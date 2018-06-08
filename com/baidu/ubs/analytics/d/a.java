@@ -3,32 +3,32 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes.dex */
 public final class a {
-    private static final String hmp = Environment.getExternalStorageDirectory().getPath();
-    static final String aQ = hmp + "/baidu/ab/crash/";
-    static final String aR = hmp + "/baidu/ab/sdklog/";
-    public static final String hmq = hmp + "/baidu/ab/sdkupdata/" + bFg() + "/";
-    private static int hmr = EnumC0246a.aV;
+    private static final String hyk = Environment.getExternalStorageDirectory().getPath();
+    static final String hyl = hyk + "/baidu/ab/crash/";
+    static final String hym = hyk + "/baidu/ab/sdklog/";
+    public static final String Sz = hyk + "/baidu/ab/sdkupdata/" + bKk() + "/";
+    private static int hyn = EnumC0263a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0246a {
+    public static final class EnumC0263a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] hms = {aV, aW};
+        private static final /* synthetic */ int[] hyo = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean as() {
-        return hmr == EnumC0246a.aV;
+    public static boolean bKj() {
+        return hyn == EnumC0263a.aV;
     }
 
     public static String u() {
         return "0.4.0";
     }
 
-    private static int bFg() {
+    private static int bKk() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

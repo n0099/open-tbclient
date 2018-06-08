@@ -1,4 +1,6 @@
 package com.baidu.ubs.analytics.d;
+
+import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes.dex */
 public final class f {
     public static String encode(String str) {
@@ -29,9 +31,9 @@ public final class f {
                 sb2.append("=");
             }
             for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                sb2.insert(i2, "\r\n");
+                sb2.insert(i2, SystemInfoUtil.LINE_END);
             }
-            sb2.append("\r\n");
+            sb2.append(SystemInfoUtil.LINE_END);
             return String.valueOf(sb2);
         }
         return str;

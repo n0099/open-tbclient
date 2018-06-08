@@ -1,111 +1,50 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class am {
-    private static am aiD;
+    private String key;
+    private List<Object> params = new ArrayList();
 
-    public static synchronized am vJ() {
-        am amVar;
-        synchronized (am.class) {
-            if (aiD == null) {
-                aiD = new am();
-            }
-            amVar = aiD;
-        }
-        return amVar;
+    public List<Object> getParams() {
+        return this.params;
     }
 
-    public String ef(String str) {
-        if (str == null) {
-            return null;
-        }
-        long j = 0;
-        for (byte b : str.getBytes()) {
-            j += b;
-        }
-        return "image/" + (j % 20);
+    public String getKey() {
+        return this.key;
     }
 
-    public Bitmap dH(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return k.Y(ef(str), str);
+    public am() {
     }
 
-    public boolean eg(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return k.X(ef(str), str);
+    public am(String str) {
+        this.key = str;
     }
 
-    public int eh(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        return (int) k.W(ef(str), str);
+    public am ah(String str, String str2) {
+        this.params.add(str);
+        this.params.add(str2);
+        return this;
     }
 
-    public boolean Z(String str, String str2) {
-        String str3 = k.wA + "/" + TbConfig.getTempDirName() + "/";
-        if (!k.dr(str3)) {
-            k.dN(str3);
-        }
-        String str4 = str3 + ef(str2);
-        if (!k.dr(str4)) {
-            k.dN(str4);
-        }
-        String str5 = str4 + "/" + str2;
-        if (str.equals(str5)) {
-            return false;
-        }
-        return k.d(str, str5, true);
+    public am r(String str, int i) {
+        this.params.add(str);
+        this.params.add(Integer.valueOf(i));
+        return this;
     }
 
-    public void i(String str, byte[] bArr) {
-        if (!TextUtils.isEmpty(str)) {
-            k.d(ef(str), str, bArr);
-        }
+    public am f(String str, long j) {
+        this.params.add(str);
+        this.params.add(Long.valueOf(j));
+        return this;
     }
 
-    private void u(File file) {
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    u(file2);
-                    file2.delete();
-                } else if (!file2.delete()) {
-                }
-            }
-        }
-    }
-
-    public void vK() {
-        u(new File(k.wA + "/" + TbConfig.getTempDirName() + "/image"));
-        u(new File(k.wA + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
-    }
-
-    public void vL() {
-        v(new File(k.wA + "/" + TbConfig.getTempDirName() + "/" + k.cz(3)));
-    }
-
-    private void v(File file) {
-        long currentTimeMillis = System.currentTimeMillis();
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    u(file2);
-                    file2.delete();
-                } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
-                }
-            }
+    public void delete(String str) {
+        int indexOf;
+        if (!ao.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
+            this.params.remove(indexOf);
+            this.params.remove(indexOf);
         }
     }
 }

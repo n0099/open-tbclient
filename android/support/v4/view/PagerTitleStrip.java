@@ -4,24 +4,23 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.TextViewCompat;
 import android.text.TextUtils;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
 import java.lang.ref.WeakReference;
+import java.util.Locale;
 @ViewPager.DecorView
 /* loaded from: classes2.dex */
 public class PagerTitleStrip extends ViewGroup {
-    private static final PagerTitleStripImpl IMPL;
     private static final float SIDE_ALPHA = 0.6f;
-    private static final String TAG = "PagerTitleStrip";
     private static final int TEXT_SPACING = 16;
     TextView mCurrText;
     private int mGravity;
@@ -40,44 +39,27 @@ public class PagerTitleStrip extends ViewGroup {
     private static final int[] ATTRS = {16842804, 16842901, 16842904, 16842927};
     private static final int[] TEXT_ATTRS = {16843660};
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public interface PagerTitleStripImpl {
-        void setSingleLineAllCaps(TextView textView);
-    }
+    public static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
+        private Locale mLocale;
 
-    static {
-        if (Build.VERSION.SDK_INT >= 14) {
-            IMPL = new PagerTitleStripImplIcs();
-        } else {
-            IMPL = new PagerTitleStripImplBase();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class PagerTitleStripImplBase implements PagerTitleStripImpl {
-        PagerTitleStripImplBase() {
+        SingleLineAllCapsTransform(Context context) {
+            this.mLocale = context.getResources().getConfiguration().locale;
         }
 
-        @Override // android.support.v4.view.PagerTitleStrip.PagerTitleStripImpl
-        public void setSingleLineAllCaps(TextView textView) {
-            textView.setSingleLine();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class PagerTitleStripImplIcs implements PagerTitleStripImpl {
-        PagerTitleStripImplIcs() {
-        }
-
-        @Override // android.support.v4.view.PagerTitleStrip.PagerTitleStripImpl
-        public void setSingleLineAllCaps(TextView textView) {
-            PagerTitleStripIcs.setSingleLineAllCaps(textView);
+        @Override // android.text.method.ReplacementTransformationMethod, android.text.method.TransformationMethod
+        public CharSequence getTransformation(CharSequence charSequence, View view) {
+            CharSequence transformation = super.getTransformation(charSequence, view);
+            if (transformation != null) {
+                return transformation.toString().toUpperCase(this.mLocale);
+            }
+            return null;
         }
     }
 
     private static void setSingleLineAllCaps(TextView textView) {
-        IMPL.setSingleLineAllCaps(textView);
+        textView.setTransformationMethod(new SingleLineAllCapsTransform(textView.getContext()));
     }
 
     public PagerTitleStrip(Context context) {
@@ -331,7 +313,7 @@ public class PagerTitleStrip extends ViewGroup {
         } else {
             max = Math.max(getMinHeight(), paddingTop + this.mCurrText.getMeasuredHeight());
         }
-        setMeasuredDimension(size, ViewCompat.resolveSizeAndState(max, i2, ViewCompat.getMeasuredState(this.mCurrText) << 16));
+        setMeasuredDimension(size, View.resolveSizeAndState(max, i2, this.mCurrText.getMeasuredState() << 16));
     }
 
     @Override // android.view.ViewGroup, android.view.View

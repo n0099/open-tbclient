@@ -4,6 +4,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes2.dex */
 public abstract class FragmentPagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
@@ -78,8 +79,8 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        return ((Fragment) obj).getView() == view2;
+    public boolean isViewFromObject(View view, Object obj) {
+        return ((Fragment) obj).getView() == view;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -96,6 +97,6 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     private static String makeFragmentName(int i, long j) {
-        return "android:switcher:" + i + ":" + j;
+        return "android:switcher:" + i + SystemInfoUtil.COLON + j;
     }
 }

@@ -4,6 +4,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 import com.baidu.tieba.model.ReportUserInfoModel;
@@ -14,7 +15,7 @@ public final class b {
         long currentTimeMillis;
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
             intent.setClass(context, MyService.class);
             intent.setPackage(context.getPackageName());
@@ -48,7 +49,7 @@ public final class b {
     public static void a(Context context, int i, boolean z) {
         long j = 600000;
         try {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
             intent.setClass(context, MyService.class);
             intent.setPackage(context.getPackageName());
@@ -83,7 +84,7 @@ public final class b {
 
     public static void a(Context context) {
         try {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
             intent.setClass(context, MyService.class);
             intent.setPackage(context.getPackageName());

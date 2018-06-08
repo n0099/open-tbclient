@@ -12,7 +12,7 @@ public final class EnvironmentCompat {
 
     public static String getStorageState(File file) {
         if (Build.VERSION.SDK_INT >= 19) {
-            return EnvironmentCompatKitKat.getStorageState(file);
+            return Environment.getStorageState(file);
         }
         try {
             if (file.getCanonicalPath().startsWith(Environment.getExternalStorageDirectory().getCanonicalPath())) {

@@ -13,22 +13,22 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class LocationInformationBox extends AbstractFullBox {
     public static final String TYPE = "loci";
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0278a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_9 = null;
     private String additionalNotes;
     private double altitude;
     private String astronomicalBody;
@@ -95,7 +95,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setRole(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wj(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wD(i)));
         this.role = i;
     }
 
@@ -105,7 +105,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setLongitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.r(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.t(d)));
         this.longitude = d;
     }
 
@@ -115,7 +115,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setLatitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.r(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.t(d)));
         this.latitude = d;
     }
 
@@ -125,7 +125,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setAltitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.r(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.t(d)));
         this.altitude = d;
     }
 

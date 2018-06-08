@@ -3,27 +3,30 @@ package android.support.design.internal;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.RestrictTo;
-import android.support.v4.os.ParcelableCompat;
-import android.support.v4.os.ParcelableCompatCreatorCallbacks;
 import android.util.SparseArray;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ParcelableSparseArray extends SparseArray<Parcelable> implements Parcelable {
-    public static final Parcelable.Creator<ParcelableSparseArray> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<ParcelableSparseArray>() { // from class: android.support.design.internal.ParcelableSparseArray.1
+    public static final Parcelable.Creator<ParcelableSparseArray> CREATOR = new Parcelable.ClassLoaderCreator<ParcelableSparseArray>() { // from class: android.support.design.internal.ParcelableSparseArray.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+        @Override // android.os.Parcelable.ClassLoaderCreator
         public ParcelableSparseArray createFromParcel(Parcel parcel, ClassLoader classLoader) {
             return new ParcelableSparseArray(parcel, classLoader);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+        @Override // android.os.Parcelable.Creator
+        public ParcelableSparseArray createFromParcel(Parcel parcel) {
+            return new ParcelableSparseArray(parcel, null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
         public ParcelableSparseArray[] newArray(int i) {
             return new ParcelableSparseArray[i];
         }
-    });
+    };
 
     public ParcelableSparseArray() {
     }

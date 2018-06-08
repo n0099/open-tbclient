@@ -8,26 +8,26 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a ait;
-    private c dcP;
+    private com.baidu.tbadk.coreExtra.model.a aqA;
+    private c dme;
     private TbPageContext mPageContext;
-    private BdUniqueId aBL = BdUniqueId.gen();
+    private BdUniqueId aKh = BdUniqueId.gen();
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.dcP != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
-                if (!data.Ai) {
-                    h.this.dcP.showMsg(updateAttentionMessage.getData().errorString);
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.dme != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
+                if (!data.Gp) {
+                    h.this.dme.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
-                    h.this.dcP.fF(data.isAttention);
+                    h.this.dme.fK(data.isAttention);
                 }
             }
         }
@@ -35,25 +35,25 @@ public class h {
 
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
-        this.dcP = cVar;
-        this.ait = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.dme = cVar;
+        this.aqA = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
         this.mAttentionListener.setSelfListener(true);
-        this.mAttentionListener.setTag(this.aBL);
+        this.mAttentionListener.setTag(this.aKh);
         MessageManager.getInstance().registerListener(this.mAttentionListener);
     }
 
     public void f(g gVar) {
-        if (!j.gP()) {
+        if (!j.jD()) {
             this.mPageContext.showToast(d.k.no_network);
-        } else if (gVar != null && gVar.dcD != null && this.ait != null && az.aK(this.mPageContext.getPageActivity())) {
-            this.ait.a(!gVar.dcD.hasFocus, gVar.dcD.portrait, gVar.dcD.userId, this.aBL);
+        } else if (gVar != null && gVar.dlS != null && this.aqA != null && ba.aU(this.mPageContext.getPageActivity())) {
+            this.aqA.a(!gVar.dlS.hasFocus, gVar.dlS.portrait, gVar.dlS.userId, this.aKh);
         }
     }
 
     public void g(g gVar) {
-        if (!j.gP()) {
+        if (!j.jD()) {
             this.mPageContext.showToast(d.k.no_network);
-        } else if (gVar != null && this.dcP != null && az.aK(this.mPageContext.getPageActivity())) {
+        } else if (gVar != null && this.dme != null && ba.aU(this.mPageContext.getPageActivity())) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("thread_id", gVar.threadId);
             httpMessage.addParam("op_type", gVar.hasAgree ? 1 : 0);
@@ -61,13 +61,13 @@ public class h {
             httpMessage.addParam("agree_type", 2);
             httpMessage.addParam("forum_id", gVar.forumId);
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.dcP.aqT();
+            this.dme.auY();
         }
     }
 
-    public void arf() {
-        if (this.ait != null) {
-            this.ait.cancel();
+    public void avk() {
+        if (this.aqA != null) {
+            this.aqA.cancel();
         }
         MessageManager.getInstance().unRegisterListener(this.mAttentionListener);
     }

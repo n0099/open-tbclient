@@ -2,31 +2,41 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.card.data.h;
 import com.baidu.tieba.card.data.i;
 import com.baidu.tieba.card.data.p;
+import java.util.Iterator;
 import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class f extends h implements p {
-    private CardGod dGp;
+    private CardGod dRF;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.dGp = cardGod;
-            this.mGroupTitle = this.dGp.card_title;
-            if (!v.w(this.dGp.gods)) {
+            this.dRF = cardGod;
+            this.mGroupTitle = this.dRF.card_title;
+            if (!w.z(this.dRF.gods)) {
                 int i = 0;
-                for (User user : this.dGp.gods) {
-                    if (i != 10) {
-                        MetaData metaData = new MetaData();
-                        metaData.parserProtobuf(user);
-                        if (!StringUtils.isNull(metaData.getUserName())) {
-                            i iVar = new i();
-                            iVar.aaf = metaData;
-                            a(iVar);
-                            i++;
+                Iterator<User> it = this.dRF.gods.iterator();
+                while (true) {
+                    int i2 = i;
+                    if (it.hasNext()) {
+                        User next = it.next();
+                        if (i2 != 10) {
+                            MetaData metaData = new MetaData();
+                            metaData.parserProtobuf(next);
+                            if (StringUtils.isNull(metaData.getUserName())) {
+                                i = i2;
+                            } else {
+                                i iVar = new i();
+                                iVar.aik = metaData;
+                                a(iVar);
+                                i = i2 + 1;
+                            }
+                        } else {
+                            return;
                         }
                     } else {
                         return;
@@ -37,29 +47,29 @@ public class f extends h implements p {
     }
 
     public boolean isValidate() {
-        return v.v(getDataList()) > 2;
+        return w.y(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.dGp == null || this.dGp.position == null) {
+        if (this.dRF == null || this.dRF.position == null) {
             return 0;
         }
-        return this.dGp.position.intValue();
+        return this.dRF.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean afO() {
+    public boolean ajw() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void ew(boolean z) {
+    public void eA(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void ex(boolean z) {
+    public void eB(boolean z) {
         this.showBottomDivider = z;
     }
 }

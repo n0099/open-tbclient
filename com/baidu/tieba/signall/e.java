@@ -3,47 +3,47 @@ package com.baidu.tieba.signall;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 /* loaded from: classes3.dex */
 public class e {
-    private static final String goi = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
-    private x mNetWork = null;
+    private static final String gzG = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    private y mNetWork = null;
 
-    public String boF() {
-        this.mNetWork = new x(goi);
-        this.mNetWork.vi().wh().ajD = true;
-        this.mNetWork.vi().wh().mIsNeedTbs = true;
-        return this.mNetWork.uK();
+    public String btF() {
+        this.mNetWork = new y(gzG);
+        this.mNetWork.yJ().zI().arL = true;
+        this.mNetWork.yJ().zI().mIsNeedTbs = true;
+        return this.mNetWork.yl();
     }
 
-    public String sB(String str) {
+    public String ts(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {
             str2 = currentAccountObj.getID();
         }
-        this.mNetWork = new x(goi);
-        this.mNetWork.n("user_id", str2);
-        this.mNetWork.n("forum_ids", str);
-        this.mNetWork.vi().wh().ajD = true;
-        this.mNetWork.vi().wh().mIsNeedTbs = true;
-        return this.mNetWork.uK();
+        this.mNetWork = new y(gzG);
+        this.mNetWork.o("user_id", str2);
+        this.mNetWork.o("forum_ids", str);
+        this.mNetWork.yJ().zI().arL = true;
+        this.mNetWork.yJ().zI().mIsNeedTbs = true;
+        return this.mNetWork.yl();
     }
 
     public void cancel() {
         if (this.mNetWork != null) {
-            this.mNetWork.eW();
+            this.mNetWork.hN();
         }
     }
 
     public boolean isRequestSuccess() {
         if (this.mNetWork != null) {
-            return this.mNetWork.vi().wi().isRequestSuccess();
+            return this.mNetWork.yJ().zJ().isRequestSuccess();
         }
         return false;
     }
 
-    public String pV() {
+    public String tr() {
         if (this.mNetWork != null) {
             return this.mNetWork.getErrorString();
         }

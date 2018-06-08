@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.SearchPostForum.DataReq;
 import tbclient.SearchPostForum.SearchPostForumReqIdl;
 /* loaded from: classes3.dex */
@@ -27,7 +27,7 @@ public class SearchPostForumRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.word = get_word();
             if (z) {
-                o.bindCommonParamsToProtobufData(builder, true);
+                p.bindCommonParamsToProtobufData(builder, true);
             }
             SearchPostForumReqIdl.Builder builder2 = new SearchPostForumReqIdl.Builder();
             builder2.data = builder.build(false);

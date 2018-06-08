@@ -4,14 +4,14 @@ import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes2.dex */
 public abstract class at {
-    protected BaseActivity bcK;
+    protected BaseActivity bkU;
     protected View mRootView;
 
     protected abstract void a(d dVar);
 
-    public at(BaseActivity baseActivity, View view2) {
-        this.bcK = baseActivity;
-        this.mRootView = view2;
+    public at(BaseActivity baseActivity, View view) {
+        this.bkU = baseActivity;
+        this.mRootView = view;
     }
 
     public void init() {
@@ -19,14 +19,14 @@ public abstract class at {
     }
 
     public void b(d dVar) {
-        if (this.bcK != null && this.mRootView != null) {
+        if (this.bkU != null && this.mRootView != null) {
             a(dVar);
         }
     }
 
-    public void a(View view2, View.OnClickListener onClickListener) {
-        if (view2 != null) {
-            view2.setOnClickListener(onClickListener);
+    public void a(View view, View.OnClickListener onClickListener) {
+        if (view != null) {
+            view.setOnClickListener(onClickListener);
         }
     }
 }

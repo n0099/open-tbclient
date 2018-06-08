@@ -20,20 +20,20 @@ public class a extends e {
 
     /* renamed from: org.apache.thrift.protocol.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0277a implements g {
+    public static class C0295a implements g {
         protected boolean a;
         protected boolean b;
         protected int c;
 
-        public C0277a() {
+        public C0295a() {
             this(false, true);
         }
 
-        public C0277a(boolean z, boolean z2) {
+        public C0295a(boolean z, boolean z2) {
             this(z, z2, 0);
         }
 
-        public C0277a(boolean z, boolean z2, int i) {
+        public C0295a(boolean z, boolean z2, int i) {
             this.a = false;
             this.b = true;
             this.a = z;

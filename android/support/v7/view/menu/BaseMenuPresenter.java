@@ -2,14 +2,13 @@ package android.support.v7.view.menu;
 
 import android.content.Context;
 import android.support.annotation.RestrictTo;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.view.menu.MenuView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public abstract class BaseMenuPresenter implements MenuPresenter {
     private MenuPresenter.Callback mCallback;
@@ -69,7 +68,7 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
                         View itemView = getItemView(menuItemImpl, childAt, viewGroup);
                         if (menuItemImpl != itemData) {
                             itemView.setPressed(false);
-                            ViewCompat.jumpDrawablesToCurrentState(itemView);
+                            itemView.jumpDrawablesToCurrentState();
                         }
                         if (itemView != childAt) {
                             addItemView(itemView, i);
@@ -92,12 +91,12 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         }
     }
 
-    protected void addItemView(View view2, int i) {
-        ViewGroup viewGroup = (ViewGroup) view2.getParent();
+    protected void addItemView(View view, int i) {
+        ViewGroup viewGroup = (ViewGroup) view.getParent();
         if (viewGroup != null) {
-            viewGroup.removeView(view2);
+            viewGroup.removeView(view);
         }
-        ((ViewGroup) this.mMenuView).addView(view2, i);
+        ((ViewGroup) this.mMenuView).addView(view, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -119,10 +118,10 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         return (MenuView.ItemView) this.mSystemInflater.inflate(this.mItemLayoutRes, viewGroup, false);
     }
 
-    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
+    public View getItemView(MenuItemImpl menuItemImpl, View view, ViewGroup viewGroup) {
         MenuView.ItemView createItemView;
-        if (view2 instanceof MenuView.ItemView) {
-            createItemView = (MenuView.ItemView) view2;
+        if (view instanceof MenuView.ItemView) {
+            createItemView = (MenuView.ItemView) view;
         } else {
             createItemView = createItemView(viewGroup);
         }

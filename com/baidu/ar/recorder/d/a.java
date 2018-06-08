@@ -1,188 +1,99 @@
 package com.baidu.ar.recorder.d;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
 import android.util.Log;
-import com.baidu.ar.recorder.encoder.EncoderParams;
-import com.baidu.ar.recorder.encoder.c;
-import com.baidu.ar.recorder.encoder.d;
+import android.view.Surface;
 import java.nio.ByteBuffer;
+import tv.danmaku.ijk.media.player.IMediaFormat;
+import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
-public class a implements com.baidu.ar.recorder.a.a {
-    private static final String a = a.class.getSimpleName();
-    private static volatile a g;
-    private HandlerThread b;
-    private Handler c;
-    private com.baidu.ar.recorder.encoder.a d;
-    private d e;
-    private volatile boolean f = false;
+public class a extends b {
+    private static final String g = a.class.getSimpleName();
+    private long h = 0;
 
-    /* renamed from: com.baidu.ar.recorder.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class C0032a {
-        ByteBuffer a;
-        int b;
-        long c;
-
-        public C0032a(ByteBuffer byteBuffer, int i, long j) {
-            this.a = byteBuffer;
-            this.b = i;
-            this.c = j;
+    @Override // com.baidu.ar.recorder.d.b
+    protected void a() {
+        if (this.f == 0) {
+            this.f = this.c.presentationTimeUs;
         }
+        this.c.presentationTimeUs -= this.f;
+        if (this.c.presentationTimeUs < this.h) {
+            MediaCodec.BufferInfo bufferInfo = this.c;
+            long j = this.h + 10000;
+            this.h = j;
+            bufferInfo.presentationTimeUs = j;
+        }
+        this.h = this.c.presentationTimeUs;
+        Log.d(g, "syncTimestamp mAudioEncoder = " + this.c.size + "|" + this.c.presentationTimeUs);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static class b extends Handler {
-        private com.baidu.ar.recorder.a.a a;
-
-        public b(Looper looper, com.baidu.ar.recorder.a.a aVar) {
-            super(looper);
-            this.a = aVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            this.a.a(message);
-        }
+    @Override // com.baidu.ar.recorder.d.b
+    public /* bridge */ /* synthetic */ void a(c cVar) {
+        super.a(cVar);
     }
 
-    private a() {
-    }
-
-    public static a a() {
-        if (g == null) {
-            synchronized (a.class) {
-                if (g == null) {
-                    g = new a();
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0065  */
+    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(d dVar, e eVar) {
+        boolean z = true;
+        if (dVar != null && eVar != null) {
+            this.a = eVar;
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString(IMediaFormat.KEY_MIME, dVar.l());
+            mediaFormat.setInteger("aac-profile", 2);
+            mediaFormat.setInteger("sample-rate", dVar.o());
+            mediaFormat.setInteger("channel-count", dVar.m());
+            mediaFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.n());
+            mediaFormat.setInteger("max-input-size", dVar.p());
+            try {
+                this.b = MediaCodec.createEncoderByType(dVar.l());
+                this.b.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+                if (dVar.d()) {
+                    this.e = false;
+                } else {
+                    this.e = true;
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-        return g;
-    }
-
-    private void a(EncoderParams encoderParams) {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.d.a(encoderParams, this.e);
-        }
-    }
-
-    private void a(d dVar, c cVar) {
-        this.b = new HandlerThread("AudioRecorderThread");
-        this.b.start();
-        this.c = new b(this.b.getLooper(), this);
-        this.d = new com.baidu.ar.recorder.encoder.a();
-        this.e = dVar;
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.d.a(cVar);
-        }
-    }
-
-    private void b(ByteBuffer byteBuffer, int i, long j) {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.d.a(false, byteBuffer, i, j);
-        }
-    }
-
-    private void f() {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.d.d();
-        }
-    }
-
-    private void g() {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.d.a(true, (ByteBuffer) null, 0, 0L);
-        }
-    }
-
-    private void h() {
-        if (Build.VERSION.SDK_INT >= 18) {
-            this.d.c();
-            this.d.b();
-            this.d = null;
-            this.e = null;
-        }
-    }
-
-    private void i() {
-        this.b.quit();
-        this.b = null;
-        this.c = null;
-        g = null;
-    }
-
-    @Override // com.baidu.ar.recorder.a.a
-    public void a(Message message) {
-        switch (message.what) {
-            case 1001:
-                a((EncoderParams) message.obj);
+            if (this.d == null) {
+                this.d.a(z);
                 return;
-            case 1002:
-                f();
-                return;
-            case 1003:
-                C0032a c0032a = (C0032a) message.obj;
-                b(c0032a.a, c0032a.b, c0032a.c);
-                return;
-            case 1004:
-                g();
-                return;
-            case 1005:
-                h();
-                return;
-            case 1006:
-                i();
-                return;
-            default:
-                return;
-        }
-    }
-
-    public void a(ByteBuffer byteBuffer, int i, long j) {
-        C0032a c0032a = new C0032a(byteBuffer, i, j);
-        if (this.c == null || !this.f) {
+            }
             return;
         }
-        this.c.sendMessage(this.c.obtainMessage(1003, c0032a));
-    }
-
-    public boolean a(EncoderParams encoderParams, d dVar, c cVar) {
-        if (b()) {
-            Log.e(a, "setupRecorder error! As last audio recorder thread is alive!");
-            return false;
-        }
-        a(dVar, cVar);
-        this.c.sendMessage(this.c.obtainMessage(1001, encoderParams));
-        this.f = true;
-        return true;
-    }
-
-    public boolean b() {
-        return this.b != null && this.b.isAlive();
-    }
-
-    public void c() {
-        if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(1002));
+        z = false;
+        if (this.d == null) {
         }
     }
 
-    public void d() {
-        if (this.c == null || !this.f) {
-            return;
-        }
-        this.f = false;
-        this.c.sendMessage(this.c.obtainMessage(1004));
+    @Override // com.baidu.ar.recorder.d.b
+    public /* bridge */ /* synthetic */ void a(boolean z) {
+        super.a(z);
     }
 
-    public void e() {
-        if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(1005));
-            this.c.sendMessage(this.c.obtainMessage(1006));
-        }
+    @Override // com.baidu.ar.recorder.d.b
+    public /* bridge */ /* synthetic */ void a(boolean z, ByteBuffer byteBuffer, int i, long j) {
+        super.a(z, byteBuffer, i, j);
+    }
+
+    @Override // com.baidu.ar.recorder.d.b
+    public /* bridge */ /* synthetic */ void b() {
+        super.b();
+    }
+
+    @Override // com.baidu.ar.recorder.d.b
+    public /* bridge */ /* synthetic */ void c() {
+        super.c();
+    }
+
+    @Override // com.baidu.ar.recorder.d.b
+    public /* bridge */ /* synthetic */ void d() {
+        super.d();
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String aWi;
-    private int aWj;
-    private String aWk;
-    private int aWl;
-    private int aWm;
+    private String ben;
+    private int beo;
+    private String bep;
+    private int beq;
+    private int ber;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.aWi = pbContent.src;
+            this.ben = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aWj = pbContent.e_type.intValue();
-            this.aWk = pbContent.text;
+            this.beo = pbContent.e_type.intValue();
+            this.bep = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.aWl = pbContent.count.intValue();
-            this.aWm = pbContent.origin_size.intValue();
+            this.beq = pbContent.count.intValue();
+            this.ber = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.aWi;
+        return this.ben;
     }
 
     public int getWidth() {
@@ -44,12 +44,12 @@ public class f {
         return this.height;
     }
 
-    public String Kt() {
-        return this.aWk;
+    public String NS() {
+        return this.bep;
     }
 
-    public boolean Ku() {
-        return this.aWj == 15;
+    public boolean NT() {
+        return this.beo == 15;
     }
 
     public boolean isAvaliable() {

@@ -1,20 +1,20 @@
 package com.baidu.tieba.ad.statis;
 /* loaded from: classes3.dex */
-public class a implements com.baidu.tieba.o.a {
+public class a implements com.baidu.tieba.p.a {
     private a() {
     }
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0113a {
-        private static a bdJ = new a();
+    private static class C0129a {
+        private static a blT = new a();
     }
 
-    public static a Nf() {
-        return C0113a.bdJ;
+    public static a QF() {
+        return C0129a.blT;
     }
 
-    @Override // com.baidu.tieba.o.a
+    @Override // com.baidu.tieba.p.a
     public void b(long j, String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "pageshow");
@@ -24,8 +24,8 @@ public class a implements com.baidu.tieba.o.a {
         init.send();
     }
 
-    @Override // com.baidu.tieba.o.a
-    public void aw(String str, String str2) {
+    @Override // com.baidu.tieba.p.a
+    public void aD(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -33,8 +33,8 @@ public class a implements com.baidu.tieba.o.a {
         init.send();
     }
 
-    @Override // com.baidu.tieba.o.a
-    public void ax(String str, String str2) {
+    @Override // com.baidu.tieba.p.a
+    public void aE(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -42,8 +42,8 @@ public class a implements com.baidu.tieba.o.a {
         init.send();
     }
 
-    @Override // com.baidu.tieba.o.a
-    public void ay(String str, String str2) {
+    @Override // com.baidu.tieba.p.a
+    public void aF(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);
@@ -51,7 +51,7 @@ public class a implements com.baidu.tieba.o.a {
         init.send();
     }
 
-    @Override // com.baidu.tieba.o.a
+    @Override // com.baidu.tieba.p.a
     public void a(long j, String str, String str2, long j2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "pagetime");
@@ -62,7 +62,7 @@ public class a implements com.baidu.tieba.o.a {
         init.send();
     }
 
-    @Override // com.baidu.tieba.o.a
+    @Override // com.baidu.tieba.p.a
     public void o(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "alert_click");

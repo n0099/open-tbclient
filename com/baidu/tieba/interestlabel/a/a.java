@@ -4,13 +4,13 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.interestlabel.view.LabelItemView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tieba.interestlabel.b.a> etk = new ArrayList();
+    private List<com.baidu.tieba.interestlabel.b.a> eEA = new ArrayList();
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -19,8 +19,8 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (!v.w(list)) {
-            this.etk = list;
+        if (!w.z(list)) {
+            this.eEA = list;
             notifyDataSetChanged();
         }
     }
@@ -31,7 +31,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int size = this.etk.size();
+        int size = this.eEA.size();
         if (size % 3 == 0) {
             return size / 3;
         }
@@ -49,15 +49,15 @@ public class a extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         LabelItemView labelItemView;
-        if (view2 == null) {
+        if (view == null) {
             labelItemView = new LabelItemView(this.mContext);
         } else {
-            labelItemView = (LabelItemView) view2;
+            labelItemView = (LabelItemView) view;
         }
         int i2 = i * 3;
-        labelItemView.setData(this.etk.subList(i2, Math.min(this.etk.size(), i2 + 3)), i == getCount() + (-1));
+        labelItemView.setData(this.eEA.subList(i2, Math.min(this.eEA.size(), i2 + 3)), i == getCount() + (-1));
         labelItemView.setOnClickListener(this.mOnClickListener);
         return labelItemView;
     }

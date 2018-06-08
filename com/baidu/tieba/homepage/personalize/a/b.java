@@ -9,38 +9,38 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.m;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.j, a> implements com.baidu.tieba.a.f {
-    public BdUniqueId aTs;
-    private NEGFeedBackView.a aYP;
-    private String bwO;
-    ab<com.baidu.tieba.card.data.j> dBW;
-    private m dFy;
+    public BdUniqueId aQJ;
+    private String bER;
+    private NEGFeedBackView.a bgZ;
+    ab<com.baidu.tieba.card.data.j> dNe;
+    private m dQN;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.aYP = null;
-        this.dBW = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.a.b.1
+        this.bgZ = null;
+        this.dNe = new ab<com.baidu.tieba.card.data.j>() { // from class: com.baidu.tieba.homepage.personalize.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
-            public void a(View view2, com.baidu.tieba.card.data.j jVar) {
-                if (b.this.dFy.cpk != view2) {
-                    if (view2 == b.this.dFy.bxb.getCommentContainer() || view2 == b.this.dFy.bxQ.apG.getCommentContainer()) {
+            public void a(View view, com.baidu.tieba.card.data.j jVar) {
+                if (b.this.dQN.cxO != view) {
+                    if (view == b.this.dQN.bFe.getCommentContainer() || view == b.this.dQN.bFT.axN.getCommentContainer()) {
                         String str = "";
-                        if (jVar != null && jVar.Pb() != null) {
-                            str = jVar.Pb().getTid();
+                        if (jVar != null && jVar.Sz() != null) {
+                            str = jVar.Sz().getTid();
                         }
-                        al alVar = new al("c12942");
-                        alVar.r("obj_locate", 1);
-                        alVar.r("obj_type", 5);
-                        alVar.ac("tid", str);
-                        TiebaStatic.log(alVar);
+                        am amVar = new am("c12942");
+                        amVar.r("obj_locate", 1);
+                        amVar.r("obj_type", 5);
+                        amVar.ah("tid", str);
+                        TiebaStatic.log(amVar);
                         return;
                     }
                     return;
@@ -48,19 +48,19 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 int i = 0;
                 String str2 = "";
                 long j = 0;
-                if (jVar != null && jVar.Pb() != null) {
-                    i = jVar.Pb().sh().live_type;
-                    str2 = jVar.Pb().getTid();
-                    j = jVar.Pb().sh().live_id;
+                if (jVar != null && jVar.Sz() != null) {
+                    i = jVar.Sz().vE().live_type;
+                    str2 = jVar.Sz().getTid();
+                    j = jVar.Sz().vE().live_id;
                 }
-                al alVar2 = new al("c11824");
-                alVar2.ac("uid", TbadkCoreApplication.getCurrentAccount());
-                alVar2.ac("ab_tag", jVar.afK());
-                alVar2.f("liveid", j);
-                alVar2.r("obj_type", i);
-                alVar2.ac("tid", str2);
-                alVar2.ac("obj_param1", jVar.getExtra());
-                TiebaStatic.log(alVar2);
+                am amVar2 = new am("c11824");
+                amVar2.ah("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar2.ah("ab_tag", jVar.ajr());
+                amVar2.f("liveid", j);
+                amVar2.r("obj_type", i);
+                amVar2.ah("tid", str2);
+                amVar2.ah("obj_param1", jVar.getExtra());
+                TiebaStatic.log(amVar2);
             }
         };
         this.mPageContext = tbPageContext;
@@ -69,75 +69,75 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aO */
+    /* renamed from: aP */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dFy = new m(this.mPageContext);
-        this.dFy.currentPageType = 2;
-        if (this.dFy.bxb != null) {
-            this.dFy.bxb.abW = 2;
+        this.dQN = new m(this.mPageContext);
+        this.dQN.currentPageType = 2;
+        if (this.dQN.bFe != null) {
+            this.dQN.bFe.aka = 2;
         }
-        if (this.dFy.bxQ != null && this.dFy.bxQ.apG != null) {
-            this.dFy.bxQ.apG.abW = 2;
+        if (this.dQN.bFT != null && this.dQN.bFT.axN != null) {
+            this.dQN.bFT.axN.aka = 2;
         }
-        if (this.aTs != null) {
-            this.dFy.j(this.aTs);
+        if (this.aQJ != null) {
+            this.dQN.j(this.aQJ);
         }
-        return new a(this.dFy);
+        return new a(this.dQN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, a aVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, a aVar) {
         if (jVar != null) {
-            jVar.iM(i + 1);
+            jVar.iN(i + 1);
         }
-        if (aVar.dFA instanceof com.baidu.tieba.a.e) {
-            aVar.dFA.setPage(this.bwO);
+        if (aVar.dQP instanceof com.baidu.tieba.a.e) {
+            aVar.dQP.setPage(this.bER);
         }
-        aVar.dFA.a(jVar);
-        aVar.dFA.b(this.dBW);
-        aVar.dFA.a(this.aYP);
+        aVar.dQP.a(jVar);
+        aVar.dQP.b(this.dNe);
+        aVar.dQP.a(this.bgZ);
         long j = 0;
         String str = "";
-        if (jVar != null && jVar.Pb() != null) {
-            int i2 = jVar.Pb().sh().live_type;
-            String tid = jVar.Pb().getTid();
-            if (!StringUtils.isNull(jVar.Pb().sh().appId)) {
-                str = jVar.Pb().sh().appId;
-                j = jVar.Pb().sh().live_id;
+        if (jVar != null && jVar.Sz() != null) {
+            int i2 = jVar.Sz().vE().live_type;
+            String tid = jVar.Sz().getTid();
+            if (!StringUtils.isNull(jVar.Sz().vE().appId)) {
+                str = jVar.Sz().vE().appId;
+                j = jVar.Sz().vE().live_id;
             }
-            al alVar = new al("c11823");
-            alVar.r("obj_type", i2);
-            alVar.ac("obj_param3", str);
-            alVar.ac("tid", tid);
-            alVar.ac("ab_tag", jVar.afK());
-            alVar.f("liveid", j);
-            alVar.f(ImageViewerConfig.FORUM_ID, jVar.Pb().getFid());
-            alVar.ac("uid", TbadkCoreApplication.getCurrentAccount());
-            alVar.ac("obj_param1", jVar.getExtra());
-            TiebaStatic.log(alVar);
+            am amVar = new am("c11823");
+            amVar.r("obj_type", i2);
+            amVar.ah("obj_param3", str);
+            amVar.ah("tid", tid);
+            amVar.ah("ab_tag", jVar.ajr());
+            amVar.f("liveid", j);
+            amVar.f(ImageViewerConfig.FORUM_ID, jVar.Sz().getFid());
+            amVar.ah("uid", TbadkCoreApplication.getCurrentAccount());
+            amVar.ah("obj_param1", jVar.getExtra());
+            TiebaStatic.log(amVar);
         }
         return aVar.getView();
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.aYP = aVar;
+        this.bgZ = aVar;
     }
 
     /* loaded from: classes2.dex */
-    public class a extends q.a {
-        public m dFA;
+    public static class a extends q.a {
+        public m dQP;
 
         public a(m mVar) {
             super(mVar.getView());
-            this.dFA = mVar;
+            this.dQP = mVar;
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void hZ(String str) {
-        this.bwO = str;
+    public void iy(String str) {
+        this.bER = str;
     }
 }

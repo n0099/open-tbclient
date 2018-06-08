@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.d> {
-    public View bZm;
-    public TextView fMq;
-    public TextView fMr;
-    public TextView fMs;
-    public TextView fMt;
-    public ClickableHeaderImageView fMu;
-    public ClickableHeaderImageView fMv;
-    public ClickableHeaderImageView fMw;
-    public TextView fMx;
+    public View chp;
+    public TextView fXC;
+    public TextView fXD;
+    public TextView fXE;
+    public TextView fXF;
+    public ClickableHeaderImageView fXG;
+    public ClickableHeaderImageView fXH;
+    public ClickableHeaderImageView fXI;
+    public TextView fXJ;
     private boolean isHost;
     private View.OnClickListener mOnClickListener;
     private TbPageContext<?> mPageContext;
@@ -36,38 +36,38 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         super(tbPageContext);
         this.mSkinType = 3;
         this.mPageContext = tbPageContext;
-        View view2 = getView();
+        View view = getView();
         initListener();
-        this.bZm = view2.findViewById(d.g.bottom_divider);
-        this.fMr = (TextView) view2.findViewById(d.g.month_num);
-        this.fMq = (TextView) view2.findViewById(d.g.day_num);
-        this.fMs = (TextView) view2.findViewById(d.g.identity);
-        this.fMt = (TextView) view2.findViewById(d.g.attention_str);
-        this.fMu = (ClickableHeaderImageView) view2.findViewById(d.g.header1);
-        this.fMu.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds100));
-        this.fMu.setAutoChangeStyle(true);
-        this.fMu.setOnClickListener(this.mOnClickListener);
-        this.fMv = (ClickableHeaderImageView) view2.findViewById(d.g.header2);
-        this.fMv.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds100));
-        this.fMv.setAutoChangeStyle(true);
-        this.fMv.setOnClickListener(this.mOnClickListener);
-        this.fMw = (ClickableHeaderImageView) view2.findViewById(d.g.header3);
-        this.fMw.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds100));
-        this.fMw.setAutoChangeStyle(true);
-        this.fMw.setOnClickListener(this.mOnClickListener);
-        this.fMx = (TextView) view2.findViewById(d.g.etc_person);
+        this.chp = view.findViewById(d.g.bottom_divider);
+        this.fXD = (TextView) view.findViewById(d.g.month_num);
+        this.fXC = (TextView) view.findViewById(d.g.day_num);
+        this.fXE = (TextView) view.findViewById(d.g.identity);
+        this.fXF = (TextView) view.findViewById(d.g.attention_str);
+        this.fXG = (ClickableHeaderImageView) view.findViewById(d.g.header1);
+        this.fXG.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds100));
+        this.fXG.setAutoChangeStyle(true);
+        this.fXG.setOnClickListener(this.mOnClickListener);
+        this.fXH = (ClickableHeaderImageView) view.findViewById(d.g.header2);
+        this.fXH.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds100));
+        this.fXH.setAutoChangeStyle(true);
+        this.fXH.setOnClickListener(this.mOnClickListener);
+        this.fXI = (ClickableHeaderImageView) view.findViewById(d.g.header3);
+        this.fXI.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds100));
+        this.fXI.setAutoChangeStyle(true);
+        this.fXI.setOnClickListener(this.mOnClickListener);
+        this.fXJ = (TextView) view.findViewById(d.g.etc_person);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ak.i(getView(), d.f.home_thread_card_item_bg);
-            ak.j(this.bZm, d.C0126d.cp_bg_line_c);
-            ak.h(this.fMr, d.C0126d.cp_cont_f);
-            ak.h(this.fMq, d.C0126d.cp_cont_f);
-            ak.h(this.fMs, d.C0126d.cp_cont_f);
-            ak.h(this.fMt, d.C0126d.cp_cont_f);
-            ak.h(this.fMx, d.C0126d.cp_cont_c);
+            al.i(getView(), d.f.home_thread_card_item_bg);
+            al.j(this.chp, d.C0141d.cp_bg_line_c);
+            al.h(this.fXD, d.C0141d.cp_cont_f);
+            al.h(this.fXC, d.C0141d.cp_cont_f);
+            al.h(this.fXE, d.C0141d.cp_cont_f);
+            al.h(this.fXF, d.C0141d.cp_cont_f);
+            al.h(this.fXJ, d.C0141d.cp_cont_c);
         }
         this.mSkinType = i;
     }
@@ -91,75 +91,75 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             getView().setVisibility(0);
         }
         this.isHost = dVar.isHost;
-        this.fMq.setText(dVar.ctG);
-        this.fMr.setText(dVar.ctF);
-        this.fMq.setVisibility(dVar.ctM ? 0 : 4);
-        this.fMr.setVisibility(dVar.ctM ? 0 : 4);
+        this.fXC.setText(dVar.cCk);
+        this.fXD.setText(dVar.cCj);
+        this.fXC.setVisibility(dVar.cCq ? 0 : 4);
+        this.fXD.setVisibility(dVar.cCq ? 0 : 4);
         if (dVar.isHost) {
-            this.fMs.setText(this.mPageContext.getString(d.k.me));
+            this.fXE.setText(this.mPageContext.getString(d.k.me));
         } else {
-            this.fMs.setText(an.cU(dVar.sex));
+            this.fXE.setText(ao.cW(dVar.sex));
         }
-        int v = v.v(dVar.users);
-        if (v > 3) {
-            this.fMx.setVisibility(0);
-            this.fMx.setText(String.format(this.mPageContext.getString(d.k.attention_etc_person), Integer.valueOf(v)));
+        int y = w.y(dVar.users);
+        if (y > 3) {
+            this.fXJ.setVisibility(0);
+            this.fXJ.setText(String.format(this.mPageContext.getString(d.k.attention_etc_person), Integer.valueOf(y)));
         } else {
-            this.fMx.setVisibility(8);
+            this.fXJ.setVisibility(8);
         }
-        if (v >= 3) {
-            this.fMw.setVisibility(0);
-            this.fMw.setTag(dVar.users.get(2));
+        if (y >= 3) {
+            this.fXI.setVisibility(0);
+            this.fXI.setTag(dVar.users.get(2));
             if (dVar.users.get(2).getGodUserData() != null && dVar.users.get(2).getGodUserData().getType() == 2) {
-                this.fMw.setIsGod(true);
+                this.fXI.setIsGod(true);
             } else {
-                this.fMw.setIsGod(false);
+                this.fXI.setIsGod(false);
             }
-            this.fMw.startLoad(dVar.users.get(2).getPortrait(), 12, false);
+            this.fXI.startLoad(dVar.users.get(2).getPortrait(), 12, false);
         } else {
-            this.fMw.setVisibility(8);
+            this.fXI.setVisibility(8);
         }
-        if (v >= 2) {
-            this.fMv.setVisibility(0);
-            this.fMv.setTag(dVar.users.get(1));
+        if (y >= 2) {
+            this.fXH.setVisibility(0);
+            this.fXH.setTag(dVar.users.get(1));
             if (dVar.users.get(1).getGodUserData() != null && dVar.users.get(1).getGodUserData().getType() == 2) {
-                this.fMv.setIsGod(true);
+                this.fXH.setIsGod(true);
             } else {
-                this.fMv.setIsGod(false);
+                this.fXH.setIsGod(false);
             }
-            this.fMv.startLoad(dVar.users.get(1).getPortrait(), 12, false);
+            this.fXH.startLoad(dVar.users.get(1).getPortrait(), 12, false);
         } else {
-            this.fMv.setVisibility(8);
+            this.fXH.setVisibility(8);
         }
-        if (v >= 1) {
-            this.fMu.setVisibility(0);
-            this.fMu.setTag(dVar.users.get(0));
+        if (y >= 1) {
+            this.fXG.setVisibility(0);
+            this.fXG.setTag(dVar.users.get(0));
             if (dVar.users.get(0).getGodUserData() != null && dVar.users.get(0).getGodUserData().getType() == 2) {
-                this.fMu.setIsGod(true);
+                this.fXG.setIsGod(true);
             } else {
-                this.fMu.setIsGod(false);
+                this.fXG.setIsGod(false);
             }
-            this.fMu.startLoad(dVar.users.get(0).getPortrait(), 12, false);
+            this.fXG.startLoad(dVar.users.get(0).getPortrait(), 12, false);
         } else {
-            this.fMu.setVisibility(8);
+            this.fXG.setVisibility(8);
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
     }
 
     private void initListener() {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.c.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (view2 != null) {
+            public void onClick(View view) {
+                if (view != null) {
                     if (!c.this.isHost) {
-                        TiebaStatic.log(new al("c11595"));
+                        TiebaStatic.log(new am("c11595"));
                     }
-                    if (view2.getTag() instanceof UserData) {
-                        UserData userData = (UserData) view2.getTag();
+                    if (view.getTag() instanceof UserData) {
+                        UserData userData = (UserData) view.getTag();
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(c.this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), null, AddFriendActivityConfig.TYPE_FOCUS)));
                     }
                 }

@@ -34,13 +34,13 @@ public abstract class ActionBar {
     public static final int NAVIGATION_MODE_TABS = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface DisplayOptions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface NavigationMode {
     }
@@ -75,13 +75,13 @@ public abstract class ActionBar {
 
         public abstract void select();
 
-        public abstract Tab setContentDescription(int i);
+        public abstract Tab setContentDescription(@StringRes int i);
 
         public abstract Tab setContentDescription(CharSequence charSequence);
 
         public abstract Tab setCustomView(int i);
 
-        public abstract Tab setCustomView(View view2);
+        public abstract Tab setCustomView(View view);
 
         public abstract Tab setIcon(@DrawableRes int i);
 
@@ -176,9 +176,9 @@ public abstract class ActionBar {
 
     public abstract void setCustomView(int i);
 
-    public abstract void setCustomView(View view2);
+    public abstract void setCustomView(View view);
 
-    public abstract void setCustomView(View view2, LayoutParams layoutParams);
+    public abstract void setCustomView(View view, LayoutParams layoutParams);
 
     public abstract void setDisplayHomeAsUpEnabled(boolean z);
 
@@ -234,7 +234,7 @@ public abstract class ActionBar {
         return null;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isTitleTruncated() {
         return false;
     }
@@ -281,58 +281,63 @@ public abstract class ActionBar {
         return 0.0f;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setDefaultDisplayHomeAsUpEnabled(boolean z) {
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setShowHideAnimationEnabled(boolean z) {
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void onConfigurationChanged(Configuration configuration) {
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void dispatchMenuVisibilityChanged(boolean z) {
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ActionMode startActionMode(ActionMode.Callback callback) {
         return null;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean openOptionsMenu() {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public boolean closeOptionsMenu() {
+        return false;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean invalidateOptionsMenu() {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean onMenuKeyEvent(KeyEvent keyEvent) {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean collapseActionView() {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setWindowTitle(CharSequence charSequence) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean requestFocus() {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    boolean requestFocus() {
         return false;
     }
 

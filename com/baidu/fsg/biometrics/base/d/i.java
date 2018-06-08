@@ -2,7 +2,6 @@ package com.baidu.fsg.biometrics.base.d;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
-import com.baidu.ar.util.Constants;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
@@ -19,8 +18,8 @@ import javax.security.cert.X509Certificate;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class i {
-    public static final String a = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", NotifyType.VIBRATE, "o", "i", "c", "e", "3", "5", "h", Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Y, "1", "2"});
-    public static final String b = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "f", "a", "c", "e", "D", Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_Z, "T", "9", "9", "1", "1"});
+    public static final String a = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", NotifyType.VIBRATE, "o", "i", "c", "e", "3", "5", "h", "y", "1", "2"});
+    public static final String b = TextUtils.join("", new String[]{"b", "a", "i", "d", "u", "f", "a", "c", "e", "D", "z", "T", "9", "9", "1", "1"});
 
     /* loaded from: classes2.dex */
     public static class a {

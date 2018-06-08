@@ -1,7 +1,9 @@
 package android.support.v4.text.util;
 
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RestrictTo;
 import android.support.v4.util.PatternsCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -40,11 +42,15 @@ public final class LinkifyCompat {
     };
 
     @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface LinkifyMask {
     }
 
     public static final boolean addLinks(@NonNull Spannable spannable, int i) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return Linkify.addLinks(spannable, i);
+        }
         if (i == 0) {
             return false;
         }
@@ -80,6 +86,9 @@ public final class LinkifyCompat {
     }
 
     public static final boolean addLinks(@NonNull TextView textView, int i) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return Linkify.addLinks(textView, i);
+        }
         if (i == 0) {
             return false;
         }
@@ -101,14 +110,26 @@ public final class LinkifyCompat {
     }
 
     public static final void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str) {
-        addLinks(textView, pattern, str, (String[]) null, (Linkify.MatchFilter) null, (Linkify.TransformFilter) null);
+        if (Build.VERSION.SDK_INT >= 26) {
+            Linkify.addLinks(textView, pattern, str);
+        } else {
+            addLinks(textView, pattern, str, (String[]) null, (Linkify.MatchFilter) null, (Linkify.TransformFilter) null);
+        }
     }
 
     public static final void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
-        addLinks(textView, pattern, str, (String[]) null, matchFilter, transformFilter);
+        if (Build.VERSION.SDK_INT >= 26) {
+            Linkify.addLinks(textView, pattern, str, matchFilter, transformFilter);
+        } else {
+            addLinks(textView, pattern, str, (String[]) null, matchFilter, transformFilter);
+        }
     }
 
     public static final void addLinks(@NonNull TextView textView, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            Linkify.addLinks(textView, pattern, str, strArr, matchFilter, transformFilter);
+            return;
+        }
         SpannableString valueOf = SpannableString.valueOf(textView.getText());
         if (addLinks(valueOf, pattern, str, strArr, matchFilter, transformFilter)) {
             textView.setText(valueOf);
@@ -117,14 +138,17 @@ public final class LinkifyCompat {
     }
 
     public static final boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str) {
-        return addLinks(spannable, pattern, str, (String[]) null, (Linkify.MatchFilter) null, (Linkify.TransformFilter) null);
+        return Build.VERSION.SDK_INT >= 26 ? Linkify.addLinks(spannable, pattern, str) : addLinks(spannable, pattern, str, (String[]) null, (Linkify.MatchFilter) null, (Linkify.TransformFilter) null);
     }
 
     public static final boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
-        return addLinks(spannable, pattern, str, (String[]) null, matchFilter, transformFilter);
+        return Build.VERSION.SDK_INT >= 26 ? Linkify.addLinks(spannable, pattern, str, matchFilter, transformFilter) : addLinks(spannable, pattern, str, (String[]) null, matchFilter, transformFilter);
     }
 
     public static final boolean addLinks(@NonNull Spannable spannable, @NonNull Pattern pattern, @Nullable String str, @Nullable String[] strArr, @Nullable Linkify.MatchFilter matchFilter, @Nullable Linkify.TransformFilter transformFilter) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return Linkify.addLinks(spannable, pattern, str, strArr, matchFilter, transformFilter);
+        }
         if (str == null) {
             str = "";
         }

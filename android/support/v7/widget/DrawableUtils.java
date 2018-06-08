@@ -16,7 +16,7 @@ import android.support.v4.graphics.drawable.DrawableWrapper;
 import android.util.Log;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.lang.reflect.Field;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class DrawableUtils {
     public static final Rect INSETS_NONE = new Rect();
@@ -147,7 +147,6 @@ public class DrawableUtils {
         drawable.setState(state);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static PorterDuff.Mode parseTintMode(int i, PorterDuff.Mode mode) {
         switch (i) {
             case 3:

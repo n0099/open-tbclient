@@ -12,16 +12,16 @@ public class c extends PopupWindow {
     private KeyEventDealContainerView mContainer;
     private View mContentView;
 
-    public c(Activity activity, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
+    public c(Activity activity, View view, Drawable drawable, KeyEventDealContainerView.a aVar) {
         super(activity);
         this.mContainer = null;
         this.mContentView = null;
-        init(activity, view2, drawable, aVar);
+        init(activity, view, drawable, aVar);
     }
 
-    private void init(Activity activity, View view2, Drawable drawable, KeyEventDealContainerView.a aVar) {
+    private void init(Activity activity, View view, Drawable drawable, KeyEventDealContainerView.a aVar) {
         if (activity != null) {
-            this.mContentView = view2;
+            this.mContentView = view;
             this.mContainer = new KeyEventDealContainerView(activity, this.mContentView, aVar);
             setContentView(this.mContainer);
             setOutsideTouchable(true);
@@ -30,7 +30,7 @@ public class c extends PopupWindow {
             setWidth(-1);
             setSoftInputMode(16);
             setFocusable(false);
-            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0126d.common_color_10022)));
+            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0141d.common_color_10022)));
             setAnimationStyle(d.l.pb_more_pop_anim);
         }
     }

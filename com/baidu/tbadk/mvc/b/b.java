@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.b;
 /* loaded from: classes.dex */
 public interface b extends d {
-    byte[] Fx();
+    byte[] Jf();
 
-    boolean y(byte[] bArr);
+    boolean z(byte[] bArr);
 }

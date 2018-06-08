@@ -16,6 +16,7 @@ import android.support.v4.widget.TextViewCompat;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.TooltipCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.CheckedTextView;
 import android.widget.FrameLayout;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     private static final int[] CHECKED_STATE_SET = {16842912};
@@ -51,8 +52,8 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         super(context, attributeSet, i);
         this.mAccessibilityDelegate = new AccessibilityDelegateCompat() { // from class: android.support.design.internal.NavigationMenuItemView.1
             @Override // android.support.v4.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
-                super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
+            public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+                super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
                 accessibilityNodeInfoCompat.setCheckable(NavigationMenuItemView.this.mCheckable);
             }
         };
@@ -77,6 +78,8 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         setTitle(menuItemImpl.getTitle());
         setIcon(menuItemImpl.getIcon());
         setActionView(menuItemImpl.getActionView());
+        setContentDescription(menuItemImpl.getContentDescription());
+        TooltipCompat.setTooltipText(this, menuItemImpl.getTooltipText());
         adjustAppearance();
     }
 
@@ -110,13 +113,13 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         this.mTextView.setCompoundDrawables(null, null, null, null);
     }
 
-    private void setActionView(View view2) {
-        if (view2 != null) {
+    private void setActionView(View view) {
+        if (view != null) {
             if (this.mActionArea == null) {
                 this.mActionArea = (FrameLayout) ((ViewStub) findViewById(R.id.design_menu_item_action_area_stub)).inflate();
             }
             this.mActionArea.removeAllViews();
-            this.mActionArea.addView(view2);
+            this.mActionArea.addView(view);
         }
     }
 

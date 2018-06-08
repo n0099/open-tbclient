@@ -1,32 +1,35 @@
 package com.baidu.tbadk.o;
+
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Q(int i) {
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] ev() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ew() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ex() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ey() {
-        return 10;
+    protected void R(int i) {
+        TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "is_video_batch";
+        return "check_user_name";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] hm() {
+        return new String[0];
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hn() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hp() {
+        return 10;
     }
 }

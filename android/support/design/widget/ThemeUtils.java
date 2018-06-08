@@ -14,9 +14,7 @@ class ThemeUtils {
     public static void checkAppCompatTheme(Context context) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(APPCOMPAT_CHECK_ATTRS);
         boolean z = obtainStyledAttributes.hasValue(0) ? false : true;
-        if (obtainStyledAttributes != null) {
-            obtainStyledAttributes.recycle();
-        }
+        obtainStyledAttributes.recycle();
         if (z) {
             throw new IllegalArgumentException("You need to use a Theme.AppCompat theme (or descendant) with the design library.");
         }

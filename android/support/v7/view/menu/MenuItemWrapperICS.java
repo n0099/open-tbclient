@@ -1,12 +1,13 @@
 package android.support.v7.view.menu;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v4.internal.view.SupportMenuItem;
-import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
 import android.view.ActionProvider;
 import android.view.CollapsibleActionView;
@@ -16,8 +17,8 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.FrameLayout;
 import java.lang.reflect.Method;
-@TargetApi(14)
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RequiresApi(14)
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> implements MenuItem {
     static final String LOG_TAG = "MenuItemWrapper";
@@ -106,8 +107,20 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
     }
 
     @Override // android.view.MenuItem
+    public MenuItem setShortcut(char c, char c2, int i, int i2) {
+        ((SupportMenuItem) this.mWrappedObject).setShortcut(c, c2, i, i2);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
     public MenuItem setNumericShortcut(char c) {
         ((SupportMenuItem) this.mWrappedObject).setNumericShortcut(c);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setNumericShortcut(char c, int i) {
+        ((SupportMenuItem) this.mWrappedObject).setNumericShortcut(c, i);
         return this;
     }
 
@@ -117,14 +130,30 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
     }
 
     @Override // android.view.MenuItem
+    public int getNumericModifiers() {
+        return ((SupportMenuItem) this.mWrappedObject).getNumericModifiers();
+    }
+
+    @Override // android.view.MenuItem
     public MenuItem setAlphabeticShortcut(char c) {
         ((SupportMenuItem) this.mWrappedObject).setAlphabeticShortcut(c);
         return this;
     }
 
     @Override // android.view.MenuItem
+    public MenuItem setAlphabeticShortcut(char c, int i) {
+        ((SupportMenuItem) this.mWrappedObject).setAlphabeticShortcut(c, i);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
     public char getAlphabeticShortcut() {
         return ((SupportMenuItem) this.mWrappedObject).getAlphabeticShortcut();
+    }
+
+    @Override // android.view.MenuItem
+    public int getAlphabeticModifiers() {
+        return ((SupportMenuItem) this.mWrappedObject).getAlphabeticModifiers();
     }
 
     @Override // android.view.MenuItem
@@ -203,11 +232,11 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setActionView(View view2) {
-        if (view2 instanceof CollapsibleActionView) {
-            view2 = new CollapsibleActionViewWrapper(view2);
+    public MenuItem setActionView(View view) {
+        if (view instanceof CollapsibleActionView) {
+            view = new CollapsibleActionViewWrapper(view);
         }
-        ((SupportMenuItem) this.mWrappedObject).setActionView(view2);
+        ((SupportMenuItem) this.mWrappedObject).setActionView(view);
         return this;
     }
 
@@ -262,8 +291,52 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
 
     @Override // android.view.MenuItem
     public MenuItem setOnActionExpandListener(MenuItem.OnActionExpandListener onActionExpandListener) {
-        ((SupportMenuItem) this.mWrappedObject).setSupportOnActionExpandListener(onActionExpandListener != null ? new OnActionExpandListenerWrapper(onActionExpandListener) : null);
+        ((SupportMenuItem) this.mWrappedObject).setOnActionExpandListener(onActionExpandListener != null ? new OnActionExpandListenerWrapper(onActionExpandListener) : null);
         return this;
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setContentDescription(CharSequence charSequence) {
+        ((SupportMenuItem) this.mWrappedObject).setContentDescription(charSequence);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public CharSequence getContentDescription() {
+        return ((SupportMenuItem) this.mWrappedObject).getContentDescription();
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setTooltipText(CharSequence charSequence) {
+        ((SupportMenuItem) this.mWrappedObject).setTooltipText(charSequence);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public CharSequence getTooltipText() {
+        return ((SupportMenuItem) this.mWrappedObject).getTooltipText();
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setIconTintList(ColorStateList colorStateList) {
+        ((SupportMenuItem) this.mWrappedObject).setIconTintList(colorStateList);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public ColorStateList getIconTintList() {
+        return ((SupportMenuItem) this.mWrappedObject).getIconTintList();
+    }
+
+    @Override // android.view.MenuItem
+    public MenuItem setIconTintMode(PorterDuff.Mode mode) {
+        ((SupportMenuItem) this.mWrappedObject).setIconTintMode(mode);
+        return this;
+    }
+
+    @Override // android.view.MenuItem
+    public PorterDuff.Mode getIconTintMode() {
+        return ((SupportMenuItem) this.mWrappedObject).getIconTintMode();
     }
 
     public void setExclusiveCheckable(boolean z) {
@@ -294,17 +367,17 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
     }
 
     /* loaded from: classes2.dex */
-    private class OnActionExpandListenerWrapper extends BaseWrapper<MenuItem.OnActionExpandListener> implements MenuItemCompat.OnActionExpandListener {
+    private class OnActionExpandListenerWrapper extends BaseWrapper<MenuItem.OnActionExpandListener> implements MenuItem.OnActionExpandListener {
         OnActionExpandListenerWrapper(MenuItem.OnActionExpandListener onActionExpandListener) {
             super(onActionExpandListener);
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.OnActionExpandListener
+        @Override // android.view.MenuItem.OnActionExpandListener
         public boolean onMenuItemActionExpand(MenuItem menuItem) {
             return ((MenuItem.OnActionExpandListener) this.mWrappedObject).onMenuItemActionExpand(MenuItemWrapperICS.this.getMenuItemWrapper(menuItem));
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.OnActionExpandListener
+        @Override // android.view.MenuItem.OnActionExpandListener
         public boolean onMenuItemActionCollapse(MenuItem menuItem) {
             return ((MenuItem.OnActionExpandListener) this.mWrappedObject).onMenuItemActionCollapse(MenuItemWrapperICS.this.getMenuItemWrapper(menuItem));
         }
@@ -345,10 +418,10 @@ public class MenuItemWrapperICS extends BaseMenuWrapper<SupportMenuItem> impleme
     static class CollapsibleActionViewWrapper extends FrameLayout implements android.support.v7.view.CollapsibleActionView {
         final CollapsibleActionView mWrappedView;
 
-        CollapsibleActionViewWrapper(View view2) {
-            super(view2.getContext());
-            this.mWrappedView = (CollapsibleActionView) view2;
-            addView(view2);
+        CollapsibleActionViewWrapper(View view) {
+            super(view.getContext());
+            this.mWrappedView = (CollapsibleActionView) view;
+            addView(view);
         }
 
         @Override // android.support.v7.view.CollapsibleActionView

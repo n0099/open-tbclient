@@ -5,36 +5,36 @@ import android.opengl.EGLSurface;
 import android.util.Log;
 /* loaded from: classes2.dex */
 public class b {
-    protected a hvx;
+    protected a hHr;
     private EGLSurface mEGLSurface = EGL14.EGL_NO_SURFACE;
     private int mWidth = -1;
     private int mHeight = -1;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(a aVar) {
-        this.hvx = aVar;
+        this.hHr = aVar;
     }
 
     public void createWindowSurface(Object obj) {
         if (this.mEGLSurface != EGL14.EGL_NO_SURFACE) {
             throw new IllegalStateException("surface already created");
         }
-        this.mEGLSurface = this.hvx.createWindowSurface(obj);
+        this.mEGLSurface = this.hHr.createWindowSurface(obj);
     }
 
     public void releaseEglSurface() {
-        this.hvx.releaseSurface(this.mEGLSurface);
+        this.hHr.releaseSurface(this.mEGLSurface);
         this.mEGLSurface = EGL14.EGL_NO_SURFACE;
         this.mHeight = -1;
         this.mWidth = -1;
     }
 
     public void makeCurrent() {
-        this.hvx.makeCurrent(this.mEGLSurface);
+        this.hHr.makeCurrent(this.mEGLSurface);
     }
 
     public boolean swapBuffers() {
-        boolean swapBuffers = this.hvx.swapBuffers(this.mEGLSurface);
+        boolean swapBuffers = this.hHr.swapBuffers(this.mEGLSurface);
         if (!swapBuffers) {
             Log.d("Grafika", "WARNING: swapBuffers() failed");
         }
@@ -42,6 +42,6 @@ public class b {
     }
 
     public void setPresentationTime(long j) {
-        this.hvx.setPresentationTime(this.mEGLSurface, j);
+        this.hHr.setPresentationTime(this.mEGLSurface, j);
     }
 }

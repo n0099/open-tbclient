@@ -56,13 +56,13 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bA(str);
+        this.cmdRangeInt = bM(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bA(String str) {
+    private int[] bM(String str) {
         String[] split;
-        if (TextUtils.isEmpty(str) || (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null) {
+        if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;
         }
         int length = split.length;
@@ -103,7 +103,7 @@ public class PluginSetting implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSetting m11clone() {
+    public PluginSetting m10clone() {
         PluginSetting pluginSetting = new PluginSetting();
         pluginSetting.apkPath = this.apkPath;
         pluginSetting.setCmdRange(this.cmdRangeStr);
@@ -147,7 +147,7 @@ public class PluginSetting implements Serializable, Cloneable {
             if (TextUtils.isEmpty(this.abandon_apk_path)) {
                 this.abandon_apk_path = str;
             } else {
-                this.abandon_apk_path += Constants.ACCEPT_TIME_SEPARATOR_SP + str;
+                this.abandon_apk_path += "," + str;
             }
         }
     }

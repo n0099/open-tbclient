@@ -2,7 +2,7 @@ package com.baidu.tieba.j.a;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.k;
+import com.baidu.tbadk.core.util.l;
 import com.baidu.tieba.j.c;
 import com.baidu.tieba.play.b.b;
 import java.io.File;
@@ -29,11 +29,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         return this.list.size();
     }
 
-    public String aSc() {
-        if (StringUtils.isNull(this.uuid) || !k.m15do() || StringUtils.isNull(getKey())) {
+    public String aWZ() {
+        if (StringUtils.isNull(this.uuid) || !l.ge() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.eRJ + aSd();
+        String str = c.a.fdb + aXa();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -47,17 +47,17 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         }
     }
 
-    protected String aSd() {
+    protected String aXa() {
         return "_" + this.uuid + "_" + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e aSe() {
-        return new e(getKey(), aSc());
+    public e aXb() {
+        return new e(getKey(), aWZ());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cE(List<T> list) {
+    public void cJ(List<T> list) {
         new BdAsyncTask<List<T>, Void, Void>() { // from class: com.baidu.tieba.j.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -65,9 +65,9 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
             /* renamed from: e */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String aSc = a.this.aSc();
-                    if (!StringUtils.isNull(aSc)) {
-                        a.this.k(aSc, listArr[0]);
+                    String aWZ = a.this.aWZ();
+                    if (!StringUtils.isNull(aWZ)) {
+                        a.this.k(aWZ, listArr[0]);
                     }
                 }
                 return null;
@@ -80,7 +80,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).bhi());
+            jSONArray.put(list.get(i).bmg());
         }
         com.baidu.tieba.j.d.e(new File(str), jSONArray.toString() + "\n");
     }

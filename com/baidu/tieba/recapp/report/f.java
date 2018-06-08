@@ -7,15 +7,15 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private TbHttpMessageTask gdA;
-    private HttpMessageListener ciR = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.f.1
+    private TbHttpMessageTask goT;
+    private HttpMessageListener cqW = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,41 +23,41 @@ public class f implements c {
                 if (!(httpResponsedMessage.getError() == 0)) {
                     Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
                     if (orginalMessage instanceof AdUploadHttpRequest) {
-                        f.this.df(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                        f.this.dk(((AdUploadHttpRequest) orginalMessage).getDataArray());
                     }
                 }
             }
         }
     };
-    private ArrayList<a> gdB = new ArrayList<>();
+    private ArrayList<a> goU = new ArrayList<>();
 
     public f() {
-        aQp();
-        MessageManager.getInstance().registerListener(this.ciR);
+        aVm();
+        MessageManager.getInstance().registerListener(this.cqW);
     }
 
-    private void aQp() {
-        this.gdA = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.gdA.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.gdA.setIsNeedAddCommenParam(true);
-        this.gdA.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void aVm() {
+        this.goT = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.goT.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.goT.setIsNeedAddCommenParam(true);
+        this.goT.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.c
     public void b(a aVar) {
         if (aVar != null) {
             com.baidu.tbadk.coreExtra.data.c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (!(adAdSense == null || adAdSense.yf())) {
-                this.gdA.setUrl("http://als.baidu.com/clog/clog");
+            if (!(adAdSense == null || adAdSense.BF())) {
+                this.goT.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            bkg();
+            bpf();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.c
-    public void bkf() {
-        bkg();
+    public void bpe() {
+        bpf();
     }
 
     @Override // com.baidu.tieba.recapp.report.c
@@ -67,16 +67,16 @@ public class f implements c {
         }
     }
 
-    private void bkg() {
-        if (v.v(this.gdB) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.gdB), this.gdA);
-            this.gdB.clear();
+    private void bpf() {
+        if (w.y(this.goU) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.goU), this.goT);
+            this.goU.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void df(List<a> list) {
-        if (v.v(list) > 0) {
+    public void dk(List<a> list) {
+        if (w.y(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
                     d(aVar);
@@ -87,10 +87,10 @@ public class f implements c {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (v.v(this.gdB) >= 20) {
-                this.gdB.remove(0);
+            if (w.y(this.goU) >= 20) {
+                this.goU.remove(0);
             }
-            this.gdB.add(aVar);
+            this.goU.add(aVar);
         }
     }
 }

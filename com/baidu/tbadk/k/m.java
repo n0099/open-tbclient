@@ -1,107 +1,265 @@
 package com.baidu.tbadk.k;
 
+import android.os.Process;
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.tencent.tauth.AuthActivity;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 /* loaded from: classes.dex */
-public class m extends o {
-    public static int aLk = 100;
-    public static int aLl = 10;
+public class m {
+    private static String aTw = "tb_perfor_samllflow_time";
+    private static volatile m aTz;
+    private long aTy;
+    private boolean aTu = false;
+    private long aTx = 86400;
+    private long aTv = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aTw, 0);
 
-    public static void GW() {
-        if (p.GY().GZ()) {
-            if (b.aLp > aLl) {
-                b.GO();
+    public static m Ks() {
+        if (aTz == null) {
+            synchronized (m.class) {
+                if (aTz == null) {
+                    aTz = new m();
+                }
             }
-            if (a.aLm > aLl) {
-                a.GO();
+        }
+        return aTz;
+    }
+
+    private m() {
+        this.aTy = 0L;
+        this.aTy = this.aTx;
+    }
+
+    public boolean Kt() {
+        if (!this.aTu || (System.currentTimeMillis() - this.aTv) / 1000 <= this.aTy) {
+            return this.aTu;
+        }
+        return false;
+    }
+
+    public void bX(boolean z) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (z) {
+            if (0 == this.aTv || currentTimeMillis - this.aTv >= this.aTy) {
+                this.aTv = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aTw, this.aTv);
+            }
+        } else {
+            this.aTv = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aTw, this.aTv);
+        }
+        this.aTu = z;
+        if (BdStatisticsManager.getInstance().isMainProcess()) {
+            n.Kx().Ky();
+        }
+    }
+
+    public String getNetType() {
+        if (!com.baidu.adp.lib.util.j.jD()) {
+            return "N";
+        }
+        if (com.baidu.adp.lib.util.j.jE()) {
+            return "WIFI";
+        }
+        if (com.baidu.adp.lib.util.j.jG()) {
+            return "4G";
+        }
+        if (com.baidu.adp.lib.util.j.jH()) {
+            return "3G";
+        }
+        if (!com.baidu.adp.lib.util.j.jI()) {
+            return "N";
+        }
+        return "2G";
+    }
+
+    public static String fm(int i) {
+        if (1 == i) {
+            return "2G";
+        }
+        if (2 == i) {
+            return "3G";
+        }
+        if (3 != i) {
+            return "N";
+        }
+        return "WIFI";
+    }
+
+    public long Ku() {
+        try {
+            Runtime runtime = Runtime.getRuntime();
+            return (runtime.totalMemory() - runtime.freeMemory()) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
+        } catch (Exception e) {
+            BdLog.e(e);
+            return -1L;
+        }
+    }
+
+    public l fn(int i) {
+        if (Kt()) {
+            switch (i) {
+                case 1000:
+                    o oVar = new o();
+                    oVar.subType = "frs";
+                    return oVar;
+                case 1001:
+                    o oVar2 = new o();
+                    oVar2.subType = "pb";
+                    return oVar2;
+                case 1002:
+                    j jVar = new j();
+                    jVar.subType = "im";
+                    return jVar;
+                case 1003:
+                default:
+                    return null;
+                case 1004:
+                    o oVar3 = new o();
+                    oVar3.subType = "photo_live";
+                    return oVar3;
+                case 1005:
+                    e eVar = new e();
+                    eVar.subType = "home_page";
+                    return eVar;
             }
         }
+        return null;
     }
 
-    public static void d(boolean z, boolean z2, boolean z3) {
-        a.aLm++;
-        if (z2) {
-            a.aLn++;
-        } else if (z3) {
-            a.aLo++;
-        }
-        if (a.aLm > aLk) {
-            a.GO();
+    public void Z(long j) {
+        if (j > 0) {
+            this.aTy = j;
         }
     }
 
-    public void c(i iVar) {
-        if (p.GY().GZ()) {
-            if (b.aLp < aLk) {
-                b.aLq += iVar.tp;
-                b.aLr += iVar.aKH;
-                b.aLs += iVar.aKI;
-                b.aLt += iVar.aKJ;
-                b.aLv += iVar.EE;
-                b.aLu += iVar.aKy;
-                b.aLp++;
-                return;
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0052, code lost:
+        r0 = r6[2].trim();
+     */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0065  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00b3 A[Catch: Exception -> 0x00b7, TRY_LEAVE, TryCatch #1 {Exception -> 0x00b7, blocks: (B:52:0x00ae, B:54:0x00b3), top: B:72:0x00ae }] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int Kv() {
+        BufferedReader bufferedReader;
+        Process process;
+        Process process2;
+        String str;
+        String str2;
+        BufferedReader bufferedReader2 = null;
+        int myPid = Process.myPid();
+        try {
+            process = Runtime.getRuntime().exec("top -n 1");
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                str2 = null;
+                while (true) {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            if (readLine.trim().startsWith(String.valueOf(myPid))) {
+                                String[] split = readLine.split("\\s+");
+                                if (split != null && split.length > 2 && split[2] != null && split[2].contains("%")) {
+                                    break;
+                                }
+                                int i = 0;
+                                while (true) {
+                                    if (i < split.length) {
+                                        if (split[i] == null || !split[i].contains("%")) {
+                                            i++;
+                                        } else {
+                                            str2 = split[i].trim();
+                                            break;
+                                        }
+                                    } else {
+                                        break;
+                                    }
+                                }
+                            }
+                        } else {
+                            break;
+                        }
+                    } catch (Exception e) {
+                        bufferedReader2 = bufferedReader;
+                        process2 = process;
+                        str = str2;
+                        e = e;
+                        try {
+                            e.printStackTrace();
+                            if (process2 != null) {
+                                try {
+                                    process2.destroy();
+                                } catch (Exception e2) {
+                                    str2 = str;
+                                }
+                            }
+                            if (bufferedReader2 != null) {
+                                bufferedReader2.close();
+                            }
+                            str2 = str;
+                            if (str2 != null) {
+                            }
+                            return com.baidu.adp.lib.g.b.g(str2, -1);
+                        } catch (Throwable th) {
+                            th = th;
+                            process = process2;
+                            bufferedReader = bufferedReader2;
+                            if (process != null) {
+                                try {
+                                    process.destroy();
+                                } catch (Exception e3) {
+                                    throw th;
+                                }
+                            }
+                            if (bufferedReader != null) {
+                                bufferedReader.close();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (process != null) {
+                        }
+                        if (bufferedReader != null) {
+                        }
+                        throw th;
+                    }
+                }
+                if (process != null) {
+                    try {
+                        process.destroy();
+                    } catch (Exception e4) {
+                    }
+                }
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (Exception e5) {
+                e = e5;
+                process2 = process;
+                str = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
             }
-            b.GO();
+        } catch (Exception e6) {
+            e = e6;
+            process2 = null;
+            str = null;
+        } catch (Throwable th4) {
+            th = th4;
+            bufferedReader = null;
+            process = null;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a {
-        public static int aLm;
-        public static int aLn;
-        public static int aLo;
-
-        public static void GO() {
-            com.baidu.adp.lib.stats.a fq = o.fq();
-            fq.append(AuthActivity.ACTION_KEY, "imbusy");
-            fq.append("totalNum", String.valueOf(aLm));
-            fq.append("tfailNum", String.valueOf(aLn));
-            fq.append("qfailNum", String.valueOf(aLo));
-            BdStatisticsManager.getInstance().performance("im", fq);
-            resetData();
+        if (str2 != null) {
+            String[] split2 = str2.split("%");
+            if (split2.length > 0) {
+                str2 = split2[0];
+            }
         }
-
-        public static void resetData() {
-            aLm = 0;
-            aLn = 0;
-            aLo = 0;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class b {
-        public static int aLp;
-        public static long aLq;
-        public static long aLr;
-        public static long aLs;
-        public static int aLt;
-        public static int aLu;
-        public static long aLv;
-
-        public static void GO() {
-            com.baidu.adp.lib.stats.a fq = o.fq();
-            fq.append(AuthActivity.ACTION_KEY, "imcost");
-            fq.append("dect", String.valueOf(aLq));
-            fq.append("dlsize", String.valueOf(aLr));
-            fq.append("dbt", String.valueOf(aLs));
-            fq.append("pnum", String.valueOf(aLt));
-            fq.append("reqcost", String.valueOf(aLv));
-            fq.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(aLu));
-            fq.append("totalNum", String.valueOf(aLp));
-            BdStatisticsManager.getInstance().performance("im", fq);
-            GX();
-        }
-
-        public static void GX() {
-            aLp = 0;
-            aLq = 0L;
-            aLr = 0L;
-            aLs = 0L;
-            aLt = 0;
-            aLu = 0;
-        }
+        return com.baidu.adp.lib.g.b.g(str2, -1);
     }
 }

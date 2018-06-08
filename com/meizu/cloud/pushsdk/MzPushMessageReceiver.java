@@ -3,7 +3,6 @@ package com.meizu.cloud.pushsdk;
 import android.content.Context;
 import android.content.Intent;
 import com.meizu.cloud.pushsdk.common.base.WorkReceiver;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
@@ -39,7 +38,7 @@ public abstract class MzPushMessageReceiver extends WorkReceiver {
             super.onReceive(context, intent);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "Event core error " + e.getMessage());
-            c.a(context, context.getPackageName(), (String) null, (String) null, PushManager.TAG, "MzPushMessageReceiver " + e.getMessage(), (int) PushConstants.WORK_RECEIVER_EVENTCORE_ERROR);
+            c.a(context, context.getPackageName(), (String) null, (String) null, PushManager.TAG, "MzPushMessageReceiver " + e.getMessage(), 3000);
         }
     }
 

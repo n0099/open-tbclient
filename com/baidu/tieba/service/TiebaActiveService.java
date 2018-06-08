@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.k;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.y;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -50,9 +50,9 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelyFile() {
         String str = null;
         try {
-            File du = k.du(TbConfig.CHANNEL_FILE);
-            if (du != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(du));
+            File dU = l.dU(TbConfig.CHANNEL_FILE);
+            if (dU != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(dU));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -68,9 +68,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File dA = k.dA(TbConfig.CHANNEL_FILE);
-                if (dA != null) {
-                    FileWriter fileWriter = new FileWriter(dA);
+                File ea = l.ea(TbConfig.CHANNEL_FILE);
+                if (ea != null) {
+                    FileWriter fileWriter = new FileWriter(ea);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -142,10 +142,10 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        x gha;
+        y gsu;
 
         private a() {
-            this.gha = null;
+            this.gsu = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -153,22 +153,22 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String uK;
+            String yl;
             try {
-                this.gha = new x("http://114.113.149.3:8086/partnersService");
-                this.gha.n("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.gha.n("imei", TbadkCoreApplication.getInst().getImei());
-                this.gha.n("model", Build.MODEL);
-                this.gha.n("edition", TbConfig.getVersion());
-                this.gha.n("system", Build.VERSION.SDK);
-                this.gha.vi().wh().wk().mIsBaiduServer = false;
-                uK = this.gha.uK();
+                this.gsu = new y("http://114.113.149.3:8086/partnersService");
+                this.gsu.o("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.gsu.o("imei", TbadkCoreApplication.getInst().getImei());
+                this.gsu.o("model", Build.MODEL);
+                this.gsu.o("edition", TbConfig.getVersion());
+                this.gsu.o("system", Build.VERSION.SDK);
+                this.gsu.yJ().zI().zL().mIsBaiduServer = false;
+                yl = this.gsu.yl();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.gha.vl()) {
-                return uK;
+            if (this.gsu.yM()) {
+                return yl;
             }
             return null;
         }
@@ -176,8 +176,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.gha != null) {
-                this.gha.eW();
+            if (this.gsu != null) {
+                this.gsu.hN();
             }
             super.cancel(true);
         }

@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.data;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
@@ -23,9 +22,9 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error >= 0 && jSONObject != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("agree");
             if (optJSONObject2 != null) {
-                this.mScore = optJSONObject2.optInt(WBConstants.GAME_PARAMS_SCORE);
+                this.mScore = optJSONObject2.optInt("score");
             }
-            this.mActDialogData = com.baidu.tieba.pb.b.T(optJSONObject);
+            this.mActDialogData = com.baidu.tieba.pb.b.Y(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             this.mContriInfo = new ContriInfo();
             this.mContriInfo.parseJson(optJSONObject3);

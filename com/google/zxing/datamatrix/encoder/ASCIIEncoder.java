@@ -1,6 +1,4 @@
 package com.google.zxing.datamatrix.encoder;
-
-import android.support.v4.media.TransportMediator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class ASCIIEncoder implements Encoder {
@@ -55,7 +53,7 @@ public final class ASCIIEncoder implements Encoder {
 
     private static char encodeASCIIDigits(char c, char c2) {
         if (HighLevelEncoder.isDigit(c) && HighLevelEncoder.isDigit(c2)) {
-            return (char) (((c - '0') * 10) + (c2 - '0') + TransportMediator.KEYCODE_MEDIA_RECORD);
+            return (char) (((c - '0') * 10) + (c2 - '0') + 130);
         }
         throw new IllegalArgumentException("not digits: " + c + c2);
     }

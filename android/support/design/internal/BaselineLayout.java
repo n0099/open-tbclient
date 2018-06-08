@@ -1,8 +1,6 @@
 package android.support.design.internal;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.ViewUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +43,7 @@ public class BaselineLayout extends ViewGroup {
                 }
                 i7 = Math.max(i7, childAt.getMeasuredWidth());
                 i6 = Math.max(i6, childAt.getMeasuredHeight());
-                i4 = ViewUtils.combineMeasuredStates(i4, ViewCompat.getMeasuredState(childAt));
+                i4 = View.combineMeasuredStates(i4, childAt.getMeasuredState());
             }
             i3++;
             i8 = i8;
@@ -53,10 +51,10 @@ public class BaselineLayout extends ViewGroup {
             i4 = i4;
         }
         if (i5 != -1) {
-            i6 = Math.max(i6, i8 + i5);
+            i6 = Math.max(i6, Math.max(i8, getPaddingBottom()) + i5);
             this.mBaseline = i5;
         }
-        setMeasuredDimension(ViewCompat.resolveSizeAndState(Math.max(i7, getSuggestedMinimumWidth()), i, i4), ViewCompat.resolveSizeAndState(Math.max(i6, getSuggestedMinimumHeight()), i2, i4 << 16));
+        setMeasuredDimension(View.resolveSizeAndState(Math.max(i7, getSuggestedMinimumWidth()), i, i4), View.resolveSizeAndState(Math.max(i6, getSuggestedMinimumHeight()), i2, i4 << 16));
     }
 
     @Override // android.view.ViewGroup, android.view.View

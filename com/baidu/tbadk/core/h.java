@@ -5,7 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class h {
-    private static final CustomMessageListener UJ = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.h.1
+    private static final CustomMessageListener acJ = new CustomMessageListener(0) { // from class: com.baidu.tbadk.core.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,11 +38,11 @@ public class h {
     };
 
     public static void init() {
-        MessageManager.getInstance().registerListener(2005009, UJ);
-        MessageManager.getInstance().registerListener(2005010, UJ);
-        MessageManager.getInstance().registerListener(2005011, UJ);
-        MessageManager.getInstance().registerListener(2005012, UJ);
-        MessageManager.getInstance().registerListener(2005013, UJ);
-        MessageManager.getInstance().registerListener(2005015, UJ);
+        MessageManager.getInstance().registerListener(2005009, acJ);
+        MessageManager.getInstance().registerListener(2005010, acJ);
+        MessageManager.getInstance().registerListener(2005011, acJ);
+        MessageManager.getInstance().registerListener(2005012, acJ);
+        MessageManager.getInstance().registerListener(2005013, acJ);
+        MessageManager.getInstance().registerListener(2005015, acJ);
     }
 }

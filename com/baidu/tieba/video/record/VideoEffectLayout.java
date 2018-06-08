@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.tieba.video.editvideo.data.MusicData;
@@ -19,24 +19,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class VideoEffectLayout extends LinearLayout implements VideoEffectButtonLayout.a {
-    private String axR;
-    private HListView cSs;
-    private List<e> gUA;
-    private String gUB;
-    private String gUC;
-    private e<com.baidu.tieba.video.a> gUD;
-    private e<String> gUE;
-    private e<MusicData> gUF;
-    private StickerItem gUG;
-    private AnimatorSet gUH;
-    private AnimatorSet gUI;
-    private AnimatorSet gUJ;
-    private int gUK;
-    private HListView gUv;
-    private d gUw;
-    private k gUx;
-    private List<e> gUy;
-    private List<e> gUz;
+    private String aGm;
+    private HListView dbz;
+    private HListView hfW;
+    private d hfX;
+    private k hfY;
+    private List<e> hfZ;
+    private List<e> hga;
+    private List<e> hgb;
+    private String hgc;
+    private String hgd;
+    private e<com.baidu.tieba.video.a> hge;
+    private e<String> hgf;
+    private e<MusicData> hgg;
+    private StickerItem hgh;
+    private AnimatorSet hgi;
+    private AnimatorSet hgj;
+    private AnimatorSet hgk;
+    private int hgl;
     private Handler mHandler;
     private List<StickerItem> mStickerItems;
 
@@ -64,60 +64,60 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
 
     private void initView() {
         this.mHandler = new Handler();
-        bzg();
+        bEm();
         inflate(getContext(), d.i.layout_effect_container, this);
-        this.cSs = (HListView) findViewById(d.g.effect_list_view);
-        this.cSs.setDividerWidth(getContext().getResources().getDimensionPixelSize(d.e.ds28));
-        this.cSs.setSelector(getResources().getDrawable(d.f.transparent_bg));
-        this.gUv = (HListView) findViewById(d.g.sticker_list_view);
-        this.gUv.setSelector(getResources().getDrawable(d.f.transparent_bg));
-        this.gUw = new d();
-        this.cSs.setAdapter((ListAdapter) this.gUw);
-        this.gUx = new k();
-        this.gUv.setAdapter((ListAdapter) this.gUx);
+        this.dbz = (HListView) findViewById(d.g.effect_list_view);
+        this.dbz.setDividerWidth(getContext().getResources().getDimensionPixelSize(d.e.ds28));
+        this.dbz.setSelector(getResources().getDrawable(d.f.transparent_bg));
+        this.hfW = (HListView) findViewById(d.g.sticker_list_view);
+        this.hfW.setSelector(getResources().getDrawable(d.f.transparent_bg));
+        this.hfX = new d();
+        this.dbz.setAdapter((ListAdapter) this.hfX);
+        this.hfY = new k();
+        this.hfW.setAdapter((ListAdapter) this.hfY);
     }
 
     private <T> e<T> c(int i, int i2, String str, T t) {
         e<T> eVar = new e<>();
         eVar.setType(i2);
-        eVar.ut(i);
+        eVar.uG(i);
         eVar.setName(str);
         eVar.setValue(t);
         return eVar;
     }
 
-    private void bzg() {
-        this.gUB = "2";
-        this.gUD = c(d.f.beauty_icon_avatar_2, 1, "2", com.baidu.tieba.video.a.ud(2));
-        this.axR = getString(d.k.filter_nature);
-        this.gUE = c(d.f.filter_icon_avatar_default, 2, getString(d.k.filter_nature), "nature");
+    private void bEm() {
+        this.hgc = "2";
+        this.hge = c(d.f.beauty_icon_avatar_2, 1, "2", com.baidu.tieba.video.a.uq(2));
+        this.aGm = getString(d.k.filter_nature);
+        this.hgf = c(d.f.filter_icon_avatar_default, 2, getString(d.k.filter_nature), "nature");
         StickerItem stickerItem = new StickerItem();
         stickerItem.id = -1;
         stickerItem.name = "nosticker";
-        this.gUG = stickerItem;
-        this.gUC = getResources().getString(d.k.music_normal);
-        this.gUF = new e<>(3, getResources().getString(d.k.music_normal), new MusicData("-100", 1, getResources().getString(d.k.music_normal)), d.f.icon_video_mute);
+        this.hgh = stickerItem;
+        this.hgd = getResources().getString(d.k.music_normal);
+        this.hgg = new e<>(3, getResources().getString(d.k.music_normal), new MusicData("-100", 1, getResources().getString(d.k.music_normal)), d.f.icon_video_mute);
     }
 
-    private void bzh() {
-        if (this.gUy == null) {
-            this.gUy = new ArrayList();
-            a("No", com.baidu.tieba.video.a.ud(0));
-            a("1", com.baidu.tieba.video.a.ud(1));
-            a("2", com.baidu.tieba.video.a.ud(2));
-            a("3", com.baidu.tieba.video.a.ud(3));
-            a("4", com.baidu.tieba.video.a.ud(4));
-            a("5", com.baidu.tieba.video.a.ud(5));
+    private void bEn() {
+        if (this.hfZ == null) {
+            this.hfZ = new ArrayList();
+            a("No", com.baidu.tieba.video.a.uq(0));
+            a("1", com.baidu.tieba.video.a.uq(1));
+            a("2", com.baidu.tieba.video.a.uq(2));
+            a("3", com.baidu.tieba.video.a.uq(3));
+            a("4", com.baidu.tieba.video.a.uq(4));
+            a("5", com.baidu.tieba.video.a.uq(5));
         }
     }
 
     private void a(String str, com.baidu.tieba.video.a aVar) {
-        this.gUy.add(c(0, 1, str, aVar));
+        this.hfZ.add(c(0, 1, str, aVar));
     }
 
-    private void bzi() {
-        if (this.gUz == null) {
-            this.gUz = new ArrayList();
+    private void bEo() {
+        if (this.hga == null) {
+            this.hga = new ArrayList();
             j(d.f.filter_icon_avatar_default, getString(d.k.filter_nature), "nature");
             j(d.f.filter_icon_avatar_hongkong, getString(d.k.filter_hongkong), "hongkong");
             j(d.f.filter_icon_avatar_refreshing, getString(d.k.filter_refreshing), "refreshing");
@@ -144,48 +144,48 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     private void j(int i, String str, String str2) {
-        if (this.gUz != null) {
-            this.gUz.add(c(i, 2, str, str2));
+        if (this.hga != null) {
+            this.hga.add(c(i, 2, str, str2));
         }
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void byJ() {
-        this.gUK = 3;
-        k(this.gUA, this.gUC);
+    public void bDP() {
+        this.hgl = 3;
+        k(this.hgb, this.hgd);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void byK() {
-        this.gUK = 0;
-        this.gUv.setAdapter((ListAdapter) this.gUx);
-        this.gUx.notifyDataSetChanged();
+    public void bDQ() {
+        this.hgl = 0;
+        this.hfW.setAdapter((ListAdapter) this.hfY);
+        this.hfY.notifyDataSetChanged();
         setListViewSelection(0);
         if (getVisibility() == 0) {
-            nd(true);
+            nj(true);
             return;
         }
-        this.gUv.setVisibility(0);
-        this.cSs.setVisibility(8);
+        this.hfW.setVisibility(0);
+        this.dbz.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void byL() {
-        this.gUK = 1;
-        bzh();
-        k(this.gUy, this.gUB);
+    public void bDR() {
+        this.hgl = 1;
+        bEn();
+        k(this.hfZ, this.hgc);
     }
 
     @Override // com.baidu.tieba.video.record.VideoEffectButtonLayout.a
-    public void byM() {
-        this.gUK = 2;
-        bzi();
-        k(this.gUz, this.axR);
+    public void bDS() {
+        this.hgl = 2;
+        bEo();
+        k(this.hga, this.aGm);
     }
 
     public void setListener(final a aVar) {
-        if (this.gUw != null) {
-            this.gUw.setListener(new a() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.1
+        if (this.hfX != null) {
+            this.hfX.setListener(new a() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.1
                 @Override // com.baidu.tieba.video.record.VideoEffectLayout.a
                 public void a(e eVar, Object obj) {
                     if (eVar != null) {
@@ -194,16 +194,16 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                         }
                         switch (eVar.getType()) {
                             case 1:
-                                VideoEffectLayout.this.gUB = eVar.getName();
-                                VideoEffectLayout.this.gUD = eVar;
+                                VideoEffectLayout.this.hgc = eVar.getName();
+                                VideoEffectLayout.this.hge = eVar;
                                 return;
                             case 2:
-                                VideoEffectLayout.this.axR = eVar.getName();
-                                VideoEffectLayout.this.gUE = eVar;
+                                VideoEffectLayout.this.aGm = eVar.getName();
+                                VideoEffectLayout.this.hgf = eVar;
                                 return;
                             case 3:
-                                VideoEffectLayout.this.gUC = eVar.getName();
-                                VideoEffectLayout.this.gUF = eVar;
+                                VideoEffectLayout.this.hgd = eVar.getName();
+                                VideoEffectLayout.this.hgg = eVar;
                                 return;
                             default:
                                 return;
@@ -216,8 +216,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                 }
             });
         }
-        if (this.gUx != null) {
-            this.gUx.a(new a() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.2
+        if (this.hfY != null) {
+            this.hfY.a(new a() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.2
                 @Override // com.baidu.tieba.video.record.VideoEffectLayout.a
                 public void a(e eVar, Object obj) {
                 }
@@ -236,8 +236,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
     }
 
     public void c(StickerItem stickerItem) {
-        this.gUG = stickerItem;
-        if (!v.w(this.mStickerItems) && stickerItem != null) {
+        this.hgh = stickerItem;
+        if (!w.z(this.mStickerItems) && stickerItem != null) {
             for (StickerItem stickerItem2 : this.mStickerItems) {
                 if (stickerItem2.id != stickerItem.id) {
                     stickerItem2.isSelect = false;
@@ -245,14 +245,14 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     stickerItem2.isSelect = true;
                 }
             }
-            if (this.gUx != null) {
-                this.gUx.notifyDataSetChanged();
+            if (this.hfY != null) {
+                this.hfY.notifyDataSetChanged();
             }
         }
     }
 
     public void setDownLoadStrick(StickerItem stickerItem) {
-        if (!v.w(this.mStickerItems)) {
+        if (!w.z(this.mStickerItems)) {
             if (stickerItem != null) {
                 for (StickerItem stickerItem2 : this.mStickerItems) {
                     if (stickerItem2.id != stickerItem.id) {
@@ -266,8 +266,8 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
                     stickerItem3.isDownLoading = false;
                 }
             }
-            if (this.gUx != null) {
-                this.gUx.notifyDataSetChanged();
+            if (this.hfY != null) {
+                this.hfY.notifyDataSetChanged();
             }
         }
     }
@@ -277,18 +277,18 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    VideoEffectLayout.this.gUw.f(list, str);
-                    VideoEffectLayout.this.gUw.notifyDataSetChanged();
+                    VideoEffectLayout.this.hfX.f(list, str);
+                    VideoEffectLayout.this.hfX.notifyDataSetChanged();
                     VideoEffectLayout.this.setListViewSelection(0);
                 }
             };
             if (getVisibility() != 0) {
                 runnable.run();
-            } else if (this.gUv.getVisibility() == 0) {
+            } else if (this.hfW.getVisibility() == 0) {
                 runnable.run();
-                nd(false);
+                nj(false);
             } else {
-                bzj();
+                bEp();
                 this.mHandler.postDelayed(runnable, 250L);
             }
         }
@@ -299,148 +299,148 @@ public class VideoEffectLayout extends LinearLayout implements VideoEffectButton
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.4
             @Override // java.lang.Runnable
             public void run() {
-                VideoEffectLayout.this.cSs.setSelection(i);
+                VideoEffectLayout.this.dbz.setSelection(i);
             }
         });
     }
 
     public int getCurrentEffectLayout() {
-        return this.gUK;
+        return this.hgl;
     }
 
     public e<String> getCurrentFilterItem() {
-        return this.gUE;
+        return this.hgf;
     }
 
     public e<com.baidu.tieba.video.a> getCurrentBeautyItem() {
-        return this.gUD;
+        return this.hge;
     }
 
     public StickerItem getCurrentStickItem() {
-        return this.gUG;
+        return this.hgh;
     }
 
-    private void bzj() {
-        if (this.gUI != null && this.gUI.isRunning()) {
-            this.gUI.cancel();
+    private void bEp() {
+        if (this.hgj != null && this.hgj.isRunning()) {
+            this.hgj.cancel();
         }
-        if (this.gUH == null) {
-            this.gUH = new AnimatorSet();
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.cSs, "alpha", 1.0f, 0.0f);
+        if (this.hgi == null) {
+            this.hgi = new AnimatorSet();
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dbz, "alpha", 1.0f, 0.0f);
             ofFloat.setDuration(300L);
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.cSs, PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("translationY", 1000.0f, 0.0f));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.dbz, PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("translationY", 1000.0f, 0.0f));
             ofPropertyValuesHolder.setDuration(200L);
-            this.gUH.playSequentially(ofFloat, ofPropertyValuesHolder);
+            this.hgi.playSequentially(ofFloat, ofPropertyValuesHolder);
         }
-        this.cSs.setVisibility(0);
-        this.gUH.start();
+        this.dbz.setVisibility(0);
+        this.hgi.start();
     }
 
-    private void nd(boolean z) {
+    private void nj(boolean z) {
         if (z) {
-            if (this.gUJ != null && this.gUJ.isRunning()) {
-                this.gUJ.cancel();
+            if (this.hgk != null && this.hgk.isRunning()) {
+                this.hgk.cancel();
             }
-            if (this.gUH != null && this.gUH.isRunning()) {
-                this.gUH.cancel();
+            if (this.hgi != null && this.hgi.isRunning()) {
+                this.hgi.cancel();
             }
-            if (this.gUI == null) {
-                this.gUI = new AnimatorSet();
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.cSs, "alpha", 1.0f, 0.0f);
+            if (this.hgj == null) {
+                this.hgj = new AnimatorSet();
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.dbz, "alpha", 1.0f, 0.0f);
                 ofFloat.setDuration(300L);
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.gUv, PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("translationY", 1000.0f, 0.0f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.hfW, PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("translationY", 1000.0f, 0.0f));
                 ofPropertyValuesHolder.setDuration(200L);
                 ofPropertyValuesHolder.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.5
                     @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
                         super.onAnimationStart(animator);
-                        if (VideoEffectLayout.this.gUv != null) {
-                            VideoEffectLayout.this.gUv.setVisibility(0);
+                        if (VideoEffectLayout.this.hfW != null) {
+                            VideoEffectLayout.this.hfW.setVisibility(0);
                         }
                     }
 
                     @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        if (!this.gUV && VideoEffectLayout.this.cSs != null) {
-                            VideoEffectLayout.this.cSs.setVisibility(8);
+                        if (!this.hgw && VideoEffectLayout.this.dbz != null) {
+                            VideoEffectLayout.this.dbz.setVisibility(8);
                         }
                     }
                 });
-                this.gUI.playSequentially(ofFloat, ofPropertyValuesHolder);
+                this.hgj.playSequentially(ofFloat, ofPropertyValuesHolder);
             }
-            com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.6
+            com.baidu.adp.lib.g.e.im().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.6
                 @Override // java.lang.Runnable
                 public void run() {
                     VideoEffectLayout.this.requestLayout();
                 }
             }, 300L);
-            this.gUI.start();
+            this.hgj.start();
             return;
         }
-        if (this.gUI != null && this.gUI.isRunning()) {
-            this.gUI.cancel();
+        if (this.hgj != null && this.hgj.isRunning()) {
+            this.hgj.cancel();
         }
-        if (this.gUJ == null) {
-            this.gUJ = new AnimatorSet();
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.gUv, "alpha", 1.0f, 0.0f);
+        if (this.hgk == null) {
+            this.hgk = new AnimatorSet();
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.hfW, "alpha", 1.0f, 0.0f);
             ofFloat2.setDuration(300L);
-            ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.cSs, PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("translationY", 1000.0f, 0.0f));
+            ObjectAnimator ofPropertyValuesHolder2 = ObjectAnimator.ofPropertyValuesHolder(this.dbz, PropertyValuesHolder.ofFloat("alpha", 0.0f, 1.0f), PropertyValuesHolder.ofFloat("translationY", 1000.0f, 0.0f));
             ofPropertyValuesHolder2.setDuration(200L);
             ofPropertyValuesHolder2.addListener(new m() { // from class: com.baidu.tieba.video.record.VideoEffectLayout.7
                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    if (VideoEffectLayout.this.cSs != null) {
-                        VideoEffectLayout.this.cSs.setVisibility(0);
+                    if (VideoEffectLayout.this.dbz != null) {
+                        VideoEffectLayout.this.dbz.setVisibility(0);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.record.m, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (!this.gUV && VideoEffectLayout.this.gUv != null) {
-                        VideoEffectLayout.this.gUv.setVisibility(8);
+                    if (!this.hgw && VideoEffectLayout.this.hfW != null) {
+                        VideoEffectLayout.this.hfW.setVisibility(8);
                     }
                 }
             });
-            this.gUJ.playSequentially(ofFloat2, ofPropertyValuesHolder2);
+            this.hgk.playSequentially(ofFloat2, ofPropertyValuesHolder2);
         }
-        this.gUJ.start();
+        this.hgk.start();
     }
 
     public void setStickerItems(List<StickerItem> list) {
         this.mStickerItems = list;
-        if (this.gUx != null) {
-            this.gUx.q(list);
-            this.gUx.notifyDataSetChanged();
+        if (this.hfY != null) {
+            this.hfY.t(list);
+            this.hfY.notifyDataSetChanged();
         }
     }
 
     public void setMusicList(List<e> list) {
-        if (this.gUA == null) {
-            this.gUA = new ArrayList();
+        if (this.hgb == null) {
+            this.hgb = new ArrayList();
         } else {
-            this.gUA.clear();
+            this.hgb.clear();
         }
-        this.gUA.addAll(list);
+        this.hgb.addAll(list);
     }
 
-    public boolean bze() {
-        if (v.w(this.mStickerItems)) {
+    public boolean bEk() {
+        if (w.z(this.mStickerItems)) {
             return true;
         }
         return this.mStickerItems.size() == 1 && this.mStickerItems.get(0).id == -1;
     }
 
-    public void bzf() {
-        if (this.gUw != null) {
-            this.gUw.bxR();
-            this.gUC = TbadkCoreApplication.getInst().getString(d.k.music_normal);
+    public void bEl() {
+        if (this.hfX != null) {
+            this.hfX.bCX();
+            this.hgd = TbadkCoreApplication.getInst().getString(d.k.music_normal);
         }
     }
 
-    public void bxS() {
-        if (this.gUw != null) {
-            this.gUw.bxS();
+    public void bCY() {
+        if (this.hfX != null) {
+            this.hfX.bCY();
         }
     }
 }

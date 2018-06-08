@@ -4,23 +4,23 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class a {
-    private l<byte[]> bmO;
+    private l<byte[]> buU;
 
     public a() {
-        aoa();
+        asf();
     }
 
-    private void aoa() {
-        if (this.bmO == null) {
-            this.bmO = com.baidu.tbadk.core.c.a.ty().cY("tb.god_square");
+    private void asf() {
+        if (this.buU == null) {
+            this.buU = com.baidu.tbadk.core.c.a.wW().dx("tb.god_square");
         }
     }
 
-    public byte[] lC(String str) {
+    public byte[] mi(String str) {
         l.b<byte[]> bVar;
         if (str != null) {
-            aoa();
-            bVar = this.bmO.ab(str);
+            asf();
+            bVar = this.buU.an(str);
         } else {
             bVar = null;
         }
@@ -32,8 +32,8 @@ public class a {
 
     public void k(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            aoa();
-            this.bmO.a(str, bArr, 604800000L);
+            asf();
+            this.buU.a(str, bArr, 604800000L);
         }
     }
 }

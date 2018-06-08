@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivityConfig;
 import tbclient.BawuRoleInfoPub;
@@ -22,16 +22,16 @@ public class l extends com.baidu.tieba.frs.f<m, n> {
         super(tbPageContext, bdUniqueId);
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.l.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 String str;
-                if (view2.getTag() instanceof BawuRoleInfoPub) {
-                    BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
+                if (view.getTag() instanceof BawuRoleInfoPub) {
+                    BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view.getTag();
                     l.this.mPageContext.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(l.this.mContext, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
-                } else if (view2.getId() == d.g.title_text_view) {
-                    Object tag = view2.getTag();
+                } else if (view.getId() == d.g.title_text_view) {
+                    Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.aoj() != null) {
-                        String[] split = !StringUtils.isNull(mVar.aoj().member_group_type) ? mVar.aoj().member_group_type.split("_") : null;
+                    if (mVar != null && mVar.aso() != null) {
+                        String[] split = !StringUtils.isNull(mVar.aso().member_group_type) ? mVar.aso().member_group_type.split("_") : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -49,7 +49,7 @@ public class l extends com.baidu.tieba.frs.f<m, n> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: am */
+    /* renamed from: al */
     public n onCreateViewHolder(ViewGroup viewGroup) {
         return new n(LayoutInflater.from(this.mContext).inflate(d.i.forum_member_team_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -58,20 +58,20 @@ public class l extends com.baidu.tieba.frs.f<m, n> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, m mVar, n nVar) {
-        super.onFillViewHolder(i, view2, viewGroup, mVar, nVar);
-        if (mVar != null && mVar.aoj() != null) {
-            MemberGroupInfo aoj = mVar.aoj();
-            if (aoj.member_group_list != null && aoj.member_group_list.size() > 0 && !StringUtils.isNull(aoj.member_group_type)) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
+        super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
+        if (mVar != null && mVar.aso() != null) {
+            MemberGroupInfo aso = mVar.aso();
+            if (aso.member_group_list != null && aso.member_group_list.size() > 0 && !StringUtils.isNull(aso.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(aoj.member_group_type) ? aoj.member_group_type.split("_") : null;
+                String[] split = !StringUtils.isNull(aso.member_group_type) ? aso.member_group_type.split("_") : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + aoj.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + aso.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : aoj.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : aso.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -79,17 +79,17 @@ public class l extends com.baidu.tieba.frs.f<m, n> {
                         i2++;
                     }
                 }
-                nVar.fl(this.mSkinType == 1);
-                ak.j(nVar.cVN, d.C0126d.cp_bg_line_d);
-                ak.j(nVar.cVO, d.C0126d.cp_bg_line_b);
-                ak.c(nVar.mTitleView, d.C0126d.cp_cont_c, 1);
-                ak.c(nVar.cVJ, d.C0126d.cp_cont_f, 1);
-                ak.c(nVar.cVK, d.C0126d.cp_cont_f, 1);
-                ak.c(nVar.cVL, d.C0126d.cp_cont_f, 1);
-                ak.c(nVar.cVM, d.C0126d.cp_cont_f, 1);
-                nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ak.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
+                nVar.fp(this.mSkinType == 1);
+                al.j(nVar.deZ, d.C0141d.cp_bg_line_d);
+                al.j(nVar.dfa, d.C0141d.cp_bg_line_b);
+                al.c(nVar.mTitleView, d.C0141d.cp_cont_c, 1);
+                al.c(nVar.deV, d.C0141d.cp_cont_f, 1);
+                al.c(nVar.deW, d.C0141d.cp_cont_f, 1);
+                al.c(nVar.deX, d.C0141d.cp_cont_f, 1);
+                al.c(nVar.deY, d.C0141d.cp_cont_f, 1);
+                nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
             }
         }
-        return view2;
+        return view;
     }
 }

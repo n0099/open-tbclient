@@ -18,12 +18,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.n;
 import com.baidu.tieba.d;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    private static final KeyEvent cLp = new KeyEvent(0, 67);
+    private static final KeyEvent cUv = new KeyEvent(0, 67);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -33,7 +32,7 @@ public class b {
     public static void a(final Context context, final n nVar, final EditText editText) {
         if (nVar != null && !TextUtils.isEmpty(nVar.getName()) && !TextUtils.isEmpty(nVar.getUrl()) && editText != null) {
             editText.getText().toString();
-            c.fp().a(nVar.getUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.1
+            c.ig().a(nVar.getUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
@@ -43,7 +42,7 @@ public class b {
                         if (selectionStart < 0) {
                             selectionStart = 0;
                         }
-                        b.a(context, editText, new SpannableStringBuilder(nVar.getName()), selectionStart, aVar, nVar.yB());
+                        b.a(context, editText, new SpannableStringBuilder(nVar.getName()), selectionStart, aVar, nVar.Cb());
                     }
                 }
             }, 0, 0, BdUniqueId.gen(), new Object[0]);
@@ -53,11 +52,11 @@ public class b {
     public static void b(final Context context, n nVar, final EditText editText) {
         if (nVar != null && editText != null && nVar.getName() != null) {
             String name = nVar.getName();
-            final EmotionGroupType yB = nVar.yB();
-            if (yB == EmotionGroupType.LOCAL || yB == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
+            final EmotionGroupType Cb = nVar.Cb();
+            if (Cb == EmotionGroupType.LOCAL || Cb == EmotionGroupType.USER_COLLECT || name.startsWith("#(")) {
                 if (name != null) {
                     final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(name);
-                    c.fp().a(name, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
+                    c.ig().a(name, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.2
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
@@ -68,7 +67,7 @@ public class b {
                                 if (selectionStart < 0) {
                                     selectionStart = 0;
                                 }
-                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, yB);
+                                b.a(context, editText, spannableStringBuilder, selectionStart, aVar, Cb);
                             }
                         }
                     }, 0, 0, BdUniqueId.gen(), null, name, false, null);
@@ -82,17 +81,17 @@ public class b {
 
     public static void a(Context context, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, com.baidu.adp.widget.ImageView.a aVar, EmotionGroupType emotionGroupType) {
         if (context != null && editText != null && !TextUtils.isEmpty(spannableStringBuilder) && aVar != null) {
-            Bitmap kl = aVar.kl();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(kl);
-            int width = kl.getWidth();
+            Bitmap mZ = aVar.mZ();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(mZ);
+            int width = mZ.getWidth();
             if (emotionGroupType == EmotionGroupType.LOCAL) {
                 int i2 = (int) (width * 0.5d);
                 bitmapDrawable.setBounds(0, 0, i2, i2);
             } else if (emotionGroupType == EmotionGroupType.USER_COLLECT || spannableStringBuilder.toString().startsWith("#(")) {
                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                int width2 = (int) (kl.getWidth() * ((dimensionPixelSize * 1.0d) / kl.getHeight()));
+                int width2 = (int) (mZ.getWidth() * ((dimensionPixelSize * 1.0d) / mZ.getHeight()));
                 if (width2 > editText.getMeasuredWidth()) {
-                    width2 = (int) (kl.getWidth() * 0.5d);
+                    width2 = (int) (mZ.getWidth() * 0.5d);
                 }
                 bitmapDrawable.setBounds(0, 0, width2, dimensionPixelSize);
             }
@@ -106,7 +105,7 @@ public class b {
         CustomResponsedMessage runTask;
         if (context != null && !TextUtils.isEmpty(str) && aVar != null) {
             final SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            final int[] iArr = {com.baidu.tieba.face.a.kZ(str)};
+            final int[] iArr = {com.baidu.tieba.face.a.lF(str)};
             if (iArr[0] <= 0) {
                 if (aVar != null) {
                     aVar.a(spannableStringBuilder);
@@ -114,22 +113,22 @@ public class b {
                 }
                 return;
             }
-            Matcher matcher = com.baidu.tieba.face.a.cLn.matcher(spannableStringBuilder);
+            Matcher matcher = com.baidu.tieba.face.a.cUt.matcher(spannableStringBuilder);
             while (matcher.find()) {
                 String group = matcher.group();
                 final int start = matcher.start();
                 final int end = matcher.end();
                 if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
-                    c.fp().a(group, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.3
+                    c.ig().a(group, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.3
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
-                            Bitmap kl;
+                            Bitmap mZ;
                             super.onLoaded((AnonymousClass3) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kl());
-                                int width = (int) (0.5d * kl.getWidth());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.mZ());
+                                int width = (int) (0.5d * mZ.getWidth());
                                 bitmapDrawable.setBounds(0, 0, width, width);
                                 bitmapDrawable.setGravity(119);
                                 spannableStringBuilder.setSpan(new com.baidu.adp.widget.b(bitmapDrawable, 1), start, end, 33);
@@ -156,23 +155,23 @@ public class b {
             Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(spannableStringBuilder);
             while (matcher2.find()) {
                 String group2 = matcher2.group();
-                String[] split = group2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = group2.split(",");
                 if (split != null && split.length == 5) {
                     final int start2 = matcher2.start();
                     final int end2 = matcher2.end();
-                    c.fp().a(group2, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.4
+                    c.ig().a(group2, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.face.b.4
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
-                            Bitmap kl;
+                            Bitmap mZ;
                             super.onLoaded((AnonymousClass4) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kl());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.mZ());
                                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                                int width = (int) (kl.getWidth() * ((dimensionPixelSize * 1.0d) / kl.getHeight()));
-                                if (width > l.af(context) * 0.6d) {
-                                    width = (int) (kl.getWidth() * 0.5d);
+                                int width = (int) (mZ.getWidth() * ((dimensionPixelSize * 1.0d) / mZ.getHeight()));
+                                if (width > l.ah(context) * 0.6d) {
+                                    width = (int) (mZ.getWidth() * 0.5d);
                                 }
                                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                                 bitmapDrawable.setGravity(119);
@@ -199,7 +198,7 @@ public class b {
             }
             Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(spannableStringBuilder);
             while (matcher3.find()) {
-                String[] split2 = matcher3.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split2 = matcher3.group().split(",");
                 if (split2 != null && split2.length == 6) {
                     final int start3 = matcher3.start();
                     final int end3 = matcher3.end();
@@ -208,14 +207,14 @@ public class b {
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar2, String str2, int i) {
-                            Bitmap kl;
+                            Bitmap mZ;
                             super.onLoaded((AnonymousClass5) aVar2, str2, i);
                             if (aVar2 != null) {
-                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.kl());
+                                BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar2.mZ());
                                 int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds80);
-                                int width = (int) (kl.getWidth() * ((dimensionPixelSize * 1.0d) / kl.getHeight()));
-                                if (width > l.af(context) * 0.6d) {
-                                    width = (int) (kl.getWidth() * 0.5d);
+                                int width = (int) (mZ.getWidth() * ((dimensionPixelSize * 1.0d) / mZ.getHeight()));
+                                if (width > l.ah(context) * 0.6d) {
+                                    width = (int) (mZ.getWidth() * 0.5d);
                                 }
                                 bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                                 bitmapDrawable.setGravity(119);
@@ -239,7 +238,7 @@ public class b {
                         }
                     };
                     if (!TextUtils.isEmpty(split2[1])) {
-                        c.fp().a(Uri.decode(split2[1].replace("net_", "")), 10, bVar, 0, 0, BdUniqueId.gen(), new Object[0]);
+                        c.ig().a(Uri.decode(split2[1].replace("net_", "")), 10, bVar, 0, 0, BdUniqueId.gen(), new Object[0]);
                     }
                 }
             }
@@ -251,9 +250,9 @@ public class b {
         if (editText != null && (text = editText.getText()) != null) {
             int selectionStart = editText.getSelectionStart();
             if (selectionStart - 1 > 0 && selectionStart - 1 < text.length() && text.charAt(selectionStart - 1) == 0) {
-                editText.onKeyDown(67, cLp);
+                editText.onKeyDown(67, cUv);
             }
-            editText.onKeyDown(67, cLp);
+            editText.onKeyDown(67, cUv);
             int selectionStart2 = editText.getSelectionStart();
             if (text != null) {
                 editText.setSelection(selectionStart2);

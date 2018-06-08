@@ -2,49 +2,21 @@ package android.support.v4.widget;
 
 import android.os.Build;
 import android.view.View;
+import android.widget.ListPopupWindow;
 /* loaded from: classes2.dex */
 public final class ListPopupWindowCompat {
-    static final ListPopupWindowImpl IMPL;
-
-    /* loaded from: classes2.dex */
-    interface ListPopupWindowImpl {
-        View.OnTouchListener createDragToOpenListener(Object obj, View view2);
-    }
-
-    /* loaded from: classes2.dex */
-    static class BaseListPopupWindowImpl implements ListPopupWindowImpl {
-        BaseListPopupWindowImpl() {
-        }
-
-        @Override // android.support.v4.widget.ListPopupWindowCompat.ListPopupWindowImpl
-        public View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class KitKatListPopupWindowImpl extends BaseListPopupWindowImpl {
-        KitKatListPopupWindowImpl() {
-        }
-
-        @Override // android.support.v4.widget.ListPopupWindowCompat.BaseListPopupWindowImpl, android.support.v4.widget.ListPopupWindowCompat.ListPopupWindowImpl
-        public View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
-            return ListPopupWindowCompatKitKat.createDragToOpenListener(obj, view2);
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 19) {
-            IMPL = new KitKatListPopupWindowImpl();
-        } else {
-            IMPL = new BaseListPopupWindowImpl();
-        }
-    }
-
     private ListPopupWindowCompat() {
     }
 
-    public static View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
-        return IMPL.createDragToOpenListener(obj, view2);
+    @Deprecated
+    public static View.OnTouchListener createDragToOpenListener(Object obj, View view) {
+        return createDragToOpenListener((ListPopupWindow) obj, view);
+    }
+
+    public static View.OnTouchListener createDragToOpenListener(ListPopupWindow listPopupWindow, View view) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            return listPopupWindow.createDragToOpenListener(view);
+        }
+        return null;
     }
 }

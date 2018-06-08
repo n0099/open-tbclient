@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.util.Log;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.baidu.tieba.l.c;
 import java.io.BufferedOutputStream;
@@ -25,7 +26,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method eSH;
+    private static Method fdZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -39,7 +40,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().aSi();
+                    ((c.a) context).getSplash().aXf();
                 }
                 c = c(file2, file);
                 b(context, C(file2), D, c.size() + 1);
@@ -47,7 +48,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().aSi();
+                ((c.a) context).getSplash().aXf();
             }
             c = c(file2, file);
             b(context, C(file2), D, c.size() + 1);
@@ -59,7 +60,7 @@ final class b {
     private static List<File> a(Context context, File file, File file2) throws IOException {
         Log.i("MultiDex", "loading existing secondary dex files");
         String str = file.getName() + ".classes";
-        int i = av(context).getInt("dex.number", 1);
+        int i = aF(context).getInt("dex.number", 1);
         ArrayList arrayList = new ArrayList(i);
         for (int i2 = 2; i2 <= i; i2++) {
             File file3 = new File(file2, str + i2 + ".zip");
@@ -76,8 +77,8 @@ final class b {
     }
 
     private static boolean a(Context context, File file, long j) {
-        SharedPreferences av = av(context);
-        return (av.getLong("timestamp", -1L) == C(file) && av.getLong("crc", -1L) == j) ? false : true;
+        SharedPreferences aF = aF(context);
+        return (aF.getLong(HttpConstants.TIMESTAMP, -1L) == C(file) && aF.getLong("crc", -1L) == j) ? false : true;
     }
 
     private static long C(File file) {
@@ -144,14 +145,14 @@ final class b {
     }
 
     private static void b(Context context, long j, long j2, int i) {
-        SharedPreferences.Editor edit = av(context).edit();
-        edit.putLong("timestamp", j);
+        SharedPreferences.Editor edit = aF(context).edit();
+        edit.putLong(HttpConstants.TIMESTAMP, j);
         edit.putLong("crc", j2);
         edit.putInt("dex.number", i);
         apply(edit);
     }
 
-    private static SharedPreferences av(Context context) {
+    private static SharedPreferences aF(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
@@ -242,9 +243,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (eSH != null) {
+        if (fdZ != null) {
             try {
-                eSH.invoke(editor, new Object[0]);
+                fdZ.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -255,9 +256,9 @@ final class b {
 
     static {
         try {
-            eSH = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            fdZ = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            eSH = null;
+            fdZ = null;
         }
     }
 }

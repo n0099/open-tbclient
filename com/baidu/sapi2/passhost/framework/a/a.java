@@ -15,15 +15,15 @@ public class a implements ISapiBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0069a {
+    public static class C0085a {
         public static a a = new a();
 
-        private C0069a() {
+        private C0085a() {
         }
     }
 
     public static a a() {
-        return C0069a.a;
+        return C0085a.a;
     }
 
     public void a(Context context) {

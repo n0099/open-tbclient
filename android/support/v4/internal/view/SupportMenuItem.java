@@ -1,11 +1,12 @@
 package android.support.v4.internal.view;
 
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.ActionProvider;
-import android.support.v4.view.MenuItemCompat;
 import android.view.MenuItem;
 import android.view.View;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public interface SupportMenuItem extends MenuItem {
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
@@ -23,7 +24,25 @@ public interface SupportMenuItem extends MenuItem {
     @Override // android.view.MenuItem
     View getActionView();
 
+    @Override // android.view.MenuItem
+    int getAlphabeticModifiers();
+
+    @Override // android.view.MenuItem
+    CharSequence getContentDescription();
+
+    @Override // android.view.MenuItem
+    ColorStateList getIconTintList();
+
+    @Override // android.view.MenuItem
+    PorterDuff.Mode getIconTintMode();
+
+    @Override // android.view.MenuItem
+    int getNumericModifiers();
+
     ActionProvider getSupportActionProvider();
+
+    @Override // android.view.MenuItem
+    CharSequence getTooltipText();
 
     @Override // android.view.MenuItem
     boolean isActionViewExpanded();
@@ -32,7 +51,25 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setActionView(int i);
 
     @Override // android.view.MenuItem
-    MenuItem setActionView(View view2);
+    MenuItem setActionView(View view);
+
+    @Override // android.view.MenuItem
+    MenuItem setAlphabeticShortcut(char c, int i);
+
+    @Override // android.view.MenuItem
+    SupportMenuItem setContentDescription(CharSequence charSequence);
+
+    @Override // android.view.MenuItem
+    MenuItem setIconTintList(ColorStateList colorStateList);
+
+    @Override // android.view.MenuItem
+    MenuItem setIconTintMode(PorterDuff.Mode mode);
+
+    @Override // android.view.MenuItem
+    MenuItem setNumericShortcut(char c, int i);
+
+    @Override // android.view.MenuItem
+    MenuItem setShortcut(char c, char c2, int i, int i2);
 
     @Override // android.view.MenuItem
     void setShowAsAction(int i);
@@ -42,5 +79,6 @@ public interface SupportMenuItem extends MenuItem {
 
     SupportMenuItem setSupportActionProvider(ActionProvider actionProvider);
 
-    SupportMenuItem setSupportOnActionExpandListener(MenuItemCompat.OnActionExpandListener onActionExpandListener);
+    @Override // android.view.MenuItem
+    SupportMenuItem setTooltipText(CharSequence charSequence);
 }

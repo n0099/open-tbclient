@@ -2,7 +2,7 @@ package android.support.v7.widget;
 
 import android.graphics.Rect;
 import android.support.annotation.RestrictTo;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public interface FitWindowsViewGroup {
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
@@ -25,7 +25,7 @@ public class ShareReportNetMessage extends NetMessage {
         builder.tid = Long.valueOf(getTid());
         builder.from = Integer.valueOf(getFrom());
         if (z) {
-            o.bindCommonParamsToProtobufData(builder, true);
+            p.bindCommonParamsToProtobufData(builder, true);
         }
         ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
         builder2.data = builder.build(false);

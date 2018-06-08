@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class g extends SQLiteOpenHelper {
     public g(Context context) {
-        super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 3);
+        super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        w(sQLiteDatabase);
+        x(sQLiteDatabase);
     }
 
-    private void w(SQLiteDatabase sQLiteDatabase) {
+    private void x(SQLiteDatabase sQLiteDatabase) {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, " + IntentConfig.PORTRAIT + " TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, user_type INT);");
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, " + IntentConfig.PORTRAIT + " TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, user_type INT);");
             }
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.createTables", new Object[0]);
@@ -32,7 +32,7 @@ public class g extends SQLiteOpenHelper {
         }
     }
 
-    private void x(SQLiteDatabase sQLiteDatabase) {
+    private void y(SQLiteDatabase sQLiteDatabase) {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
@@ -46,8 +46,8 @@ public class g extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        y(sQLiteDatabase);
         x(sQLiteDatabase);
-        w(sQLiteDatabase);
         try {
             MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(304001));
         } catch (Exception e) {

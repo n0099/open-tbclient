@@ -7,7 +7,7 @@ import android.os.Message;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.k;
+import com.baidu.tbadk.core.util.l;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -47,10 +47,10 @@ public class ClearTempService extends BdBaseService {
                     public void run() {
                         super.run();
                         try {
-                            File file = new File(k.wA + "/" + TbConfig.getTempDirName() + "/image");
-                            File file2 = new File(k.wA + "/" + TbConfig.getTempDirName() + "/share");
-                            File file3 = new File(k.wA + "/" + TbConfig.getTempDirName() + "/voice");
-                            File file4 = new File(k.wA + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
+                            File file = new File(l.CF + "/" + TbConfig.getTempDirName() + "/image");
+                            File file2 = new File(l.CF + "/" + TbConfig.getTempDirName() + "/share");
+                            File file3 = new File(l.CF + "/" + TbConfig.getTempDirName() + "/voice");
+                            File file4 = new File(l.CF + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
                             ClearTempService.this.deleteCache(file, false);
                             ClearTempService.this.deleteDir(file2);
                             ClearTempService.this.deleteDir(file3);
@@ -98,7 +98,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = k.wA + "/" + TbConfig.getTempDirName() + "/image";
+        String str = l.CF + "/" + TbConfig.getTempDirName() + "/image";
         for (int i = 0; i < 20; i++) {
             File file = new File(str + "/" + i);
             if (file.exists() && file.isDirectory()) {

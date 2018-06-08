@@ -5,7 +5,7 @@ import android.view.animation.Animation;
 public abstract class d implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(final Animation animation) {
-        e.fw().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.1
+        e.im().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.1
             @Override // java.lang.Runnable
             public void run() {
                 d.this.a(animation);
@@ -15,7 +15,7 @@ public abstract class d implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(final Animation animation) {
-        e.fw().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.2
+        e.im().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.2
             @Override // java.lang.Runnable
             public void run() {
                 d.this.b(animation);
@@ -25,7 +25,7 @@ public abstract class d implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationRepeat(final Animation animation) {
-        e.fw().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.3
+        e.im().post(new Runnable() { // from class: com.baidu.adp.lib.g.d.3
             @Override // java.lang.Runnable
             public void run() {
                 d.this.c(animation);

@@ -1,205 +1,144 @@
 package com.baidu.ar.camera;
-
-import android.os.Parcel;
-import android.os.Parcelable;
 /* loaded from: classes3.dex */
-public class CameraParams implements Parcelable {
-    public static final Parcelable.Creator<CameraParams> CREATOR = new Parcelable.Creator<CameraParams>() { // from class: com.baidu.ar.camera.CameraParams.1
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public CameraParams createFromParcel(Parcel parcel) {
-            return new CameraParams(parcel);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.os.Parcelable.Creator
-        public CameraParams[] newArray(int i) {
-            return new CameraParams[i];
-        }
-    };
-    private int a;
-    private boolean b;
-    private boolean c;
-    private double d;
-    private int e;
-    private int f;
-    private boolean g;
-    private int h;
-    private boolean i;
-    private boolean j;
-    private int k;
-    private int l;
-    private int m;
-    private boolean n;
-
-    public CameraParams() {
-        this.a = 0;
-        this.b = true;
-        this.c = true;
-        this.d = 0.05d;
-        this.e = 1280;
-        this.f = 720;
-        this.g = false;
-        this.h = 30;
-        this.i = false;
-        this.j = true;
-        this.k = 90;
-        this.l = 1280;
-        this.m = 720;
-        this.n = true;
-    }
-
-    protected CameraParams(Parcel parcel) {
-        this.a = parcel.readInt();
-        this.b = parcel.readByte() != 0;
-        this.c = parcel.readByte() != 0;
-        this.d = parcel.readDouble();
-        this.e = parcel.readInt();
-        this.f = parcel.readInt();
-        this.g = parcel.readByte() != 0;
-        this.h = parcel.readInt();
-        this.i = parcel.readByte() != 0;
-        this.j = parcel.readByte() != 0;
-        this.k = parcel.readInt();
-        this.l = parcel.readInt();
-        this.m = parcel.readInt();
-        this.n = parcel.readByte() != 0;
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
+public class CameraParams {
+    private static final double DEFAULT_ASPECT_TOLERANCE = 0.05d;
+    private static final boolean DEFAULT_AUTO_CORRECT_PARAMS = true;
+    private static final boolean DEFAULT_AUTO_FOCUS = true;
+    private static final int DEFAULT_CAMERA_INDEX = 0;
+    private static final boolean DEFAULT_FRAME_RATE_CORRECT_UPWARD = false;
+    private static final boolean DEFAULT_KEEP_ASPECT_RATIO = true;
+    private static final boolean DEFAULT_PICTURE_CORRECT_UPWARD = true;
+    private static final int DEFAULT_PICTURE_HEIGHT = 720;
+    private static final int DEFAULT_PICTURE_WIDTH = 1280;
+    private static final boolean DEFAULT_PREVIEW_CORRECT_UPWARD = false;
+    private static final int DEFAULT_PREVIEW_FRAME_RATE = 30;
+    private static final int DEFAULT_PREVIEW_HEIGHT = 720;
+    private static final int DEFAULT_PREVIEW_WIDTH = 1280;
+    private static final int DEFAULT_ROTATE_DEGREE = 90;
+    private int mCameraId = 0;
+    private boolean mAutoCorrectParams = true;
+    private boolean mKeepAspectRatio = true;
+    private double mAspectTolerance = DEFAULT_ASPECT_TOLERANCE;
+    private int mPreviewWidth = 1280;
+    private int mPreviewHeight = 720;
+    private boolean mPreviewCorrectUpward = false;
+    private int mFrameRate = 30;
+    private boolean mFrameRateCorrectUpward = false;
+    private boolean mAutoFocus = true;
+    private int mRotateDegree = 90;
+    private int mPictureWidth = 1280;
+    private int mPictureHeight = 720;
+    private boolean mPictureCorrectUpward = true;
 
     public double getAspectTolerance() {
-        return this.d;
+        return this.mAspectTolerance;
     }
 
     public int getCameraId() {
-        return this.a;
+        return this.mCameraId;
     }
 
     public int getFrameRate() {
-        return this.h;
+        return this.mFrameRate;
     }
 
     public int getPictureHeight() {
-        return this.m;
+        return this.mPictureHeight;
     }
 
     public int getPictureWidth() {
-        return this.l;
+        return this.mPictureWidth;
     }
 
     public int getPreviewHeight() {
-        return this.f;
+        return this.mPreviewHeight;
     }
 
     public int getPreviewWidth() {
-        return this.e;
+        return this.mPreviewWidth;
     }
 
     public int getRotateDegree() {
-        return this.k;
+        return this.mRotateDegree;
     }
 
     public boolean isAutoCorrectParams() {
-        return this.b;
+        return this.mAutoCorrectParams;
     }
 
     public boolean isAutoFocus() {
-        return this.j;
+        return this.mAutoFocus;
     }
 
     public boolean isFrameRateCorrectUpward() {
-        return this.i;
+        return this.mFrameRateCorrectUpward;
     }
 
     public boolean isKeepAspectRatio() {
-        return this.c;
+        return this.mKeepAspectRatio;
     }
 
     public boolean isPictureCorrectUpward() {
-        return this.n;
+        return this.mPictureCorrectUpward;
     }
 
     public boolean isPreviewCorrectUpward() {
-        return this.g;
+        return this.mPreviewCorrectUpward;
     }
 
     public void setAspectTolerance(double d) {
-        this.d = d;
+        this.mAspectTolerance = d;
     }
 
     public void setAutoCorrectParams(boolean z) {
-        this.b = z;
+        this.mAutoCorrectParams = z;
     }
 
     public void setAutoFocus(boolean z) {
-        this.j = z;
+        this.mAutoFocus = z;
     }
 
     public void setCameraId(int i) {
-        this.a = i;
+        this.mCameraId = i;
     }
 
     public void setFrameRate(int i) {
-        this.h = i;
+        this.mFrameRate = i;
     }
 
     public void setFrameRateCorrectUpward(boolean z) {
-        this.i = z;
+        this.mFrameRateCorrectUpward = z;
     }
 
     public void setKeepAspectRatio(boolean z) {
-        this.c = z;
+        this.mKeepAspectRatio = z;
     }
 
     public void setPictureCorrectUpward(boolean z) {
-        this.n = z;
+        this.mPictureCorrectUpward = z;
     }
 
     public void setPictureHeight(int i) {
-        this.m = i;
+        this.mPictureHeight = i;
     }
 
     public void setPictureWidth(int i) {
-        this.l = i;
+        this.mPictureWidth = i;
     }
 
     public void setPreviewCorrectUpward(boolean z) {
-        this.g = z;
+        this.mPreviewCorrectUpward = z;
     }
 
     public void setPreviewHeight(int i) {
-        this.f = i;
+        this.mPreviewHeight = i;
     }
 
     public void setPreviewWidth(int i) {
-        this.e = i;
+        this.mPreviewWidth = i;
     }
 
     public void setRotateDegree(int i) {
-        this.k = i;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
-        parcel.writeByte(this.b ? (byte) 1 : (byte) 0);
-        parcel.writeByte(this.c ? (byte) 1 : (byte) 0);
-        parcel.writeDouble(this.d);
-        parcel.writeInt(this.e);
-        parcel.writeInt(this.f);
-        parcel.writeByte(this.g ? (byte) 1 : (byte) 0);
-        parcel.writeInt(this.h);
-        parcel.writeByte(this.i ? (byte) 1 : (byte) 0);
-        parcel.writeByte(this.j ? (byte) 1 : (byte) 0);
-        parcel.writeInt(this.k);
-        parcel.writeInt(this.l);
-        parcel.writeInt(this.m);
-        parcel.writeByte(this.n ? (byte) 1 : (byte) 0);
+        this.mRotateDegree = i;
     }
 }

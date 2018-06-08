@@ -27,7 +27,7 @@ import tbclient.FrsPage.TagInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 /* loaded from: classes2.dex */
-public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tbadk.core.util.ae, Serializable {
+public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tbadk.core.util.af, Serializable {
     public static BdUniqueId FORUM_FLOOR_TYPE = BdUniqueId.gen();
     private static final long serialVersionUID = -5446966999595522426L;
     private String accelerate_cotent;
@@ -700,7 +700,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         return this.warning_msg;
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
+    @Override // com.baidu.tbadk.core.util.af
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();

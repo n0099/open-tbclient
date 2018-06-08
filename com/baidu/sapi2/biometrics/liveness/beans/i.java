@@ -2,7 +2,7 @@ package com.baidu.sapi2.biometrics.liveness.beans;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.UploadBean;
 import com.baidu.fsg.base.restnet.beans.business.core.DebugConfig;
@@ -57,7 +57,7 @@ public class i extends UploadBean {
             arrayList.add(new RestNameValuePair("service_type", this.d.serviceType));
             arrayList.add(new RestNameValuePair("type", "video"));
         }
-        arrayList.add(new RestNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new RestNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         if (!TextUtils.isEmpty(this.c)) {
             arrayList.add(new RestNameValuePair("zid", this.c));
         }

@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import java.lang.ref.WeakReference;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public final class ViewStubCompat extends View {
     private OnInflateListener mInflateListener;
@@ -22,7 +22,7 @@ public final class ViewStubCompat extends View {
 
     /* loaded from: classes2.dex */
     public interface OnInflateListener {
-        void onInflate(ViewStubCompat viewStubCompat, View view2);
+        void onInflate(ViewStubCompat viewStubCompat, View view);
     }
 
     public ViewStubCompat(Context context, AttributeSet attributeSet) {
@@ -81,9 +81,9 @@ public final class ViewStubCompat extends View {
     @Override // android.view.View
     public void setVisibility(int i) {
         if (this.mInflatedViewRef != null) {
-            View view2 = this.mInflatedViewRef.get();
-            if (view2 != null) {
-                view2.setVisibility(i);
+            View view = this.mInflatedViewRef.get();
+            if (view != null) {
+                view.setVisibility(i);
                 return;
             }
             throw new IllegalStateException("setVisibility called on un-referenced view");

@@ -11,6 +11,8 @@ public @interface RestrictTo {
 
     /* loaded from: classes2.dex */
     public enum Scope {
+        LIBRARY,
+        LIBRARY_GROUP,
         GROUP_ID,
         TESTS,
         SUBCLASSES

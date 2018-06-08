@@ -81,7 +81,7 @@ public class SelectCountryActivity extends Activity implements LetterIndexBar.On
         this.mListView.setVerticalScrollBarEnabled(false);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.sina.weibo.sdk.register.mobile.SelectCountryActivity.2
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 Country country = (Country) SelectCountryActivity.this.mAdapter.getItem(i);
                 if (country != null) {
                     Intent intent = new Intent();
@@ -229,9 +229,9 @@ public class SelectCountryActivity extends Activity implements LetterIndexBar.On
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             IndexCountry indexCountry = (IndexCountry) SelectCountryActivity.this.indexCountries.get(i);
-            if (view2 == null) {
+            if (view == null) {
                 if (indexCountry.indexInList != -1) {
                     Country country = (Country) SelectCountryActivity.this.arrSubCountry[indexCountry.indexInListArray].get(indexCountry.indexInList);
                     return new SelectCountryItemView(SelectCountryActivity.this, country.getName(), country.getCode());
@@ -239,15 +239,15 @@ public class SelectCountryActivity extends Activity implements LetterIndexBar.On
                 return createTitleView(indexCountry.indexInListArray);
             } else if (indexCountry.indexInList != -1) {
                 Country country2 = (Country) SelectCountryActivity.this.arrSubCountry[indexCountry.indexInListArray].get(indexCountry.indexInList);
-                if (view2 instanceof SelectCountryTitleView) {
+                if (view instanceof SelectCountryTitleView) {
                     return new SelectCountryItemView(SelectCountryActivity.this, country2.getName(), country2.getCode());
                 }
-                ((SelectCountryItemView) view2).updateContent(country2.getName(), country2.getCode());
-                return view2;
-            } else if (view2 instanceof SelectCountryTitleView) {
+                ((SelectCountryItemView) view).updateContent(country2.getName(), country2.getCode());
+                return view;
+            } else if (view instanceof SelectCountryTitleView) {
                 if (indexCountry.indexInListArray == 0) {
-                    ((SelectCountryTitleView) view2).update(ResourceManager.getString(SelectCountryActivity.this, SelectCountryActivity.INFO_EN, "常用", "常用"));
-                    return view2;
+                    ((SelectCountryTitleView) view).update(ResourceManager.getString(SelectCountryActivity.this, SelectCountryActivity.INFO_EN, "常用", "常用"));
+                    return view;
                 }
                 return createTitleView(indexCountry.indexInListArray);
             } else {

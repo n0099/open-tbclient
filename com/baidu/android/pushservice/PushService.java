@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.a.a;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PushService extends Service {
@@ -30,7 +30,7 @@ public class PushService extends Service {
         }
     };
     private int f = 0;
-    private final a.AbstractBinderC0018a g = new a.AbstractBinderC0018a() { // from class: com.baidu.android.pushservice.PushService.2
+    private final a.AbstractBinderC0026a g = new a.AbstractBinderC0026a() { // from class: com.baidu.android.pushservice.PushService.2
         @Override // com.baidu.android.pushservice.a.a
         public int a(String str, int i) throws RemoteException {
             return 0;
@@ -148,7 +148,7 @@ public class PushService extends Service {
         try {
             jSONObject.put("error", 30602);
             if (!TextUtils.isEmpty(str)) {
-                jSONObject.put(Constants.HTTP_APP_ID, str);
+                jSONObject.put(HttpConstants.HTTP_APP_ID, str);
             }
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("api_key", str2);

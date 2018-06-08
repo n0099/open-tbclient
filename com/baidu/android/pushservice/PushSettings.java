@@ -8,7 +8,6 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class PushSettings {
     private static int a = -1;
@@ -82,21 +81,21 @@ public class PushSettings {
         String a2 = com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le");
         if (TextUtils.isEmpty(a2)) {
             if (z) {
-                com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", context.getPackageName() + ",");
                 return;
             }
             return;
         }
         StringBuilder sb = new StringBuilder();
-        for (String str : a2.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+        for (String str : a2.trim().split(",")) {
             if (str.equals(context.getPackageName())) {
                 z2 = true;
                 i = z ? 0 : i + 1;
             }
-            sb.append(str + Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(str + ",");
         }
         if (!z2) {
-            sb.append(context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(context.getPackageName() + ",");
         }
         com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", sb.toString());
     }
@@ -126,10 +125,10 @@ public class PushSettings {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        String[] split = a2.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        String[] split = a2.trim().split(",");
         for (String str2 : split) {
             if (!str2.equals(str)) {
-                sb.append(str2 + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(str2 + ",");
             }
         }
         com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", sb.toString());
@@ -203,7 +202,7 @@ public class PushSettings {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        String[] split = a2.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        String[] split = a2.trim().split(",");
         PackageManager packageManager = context.getPackageManager();
         for (String str : split) {
             PackageInfo packageInfo = null;
@@ -212,7 +211,7 @@ public class PushSettings {
             } catch (Exception e2) {
             }
             if (packageInfo != null) {
-                sb.append(str + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                sb.append(str + ",");
             }
         }
         com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", sb.toString());

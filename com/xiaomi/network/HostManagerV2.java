@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.channel.commonutils.network.d;
-import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.network.HostManager;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -113,7 +112,7 @@ public class HostManagerV2 extends HostManager {
             arrayList3.add(new com.xiaomi.channel.commonutils.network.a("conpt", a(d.k(this.sAppContext))));
         }
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a(UserBox.TYPE, str2));
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("list", join(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("list", join(arrayList, ",")));
         Fallback localFallback = getLocalFallback("resolver.msg.xiaomi.net");
         String format = String.format(Locale.US, "http://%1$s/gslb/?ver=3.0", "resolver.msg.xiaomi.net:" + this.c);
         if (localFallback == null) {

@@ -7,58 +7,58 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends b {
-    private a Ab;
-    protected Path zZ = new Path();
-    protected Paint Aa = null;
-    protected boolean Ac = false;
+    private a Gj;
+    protected Path Gh = new Path();
+    protected Paint Gi = null;
+    protected boolean Gk = false;
 
     /* loaded from: classes.dex */
     public interface a {
         Path a(RectF rectF);
 
-        void e(Canvas canvas);
+        void g(Canvas canvas);
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(c cVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(cVar, imageView, scaleType);
-        if (this.Ab != null && (a2 = this.Ab.a(id())) != null) {
-            this.zZ.set(a2);
-            if (this.Aa == null) {
-                this.Aa = new Paint();
-                this.Aa.setStyle(Paint.Style.STROKE);
-                this.Aa.setAntiAlias(true);
-                this.Aa.setColor(637534208);
-                this.Aa.setDither(true);
-                this.Aa.setStrokeWidth(2.0f);
+        if (this.Gj != null && (a2 = this.Gj.a(kR())) != null) {
+            this.Gh.set(a2);
+            if (this.Gi == null) {
+                this.Gi = new Paint();
+                this.Gi.setStyle(Paint.Style.STROKE);
+                this.Gi.setAntiAlias(true);
+                this.Gi.setColor(637534208);
+                this.Gi.setDither(true);
+                this.Gi.setStrokeWidth(2.0f);
             }
-            ii();
+            kW();
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(Canvas canvas, c cVar, ImageView imageView) {
         super.a(canvas, cVar, imageView);
-        if (this.Ac) {
-            canvas.drawPath(this.zZ, this.Aa);
-            if (this.Ab != null) {
-                this.Ab.e(canvas);
+        if (this.Gk) {
+            canvas.drawPath(this.Gh, this.Gi);
+            if (this.Gj != null) {
+                this.Gj.g(canvas);
             }
         }
     }
 
-    public void ii() {
+    public void kW() {
     }
 
-    public void ij() {
+    public void kX() {
     }
 
     public void a(a aVar) {
-        this.Ab = aVar;
+        this.Gj = aVar;
     }
 
-    public void O(boolean z) {
-        this.Ac = z;
+    public void Q(boolean z) {
+        this.Gk = z;
     }
 }

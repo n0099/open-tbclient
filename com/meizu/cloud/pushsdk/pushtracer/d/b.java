@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.pushtracer.d;
 import android.content.Context;
 import android.location.Location;
 import android.os.Build;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import com.meizu.cloud.pushsdk.pushtracer.utils.d;
 import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.HashMap;
@@ -61,7 +61,7 @@ public class b {
     }
 
     private void d() {
-        a(Constants.HTTP_OS_TYPE, "android-" + Build.VERSION.RELEASE);
+        a(HttpConstants.HTTP_OS_TYPE_OLD, "android-" + Build.VERSION.RELEASE);
     }
 
     private void e() {

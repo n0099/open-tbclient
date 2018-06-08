@@ -2,7 +2,6 @@ package com.tencent.open.a;
 
 import android.text.format.Time;
 import android.util.Log;
-import com.baidu.sapi2.base.network.Apn;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public final class h {
@@ -40,7 +39,7 @@ public final class h {
         }
         sb.append(j2).append(' ').append('[');
         if (thread == null) {
-            sb.append(Apn.APN_UNKNOWN);
+            sb.append("N/A");
         } else {
             sb.append(thread.getName());
         }

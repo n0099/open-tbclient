@@ -6,25 +6,25 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class m implements View.OnClickListener {
-    private com.baidu.tieba.personPolymeric.event.b fJJ = new com.baidu.tieba.personPolymeric.event.b();
-    protected com.baidu.tieba.view.g fNr;
-    private com.baidu.tieba.personPolymeric.c.a fNs;
+    private com.baidu.tieba.personPolymeric.event.b fVe = new com.baidu.tieba.personPolymeric.event.b();
+    protected com.baidu.tieba.view.g fYD;
+    private com.baidu.tieba.personPolymeric.c.a fYE;
     private boolean mIsHost;
 
     public m(Context context) {
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.g gVar) {
-        this.fNr = gVar;
+        this.fYD = gVar;
     }
 
     public void a(com.baidu.tieba.personPolymeric.c.a aVar) {
-        this.fNs = aVar;
+        this.fYE = aVar;
     }
 
     public void setIsHost(boolean z) {
@@ -32,67 +32,69 @@ public class m implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (this.fNr != null && this.fNs != null && this.fNs.getUserData() != null) {
-            UserData userData = this.fNs.getUserData();
-            this.fJJ.cLl = -1;
-            if (view2.getId() == d.g.person_polymeric_header_user_img) {
-                TiebaStatic.log(new al("c12502").ac("obj_locate", "5"));
-                this.fJJ.cLl = 1;
-                this.fJJ.cLm = new Bundle();
-                this.fJJ.cLm.putSerializable(UserData.TYPE_USER, userData);
-            } else if (view2.getId() == d.g.person_polymeric_header_user_vip_icon) {
-                TiebaStatic.log(new al("c12502").ac("obj_locate", "6"));
-                this.fJJ.cLl = 2;
-            } else if (view2.getId() == d.g.person_polymeric_header_label_box) {
-                TiebaStatic.log(new al("c12502").ac("obj_locate", "4"));
-                this.fJJ.cLl = 3;
-                this.fJJ.cLm = new Bundle();
-                this.fJJ.cLm.putSerializable(UserData.TYPE_USER, userData);
-            } else if (view2.getId() == d.g.container_send_gift) {
-                TiebaStatic.log(new al("c12503").ac("obj_locate", "3"));
-                this.fJJ.cLl = 12;
-                this.fJJ.cLm = new Bundle();
-                this.fJJ.cLm.putSerializable(UserData.TYPE_USER, userData);
-            } else if (view2.getId() == d.g.seal_prefix_view) {
-                this.fJJ.cLl = 13;
-            } else if (view2.getId() == d.g.person_center_header_tdou_txt || view2.getId() == d.g.textview_get_tdou) {
-                if (view2.getId() == d.g.person_center_header_tdou_txt) {
-                    TiebaStatic.log(new al("c12502").ac("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
-                } else if (view2.getId() == d.g.textview_get_tdou) {
-                    TiebaStatic.log(new al("c12502").ac("obj_locate", Constants.VIA_REPORT_TYPE_JOININ_GROUP));
+    public void onClick(View view) {
+        if (this.fYD != null && this.fYE != null && this.fYE.getUserData() != null) {
+            UserData userData = this.fYE.getUserData();
+            this.fVe.cUr = -1;
+            if (view.getId() == d.g.person_polymeric_header_user_img) {
+                TiebaStatic.log(new am("c12502").ah("obj_locate", "5"));
+                this.fVe.cUr = 1;
+                this.fVe.cUs = new Bundle();
+                this.fVe.cUs.putSerializable(UserData.TYPE_USER, userData);
+            } else if (view.getId() == d.g.person_polymeric_header_user_vip_icon) {
+                TiebaStatic.log(new am("c12502").ah("obj_locate", Constants.VIA_SHARE_TYPE_INFO));
+                this.fVe.cUr = 2;
+            } else if (view.getId() == d.g.person_polymeric_header_label_box) {
+                TiebaStatic.log(new am("c12502").ah("obj_locate", "4"));
+                this.fVe.cUr = 3;
+                this.fVe.cUs = new Bundle();
+                this.fVe.cUs.putSerializable(UserData.TYPE_USER, userData);
+            } else if (view.getId() == d.g.container_send_gift) {
+                TiebaStatic.log(new am("c12503").ah("obj_locate", "3"));
+                this.fVe.cUr = 12;
+                this.fVe.cUs = new Bundle();
+                this.fVe.cUs.putSerializable(UserData.TYPE_USER, userData);
+            } else if (view.getId() == d.g.seal_prefix_view) {
+                this.fVe.cUr = 13;
+            } else if (view.getId() == d.g.person_center_header_tdou_txt || view.getId() == d.g.textview_get_tdou) {
+                if (view.getId() == d.g.person_center_header_tdou_txt) {
+                    TiebaStatic.log(new am("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
+                } else if (view.getId() == d.g.textview_get_tdou) {
+                    TiebaStatic.log(new am("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_JOININ_GROUP));
                 }
-                this.fJJ.cLl = 14;
-            } else if (view2.getId() == d.g.person_polymeric_header_user_name_txt || view2.getId() == d.g.person_polymeric_header_sign_txt) {
-                if (view2.getId() == d.g.person_polymeric_header_user_name_txt) {
-                    TiebaStatic.log(new al("c12502").ac("obj_locate", "7"));
-                } else if (view2.getId() == d.g.person_polymeric_header_sign_txt) {
-                    TiebaStatic.log(new al("c12502").ac("obj_locate", Constants.VIA_REPORT_TYPE_MAKE_FRIEND));
+                this.fVe.cUr = 14;
+            } else if (view.getId() == d.g.person_polymeric_header_user_name_txt || view.getId() == d.g.person_polymeric_header_sign_txt || view.getId() == d.g.btn_edit_person_info) {
+                if (view.getId() == d.g.person_polymeric_header_user_name_txt) {
+                    TiebaStatic.log(new am("c12502").ah("obj_locate", "7"));
+                } else if (view.getId() == d.g.person_polymeric_header_sign_txt) {
+                    TiebaStatic.log(new am("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_MAKE_FRIEND));
+                } else if (view.getId() == d.g.btn_edit_person_info) {
+                    TiebaStatic.log(new am("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_START_WAP));
                 }
                 if (this.mIsHost) {
-                    this.fJJ.cLm = new Bundle();
-                    this.fJJ.cLm.putSerializable(UserData.TYPE_USER, userData);
-                    if (this.fNs != null && this.fNs.fLn != null) {
-                        this.fJJ.cLm.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.fNs.fLn.left_days.intValue());
+                    this.fVe.cUs = new Bundle();
+                    this.fVe.cUs.putSerializable(UserData.TYPE_USER, userData);
+                    if (this.fYE != null && this.fYE.fWz != null) {
+                        this.fVe.cUs.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.fYE.fWz.left_days.intValue());
                     }
-                    this.fJJ.cLl = 11;
+                    this.fVe.cUr = 11;
                 } else {
-                    view2.requestLayout();
-                    if (view2 instanceof TextView) {
-                        ((TextView) view2).setMaxLines(2147483646);
+                    view.requestLayout();
+                    if (view instanceof TextView) {
+                        ((TextView) view).setMaxLines(2147483646);
                     }
                 }
-            } else if (view2.getId() == d.g.layout_gift) {
+            } else if (view.getId() == d.g.layout_gift) {
                 if (this.mIsHost) {
-                    TiebaStatic.log(new al("c12502").ac("obj_locate", Constants.VIA_REPORT_TYPE_WPA_STATE));
+                    TiebaStatic.log(new am("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_WPA_STATE));
                 } else {
-                    TiebaStatic.log(new al("c12503").ac("obj_locate", "5"));
+                    TiebaStatic.log(new am("c12503").ah("obj_locate", "5"));
                 }
-                this.fJJ.cLl = 34;
-                this.fJJ.cLm = new Bundle();
-                this.fJJ.cLm.putSerializable(UserData.TYPE_USER, userData);
+                this.fVe.cUr = 34;
+                this.fVe.cUs = new Bundle();
+                this.fVe.cUs.putSerializable(UserData.TYPE_USER, userData);
             }
-            this.fNr.a(view2, this.fJJ);
+            this.fYD.a(view, this.fVe);
         }
     }
 }

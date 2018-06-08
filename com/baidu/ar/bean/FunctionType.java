@@ -11,20 +11,20 @@ public enum FunctionType {
         this.mValue = str;
     }
 
-    public static FunctionType a(String str) {
+    public static FunctionType getValueOf(String str) {
         FunctionType[] values;
         if (str == null) {
             return NONE;
         }
         for (FunctionType functionType : values()) {
-            if (functionType.a().equalsIgnoreCase(str)) {
+            if (functionType.getValue().equalsIgnoreCase(str)) {
                 return functionType;
             }
         }
         return NONE;
     }
 
-    public String a() {
+    public String getValue() {
         return this.mValue;
     }
 }

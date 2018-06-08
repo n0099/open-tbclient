@@ -8,16 +8,16 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.data.b> {
-    private ImageView crY;
-    private TbImageView dix;
-    private TextView diy;
-    private TextView diz;
+    private ImageView cAB;
+    private TbImageView drM;
+    private TextView drN;
+    private TextView drO;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -30,22 +30,22 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
     }
 
     private void initView() {
-        this.dix = (TbImageView) this.mRootView.findViewById(d.g.frs_game_left_image);
-        this.dix.setDefaultErrorResource(d.f.icon_morenpic);
-        this.dix.setDefaultResource(d.f.icon_morenpic);
-        this.crY = (ImageView) this.mRootView.findViewById(d.g.frs_game_video_icon);
+        this.drM = (TbImageView) this.mRootView.findViewById(d.g.frs_game_left_image);
+        this.drM.setDefaultErrorResource(d.f.icon_morenpic);
+        this.drM.setDefaultResource(d.f.icon_morenpic);
+        this.cAB = (ImageView) this.mRootView.findViewById(d.g.frs_game_video_icon);
         this.mTitle = (TextView) this.mRootView.findViewById(d.g.frs_game_strategy_title);
-        this.diy = (TextView) this.mRootView.findViewById(d.g.frs_game_strategy_scan_info);
-        this.diz = (TextView) this.mRootView.findViewById(d.g.frs_game_strategy_info_source);
+        this.drN = (TextView) this.mRootView.findViewById(d.g.frs_game_strategy_scan_info);
+        this.drO = (TextView) this.mRootView.findViewById(d.g.frs_game_strategy_info_source);
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
-        ak.h(this.mTitle, d.C0126d.cp_cont_b);
-        ak.h(this.diy, d.C0126d.cp_cont_d);
-        ak.h(this.diz, d.C0126d.cp_cont_i);
-        ak.i(this.mRootView, d.f.addresslist_item_bg);
+        al.h(this.mTitle, d.C0141d.cp_cont_b);
+        al.h(this.drN, d.C0141d.cp_cont_d);
+        al.h(this.drO, d.C0141d.cp_cont_i);
+        al.i(this.mRootView, d.f.addresslist_item_bg);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -56,53 +56,53 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.frs.game.strategy.data.b bVar) {
-        if (bVar != null && bVar.Pb() != null) {
-            bd Pb = bVar.Pb();
-            this.mTitle.setText(Pb.getTitle());
+        if (bVar != null && bVar.Sz() != null) {
+            bd Sz = bVar.Sz();
+            this.mTitle.setText(Sz.getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.tg(Pb.getId())) {
-                ak.h(this.mTitle, d.C0126d.cp_cont_c);
+            if (readThreadHistory != null && readThreadHistory.ua(Sz.getId())) {
+                al.h(this.mTitle, d.C0141d.cp_cont_c);
             } else {
-                ak.h(this.mTitle, d.C0126d.cp_cont_b);
+                al.h(this.mTitle, d.C0141d.cp_cont_b);
             }
-            String v = an.v(Pb.rI());
-            String t = an.t(Pb.rC());
-            if (!StringUtils.isNull(v) && !StringUtils.isNull(t)) {
-                this.diy.setText(String.format(this.mContext.getString(d.k.frs_game_strategy_scan_info), v, t));
+            String y = ao.y(Sz.vf());
+            String w = ao.w(Sz.uY());
+            if (!StringUtils.isNull(y) && !StringUtils.isNull(w)) {
+                this.drN.setText(String.format(this.mContext.getString(d.k.frs_game_strategy_scan_info), y, w));
             }
             String str = null;
-            if (Pb.getThreadType() == 40) {
-                this.crY.setVisibility(0);
-                if (Pb.sg() != null) {
-                    str = Pb.sg().thumbnail_url;
+            if (Sz.getThreadType() == 40) {
+                this.cAB.setVisibility(0);
+                if (Sz.vD() != null) {
+                    str = Sz.vD().thumbnail_url;
                 }
             } else {
-                this.crY.setVisibility(8);
-                if (Pb.rZ() != null && Pb.rZ().size() >= 1) {
-                    str = Pb.rZ().get(0).getOriginalUrl();
+                this.cAB.setVisibility(8);
+                if (Sz.vw() != null && Sz.vw().size() >= 1) {
+                    str = Sz.vw().get(0).getOriginalUrl();
                 }
             }
-            this.dix.startLoad(str, 10, false);
-            if (!StringUtils.isNull(Pb.rG())) {
-                this.diz.setText(Pb.rG());
-                this.diz.setVisibility(0);
+            this.drM.startLoad(str, 10, false);
+            if (!StringUtils.isNull(Sz.vd())) {
+                this.drO.setText(Sz.vd());
+                this.drO.setVisibility(0);
                 return;
             }
-            this.diz.setVisibility(8);
+            this.drO.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        public d diA;
+        public d drP;
 
         public a(d dVar) {
             super(dVar.getView());
-            this.diA = dVar;
+            this.drP = dVar;
         }
     }
 }

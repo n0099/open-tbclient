@@ -7,26 +7,26 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int mk;
-    private a ml;
+    private int sI;
+    private a sJ;
 
-    public a bW() throws IOException {
+    public a eK() throws IOException {
         a aVar = new a();
-        aVar.mn = D("/proc/uid_stat/" + this.mk + "/tcp_rcv");
-        aVar.mo = D("/proc/uid_stat/" + this.mk + "/tcp_snd");
-        aVar.mm = d.e(aVar.mn + aVar.mo);
+        aVar.sL = P("/proc/uid_stat/" + this.sI + "/tcp_rcv");
+        aVar.sM = P("/proc/uid_stat/" + this.sI + "/tcp_snd");
+        aVar.sK = d.e(aVar.sL + aVar.sM);
         return aVar;
     }
 
-    public a bX() throws IOException {
-        a bW = bW();
-        this.ml.mn = d.e(bW.mn - d.bV().mn);
-        this.ml.mo = d.e(bW.mo - d.bV().mo);
-        this.ml.mm = d.e(bW.mm - d.bV().mm);
-        return this.ml;
+    public a eL() throws IOException {
+        a eK = eK();
+        this.sJ.sL = d.e(eK.sL - d.eJ().sL);
+        this.sJ.sM = d.e(eK.sM - d.eJ().sM);
+        this.sJ.sK = d.e(eK.sK - d.eJ().sK);
+        return this.sJ;
     }
 
-    public double D(String str) {
+    public double P(String str) {
         BufferedReader bufferedReader;
         double d = 0.0d;
         try {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(bX());
+                d.a(eL());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!bT()) {
+            if (!eH()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double mm = 0.0d;
-        double mn = 0.0d;
-        double mo = 0.0d;
+        double sK = 0.0d;
+        double sL = 0.0d;
+        double sM = 0.0d;
 
         public a() {
         }

@@ -5,5 +5,5 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public interface n {
-    void a(View view2, h hVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+    void a(View view, h hVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
 }

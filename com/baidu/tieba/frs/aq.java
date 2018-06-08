@@ -11,37 +11,37 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class aq {
     private TranslateAnimation mTipInAnimation;
-    private View dbC = null;
-    private int dbD = 2000;
+    private View dkS = null;
+    private int dkT = 2000;
     private Runnable mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.frs.aq.1
         @Override // java.lang.Runnable
         public void run() {
             aq.this.hideTip();
         }
     };
-    private ValueAnimator dbE = new ValueAnimator();
+    private ValueAnimator dkU = new ValueAnimator();
 
     public aq() {
-        this.dbE.setFloatValues(1.0f, 0.0f);
-        this.dbE.setDuration(400L);
-        this.dbE.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aq.2
+        this.dkU.setFloatValues(1.0f, 0.0f);
+        this.dkU.setDuration(400L);
+        this.dkU.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.aq.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (aq.this.dbC != null && valueAnimator != null) {
-                    aq.this.dbC.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (aq.this.dkS != null && valueAnimator != null) {
+                    aq.this.dkS.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.dbE.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aq.3
+        this.dkU.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.aq.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (aq.this.dbC != null) {
-                    aq.this.aqO();
-                    aq.this.dbC.setAlpha(1.0f);
+                if (aq.this.dkS != null) {
+                    aq.this.auT();
+                    aq.this.dkS.setAlpha(1.0f);
                 }
             }
 
@@ -62,7 +62,7 @@ public class aq {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.fw().postDelayed(aq.this.mHideTipRunnable, aq.this.dbD);
+                com.baidu.adp.lib.g.e.im().postDelayed(aq.this.mHideTipRunnable, aq.this.dkT);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -71,49 +71,49 @@ public class aq {
         });
     }
 
-    public void a(View view2, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
-        if (viewGroup != null && view2 != null) {
-            this.dbC = view2;
-            aqO();
-            viewGroup.addView(this.dbC, layoutParams);
-            this.dbC.setVisibility(0);
-            this.dbD = i;
-            com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mHideTipRunnable);
-            com.baidu.adp.lib.g.e.fw().postDelayed(this.mHideTipRunnable, this.dbD);
+    public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
+        if (viewGroup != null && view != null) {
+            this.dkS = view;
+            auT();
+            viewGroup.addView(this.dkS, layoutParams);
+            this.dkS.setVisibility(0);
+            this.dkT = i;
+            com.baidu.adp.lib.g.e.im().removeCallbacks(this.mHideTipRunnable);
+            com.baidu.adp.lib.g.e.im().postDelayed(this.mHideTipRunnable, this.dkT);
         }
     }
 
-    public void a(View view2, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        if (viewGroup != null && view2 != null) {
-            this.dbC = view2;
-            aqO();
-            viewGroup.addView(this.dbC, layoutParams);
-            this.dbC.setVisibility(0);
+    public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+        if (viewGroup != null && view != null) {
+            this.dkS = view;
+            auT();
+            viewGroup.addView(this.dkS, layoutParams);
+            this.dkS.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mHideTipRunnable);
-        if (this.dbC != null && this.dbC.getParent() != null && this.dbC.getVisibility() == 0 && !this.dbE.isRunning()) {
-            this.dbE.start();
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.mHideTipRunnable);
+        if (this.dkS != null && this.dkS.getParent() != null && this.dkS.getVisibility() == 0 && !this.dkU.isRunning()) {
+            this.dkU.start();
         }
     }
 
-    public void aqO() {
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.mHideTipRunnable);
-        if (this.dbC != null) {
-            if (this.dbE != null && this.dbE.isRunning()) {
-                this.dbE.cancel();
+    public void auT() {
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.mHideTipRunnable);
+        if (this.dkS != null) {
+            if (this.dkU != null && this.dkU.isRunning()) {
+                this.dkU.cancel();
             }
-            this.dbC.clearAnimation();
-            if (this.dbC.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.dbC.getParent()).removeView(this.dbC);
+            this.dkS.clearAnimation();
+            if (this.dkS.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.dkS.getParent()).removeView(this.dkS);
             }
-            this.dbC.setVisibility(8);
+            this.dkS.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        aqO();
+        auT();
     }
 }

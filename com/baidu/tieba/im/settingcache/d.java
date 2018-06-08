@@ -6,31 +6,31 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.util.h;
-import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d eiZ = new d();
+    private static d euq = new d();
 
     private d() {
     }
 
-    public static d aGU() {
-        return eiZ;
+    public static d aLP() {
+        return euq;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bm */
-    public OfficialSettingItemData bj(String str, String str2) {
+    /* renamed from: bt */
+    public OfficialSettingItemData bq(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.eiS) {
-            ChatSetting chatSetting = this.eiS.get(str3);
+        synchronized (this.euj) {
+            ChatSetting chatSetting = this.euj.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -43,22 +43,22 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void aCV() {
+    public void aHQ() {
         super.m(OfficialSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        OfficialSettingItemData bj;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bj = bj(str, str2)) != null) {
-            bj.setToPortrait(userData.getPortrait());
-            bj.setToName(userData.getUserName());
-            a(bj);
+        OfficialSettingItemData bq;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bq = bq(str, str2)) != null) {
+            bq.setToPortrait(userData.getPortrait());
+            bq.setToName(userData.getUserName());
+            a(bq);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aGR() {
-        return com.baidu.tbadk.core.c.a.ty().cZ("tb.im_official_chat_setting");
+    protected l<String> aLM() {
+        return com.baidu.tbadk.core.c.a.wW().dy("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> aGR = aGR();
+            l<String> aLM = aLM();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.eiS) {
-                this.eiS.put(str, officialSettingItemData);
+            synchronized (this.euj) {
+                this.euj.put(str, officialSettingItemData);
             }
-            aGR.e(str, jsonStrWithObject);
+            aLM.e(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class d extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.eiS) {
-                this.eiS.put(str, officialSettingItemData);
+            synchronized (this.euj) {
+                this.euj.put(str, officialSettingItemData);
             }
-            v.b(new u<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
+            w.b(new v<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tbadk.util.u
-                /* renamed from: No */
+                @Override // com.baidu.tbadk.util.v
+                /* renamed from: QO */
                 public Void doInBackground() {
-                    d.this.aGR().e(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.aLM().e(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, hVar);

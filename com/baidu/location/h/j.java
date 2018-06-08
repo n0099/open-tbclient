@@ -1,6 +1,7 @@
 package com.baidu.location.h;
 
 import android.util.Log;
+import com.baidu.ar.util.IoUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -8,27 +9,27 @@ import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Thread {
-    final /* synthetic */ f QQ;
+    final /* synthetic */ f YQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.QQ = fVar;
+        this.YQ = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.QQ.h = i.c();
-        this.QQ.b();
-        this.QQ.a();
+        this.YQ.h = i.c();
+        this.YQ.b();
+        this.YQ.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.QQ.i;
+        int i = this.YQ.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.QQ.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.YQ.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod("GET");
@@ -73,8 +74,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.QQ.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                this.QQ.a(true);
+                this.YQ.j = new String(byteArrayOutputStream.toByteArray(), IoUtils.UTF_8);
+                this.YQ.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -93,7 +94,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.QQ.j = null;
-        this.QQ.a(false);
+        this.YQ.j = null;
+        this.YQ.a(false);
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.utils;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -67,7 +66,7 @@ public abstract class StringUtils {
     }
 
     public static String collectionToCommaDelimitedString(Collection<?> collection) {
-        return collectionToDelimitedString(collection, Constants.ACCEPT_TIME_SEPARATOR_SP);
+        return collectionToDelimitedString(collection, ",");
     }
 
     public static long parseLong(String str) {
@@ -108,14 +107,14 @@ public abstract class StringUtils {
     }
 
     public static String formatMoneyAmount(String str) {
-        if (str.contains(com.baidu.ar.util.Constants.DOT)) {
-            int indexOf = str.indexOf(com.baidu.ar.util.Constants.DOT);
+        if (str.contains(".")) {
+            int indexOf = str.indexOf(".");
             String substring = str.substring(indexOf + 1);
             String substring2 = str.substring(0, indexOf);
             if (substring.length() < 2) {
                 substring = substring + "0";
             }
-            return substring2 + com.baidu.ar.util.Constants.DOT + substring;
+            return substring2 + "." + substring;
         }
         return str + ".00";
     }

@@ -8,7 +8,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean ft() {
+    public boolean ij() {
         return true;
     }
 
@@ -16,11 +16,11 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a gG = com.baidu.tbadk.imageManager.c.EY().gG(eH(str));
-        if (gG == null || gG.kl() == null) {
+        com.baidu.adp.widget.ImageView.a he = com.baidu.tbadk.imageManager.c.ID().he(fg(str));
+        if (he == null || he.mZ() == null) {
             return null;
         }
-        return gG;
+        return he;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,13 +30,13 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return eI(str);
+        return fh(str);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            com.baidu.tbadk.imageManager.c.EY().c(eH(str), (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.ID().c(fg(str), (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
@@ -48,16 +48,16 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel fu() {
+    public BdAsyncTaskParallel ik() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int fv() {
+    public int il() {
         return 1;
     }
 
-    public com.baidu.adp.widget.ImageView.a eI(String str) {
+    public com.baidu.adp.widget.ImageView.a fh(String str) {
         try {
             File file = new File(str);
             if (file != null && file.exists()) {
@@ -68,7 +68,7 @@ public class n implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public String eH(String str) {
+    public String fg(String str) {
         return "videoThumb_" + str;
     }
 }

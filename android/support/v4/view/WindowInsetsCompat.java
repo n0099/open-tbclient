@@ -2,333 +2,140 @@ package android.support.v4.view;
 
 import android.graphics.Rect;
 import android.os.Build;
+import android.view.WindowInsets;
 /* loaded from: classes2.dex */
 public class WindowInsetsCompat {
-    private static final WindowInsetsCompatImpl IMPL;
     private final Object mInsets;
 
-    /* loaded from: classes2.dex */
-    private interface WindowInsetsCompatImpl {
-        WindowInsetsCompat consumeStableInsets(Object obj);
-
-        WindowInsetsCompat consumeSystemWindowInsets(Object obj);
-
-        Object getSourceWindowInsets(Object obj);
-
-        int getStableInsetBottom(Object obj);
-
-        int getStableInsetLeft(Object obj);
-
-        int getStableInsetRight(Object obj);
-
-        int getStableInsetTop(Object obj);
-
-        int getSystemWindowInsetBottom(Object obj);
-
-        int getSystemWindowInsetLeft(Object obj);
-
-        int getSystemWindowInsetRight(Object obj);
-
-        int getSystemWindowInsetTop(Object obj);
-
-        boolean hasInsets(Object obj);
-
-        boolean hasStableInsets(Object obj);
-
-        boolean hasSystemWindowInsets(Object obj);
-
-        boolean isConsumed(Object obj);
-
-        boolean isRound(Object obj);
-
-        WindowInsetsCompat replaceSystemWindowInsets(Object obj, int i, int i2, int i3, int i4);
-
-        WindowInsetsCompat replaceSystemWindowInsets(Object obj, Rect rect);
-    }
-
-    /* loaded from: classes2.dex */
-    private static class WindowInsetsCompatBaseImpl implements WindowInsetsCompatImpl {
-        WindowInsetsCompatBaseImpl() {
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetLeft(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetTop(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetRight(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetBottom(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean hasSystemWindowInsets(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean hasInsets(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean isConsumed(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean isRound(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat consumeSystemWindowInsets(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat replaceSystemWindowInsets(Object obj, int i, int i2, int i3, int i4) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat replaceSystemWindowInsets(Object obj, Rect rect) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetTop(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetLeft(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetRight(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetBottom(Object obj) {
-            return 0;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean hasStableInsets(Object obj) {
-            return false;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat consumeStableInsets(Object obj) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public Object getSourceWindowInsets(Object obj) {
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private static class WindowInsetsCompatApi20Impl extends WindowInsetsCompatBaseImpl {
-        WindowInsetsCompatApi20Impl() {
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat consumeSystemWindowInsets(Object obj) {
-            return new WindowInsetsCompat(WindowInsetsCompatApi20.consumeSystemWindowInsets(obj));
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetBottom(Object obj) {
-            return WindowInsetsCompatApi20.getSystemWindowInsetBottom(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetLeft(Object obj) {
-            return WindowInsetsCompatApi20.getSystemWindowInsetLeft(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetRight(Object obj) {
-            return WindowInsetsCompatApi20.getSystemWindowInsetRight(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getSystemWindowInsetTop(Object obj) {
-            return WindowInsetsCompatApi20.getSystemWindowInsetTop(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean hasInsets(Object obj) {
-            return WindowInsetsCompatApi20.hasInsets(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean hasSystemWindowInsets(Object obj) {
-            return WindowInsetsCompatApi20.hasSystemWindowInsets(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean isRound(Object obj) {
-            return WindowInsetsCompatApi20.isRound(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat replaceSystemWindowInsets(Object obj, int i, int i2, int i3, int i4) {
-            return new WindowInsetsCompat(WindowInsetsCompatApi20.replaceSystemWindowInsets(obj, i, i2, i3, i4));
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public Object getSourceWindowInsets(Object obj) {
-            return WindowInsetsCompatApi20.getSourceWindowInsets(obj);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private static class WindowInsetsCompatApi21Impl extends WindowInsetsCompatApi20Impl {
-        WindowInsetsCompatApi21Impl() {
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat consumeStableInsets(Object obj) {
-            return new WindowInsetsCompat(WindowInsetsCompatApi21.consumeStableInsets(obj));
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetBottom(Object obj) {
-            return WindowInsetsCompatApi21.getStableInsetBottom(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetLeft(Object obj) {
-            return WindowInsetsCompatApi21.getStableInsetLeft(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetRight(Object obj) {
-            return WindowInsetsCompatApi21.getStableInsetRight(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public int getStableInsetTop(Object obj) {
-            return WindowInsetsCompatApi21.getStableInsetTop(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean hasStableInsets(Object obj) {
-            return WindowInsetsCompatApi21.hasStableInsets(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public boolean isConsumed(Object obj) {
-            return WindowInsetsCompatApi21.isConsumed(obj);
-        }
-
-        @Override // android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatBaseImpl, android.support.v4.view.WindowInsetsCompat.WindowInsetsCompatImpl
-        public WindowInsetsCompat replaceSystemWindowInsets(Object obj, Rect rect) {
-            return new WindowInsetsCompat(WindowInsetsCompatApi21.replaceSystemWindowInsets(obj, rect));
-        }
-    }
-
-    static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
-            IMPL = new WindowInsetsCompatApi21Impl();
-        } else if (i >= 20) {
-            IMPL = new WindowInsetsCompatApi20Impl();
-        } else {
-            IMPL = new WindowInsetsCompatBaseImpl();
-        }
-    }
-
-    WindowInsetsCompat(Object obj) {
+    private WindowInsetsCompat(Object obj) {
         this.mInsets = obj;
     }
 
     public WindowInsetsCompat(WindowInsetsCompat windowInsetsCompat) {
-        this.mInsets = windowInsetsCompat == null ? null : IMPL.getSourceWindowInsets(windowInsetsCompat.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            this.mInsets = windowInsetsCompat != null ? new WindowInsets((WindowInsets) windowInsetsCompat.mInsets) : null;
+        } else {
+            this.mInsets = null;
+        }
     }
 
     public int getSystemWindowInsetLeft() {
-        return IMPL.getSystemWindowInsetLeft(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return ((WindowInsets) this.mInsets).getSystemWindowInsetLeft();
+        }
+        return 0;
     }
 
     public int getSystemWindowInsetTop() {
-        return IMPL.getSystemWindowInsetTop(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return ((WindowInsets) this.mInsets).getSystemWindowInsetTop();
+        }
+        return 0;
     }
 
     public int getSystemWindowInsetRight() {
-        return IMPL.getSystemWindowInsetRight(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return ((WindowInsets) this.mInsets).getSystemWindowInsetRight();
+        }
+        return 0;
     }
 
     public int getSystemWindowInsetBottom() {
-        return IMPL.getSystemWindowInsetBottom(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return ((WindowInsets) this.mInsets).getSystemWindowInsetBottom();
+        }
+        return 0;
     }
 
     public boolean hasSystemWindowInsets() {
-        return IMPL.hasSystemWindowInsets(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return ((WindowInsets) this.mInsets).hasSystemWindowInsets();
+        }
+        return false;
     }
 
     public boolean hasInsets() {
-        return IMPL.hasInsets(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return ((WindowInsets) this.mInsets).hasInsets();
+        }
+        return false;
     }
 
     public boolean isConsumed() {
-        return IMPL.isConsumed(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return ((WindowInsets) this.mInsets).isConsumed();
+        }
+        return false;
     }
 
     public boolean isRound() {
-        return IMPL.isRound(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return ((WindowInsets) this.mInsets).isRound();
+        }
+        return false;
     }
 
     public WindowInsetsCompat consumeSystemWindowInsets() {
-        return IMPL.consumeSystemWindowInsets(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return new WindowInsetsCompat(((WindowInsets) this.mInsets).consumeSystemWindowInsets());
+        }
+        return null;
     }
 
     public WindowInsetsCompat replaceSystemWindowInsets(int i, int i2, int i3, int i4) {
-        return IMPL.replaceSystemWindowInsets(this.mInsets, i, i2, i3, i4);
+        if (Build.VERSION.SDK_INT >= 20) {
+            return new WindowInsetsCompat(((WindowInsets) this.mInsets).replaceSystemWindowInsets(i, i2, i3, i4));
+        }
+        return null;
     }
 
     public WindowInsetsCompat replaceSystemWindowInsets(Rect rect) {
-        return IMPL.replaceSystemWindowInsets(this.mInsets, rect);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return new WindowInsetsCompat(((WindowInsets) this.mInsets).replaceSystemWindowInsets(rect));
+        }
+        return null;
     }
 
     public int getStableInsetTop() {
-        return IMPL.getStableInsetTop(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return ((WindowInsets) this.mInsets).getStableInsetTop();
+        }
+        return 0;
     }
 
     public int getStableInsetLeft() {
-        return IMPL.getStableInsetLeft(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return ((WindowInsets) this.mInsets).getStableInsetLeft();
+        }
+        return 0;
     }
 
     public int getStableInsetRight() {
-        return IMPL.getStableInsetRight(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return ((WindowInsets) this.mInsets).getStableInsetRight();
+        }
+        return 0;
     }
 
     public int getStableInsetBottom() {
-        return IMPL.getStableInsetBottom(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return ((WindowInsets) this.mInsets).getStableInsetBottom();
+        }
+        return 0;
     }
 
     public boolean hasStableInsets() {
-        return IMPL.hasStableInsets(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return ((WindowInsets) this.mInsets).hasStableInsets();
+        }
+        return false;
     }
 
     public WindowInsetsCompat consumeStableInsets() {
-        return IMPL.consumeStableInsets(this.mInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            return new WindowInsetsCompat(((WindowInsets) this.mInsets).consumeStableInsets());
+        }
+        return null;
     }
 
     public boolean equals(Object obj) {

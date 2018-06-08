@@ -1,20 +1,112 @@
 package com.baidu.ar.recorder.b;
 
-import com.baidu.ar.recorder.c.d;
-import java.nio.FloatBuffer;
+import android.opengl.EGLContext;
+import com.baidu.ar.recorder.filter.FilterManager;
 /* loaded from: classes3.dex */
-public class a extends com.baidu.ar.recorder.c.a {
-    private static final float[] g = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] h = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    private static final FloatBuffer i = d.a(g);
-    private static final FloatBuffer j = d.a(h);
+public class a implements Cloneable, Comparable<a> {
+    private EGLContext a;
+    private int d;
+    private boolean e;
+    private boolean f;
+    private d g;
+    private int b = -1;
+    private com.baidu.ar.recorder.e.a c = new com.baidu.ar.recorder.c.a();
+    private FilterManager.FilterType h = FilterManager.FilterType.Normal;
+    private int i = 0;
+    private int j = 0;
+    private boolean k = false;
 
-    public a() {
-        this.a = i;
-        this.b = j;
-        this.d = 2;
-        this.e = this.d * 4;
-        this.c = g.length / this.d;
-        this.f = 8;
+    public a(EGLContext eGLContext, int i, boolean z, boolean z2) {
+        this.a = eGLContext;
+        this.d = i;
+        this.e = z;
+        this.f = z2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(a aVar) {
+        return this.d < aVar.d() ? -1 : 1;
+    }
+
+    public EGLContext a() {
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public void a(EGLContext eGLContext) {
+        this.a = eGLContext;
+    }
+
+    public void a(d dVar) {
+        this.g = dVar;
+    }
+
+    public void a(FilterManager.FilterType filterType) {
+        this.h = filterType;
+    }
+
+    public void a(boolean z) {
+        this.k = z;
+    }
+
+    public int b() {
+        return this.b;
+    }
+
+    public void b(int i) {
+        this.j = i;
+    }
+
+    public com.baidu.ar.recorder.e.a c() {
+        return this.c;
+    }
+
+    public Object clone() {
+        a aVar = null;
+        try {
+            aVar = (a) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        aVar.a((d) this.g.clone());
+        aVar.a(true);
+        return aVar;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public boolean e() {
+        return this.e;
+    }
+
+    public boolean f() {
+        return this.f;
+    }
+
+    public d g() {
+        return this.g;
+    }
+
+    public FilterManager.FilterType h() {
+        return this.h;
+    }
+
+    public int i() {
+        return this.i;
+    }
+
+    public int j() {
+        return this.j;
+    }
+
+    public boolean k() {
+        return this.k;
     }
 }

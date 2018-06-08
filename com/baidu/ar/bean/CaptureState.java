@@ -6,11 +6,28 @@ public enum CaptureState {
     NONE("none"),
     PICTURE(SocialConstants.PARAM_AVATAR_URI),
     VIDEO_UNSTART("video_unstart"),
-    VIDEO_CAPTUREING("video_captureing");
+    VIDEO_CAPTURING("video_capturing");
     
     private final String mValue;
 
     CaptureState(String str) {
         this.mValue = str;
+    }
+
+    public static CaptureState getValueOf(String str) {
+        CaptureState[] values;
+        if (str == null) {
+            return NONE;
+        }
+        for (CaptureState captureState : values()) {
+            if (captureState.getValue().equalsIgnoreCase(str)) {
+                return captureState;
+            }
+        }
+        return NONE;
+    }
+
+    public String getValue() {
+        return this.mValue;
     }
 }

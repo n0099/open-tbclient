@@ -14,6 +14,7 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
+import com.tencent.connect.common.Constants;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PlatformMessageSender {
@@ -138,7 +139,7 @@ public class PlatformMessageSender {
     public static void switchPushMessageSetting(Context context, int i, boolean z, String str) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
         com.meizu.cloud.a.a.i(TAG, context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
-        if (!TextUtils.isEmpty(appVersionName) && appVersionName.startsWith("6")) {
+        if (!TextUtils.isEmpty(appVersionName) && appVersionName.startsWith(Constants.VIA_SHARE_TYPE_INFO)) {
             Intent intent = new Intent(PushConstants.MZ_PUSH_ON_MESSAGE_SWITCH_SETTING);
             intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_TYPE, i);
             intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_STATUS, z);

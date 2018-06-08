@@ -44,7 +44,7 @@ public class x {
         if (str2 != null) {
             MiPushClient.removeAllAliases(context);
             if (!"".equals(str2)) {
-                String[] split2 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split2 = str2.split(",");
                 for (String str3 : split2) {
                     MiPushClient.addAlias(context, str3);
                 }
@@ -54,7 +54,7 @@ public class x {
         if (str4 != null) {
             MiPushClient.removeAllTopics(context);
             if (!"".equals(str4)) {
-                String[] split3 = str4.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split3 = str4.split(",");
                 for (String str5 : split3) {
                     MiPushClient.addTopic(context, str5);
                 }
@@ -66,7 +66,7 @@ public class x {
             if ("".equals(str6)) {
                 return;
             }
-            String[] split4 = str6.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String[] split4 = str6.split(",");
             for (String str7 : split4) {
                 MiPushClient.addAccount(context, str7);
             }
@@ -93,7 +93,7 @@ public class x {
         String str = "";
         for (String str2 : arrayList) {
             if (!TextUtils.isEmpty(str)) {
-                str = str + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                str = str + ",";
             }
             str = str + str2;
         }

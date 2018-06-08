@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int dbO;
+    private int dle;
     private Context mContext;
     private int mTextWidth;
     private int mWidth;
@@ -38,27 +38,27 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.dbO = l.e(this.mContext, d.e.ds8);
-        this.mWidth = l.af(this.mContext);
-        this.mTextWidth = l.af(this.mContext) / 2;
+        this.dle = l.e(this.mContext, d.e.ds8);
+        this.mWidth = l.ah(this.mContext);
+        this.mTextWidth = l.ah(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
         LinearLayout linearLayout;
-        if (!v.w(arrayList)) {
+        if (!w.z(arrayList)) {
             if (getChildCount() > 0) {
                 removeAllViews();
             }
-            int v = v.v(arrayList);
+            int y = w.y(arrayList);
             LinearLayout linearLayout2 = null;
             int i = 0;
-            while (i < v) {
+            while (i < y) {
                 if (i % 2 == 0) {
-                    linearLayout = bbd();
+                    linearLayout = bgc();
                 } else {
                     if (linearLayout2 != null) {
-                        a(linearLayout2, (String) v.c(arrayList, i - 1));
-                        a(linearLayout2, (String) v.c(arrayList, i));
+                        a(linearLayout2, (String) w.c(arrayList, i - 1));
+                        a(linearLayout2, (String) w.c(arrayList, i));
                     }
                     linearLayout = linearLayout2;
                 }
@@ -67,7 +67,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
                 this.mTextWidth = this.mWidth;
-                a(linearLayout2, (String) v.c(arrayList, v - 1));
+                a(linearLayout2, (String) w.c(arrayList, y - 1));
             }
         }
     }
@@ -76,8 +76,8 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         TextView textView = new TextView(this.mContext);
         textView.setText(str);
         textView.setGravity(17);
-        ak.j(textView, d.C0126d.cp_bg_line_c);
-        ak.h(textView, d.C0126d.black_alpha100);
+        al.j(textView, d.C0141d.cp_bg_line_c);
+        al.h(textView, d.C0141d.black_alpha100);
         textView.setTextSize(0, getResources().getDimension(d.e.ds28));
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
@@ -86,13 +86,13 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.dbO;
-        layoutParams.rightMargin = this.dbO;
+        layoutParams.leftMargin = this.dle;
+        layoutParams.rightMargin = this.dle;
     }
 
-    private LinearLayout bbd() {
+    private LinearLayout bgc() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        ak.j(linearLayout, d.C0126d.transparent);
+        al.j(linearLayout, d.C0141d.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);
@@ -100,9 +100,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if ((view2 instanceof TextView) && ((TextView) view2).getText() != null) {
-            ((TextView) view2).getText().toString();
+    public void onClick(View view) {
+        if ((view instanceof TextView) && ((TextView) view).getText() != null) {
+            ((TextView) view).getText().toString();
         }
     }
 

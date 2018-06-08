@@ -18,10 +18,6 @@ public class c {
         this.c = f3;
     }
 
-    public float a(c cVar) {
-        return (float) Math.sqrt(((this.a - cVar.a) * (this.a - cVar.a)) + ((this.b - cVar.b) * (this.b - cVar.b)) + ((this.c - cVar.c) * (this.c - cVar.c)));
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: a */
     public c clone() {
@@ -32,16 +28,6 @@ public class c {
         this.a = f;
         this.b = f2;
         this.c = f3;
-    }
-
-    public String b() {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append((int) this.a);
-        stringBuffer.append(", ");
-        stringBuffer.append((int) this.b);
-        stringBuffer.append(", ");
-        stringBuffer.append((int) this.c);
-        return stringBuffer.toString();
     }
 
     public String toString() {

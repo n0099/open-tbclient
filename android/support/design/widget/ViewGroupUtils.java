@@ -1,60 +1,57 @@
 package android.support.design.widget;
 
+import android.graphics.Matrix;
 import android.graphics.Rect;
-import android.os.Build;
+import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 /* loaded from: classes2.dex */
 class ViewGroupUtils {
-    private static final ViewGroupUtilsImpl IMPL;
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public interface ViewGroupUtilsImpl {
-        void offsetDescendantRect(ViewGroup viewGroup, View view2, Rect rect);
-    }
+    private static final ThreadLocal<Matrix> sMatrix = new ThreadLocal<>();
+    private static final ThreadLocal<RectF> sRectF = new ThreadLocal<>();
 
     ViewGroupUtils() {
     }
 
-    /* loaded from: classes2.dex */
-    private static class ViewGroupUtilsImplBase implements ViewGroupUtilsImpl {
-        ViewGroupUtilsImplBase() {
-        }
-
-        @Override // android.support.design.widget.ViewGroupUtils.ViewGroupUtilsImpl
-        public void offsetDescendantRect(ViewGroup viewGroup, View view2, Rect rect) {
-            viewGroup.offsetDescendantRectToMyCoords(view2, rect);
-            rect.offset(view2.getScrollX(), view2.getScrollY());
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private static class ViewGroupUtilsImplHoneycomb implements ViewGroupUtilsImpl {
-        ViewGroupUtilsImplHoneycomb() {
-        }
-
-        @Override // android.support.design.widget.ViewGroupUtils.ViewGroupUtilsImpl
-        public void offsetDescendantRect(ViewGroup viewGroup, View view2, Rect rect) {
-            ViewGroupUtilsHoneycomb.offsetDescendantRect(viewGroup, view2, rect);
-        }
-    }
-
-    static {
-        if (Build.VERSION.SDK_INT >= 11) {
-            IMPL = new ViewGroupUtilsImplHoneycomb();
+    static void offsetDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
+        Matrix matrix;
+        Matrix matrix2 = sMatrix.get();
+        if (matrix2 == null) {
+            Matrix matrix3 = new Matrix();
+            sMatrix.set(matrix3);
+            matrix = matrix3;
         } else {
-            IMPL = new ViewGroupUtilsImplBase();
+            matrix2.reset();
+            matrix = matrix2;
         }
-    }
-
-    static void offsetDescendantRect(ViewGroup viewGroup, View view2, Rect rect) {
-        IMPL.offsetDescendantRect(viewGroup, view2, rect);
+        offsetDescendantMatrix(viewGroup, view, matrix);
+        RectF rectF = sRectF.get();
+        if (rectF == null) {
+            rectF = new RectF();
+            sRectF.set(rectF);
+        }
+        rectF.set(rect);
+        matrix.mapRect(rectF);
+        rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void getDescendantRect(ViewGroup viewGroup, View view2, Rect rect) {
-        rect.set(0, 0, view2.getWidth(), view2.getHeight());
-        offsetDescendantRect(viewGroup, view2, rect);
+    public static void getDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
+        rect.set(0, 0, view.getWidth(), view.getHeight());
+        offsetDescendantRect(viewGroup, view, rect);
+    }
+
+    private static void offsetDescendantMatrix(ViewParent viewParent, View view, Matrix matrix) {
+        ViewParent parent = view.getParent();
+        if ((parent instanceof View) && parent != viewParent) {
+            View view2 = (View) parent;
+            offsetDescendantMatrix(viewParent, view2, matrix);
+            matrix.preTranslate(-view2.getScrollX(), -view2.getScrollY());
+        }
+        matrix.preTranslate(view.getLeft(), view.getTop());
+        if (!view.getMatrix().isIdentity()) {
+            matrix.preConcat(view.getMatrix());
+        }
     }
 }

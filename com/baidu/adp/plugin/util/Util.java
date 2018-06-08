@@ -5,13 +5,11 @@ import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.v4.media.TransportMediator;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -27,7 +25,7 @@ public final class Util {
         GREATER
     }
 
-    public static boolean jJ() {
+    public static boolean mx() {
         try {
             String property = System.getProperty("java.vm.version");
             if (property != null) {
@@ -39,7 +37,7 @@ public final class Util {
         }
     }
 
-    public static f f(InputStream inputStream) throws IOException {
+    public static f h(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -50,7 +48,7 @@ public final class Util {
         int d = d(bArr, 6);
         int d2 = d(bArr, 8);
         f fVar = new f();
-        fVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        fVar.set(((d2 >> 9) & 127) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
         return fVar;
     }
 
@@ -61,17 +59,17 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean m(long j) {
-        long jL = jL();
+    public static final boolean o(long j) {
+        long mz = mz();
         if (j <= 0) {
-            return jL <= 0 || jL >= 31457280;
+            return mz <= 0 || mz >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < jL;
+        return (j2 <= 31457280 ? j2 : 31457280L) < mz;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE] complete} */
@@ -205,15 +203,15 @@ public final class Util {
         }
     }
 
-    public static File bL(String str) {
-        PluginSetting bo = PluginPackageManager.iX().bo(str);
-        if (bo == null || bo.apkPath == null || bo.apkPath.length() <= ".apk".length()) {
+    public static File bX(String str) {
+        PluginSetting bA = PluginPackageManager.lL().bA(str);
+        if (bA == null || bA.apkPath == null || bA.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bo.apkPath.substring(0, bo.apkPath.length() - ".apk".length()));
+        return new File(bA.apkPath.substring(0, bA.apkPath.length() - ".apk".length()));
     }
 
-    public static File jK() {
+    public static File my() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -244,7 +242,7 @@ public final class Util {
                 sb = new StringBuilder();
             }
             sb.append(string);
-            sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append(",");
             i = i2;
         }
         if (sb == null || sb.length() <= 0) {
@@ -295,7 +293,7 @@ public final class Util {
         return applicationInfo.metaData.getString("replace_method_classes", null);
     }
 
-    public static VersionCompare I(String str, String str2) {
+    public static VersionCompare J(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -336,7 +334,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bM(String str) {
+    public static String bY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -347,10 +345,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return jK() + File.separator + e(pluginSetting);
+        return my() + File.separator + e(pluginSetting);
     }
 
-    public static long jL() {
+    public static long mz() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

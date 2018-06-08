@@ -50,19 +50,19 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void setContentView(View view2) {
-        getDelegate().setContentView(view2);
+    public void setContentView(View view) {
+        getDelegate().setContentView(view);
     }
 
     @Override // android.app.Dialog
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().setContentView(view2, layoutParams);
+    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().setContentView(view, layoutParams);
     }
 
     @Override // android.app.Dialog
     @Nullable
-    public View findViewById(@IdRes int i) {
-        return getDelegate().findViewById(i);
+    public <T extends View> T findViewById(@IdRes int i) {
+        return (T) getDelegate().findViewById(i);
     }
 
     @Override // android.app.Dialog
@@ -78,8 +78,8 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
-        getDelegate().addContentView(view2, layoutParams);
+    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        getDelegate().addContentView(view, layoutParams);
     }
 
     @Override // android.app.Dialog
@@ -93,7 +93,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void invalidateOptionsMenu() {
         getDelegate().invalidateOptionsMenu();
     }

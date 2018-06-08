@@ -1,44 +1,44 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public interface a {
-    com.baidu.adp.widget.ImageView.a J(String str);
+    com.baidu.adp.widget.ImageView.a V(String str);
 
     com.baidu.adp.widget.ImageView.a g(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0004a implements a {
-        private static a py;
-        private final d pA = new d();
-        private int pz;
+    public static class C0012a implements a {
+        private static a vN;
+        private int vO;
+        private final d vP = new d();
 
-        public C0004a() {
-            this.pz = 0;
-            if (NSGif.pC) {
-                this.pz = 0;
+        public C0012a() {
+            this.vO = 0;
+            if (NSGif.vR) {
+                this.vO = 0;
             } else {
-                this.pz = 1;
+                this.vO = 1;
             }
         }
 
-        public static synchronized a dl() {
+        public static synchronized a ga() {
             a aVar;
-            synchronized (C0004a.class) {
-                if (py == null) {
-                    py = new C0004a();
+            synchronized (C0012a.class) {
+                if (vN == null) {
+                    vN = new C0012a();
                 }
-                aVar = py;
+                aVar = vN;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.ImageView.a J(String str) {
-            if (this.pz != 0) {
+        public com.baidu.adp.widget.ImageView.a V(String str) {
+            if (this.vO != 0) {
                 return null;
             }
             try {
-                return this.pA.J(str);
+                return this.vP.V(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a g(byte[] bArr, int i, int i2) {
-            if (this.pz != 0) {
+            if (this.vO != 0) {
                 return null;
             }
             try {
-                return this.pA.g(bArr, i, i2);
+                return this.vP.g(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

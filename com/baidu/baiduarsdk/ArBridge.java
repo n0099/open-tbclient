@@ -1,147 +1,55 @@
 package com.baidu.baiduarsdk;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.opengl.GLES20;
-import android.opengl.GLSurfaceView;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.OrientationEventListener;
-import com.baidu.baiduarsdk.RendererUtils;
+import com.baidu.baiduarsdk.a.a;
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.opengles.GL10;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class ArBridge {
     private static final int INVALID_MESSAGE_ID = -1;
     private static final int MSG_MESSAGE_FROM_ENGINE = 1;
+    private static final String TAG = "EngineLogger";
     private static ArBridge self = null;
-    private AREngine mAREngine;
+    private com.baidu.baiduarsdk.c.a mArGLEngineCtl;
+    private com.baidu.baiduarsdk.a.b mDataStore;
     private Handler mHandler;
-    private List<ArCallback> mMsgHandlers;
+    private List<a> mMsgHandlers;
     private OrientationEventListener mOrientationEventListener;
-    private VideoUpdateCallback mVideoCallback;
+    private int mScreenHeight;
+    private int mScreenWidth;
+    private e mVideoCallback;
+    private List<Runnable> mPendingRunnables = new LinkedList();
+    private boolean mIsInitNative = false;
+    private boolean isScreenOrientationLandscape = false;
     private long mCurrentGLThreadID = -1;
     private int mDeviceOrientation = -1;
     private TouchOrientation mTouchOrientation = TouchOrientation.SCREEN_ORIENTATION_NOT_DEFINED;
     private int mFPS = 0;
     private boolean mHasResumeByUser = false;
     private int mImuType = 0;
+    private a.b mAudioPlayerCallback = new a.b() { // from class: com.baidu.baiduarsdk.ArBridge.5
+        @Override // com.baidu.baiduarsdk.a.a.b
+        public void a(Exception exc) {
+            com.baidu.baiduarsdk.a.a.c();
+        }
+
+        @Override // com.baidu.baiduarsdk.a.a.b
+        public void a(boolean z) {
+            com.baidu.baiduarsdk.a.a.c();
+        }
+    };
     private HandlerThread mThread = new HandlerThread("msg_callback_thread");
-
-    /* loaded from: classes3.dex */
-    public interface ARRecorder {
-        void onContextChanged(EGLContext eGLContext, int i, int i2);
-
-        void onFrameAvailable(int i);
-    }
-
-    /* loaded from: classes3.dex */
-    private static class ARRenderer implements GLSurfaceView.Renderer {
-        private ARRecorder mArRecorder;
-        private int mFboId;
-        private int mHeight;
-        private RendererUtils.RenderContext mRenderContext;
-        private int mTextureId;
-        private int mWidth;
-
-        private ARRenderer() {
-            this.mFboId = -1;
-            this.mTextureId = -1;
-            this.mWidth = 0;
-            this.mHeight = 0;
-        }
-
-        public void onContextDestroy() {
-            if (this.mArRecorder != null) {
-                this.mArRecorder.onContextChanged(null, 0, 0);
-            }
-        }
-
-        @Override // android.opengl.GLSurfaceView.Renderer
-        public void onDrawFrame(GL10 gl10) {
-            System.currentTimeMillis();
-            ArBridge.getInstance().update();
-        }
-
-        @Override // android.opengl.GLSurfaceView.Renderer
-        public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-            this.mWidth = i;
-            this.mHeight = i2;
-            this.mTextureId = -1;
-            this.mFboId = -1;
-            this.mRenderContext = null;
-        }
-
-        @Override // android.opengl.GLSurfaceView.Renderer
-        public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            Log.d("ContentValues", "onSurfaceCreated");
-            GLES20.glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
-            GLES20.glClear(16640);
-        }
-
-        public void setRecorder(ARRecorder aRRecorder) {
-            this.mArRecorder = aRRecorder;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static class ArCallback {
-        public MessageHandler mHandler;
-        public int mMessageId;
-        public int mMessageType;
-
-        public ArCallback(int i, int i2, MessageHandler messageHandler) {
-            this.mMessageType = i;
-            this.mMessageId = i2;
-            this.mHandler = messageHandler;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static class ArMessage {
-        public HashMap<String, Object> mData;
-        public int mMessageID;
-        public int mMessageType;
-        public int mResMessageID;
-
-        public ArMessage(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-            this.mMessageType = i;
-            this.mMessageID = i2;
-            this.mData = hashMap;
-            this.mResMessageID = i3;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface CaptureCallback {
-        void onSucceed(Bitmap bitmap);
-    }
-
-    /* loaded from: classes3.dex */
-    public static class LuaSdkBridgeMessageType {
-        public static final int MSG_TYPE_SDK_LUA_GAME_CONFIG = 1001;
-    }
-
-    /* loaded from: classes3.dex */
-    public interface MessageHandler {
-        void handleMessage(int i, int i2, HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes3.dex */
-    public static class MessageParamKeys {
-        public static final String MAP_NPC_KEY_NAME = "script";
-        public static final String MODEL_COLOR_KEY = "model_color";
-        public static final String MODEL_TYPE_KEY = "model_type";
-    }
 
     /* loaded from: classes3.dex */
     public static class MessageType {
@@ -155,40 +63,53 @@ public class ArBridge {
         public static final int MSG_START_CONFIG = 10;
         public static final int MSG_TRACK_FOUND = 101;
         public static final int MSG_TRACK_LOST = 102;
+        public static final int MSG_TYPE_AUDIO = 5211;
         public static final int MSG_TYPE_IMU_CLOSE = 303;
         public static final int MSG_TYPE_IMU_CLOSE_RES = 304;
         public static final int MSG_TYPE_IMU_OPEN = 301;
         public static final int MSG_TYPE_IMU_OPEN_RES = 302;
         public static final int MSG_TYPE_LANDSCAPE_LEFT = 4001;
         public static final int MSG_TYPE_LANDSCAPE_RIGHT = 4002;
+        public static final int MSG_TYPE_LUA_CALL_SDK_FUC = 3002;
         public static final int MSG_TYPE_LUA_SDK_BRIDGE = 1901;
+        public static final int MSG_TYPE_MODEL_LOAD_PROGRESS = 6001;
         public static final int MSG_TYPE_MUSIC_FAILED = 1010;
         public static final int MSG_TYPE_MUSIC_FINISHED = 1009;
+        public static final int MSG_TYPE_MUSIC_PLAY_INFO_UPDATE = 1011;
         public static final int MSG_TYPE_OPEN_URL = 1301;
         public static final int MSG_TYPE_PAUSE_MUSIC = 1003;
         public static final int MSG_TYPE_PAUSE_MUSIC_RES = 1004;
         public static final int MSG_TYPE_PHONE_CALL = 1401;
         public static final int MSG_TYPE_PORTRAIT = 4003;
+        public static final int MSG_TYPE_RELEASE = -2;
         public static final int MSG_TYPE_RESUME_MUSIC = 1005;
         public static final int MSG_TYPE_RESUME_MUSIC_RES = 1006;
+        public static final int MSG_TYPE_RES_REQUEST = 5001;
+        public static final int MSG_TYPE_RES_RESPONE = 5003;
+        public static final int MSG_TYPE_RES_RESPONE_PROGRESS = 5002;
+        public static final int MSG_TYPE_SDK_CALL_LUA_FUC = 3001;
         public static final int MSG_TYPE_SDK_LUA_BRIDGE = 1902;
         public static final int MSG_TYPE_SDK_RUN_SCRIPT = 2001;
         public static final int MSG_TYPE_SDK_SET_MODEL_COLOR = 2002;
         public static final int MSG_TYPE_SHARE = 1601;
+        public static final int MSG_TYPE_SLAM_GUESTURE_INTERACTION = 4100;
         public static final int MSG_TYPE_STATISTICS = 1801;
         public static final int MSG_TYPE_STOP_MUSIC = 1007;
         public static final int MSG_TYPE_STOP_MUSIC_RES = 1008;
         public static final int MSG_TYPE_VIBERATOR = 1501;
+        public static final int MSG_TYPE_VIDEO = 5210;
         public static final int MSG_TYPE_VIDEO_PAUSE = 1023;
         public static final int MSG_TYPE_VIDEO_PAUSE_RES = 1024;
         public static final int MSG_TYPE_VIDEO_PLAY = 1021;
         public static final int MSG_TYPE_VIDEO_PLAY_FAILED = 1029;
         public static final int MSG_TYPE_VIDEO_PLAY_FINISH = 1030;
+        public static final int MSG_TYPE_VIDEO_PLAY_INFO_UPDATE = 1031;
         public static final int MSG_TYPE_VIDEO_PLAY_RES = 1022;
         public static final int MSG_TYPE_VIDEO_RESUME = 1025;
         public static final int MSG_TYPE_VIDEO_RESUME_RES = 1026;
         public static final int MSG_TYPE_VIDEO_STOP = 1027;
         public static final int MSG_TYPE_VIDEO_STOP_RES = 1028;
+        public static final int MSG_TYPE_WAIT_SLAM_DATA = 4101;
         public static final int MSG_USR_INTERACTION_CONFIG = 11;
     }
 
@@ -201,9 +122,49 @@ public class ArBridge {
         SCREEN_ORIENTATION_NOT_DEFINED
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
-    public interface VideoUpdateCallback {
-        void onUpdateVideoFrame(String str, int i, String str2);
+    public static class a {
+        public int a;
+        public int b;
+        public d c;
+
+        public a(int i, int i2, d dVar) {
+            this.a = i;
+            this.b = i2;
+            this.c = dVar;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes3.dex */
+    public static class b {
+        public int a;
+        public int b;
+        public HashMap<String, Object> c;
+        public int d;
+
+        public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
+            this.a = i;
+            this.b = i2;
+            this.c = hashMap;
+            this.d = i3;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(Bitmap bitmap);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a(int i, int i2, HashMap<String, Object> hashMap);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface e {
+        void a(String str, int i, String str2, String str3);
     }
 
     private ArBridge() {
@@ -213,7 +174,7 @@ public class ArBridge {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        ArBridge.this.processIncomingMessage((ArMessage) message.obj);
+                        ArBridge.this.processIncomingMessage((b) message.obj);
                         return false;
                     default:
                         return false;
@@ -221,6 +182,26 @@ public class ArBridge {
             }
         });
         this.mMsgHandlers = new LinkedList();
+    }
+
+    private static void executeOnGLResLoadThread(Object obj, Runnable runnable) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.executeOnGLResLoadThread(runnable);
+    }
+
+    private void executeOnGLResLoadThread(Runnable runnable) {
+        queueResLoadEvent(runnable);
+    }
+
+    private static void executeOnGLThread(Object obj, Runnable runnable) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.executeOnGLThread(runnable);
     }
 
     public static synchronized ArBridge getInstance() {
@@ -234,26 +215,45 @@ public class ArBridge {
         return arBridge;
     }
 
+    private static String getValue(Object obj, int i, String str) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        return arBridge == null ? "" : arBridge.getValue(i, str);
+    }
+
     public static native boolean libraryHasLoaded();
 
+    private native void nativeFinalize();
+
+    private native void nativeInterruptLoading();
+
+    private native void nativeSetup(Object obj);
+
     /* JADX INFO: Access modifiers changed from: private */
-    public void processIncomingMessage(ArMessage arMessage) {
-        for (ArCallback arCallback : this.mMsgHandlers) {
-            if (arCallback.mMessageType == 0 || arMessage.mMessageType == arCallback.mMessageType) {
-                if (-1 == arCallback.mMessageId || arMessage.mResMessageID == arCallback.mMessageId) {
-                    arCallback.mHandler.handleMessage(arMessage.mMessageType, arMessage.mMessageID, arMessage.mData);
+    public void processIncomingMessage(b bVar) {
+        for (a aVar : this.mMsgHandlers) {
+            if (aVar.a == 0 || bVar.a == aVar.a) {
+                if (-1 == aVar.b || bVar.d == aVar.b) {
+                    aVar.c.a(bVar.a, bVar.b, bVar.c);
                 }
             }
         }
     }
 
     private void receiveMsgFromEngine(int i, int i2, HashMap<String, Object> hashMap, int i3) {
-        this.mHandler.obtainMessage(1, new ArMessage(i, i2, hashMap, i3)).sendToTarget();
+        this.mHandler.obtainMessage(1, new b(i, i2, hashMap, i3)).sendToTarget();
+    }
+
+    private static void receiveMsgFromEngine(Object obj, int i, int i2, HashMap<String, Object> hashMap, int i3) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.receiveMsgFromEngine(i, i2, hashMap, i3);
     }
 
     private void sendMessageImpl(final int i, final int i2, final HashMap<String, Object> hashMap, final int i3) {
-        if (this.mAREngine != null) {
-            this.mAREngine.queueEvent(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.2
+        if (this.mArGLEngineCtl != null) {
+            this.mArGLEngineCtl.a(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.12
                 @Override // java.lang.Runnable
                 public void run() {
                     Log.e("bdar", "sendMessageImpl aMessageType = " + i);
@@ -271,8 +271,36 @@ public class ArBridge {
         sendMessageImpl(i, -1, hashMap, i2);
     }
 
+    private static void setValue(Object obj, int i, String str, String str2) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.setValue(i, str, str2);
+    }
+
+    private static void updateVideoFrame(Object obj, String str, int i, String str2, String str3) {
+        ArBridge arBridge = (ArBridge) ((WeakReference) obj).get();
+        if (arBridge == null) {
+            return;
+        }
+        arBridge.updateVideoFrame(str, i, str2, str3);
+    }
+
+    public void clearARMemory() {
+        if (this.mDataStore != null) {
+            this.mDataStore.a();
+        }
+    }
+
+    public void clearResLoadEventAndWait() {
+        if (this.mArGLEngineCtl != null) {
+            this.mArGLEngineCtl.g();
+        }
+    }
+
     public void clearScreen() {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.14
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.8
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeClearScreen();
@@ -282,7 +310,7 @@ public class ArBridge {
 
     public int createCase(final String str, final HashMap<String, Object> hashMap, final int i, final int i2) {
         final int caseId = getCaseId();
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.5
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.17
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeCreateCase(str, caseId, hashMap, i, i2);
@@ -292,33 +320,73 @@ public class ArBridge {
     }
 
     public void destroyCase() {
-        if (this.mAREngine == null) {
+        if (this.mArGLEngineCtl == null) {
             return;
         }
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.11
+        receiveMsgFromEngine(0, -2, null, 0);
+        nativeInterruptLoading();
+        final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+        Runnable runnable = new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.3
             @Override // java.lang.Runnable
             public void run() {
-                ArBridge.this.nativeDestroyCase();
-                Log.e("bdar", "nativeDestroyCase");
+                synchronized (this) {
+                    ArBridge.this.clearResLoadEventAndWait();
+                    ArBridge.this.nativeDestroyCase();
+                    ArBridge.this.mArGLEngineCtl.j();
+                    Log.d("bdar", "bdar:destroyCase nativeDestroyCase");
+                    atomicBoolean.set(true);
+                    notify();
+                }
             }
-        });
-        this.mAREngine.requestRenderAndWait();
+        };
+        executeOnGLThread(runnable);
+        try {
+            synchronized (runnable) {
+                while (!atomicBoolean.get()) {
+                    runnable.wait();
+                }
+                Log.d(TAG, "bdar:destroyCase destroyCaseTask done!");
+            }
+        } catch (InterruptedException e2) {
+            e2.printStackTrace();
+        }
+        setImuType(0);
+        this.mVideoCallback = null;
+        releaseMediaPlayer();
+        this.mAudioPlayerCallback = null;
+        releaseVideoPlayer();
     }
 
     public void executeOnGLThread(Runnable runnable) {
-        if (this.mAREngine != null) {
-            if (this.mAREngine.getCurrentGLThreadID() == Thread.currentThread().getId()) {
+        if (this.mArGLEngineCtl != null) {
+            if (this.mArGLEngineCtl.d() == Thread.currentThread().getId()) {
                 runnable.run();
             } else {
-                this.mAREngine.queueEvent(runnable);
+                this.mArGLEngineCtl.a(runnable);
             }
         }
+    }
+
+    protected void finalize() {
+        super.finalize();
+        synchronized (this) {
+            if (this.mIsInitNative) {
+                try {
+                    nativeFinalize();
+                } catch (Throwable th) {
+                }
+            }
+        }
+    }
+
+    public com.baidu.baiduarsdk.c.a getArGLEngineCtl() {
+        return this.mArGLEngineCtl;
     }
 
     native int getCaseId();
 
     public int getFps() {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.16
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.10
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.mFPS = ArBridge.this.nativeGetFps();
@@ -333,20 +401,26 @@ public class ArBridge {
 
     native int getMessageID();
 
-    public int getRenderMode() {
-        if (this.mAREngine != null) {
-            return this.mAREngine.getRenderMode();
+    public String getValue(int i, String str) {
+        if (this.mDataStore != null) {
+            return this.mDataStore.a(i, str);
         }
-        return -1;
+        Log.e("ArBridge", "get value error!");
+        return "";
     }
 
-    public void initAREngine() {
-        if (this.mAREngine == null) {
-            this.mAREngine = new AREngine();
-            this.mAREngine.setRenderer(new ARRenderer());
-            this.mAREngine.onResume();
-            onResume();
+    public void initDataStore(SharedPreferences sharedPreferences) {
+        if (this.mDataStore == null) {
+            this.mDataStore = new com.baidu.baiduarsdk.a.b();
+            this.mDataStore.a(sharedPreferences);
         }
+    }
+
+    public void interruptEngine() {
+        if (this.mArGLEngineCtl == null) {
+            return;
+        }
+        nativeInterruptLoading();
     }
 
     native void nativeClearScreen();
@@ -377,6 +451,8 @@ public class ArBridge {
 
     native void nativeSetSize(int i, int i2);
 
+    native void nativeSetSlamRelocationType(int i);
+
     native void nativeSetTargetInfo(HashMap<String, Object> hashMap);
 
     native void nativeUpdate();
@@ -391,7 +467,7 @@ public class ArBridge {
         if (this.mOrientationEventListener != null) {
             this.mOrientationEventListener.disable();
         }
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.17
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.11
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeOnPause();
@@ -401,7 +477,7 @@ public class ArBridge {
 
     public void onPauseByUser() {
         this.mHasResumeByUser = false;
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.13
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.7
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeOnPauseByUser();
@@ -410,7 +486,7 @@ public class ArBridge {
     }
 
     public void onResume() {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.18
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.13
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeOnResume();
@@ -423,10 +499,10 @@ public class ArBridge {
     }
 
     public void onResumeByUser() {
-        if (this.mAREngine == null) {
+        if (this.mArGLEngineCtl == null) {
             this.mHasResumeByUser = true;
         }
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.12
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.6
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.mHasResumeByUser = false;
@@ -435,42 +511,76 @@ public class ArBridge {
         });
     }
 
-    public void onTouchEvent(final int i, final int i2, final float f, final float f2, final float f3, final float f4, final int i3, final float f5, final float f6, final float f7, final float f8, final long j) {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.19
+    public void onTouchEvent(final int i, final int i2, float f, float f2, final float f3, final float f4, final int i3, float f5, float f6, final float f7, final float f8, final long j) {
+        final float f9;
+        final float f10;
+        final float f11;
+        final float f12;
+        if (this.isScreenOrientationLandscape) {
+            f12 = this.mScreenHeight - f2;
+            f10 = this.mScreenHeight - f6;
+            f9 = f5;
+            f11 = f;
+        } else {
+            f9 = f6;
+            f10 = f5;
+            f11 = f2;
+            f12 = f;
+        }
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.14
             @Override // java.lang.Runnable
             public void run() {
-                Log.d("orientation", "onTouchEvent the orientation is " + ArBridge.this.mTouchOrientation.name());
-                ArBridge.this.onTouchEventNative(i, i2, f, f2, f3, f4, i3, f5, f6, f7, f8, j, ArBridge.this.mTouchOrientation.ordinal());
+                ArBridge.this.onTouchEventNative(i, i2, f12, f11, f3, f4, i3, f10, f9, f7, f8, j, ArBridge.this.mTouchOrientation.ordinal());
             }
         });
     }
 
     native void onTouchEventNative(int i, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, long j, int i4);
 
-    public synchronized void registerMessageHandler(final int i, final MessageHandler messageHandler) {
-        this.mHandler.post(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.3
+    public void queueResLoadEvent(Runnable runnable) {
+        if (this.mArGLEngineCtl != null) {
+            this.mArGLEngineCtl.b(runnable);
+        }
+    }
+
+    public synchronized void registerMessageHandler(final int i, final d dVar) {
+        this.mHandler.post(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.15
             @Override // java.lang.Runnable
             public void run() {
-                ArBridge.this.mMsgHandlers.add(new ArCallback(i, -1, messageHandler));
+                ArBridge.this.mMsgHandlers.add(new a(i, -1, dVar));
             }
         });
     }
 
-    public void releaseAREngine() {
-        if (this.mAREngine != null) {
-            this.mAREngine.setSurface(null, 0, 0);
-            this.mAREngine.exitGLThread();
-            this.mAREngine = null;
-        }
-    }
-
-    public synchronized void removeMessageHandeler(final MessageHandler messageHandler) {
+    public void release() {
         this.mHandler.post(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.4
             @Override // java.lang.Runnable
             public void run() {
+                if (ArBridge.this.mMsgHandlers != null) {
+                    ArBridge.this.mMsgHandlers.clear();
+                }
+            }
+        });
+    }
+
+    protected void releaseMediaPlayer() {
+        com.baidu.baiduarsdk.a.a.a().a(this.mAudioPlayerCallback);
+    }
+
+    protected void releaseVideoPlayer() {
+        com.baidu.baiduarsdk.a.e.a().c();
+    }
+
+    public synchronized void removeMessageHandeler(final d dVar) {
+        this.mHandler.post(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.16
+            @Override // java.lang.Runnable
+            public void run() {
+                if (ArBridge.this.mMsgHandlers == null) {
+                    return;
+                }
                 Iterator it = ArBridge.this.mMsgHandlers.iterator();
                 while (it.hasNext()) {
-                    if (((ArCallback) it.next()).mHandler == messageHandler) {
+                    if (((a) it.next()).c == dVar) {
                         it.remove();
                     }
                 }
@@ -478,20 +588,8 @@ public class ArBridge {
         });
     }
 
-    public void requestRenderAndWait() {
-        if (this.mAREngine != null) {
-            this.mAREngine.requestRenderAndWait();
-        }
-    }
-
-    public void requestRenderer() {
-        if (this.mAREngine != null) {
-            this.mAREngine.requestRender();
-        }
-    }
-
     public void reset() {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.15
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.9
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeReset();
@@ -504,7 +602,7 @@ public class ArBridge {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put(MessageParamKeys.MAP_NPC_KEY_NAME, str);
+        hashMap.put("script", str);
         sendMessage(2001, hashMap);
     }
 
@@ -518,6 +616,16 @@ public class ArBridge {
         sendMessageImpl(i, hashMap, i2);
     }
 
+    public void setArEngineCtl(com.baidu.baiduarsdk.c.a aVar) {
+        this.mArGLEngineCtl = aVar;
+        synchronized (this) {
+            if (this.mArGLEngineCtl != null && !this.mIsInitNative) {
+                nativeSetup(new WeakReference(this));
+                this.mIsInitNative = true;
+            }
+        }
+    }
+
     public void setCameraDefaultPos() {
         nativeSetCameraDefaultPos();
     }
@@ -526,17 +634,12 @@ public class ArBridge {
         nativeDensity(f);
     }
 
+    @Deprecated
     public void setEnginGLJniEnv() {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.20
-            @Override // java.lang.Runnable
-            public void run() {
-                ArBridge.this.setGLJniEnv();
-            }
-        });
     }
 
     public void setEuler(final float f, final float f2, final float f3, final String str) {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.8
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.20
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeSetEuler(f, f2, f3, str);
@@ -545,15 +648,13 @@ public class ArBridge {
     }
 
     public void setFrustum(final float f, final float f2) {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.9
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.21
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeSetFrustum(f, f2);
             }
         });
     }
-
-    public native void setGLJniEnv();
 
     public void setGLThreadID(long j) {
         this.mCurrentGLThreadID = j;
@@ -565,21 +666,24 @@ public class ArBridge {
 
     public void setModelVirtualColor(int i, boolean z) {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put(MessageParamKeys.MODEL_COLOR_KEY, Integer.valueOf(i));
+        hashMap.put("model_color", Integer.valueOf(i));
         if (!z) {
             hashMap.put("model_type", 1);
         }
         sendMessage(2002, hashMap);
     }
 
-    public void setRenderMode(int i) {
-        if (this.mAREngine != null) {
-            this.mAREngine.setRenderMode(i);
-        }
+    public void setScreenOrientationLandscape(boolean z) {
+        this.isScreenOrientationLandscape = z;
+    }
+
+    public void setScreenWidthHight(int i, int i2) {
+        this.mScreenHeight = i2;
+        this.mScreenWidth = i;
     }
 
     public void setSize(final int i, final int i2) {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.7
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.19
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeSetSize(i, i2);
@@ -587,14 +691,12 @@ public class ArBridge {
         });
     }
 
-    public void setSurface(Object obj, int i, int i2) {
-        if (this.mAREngine != null) {
-            this.mAREngine.setSurface(obj, i, i2);
-        }
+    public void setSlamRelocationType(int i) {
+        nativeSetSlamRelocationType(i);
     }
 
     public void setTargetInfo(final HashMap<String, Object> hashMap) {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.6
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.18
             @Override // java.lang.Runnable
             public void run() {
                 ArBridge.this.nativeSetTargetInfo(hashMap);
@@ -606,31 +708,46 @@ public class ArBridge {
         this.mTouchOrientation = touchOrientation;
     }
 
-    public synchronized void setVideoUpdateCallback(VideoUpdateCallback videoUpdateCallback) {
-        this.mVideoCallback = videoUpdateCallback;
+    public void setValue(int i, String str, String str2) {
+        if (this.mDataStore != null) {
+            this.mDataStore.a(i, str, str2);
+        } else {
+            Log.e("ArBridge", "set value error!");
+        }
+    }
+
+    public synchronized void setVideoUpdateCallback(e eVar) {
+        this.mVideoCallback = eVar;
     }
 
     @Deprecated
-    public void surfaceViewCapture(CaptureCallback captureCallback) {
-        if (captureCallback != null) {
-            captureCallback.onSucceed(null);
+    public void surfaceViewCapture(c cVar) {
+        if (cVar != null) {
+            cVar.a(null);
         }
     }
 
     public void switchCase(final String str, final HashMap<String, Object> hashMap, final int i, final int i2) {
-        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.10
+        nativeInterruptLoading();
+        executeOnGLThread(new Runnable() { // from class: com.baidu.baiduarsdk.ArBridge.2
             @Override // java.lang.Runnable
             public void run() {
+                ArBridge.this.clearResLoadEventAndWait();
                 ArBridge.this.nativeDestroyCase();
-                ArBridge.this.setGLJniEnv();
                 ArBridge.this.nativeCreateCase(str, ArBridge.this.getCaseId(), hashMap, i, i2);
             }
         });
     }
 
-    void update() {
+    public void update() {
         nativeUpdate();
     }
+
+    public boolean updateFbos(int[] iArr) {
+        return updateFrameBuffers(iArr);
+    }
+
+    native boolean updateFrameBuffers(int[] iArr);
 
     public void updateRMatrix(float[] fArr) {
         nativeUpdateRMatrix(fArr);
@@ -644,9 +761,9 @@ public class ArBridge {
         nativeUpdateSLAMMatrix(fArr);
     }
 
-    public void updateVideoFrame(String str, int i, String str2) {
+    public void updateVideoFrame(String str, int i, String str2, String str3) {
         if (this.mVideoCallback != null) {
-            this.mVideoCallback.onUpdateVideoFrame(str, i, str2);
+            this.mVideoCallback.a(str, i, str2, str3);
         }
     }
 }

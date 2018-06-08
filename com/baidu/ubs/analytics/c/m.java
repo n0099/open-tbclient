@@ -10,29 +10,29 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class m implements a.InterfaceC0244a {
-    private static long hlz = f.bEU();
-    private static n hmj;
-    private static long hmk;
-    private Runnable hml;
+public final class m implements a.InterfaceC0261a {
+    private static long hxu = f.bJY();
+    private static n hyd;
+    private static long hye;
+    private Runnable hyg;
     private boolean foreground = false;
-    private boolean aK = true;
+    private boolean hyf = true;
     private Handler handler = new Handler();
-    private a hmm = new a() { // from class: com.baidu.ubs.analytics.c.m.1
+    private a hyh = new a() { // from class: com.baidu.ubs.analytics.c.m.1
         @Override // com.baidu.ubs.analytics.c.m.a
         public final void aq() {
             long currentTimeMillis = System.currentTimeMillis();
-            com.baidu.ubs.analytics.d.b.vn("app   went foreground ");
-            if (currentTimeMillis - m.hmk > m.hlz) {
+            com.baidu.ubs.analytics.d.b.wh("app   went foreground ");
+            if (currentTimeMillis - m.hye > m.hxu) {
                 m.this.d(currentTimeMillis);
             }
-            if (com.baidu.ubs.analytics.d.bEL().i()) {
+            if (com.baidu.ubs.analytics.d.bJP().i()) {
                 com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.1.1
                     @Override // com.baidu.ubs.analytics.d.d
                     protected final void a() {
-                        com.baidu.ubs.analytics.d.b.vn("记录一次app启动事件");
+                        com.baidu.ubs.analytics.d.b.wh("记录一次app启动事件");
                         com.baidu.ubs.analytics.a.a("power_on", "", "", null);
-                        com.baidu.ubs.analytics.d.bEL().a(false);
+                        com.baidu.ubs.analytics.d.bJP().a(false);
                     }
                 });
             }
@@ -41,14 +41,14 @@ public final class m implements a.InterfaceC0244a {
         @Override // com.baidu.ubs.analytics.c.m.a
         public final void ar() {
             d dVar;
-            dVar = d.a.hlS;
-            if (dVar.bEQ().size() == 0) {
-                com.baidu.ubs.analytics.d.b.vn("后台应用退出了 了               ");
-                com.baidu.ubs.analytics.d.bEL().a(true);
-                long unused = m.hmk = 0L;
+            dVar = d.a.hxN;
+            if (dVar.bJU().size() == 0) {
+                com.baidu.ubs.analytics.d.b.wh("后台应用退出了 了               ");
+                com.baidu.ubs.analytics.d.bJP().a(true);
+                long unused = m.hye = 0L;
                 return;
             }
-            com.baidu.ubs.analytics.d.b.vn("进入后台但没退出                  ");
+            com.baidu.ubs.analytics.d.b.wh("进入后台但没退出                  ");
         }
     };
 
@@ -62,55 +62,55 @@ public final class m implements a.InterfaceC0244a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m() {
         long currentTimeMillis = System.currentTimeMillis();
-        hmk = currentTimeMillis;
+        hye = currentTimeMillis;
         d(currentTimeMillis);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static n bFb() {
-        return hmj;
+    public static n bKe() {
+        return hyd;
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0244a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0261a
     public final void T() {
-        this.aK = false;
+        this.hyf = false;
         boolean z = this.foreground ? false : true;
         this.foreground = true;
-        if (this.hml != null) {
-            this.handler.removeCallbacks(this.hml);
+        if (this.hyg != null) {
+            this.handler.removeCallbacks(this.hyg);
         }
         if (z) {
             try {
-                this.hmm.aq();
+                this.hyh.aq();
             } catch (Exception e) {
-                com.baidu.ubs.analytics.d.j.vn("Listener threw exception!:" + e.toString());
+                com.baidu.ubs.analytics.d.j.wh("Listener threw exception!:" + e.toString());
             }
         }
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0244a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0261a
     public final void U() {
-        this.aK = true;
-        if (this.hml != null) {
-            this.handler.removeCallbacks(this.hml);
-            this.hml = null;
+        this.hyf = true;
+        if (this.hyg != null) {
+            this.handler.removeCallbacks(this.hyg);
+            this.hyg = null;
         }
-        hmk = System.currentTimeMillis();
+        hye = System.currentTimeMillis();
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.3
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
                 long currentTimeMillis = System.currentTimeMillis();
-                m.hmj.z(String.valueOf(currentTimeMillis));
+                m.hyd.z(String.valueOf(currentTimeMillis));
                 try {
-                    m.hmj.A(String.valueOf(currentTimeMillis - Long.parseLong(m.hmj.N())));
+                    m.hyd.A(String.valueOf(currentTimeMillis - Long.parseLong(m.hyd.N())));
                 } catch (NumberFormatException e) {
-                    com.baidu.ubs.analytics.d.b.vn(e.getLocalizedMessage());
+                    com.baidu.ubs.analytics.d.b.wh(e.getLocalizedMessage());
                 }
                 p pVar = new p();
-                if (pVar.vi(m.hmj.I())) {
-                    pVar.b(m.hmj);
+                if (pVar.wc(m.hyd.I())) {
+                    pVar.b(m.hyd);
                 } else {
-                    pVar.c(m.hmj);
+                    pVar.c(m.hyd);
                 }
             }
         });
@@ -118,39 +118,39 @@ public final class m implements a.InterfaceC0244a {
         Runnable runnable = new Runnable() { // from class: com.baidu.ubs.analytics.c.m.2
             @Override // java.lang.Runnable
             public final void run() {
-                if (m.this.foreground && m.this.aK) {
+                if (m.this.foreground && m.this.hyf) {
                     m.this.foreground = false;
                     try {
-                        m.this.hmm.ar();
+                        m.this.hyh.ar();
                     } catch (Exception e) {
-                        com.baidu.ubs.analytics.d.j.vn("Listener threw exception!:" + e.toString());
+                        com.baidu.ubs.analytics.d.j.wh("Listener threw exception!:" + e.toString());
                     }
                 }
             }
         };
-        this.hml = runnable;
+        this.hyg = runnable;
         handler.postDelayed(runnable, 1000L);
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0244a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0261a
     public final void a(Activity activity) {
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0244a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0261a
     public final void onActivityDestroyed(Activity activity) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(long j) {
         n nVar = new n();
-        hmj = nVar;
+        hyd = nVar;
         nVar.setStartTime(String.valueOf(j));
-        hmj.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
+        hyd.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.4
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
-                com.baidu.ubs.analytics.d.b.vn("超时了……………… 一个新的session");
-                new p().c(m.hmj);
+                com.baidu.ubs.analytics.d.b.wh("超时了……………… 一个新的session");
+                new p().c(m.hyd);
             }
         });
     }

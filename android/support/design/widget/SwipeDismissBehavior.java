@@ -1,14 +1,16 @@
 package android.support.design.widget;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.RestrictTo;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
 public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     private static final float DEFAULT_ALPHA_END_DISTANCE = 0.5f;
@@ -35,15 +37,15 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         private int mOriginalCapturedViewLeft;
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
-        public boolean tryCaptureView(View view2, int i) {
-            return this.mActivePointerId == -1 && SwipeDismissBehavior.this.canSwipeDismissView(view2);
+        public boolean tryCaptureView(View view, int i) {
+            return this.mActivePointerId == -1 && SwipeDismissBehavior.this.canSwipeDismissView(view);
         }
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
-        public void onViewCaptured(View view2, int i) {
+        public void onViewCaptured(View view, int i) {
             this.mActivePointerId = i;
-            this.mOriginalCapturedViewLeft = view2.getLeft();
-            ViewParent parent = view2.getParent();
+            this.mOriginalCapturedViewLeft = view.getLeft();
+            ViewParent parent = view.getParent();
             if (parent != null) {
                 parent.requestDisallowInterceptTouchEvent(true);
             }
@@ -57,29 +59,29 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
-        public void onViewReleased(View view2, float f, float f2) {
+        public void onViewReleased(View view, float f, float f2) {
             int i;
             this.mActivePointerId = -1;
-            int width = view2.getWidth();
+            int width = view.getWidth();
             boolean z = false;
-            if (shouldDismiss(view2, f)) {
-                i = view2.getLeft() < this.mOriginalCapturedViewLeft ? this.mOriginalCapturedViewLeft - width : this.mOriginalCapturedViewLeft + width;
+            if (shouldDismiss(view, f)) {
+                i = view.getLeft() < this.mOriginalCapturedViewLeft ? this.mOriginalCapturedViewLeft - width : this.mOriginalCapturedViewLeft + width;
                 z = true;
             } else {
                 i = this.mOriginalCapturedViewLeft;
             }
-            if (SwipeDismissBehavior.this.mViewDragHelper.settleCapturedViewAt(i, view2.getTop())) {
-                ViewCompat.postOnAnimation(view2, new SettleRunnable(view2, z));
+            if (SwipeDismissBehavior.this.mViewDragHelper.settleCapturedViewAt(i, view.getTop())) {
+                ViewCompat.postOnAnimation(view, new SettleRunnable(view, z));
             } else if (z && SwipeDismissBehavior.this.mListener != null) {
-                SwipeDismissBehavior.this.mListener.onDismiss(view2);
+                SwipeDismissBehavior.this.mListener.onDismiss(view);
             }
         }
 
-        private boolean shouldDismiss(View view2, float f) {
+        private boolean shouldDismiss(View view, float f) {
             if (f == 0.0f) {
-                return Math.abs(view2.getLeft() - this.mOriginalCapturedViewLeft) >= Math.round(((float) view2.getWidth()) * SwipeDismissBehavior.this.mDragDismissThreshold);
+                return Math.abs(view.getLeft() - this.mOriginalCapturedViewLeft) >= Math.round(((float) view.getWidth()) * SwipeDismissBehavior.this.mDragDismissThreshold);
             }
-            boolean z = ViewCompat.getLayoutDirection(view2) == 1;
+            boolean z = ViewCompat.getLayoutDirection(view) == 1;
             if (SwipeDismissBehavior.this.mSwipeDirection == 2) {
                 return true;
             }
@@ -93,62 +95,68 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         }
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
-        public int getViewHorizontalDragRange(View view2) {
-            return view2.getWidth();
+        public int getViewHorizontalDragRange(View view) {
+            return view.getWidth();
         }
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
-        public int clampViewPositionHorizontal(View view2, int i, int i2) {
+        public int clampViewPositionHorizontal(View view, int i, int i2) {
             int width;
             int width2;
-            boolean z = ViewCompat.getLayoutDirection(view2) == 1;
+            boolean z = ViewCompat.getLayoutDirection(view) == 1;
             if (SwipeDismissBehavior.this.mSwipeDirection == 0) {
                 if (z) {
-                    width = this.mOriginalCapturedViewLeft - view2.getWidth();
+                    width = this.mOriginalCapturedViewLeft - view.getWidth();
                     width2 = this.mOriginalCapturedViewLeft;
                 } else {
                     width = this.mOriginalCapturedViewLeft;
-                    width2 = this.mOriginalCapturedViewLeft + view2.getWidth();
+                    width2 = this.mOriginalCapturedViewLeft + view.getWidth();
                 }
             } else if (SwipeDismissBehavior.this.mSwipeDirection == 1) {
                 if (z) {
                     width = this.mOriginalCapturedViewLeft;
-                    width2 = this.mOriginalCapturedViewLeft + view2.getWidth();
+                    width2 = this.mOriginalCapturedViewLeft + view.getWidth();
                 } else {
-                    width = this.mOriginalCapturedViewLeft - view2.getWidth();
+                    width = this.mOriginalCapturedViewLeft - view.getWidth();
                     width2 = this.mOriginalCapturedViewLeft;
                 }
             } else {
-                width = this.mOriginalCapturedViewLeft - view2.getWidth();
-                width2 = this.mOriginalCapturedViewLeft + view2.getWidth();
+                width = this.mOriginalCapturedViewLeft - view.getWidth();
+                width2 = this.mOriginalCapturedViewLeft + view.getWidth();
             }
             return SwipeDismissBehavior.clamp(width, i, width2);
         }
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
-        public int clampViewPositionVertical(View view2, int i, int i2) {
-            return view2.getTop();
+        public int clampViewPositionVertical(View view, int i, int i2) {
+            return view.getTop();
         }
 
         @Override // android.support.v4.widget.ViewDragHelper.Callback
-        public void onViewPositionChanged(View view2, int i, int i2, int i3, int i4) {
-            float width = this.mOriginalCapturedViewLeft + (view2.getWidth() * SwipeDismissBehavior.this.mAlphaStartSwipeDistance);
-            float width2 = this.mOriginalCapturedViewLeft + (view2.getWidth() * SwipeDismissBehavior.this.mAlphaEndSwipeDistance);
+        public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
+            float width = this.mOriginalCapturedViewLeft + (view.getWidth() * SwipeDismissBehavior.this.mAlphaStartSwipeDistance);
+            float width2 = this.mOriginalCapturedViewLeft + (view.getWidth() * SwipeDismissBehavior.this.mAlphaEndSwipeDistance);
             if (i <= width) {
-                ViewCompat.setAlpha(view2, 1.0f);
+                view.setAlpha(1.0f);
             } else if (i >= width2) {
-                ViewCompat.setAlpha(view2, 0.0f);
+                view.setAlpha(0.0f);
             } else {
-                ViewCompat.setAlpha(view2, SwipeDismissBehavior.clamp(0.0f, 1.0f - SwipeDismissBehavior.fraction(width, width2, i), 1.0f));
+                view.setAlpha(SwipeDismissBehavior.clamp(0.0f, 1.0f - SwipeDismissBehavior.fraction(width, width2, i), 1.0f));
             }
         }
     };
 
     /* loaded from: classes2.dex */
     public interface OnDismissListener {
-        void onDismiss(View view2);
+        void onDismiss(View view);
 
         void onDragStateChanged(int i);
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    /* loaded from: classes2.dex */
+    private @interface SwipeDirection {
     }
 
     public void setListener(OnDismissListener onDismissListener) {
@@ -179,7 +187,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onInterceptTouchEvent(CoordinatorLayout coordinatorLayout, V v, MotionEvent motionEvent) {
         boolean z = this.mInterceptingEvents;
-        switch (MotionEventCompat.getActionMasked(motionEvent)) {
+        switch (motionEvent.getActionMasked()) {
             case 0:
                 this.mInterceptingEvents = coordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), (int) motionEvent.getY());
                 z = this.mInterceptingEvents;
@@ -205,7 +213,7 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         return false;
     }
 
-    public boolean canSwipeDismissView(@NonNull View view2) {
+    public boolean canSwipeDismissView(@NonNull View view) {
         return true;
     }
 
@@ -226,8 +234,8 @@ public class SwipeDismissBehavior<V extends View> extends CoordinatorLayout.Beha
         private final boolean mDismiss;
         private final View mView;
 
-        SettleRunnable(View view2, boolean z) {
-            this.mView = view2;
+        SettleRunnable(View view, boolean z) {
+            this.mView = view;
             this.mDismiss = z;
         }
 

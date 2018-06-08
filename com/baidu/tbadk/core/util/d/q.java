@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class q extends a {
-    private boolean akC;
-    private boolean akD;
-    private boolean akE;
+    private boolean asK;
+    private boolean asL;
+    private boolean asM;
     private int height;
     private int procType;
     private int width;
 
     public q(boolean z, boolean z2, boolean z3, int i) {
-        this.akC = true;
-        this.akD = false;
-        this.akE = false;
+        this.asK = true;
+        this.asL = false;
+        this.asM = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
-        this.akC = z;
-        this.akD = z2;
-        this.akE = z3;
+        this.asK = z;
+        this.asL = z2;
+        this.asM = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
         this.height = (int) (this.width * 1.6f);
@@ -39,21 +39,21 @@ public class q extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.akC;
+        return this.asK;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wu() {
-        return this.akE;
+    public boolean zV() {
+        return this.asM;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
-        return this.akD;
+    public boolean zW() {
+        return this.asL;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ww() {
+    public int zX() {
         return this.procType;
     }
 
@@ -63,7 +63,7 @@ public class q extends a {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.EY().eY(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.ID().fc(BitmapHelper.getBitmapSize(bitmap) * 2);
             return bitmap;
         }
         return bitmap;

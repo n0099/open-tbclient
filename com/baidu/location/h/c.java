@@ -3,12 +3,13 @@ package com.baidu.location.h;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.tencent.connect.common.Constants;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c {
-    private static c Qq = null;
+    private static c Yp = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -23,11 +24,11 @@ public class c {
         }
     }
 
-    public static c nS() {
-        if (Qq == null) {
-            Qq = new c();
+    public static c rf() {
+        if (Yp == null) {
+            Yp = new c();
         }
-        return Qq;
+        return Yp;
     }
 
     public String a(boolean z) {
@@ -83,7 +84,7 @@ public class c {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float e2 = com.baidu.location.a.f.mV().e();
+        float e2 = com.baidu.location.a.f.qj().e();
         if (e2 != 0.0f) {
             stringBuffer.append("&altv=");
             stringBuffer.append(String.format(Locale.US, "%.2f", Float.valueOf(e2)));
@@ -152,7 +153,7 @@ public class c {
         stringBuffer.append("&os=A");
         stringBuffer.append(Build.VERSION.SDK);
         stringBuffer.append("&prod=");
-        stringBuffer.append(d + ":" + c);
+        stringBuffer.append(d + SystemInfoUtil.COLON + c);
         stringBuffer.append("&resid=");
         stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
         return stringBuffer.toString();

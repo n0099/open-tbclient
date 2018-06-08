@@ -15,16 +15,16 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class c {
     public static void v(com.baidu.tieba.frs.i iVar) {
-        HashMap<Integer, bd> arL;
-        if (iVar != null && iVar.aqs() != null && (arL = iVar.aqs().arL()) != null) {
+        HashMap<Integer, bd> avQ;
+        if (iVar != null && iVar.aux() != null && (avQ = iVar.aux().avQ()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bd> entry : arL.entrySet()) {
+            for (Map.Entry<Integer, bd> entry : avQ.entrySet()) {
                 bd value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.d.bjq().o(arrayList);
+            com.baidu.tieba.recapp.download.d.bop().o(arrayList);
         }
     }
 
@@ -43,10 +43,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.g.e.fw().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
+                com.baidu.adp.lib.g.e.im().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.frs.i.this.aqj();
+                        com.baidu.tieba.frs.i.this.auo();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

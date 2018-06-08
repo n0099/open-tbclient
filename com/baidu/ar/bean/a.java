@@ -1,36 +1,31 @@
 package com.baidu.ar.bean;
 /* loaded from: classes3.dex */
 public class a {
-    private String a;
-    private String b;
-    private int c;
-    private float d;
+    private int a = 0;
+    private boolean b = false;
+    private boolean c = false;
 
-    public String a() {
+    public int a() {
         return this.a;
     }
 
-    public void a(float f) {
-        this.d = f;
-    }
-
     public void a(int i) {
-        this.c = i;
+        this.a = i;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void a(boolean z) {
+        this.b = z;
     }
 
-    public int b() {
-        return this.c;
+    public void b(boolean z) {
+        this.c = z;
     }
 
-    public void b(String str) {
-        this.b = str;
-    }
-
-    public String c() {
+    public boolean b() {
         return this.b;
+    }
+
+    public boolean c() {
+        return this.c;
     }
 }

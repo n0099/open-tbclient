@@ -21,20 +21,20 @@ public class GuidPageView extends ImageView {
     private void init() {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.GuidPageView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (view2 != null && view2.getBackground() != null) {
-                    Bitmap bitmap = ((BitmapDrawable) view2.getBackground()).getBitmap();
-                    view2.setBackgroundDrawable(null);
+            public void onClick(View view) {
+                if (view != null && view.getBackground() != null) {
+                    Bitmap bitmap = ((BitmapDrawable) view.getBackground()).getBitmap();
+                    view.setBackgroundDrawable(null);
                     if (bitmap != null && !bitmap.isRecycled()) {
                         bitmap.recycle();
                     }
-                    view2.setVisibility(8);
+                    view.setVisibility(8);
                 }
             }
         });
     }
 
-    public void wC() {
+    public void Ad() {
         if (getBackground() != null) {
             Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
             setBackgroundDrawable(null);

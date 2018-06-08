@@ -41,9 +41,9 @@ public final class SafeKeyBoardUtil {
         }
     }
 
-    public void showSoftKeyBoard(SafeKeyBoardEditText safeKeyBoardEditText, View view2) {
+    public void showSoftKeyBoard(SafeKeyBoardEditText safeKeyBoardEditText, View view) {
         this.c = safeKeyBoardEditText;
-        this.f = view2;
+        this.f = view;
         if (this.mPopupWindow == null || this.c == null || this.f == null || this.e == null || this.d == null) {
             LogUtil.errord("gaolou", "SafeKeyBoardUtil.showSoftKeyBoard ++ View == null");
             return;

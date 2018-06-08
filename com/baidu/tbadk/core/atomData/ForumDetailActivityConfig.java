@@ -26,4 +26,8 @@ public class ForumDetailActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("from_type", fromType.toString());
     }
+
+    public static boolean isFromFrs(String str) {
+        return FromType.FRS.toString().equals(str) || FromType.FRS_GAME_INFO.toString().equals(str) || FromType.FRS_GAME_STRATEGY.toString().equals(str) || FromType.FRS_GAME_LIVE.toString().equals(str);
+    }
 }

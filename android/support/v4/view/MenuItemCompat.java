@@ -1,40 +1,58 @@
 package android.support.v4.view;
 
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
 import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.internal.view.SupportMenuItem;
-import android.support.v4.view.MenuItemCompatIcs;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 /* loaded from: classes2.dex */
 public final class MenuItemCompat {
     static final MenuVersionImpl IMPL;
+    @Deprecated
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
+    @Deprecated
     public static final int SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW = 8;
+    @Deprecated
     public static final int SHOW_AS_ACTION_IF_ROOM = 1;
+    @Deprecated
     public static final int SHOW_AS_ACTION_NEVER = 0;
+    @Deprecated
     public static final int SHOW_AS_ACTION_WITH_TEXT = 4;
     private static final String TAG = "MenuItemCompat";
 
     /* loaded from: classes2.dex */
     interface MenuVersionImpl {
-        boolean collapseActionView(MenuItem menuItem);
+        int getAlphabeticModifiers(MenuItem menuItem);
 
-        boolean expandActionView(MenuItem menuItem);
+        CharSequence getContentDescription(MenuItem menuItem);
 
-        View getActionView(MenuItem menuItem);
+        ColorStateList getIconTintList(MenuItem menuItem);
 
-        boolean isActionViewExpanded(MenuItem menuItem);
+        PorterDuff.Mode getIconTintMode(MenuItem menuItem);
 
-        MenuItem setActionView(MenuItem menuItem, int i);
+        int getNumericModifiers(MenuItem menuItem);
 
-        MenuItem setActionView(MenuItem menuItem, View view2);
+        CharSequence getTooltipText(MenuItem menuItem);
 
-        MenuItem setOnActionExpandListener(MenuItem menuItem, OnActionExpandListener onActionExpandListener);
+        void setAlphabeticShortcut(MenuItem menuItem, char c, int i);
 
-        void setShowAsAction(MenuItem menuItem, int i);
+        void setContentDescription(MenuItem menuItem, CharSequence charSequence);
+
+        void setIconTintList(MenuItem menuItem, ColorStateList colorStateList);
+
+        void setIconTintMode(MenuItem menuItem, PorterDuff.Mode mode);
+
+        void setNumericShortcut(MenuItem menuItem, char c, int i);
+
+        void setShortcut(MenuItem menuItem, char c, char c2, int i, int i2);
+
+        void setTooltipText(MenuItem menuItem, CharSequence charSequence);
     }
 
+    @Deprecated
     /* loaded from: classes2.dex */
     public interface OnActionExpandListener {
         boolean onMenuItemActionCollapse(MenuItem menuItem);
@@ -43,161 +61,167 @@ public final class MenuItemCompat {
     }
 
     /* loaded from: classes2.dex */
-    static class BaseMenuVersionImpl implements MenuVersionImpl {
-        BaseMenuVersionImpl() {
+    static class MenuItemCompatBaseImpl implements MenuVersionImpl {
+        MenuItemCompatBaseImpl() {
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public void setShowAsAction(MenuItem menuItem, int i) {
+        public void setContentDescription(MenuItem menuItem, CharSequence charSequence) {
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setActionView(MenuItem menuItem, View view2) {
-            return menuItem;
-        }
-
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setActionView(MenuItem menuItem, int i) {
-            return menuItem;
-        }
-
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public View getActionView(MenuItem menuItem) {
+        public CharSequence getContentDescription(MenuItem menuItem) {
             return null;
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean expandActionView(MenuItem menuItem) {
-            return false;
+        public void setTooltipText(MenuItem menuItem, CharSequence charSequence) {
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean collapseActionView(MenuItem menuItem) {
-            return false;
+        public CharSequence getTooltipText(MenuItem menuItem) {
+            return null;
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean isActionViewExpanded(MenuItem menuItem) {
-            return false;
+        public void setShortcut(MenuItem menuItem, char c, char c2, int i, int i2) {
         }
 
         @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setOnActionExpandListener(MenuItem menuItem, OnActionExpandListener onActionExpandListener) {
-            return menuItem;
+        public void setAlphabeticShortcut(MenuItem menuItem, char c, int i) {
+        }
+
+        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public int getAlphabeticModifiers(MenuItem menuItem) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setNumericShortcut(MenuItem menuItem, char c, int i) {
+        }
+
+        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public int getNumericModifiers(MenuItem menuItem) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setIconTintList(MenuItem menuItem, ColorStateList colorStateList) {
+        }
+
+        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public ColorStateList getIconTintList(MenuItem menuItem) {
+            return null;
+        }
+
+        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setIconTintMode(MenuItem menuItem, PorterDuff.Mode mode) {
+        }
+
+        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public PorterDuff.Mode getIconTintMode(MenuItem menuItem) {
+            return null;
         }
     }
 
+    @RequiresApi(26)
     /* loaded from: classes2.dex */
-    static class HoneycombMenuVersionImpl implements MenuVersionImpl {
-        HoneycombMenuVersionImpl() {
+    static class MenuItemCompatApi26Impl extends MenuItemCompatBaseImpl {
+        MenuItemCompatApi26Impl() {
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public void setShowAsAction(MenuItem menuItem, int i) {
-            MenuItemCompatHoneycomb.setShowAsAction(menuItem, i);
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setContentDescription(MenuItem menuItem, CharSequence charSequence) {
+            menuItem.setContentDescription(charSequence);
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setActionView(MenuItem menuItem, View view2) {
-            return MenuItemCompatHoneycomb.setActionView(menuItem, view2);
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public CharSequence getContentDescription(MenuItem menuItem) {
+            return menuItem.getContentDescription();
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setActionView(MenuItem menuItem, int i) {
-            return MenuItemCompatHoneycomb.setActionView(menuItem, i);
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setTooltipText(MenuItem menuItem, CharSequence charSequence) {
+            menuItem.setTooltipText(charSequence);
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public View getActionView(MenuItem menuItem) {
-            return MenuItemCompatHoneycomb.getActionView(menuItem);
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public CharSequence getTooltipText(MenuItem menuItem) {
+            return menuItem.getTooltipText();
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean expandActionView(MenuItem menuItem) {
-            return false;
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setShortcut(MenuItem menuItem, char c, char c2, int i, int i2) {
+            menuItem.setShortcut(c, c2, i, i2);
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean collapseActionView(MenuItem menuItem) {
-            return false;
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setAlphabeticShortcut(MenuItem menuItem, char c, int i) {
+            menuItem.setAlphabeticShortcut(c, i);
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean isActionViewExpanded(MenuItem menuItem) {
-            return false;
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public int getAlphabeticModifiers(MenuItem menuItem) {
+            return menuItem.getAlphabeticModifiers();
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setOnActionExpandListener(MenuItem menuItem, OnActionExpandListener onActionExpandListener) {
-            return menuItem;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class IcsMenuVersionImpl extends HoneycombMenuVersionImpl {
-        IcsMenuVersionImpl() {
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setNumericShortcut(MenuItem menuItem, char c, int i) {
+            menuItem.setNumericShortcut(c, i);
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.HoneycombMenuVersionImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean expandActionView(MenuItem menuItem) {
-            return MenuItemCompatIcs.expandActionView(menuItem);
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public int getNumericModifiers(MenuItem menuItem) {
+            return menuItem.getNumericModifiers();
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.HoneycombMenuVersionImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean collapseActionView(MenuItem menuItem) {
-            return MenuItemCompatIcs.collapseActionView(menuItem);
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setIconTintList(MenuItem menuItem, ColorStateList colorStateList) {
+            menuItem.setIconTintList(colorStateList);
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.HoneycombMenuVersionImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public boolean isActionViewExpanded(MenuItem menuItem) {
-            return MenuItemCompatIcs.isActionViewExpanded(menuItem);
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public ColorStateList getIconTintList(MenuItem menuItem) {
+            return menuItem.getIconTintList();
         }
 
-        @Override // android.support.v4.view.MenuItemCompat.HoneycombMenuVersionImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
-        public MenuItem setOnActionExpandListener(MenuItem menuItem, final OnActionExpandListener onActionExpandListener) {
-            return onActionExpandListener == null ? MenuItemCompatIcs.setOnActionExpandListener(menuItem, null) : MenuItemCompatIcs.setOnActionExpandListener(menuItem, new MenuItemCompatIcs.SupportActionExpandProxy() { // from class: android.support.v4.view.MenuItemCompat.IcsMenuVersionImpl.1
-                @Override // android.support.v4.view.MenuItemCompatIcs.SupportActionExpandProxy
-                public boolean onMenuItemActionExpand(MenuItem menuItem2) {
-                    return onActionExpandListener.onMenuItemActionExpand(menuItem2);
-                }
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public void setIconTintMode(MenuItem menuItem, PorterDuff.Mode mode) {
+            menuItem.setIconTintMode(mode);
+        }
 
-                @Override // android.support.v4.view.MenuItemCompatIcs.SupportActionExpandProxy
-                public boolean onMenuItemActionCollapse(MenuItem menuItem2) {
-                    return onActionExpandListener.onMenuItemActionCollapse(menuItem2);
-                }
-            });
+        @Override // android.support.v4.view.MenuItemCompat.MenuItemCompatBaseImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
+        public PorterDuff.Mode getIconTintMode(MenuItem menuItem) {
+            return menuItem.getIconTintMode();
         }
     }
 
     static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 14) {
-            IMPL = new IcsMenuVersionImpl();
-        } else if (i >= 11) {
-            IMPL = new HoneycombMenuVersionImpl();
+        if (Build.VERSION.SDK_INT >= 26) {
+            IMPL = new MenuItemCompatApi26Impl();
         } else {
-            IMPL = new BaseMenuVersionImpl();
+            IMPL = new MenuItemCompatBaseImpl();
         }
     }
 
+    @Deprecated
     public static void setShowAsAction(MenuItem menuItem, int i) {
-        if (menuItem instanceof SupportMenuItem) {
-            ((SupportMenuItem) menuItem).setShowAsAction(i);
-        } else {
-            IMPL.setShowAsAction(menuItem, i);
-        }
+        menuItem.setShowAsAction(i);
     }
 
-    public static MenuItem setActionView(MenuItem menuItem, View view2) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setActionView(view2) : IMPL.setActionView(menuItem, view2);
+    @Deprecated
+    public static MenuItem setActionView(MenuItem menuItem, View view) {
+        return menuItem.setActionView(view);
     }
 
+    @Deprecated
     public static MenuItem setActionView(MenuItem menuItem, int i) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setActionView(i) : IMPL.setActionView(menuItem, i);
+        return menuItem.setActionView(i);
     }
 
+    @Deprecated
     public static View getActionView(MenuItem menuItem) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).getActionView() : IMPL.getActionView(menuItem);
+        return menuItem.getActionView();
     }
 
     public static MenuItem setActionProvider(MenuItem menuItem, ActionProvider actionProvider) {
@@ -216,20 +240,114 @@ public final class MenuItemCompat {
         return null;
     }
 
+    @Deprecated
     public static boolean expandActionView(MenuItem menuItem) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).expandActionView() : IMPL.expandActionView(menuItem);
+        return menuItem.expandActionView();
     }
 
+    @Deprecated
     public static boolean collapseActionView(MenuItem menuItem) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).collapseActionView() : IMPL.collapseActionView(menuItem);
+        return menuItem.collapseActionView();
     }
 
+    @Deprecated
     public static boolean isActionViewExpanded(MenuItem menuItem) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).isActionViewExpanded() : IMPL.isActionViewExpanded(menuItem);
+        return menuItem.isActionViewExpanded();
     }
 
-    public static MenuItem setOnActionExpandListener(MenuItem menuItem, OnActionExpandListener onActionExpandListener) {
-        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setSupportOnActionExpandListener(onActionExpandListener) : IMPL.setOnActionExpandListener(menuItem, onActionExpandListener);
+    @Deprecated
+    public static MenuItem setOnActionExpandListener(MenuItem menuItem, final OnActionExpandListener onActionExpandListener) {
+        return menuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() { // from class: android.support.v4.view.MenuItemCompat.1
+            @Override // android.view.MenuItem.OnActionExpandListener
+            public boolean onMenuItemActionExpand(MenuItem menuItem2) {
+                return OnActionExpandListener.this.onMenuItemActionExpand(menuItem2);
+            }
+
+            @Override // android.view.MenuItem.OnActionExpandListener
+            public boolean onMenuItemActionCollapse(MenuItem menuItem2) {
+                return OnActionExpandListener.this.onMenuItemActionCollapse(menuItem2);
+            }
+        });
+    }
+
+    public static void setContentDescription(MenuItem menuItem, CharSequence charSequence) {
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setContentDescription(charSequence);
+        } else {
+            IMPL.setContentDescription(menuItem, charSequence);
+        }
+    }
+
+    public static CharSequence getContentDescription(MenuItem menuItem) {
+        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).getContentDescription() : IMPL.getContentDescription(menuItem);
+    }
+
+    public static void setTooltipText(MenuItem menuItem, CharSequence charSequence) {
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setTooltipText(charSequence);
+        } else {
+            IMPL.setTooltipText(menuItem, charSequence);
+        }
+    }
+
+    public static CharSequence getTooltipText(MenuItem menuItem) {
+        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).getTooltipText() : IMPL.getTooltipText(menuItem);
+    }
+
+    public static void setShortcut(MenuItem menuItem, char c, char c2, int i, int i2) {
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setShortcut(c, c2, i, i2);
+        } else {
+            IMPL.setShortcut(menuItem, c, c2, i, i2);
+        }
+    }
+
+    public static void setNumericShortcut(MenuItem menuItem, char c, int i) {
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setNumericShortcut(c, i);
+        } else {
+            IMPL.setNumericShortcut(menuItem, c, i);
+        }
+    }
+
+    public static int getNumericModifiers(MenuItem menuItem) {
+        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).getNumericModifiers() : IMPL.getNumericModifiers(menuItem);
+    }
+
+    public static void setAlphabeticShortcut(MenuItem menuItem, char c, int i) {
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setAlphabeticShortcut(c, i);
+        } else {
+            IMPL.setAlphabeticShortcut(menuItem, c, i);
+        }
+    }
+
+    public static int getAlphabeticModifiers(MenuItem menuItem) {
+        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).getAlphabeticModifiers() : IMPL.getAlphabeticModifiers(menuItem);
+    }
+
+    public static void setIconTintList(MenuItem menuItem, ColorStateList colorStateList) {
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setIconTintList(colorStateList);
+        } else {
+            IMPL.setIconTintList(menuItem, colorStateList);
+        }
+    }
+
+    public static ColorStateList getIconTintList(MenuItem menuItem) {
+        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).getIconTintList() : IMPL.getIconTintList(menuItem);
+    }
+
+    public static void setIconTintMode(MenuItem menuItem, PorterDuff.Mode mode) {
+        if (menuItem instanceof SupportMenuItem) {
+            ((SupportMenuItem) menuItem).setIconTintMode(mode);
+        } else {
+            IMPL.setIconTintMode(menuItem, mode);
+        }
+    }
+
+    public static PorterDuff.Mode getIconTintMode(MenuItem menuItem) {
+        return menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).getIconTintMode() : IMPL.getIconTintMode(menuItem);
     }
 
     private MenuItemCompat() {

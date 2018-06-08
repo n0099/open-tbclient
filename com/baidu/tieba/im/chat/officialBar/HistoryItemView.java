@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout anM;
-    TbRichTextView dTf;
-    TextView dTg;
-    ChatImageWithTailView dTh;
+    LinearLayout avU;
+    TbRichTextView ees;
+    TextView eet;
+    ChatImageWithTailView eeu;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -36,31 +36,31 @@ public class HistoryItemView extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(d.i.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.anM = (LinearLayout) findViewById(d.g.history_container);
-        this.dTg = (TextView) findViewById(d.g.history_send_time);
-        this.dTf = (TbRichTextView) findViewById(d.g.history_txt);
-        this.dTh = (ChatImageWithTailView) findViewById(d.g.history_pic);
-        ak.i(this.anM, d.f.selector_history_multi_single_bg);
-        ak.c(this.dTg, d.C0126d.common_color_10067, 1);
-        this.dTf.setTextColor(ak.getColor(d.C0126d.cp_cont_c));
-        this.dTh.setIsSupportNight(true);
+        this.avU = (LinearLayout) findViewById(d.g.history_container);
+        this.eet = (TextView) findViewById(d.g.history_send_time);
+        this.ees = (TbRichTextView) findViewById(d.g.history_txt);
+        this.eeu = (ChatImageWithTailView) findViewById(d.g.history_pic);
+        al.i(this.avU, d.f.selector_history_multi_single_bg);
+        al.c(this.eet, d.C0141d.common_color_10067, 1);
+        this.ees.setTextColor(al.getColor(d.C0141d.cp_cont_c));
+        this.eeu.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.dTg.setText(str);
+        this.eet.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.dTf;
+        return this.ees;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.dTh;
+        return this.eeu;
     }
 
-    public void aF(View view2) {
-        this.anM.setBackgroundDrawable(null);
-        this.anM.removeAllViews();
-        this.anM.addView(view2);
+    public void aI(View view) {
+        this.avU.setBackgroundDrawable(null);
+        this.avU.removeAllViews();
+        this.avU.addView(view);
     }
 }

@@ -3,11 +3,11 @@ package android.support.v4.view;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.support.annotation.RestrictTo;
-import android.support.v4.os.BuildCompat;
+import android.view.PointerIcon;
 /* loaded from: classes2.dex */
 public final class PointerIconCompat {
-    static final PointerIconCompatImpl IMPL;
     public static final int TYPE_ALIAS = 1010;
     public static final int TYPE_ALL_SCROLL = 1013;
     public static final int TYPE_ARROW = 1000;
@@ -33,83 +33,24 @@ public final class PointerIconCompat {
     public static final int TYPE_ZOOM_OUT = 1019;
     private Object mPointerIcon;
 
-    /* loaded from: classes2.dex */
-    interface PointerIconCompatImpl {
-        Object create(Bitmap bitmap, float f, float f2);
-
-        Object getSystemIcon(Context context, int i);
-
-        Object load(Resources resources, int i);
-    }
-
     private PointerIconCompat(Object obj) {
         this.mPointerIcon = obj;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public Object getPointerIcon() {
         return this.mPointerIcon;
     }
 
-    /* loaded from: classes2.dex */
-    static class BasePointerIconCompatImpl implements PointerIconCompatImpl {
-        BasePointerIconCompatImpl() {
-        }
-
-        @Override // android.support.v4.view.PointerIconCompat.PointerIconCompatImpl
-        public Object getSystemIcon(Context context, int i) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.PointerIconCompat.PointerIconCompatImpl
-        public Object create(Bitmap bitmap, float f, float f2) {
-            return null;
-        }
-
-        @Override // android.support.v4.view.PointerIconCompat.PointerIconCompatImpl
-        public Object load(Resources resources, int i) {
-            return null;
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class Api24PointerIconCompatImpl extends BasePointerIconCompatImpl {
-        Api24PointerIconCompatImpl() {
-        }
-
-        @Override // android.support.v4.view.PointerIconCompat.BasePointerIconCompatImpl, android.support.v4.view.PointerIconCompat.PointerIconCompatImpl
-        public Object getSystemIcon(Context context, int i) {
-            return PointerIconCompatApi24.getSystemIcon(context, i);
-        }
-
-        @Override // android.support.v4.view.PointerIconCompat.BasePointerIconCompatImpl, android.support.v4.view.PointerIconCompat.PointerIconCompatImpl
-        public Object create(Bitmap bitmap, float f, float f2) {
-            return PointerIconCompatApi24.create(bitmap, f, f2);
-        }
-
-        @Override // android.support.v4.view.PointerIconCompat.BasePointerIconCompatImpl, android.support.v4.view.PointerIconCompat.PointerIconCompatImpl
-        public Object load(Resources resources, int i) {
-            return PointerIconCompatApi24.load(resources, i);
-        }
-    }
-
-    static {
-        if (BuildCompat.isAtLeastN()) {
-            IMPL = new Api24PointerIconCompatImpl();
-        } else {
-            IMPL = new BasePointerIconCompatImpl();
-        }
-    }
-
     public static PointerIconCompat getSystemIcon(Context context, int i) {
-        return new PointerIconCompat(IMPL.getSystemIcon(context, i));
+        return Build.VERSION.SDK_INT >= 24 ? new PointerIconCompat(PointerIcon.getSystemIcon(context, i)) : new PointerIconCompat(null);
     }
 
     public static PointerIconCompat create(Bitmap bitmap, float f, float f2) {
-        return new PointerIconCompat(IMPL.create(bitmap, f, f2));
+        return Build.VERSION.SDK_INT >= 24 ? new PointerIconCompat(PointerIcon.create(bitmap, f, f2)) : new PointerIconCompat(null);
     }
 
     public static PointerIconCompat load(Resources resources, int i) {
-        return new PointerIconCompat(IMPL.load(resources, i));
+        return Build.VERSION.SDK_INT >= 24 ? new PointerIconCompat(PointerIcon.load(resources, i)) : new PointerIconCompat(null);
     }
 }

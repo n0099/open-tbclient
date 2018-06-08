@@ -4,12 +4,14 @@ import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.view.SurfaceHolder;
 /* loaded from: classes3.dex */
-interface ICamera {
+public interface ICamera {
     void closeFlash();
 
     void openFlash();
 
     void releaseCamera();
+
+    void reopenCamera(CameraParams cameraParams);
 
     void setPreviewCallback(Camera.PreviewCallback previewCallback);
 

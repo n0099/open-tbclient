@@ -1,27 +1,20 @@
 package com.baidu.tbadk.m;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.a.d {
+public class d extends com.baidu.adp.framework.a.e {
     public d(int i) {
         super(i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
-    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.ur().ut() && tbHttpMessageTask.isNeedLogin()) {
-                httpMessage.addParam("reloin_key", "reloin_value");
-                ReloginManager.ur().a(httpMessage);
-                return null;
-            }
-            return httpMessage;
-        }
-        return httpMessage;
+    @Override // com.baidu.adp.framework.a.e
+    public void b(int i, BdUniqueId bdUniqueId) {
+        ReloginManager.xP().d(i, bdUniqueId);
+    }
+
+    @Override // com.baidu.adp.framework.a.e
+    public void b(BdUniqueId bdUniqueId) {
+        ReloginManager.xP().g(bdUniqueId);
     }
 }

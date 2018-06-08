@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a gMN;
-    private b gMO;
-    b.a gMP;
+    private com.baidu.tieba.video.editvideo.data.a gYp;
+    private b gYq;
+    b.a gYr;
     private Context mContext;
 
     public a(Context context) {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.gMN = aVar;
+        this.gYp = aVar;
     }
 
-    public boolean bwu() {
-        return (this.gMN == null || "normal".equalsIgnoreCase(this.gMN.value)) ? false : true;
+    public boolean bBB() {
+        return (this.gYp == null || "normal".equalsIgnoreCase(this.gYp.value)) ? false : true;
     }
 
-    public void tV(String str) {
-        if ((this.gMO == null || !this.gMO.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bwx = bwx();
+    public void uP(String str) {
+        if ((this.gYq == null || !this.gYq.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String bBE = bBE();
             String str2 = "normal";
-            if (this.gMN != null) {
-                str2 = this.gMN.value;
+            if (this.gYp != null) {
+                str2 = this.gYp.value;
             }
-            this.gMO = new b(this.mContext, str, bwx, str2);
-            if (this.gMP != null) {
-                this.gMO.a(this.gMP);
+            this.gYq = new b(this.mContext, str, bBE, str2);
+            if (this.gYr != null) {
+                this.gYq.a(this.gYr);
             }
-            this.gMO.bwy();
+            this.gYq.bBF();
         }
     }
 
-    public boolean bwv() {
-        if (this.gMO != null) {
-            return this.gMO.isRunning();
+    public boolean bBC() {
+        if (this.gYq != null) {
+            return this.gYq.isRunning();
         }
         return false;
     }
 
-    public void bww() {
-        if (this.gMO != null) {
-            this.gMO.bwz();
+    public void bBD() {
+        if (this.gYq != null) {
+            this.gYq.bBG();
         }
     }
 
     public void a(b.a aVar) {
-        this.gMP = aVar;
-        if (this.gMO != null) {
-            this.gMO.a(this.gMP);
+        this.gYr = aVar;
+        if (this.gYq != null) {
+            this.gYq.a(this.gYr);
         }
     }
 
-    public static List<com.baidu.tieba.video.editvideo.data.a> cc(Context context) {
+    public static List<com.baidu.tieba.video.editvideo.data.a> cn(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             context = TbadkCoreApplication.getInst();
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bwx() {
-        return com.baidu.tieba.video.b.gKJ + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String bBE() {
+        return com.baidu.tieba.video.b.gWl + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

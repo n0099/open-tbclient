@@ -6,78 +6,78 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.k;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.j.h;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d implements b {
-    private long gAn;
-    private String gAo;
-    private final int gAp;
-    private int gAq;
-    private e gAr;
-    private com.baidu.tieba.tbadkCore.videoupload.a.a.a gAs;
-    private h gAt;
+    private long gLO;
+    private String gLP;
+    private final int gLQ;
+    private int gLR;
+    private e gLS;
+    private com.baidu.tieba.tbadkCore.videoupload.a.a.a gLT;
+    private h gLU;
     private boolean mCancelled;
     private String mFileName;
 
     public d(String str, int i, h hVar) {
         this.mFileName = str;
-        this.gAp = i;
-        this.gAt = hVar;
+        this.gLQ = i;
+        this.gLU = hVar;
         File file = new File(str);
         if (file.exists()) {
-            this.gAn = file.length();
-            this.gAo = s.e(k.q(file));
-            if (this.gAn % this.gAp == 0) {
-                this.gAq = (int) (this.gAn / this.gAp);
+            this.gLO = file.length();
+            this.gLP = s.g(l.q(file));
+            if (this.gLO % this.gLQ == 0) {
+                this.gLR = (int) (this.gLO / this.gLQ);
             } else {
-                this.gAq = ((int) (this.gAn / this.gAp)) + 1;
+                this.gLR = ((int) (this.gLO / this.gLQ)) + 1;
             }
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
-    public VideoFinishResult aL(String str, int i) {
+    public VideoFinishResult aO(String str, int i) {
         a b;
-        if (StringUtils.isNull(str) || this.gAn <= 0 || StringUtils.isNull(this.gAo) || i <= 0 || this.mCancelled) {
+        if (StringUtils.isNull(str) || this.gLO <= 0 || StringUtils.isNull(this.gLP) || i <= 0 || this.mCancelled) {
             return null;
         }
-        tA(10);
-        a b2 = b(this.gAq, i, false, null);
+        tM(10);
+        a b2 = b(this.gLR, i, false, null);
         if (b2 == null || this.mCancelled) {
             return null;
         }
-        if (b2.ddI != 0) {
+        if (b2.dmW != 0) {
             VideoFinishResult videoFinishResult = new VideoFinishResult();
-            videoFinishResult.setErrorNo(b2.ddI);
+            videoFinishResult.setErrorNo(b2.dmW);
             videoFinishResult.setUserMessage(b2.mErrorMessage);
-            h(302, b2.ddI, b2.mErrorMessage);
+            h(302, b2.dmW, b2.mErrorMessage);
             return videoFinishResult;
         }
-        tA(30);
-        if (!StringUtils.isNull(b2.baJ)) {
+        tM(30);
+        if (!StringUtils.isNull(b2.biU)) {
             VideoFinishResult videoFinishResult2 = new VideoFinishResult();
-            videoFinishResult2.setVideoMd5(this.gAo);
-            videoFinishResult2.setVideoUrl(b2.baJ);
-            bsY();
+            videoFinishResult2.setVideoMd5(this.gLP);
+            videoFinishResult2.setVideoUrl(b2.biU);
+            byd();
             return videoFinishResult2;
         } else if (this.mCancelled) {
             return null;
         } else {
-            ArrayList<Integer> arrayList = b2.gAi;
-            if (v.w(arrayList)) {
+            ArrayList<Integer> arrayList = b2.gLJ;
+            if (w.z(arrayList)) {
                 arrayList = new ArrayList<>();
-                for (int i2 = 0; i2 < this.gAq; i2++) {
+                for (int i2 = 0; i2 < this.gLR; i2++) {
                     arrayList.add(Integer.valueOf(i2 + 1));
                 }
             }
-            String str2 = b2.gAj;
+            String str2 = b2.gLK;
             com.baidu.tieba.tbadkCore.videoupload.a.a.d b3 = b(arrayList, str2, i);
             if (b3 == null || this.mCancelled) {
                 return null;
@@ -89,107 +89,107 @@ public class d implements b {
                 h(303, b3.errorNo, b3.errorMessage);
                 return videoFinishResult3;
             }
-            tA(85);
+            tM(85);
             if (!StringUtils.isNull(b3.videoUrl)) {
                 VideoFinishResult videoFinishResult4 = new VideoFinishResult();
                 videoFinishResult4.setVideoUrl(b3.videoUrl);
-                videoFinishResult4.setVideoMd5(this.gAo);
-                bsY();
+                videoFinishResult4.setVideoMd5(this.gLP);
+                byd();
                 return videoFinishResult4;
-            } else if (this.mCancelled || (b = b(this.gAq, i, true, str2)) == null) {
+            } else if (this.mCancelled || (b = b(this.gLR, i, true, str2)) == null) {
                 return null;
             } else {
                 VideoFinishResult videoFinishResult5 = new VideoFinishResult();
-                if (b.ddI == 0) {
-                    videoFinishResult5.setVideoUrl(b.baJ);
-                    videoFinishResult5.setVideoMd5(this.gAo);
-                    bsY();
+                if (b.dmW == 0) {
+                    videoFinishResult5.setVideoUrl(b.biU);
+                    videoFinishResult5.setVideoMd5(this.gLP);
+                    byd();
                 } else {
-                    videoFinishResult5.setErrorNo(b.ddI);
+                    videoFinishResult5.setErrorNo(b.dmW);
                     videoFinishResult5.setUserMessage(b.mErrorMessage);
-                    h(304, b.ddI, b.mErrorMessage);
-                    TiebaStatic.log(new al("c12024").ac(LegoListActivityConfig.PARAMS, b.mErrorMessage));
+                    h(304, b.dmW, b.mErrorMessage);
+                    TiebaStatic.log(new am("c12024").ah(LegoListActivityConfig.PARAMS, b.mErrorMessage));
                 }
-                tA(100);
+                tM(100);
                 return videoFinishResult5;
             }
         }
     }
 
-    private void tA(int i) {
-        if (this.gAr != null) {
-            this.gAr.as(i / 100.0f);
+    private void tM(int i) {
+        if (this.gLS != null) {
+            this.gLS.aC(i / 100.0f);
         }
     }
 
     private a b(int i, long j, boolean z, String str) {
-        x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
-        xVar.n("chunk_sum", String.valueOf(i));
-        xVar.n("video_size", String.valueOf(this.gAn));
-        xVar.n("chunk_size", String.valueOf(this.gAp));
-        xVar.n("is_merge", String.valueOf(z ? 1 : 0));
-        xVar.n("video_md5", this.gAo);
-        xVar.n("video_len", String.valueOf(j));
-        xVar.n("tbs", TbadkCoreApplication.getInst().getTbs());
+        y yVar = new y(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_VIDEO_STATUS);
+        yVar.o("chunk_sum", String.valueOf(i));
+        yVar.o("video_size", String.valueOf(this.gLO));
+        yVar.o("chunk_size", String.valueOf(this.gLQ));
+        yVar.o("is_merge", String.valueOf(z ? 1 : 0));
+        yVar.o("video_md5", this.gLP);
+        yVar.o("video_len", String.valueOf(j));
+        yVar.o("tbs", TbadkCoreApplication.getInst().getTbs());
         if (!StringUtils.isNull(str)) {
-            xVar.n("upload_id", str);
+            yVar.o("upload_id", str);
         }
-        String uK = xVar.uK();
-        if (xVar.vi().wi().isRequestSuccess()) {
-            if (StringUtils.isNull(uK)) {
+        String yl = yVar.yl();
+        if (yVar.yJ().zJ().isRequestSuccess()) {
+            if (StringUtils.isNull(yl)) {
                 return null;
             }
             a aVar = new a();
-            aVar.parseJson(uK);
+            aVar.parseJson(yl);
             return aVar;
         }
         a aVar2 = new a();
-        if (xVar.vi().wi().vl()) {
-            aVar2.ddI = xVar.vi().wi().ajG;
+        if (yVar.yJ().zJ().yM()) {
+            aVar2.dmW = yVar.yJ().zJ().arO;
         } else {
-            aVar2.ddI = xVar.vi().wi().tW;
+            aVar2.dmW = yVar.yJ().zJ().Ab;
         }
-        aVar2.mErrorMessage = xVar.vi().wi().mErrorString;
+        aVar2.mErrorMessage = yVar.yJ().zJ().mErrorString;
         return aVar2;
     }
 
     private com.baidu.tieba.tbadkCore.videoupload.a.a.d b(ArrayList<Integer> arrayList, String str, int i) {
-        if (v.w(arrayList) || StringUtils.isNull(str)) {
+        if (w.z(arrayList) || StringUtils.isNull(str)) {
             return null;
         }
         if (arrayList.size() > 3) {
-            this.gAs = new com.baidu.tieba.tbadkCore.videoupload.a.a.b(this.mFileName, this.gAp, this.gAq, this.gAn, this.gAo);
+            this.gLT = new com.baidu.tieba.tbadkCore.videoupload.a.a.b(this.mFileName, this.gLQ, this.gLR, this.gLO, this.gLP);
         } else {
-            this.gAs = new com.baidu.tieba.tbadkCore.videoupload.a.a.c(this.mFileName, this.gAp, this.gAq, this.gAn, this.gAo);
+            this.gLT = new com.baidu.tieba.tbadkCore.videoupload.a.a.c(this.mFileName, this.gLQ, this.gLR, this.gLO, this.gLP);
         }
-        this.gAs.a(this.gAr);
-        com.baidu.tieba.tbadkCore.videoupload.a.a.d b = this.gAs.b(arrayList, str, i);
-        this.gAs = null;
+        this.gLT.a(this.gLS);
+        com.baidu.tieba.tbadkCore.videoupload.a.a.d b = this.gLT.b(arrayList, str, i);
+        this.gLT = null;
         return b;
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void cancel() {
         this.mCancelled = true;
-        if (this.gAs != null) {
-            this.gAs.cancel();
+        if (this.gLT != null) {
+            this.gLT.cancel();
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.videoupload.a.b
     public void a(e eVar) {
-        this.gAr = eVar;
+        this.gLS = eVar;
     }
 
     private void h(int i, int i2, String str) {
-        if (this.gAt != null) {
-            this.gAt.e(i, i2, str);
+        if (this.gLU != null) {
+            this.gLU.e(i, i2, str);
         }
     }
 
-    private void bsY() {
-        if (this.gAt != null) {
-            this.gAt.aRJ();
+    private void byd() {
+        if (this.gLU != null) {
+            this.gLU.aWG();
         }
     }
 }

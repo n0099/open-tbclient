@@ -280,7 +280,7 @@ public final class SapiOptions {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("id", this.id);
-                    jSONObject.put(SapiOptions.o, this.downloadUrl);
+                    jSONObject.put("download_url", this.downloadUrl);
                     jSONObject.put(SapiOptions.p, this.hash);
                     return jSONObject;
                 } catch (Throwable th) {
@@ -291,7 +291,7 @@ public final class SapiOptions {
             static Module a(JSONObject jSONObject) {
                 Module module = new Module();
                 module.id = jSONObject.optString("id");
-                module.downloadUrl = jSONObject.optString(SapiOptions.o);
+                module.downloadUrl = jSONObject.optString("download_url");
                 module.hash = jSONObject.optString(SapiOptions.p);
                 return module;
             }

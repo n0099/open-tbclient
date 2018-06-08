@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
@@ -133,7 +134,7 @@ public class AnchorInfoData extends OrmObject implements Serializable {
                 this.portrait = jSONObject.getString(IntentConfig.PORTRAIT);
                 this.name = jSONObject.getString("name");
                 this.startTime = jSONObject.getInt("start_time");
-                this.status = jSONObject.getInt("status");
+                this.status = jSONObject.getInt(NotificationCompat.CATEGORY_STATUS);
                 this.authorId = jSONObject.getLong("author_id");
                 this.authorName = jSONObject.getString("author_name");
                 this.listeners = jSONObject.getInt("listeners");

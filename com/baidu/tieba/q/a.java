@@ -1,87 +1,74 @@
 package com.baidu.tieba.q;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.app.Activity;
+import android.app.Application;
+import android.view.MotionEvent;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static BlockPopInfo gKk;
-    private static BlockPopInfo gKl;
-    private CustomMessageListener bns = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.a.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                a.d(null);
-                a.e(null);
+    private static a gPp;
+    private InterfaceC0220a gPq = bzt();
+
+    /* renamed from: com.baidu.tieba.q.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0220a {
+        void A(Activity activity);
+
+        void b(Application application);
+
+        void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
+
+        void onResume(Activity activity);
+    }
+
+    private boolean bzs() {
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_crab_sdk_enable", 1) == 1;
+    }
+
+    private a() {
+    }
+
+    private InterfaceC0220a bzt() {
+        CustomResponsedMessage runTask;
+        if (!bzs() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0220a.class)) == null) {
+            return null;
+        }
+        return (InterfaceC0220a) runTask.getData();
+    }
+
+    public static a bzu() {
+        if (gPp == null) {
+            synchronized (a.class) {
+                if (gPp == null) {
+                    gPp = new a();
+                }
             }
         }
-    };
-    private TbPageContext mContext;
-
-    public a(TbPageContext tbPageContext) {
-        this.mContext = tbPageContext;
-        this.mContext.registerListener(this.bns);
+        return gPp;
     }
 
-    private boolean a(BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0 && (blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2)) {
-            if (blockPopInfo.ahead_type.intValue() == 1) {
-                b(blockPopInfo);
-                return true;
-            } else if (blockPopInfo.ahead_type.intValue() == 2) {
-                c(blockPopInfo);
-                return true;
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean bvA() {
-        return a(gKk);
-    }
-
-    public boolean bvB() {
-        return a(gKl);
-    }
-
-    private void b(final BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            aVar.dc(blockPopInfo.block_info);
-            aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.q.a.1
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
-                }
-            });
-            aVar.a(blockPopInfo.ahead_info, new a.b() { // from class: com.baidu.tieba.q.a.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    a.this.c(blockPopInfo);
-                }
-            });
-            aVar.b(this.mContext).tC();
+    public void b(Application application) {
+        if (this.gPq != null) {
+            this.gPq.b(application);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null) {
-            AntiHelper.an(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
+    public void A(Activity activity) {
+        if (this.gPq != null) {
+            this.gPq.A(activity);
         }
     }
 
-    public static void d(BlockPopInfo blockPopInfo) {
-        gKk = blockPopInfo;
+    public void onResume(Activity activity) {
+        if (this.gPq != null) {
+            this.gPq.onResume(activity);
+        }
     }
 
-    public static void e(BlockPopInfo blockPopInfo) {
-        gKl = blockPopInfo;
+    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
+        if (this.gPq != null) {
+            this.gPq.behaviorRecordEvent(motionEvent, activity);
+        }
     }
 }

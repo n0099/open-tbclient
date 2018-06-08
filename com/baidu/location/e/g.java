@@ -2,16 +2,15 @@ package com.baidu.location.e;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.e.e;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class g extends Thread {
-    final /* synthetic */ e.c PE;
+    final /* synthetic */ e.c XG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e.c cVar) {
-        this.PE = cVar;
+        this.XG = cVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, IGET, INVOKE] complete} */
@@ -48,14 +47,14 @@ class g extends Thread {
         e eVar;
         e eVar2;
         super.run();
-        if (e.this.Pq == null || e.this.Pr == null || !e.this.Pq.isOpen() || !e.this.Pr.isOpen()) {
-            this.PE.f = false;
+        if (e.this.Xt == null || e.this.Xu == null || !e.this.Xt.isOpen() || !e.this.Xu.isOpen()) {
+            this.XG.f = false;
             return;
         }
         JSONObject jSONObject3 = null;
         try {
-            if (this.PE.j != null) {
-                jSONObject = new JSONObject(this.PE.j);
+            if (this.XG.j != null) {
+                jSONObject = new JSONObject(this.XG.j);
                 try {
                     jSONObject2 = jSONObject.has("model") ? jSONObject.getJSONObject("model") : null;
                     try {
@@ -65,20 +64,20 @@ class g extends Thread {
                     } catch (Exception e2) {
                         e = e2;
                         e.printStackTrace();
-                        e.this.Pq.beginTransaction();
-                        e.this.Pr.beginTransaction();
+                        e.this.Xt.beginTransaction();
+                        e.this.Xu.beginTransaction();
                         if (jSONObject3 != null) {
                         }
                         if (jSONObject != null) {
-                            this.PE.r = System.currentTimeMillis();
+                            this.XG.r = System.currentTimeMillis();
                         }
                         if (jSONObject != null) {
                             String[] split = jSONObject.getString("bdlist").split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                            eVar2 = this.PE.PC;
+                            eVar2 = this.XG.XE;
                             eVar2.a(split);
                         }
                         if (jSONObject != null) {
-                            eVar = this.PE.PC;
+                            eVar = this.XG.XE;
                             eVar.a(jSONObject.getJSONObject("loadurl").getString("host"), jSONObject.getJSONObject("loadurl").getString("module"), jSONObject.getJSONObject("loadurl").getString("req"));
                         }
                         if (jSONObject2 != null) {
@@ -123,23 +122,23 @@ class g extends Thread {
                             if (i > 0) {
                             }
                         }
-                        e.this.Pq.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
-                        e.this.Pq.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
-                        e.this.Pr.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
-                        e.this.Pr.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
+                        e.this.Xt.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
+                        e.this.Xt.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
+                        e.this.Xu.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
+                        e.this.Xu.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
                         if (jSONObject2 != null) {
-                            this.PE.c();
+                            this.XG.c();
                         }
-                        e.this.Pq.setTransactionSuccessful();
-                        e.this.Pr.setTransactionSuccessful();
-                        if (e.this.Pq != null) {
-                            e.this.Pq.endTransaction();
+                        e.this.Xt.setTransactionSuccessful();
+                        e.this.Xu.setTransactionSuccessful();
+                        if (e.this.Xt != null) {
+                            e.this.Xt.endTransaction();
                         }
-                        if (e.this.Pr != null) {
-                            e.this.Pr.endTransaction();
+                        if (e.this.Xu != null) {
+                            e.this.Xu.endTransaction();
                         }
-                        this.PE.j = null;
-                        this.PE.f = false;
+                        this.XG.j = null;
+                        this.XG.f = false;
                     }
                 } catch (Exception e3) {
                     jSONObject2 = null;
@@ -154,52 +153,52 @@ class g extends Thread {
             jSONObject2 = null;
             e = e4;
         }
-        e.this.Pq.beginTransaction();
-        e.this.Pr.beginTransaction();
+        e.this.Xt.beginTransaction();
+        e.this.Xu.beginTransaction();
         if (jSONObject3 != null) {
             try {
                 try {
-                    e.this.Pm.nt().a(jSONObject3);
+                    e.this.Xp.qG().a(jSONObject3);
                 } catch (Exception e5) {
-                    this.PE.c();
+                    this.XG.c();
                     try {
-                        if (e.this.Pq != null && e.this.Pq.isOpen()) {
-                            e.this.Pq.endTransaction();
+                        if (e.this.Xt != null && e.this.Xt.isOpen()) {
+                            e.this.Xt.endTransaction();
                         }
-                        if (e.this.Pr != null && e.this.Pr.isOpen()) {
-                            e.this.Pr.endTransaction();
+                        if (e.this.Xu != null && e.this.Xu.isOpen()) {
+                            e.this.Xu.endTransaction();
                         }
                     } catch (Exception e6) {
                     }
-                    this.PE.j = null;
-                    this.PE.f = false;
+                    this.XG.j = null;
+                    this.XG.f = false;
                     return;
                 }
             } catch (Throwable th) {
                 try {
-                    if (e.this.Pq != null && e.this.Pq.isOpen()) {
-                        e.this.Pq.endTransaction();
+                    if (e.this.Xt != null && e.this.Xt.isOpen()) {
+                        e.this.Xt.endTransaction();
                     }
-                    if (e.this.Pr != null && e.this.Pr.isOpen()) {
-                        e.this.Pr.endTransaction();
+                    if (e.this.Xu != null && e.this.Xu.isOpen()) {
+                        e.this.Xu.endTransaction();
                     }
                 } catch (Exception e7) {
                 }
-                this.PE.j = null;
-                this.PE.f = false;
+                this.XG.j = null;
+                this.XG.f = false;
                 throw th;
             }
         }
         if (jSONObject != null && jSONObject.has("type") && jSONObject.getString("type").equals("0")) {
-            this.PE.r = System.currentTimeMillis();
+            this.XG.r = System.currentTimeMillis();
         }
         if (jSONObject != null && jSONObject.has("bdlist")) {
             String[] split2 = jSONObject.getString("bdlist").split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-            eVar2 = this.PE.PC;
+            eVar2 = this.XG.XE;
             eVar2.a(split2);
         }
         if (jSONObject != null && jSONObject.has("loadurl")) {
-            eVar = this.PE.PC;
+            eVar = this.XG.XE;
             eVar.a(jSONObject.getJSONObject("loadurl").getString("host"), jSONObject.getJSONObject("loadurl").getString("module"), jSONObject.getJSONObject("loadurl").getString("req"));
         }
         if (jSONObject2 != null && jSONObject2.has("cell")) {
@@ -217,7 +216,7 @@ class g extends Thread {
             while (keys2.hasNext()) {
                 String next = keys2.next();
                 String string = jSONObject42.getString(next);
-                Double valueOf = Double.valueOf(string.split(Constants.ACCEPT_TIME_SEPARATOR_SP)[3]);
+                Double valueOf = Double.valueOf(string.split(",")[3]);
                 if (z42) {
                     z42 = false;
                 } else {
@@ -231,7 +230,7 @@ class g extends Thread {
                     } else {
                         stringBuffer32.append(',');
                     }
-                    stringBuffer32.append('(').append(next).append(',').append(string).append(Constants.ACCEPT_TIME_SEPARATOR_SP + (System.currentTimeMillis() / 1000)).append(')');
+                    stringBuffer32.append('(').append(next).append(',').append(string).append("," + (System.currentTimeMillis() / 1000)).append(')');
                     i8++;
                     i9 = i6;
                     z2 = z32;
@@ -246,19 +245,19 @@ class g extends Thread {
                     z2 = z32;
                 }
                 if (i7 >= 100) {
-                    e.this.Pr.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
+                    e.this.Xu.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
                     z42 = true;
                     stringBuffer22.setLength(0);
                     i7 -= 100;
                 }
                 if (i8 >= 100) {
-                    e.this.Pq.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
+                    e.this.Xt.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
                     z52 = true;
                     stringBuffer32.setLength(0);
                     i8 -= 100;
                 }
                 if (i9 >= 100) {
-                    e.this.Pq.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
+                    e.this.Xt.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
                     z2 = true;
                     stringBuffer7.setLength(0);
                     i9 -= 100;
@@ -267,13 +266,13 @@ class g extends Thread {
                 i6 = i9;
             }
             if (i7 > 0) {
-                e.this.Pr.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
+                e.this.Xu.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer22.toString()));
             }
             if (i8 > 0) {
-                e.this.Pq.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
+                e.this.Xt.execSQL(String.format("INSERT OR REPLACE INTO CL (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer32.toString()));
             }
             if (i6 > 0) {
-                e.this.Pq.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
+                e.this.Xt.execSQL(String.format("DELETE FROM CL WHERE id IN (%s);", stringBuffer7.toString()));
             }
         }
         if (jSONObject2 != null && jSONObject2.has("ap")) {
@@ -291,7 +290,7 @@ class g extends Thread {
             while (keys.hasNext()) {
                 String next2 = keys.next();
                 String string2 = jSONObject52.getString(next2);
-                Double valueOf2 = Double.valueOf(string2.split(Constants.ACCEPT_TIME_SEPARATOR_SP)[3]);
+                Double valueOf2 = Double.valueOf(string2.split(",")[3]);
                 if (z72) {
                     z72 = false;
                 } else {
@@ -305,7 +304,7 @@ class g extends Thread {
                     } else {
                         stringBuffer62.append(',');
                     }
-                    stringBuffer62.append('(').append(next2).append(',').append(string2).append(Constants.ACCEPT_TIME_SEPARATOR_SP + (System.currentTimeMillis() / 1000)).append(')');
+                    stringBuffer62.append('(').append(next2).append(',').append(string2).append("," + (System.currentTimeMillis() / 1000)).append(')');
                     int i10 = i3 + 1;
                     i5 = i;
                     z = z82;
@@ -323,53 +322,53 @@ class g extends Thread {
                     z = z9;
                 }
                 if (i2 >= 100) {
-                    e.this.Pr.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
+                    e.this.Xu.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
                     z72 = true;
                     stringBuffer52.setLength(0);
                     i2 -= 100;
                 }
                 if (i4 >= 100) {
-                    e.this.Pq.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
+                    e.this.Xt.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
                     z = true;
                     stringBuffer62.setLength(0);
                     i4 -= 100;
                 }
                 if (i5 > 0) {
-                    e.this.Pq.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
+                    e.this.Xt.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
                 }
                 i = i5;
                 i3 = i4;
                 z82 = z;
             }
             if (i2 > 0) {
-                e.this.Pr.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
+                e.this.Xu.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer52.toString()));
             }
             if (i3 > 0) {
-                e.this.Pq.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
+                e.this.Xt.execSQL(String.format("INSERT OR REPLACE INTO AP (id,x,y,r,cl,timestamp) VALUES %s;", stringBuffer62.toString()));
             }
             if (i > 0) {
-                e.this.Pq.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
+                e.this.Xt.execSQL(String.format("DELETE FROM AP WHERE id IN (%s);", stringBuffer42.toString()));
             }
         }
-        e.this.Pq.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
-        e.this.Pq.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
-        e.this.Pr.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
-        e.this.Pr.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
+        e.this.Xt.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "AP", "AP", 200000));
+        e.this.Xt.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY timestamp DESC, frequency DESC LIMIT %d);", "CL", "CL", 200000));
+        e.this.Xu.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "AP", "AP", 10000));
+        e.this.Xu.execSQL(String.format("DELETE FROM %s WHERE id NOT IN (SELECT id FROM %s ORDER BY frequency DESC LIMIT %d);", "CL", "CL", 10000));
         if (jSONObject2 != null && !jSONObject2.has("ap") && !jSONObject2.has("cell")) {
-            this.PE.c();
+            this.XG.c();
         }
-        e.this.Pq.setTransactionSuccessful();
-        e.this.Pr.setTransactionSuccessful();
+        e.this.Xt.setTransactionSuccessful();
+        e.this.Xu.setTransactionSuccessful();
         try {
-            if (e.this.Pq != null && e.this.Pq.isOpen()) {
-                e.this.Pq.endTransaction();
+            if (e.this.Xt != null && e.this.Xt.isOpen()) {
+                e.this.Xt.endTransaction();
             }
-            if (e.this.Pr != null && e.this.Pr.isOpen()) {
-                e.this.Pr.endTransaction();
+            if (e.this.Xu != null && e.this.Xu.isOpen()) {
+                e.this.Xu.endTransaction();
             }
         } catch (Exception e8) {
         }
-        this.PE.j = null;
-        this.PE.f = false;
+        this.XG.j = null;
+        this.XG.f = false;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.restnet;
 
 import android.content.Context;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.restnet.a.a;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
@@ -10,7 +11,6 @@ import com.baidu.fsg.base.restnet.rest.d;
 import com.baidu.fsg.base.restnet.rest.e;
 import com.baidu.fsg.base.restnet.rest.f;
 import com.baidu.fsg.base.utils.LogUtil;
-import com.xiaomi.mipush.sdk.Constants;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -145,7 +145,7 @@ public class RestTemplate {
             if (list != null && !list.isEmpty()) {
                 sb.append("? params : ");
                 for (RestNameValuePair restNameValuePair : list) {
-                    sb.append(restNameValuePair.getName() + "=" + restNameValuePair.getValue() + Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    sb.append(restNameValuePair.getName() + "=" + restNameValuePair.getValue() + ",");
                 }
                 sb.delete(sb.length() - 1, sb.length());
             }
@@ -164,7 +164,7 @@ public class RestTemplate {
             String host = url.getHost();
             int port = url.getPort();
             if (port > 0) {
-                host = host + ":" + port;
+                host = host + SystemInfoUtil.COLON + port;
             }
             dVar.b(url.toString());
             dVar.b().a("Host", host);

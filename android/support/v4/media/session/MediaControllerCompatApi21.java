@@ -1,5 +1,6 @@
 package android.support.v4.media.session;
 
+import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.media.AudioAttributes;
@@ -11,9 +12,11 @@ import android.media.session.PlaybackState;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
+import android.support.annotation.RequiresApi;
 import android.view.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+@RequiresApi(21)
 /* loaded from: classes2.dex */
 class MediaControllerCompatApi21 {
 
@@ -53,6 +56,18 @@ class MediaControllerCompatApi21 {
 
     public static void unregisterCallback(Object obj, Object obj2) {
         ((MediaController) obj).unregisterCallback((MediaController.Callback) obj2);
+    }
+
+    public static void setMediaController(Activity activity, Object obj) {
+        activity.setMediaController((MediaController) obj);
+    }
+
+    public static Object getMediaController(Activity activity) {
+        return activity.getMediaController();
+    }
+
+    public static Object getSessionToken(Object obj) {
+        return ((MediaController) obj).getSessionToken();
     }
 
     public static Object getTransportControls(Object obj) {

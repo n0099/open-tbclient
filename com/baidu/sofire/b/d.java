@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Message;
 import android.os.SystemClock;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.sofire.MyReceiver;
@@ -368,7 +369,7 @@ public final class d {
                 jSONObject2.put("3", str2);
                 jSONObject2.put("4", 0);
                 jSONObject2.put("5", 0);
-                jSONObject2.put("6", 1);
+                jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "sofire");
                 jSONObject2.put("9", "3.1.0");
@@ -831,7 +832,7 @@ public final class d {
             if (str8 == null) {
                 str8 = "";
             }
-            jSONObject.put("6", str8);
+            jSONObject.put(Constants.VIA_SHARE_TYPE_INFO, str8);
             String str9 = Build.VERSION.INCREMENTAL;
             if (str9 == null) {
                 str9 = "";
@@ -870,7 +871,7 @@ public final class d {
             }
             jSONObject.put(Constants.VIA_REPORT_TYPE_WPA_STATE, str2);
             jSONObject.put(Constants.VIA_REPORT_TYPE_START_WAP, f.h(context));
-            jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, f.i(context));
+            jSONObject.put("17", f.i(context));
             jSONObject.put("18", f.j(context));
             jSONObject.put(Constants.VIA_ACT_TYPE_NINETEEN, f.k(context));
             jSONObject.put("20", Build.VERSION.SDK_INT);
@@ -885,7 +886,7 @@ public final class d {
         str2 = "";
         jSONObject.put(Constants.VIA_REPORT_TYPE_WPA_STATE, str2);
         jSONObject.put(Constants.VIA_REPORT_TYPE_START_WAP, f.h(context));
-        jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, f.i(context));
+        jSONObject.put("17", f.i(context));
         jSONObject.put("18", f.j(context));
         jSONObject.put(Constants.VIA_ACT_TYPE_NINETEEN, f.k(context));
         jSONObject.put("20", Build.VERSION.SDK_INT);
@@ -945,7 +946,7 @@ public final class d {
             jSONObject2.put("3", m(context));
             jSONObject2.put("4", f.a(context));
             jSONObject2.put("5", optString);
-            jSONObject2.put("6", optLong);
+            jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, optLong);
             jSONObject2.put("7", optString2);
             jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, optString3);
             jSONObject2.put("9", optString4);
@@ -1034,7 +1035,7 @@ public final class d {
             long optLong = optJSONObject.optLong("0");
             String optString = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
             int optInt = optJSONObject.optInt("5");
-            int optInt2 = optJSONObject.optInt("6");
+            int optInt2 = optJSONObject.optInt(Constants.VIA_SHARE_TYPE_INFO);
             int optInt3 = optJSONObject.optInt("7");
             int optInt4 = optJSONObject.optInt(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
             String optString2 = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SET_AVATAR, "");
@@ -1139,7 +1140,7 @@ public final class d {
             }
             jSONObject.put("4", 0);
             jSONObject.put("5", 0);
-            jSONObject.put("6", 1);
+            jSONObject.put(Constants.VIA_SHARE_TYPE_INFO, 1);
             jSONObject.put("7", 0);
             jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, str);
             jSONObject.put("9", str2);
@@ -1165,7 +1166,7 @@ public final class d {
     }
 
     public static void a(Context context, long j) {
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
         PendingIntent broadcast = PendingIntent.getBroadcast(context, 101, new Intent("com.b.r.p"), 134217728);
         try {
             alarmManager.cancel(broadcast);

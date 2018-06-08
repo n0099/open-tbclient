@@ -14,42 +14,42 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class n extends BaseAdapter implements View.OnClickListener {
-    private a fjA;
+    private com.baidu.tbadk.img.b aMq = new com.baidu.tbadk.img.b();
+    private LinkedList<ImageFileInfo> fuU = null;
+    private a fuV;
     private Context mContext;
     private int mScreenWidth;
     private int mWidth;
-    private com.baidu.tbadk.img.b aDU = new com.baidu.tbadk.img.b();
-    private LinkedList<ImageFileInfo> fjz = null;
 
     /* loaded from: classes2.dex */
     protected interface a {
-        void qk(int i);
+        void qw(int i);
 
-        void ql(int i);
+        void qx(int i);
     }
 
     public n(Context context) {
         this.mContext = null;
         this.mContext = context;
-        this.mScreenWidth = com.baidu.adp.lib.util.l.af(this.mContext);
+        this.mScreenWidth = com.baidu.adp.lib.util.l.ah(this.mContext);
         this.mWidth = ((this.mScreenWidth - com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds68)) - (com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds16) * 3)) / 4;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fjz == null) {
+        if (this.fuU == null) {
             return 0;
         }
-        return this.fjz.size();
+        return this.fuU.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.fjz == null) {
+        if (this.fuU == null) {
             return null;
         }
-        if (this.fjz.size() - 1 >= i) {
-            return this.fjz.get(i);
+        if (this.fuU.size() - 1 >= i) {
+            return this.fuU.get(i);
         }
         return 0;
     }
@@ -60,43 +60,43 @@ public class n extends BaseAdapter implements View.OnClickListener {
     }
 
     public void u(LinkedList<ImageFileInfo> linkedList) {
-        this.fjz = linkedList;
+        this.fuU = linkedList;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, final ViewGroup viewGroup) {
+    public View getView(int i, View view, final ViewGroup viewGroup) {
         b bVar;
-        if (view2 == null) {
+        if (view == null) {
             bVar = new b();
-            view2 = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.pb_editor_imgs_item, (ViewGroup) null);
-            bVar.aru = (TbImageView) view2.findViewById(d.g.iv_photo_live);
-            bVar.fjC = (LinearLayout) view2.findViewById(d.g.layout_del);
-            bVar.fjD = (ImageView) view2.findViewById(d.g.delete_photo_live);
-            bVar.aru.setOnClickListener(this);
-            bVar.fjC.setOnClickListener(this);
-            bVar.aru.setGifIconSupport(true);
-            bVar.aru.setLongIconSupport(true);
-            com.baidu.tbadk.core.util.ak.i(bVar.fjD, d.f.icon_delete_img);
-            bVar.aru.setTagPaddingDis(com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds16), com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds10));
-            ViewGroup.LayoutParams layoutParams = bVar.aru.getLayoutParams();
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.pb_editor_imgs_item, (ViewGroup) null);
+            bVar.alB = (TbImageView) view.findViewById(d.g.iv_photo_live);
+            bVar.fuX = (LinearLayout) view.findViewById(d.g.layout_del);
+            bVar.fuY = (ImageView) view.findViewById(d.g.delete_photo_live);
+            bVar.alB.setOnClickListener(this);
+            bVar.fuX.setOnClickListener(this);
+            bVar.alB.setGifIconSupport(true);
+            bVar.alB.setLongIconSupport(true);
+            com.baidu.tbadk.core.util.al.i(bVar.fuY, d.f.icon_delete_img);
+            bVar.alB.setTagPaddingDis(com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds16), com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds10));
+            ViewGroup.LayoutParams layoutParams = bVar.alB.getLayoutParams();
             layoutParams.width = this.mWidth;
             layoutParams.height = this.mWidth;
-            view2.setTag(bVar);
+            view.setTag(bVar);
         } else {
-            bVar = (b) view2.getTag();
+            bVar = (b) view.getTag();
         }
-        if (this.fjz != null && this.fjz.size() - 1 >= i) {
-            ImageFileInfo imageFileInfo = this.fjz.get(i);
+        if (this.fuU != null && this.fuU.size() - 1 >= i) {
+            ImageFileInfo imageFileInfo = this.fuU.get(i);
             if (imageFileInfo != null) {
-                ImageOperation G = com.baidu.tbadk.img.effect.d.G(this.mWidth, this.mWidth);
+                ImageOperation H = com.baidu.tbadk.img.effect.d.H(this.mWidth, this.mWidth);
                 imageFileInfo.clearPageActions();
-                imageFileInfo.addPageAction(G);
-                com.baidu.adp.widget.ImageView.a a2 = this.aDU.a(imageFileInfo, true);
-                bVar.aru.setTag(imageFileInfo.toCachedKey(true));
+                imageFileInfo.addPageAction(H);
+                com.baidu.adp.widget.ImageView.a a2 = this.aMq.a(imageFileInfo, true);
+                bVar.alB.setTag(imageFileInfo.toCachedKey(true));
                 if (a2 != null) {
-                    bVar.aru.invalidate();
+                    bVar.alB.invalidate();
                 } else {
-                    this.aDU.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.n.1
+                    this.aMq.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.n.1
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                             TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(str);
@@ -106,37 +106,37 @@ public class n extends BaseAdapter implements View.OnClickListener {
                         }
                     }, true);
                 }
-                bVar.aru.setTagStr(this.mContext.getString(d.k.edit));
+                bVar.alB.setTagStr(this.mContext.getString(d.k.edit));
             }
-            bVar.aru.setTag(bVar.aru.getId(), Integer.valueOf(i));
+            bVar.alB.setTag(bVar.alB.getId(), Integer.valueOf(i));
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds8);
-            bVar.aru.setTagPaddingDis(dimensionPixelSize, dimensionPixelSize);
-            bVar.fjC.setTag(Integer.valueOf(i));
+            bVar.alB.setTagPaddingDis(dimensionPixelSize, dimensionPixelSize);
+            bVar.fuX.setTag(Integer.valueOf(i));
         }
-        return view2;
+        return view;
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        int id = view2.getId();
-        if (id == d.g.layout_del && (view2.getTag() instanceof Integer)) {
-            if (this.fjA != null) {
-                this.fjA.qk(((Integer) view2.getTag()).intValue());
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == d.g.layout_del && (view.getTag() instanceof Integer)) {
+            if (this.fuV != null) {
+                this.fuV.qw(((Integer) view.getTag()).intValue());
             }
-        } else if (id == d.g.iv_photo_live && (view2.getTag(view2.getId()) instanceof Integer) && this.fjA != null) {
-            this.fjA.ql(((Integer) view2.getTag(view2.getId())).intValue());
+        } else if (id == d.g.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.fuV != null) {
+            this.fuV.qx(((Integer) view.getTag(view.getId())).intValue());
         }
     }
 
     public void a(a aVar) {
-        this.fjA = aVar;
+        this.fuV = aVar;
     }
 
     /* loaded from: classes2.dex */
-    class b {
-        public TbImageView aru;
-        public LinearLayout fjC;
-        private ImageView fjD;
+    static class b {
+        public TbImageView alB;
+        public LinearLayout fuX;
+        private ImageView fuY;
 
         b() {
         }

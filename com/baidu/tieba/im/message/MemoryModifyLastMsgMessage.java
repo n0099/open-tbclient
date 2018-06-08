@@ -15,7 +15,7 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public int customGroupType;
-        public ChatMessage egf;
+        public ChatMessage erv;
         public String id;
         public int type;
 
@@ -25,7 +25,7 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
         public a(String str, int i, ChatMessage chatMessage, int i2) {
             this.id = str;
             this.customGroupType = i;
-            this.egf = chatMessage;
+            this.erv = chatMessage;
             this.type = i2;
         }
     }

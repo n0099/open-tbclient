@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
@@ -61,6 +61,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
+import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -90,12 +91,12 @@ public final class a {
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient d;
-    private C0064a e;
+    private C0080a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0064a {
+    public static class C0080a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -107,7 +108,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0064a(Context context) {
+        public C0080a(Context context) {
             this.a = context;
             e();
             f();
@@ -143,7 +144,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.e = new C0064a(context);
+        this.e = new C0080a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -285,7 +286,7 @@ public final class a {
         this.d = new AsyncHttpClient();
         this.d.setUserAgent(v());
         HashMap hashMap = new HashMap();
-        hashMap.put("crypttype", "6");
+        hashMap.put("crypttype", Constants.VIA_SHARE_TYPE_INFO);
         hashMap.put("tpl", this.c.tpl);
         hashMap.put("appid", this.c.appId);
         String str5 = this.c.clientId;
@@ -409,7 +410,7 @@ public final class a {
         if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, accountFromBduss.ptoken);
         }
-        hashMap.put("client", Constants.OS_TYPE_VALUE);
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         String deviceInfo = SapiDeviceInfo.getDeviceInfo("/v2/sapi/center/getuinfo");
         if (!TextUtils.isEmpty(deviceInfo)) {
             hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
@@ -531,7 +532,7 @@ public final class a {
         if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, accountFromBduss.ptoken);
         }
-        hashMap.put("client", Constants.OS_TYPE_VALUE);
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         String deviceInfo = SapiDeviceInfo.getDeviceInfo("/v2/sapi/center/getuinfo");
         if (!TextUtils.isEmpty(deviceInfo)) {
             hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
@@ -1156,7 +1157,7 @@ public final class a {
         hashMap.put("tpl", this.c.tpl);
         hashMap.put("bduss", str);
         hashMap.put("sign", MD5Util.toMd5((this.c.appId + this.c.tpl + str + this.c.appSignKey).getBytes(), false));
-        hashMap.put("client", Constants.OS_TYPE_VALUE);
+        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("return_type", "1");
         if (!TextUtils.isEmpty(str2)) {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, str2);
@@ -1606,7 +1607,7 @@ public final class a {
             sapiCallback.onFailure(fastRegResult);
         } else {
             final boolean[] zArr = {false};
-            String str = UUID.randomUUID().toString() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + "点击发送直接登录";
+            String str = UUID.randomUUID().toString() + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + System.currentTimeMillis() + ",点击发送直接登录";
             final Handler handler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.8
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
@@ -1982,7 +1983,7 @@ public final class a {
         a2.put("type", SocialType.IQIYI.getType() + "");
         a2.put(SocialConstants.PARAM_ACT, "special");
         a2.put("display", "native");
-        a2.put("client", Constants.OS_TYPE_VALUE);
+        a2.put("client", HttpConstants.OS_TYPE_VALUE);
         a2.put("sig", a(a2, this.c.appSignKey));
         this.d.get(this.c.context, q(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.13
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -2092,7 +2093,7 @@ public final class a {
             this.d = new AsyncHttpClient();
             this.d.setUserAgent(v());
             HashMap hashMap = new HashMap();
-            hashMap.put("client", Constants.OS_TYPE_VALUE);
+            hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
             hashMap.put("cuid", this.c.clientId);
             hashMap.put("uid", SapiContext.getInstance(context).getFaceLoginUid());
             hashMap.put("zid", SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(context));

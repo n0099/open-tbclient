@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import java.util.ArrayList;
 import java.util.Iterator;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ViewPropertyAnimatorCompatSet {
     private Interpolator mInterpolator;
@@ -20,7 +20,7 @@ public class ViewPropertyAnimatorCompatSet {
         private int mProxyEndCount = 0;
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view2) {
+        public void onAnimationStart(View view) {
             if (!this.mProxyStarted) {
                 this.mProxyStarted = true;
                 if (ViewPropertyAnimatorCompatSet.this.mListener != null) {
@@ -36,7 +36,7 @@ public class ViewPropertyAnimatorCompatSet {
         }
 
         @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationEnd(View view2) {
+        public void onAnimationEnd(View view) {
             int i = this.mProxyEndCount + 1;
             this.mProxyEndCount = i;
             if (i == ViewPropertyAnimatorCompatSet.this.mAnimators.size()) {

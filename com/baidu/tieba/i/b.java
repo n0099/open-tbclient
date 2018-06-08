@@ -11,8 +11,8 @@ public class b extends com.baidu.adp.framework.a.c {
     @Override // com.baidu.adp.framework.a.g
     /* renamed from: b */
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.lS(httpResponsedMessage.getCmd())) {
-            a.awI();
+        if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !a.me(httpResponsedMessage.getCmd())) {
+            a.aBA();
         }
         return httpResponsedMessage;
     }

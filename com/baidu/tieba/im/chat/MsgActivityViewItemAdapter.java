@@ -16,34 +16,34 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
-        super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
-        MsgActivityView aAS = aVar.aAS();
-        aAS.setPosition(i);
-        aAS.setData(chatMessage);
-        aAS.a(this.dRD);
-        aAS.setOnItemViewLongClickListener(this.dRE);
-        aAS.bQ(this.dRK);
-        aAS.bP(chatMessage.getCacheData().getLastMsgTime());
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
+        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
+        MsgActivityView aFN = aVar.aFN();
+        aFN.setPosition(i);
+        aFN.setData(chatMessage);
+        aFN.a(this.ecQ);
+        aFN.setOnItemViewLongClickListener(this.ecR);
+        aFN.bW(this.ecX);
+        aFN.bV(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
-        this.mPageContext.getLayoutMode().u(view2);
-        return view2;
+        this.mPageContext.getLayoutMode().onModeChanged(view);
+        return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: bb */
     public e.a<MsgActivityView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
-        return new a(msgActivityView.bO(), msgActivityView);
+        return new a(msgActivityView.eC(), msgActivityView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends e.a<MsgActivityView> {
-        public a(View view2, MsgActivityView msgActivityView) {
-            super(view2, msgActivityView);
+        public a(View view, MsgActivityView msgActivityView) {
+            super(view, msgActivityView);
         }
     }
 }

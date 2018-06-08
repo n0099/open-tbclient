@@ -7,5 +7,5 @@ public interface n {
 
     void b(i iVar);
 
-    void kc(int i);
+    void kf(int i);
 }

@@ -477,7 +477,7 @@ public class PushConnService extends Service {
             hashMap.put("3", this.mPushPluginVersion);
             hashMap.put("4", Integer.valueOf(i));
             hashMap.put("5", Long.valueOf(j));
-            hashMap.put("6", str);
+            hashMap.put(com.tencent.connect.common.Constants.VIA_SHARE_TYPE_INFO, str);
             hashMap.put("7", Integer.valueOf(i2));
             d.a(getApplicationContext(), "1003132", hashMap);
         } catch (Throwable th) {

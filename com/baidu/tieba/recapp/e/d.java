@@ -8,28 +8,28 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class d {
     private final Context context;
-    private final ViewGroup gdQ;
+    private final ViewGroup gpj;
     public int page = 0;
 
     public d(Context context, ViewGroup viewGroup) {
         this.context = context;
-        this.gdQ = viewGroup;
+        this.gpj = viewGroup;
     }
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !bS(fVar.style, eVar.gdR)) {
-                if (this.gdQ == null) {
+            if (eVar == null || !ca(fVar.style, eVar.gpk)) {
+                if (this.gpj == null) {
                     return null;
                 }
-                this.gdQ.removeAllViews();
+                this.gpj.removeAllViews();
                 if ("jump".equals(fVar.style)) {
                     if (this.page == 1) {
-                        return new c(LayoutInflater.from(this.context).inflate(d.i.videolist_tail_frame_ad_jump, this.gdQ, true), "jump");
+                        return new c(LayoutInflater.from(this.context).inflate(d.i.videolist_tail_frame_ad_jump, this.gpj, true), "jump");
                     }
-                    return new b(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_jump, this.gdQ, true), "jump");
+                    return new b(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_jump, this.gpj, true), "jump");
                 } else if ("apk_download".equals(fVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_download, this.gdQ, true), "apk_download");
+                    return new a(LayoutInflater.from(this.context).inflate(d.i.tail_frame_ad_download, this.gpj, true), "apk_download");
                 } else {
                     return null;
                 }
@@ -39,7 +39,7 @@ public class d {
         return eVar;
     }
 
-    private boolean bS(String str, String str2) {
+    private boolean ca(String str, String str2) {
         if ("apk_download".equals(str)) {
             return "apk_download".equals(str2);
         }

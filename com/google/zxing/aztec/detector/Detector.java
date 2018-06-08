@@ -1,6 +1,5 @@
 package com.google.zxing.aztec.detector;
 
-import android.support.v4.media.TransportMediator;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.aztec.AztecDetectorResult;
@@ -54,7 +53,7 @@ public final class Detector {
             int i4 = iArr[(this.shift + i3) % 4];
             if (this.compact) {
                 j = j2 << 7;
-                i = (i4 >> 1) & TransportMediator.KEYCODE_MEDIA_PAUSE;
+                i = (i4 >> 1) & 127;
             } else {
                 j = j2 << 10;
                 i = ((i4 >> 1) & 31) + ((i4 >> 2) & 992);

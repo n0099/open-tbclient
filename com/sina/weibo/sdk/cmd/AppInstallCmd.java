@@ -1,9 +1,9 @@
 package com.sina.weibo.sdk.cmd;
 
 import android.text.TextUtils;
+import com.baidu.ar.load.util.DownloadConstants;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.sina.weibo.sdk.exception.WeiboException;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import java.util.List;
 import org.json.JSONObject;
@@ -29,13 +29,13 @@ public class AppInstallCmd extends BaseCmd {
     @Override // com.sina.weibo.sdk.cmd.BaseCmd
     public void initFromJsonObj(JSONObject jSONObject) {
         super.initFromJsonObj(jSONObject);
-        this.downloadUrl = jSONObject.optString("download_url");
+        this.downloadUrl = jSONObject.optString(DownloadConstants.DOWNLOAD_URL);
         String optString = jSONObject.optString("app_package");
         if (!TextUtils.isEmpty(optString)) {
             this.appPackages = Arrays.asList(optString.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR));
         }
         this.appSign = jSONObject.optString("app_sign");
-        this.appVersion = jSONObject.optLong(Constants.EXTRA_KEY_APP_VERSION);
+        this.appVersion = jSONObject.optLong("app_version");
     }
 
     public long getAppVersion() {

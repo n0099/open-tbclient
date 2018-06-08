@@ -5,13 +5,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView beB;
-    private TextView dCk;
-    private String fMF;
+    private ImageView bmJ;
+    private TextView dNr;
+    private String fXR;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -19,18 +19,18 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         init(getView());
     }
 
-    private void init(View view2) {
-        this.mRootView = view2.findViewById(d.g.card_null_polymeric_rootview);
-        this.beB = (ImageView) view2.findViewById(d.g.card_null_polymeric_icon);
-        this.dCk = (TextView) view2.findViewById(d.g.card_null_polymeric_txt);
+    private void init(View view) {
+        this.mRootView = view.findViewById(d.g.card_null_polymeric_rootview);
+        this.bmJ = (ImageView) view.findViewById(d.g.card_null_polymeric_icon);
+        this.dNr = (TextView) view.findViewById(d.g.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            ak.i(this.mRootView, d.C0126d.cp_bg_line_d);
-            ak.c(this.beB, d.f.emotion07);
-            ak.c(this.dCk, d.C0126d.cp_cont_c, 1);
+            al.i(this.mRootView, d.C0141d.cp_bg_line_d);
+            al.c(this.bmJ, d.f.emotion07);
+            al.c(this.dNr, d.C0141d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.fMF)) {
-            TextView textView = this.dCk;
+        if (StringUtils.isNull(this.fXR)) {
+            TextView textView = this.dNr;
             String string2 = this.mContext.getString(d.k.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,10 +66,10 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.dCk.setText(this.fMF);
+        this.dNr.setText(this.fXR);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void onClick(View view) {
     }
 }

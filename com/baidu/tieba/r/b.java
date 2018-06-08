@@ -1,168 +1,211 @@
 package com.baidu.tieba.r;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.f;
-import com.baidu.idl.authority.BuildConfig;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.VideoPlatformStatic;
-import com.baidu.tieba.j.g;
-import java.io.File;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.tbadk.core.atomData.TransmitPostEditActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.HttpStatus;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class b {
-    private static b gKo = new b();
-
-    public static b bvC() {
-        return gKo;
-    }
-
-    public void bvD() {
-        if (f.m9do()) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.r.b.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    List bvF = b.bvF();
-                    int size = bvF.size();
-                    for (int i = 0; i < size; i++) {
-                        a aVar = (a) bvF.get(i);
-                        b.this.d(aVar.uuid, aVar.cff);
-                    }
-                    return null;
+/* loaded from: classes3.dex */
+public class b implements View.OnClickListener {
+    private com.baidu.tieba.r.a gBn;
+    private LinearLayout gVs;
+    private CustomMessageListener gVt = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.r.b.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
+                b.this.mForumList = (ArrayList) customResponsedMessage.getData();
+                int y = w.y(b.this.mForumList);
+                if (y > 0) {
+                    b.this.gdF = b.this.mForumList.subList(0, Math.min(6, y));
                 }
-            }.execute(new Void[0]);
+                b.this.updateView();
+            }
+        }
+    };
+    private List<TransmitForumData> gdF;
+    private Context mContext;
+    private ArrayList<TransmitForumData> mForumList;
+    private int mPrivateThread;
+    private com.baidu.tbadk.coreExtra.c.d mShareItem;
+
+    public b(Context context) {
+        this.mContext = context;
+        MessageManager.getInstance().registerListener(this.gVt);
+    }
+
+    public void a(com.baidu.tbadk.coreExtra.c.d dVar, ArrayList<TransmitForumData> arrayList, int i) {
+        this.mShareItem = dVar;
+        this.mForumList = arrayList;
+        this.mPrivateThread = i;
+        int y = w.y(arrayList);
+        if (y > 0) {
+            this.gdF = arrayList.subList(0, Math.min(6, y));
         }
     }
 
-    private static File[] bvE() {
-        File file = new File(g.a.eRM);
-        if (file.exists()) {
-            return file.listFiles();
+    public void setShareItemClickListener(com.baidu.tieba.r.a aVar) {
+        this.gBn = aVar;
+    }
+
+    public View getView() {
+        if (this.gVs == null) {
+            this.gVs = new LinearLayout(this.mContext);
+            this.gVs.setOrientation(0);
+            int e = l.e(this.mContext, d.e.ds18);
+            this.gVs.setPadding(e, l.e(this.mContext, d.e.ds32), e, l.e(this.mContext, d.e.ds26));
+            bAA();
+            bAB();
+            bAC();
         }
-        return null;
+        return this.gVs;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<a> bvF() {
-        ArrayList arrayList = new ArrayList();
-        File[] bvE = bvE();
-        if (bvE != null) {
-            for (File file : bvE) {
-                String name = file.getName();
-                JSONObject tG = tG(file.getAbsolutePath() + g.a.eRD + "kpi");
-                if (tG == null) {
-                    com.baidu.tieba.j.d.pD(name);
-                } else {
-                    JSONObject tH = tH(file.getAbsolutePath() + g.a.eRD + BuildConfig.BUILD_TYPE);
-                    if (tH == null) {
-                        com.baidu.tieba.j.d.pD(name);
-                    } else {
-                        arrayList.add(new a(name, a(VideoPlatformStatic.Mz(), tG, tH)));
-                    }
-                }
+    public void updateView() {
+        if (this.gVs != null) {
+            this.gVs.removeAllViews();
+            bAA();
+            bAB();
+            bAC();
+        }
+    }
+
+    private void bAA() {
+        a bAD = bAD();
+        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+        bAD.aVh.startLoad(currentAccountInfo != null ? currentAccountInfo.getPortrait() : null, 12, false);
+        bAD.bui.setText(d.k.my_homepage);
+        bAD.gVv.setTag(100);
+        bAD.gVv.setOnClickListener(this);
+        this.gVs.addView(bAD.gVv);
+    }
+
+    private void bAB() {
+        int y = w.y(this.gdF);
+        for (int i = 0; i < y; i++) {
+            TransmitForumData transmitForumData = this.gdF.get(i);
+            if (transmitForumData != null) {
+                a bAD = bAD();
+                bAD.aVh.startLoad(transmitForumData.avatar, 10, false);
+                bAD.bui.setText(transmitForumData.forumName);
+                bAD.gVv.setTag(transmitForumData);
+                bAD.gVv.setOnClickListener(this);
+                this.gVs.addView(bAD.gVv);
             }
         }
-        return arrayList;
     }
 
-    private static JSONObject tG(String str) {
-        File file = new File(str);
-        if (file.exists()) {
-            try {
-                JSONObject jSONObject = new JSONObject(com.baidu.tieba.j.d.B(file));
-                if (X(jSONObject)) {
-                    return jSONObject;
-                }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+    private void bAC() {
+        a bAD = bAD();
+        al.c(bAD.aVh, d.f.icon_share_more_ba);
+        al.j(bAD.aVh, d.C0141d.cp_bg_line_d);
+        bAD.bui.setText(d.k.more_forums);
+        bAD.gVv.setTag(200);
+        bAD.gVv.setOnClickListener(this);
+        this.gVs.addView(bAD.gVv);
+    }
+
+    private a bAD() {
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.i.share_dialog_forum_item, (ViewGroup) this.gVs, false);
+        a aVar = new a();
+        aVar.gVv = viewGroup;
+        aVar.aVh = (TbImageView) viewGroup.findViewById(d.g.photo);
+        aVar.bui = (TextView) viewGroup.findViewById(d.g.name);
+        al.h(aVar.bui, d.C0141d.cp_cont_f);
+        return aVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.gBn != null) {
+            this.gBn.bw(view);
+        }
+        if (!j.jD()) {
+            l.showToast(TbadkCoreApplication.getInst().getContext(), d.k.share_on_no_network);
+            return;
+        }
+        Object tag = view.getTag();
+        if (tag instanceof Integer) {
+            Integer num = (Integer) tag;
+            if (num.intValue() == 100) {
+                a("1", (TransmitForumData) null, this.mPrivateThread);
+                un(11);
+            } else if (num.intValue() == 200) {
+                bAE();
+                un(13);
             }
-        }
-        return null;
-    }
-
-    private static boolean X(JSONObject jSONObject) {
-        int optInt = jSONObject.optInt("errorTimes", -1);
-        int optInt2 = jSONObject.optInt("postSuccess", -1);
-        int optInt3 = jSONObject.optInt("posted", -1);
-        return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
-    }
-
-    private static JSONObject tH(String str) {
-        if (!StringUtils.isNull(str) && new File(str).exists()) {
-            try {
-                return new JSONObject().put("running", g(com.baidu.tieba.j.d.pC(str)));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return null;
-    }
-
-    private static JSONArray g(JSONArray jSONArray) {
-        int optInt;
-        boolean z = false;
-        if (jSONArray == null) {
-            return null;
-        }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
-                z = true;
-                break;
-            }
-        }
-        if (!z) {
-            jSONArray.put(new com.baidu.tieba.m.d(HttpStatus.SC_BAD_GATEWAY, "unknown", -4399, "").bhi());
-            return jSONArray;
-        }
-        return jSONArray;
-    }
-
-    public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
-        try {
-            JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put("kpiInfo", jSONObject2);
-            jSONObject4.put("baseInfo", jSONObject);
-            jSONObject4.put("debugInfo", jSONObject3);
-            return jSONObject4;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        } else if (tag instanceof TransmitForumData) {
+            a("2", (TransmitForumData) tag, this.mPrivateThread);
+            un(12);
         }
     }
 
-    public void d(String str, JSONObject jSONObject) {
-        new BdAsyncTask<a, Void, Void>() { // from class: com.baidu.tieba.r.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: a */
-            public Void doInBackground(a... aVarArr) {
-                if (aVarArr != null && aVarArr.length == 1 && aVarArr[0] != null) {
-                    b.this.a(aVarArr[0]);
-                }
-                return null;
-            }
-        }.execute(new a(str, jSONObject));
+    private void un(int i) {
+        if (this.mShareItem != null) {
+            TiebaStatic.log(new am("c10125").ah(ImageViewerConfig.FORUM_ID, this.mShareItem.fid).ah("tid", this.mShareItem.tid).r("obj_type", i).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mShareItem.aFo).r("obj_param1", this.mShareItem.aFp));
+        }
+    }
+
+    private void bAE() {
+        SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, 25018);
+        selectForumActivityConfig.setForumList(this.mForumList);
+        selectForumActivityConfig.setFrom(2);
+        selectForumActivityConfig.setOriginalThread(this.mShareItem.originalThreadInfo);
+        selectForumActivityConfig.setPrivateThread(this.mPrivateThread);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
+    }
+
+    private void a(String str, TransmitForumData transmitForumData, int i) {
+        String str2;
+        String str3;
+        if (transmitForumData != null) {
+            str3 = String.valueOf(transmitForumData.forumId);
+            str2 = transmitForumData.forumName;
+        } else {
+            str2 = null;
+            str3 = null;
+        }
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(this.mContext, 9, str3, str2, null, null, 13011, null, null, null, this.mShareItem.originalThreadInfo);
+        transmitPostEditActivityConfig.setCallFrom(str);
+        transmitPostEditActivityConfig.setPrivateThread(i);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
+    }
+
+    public void release() {
+        MessageManager.getInstance().unRegisterListener(this.gVt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a aVar) {
-        try {
-            c.f(c.Y(aVar.cff), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            com.baidu.tieba.j.d.pD(aVar.uuid);
-        } catch (Exception e) {
-            e.printStackTrace();
+    /* loaded from: classes3.dex */
+    public static class a {
+        public TbImageView aVh;
+        public TextView bui;
+        public ViewGroup gVv;
+
+        private a() {
         }
     }
 }

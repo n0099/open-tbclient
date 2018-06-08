@@ -16,21 +16,21 @@ public class af extends k<ac, ae> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
+    /* renamed from: bq */
     public ae onCreateViewHolder(ViewGroup viewGroup) {
-        return new ae(this.fhQ.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.i.pb_page_news, viewGroup, false));
+        return new ae(this.ftp.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.i.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ac acVar, ae aeVar) {
-        super.onFillViewHolder(i, view2, viewGroup, acVar, aeVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ac acVar, ae aeVar) {
+        super.onFillViewHolder(i, view, viewGroup, acVar, aeVar);
         if (acVar != null) {
             aeVar.a(acVar);
             aeVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
-        return view2;
+        return view;
     }
 }

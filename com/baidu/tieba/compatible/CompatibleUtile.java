@@ -40,42 +40,42 @@ public class CompatibleUtile {
 
     private Object5 getObject5() {
         if (Build.VERSION.SDK_INT >= 5 && mObject5 == null) {
-            mObject5 = new Object5();
+            mObject5 = new Object5(this, null);
         }
         return mObject5;
     }
 
     private Object7 getObject7() {
         if (Build.VERSION.SDK_INT >= 7 && mObject7 == null) {
-            mObject7 = new Object7();
+            mObject7 = new Object7(this, null);
         }
         return mObject7;
     }
 
     private Object8 getObject8() {
         if (Build.VERSION.SDK_INT >= 8 && mObject8 == null) {
-            mObject8 = new Object8();
+            mObject8 = new Object8(this, null);
         }
         return mObject8;
     }
 
     private Object9 getObject9() {
         if (Build.VERSION.SDK_INT >= 9 && mObject9 == null) {
-            mObject9 = new Object9();
+            mObject9 = new Object9(this, null);
         }
         return mObject9;
     }
 
     private Object11 getObject11() {
         if (Build.VERSION.SDK_INT >= 11 && mObject11 == null) {
-            mObject11 = new Object11();
+            mObject11 = new Object11(this, null);
         }
         return mObject11;
     }
 
     private Object14 getObject14() {
         if (Build.VERSION.SDK_INT >= 14 && mObject14 == null) {
-            mObject14 = new Object14();
+            mObject14 = new Object14(this, null);
         }
         return mObject14;
     }
@@ -187,35 +187,35 @@ public class CompatibleUtile {
         }
     }
 
-    public boolean isUseHw(View view2) {
+    public boolean isUseHw(View view) {
         if (getObject11() != null) {
-            return getObject11().isUseHw(view2);
+            return getObject11().isUseHw(view);
         }
         return false;
     }
 
-    public int getViewLayer(View view2) {
+    public int getViewLayer(View view) {
         if (getObject11() != null) {
-            return getObject11().getViewLayer(view2);
+            return getObject11().getViewLayer(view);
         }
         return 0;
     }
 
-    public void noneViewGpu(View view2) {
+    public void noneViewGpu(View view) {
         if (getObject11() != null) {
-            getObject11().noneViewGpu(view2);
+            getObject11().noneViewGpu(view);
         }
     }
 
-    public void closeViewGpu(View view2) {
+    public void closeViewGpu(View view) {
         if (getObject11() != null) {
-            getObject11().closeViewGpu(view2);
+            getObject11().closeViewGpu(view);
         }
     }
 
-    public void openViewGpu(View view2) {
+    public void openViewGpu(View view) {
         if (getObject11() != null) {
-            getObject11().openViewGpu(view2);
+            getObject11().openViewGpu(view);
         }
     }
 
@@ -247,20 +247,20 @@ public class CompatibleUtile {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onShowCustomView(View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+        public void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
             if (this.mCustomView != null) {
                 customViewCallback.onCustomViewHidden();
                 return;
             }
             this.mOriginalOrientation = this.mActivity.getRequestedOrientation();
             this.mFullscreenContainer = new FullscreenHolder(this.mActivity);
-            this.mFullscreenContainer.addView(view2, this.COVER_SCREEN_PARAMS);
+            this.mFullscreenContainer.addView(view, this.COVER_SCREEN_PARAMS);
             ((FrameLayout) this.mActivity.getWindow().getDecorView()).addView(this.mFullscreenContainer, this.COVER_SCREEN_PARAMS);
-            this.mCustomView = view2;
+            this.mCustomView = view;
             setFullscreen(true);
             this.mCustomViewCallback = customViewCallback;
             this.mActivity.setRequestedOrientation(i);
-            super.onShowCustomView(view2, i, customViewCallback);
+            super.onShowCustomView(view, i, customViewCallback);
         }
 
         @Override // android.webkit.WebChromeClient
@@ -315,6 +315,10 @@ public class CompatibleUtile {
         private Object5() {
         }
 
+        /* synthetic */ Object5(CompatibleUtile compatibleUtile, Object5 object5) {
+            this();
+        }
+
         public int getActionPointerUp() {
             return 6;
         }
@@ -349,6 +353,10 @@ public class CompatibleUtile {
         private Object7() {
         }
 
+        /* synthetic */ Object7(CompatibleUtile compatibleUtile, Object7 object7) {
+            this();
+        }
+
         public boolean supportMultiTouch(Context context) {
             if (context == null) {
                 return false;
@@ -361,6 +369,10 @@ public class CompatibleUtile {
     /* loaded from: classes.dex */
     public class Object8 {
         private Object8() {
+        }
+
+        /* synthetic */ Object8(CompatibleUtile compatibleUtile, Object8 object8) {
+            this();
         }
 
         public boolean isAutoBrightness(Context context) {
@@ -401,6 +413,10 @@ public class CompatibleUtile {
         private Object9() {
         }
 
+        /* synthetic */ Object9(CompatibleUtile compatibleUtile, Object9 object9) {
+            this();
+        }
+
         public Camera getBackCamera() {
             int numberOfCameras = Camera.getNumberOfCameras();
             if (numberOfCameras == 0) {
@@ -431,6 +447,10 @@ public class CompatibleUtile {
             this.STATUSBAR_ATTRS = new int[]{16842904};
         }
 
+        /* synthetic */ Object11(CompatibleUtile compatibleUtile, Object11 object11) {
+            this();
+        }
+
         public int getStatusBarColor(Context context) {
             return context.obtainStyledAttributes(16973928, this.STATUSBAR_ATTRS).getColor(0, 0);
         }
@@ -439,32 +459,32 @@ public class CompatibleUtile {
             activity.getWindow().setFlags(16777216, 16777216);
         }
 
-        public boolean isUseHw(View view2) {
-            return view2 != null && view2.isHardwareAccelerated();
+        public boolean isUseHw(View view) {
+            return view != null && view.isHardwareAccelerated();
         }
 
-        public int getViewLayer(View view2) {
-            if (view2 != null) {
-                return view2.getLayerType();
+        public int getViewLayer(View view) {
+            if (view != null) {
+                return view.getLayerType();
             }
             return 0;
         }
 
-        public void noneViewGpu(View view2) {
-            if (view2 != null) {
-                view2.setLayerType(0, null);
+        public void noneViewGpu(View view) {
+            if (view != null) {
+                view.setLayerType(0, null);
             }
         }
 
-        public void closeViewGpu(View view2) {
-            if (view2 != null && view2.isHardwareAccelerated()) {
-                view2.setLayerType(1, null);
+        public void closeViewGpu(View view) {
+            if (view != null && view.isHardwareAccelerated()) {
+                view.setLayerType(1, null);
             }
         }
 
-        public void openViewGpu(View view2) {
-            if (view2 != null) {
-                view2.setLayerType(2, null);
+        public void openViewGpu(View view) {
+            if (view != null) {
+                view.setLayerType(2, null);
             }
         }
 
@@ -479,6 +499,10 @@ public class CompatibleUtile {
     /* loaded from: classes.dex */
     public class Object14 {
         private Object14() {
+        }
+
+        /* synthetic */ Object14(CompatibleUtile compatibleUtile, Object14 object14) {
+            this();
         }
 
         public WebChromeClient getWebChromeClient(Activity activity) {

@@ -2,7 +2,6 @@ package android.support.v4.widget;
 
 import android.content.res.Resources;
 import android.os.SystemClock;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -54,8 +53,8 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
 
     public abstract void scrollTargetBy(int i, int i2);
 
-    public AutoScrollHelper(View view2) {
-        this.mTarget = view2;
+    public AutoScrollHelper(View view) {
+        this.mTarget = view;
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         int i = (int) ((1575.0f * displayMetrics.density) + 0.5f);
         int i2 = (int) ((displayMetrics.density * 315.0f) + 0.5f);
@@ -143,14 +142,14 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         boolean z = true;
         if (this.mEnabled) {
-            switch (MotionEventCompat.getActionMasked(motionEvent)) {
+            switch (motionEvent.getActionMasked()) {
                 case 0:
                     this.mNeedsCancel = true;
                     this.mAlreadyDelayed = false;
-                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view2.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view2.getHeight(), this.mTarget.getHeight()));
+                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view.getHeight(), this.mTarget.getHeight()));
                     if (!this.mAnimating && shouldAnimate()) {
                         startAnimating();
                         break;
@@ -161,7 +160,7 @@ public abstract class AutoScrollHelper implements View.OnTouchListener {
                     requestStop();
                     break;
                 case 2:
-                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view2.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view2.getHeight(), this.mTarget.getHeight()));
+                    this.mScroller.setTargetVelocity(computeTargetVelocity(0, motionEvent.getX(), view.getWidth(), this.mTarget.getWidth()), computeTargetVelocity(1, motionEvent.getY(), view.getHeight(), this.mTarget.getHeight()));
                     if (!this.mAnimating) {
                         startAnimating();
                         break;

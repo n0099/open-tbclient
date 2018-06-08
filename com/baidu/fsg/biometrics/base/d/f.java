@@ -1,7 +1,6 @@
 package com.baidu.fsg.biometrics.base.d;
 
 import android.content.Context;
-import com.baidu.ar.util.Constants;
 import java.io.File;
 import java.io.IOException;
 /* loaded from: classes2.dex */
@@ -19,8 +18,8 @@ public class f {
     }
 
     public static String a(String str, String str2) {
-        if (!str2.startsWith(Constants.DOT)) {
-            str2 = Constants.DOT + str2;
+        if (!str2.startsWith(".")) {
+            str2 = "." + str2;
         }
         return str + str2;
     }

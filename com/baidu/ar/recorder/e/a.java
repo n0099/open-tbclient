@@ -1,19 +1,36 @@
 package com.baidu.ar.recorder.e;
 
-import java.io.File;
+import java.nio.FloatBuffer;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String a = a.class.getSimpleName();
+    protected FloatBuffer a;
+    protected FloatBuffer b;
+    protected int c;
+    protected int d;
+    protected int e;
+    protected int f;
 
-    public static void a(String str) {
-        File parentFile = new File(str).getParentFile();
-        if (parentFile.exists()) {
-            return;
-        }
-        parentFile.mkdirs();
+    public FloatBuffer a() {
+        return this.a;
     }
 
-    public static boolean b(String str) {
-        return new File(str).delete();
+    public FloatBuffer b() {
+        return this.b;
+    }
+
+    public int c() {
+        return this.c;
+    }
+
+    public int d() {
+        return this.e;
+    }
+
+    public int e() {
+        return this.f;
+    }
+
+    public int f() {
+        return this.d;
     }
 }

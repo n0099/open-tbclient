@@ -7,7 +7,7 @@ import android.support.v7.appcompat.R;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.widget.TextView;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class DialogTitle extends TextView {
     public DialogTitle(Context context, AttributeSet attributeSet, int i) {

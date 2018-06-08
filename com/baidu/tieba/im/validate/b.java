@@ -4,83 +4,83 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.ValidateItemData;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.b<ValidateActivity> {
-    private View ees;
-    private HeadImageView eet;
-    private TextView eeu;
-    private ValidateActivity ejG;
-    private TextView ejH;
-    private TextView ejI;
-    private TextView ejJ;
-    private ValidateItemData ejK;
+    private View epH;
+    private HeadImageView epI;
+    private TextView epJ;
+    private ValidateActivity euX;
+    private TextView euY;
+    private TextView euZ;
+    private TextView eva;
+    private ValidateItemData evb;
 
     public b(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext(), d.i.validate_item);
-        this.ejG = validateActivity;
+        this.euX = validateActivity;
         initView();
     }
 
     void initView() {
-        this.ees = this.lJ.findViewById(d.g.root_view);
-        this.eet = (HeadImageView) this.ees.findViewById(d.g.iv_head);
-        this.eet.setIsRound(false);
-        this.ejH = (TextView) this.ees.findViewById(d.g.tv_user_name);
-        this.eeu = (TextView) this.ees.findViewById(d.g.tv_group_name);
-        this.ejI = (TextView) this.ees.findViewById(d.g.tv_apply_reason);
-        this.ejJ = (TextView) this.ees.findViewById(d.g.btn_pass);
-        this.ejJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
+        this.epH = this.sf.findViewById(d.g.root_view);
+        this.epI = (HeadImageView) this.epH.findViewById(d.g.iv_head);
+        this.epI.setIsRound(false);
+        this.euY = (TextView) this.epH.findViewById(d.g.tv_user_name);
+        this.epJ = (TextView) this.epH.findViewById(d.g.tv_group_name);
+        this.euZ = (TextView) this.epH.findViewById(d.g.tv_apply_reason);
+        this.eva = (TextView) this.epH.findViewById(d.g.btn_pass);
+        this.eva.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                b.this.ejG.a(b.this.ejJ, 100, 0, 0L, b.this.ejK);
+            public void onClick(View view) {
+                b.this.euX.a(b.this.eva, 100, 0, 0L, b.this.evb);
             }
         });
-        this.eet.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
+        this.epI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                b.this.ejG.a(b.this.eet, 101, 0, 0L, b.this.ejK);
+            public void onClick(View view) {
+                b.this.euX.a(b.this.epI, 101, 0, 0L, b.this.evb);
             }
         });
-        this.ees.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
+        this.epH.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
             @Override // android.view.View.OnLongClickListener
-            public boolean onLongClick(View view2) {
-                b.this.ejG.b(b.this.ees, 200, 0, 0L, b.this.ejK);
+            public boolean onLongClick(View view) {
+                b.this.euX.b(b.this.epH, 200, 0, 0L, b.this.evb);
                 return true;
             }
         });
     }
 
     public void refresh() {
-        if (this.ejK != null) {
-            this.ejG.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.ejG.getLayoutMode().u(this.ees);
-            String portrait = this.ejK.getPortrait();
-            this.eet.setTag(portrait);
-            this.eet.startLoad(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.ejK.getUserName())) {
-                this.ejH.setText(this.ejK.getUserName());
+        if (this.evb != null) {
+            this.euX.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.euX.getLayoutMode().onModeChanged(this.epH);
+            String portrait = this.evb.getPortrait();
+            this.epI.setTag(portrait);
+            this.epI.startLoad(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.evb.getUserName())) {
+                this.euY.setText(this.evb.getUserName());
             }
-            if (!TextUtils.isEmpty(this.ejK.getGroupName())) {
-                this.eeu.setText(this.ejG.getPageContext().getString(d.k.validate_im_apply_prefix) + this.ejK.getGroupName());
+            if (!TextUtils.isEmpty(this.evb.getGroupName())) {
+                this.epJ.setText(this.euX.getPageContext().getString(d.k.validate_im_apply_prefix) + this.evb.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.ejK.getApplyReason())) {
-                this.ejI.setText(this.ejG.getPageContext().getString(d.k.validate_im_reason_prefix) + this.ejK.getApplyReason());
+            if (!TextUtils.isEmpty(this.evb.getApplyReason())) {
+                this.euZ.setText(this.euX.getPageContext().getString(d.k.validate_im_reason_prefix) + this.evb.getApplyReason());
             }
-            if (this.ejK.isPass()) {
-                this.ejJ.setEnabled(false);
-                this.ejJ.setText(this.ejG.getPageContext().getString(d.k.passed));
-                ak.h(this.ejJ, d.C0126d.cp_cont_d);
-                this.ejJ.setBackgroundDrawable(null);
+            if (this.evb.isPass()) {
+                this.eva.setEnabled(false);
+                this.eva.setText(this.euX.getPageContext().getString(d.k.passed));
+                al.h(this.eva, d.C0141d.cp_cont_d);
+                this.eva.setBackgroundDrawable(null);
             } else {
-                this.ejJ.setEnabled(true);
-                this.ejJ.setText(this.ejG.getPageContext().getString(d.k.pass));
+                this.eva.setEnabled(true);
+                this.eva.setText(this.euX.getPageContext().getString(d.k.pass));
             }
-            if (!this.ejK.isShown()) {
-                ak.i(this.ees, d.C0126d.common_color_10178);
+            if (!this.evb.isShown()) {
+                al.i(this.epH, d.C0141d.common_color_10178);
             }
         }
     }
@@ -91,6 +91,6 @@ public class b extends com.baidu.adp.base.b<ValidateActivity> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.ejK = validateItemData;
+        this.evb = validateItemData;
     }
 }

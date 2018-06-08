@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class x {
-    private static x fRM = null;
-    private HashMap<String, a> fRN = new HashMap<>();
+    private static x gcY = null;
+    private HashMap<String, a> gcZ = new HashMap<>();
 
     private x() {
     }
 
-    public static x bhb() {
-        if (fRM == null) {
+    public static x blZ() {
+        if (gcY == null) {
             synchronized (x.class) {
-                if (fRM == null) {
-                    fRM = new x();
+                if (gcY == null) {
+                    gcY = new x();
                 }
             }
         }
-        return fRM;
+        return gcY;
     }
 
-    public void aD(String str, int i) {
-        a aVar = this.fRN.get(str);
+    public void aG(String str, int i) {
+        a aVar = this.gcZ.get(str);
         if (aVar == null) {
-            this.fRN.put(str, new a(i, System.currentTimeMillis()));
+            this.gcZ.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.fRN.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.fRN.entrySet());
+        if (this.gcZ.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.gcZ.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.x.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class x {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.fRN.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.gcZ.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class x {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.fRN.remove(str);
+            this.gcZ.remove(str);
         }
     }
 
-    public int ru(String str) {
-        a aVar = this.fRN.get(str);
+    public int sl(String str) {
+        a aVar = this.gcZ.get(str);
         if (aVar != null) {
             return aVar.position;
         }

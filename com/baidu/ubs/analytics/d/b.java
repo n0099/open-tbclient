@@ -7,48 +7,48 @@ import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
 public final class b {
-    private static boolean bb;
-    private static boolean hlu;
-    private static StringBuffer hmt = new StringBuffer();
+    private static boolean hxp;
+    private static boolean hyp;
+    private static StringBuffer hyq = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.bEL() != null) {
-            hlu = !a.as();
-            bb = true;
-            hmt.append("ABsdkLog-");
-            hmt.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            hmt.append("_");
+        if (com.baidu.ubs.analytics.d.bJP() != null) {
+            hxp = !a.bKj();
+            hyp = true;
+            hyq.append("ABsdkLog-");
+            hyq.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            hyq.append("_");
             try {
-                hmt.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.bEL().getContext()).getBytes("UTF-8")));
+                hyq.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.bJP().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
                 j.a(e2);
             }
-            hmt.append(".log");
+            hyq.append(".log");
         }
     }
 
-    public static String bFh() {
-        return hmt.toString();
+    public static String bKl() {
+        return hyq.toString();
     }
 
-    public static void vm(String str) {
-        if (hlu) {
+    public static void wg(String str) {
+        if (hxp) {
             Log.w("BaiDuUbs", str);
         }
         a("w", "BaiDuUbs", str);
     }
 
-    public static void vn(String str) {
-        if (hlu) {
+    public static void wh(String str) {
+        if (hxp) {
             Log.e("BaiDuUbs", str);
         }
         a("e", "BaiDuUbs", str);
     }
 
     private static void a(final String str, final String str2, final String str3) {
-        if (bb) {
+        if (hyp) {
             c.a(new d() { // from class: com.baidu.ubs.analytics.d.b.1
                 @Override // com.baidu.ubs.analytics.d.d
                 protected final void a() {
@@ -62,7 +62,7 @@ public final class b {
                     stringBuffer.append(str2);
                     stringBuffer.append("\t");
                     stringBuffer.append(str3);
-                    g.K(stringBuffer.toString(), a.aR, b.hmt.toString());
+                    g.L(stringBuffer.toString(), a.hym, b.hyq.toString());
                 }
             });
         }

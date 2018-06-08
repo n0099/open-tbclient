@@ -11,6 +11,6 @@ class f implements View.OnFocusChangeListener {
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view2, boolean z) {
+    public void onFocusChange(View view, boolean z) {
     }
 }

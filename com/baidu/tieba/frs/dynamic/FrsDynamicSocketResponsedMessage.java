@@ -19,13 +19,13 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new b();
-        StarTrendsResIdl B = this.responseData.B(bArr);
-        if (B != null && B.error != null) {
-            if (B.error.errorno != null) {
-                setError(B.error.errorno.intValue());
-                this.responseData.ddI = B.error.errorno.intValue();
+        StarTrendsResIdl C = this.responseData.C(bArr);
+        if (C != null && C.error != null) {
+            if (C.error.errorno != null) {
+                setError(C.error.errorno.intValue());
+                this.responseData.dmW = C.error.errorno.intValue();
             }
-            setErrorString(B.error.usermsg);
+            setErrorString(C.error.usermsg);
         }
         setData(this.responseData);
     }

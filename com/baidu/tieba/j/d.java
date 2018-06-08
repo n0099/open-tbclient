@@ -47,7 +47,7 @@ public class d {
         }
     }
 
-    public static void pB(String str) {
+    public static void qp(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -71,16 +71,16 @@ public class d {
                         }
                         sb.append(new String(bArr, 0, read));
                     }
-                    com.baidu.adp.lib.g.a.d(fileInputStream);
+                    com.baidu.adp.lib.g.a.f(fileInputStream);
                 } catch (Exception e) {
                     e = e;
                     e.printStackTrace();
-                    com.baidu.adp.lib.g.a.d(fileInputStream);
+                    com.baidu.adp.lib.g.a.f(fileInputStream);
                     return sb.toString();
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.d(fileInputStream);
+                com.baidu.adp.lib.g.a.f(fileInputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -89,13 +89,13 @@ public class d {
         } catch (Throwable th2) {
             th = th2;
             fileInputStream = null;
-            com.baidu.adp.lib.g.a.d(fileInputStream);
+            com.baidu.adp.lib.g.a.f(fileInputStream);
             throw th;
         }
         return sb.toString();
     }
 
-    public static JSONArray pC(String str) {
+    public static JSONArray qq(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -111,7 +111,7 @@ public class d {
             } else {
                 a(B, jSONArray);
             }
-            com.baidu.tbadk.core.util.k.deleteFile(file);
+            com.baidu.tbadk.core.util.l.deleteFile(file);
             return jSONArray;
         }
         return jSONArray;
@@ -130,9 +130,9 @@ public class d {
         }
     }
 
-    public static void pD(String str) {
+    public static void qr(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.k.r(new File(g.a.eRM + g.a.eRD + str));
+            com.baidu.tbadk.core.util.l.r(new File(g.a.fde + g.a.fcV + str));
         }
     }
 }

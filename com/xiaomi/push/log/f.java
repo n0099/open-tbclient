@@ -1,6 +1,7 @@
 package com.xiaomi.push.log;
 
 import android.content.Context;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.util.Pair;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
@@ -103,7 +104,7 @@ public class f implements LoggerInterface {
                         }
                         try {
                             File file3 = new File(file, "log1.txt");
-                            if (file3.length() >= 1048576) {
+                            if (file3.length() >= PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED) {
                                 File file4 = new File(file, "log0.txt");
                                 if (file4.exists() && file4.isFile()) {
                                     file4.delete();

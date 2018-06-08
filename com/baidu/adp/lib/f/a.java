@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.f;
 /* loaded from: classes.dex */
 public class a {
-    public InterfaceC0007a uo;
+    public InterfaceC0015a As;
 
     /* renamed from: com.baidu.adp.lib.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0007a {
+    public interface InterfaceC0015a {
         void cancel();
     }
 }

@@ -7,6 +7,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.base.network.Apn;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.mipush.sdk.Constants;
@@ -361,8 +362,8 @@ public class d {
                 dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                 try {
                     dataOutputStream.writeBytes("--*****\r\n");
-                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str2 + "\";filename=\"" + file.getName() + "\"\r\n");
-                    dataOutputStream.writeBytes("\r\n");
+                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str2 + "\";filename=\"" + file.getName() + "\"" + SystemInfoUtil.LINE_END);
+                    dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
                     name = new FileInputStream(file);
                     try {
                         byte[] bArr = new byte[1024];
@@ -374,11 +375,11 @@ public class d {
                             dataOutputStream.write(bArr, 0, read);
                             dataOutputStream.flush();
                         }
-                        dataOutputStream.writeBytes("\r\n");
+                        dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
                         dataOutputStream.writeBytes("--");
                         dataOutputStream.writeBytes("*****");
                         dataOutputStream.writeBytes("--");
-                        dataOutputStream.writeBytes("\r\n");
+                        dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
                         dataOutputStream.flush();
                         StringBuffer stringBuffer = new StringBuffer();
                         BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new a(httpURLConnection.getInputStream())));

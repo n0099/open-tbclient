@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import com.xiaomi.push.service.ac;
 import com.xiaomi.push.service.ah;
@@ -388,13 +389,13 @@ public class s {
                                 MiPushClient.reInitialize(this.b, com.xiaomi.xmpush.thrift.t.RegIdExpired);
                                 break;
                             } else if ("client_info_update_ok".equalsIgnoreCase(aeVar.e)) {
-                                if (aeVar.i() != null && aeVar.i().containsKey(Constants.EXTRA_KEY_APP_VERSION)) {
-                                    a.a(this.b).a(aeVar.i().get(Constants.EXTRA_KEY_APP_VERSION));
+                                if (aeVar.i() != null && aeVar.i().containsKey("app_version")) {
+                                    a.a(this.b).a(aeVar.i().get("app_version"));
                                     break;
                                 }
                             } else if ("awake_app".equalsIgnoreCase(aeVar.e)) {
                                 if (aeVar.i() != null && aeVar.i().containsKey("packages")) {
-                                    MiPushClient.awakeApps(this.b, aeVar.i().get("packages").split(Constants.ACCEPT_TIME_SEPARATOR_SP));
+                                    MiPushClient.awakeApps(this.b, aeVar.i().get("packages").split(","));
                                     break;
                                 }
                             } else if (com.xiaomi.xmpush.thrift.o.NormalClientConfigUpdate.N.equalsIgnoreCase(aeVar.e)) {
@@ -566,7 +567,7 @@ public class s {
         synchronized (d) {
             SharedPreferences j = a.a(context).j();
             if (c == null) {
-                String[] split = j.getString("pref_msg_ids", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String[] split = j.getString("pref_msg_ids", "").split(",");
                 c = new LinkedList();
                 for (String str2 : split) {
                     c.add(str2);
@@ -579,7 +580,7 @@ public class s {
                 if (c.size() > 25) {
                     c.poll();
                 }
-                String a2 = com.xiaomi.channel.commonutils.string.d.a(c, Constants.ACCEPT_TIME_SEPARATOR_SP);
+                String a2 = com.xiaomi.channel.commonutils.string.d.a(c, ",");
                 SharedPreferences.Editor edit = j.edit();
                 edit.putString("pref_msg_ids", a2);
                 edit.commit();
@@ -709,8 +710,8 @@ public class s {
             return list;
         }
         long rawOffset = ((timeZone.getRawOffset() - timeZone2.getRawOffset()) / 1000) / 60;
-        long parseLong = ((((Long.parseLong(list.get(0).split(":")[0]) * 60) + Long.parseLong(list.get(0).split(":")[1])) - rawOffset) + 1440) % 1440;
-        long parseLong2 = (((Long.parseLong(list.get(1).split(":")[1]) + (60 * Long.parseLong(list.get(1).split(":")[0]))) - rawOffset) + 1440) % 1440;
+        long parseLong = ((((Long.parseLong(list.get(0).split(SystemInfoUtil.COLON)[0]) * 60) + Long.parseLong(list.get(0).split(SystemInfoUtil.COLON)[1])) - rawOffset) + 1440) % 1440;
+        long parseLong2 = (((Long.parseLong(list.get(1).split(SystemInfoUtil.COLON)[1]) + (60 * Long.parseLong(list.get(1).split(SystemInfoUtil.COLON)[0]))) - rawOffset) + 1440) % 1440;
         ArrayList arrayList = new ArrayList();
         arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong / 60), Long.valueOf(parseLong % 60)));
         arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong2 / 60), Long.valueOf(parseLong2 % 60)));

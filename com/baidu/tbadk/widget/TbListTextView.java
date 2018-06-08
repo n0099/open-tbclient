@@ -13,30 +13,30 @@ import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean aPk;
+    private boolean aXf;
 
     public TbListTextView(Context context) {
         super(context);
-        this.aPk = true;
+        this.aXf = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aPk = true;
+        this.aXf = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aPk = true;
+        this.aXf = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.aPk = z;
+        this.aXf = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.aPk) {
+        if (!this.aXf) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -49,25 +49,25 @@ public class TbListTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            H(i, i2);
+            I(i, i2);
         }
     }
 
-    private void H(int i, int i2) {
+    private void I(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            I(i, i2);
+            J(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.aPl) {
+        if (b.aXg) {
             a(i, i2, spannableStringBuilder, b);
         } else {
-            I(i, i2);
+            J(i, i2);
         }
     }
 
@@ -88,12 +88,12 @@ public class TbListTextView extends TextView {
             }
             try {
                 b((CharSequence) spannableStringBuilder, i, i2);
-                return a.c(arrayList, arrayList2);
+                return a.d(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.Is();
+        return a.LO();
     }
 
     private boolean a(CharSequence charSequence, int i) {
@@ -106,7 +106,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.aPn) {
+        for (Object obj : aVar.aXi) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -116,7 +116,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.aPm) {
+        for (Object obj2 : aVar.aXh) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -133,29 +133,29 @@ public class TbListTextView extends TextView {
         }
     }
 
-    private void I(int i, int i2) {
+    private void J(int i, int i2) {
         b(getText().toString(), i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean aPl;
-        public final List<Object> aPm;
-        public final List<Object> aPn;
+        public final boolean aXg;
+        public final List<Object> aXh;
+        public final List<Object> aXi;
 
-        public static a c(List<Object> list, List<Object> list2) {
+        public static a d(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a Is() {
+        public static a LO() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.aPl = z;
-            this.aPm = list;
-            this.aPn = list2;
+            this.aXg = z;
+            this.aXh = list;
+            this.aXi = list2;
         }
     }
 }

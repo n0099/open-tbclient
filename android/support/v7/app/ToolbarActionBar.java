@@ -2,12 +2,10 @@ package android.support.v7.app;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
-import android.support.v7.appcompat.R;
 import android.support.v7.view.WindowCallbackWrapper;
 import android.support.v7.view.menu.ListMenuPresenter;
 import android.support.v7.view.menu.MenuBuilder;
@@ -15,8 +13,6 @@ import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.widget.DecorToolbar;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.ToolbarWidgetWrapper;
-import android.util.TypedValue;
-import android.view.ContextThemeWrapper;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -50,6 +46,7 @@ public class ToolbarActionBar extends ActionBar {
         }
     };
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public ToolbarActionBar(Toolbar toolbar, CharSequence charSequence, Window.Callback callback) {
         this.mDecorToolbar = new ToolbarWidgetWrapper(toolbar, false);
         this.mWindowCallback = new ToolbarCallbackWrapper(callback);
@@ -63,16 +60,16 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // android.support.v7.app.ActionBar
-    public void setCustomView(View view2) {
-        setCustomView(view2, new ActionBar.LayoutParams(-2, -2));
+    public void setCustomView(View view) {
+        setCustomView(view, new ActionBar.LayoutParams(-2, -2));
     }
 
     @Override // android.support.v7.app.ActionBar
-    public void setCustomView(View view2, ActionBar.LayoutParams layoutParams) {
-        if (view2 != null) {
-            view2.setLayoutParams(layoutParams);
+    public void setCustomView(View view, ActionBar.LayoutParams layoutParams) {
+        if (view != null) {
+            view.setLayoutParams(layoutParams);
         }
-        this.mDecorToolbar.setCustomView(view2);
+        this.mDecorToolbar.setCustomView(view);
     }
 
     @Override // android.support.v7.app.ActionBar
@@ -385,6 +382,11 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // android.support.v7.app.ActionBar
+    public boolean closeOptionsMenu() {
+        return this.mDecorToolbar.hideOverflowMenu();
+    }
+
+    @Override // android.support.v7.app.ActionBar
     public boolean invalidateOptionsMenu() {
         this.mDecorToolbar.getViewGroup().removeCallbacks(this.mMenuInvalidator);
         ViewCompat.postOnAnimation(this.mDecorToolbar.getViewGroup(), this.mMenuInvalidator);
@@ -431,9 +433,9 @@ public class ToolbarActionBar extends ActionBar {
         Menu menu = getMenu();
         if (menu != null) {
             menu.setQwertyMode(KeyCharacterMap.load(keyEvent != null ? keyEvent.getDeviceId() : -1).getKeyboardType() != 1);
-            menu.performShortcut(i, keyEvent, 0);
+            return menu.performShortcut(i, keyEvent, 0);
         }
-        return true;
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -463,39 +465,6 @@ public class ToolbarActionBar extends ActionBar {
         }
     }
 
-    View getListMenuView(Menu menu) {
-        ensureListMenuPresenter(menu);
-        if (menu == null || this.mListMenuPresenter == null || this.mListMenuPresenter.getAdapter().getCount() <= 0) {
-            return null;
-        }
-        return (View) this.mListMenuPresenter.getMenuView(this.mDecorToolbar.getViewGroup());
-    }
-
-    private void ensureListMenuPresenter(Menu menu) {
-        if (this.mListMenuPresenter == null && (menu instanceof MenuBuilder)) {
-            MenuBuilder menuBuilder = (MenuBuilder) menu;
-            Context context = this.mDecorToolbar.getContext();
-            TypedValue typedValue = new TypedValue();
-            Resources.Theme newTheme = context.getResources().newTheme();
-            newTheme.setTo(context.getTheme());
-            newTheme.resolveAttribute(R.attr.actionBarPopupTheme, typedValue, true);
-            if (typedValue.resourceId != 0) {
-                newTheme.applyStyle(typedValue.resourceId, true);
-            }
-            newTheme.resolveAttribute(R.attr.panelMenuListTheme, typedValue, true);
-            if (typedValue.resourceId != 0) {
-                newTheme.applyStyle(typedValue.resourceId, true);
-            } else {
-                newTheme.applyStyle(R.style.Theme_AppCompat_CompactMenu, true);
-            }
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(context, 0);
-            contextThemeWrapper.getTheme().setTo(newTheme);
-            this.mListMenuPresenter = new ListMenuPresenter(contextThemeWrapper, R.layout.abc_list_menu_item_layout);
-            this.mListMenuPresenter.setCallback(new PanelMenuPresenterCallback());
-            menuBuilder.addMenuPresenter(this.mListMenuPresenter);
-        }
-    }
-
     /* loaded from: classes2.dex */
     private class ToolbarCallbackWrapper extends WindowCallbackWrapper {
         public ToolbarCallbackWrapper(Window.Callback callback) {
@@ -503,8 +472,8 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // android.support.v7.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onPreparePanel(int i, View view2, Menu menu) {
-            boolean onPreparePanel = super.onPreparePanel(i, view2, menu);
+        public boolean onPreparePanel(int i, View view, Menu menu) {
+            boolean onPreparePanel = super.onPreparePanel(i, view, menu);
             if (onPreparePanel && !ToolbarActionBar.this.mToolbarMenuPrepared) {
                 ToolbarActionBar.this.mDecorToolbar.setMenuPrepared();
                 ToolbarActionBar.this.mToolbarMenuPrepared = true;
@@ -514,15 +483,7 @@ public class ToolbarActionBar extends ActionBar {
 
         @Override // android.support.v7.view.WindowCallbackWrapper, android.view.Window.Callback
         public View onCreatePanelView(int i) {
-            switch (i) {
-                case 0:
-                    Menu menu = ToolbarActionBar.this.mDecorToolbar.getMenu();
-                    if (onPreparePanel(i, null, menu) && onMenuOpened(i, menu)) {
-                        return ToolbarActionBar.this.getListMenuView(menu);
-                    }
-                    break;
-            }
-            return super.onCreatePanelView(i);
+            return i == 0 ? new View(ToolbarActionBar.this.mDecorToolbar.getContext()) : super.onCreatePanelView(i);
         }
     }
 
@@ -561,29 +522,6 @@ public class ToolbarActionBar extends ActionBar {
                 }
                 this.mClosingActionMenu = false;
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public final class PanelMenuPresenterCallback implements MenuPresenter.Callback {
-        PanelMenuPresenterCallback() {
-        }
-
-        @Override // android.support.v7.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-            if (ToolbarActionBar.this.mWindowCallback != null) {
-                ToolbarActionBar.this.mWindowCallback.onPanelClosed(0, menuBuilder);
-            }
-        }
-
-        @Override // android.support.v7.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
-            if (menuBuilder == null && ToolbarActionBar.this.mWindowCallback != null) {
-                ToolbarActionBar.this.mWindowCallback.onMenuOpened(0, menuBuilder);
-                return true;
-            }
-            return true;
         }
     }
 

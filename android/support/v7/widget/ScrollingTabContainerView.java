@@ -1,13 +1,11 @@
 package android.support.v7.widget;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.RestrictTo;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPropertyAnimatorCompat;
-import android.support.v4.view.ViewPropertyAnimatorListener;
 import android.support.v7.app.ActionBar;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.ActionBarPolicy;
@@ -16,6 +14,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.ViewPropertyAnimator;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.DecelerateInterpolator;
@@ -28,8 +27,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ScrollingTabContainerView extends HorizontalScrollView implements AdapterView.OnItemSelectedListener {
     private static final int FADE_DURATION = 200;
@@ -45,7 +43,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     Runnable mTabSelector;
     private Spinner mTabSpinner;
     protected final VisibilityAnimListener mVisAnimListener;
-    protected ViewPropertyAnimatorCompat mVisibilityAnim;
+    protected ViewPropertyAnimator mVisibilityAnim;
 
     public ScrollingTabContainerView(Context context) {
         super(context);
@@ -184,16 +182,16 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
         if (i == 0) {
             if (getVisibility() != 0) {
-                ViewCompat.setAlpha(this, 0.0f);
+                setAlpha(0.0f);
             }
-            ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
+            ViewPropertyAnimator alpha = animate().alpha(1.0f);
             alpha.setDuration(200L);
             alpha.setInterpolator(sAlphaInterpolator);
             alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i));
             alpha.start();
             return;
         }
-        ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
+        ViewPropertyAnimator alpha2 = animate().alpha(0.0f);
         alpha2.setDuration(200L);
         alpha2.setInterpolator(sAlphaInterpolator);
         alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i));
@@ -305,8 +303,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
-        ((TabView) view2).getTab().select();
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
+        ((TabView) view).getTab().select();
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
@@ -315,7 +313,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class TabView extends LinearLayoutCompat implements View.OnLongClickListener {
+    public class TabView extends LinearLayoutCompat {
         private final int[] BG_ATTRS;
         private View mCustomView;
         private ImageView mIconView;
@@ -360,9 +358,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         @Override // android.support.v7.widget.LinearLayoutCompat, android.view.View
         public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo accessibilityNodeInfo) {
             super.onInitializeAccessibilityNodeInfo(accessibilityNodeInfo);
-            if (Build.VERSION.SDK_INT >= 14) {
-                accessibilityNodeInfo.setClassName(ActionBar.Tab.class.getName());
-            }
+            accessibilityNodeInfo.setClassName(ActionBar.Tab.class.getName());
         }
 
         @Override // android.support.v7.widget.LinearLayoutCompat, android.view.View
@@ -436,26 +432,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             if (this.mIconView != null) {
                 this.mIconView.setContentDescription(tab.getContentDescription());
             }
-            if (!z && !TextUtils.isEmpty(tab.getContentDescription())) {
-                setOnLongClickListener(this);
-                return;
-            }
-            setOnLongClickListener(null);
-            setLongClickable(false);
-        }
-
-        @Override // android.view.View.OnLongClickListener
-        public boolean onLongClick(View view2) {
-            int[] iArr = new int[2];
-            getLocationOnScreen(iArr);
-            Context context = getContext();
-            int width = getWidth();
-            int height = getHeight();
-            int i = context.getResources().getDisplayMetrics().widthPixels;
-            Toast makeText = Toast.makeText(context, this.mTab.getContentDescription(), 0);
-            makeText.setGravity(49, (iArr[0] + (width / 2)) - (i / 2), height);
-            makeText.show();
-            return true;
+            TooltipCompat.setTooltipText(this, z ? null : tab.getContentDescription());
         }
 
         public ActionBar.Tab getTab() {
@@ -485,12 +462,12 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            if (view2 == null) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            if (view == null) {
                 return ScrollingTabContainerView.this.createTabView((ActionBar.Tab) getItem(i), true);
             }
-            ((TabView) view2).bindTab((ActionBar.Tab) getItem(i));
-            return view2;
+            ((TabView) view).bindTab((ActionBar.Tab) getItem(i));
+            return view;
         }
     }
 
@@ -501,46 +478,46 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            ((TabView) view2).getTab().select();
+        public void onClick(View view) {
+            ((TabView) view).getTab().select();
             int childCount = ScrollingTabContainerView.this.mTabLayout.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = ScrollingTabContainerView.this.mTabLayout.getChildAt(i);
-                childAt.setSelected(childAt == view2);
+                childAt.setSelected(childAt == view);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    protected class VisibilityAnimListener implements ViewPropertyAnimatorListener {
+    protected class VisibilityAnimListener extends AnimatorListenerAdapter {
         private boolean mCanceled = false;
         private int mFinalVisibility;
 
         protected VisibilityAnimListener() {
         }
 
-        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i) {
+        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimator viewPropertyAnimator, int i) {
             this.mFinalVisibility = i;
-            ScrollingTabContainerView.this.mVisibilityAnim = viewPropertyAnimatorCompat;
+            ScrollingTabContainerView.this.mVisibilityAnim = viewPropertyAnimator;
             return this;
         }
 
-        @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationStart(View view2) {
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
             ScrollingTabContainerView.this.setVisibility(0);
             this.mCanceled = false;
         }
 
-        @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationEnd(View view2) {
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
             if (!this.mCanceled) {
                 ScrollingTabContainerView.this.mVisibilityAnim = null;
                 ScrollingTabContainerView.this.setVisibility(this.mFinalVisibility);
             }
         }
 
-        @Override // android.support.v4.view.ViewPropertyAnimatorListener
-        public void onAnimationCancel(View view2) {
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
             this.mCanceled = true;
         }
     }

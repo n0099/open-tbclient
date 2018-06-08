@@ -1,17 +1,17 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean asS = false;
+    private boolean aAZ = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.appId = jSONObject.optString(Constants.HTTP_APP_ID, "");
+            this.appId = jSONObject.optString(HttpConstants.HTTP_APP_ID, "");
             this.appName = jSONObject.optString("app_name", "");
             this.packageName = jSONObject.optString("package_name", "");
         }
@@ -25,11 +25,11 @@ public class f {
         return this.packageName;
     }
 
-    public boolean yq() {
-        return this.asS;
+    public boolean BQ() {
+        return this.aAZ;
     }
 
-    public void aV(boolean z) {
-        this.asS = z;
+    public void aZ(boolean z) {
+        this.aAZ = z;
     }
 }

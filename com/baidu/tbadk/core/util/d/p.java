@@ -31,18 +31,18 @@ public class p extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wu() {
+    public boolean zV() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
+    public boolean zW() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c eC(String str) {
+    public com.baidu.adp.lib.Disk.ops.c fb(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -69,7 +69,7 @@ public class p extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean f(Bitmap bitmap) {
+    public boolean e(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
     }
 
@@ -79,7 +79,7 @@ public class p extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ww() {
+    public int zX() {
         return this.procType;
     }
 }

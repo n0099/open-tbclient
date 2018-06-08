@@ -74,6 +74,7 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
                 baseGroupData.setStatus(groupInfo.status.intValue());
                 baseGroupData.setAuthorId(groupInfo.authorId.longValue());
                 baseGroupData.setAuthorName(groupInfo.authorName);
+                baseGroupData.setAuthorNameShow(groupInfo.authorNameShow);
                 baseGroupData.setCreateTime(groupInfo.createTime.intValue());
                 baseGroupData.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
                 baseGroupData.setMemberNum(groupInfo.memberNum.intValue());

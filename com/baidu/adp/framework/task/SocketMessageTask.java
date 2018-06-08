@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean pu;
-    private boolean pv;
-    private boolean pw;
-    private DupLicateMode px;
+    private boolean vJ;
+    private boolean vK;
+    private boolean vL;
+    private DupLicateMode vM;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,31 +20,31 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.pu = false;
-        this.pv = false;
-        this.pw = true;
-        this.px = DupLicateMode.NONE;
+        this.vJ = false;
+        this.vK = false;
+        this.vL = true;
+        this.vM = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.C(this.mCmd);
+        return FrameHelper.D(this.mCmd);
     }
 
-    public void n(boolean z) {
-        this.pu = z;
+    public void p(boolean z) {
+        this.vJ = z;
     }
 
-    public boolean dh() {
-        return this.pu;
+    public boolean fW() {
+        return this.vJ;
     }
 
-    public boolean di() {
-        return this.pv;
+    public boolean fX() {
+        return this.vK;
     }
 
-    public void o(boolean z) {
-        this.pv = z;
+    public void q(boolean z) {
+        this.vK = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -55,19 +55,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean dj() {
-        return this.pw;
+    public boolean fY() {
+        return this.vL;
     }
 
-    public void p(boolean z) {
-        this.pw = z;
+    public void s(boolean z) {
+        this.vL = z;
     }
 
-    public DupLicateMode dk() {
-        return this.px;
+    public DupLicateMode fZ() {
+        return this.vM;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.px = dupLicateMode;
+        this.vM = dupLicateMode;
     }
 }

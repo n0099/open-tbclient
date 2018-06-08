@@ -17,6 +17,7 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.ar.parser.ARResourceKey;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a;
@@ -111,7 +112,7 @@ public class TDialog extends b {
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
-            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(com.baidu.ar.util.Constants.HTTP_RET, -6), this.a, false);
+            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(ARResourceKey.HTTP_RET, -6), this.a, false);
             if (this.e != null) {
                 this.e.onComplete(jSONObject);
                 this.e = null;

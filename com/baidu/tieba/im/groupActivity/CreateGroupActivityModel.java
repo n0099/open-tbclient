@@ -6,39 +6,39 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes3.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private BaseActivity bcK;
-    private GroupActivityData ebh;
-    RequestCreateGroupActivityMessage ebi;
+    private BaseActivity bkU;
+    private GroupActivityData emu;
+    RequestCreateGroupActivityMessage emv;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.ebh = new GroupActivityData();
-        this.bcK = baseActivity;
+        this.emu = new GroupActivityData();
+        this.bkU = baseActivity;
     }
 
-    public GroupActivityData aEm() {
-        return this.ebh;
+    public GroupActivityData aJh() {
+        return this.emu;
     }
 
-    public void hl(boolean z) {
-        if (this.ebh != null) {
-            this.ebi = new RequestCreateGroupActivityMessage();
-            this.ebi.setCommitType(z ? 1 : 0);
+    public void hr(boolean z) {
+        if (this.emu != null) {
+            this.emv = new RequestCreateGroupActivityMessage();
+            this.emv.setCommitType(z ? 1 : 0);
             if (z) {
-                this.ebi.setActivityId(this.ebh.getActivityId());
+                this.emv.setActivityId(this.emu.getActivityId());
             }
-            this.ebi.setgActivityArea(this.ebh.getgActivityArea());
-            this.ebi.setgActivityContent(this.ebh.getgActivityContent());
-            this.ebi.setgActivityTime(this.ebh.getgActivityTime());
-            this.ebi.setgActivityTitle(this.ebh.getgActivityTitle());
-            this.ebi.setGroupId(this.ebh.getGroupId());
-            this.bcK.sendMessage(this.ebi);
+            this.emv.setgActivityArea(this.emu.getgActivityArea());
+            this.emv.setgActivityContent(this.emu.getgActivityContent());
+            this.emv.setgActivityTime(this.emu.getgActivityTime());
+            this.emv.setgActivityTitle(this.emu.getgActivityTitle());
+            this.emv.setGroupId(this.emu.getGroupId());
+            this.bkU.sendMessage(this.emv);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.ebi != null) {
+        if (this.emv != null) {
         }
     }
 

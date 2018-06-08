@@ -6,9 +6,9 @@ import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.InjectPlugin.a.c> {
-    List<Integer> KM();
+    List<Integer> Ol();
 
-    void N(List<Object> list);
+    void Q(List<Object> list);
 
     void a(List<c> list, String str, String str2, String str3, String str4, boolean z, int i);
 
@@ -18,7 +18,7 @@ public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.Inje
 
     void f(List<c> list, int i);
 
-    View getView(int i, View view2, ViewGroup viewGroup, Object obj);
+    View getView(int i, View view, ViewGroup viewGroup, Object obj);
 
     q.a onCreateViewHolder(ViewGroup viewGroup, Object obj);
 

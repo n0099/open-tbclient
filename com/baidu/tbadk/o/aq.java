@@ -2,31 +2,31 @@ package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class aq extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void Q(int i) {
+    protected void R(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_show_answer";
+        return "android_im_window_open";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ev() {
+    protected String[] hm() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ew() {
+    protected int hn() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ex() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ey() {
+    protected int hp() {
         return 10;
     }
 }

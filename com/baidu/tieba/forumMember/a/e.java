@@ -1,20 +1,22 @@
 package com.baidu.tieba.forumMember.a;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.h;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class e implements h {
-    public static final BdUniqueId cUS = BdUniqueId.gen();
-    private String cUT;
+    public static final BdUniqueId ded = BdUniqueId.gen();
+    private String dee;
     private int fansNum;
     private String intro;
     private String name;
+    private String nameShow;
     private String userId;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return cUS;
+        return ded;
     }
 
     public String getUserId() {
@@ -25,12 +27,12 @@ public class e implements h {
         this.userId = str;
     }
 
-    public String aof() {
-        return this.cUT;
+    public String ask() {
+        return this.dee;
     }
 
-    public void lD(String str) {
-        this.cUT = str;
+    public void mk(String str) {
+        this.dee = str;
     }
 
     public String getName() {
@@ -39,6 +41,14 @@ public class e implements h {
 
     public void setName(String str) {
         this.name = str;
+    }
+
+    public void setNameShow(String str) {
+        this.nameShow = str;
+    }
+
+    public String getNameShow() {
+        return StringUtils.isNull(this.nameShow) ? this.name : this.nameShow;
     }
 
     public String getIntro() {
@@ -60,8 +70,9 @@ public class e implements h {
     public void a(User user, int i) {
         if (user != null && user.god_data != null) {
             setUserId(user.id + "");
-            lD(user.portrait);
+            mk(user.portrait);
             setName(user.name);
+            setNameShow(user.name_show);
             setIntro(user.god_data.intro);
             setFansNum(user.fans_num.intValue());
         }

@@ -8,33 +8,33 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.tbadkCore.data.AppData;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.data.l, j> implements m {
-    protected BaseActivity<?> bcK;
+    protected BaseActivity<?> bkU;
 
     public i(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.bcK = baseActivity;
+        this.bkU = baseActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bF */
+    /* renamed from: bG */
     public j onCreateViewHolder(ViewGroup viewGroup) {
-        View view2 = new View(this.bcK.getPageContext().getPageActivity());
-        view2.setVisibility(8);
-        return new j(view2);
+        View view = new View(this.bkU.getPageContext().getPageActivity());
+        view.setVisibility(8);
+        return new j(view);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.l lVar, j jVar) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.l lVar, j jVar) {
         boolean z = false;
-        AppData brN = lVar.brN();
-        if (brN != null) {
-            com.baidu.tbadk.core.data.b bVar = brN.advertAppContext;
-            if (brN.goods != null && brN.goods.goods_style == -1001) {
+        AppData bwP = lVar.bwP();
+        if (bwP != null) {
+            com.baidu.tbadk.core.data.b bVar = bwP.advertAppContext;
+            if (bwP.goods != null && bwP.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.b.b(bVar, lVar.getPosition(), z);

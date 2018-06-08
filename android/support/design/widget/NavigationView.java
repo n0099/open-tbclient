@@ -18,8 +18,6 @@ import android.support.design.internal.NavigationMenu;
 import android.support.design.internal.NavigationMenuPresenter;
 import android.support.design.internal.ScrimInsetsFrameLayout;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.os.ParcelableCompat;
-import android.support.v4.os.ParcelableCompatCreatorCallbacks;
 import android.support.v4.view.AbsSavedState;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.WindowInsetsCompat;
@@ -156,7 +154,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     @Override // android.support.design.internal.ScrimInsetsFrameLayout
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     protected void onInsetsChanged(WindowInsetsCompat windowInsetsCompat) {
         this.mPresenter.dispatchApplyWindowInsets(windowInsetsCompat);
     }
@@ -176,12 +174,12 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         return this.mPresenter.inflateHeaderView(i);
     }
 
-    public void addHeaderView(@NonNull View view2) {
-        this.mPresenter.addHeaderView(view2);
+    public void addHeaderView(@NonNull View view) {
+        this.mPresenter.addHeaderView(view);
     }
 
-    public void removeHeaderView(@NonNull View view2) {
-        this.mPresenter.removeHeaderView(view2);
+    public void removeHeaderView(@NonNull View view) {
+        this.mPresenter.removeHeaderView(view);
     }
 
     public int getHeaderCount() {
@@ -257,21 +255,26 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* loaded from: classes2.dex */
     public static class SavedState extends AbsSavedState {
-        public static final Parcelable.Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: android.support.design.widget.NavigationView.SavedState.1
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.design.widget.NavigationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+            @Override // android.os.Parcelable.ClassLoaderCreator
             public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                 return new SavedState(parcel, classLoader);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+            @Override // android.os.Parcelable.Creator
+            public SavedState createFromParcel(Parcel parcel) {
+                return new SavedState(parcel, null);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }
-        });
+        };
         public Bundle menuState;
 
         public SavedState(Parcel parcel, ClassLoader classLoader) {

@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.AdTbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ah;
+import com.baidu.tbadk.core.util.ao;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String L(String str, String str2) {
+    public static String O(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -39,7 +39,7 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        pb();
+        sw();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -49,7 +49,7 @@ public class e {
         }
     }
 
-    public static void O(Context context, String str) {
+    public static void R(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -64,7 +64,7 @@ public class e {
     }
 
     public static String appendCuidParam(String str) {
-        if (!an.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ao.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -84,12 +84,12 @@ public class e {
     }
 
     public static String appendVersionCode(String str) {
-        return (an.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ao.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void ar(Context context) {
+    public static void aB(Context context) {
         CookieManager cookieManager;
-        a.b cD = com.baidu.tbadk.core.a.a.qe().cD(TbadkCoreApplication.getCurrentBduss());
+        a.b db = com.baidu.tbadk.core.a.a.tA().db(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -98,7 +98,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (cD != null) {
+            if (db != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com;");
                 String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -122,7 +122,7 @@ public class e {
         }
     }
 
-    private static void pb() {
-        new ag("open_webview", true).start();
+    private static void sw() {
+        new ah("open_webview", true).start();
     }
 }

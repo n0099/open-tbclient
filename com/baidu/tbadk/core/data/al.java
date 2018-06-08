@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class al {
-    public String Xh;
+    public String afi;
     public int chapterId;
     public TbPageContext pageContext;
 }

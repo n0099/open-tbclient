@@ -5,40 +5,40 @@ import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
 /* loaded from: classes.dex */
 public class a {
-    private static Service aMH;
-    private static BroadcastReceiver aMI;
-    private static BroadcastReceiver aMJ;
-    private static ContentProvider aMz;
+    private static Service aUF;
+    private static BroadcastReceiver aUG;
+    private static BroadcastReceiver aUH;
+    private static ContentProvider aUx;
 
-    public static Service Hm() {
-        return aMH;
+    public static Service KG() {
+        return aUF;
     }
 
     public static void a(Service service) {
-        aMH = service;
+        aUF = service;
     }
 
-    public static ContentProvider Hk() {
-        return aMz;
+    public static ContentProvider KE() {
+        return aUx;
     }
 
     public static void a(ContentProvider contentProvider) {
-        aMz = contentProvider;
+        aUx = contentProvider;
     }
 
-    public static BroadcastReceiver Hn() {
-        return aMI;
+    public static BroadcastReceiver KH() {
+        return aUG;
     }
 
     public static void b(BroadcastReceiver broadcastReceiver) {
-        aMI = broadcastReceiver;
+        aUG = broadcastReceiver;
     }
 
-    public static BroadcastReceiver Ho() {
-        return aMJ;
+    public static BroadcastReceiver KI() {
+        return aUH;
     }
 
     public static void c(BroadcastReceiver broadcastReceiver) {
-        aMJ = broadcastReceiver;
+        aUH = broadcastReceiver;
     }
 }

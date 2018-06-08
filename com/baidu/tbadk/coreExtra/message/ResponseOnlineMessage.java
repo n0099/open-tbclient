@@ -57,6 +57,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
                     groupUpdateMessage.setGroupType(groupInfo.groupType.intValue());
                     groupUpdateMessage.setLastMsgId(groupInfo.lastMsgId.longValue());
                     groupUpdateMessage.setName(groupInfo.name);
+                    groupUpdateMessage.setNameShow(groupInfo.authorNameShow);
                     groupUpdateMessage.setPortrait(groupInfo.portrait);
                     groupUpdateMessage.setGrade(groupInfo.grade.intValue());
                     groupUpdateMessage.setAuthorId(String.valueOf(groupInfo.authorId));

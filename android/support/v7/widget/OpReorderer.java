@@ -14,6 +14,7 @@ class OpReorderer {
         void recycleUpdateOp(AdapterHelper.UpdateOp updateOp);
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     public OpReorderer(Callback callback) {
         this.mCallback = callback;
     }

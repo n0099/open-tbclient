@@ -20,6 +20,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import com.baidu.appsearchlib.Info;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.lang.reflect.Method;
@@ -429,7 +430,7 @@ public class SapiBDLocManager {
                 } else {
                     String str = this.wifiList.get(i3).BSSID;
                     int i5 = this.wifiList.get(i3).level;
-                    String replace = str.replace(":", "");
+                    String replace = str.replace(SystemInfoUtil.COLON, "");
                     if (SapiBDLocManager.this.k != null && replace.equals(SapiBDLocManager.this.k)) {
                         SapiBDLocManager.this.l = StrictMath.abs(i5);
                         i2 = i4;
@@ -504,7 +505,7 @@ public class SapiBDLocManager {
         }
         try {
             String bssid = connectionInfo.getBSSID();
-            String replace = bssid != null ? bssid.replace(":", "") : null;
+            String replace = bssid != null ? bssid.replace(SystemInfoUtil.COLON, "") : null;
             if (replace.length() == 12) {
                 this.k = new String(replace);
                 return true;

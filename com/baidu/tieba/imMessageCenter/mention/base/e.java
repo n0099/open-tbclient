@@ -10,34 +10,34 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private BdTypeRecyclerView bof;
-    private ArrayList<h> cHg;
-    private b eqe;
-    private b eqf;
-    private b eqg;
-    private b eqh;
-    private b eqi;
+    private BdTypeRecyclerView bwl;
+    private ArrayList<h> cQn;
+    private b eBv;
+    private b eBw;
+    private b eBx;
+    private b eBy;
+    private b eBz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.bof = bdTypeRecyclerView;
+            this.bwl = bdTypeRecyclerView;
             p(tbPageContext);
         }
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.eqe = new b(tbPageContext, a.epL);
-        this.eqf = new b(tbPageContext, a.epM);
-        this.eqg = new b(tbPageContext, a.epP);
-        this.eqh = new b(tbPageContext, a.epO);
-        this.eqi = new b(tbPageContext, a.epN);
-        this.mAdapters.add(this.eqe);
-        this.mAdapters.add(this.eqf);
-        this.mAdapters.add(this.eqg);
-        this.mAdapters.add(this.eqh);
-        this.mAdapters.add(this.eqi);
-        this.bof.addAdapters(this.mAdapters);
+        this.eBv = new b(tbPageContext, a.eBc);
+        this.eBw = new b(tbPageContext, a.eBd);
+        this.eBx = new b(tbPageContext, a.eBg);
+        this.eBy = new b(tbPageContext, a.eBf);
+        this.eBz = new b(tbPageContext, a.eBe);
+        this.mAdapters.add(this.eBv);
+        this.mAdapters.add(this.eBw);
+        this.mAdapters.add(this.eBx);
+        this.mAdapters.add(this.eBy);
+        this.mAdapters.add(this.eBz);
+        this.bwl.addAdapters(this.mAdapters);
     }
 
     public void onDestory() {
@@ -46,12 +46,12 @@ public class e {
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.bof.setData(arrayList);
-        this.cHg = arrayList;
+        this.bwl.setData(arrayList);
+        this.cQn = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.bof.getAdapter().notifyDataSetChanged();
+        this.bwl.getAdapter().notifyDataSetChanged();
     }
 
     public void d(n nVar) {
@@ -62,9 +62,9 @@ public class e {
         }
     }
 
-    public void d(ab abVar) {
-        this.eqi.d(abVar);
-        this.eqh.d(abVar);
-        this.eqg.d(abVar);
+    public void e(ab abVar) {
+        this.eBz.e(abVar);
+        this.eBy.e(abVar);
+        this.eBx.e(abVar);
     }
 }

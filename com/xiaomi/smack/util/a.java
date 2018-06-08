@@ -1,8 +1,10 @@
 package com.xiaomi.smack.util;
 
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.sina.weibo.sdk.exception.WeiboAuthException;
+import com.tencent.connect.common.Constants;
 import com.xiaomi.push.service.ak;
 import com.xiaomi.push.service.aq;
 import com.xiaomi.smack.l;
@@ -111,7 +113,7 @@ public class a {
                         throw new l("error while receiving a encrypted message with wrong format");
                     }
                     String text = xmlPullParser.getText();
-                    if ("5".equals(attributeValue) || "6".equals(attributeValue)) {
+                    if ("5".equals(attributeValue) || Constants.VIA_SHARE_TYPE_INFO.equals(attributeValue)) {
                         com.xiaomi.smack.packet.c cVar = new com.xiaomi.smack.packet.c();
                         cVar.l(attributeValue);
                         cVar.b(true);
@@ -173,7 +175,7 @@ public class a {
         } catch (Exception e4) {
         }
         try {
-            String attributeValue10 = xmlPullParser.getAttributeValue("", "status");
+            String attributeValue10 = xmlPullParser.getAttributeValue("", NotificationCompat.CATEGORY_STATUS);
             if (!TextUtils.isEmpty(attributeValue10)) {
                 cVar2.e(attributeValue10);
             }
@@ -263,7 +265,7 @@ public class a {
             if (next == 2) {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
-                if (name.equals("status")) {
+                if (name.equals(NotificationCompat.CATEGORY_STATUS)) {
                     fVar.a(xmlPullParser.nextText());
                 } else if (name.equals(LogFactory.PRIORITY_KEY)) {
                     try {

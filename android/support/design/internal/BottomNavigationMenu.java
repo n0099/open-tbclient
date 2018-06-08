@@ -3,9 +3,10 @@ package android.support.design.internal;
 import android.content.Context;
 import android.support.annotation.RestrictTo;
 import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.view.menu.MenuItemImpl;
 import android.view.MenuItem;
 import android.view.SubMenu;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public final class BottomNavigationMenu extends MenuBuilder {
     public static final int MAX_ITEM_COUNT = 5;
@@ -25,6 +26,12 @@ public final class BottomNavigationMenu extends MenuBuilder {
         if (size() + 1 > 5) {
             throw new IllegalArgumentException("Maximum number of items supported by BottomNavigationView is 5. Limit can be checked with BottomNavigationView#getMaxItemCount()");
         }
-        return super.addInternal(i, i2, i3, charSequence);
+        stopDispatchingItemsChanged();
+        MenuItem addInternal = super.addInternal(i, i2, i3, charSequence);
+        if (addInternal instanceof MenuItemImpl) {
+            ((MenuItemImpl) addInternal).setExclusiveCheckable(true);
+        }
+        startDispatchingItemsChanged();
+        return addInternal;
     }
 }

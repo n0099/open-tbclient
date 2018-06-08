@@ -61,19 +61,19 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     public interface c {
-        void a(AdapterView<?> adapterView, View view2, int i, long j);
+        void a(AdapterView<?> adapterView, View view, int i, long j);
     }
 
     /* loaded from: classes.dex */
     public interface d {
-        boolean b(AdapterView<?> adapterView, View view2, int i, long j);
+        boolean b(AdapterView<?> adapterView, View view, int i, long j);
     }
 
     /* loaded from: classes.dex */
     public interface e {
         void a(AdapterView<?> adapterView);
 
-        void c(AdapterView<?> adapterView, View view2, int i, long j);
+        void c(AdapterView<?> adapterView, View view, int i, long j);
     }
 
     public abstract T getAdapter();
@@ -141,13 +141,13 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return this.mOnItemClickListener;
     }
 
-    public boolean performItemClick(View view2, int i, long j) {
+    public boolean performItemClick(View view, int i, long j) {
         if (this.mOnItemClickListener != null) {
             playSoundEffect(0);
-            if (view2 != null) {
-                view2.sendAccessibilityEvent(1);
+            if (view != null) {
+                view.sendAccessibilityEvent(1);
             }
-            this.mOnItemClickListener.a(this, view2, i, j);
+            this.mOnItemClickListener.a(this, view, i, j);
             return true;
         }
         return false;
@@ -178,35 +178,35 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public int position;
         public View targetView;
 
-        public a(View view2, int i, long j) {
-            this.targetView = view2;
+        public a(View view, int i, long j) {
+            this.targetView = view;
             this.position = i;
             this.id = j;
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view2) {
+    public void addView(View view) {
         throw new UnsupportedOperationException("addView(View) is not supported in AdapterView");
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view2, int i) {
+    public void addView(View view, int i) {
         throw new UnsupportedOperationException("addView(View, int) is not supported in AdapterView");
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void addView(View view2, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, ViewGroup.LayoutParams layoutParams) {
         throw new UnsupportedOperationException("addView(View, LayoutParams) is not supported in AdapterView");
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         throw new UnsupportedOperationException("addView(View, int, LayoutParams) is not supported in AdapterView");
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void removeView(View view2) {
+    public void removeView(View view) {
         throw new UnsupportedOperationException("removeView(View) is not supported in AdapterView");
     }
 
@@ -250,21 +250,21 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return this.mItemCount;
     }
 
-    public int getPositionForView(View view2) {
+    public int getPositionForView(View view) {
         while (true) {
             try {
-                View view3 = (View) view2.getParent();
-                if (view3.equals(this)) {
+                View view2 = (View) view.getParent();
+                if (view2.equals(this)) {
                     break;
                 }
-                view2 = view3;
+                view = view2;
             } catch (ClassCastException e2) {
                 return -1;
             }
         }
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            if (getChildAt(i).equals(view2)) {
+            if (getChildAt(i).equals(view)) {
                 return i + this.mFirstPosition;
             }
         }
@@ -280,8 +280,8 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @TargetApi(16)
-    public void setEmptyView(View view2) {
-        this.mEmptyView = view2;
+    public void setEmptyView(View view) {
+        this.mEmptyView = view;
         T adapter = getAdapter();
         updateEmptyStatus(adapter == null || adapter.isEmpty());
     }
@@ -396,7 +396,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable dHI = null;
+        private Parcelable dST = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -407,9 +407,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.dHI != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.dHI);
-                this.dHI = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.dST != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.dST);
+                this.dST = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -421,7 +421,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.dHI = AdapterView.this.onSaveInstanceState();
+                this.dST = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;
@@ -500,11 +500,11 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     @Override // android.view.ViewGroup
     @TargetApi(14)
-    public boolean onRequestSendAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
-        if (super.onRequestSendAccessibilityEvent(view2, accessibilityEvent)) {
+    public boolean onRequestSendAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+        if (super.onRequestSendAccessibilityEvent(view, accessibilityEvent)) {
             AccessibilityEvent obtain = AccessibilityEvent.obtain();
             onInitializeAccessibilityEvent(obtain);
-            view2.dispatchPopulateAccessibilityEvent(obtain);
+            view.dispatchPopulateAccessibilityEvent(obtain);
             accessibilityEvent.appendRecord(obtain);
             return true;
         }

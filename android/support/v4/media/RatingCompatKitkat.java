@@ -1,6 +1,8 @@
 package android.support.v4.media;
 
 import android.media.Rating;
+import android.support.annotation.RequiresApi;
+@RequiresApi(19)
 /* loaded from: classes2.dex */
 class RatingCompatKitkat {
     RatingCompatKitkat() {

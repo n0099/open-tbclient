@@ -20,7 +20,7 @@ public class b {
         }
     }
 
-    public static int a(float f, int i, int i2) {
+    public static int b(float f, int i, int i2) {
         int i3 = 0;
         if (f < i / 2.0f) {
             i3 = ((int) f) - (i / 2);

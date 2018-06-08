@@ -28,7 +28,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> xo() {
+    public final ArrayList<Fragment> AP() {
         return this.mFragments;
     }
 
@@ -96,8 +96,8 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        return ((Fragment) obj).getView() == view2;
+    public boolean isViewFromObject(View view, Object obj) {
+        return ((Fragment) obj).getView() == view;
     }
 
     @Override // android.support.v4.view.PagerAdapter

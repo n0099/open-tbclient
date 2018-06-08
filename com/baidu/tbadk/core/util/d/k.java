@@ -27,12 +27,12 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wu() {
+    public boolean zV() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean wv() {
+    public boolean zW() {
         return false;
     }
 
@@ -40,11 +40,11 @@ public class k extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a gG = com.baidu.tbadk.imageManager.c.EY().gG(str);
-        if (gG == null || gG.kl() == null) {
+        com.baidu.adp.widget.ImageView.a he = com.baidu.tbadk.imageManager.c.ID().he(str);
+        if (he == null || he.mZ() == null) {
             return null;
         }
-        return gG;
+        return he;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int ww() {
+    public int zX() {
         return this.procType;
     }
 }

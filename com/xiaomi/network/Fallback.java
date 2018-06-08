@@ -1,6 +1,7 @@
 package com.xiaomi.network;
 
 import android.text.TextUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -92,7 +93,7 @@ public class Fallback {
                 if (z) {
                     arrayList.add(cVar.a);
                 } else {
-                    int indexOf = cVar.a.indexOf(":");
+                    int indexOf = cVar.a.indexOf(SystemInfoUtil.COLON);
                     if (indexOf != -1) {
                         arrayList.add(cVar.a.substring(0, indexOf));
                     } else {

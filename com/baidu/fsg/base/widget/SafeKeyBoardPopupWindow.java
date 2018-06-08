@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
-import com.baidu.ar.util.Constants;
 import com.baidu.fsg.base.utils.ResUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -144,8 +143,8 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         } else if (this.mySafeEditText.getUseKeyDot()) {
             this.mButtonX.setEnabled(true);
             this.mButtonX.setBackgroundResource(ResUtils.drawable(this.mContext, "rim_base_safekeyboard_numkey_selector"));
-            this.mButtonX.setText(Constants.DOT);
-            this.mButtonX.setTag(Constants.DOT);
+            this.mButtonX.setText(".");
+            this.mButtonX.setTag(".");
         } else {
             this.mButtonX.setEnabled(false);
             this.mButtonX.setText("");
@@ -179,15 +178,15 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2.getId() == ResUtils.id(this.mContext, "btn_del")) {
+    public void onClick(View view) {
+        if (view.getId() == ResUtils.id(this.mContext, "btn_del")) {
             if (!TextUtils.isEmpty(this.mySafeEditText.getText())) {
                 new Handler().post(new h(this));
                 return;
             }
             return;
         }
-        new Handler().post(new i(this, view2));
+        new Handler().post(new i(this, view));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

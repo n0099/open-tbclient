@@ -1,136 +1,258 @@
 package com.baidu.ar.bean;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.view.animation.LinearInterpolator;
+import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.Constants;
-import java.io.Serializable;
+import com.baidu.ar.util.FileUtils;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class ARResource implements Serializable {
-    private static final long serialVersionUID = -5654044082929692592L;
-    private String mARKey;
-    private int mARType;
-    private String mAcId;
-    private String mCodeDownloadUrl;
-    private String mErrMsg;
-    private Map<FunctionType, Boolean> mFunctionMap;
-    private String[] mMultiResourceUrl;
-    private String mRedirectUrl;
-    private String mResFilePath;
-    private String mResourceUrl;
-    private boolean mShowAudioDialog;
-    private int mSize;
-    private String mVersionCode;
-    private String mZipFilePath;
-    private String mZipMd5;
-    private int mErrCode = Integer.MIN_VALUE;
-    private boolean mRefused = false;
-    private boolean mHardwareSatisfied = true;
+public class ARResource {
+    public static final int DOWNLOAD_STATUS_DOWNLOADED = -2;
+    public static final int DOWNLOAD_STATUS_FAILED = -3;
+    public static final int DOWNLOAD_STATUS_NONE = -1;
+    public static final int DOWNLOAD_STATUS_WAIT = -4;
+    private String b;
+    private String c;
+    private String d;
+    private String[] e;
+    private String f;
+    private String g;
+    private int h;
+    private String i;
+    private String j;
+    private String k;
+    private int l;
+    private String o;
+    private boolean p;
+    private String q;
+    private String r;
+    private List<ARResource> s;
+    private String t;
+    private ValueAnimator v;
+    private Map<FunctionType, Boolean> w;
+    private int a = Integer.MIN_VALUE;
+    private boolean m = false;
+    private boolean n = true;
+    private int u = -1;
 
-    public int a() {
-        return this.mErrCode;
+    public static boolean isDownloading(int i) {
+        return i >= 0 && i <= 100;
     }
 
-    public void a(int i) {
-        this.mErrCode = i;
+    public void createAnimator() {
+        this.v = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.v.setDuration(200L);
+        this.v.setInterpolator(new LinearInterpolator());
+        this.v.addListener(new Animator.AnimatorListener() { // from class: com.baidu.ar.bean.ARResource.1
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
+                ARResource.this.v = null;
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                ARResource.this.v = null;
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
+            }
+
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
+            }
+        });
+        this.v.start();
     }
 
-    public void a(String str) {
-        this.mErrMsg = str;
+    public String getAcId() {
+        return this.o;
     }
 
-    public void a(Map<FunctionType, Boolean> map) {
-        this.mFunctionMap = map;
+    public ValueAnimator getAnimator() {
+        return this.v;
+    }
+
+    public String getCaseConfigJsonInfo() {
+        return this.t;
+    }
+
+    public String getCodeDownloadUrl() {
+        return this.q;
+    }
+
+    public int getDownloadStatus() {
+        if (this.u == -2 && !FileUtils.existsFile(this.j)) {
+            this.u = -1;
+        }
+        return this.u;
+    }
+
+    public int getErrCode() {
+        return this.a;
+    }
+
+    public String getErrMsg() {
+        return this.b;
+    }
+
+    public Map<FunctionType, Boolean> getFunctionMap() {
+        return this.w;
+    }
+
+    public String getKey() {
+        return this.c;
+    }
+
+    public String[] getMultiResourceUrl() {
+        return this.e;
+    }
+
+    public String getRedirectUrl() {
+        return this.f;
+    }
+
+    public List<ARResource> getRelativeList() {
+        return this.s;
+    }
+
+    public String getResFilePath() {
+        return this.k;
+    }
+
+    public String getResourceUrl() {
+        return this.d;
+    }
+
+    public int getSize() {
+        return this.l;
+    }
+
+    public String getThumbnailUrl() {
+        return this.r;
+    }
+
+    public int getType() {
+        return this.h;
+    }
+
+    public String getVersionCode() {
+        return this.g;
+    }
+
+    public String getZipFilePath() {
+        return this.j;
+    }
+
+    public String getZipMD5() {
+        return this.i;
+    }
+
+    public boolean isHardwareSatisfied() {
+        return this.n;
+    }
+
+    public boolean isRefused() {
+        return this.m;
+    }
+
+    public boolean isShowAudioDialog() {
+        return this.p;
+    }
+
+    public void setAcId(String str) {
+        this.o = str;
+    }
+
+    public void setCaseConfigJsonInfo(String str) {
+        this.t = str;
+    }
+
+    public void setCodeDownloadUrl(String str) {
+        this.q = str;
+    }
+
+    public void setDownloadStatus(int i) {
+        this.u = i;
+    }
+
+    public void setErrCode(int i) {
+        this.a = i;
+    }
+
+    public void setErrMsg(String str) {
+        this.b = str;
+    }
+
+    public void setFunctionMap(Map<FunctionType, Boolean> map) {
+        this.w = map;
         if (Constants.DEBUG) {
             for (FunctionType functionType : map.keySet()) {
-                com.baidu.ar.util.b.d("bdar: function = " + functionType.a() + ", value = " + map.get(functionType));
+                ARLog.e("bdar: function = " + functionType.getValue() + ", value = " + map.get(functionType));
             }
         }
     }
 
-    public void a(boolean z) {
-        this.mRefused = z;
+    public void setHardwareSatisfied(boolean z) {
+        this.n = z;
     }
 
-    public void a(String[] strArr) {
-        this.mMultiResourceUrl = strArr;
+    public void setKey(String str) {
+        this.c = str;
     }
 
-    public String b() {
-        return this.mErrMsg;
+    public void setMultiResourceUrl(String[] strArr) {
+        this.e = strArr;
     }
 
-    public void b(int i) {
-        this.mARType = i;
+    public void setRedirectUrl(String str) {
+        this.f = str;
     }
 
-    public void b(String str) {
-        this.mARKey = str;
+    public void setRefused(boolean z) {
+        this.m = z;
     }
 
-    public void b(boolean z) {
-        this.mHardwareSatisfied = z;
+    public void setRelativeList(List<ARResource> list) {
+        this.s = list;
     }
 
-    public void c(String str) {
-        this.mResourceUrl = str;
+    public void setResFilePath(String str) {
+        this.k = str;
     }
 
-    public void c(boolean z) {
-        this.mShowAudioDialog = z;
+    public void setResourceUrl(String str) {
+        this.d = str;
     }
 
-    public String[] c() {
-        return this.mMultiResourceUrl;
+    public void setShowAudioDialog(boolean z) {
+        this.p = z;
     }
 
-    public String d() {
-        return this.mRedirectUrl;
+    public void setSize(int i) {
+        this.l = i;
     }
 
-    public void d(String str) {
-        this.mRedirectUrl = str;
+    public void setThumbnailUrl(String str) {
+        this.r = str;
     }
 
-    public int e() {
-        return this.mARType;
+    public void setType(int i) {
+        this.h = i;
     }
 
-    public void e(String str) {
-        this.mVersionCode = str;
+    public void setVersionCode(String str) {
+        this.g = str;
     }
 
-    public void f(String str) {
-        this.mZipMd5 = str;
+    public void setZipFilePath(String str) {
+        this.j = str;
     }
 
-    public boolean f() {
-        return this.mRefused;
-    }
-
-    public void g(String str) {
-        this.mAcId = str;
-    }
-
-    public boolean g() {
-        return this.mHardwareSatisfied;
-    }
-
-    public void h(String str) {
-        this.mCodeDownloadUrl = str;
-    }
-
-    public boolean h() {
-        return this.mShowAudioDialog;
-    }
-
-    public String i() {
-        return this.mCodeDownloadUrl;
-    }
-
-    public Map<FunctionType, Boolean> j() {
-        return this.mFunctionMap;
-    }
-
-    public String toString() {
-        return "ARResource [ err_code = " + this.mErrCode + ", " + Constants.HTTP_ERR_MSG + " = " + this.mErrMsg + ", , " + Constants.HTTP_VERSION_CODE + " = " + this.mVersionCode + ", " + Constants.HTTP_AR_RESOURCE + " = " + this.mResourceUrl + " ]";
+    public void setZipMD5(String str) {
+        this.i = str;
     }
 }

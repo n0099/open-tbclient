@@ -1,5 +1,6 @@
 package com.baidu.tieba.pbextra.emotion.model;
 
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -22,7 +23,7 @@ public class EmotionCheckUegResponseMessage extends JsonHttpResponsedMessage {
             String optString = jSONObject.optString("data");
             if (!TextUtils.isEmpty(optString)) {
                 JSONObject jSONObject2 = new JSONObject(optString);
-                this.status = jSONObject2.optString("status");
+                this.status = jSONObject2.optString(NotificationCompat.CATEGORY_STATUS);
                 this.msg = jSONObject2.optString("words");
             }
         }

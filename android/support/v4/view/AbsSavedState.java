@@ -2,17 +2,15 @@ package android.support.v4.view;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.v4.os.ParcelableCompat;
-import android.support.v4.os.ParcelableCompatCreatorCallbacks;
 /* loaded from: classes2.dex */
 public abstract class AbsSavedState implements Parcelable {
     private final Parcelable mSuperState;
     public static final AbsSavedState EMPTY_STATE = new AbsSavedState() { // from class: android.support.v4.view.AbsSavedState.1
     };
-    public static final Parcelable.Creator<AbsSavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<AbsSavedState>() { // from class: android.support.v4.view.AbsSavedState.2
+    public static final Parcelable.Creator<AbsSavedState> CREATOR = new Parcelable.ClassLoaderCreator<AbsSavedState>() { // from class: android.support.v4.view.AbsSavedState.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+        @Override // android.os.Parcelable.ClassLoaderCreator
         public AbsSavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
             if (parcel.readParcelable(classLoader) != null) {
                 throw new IllegalStateException("superState must be null");
@@ -21,12 +19,17 @@ public abstract class AbsSavedState implements Parcelable {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+        @Override // android.os.Parcelable.Creator
+        public AbsSavedState createFromParcel(Parcel parcel) {
+            return createFromParcel(parcel, (ClassLoader) null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
         public AbsSavedState[] newArray(int i) {
             return new AbsSavedState[i];
         }
-    });
+    };
 
     private AbsSavedState() {
         this.mSuperState = null;

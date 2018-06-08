@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
@@ -27,7 +27,7 @@ public final class SapiStatService {
     static {
         b.put(Info.kBaiduPIDKey, "111");
         b.put("type", "1023");
-        b.put("device", Constants.OS_TYPE_VALUE);
+        b.put("device", HttpConstants.OS_TYPE_VALUE);
     }
 
     public static void onEvent(String str, Map<String, String> map, Context context) {
@@ -49,7 +49,7 @@ public final class SapiStatService {
                 hashMap.putAll(b);
                 hashMap.put("name", str);
                 hashMap.put("clientfrom", "biometrics_sdk");
-                hashMap.put(com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_APP_VERSION, h.c(context));
+                hashMap.put("app_version", h.c(context));
                 hashMap.put(SapiContext.KEY_SDK_VERSION, com.baidu.fsg.biometrics.base.c.a);
                 hashMap.put(NotifyType.VIBRATE, String.valueOf(System.currentTimeMillis()));
                 if (map != null) {

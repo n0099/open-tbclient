@@ -7,64 +7,64 @@ import android.widget.Scroller;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ScrollTextView extends TextView implements Runnable {
-    private Scroller aPc;
-    private float aPd;
-    private boolean aPe;
+    private Scroller aWY;
+    private boolean aWZ;
+    private float pL;
 
     public ScrollTextView(Context context) {
         super(context);
-        this.aPd = 15.0f;
-        this.aPe = true;
+        this.pL = 15.0f;
+        this.aWZ = true;
         setup(context);
     }
 
     public ScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aPd = 15.0f;
-        this.aPe = true;
+        this.pL = 15.0f;
+        this.aWZ = true;
         setup(context);
     }
 
     private void setup(Context context) {
-        this.aPc = new Scroller(context, new LinearInterpolator());
-        setScroller(this.aPc);
+        this.aWY = new Scroller(context, new LinearInterpolator());
+        setScroller(this.aWY);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.aPc.isFinished()) {
-            Iq();
+        if (this.aWY.isFinished()) {
+            LM();
         }
     }
 
-    private void Iq() {
+    private void LM() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
-        this.aPc.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.aPd));
-        if (this.aPe) {
+        this.aWY.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.pL));
+        if (this.aWZ) {
             post(this);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.aPc.isFinished()) {
-            Iq();
+        if (this.aWY.isFinished()) {
+            LM();
         } else {
             post(this);
         }
     }
 
     public void setSpeed(float f) {
-        this.aPd = f;
+        this.pL = f;
     }
 
     public float getSpeed() {
-        return this.aPd;
+        return this.pL;
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.aPe = z;
+        this.aWZ = z;
     }
 }

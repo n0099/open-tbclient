@@ -1,6 +1,5 @@
 package android.support.v7.view;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.support.annotation.RestrictTo;
 import android.support.v4.internal.view.SupportMenu;
@@ -14,8 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import java.util.ArrayList;
-@TargetApi(11)
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class SupportActionModeWrapper extends android.view.ActionMode {
     final Context mContext;
@@ -87,8 +85,8 @@ public class SupportActionModeWrapper extends android.view.ActionMode {
     }
 
     @Override // android.view.ActionMode
-    public void setCustomView(View view2) {
-        this.mWrappedObject.setCustomView(view2);
+    public void setCustomView(View view) {
+        this.mWrappedObject.setCustomView(view);
     }
 
     @Override // android.view.ActionMode
@@ -111,7 +109,7 @@ public class SupportActionModeWrapper extends android.view.ActionMode {
         return this.mWrappedObject.isTitleOptional();
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public static class CallbackWrapper implements ActionMode.Callback {
         final Context mContext;

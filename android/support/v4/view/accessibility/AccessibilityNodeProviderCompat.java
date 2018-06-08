@@ -3,6 +3,7 @@ package android.support.v4.view.accessibility;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompatJellyBean;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class AccessibilityNodeProviderCompat {
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes2.dex */
     private static class AccessibilityNodeProviderJellyBeanImpl extends AccessibilityNodeProviderStubImpl {
         AccessibilityNodeProviderJellyBeanImpl() {
@@ -51,7 +53,7 @@ public class AccessibilityNodeProviderCompat {
                     ArrayList arrayList = new ArrayList();
                     int size = findAccessibilityNodeInfosByText.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.add(findAccessibilityNodeInfosByText.get(i2).getInfo());
+                        arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
                     }
                     return arrayList;
                 }
@@ -62,12 +64,13 @@ public class AccessibilityNodeProviderCompat {
                     if (createAccessibilityNodeInfo == null) {
                         return null;
                     }
-                    return createAccessibilityNodeInfo.getInfo();
+                    return createAccessibilityNodeInfo.unwrap();
                 }
             });
         }
     }
 
+    @RequiresApi(19)
     /* loaded from: classes2.dex */
     private static class AccessibilityNodeProviderKitKatImpl extends AccessibilityNodeProviderStubImpl {
         AccessibilityNodeProviderKitKatImpl() {
@@ -90,7 +93,7 @@ public class AccessibilityNodeProviderCompat {
                     ArrayList arrayList = new ArrayList();
                     int size = findAccessibilityNodeInfosByText.size();
                     for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.add(findAccessibilityNodeInfosByText.get(i2).getInfo());
+                        arrayList.add(findAccessibilityNodeInfosByText.get(i2).unwrap());
                     }
                     return arrayList;
                 }
@@ -101,7 +104,7 @@ public class AccessibilityNodeProviderCompat {
                     if (createAccessibilityNodeInfo == null) {
                         return null;
                     }
-                    return createAccessibilityNodeInfo.getInfo();
+                    return createAccessibilityNodeInfo.unwrap();
                 }
 
                 @Override // android.support.v4.view.accessibility.AccessibilityNodeProviderCompatKitKat.AccessibilityNodeInfoBridge
@@ -110,7 +113,7 @@ public class AccessibilityNodeProviderCompat {
                     if (findFocus == null) {
                         return null;
                     }
-                    return findFocus.getInfo();
+                    return findFocus.unwrap();
                 }
             });
         }

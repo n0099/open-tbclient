@@ -1,6 +1,4 @@
 package com.google.zxing;
-
-import com.baidu.ar.util.Constants;
 /* loaded from: classes3.dex */
 public final class Dimension {
     private final int height;
@@ -35,6 +33,6 @@ public final class Dimension {
     }
 
     public String toString() {
-        return this.width + Constants.MSG_SDK_LUA_BRIDGE_ACCELERATION_X + this.height;
+        return this.width + "x" + this.height;
     }
 }

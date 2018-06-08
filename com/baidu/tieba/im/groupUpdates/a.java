@@ -8,50 +8,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private UpdatesActivity eeq;
-    private List<UpdatesItemData> eer = new ArrayList();
+    private UpdatesActivity epF;
+    private List<UpdatesItemData> epG = new ArrayList();
 
     public a(UpdatesActivity updatesActivity) {
-        this.eeq = updatesActivity;
+        this.epF = updatesActivity;
     }
 
     public void destroy() {
-        this.eeq = null;
+        this.epF = null;
     }
 
     public List<UpdatesItemData> getDatas() {
-        return this.eer;
+        return this.epG;
     }
 
     public void setData(List<UpdatesItemData> list) {
         if (list != null) {
-            this.eer = list;
+            this.epG = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eer == null) {
+        if (this.epG == null) {
             return 0;
         }
-        return this.eer.size();
+        return this.epG.size();
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar = null;
-        if (view2 != null) {
-            bVar = (b) view2.getTag();
+        if (view != null) {
+            bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.eeq) : bVar;
-        bVar2.b(this.eer.get(i));
-        return bVar2.bO();
+        b bVar2 = bVar == null ? new b(this.epF) : bVar;
+        bVar2.b(this.epG.get(i));
+        return bVar2.eC();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eer.get(i);
+        return this.epG.get(i);
     }
 
     @Override // android.widget.Adapter

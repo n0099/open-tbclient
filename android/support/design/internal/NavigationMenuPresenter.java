@@ -28,11 +28,11 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
-import java.util.Iterator;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class NavigationMenuPresenter implements MenuPresenter {
     private static final String STATE_ADAPTER = "android:menu:adapter";
+    private static final String STATE_HEADER = "android:menu:header";
     private static final String STATE_HIERARCHY = "android:menu:list";
     NavigationMenuAdapter mAdapter;
     private MenuPresenter.Callback mCallback;
@@ -45,9 +45,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
     private NavigationMenuView mMenuView;
     final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: android.support.design.internal.NavigationMenuPresenter.1
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public void onClick(View view) {
             NavigationMenuPresenter.this.setUpdateSuspended(true);
-            MenuItemImpl itemData = ((NavigationMenuItemView) view2).getItemData();
+            MenuItemImpl itemData = ((NavigationMenuItemView) view).getItemData();
             boolean performItemAction = NavigationMenuPresenter.this.mMenu.performItemAction(itemData, NavigationMenuPresenter.this, 0);
             if (itemData != null && itemData.isCheckable() && performItemAction) {
                 NavigationMenuPresenter.this.mAdapter.setCheckedItem(itemData);
@@ -146,6 +146,11 @@ public class NavigationMenuPresenter implements MenuPresenter {
             }
             if (this.mAdapter != null) {
                 bundle.putBundle(STATE_ADAPTER, this.mAdapter.createInstanceState());
+            }
+            if (this.mHeaderLayout != null) {
+                SparseArray<? extends Parcelable> sparseArray2 = new SparseArray<>();
+                this.mHeaderLayout.saveHierarchyState(sparseArray2);
+                bundle.putSparseParcelableArray(STATE_HEADER, sparseArray2);
                 return bundle;
             }
             return bundle;
@@ -165,6 +170,10 @@ public class NavigationMenuPresenter implements MenuPresenter {
             if (bundle2 != null) {
                 this.mAdapter.restoreInstanceState(bundle2);
             }
+            SparseArray sparseParcelableArray2 = bundle.getSparseParcelableArray(STATE_HEADER);
+            if (sparseParcelableArray2 != null) {
+                this.mHeaderLayout.restoreHierarchyState(sparseParcelableArray2);
+            }
         }
     }
 
@@ -178,13 +187,13 @@ public class NavigationMenuPresenter implements MenuPresenter {
         return inflate;
     }
 
-    public void addHeaderView(@NonNull View view2) {
-        this.mHeaderLayout.addView(view2);
+    public void addHeaderView(@NonNull View view) {
+        this.mHeaderLayout.addView(view);
         this.mMenuView.setPadding(0, 0, 0, this.mMenuView.getPaddingBottom());
     }
 
-    public void removeHeaderView(@NonNull View view2) {
-        this.mHeaderLayout.removeView(view2);
+    public void removeHeaderView(@NonNull View view) {
+        this.mHeaderLayout.removeView(view);
         if (this.mHeaderLayout.getChildCount() == 0) {
             this.mMenuView.setPadding(0, this.mPaddingTopDefault, 0, this.mMenuView.getPaddingBottom());
         }
@@ -253,8 +262,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
 
     /* loaded from: classes2.dex */
     private static abstract class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(View view2) {
-            super(view2);
+        public ViewHolder(View view) {
+            super(view);
         }
     }
 
@@ -286,8 +295,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class HeaderViewHolder extends ViewHolder {
-        public HeaderViewHolder(View view2) {
-            super(view2);
+        public HeaderViewHolder(View view) {
+            super(view);
         }
     }
 
@@ -502,11 +511,11 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 bundle.putInt(STATE_CHECKED_ITEM, this.mCheckedItem.getItemId());
             }
             SparseArray<? extends Parcelable> sparseArray = new SparseArray<>();
-            Iterator<NavigationMenuItem> it = this.mItems.iterator();
-            while (it.hasNext()) {
-                NavigationMenuItem next = it.next();
-                if (next instanceof NavigationMenuTextItem) {
-                    MenuItemImpl menuItem = ((NavigationMenuTextItem) next).getMenuItem();
+            int size = this.mItems.size();
+            for (int i = 0; i < size; i++) {
+                NavigationMenuItem navigationMenuItem = this.mItems.get(i);
+                if (navigationMenuItem instanceof NavigationMenuTextItem) {
+                    MenuItemImpl menuItem = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem();
                     View actionView = menuItem != null ? menuItem.getActionView() : null;
                     if (actionView != null) {
                         ParcelableSparseArray parcelableSparseArray = new ParcelableSparseArray();
@@ -521,17 +530,23 @@ public class NavigationMenuPresenter implements MenuPresenter {
 
         public void restoreInstanceState(Bundle bundle) {
             MenuItemImpl menuItem;
+            View actionView;
+            ParcelableSparseArray parcelableSparseArray;
+            MenuItemImpl menuItem2;
             int i = bundle.getInt(STATE_CHECKED_ITEM, 0);
             if (i != 0) {
                 this.mUpdateSuspended = true;
-                Iterator<NavigationMenuItem> it = this.mItems.iterator();
+                int size = this.mItems.size();
+                int i2 = 0;
                 while (true) {
-                    if (!it.hasNext()) {
+                    if (i2 >= size) {
                         break;
                     }
-                    NavigationMenuItem next = it.next();
-                    if ((next instanceof NavigationMenuTextItem) && (menuItem = ((NavigationMenuTextItem) next).getMenuItem()) != null && menuItem.getItemId() == i) {
-                        setCheckedItem(menuItem);
+                    NavigationMenuItem navigationMenuItem = this.mItems.get(i2);
+                    if (!(navigationMenuItem instanceof NavigationMenuTextItem) || (menuItem2 = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem()) == null || menuItem2.getItemId() != i) {
+                        i2++;
+                    } else {
+                        setCheckedItem(menuItem2);
                         break;
                     }
                 }
@@ -539,14 +554,12 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 prepareMenuItems();
             }
             SparseArray sparseParcelableArray = bundle.getSparseParcelableArray(STATE_ACTION_VIEWS);
-            Iterator<NavigationMenuItem> it2 = this.mItems.iterator();
-            while (it2.hasNext()) {
-                NavigationMenuItem next2 = it2.next();
-                if (next2 instanceof NavigationMenuTextItem) {
-                    MenuItemImpl menuItem2 = ((NavigationMenuTextItem) next2).getMenuItem();
-                    View actionView = menuItem2 != null ? menuItem2.getActionView() : null;
-                    if (actionView != null) {
-                        actionView.restoreHierarchyState((SparseArray) sparseParcelableArray.get(menuItem2.getItemId()));
+            if (sparseParcelableArray != null) {
+                int size2 = this.mItems.size();
+                for (int i3 = 0; i3 < size2; i3++) {
+                    NavigationMenuItem navigationMenuItem2 = this.mItems.get(i3);
+                    if ((navigationMenuItem2 instanceof NavigationMenuTextItem) && (menuItem = ((NavigationMenuTextItem) navigationMenuItem2).getMenuItem()) != null && (actionView = menuItem.getActionView()) != null && (parcelableSparseArray = (ParcelableSparseArray) sparseParcelableArray.get(menuItem.getItemId())) != null) {
+                        actionView.restoreHierarchyState(parcelableSparseArray);
                     }
                 }
             }

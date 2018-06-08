@@ -39,9 +39,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(7));
-            PersonalSettingItemData bj = e.aGV().bj(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (bj != null) {
-                buildNormalItem.setGroupSetting(bj);
+            PersonalSettingItemData bq = e.aLQ().bq(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (bq != null) {
+                buildNormalItem.setGroupSetting(bq);
             }
             insertShowData(buildNormalItem, this.mList);
         }
@@ -54,11 +54,17 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 2 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) ? false : true;
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2) {
+            return (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) ? false : true;
+        }
+        return false;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
-        return imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 0 && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 0) {
+            return (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) ? false : true;
+        }
+        return false;
     }
 }

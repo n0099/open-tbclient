@@ -10,17 +10,19 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.Parcel;
+import android.os.Parcelable;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.BundleCompat;
 import android.support.v4.media.MediaBrowserCompat;
 import android.support.v4.media.MediaBrowserServiceCompatApi21;
 import android.support.v4.media.MediaBrowserServiceCompatApi23;
 import android.support.v4.media.MediaBrowserServiceCompatApi24;
+import android.support.v4.media.session.IMediaSession;
 import android.support.v4.media.session.MediaSessionCompat;
-import android.support.v4.os.BuildCompat;
 import android.support.v4.os.ResultReceiver;
 import android.support.v4.util.ArrayMap;
 import android.support.v4.util.Pair;
@@ -28,6 +30,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -35,10 +39,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class MediaBrowserServiceCompat extends Service {
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    private static final float EPSILON = 1.0E-5f;
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final String KEY_MEDIA_ITEM = "media_item";
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public static final String KEY_SEARCH_RESULTS = "search_results";
+    static final int RESULT_ERROR = -1;
     static final int RESULT_FLAG_ON_LOAD_ITEM_NOT_IMPLEMENTED = 2;
+    static final int RESULT_FLAG_ON_SEARCH_NOT_IMPLEMENTED = 4;
     static final int RESULT_FLAG_OPTION_NOT_HANDLED = 1;
+    static final int RESULT_OK = 0;
+    static final int RESULT_PROGRESS_UPDATE = 1;
     public static final String SERVICE_INTERFACE = "android.media.browse.MediaBrowserService";
     ConnectionRecord mCurConnection;
     private MediaBrowserServiceImpl mImpl;
@@ -59,6 +70,12 @@ public abstract class MediaBrowserServiceCompat extends Service {
         void onCreate();
 
         void setSessionToken(MediaSessionCompat.Token token);
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    /* loaded from: classes2.dex */
+    private @interface ResultFlags {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -140,7 +157,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         @Override // android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public Bundle getBrowserRootHints() {
             if (MediaBrowserServiceCompat.this.mCurConnection == null) {
-                throw new IllegalStateException("This should be called inside of onLoadChildren or onLoadItem methods");
+                throw new IllegalStateException("This should be called inside of onLoadChildren, onLoadItem or onSearch methods");
             }
             if (MediaBrowserServiceCompat.this.mCurConnection.rootHints == null) {
                 return null;
@@ -149,9 +166,11 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    @RequiresApi(21)
     /* loaded from: classes2.dex */
     class MediaBrowserServiceImplApi21 implements MediaBrowserServiceImpl, MediaBrowserServiceCompatApi21.ServiceCompatProxy {
         Messenger mMessenger;
+        final List<Bundle> mRootExtrasList = new ArrayList();
         Object mServiceObj;
 
         MediaBrowserServiceImplApi21() {
@@ -169,8 +188,22 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
 
         @Override // android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
-        public void setSessionToken(MediaSessionCompat.Token token) {
-            MediaBrowserServiceCompatApi21.setSessionToken(this.mServiceObj, token.getToken());
+        public void setSessionToken(final MediaSessionCompat.Token token) {
+            MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (!MediaBrowserServiceImplApi21.this.mRootExtrasList.isEmpty()) {
+                        IMediaSession extraBinder = token.getExtraBinder();
+                        if (extraBinder != null) {
+                            for (Bundle bundle : MediaBrowserServiceImplApi21.this.mRootExtrasList) {
+                                BundleCompat.putBinder(bundle, MediaBrowserProtocol.EXTRA_SESSION_BINDER, extraBinder.asBinder());
+                            }
+                        }
+                        MediaBrowserServiceImplApi21.this.mRootExtrasList.clear();
+                    }
+                    MediaBrowserServiceCompatApi21.setSessionToken(MediaBrowserServiceImplApi21.this.mServiceObj, token.getToken());
+                }
+            });
         }
 
         @Override // android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
@@ -178,7 +211,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
             if (this.mMessenger == null) {
                 MediaBrowserServiceCompatApi21.notifyChildrenChanged(this.mServiceObj, str);
             } else {
-                MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.1
+                MediaBrowserServiceCompat.this.mHandler.post(new Runnable() { // from class: android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.2
                     @Override // java.lang.Runnable
                     public void run() {
                         for (IBinder iBinder : MediaBrowserServiceCompat.this.mConnections.keySet()) {
@@ -203,7 +236,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                 return null;
             }
             if (MediaBrowserServiceCompat.this.mCurConnection == null) {
-                throw new IllegalStateException("This should be called inside of onLoadChildren or onLoadItem methods");
+                throw new IllegalStateException("This should be called inside of onLoadChildren, onLoadItem or onSearch methods");
             }
             if (MediaBrowserServiceCompat.this.mCurConnection.rootHints != null) {
                 return new Bundle(MediaBrowserServiceCompat.this.mCurConnection.rootHints);
@@ -219,9 +252,17 @@ public abstract class MediaBrowserServiceCompat extends Service {
             } else {
                 bundle.remove(MediaBrowserProtocol.EXTRA_CLIENT_VERSION);
                 this.mMessenger = new Messenger(MediaBrowserServiceCompat.this.mHandler);
-                bundle2 = new Bundle();
-                bundle2.putInt(MediaBrowserProtocol.EXTRA_SERVICE_VERSION, 1);
-                BundleCompat.putBinder(bundle2, MediaBrowserProtocol.EXTRA_MESSENGER_BINDER, this.mMessenger.getBinder());
+                Bundle bundle3 = new Bundle();
+                bundle3.putInt(MediaBrowserProtocol.EXTRA_SERVICE_VERSION, 1);
+                BundleCompat.putBinder(bundle3, MediaBrowserProtocol.EXTRA_MESSENGER_BINDER, this.mMessenger.getBinder());
+                if (MediaBrowserServiceCompat.this.mSession != null) {
+                    IMediaSession extraBinder = MediaBrowserServiceCompat.this.mSession.getExtraBinder();
+                    BundleCompat.putBinder(bundle3, MediaBrowserProtocol.EXTRA_SESSION_BINDER, extraBinder == null ? null : extraBinder.asBinder());
+                    bundle2 = bundle3;
+                } else {
+                    this.mRootExtrasList.add(bundle3);
+                    bundle2 = bundle3;
+                }
             }
             BrowserRoot onGetRoot = MediaBrowserServiceCompat.this.onGetRoot(str, i, bundle);
             if (onGetRoot == null) {
@@ -237,11 +278,11 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
         @Override // android.support.v4.media.MediaBrowserServiceCompatApi21.ServiceCompatProxy
         public void onLoadChildren(String str, final MediaBrowserServiceCompatApi21.ResultWrapper<List<Parcel>> resultWrapper) {
-            MediaBrowserServiceCompat.this.onLoadChildren(str, new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.2
+            MediaBrowserServiceCompat.this.onLoadChildren(str, new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: package-private */
                 @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
-                public void onResultSent(List<MediaBrowserCompat.MediaItem> list, int i) {
+                public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
                     ArrayList arrayList = null;
                     if (list != null) {
                         ArrayList arrayList2 = new ArrayList();
@@ -263,6 +304,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    @RequiresApi(23)
     /* loaded from: classes2.dex */
     class MediaBrowserServiceImplApi23 extends MediaBrowserServiceImplApi21 implements MediaBrowserServiceCompatApi23.ServiceCompatProxy {
         MediaBrowserServiceImplApi23() {
@@ -281,7 +323,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: package-private */
                 @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
-                public void onResultSent(MediaBrowserCompat.MediaItem mediaItem, int i) {
+                public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
                     if (mediaItem == null) {
                         resultWrapper.sendResult(null);
                         return;
@@ -299,6 +341,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    @RequiresApi(26)
     /* loaded from: classes2.dex */
     class MediaBrowserServiceImplApi24 extends MediaBrowserServiceImplApi23 implements MediaBrowserServiceCompatApi24.ServiceCompatProxy {
         MediaBrowserServiceImplApi24() {
@@ -326,7 +369,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: package-private */
                 @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
-                public void onResultSent(List<MediaBrowserCompat.MediaItem> list, int i) {
+                public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
                     ArrayList arrayList = null;
                     if (list != null) {
                         ArrayList arrayList2 = new ArrayList();
@@ -337,7 +380,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                         }
                         arrayList = arrayList2;
                     }
-                    resultWrapper.sendResult(arrayList, i);
+                    resultWrapper.sendResult(arrayList, getFlags());
                 }
 
                 @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
@@ -349,6 +392,12 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
         @Override // android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImplApi21, android.support.v4.media.MediaBrowserServiceCompat.MediaBrowserServiceImpl
         public Bundle getBrowserRootHints() {
+            if (MediaBrowserServiceCompat.this.mCurConnection != null) {
+                if (MediaBrowserServiceCompat.this.mCurConnection.rootHints == null) {
+                    return null;
+                }
+                return new Bundle(MediaBrowserServiceCompat.this.mCurConnection.rootHints);
+            }
             return MediaBrowserServiceCompatApi24.getBrowserRootHints(this.mServiceObj);
         }
     }
@@ -387,6 +436,12 @@ public abstract class MediaBrowserServiceCompat extends Service {
                 case 7:
                     this.mServiceBinderImpl.unregisterCallbacks(new ServiceCallbacksCompat(message.replyTo));
                     return;
+                case 8:
+                    this.mServiceBinderImpl.search(data.getString(MediaBrowserProtocol.DATA_SEARCH_QUERY), data.getBundle(MediaBrowserProtocol.DATA_SEARCH_EXTRAS), (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
+                    return;
+                case 9:
+                    this.mServiceBinderImpl.sendCustomAction(data.getString(MediaBrowserProtocol.DATA_CUSTOM_ACTION), data.getBundle(MediaBrowserProtocol.DATA_CUSTOM_ACTION_EXTRAS), (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
+                    return;
                 default:
                     Log.w(MediaBrowserServiceCompat.TAG, "Unhandled message: " + message + "\n  Service version: 1\n  Client version: " + message.arg1);
                     return;
@@ -412,7 +467,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class ConnectionRecord {
+    public static class ConnectionRecord {
         ServiceCallbacks callbacks;
         String pkg;
         BrowserRoot root;
@@ -425,9 +480,11 @@ public abstract class MediaBrowserServiceCompat extends Service {
 
     /* loaded from: classes2.dex */
     public static class Result<T> {
-        private Object mDebug;
+        private final Object mDebug;
         private boolean mDetachCalled;
         private int mFlags;
+        private boolean mSendErrorCalled;
+        private boolean mSendProgressUpdateCalled;
         private boolean mSendResultCalled;
 
         Result(Object obj) {
@@ -435,11 +492,28 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
 
         public void sendResult(T t) {
-            if (this.mSendResultCalled) {
-                throw new IllegalStateException("sendResult() called twice for: " + this.mDebug);
+            if (this.mSendResultCalled || this.mSendErrorCalled) {
+                throw new IllegalStateException("sendResult() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
             }
             this.mSendResultCalled = true;
-            onResultSent(t, this.mFlags);
+            onResultSent(t);
+        }
+
+        public void sendProgressUpdate(Bundle bundle) {
+            if (this.mSendResultCalled || this.mSendErrorCalled) {
+                throw new IllegalStateException("sendProgressUpdate() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
+            }
+            checkExtraFields(bundle);
+            this.mSendProgressUpdateCalled = true;
+            onProgressUpdateSent(bundle);
+        }
+
+        public void sendError(Bundle bundle) {
+            if (this.mSendResultCalled || this.mSendErrorCalled) {
+                throw new IllegalStateException("sendError() called when either sendResult() or sendError() had already been called for: " + this.mDebug);
+            }
+            this.mSendErrorCalled = true;
+            onErrorSent(bundle);
         }
 
         public void detach() {
@@ -449,18 +523,42 @@ public abstract class MediaBrowserServiceCompat extends Service {
             if (this.mSendResultCalled) {
                 throw new IllegalStateException("detach() called when sendResult() had already been called for: " + this.mDebug);
             }
+            if (this.mSendErrorCalled) {
+                throw new IllegalStateException("detach() called when sendError() had already been called for: " + this.mDebug);
+            }
             this.mDetachCalled = true;
         }
 
         boolean isDone() {
-            return this.mDetachCalled || this.mSendResultCalled;
+            return this.mDetachCalled || this.mSendResultCalled || this.mSendErrorCalled;
         }
 
         void setFlags(int i) {
             this.mFlags = i;
         }
 
-        void onResultSent(T t, int i) {
+        int getFlags() {
+            return this.mFlags;
+        }
+
+        void onResultSent(T t) {
+        }
+
+        void onProgressUpdateSent(Bundle bundle) {
+            throw new UnsupportedOperationException("It is not supported to send an interim update for " + this.mDebug);
+        }
+
+        void onErrorSent(Bundle bundle) {
+            throw new UnsupportedOperationException("It is not supported to send an error for " + this.mDebug);
+        }
+
+        private void checkExtraFields(Bundle bundle) {
+            if (bundle != null && bundle.containsKey(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS)) {
+                float f = bundle.getFloat(MediaBrowserCompat.EXTRA_DOWNLOAD_PROGRESS);
+                if (f < -1.0E-5f || f > 1.00001f) {
+                    throw new IllegalArgumentException("The value of the EXTRA_DOWNLOAD_PROGRESS field must be a float number within [0.0, 1.0].");
+                }
+            }
         }
     }
 
@@ -582,10 +680,42 @@ public abstract class MediaBrowserServiceCompat extends Service {
                 }
             });
         }
+
+        public void search(final String str, final Bundle bundle, final ResultReceiver resultReceiver, final ServiceCallbacks serviceCallbacks) {
+            if (!TextUtils.isEmpty(str) && resultReceiver != null) {
+                MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: android.support.v4.media.MediaBrowserServiceCompat.ServiceBinderImpl.8
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mConnections.get(serviceCallbacks.asBinder());
+                        if (connectionRecord == null) {
+                            Log.w(MediaBrowserServiceCompat.TAG, "search for callback that isn't registered query=" + str);
+                        } else {
+                            MediaBrowserServiceCompat.this.performSearch(str, bundle, connectionRecord, resultReceiver);
+                        }
+                    }
+                });
+            }
+        }
+
+        public void sendCustomAction(final String str, final Bundle bundle, final ResultReceiver resultReceiver, final ServiceCallbacks serviceCallbacks) {
+            if (!TextUtils.isEmpty(str) && resultReceiver != null) {
+                MediaBrowserServiceCompat.this.mHandler.postOrRun(new Runnable() { // from class: android.support.v4.media.MediaBrowserServiceCompat.ServiceBinderImpl.9
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        ConnectionRecord connectionRecord = MediaBrowserServiceCompat.this.mConnections.get(serviceCallbacks.asBinder());
+                        if (connectionRecord == null) {
+                            Log.w(MediaBrowserServiceCompat.TAG, "sendCustomAction for callback that isn't registered action=" + str + ", extras=" + bundle);
+                        } else {
+                            MediaBrowserServiceCompat.this.performCustomAction(str, bundle, connectionRecord, resultReceiver);
+                        }
+                    }
+                });
+            }
+        }
     }
 
     /* loaded from: classes2.dex */
-    private class ServiceCallbacksCompat implements ServiceCallbacks {
+    private static class ServiceCallbacksCompat implements ServiceCallbacks {
         final Messenger mCallbacks;
 
         ServiceCallbacksCompat(Messenger messenger) {
@@ -638,7 +768,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        if (Build.VERSION.SDK_INT >= 24 || BuildCompat.isAtLeastN()) {
+        if (Build.VERSION.SDK_INT >= 26) {
             this.mImpl = new MediaBrowserServiceImplApi24();
         } else if (Build.VERSION.SDK_INT >= 23) {
             this.mImpl = new MediaBrowserServiceImplApi23();
@@ -664,9 +794,18 @@ public abstract class MediaBrowserServiceCompat extends Service {
         onLoadChildren(str, result);
     }
 
-    public void onLoadItem(String str, Result<MediaBrowserCompat.MediaItem> result) {
+    public void onLoadItem(String str, @NonNull Result<MediaBrowserCompat.MediaItem> result) {
         result.setFlags(2);
         result.sendResult(null);
+    }
+
+    public void onSearch(@NonNull String str, Bundle bundle, @NonNull Result<List<MediaBrowserCompat.MediaItem>> result) {
+        result.setFlags(4);
+        result.sendResult(null);
+    }
+
+    public void onCustomAction(@NonNull String str, Bundle bundle, @NonNull Result<Bundle> result) {
+        result.sendError(null);
     }
 
     public void setSessionToken(MediaSessionCompat.Token token) {
@@ -760,7 +899,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
-            public void onResultSent(List<MediaBrowserCompat.MediaItem> list, int i) {
+            public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
                 if (MediaBrowserServiceCompat.this.mConnections.get(connectionRecord.callbacks.asBinder()) != connectionRecord) {
                     if (MediaBrowserServiceCompat.DEBUG) {
                         Log.d(MediaBrowserServiceCompat.TAG, "Not sending onLoadChildren result for connection that has been disconnected. pkg=" + connectionRecord.pkg + " id=" + str);
@@ -768,7 +907,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                     }
                     return;
                 }
-                if ((i & 1) != 0) {
+                if ((getFlags() & 1) != 0) {
                     list = MediaBrowserServiceCompat.this.applyOptions(list, bundle);
                 }
                 try {
@@ -815,8 +954,8 @@ public abstract class MediaBrowserServiceCompat extends Service {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
             @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
-            public void onResultSent(MediaBrowserCompat.MediaItem mediaItem, int i) {
-                if ((i & 2) != 0) {
+            public void onResultSent(MediaBrowserCompat.MediaItem mediaItem) {
+                if ((getFlags() & 2) != 0) {
                     resultReceiver.send(-1, null);
                     return;
                 }
@@ -833,11 +972,62 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
     }
 
+    void performSearch(String str, Bundle bundle, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
+        Result<List<MediaBrowserCompat.MediaItem>> result = new Result<List<MediaBrowserCompat.MediaItem>>(str) { // from class: android.support.v4.media.MediaBrowserServiceCompat.3
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: package-private */
+            @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
+            public void onResultSent(List<MediaBrowserCompat.MediaItem> list) {
+                if ((getFlags() & 4) != 0 || list == null) {
+                    resultReceiver.send(-1, null);
+                    return;
+                }
+                Bundle bundle2 = new Bundle();
+                bundle2.putParcelableArray(MediaBrowserServiceCompat.KEY_SEARCH_RESULTS, (Parcelable[]) list.toArray(new MediaBrowserCompat.MediaItem[0]));
+                resultReceiver.send(0, bundle2);
+            }
+        };
+        this.mCurConnection = connectionRecord;
+        onSearch(str, bundle, result);
+        this.mCurConnection = null;
+        if (!result.isDone()) {
+            throw new IllegalStateException("onSearch must call detach() or sendResult() before returning for query=" + str);
+        }
+    }
+
+    void performCustomAction(String str, Bundle bundle, ConnectionRecord connectionRecord, final ResultReceiver resultReceiver) {
+        Result<Bundle> result = new Result<Bundle>(str) { // from class: android.support.v4.media.MediaBrowserServiceCompat.4
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: package-private */
+            @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
+            public void onResultSent(Bundle bundle2) {
+                resultReceiver.send(0, bundle2);
+            }
+
+            @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
+            void onProgressUpdateSent(Bundle bundle2) {
+                resultReceiver.send(1, bundle2);
+            }
+
+            @Override // android.support.v4.media.MediaBrowserServiceCompat.Result
+            void onErrorSent(Bundle bundle2) {
+                resultReceiver.send(-1, bundle2);
+            }
+        };
+        this.mCurConnection = connectionRecord;
+        onCustomAction(str, bundle, result);
+        this.mCurConnection = null;
+        if (!result.isDone()) {
+            throw new IllegalStateException("onCustomAction must call detach() or sendResult() or sendError() before returning for action=" + str + " extras=" + bundle);
+        }
+    }
+
     /* loaded from: classes2.dex */
     public static final class BrowserRoot {
         public static final String EXTRA_OFFLINE = "android.service.media.extra.OFFLINE";
         public static final String EXTRA_RECENT = "android.service.media.extra.RECENT";
         public static final String EXTRA_SUGGESTED = "android.service.media.extra.SUGGESTED";
+        @Deprecated
         public static final String EXTRA_SUGGESTION_KEYWORDS = "android.service.media.extra.SUGGESTION_KEYWORDS";
         private final Bundle mExtras;
         private final String mRootId;

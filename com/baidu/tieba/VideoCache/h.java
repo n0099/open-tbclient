@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String RY;
-    private String bbl;
-    private boolean bbm;
-    private long bbn = -1;
-    private long bbo = -1;
-    private long bbp = 0;
-    private long bbq = 0;
+    private String aai;
+    private String bjw;
+    private boolean bjx;
+    private long bjy = -1;
+    private long bjz = -1;
+    private long bjA = 0;
+    private long bjB = 0;
 
-    public String Me() {
-        return this.bbl;
+    public String PD() {
+        return this.bjw;
     }
 
-    public void hJ(String str) {
-        this.bbl = str;
+    public void ii(String str) {
+        this.bjw = str;
     }
 
-    public String Mf() {
-        return this.RY;
+    public String PE() {
+        return this.aai;
     }
 
-    public void hK(String str) {
-        this.RY = str;
+    public void ij(String str) {
+        this.aai = str;
     }
 
-    public boolean Mg() {
-        return this.bbm;
+    public boolean PF() {
+        return this.bjx;
     }
 
-    public void cn(boolean z) {
-        this.bbm = z;
+    public void cs(boolean z) {
+        this.bjx = z;
     }
 
-    public long Mh() {
-        return this.bbn;
+    public long PG() {
+        return this.bjy;
     }
 
-    public void av(long j) {
-        this.bbn = j;
+    public void az(long j) {
+        this.bjy = j;
     }
 
-    public long Mi() {
-        return this.bbo;
+    public long PH() {
+        return this.bjz;
     }
 
-    public void aw(long j) {
-        this.bbo = j;
+    public void aA(long j) {
+        this.bjz = j;
     }
 
     public long getTotalLength() {
-        return this.bbp;
+        return this.bjA;
     }
 
-    public void Q(long j) {
-        this.bbp = j;
+    public void T(long j) {
+        this.bjA = j;
     }
 
-    public void ax(long j) {
-        this.bbq = j;
+    public void aB(long j) {
+        this.bjB = j;
     }
 
-    public long Mj() {
-        return this.bbq;
+    public long PI() {
+        return this.bjB;
     }
 }

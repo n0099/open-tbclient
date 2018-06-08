@@ -9,72 +9,72 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class h {
-    private String erN;
-    private int erO;
-    private int erP;
-    private long erM = 0;
-    private HashMap<String, Boolean> erL = new HashMap<>();
+    private String eDd;
+    private int eDe;
+    private int eDf;
+    private long eDc = 0;
+    private HashMap<String, Boolean> eDb = new HashMap<>();
 
-    public void ol(int i) {
-        this.erP = i;
+    public void ox(int i) {
+        this.eDf = i;
     }
 
-    public int aJz() {
-        return this.erP;
+    public int aOv() {
+        return this.eDf;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.erN = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.eDd = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.erN = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.eDd = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.erO = intExtra;
-            this.erP = intExtra;
+            this.eDe = intExtra;
+            this.eDf = intExtra;
         }
     }
 
-    public void v(Bundle bundle) {
+    public void w(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.erN);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.eDd);
         }
     }
 
     public void d(List<String> list, int i, int i2) {
-        synchronized (this.erL) {
-            if (System.nanoTime() - this.erM > 300000000 && list != null && i < list.size()) {
-                this.erL.put(list.get(i), true);
+        synchronized (this.eDb) {
+            if (System.nanoTime() - this.eDc > 300000000 && list != null && i < list.size()) {
+                this.eDb.put(list.get(i), true);
             }
-            this.erM = System.nanoTime();
-            if (list != null && i2 < list.size() && this.erL.get(list.get(i2)) == null) {
-                this.erL.put(list.get(i2), false);
+            this.eDc = System.nanoTime();
+            if (list != null && i2 < list.size() && this.eDb.get(list.get(i2)) == null) {
+                this.eDb.put(list.get(i2), false);
             }
         }
-        if (this.erL.size() >= 100) {
-            aJA();
+        if (this.eDb.size() >= 100) {
+            aOw();
         }
     }
 
-    public void aJA() {
-        if (this.erL != null) {
-            synchronized (this.erL) {
-                if (this.erL.size() > 0) {
+    public void aOw() {
+        if (this.eDb != null) {
+            synchronized (this.eDb) {
+                if (this.eDb.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.erL.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.eDb.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.erL.size(), this.erN, this.erO + 1, this.erP + 1);
-                    this.erL.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.eDb.size(), this.eDd, this.eDe + 1, this.eDf + 1);
+                    this.eDb.clear();
                 }
             }
         }
     }
 
     public void Z(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.erM > 300000000) {
-            this.erL.put(str, true);
+        if (i == 1 && System.nanoTime() - this.eDc > 300000000) {
+            this.eDb.put(str, true);
         }
     }
 }

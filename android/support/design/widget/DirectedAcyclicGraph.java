@@ -47,7 +47,7 @@ final class DirectedAcyclicGraph<T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public List getOutgoingEdges(@NonNull T t) {
+    public List<T> getOutgoingEdges(@NonNull T t) {
         ArrayList arrayList = null;
         int size = this.mGraph.size();
         for (int i = 0; i < size; i++) {

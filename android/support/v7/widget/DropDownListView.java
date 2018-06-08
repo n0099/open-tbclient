@@ -2,7 +2,6 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.widget.ListViewAutoScrollHelper;
 import android.support.v7.appcompat.R;
@@ -32,7 +31,7 @@ class DropDownListView extends ListViewCompat {
         int findPointerIndex;
         boolean z2;
         boolean z3;
-        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        int actionMasked = motionEvent.getActionMasked();
         switch (actionMasked) {
             case 1:
                 z = false;
@@ -90,8 +89,8 @@ class DropDownListView extends ListViewCompat {
         return z2;
     }
 
-    private void clickPressedItem(View view2, int i) {
-        performItemClick(view2, i, getItemIdAtPosition(i));
+    private void clickPressedItem(View view, int i) {
+        performItemClick(view, i, getItemIdAtPosition(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -113,7 +112,7 @@ class DropDownListView extends ListViewCompat {
         }
     }
 
-    private void setPressedItem(View view2, int i, float f, float f2) {
+    private void setPressedItem(View view, int i, float f, float f2) {
         View childAt;
         this.mDrawsInPressedState = true;
         if (Build.VERSION.SDK_INT >= 21) {
@@ -123,19 +122,19 @@ class DropDownListView extends ListViewCompat {
             setPressed(true);
         }
         layoutChildren();
-        if (this.mMotionPosition != -1 && (childAt = getChildAt(this.mMotionPosition - getFirstVisiblePosition())) != null && childAt != view2 && childAt.isPressed()) {
+        if (this.mMotionPosition != -1 && (childAt = getChildAt(this.mMotionPosition - getFirstVisiblePosition())) != null && childAt != view && childAt.isPressed()) {
             childAt.setPressed(false);
         }
         this.mMotionPosition = i;
-        float left = f - view2.getLeft();
-        float top = f2 - view2.getTop();
+        float left = f - view.getLeft();
+        float top = f2 - view.getTop();
         if (Build.VERSION.SDK_INT >= 21) {
-            view2.drawableHotspotChanged(left, top);
+            view.drawableHotspotChanged(left, top);
         }
-        if (!view2.isPressed()) {
-            view2.setPressed(true);
+        if (!view.isPressed()) {
+            view.setPressed(true);
         }
-        positionSelectorLikeTouchCompat(i, view2, f, f2);
+        positionSelectorLikeTouchCompat(i, view, f, f2);
         setSelectorEnabled(false);
         refreshDrawableState();
     }

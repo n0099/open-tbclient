@@ -1,15 +1,14 @@
 package android.support.v7.view;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.RestrictTo;
-import android.support.v4.content.res.ConfigurationHelper;
-import android.support.v4.view.ViewConfigurationCompat;
 import android.support.v7.appcompat.R;
 import android.view.ViewConfiguration;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActionBarPolicy {
     private Context mContext;
@@ -23,23 +22,23 @@ public class ActionBarPolicy {
     }
 
     public int getMaxActionButtons() {
-        Resources resources = this.mContext.getResources();
-        int screenWidthDp = ConfigurationHelper.getScreenWidthDp(resources);
-        int screenHeightDp = ConfigurationHelper.getScreenHeightDp(resources);
-        if (ConfigurationHelper.getSmallestScreenWidthDp(resources) > 600 || screenWidthDp > 600 || ((screenWidthDp > 960 && screenHeightDp > 720) || (screenWidthDp > 720 && screenHeightDp > 960))) {
+        Configuration configuration = this.mContext.getResources().getConfiguration();
+        int i = configuration.screenWidthDp;
+        int i2 = configuration.screenHeightDp;
+        if (configuration.smallestScreenWidthDp > 600 || i > 600 || ((i > 960 && i2 > 720) || (i > 720 && i2 > 960))) {
             return 5;
         }
-        if (screenWidthDp >= 500 || ((screenWidthDp > 640 && screenHeightDp > 480) || (screenWidthDp > 480 && screenHeightDp > 640))) {
+        if (i >= 500 || ((i > 640 && i2 > 480) || (i > 480 && i2 > 640))) {
             return 4;
         }
-        if (screenWidthDp >= 360) {
+        if (i >= 360) {
             return 3;
         }
         return 2;
     }
 
     public boolean showsOverflowMenuButton() {
-        return Build.VERSION.SDK_INT >= 19 || !ViewConfigurationCompat.hasPermanentMenuKey(ViewConfiguration.get(this.mContext));
+        return Build.VERSION.SDK_INT >= 19 || !ViewConfiguration.get(this.mContext).hasPermanentMenuKey();
     }
 
     public int getEmbeddedMenuWidthLimit() {

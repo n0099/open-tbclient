@@ -1,15 +1,42 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Looper;
+import android.os.Message;
 /* loaded from: classes.dex */
 public class m {
-    public static final <T extends IntentConfig> void a(T t) {
-        a(2002001, t);
+    public static final boolean KY() {
+        Message message;
+        int i = 0;
+        Object c = com.baidu.adp.lib.OrmObject.a.a.c(Looper.myQueue(), "mMessages");
+        if (c == null || !(c instanceof Message)) {
+            return false;
+        }
+        Message message2 = (Message) c;
+        boolean z = false;
+        while (message2 != null && message2.obj != null && !z && i < 10) {
+            i++;
+            boolean l = l(message2);
+            Object c2 = com.baidu.adp.lib.OrmObject.a.a.c(message2, "next");
+            if (c2 != null && (c2 instanceof Message)) {
+                message = (Message) c2;
+            } else {
+                message = null;
+            }
+            message2 = message;
+            z = l;
+        }
+        return z;
     }
 
-    public static final <T extends IntentConfig> void a(int i, T t) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
+    private static final boolean l(Message message) {
+        Object c;
+        ComponentName component;
+        if (message == null) {
+            return false;
+        }
+        Object obj = message.obj;
+        return (obj == null || (c = com.baidu.adp.lib.OrmObject.a.a.c(obj, "intent")) == null || !(c instanceof Intent) || (component = ((Intent) c).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 }

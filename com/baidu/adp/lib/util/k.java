@@ -1,6 +1,7 @@
 package com.baidu.adp.lib.util;
 
 import android.annotation.SuppressLint;
+import com.baidu.ar.util.IoUtils;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -9,16 +10,16 @@ import java.util.Date;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat wV = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat wW = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat wX = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat wY = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat wZ = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat xa = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat xb = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat xc = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat xd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat xe = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat Dc = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat Dd = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat De = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat Df = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat Dg = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat Dh = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat Di = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat Dj = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat Dk = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat Dl = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -29,32 +30,32 @@ public class k {
 
     public static String b(Date date) {
         String format;
-        synchronized (wZ) {
-            format = wZ.format(date);
+        synchronized (Dg) {
+            format = Dg.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (wX) {
-            format = wX.format(date);
+        synchronized (De) {
+            format = De.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (wY) {
-            format = wY.format(date);
+        synchronized (Df) {
+            format = Df.format(date);
         }
         return format;
     }
 
     public static String e(Date date) {
         String format;
-        synchronized (xa) {
-            format = xa.format(date);
+        synchronized (Dh) {
+            format = Dh.format(date);
         }
         return format;
     }
@@ -64,7 +65,7 @@ public class k {
         return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
-    public static boolean aQ(String str) {
+    public static boolean bc(String str) {
         return str != null && str.length() > 0;
     }
 
@@ -72,32 +73,32 @@ public class k {
         return str == null || str.length() == 0 || str.equals("null");
     }
 
-    public static boolean aR(String str) {
+    public static boolean bd(String str) {
         return str == null || str.trim().length() == 0;
     }
 
-    public static String aS(String str) {
+    public static String be(String str) {
         if (str == null) {
             return null;
         }
         try {
-            return URLEncoder.encode(str, "utf-8");
+            return URLEncoder.encode(str, IoUtils.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static String aT(String str) {
+    public static String bf(String str) {
         try {
-            return URLDecoder.decode(str, "utf-8");
+            return URLDecoder.decode(str, IoUtils.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public static int aU(String str) {
+    public static int bg(String str) {
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
             if (Integer.toHexString(str.charAt(i2)).length() == 4) {

@@ -30,6 +30,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.ar.base.MsgField;
+import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.tencent.connect.auth.b;
@@ -172,7 +174,7 @@ public class a extends Dialog {
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
-            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(com.baidu.ar.util.Constants.HTTP_RET, -6), this.a, false);
+            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(ARResourceKey.HTTP_RET, -6), this.a, false);
             if (this.e != null) {
                 this.e.onComplete(jSONObject);
                 this.e = null;
@@ -211,8 +213,8 @@ public class a extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0255a extends WebViewClient {
-        private C0255a() {
+    public class C0273a extends WebViewClient {
+        private C0273a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -302,7 +304,7 @@ public class a extends Dialog {
             super.onReceivedError(webView, i, str, str2);
             f.c("openSDK_LOG.AuthDialog", "-->onReceivedError, errorCode: " + i + " | description: " + str);
             if (!j.b(a.this.k)) {
-                a.this.b.onError(new UiError(9001, "当前网络不可用，请稍后重试！", str2));
+                a.this.b.onError(new UiError(MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_SUCCESS, "当前网络不可用，请稍后重试！", str2));
                 a.this.dismiss();
             } else if (!a.this.o.startsWith("http://qzs.qq.com/open/mobile/login/qzsjump.html?")) {
                 long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.q;
@@ -395,7 +397,7 @@ public class a extends Dialog {
         public void run() {
             f.a("openSDK_LOG.AuthDialog", "-->timeoutUrl: " + this.a + " | mRetryUrl: " + a.this.o);
             if (this.a.equals(a.this.o)) {
-                a.this.b.onError(new UiError(9002, "请求页面超时，请稍后重试！", a.this.o));
+                a.this.b.onError(new UiError(MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_FAILURE, "请求页面超时，请稍后重试！", a.this.o));
                 a.this.dismiss();
             }
         }
@@ -466,24 +468,24 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0255a());
+        this.j.setWebViewClient(new C0273a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();
         this.j.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.tencent.connect.auth.a.1
             @Override // android.view.View.OnLongClickListener
-            public boolean onLongClick(View view2) {
+            public boolean onLongClick(View view) {
                 return true;
             }
         });
         this.j.setOnTouchListener(new View.OnTouchListener() { // from class: com.tencent.connect.auth.a.2
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
                     case 1:
-                        if (!view2.hasFocus()) {
-                            view2.requestFocus();
+                        if (!view.hasFocus()) {
+                            view.requestFocus();
                             return false;
                         }
                         return false;

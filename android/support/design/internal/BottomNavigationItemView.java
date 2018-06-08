@@ -9,16 +9,18 @@ import android.support.annotation.RestrictTo;
 import android.support.design.R;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.view.PointerIconCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.support.v7.view.menu.MenuView;
+import android.support.v7.widget.TooltipCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class BottomNavigationItemView extends FrameLayout implements MenuView.ItemView {
     private static final int[] CHECKED_STATE_SET = {16842912};
@@ -69,6 +71,8 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         setIcon(menuItemImpl.getIcon());
         setTitle(menuItemImpl.getTitle());
         setId(menuItemImpl.getItemId());
+        setContentDescription(menuItemImpl.getContentDescription());
+        TooltipCompat.setTooltipText(this, menuItemImpl.getTooltipText());
     }
 
     public void setItemPosition(int i) {
@@ -101,11 +105,10 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
 
     @Override // android.support.v7.view.menu.MenuView.ItemView
     public void setChecked(boolean z) {
-        this.mItemData.setChecked(z);
-        ViewCompat.setPivotX(this.mLargeLabel, this.mLargeLabel.getWidth() / 2);
-        ViewCompat.setPivotY(this.mLargeLabel, this.mLargeLabel.getBaseline());
-        ViewCompat.setPivotX(this.mSmallLabel, this.mSmallLabel.getWidth() / 2);
-        ViewCompat.setPivotY(this.mSmallLabel, this.mSmallLabel.getBaseline());
+        this.mLargeLabel.setPivotX(this.mLargeLabel.getWidth() / 2);
+        this.mLargeLabel.setPivotY(this.mLargeLabel.getBaseline());
+        this.mSmallLabel.setPivotX(this.mSmallLabel.getWidth() / 2);
+        this.mSmallLabel.setPivotY(this.mSmallLabel.getBaseline());
         if (this.mShiftingMode) {
             if (z) {
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mIcon.getLayoutParams();
@@ -113,16 +116,16 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
                 layoutParams.topMargin = this.mDefaultMargin;
                 this.mIcon.setLayoutParams(layoutParams);
                 this.mLargeLabel.setVisibility(0);
-                ViewCompat.setScaleX(this.mLargeLabel, 1.0f);
-                ViewCompat.setScaleY(this.mLargeLabel, 1.0f);
+                this.mLargeLabel.setScaleX(1.0f);
+                this.mLargeLabel.setScaleY(1.0f);
             } else {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.mIcon.getLayoutParams();
                 layoutParams2.gravity = 17;
                 layoutParams2.topMargin = this.mDefaultMargin;
                 this.mIcon.setLayoutParams(layoutParams2);
                 this.mLargeLabel.setVisibility(4);
-                ViewCompat.setScaleX(this.mLargeLabel, 0.5f);
-                ViewCompat.setScaleY(this.mLargeLabel, 0.5f);
+                this.mLargeLabel.setScaleX(0.5f);
+                this.mLargeLabel.setScaleY(0.5f);
             }
             this.mSmallLabel.setVisibility(4);
         } else if (z) {
@@ -132,10 +135,10 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
             this.mIcon.setLayoutParams(layoutParams3);
             this.mLargeLabel.setVisibility(0);
             this.mSmallLabel.setVisibility(4);
-            ViewCompat.setScaleX(this.mLargeLabel, 1.0f);
-            ViewCompat.setScaleY(this.mLargeLabel, 1.0f);
-            ViewCompat.setScaleX(this.mSmallLabel, this.mScaleUpFactor);
-            ViewCompat.setScaleY(this.mSmallLabel, this.mScaleUpFactor);
+            this.mLargeLabel.setScaleX(1.0f);
+            this.mLargeLabel.setScaleY(1.0f);
+            this.mSmallLabel.setScaleX(this.mScaleUpFactor);
+            this.mSmallLabel.setScaleY(this.mScaleUpFactor);
         } else {
             FrameLayout.LayoutParams layoutParams4 = (FrameLayout.LayoutParams) this.mIcon.getLayoutParams();
             layoutParams4.gravity = 49;
@@ -143,10 +146,10 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
             this.mIcon.setLayoutParams(layoutParams4);
             this.mLargeLabel.setVisibility(4);
             this.mSmallLabel.setVisibility(0);
-            ViewCompat.setScaleX(this.mLargeLabel, this.mScaleDownFactor);
-            ViewCompat.setScaleY(this.mLargeLabel, this.mScaleDownFactor);
-            ViewCompat.setScaleX(this.mSmallLabel, 1.0f);
-            ViewCompat.setScaleY(this.mSmallLabel, 1.0f);
+            this.mLargeLabel.setScaleX(this.mScaleDownFactor);
+            this.mLargeLabel.setScaleY(this.mScaleDownFactor);
+            this.mSmallLabel.setScaleX(1.0f);
+            this.mSmallLabel.setScaleY(1.0f);
         }
         refreshDrawableState();
     }
@@ -157,6 +160,11 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         this.mSmallLabel.setEnabled(z);
         this.mLargeLabel.setEnabled(z);
         this.mIcon.setEnabled(z);
+        if (z) {
+            ViewCompat.setPointerIcon(this, PointerIconCompat.getSystemIcon(getContext(), 1002));
+        } else {
+            ViewCompat.setPointerIcon(this, null);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View

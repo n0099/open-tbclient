@@ -8,7 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+import com.baidu.ar.util.SystemInfoUtil;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     private MenuItemImpl mItem;
@@ -98,8 +99,8 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderView(View view2) {
-        return (SubMenu) super.setHeaderViewInt(view2);
+    public SubMenu setHeaderView(View view) {
+        return (SubMenu) super.setHeaderViewInt(view);
     }
 
     @Override // android.support.v7.view.menu.MenuBuilder
@@ -118,6 +119,6 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
         if (itemId == 0) {
             return null;
         }
-        return super.getActionViewStatesKey() + ":" + itemId;
+        return super.getActionViewStatesKey() + SystemInfoUtil.COLON + itemId;
     }
 }

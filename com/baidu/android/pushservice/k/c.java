@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.k;
 
+import com.baidu.ar.util.IoUtils;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,7 +24,7 @@ public class c {
         try {
             try {
                 Process exec = Runtime.getRuntime().exec(str);
-                inputStreamReader = new InputStreamReader(exec.getInputStream(), "utf-8");
+                inputStreamReader = new InputStreamReader(exec.getInputStream(), IoUtils.UTF_8);
                 try {
                     LineNumberReader lineNumberReader = new LineNumberReader(inputStreamReader);
                     if (file != null) {

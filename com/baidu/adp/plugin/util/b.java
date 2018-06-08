@@ -26,19 +26,19 @@ public class b {
             } catch (Exception e2) {
             }
         } else {
-            Object w = w(v(classLoader));
-            if (w == null) {
+            Object z2 = z(y(classLoader));
+            if (z2 == null) {
                 return null;
             }
             try {
-                return (DexFile) a(Array.get(w, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
+                return (DexFile) a(Array.get(z2, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
             } catch (Exception e3) {
             }
         }
         return null;
     }
 
-    private static Object w(Object obj) {
+    private static Object z(Object obj) {
         if (obj == null) {
             return null;
         }
@@ -55,7 +55,7 @@ public class b {
         }
     }
 
-    private static Object v(Object obj) {
+    private static Object y(Object obj) {
         try {
             return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
         } catch (ClassNotFoundException | Exception e) {

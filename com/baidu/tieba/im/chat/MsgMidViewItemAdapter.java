@@ -16,28 +16,28 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
-        super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
-        aVar.aAS().setData(chatMessage);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
+        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
+        aVar.aFN().setData(chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
-        this.mPageContext.getLayoutMode().u(view2);
-        return view2;
+        this.mPageContext.getLayoutMode().onModeChanged(view);
+        return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: bb */
     public e.a<f> onCreateViewHolder(ViewGroup viewGroup) {
         f fVar = new f(this.mPageContext);
-        return new a(fVar.bO(), fVar);
+        return new a(fVar.eC(), fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends e.a<f> {
-        public a(View view2, f fVar) {
-            super(view2, fVar);
+        public a(View view, f fVar) {
+            super(view, fVar);
         }
     }
 }

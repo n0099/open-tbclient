@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class h {
-    BdTypeListView fTH;
-    private com.baidu.tbadk.j.g fTo;
-    private d fTu;
+    private com.baidu.tbadk.j.g geD;
+    private d geJ;
+    BdTypeListView geW;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener eba = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener emn = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            if (com.baidu.adp.lib.util.j.gD()) {
-                if (h.this.fTo != null) {
-                    h.this.fTo.P(h.this.mRootView);
-                    h.this.fTo = null;
+        public void onClick(View view) {
+            if (com.baidu.adp.lib.util.j.jr()) {
+                if (h.this.geD != null) {
+                    h.this.geD.P(h.this.mRootView);
+                    h.this.geD = null;
                 }
-                if (h.this.fTu != null) {
-                    h.this.fTu.bhp();
+                if (h.this.geJ != null) {
+                    h.this.geJ.bmn();
                 }
             }
         }
     };
 
-    public BdTypeListView bhB() {
-        return this.fTH;
+    public BdTypeListView bmz() {
+        return this.geW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(Context context, View view2) {
+    public h(Context context, View view) {
         this.mContext = context;
-        this.mRootView = view2;
-        this.fTH = (BdTypeListView) view2.findViewById(d.g.list);
+        this.mRootView = view;
+        this.geW = (BdTypeListView) view.findViewById(d.g.list);
     }
 
-    public d bhC() {
-        return this.fTu;
+    public d bmA() {
+        return this.geJ;
     }
 
     public void b(d dVar) {
-        this.fTu = dVar;
+        this.geJ = dVar;
     }
 
     public void E(String str, boolean z) {
-        f.a(this.fTo, this.eba, this.mContext, this.mRootView, str, z);
-        this.fTH.setVisibility(8);
+        f.a(this.geD, this.emn, this.mContext, this.mRootView, str, z);
+        this.geW.setVisibility(8);
     }
 }

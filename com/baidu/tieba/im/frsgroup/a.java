@@ -10,28 +10,28 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.CreateGroupMainActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupStepActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.frs.f<GroupPermData, b> {
-    private View.OnClickListener ani;
+    private View.OnClickListener avq;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.ani = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.avq = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (view2 != null) {
-                    Object tag = view2.getTag();
+            public void onClick(View view) {
+                if (view != null) {
+                    Object tag = view.getTag();
                     if (tag instanceof Integer) {
                         int intValue = ((Integer) tag).intValue();
                         if (a.this.getItem(intValue) instanceof GroupPermData) {
                             GroupPermData groupPermData = (GroupPermData) a.this.getItem(intValue);
-                            if (az.aK(a.this.mPageContext.getPageActivity())) {
-                                TiebaStatic.log(new al("c10332"));
+                            if (ba.aU(a.this.mPageContext.getPageActivity())) {
+                                TiebaStatic.log(new am("c10332"));
                                 a.this.a(groupPermData);
                             }
                         }
@@ -43,25 +43,25 @@ public class a extends com.baidu.tieba.frs.f<GroupPermData, b> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bb */
+    /* renamed from: bc */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(d.i.frs_create_group_item_view, (ViewGroup) null), this.ani);
+        return new b(LayoutInflater.from(this.mContext).inflate(d.i.frs_create_group_item_view, (ViewGroup) null), this.avq);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, GroupPermData groupPermData, b bVar) {
-        super.onFillViewHolder(i, view2, viewGroup, groupPermData, bVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, GroupPermData groupPermData, b bVar) {
+        super.onFillViewHolder(i, view, viewGroup, groupPermData, bVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
-        this.mPageContext.getLayoutMode().u(view2);
+        this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
-        ak.i(bVar.rootView, d.f.frs_group_item_bg);
-        ak.j(bVar.cVt, d.C0126d.cp_bg_line_c);
-        ak.c(bVar.dYK, d.C0126d.cp_cont_b, 1);
-        bVar.dYK.setCompoundDrawablesWithIntrinsicBounds(ak.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
-        ak.i(bVar.divider, d.C0126d.cp_bg_line_b);
-        return view2;
+        al.i(bVar.rootView, d.f.frs_group_item_bg);
+        al.j(bVar.deF, d.C0141d.cp_bg_line_c);
+        al.c(bVar.ejX, d.C0141d.cp_cont_b, 1);
+        bVar.ejX.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.i(bVar.divider, d.C0141d.cp_bg_line_b);
+        return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

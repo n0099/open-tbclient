@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.h;
@@ -344,7 +345,7 @@ public class e extends b {
 
     private static boolean i(Context context) {
         try {
-            return com.coloros.mcssdk.a.cm(context);
+            return com.coloros.mcssdk.a.cx(context);
         } catch (Exception e2) {
             return false;
         }
@@ -465,7 +466,7 @@ public class e extends b {
                             hashMap.put("package_name", e.this.a.getPackageName());
                             String a2 = e.this.a(hashMap);
                             if (!TextUtils.isEmpty(a2) && (jSONObject = (JSONObject) new JSONObject(a2).get("response_params")) != null) {
-                                if (jSONObject.getInt("status") == 1) {
+                                if (jSONObject.getInt(NotificationCompat.CATEGORY_STATUS) == 1) {
                                     String string = jSONObject.getString("sdkconfig");
                                     if (!TextUtils.isEmpty(string) && e.this.a(string)) {
                                         e.this.f();

@@ -1,6 +1,8 @@
 package com.baidu.ar.bean;
 /* loaded from: classes3.dex */
 public class BrowserBean {
+    public static final String TYPE = "type";
+    public static final String URL = "url";
     private int a;
     private String b;
 
@@ -11,19 +13,19 @@ public class BrowserBean {
         INTERNAL_TYPE
     }
 
-    public String a() {
+    public int getType() {
+        return this.a;
+    }
+
+    public String getUrl() {
         return this.b;
     }
 
-    public void a(int i) {
+    public void setType(int i) {
         this.a = i;
     }
 
-    public void a(String str) {
+    public void setUrl(String str) {
         this.b = str;
-    }
-
-    public int b() {
-        return this.a;
     }
 }

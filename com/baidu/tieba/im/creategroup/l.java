@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class l extends BaseAdapter {
-    private String[] dWx;
-    private GroupAddressEditActivity dWz;
+    private String[] ehK;
+    private GroupAddressEditActivity ehM;
 
     public l(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.dWx = null;
-        this.dWz = null;
-        this.dWz = groupAddressEditActivity;
-        this.dWx = strArr;
+        this.ehK = null;
+        this.ehM = null;
+        this.ehM = groupAddressEditActivity;
+        this.ehK = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dWx != null) {
-            return this.dWx.length;
+        if (this.ehK != null) {
+            return this.ehK.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.dWx == null || i <= -1 || i >= this.dWx.length) ? "" : this.dWx[i];
+        return (this.ehK == null || i <= -1 || i >= this.ehK.length) ? "" : this.ehK[i];
     }
 
     @Override // android.widget.Adapter
@@ -35,26 +35,26 @@ public class l extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (view2 == null) {
-            aVar = new a(this.dWz);
-            view2 = aVar.acD();
+        if (view == null) {
+            aVar = new a(this.ehM);
+            view = aVar.aga();
         } else {
-            aVar = (a) view2.getTag();
+            aVar = (a) view.getTag();
         }
-        aVar.na(getItem(i).toString());
-        if (this.dWz.aCA() == i) {
-            aVar.gR(true);
+        aVar.nM(getItem(i).toString());
+        if (this.ehM.aHv() == i) {
+            aVar.gX(true);
         } else {
-            aVar.gR(false);
+            aVar.gX(false);
         }
-        aA(view2);
-        return view2;
+        aD(view);
+        return view;
     }
 
-    private void aA(View view2) {
-        this.dWz.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.dWz.getLayoutMode().u(view2);
+    private void aD(View view) {
+        this.ehM.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.ehM.getLayoutMode().onModeChanged(view);
     }
 }

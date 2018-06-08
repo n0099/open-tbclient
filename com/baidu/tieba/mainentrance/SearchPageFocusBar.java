@@ -10,13 +10,13 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout eDl;
-    private TextView eDm;
-    private TextView eDn;
+    private RelativeLayout eOF;
+    private TextView eOG;
+    private TextView eOH;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -38,19 +38,19 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(d.i.home_search_focusbar, this);
-        this.eDl = (RelativeLayout) findViewById(d.g.focusbar_container);
-        this.eDn = (TextView) findViewById(d.g.focusbar_hint);
-        ak.c(this.eDn, d.C0126d.cp_cont_c, 1);
-        this.eDn.setVisibility(8);
-        this.eDm = (TextView) findViewById(d.g.focusbar_show);
-        ak.c(this.eDm, d.C0126d.cp_link_tip_a, 1);
-        this.eDm.setVisibility(8);
+        this.eOF = (RelativeLayout) findViewById(d.g.focusbar_container);
+        this.eOH = (TextView) findViewById(d.g.focusbar_hint);
+        al.c(this.eOH, d.C0141d.cp_cont_c, 1);
+        this.eOH.setVisibility(8);
+        this.eOG = (TextView) findViewById(d.g.focusbar_show);
+        al.c(this.eOG, d.C0141d.cp_link_tip_a, 1);
+        this.eOG.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2 instanceof TextView) {
-            String charSequence = ((TextView) view2).getText().toString();
+    public void onClick(View view) {
+        if (view instanceof TextView) {
+            String charSequence = ((TextView) view).getText().toString();
             if (!StringUtils.isNull(charSequence)) {
                 this.mTbPageContext.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mTbPageContext.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
             }

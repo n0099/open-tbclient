@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.richmedia;
 import android.content.Context;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.richmedia.c;
-import com.baidu.ar.util.Constants;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -71,7 +70,7 @@ public class a extends Thread implements Comparable<a> {
             if (eVar.c == 0) {
                 String str = eVar.e;
                 if (eVar.a == c.a.REQ_TYPE_GET_ZIP && str != null) {
-                    String substring = str.substring(0, str.lastIndexOf(Constants.DOT));
+                    String substring = str.substring(0, str.lastIndexOf("."));
                     File file = new File(str);
                     a(file, substring);
                     file.delete();

@@ -1,7 +1,6 @@
 package android.support.v7.widget;
 
 import android.content.Context;
-import android.os.Build;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
@@ -17,7 +16,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActionBarContextView extends AbsActionBarView {
     private static final String TAG = "ActionBarContextView";
@@ -126,17 +125,17 @@ public class ActionBarContextView extends AbsActionBarView {
         this.mContentHeight = i;
     }
 
-    public void setCustomView(View view2) {
+    public void setCustomView(View view) {
         if (this.mCustomView != null) {
             removeView(this.mCustomView);
         }
-        this.mCustomView = view2;
-        if (view2 != null && this.mTitleLayout != null) {
+        this.mCustomView = view;
+        if (view != null && this.mTitleLayout != null) {
             removeView(this.mTitleLayout);
             this.mTitleLayout = null;
         }
-        if (view2 != null) {
-            addView(view2);
+        if (view != null) {
+            addView(view);
         }
         requestLayout();
     }
@@ -197,7 +196,7 @@ public class ActionBarContextView extends AbsActionBarView {
         }
         this.mClose.findViewById(R.id.action_mode_close_button).setOnClickListener(new View.OnClickListener() { // from class: android.support.v7.widget.ActionBarContextView.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
+            public void onClick(View view) {
                 actionMode.finish();
             }
         });
@@ -356,16 +355,14 @@ public class ActionBarContextView extends AbsActionBarView {
 
     @Override // android.view.View
     public void onInitializeAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        if (Build.VERSION.SDK_INT >= 14) {
-            if (accessibilityEvent.getEventType() == 32) {
-                accessibilityEvent.setSource(this);
-                accessibilityEvent.setClassName(getClass().getName());
-                accessibilityEvent.setPackageName(getContext().getPackageName());
-                accessibilityEvent.setContentDescription(this.mTitle);
-                return;
-            }
-            super.onInitializeAccessibilityEvent(accessibilityEvent);
+        if (accessibilityEvent.getEventType() == 32) {
+            accessibilityEvent.setSource(this);
+            accessibilityEvent.setClassName(getClass().getName());
+            accessibilityEvent.setPackageName(getContext().getPackageName());
+            accessibilityEvent.setContentDescription(this.mTitle);
+            return;
         }
+        super.onInitializeAccessibilityEvent(accessibilityEvent);
     }
 
     public void setTitleOptional(boolean z) {

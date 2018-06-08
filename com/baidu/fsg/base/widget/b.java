@@ -14,16 +14,16 @@ public class b implements View.OnTouchListener {
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        View view2;
         View view3;
-        View view4;
         if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-            view3 = this.a.g;
-            ViewHelper.setAlpha(view3, 0.5f);
+            view2 = this.a.g;
+            ViewHelper.setAlpha(view2, 0.5f);
             return false;
         }
-        view4 = this.a.g;
-        ViewHelper.setAlpha(view4, 1.0f);
+        view3 = this.a.g;
+        ViewHelper.setAlpha(view3, 1.0f);
         return false;
     }
 }

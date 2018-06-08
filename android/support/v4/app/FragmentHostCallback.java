@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.util.SimpleArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
+import com.baidu.ar.util.SystemInfoUtil;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes2.dex */
@@ -30,7 +31,7 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
     public abstract E onGetHost();
 
     public FragmentHostCallback(Context context, Handler handler, int i) {
-        this(null, context, handler, i);
+        this(context instanceof Activity ? (Activity) context : null, context, handler, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -217,16 +218,16 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
             this.mAllLoaderManagers = new SimpleArrayMap<>();
         }
         LoaderManagerImpl loaderManagerImpl = (LoaderManagerImpl) this.mAllLoaderManagers.get(str);
-        if (loaderManagerImpl == null) {
-            if (z2) {
-                LoaderManagerImpl loaderManagerImpl2 = new LoaderManagerImpl(str, this, z);
-                this.mAllLoaderManagers.put(str, loaderManagerImpl2);
-                return loaderManagerImpl2;
-            }
+        if (loaderManagerImpl == null && z2) {
+            LoaderManagerImpl loaderManagerImpl2 = new LoaderManagerImpl(str, this, z);
+            this.mAllLoaderManagers.put(str, loaderManagerImpl2);
+            return loaderManagerImpl2;
+        } else if (z && loaderManagerImpl != null && !loaderManagerImpl.mStarted) {
+            loaderManagerImpl.doStart();
+            return loaderManagerImpl;
+        } else {
             return loaderManagerImpl;
         }
-        loaderManagerImpl.updateHostController(this);
-        return loaderManagerImpl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -266,6 +267,12 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void restoreLoaderNonConfig(SimpleArrayMap<String, LoaderManager> simpleArrayMap) {
+        if (simpleArrayMap != null) {
+            int size = simpleArrayMap.size();
+            for (int i = 0; i < size; i++) {
+                ((LoaderManagerImpl) simpleArrayMap.valueAt(i)).updateHostController(this);
+            }
+        }
         this.mAllLoaderManagers = simpleArrayMap;
     }
 
@@ -278,7 +285,7 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
             printWriter.print(str);
             printWriter.print("Loader Manager ");
             printWriter.print(Integer.toHexString(System.identityHashCode(this.mLoaderManager)));
-            printWriter.println(":");
+            printWriter.println(SystemInfoUtil.COLON);
             this.mLoaderManager.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }

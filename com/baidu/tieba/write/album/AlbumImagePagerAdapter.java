@@ -4,8 +4,8 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private AlbumActivity hcB;
-    private Map<Integer, Boolean> hcL = new HashMap();
+    private Map<Integer, Boolean> hoG = new HashMap();
+    private AlbumActivity how;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.hcB = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.hcB.getPageContext().getPageActivity());
+        this.how = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.how.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -31,12 +31,12 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return v.v(this.mList);
+        return w.y(this.mList);
     }
 
     @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view2, Object obj) {
-        return view2 == obj;
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo pM(int i) {
-        return (ImageFileInfo) v.c(this.mList, i);
+    public ImageFileInfo pY(int i) {
+        return (ImageFileInfo) w.c(this.mList, i);
     }
 
-    public boolean uQ(int i) {
-        if (this.hcL.get(Integer.valueOf(i)) == null) {
+    public boolean vi(int i) {
+        if (this.hoG.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.hcL.get(Integer.valueOf(i)).booleanValue();
+        return this.hoG.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -72,14 +72,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo pM = pM(i);
-        if (pM != null) {
-            tbImageView2.startLoad(pM.getFilePath(), 35, false, true);
-            tbImageView.startLoad(pM.getFilePath(), 36, false);
-            this.hcL.put(Integer.valueOf(i), true);
+        ImageFileInfo pY = pY(i);
+        if (pY != null) {
+            tbImageView2.startLoad(pY.getFilePath(), 35, false, true);
+            tbImageView.startLoad(pY.getFilePath(), 36, false);
+            this.hoG.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        ak.j(inflate, d.C0126d.cp_bg_line_d);
+        al.j(inflate, d.C0141d.cp_bg_line_d);
         return inflate;
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
 /* loaded from: classes.dex */
 public class Static {
     static {
@@ -13,13 +13,13 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
-                    v.b(new u<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
+                    w.b(new v<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.u
-                        /* renamed from: No */
+                        @Override // com.baidu.tbadk.util.v
+                        /* renamed from: QO */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.nv((String) customResponsedMessage.getData());
+                                g.oi((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;
@@ -27,7 +27,7 @@ public class Static {
                     }, new com.baidu.tbadk.util.h<Void>() { // from class: com.baidu.tieba.im.db.Static.1.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.h
-                        /* renamed from: c */
+                        /* renamed from: a */
                         public void onReturnDataInUI(Void r4) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008016));
                         }

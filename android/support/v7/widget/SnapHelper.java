@@ -34,7 +34,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     };
 
     @Nullable
-    public abstract int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2);
+    public abstract int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view);
 
     @Nullable
     public abstract View findSnapView(RecyclerView.LayoutManager layoutManager);
@@ -84,13 +84,13 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     }
 
     private boolean snapFromFling(@NonNull RecyclerView.LayoutManager layoutManager, int i, int i2) {
-        LinearSmoothScroller createSnapScroller;
+        RecyclerView.SmoothScroller createScroller;
         int findTargetSnapPosition;
-        if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) || (createSnapScroller = createSnapScroller(layoutManager)) == null || (findTargetSnapPosition = findTargetSnapPosition(layoutManager, i, i2)) == -1) {
+        if (!(layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) || (createScroller = createScroller(layoutManager)) == null || (findTargetSnapPosition = findTargetSnapPosition(layoutManager, i, i2)) == -1) {
             return false;
         }
-        createSnapScroller.setTargetPosition(findTargetSnapPosition);
-        layoutManager.startSmoothScroll(createSnapScroller);
+        createScroller.setTargetPosition(findTargetSnapPosition);
+        layoutManager.startSmoothScroll(createScroller);
         return true;
     }
 
@@ -106,12 +106,18 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     }
 
     @Nullable
-    private LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
+    protected RecyclerView.SmoothScroller createScroller(RecyclerView.LayoutManager layoutManager) {
+        return createSnapScroller(layoutManager);
+    }
+
+    @Nullable
+    @Deprecated
+    protected LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
         if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
             return new LinearSmoothScroller(this.mRecyclerView.getContext()) { // from class: android.support.v7.widget.SnapHelper.2
                 @Override // android.support.v7.widget.LinearSmoothScroller, android.support.v7.widget.RecyclerView.SmoothScroller
-                protected void onTargetFound(View view2, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
-                    int[] calculateDistanceToFinalSnap = SnapHelper.this.calculateDistanceToFinalSnap(SnapHelper.this.mRecyclerView.getLayoutManager(), view2);
+                protected void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
+                    int[] calculateDistanceToFinalSnap = SnapHelper.this.calculateDistanceToFinalSnap(SnapHelper.this.mRecyclerView.getLayoutManager(), view);
                     int i = calculateDistanceToFinalSnap[0];
                     int i2 = calculateDistanceToFinalSnap[1];
                     int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));

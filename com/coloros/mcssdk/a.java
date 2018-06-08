@@ -11,17 +11,17 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private static int count = 0;
-    private List<com.coloros.mcssdk.b.c> hna;
-    private List<d> hnb;
-    private String hnc;
-    private String hnd;
-    private com.coloros.mcssdk.d.b hne;
+    private List<com.coloros.mcssdk.b.c> hyW;
+    private List<d> hyX;
+    private String hyY;
+    private String hyZ;
+    private com.coloros.mcssdk.d.b hza;
     private String mAppKey;
     private Context mContext;
 
     private a() {
-        this.hna = new ArrayList();
-        this.hnb = new ArrayList();
+        this.hyW = new ArrayList();
+        this.hyX = new ArrayList();
         synchronized (a.class) {
             if (count > 0) {
                 throw new RuntimeException("PushManager can't create again!");
@@ -43,7 +43,7 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", aVar.bFt());
+            intent.putExtra("taskID", aVar.bKx());
             intent.putExtra("appPackage", aVar.getAppPackage());
             intent.putExtra("messageID", new StringBuilder().append(aVar.getMessageID()).toString());
             intent.putExtra("messageType", aVar.getType());
@@ -61,7 +61,7 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", dVar.bFt());
+            intent.putExtra("taskID", dVar.bKx());
             intent.putExtra("appPackage", dVar.getAppPackage());
             intent.putExtra("messageID", new StringBuilder().append(dVar.getMessageID()).toString());
             intent.putExtra("messageType", dVar.getType());
@@ -74,13 +74,13 @@ public class a {
 
     private synchronized void a(d dVar) {
         if (dVar != null) {
-            this.hnb.add(dVar);
+            this.hyX.add(dVar);
         }
     }
 
     private synchronized void a(com.coloros.mcssdk.b.c cVar) {
         if (cVar != null) {
-            this.hna.add(cVar);
+            this.hyW.add(cVar);
         }
     }
 
@@ -92,23 +92,23 @@ public class a {
         intent.putExtra(LegoListActivityConfig.PARAMS, str);
         intent.putExtra("appPackage", this.mContext.getPackageName());
         intent.putExtra(WBConstants.SSO_APP_KEY, this.mAppKey);
-        intent.putExtra("appSecret", this.hnc);
-        intent.putExtra("registerID", this.hnd);
+        intent.putExtra("appSecret", this.hyY);
+        intent.putExtra("registerID", this.hyZ);
         intent.putExtra("sdkVersion", getSDKVersion());
         this.mContext.startService(intent);
     }
 
-    public static a bFq() {
+    public static a bKu() {
         a aVar;
-        aVar = c.hnf;
+        aVar = c.hzb;
         return aVar;
     }
 
-    public static boolean cm(Context context) {
+    public static boolean cx(Context context) {
         return com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs") && com.coloros.mcssdk.c.d.b(context, "com.coloros.mcs") >= 1012 && com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs", "supportOpenPush");
     }
 
-    private void vq(int i) {
+    private void vI(int i) {
         as(i, "");
     }
 
@@ -116,33 +116,33 @@ public class a {
         if (context == null) {
             throw new IllegalArgumentException("context is null !");
         }
-        if (!cm(context)) {
+        if (!cx(context)) {
             throw new IllegalArgumentException("the phone is not support oppo push!");
         }
         this.mAppKey = str;
-        this.hnc = str2;
+        this.hyY = str2;
         this.mContext = context.getApplicationContext();
-        this.hne = bVar;
-        vq(12289);
+        this.hza = bVar;
+        vI(12289);
     }
 
-    public List<d> bFo() {
-        return this.hnb;
+    public List<d> bKs() {
+        return this.hyX;
     }
 
-    public List<com.coloros.mcssdk.b.c> bFp() {
-        return this.hna;
+    public List<com.coloros.mcssdk.b.c> bKt() {
+        return this.hyW;
     }
 
-    public com.coloros.mcssdk.d.b bFr() {
-        return this.hne;
+    public com.coloros.mcssdk.d.b bKv() {
+        return this.hza;
     }
 
     public String getSDKVersion() {
         return "1.0.1";
     }
 
-    public void vy(String str) {
-        this.hnd = str;
+    public void ws(String str) {
+        this.hyZ = str;
     }
 }

@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.RatingCompat;
 import android.support.v4.media.session.IMediaControllerCallback;
@@ -17,6 +18,10 @@ import android.view.KeyEvent;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface IMediaSession extends IInterface {
+    void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException;
+
+    void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i) throws RemoteException;
+
     void adjustVolume(int i, int i2, String str) throws RemoteException;
 
     void fastForward() throws RemoteException;
@@ -39,9 +44,17 @@ public interface IMediaSession extends IInterface {
 
     int getRatingType() throws RemoteException;
 
+    int getRepeatMode() throws RemoteException;
+
+    int getShuffleMode() throws RemoteException;
+
     String getTag() throws RemoteException;
 
     ParcelableVolumeInfo getVolumeAttributes() throws RemoteException;
+
+    boolean isCaptioningEnabled() throws RemoteException;
+
+    boolean isShuffleModeEnabledDeprecated() throws RemoteException;
 
     boolean isTransportControlEnabled() throws RemoteException;
 
@@ -69,7 +82,13 @@ public interface IMediaSession extends IInterface {
 
     void rate(RatingCompat ratingCompat) throws RemoteException;
 
+    void rateWithExtras(RatingCompat ratingCompat, Bundle bundle) throws RemoteException;
+
     void registerCallbackListener(IMediaControllerCallback iMediaControllerCallback) throws RemoteException;
+
+    void removeQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException;
+
+    void removeQueueItemAt(int i) throws RemoteException;
 
     void rewind() throws RemoteException;
 
@@ -80,6 +99,14 @@ public interface IMediaSession extends IInterface {
     void sendCustomAction(String str, Bundle bundle) throws RemoteException;
 
     boolean sendMediaButton(KeyEvent keyEvent) throws RemoteException;
+
+    void setCaptioningEnabled(boolean z) throws RemoteException;
+
+    void setRepeatMode(int i) throws RemoteException;
+
+    void setShuffleMode(int i) throws RemoteException;
+
+    void setShuffleModeEnabledDeprecated(boolean z) throws RemoteException;
 
     void setVolumeTo(int i, int i2, String str) throws RemoteException;
 
@@ -92,6 +119,8 @@ public interface IMediaSession extends IInterface {
     /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IMediaSession {
         private static final String DESCRIPTOR = "android.support.v4.media.session.IMediaSession";
+        static final int TRANSACTION_addQueueItem = 41;
+        static final int TRANSACTION_addQueueItemAt = 42;
         static final int TRANSACTION_adjustVolume = 11;
         static final int TRANSACTION_fastForward = 22;
         static final int TRANSACTION_getExtras = 31;
@@ -103,8 +132,12 @@ public interface IMediaSession extends IInterface {
         static final int TRANSACTION_getQueue = 29;
         static final int TRANSACTION_getQueueTitle = 30;
         static final int TRANSACTION_getRatingType = 32;
+        static final int TRANSACTION_getRepeatMode = 37;
+        static final int TRANSACTION_getShuffleMode = 47;
         static final int TRANSACTION_getTag = 7;
         static final int TRANSACTION_getVolumeAttributes = 10;
+        static final int TRANSACTION_isCaptioningEnabled = 45;
+        static final int TRANSACTION_isShuffleModeEnabledDeprecated = 38;
         static final int TRANSACTION_isTransportControlEnabled = 5;
         static final int TRANSACTION_next = 20;
         static final int TRANSACTION_pause = 18;
@@ -118,12 +151,19 @@ public interface IMediaSession extends IInterface {
         static final int TRANSACTION_prepareFromUri = 36;
         static final int TRANSACTION_previous = 21;
         static final int TRANSACTION_rate = 25;
+        static final int TRANSACTION_rateWithExtras = 51;
         static final int TRANSACTION_registerCallbackListener = 3;
+        static final int TRANSACTION_removeQueueItem = 43;
+        static final int TRANSACTION_removeQueueItemAt = 44;
         static final int TRANSACTION_rewind = 23;
         static final int TRANSACTION_seekTo = 24;
         static final int TRANSACTION_sendCommand = 1;
         static final int TRANSACTION_sendCustomAction = 26;
         static final int TRANSACTION_sendMediaButton = 2;
+        static final int TRANSACTION_setCaptioningEnabled = 46;
+        static final int TRANSACTION_setRepeatMode = 39;
+        static final int TRANSACTION_setShuffleMode = 48;
+        static final int TRANSACTION_setShuffleModeEnabledDeprecated = 40;
         static final int TRANSACTION_setVolumeTo = 12;
         static final int TRANSACTION_skipToQueueItem = 17;
         static final int TRANSACTION_stop = 19;
@@ -375,6 +415,75 @@ public interface IMediaSession extends IInterface {
                     prepareFromUri(parcel.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(parcel) : null, parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
                     return true;
+                case 37:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    int repeatMode = getRepeatMode();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(repeatMode);
+                    return true;
+                case 38:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    boolean isShuffleModeEnabledDeprecated = isShuffleModeEnabledDeprecated();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(isShuffleModeEnabledDeprecated ? 1 : 0);
+                    return true;
+                case 39:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    setRepeatMode(parcel.readInt());
+                    parcel2.writeNoException();
+                    return true;
+                case 40:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    setShuffleModeEnabledDeprecated(parcel.readInt() != 0);
+                    parcel2.writeNoException();
+                    return true;
+                case 41:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    addQueueItem(parcel.readInt() != 0 ? MediaDescriptionCompat.CREATOR.createFromParcel(parcel) : null);
+                    parcel2.writeNoException();
+                    return true;
+                case 42:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    addQueueItemAt(parcel.readInt() != 0 ? MediaDescriptionCompat.CREATOR.createFromParcel(parcel) : null, parcel.readInt());
+                    parcel2.writeNoException();
+                    return true;
+                case 43:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    removeQueueItem(parcel.readInt() != 0 ? MediaDescriptionCompat.CREATOR.createFromParcel(parcel) : null);
+                    parcel2.writeNoException();
+                    return true;
+                case 44:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    removeQueueItemAt(parcel.readInt());
+                    parcel2.writeNoException();
+                    return true;
+                case 45:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    boolean isCaptioningEnabled = isCaptioningEnabled();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(isCaptioningEnabled ? 1 : 0);
+                    return true;
+                case 46:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    setCaptioningEnabled(parcel.readInt() != 0);
+                    parcel2.writeNoException();
+                    return true;
+                case 47:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    int shuffleMode = getShuffleMode();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(shuffleMode);
+                    return true;
+                case 48:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    setShuffleMode(parcel.readInt());
+                    parcel2.writeNoException();
+                    return true;
+                case 51:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    rateWithExtras(parcel.readInt() != 0 ? RatingCompat.CREATOR.createFromParcel(parcel) : null, parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
+                    parcel2.writeNoException();
+                    return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -615,6 +724,338 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
+            public MediaMetadataCompat getMetadata() throws RemoteException {
+                MediaMetadataCompat mediaMetadataCompat;
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(27, obtain, obtain2, 0);
+                    obtain2.readException();
+                    if (obtain2.readInt() != 0) {
+                        mediaMetadataCompat = MediaMetadataCompat.CREATOR.createFromParcel(obtain2);
+                    } else {
+                        mediaMetadataCompat = null;
+                    }
+                    return mediaMetadataCompat;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public PlaybackStateCompat getPlaybackState() throws RemoteException {
+                PlaybackStateCompat playbackStateCompat;
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(28, obtain, obtain2, 0);
+                    obtain2.readException();
+                    if (obtain2.readInt() != 0) {
+                        playbackStateCompat = PlaybackStateCompat.CREATOR.createFromParcel(obtain2);
+                    } else {
+                        playbackStateCompat = null;
+                    }
+                    return playbackStateCompat;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public List<MediaSessionCompat.QueueItem> getQueue() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(29, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.createTypedArrayList(MediaSessionCompat.QueueItem.CREATOR);
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public CharSequence getQueueTitle() throws RemoteException {
+                CharSequence charSequence;
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(30, obtain, obtain2, 0);
+                    obtain2.readException();
+                    if (obtain2.readInt() != 0) {
+                        charSequence = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(obtain2);
+                    } else {
+                        charSequence = null;
+                    }
+                    return charSequence;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public Bundle getExtras() throws RemoteException {
+                Bundle bundle;
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(31, obtain, obtain2, 0);
+                    obtain2.readException();
+                    if (obtain2.readInt() != 0) {
+                        bundle = (Bundle) Bundle.CREATOR.createFromParcel(obtain2);
+                    } else {
+                        bundle = null;
+                    }
+                    return bundle;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public int getRatingType() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(32, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public boolean isCaptioningEnabled() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(45, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt() != 0;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public int getRepeatMode() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(37, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public boolean isShuffleModeEnabledDeprecated() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(38, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt() != 0;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public int getShuffleMode() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(47, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    if (mediaDescriptionCompat != null) {
+                        obtain.writeInt(1);
+                        mediaDescriptionCompat.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    this.mRemote.transact(41, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    if (mediaDescriptionCompat != null) {
+                        obtain.writeInt(1);
+                        mediaDescriptionCompat.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    obtain.writeInt(i);
+                    this.mRemote.transact(42, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void removeQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    if (mediaDescriptionCompat != null) {
+                        obtain.writeInt(1);
+                        mediaDescriptionCompat.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    this.mRemote.transact(43, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void removeQueueItemAt(int i) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    this.mRemote.transact(44, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void prepare() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(33, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void prepareFromMediaId(String str, Bundle bundle) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeString(str);
+                    if (bundle != null) {
+                        obtain.writeInt(1);
+                        bundle.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    this.mRemote.transact(34, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void prepareFromSearch(String str, Bundle bundle) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeString(str);
+                    if (bundle != null) {
+                        obtain.writeInt(1);
+                        bundle.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    this.mRemote.transact(35, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void prepareFromUri(Uri uri, Bundle bundle) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    if (uri != null) {
+                        obtain.writeInt(1);
+                        uri.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    if (bundle != null) {
+                        obtain.writeInt(1);
+                        bundle.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    this.mRemote.transact(36, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
             public void play() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
@@ -831,6 +1272,92 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
+            public void rateWithExtras(RatingCompat ratingCompat, Bundle bundle) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    if (ratingCompat != null) {
+                        obtain.writeInt(1);
+                        ratingCompat.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    if (bundle != null) {
+                        obtain.writeInt(1);
+                        bundle.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    this.mRemote.transact(51, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void setCaptioningEnabled(boolean z) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(z ? 1 : 0);
+                    this.mRemote.transact(46, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void setRepeatMode(int i) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    this.mRemote.transact(39, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void setShuffleModeEnabledDeprecated(boolean z) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(z ? 1 : 0);
+                    this.mRemote.transact(40, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
+            public void setShuffleMode(int i) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    obtain.writeInt(i);
+                    this.mRemote.transact(48, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // android.support.v4.media.session.IMediaSession
             public void sendCustomAction(String str, Bundle bundle) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
@@ -844,202 +1371,6 @@ public interface IMediaSession extends IInterface {
                         obtain.writeInt(0);
                     }
                     this.mRemote.transact(26, obtain, obtain2, 0);
-                    obtain2.readException();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public MediaMetadataCompat getMetadata() throws RemoteException {
-                MediaMetadataCompat mediaMetadataCompat;
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(27, obtain, obtain2, 0);
-                    obtain2.readException();
-                    if (obtain2.readInt() != 0) {
-                        mediaMetadataCompat = MediaMetadataCompat.CREATOR.createFromParcel(obtain2);
-                    } else {
-                        mediaMetadataCompat = null;
-                    }
-                    return mediaMetadataCompat;
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public PlaybackStateCompat getPlaybackState() throws RemoteException {
-                PlaybackStateCompat playbackStateCompat;
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(28, obtain, obtain2, 0);
-                    obtain2.readException();
-                    if (obtain2.readInt() != 0) {
-                        playbackStateCompat = PlaybackStateCompat.CREATOR.createFromParcel(obtain2);
-                    } else {
-                        playbackStateCompat = null;
-                    }
-                    return playbackStateCompat;
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public List<MediaSessionCompat.QueueItem> getQueue() throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(29, obtain, obtain2, 0);
-                    obtain2.readException();
-                    return obtain2.createTypedArrayList(MediaSessionCompat.QueueItem.CREATOR);
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public CharSequence getQueueTitle() throws RemoteException {
-                CharSequence charSequence;
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(30, obtain, obtain2, 0);
-                    obtain2.readException();
-                    if (obtain2.readInt() != 0) {
-                        charSequence = (CharSequence) TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(obtain2);
-                    } else {
-                        charSequence = null;
-                    }
-                    return charSequence;
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public Bundle getExtras() throws RemoteException {
-                Bundle bundle;
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(31, obtain, obtain2, 0);
-                    obtain2.readException();
-                    if (obtain2.readInt() != 0) {
-                        bundle = (Bundle) Bundle.CREATOR.createFromParcel(obtain2);
-                    } else {
-                        bundle = null;
-                    }
-                    return bundle;
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public int getRatingType() throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(32, obtain, obtain2, 0);
-                    obtain2.readException();
-                    return obtain2.readInt();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public void prepare() throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(33, obtain, obtain2, 0);
-                    obtain2.readException();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public void prepareFromMediaId(String str, Bundle bundle) throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeString(str);
-                    if (bundle != null) {
-                        obtain.writeInt(1);
-                        bundle.writeToParcel(obtain, 0);
-                    } else {
-                        obtain.writeInt(0);
-                    }
-                    this.mRemote.transact(34, obtain, obtain2, 0);
-                    obtain2.readException();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public void prepareFromSearch(String str, Bundle bundle) throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeString(str);
-                    if (bundle != null) {
-                        obtain.writeInt(1);
-                        bundle.writeToParcel(obtain, 0);
-                    } else {
-                        obtain.writeInt(0);
-                    }
-                    this.mRemote.transact(35, obtain, obtain2, 0);
-                    obtain2.readException();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // android.support.v4.media.session.IMediaSession
-            public void prepareFromUri(Uri uri, Bundle bundle) throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    if (uri != null) {
-                        obtain.writeInt(1);
-                        uri.writeToParcel(obtain, 0);
-                    } else {
-                        obtain.writeInt(0);
-                    }
-                    if (bundle != null) {
-                        obtain.writeInt(1);
-                        bundle.writeToParcel(obtain, 0);
-                    } else {
-                        obtain.writeInt(0);
-                    }
-                    this.mRemote.transact(36, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

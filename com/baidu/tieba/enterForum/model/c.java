@@ -11,31 +11,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private ViewEventCenter cHX;
-    private SoftReference<ForumEditView> cJO;
-    private com.baidu.tieba.enterForum.a.b cJP;
+    private ViewEventCenter cRe;
+    private SoftReference<ForumEditView> cSU;
+    private com.baidu.tieba.enterForum.a.b cSV;
     private TbPageContext<?> mContext;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.mContext = tbPageContext;
-        this.cHX = viewEventCenter;
+        this.cRe = viewEventCenter;
     }
 
-    public ForumEditView alj() {
-        if (this.cJO == null) {
+    public ForumEditView app() {
+        if (this.cSU == null) {
             return null;
         }
-        return this.cJO.get();
+        return this.cSU.get();
     }
 
     public void createView() {
         ForumEditView forumEditView = new ForumEditView(this.mContext.getPageActivity());
-        forumEditView.setEventCenter(this.cHX);
-        this.cJO = new SoftReference<>(forumEditView);
+        forumEditView.setEventCenter(this.cRe);
+        this.cSU = new SoftReference<>(forumEditView);
     }
 
     public List<f> getDataList() {
-        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.cJP.getDataList(), false) : this.cJP.getDataList();
+        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.cSV.getDataList(), false) : this.cSV.getDataList();
     }
 
     public void b(f fVar) {
@@ -43,18 +43,18 @@ public class c {
         if (dataList != null) {
             dataList.remove(fVar);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.cJP.F(f(dataList, true));
+                this.cSV.I(f(dataList, true));
             } else {
-                this.cJP.F(dataList);
+                this.cSV.I(dataList);
             }
         }
     }
 
-    public void aP(List<f> list) {
+    public void aS(List<f> list) {
         ForumEditView forumEditView;
-        if (this.cJO != null && list != null && (forumEditView = this.cJO.get()) != null) {
+        if (this.cSU != null && list != null && (forumEditView = this.cSU.get()) != null) {
             forumEditView.setColumnTypeAndRefeshView();
-            aQ(list);
+            aT(list);
         }
     }
 
@@ -79,34 +79,34 @@ public class c {
         return arrayList;
     }
 
-    public void aQ(List<f> list) {
-        ForumEditView forumEditView = this.cJO.get();
+    public void aT(List<f> list) {
+        ForumEditView forumEditView = this.cSU.get();
         if (forumEditView != null) {
-            if (this.cJP == null) {
-                alk();
+            if (this.cSV == null) {
+                apq();
             }
-            forumEditView.setGridAdapterIfNeeded(this.cJP);
+            forumEditView.setGridAdapterIfNeeded(this.cSV);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.cJP.F(f(list, true));
+                this.cSV.I(f(list, true));
             } else {
-                this.cJP.F(list);
+                this.cSV.I(list);
             }
-            this.cJP.b(this.mContext, TbadkCoreApplication.getInst().getSkinType());
+            this.cSV.b(this.mContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void alk() {
-        this.cJP = new com.baidu.tieba.enterForum.a.b(this.mContext, com.baidu.tieba.enterForum.view.c.class, d.i.home_like_item_in_edit_grid, this.cHX);
-        this.cJP.bP(false);
+    private void apq() {
+        this.cSV = new com.baidu.tieba.enterForum.a.b(this.mContext, com.baidu.tieba.enterForum.view.c.class, d.i.home_like_item_in_edit_grid, this.cRe);
+        this.cSV.bT(false);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.cJO.get() != null) {
-                this.cJO.get().onChangeSkinType(tbPageContext);
+            if (this.cSU.get() != null) {
+                this.cSU.get().onChangeSkinType(tbPageContext);
             }
-            if (this.cJP != null) {
-                this.cJP.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.cSV != null) {
+                this.cSV.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

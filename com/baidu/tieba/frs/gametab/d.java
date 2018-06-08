@@ -1,43 +1,79 @@
 package com.baidu.tieba.frs.gametab;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.ab;
+import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes2.dex */
-public class d extends com.baidu.tbadk.mainTab.b {
-    public d(FrsFragment frsFragment) {
-        Fw().aIn = frsFragment;
-    }
-
-    @Override // com.baidu.tbadk.mainTab.b
-    public boolean isAvailable() {
+public class d {
+    public static boolean a(TbPageContext<?> tbPageContext, l lVar) {
+        String fixedText;
+        if (tbPageContext == null || lVar == null) {
+            return false;
+        }
+        if (ba.aU(tbPageContext.getPageActivity())) {
+            AntiData uo = lVar.uo();
+            if (uo != null) {
+                if (a(tbPageContext, uo.getBlock_stat(), uo.mFrsForbidenDialogInfo)) {
+                    return true;
+                }
+                if (uo.getIfpost() == 0 && !StringUtils.isNull(uo.getForbid_info())) {
+                    String forbid_info = uo.getForbid_info();
+                    if (ao.eJ(forbid_info) > 14) {
+                        forbid_info = ao.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
+                    }
+                    BdToast b = BdToast.b(tbPageContext.getPageActivity(), forbid_info, d.f.icon_toast_game_error);
+                    b.Y(1.25f);
+                    b.xi();
+                    return false;
+                }
+            }
+            return false;
+        }
         return true;
     }
 
-    @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Fv() {
-        com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.type = 1;
-        cVar.aIo = d.k.chosen_pb_title;
-        cVar.aIv = com.baidu.tbadk.mainTab.c.aIt;
-        return cVar;
-    }
-
-    public void a(ab abVar) {
-        if (abVar != null && abVar.kn(1)) {
-            abVar.b(this);
+    public static boolean a(final TbPageContext<?> tbPageContext, int i, final BlockPopInfoData blockPopInfoData) {
+        if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
+            return false;
         }
-    }
-
-    @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator aT(Context context) {
-        this.aIe = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
-        this.aIe.setTextSize(2.0f);
-        return this.aIe;
+        String string = StringUtils.isNull(blockPopInfoData.block_info) ? tbPageContext.getResources().getString(d.k.frs_forbiden_dialog_msg) : blockPopInfoData.block_info;
+        if (i != 1 && i != 2) {
+            BdToast b = BdToast.b(tbPageContext.getPageActivity(), string, d.f.icon_toast_game_error);
+            b.Y(1.25f);
+            b.xi();
+            return false;
+        }
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+        aVar.dB(ao.getFixedText(string, 50, true));
+        aVar.b(ao.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(d.k.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.d.1
+            @Override // com.baidu.tbadk.core.dialog.a.b
+            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                if (aVar2 != null) {
+                    aVar2.dismiss();
+                }
+            }
+        });
+        if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
+            aVar.a(ao.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.d.2
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    ay.zG().c(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
+                    if (aVar2 != null) {
+                        aVar2.dismiss();
+                    }
+                }
+            });
+        }
+        aVar.b(tbPageContext).xa();
+        return true;
     }
 }

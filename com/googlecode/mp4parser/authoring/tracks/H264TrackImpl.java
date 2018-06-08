@@ -274,23 +274,23 @@ public class H264TrackImpl extends AbstractTrack {
     public class a {
         ByteBuffer buffer;
         DataSource dataSource;
-        long hxd = 0;
-        int hxe = 0;
+        long hLS = 0;
+        int hLT = 0;
         long start;
 
-        public void bIC() throws IOException {
-            this.buffer = this.dataSource.map(this.hxd, Math.min(this.dataSource.size() - this.hxd, H264TrackImpl.BUFFER));
+        public void bOr() throws IOException {
+            this.buffer = this.dataSource.map(this.hLS, Math.min(this.dataSource.size() - this.hLS, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
             this.dataSource = dataSource;
-            bIC();
+            bOr();
         }
 
-        boolean bID() throws IOException {
-            if (this.buffer.limit() - this.hxe >= 3) {
-                return this.buffer.get(this.hxe) == 0 && this.buffer.get(this.hxe + 1) == 0 && this.buffer.get(this.hxe + 2) == 1;
-            } else if (this.hxd + this.hxe != this.dataSource.size()) {
+        boolean bOs() throws IOException {
+            if (this.buffer.limit() - this.hLT >= 3) {
+                return this.buffer.get(this.hLT) == 0 && this.buffer.get(this.hLT + 1) == 0 && this.buffer.get(this.hLT + 2) == 1;
+            } else if (this.hLS + this.hLT != this.dataSource.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {
@@ -298,33 +298,33 @@ public class H264TrackImpl extends AbstractTrack {
             }
         }
 
-        boolean bIE() throws IOException {
-            if (this.buffer.limit() - this.hxe >= 3) {
-                return this.buffer.get(this.hxe) == 0 && this.buffer.get(this.hxe + 1) == 0 && (this.buffer.get(this.hxe + 2) == 0 || this.buffer.get(this.hxe + 2) == 1);
-            } else if (this.hxd + this.hxe + 3 > this.dataSource.size()) {
-                return this.hxd + ((long) this.hxe) == this.dataSource.size();
+        boolean bOt() throws IOException {
+            if (this.buffer.limit() - this.hLT >= 3) {
+                return this.buffer.get(this.hLT) == 0 && this.buffer.get(this.hLT + 1) == 0 && (this.buffer.get(this.hLT + 2) == 0 || this.buffer.get(this.hLT + 2) == 1);
+            } else if (this.hLS + this.hLT + 3 > this.dataSource.size()) {
+                return this.hLS + ((long) this.hLT) == this.dataSource.size();
             } else {
-                this.hxd = this.start;
-                this.hxe = 0;
-                bIC();
-                return bIE();
+                this.hLS = this.start;
+                this.hLT = 0;
+                bOr();
+                return bOt();
             }
         }
 
-        void bIF() {
-            this.hxe++;
+        void bOu() {
+            this.hLT++;
         }
 
-        void bIG() {
-            this.hxe += 3;
-            this.start = this.hxd + this.hxe;
+        void bOv() {
+            this.hLT += 3;
+            this.start = this.hLS + this.hLT;
         }
 
-        public ByteBuffer bIH() {
-            if (this.start >= this.hxd) {
-                this.buffer.position((int) (this.start - this.hxd));
+        public ByteBuffer bOw() {
+            if (this.start >= this.hLS) {
+                this.buffer.position((int) (this.start - this.hLS));
                 ByteBuffer slice = this.buffer.slice();
-                slice.limit((int) (this.hxe - (this.start - this.hxd)));
+                slice.limit((int) (this.hLT - (this.start - this.hLS)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");
@@ -332,18 +332,18 @@ public class H264TrackImpl extends AbstractTrack {
     }
 
     private ByteBuffer findNextSample(a aVar) throws IOException {
-        while (!aVar.bID()) {
+        while (!aVar.bOs()) {
             try {
-                aVar.bIF();
+                aVar.bOu();
             } catch (EOFException e) {
                 return null;
             }
         }
-        aVar.bIG();
-        while (!aVar.bIE()) {
-            aVar.bIF();
+        aVar.bOv();
+        while (!aVar.bOt()) {
+            aVar.bOu();
         }
-        return aVar.bIH();
+        return aVar.bOw();
     }
 
     protected Sample createSample(List<? extends ByteBuffer> list) {

@@ -8,53 +8,53 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean dRW;
+    private boolean edj;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dRW = false;
+        this.edj = false;
     }
 
-    public void gK(boolean z) {
-        this.dRW = z;
+    public void gQ(boolean z) {
+        this.edj = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ba */
+    /* renamed from: bb */
     public e.a<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgrightView msgrightView = new MsgrightView(this.mPageContext);
-        return new a(msgrightView.bO(), msgrightView);
+        return new a(msgrightView.eC(), msgrightView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.e, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
-        super.onFillViewHolder(i, view2, viewGroup, chatMessage, aVar);
-        MsgrightView aAS = aVar.aAS();
-        aAS.nf(this.dRN);
-        aAS.gK(this.dRW);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
+        super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
+        MsgrightView aFN = aVar.aFN();
+        aFN.nr(this.eda);
+        aFN.gQ(this.edj);
         chatMessage.getCacheData().setIs_left(0);
-        aAS.a(this.dRD);
-        aAS.setOnItemViewLongClickListener(this.dRE);
-        aAS.setPosition(i);
-        aAS.bQ(this.dRK);
-        aAS.bP(chatMessage.getCacheData().getLastMsgTime());
-        aAS.a(viewGroup, chatMessage);
-        aAS.b(viewGroup, chatMessage);
+        aFN.a(this.ecQ);
+        aFN.setOnItemViewLongClickListener(this.ecR);
+        aFN.setPosition(i);
+        aFN.bW(this.ecX);
+        aFN.bV(chatMessage.getCacheData().getLastMsgTime());
+        aFN.a(viewGroup, chatMessage);
+        aFN.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
-        this.mPageContext.getLayoutMode().u(view2);
-        return view2;
+        this.mPageContext.getLayoutMode().onModeChanged(view);
+        return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends e.a<MsgrightView> {
-        public a(View view2, MsgrightView msgrightView) {
-            super(view2, msgrightView);
+        public a(View view, MsgrightView msgrightView) {
+            super(view, msgrightView);
         }
     }
 }

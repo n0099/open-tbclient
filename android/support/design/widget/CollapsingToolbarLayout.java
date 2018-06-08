@@ -1,5 +1,6 @@
 package android.support.design.widget;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -13,12 +14,15 @@ import android.support.annotation.DrawableRes;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.annotation.RestrictTo;
 import android.support.annotation.StyleRes;
 import android.support.design.R;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.ValueAnimatorCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v4.math.MathUtils;
+import android.support.v4.util.ObjectsCompat;
 import android.support.v4.view.OnApplyWindowInsetsListener;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.WindowInsetsCompat;
@@ -29,6 +33,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     private static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
@@ -47,14 +53,13 @@ public class CollapsingToolbarLayout extends FrameLayout {
     private boolean mRefreshToolbar;
     private int mScrimAlpha;
     private long mScrimAnimationDuration;
-    private ValueAnimatorCompat mScrimAnimator;
+    private ValueAnimator mScrimAnimator;
     private int mScrimVisibleHeightTrigger;
     private boolean mScrimsAreShown;
     Drawable mStatusBarScrim;
     private final Rect mTmpRect;
     private Toolbar mToolbar;
     private View mToolbarDirectChild;
-    private int mToolbarDrawIndex;
     private int mToolbarId;
 
     public CollapsingToolbarLayout(Context context) {
@@ -112,7 +117,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         setWillNotDraw(false);
         ViewCompat.setOnApplyWindowInsetsListener(this, new OnApplyWindowInsetsListener() { // from class: android.support.design.widget.CollapsingToolbarLayout.1
             @Override // android.support.v4.view.OnApplyWindowInsetsListener
-            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+            public WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat) {
                 return CollapsingToolbarLayout.this.onWindowInsetChanged(windowInsetsCompat);
             }
         });
@@ -143,7 +148,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     WindowInsetsCompat onWindowInsetChanged(WindowInsetsCompat windowInsetsCompat) {
         WindowInsetsCompat windowInsetsCompat2 = ViewCompat.getFitsSystemWindows(this) ? windowInsetsCompat : null;
-        if (!ViewUtils.objectEquals(this.mLastInsets, windowInsetsCompat2)) {
+        if (!ObjectsCompat.equals(this.mLastInsets, windowInsetsCompat2)) {
             this.mLastInsets = windowInsetsCompat2;
             requestLayout();
         }
@@ -172,14 +177,16 @@ public class CollapsingToolbarLayout extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    protected boolean drawChild(Canvas canvas, View view2, long j) {
-        boolean drawChild = super.drawChild(canvas, view2, j);
-        if (this.mContentScrim != null && this.mScrimAlpha > 0 && isToolbarChildDrawnNext(view2)) {
+    protected boolean drawChild(Canvas canvas, View view, long j) {
+        boolean z;
+        if (this.mContentScrim == null || this.mScrimAlpha <= 0 || !isToolbarChild(view)) {
+            z = false;
+        } else {
             this.mContentScrim.mutate().setAlpha(this.mScrimAlpha);
             this.mContentScrim.draw(canvas);
-            return true;
+            z = true;
         }
-        return drawChild;
+        return super.drawChild(canvas, view, j) || z;
     }
 
     @Override // android.view.View
@@ -224,18 +231,18 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    private boolean isToolbarChildDrawnNext(View view2) {
-        return this.mToolbarDrawIndex >= 0 && this.mToolbarDrawIndex == indexOfChild(view2) + 1;
+    private boolean isToolbarChild(View view) {
+        return (this.mToolbarDirectChild == null || this.mToolbarDirectChild == this) ? view == this.mToolbar : view == this.mToolbarDirectChild;
     }
 
-    private View findDirectChild(View view2) {
-        View view3 = view2;
-        for (ViewParent parent = view2.getParent(); parent != this && parent != null; parent = parent.getParent()) {
+    private View findDirectChild(View view) {
+        View view2 = view;
+        for (ViewParent parent = view.getParent(); parent != this && parent != null; parent = parent.getParent()) {
             if (parent instanceof View) {
-                view3 = (View) parent;
+                view2 = (View) parent;
             }
         }
-        return view3;
+        return view2;
     }
 
     private void updateDummyView() {
@@ -259,6 +266,11 @@ public class CollapsingToolbarLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         ensureToolbar();
         super.onMeasure(i, i2);
+        int mode = View.MeasureSpec.getMode(i2);
+        int systemWindowInsetTop = this.mLastInsets != null ? this.mLastInsets.getSystemWindowInsetTop() : 0;
+        if (mode == 0 && systemWindowInsetTop > 0) {
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(systemWindowInsetTop + getMeasuredHeight(), 1073741824));
+        }
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -312,31 +324,27 @@ public class CollapsingToolbarLayout extends FrameLayout {
             }
             if (this.mToolbarDirectChild == null || this.mToolbarDirectChild == this) {
                 setMinimumHeight(getHeightWithMargins(this.mToolbar));
-                this.mToolbarDrawIndex = indexOfChild(this.mToolbar);
             } else {
                 setMinimumHeight(getHeightWithMargins(this.mToolbarDirectChild));
-                this.mToolbarDrawIndex = indexOfChild(this.mToolbarDirectChild);
             }
-        } else {
-            this.mToolbarDrawIndex = -1;
         }
         updateScrimVisibility();
     }
 
-    private static int getHeightWithMargins(@NonNull View view2) {
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+    private static int getHeightWithMargins(@NonNull View view) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            return marginLayoutParams.bottomMargin + view2.getHeight() + marginLayoutParams.topMargin;
+            return marginLayoutParams.bottomMargin + view.getHeight() + marginLayoutParams.topMargin;
         }
-        return view2.getHeight();
+        return view.getHeight();
     }
 
-    static ViewOffsetHelper getViewOffsetHelper(View view2) {
-        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(R.id.view_offset_helper);
+    static ViewOffsetHelper getViewOffsetHelper(View view) {
+        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view.getTag(R.id.view_offset_helper);
         if (viewOffsetHelper == null) {
-            ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-            view2.setTag(R.id.view_offset_helper, viewOffsetHelper2);
+            ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view);
+            view.setTag(R.id.view_offset_helper, viewOffsetHelper2);
             return viewOffsetHelper2;
         }
         return viewOffsetHelper;
@@ -384,13 +392,13 @@ public class CollapsingToolbarLayout extends FrameLayout {
     private void animateScrim(int i) {
         ensureToolbar();
         if (this.mScrimAnimator == null) {
-            this.mScrimAnimator = ViewUtils.createAnimator();
+            this.mScrimAnimator = new ValueAnimator();
             this.mScrimAnimator.setDuration(this.mScrimAnimationDuration);
             this.mScrimAnimator.setInterpolator(i > this.mScrimAlpha ? AnimationUtils.FAST_OUT_LINEAR_IN_INTERPOLATOR : AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
-            this.mScrimAnimator.addUpdateListener(new ValueAnimatorCompat.AnimatorUpdateListener() { // from class: android.support.design.widget.CollapsingToolbarLayout.2
-                @Override // android.support.design.widget.ValueAnimatorCompat.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimatorCompat valueAnimatorCompat) {
-                    CollapsingToolbarLayout.this.setScrimAlpha(valueAnimatorCompat.getAnimatedIntValue());
+            this.mScrimAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: android.support.design.widget.CollapsingToolbarLayout.2
+                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    CollapsingToolbarLayout.this.setScrimAlpha(((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
         } else if (this.mScrimAnimator.isRunning()) {
@@ -408,6 +416,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
             this.mScrimAlpha = i;
             ViewCompat.postInvalidateOnAnimation(this);
         }
+    }
+
+    int getScrimAlpha() {
+        return this.mScrimAlpha;
     }
 
     public void setContentScrim(@Nullable Drawable drawable) {
@@ -671,6 +683,12 @@ public class CollapsingToolbarLayout extends FrameLayout {
         int mCollapseMode;
         float mParallaxMult;
 
+        @Retention(RetentionPolicy.SOURCE)
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+        /* loaded from: classes2.dex */
+        @interface CollapseMode {
+        }
+
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.mCollapseMode = 0;
@@ -705,6 +723,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             this.mParallaxMult = 0.5f;
         }
 
+        @RequiresApi(19)
         public LayoutParams(FrameLayout.LayoutParams layoutParams) {
             super(layoutParams);
             this.mCollapseMode = 0;
@@ -734,8 +753,8 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    final int getMaxOffsetForPinChild(View view2) {
-        return ((getHeight() - getViewOffsetHelper(view2).getLayoutTop()) - view2.getHeight()) - ((LayoutParams) view2.getLayoutParams()).bottomMargin;
+    final int getMaxOffsetForPinChild(View view) {
+        return ((getHeight() - getViewOffsetHelper(view).getLayoutTop()) - view.getHeight()) - ((LayoutParams) view.getLayoutParams()).bottomMargin;
     }
 
     /* loaded from: classes2.dex */
@@ -754,7 +773,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
                 ViewOffsetHelper viewOffsetHelper = CollapsingToolbarLayout.getViewOffsetHelper(childAt);
                 switch (layoutParams.mCollapseMode) {
                     case 1:
-                        viewOffsetHelper.setTopAndBottomOffset(MathUtils.constrain(-i, 0, CollapsingToolbarLayout.this.getMaxOffsetForPinChild(childAt)));
+                        viewOffsetHelper.setTopAndBottomOffset(MathUtils.clamp(-i, 0, CollapsingToolbarLayout.this.getMaxOffsetForPinChild(childAt)));
                         break;
                     case 2:
                         viewOffsetHelper.setTopAndBottomOffset(Math.round(layoutParams.mParallaxMult * (-i)));

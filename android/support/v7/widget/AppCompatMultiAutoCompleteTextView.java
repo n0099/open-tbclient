@@ -15,8 +15,8 @@ import android.widget.MultiAutoCompleteTextView;
 /* loaded from: classes2.dex */
 public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextView implements TintableBackgroundView {
     private static final int[] TINT_ATTRS = {16843126};
-    private AppCompatBackgroundHelper mBackgroundTintHelper;
-    private AppCompatTextHelper mTextHelper;
+    private final AppCompatBackgroundHelper mBackgroundTintHelper;
+    private final AppCompatTextHelper mTextHelper;
 
     public AppCompatMultiAutoCompleteTextView(Context context) {
         this(context, null);
@@ -62,7 +62,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         if (this.mBackgroundTintHelper != null) {
             this.mBackgroundTintHelper.setSupportBackgroundTintList(colorStateList);
@@ -71,7 +71,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
 
     @Override // android.support.v4.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public ColorStateList getSupportBackgroundTintList() {
         if (this.mBackgroundTintHelper != null) {
             return this.mBackgroundTintHelper.getSupportBackgroundTintList();
@@ -80,7 +80,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     @Override // android.support.v4.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         if (this.mBackgroundTintHelper != null) {
             this.mBackgroundTintHelper.setSupportBackgroundTintMode(mode);
@@ -89,7 +89,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
 
     @Override // android.support.v4.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         if (this.mBackgroundTintHelper != null) {
             return this.mBackgroundTintHelper.getSupportBackgroundTintMode();

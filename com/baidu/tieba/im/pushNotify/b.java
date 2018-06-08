@@ -18,10 +18,10 @@ import java.util.ArrayList;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b ehJ = null;
-    private String ehL;
-    private ArrayList<CustomMessageListener> ehK = new ArrayList<>();
-    private c dQP = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
+    private static b esZ = null;
+    private String etb;
+    private ArrayList<CustomMessageListener> eta = new ArrayList<>();
+    private c ecb = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -39,7 +39,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener ehM = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
+    private CustomMessageListener etd = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -48,32 +48,32 @@ public class b {
                 if (imMessageCenterPojo.getCustomGroupType() == 1) {
                     MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L))));
                 }
-                com.baidu.tieba.im.a.b.aFZ().a(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L), d.cj(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+                com.baidu.tieba.im.a.b.aKU().a(com.baidu.adp.lib.g.b.c(imMessageCenterPojo.getGid(), 0L), d.cp(imMessageCenterPojo.getPulled_msgId()), 0L, true);
             }
         }
     };
 
-    public static synchronized b aGA() {
+    public static synchronized b aLv() {
         b bVar;
         synchronized (b.class) {
-            if (ehJ == null) {
-                ehJ = new b();
+            if (esZ == null) {
+                esZ = new b();
             }
-            bVar = ehJ;
+            bVar = esZ;
         }
         return bVar;
     }
 
     public void open() {
-        aGB();
+        aLw();
     }
 
     private b() {
     }
 
-    private void aGB() {
-        MessageManager.getInstance().registerListener(this.dQP);
-        MessageManager.getInstance().registerListener(2016014, this.ehM);
+    private void aLw() {
+        MessageManager.getInstance().registerListener(this.ecb);
+        MessageManager.getInstance().registerListener(2016014, this.etd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -83,21 +83,21 @@ public class b {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
             } else if (pushNotifyMessage.getType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
-            } else if (com.baidu.tieba.im.memorycache.b.aFw().aFv()) {
+            } else if (com.baidu.tieba.im.memorycache.b.aKr().aKq()) {
                 String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
                 com.baidu.tbadk.core.d.a.a("im", -1L, 202006, "notify", 0, null, ClientCookie.COMMENT_ATTR, "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
                 if (!TextUtils.isEmpty(valueOf)) {
                     BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
                     if (pushNotifyMessage.getGroupType() == 0) {
-                        com.baidu.tieba.im.a.b.aFZ().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                        com.baidu.tieba.im.a.b.aKU().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         return;
                     }
-                    int nO = com.baidu.tieba.im.a.a.nO(pushNotifyMessage.getGroupType());
-                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bv(nO)) {
-                        if (com.baidu.tieba.im.memorycache.b.aFw().ap(String.valueOf(pushNotifyMessage.getGroupId()), nO) != null) {
-                            com.baidu.tieba.im.a.b.aFZ().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                    int oa = com.baidu.tieba.im.a.a.oa(pushNotifyMessage.getGroupType());
+                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().bx(oa)) {
+                        if (com.baidu.tieba.im.memorycache.b.aKr().as(String.valueOf(pushNotifyMessage.getGroupId()), oa) != null) {
+                            com.baidu.tieba.im.a.b.aKU().d(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         } else {
-                            c(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), nO);
+                            c(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), oa);
                         }
                     }
                 }
@@ -110,16 +110,16 @@ public class b {
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setCustomGroupType(i);
             imMessageCenterPojo.setGid(String.valueOf(j));
-            imMessageCenterPojo.setPulled_msgId(d.ci(j2 - 1));
+            imMessageCenterPojo.setPulled_msgId(d.co(j2 - 1));
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
         }
     }
 
-    public String aGC() {
-        return this.ehL;
+    public String aLx() {
+        return this.etb;
     }
 
-    public void nQ(String str) {
-        this.ehL = str;
+    public void oE(String str) {
+        this.etb = str;
     }
 }

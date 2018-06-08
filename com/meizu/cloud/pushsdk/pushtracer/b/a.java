@@ -1,5 +1,7 @@
 package com.meizu.cloud.pushsdk.pushtracer.b;
 
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.meizu.cloud.pushsdk.pushtracer.utils.c;
 import com.meizu.cloud.pushsdk.pushtracer.utils.d;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.pushtracer.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC0252a<T extends AbstractC0252a<T>> {
+    public static abstract class AbstractC0270a<T extends AbstractC0270a<T>> {
         private List<com.meizu.cloud.pushsdk.pushtracer.a.b> a = new LinkedList();
         private long b = System.currentTimeMillis();
         private String c = d.b();
@@ -28,13 +30,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC0252a<?> abstractC0252a) {
-        c.a(((AbstractC0252a) abstractC0252a).a);
-        c.a(((AbstractC0252a) abstractC0252a).c);
-        c.a(!((AbstractC0252a) abstractC0252a).c.isEmpty(), "eventId cannot be empty");
-        this.a = ((AbstractC0252a) abstractC0252a).a;
-        this.b = ((AbstractC0252a) abstractC0252a).b;
-        this.c = ((AbstractC0252a) abstractC0252a).c;
+    public a(AbstractC0270a<?> abstractC0270a) {
+        c.a(((AbstractC0270a) abstractC0270a).a);
+        c.a(((AbstractC0270a) abstractC0270a).c);
+        c.a(!((AbstractC0270a) abstractC0270a).c.isEmpty(), "eventId cannot be empty");
+        this.a = ((AbstractC0270a) abstractC0270a).a;
+        this.b = ((AbstractC0270a) abstractC0270a).b;
+        this.c = ((AbstractC0270a) abstractC0270a).c;
     }
 
     public List<com.meizu.cloud.pushsdk.pushtracer.a.b> a() {
@@ -51,8 +53,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.meizu.cloud.pushsdk.pushtracer.a.c a(com.meizu.cloud.pushsdk.pushtracer.a.c cVar) {
-        cVar.a("event_id", c());
-        cVar.a("timestamp", Long.toString(b()));
+        cVar.a(StatisticConstants.EVENT_ID, c());
+        cVar.a(HttpConstants.TIMESTAMP, Long.toString(b()));
         return cVar;
     }
 }

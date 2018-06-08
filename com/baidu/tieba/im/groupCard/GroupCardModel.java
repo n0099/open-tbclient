@@ -6,32 +6,32 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.f.c;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.k;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.d;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes3.dex */
 public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
-    private static Long ecj = 0L;
-    private static final Long eck = Long.valueOf((long) ReportUserInfoModel.TIME_INTERVAL);
-    private final GroupCardActivity ech;
-    private a eci;
+    private static Long enx = 0L;
+    private static final Long eny = Long.valueOf((long) ReportUserInfoModel.TIME_INTERVAL);
+    private final GroupCardActivity env;
+    private a enw;
     private String imageUrl;
     private final long mGroupId;
 
-    public static void aED() {
-        ecj = 0L;
+    public static void aJy() {
+        enx = 0L;
     }
 
     public GroupCardModel(long j, GroupCardActivity groupCardActivity) {
         super(groupCardActivity.getPageContext());
-        this.eci = null;
+        this.enw = null;
         this.imageUrl = TbConfig.SERVER_ADDRESS + "c/p/groupShareImg?group_id=";
         this.mGroupId = j;
         this.imageUrl += this.mGroupId;
-        this.imageUrl += "&w=" + LocalViewSize.vb().vc();
-        this.ech = groupCardActivity;
+        this.imageUrl += "&w=" + LocalViewSize.yC().yD();
+        this.env = groupCardActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,16 +44,16 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         return false;
     }
 
-    public String be(int i, int i2) {
-        if (System.currentTimeMillis() - ecj.longValue() > eck.longValue()) {
-            ecj = Long.valueOf(System.currentTimeMillis());
+    public String bg(int i, int i2) {
+        if (System.currentTimeMillis() - enx.longValue() > eny.longValue()) {
+            enx = Long.valueOf(System.currentTimeMillis());
         }
-        return this.imageUrl + "&t=" + ecj;
+        return this.imageUrl + "&t=" + enx;
     }
 
     public void saveImage() {
-        this.eci = new a();
-        this.eci.execute(new String[0]);
+        this.enw = new a();
+        this.enw.execute(new String[0]);
     }
 
     /* loaded from: classes3.dex */
@@ -70,31 +70,31 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            Bitmap kl;
+            Bitmap mZ;
             try {
                 if (this.mUrl == null || this.mUrl.length() <= 0) {
-                    return GroupCardModel.this.ech.getPageContext().getString(d.k.save_fail);
+                    return GroupCardModel.this.env.getPageContext().getString(d.k.save_fail);
                 }
-                String em = aq.em(this.mUrl);
-                if (em == null) {
-                    return GroupCardModel.this.ech.getPageContext().getString(d.k.save_fail);
+                String eL = ar.eL(this.mUrl);
+                if (eL == null) {
+                    return GroupCardModel.this.env.getPageContext().getString(d.k.save_fail);
                 }
-                String str = em + ".jpg";
-                for (int i = 0; k.ds(str) && i < 10000; i++) {
-                    str = em + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
+                String str = eL + ".jpg";
+                for (int i = 0; l.dS(str) && i < 10000; i++) {
+                    str = eL + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + ".jpg";
                 }
-                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.fp().a(this.mUrl + "&t=" + GroupCardModel.ecj, 10, new Object[0]);
-                if (aVar != null && (kl = aVar.kl()) != null) {
-                    String a = k.a((String) null, str, kl, 80);
+                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.ig().a(this.mUrl + "&t=" + GroupCardModel.enx, 10, new Object[0]);
+                if (aVar != null && (mZ = aVar.mZ()) != null) {
+                    String a = l.a((String) null, str, mZ, 80);
                     if (a != null) {
-                        new w(GroupCardModel.this.ech.getPageContext().getPageActivity()).dX(a);
-                        return GroupCardModel.this.ech.getPageContext().getString(d.k.save_image_to_album);
+                        new x(GroupCardModel.this.env.getPageContext().getPageActivity()).ex(a);
+                        return GroupCardModel.this.env.getPageContext().getString(d.k.save_image_to_album);
                     }
-                    return k.uC();
+                    return l.yc();
                 }
-                return GroupCardModel.this.ech.getPageContext().getString(d.k.save_fail);
+                return GroupCardModel.this.env.getPageContext().getString(d.k.save_fail);
             } catch (Exception e) {
-                return GroupCardModel.this.ech.getPageContext().getString(d.k.save_fail);
+                return GroupCardModel.this.env.getPageContext().getString(d.k.save_fail);
             }
         }
 
@@ -103,8 +103,8 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            GroupCardModel.this.ech.showToast(str);
-            GroupCardModel.this.eci = null;
+            GroupCardModel.this.env.showToast(str);
+            GroupCardModel.this.enw = null;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -115,7 +115,7 @@ public class GroupCardModel extends BdBaseModel<GroupCardActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            GroupCardModel.this.eci = null;
+            GroupCardModel.this.enw = null;
             super.cancel(true);
         }
     }

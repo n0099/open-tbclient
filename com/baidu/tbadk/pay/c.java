@@ -9,31 +9,31 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static c aJY = null;
+    private static c aSz = null;
 
     private c() {
     }
 
-    public static synchronized c Gx() {
+    public static synchronized c Kf() {
         c cVar;
         synchronized (c.class) {
-            if (aJY == null) {
-                aJY = new c();
+            if (aSz == null) {
+                aSz = new c();
             }
-            cVar = aJY;
+            cVar = aSz;
         }
         return cVar;
     }
 
-    public boolean Gy() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Gz();
+    public boolean Kg() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Kh();
     }
 
-    public boolean Gz() {
+    public boolean Kh() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -45,14 +45,14 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            ax.wf().c(tbPageContext, new String[]{str});
+            ay.zG().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(d.k.plugin_pay_error);
-        } else if (!Gy()) {
+        } else if (!Kg()) {
             showToast(d.k.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));

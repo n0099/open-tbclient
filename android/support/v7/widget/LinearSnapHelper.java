@@ -15,15 +15,15 @@ public class LinearSnapHelper extends SnapHelper {
     private OrientationHelper mVerticalHelper;
 
     @Override // android.support.v7.widget.SnapHelper
-    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
+    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view) {
         int[] iArr = new int[2];
         if (layoutManager.canScrollHorizontally()) {
-            iArr[0] = distanceToCenter(layoutManager, view2, getHorizontalHelper(layoutManager));
+            iArr[0] = distanceToCenter(layoutManager, view, getHorizontalHelper(layoutManager));
         } else {
             iArr[0] = 0;
         }
         if (layoutManager.canScrollVertically()) {
-            iArr[1] = distanceToCenter(layoutManager, view2, getVerticalHelper(layoutManager));
+            iArr[1] = distanceToCenter(layoutManager, view, getVerticalHelper(layoutManager));
         } else {
             iArr[1] = 0;
         }
@@ -84,9 +84,9 @@ public class LinearSnapHelper extends SnapHelper {
         return null;
     }
 
-    private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, OrientationHelper orientationHelper) {
+    private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view, OrientationHelper orientationHelper) {
         int end;
-        int decoratedMeasurement = (orientationHelper.getDecoratedMeasurement(view2) / 2) + orientationHelper.getDecoratedStart(view2);
+        int decoratedMeasurement = (orientationHelper.getDecoratedMeasurement(view) / 2) + orientationHelper.getDecoratedStart(view);
         if (layoutManager.getClipToPadding()) {
             end = orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2);
         } else {
@@ -101,18 +101,14 @@ public class LinearSnapHelper extends SnapHelper {
         if (computeDistancePerChild <= 0.0f) {
             return 0;
         }
-        int i3 = Math.abs(calculateScrollDistance[0]) > Math.abs(calculateScrollDistance[1]) ? calculateScrollDistance[0] : calculateScrollDistance[1];
-        if (i3 > 0) {
-            return (int) Math.floor(i3 / computeDistancePerChild);
-        }
-        return (int) Math.ceil(i3 / computeDistancePerChild);
+        return Math.round((Math.abs(calculateScrollDistance[0]) > Math.abs(calculateScrollDistance[1]) ? calculateScrollDistance[0] : calculateScrollDistance[1]) / computeDistancePerChild);
     }
 
     @Nullable
     private View findCenterView(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper) {
         int end;
-        View view2;
-        View view3 = null;
+        View view;
+        View view2 = null;
         int childCount = layoutManager.getChildCount();
         if (childCount != 0) {
             if (layoutManager.getClipToPadding()) {
@@ -126,64 +122,64 @@ public class LinearSnapHelper extends SnapHelper {
                 View childAt = layoutManager.getChildAt(i2);
                 int abs = Math.abs((orientationHelper.getDecoratedStart(childAt) + (orientationHelper.getDecoratedMeasurement(childAt) / 2)) - end);
                 if (abs < i) {
-                    view2 = childAt;
+                    view = childAt;
                 } else {
                     abs = i;
-                    view2 = view3;
+                    view = view2;
                 }
                 i2++;
-                view3 = view2;
+                view2 = view;
                 i = abs;
             }
         }
-        return view3;
+        return view2;
     }
 
     private float computeDistancePerChild(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper) {
         int i;
+        View view;
         View view2;
-        View view3;
-        View view4 = null;
+        View view3 = null;
         int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         int childCount = layoutManager.getChildCount();
         if (childCount == 0) {
             return 1.0f;
         }
         int i3 = 0;
-        View view5 = null;
+        View view4 = null;
         int i4 = Integer.MIN_VALUE;
         while (i3 < childCount) {
             View childAt = layoutManager.getChildAt(i3);
             int position = layoutManager.getPosition(childAt);
             if (position == -1) {
                 i = i2;
+                view = view3;
                 view2 = view4;
-                view3 = view5;
             } else {
                 if (position < i2) {
                     i2 = position;
-                    view5 = childAt;
+                    view4 = childAt;
                 }
                 if (position > i4) {
                     i4 = position;
-                    view3 = view5;
+                    view2 = view4;
                     i = i2;
-                    view2 = childAt;
+                    view = childAt;
                 } else {
                     i = i2;
+                    view = view3;
                     view2 = view4;
-                    view3 = view5;
                 }
             }
             i3++;
-            view5 = view3;
             view4 = view2;
+            view3 = view;
             i2 = i;
         }
-        if (view5 == null || view4 == null) {
+        if (view4 == null || view3 == null) {
             return 1.0f;
         }
-        int max = Math.max(orientationHelper.getDecoratedEnd(view5), orientationHelper.getDecoratedEnd(view4)) - Math.min(orientationHelper.getDecoratedStart(view5), orientationHelper.getDecoratedStart(view4));
+        int max = Math.max(orientationHelper.getDecoratedEnd(view4), orientationHelper.getDecoratedEnd(view3)) - Math.min(orientationHelper.getDecoratedStart(view4), orientationHelper.getDecoratedStart(view3));
         if (max == 0) {
             return 1.0f;
         }

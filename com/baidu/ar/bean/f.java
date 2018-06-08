@@ -1,31 +1,69 @@
 package com.baidu.ar.bean;
 /* loaded from: classes3.dex */
 public class f {
-    private int a;
-    private int b;
+    private String a;
+    private String b;
     private String c;
+    private String d;
+    private int e;
+    private int f;
+    private int g;
+    private int h;
+    private com.baidu.ar.representation.c i;
 
-    public int a() {
+    public String a() {
         return this.a;
     }
 
     public void a(int i) {
-        this.a = i;
+        this.g = i;
+    }
+
+    public void a(com.baidu.ar.representation.c cVar) {
+        this.i = cVar;
     }
 
     public void a(String str) {
-        this.c = str;
+        this.a = str;
     }
 
-    public int b() {
-        return this.b;
+    public String b() {
+        return this.d;
     }
 
     public void b(int i) {
-        this.b = i;
+        this.h = i;
     }
 
-    public String c() {
-        return this.c;
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public int c() {
+        return this.g;
+    }
+
+    public void c(int i) {
+        this.e = i;
+    }
+
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public int d() {
+        return this.h;
+    }
+
+    public void d(int i) {
+        this.f = i;
+    }
+
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public com.baidu.ar.representation.c e() {
+        return this.i;
     }
 }

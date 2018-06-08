@@ -1,7 +1,8 @@
 package com.baidu.android.pushservice.h;
 
 import android.text.TextUtils;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.parser.ARResourceKey;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -27,7 +28,7 @@ public class j extends l {
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("action_name", this.d);
-        jSONObject.put("timestamp", this.e);
+        jSONObject.put(HttpConstants.TIMESTAMP, this.e);
         jSONObject.put("network_status", this.f);
         if (this.c != -1) {
             jSONObject.put("msg_type", this.c);
@@ -41,7 +42,7 @@ public class j extends l {
         if (this.k != null) {
             jSONObject.put("msg_open_by", this.k);
         }
-        jSONObject.put(Constants.HTTP_ERR_CODE, this.g);
+        jSONObject.put(ARResourceKey.HTTP_ERR_CODE, this.g);
         return jSONObject;
     }
 }

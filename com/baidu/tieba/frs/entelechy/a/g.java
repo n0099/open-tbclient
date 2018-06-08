@@ -12,23 +12,23 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d>> implements com.baidu.tieba.a.f, aa, com.baidu.tieba.frs.e.c {
-    private ab<bd> bwL;
-    private String bwO;
-    private com.baidu.tieba.frs.entelechy.view.d deV;
+    private ab<bd> bEO;
+    private String bER;
+    private com.baidu.tieba.frs.entelechy.view.d dok;
     private String mForumName;
     private TbPageContext<?> mPageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId);
-        this.bwL = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
+        this.bEO = new ab<bd>() { // from class: com.baidu.tieba.frs.entelechy.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
-            public void a(View view2, bd bdVar) {
-                if (view2 != null && bdVar != null) {
-                    if (view2.getId() == d.g.card_home_page_normal_thread_user_name || (view2 instanceof HeadImageView) || (view2 instanceof HeadPendantView)) {
-                        com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, 2);
+            public void a(View view, bd bdVar) {
+                if (view != null && bdVar != null) {
+                    if (view.getId() == d.g.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
+                        com.baidu.tieba.frs.e.b.ayQ().a(com.baidu.tieba.frs.e.c.dyP, bdVar, 2);
                     } else {
-                        com.baidu.tieba.frs.e.b.auG().a(com.baidu.tieba.frs.e.c.dpD, bdVar, 7);
+                        com.baidu.tieba.frs.e.b.ayQ().a(com.baidu.tieba.frs.e.c.dyP, bdVar, 7);
                     }
                 }
             }
@@ -40,32 +40,33 @@ public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: Z */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d> onCreateViewHolder(ViewGroup viewGroup) {
-        this.deV = new com.baidu.tieba.frs.entelechy.view.d(this.mPageContext, this.mPageId);
-        this.deV.j(this.mPageId);
-        return new com.baidu.tieba.card.a.a<>(this.deV);
+        this.dok = new com.baidu.tieba.frs.entelechy.view.d(this.mPageContext, this.mPageId);
+        this.dok.j(this.mPageId);
+        return new com.baidu.tieba.card.a.a<>(this.dok);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d> aVar) {
-        if (aVar == null || aVar.afY() == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bd bdVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.entelechy.view.d> aVar) {
+        if (aVar == null || aVar.ajG() == null) {
             return null;
         }
-        if (aVar.afY() instanceof com.baidu.tieba.a.e) {
-            aVar.afY().setPage(this.bwO);
+        super.onFillViewHolder(i, view, viewGroup, bdVar, aVar);
+        if (aVar.ajG() instanceof com.baidu.tieba.a.e) {
+            aVar.ajG().setPage(this.bER);
         }
-        com.baidu.tieba.frs.e.a(aVar.afY().afz(), this.cXS);
-        com.baidu.tieba.frs.e.a(aVar.afY().afA(), this.cXS);
-        aVar.afY().a(bdVar);
-        aVar.afY().setForumName(this.mForumName);
-        aVar.afY().b(this.bwL);
-        com.baidu.tieba.frs.e.b.auG().a(dpD, bdVar);
+        com.baidu.tieba.frs.e.a(aVar.ajG().UW(), this.dhf);
+        com.baidu.tieba.frs.e.a(aVar.ajG().UX(), this.dhf);
+        aVar.ajG().a(bdVar);
+        aVar.ajG().setForumName(this.mForumName);
+        aVar.ajG().b(this.bEO);
+        com.baidu.tieba.frs.e.b.ayQ().a(dyP, bdVar);
         if (bdVar != null) {
-            bdVar.sJ();
+            bdVar.wg();
         }
         return aVar.getView();
     }
@@ -76,7 +77,7 @@ public class g extends com.baidu.tieba.frs.f<bd, com.baidu.tieba.card.a.a<com.ba
     }
 
     @Override // com.baidu.tieba.a.f
-    public void hZ(String str) {
-        this.bwO = str;
+    public void iy(String str) {
+        this.bER = str;
     }
 }

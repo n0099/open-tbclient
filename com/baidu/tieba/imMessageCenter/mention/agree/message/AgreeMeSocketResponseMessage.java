@@ -45,7 +45,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            com.baidu.tbadk.core.c.a.ty().N("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).f("agree_me_cache_key", bArr);
+            com.baidu.tbadk.core.c.a.wW().Q("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).f("agree_me_cache_key", bArr);
         }
     }
 }

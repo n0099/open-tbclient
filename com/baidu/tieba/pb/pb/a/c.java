@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes2.dex */
 public class c extends q.a {
-    public c(View view2, Context context) {
-        super(view2);
+    public c(View view, Context context) {
+        super(view);
     }
 }

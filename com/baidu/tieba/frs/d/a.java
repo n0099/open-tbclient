@@ -9,7 +9,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes3.dex */
 public class a extends f<ICardInfo, b> {
-    private ICardInfo dny;
+    private ICardInfo dwP;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -18,9 +18,9 @@ public class a extends f<ICardInfo, b> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aI */
+    /* renamed from: aH */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        e a = com.baidu.tieba.lego.card.b.aKz().a(this.mPageContext, this.dny, 1);
+        e a = com.baidu.tieba.lego.card.b.aPu().a(this.mPageContext, this.dwP, 1);
         if (a == null) {
             return null;
         }
@@ -32,20 +32,20 @@ public class a extends f<ICardInfo, b> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, b bVar) {
-        super.onFillViewHolder(i, view2, viewGroup, iCardInfo, bVar);
-        View view3 = bVar.getView();
-        if (view3 != null && iCardInfo != null) {
-            ((e) view3).O(iCardInfo);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo, b bVar) {
+        super.onFillViewHolder(i, view, viewGroup, iCardInfo, bVar);
+        View view2 = bVar.getView();
+        if (view2 != null && iCardInfo != null) {
+            ((e) view2).R(iCardInfo);
         }
-        return view3;
+        return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View getView(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.dny = iCardInfo;
-        return super.getView(i, view2, viewGroup, iCardInfo);
+    public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
+        this.dwP = iCardInfo;
+        return super.getView(i, view, viewGroup, iCardInfo);
     }
 }

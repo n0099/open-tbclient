@@ -61,9 +61,9 @@ public abstract class AbstractExpandedDecoder {
                             case 61:
                                 return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_WPA_STATE);
                             case 62:
-                                return new AI013x0x1xDecoder(bitArray, "310", Constants.VIA_REPORT_TYPE_START_GROUP);
+                                return new AI013x0x1xDecoder(bitArray, "310", "17");
                             case 63:
-                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, Constants.VIA_REPORT_TYPE_START_GROUP);
+                                return new AI013x0x1xDecoder(bitArray, PaymentConfirmRequestData.TERMINAL_ANDROID, "17");
                             default:
                                 throw new IllegalStateException("unknown decoder: " + bitArray);
                         }

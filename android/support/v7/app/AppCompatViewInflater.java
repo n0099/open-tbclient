@@ -42,15 +42,15 @@ public class AppCompatViewInflater {
     private static final String[] sClassPrefixList = {"android.widget.", "android.view.", "android.webkit."};
     private static final Map<String, Constructor<? extends View>> sConstructorMap = new ArrayMap();
 
-    public final View createView(View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
-        Context context2 = (!z || view2 == null) ? context : view2.getContext();
+    public final View createView(View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet, boolean z, boolean z2, boolean z3, boolean z4) {
+        Context context2 = (!z || view == null) ? context : view.getContext();
         if (z2 || z3) {
             context2 = themifyContext(context2, attributeSet, z2, z3);
         }
         if (z4) {
             context2 = TintContextWrapper.wrap(context2);
         }
-        View view3 = null;
+        View view2 = null;
         char c = 65535;
         switch (str.hashCode()) {
             case -1946472170:
@@ -134,46 +134,46 @@ public class AppCompatViewInflater {
         }
         switch (c) {
             case 0:
-                view3 = new AppCompatTextView(context2, attributeSet);
+                view2 = new AppCompatTextView(context2, attributeSet);
                 break;
             case 1:
-                view3 = new AppCompatImageView(context2, attributeSet);
+                view2 = new AppCompatImageView(context2, attributeSet);
                 break;
             case 2:
-                view3 = new AppCompatButton(context2, attributeSet);
+                view2 = new AppCompatButton(context2, attributeSet);
                 break;
             case 3:
-                view3 = new AppCompatEditText(context2, attributeSet);
+                view2 = new AppCompatEditText(context2, attributeSet);
                 break;
             case 4:
-                view3 = new AppCompatSpinner(context2, attributeSet);
+                view2 = new AppCompatSpinner(context2, attributeSet);
                 break;
             case 5:
-                view3 = new AppCompatImageButton(context2, attributeSet);
+                view2 = new AppCompatImageButton(context2, attributeSet);
                 break;
             case 6:
-                view3 = new AppCompatCheckBox(context2, attributeSet);
+                view2 = new AppCompatCheckBox(context2, attributeSet);
                 break;
             case 7:
-                view3 = new AppCompatRadioButton(context2, attributeSet);
+                view2 = new AppCompatRadioButton(context2, attributeSet);
                 break;
             case '\b':
-                view3 = new AppCompatCheckedTextView(context2, attributeSet);
+                view2 = new AppCompatCheckedTextView(context2, attributeSet);
                 break;
             case '\t':
-                view3 = new AppCompatAutoCompleteTextView(context2, attributeSet);
+                view2 = new AppCompatAutoCompleteTextView(context2, attributeSet);
                 break;
             case '\n':
-                view3 = new AppCompatMultiAutoCompleteTextView(context2, attributeSet);
+                view2 = new AppCompatMultiAutoCompleteTextView(context2, attributeSet);
                 break;
             case 11:
-                view3 = new AppCompatRatingBar(context2, attributeSet);
+                view2 = new AppCompatRatingBar(context2, attributeSet);
                 break;
             case '\f':
-                view3 = new AppCompatSeekBar(context2, attributeSet);
+                view2 = new AppCompatSeekBar(context2, attributeSet);
                 break;
         }
-        View createViewFromTag = (view3 != null || context == context2) ? view3 : createViewFromTag(context2, str, attributeSet);
+        View createViewFromTag = (view2 != null || context == context2) ? view2 : createViewFromTag(context2, str, attributeSet);
         if (createViewFromTag != null) {
             checkOnClickListener(createViewFromTag, attributeSet);
         }
@@ -206,14 +206,14 @@ public class AppCompatViewInflater {
         }
     }
 
-    private void checkOnClickListener(View view2, AttributeSet attributeSet) {
-        Context context = view2.getContext();
+    private void checkOnClickListener(View view, AttributeSet attributeSet) {
+        Context context = view.getContext();
         if (context instanceof ContextWrapper) {
-            if (Build.VERSION.SDK_INT < 15 || ViewCompat.hasOnClickListeners(view2)) {
+            if (Build.VERSION.SDK_INT < 15 || ViewCompat.hasOnClickListeners(view)) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, sOnClickAttrs);
                 String string = obtainStyledAttributes.getString(0);
                 if (string != null) {
-                    view2.setOnClickListener(new DeclaredOnClickListener(view2, string));
+                    view.setOnClickListener(new DeclaredOnClickListener(view, string));
                 }
                 obtainStyledAttributes.recycle();
             }
@@ -259,18 +259,18 @@ public class AppCompatViewInflater {
         private Context mResolvedContext;
         private Method mResolvedMethod;
 
-        public DeclaredOnClickListener(@NonNull View view2, @NonNull String str) {
-            this.mHostView = view2;
+        public DeclaredOnClickListener(@NonNull View view, @NonNull String str) {
+            this.mHostView = view;
             this.mMethodName = str;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(@NonNull View view2) {
+        public void onClick(@NonNull View view) {
             if (this.mResolvedMethod == null) {
                 resolveMethod(this.mHostView.getContext(), this.mMethodName);
             }
             try {
-                this.mResolvedMethod.invoke(this.mResolvedContext, view2);
+                this.mResolvedMethod.invoke(this.mResolvedContext, view);
             } catch (IllegalAccessException e) {
                 throw new IllegalStateException("Could not execute non-public method for android:onClick", e);
             } catch (InvocationTargetException e2) {

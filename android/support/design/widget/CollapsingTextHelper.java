@@ -11,6 +11,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.v4.math.MathUtils;
 import android.support.v4.text.TextDirectionHeuristicsCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
@@ -79,8 +80,8 @@ final class CollapsingTextHelper {
         }
     }
 
-    public CollapsingTextHelper(View view2) {
-        this.mView = view2;
+    public CollapsingTextHelper(View view) {
+        this.mView = view;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -230,7 +231,7 @@ final class CollapsingTextHelper {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setCollapsedTypeface(Typeface typeface) {
-        if (this.mCollapsedTypeface != typeface) {
+        if (areTypefacesDifferent(this.mCollapsedTypeface, typeface)) {
             this.mCollapsedTypeface = typeface;
             recalculate();
         }
@@ -238,7 +239,7 @@ final class CollapsingTextHelper {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setExpandedTypeface(Typeface typeface) {
-        if (this.mExpandedTypeface != typeface) {
+        if (areTypefacesDifferent(this.mExpandedTypeface, typeface)) {
             this.mExpandedTypeface = typeface;
             recalculate();
         }
@@ -263,9 +264,9 @@ final class CollapsingTextHelper {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setExpansionFraction(float f) {
-        float constrain = MathUtils.constrain(f, 0.0f, 1.0f);
-        if (constrain != this.mExpandedFraction) {
-            this.mExpandedFraction = constrain;
+        float clamp = MathUtils.clamp(f, 0.0f, 1.0f);
+        if (clamp != this.mExpandedFraction) {
+            this.mExpandedFraction = clamp;
             calculateCurrentOffsets();
         }
     }
@@ -431,6 +432,10 @@ final class CollapsingTextHelper {
         ViewCompat.postInvalidateOnAnimation(this.mView);
     }
 
+    private boolean areTypefacesDifferent(Typeface typeface, Typeface typeface2) {
+        return !(typeface == null || typeface.equals(typeface2)) || (typeface == null && typeface2 != null);
+    }
+
     private void calculateUsingTextSize(float f) {
         float f2;
         boolean z;
@@ -440,7 +445,7 @@ final class CollapsingTextHelper {
             if (isClose(f, this.mCollapsedTextSize)) {
                 f2 = this.mCollapsedTextSize;
                 this.mScale = 1.0f;
-                if (this.mCurrentTypeface != this.mCollapsedTypeface) {
+                if (areTypefacesDifferent(this.mCurrentTypeface, this.mCollapsedTypeface)) {
                     this.mCurrentTypeface = this.mCollapsedTypeface;
                     z = true;
                 } else {
@@ -448,7 +453,7 @@ final class CollapsingTextHelper {
                 }
             } else {
                 f2 = this.mExpandedTextSize;
-                if (this.mCurrentTypeface != this.mExpandedTypeface) {
+                if (areTypefacesDifferent(this.mCurrentTypeface, this.mExpandedTypeface)) {
                     this.mCurrentTypeface = this.mExpandedTypeface;
                     z = true;
                 } else {

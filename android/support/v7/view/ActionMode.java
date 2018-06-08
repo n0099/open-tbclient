@@ -35,7 +35,7 @@ public abstract class ActionMode {
 
     public abstract void invalidate();
 
-    public abstract void setCustomView(View view2);
+    public abstract void setCustomView(View view);
 
     public abstract void setSubtitle(int i);
 
@@ -65,7 +65,7 @@ public abstract class ActionMode {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean isUiFocusable() {
         return true;
     }

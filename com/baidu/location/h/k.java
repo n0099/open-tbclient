@@ -1,6 +1,7 @@
 package com.baidu.location.h;
 
 import android.util.Log;
+import com.baidu.ar.util.IoUtils;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -12,31 +13,31 @@ import java.util.zip.GZIPInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Thread {
-    final /* synthetic */ f QR;
+    final /* synthetic */ f YR;
     final /* synthetic */ boolean a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar, boolean z) {
-        this.QR = fVar;
+        this.YR = fVar;
         this.a = z;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.QR.h = i.c();
-        this.QR.b();
-        this.QR.a();
+        this.YR.h = i.c();
+        this.YR.b();
+        this.YR.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.QR.i;
+        int i = this.YR.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                URL url = new URL(this.QR.h);
+                URL url = new URL(this.YR.h);
                 StringBuffer stringBuffer = new StringBuffer();
-                for (Map.Entry<String, Object> entry : this.QR.k.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.YR.k.entrySet()) {
                     stringBuffer.append(entry.getKey());
                     stringBuffer.append("=");
                     stringBuffer.append(entry.getValue());
@@ -107,11 +108,11 @@ public class k extends Thread {
                 }
                 gZIPInputStream.close();
                 byteArrayOutputStream.close();
-                this.QR.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                this.YR.j = new String(byteArrayOutputStream.toByteArray(), IoUtils.UTF_8);
                 if (this.a) {
-                    this.QR.m = byteArrayOutputStream.toByteArray();
+                    this.YR.m = byteArrayOutputStream.toByteArray();
                 }
-                this.QR.a(true);
+                this.YR.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -130,7 +131,7 @@ public class k extends Thread {
             return;
         }
         f.o++;
-        this.QR.j = null;
-        this.QR.a(false);
+        this.YR.j = null;
+        this.YR.a(false);
     }
 }

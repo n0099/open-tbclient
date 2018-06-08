@@ -1,6 +1,5 @@
 package android.support.design.widget;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -18,7 +17,6 @@ import android.support.annotation.VisibleForTesting;
 import android.support.design.R;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButtonImpl;
-import android.support.v4.content.res.ConfigurationHelper;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatImageHelper;
 import android.util.AttributeSet;
@@ -51,7 +49,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
     private final Rect mTouchArea;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface Size {
     }
@@ -242,7 +240,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
         Resources resources = getResources();
         switch (i) {
             case -1:
-                if (Math.max(ConfigurationHelper.getScreenWidthDp(resources), ConfigurationHelper.getScreenHeightDp(resources)) < AUTO_MINI_LARGEST_SCREEN_WIDTH) {
+                if (Math.max(resources.getConfiguration().screenWidthDp, resources.getConfiguration().screenHeightDp) < AUTO_MINI_LARGEST_SCREEN_WIDTH) {
                     return getSizeDimension(1);
                 }
                 return getSizeDimension(0);
@@ -273,7 +271,6 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    @TargetApi(11)
     public void jumpDrawablesToCurrentState() {
         super.jumpDrawablesToCurrentState();
         getImpl().jumpDrawableToCurrentState();
@@ -312,10 +309,14 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!getContentRect(this.mTouchArea) || this.mTouchArea.contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
-            return super.onTouchEvent(motionEvent);
+        switch (motionEvent.getAction()) {
+            case 0:
+                if (getContentRect(this.mTouchArea) && !this.mTouchArea.contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
+                    return false;
+                }
+                break;
         }
-        return false;
+        return super.onTouchEvent(motionEvent);
     }
 
     /* loaded from: classes2.dex */
@@ -353,20 +354,20 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.design.widget.CoordinatorLayout.Behavior
-        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, View view2) {
-            if (view2 instanceof AppBarLayout) {
-                updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view2, floatingActionButton);
+        public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, FloatingActionButton floatingActionButton, View view) {
+            if (view instanceof AppBarLayout) {
+                updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view, floatingActionButton);
                 return false;
-            } else if (isBottomSheet(view2)) {
-                updateFabVisibilityForBottomSheet(view2, floatingActionButton);
+            } else if (isBottomSheet(view)) {
+                updateFabVisibilityForBottomSheet(view, floatingActionButton);
                 return false;
             } else {
                 return false;
             }
         }
 
-        private static boolean isBottomSheet(@NonNull View view2) {
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        private static boolean isBottomSheet(@NonNull View view) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
                 return ((CoordinatorLayout.LayoutParams) layoutParams).getBehavior() instanceof BottomSheetBehavior;
             }
@@ -378,8 +379,8 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
             this.mInternalAutoHideListener = onVisibilityChangedListener;
         }
 
-        private boolean shouldUpdateVisibility(View view2, FloatingActionButton floatingActionButton) {
-            return this.mAutoHideEnabled && ((CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams()).getAnchorId() == view2.getId() && floatingActionButton.getUserSetVisibility() == 0;
+        private boolean shouldUpdateVisibility(View view, FloatingActionButton floatingActionButton) {
+            return this.mAutoHideEnabled && ((CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams()).getAnchorId() == view.getId() && floatingActionButton.getUserSetVisibility() == 0;
         }
 
         private boolean updateFabVisibilityForAppBarLayout(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, FloatingActionButton floatingActionButton) {
@@ -399,9 +400,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
             return false;
         }
 
-        private boolean updateFabVisibilityForBottomSheet(View view2, FloatingActionButton floatingActionButton) {
-            if (shouldUpdateVisibility(view2, floatingActionButton)) {
-                if (view2.getTop() < ((CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams()).topMargin + (floatingActionButton.getHeight() / 2)) {
+        private boolean updateFabVisibilityForBottomSheet(View view, FloatingActionButton floatingActionButton) {
+            if (shouldUpdateVisibility(view, floatingActionButton)) {
+                if (view.getTop() < ((CoordinatorLayout.LayoutParams) floatingActionButton.getLayoutParams()).topMargin + (floatingActionButton.getHeight() / 2)) {
                     floatingActionButton.hide(this.mInternalAutoHideListener, false);
                 } else {
                     floatingActionButton.show(this.mInternalAutoHideListener, false);
@@ -417,13 +418,13 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
             List<View> dependencies = coordinatorLayout.getDependencies(floatingActionButton);
             int size = dependencies.size();
             for (int i2 = 0; i2 < size; i2++) {
-                View view2 = dependencies.get(i2);
-                if (view2 instanceof AppBarLayout) {
-                    if (updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view2, floatingActionButton)) {
+                View view = dependencies.get(i2);
+                if (view instanceof AppBarLayout) {
+                    if (updateFabVisibilityForAppBarLayout(coordinatorLayout, (AppBarLayout) view, floatingActionButton)) {
                         break;
                     }
                 } else {
-                    if (isBottomSheet(view2) && updateFabVisibilityForBottomSheet(view2, floatingActionButton)) {
+                    if (isBottomSheet(view) && updateFabVisibilityForBottomSheet(view, floatingActionButton)) {
                         break;
                     }
                 }
@@ -483,14 +484,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton {
     }
 
     private FloatingActionButtonImpl createImpl() {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
-            return new FloatingActionButtonLollipop(this, new ShadowDelegateImpl(), ViewUtils.DEFAULT_ANIMATOR_CREATOR);
-        }
-        if (i >= 14) {
-            return new FloatingActionButtonIcs(this, new ShadowDelegateImpl(), ViewUtils.DEFAULT_ANIMATOR_CREATOR);
-        }
-        return new FloatingActionButtonGingerbread(this, new ShadowDelegateImpl(), ViewUtils.DEFAULT_ANIMATOR_CREATOR);
+        return Build.VERSION.SDK_INT >= 21 ? new FloatingActionButtonLollipop(this, new ShadowDelegateImpl()) : new FloatingActionButtonImpl(this, new ShadowDelegateImpl());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -5,12 +5,12 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class MultiConcernModel extends BdBaseModel {
-    private a cJQ;
-    com.baidu.adp.framework.listener.a cyp;
+    com.baidu.adp.framework.listener.a cGS;
+    private a cSW;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -19,12 +19,12 @@ public class MultiConcernModel extends BdBaseModel {
 
     public MultiConcernModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.cyp = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
+        this.cGS = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, 309470) { // from class: com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
-                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.cJQ != null) {
-                        MultiConcernModel.this.cJQ.O(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (((responsedMessage instanceof MultiConcernSocketResponseMessage) || (responsedMessage instanceof MultiConcernHttpResponseMessage)) && MultiConcernModel.this.cSW != null) {
+                        MultiConcernModel.this.cSW.O(responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
@@ -32,11 +32,11 @@ public class MultiConcernModel extends BdBaseModel {
         setUniqueId(BdUniqueId.gen());
         com.baidu.tieba.tbadkCore.a.a.a(309470, MultiConcernSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309470, CmdConfigHttp.CMD_FORUM_MULTI_CONCERN, "c/f/recommtag/multiConcern", MultiConcernHttpResponseMessage.class, false, false, false, false);
-        registerListener(this.cyp);
+        registerListener(this.cGS);
     }
 
-    public void E(ArrayList<Long> arrayList) {
-        if (!v.w(arrayList)) {
+    public void D(ArrayList<Long> arrayList) {
+        if (!w.z(arrayList)) {
             cancelMessage();
             MultiConcernRequestMessage multiConcernRequestMessage = new MultiConcernRequestMessage();
             multiConcernRequestMessage.setIdList(arrayList);
@@ -45,7 +45,7 @@ public class MultiConcernModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.cJQ = aVar;
+        this.cSW = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

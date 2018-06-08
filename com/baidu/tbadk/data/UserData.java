@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -266,19 +266,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            i iVar = new i();
-            iVar.fQ(getPortraitH());
-            iVar.fR(getPortrait());
-            iVar.bq(true);
-            this.mPhotoAlbum.add(iVar);
+            j jVar = new j();
+            jVar.go(getPortraitH());
+            jVar.gp(getPortrait());
+            jVar.bu(true);
+            this.mPhotoAlbum.add(jVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        i iVar2 = new i();
-                        iVar2.fQ(userPics.big);
-                        iVar2.fR(userPics.small);
-                        iVar2.bq(false);
-                        this.mPhotoAlbum.add(iVar2);
+                        j jVar2 = new j();
+                        jVar2.go(userPics.big);
+                        jVar2.gp(userPics.small);
+                        jVar2.bu(false);
+                        this.mPhotoAlbum.add(jVar2);
                     }
                 }
             }
@@ -384,7 +384,7 @@ public class UserData extends MetaData {
                     if (this.sex != 2 && this.sex != 1) {
                         this.sex = 1;
                     }
-                    this.alaUserData.sex = an.cU(this.sex);
+                    this.alaUserData.sex = ao.cW(this.sex);
                 }
             }
             this.isGodInvited = user.is_invited.intValue() == 1;
@@ -473,22 +473,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                i iVar = new i();
-                iVar.fQ(getPortraitH());
-                iVar.fR(getPortrait());
-                iVar.bq(true);
-                this.mPhotoAlbum.add(iVar);
+                j jVar = new j();
+                jVar.go(getPortraitH());
+                jVar.gp(getPortrait());
+                jVar.bu(true);
+                this.mPhotoAlbum.add(jVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            i iVar2 = new i();
-                            iVar2.fQ(jSONObject2.optString("big"));
-                            iVar2.fR(jSONObject2.optString("small"));
-                            iVar2.bq(false);
-                            this.mPhotoAlbum.add(iVar2);
+                            j jVar2 = new j();
+                            jVar2.go(jSONObject2.optString("big"));
+                            jVar2.gp(jSONObject2.optString("small"));
+                            jVar2.bu(false);
+                            this.mPhotoAlbum.add(jVar2);
                         }
                     }
                 }
@@ -536,7 +536,7 @@ public class UserData extends MetaData {
                     this.liveId = optJSONObject9.optString("live_id");
                     this.alaUserData = (AlaUserInfoData) OrmObject.objectWithJson(jSONObject.optJSONObject("ala_info"), AlaUserInfoData.class);
                     if (StringUtils.isNull(this.alaUserData.sex)) {
-                        this.alaUserData.sex = an.cU(this.sex);
+                        this.alaUserData.sex = ao.cW(this.sex);
                     }
                 }
             }

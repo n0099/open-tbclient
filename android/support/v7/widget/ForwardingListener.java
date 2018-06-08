@@ -1,18 +1,15 @@
 package android.support.v7.widget;
 
-import android.os.Build;
 import android.os.SystemClock;
 import android.support.annotation.RestrictTo;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v7.view.menu.ShowableListMenu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
-import android.view.ViewTreeObserver;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
-public abstract class ForwardingListener implements View.OnTouchListener {
+public abstract class ForwardingListener implements View.OnAttachStateChangeListener, View.OnTouchListener {
     private int mActivePointerId;
     private Runnable mDisallowIntercept;
     private boolean mForwarding;
@@ -25,53 +22,17 @@ public abstract class ForwardingListener implements View.OnTouchListener {
 
     public abstract ShowableListMenu getPopup();
 
-    public ForwardingListener(View view2) {
-        this.mSrc = view2;
-        view2.setLongClickable(true);
-        if (Build.VERSION.SDK_INT >= 12) {
-            addDetachListenerApi12(view2);
-        } else {
-            addDetachListenerBase(view2);
-        }
-        this.mScaledTouchSlop = ViewConfiguration.get(view2.getContext()).getScaledTouchSlop();
+    public ForwardingListener(View view) {
+        this.mSrc = view;
+        view.setLongClickable(true);
+        view.addOnAttachStateChangeListener(this);
+        this.mScaledTouchSlop = ViewConfiguration.get(view.getContext()).getScaledTouchSlop();
         this.mTapTimeout = ViewConfiguration.getTapTimeout();
         this.mLongPressTimeout = (this.mTapTimeout + ViewConfiguration.getLongPressTimeout()) / 2;
     }
 
-    private void addDetachListenerApi12(View view2) {
-        view2.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: android.support.v7.widget.ForwardingListener.1
-            @Override // android.view.View.OnAttachStateChangeListener
-            public void onViewAttachedToWindow(View view3) {
-            }
-
-            @Override // android.view.View.OnAttachStateChangeListener
-            public void onViewDetachedFromWindow(View view3) {
-                ForwardingListener.this.onDetachedFromWindow();
-            }
-        });
-    }
-
-    private void addDetachListenerBase(View view2) {
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: android.support.v7.widget.ForwardingListener.2
-            boolean mIsAttached;
-
-            {
-                this.mIsAttached = ForwardingListener.this.mSrc.isAttachedToWindow();
-            }
-
-            @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-            public void onGlobalLayout() {
-                boolean z = this.mIsAttached;
-                this.mIsAttached = ForwardingListener.this.mSrc.isAttachedToWindow();
-                if (z && !this.mIsAttached) {
-                    ForwardingListener.this.onDetachedFromWindow();
-                }
-            }
-        });
-    }
-
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         boolean z;
         boolean z2 = this.mForwarding;
         if (z2) {
@@ -90,8 +51,12 @@ public abstract class ForwardingListener implements View.OnTouchListener {
         return z || z2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onDetachedFromWindow() {
+    @Override // android.view.View.OnAttachStateChangeListener
+    public void onViewAttachedToWindow(View view) {
+    }
+
+    @Override // android.view.View.OnAttachStateChangeListener
+    public void onViewDetachedFromWindow(View view) {
         this.mForwarding = false;
         this.mActivePointerId = -1;
         if (this.mDisallowIntercept != null) {
@@ -118,19 +83,19 @@ public abstract class ForwardingListener implements View.OnTouchListener {
     }
 
     private boolean onTouchObserved(MotionEvent motionEvent) {
-        View view2 = this.mSrc;
-        if (view2.isEnabled()) {
-            switch (MotionEventCompat.getActionMasked(motionEvent)) {
+        View view = this.mSrc;
+        if (view.isEnabled()) {
+            switch (motionEvent.getActionMasked()) {
                 case 0:
                     this.mActivePointerId = motionEvent.getPointerId(0);
                     if (this.mDisallowIntercept == null) {
                         this.mDisallowIntercept = new DisallowIntercept();
                     }
-                    view2.postDelayed(this.mDisallowIntercept, this.mTapTimeout);
+                    view.postDelayed(this.mDisallowIntercept, this.mTapTimeout);
                     if (this.mTriggerLongPress == null) {
                         this.mTriggerLongPress = new TriggerLongPress();
                     }
-                    view2.postDelayed(this.mTriggerLongPress, this.mLongPressTimeout);
+                    view.postDelayed(this.mTriggerLongPress, this.mLongPressTimeout);
                     return false;
                 case 1:
                 case 3:
@@ -138,11 +103,11 @@ public abstract class ForwardingListener implements View.OnTouchListener {
                     return false;
                 case 2:
                     int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
-                    if (findPointerIndex < 0 || pointInView(view2, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.mScaledTouchSlop)) {
+                    if (findPointerIndex < 0 || pointInView(view, motionEvent.getX(findPointerIndex), motionEvent.getY(findPointerIndex), this.mScaledTouchSlop)) {
                         return false;
                     }
                     clearCallbacks();
-                    view2.getParent().requestDisallowInterceptTouchEvent(true);
+                    view.getParent().requestDisallowInterceptTouchEvent(true);
                     return true;
                 default:
                     return false;
@@ -162,12 +127,12 @@ public abstract class ForwardingListener implements View.OnTouchListener {
 
     void onLongPress() {
         clearCallbacks();
-        View view2 = this.mSrc;
-        if (view2.isEnabled() && !view2.isLongClickable() && onForwardingStarted()) {
-            view2.getParent().requestDisallowInterceptTouchEvent(true);
+        View view = this.mSrc;
+        if (view.isEnabled() && !view.isLongClickable() && onForwardingStarted()) {
+            view.getParent().requestDisallowInterceptTouchEvent(true);
             long uptimeMillis = SystemClock.uptimeMillis();
             MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-            view2.onTouchEvent(obtain);
+            view.onTouchEvent(obtain);
             obtain.recycle();
             this.mForwarding = true;
         }
@@ -175,34 +140,34 @@ public abstract class ForwardingListener implements View.OnTouchListener {
 
     private boolean onTouchForwarded(MotionEvent motionEvent) {
         DropDownListView dropDownListView;
-        View view2 = this.mSrc;
+        View view = this.mSrc;
         ShowableListMenu popup = getPopup();
         if (popup == null || !popup.isShowing() || (dropDownListView = (DropDownListView) popup.getListView()) == null || !dropDownListView.isShown()) {
             return false;
         }
         MotionEvent obtainNoHistory = MotionEvent.obtainNoHistory(motionEvent);
-        toGlobalMotionEvent(view2, obtainNoHistory);
+        toGlobalMotionEvent(view, obtainNoHistory);
         toLocalMotionEvent(dropDownListView, obtainNoHistory);
         boolean onForwardedEvent = dropDownListView.onForwardedEvent(obtainNoHistory, this.mActivePointerId);
         obtainNoHistory.recycle();
-        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        int actionMasked = motionEvent.getActionMasked();
         return onForwardedEvent && (actionMasked != 1 && actionMasked != 3);
     }
 
-    private static boolean pointInView(View view2, float f, float f2, float f3) {
-        return f >= (-f3) && f2 >= (-f3) && f < ((float) (view2.getRight() - view2.getLeft())) + f3 && f2 < ((float) (view2.getBottom() - view2.getTop())) + f3;
+    private static boolean pointInView(View view, float f, float f2, float f3) {
+        return f >= (-f3) && f2 >= (-f3) && f < ((float) (view.getRight() - view.getLeft())) + f3 && f2 < ((float) (view.getBottom() - view.getTop())) + f3;
     }
 
-    private boolean toLocalMotionEvent(View view2, MotionEvent motionEvent) {
+    private boolean toLocalMotionEvent(View view, MotionEvent motionEvent) {
         int[] iArr = this.mTmpLocation;
-        view2.getLocationOnScreen(iArr);
+        view.getLocationOnScreen(iArr);
         motionEvent.offsetLocation(-iArr[0], -iArr[1]);
         return true;
     }
 
-    private boolean toGlobalMotionEvent(View view2, MotionEvent motionEvent) {
+    private boolean toGlobalMotionEvent(View view, MotionEvent motionEvent) {
         int[] iArr = this.mTmpLocation;
-        view2.getLocationOnScreen(iArr);
+        view.getLocationOnScreen(iArr);
         motionEvent.offsetLocation(iArr[0], iArr[1]);
         return true;
     }

@@ -38,13 +38,13 @@ public final class RatingCompat implements Parcelable {
     private final float mRatingValue;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface StarStyle {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     /* loaded from: classes2.dex */
     public @interface Style {
     }
@@ -188,30 +188,29 @@ public final class RatingCompat implements Parcelable {
     }
 
     public Object getRating() {
-        if (this.mRatingObj != null || Build.VERSION.SDK_INT < 19) {
-            return this.mRatingObj;
-        }
-        if (isRated()) {
-            switch (this.mRatingStyle) {
-                case 1:
-                    this.mRatingObj = RatingCompatKitkat.newHeartRating(hasHeart());
-                    break;
-                case 2:
-                    this.mRatingObj = RatingCompatKitkat.newThumbRating(isThumbUp());
-                    break;
-                case 3:
-                case 4:
-                case 5:
-                    this.mRatingObj = RatingCompatKitkat.newStarRating(this.mRatingStyle, getStarRating());
-                    break;
-                case 6:
-                    this.mRatingObj = RatingCompatKitkat.newPercentageRating(getPercentRating());
-                    return null;
-                default:
-                    return null;
+        if (this.mRatingObj == null && Build.VERSION.SDK_INT >= 19) {
+            if (isRated()) {
+                switch (this.mRatingStyle) {
+                    case 1:
+                        this.mRatingObj = RatingCompatKitkat.newHeartRating(hasHeart());
+                        break;
+                    case 2:
+                        this.mRatingObj = RatingCompatKitkat.newThumbRating(isThumbUp());
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                        this.mRatingObj = RatingCompatKitkat.newStarRating(this.mRatingStyle, getStarRating());
+                        break;
+                    case 6:
+                        this.mRatingObj = RatingCompatKitkat.newPercentageRating(getPercentRating());
+                        break;
+                    default:
+                        return null;
+                }
+            } else {
+                this.mRatingObj = RatingCompatKitkat.newUnratedRating(this.mRatingStyle);
             }
-        } else {
-            this.mRatingObj = RatingCompatKitkat.newUnratedRating(this.mRatingStyle);
         }
         return this.mRatingObj;
     }

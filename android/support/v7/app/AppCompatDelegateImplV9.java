@@ -15,14 +15,11 @@ import android.os.Parcelable;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NavUtils;
-import android.support.v4.os.ParcelableCompat;
-import android.support.v4.os.ParcelableCompatCreatorCallbacks;
 import android.support.v4.view.LayoutInflaterCompat;
-import android.support.v4.view.LayoutInflaterFactory;
 import android.support.v4.view.OnApplyWindowInsetsListener;
 import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewConfigurationCompat;
 import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.support.v4.view.WindowInsetsCompat;
@@ -65,9 +62,12 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import org.xmlpull.v1.XmlPullParser;
 /* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(14)
 /* loaded from: classes2.dex */
-public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements LayoutInflaterFactory, MenuBuilder.Callback {
+public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implements MenuBuilder.Callback, LayoutInflater.Factory2 {
+    private static final boolean IS_PRE_LOLLIPOP;
     private ActionMenuPresenterCallback mActionMenuPresenterCallback;
     ActionMode mActionMode;
     PopupWindow mActionModePopup;
@@ -93,6 +93,10 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     private Rect mTempRect1;
     private Rect mTempRect2;
     private TextView mTitleView;
+
+    static {
+        IS_PRE_LOLLIPOP = Build.VERSION.SDK_INT < 21;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AppCompatDelegateImplV9(Context context, Window window, AppCompatCallback appCompatCallback) {
@@ -157,7 +161,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
                 supportActionBar.onDestroy();
             }
             if (toolbar != null) {
-                ToolbarActionBar toolbarActionBar = new ToolbarActionBar(toolbar, ((Activity) this.mContext).getTitle(), this.mAppCompatWindowCallback);
+                ToolbarActionBar toolbarActionBar = new ToolbarActionBar(toolbar, ((Activity) this.mOriginalWindowCallback).getTitle(), this.mAppCompatWindowCallback);
                 this.mActionBar = toolbarActionBar;
                 this.mWindow.setCallback(toolbarActionBar.getWrappedWindowCallback());
             } else {
@@ -170,9 +174,9 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
 
     @Override // android.support.v7.app.AppCompatDelegate
     @Nullable
-    public View findViewById(@IdRes int i) {
+    public <T extends View> T findViewById(@IdRes int i) {
         ensureSubDecor();
-        return this.mWindow.findViewById(i);
+        return (T) this.mWindow.findViewById(i);
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
@@ -202,11 +206,11 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
-    public void setContentView(View view2) {
+    public void setContentView(View view) {
         ensureSubDecor();
         ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
         viewGroup.removeAllViews();
-        viewGroup.addView(view2);
+        viewGroup.addView(view);
         this.mOriginalWindowCallback.onContentChanged();
     }
 
@@ -220,18 +224,18 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
-    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
         ensureSubDecor();
         ViewGroup viewGroup = (ViewGroup) this.mSubDecor.findViewById(16908290);
         viewGroup.removeAllViews();
-        viewGroup.addView(view2, layoutParams);
+        viewGroup.addView(view, layoutParams);
         this.mOriginalWindowCallback.onContentChanged();
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
-    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
         ensureSubDecor();
-        ((ViewGroup) this.mSubDecor.findViewById(16908290)).addView(view2, layoutParams);
+        ((ViewGroup) this.mSubDecor.findViewById(16908290)).addView(view, layoutParams);
         this.mOriginalWindowCallback.onContentChanged();
     }
 
@@ -328,13 +332,13 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
             if (Build.VERSION.SDK_INT >= 21) {
                 ViewCompat.setOnApplyWindowInsetsListener(viewGroup, new OnApplyWindowInsetsListener() { // from class: android.support.v7.app.AppCompatDelegateImplV9.2
                     @Override // android.support.v4.view.OnApplyWindowInsetsListener
-                    public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+                    public WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat) {
                         int systemWindowInsetTop = windowInsetsCompat.getSystemWindowInsetTop();
                         int updateStatusGuard = AppCompatDelegateImplV9.this.updateStatusGuard(systemWindowInsetTop);
                         if (systemWindowInsetTop != updateStatusGuard) {
                             windowInsetsCompat = windowInsetsCompat.replaceSystemWindowInsets(windowInsetsCompat.getSystemWindowInsetLeft(), updateStatusGuard, windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom());
                         }
-                        return ViewCompat.onApplyWindowInsets(view2, windowInsetsCompat);
+                        return ViewCompat.onApplyWindowInsets(view, windowInsetsCompat);
                     }
                 });
                 viewGroup2 = viewGroup;
@@ -450,8 +454,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
 
     @Override // android.support.v7.app.AppCompatDelegate
     public boolean hasWindowFeature(int i) {
-        int sanitizeWindowFeatureId = sanitizeWindowFeatureId(i);
-        switch (sanitizeWindowFeatureId) {
+        switch (sanitizeWindowFeatureId(i)) {
             case 1:
                 return this.mWindowNoTitle;
             case 2:
@@ -465,7 +468,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
             case 109:
                 return this.mOverlayActionBar;
             default:
-                return this.mWindow.hasFeature(sanitizeWindowFeatureId);
+                return false;
         }
     }
 
@@ -604,24 +607,24 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
                             AppCompatDelegateImplV9.this.mActionModePopup.showAtLocation(AppCompatDelegateImplV9.this.mActionModeView, 55, 0, 0);
                             AppCompatDelegateImplV9.this.endOnGoingFadeAnimation();
                             if (AppCompatDelegateImplV9.this.shouldAnimateActionModeView()) {
-                                ViewCompat.setAlpha(AppCompatDelegateImplV9.this.mActionModeView, 0.0f);
+                                AppCompatDelegateImplV9.this.mActionModeView.setAlpha(0.0f);
                                 AppCompatDelegateImplV9.this.mFadeAnim = ViewCompat.animate(AppCompatDelegateImplV9.this.mActionModeView).alpha(1.0f);
                                 AppCompatDelegateImplV9.this.mFadeAnim.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.5.1
                                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-                                    public void onAnimationStart(View view2) {
+                                    public void onAnimationStart(View view) {
                                         AppCompatDelegateImplV9.this.mActionModeView.setVisibility(0);
                                     }
 
                                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-                                    public void onAnimationEnd(View view2) {
-                                        ViewCompat.setAlpha(AppCompatDelegateImplV9.this.mActionModeView, 1.0f);
+                                    public void onAnimationEnd(View view) {
+                                        AppCompatDelegateImplV9.this.mActionModeView.setAlpha(1.0f);
                                         AppCompatDelegateImplV9.this.mFadeAnim.setListener(null);
                                         AppCompatDelegateImplV9.this.mFadeAnim = null;
                                     }
                                 });
                                 return;
                             }
-                            ViewCompat.setAlpha(AppCompatDelegateImplV9.this.mActionModeView, 1.0f);
+                            AppCompatDelegateImplV9.this.mActionModeView.setAlpha(1.0f);
                             AppCompatDelegateImplV9.this.mActionModeView.setVisibility(0);
                         }
                     };
@@ -642,11 +645,11 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
                     this.mActionModeView.initForMode(standaloneActionMode);
                     this.mActionMode = standaloneActionMode;
                     if (shouldAnimateActionModeView()) {
-                        ViewCompat.setAlpha(this.mActionModeView, 0.0f);
+                        this.mActionModeView.setAlpha(0.0f);
                         this.mFadeAnim = ViewCompat.animate(this.mActionModeView).alpha(1.0f);
                         this.mFadeAnim.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.6
                             @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-                            public void onAnimationStart(View view2) {
+                            public void onAnimationStart(View view) {
                                 AppCompatDelegateImplV9.this.mActionModeView.setVisibility(0);
                                 AppCompatDelegateImplV9.this.mActionModeView.sendAccessibilityEvent(32);
                                 if (AppCompatDelegateImplV9.this.mActionModeView.getParent() instanceof View) {
@@ -655,14 +658,14 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
                             }
 
                             @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-                            public void onAnimationEnd(View view2) {
-                                ViewCompat.setAlpha(AppCompatDelegateImplV9.this.mActionModeView, 1.0f);
+                            public void onAnimationEnd(View view) {
+                                AppCompatDelegateImplV9.this.mActionModeView.setAlpha(1.0f);
                                 AppCompatDelegateImplV9.this.mFadeAnim.setListener(null);
                                 AppCompatDelegateImplV9.this.mFadeAnim = null;
                             }
                         });
                     } else {
-                        ViewCompat.setAlpha(this.mActionModeView, 1.0f);
+                        this.mActionModeView.setAlpha(1.0f);
                         this.mActionModeView.setVisibility(0);
                         this.mActionModeView.sendAccessibilityEvent(32);
                         if (this.mActionModeView.getParent() instanceof View) {
@@ -775,12 +778,23 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     @Override // android.support.v7.app.AppCompatDelegate
-    public View createView(View view2, String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
-        boolean z = Build.VERSION.SDK_INT < 21;
+    public View createView(View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
+        boolean z;
+        boolean shouldInheritContext;
         if (this.mAppCompatViewInflater == null) {
             this.mAppCompatViewInflater = new AppCompatViewInflater();
         }
-        return this.mAppCompatViewInflater.createView(view2, str, context, attributeSet, z && shouldInheritContext((ViewParent) view2), z, true, VectorEnabledTintResources.shouldBeUsed());
+        if (IS_PRE_LOLLIPOP) {
+            if (attributeSet instanceof XmlPullParser) {
+                shouldInheritContext = ((XmlPullParser) attributeSet).getDepth() > 1;
+            } else {
+                shouldInheritContext = shouldInheritContext((ViewParent) view);
+            }
+            z = shouldInheritContext;
+        } else {
+            z = false;
+        }
+        return this.mAppCompatViewInflater.createView(view, str, context, attributeSet, z, IS_PRE_LOLLIPOP, true, VectorEnabledTintResources.shouldBeUsed());
     }
 
     private boolean shouldInheritContext(ViewParent viewParent) {
@@ -800,19 +814,24 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     public void installViewFactory() {
         LayoutInflater from = LayoutInflater.from(this.mContext);
         if (from.getFactory() == null) {
-            LayoutInflaterCompat.setFactory(from, this);
-        } else if (!(LayoutInflaterCompat.getFactory(from) instanceof AppCompatDelegateImplV9)) {
+            LayoutInflaterCompat.setFactory2(from, this);
+        } else if (!(from.getFactory2() instanceof AppCompatDelegateImplV9)) {
             Log.i("AppCompatDelegate", "The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's");
         }
     }
 
-    @Override // android.support.v4.view.LayoutInflaterFactory
-    public final View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        View callActivityOnCreateView = callActivityOnCreateView(view2, str, context, attributeSet);
-        return callActivityOnCreateView != null ? callActivityOnCreateView : createView(view2, str, context, attributeSet);
+    @Override // android.view.LayoutInflater.Factory2
+    public final View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        View callActivityOnCreateView = callActivityOnCreateView(view, str, context, attributeSet);
+        return callActivityOnCreateView != null ? callActivityOnCreateView : createView(view, str, context, attributeSet);
     }
 
-    View callActivityOnCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+    @Override // android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        return onCreateView(null, str, context, attributeSet);
+    }
+
+    View callActivityOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         View onCreateView;
         if (!(this.mOriginalWindowCallback instanceof LayoutInflater.Factory) || (onCreateView = ((LayoutInflater.Factory) this.mOriginalWindowCallback).onCreateView(str, context, attributeSet)) == null) {
             return null;
@@ -884,7 +903,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
     }
 
     private void reopenMenu(MenuBuilder menuBuilder, boolean z) {
-        if (this.mDecorContentParent != null && this.mDecorContentParent.canShowOverflowMenu() && (!ViewConfigurationCompat.hasPermanentMenuKey(ViewConfiguration.get(this.mContext)) || this.mDecorContentParent.isOverflowMenuShowPending())) {
+        if (this.mDecorContentParent != null && this.mDecorContentParent.canShowOverflowMenu() && (!ViewConfiguration.get(this.mContext).hasPermanentMenuKey() || this.mDecorContentParent.isOverflowMenuShowPending())) {
             Window.Callback windowCallback = getWindowCallback();
             if (!this.mDecorContentParent.isOverflowMenuShowing() || !z) {
                 if (windowCallback != null && !isDestroyed()) {
@@ -1087,7 +1106,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
             return false;
         }
         PanelFeatureState panelState = getPanelState(i, true);
-        if (i == 0 && this.mDecorContentParent != null && this.mDecorContentParent.canShowOverflowMenu() && !ViewConfigurationCompat.hasPermanentMenuKey(ViewConfiguration.get(this.mContext))) {
+        if (i == 0 && this.mDecorContentParent != null && this.mDecorContentParent.canShowOverflowMenu() && !ViewConfiguration.get(this.mContext).hasPermanentMenuKey()) {
             if (!this.mDecorContentParent.isOverflowMenuShowing()) {
                 if (!isDestroyed() && preparePanel(panelState, keyEvent)) {
                     z2 = this.mDecorContentParent.showOverflowMenu();
@@ -1350,7 +1369,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
                 AppCompatDelegateImplV9.this.mFadeAnim = ViewCompat.animate(AppCompatDelegateImplV9.this.mActionModeView).alpha(0.0f);
                 AppCompatDelegateImplV9.this.mFadeAnim.setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: android.support.v7.app.AppCompatDelegateImplV9.ActionModeCallbackWrapperV9.1
                     @Override // android.support.v4.view.ViewPropertyAnimatorListenerAdapter, android.support.v4.view.ViewPropertyAnimatorListener
-                    public void onAnimationEnd(View view2) {
+                    public void onAnimationEnd(View view) {
                         AppCompatDelegateImplV9.this.mActionModeView.setVisibility(8);
                         if (AppCompatDelegateImplV9.this.mActionModePopup != null) {
                             AppCompatDelegateImplV9.this.mActionModePopup.dismiss();
@@ -1549,21 +1568,26 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
         /* JADX INFO: Access modifiers changed from: private */
         /* loaded from: classes2.dex */
         public static class SavedState implements Parcelable {
-            public static final Parcelable.Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: android.support.v7.app.AppCompatDelegateImplV9.PanelFeatureState.SavedState.1
+            public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: android.support.v7.app.AppCompatDelegateImplV9.PanelFeatureState.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+                @Override // android.os.Parcelable.ClassLoaderCreator
                 public SavedState createFromParcel(Parcel parcel, ClassLoader classLoader) {
                     return SavedState.readFromParcel(parcel, classLoader);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // android.support.v4.os.ParcelableCompatCreatorCallbacks
+                @Override // android.os.Parcelable.Creator
+                public SavedState createFromParcel(Parcel parcel) {
+                    return SavedState.readFromParcel(parcel, null);
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.os.Parcelable.Creator
                 public SavedState[] newArray(int i) {
                     return new SavedState[i];
                 }
-            });
+            };
             int featureId;
             boolean isOpen;
             Bundle menuState;

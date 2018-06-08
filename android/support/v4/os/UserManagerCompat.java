@@ -1,24 +1,16 @@
 package android.support.v4.os;
 
 import android.content.Context;
+import android.os.Build;
+import android.os.UserManager;
 /* loaded from: classes2.dex */
 public class UserManagerCompat {
     private UserManagerCompat() {
     }
 
-    @Deprecated
-    public static boolean isUserRunningAndLocked(Context context) {
-        return !isUserUnlocked(context);
-    }
-
-    @Deprecated
-    public static boolean isUserRunningAndUnlocked(Context context) {
-        return isUserUnlocked(context);
-    }
-
     public static boolean isUserUnlocked(Context context) {
-        if (BuildCompat.isAtLeastN()) {
-            return UserManagerCompatApi24.isUserUnlocked(context);
+        if (Build.VERSION.SDK_INT >= 24) {
+            return ((UserManager) context.getSystemService(UserManager.class)).isUserUnlocked();
         }
         return true;
     }

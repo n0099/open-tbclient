@@ -8,46 +8,46 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    List<ValidateItemData> eer = new ArrayList();
-    ValidateActivity ejG;
+    List<ValidateItemData> epG = new ArrayList();
+    ValidateActivity euX;
 
     public a(ValidateActivity validateActivity) {
-        this.ejG = validateActivity;
+        this.euX = validateActivity;
     }
 
     public void destroy() {
-        this.ejG = null;
+        this.euX = null;
     }
 
     public void setData(List<ValidateItemData> list) {
         if (list != null) {
-            this.eer.addAll(list);
+            this.epG.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eer == null) {
+        if (this.epG == null) {
             return 0;
         }
-        return this.eer.size();
+        return this.epG.size();
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar = null;
-        if (view2 != null) {
-            bVar = (b) view2.getTag();
+        if (view != null) {
+            bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.ejG) : bVar;
-        bVar2.f(this.eer.get(i));
-        return bVar2.bO();
+        b bVar2 = bVar == null ? new b(this.euX) : bVar;
+        bVar2.f(this.epG.get(i));
+        return bVar2.eC();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eer.get(i);
+        return this.epG.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,6 +56,6 @@ public class a extends BaseAdapter {
     }
 
     public List<ValidateItemData> getDatas() {
-        return this.eer;
+        return this.epG;
     }
 }

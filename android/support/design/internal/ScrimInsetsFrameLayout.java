@@ -14,7 +14,7 @@ import android.support.v4.view.WindowInsetsCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ScrimInsetsFrameLayout extends FrameLayout {
     Drawable mInsetForeground;
@@ -38,7 +38,7 @@ public class ScrimInsetsFrameLayout extends FrameLayout {
         setWillNotDraw(true);
         ViewCompat.setOnApplyWindowInsetsListener(this, new OnApplyWindowInsetsListener() { // from class: android.support.design.internal.ScrimInsetsFrameLayout.1
             @Override // android.support.v4.view.OnApplyWindowInsetsListener
-            public WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat) {
+            public WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat) {
                 if (ScrimInsetsFrameLayout.this.mInsets == null) {
                     ScrimInsetsFrameLayout.this.mInsets = new Rect();
                 }

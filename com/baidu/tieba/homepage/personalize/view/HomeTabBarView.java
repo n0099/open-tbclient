@@ -15,15 +15,15 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 /* loaded from: classes2.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private ImageView dGP;
-    private PagerSlidingTabStrip dGQ;
+    private PagerSlidingTabStrip dSf;
+    private ImageView dwa;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
@@ -46,10 +46,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.i.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.dGP = (ImageView) findViewById(d.g.home_page_search_icon);
-        this.dGQ = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
-        this.dGQ.d(l.e(context, d.e.ds34), l.e(context, d.e.ds4), false);
-        this.dGP.setOnClickListener(this);
+        this.dwa = (ImageView) findViewById(d.g.home_page_search_icon);
+        this.dSf = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
+        this.dSf.d(l.e(context, d.e.ds34), l.e(context, d.e.ds4), false);
+        this.dwa.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -58,49 +58,53 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        if (view2 == this.dGP) {
-            TiebaStatic.log(new al("c10378").r("obj_type", 1));
+    public void onClick(View view) {
+        if (view == this.dwa) {
+            TiebaStatic.log(new am("c10378").r("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.dGQ.setOnPageChangeListener(onPageChangeListener);
+        this.dSf.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.dGQ != null) {
-            this.dGQ.setShowConcernRedTip(z);
+        if (this.dSf != null) {
+            this.dSf.setShowConcernRedTip(z);
         }
     }
 
-    public boolean axz() {
-        if (this.dGQ != null) {
-            return this.dGQ.axz();
+    public boolean aCu() {
+        if (this.dSf != null) {
+            return this.dSf.aCu();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.dGQ.setViewPager(viewPager);
+        this.dSf.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.dGQ.setTabItemClicked(z);
+        this.dSf.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.dGQ.notifyDataSetChanged();
+        this.dSf.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            ak.j(this, d.C0126d.cp_bg_line_d);
-            ao.vO().c(this.dGP, d.f.icon_topbar_search_n_svg, d.f.select_topbar_icon_color_tint);
-            this.dGQ.onChangeSkinType();
+            al.j(this, d.C0141d.cp_bg_line_d);
+            ap.zp().c(this.dwa, d.f.icon_topbar_search_n_svg, d.C0141d.select_topbar_icon_color_tint);
+            this.dSf.onChangeSkinType();
         }
+    }
+
+    public View mr(int i) {
+        return this.dSf.mr(i);
     }
 }

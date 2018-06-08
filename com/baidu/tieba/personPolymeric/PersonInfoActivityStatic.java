@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.util.z;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.util.aa;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 import com.xiaomi.mipush.sdk.Constants;
@@ -32,16 +32,16 @@ public class PersonInfoActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        Pj();
-        ax.wf().a(new ax.a() { // from class: com.baidu.tieba.personPolymeric.PersonInfoActivityStatic.2
-            @Override // com.baidu.tbadk.core.util.ax.a
+        SH();
+        ay.zG().a(new ay.a() { // from class: com.baidu.tieba.personPolymeric.PersonInfoActivityStatic.2
+            @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_personalCenter=1")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), z.ar(str, "userid="), z.ar(str, "un="))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), aa.ax(str, "userid="), aa.ax(str, "un="))));
                     return 1;
                 }
                 return 3;
@@ -49,7 +49,7 @@ public class PersonInfoActivityStatic {
         });
     }
 
-    private static void Pj() {
+    private static void SH() {
         com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }

@@ -12,6 +12,7 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.sso.RemoteSSO;
 import com.sina.weibo.sdk.WeiboAppManager;
@@ -146,7 +147,7 @@ public class SsoHandler {
                         }
                         String stringExtra2 = intent.getStringExtra("error_description");
                         if (stringExtra2 != null) {
-                            stringExtra = String.valueOf(stringExtra) + ":" + stringExtra2;
+                            stringExtra = String.valueOf(stringExtra) + SystemInfoUtil.COLON + stringExtra2;
                         }
                         LogUtil.d(TAG, "Login failed: " + stringExtra);
                         this.mAuthListener.onWeiboException(new WeiboDialogException(stringExtra, i2, stringExtra2));

@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dZt = BdUniqueId.gen();
-    private Object aXE;
-    private NoDataViewFactory.ImgType dZu;
-    private String dZv;
-    private String dZw;
-    private String dZx;
-    private int dZy;
+    public static final BdUniqueId ekG = BdUniqueId.gen();
+    private Object bfL;
+    private NoDataViewFactory.ImgType ekH;
+    private String ekI;
+    private String ekJ;
+    private String ekK;
+    private int ekL;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dZt;
+        return ekG;
     }
 
-    public String aDG() {
-        return this.dZv;
+    public String aIB() {
+        return this.ekI;
     }
 
-    public void nA(String str) {
-        this.dZv = str;
+    public void oo(String str) {
+        this.ekI = str;
     }
 
-    public String aDH() {
-        return this.dZw;
+    public String aIC() {
+        return this.ekJ;
     }
 
-    public void nB(String str) {
-        this.dZw = str;
+    public void op(String str) {
+        this.ekJ = str;
     }
 
-    public String aDI() {
-        return this.dZx;
+    public String aID() {
+        return this.ekK;
     }
 
-    public void nC(String str) {
-        this.dZx = str;
+    public void oq(String str) {
+        this.ekK = str;
     }
 
-    public int aDJ() {
-        return this.dZy;
+    public int aIE() {
+        return this.ekL;
     }
 
-    public void nw(int i) {
-        this.dZy = i;
+    public void nI(int i) {
+        this.ekL = i;
     }
 
-    public Object KU() {
-        return this.aXE;
+    public Object Ot() {
+        return this.bfL;
     }
 
     public void setExtraData(Object obj) {
-        this.aXE = obj;
+        this.bfL = obj;
     }
 
-    public NoDataViewFactory.ImgType aDK() {
-        return this.dZu;
+    public NoDataViewFactory.ImgType aIF() {
+        return this.ekH;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.dZu = imgType;
+        this.ekH = imgType;
     }
 }

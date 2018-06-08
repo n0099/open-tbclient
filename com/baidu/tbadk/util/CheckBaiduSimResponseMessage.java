@@ -1,5 +1,6 @@
 package com.baidu.tbadk.util;
 
+import android.support.v4.app.NotificationCompat;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -17,7 +18,7 @@ public class CheckBaiduSimResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            this.isSuc = jSONObject.optInt("status") == 0;
+            this.isSuc = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS) == 0;
             this.isBaiduSim = jSONObject.optInt("product") == 1;
         }
     }

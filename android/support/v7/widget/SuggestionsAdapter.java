@@ -168,19 +168,19 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
         public final TextView mText1;
         public final TextView mText2;
 
-        public ChildViewCache(View view2) {
-            this.mText1 = (TextView) view2.findViewById(16908308);
-            this.mText2 = (TextView) view2.findViewById(16908309);
-            this.mIcon1 = (ImageView) view2.findViewById(16908295);
-            this.mIcon2 = (ImageView) view2.findViewById(16908296);
-            this.mIconRefine = (ImageView) view2.findViewById(R.id.edit_query);
+        public ChildViewCache(View view) {
+            this.mText1 = (TextView) view.findViewById(16908308);
+            this.mText2 = (TextView) view.findViewById(16908309);
+            this.mIcon1 = (ImageView) view.findViewById(16908295);
+            this.mIcon2 = (ImageView) view.findViewById(16908296);
+            this.mIconRefine = (ImageView) view.findViewById(R.id.edit_query);
         }
     }
 
     @Override // android.support.v4.widget.CursorAdapter
-    public void bindView(View view2, Context context, Cursor cursor) {
+    public void bindView(View view, Context context, Cursor cursor) {
         CharSequence stringOrNull;
-        ChildViewCache childViewCache = (ChildViewCache) view2.getTag();
+        ChildViewCache childViewCache = (ChildViewCache) view.getTag();
         int i = this.mFlagsCol != -1 ? cursor.getInt(this.mFlagsCol) : 0;
         if (childViewCache.mText1 != null) {
             setViewText(childViewCache.mText1, getStringOrNull(cursor, this.mText1Col));
@@ -219,8 +219,8 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Object tag = view2.getTag();
+    public void onClick(View view) {
+        Object tag = view.getTag();
         if (tag instanceof CharSequence) {
             this.mSearchView.onQueryRefine((CharSequence) tag);
         }
@@ -293,9 +293,9 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
     }
 
     @Override // android.support.v4.widget.CursorAdapter, android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         try {
-            return super.getView(i, view2, viewGroup);
+            return super.getView(i, view, viewGroup);
         } catch (RuntimeException e) {
             Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e);
             View newView = newView(this.mContext, this.mCursor, viewGroup);
@@ -306,8 +306,22 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
         }
     }
 
+    @Override // android.support.v4.widget.CursorAdapter, android.widget.BaseAdapter, android.widget.SpinnerAdapter
+    public View getDropDownView(int i, View view, ViewGroup viewGroup) {
+        try {
+            return super.getDropDownView(i, view, viewGroup);
+        } catch (RuntimeException e) {
+            Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e);
+            View newDropDownView = newDropDownView(this.mContext, this.mCursor, viewGroup);
+            if (newDropDownView != null) {
+                ((ChildViewCache) newDropDownView.getTag()).mText1.setText(e.toString());
+            }
+            return newDropDownView;
+        }
+    }
+
     private Drawable getDrawableFromResourceValue(String str) {
-        if (str == null || str.length() == 0 || "0".equals(str)) {
+        if (str == null || str.isEmpty() || "0".equals(str)) {
             return null;
         }
         try {

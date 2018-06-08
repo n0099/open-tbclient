@@ -13,7 +13,7 @@ public class g extends com.baidu.tieba.frs.f<com.baidu.tieba.frs.g, h> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ak */
+    /* renamed from: aj */
     public h onCreateViewHolder(ViewGroup viewGroup) {
         return new h(new View(this.mContext));
     }
@@ -22,10 +22,10 @@ public class g extends com.baidu.tieba.frs.f<com.baidu.tieba.frs.g, h> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, com.baidu.tieba.frs.g gVar, h hVar) {
-        super.onFillViewHolder(i, view2, viewGroup, gVar, hVar);
-        hVar.jQ(gVar.getHeight());
-        hVar.setBackground(gVar.apb());
-        return view2;
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.g gVar, h hVar) {
+        super.onFillViewHolder(i, view, viewGroup, gVar, hVar);
+        hVar.jT(gVar.getHeight());
+        hVar.setBackground(gVar.ath());
+        return view;
     }
 }

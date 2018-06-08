@@ -108,6 +108,9 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     protected boolean onCancelLoad() {
         boolean z = false;
         if (this.mTask != null) {
+            if (!this.mStarted) {
+                this.mContentChanged = true;
+            }
             if (this.mCancellingTask != null) {
                 if (this.mTask.waiting) {
                     this.mTask.waiting = false;
@@ -183,7 +186,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         return this.mCancellingTask != null;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void waitForLoader() {
         AsyncTaskLoader<D>.LoadTask loadTask = this.mTask;
         if (loadTask != null) {

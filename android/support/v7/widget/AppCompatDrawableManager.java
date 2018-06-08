@@ -13,6 +13,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.graphics.drawable.VectorDrawableCompat;
@@ -22,18 +23,18 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.util.ArrayMap;
 import android.support.v4.util.LongSparseArray;
 import android.support.v4.util.LruCache;
+import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.SparseArray;
 import android.util.TypedValue;
 import android.util.Xml;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public final class AppCompatDrawableManager {
     private static final boolean DEBUG = false;
@@ -45,8 +46,8 @@ public final class AppCompatDrawableManager {
     private final Object mDrawableCacheLock = new Object();
     private final WeakHashMap<Context, LongSparseArray<WeakReference<Drawable.ConstantState>>> mDrawableCaches = new WeakHashMap<>(0);
     private boolean mHasCheckedVectorDrawableSetup;
-    private SparseArray<String> mKnownDrawableIdTags;
-    private WeakHashMap<Context, SparseArray<ColorStateList>> mTintLists;
+    private SparseArrayCompat<String> mKnownDrawableIdTags;
+    private WeakHashMap<Context, SparseArrayCompat<ColorStateList>> mTintLists;
     private TypedValue mTypedValue;
     private static final PorterDuff.Mode DEFAULT_MODE = PorterDuff.Mode.SRC_IN;
     private static final ColorFilterLruCache COLOR_FILTER_CACHE = new ColorFilterLruCache(6);
@@ -72,10 +73,9 @@ public final class AppCompatDrawableManager {
     }
 
     private static void installDefaultInflateDelegates(@NonNull AppCompatDrawableManager appCompatDrawableManager) {
-        int i = Build.VERSION.SDK_INT;
-        if (i < 24) {
+        if (Build.VERSION.SDK_INT < 24) {
             appCompatDrawableManager.addDelegate("vector", new VdcInflateDelegate());
-            if (i >= 11) {
+            if (Build.VERSION.SDK_INT >= 11) {
                 appCompatDrawableManager.addDelegate("animated-vector", new AvdcInflateDelegate());
             }
         }
@@ -189,7 +189,7 @@ public final class AppCompatDrawableManager {
                 return null;
             }
         } else {
-            this.mKnownDrawableIdTags = new SparseArray<>();
+            this.mKnownDrawableIdTags = new SparseArrayCompat<>();
         }
         if (this.mTypedValue == null) {
             this.mTypedValue = new TypedValue();
@@ -370,26 +370,20 @@ public final class AppCompatDrawableManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ColorStateList getTintList(@NonNull Context context, @DrawableRes int i) {
-        return getTintList(context, i, null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ColorStateList getTintList(@NonNull Context context, @DrawableRes int i, @Nullable ColorStateList colorStateList) {
-        boolean z = colorStateList == null;
-        ColorStateList tintListFromCache = z ? getTintListFromCache(context, i) : null;
+        ColorStateList tintListFromCache = getTintListFromCache(context, i);
         if (tintListFromCache == null) {
             if (i == R.drawable.abc_edit_text_material) {
                 tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_edittext);
             } else if (i == R.drawable.abc_switch_track_mtrl_alpha) {
                 tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_switch_track);
             } else if (i == R.drawable.abc_switch_thumb_material) {
-                tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_switch_thumb);
+                tintListFromCache = createSwitchThumbColorStateList(context);
             } else if (i == R.drawable.abc_btn_default_mtrl_shape) {
-                tintListFromCache = createDefaultButtonColorStateList(context, colorStateList);
+                tintListFromCache = createDefaultButtonColorStateList(context);
             } else if (i == R.drawable.abc_btn_borderless_material) {
-                tintListFromCache = createBorderlessButtonColorStateList(context, colorStateList);
+                tintListFromCache = createBorderlessButtonColorStateList(context);
             } else if (i == R.drawable.abc_btn_colored_material) {
-                tintListFromCache = createColoredButtonColorStateList(context, colorStateList);
+                tintListFromCache = createColoredButtonColorStateList(context);
             } else if (i == R.drawable.abc_spinner_mtrl_am_alpha || i == R.drawable.abc_spinner_textfield_background_material) {
                 tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_spinner);
             } else if (arrayContains(TINT_COLOR_CONTROL_NORMAL, i)) {
@@ -401,7 +395,7 @@ public final class AppCompatDrawableManager {
             } else if (i == R.drawable.abc_seekbar_thumb_material) {
                 tintListFromCache = AppCompatResources.getColorStateList(context, R.color.abc_tint_seek_thumb);
             }
-            if (z && tintListFromCache != null) {
+            if (tintListFromCache != null) {
                 addTintListToCache(context, i, tintListFromCache);
             }
         }
@@ -409,9 +403,9 @@ public final class AppCompatDrawableManager {
     }
 
     private ColorStateList getTintListFromCache(@NonNull Context context, @DrawableRes int i) {
-        SparseArray<ColorStateList> sparseArray;
-        if (this.mTintLists != null && (sparseArray = this.mTintLists.get(context)) != null) {
-            return sparseArray.get(i);
+        SparseArrayCompat<ColorStateList> sparseArrayCompat;
+        if (this.mTintLists != null && (sparseArrayCompat = this.mTintLists.get(context)) != null) {
+            return sparseArrayCompat.get(i);
         }
         return null;
     }
@@ -420,45 +414,50 @@ public final class AppCompatDrawableManager {
         if (this.mTintLists == null) {
             this.mTintLists = new WeakHashMap<>();
         }
-        SparseArray<ColorStateList> sparseArray = this.mTintLists.get(context);
-        if (sparseArray == null) {
-            sparseArray = new SparseArray<>();
-            this.mTintLists.put(context, sparseArray);
+        SparseArrayCompat<ColorStateList> sparseArrayCompat = this.mTintLists.get(context);
+        if (sparseArrayCompat == null) {
+            sparseArrayCompat = new SparseArrayCompat<>();
+            this.mTintLists.put(context, sparseArrayCompat);
         }
-        sparseArray.append(i, colorStateList);
+        sparseArrayCompat.append(i, colorStateList);
     }
 
-    private ColorStateList createDefaultButtonColorStateList(@NonNull Context context, @Nullable ColorStateList colorStateList) {
-        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorButtonNormal), colorStateList);
+    private ColorStateList createDefaultButtonColorStateList(@NonNull Context context) {
+        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorButtonNormal));
     }
 
-    private ColorStateList createBorderlessButtonColorStateList(@NonNull Context context, @Nullable ColorStateList colorStateList) {
-        return createButtonColorStateList(context, 0, null);
+    private ColorStateList createBorderlessButtonColorStateList(@NonNull Context context) {
+        return createButtonColorStateList(context, 0);
     }
 
-    private ColorStateList createColoredButtonColorStateList(@NonNull Context context, @Nullable ColorStateList colorStateList) {
-        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorAccent), colorStateList);
+    private ColorStateList createColoredButtonColorStateList(@NonNull Context context) {
+        return createButtonColorStateList(context, ThemeUtils.getThemeAttrColor(context, R.attr.colorAccent));
     }
 
-    private ColorStateList createButtonColorStateList(@NonNull Context context, @ColorInt int i, @Nullable ColorStateList colorStateList) {
-        int[][] iArr = new int[4];
-        int[] iArr2 = new int[4];
+    private ColorStateList createButtonColorStateList(@NonNull Context context, @ColorInt int i) {
         int themeAttrColor = ThemeUtils.getThemeAttrColor(context, R.attr.colorControlHighlight);
-        int disabledThemeAttrColor = ThemeUtils.getDisabledThemeAttrColor(context, R.attr.colorButtonNormal);
-        iArr[0] = ThemeUtils.DISABLED_STATE_SET;
-        if (colorStateList != null) {
-            disabledThemeAttrColor = colorStateList.getColorForState(iArr[0], 0);
+        return new ColorStateList(new int[][]{ThemeUtils.DISABLED_STATE_SET, ThemeUtils.PRESSED_STATE_SET, ThemeUtils.FOCUSED_STATE_SET, ThemeUtils.EMPTY_STATE_SET}, new int[]{ThemeUtils.getDisabledThemeAttrColor(context, R.attr.colorButtonNormal), ColorUtils.compositeColors(themeAttrColor, i), ColorUtils.compositeColors(themeAttrColor, i), i});
+    }
+
+    private ColorStateList createSwitchThumbColorStateList(Context context) {
+        int[][] iArr = new int[3];
+        int[] iArr2 = new int[3];
+        ColorStateList themeAttrColorStateList = ThemeUtils.getThemeAttrColorStateList(context, R.attr.colorSwitchThumbNormal);
+        if (themeAttrColorStateList != null && themeAttrColorStateList.isStateful()) {
+            iArr[0] = ThemeUtils.DISABLED_STATE_SET;
+            iArr2[0] = themeAttrColorStateList.getColorForState(iArr[0], 0);
+            iArr[1] = ThemeUtils.CHECKED_STATE_SET;
+            iArr2[1] = ThemeUtils.getThemeAttrColor(context, R.attr.colorControlActivated);
+            iArr[2] = ThemeUtils.EMPTY_STATE_SET;
+            iArr2[2] = themeAttrColorStateList.getDefaultColor();
+        } else {
+            iArr[0] = ThemeUtils.DISABLED_STATE_SET;
+            iArr2[0] = ThemeUtils.getDisabledThemeAttrColor(context, R.attr.colorSwitchThumbNormal);
+            iArr[1] = ThemeUtils.CHECKED_STATE_SET;
+            iArr2[1] = ThemeUtils.getThemeAttrColor(context, R.attr.colorControlActivated);
+            iArr[2] = ThemeUtils.EMPTY_STATE_SET;
+            iArr2[2] = ThemeUtils.getThemeAttrColor(context, R.attr.colorSwitchThumbNormal);
         }
-        iArr2[0] = disabledThemeAttrColor;
-        iArr[1] = ThemeUtils.PRESSED_STATE_SET;
-        iArr2[1] = ColorUtils.compositeColors(themeAttrColor, colorStateList == null ? i : colorStateList.getColorForState(iArr[1], 0));
-        iArr[2] = ThemeUtils.FOCUSED_STATE_SET;
-        iArr2[2] = ColorUtils.compositeColors(themeAttrColor, colorStateList == null ? i : colorStateList.getColorForState(iArr[2], 0));
-        iArr[3] = ThemeUtils.EMPTY_STATE_SET;
-        if (colorStateList != null) {
-            i = colorStateList.getColorForState(iArr[3], 0);
-        }
-        iArr2[3] = i;
         return new ColorStateList(iArr, iArr2);
     }
 
@@ -558,6 +557,7 @@ public final class AppCompatDrawableManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @RequiresApi(11)
     /* loaded from: classes2.dex */
     public static class AvdcInflateDelegate implements InflateDelegate {
         AvdcInflateDelegate() {

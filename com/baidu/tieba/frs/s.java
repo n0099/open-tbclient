@@ -10,21 +10,21 @@ import com.baidu.tieba.d;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class s extends f<t, u> {
-    private final LinkedList<com.baidu.tbadk.j.f> dbb;
-    private final LinkedList<RelativeLayout> dbc;
+    private final LinkedList<com.baidu.tbadk.j.f> dkr;
+    private final LinkedList<RelativeLayout> dks;
     private int mItemHeight;
 
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dbb = new LinkedList<>();
-        this.dbc = new LinkedList<>();
-        this.mItemHeight = (com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
+        this.dkr = new LinkedList<>();
+        this.dks = new LinkedList<>();
+        this.mItemHeight = (com.baidu.adp.lib.util.l.aj(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aq */
+    /* renamed from: ap */
     public u onCreateViewHolder(ViewGroup viewGroup) {
         RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
@@ -34,10 +34,10 @@ public class s extends f<t, u> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.j.f fVar = new com.baidu.tbadk.j.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(d.e.ds140));
         fVar.attachView(relativeLayout);
-        this.dbb.add(fVar);
-        this.dbc.add(relativeLayout);
+        this.dkr.add(fVar);
+        this.dks.add(relativeLayout);
         u uVar = new u(relativeLayout);
-        uVar.dbe = fVar;
+        uVar.dku = fVar;
         return uVar;
     }
 
@@ -45,28 +45,28 @@ public class s extends f<t, u> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.f, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t tVar, u uVar) {
-        if (uVar != null && uVar.dbe != null) {
-            uVar.dbe.onChangeSkinType();
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, t tVar, u uVar) {
+        if (uVar != null && uVar.dku != null) {
+            uVar.dku.onChangeSkinType();
         }
-        return view2;
+        return view;
     }
 
     @Override // com.baidu.tieba.frs.f
     public void release() {
         super.release();
-        if (this.dbb.size() != 0 && this.dbc.size() == this.dbb.size()) {
+        if (this.dkr.size() != 0 && this.dks.size() == this.dkr.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.dbb.size()) {
+                if (i2 >= this.dkr.size()) {
                     break;
                 }
-                this.dbb.get(i2).P(this.dbc.get(i2));
+                this.dkr.get(i2).P(this.dks.get(i2));
                 i = i2 + 1;
             }
         }
-        this.dbb.clear();
-        this.dbc.clear();
+        this.dkr.clear();
+        this.dks.clear();
     }
 }

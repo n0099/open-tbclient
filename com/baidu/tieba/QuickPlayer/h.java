@@ -10,9 +10,9 @@ import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import java.lang.reflect.Field;
 /* loaded from: classes2.dex */
 public class h extends MediaPlayer {
-    private b aZM;
-    private Handler aZO;
-    private Handler.Callback aZP;
+    private b bhW;
+    private Handler bhY;
+    private Handler.Callback bhZ;
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -26,18 +26,18 @@ public class h extends MediaPlayer {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.aZO = (Handler) obj;
+                    this.bhY = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.aZP = (Handler.Callback) obj2;
+                        this.bhZ = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                f(e);
+                l(e);
             }
         }
     }
@@ -50,23 +50,23 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.aZP == null || !h.this.aZP.handleMessage(message)) && h.this.aZO != null) {
-                    h.this.aZO.handleMessage(message);
+                if ((h.this.bhZ == null || !h.this.bhZ.handleMessage(message)) && h.this.bhY != null) {
+                    h.this.bhY.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                h.this.f(e);
+                h.this.l(e);
             }
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f(Throwable th) {
+    public void l(Throwable th) {
         if (th != null) {
-            String g = com.baidu.tieba.j.a.g(th);
-            if (this.aZM != null) {
-                this.aZM.handleOppoError(g);
+            String m = com.baidu.tieba.j.a.m(th);
+            if (this.bhW != null) {
+                this.bhW.handleOppoError(m);
             }
         }
     }
@@ -79,6 +79,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.aZM = bVar;
+        this.bhW = bVar;
     }
 }

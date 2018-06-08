@@ -3,7 +3,7 @@ package com.baidu.sapi2;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.base.statistics.h;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
@@ -79,7 +79,7 @@ public final class SapiAccountService implements ISAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String b() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new BasicNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("adapter", "3"));
         arrayList.add(new BasicNameValuePair("banner", "1"));
@@ -131,7 +131,7 @@ public final class SapiAccountService implements ISAccountService {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(boolean z) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new BasicNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("adapter", "3"));
@@ -174,7 +174,7 @@ public final class SapiAccountService implements ISAccountService {
         String str = sapiConfiguration.environment.getWap(SapiUtils.getDefaultHttpsEnabled()) + "/wp/";
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("clientfrom", a));
-        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new BasicNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("appid", sapiConfiguration.appId));
         if (TextUtils.isEmpty(sapiConfiguration.clientId)) {
             sapiConfiguration.clientId = SapiUtils.getClientId(sapiConfiguration.context);
@@ -189,7 +189,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("clientfrom", a));
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
-        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new BasicNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         arrayList.add(new BasicNameValuePair("adapter", this.b.customActionBarEnabled ? "3" : ""));
         arrayList.add(new BasicNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
@@ -267,7 +267,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("access_token", str));
         arrayList.add(new BasicNameValuePair("osuid", str2));
         arrayList.add(new BasicNameValuePair(ISapiAccount.SAPI_ACCOUNT_PHONE, str3));
-        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new BasicNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         return this.c.q() + "?" + SapiUtils.createRequestParams(arrayList);
     }
 
@@ -278,7 +278,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new BasicNameValuePair("tpl", this.b.tpl));
         arrayList.add(new BasicNameValuePair("display", a));
         arrayList.add(new BasicNameValuePair("clientfrom", a));
-        arrayList.add(new BasicNameValuePair("client", Constants.OS_TYPE_VALUE));
+        arrayList.add(new BasicNameValuePair("client", HttpConstants.OS_TYPE_VALUE));
         if (z) {
             arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_ACT, "bind"));
             arrayList.add(new BasicNameValuePair("wapsec", "center"));

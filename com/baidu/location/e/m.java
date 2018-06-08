@@ -6,7 +6,6 @@ import com.baidu.location.Address;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -17,8 +16,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class m {
-    private static final double[] PQ = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d Pm;
+    private static final double[] XR = {45.0d, 135.0d, 225.0d, 315.0d};
+    private final d Xp;
     private final int c;
     private final SQLiteDatabase d;
     private int e = -1;
@@ -69,10 +68,10 @@ public final class m {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= m.PQ.length) {
+                    if (i3 >= m.XR.length) {
                         break;
                     }
-                    double[] b2 = m.b(d3, d2, d4, m.PQ[i3]);
+                    double[] b2 = m.b(d3, d2, d4, m.XR[i3]);
                     hashSet.add(m.b(i, b2[1], b2[0]));
                     i2 = i3 + 1;
                 }
@@ -99,7 +98,7 @@ public final class m {
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (stringBuffer.length() != 0) {
-                    stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    stringBuffer.append(",");
                 }
                 stringBuffer.append("\"").append(next).append("\"");
             }
@@ -113,9 +112,9 @@ public final class m {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(StringBuffer stringBuffer, String str, String str2, int i) {
             if (stringBuffer.length() > 0) {
-                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                stringBuffer.append(",");
             }
-            stringBuffer.append("(\"").append(str).append("\",\"").append(str2).append("\",").append(i).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(System.currentTimeMillis() / 86400000).append(")");
+            stringBuffer.append("(\"").append(str).append("\",\"").append(str2).append("\",").append(i).append(",").append(System.currentTimeMillis() / 86400000).append(")");
         }
 
         abstract List<String> a(JSONObject jSONObject, String str, int i);
@@ -123,7 +122,7 @@ public final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.Pm = dVar;
+        this.Xp = dVar;
         this.d = sQLiteDatabase;
         this.c = i;
         if (this.d == null || !this.d.isOpen()) {
@@ -285,7 +284,7 @@ public final class m {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.Pm.nu().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
+        if (this.Xp.qH().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
             try {
                 cursor = this.d.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
             } catch (Exception e) {
@@ -363,8 +362,8 @@ public final class m {
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pm.nu().p())), null);
-                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Pm.nu().q())), null);
+                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Xp.qH().p())), null);
+                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Xp.qH().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {
@@ -373,7 +372,7 @@ public final class m {
                         jSONArray3.put(string);
                         hashSet.add(string2);
                         if (stringBuffer2.length() > 0) {
-                            stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            stringBuffer2.append(",");
                         }
                         stringBuffer2.append("\"").append(string).append("\"");
                         cursor2.moveToNext();
@@ -392,7 +391,7 @@ public final class m {
                         jSONArray.put(string3);
                         hashSet2.add(string4);
                         if (stringBuffer.length() > 0) {
-                            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            stringBuffer.append(",");
                         }
                         stringBuffer.append("\"").append(string3).append("\"");
                         cursor.moveToNext();

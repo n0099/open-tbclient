@@ -423,7 +423,7 @@ public class AidTask implements Serializable {
             }
             String iccid = getIccid(context);
             if (!TextUtils.isEmpty(iccid)) {
-                jSONObject.put("6", iccid);
+                jSONObject.put(Constants.VIA_SHARE_TYPE_INFO, iccid);
             }
             String serialNo = getSerialNo();
             if (!TextUtils.isEmpty(serialNo)) {
@@ -451,7 +451,7 @@ public class AidTask implements Serializable {
             }
             String ssid = getSsid(context);
             if (!TextUtils.isEmpty(ssid)) {
-                jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, ssid);
+                jSONObject.put("17", ssid);
             }
             String deviceName = getDeviceName();
             if (!TextUtils.isEmpty(deviceName)) {

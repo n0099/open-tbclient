@@ -1,5 +1,6 @@
 package com.baidu.cloudsdk.common.http;
 
+import com.baidu.ar.util.SystemInfoUtil;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -25,7 +26,7 @@ class MultipartEntity implements HttpEntity {
             sb.append(MULTIPART_CHARS[random.nextInt(MULTIPART_CHARS.length)]);
         }
         this.mBoundary = sb.toString();
-        this.mBoundaryLineBytes = ("\r\n--" + this.mBoundary + "\r\n").getBytes();
+        this.mBoundaryLineBytes = ("\r\n--" + this.mBoundary + SystemInfoUtil.LINE_END).getBytes();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -129,7 +130,7 @@ class MultipartEntity implements HttpEntity {
     private void writeBoundaryLine() throws IOException {
         if (!this.mIsSetFirst) {
             this.mIsSetFirst = true;
-            this.mOut.write(("--" + this.mBoundary + "\r\n").getBytes());
+            this.mOut.write(("--" + this.mBoundary + SystemInfoUtil.LINE_END).getBytes());
             return;
         }
         this.mOut.write(this.mBoundaryLineBytes);

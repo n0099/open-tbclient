@@ -1,6 +1,7 @@
 package com.xiaomi.slim;
 
 import android.os.Build;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.xiaomi.push.protobuf.b;
 import com.xiaomi.push.service.at;
 import java.io.BufferedOutputStream;
@@ -63,7 +64,7 @@ public class d {
         eVar.c(Build.VERSION.SDK_INT);
         byte[] a = this.d.c().a();
         if (a != null) {
-            eVar.a(b.C0273b.b(a));
+            eVar.a(b.C0291b.b(a));
         }
         b bVar = new b();
         bVar.a(0);
@@ -71,7 +72,7 @@ public class d {
         bVar.a(0L, "xiaomi.com", null);
         bVar.a(eVar.c(), (String) null);
         a(bVar);
-        com.xiaomi.channel.commonutils.logger.b.a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=26 hash=" + at.e() + " tz=" + this.f + ":" + this.g + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+        com.xiaomi.channel.commonutils.logger.b.a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=26 hash=" + at.e() + " tz=" + this.f + SystemInfoUtil.COLON + this.g + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
     }
 
     public void b() {

@@ -11,8 +11,8 @@ public class IntHashMap {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
+        a hMc;
         int hash;
-        a hxn;
         int key;
         Object value;
 
@@ -20,7 +20,7 @@ public class IntHashMap {
             this.hash = i;
             this.key = i2;
             this.value = obj;
-            this.hxn = aVar;
+            this.hMc = aVar;
         }
     }
 
@@ -62,7 +62,7 @@ public class IntHashMap {
         while (true) {
             int i = length - 1;
             if (length > 0) {
-                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.hxn) {
+                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.hMc) {
                     if (aVar.value.equals(obj)) {
                         return true;
                     }
@@ -80,7 +80,7 @@ public class IntHashMap {
 
     public boolean containsKey(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hxn) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hMc) {
             if (aVar.hash == i) {
                 return true;
             }
@@ -90,7 +90,7 @@ public class IntHashMap {
 
     public Object get(int i) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hxn) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.hMc) {
             if (aVar.hash == i) {
                 return aVar.value;
             }
@@ -110,9 +110,9 @@ public class IntHashMap {
             if (length > 0) {
                 a aVar = aVarArr[i2];
                 while (aVar != null) {
-                    a aVar2 = aVar.hxn;
+                    a aVar2 = aVar.hMc;
                     int i3 = (aVar.hash & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % i;
-                    aVar.hxn = aVarArr2[i3];
+                    aVar.hMc = aVarArr2[i3];
                     aVarArr2[i3] = aVar;
                     aVar = aVar2;
                 }
@@ -126,7 +126,7 @@ public class IntHashMap {
     public Object put(int i, Object obj) {
         a[] aVarArr = this.table;
         int length = (i & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.hxn) {
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.hMc) {
             if (aVar.hash == i) {
                 Object obj2 = aVar.value;
                 aVar.value = obj;
@@ -151,13 +151,13 @@ public class IntHashMap {
         while (aVar != null) {
             if (aVar.hash != i) {
                 a aVar3 = aVar;
-                aVar = aVar.hxn;
+                aVar = aVar.hMc;
                 aVar2 = aVar3;
             } else {
                 if (aVar2 != null) {
-                    aVar2.hxn = aVar.hxn;
+                    aVar2.hMc = aVar.hMc;
                 } else {
-                    aVarArr[length] = aVar.hxn;
+                    aVarArr[length] = aVar.hMc;
                 }
                 this.count--;
                 Object obj = aVar.value;

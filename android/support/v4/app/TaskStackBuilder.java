@@ -8,13 +8,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public final class TaskStackBuilder implements Iterable<Intent> {
-    private static final TaskStackBuilderImpl IMPL;
+    private static final TaskStackBuilderBaseImpl IMPL;
     private static final String TAG = "TaskStackBuilder";
     private final ArrayList<Intent> mIntents = new ArrayList<>();
     private final Context mSourceContext;
@@ -26,52 +27,34 @@ public final class TaskStackBuilder implements Iterable<Intent> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public interface TaskStackBuilderImpl {
-        PendingIntent getPendingIntent(Context context, Intent[] intentArr, int i, int i2, Bundle bundle);
-    }
-
-    /* loaded from: classes2.dex */
-    static class TaskStackBuilderImplBase implements TaskStackBuilderImpl {
-        TaskStackBuilderImplBase() {
+    public static class TaskStackBuilderBaseImpl {
+        TaskStackBuilderBaseImpl() {
         }
 
-        @Override // android.support.v4.app.TaskStackBuilder.TaskStackBuilderImpl
-        public PendingIntent getPendingIntent(Context context, Intent[] intentArr, int i, int i2, Bundle bundle) {
-            Intent intent = new Intent(intentArr[intentArr.length - 1]);
-            intent.addFlags(268435456);
-            return PendingIntent.getActivity(context, i, intent, i2);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static class TaskStackBuilderImplHoneycomb implements TaskStackBuilderImpl {
-        TaskStackBuilderImplHoneycomb() {
-        }
-
-        @Override // android.support.v4.app.TaskStackBuilder.TaskStackBuilderImpl
         public PendingIntent getPendingIntent(Context context, Intent[] intentArr, int i, int i2, Bundle bundle) {
             intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
-            return TaskStackBuilderHoneycomb.getActivitiesPendingIntent(context, i, intentArr, i2);
+            return PendingIntent.getActivities(context, i, intentArr, i2);
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes2.dex */
-    static class TaskStackBuilderImplJellybean implements TaskStackBuilderImpl {
-        TaskStackBuilderImplJellybean() {
+    static class TaskStackBuilderApi16Impl extends TaskStackBuilderBaseImpl {
+        TaskStackBuilderApi16Impl() {
         }
 
-        @Override // android.support.v4.app.TaskStackBuilder.TaskStackBuilderImpl
+        @Override // android.support.v4.app.TaskStackBuilder.TaskStackBuilderBaseImpl
         public PendingIntent getPendingIntent(Context context, Intent[] intentArr, int i, int i2, Bundle bundle) {
             intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
-            return TaskStackBuilderJellybean.getActivitiesPendingIntent(context, i, intentArr, i2, bundle);
+            return PendingIntent.getActivities(context, i, intentArr, i2, bundle);
         }
     }
 
     static {
-        if (Build.VERSION.SDK_INT >= 11) {
-            IMPL = new TaskStackBuilderImplHoneycomb();
+        if (Build.VERSION.SDK_INT >= 16) {
+            IMPL = new TaskStackBuilderApi16Impl();
         } else {
-            IMPL = new TaskStackBuilderImplBase();
+            IMPL = new TaskStackBuilderBaseImpl();
         }
     }
 

@@ -2,20 +2,28 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
+import android.support.annotation.RestrictTo;
 import android.support.v7.appcompat.R;
-import android.support.v7.text.AllCapsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+@RequiresApi(9)
 /* loaded from: classes2.dex */
-public class AppCompatTextHelper {
+class AppCompatTextHelper {
+    @NonNull
+    private final AppCompatTextViewAutoSizeHelper mAutoSizeTextHelper;
     private TintInfo mDrawableBottomTint;
     private TintInfo mDrawableLeftTint;
     private TintInfo mDrawableRightTint;
     private TintInfo mDrawableTopTint;
+    private Typeface mFontTypeface;
+    private int mStyle = 0;
     final TextView mView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,14 +34,16 @@ public class AppCompatTextHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     public AppCompatTextHelper(TextView textView) {
         this.mView = textView;
+        this.mAutoSizeTextHelper = new AppCompatTextViewAutoSizeHelper(this.mView);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         ColorStateList colorStateList;
+        ColorStateList colorStateList2;
         boolean z;
         boolean z2;
-        ColorStateList colorStateList2 = null;
+        ColorStateList colorStateList3 = null;
         Context context = this.mView.getContext();
         AppCompatDrawableManager appCompatDrawableManager = AppCompatDrawableManager.get();
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.AppCompatTextHelper, i, 0);
@@ -61,17 +71,21 @@ public class AppCompatTextHelper {
                 z2 = obtainStyledAttributes2.getBoolean(R.styleable.TextAppearance_textAllCaps, false);
                 z = true;
             }
+            updateTypefaceAndStyle(context, obtainStyledAttributes2);
             if (Build.VERSION.SDK_INT < 23) {
-                colorStateList = obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColor) ? obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColor) : null;
-                if (obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
-                    colorStateList2 = obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColorHint);
+                colorStateList2 = obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColor) ? obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColor) : null;
+                colorStateList = obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColorHint) ? obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColorHint) : null;
+                if (obtainStyledAttributes2.hasValue(R.styleable.TextAppearance_android_textColorLink)) {
+                    colorStateList3 = obtainStyledAttributes2.getColorStateList(R.styleable.TextAppearance_android_textColorLink);
                 }
             } else {
                 colorStateList = null;
+                colorStateList2 = null;
             }
             obtainStyledAttributes2.recycle();
         } else {
             colorStateList = null;
+            colorStateList2 = null;
             z = false;
             z2 = false;
         }
@@ -82,21 +96,60 @@ public class AppCompatTextHelper {
         }
         if (Build.VERSION.SDK_INT < 23) {
             if (obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_android_textColor)) {
-                colorStateList = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColor);
+                colorStateList2 = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColor);
             }
             if (obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_android_textColorHint)) {
-                colorStateList2 = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColorHint);
+                colorStateList = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColorHint);
+            }
+            if (obtainStyledAttributes3.hasValue(R.styleable.TextAppearance_android_textColorLink)) {
+                colorStateList3 = obtainStyledAttributes3.getColorStateList(R.styleable.TextAppearance_android_textColorLink);
             }
         }
+        updateTypefaceAndStyle(context, obtainStyledAttributes3);
         obtainStyledAttributes3.recycle();
-        if (colorStateList != null) {
-            this.mView.setTextColor(colorStateList);
-        }
         if (colorStateList2 != null) {
-            this.mView.setHintTextColor(colorStateList2);
+            this.mView.setTextColor(colorStateList2);
+        }
+        if (colorStateList != null) {
+            this.mView.setHintTextColor(colorStateList);
+        }
+        if (colorStateList3 != null) {
+            this.mView.setLinkTextColor(colorStateList3);
         }
         if (!z3 && z) {
             setAllCaps(z2);
+        }
+        if (this.mFontTypeface != null) {
+            this.mView.setTypeface(this.mFontTypeface, this.mStyle);
+        }
+        this.mAutoSizeTextHelper.loadFromAttributes(attributeSet, i);
+        if (Build.VERSION.SDK_INT >= 26 && this.mAutoSizeTextHelper.getAutoSizeTextType() != 0) {
+            int[] autoSizeTextAvailableSizes = this.mAutoSizeTextHelper.getAutoSizeTextAvailableSizes();
+            if (autoSizeTextAvailableSizes.length > 0) {
+                if (this.mView.getAutoSizeStepGranularity() != -1.0f) {
+                    this.mView.setAutoSizeTextTypeUniformWithConfiguration(this.mAutoSizeTextHelper.getAutoSizeMinTextSize(), this.mAutoSizeTextHelper.getAutoSizeMaxTextSize(), this.mAutoSizeTextHelper.getAutoSizeStepGranularity(), 0);
+                } else {
+                    this.mView.setAutoSizeTextTypeUniformWithPresetSizes(autoSizeTextAvailableSizes, 0);
+                }
+            }
+        }
+    }
+
+    private void updateTypefaceAndStyle(Context context, TintTypedArray tintTypedArray) {
+        this.mStyle = tintTypedArray.getInt(R.styleable.TextAppearance_android_textStyle, this.mStyle);
+        if (tintTypedArray.hasValue(R.styleable.TextAppearance_android_fontFamily) || tintTypedArray.hasValue(R.styleable.TextAppearance_fontFamily)) {
+            this.mFontTypeface = null;
+            int i = tintTypedArray.hasValue(R.styleable.TextAppearance_android_fontFamily) ? R.styleable.TextAppearance_android_fontFamily : R.styleable.TextAppearance_fontFamily;
+            if (!context.isRestricted()) {
+                try {
+                    this.mFontTypeface = tintTypedArray.getFont(i, this.mStyle, this.mView);
+                } catch (Resources.NotFoundException e) {
+                } catch (UnsupportedOperationException e2) {
+                }
+            }
+            if (this.mFontTypeface == null) {
+                this.mFontTypeface = Typeface.create(tintTypedArray.getString(i), this.mStyle);
+            }
         }
     }
 
@@ -110,12 +163,16 @@ public class AppCompatTextHelper {
         if (Build.VERSION.SDK_INT < 23 && obtainStyledAttributes.hasValue(R.styleable.TextAppearance_android_textColor) && (colorStateList = obtainStyledAttributes.getColorStateList(R.styleable.TextAppearance_android_textColor)) != null) {
             this.mView.setTextColor(colorStateList);
         }
+        updateTypefaceAndStyle(context, obtainStyledAttributes);
         obtainStyledAttributes.recycle();
+        if (this.mFontTypeface != null) {
+            this.mView.setTypeface(this.mFontTypeface, this.mStyle);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setAllCaps(boolean z) {
-        this.mView.setTransformationMethod(z ? new AllCapsTransformationMethod(this.mView.getContext()) : null);
+        this.mView.setAllCaps(z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -146,5 +203,77 @@ public class AppCompatTextHelper {
             return tintInfo;
         }
         return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        if (Build.VERSION.SDK_INT < 26) {
+            autoSizeText();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void setTextSize(int i, float f) {
+        if (Build.VERSION.SDK_INT < 26 && !isAutoSizeEnabled()) {
+            setTextSizeInternal(i, f);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void autoSizeText() {
+        this.mAutoSizeTextHelper.autoSizeText();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public boolean isAutoSizeEnabled() {
+        return this.mAutoSizeTextHelper.isAutoSizeEnabled();
+    }
+
+    private void setTextSizeInternal(int i, float f) {
+        this.mAutoSizeTextHelper.setTextSizeInternal(i, f);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setAutoSizeTextTypeWithDefaults(int i) {
+        this.mAutoSizeTextHelper.setAutoSizeTextTypeWithDefaults(i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
+        this.mAutoSizeTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
+        this.mAutoSizeTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getAutoSizeTextType() {
+        return this.mAutoSizeTextHelper.getAutoSizeTextType();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getAutoSizeStepGranularity() {
+        return this.mAutoSizeTextHelper.getAutoSizeStepGranularity();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getAutoSizeMinTextSize() {
+        return this.mAutoSizeTextHelper.getAutoSizeMinTextSize();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getAutoSizeMaxTextSize() {
+        return this.mAutoSizeTextHelper.getAutoSizeMaxTextSize();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int[] getAutoSizeTextAvailableSizes() {
+        return this.mAutoSizeTextHelper.getAutoSizeTextAvailableSizes();
     }
 }

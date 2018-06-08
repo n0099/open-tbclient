@@ -270,9 +270,9 @@ public class PbVideoActivityConfig extends IntentConfig {
         if (bdVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bdVar.getTid());
-            intent.putExtra("is_good", bdVar.rL());
-            intent.putExtra("is_top", bdVar.rK());
-            intent.putExtra("thread_time", bdVar.rJ());
+            intent.putExtra("is_good", bdVar.vi());
+            intent.putExtra("is_top", bdVar.vh());
+            intent.putExtra("thread_time", bdVar.vg());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -282,10 +282,10 @@ public class PbVideoActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.rE() == null ? 0L : bdVar.rE().getNum()));
-            if (bdVar.rP() != null && bdVar.rP().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bdVar.rP().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bdVar.rP().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.va() == null ? 0L : bdVar.va().getNum()));
+            if (bdVar.vm() != null && bdVar.vm().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bdVar.vm().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bdVar.vm().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             addMoreIntentExtraParam();

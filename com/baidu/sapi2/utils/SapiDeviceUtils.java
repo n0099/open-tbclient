@@ -6,7 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.ar.util.Constants;
 import com.baidu.sapi2.base.debug.Log;
 import java.io.FileInputStream;
 import java.net.NetworkInterface;
@@ -208,7 +207,7 @@ public class SapiDeviceUtils {
             String str2 = SapiDeviceUtils.a;
             try {
                 String base64Encode = base64Encode(str.getBytes("UTF-8"));
-                return encryptAes128(base64Encode + Constants.DOT + MD5Util.toMd5((base64Encode + str2).getBytes(), false), str2);
+                return encryptAes128(base64Encode + "." + MD5Util.toMd5((base64Encode + str2).getBytes(), false), str2);
             } catch (Exception e2) {
                 Log.e(Log.TAG, e2.toString());
                 return null;

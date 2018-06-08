@@ -4,19 +4,19 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
+    private String cEq;
     private String channel_avatar;
     private String channel_name;
     private String create_time;
-    private String cvN;
     private String description;
     private String follow_time;
     private String user_id;
 
-    public String agm() {
-        return this.cvN;
+    public String ajU() {
+        return this.cEq;
     }
 
-    public String agn() {
+    public String ajV() {
         return this.channel_name;
     }
 
@@ -24,12 +24,12 @@ public class f {
         return this.description;
     }
 
-    public String ago() {
+    public String ajW() {
         return this.channel_avatar;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.cvN = jSONObject.optString("channel_id");
+        this.cEq = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
         this.description = jSONObject.optString("description");
         this.channel_avatar = jSONObject.optString("channel_avatar");

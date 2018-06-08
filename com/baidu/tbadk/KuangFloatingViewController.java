@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
@@ -49,7 +49,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.vF().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ai.zg().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -80,7 +80,7 @@ public class KuangFloatingViewController {
                 this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(d.i.floating_view_from_kuang, (ViewGroup) null);
                 this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.3
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
+                    public void onClick(View view) {
                         KuangFloatingViewController.this.hideFloatingView();
                         KuangFloatingViewController.this.needShowFloatingView = false;
                         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -91,10 +91,10 @@ public class KuangFloatingViewController {
                 });
                 this.mFloatingView.findViewById(d.g.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view2) {
+                    public void onClick(View view) {
                         KuangFloatingViewController.this.hideFloatingView();
                         KuangFloatingViewController.this.needShowFloatingView = false;
-                        TiebaStatic.log(new al("C12265").r("obj_type", 2));
+                        TiebaStatic.log(new am("C12265").r("obj_type", 2));
                     }
                 });
             } else if (this.mFloatingView.getParent() != null) {

@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import com.baidu.ar.util.Constants;
+import com.baidu.ar.constants.HttpConstants;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
@@ -189,7 +189,7 @@ public class k {
         @TargetApi(14)
         private boolean c(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(e, "bool", Constants.OS_TYPE_VALUE);
+            int identifier = resources.getIdentifier(e, "bool", HttpConstants.OS_TYPE_VALUE);
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 if ("1".equals(k.b)) {
@@ -204,7 +204,7 @@ public class k {
         }
 
         private int a(Resources resources, String str) {
-            int identifier = resources.getIdentifier(str, "dimen", Constants.OS_TYPE_VALUE);
+            int identifier = resources.getIdentifier(str, "dimen", HttpConstants.OS_TYPE_VALUE);
             if (identifier <= 0) {
                 return 0;
             }

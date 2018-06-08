@@ -14,15 +14,19 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.ResultReceiver;
-import android.support.v4.media.session.MediaSessionCompatApi19;
+import android.support.annotation.RequiresApi;
+import android.util.Log;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+@RequiresApi(21)
 /* loaded from: classes2.dex */
 class MediaSessionCompatApi21 {
+    static final String TAG = "MediaSessionCompatApi21";
 
     /* loaded from: classes2.dex */
-    interface Callback extends MediaSessionCompatApi19.Callback {
+    interface Callback {
         void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver);
 
         void onCustomAction(String str, Bundle bundle);
@@ -40,6 +44,12 @@ class MediaSessionCompatApi21 {
         void onPlayFromSearch(String str, Bundle bundle);
 
         void onRewind();
+
+        void onSeekTo(long j);
+
+        void onSetRating(Object obj);
+
+        void onSetRating(Object obj, Bundle bundle);
 
         void onSkipToNext();
 
@@ -148,6 +158,19 @@ class MediaSessionCompatApi21 {
 
     public static void setExtras(Object obj, Bundle bundle) {
         ((MediaSession) obj).setExtras(bundle);
+    }
+
+    public static boolean hasCallback(Object obj) {
+        try {
+            Field declaredField = obj.getClass().getDeclaredField("mCallback");
+            if (declaredField != null) {
+                declaredField.setAccessible(true);
+                return declaredField.get(obj) != null;
+            }
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            Log.w(TAG, "Failed to get mCallback object.");
+        }
+        return false;
     }
 
     /* loaded from: classes2.dex */

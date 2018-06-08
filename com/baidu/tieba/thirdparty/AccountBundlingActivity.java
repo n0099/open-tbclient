@@ -39,8 +39,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.dialog.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.k;
-import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d;
@@ -48,16 +47,16 @@ import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.tieba.thirdparty.message.AddUserAttrResponsedMessage;
 /* loaded from: classes2.dex */
 public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivity> {
-    private com.baidu.tbadk.core.util.b.a baE;
-    private BdAsyncTask<?, ?, ?> bcg;
-    private com.baidu.tieba.thirdparty.a.a gJt;
-    private SapiAccount gJu;
-    private String gJv;
-    private HeadChangeType gJw;
+    private com.baidu.tbadk.core.util.b.a biP;
+    private BdAsyncTask<?, ?, ?> bkq;
+    private com.baidu.tieba.thirdparty.a.a gUV;
+    private SapiAccount gUW;
+    private String gUX;
+    private HeadChangeType gUY;
     private final WriteImagesInfo mWriteImagesInfo = new WriteImagesInfo(1);
-    private a gJx = null;
-    private b gJy = null;
-    private c gJz = null;
+    private a gUZ = null;
+    private b gVa = null;
+    private c gVb = null;
     private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> mCallback = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -65,20 +64,20 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass7) aVar, str, i);
             if (aVar != null) {
-                if (AccountBundlingActivity.this.gJz != null) {
-                    AccountBundlingActivity.this.gJz.cancel();
+                if (AccountBundlingActivity.this.gVb != null) {
+                    AccountBundlingActivity.this.gVb.cancel();
                 }
-                AccountBundlingActivity.this.gJz = new c(aVar.ko());
-                AccountBundlingActivity.this.gJz.execute(new String[0]);
+                AccountBundlingActivity.this.gVb = new c(aVar.nc());
+                AccountBundlingActivity.this.gVb.execute(new String[0]);
             }
         }
     };
-    private final a.InterfaceC0083a bcD = new a.InterfaceC0083a() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.8
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0083a
-        public void cE(String str) {
+    private final a.InterfaceC0100a bkN = new a.InterfaceC0100a() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.8
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0100a
+        public void dc(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0083a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0100a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_cslogin_success", 0, "", new Object[0]);
             AccountBundlingActivity.this.closeLoadingDialog();
@@ -88,40 +87,40 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
                 }
             });
             p(accountData);
-            AccountBundlingActivity.this.tC(String.valueOf(AccountBundlingActivity.this.gJu.getSocialType().getType()));
+            AccountBundlingActivity.this.uw(String.valueOf(AccountBundlingActivity.this.gUW.getSocialType().getType()));
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0083a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0100a
         public void c(String str, int i, String str2) {
             com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_cslogin_fail", i, str2, "uname", str);
             AccountBundlingActivity.this.closeLoadingDialog();
-            AccountBundlingActivity.this.tE(str2);
+            AccountBundlingActivity.this.uy(str2);
         }
 
         private void p(final AccountData accountData) {
-            h.fx().c(new Runnable() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.8.2
+            h.in().c(new Runnable() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.8.2
                 @Override // java.lang.Runnable
                 public void run() {
                     com.baidu.tbadk.core.a.b.b(accountData);
                 }
             });
             TbadkCoreApplication.setCurrentAccount(accountData, AccountBundlingActivity.this.getPageContext().getPageActivity());
-            com.baidu.tbadk.browser.a.ar(TbadkCoreApplication.getInst());
+            com.baidu.tbadk.browser.a.aB(TbadkCoreApplication.getInst());
         }
     };
-    private HttpMessageListener gJA = new HttpMessageListener(CmdConfigHttp.CMD_ADD_USER_ATTR_URL) { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.9
+    private HttpMessageListener gVc = new HttpMessageListener(CmdConfigHttp.CMD_ADD_USER_ATTR_URL) { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             AccountBundlingActivity.this.closeLoadingDialog();
             if (httpResponsedMessage instanceof AddUserAttrResponsedMessage) {
                 if (!((AddUserAttrResponsedMessage) httpResponsedMessage).hasError()) {
-                    if (AccountBundlingActivity.this.gJw != null) {
-                        if (AccountBundlingActivity.this.gJw == HeadChangeType.NET) {
-                            AccountBundlingActivity.this.bvn();
+                    if (AccountBundlingActivity.this.gUY != null) {
+                        if (AccountBundlingActivity.this.gUY == HeadChangeType.NET) {
+                            AccountBundlingActivity.this.bAu();
                             return;
-                        } else if (AccountBundlingActivity.this.gJw == HeadChangeType.LOCAL) {
-                            AccountBundlingActivity.this.bvm();
+                        } else if (AccountBundlingActivity.this.gUY == HeadChangeType.LOCAL) {
+                            AccountBundlingActivity.this.bAt();
                             return;
                         } else {
                             return;
@@ -167,24 +166,24 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gJx != null) {
-            this.gJx.cancel();
+        if (this.gUZ != null) {
+            this.gUZ.cancel();
         }
-        if (this.gJy != null) {
-            this.gJy.cancel();
+        if (this.gVa != null) {
+            this.gVa.cancel();
         }
-        if (this.gJz != null) {
-            this.gJz.cancel();
+        if (this.gVb != null) {
+            this.gVb.cancel();
         }
-        if (this.bcg != null) {
-            this.bcg.cancel();
+        if (this.bkq != null) {
+            this.bkq.cancel();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
-        private x mNetwork;
+        private y mNetwork;
 
         private b() {
             this.mNetwork = null;
@@ -207,15 +206,15 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         public String doInBackground(String... strArr) {
             String str;
             Exception e;
-            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
+            this.mNetwork = new y(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
             try {
-                str = this.mNetwork.ea(TbConfig.PERSON_HEAD_FILE);
+                str = this.mNetwork.eA(TbConfig.PERSON_HEAD_FILE);
             } catch (Exception e2) {
                 str = null;
                 e = e2;
             }
             try {
-                if (this.mNetwork.vi().wi().isRequestSuccess()) {
+                if (this.mNetwork.yJ().zJ().isRequestSuccess()) {
                     return str;
                 }
                 return null;
@@ -228,9 +227,9 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AccountBundlingActivity.this.gJy = null;
+            AccountBundlingActivity.this.gVa = null;
             if (this.mNetwork != null) {
-                this.mNetwork.eW();
+                this.mNetwork.hN();
             }
             super.cancel(true);
         }
@@ -240,8 +239,8 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             if (this.mNetwork != null) {
-                if (!this.mNetwork.vi().wi().isRequestSuccess()) {
-                    AccountBundlingActivity.this.tE(this.mNetwork.getErrorString());
+                if (!this.mNetwork.yJ().zJ().isRequestSuccess()) {
+                    AccountBundlingActivity.this.uy(this.mNetwork.getErrorString());
                 }
                 AccountBundlingActivity.this.setResult(-1);
                 AccountBundlingActivity.this.closeActivity();
@@ -250,12 +249,12 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
     }
 
     private void initData() {
-        this.gJu = SapiAccountManager.getInstance().getSession();
-        if (this.gJu == null || !TextUtils.isEmpty(this.gJu.username)) {
+        this.gUW = SapiAccountManager.getInstance().getSession();
+        if (this.gUW == null || !TextUtils.isEmpty(this.gUW.username)) {
             closeActivity();
         }
         registerTask();
-        registerListener(this.gJA);
+        registerListener(this.gVc);
     }
 
     private void registerTask() {
@@ -265,7 +264,7 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tC(String str) {
+    public void uw(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_USER_ATTR_URL);
         httpMessage.addParam("type", 1);
         httpMessage.addParam("type_val", str);
@@ -273,8 +272,8 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
     }
 
     private void initUI() {
-        this.gJt = new com.baidu.tieba.thirdparty.a.a(this);
-        this.gJt.bvq().addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.1
+        this.gUV = new com.baidu.tieba.thirdparty.a.a(this);
+        this.gUV.bAx().addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -285,48 +284,48 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                AccountBundlingActivity.this.gJt.tF(editable.toString());
+                AccountBundlingActivity.this.gUV.uz(editable.toString());
             }
         });
-        this.gJt.bvs().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.3
+        this.gUV.bAz().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                AccountBundlingActivity.this.gJt.bvr();
+            public void onClick(View view) {
+                AccountBundlingActivity.this.gUV.bAy();
             }
         });
-        this.gJt.bvo().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.4
+        this.gUV.bAv().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.4
             @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                AccountBundlingActivity.this.beD();
+            public void onClick(View view) {
+                AccountBundlingActivity.this.bjD();
             }
         });
-        this.gJt.c(this.gJu);
-        this.gJt.ZJ().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.5
+        this.gUV.c(this.gUW);
+        this.gUV.adh().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.5
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
-                l.b(AccountBundlingActivity.this.getPageContext().getPageActivity(), AccountBundlingActivity.this.gJt.bvq());
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                l.b(AccountBundlingActivity.this.getPageContext().getPageActivity(), AccountBundlingActivity.this.gUV.bAx());
                 return false;
             }
         });
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        super.onClick(view2);
-        if (view2 == this.gJt.bvp()) {
-            l.b(getPageContext().getPageActivity(), this.gJt.bvq());
-            String obj = this.gJt.bvq().getText().toString();
+    public void onClick(View view) {
+        super.onClick(view);
+        if (view == this.gUV.bAw()) {
+            l.b(getPageContext().getPageActivity(), this.gUV.bAx());
+            String obj = this.gUV.bAx().getText().toString();
             if (TextUtils.isEmpty(obj.trim())) {
-                tE(getResources().getString(d.k.input_name));
+                uy(getResources().getString(d.k.input_name));
             } else {
-                tD(obj);
+                ux(obj);
             }
         }
     }
 
-    private void tD(String str) {
+    private void ux(String str) {
         SapiAccountService accountService = SapiAccountManager.getInstance().getAccountService();
-        if (accountService != null && this.gJu != null) {
+        if (accountService != null && this.gUW != null) {
             accountService.fillUsername(new FillUsernameCallback() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -339,7 +338,7 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
                         public void onCancel(DialogInterface dialogInterface) {
                         }
                     });
-                    AccountBundlingActivity.this.bvl();
+                    AccountBundlingActivity.this.bAs();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -373,39 +372,39 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
                 @Override // com.baidu.sapi2.callback.FillUsernameCallback
                 public void onUserHaveUsername(FillUsernameResult fillUsernameResult) {
                     AccountBundlingActivity.this.a(fillUsernameResult, AccountBundlingActivity.this.getResources().getString(d.k.account_bunding_error_have_username));
-                    AccountBundlingActivity.this.gJt.mN(true);
+                    AccountBundlingActivity.this.gUV.mT(true);
                 }
-            }, this.gJu.bduss, str);
+            }, this.gUW.bduss, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(FillUsernameResult fillUsernameResult, String str) {
         String format = fillUsernameResult != null ? String.format(getString(d.k.account_bundling_error), fillUsernameResult.getResultMsg(), Integer.valueOf(fillUsernameResult.getResultCode())) : str;
-        tE(format);
+        uy(format);
         com.baidu.tbadk.core.d.a.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_fill_error", -1, format, new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvl() {
+    public void bAs() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            if (this.bcg != null) {
-                this.bcg.cancel();
+            if (this.bkq != null) {
+                this.bkq.cancel();
             }
-            this.bcg = com.baidu.tbadk.core.a.a.qe().a(session.username, session.bduss, "", null, this.bcD);
+            this.bkq = com.baidu.tbadk.core.a.a.tA().a(session.username, session.bduss, "", null, this.bkN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class c extends BdAsyncTask<String, Integer, String> {
-        private byte[] gJF;
-        private x mNetwork = null;
+        private byte[] gVh;
+        private y mNetwork = null;
 
         public c(byte[] bArr) {
-            this.gJF = bArr;
+            this.gVh = bArr;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -420,16 +419,16 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         public String doInBackground(String... strArr) {
             String str;
             Exception e;
-            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
+            this.mNetwork = new y(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
             try {
-                this.mNetwork.d("pic", this.gJF);
-                str = this.mNetwork.uN();
+                this.mNetwork.d("pic", this.gVh);
+                str = this.mNetwork.yo();
             } catch (Exception e2) {
                 str = null;
                 e = e2;
             }
             try {
-                if (this.mNetwork.vi().wi().isRequestSuccess()) {
+                if (this.mNetwork.yJ().zJ().isRequestSuccess()) {
                     return str;
                 }
                 return null;
@@ -442,9 +441,9 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AccountBundlingActivity.this.gJz = null;
+            AccountBundlingActivity.this.gVb = null;
             if (this.mNetwork != null) {
-                this.mNetwork.eW();
+                this.mNetwork.hN();
             }
             super.cancel(true);
         }
@@ -454,8 +453,8 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             if (this.mNetwork != null) {
-                if (!this.mNetwork.vi().wi().isRequestSuccess()) {
-                    AccountBundlingActivity.this.tE(this.mNetwork.getErrorString());
+                if (!this.mNetwork.yJ().zJ().isRequestSuccess()) {
+                    AccountBundlingActivity.this.uy(this.mNetwork.getErrorString());
                 }
                 AccountBundlingActivity.this.setResult(-1);
                 AccountBundlingActivity.this.closeActivity();
@@ -466,23 +465,23 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.gJt.onChangeSkinType(i);
+        this.gUV.onChangeSkinType(i);
     }
 
-    public void beD() {
+    public void bjD() {
         String[] strArr = {getPageContext().getString(d.k.change_photo), getPageContext().getString(d.k.change_system_photo)};
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        bVar.a(strArr, new b.InterfaceC0086b() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.10
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0086b
-            public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view2) {
+        bVar.a(strArr, new b.InterfaceC0103b() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.10
+            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0103b
+            public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
                 if (i == 0) {
                     Activity pageActivity = AccountBundlingActivity.this.getPageContext().getPageActivity();
-                    if (AccountBundlingActivity.this.baE == null) {
-                        AccountBundlingActivity.this.baE = new com.baidu.tbadk.core.util.b.a();
+                    if (AccountBundlingActivity.this.biP == null) {
+                        AccountBundlingActivity.this.biP = new com.baidu.tbadk.core.util.b.a();
                     }
-                    AccountBundlingActivity.this.baE.wt();
-                    AccountBundlingActivity.this.baE.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                    if (!AccountBundlingActivity.this.baE.v(pageActivity)) {
+                    AccountBundlingActivity.this.biP.zU();
+                    AccountBundlingActivity.this.biP.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                    if (!AccountBundlingActivity.this.biP.u(pageActivity)) {
                         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(AccountBundlingActivity.this.getPageContext().getPageActivity(), AccountBundlingActivity.this.mWriteImagesInfo.toJsonString());
                         albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -496,7 +495,7 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
             }
         });
         bVar.d(getPageContext());
-        bVar.tF();
+        bVar.xd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -518,15 +517,15 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
                     return;
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_DYNAMIC_PWD /* 12009 */:
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_LOGIN_PROXY_RESULT /* 12010 */:
-                    this.gJw = HeadChangeType.LOCAL;
-                    beG();
+                    this.gUY = HeadChangeType.LOCAL;
+                    bjG();
                     return;
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_USERINFO /* 12014 */:
                     if (intent != null) {
-                        this.gJw = HeadChangeType.NET;
-                        this.gJt.bvo().setImageBitmap(null);
-                        this.gJv = intent.getStringExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL);
-                        this.gJt.bvo().startLoad(this.gJv, 10, false);
+                        this.gUY = HeadChangeType.NET;
+                        this.gUV.bAv().setImageBitmap(null);
+                        this.gUX = intent.getStringExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL);
+                        this.gUV.bAv().startLoad(this.gUX, 10, false);
                         return;
                     }
                     return;
@@ -548,35 +547,35 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         }
     }
 
-    private void beG() {
-        if (this.gJx != null) {
-            this.gJx.cancel();
+    private void bjG() {
+        if (this.gUZ != null) {
+            this.gUZ.cancel();
         }
-        this.gJx = new a();
-        this.gJx.execute(new Object[0]);
+        this.gUZ = new a();
+        this.gUZ.execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvm() {
-        if (this.gJy != null) {
-            this.gJy.cancel();
+    public void bAt() {
+        if (this.gVa != null) {
+            this.gVa.cancel();
         }
-        this.gJy = new b();
-        this.gJy.execute(new String[0]);
+        this.gVa = new b();
+        this.gVa.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvn() {
+    public void bAu() {
         showLoadingDialog(getResources().getString(d.k.account_bunding_change_user_head), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.thirdparty.AccountBundlingActivity.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
             }
         });
-        com.baidu.adp.lib.f.c.fp().a(this.gJv, 10, this.mCallback, 0, 0, getUniqueId(), new Object[0]);
+        com.baidu.adp.lib.f.c.ig().a(this.gUX, 10, this.mCallback, 0, 0, getUniqueId(), new Object[0]);
     }
 
-    public void tE(String str) {
-        new com.baidu.tbadk.core.view.b().j(str);
+    public void uy(String str) {
+        new com.baidu.tbadk.core.view.c().j(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -588,7 +587,7 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            AccountBundlingActivity.this.gJt.bvo().setImageDrawable(null);
+            AccountBundlingActivity.this.gUV.bAv().setImageDrawable(null);
             super.onPreExecute();
         }
 
@@ -597,12 +596,12 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public Bitmap doInBackground(Object... objArr) {
-            return k.Y(null, TbConfig.PERSON_HEAD_FILE);
+            return com.baidu.tbadk.core.util.l.ab(null, TbConfig.PERSON_HEAD_FILE);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AccountBundlingActivity.this.gJx = null;
+            AccountBundlingActivity.this.gUZ = null;
             super.cancel(true);
         }
 
@@ -617,9 +616,9 @@ public class AccountBundlingActivity extends BaseActivity<AccountBundlingActivit
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            AccountBundlingActivity.this.gJx = null;
+            AccountBundlingActivity.this.gUZ = null;
             if (bitmap != null) {
-                new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null).a(AccountBundlingActivity.this.gJt.bvo());
+                new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null).a(AccountBundlingActivity.this.gUV.bAv());
             }
         }
     }

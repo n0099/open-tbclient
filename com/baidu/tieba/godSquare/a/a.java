@@ -7,24 +7,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tieba.card.divider.a dzQ;
-    private c dzR;
-    private b dzS;
+    private com.baidu.tieba.card.divider.a dLa;
+    private c dLb;
+    private b dLc;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
-    public List<com.baidu.adp.widget.ListView.a> aop() {
+    public List<com.baidu.adp.widget.ListView.a> asu() {
         return this.mAdapters;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.dzQ = new com.baidu.tieba.card.divider.a(tbPageContext);
-        this.dzR = new c(tbPageContext);
-        this.dzS = new b(tbPageContext);
-        this.mAdapters.add(this.dzQ);
-        this.mAdapters.add(this.dzR);
-        this.mAdapters.add(this.dzS);
+        this.dLa = new com.baidu.tieba.card.divider.a(tbPageContext);
+        this.dLb = new c(tbPageContext);
+        this.dLc = new b(tbPageContext);
+        this.mAdapters.add(this.dLa);
+        this.mAdapters.add(this.dLb);
+        this.mAdapters.add(this.dLc);
     }
 
     public void notifyDataSetChanged() {

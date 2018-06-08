@@ -34,7 +34,6 @@ import android.widget.Toast;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.richmedia.c;
-import com.baidu.ar.util.Constants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,7 +60,7 @@ public class MediaListActivity extends Activity {
     private LinearLayout l = null;
     private final AdapterView.OnItemClickListener s = new AdapterView.OnItemClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.2
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             String str;
             Uri fromFile;
             a.g a2 = com.baidu.android.pushservice.d.a.a(MediaListActivity.this, (String) ((HashMap) adapterView.getItemAtPosition(i)).get(MediaListActivity.r));
@@ -72,7 +71,7 @@ public class MediaListActivity extends Activity {
                 }
                 String str2 = a2.e;
                 if (a2.f.length() > 0) {
-                    String str3 = str2 + "/" + str.substring(0, str.lastIndexOf(Constants.DOT)) + "/index.html";
+                    String str3 = str2 + "/" + str.substring(0, str.lastIndexOf(".")) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
                     int A = m.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
@@ -93,7 +92,7 @@ public class MediaListActivity extends Activity {
     };
     private final AdapterView.OnItemLongClickListener t = new AdapterView.OnItemLongClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.3
         @Override // android.widget.AdapterView.OnItemLongClickListener
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, final long j) {
+        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, final long j) {
             new AlertDialog.Builder(MediaListActivity.this).setTitle("提示").setMessage("确定要删除该记录？").setPositiveButton("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.3.2
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i2) {
@@ -145,7 +144,7 @@ public class MediaListActivity extends Activity {
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             HashMap<String, Object> hashMap;
             View inflate = LayoutInflater.from(this.b.getApplicationContext()).inflate(MediaListActivity.this.e, (ViewGroup) null);
             inflate.setBackgroundColor(-7829368);
@@ -223,7 +222,7 @@ public class MediaListActivity extends Activity {
                 }
                 String str6 = a3.e;
                 if (a3.f.length() > 0) {
-                    String str7 = str6 + "/" + str5.substring(0, str5.lastIndexOf(Constants.DOT)) + "/index.html";
+                    String str7 = str6 + "/" + str5.substring(0, str5.lastIndexOf(".")) + "/index.html";
                     Intent intent = new Intent();
                     intent.setClass(MediaListActivity.this, MediaViewActivity.class);
                     int A = m.A(MediaListActivity.this, MediaListActivity.this.getPackageName());
@@ -283,7 +282,7 @@ public class MediaListActivity extends Activity {
             button.setClickable(true);
             button.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.android.pushservice.richmedia.MediaListActivity.1
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
+                public void onClick(View view) {
                     MediaListActivity.this.finish();
                 }
             });

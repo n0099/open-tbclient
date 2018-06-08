@@ -1,20 +1,27 @@
 package android.support.v4.app;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v4.app.RemoteInputCompatBase;
 import android.util.Log;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes2.dex */
 public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
+    private static final String EXTRA_DATA_TYPE_RESULTS_DATA = "android.remoteinput.dataTypeResultsData";
     public static final String EXTRA_RESULTS_DATA = "android.remoteinput.resultsData";
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public static final RemoteInputCompatBase.RemoteInput.Factory FACTORY;
     private static final Impl IMPL;
     public static final String RESULTS_CLIP_LABEL = "android.remoteinput.results";
     private static final String TAG = "RemoteInput";
-    private final boolean mAllowFreeFormInput;
+    private final boolean mAllowFreeFormTextInput;
+    private final Set<String> mAllowedDataTypes;
     private final CharSequence[] mChoices;
     private final Bundle mExtras;
     private final CharSequence mLabel;
@@ -22,17 +29,22 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
 
     /* loaded from: classes2.dex */
     interface Impl {
+        void addDataResultToIntent(RemoteInput remoteInput, Intent intent, Map<String, Uri> map);
+
         void addResultsToIntent(RemoteInput[] remoteInputArr, Intent intent, Bundle bundle);
+
+        Map<String, Uri> getDataResultsFromIntent(Intent intent, String str);
 
         Bundle getResultsFromIntent(Intent intent);
     }
 
-    RemoteInput(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, Bundle bundle) {
+    RemoteInput(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, Bundle bundle, Set<String> set) {
         this.mResultKey = str;
         this.mLabel = charSequence;
         this.mChoices = charSequenceArr;
-        this.mAllowFreeFormInput = z;
+        this.mAllowFreeFormTextInput = z;
         this.mExtras = bundle;
+        this.mAllowedDataTypes = set;
     }
 
     @Override // android.support.v4.app.RemoteInputCompatBase.RemoteInput
@@ -51,8 +63,17 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
     }
 
     @Override // android.support.v4.app.RemoteInputCompatBase.RemoteInput
+    public Set<String> getAllowedDataTypes() {
+        return this.mAllowedDataTypes;
+    }
+
+    public boolean isDataOnly() {
+        return (getAllowFreeFormInput() || (getChoices() != null && getChoices().length != 0) || getAllowedDataTypes() == null || getAllowedDataTypes().isEmpty()) ? false : true;
+    }
+
+    @Override // android.support.v4.app.RemoteInputCompatBase.RemoteInput
     public boolean getAllowFreeFormInput() {
-        return this.mAllowFreeFormInput;
+        return this.mAllowFreeFormTextInput;
     }
 
     @Override // android.support.v4.app.RemoteInputCompatBase.RemoteInput
@@ -65,8 +86,9 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
         private CharSequence[] mChoices;
         private CharSequence mLabel;
         private final String mResultKey;
-        private boolean mAllowFreeFormInput = true;
+        private boolean mAllowFreeFormTextInput = true;
         private Bundle mExtras = new Bundle();
+        private final Set<String> mAllowedDataTypes = new HashSet();
 
         public Builder(String str) {
             if (str == null) {
@@ -85,8 +107,17 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
             return this;
         }
 
+        public Builder setAllowDataType(String str, boolean z) {
+            if (z) {
+                this.mAllowedDataTypes.add(str);
+            } else {
+                this.mAllowedDataTypes.remove(str);
+            }
+            return this;
+        }
+
         public Builder setAllowFreeFormInput(boolean z) {
-            this.mAllowFreeFormInput = z;
+            this.mAllowFreeFormTextInput = z;
             return this;
         }
 
@@ -102,8 +133,12 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
         }
 
         public RemoteInput build() {
-            return new RemoteInput(this.mResultKey, this.mLabel, this.mChoices, this.mAllowFreeFormInput, this.mExtras);
+            return new RemoteInput(this.mResultKey, this.mLabel, this.mChoices, this.mAllowFreeFormTextInput, this.mExtras, this.mAllowedDataTypes);
         }
+    }
+
+    public static Map<String, Uri> getDataResultsFromIntent(Intent intent, String str) {
+        return IMPL.getDataResultsFromIntent(intent, str);
     }
 
     public static Bundle getResultsFromIntent(Intent intent) {
@@ -112,6 +147,10 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
 
     public static void addResultsToIntent(RemoteInput[] remoteInputArr, Intent intent, Bundle bundle) {
         IMPL.addResultsToIntent(remoteInputArr, intent, bundle);
+    }
+
+    public static void addDataResultToIntent(RemoteInput remoteInput, Intent intent, Map<String, Uri> map) {
+        IMPL.addDataResultToIntent(remoteInput, intent, map);
     }
 
     /* loaded from: classes2.dex */
@@ -126,11 +165,23 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
         }
 
         @Override // android.support.v4.app.RemoteInput.Impl
+        public Map<String, Uri> getDataResultsFromIntent(Intent intent, String str) {
+            Log.w(RemoteInput.TAG, "RemoteInput is only supported from API Level 16");
+            return null;
+        }
+
+        @Override // android.support.v4.app.RemoteInput.Impl
         public void addResultsToIntent(RemoteInput[] remoteInputArr, Intent intent, Bundle bundle) {
+            Log.w(RemoteInput.TAG, "RemoteInput is only supported from API Level 16");
+        }
+
+        @Override // android.support.v4.app.RemoteInput.Impl
+        public void addDataResultToIntent(RemoteInput remoteInput, Intent intent, Map<String, Uri> map) {
             Log.w(RemoteInput.TAG, "RemoteInput is only supported from API Level 16");
         }
     }
 
+    @RequiresApi(16)
     /* loaded from: classes2.dex */
     static class ImplJellybean implements Impl {
         ImplJellybean() {
@@ -142,11 +193,22 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
         }
 
         @Override // android.support.v4.app.RemoteInput.Impl
+        public Map<String, Uri> getDataResultsFromIntent(Intent intent, String str) {
+            return RemoteInputCompatJellybean.getDataResultsFromIntent(intent, str);
+        }
+
+        @Override // android.support.v4.app.RemoteInput.Impl
         public void addResultsToIntent(RemoteInput[] remoteInputArr, Intent intent, Bundle bundle) {
             RemoteInputCompatJellybean.addResultsToIntent(remoteInputArr, intent, bundle);
         }
+
+        @Override // android.support.v4.app.RemoteInput.Impl
+        public void addDataResultToIntent(RemoteInput remoteInput, Intent intent, Map<String, Uri> map) {
+            RemoteInputCompatJellybean.addDataResultToIntent(remoteInput, intent, map);
+        }
     }
 
+    @RequiresApi(20)
     /* loaded from: classes2.dex */
     static class ImplApi20 implements Impl {
         ImplApi20() {
@@ -158,8 +220,18 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
         }
 
         @Override // android.support.v4.app.RemoteInput.Impl
+        public Map<String, Uri> getDataResultsFromIntent(Intent intent, String str) {
+            return RemoteInputCompatApi20.getDataResultsFromIntent(intent, str);
+        }
+
+        @Override // android.support.v4.app.RemoteInput.Impl
         public void addResultsToIntent(RemoteInput[] remoteInputArr, Intent intent, Bundle bundle) {
             RemoteInputCompatApi20.addResultsToIntent(remoteInputArr, intent, bundle);
+        }
+
+        @Override // android.support.v4.app.RemoteInput.Impl
+        public void addDataResultToIntent(RemoteInput remoteInput, Intent intent, Map<String, Uri> map) {
+            RemoteInputCompatApi20.addDataResultToIntent(remoteInput, intent, map);
         }
     }
 
@@ -172,10 +244,14 @@ public final class RemoteInput extends RemoteInputCompatBase.RemoteInput {
             IMPL = new ImplBase();
         }
         FACTORY = new RemoteInputCompatBase.RemoteInput.Factory() { // from class: android.support.v4.app.RemoteInput.1
-            /* JADX DEBUG: Method merged with bridge method */
             @Override // android.support.v4.app.RemoteInputCompatBase.RemoteInput.Factory
-            public RemoteInput build(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, Bundle bundle) {
-                return new RemoteInput(str, charSequence, charSequenceArr, z, bundle);
+            public /* bridge */ /* synthetic */ RemoteInputCompatBase.RemoteInput build(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, Bundle bundle, Set set) {
+                return build(str, charSequence, charSequenceArr, z, bundle, (Set<String>) set);
+            }
+
+            @Override // android.support.v4.app.RemoteInputCompatBase.RemoteInput.Factory
+            public RemoteInput build(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, Bundle bundle, Set<String> set) {
+                return new RemoteInput(str, charSequence, charSequenceArr, z, bundle, set);
             }
 
             /* JADX DEBUG: Method merged with bridge method */

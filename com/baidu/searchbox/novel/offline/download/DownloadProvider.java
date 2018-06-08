@@ -19,8 +19,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.Hk() != null) {
-            return a.Hk().query(uri, strArr, str, strArr2, str2);
+        if (a.KE() != null) {
+            return a.KE().query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
@@ -28,8 +28,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         setPlugin();
-        if (a.Hk() != null) {
-            return a.Hk().getType(uri);
+        if (a.KE() != null) {
+            return a.KE().getType(uri);
         }
         return null;
     }
@@ -37,8 +37,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         setPlugin();
-        if (a.Hk() != null) {
-            return a.Hk().insert(uri, contentValues);
+        if (a.KE() != null) {
+            return a.KE().insert(uri, contentValues);
         }
         return null;
     }
@@ -46,8 +46,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         setPlugin();
-        if (a.Hk() != null) {
-            return a.Hk().delete(uri, str, strArr);
+        if (a.KE() != null) {
+            return a.KE().delete(uri, str, strArr);
         }
         return 0;
     }
@@ -55,8 +55,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.Hk() != null) {
-            return a.Hk().update(uri, contentValues, str, strArr);
+        if (a.KE() != null) {
+            return a.KE().update(uri, contentValues, str, strArr);
         }
         return 0;
     }
@@ -64,8 +64,8 @@ public class DownloadProvider extends ContentProvider {
     private void setPlugin() {
         if (!this.isPluginSetted) {
             MessageManager.getInstance().runTask(new CustomMessage<>(2921337, this), (Class) null);
-            if (a.Hk() != null) {
-                a.Hk().onCreate();
+            if (a.KE() != null) {
+                a.KE().onCreate();
                 this.isPluginSetted = true;
             }
         }

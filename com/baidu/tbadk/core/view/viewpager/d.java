@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int ard;
-    private List<h> arl;
-    private List<h> arm;
-    private boolean arn;
-    private boolean aro;
-    private int arp = 2;
-    private int arq = 1;
+    private int azk;
+    private List<h> azr;
+    private List<h> azs;
+    private boolean azt;
+    private boolean azu;
+    private int azv = 2;
+    private int azw = 1;
 
     public d(List<h> list, boolean z, int i) {
-        this.ard = 2;
-        this.arl = list;
-        this.aro = z;
-        this.ard = i;
-        x(list);
+        this.azk = 2;
+        this.azr = list;
+        this.azu = z;
+        this.azk = i;
+        A(list);
     }
 
-    public void x(List<h> list) {
-        if (list != null && list.size() >= this.arp && list.size() <= this.ard) {
-            this.arn = true;
-        } else if (list.size() > this.ard && this.aro) {
-            this.arn = true;
+    public void A(List<h> list) {
+        if (list != null && list.size() >= this.azv && list.size() <= this.azk) {
+            this.azt = true;
+        } else if (list.size() > this.azk && this.azu) {
+            this.azt = true;
         } else {
-            this.arn = false;
+            this.azt = false;
         }
-        this.arm = xu();
+        this.azs = AV();
     }
 
-    private List<h> xu() {
+    private List<h> AV() {
         ArrayList arrayList = new ArrayList();
-        if (this.arl != null) {
-            if (this.arn) {
-                if (this.arl.size() > this.ard && this.arl.size() >= this.arq) {
-                    arrayList.addAll(this.arl.subList(0, this.ard));
-                    arrayList.addAll(0, this.arl.subList(this.ard - this.arq, this.ard));
-                    arrayList.addAll(this.arl.subList(0, this.arq));
+        if (this.azr != null) {
+            if (this.azt) {
+                if (this.azr.size() > this.azk && this.azr.size() >= this.azw) {
+                    arrayList.addAll(this.azr.subList(0, this.azk));
+                    arrayList.addAll(0, this.azr.subList(this.azk - this.azw, this.azk));
+                    arrayList.addAll(this.azr.subList(0, this.azw));
                 } else {
-                    arrayList.addAll(this.arl);
-                    arrayList.addAll(0, this.arl.subList(this.arl.size() - this.arq, this.arl.size()));
-                    arrayList.addAll(this.arl.subList(0, this.arq));
+                    arrayList.addAll(this.azr);
+                    arrayList.addAll(0, this.azr.subList(this.azr.size() - this.azw, this.azr.size()));
+                    arrayList.addAll(this.azr.subList(0, this.azw));
                 }
-            } else if (this.arl != null && this.arl.size() > 0 && this.arl.size() >= this.arq) {
-                arrayList.addAll(this.arl.subList(0, this.arq));
+            } else if (this.azr != null && this.azr.size() > 0 && this.azr.size() >= this.azw) {
+                arrayList.addAll(this.azr.subList(0, this.azw));
             }
         }
         return arrayList;
     }
 
-    public int dF(int i) {
-        if (this.arn) {
-            int size = this.arm.size();
+    public int dH(int i) {
+        if (this.azt) {
+            int size = this.azs.size();
             if (i == 0) {
-                return (size - 1) - this.arq;
+                return (size - 1) - this.azw;
             }
-            if (i == size - this.arq) {
-                return this.arq;
+            if (i == size - this.azw) {
+                return this.azw;
             }
             return i;
         }
         return i;
     }
 
-    public int dG(int i) {
-        if (this.arn) {
-            return i - this.arq;
+    public int dI(int i) {
+        if (this.azt) {
+            return i - this.azw;
         }
         return i;
     }
 
-    public int xv() {
-        if (this.arl == null) {
+    public int AW() {
+        if (this.azr == null) {
             return 0;
         }
-        return this.arl.size();
+        return this.azr.size();
     }
 
-    public int xw() {
-        if (this.arn) {
-            return this.arq;
+    public int AX() {
+        if (this.azt) {
+            return this.azw;
         }
         return 0;
     }
 
-    public void dH(int i) {
-        this.ard = i;
-        x(this.arl);
-    }
-
-    public void dI(int i) {
-        this.arp = i;
-        x(this.arl);
-    }
-
-    public List<h> xx() {
-        return this.arm;
-    }
-
     public void dJ(int i) {
-        this.arq = i;
-        x(this.arl);
+        this.azk = i;
+        A(this.azr);
+    }
+
+    public void dK(int i) {
+        this.azv = i;
+        A(this.azr);
+    }
+
+    public List<h> AY() {
+        return this.azs;
+    }
+
+    public void dL(int i) {
+        this.azw = i;
+        A(this.azr);
     }
 }

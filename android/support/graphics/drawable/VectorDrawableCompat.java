@@ -1,6 +1,5 @@
 package android.support.graphics.drawable;
 
-import android.annotation.TargetApi;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -23,21 +22,22 @@ import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
-import android.support.graphics.drawable.PathParser;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.content.res.TypedArrayUtils;
+import android.support.v4.graphics.PathParser;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.ar.util.SystemInfoUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@TargetApi(21)
 /* loaded from: classes2.dex */
 public class VectorDrawableCompat extends VectorDrawableCommon {
     private static final boolean DBG_VECTOR_DRAWABLE = false;
@@ -179,7 +179,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        if (this.mDelegateDrawable != null) {
+        if (this.mDelegateDrawable != null && Build.VERSION.SDK_INT >= 24) {
             return new VectorDrawableDelegateState(this.mDelegateDrawable.getConstantState());
         }
         this.mVectorState.mChangingConfigurations = getChangingConfigurations();
@@ -360,9 +360,9 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public float getPixelSize() {
-        if ((this.mVectorState == null && this.mVectorState.mVPathRenderer == null) || this.mVectorState.mVPathRenderer.mBaseWidth == 0.0f || this.mVectorState.mVPathRenderer.mBaseHeight == 0.0f || this.mVectorState.mVPathRenderer.mViewportHeight == 0.0f || this.mVectorState.mVPathRenderer.mViewportWidth == 0.0f) {
+        if (this.mVectorState == null || this.mVectorState.mVPathRenderer == null || this.mVectorState.mVPathRenderer.mBaseWidth == 0.0f || this.mVectorState.mVPathRenderer.mBaseHeight == 0.0f || this.mVectorState.mVPathRenderer.mViewportHeight == 0.0f || this.mVectorState.mVPathRenderer.mViewportWidth == 0.0f) {
             return 1.0f;
         }
         float f = this.mVectorState.mVPathRenderer.mBaseWidth;
@@ -428,7 +428,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
         VectorDrawableCompatState vectorDrawableCompatState = this.mVectorState;
         vectorDrawableCompatState.mVPathRenderer = new VPathRenderer();
-        TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, AndroidResources.styleable_VectorDrawableTypeArray);
+        TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY);
         updateStateFromTypedArray(obtainAttributes, xmlPullParser);
         obtainAttributes.recycle();
         vectorDrawableCompatState.mChangingConfigurations = getChangingConfigurations();
@@ -460,7 +460,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             case 15:
                 return PorterDuff.Mode.SCREEN;
             case 16:
-                return PorterDuff.Mode.ADD;
+                if (Build.VERSION.SDK_INT >= 11) {
+                    return PorterDuff.Mode.ADD;
+                }
+                return mode;
         }
     }
 
@@ -587,14 +590,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     private boolean needMirroring() {
-        boolean z = true;
-        if (Build.VERSION.SDK_INT < 17) {
-            return false;
+        if (Build.VERSION.SDK_INT >= 17) {
+            return isAutoMirrored() && DrawableCompat.getLayoutDirection(this) == 1;
         }
-        if (!isAutoMirrored() || getLayoutDirection() != 1) {
-            z = false;
-        }
-        return z;
+        return false;
     }
 
     @Override // android.support.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -642,6 +641,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    @RequiresApi(24)
     /* loaded from: classes2.dex */
     public static class VectorDrawableDelegateState extends Drawable.ConstantState {
         private final Drawable.ConstantState mDelegateState;
@@ -937,6 +937,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                     Paint paint = this.mFillPaint;
                     paint.setColor(VectorDrawableCompat.applyAlpha(vFullPath.mFillColor, vFullPath.mFillAlpha));
                     paint.setColorFilter(colorFilter);
+                    this.mRenderPath.setFillType(vFullPath.mFillRule == 0 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD);
                     canvas.drawPath(this.mRenderPath, paint);
                 }
                 if (vFullPath.mStrokeColor != 0) {
@@ -1076,7 +1077,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         public void inflate(Resources resources, AttributeSet attributeSet, Resources.Theme theme, XmlPullParser xmlPullParser) {
-            TypedArray obtainAttributes = VectorDrawableCommon.obtainAttributes(resources, theme, attributeSet, AndroidResources.styleable_VectorDrawableGroup);
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_GROUP);
             updateStateFromTypedArray(obtainAttributes, xmlPullParser);
             obtainAttributes.recycle();
         }
@@ -1199,16 +1200,16 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             for (int i2 = 0; i2 < i; i2++) {
                 str = str + "    ";
             }
-            Log.v(VectorDrawableCompat.LOGTAG, str + "current path is :" + this.mPathName + " pathData is " + NodesToString(this.mNodes));
+            Log.v(VectorDrawableCompat.LOGTAG, str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes));
         }
 
-        public String NodesToString(PathParser.PathDataNode[] pathDataNodeArr) {
+        public String nodesToString(PathParser.PathDataNode[] pathDataNodeArr) {
             float[] fArr;
             String str = " ";
             for (int i = 0; i < pathDataNodeArr.length; i++) {
-                str = str + pathDataNodeArr[i].type + ":";
-                for (int i2 = 0; i2 < pathDataNodeArr[i].params.length; i2++) {
-                    str = str + fArr[i2] + Constants.ACCEPT_TIME_SEPARATOR_SP;
+                str = str + pathDataNodeArr[i].mType + SystemInfoUtil.COLON;
+                for (int i2 = 0; i2 < pathDataNodeArr[i].mParams.length; i2++) {
+                    str = str + fArr[i2] + ",";
                 }
             }
             return str;
@@ -1268,7 +1269,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         public void inflate(Resources resources, AttributeSet attributeSet, Resources.Theme theme, XmlPullParser xmlPullParser) {
             if (TypedArrayUtils.hasAttribute(xmlPullParser, "pathData")) {
-                TypedArray obtainAttributes = VectorDrawableCommon.obtainAttributes(resources, theme, attributeSet, AndroidResources.styleable_VectorDrawableClipPath);
+                TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH);
                 updateStateFromTypedArray(obtainAttributes);
                 obtainAttributes.recycle();
             }
@@ -1313,6 +1314,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             this.mStrokeWidth = 0.0f;
             this.mFillColor = 0;
             this.mStrokeAlpha = 1.0f;
+            this.mFillRule = 0;
             this.mFillAlpha = 1.0f;
             this.mTrimPathStart = 0.0f;
             this.mTrimPathEnd = 1.0f;
@@ -1328,6 +1330,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             this.mStrokeWidth = 0.0f;
             this.mFillColor = 0;
             this.mStrokeAlpha = 1.0f;
+            this.mFillRule = 0;
             this.mFillAlpha = 1.0f;
             this.mTrimPathStart = 0.0f;
             this.mTrimPathEnd = 1.0f;
@@ -1382,7 +1385,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         }
 
         public void inflate(Resources resources, AttributeSet attributeSet, Resources.Theme theme, XmlPullParser xmlPullParser) {
-            TypedArray obtainAttributes = VectorDrawableCommon.obtainAttributes(resources, theme, attributeSet, AndroidResources.styleable_VectorDrawablePath);
+            TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, AndroidResources.STYLEABLE_VECTOR_DRAWABLE_PATH);
             updateStateFromTypedArray(obtainAttributes, xmlPullParser);
             obtainAttributes.recycle();
         }
@@ -1409,6 +1412,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 this.mTrimPathEnd = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathEnd", 6, this.mTrimPathEnd);
                 this.mTrimPathOffset = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathOffset", 7, this.mTrimPathOffset);
                 this.mTrimPathStart = TypedArrayUtils.getNamedFloat(typedArray, xmlPullParser, "trimPathStart", 5, this.mTrimPathStart);
+                this.mFillRule = TypedArrayUtils.getNamedInt(typedArray, xmlPullParser, "fillType", 13, this.mFillRule);
             }
         }
 

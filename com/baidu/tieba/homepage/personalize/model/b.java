@@ -1,11 +1,11 @@
 package com.baidu.tieba.homepage.personalize.model;
 
+import android.util.LongSparseArray;
 import android.util.SparseArray;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.card.data.p;
-import java.util.HashMap;
 import java.util.List;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.DislikeReason;
@@ -13,34 +13,34 @@ import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes2.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<h> list) {
-        bL(list);
+        bQ(list);
         b(builder, list);
     }
 
-    public static void bL(List<h> list) {
+    public static void bQ(List<h> list) {
         if (list != null) {
-            int v = v.v(list);
-            for (int i = 0; i < v; i++) {
-                h hVar = (h) v.c(list, i);
+            int y = w.y(list);
+            for (int i = 0; i < y; i++) {
+                h hVar = (h) w.c(list, i);
                 if (hVar instanceof p) {
-                    ((p) hVar).ew(true);
+                    ((p) hVar).eA(true);
                 }
-                h hVar2 = (h) v.c(list, i + 1);
+                h hVar2 = (h) w.c(list, i + 1);
                 if ((hVar instanceof p) && (hVar2 instanceof p)) {
                     p pVar = (p) hVar;
                     p pVar2 = (p) hVar2;
-                    if (pVar.afO()) {
-                        pVar2.ew(false);
+                    if (pVar.ajw()) {
+                        pVar2.eA(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                            pVar.ex(false);
+                            pVar.eB(false);
                         }
                     }
                 }
                 if (hVar instanceof com.baidu.tieba.homepage.personalize.b.c) {
                     if ((hVar2 instanceof p) || (hVar2 instanceof com.baidu.tieba.card.data.h)) {
-                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).ex(true);
+                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).eB(true);
                     } else {
-                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).ex(false);
+                        ((com.baidu.tieba.homepage.personalize.b.c) hVar).eB(false);
                     }
                 }
             }
@@ -49,24 +49,24 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<h> list) {
         com.baidu.tieba.card.data.c cVar;
-        bd Pb;
+        bd Sz;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
-            HashMap hashMap = new HashMap();
+            LongSparseArray longSparseArray = new LongSparseArray();
             for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
                 if (threadPersonalized2 != null) {
-                    hashMap.put(threadPersonalized2.tid, threadPersonalized2);
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
                 }
             }
-            int v = v.v(list);
-            for (int i = 0; i < v; i++) {
-                h hVar = (h) v.c(list, i);
-                if ((hVar instanceof com.baidu.tieba.card.data.c) && (Pb = (cVar = (com.baidu.tieba.card.data.c) hVar).Pb()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(Long.valueOf(com.baidu.adp.lib.g.b.c(Pb.getTid(), 0L)))) != null) {
+            int y = w.y(list);
+            for (int i = 0; i < y; i++) {
+                h hVar = (h) w.c(list, i);
+                if ((hVar instanceof com.baidu.tieba.card.data.c) && (Sz = (cVar = (com.baidu.tieba.card.data.c) hVar).Sz()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(Sz.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.kB(threadPersonalized.abtest_tag);
-                    if (Pb.sg() != null) {
-                        cVar.c(Pb.sg().is_vertical);
+                    cVar.le(threadPersonalized.abtest_tag);
+                    if (Sz.vD() != null) {
+                        cVar.c(Sz.vD().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
@@ -74,7 +74,7 @@ public class b {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason);
                         }
-                        cVar.YI = sparseArray;
+                        cVar.agK = sparseArray;
                         cVar.setExtra(threadPersonalized.extra);
                     }
                 }

@@ -20,7 +20,6 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.ala.ALaKeepAliveService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.android.b;
@@ -509,8 +508,8 @@ public class ac {
                         }
                     }
                 }
-                if (jSONObject.has(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) {
-                    JSONObject jSONObject4 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+                if (jSONObject.has("time")) {
+                    JSONObject jSONObject4 = jSONObject.getJSONObject("time");
                     Iterator<String> keys3 = jSONObject4.keys();
                     while (keys3.hasNext()) {
                         String next3 = keys3.next();

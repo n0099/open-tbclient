@@ -6,7 +6,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v7.widget.FitWindowsViewGroup;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-@RestrictTo({RestrictTo.Scope.GROUP_ID})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsViewGroup {
     private FitWindowsViewGroup.OnFitSystemWindowsListener mListener;

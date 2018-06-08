@@ -1,48 +1,48 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class q {
-    private boolean fRb;
-    private boolean fRc;
-    private Runnable fRd = new Runnable() { // from class: com.baidu.tieba.play.q.1
+    private boolean gcn;
+    private boolean gco;
+    private Runnable gcp = new Runnable() { // from class: com.baidu.tieba.play.q.1
         @Override // java.lang.Runnable
         public void run() {
-            q.this.fRb = false;
+            q.this.gcn = false;
         }
     };
-    private Runnable fRe = new Runnable() { // from class: com.baidu.tieba.play.q.2
+    private Runnable gcq = new Runnable() { // from class: com.baidu.tieba.play.q.2
         @Override // java.lang.Runnable
         public void run() {
-            q.this.fRc = false;
+            q.this.gco = false;
         }
     };
 
     public void onPrepared() {
-        this.fRc = true;
-        com.baidu.adp.lib.g.e.fw().postDelayed(this.fRe, 500L);
+        this.gco = true;
+        com.baidu.adp.lib.g.e.im().postDelayed(this.gcq, 500L);
     }
 
-    public void bgK() {
-        this.fRb = true;
+    public void blI() {
+        this.gcn = true;
     }
 
-    public void bgL() {
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fRd);
-        com.baidu.adp.lib.g.e.fw().postDelayed(this.fRd, 500L);
+    public void blJ() {
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.gcp);
+        com.baidu.adp.lib.g.e.im().postDelayed(this.gcp, 500L);
     }
 
     public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
-        if ((i == 701 || i2 == 701) && iVar != null && !this.fRb && !this.fRc) {
-            iVar.aRP();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.fRb && !this.fRc) {
-            iVar.aRQ();
-            this.fRb = false;
-            this.fRc = false;
-            bgM();
+        if ((i == 701 || i2 == 701) && iVar != null && !this.gcn && !this.gco) {
+            iVar.aWM();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.gcn && !this.gco) {
+            iVar.aWN();
+            this.gcn = false;
+            this.gco = false;
+            blK();
         }
     }
 
-    public void bgM() {
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fRd);
-        com.baidu.adp.lib.g.e.fw().removeCallbacks(this.fRe);
+    public void blK() {
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.gcp);
+        com.baidu.adp.lib.g.e.im().removeCallbacks(this.gcq);
     }
 }

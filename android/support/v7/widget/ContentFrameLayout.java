@@ -40,7 +40,7 @@ public class ContentFrameLayout extends FrameLayout {
         this.mDecorPadding = new Rect();
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void dispatchFitSystemWindows(Rect rect) {
         fitSystemWindows(rect);
     }
@@ -49,7 +49,7 @@ public class ContentFrameLayout extends FrameLayout {
         this.mAttachListener = onAttachListener;
     }
 
-    @RestrictTo({RestrictTo.Scope.GROUP_ID})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public void setDecorPadding(int i, int i2, int i3, int i4) {
         this.mDecorPadding.set(i, i2, i3, i4);
         if (ViewCompat.isLaidOut(this)) {

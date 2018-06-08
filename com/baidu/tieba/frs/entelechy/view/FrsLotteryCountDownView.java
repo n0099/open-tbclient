@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ak;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
@@ -17,16 +17,16 @@ import java.util.concurrent.TimeUnit;
 public class FrsLotteryCountDownView extends LinearLayout {
     private static final long INTERVAL_DAY = TimeUnit.DAYS.toMillis(1);
     private static final long INTERVAL_HOUR = TimeUnit.HOURS.toMillis(1);
-    private static final long dgq = TimeUnit.MINUTES.toMillis(1);
-    private static final long dgr = TimeUnit.SECONDS.toMillis(1);
-    private TextView dgs;
-    private TextView dgt;
-    private TextView dgu;
-    private TextView dgv;
-    private TextView dgw;
-    private TextView dgx;
-    private TextView dgy;
-    private TextView dgz;
+    private static final long dpF = TimeUnit.MINUTES.toMillis(1);
+    private static final long dpG = TimeUnit.SECONDS.toMillis(1);
+    private TextView dpH;
+    private TextView dpI;
+    private TextView dpJ;
+    private TextView dpK;
+    private TextView dpL;
+    private TextView dpM;
+    private TextView dpN;
+    private TextView dpO;
     private Context mContext;
     private View mRootView;
     private CountDownTimer mTimer;
@@ -57,42 +57,42 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     protected void init() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(d.i.frs_lottery_count_down, (ViewGroup) this, true);
-        this.dgs = (TextView) this.mRootView.findViewById(d.g.lottery_count_day);
-        this.dgt = (TextView) this.mRootView.findViewById(d.g.lottery_count_day_txt);
-        this.dgu = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour);
-        this.dgv = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour_txt);
-        this.dgw = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute);
-        this.dgx = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute_txt);
-        this.dgy = (TextView) this.mRootView.findViewById(d.g.lottery_count_second);
-        this.dgz = (TextView) this.mRootView.findViewById(d.g.lottery_count_second_txt);
+        this.dpH = (TextView) this.mRootView.findViewById(d.g.lottery_count_day);
+        this.dpI = (TextView) this.mRootView.findViewById(d.g.lottery_count_day_txt);
+        this.dpJ = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour);
+        this.dpK = (TextView) this.mRootView.findViewById(d.g.lottery_count_hour_txt);
+        this.dpL = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute);
+        this.dpM = (TextView) this.mRootView.findViewById(d.g.lottery_count_minute_txt);
+        this.dpN = (TextView) this.mRootView.findViewById(d.g.lottery_count_second);
+        this.dpO = (TextView) this.mRootView.findViewById(d.g.lottery_count_second_txt);
     }
 
     public void setData(long j) {
-        ak.h(this.dgs, d.C0126d.cp_cont_g);
-        ak.h(this.dgt, d.C0126d.cp_cont_c);
-        ak.j(this.dgs, d.C0126d.common_color_10060);
-        ak.h(this.dgu, d.C0126d.cp_cont_g);
-        ak.h(this.dgv, d.C0126d.cp_cont_c);
-        ak.j(this.dgu, d.C0126d.common_color_10060);
-        ak.h(this.dgw, d.C0126d.cp_cont_g);
-        ak.h(this.dgx, d.C0126d.cp_cont_c);
-        ak.j(this.dgw, d.C0126d.common_color_10060);
-        ak.h(this.dgy, d.C0126d.cp_cont_g);
-        ak.h(this.dgz, d.C0126d.cp_cont_c);
-        ak.j(this.dgy, d.C0126d.common_color_10060);
-        if (j <= dgr) {
-            this.dgs.setText("0");
-            this.dgu.setText("0");
-            this.dgw.setText("0");
-            this.dgy.setText("0");
+        al.h(this.dpH, d.C0141d.cp_cont_g);
+        al.h(this.dpI, d.C0141d.cp_cont_c);
+        al.j(this.dpH, d.C0141d.common_color_10060);
+        al.h(this.dpJ, d.C0141d.cp_cont_g);
+        al.h(this.dpK, d.C0141d.cp_cont_c);
+        al.j(this.dpJ, d.C0141d.common_color_10060);
+        al.h(this.dpL, d.C0141d.cp_cont_g);
+        al.h(this.dpM, d.C0141d.cp_cont_c);
+        al.j(this.dpL, d.C0141d.common_color_10060);
+        al.h(this.dpN, d.C0141d.cp_cont_g);
+        al.h(this.dpO, d.C0141d.cp_cont_c);
+        al.j(this.dpN, d.C0141d.common_color_10060);
+        if (j <= dpG) {
+            this.dpH.setText("0");
+            this.dpJ.setText("0");
+            this.dpL.setText("0");
+            this.dpN.setText("0");
             return;
         }
         if (j / INTERVAL_DAY <= 0) {
-            this.dgs.setVisibility(8);
-            this.dgt.setVisibility(8);
+            this.dpH.setVisibility(8);
+            this.dpI.setVisibility(8);
         } else {
-            this.dgs.setVisibility(0);
-            this.dgt.setVisibility(0);
+            this.dpH.setVisibility(0);
+            this.dpI.setVisibility(0);
         }
         if (this.mTimer != null) {
             this.mTimer.cancel();
@@ -102,46 +102,46 @@ public class FrsLotteryCountDownView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     private static class b extends CountDownTimer {
-        private final WeakReference<FrsLotteryCountDownView> dgA;
+        private final WeakReference<FrsLotteryCountDownView> dpP;
 
         public b(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
             super(j, j2);
-            this.dgA = weakReference;
+            this.dpP = weakReference;
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.dgA.get();
+            FrsLotteryCountDownView frsLotteryCountDownView = this.dpP.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.dgs.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.INTERVAL_DAY)));
-                frsLotteryCountDownView.dgu.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.INTERVAL_DAY) / FrsLotteryCountDownView.INTERVAL_HOUR)));
-                frsLotteryCountDownView.dgw.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) / FrsLotteryCountDownView.dgq)));
-                frsLotteryCountDownView.dgy.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) % FrsLotteryCountDownView.dgq) / FrsLotteryCountDownView.dgr)));
+                frsLotteryCountDownView.dpH.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.INTERVAL_DAY)));
+                frsLotteryCountDownView.dpJ.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.INTERVAL_DAY) / FrsLotteryCountDownView.INTERVAL_HOUR)));
+                frsLotteryCountDownView.dpL.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) / FrsLotteryCountDownView.dpF)));
+                frsLotteryCountDownView.dpN.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.INTERVAL_DAY) % FrsLotteryCountDownView.INTERVAL_HOUR) % FrsLotteryCountDownView.dpF) / FrsLotteryCountDownView.dpG)));
                 return;
             }
-            com.baidu.adp.lib.g.e.fw().postDelayed(new a(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
+            com.baidu.adp.lib.g.e.im().postDelayed(new a(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.dgA.get();
+            FrsLotteryCountDownView frsLotteryCountDownView = this.dpP.get();
             if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.dgy.setText("0");
+                frsLotteryCountDownView.dpN.setText("0");
             }
         }
     }
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTimer> dgA;
+        private final WeakReference<CountDownTimer> dpP;
 
         private a(WeakReference<CountDownTimer> weakReference) {
-            this.dgA = weakReference;
+            this.dpP = weakReference;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTimer countDownTimer = this.dgA.get();
+            CountDownTimer countDownTimer = this.dpP.get();
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }
