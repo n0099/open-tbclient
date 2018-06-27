@@ -9,7 +9,7 @@ import tbclient.ForumSubLabel;
 public class LabelDataList extends ArrayList<a> {
     public void parseProtu(List<ForumSubLabel> list) {
         clear();
-        if (!w.z(list)) {
+        if (!w.A(list)) {
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
                     a aVar = new a();
@@ -25,7 +25,7 @@ public class LabelDataList extends ArrayList<a> {
     }
 
     public void setSelectedIndex(int i) {
-        a aVar = (a) w.c(this, i);
+        a aVar = (a) w.d(this, i);
         if (aVar != null) {
             aVar.isSelect = true;
             Iterator<a> it = iterator();
@@ -46,7 +46,7 @@ public class LabelDataList extends ArrayList<a> {
                 return next.labelId;
             }
         }
-        a aVar = (a) w.c(this, 0);
+        a aVar = (a) w.d(this, 0);
         if (aVar != null) {
             aVar.isSelect = true;
             return aVar.labelId;

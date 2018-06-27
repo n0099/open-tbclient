@@ -1,104 +1,103 @@
 package com.baidu.tieba.sharesdk.a;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.d;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WebpageObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
-import com.sina.weibo.sdk.api.share.BaseResponse;
-import com.sina.weibo.sdk.api.share.IWeiboHandler;
-import com.sina.weibo.sdk.api.share.IWeiboShareAPI;
-import com.sina.weibo.sdk.api.share.SendMultiMessageToWeiboRequest;
-import com.sina.weibo.sdk.api.share.WeiboShareSDK;
 import com.sina.weibo.sdk.auth.AuthInfo;
-import com.sina.weibo.sdk.auth.Oauth2AccessToken;
-import com.sina.weibo.sdk.auth.WeiboAuthListener;
-import com.sina.weibo.sdk.exception.WeiboException;
+import com.sina.weibo.sdk.share.WbShareCallback;
+import com.sina.weibo.sdk.share.WbShareHandler;
 import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes3.dex */
 public class e extends a {
-    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> aOV;
-    private ShareEntity gwY;
-    private com.baidu.tieba.sharesdk.b.b gxj;
-    private IWeiboShareAPI gxk;
-    private IWeiboHandler.Response gxl;
+    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> aPR;
+    private ShareEntity gAR;
+    private com.baidu.tieba.sharesdk.b.b gBc;
+    private WbShareHandler gBd;
+    private WbShareCallback gBe;
 
-    public e(Context context, com.baidu.tieba.sharesdk.b.b bVar, IWeiboHandler.Response response) {
-        super(context);
-        this.aOV = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
+    public e(Activity activity, com.baidu.tieba.sharesdk.b.b bVar, WbShareCallback wbShareCallback) {
+        super(activity);
+        this.aPR = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass1) aVar, str, i);
                 if (aVar == null) {
-                    e.this.a(e.this.gwY, (Bitmap) null);
+                    e.this.a(e.this.gAR, (Bitmap) null);
                     return;
                 }
-                e.this.a(e.this.gwY, aVar.mZ());
+                e.this.a(e.this.gAR, aVar.mZ());
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                if (e.this.gxj != null) {
-                    e.this.gxj.bD(6, 3);
+                if (e.this.gBc != null) {
+                    e.this.gBc.bC(6, 3);
                 }
-                e.this.sL(3);
+                e.this.sV(3);
             }
         };
-        this.context = context;
-        this.gxj = bVar;
-        this.gxl = response;
-        this.gxk = WeiboShareSDK.createWeiboAPI(getAppContext(), "3826995480");
-        if (this.gxk != null) {
-            this.gxk.registerApp();
+        try {
+            WbSdk.install(activity, new AuthInfo(activity, "1511099634", "https://passport.baidu.com", "invitation_write"));
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
+        this.context = activity;
+        this.gBc = bVar;
+        this.gBe = wbShareCallback;
+        this.gBd = new WbShareHandler(activity);
+        if (this.gBd != null) {
+            this.gBd.registerApp();
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.gxk == null) {
-            sL(2);
+        if (shareEntity == null || this.gBd == null) {
+            sV(2);
             if (bVar != null) {
-                bVar.bD(6, 2);
+                bVar.bC(6, 2);
                 return;
             }
             return;
         }
-        this.gwY = shareEntity;
-        this.gxj = bVar;
-        String ub = shareEntity.ub();
-        if (!TextUtils.isEmpty(ub) && (ub.startsWith("http://") || ub.startsWith("https://"))) {
-            com.baidu.adp.lib.f.c.ig().a(ub, 10, this.aOV, 0, 0, getPageId(), new Object[0]);
-        } else if (i(shareEntity.bso())) {
-            a(this.gwY, h(shareEntity.bso()));
+        this.gAR = shareEntity;
+        this.gBc = bVar;
+        String uh = shareEntity.uh();
+        if (!TextUtils.isEmpty(uh) && (uh.startsWith("http://") || uh.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+            com.baidu.adp.lib.f.c.ig().a(uh, 10, this.aPR, 0, 0, getPageId(), new Object[0]);
+        } else if (h(shareEntity.getImageUri())) {
+            a(this.gAR, g(shareEntity.getImageUri()));
         } else {
-            a(this.gwY, bsr());
+            a(this.gAR, bsR());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.gwY == null || this.gxk == null || !(this.context instanceof Activity)) {
-            if (this.gxj != null) {
-                this.gxj.bD(6, 2);
+        if (this.gAR == null || this.gBd == null || !(this.context instanceof Activity)) {
+            if (this.gBc != null) {
+                this.gBc.bC(6, 2);
             }
-            sL(2);
+            sV(2);
             return;
         }
         WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
         if (!TextUtils.isEmpty(shareEntity.getContent())) {
-            weiboMultiMessage.textObject = bss();
+            weiboMultiMessage.textObject = bsS();
         }
         if (bitmap != null) {
             weiboMultiMessage.imageObject = w(bitmap);
@@ -107,35 +106,7 @@ public class e extends a {
         if (a != null) {
             weiboMultiMessage.mediaObject = a;
         }
-        SendMultiMessageToWeiboRequest sendMultiMessageToWeiboRequest = new SendMultiMessageToWeiboRequest();
-        sendMultiMessageToWeiboRequest.transaction = String.valueOf(System.currentTimeMillis());
-        sendMultiMessageToWeiboRequest.multiMessage = weiboMultiMessage;
-        Activity activity = (Activity) this.context;
-        AuthInfo authInfo = new AuthInfo(this.context, "3826995480", "https://tieba.baidu.com", "invitation_write");
-        Oauth2AccessToken cg = com.baidu.tieba.sharesdk.c.c.cg(getAppContext());
-        this.gxk.sendRequest(activity, sendMultiMessageToWeiboRequest, authInfo, cg != null ? cg.getToken() : "", new WeiboAuthListener() { // from class: com.baidu.tieba.sharesdk.a.e.2
-            @Override // com.sina.weibo.sdk.auth.WeiboAuthListener
-            public void onWeiboException(WeiboException weiboException) {
-                if (e.this.gxj != null) {
-                    e.this.gxj.bD(6, 2);
-                }
-                e.this.tk(e.this.getString(d.k.share_weibosdk_auth_failed, new Object[0]));
-            }
-
-            @Override // com.sina.weibo.sdk.auth.WeiboAuthListener
-            public void onComplete(Bundle bundle) {
-                com.baidu.tieba.sharesdk.c.c.a(e.this.getAppContext(), Oauth2AccessToken.parseAccessToken(bundle));
-                e.this.tl(e.this.getString(d.k.share_weibosdk_auth_success, new Object[0]));
-            }
-
-            @Override // com.sina.weibo.sdk.auth.WeiboAuthListener
-            public void onCancel() {
-                if (e.this.gxj != null) {
-                    e.this.gxj.bD(6, 3);
-                }
-                e.this.tk(e.this.getString(d.k.share_weibosdk_auth_failed, new Object[0]));
-            }
-        });
+        this.gBd.shareMessage(weiboMultiMessage, false);
     }
 
     private WebpageObject a(WeiboMultiMessage weiboMultiMessage, ShareEntity shareEntity, Bitmap bitmap) {
@@ -170,7 +141,7 @@ public class e extends a {
         webpageObject.identify = Utility.generateGUID();
         webpageObject.title = "";
         webpageObject.description = "";
-        webpageObject.actionUrl = to(str);
+        webpageObject.actionUrl = tn(str);
         return webpageObject;
     }
 
@@ -181,19 +152,19 @@ public class e extends a {
         WebpageObject webpageObject = new WebpageObject();
         webpageObject.setThumbImage(bitmap);
         webpageObject.identify = Utility.generateGUID();
-        webpageObject.title = to(str);
-        webpageObject.description = to(str2);
-        webpageObject.actionUrl = to(str3);
+        webpageObject.title = tn(str);
+        webpageObject.description = tn(str2);
+        webpageObject.actionUrl = tn(str3);
         return webpageObject;
     }
 
-    private TextObject bss() {
-        if (this.gwY == null) {
+    private TextObject bsS() {
+        if (this.gAR == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = to(this.gwY.getTitle());
-        textObject.text = to(this.gwY.getContent());
+        textObject.title = tn(this.gAR.getTitle());
+        textObject.text = tn(this.gAR.getContent());
         return textObject;
     }
 
@@ -204,49 +175,35 @@ public class e extends a {
         return imageObject;
     }
 
-    private String to(String str) {
+    private String tn(String str) {
         return str == null ? "" : str;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void D(Intent intent) {
-        if (this.gxk != null && this.gxl != null) {
-            this.gxk.handleWeiboResponse(intent, this.gxl);
+        if (this.gBd != null && this.gBe != null) {
+            this.gBd.doResultIntent(intent, this.gBe);
         }
     }
 
-    public void onResponse(BaseResponse baseResponse) {
-        if (baseResponse != null) {
-            switch (baseResponse.errCode) {
-                case 0:
-                    if (this.gxj != null) {
-                        this.gxj.bD(6, 1);
-                    }
-                    sL(1);
-                    return;
-                case 1:
-                    if (this.gxj != null) {
-                        this.gxj.bD(6, 3);
-                    }
-                    sL(3);
-                    return;
-                case 2:
-                    if (this.gxj != null) {
-                        this.gxj.bD(6, 2);
-                    }
-                    sL(2);
-                    return;
-                default:
-                    if (this.gxj != null) {
-                        this.gxj.bD(6, 2);
-                    }
-                    sL(2);
-                    return;
-            }
+    public void onWbShareSuccess() {
+        if (this.gBc != null) {
+            this.gBc.bC(6, 1);
         }
-        if (this.gxj != null) {
-            this.gxj.bD(6, 2);
+        sV(1);
+    }
+
+    public void onWbShareCancel() {
+        if (this.gBc != null) {
+            this.gBc.bC(6, 3);
         }
-        sL(2);
+        sV(3);
+    }
+
+    public void onWbShareFail() {
+        if (this.gBc != null) {
+            this.gBc.bC(6, 2);
+        }
+        sV(2);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.location.h;
 
 import com.baidu.ar.constants.HttpConstants;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static String a = "baidu_location_service";
     public static int b = 12000;

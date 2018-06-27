@@ -4,12 +4,11 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.sina.weibo.sdk.constant.WBPageConstants;
 import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static String a(com.baidu.ubs.analytics.b bVar) {
         JSONObject jSONObject = new JSONObject();
@@ -59,7 +58,7 @@ public final class h {
                 jSONObject5.put("sessionId", aVar.I());
                 jSONObject5.put("ext", aVar.H());
                 jSONObject5.put("timeStamp", aVar.F());
-                jSONObject5.put(WBPageConstants.ParamKey.PAGE, aVar.E());
+                jSONObject5.put("page", aVar.E());
                 jSONObject5.put("from", aVar.D());
                 jSONArray3.put(jSONObject5);
             }

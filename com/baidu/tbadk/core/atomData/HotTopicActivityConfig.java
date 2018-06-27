@@ -29,9 +29,10 @@ public class HotTopicActivityConfig extends IntentConfig {
         return this;
     }
 
-    public void setExtra(long j, String str, String str2) {
+    public void setExtra(long j, String str, String str2, long j2) {
         getIntent().putExtra(IntentConfig.TOPIC_FID, j);
         getIntent().putExtra(IntentConfig.TOPIC_FIRST_DIR, str);
         getIntent().putExtra(IntentConfig.TOPIC_SECOND_DIR, str2);
+        getIntent().putExtra(IntentConfig.TOPIC_TID, j2);
     }
 }

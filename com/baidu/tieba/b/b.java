@@ -9,30 +9,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private HTypeListView blU;
+    private HTypeListView bnt;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.blU = hTypeListView;
+        this.bnt = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.mAdapters.add(new c(this.mTbPageContext, com.baidu.tbadk.data.a.aJz));
-        this.blU.addAdapters(this.mAdapters);
+        this.mAdapters.add(new c(this.mTbPageContext, com.baidu.tbadk.data.a.aKw));
+        this.bnt.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<h> list) {
-        if (!w.z(list)) {
-            this.blU.setData(list);
+        if (!w.A(list)) {
+            this.bnt.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.blU != null && (this.blU.getAdapter() instanceof q)) {
-            ((q) this.blU.getAdapter()).notifyDataSetChanged();
+        if (this.bnt != null && (this.bnt.getAdapter() instanceof q)) {
+            ((q) this.bnt.getAdapter()).notifyDataSetChanged();
         }
     }
 }

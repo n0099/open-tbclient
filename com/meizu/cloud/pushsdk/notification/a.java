@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -125,7 +124,7 @@ public abstract class a implements e {
     public Bitmap a(String str) {
         com.meizu.cloud.pushsdk.networking.common.c a = com.meizu.cloud.pushsdk.networking.a.a(str).a().a();
         if (a.b() && a.a() != null) {
-            com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image " + (a.a() != null ? ImagesInvalidReceiver.SUCCESS : "fail"));
+            com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image " + (a.a() != null ? "success" : "fail"));
             return (Bitmap) a.a();
         }
         com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image fail");

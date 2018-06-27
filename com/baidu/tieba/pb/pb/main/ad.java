@@ -1,35 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
-public class ad extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ad(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class ad extends PostData {
+    public static final BdUniqueId fCH = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.ao fCI;
+    public com.baidu.tbadk.core.data.ao fCJ;
+    public com.baidu.tbadk.core.data.ao fCK;
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
+    public BdUniqueId getType() {
+        return fCH;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bp */
-    public com.baidu.tieba.pb.pb.a.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(d.i.pb_no_data_item_layout, viewGroup, false), this.mContext);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
-        super.onFillViewHolder(i, view, viewGroup, gVar, cVar);
-        this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.ftp.getLayoutMode().setNightMode(this.mSkinType == 1);
-        this.ftp.getLayoutMode().onModeChanged(view);
-        return view;
+    public boolean hasData() {
+        if (this.fCI == null || StringUtils.isNull(this.fCI.summary)) {
+            if (this.fCJ == null || StringUtils.isNull(this.fCJ.summary)) {
+                return (this.fCK == null || StringUtils.isNull(this.fCK.summary)) ? false : true;
+            }
+            return true;
+        }
+        return true;
     }
 }

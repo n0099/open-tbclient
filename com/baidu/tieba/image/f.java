@@ -1,35 +1,36 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private boolean eCw;
+    private boolean eGm;
     private boolean isBlockedPic;
     private boolean isLongPic;
-    private String eCt = null;
+    private String eGj = null;
     private String imageUrl = null;
-    private String beb = null;
+    private String bfr = null;
     private int width = 0;
     private int height = 0;
-    private String eCu = null;
+    private String eGk = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
     private int index = -1;
     private long overAllIndex = 0;
-    private String eCv = null;
+    private String eGl = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String aOg() {
-        return this.eCt;
+    public String aOM() {
+        return this.eGj;
     }
 
-    public String aOh() {
-        return this.eCv;
+    public String aON() {
+        return this.eGl;
     }
 
     public int getWidth() {
@@ -44,12 +45,12 @@ public class f {
         return this.index;
     }
 
-    public String Nx() {
-        return this.beb;
+    public String NQ() {
+        return this.bfr;
     }
 
-    public String NC() {
-        return this.eCu;
+    public String NV() {
+        return this.eGk;
     }
 
     public long getOriginalSize() {
@@ -64,11 +65,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean aOi() {
-        return this.eCw;
+    public boolean aOO() {
+        return this.eGm;
     }
 
-    public boolean aOj() {
+    public boolean aOP() {
         return this.isBlockedPic;
     }
 
@@ -76,7 +77,7 @@ public class f {
         return this.isLongPic;
     }
 
-    public long aOk() {
+    public long aOQ() {
         return this.overAllIndex;
     }
 
@@ -84,19 +85,19 @@ public class f {
         JSONObject optJSONObject;
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
-            this.eCv = jSONObject.optString("post_id");
-            this.eCw = jSONObject.optInt("show_original_btn") == 1;
+            this.eGl = jSONObject.optString("post_id");
+            this.eGm = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(SocialConstants.PARAM_IMG_URL);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.eCt = optJSONObject.optString("id");
+                this.eGj = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.beb = optJSONObject.optString("big_cdn_src", null);
-                this.eCu = optJSONObject.optString("original_src");
+                this.bfr = optJSONObject.optString("big_cdn_src", null);
+                this.eGk = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt("size");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("pic_tagname");

@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class LocationClientOption {
     public static final int GpsFirst = 1;
     public static final int GpsOnly = 3;
@@ -34,7 +34,7 @@ public final class LocationClientOption {
     public String serviceName;
     public int timeOut;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum LocationMode {
         Hight_Accuracy,
         Battery_Saving,

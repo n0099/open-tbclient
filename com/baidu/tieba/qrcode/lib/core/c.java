@@ -6,7 +6,7 @@ import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes3.dex */
 public class c extends AsyncTask<Void, Void, String> {
-    private a ggw;
+    private a gkw;
     private Camera mCamera;
     private byte[] mData;
     private int orientation;
@@ -19,11 +19,11 @@ public class c extends AsyncTask<Void, Void, String> {
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.ggw = aVar;
+        this.gkw = aVar;
         this.orientation = i;
     }
 
-    public c bnt() {
+    public c bnX() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -41,13 +41,13 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.ggw = null;
+        this.gkw = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
-    /* renamed from: d */
+    /* renamed from: e */
     public String doInBackground(Void... voidArr) {
         Camera.Parameters parameters;
         if (this.mCamera == null) {
@@ -76,13 +76,13 @@ public class c extends AsyncTask<Void, Void, String> {
                 i = i2;
             }
             try {
-                if (this.ggw != null) {
-                    return this.ggw.a(bArr, i2, i, false);
+                if (this.gkw != null) {
+                    return this.gkw.a(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.ggw.a(bArr, i2, i, true);
+                    return this.gkw.a(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

@@ -28,9 +28,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.adM;
-        if (StringUtils.isNull(str) && advertAppInfo.adX != null) {
-            str = advertAppInfo.adX.userName;
+        String str = advertAppInfo.aeb;
+        if (StringUtils.isNull(str) && advertAppInfo.aem != null) {
+            str = advertAppInfo.aem.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -46,17 +46,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.GR().b(advertAppInfo);
-        String str2 = advertAppInfo.adM;
+        com.baidu.tbadk.distribute.a.Hj().b(advertAppInfo);
+        String str2 = advertAppInfo.aeb;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bop().a(advertAppInfo.adQ, advertAppInfo.adP, str2, i, com.baidu.tieba.recapp.download.d.sM(advertAppInfo.adQ).intValue(), null, true, false, true, advertAppInfo.adX.userPortrait, downloadStaticsData, advertAppInfo.adX.userName);
+        com.baidu.tieba.recapp.download.d.boQ().a(advertAppInfo.aef, advertAppInfo.aee, str2, i, com.baidu.tieba.recapp.download.d.sL(advertAppInfo.aef).intValue(), null, true, false, true, advertAppInfo.aem.userPortrait, downloadStaticsData, advertAppInfo.aem.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bop().j(advertAppInfo.adP, advertAppInfo.adQ, true);
+        com.baidu.tieba.recapp.download.d.boQ().j(advertAppInfo.aee, advertAppInfo.aef, true);
     }
 
     public static final void al(Context context, String str) {
@@ -64,11 +64,11 @@ public class s {
             com.baidu.adp.lib.util.l.showToast(context, d.k.download_error);
             return;
         }
-        File dU = com.baidu.tbadk.core.util.l.dU(str.replace(".", "_") + ".apk");
-        if (dU != null) {
+        File dX = com.baidu.tbadk.core.util.l.dX(str.replace(".", "_") + ".apk");
+        if (dX != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dU, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dX, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -110,7 +110,7 @@ public class s {
         return aQ;
     }
 
-    public static List<String> ce(Context context) {
+    public static List<String> cd(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -184,11 +184,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.boj().sendFRS(z, str, str2, str3, list, str4);
+        r.boJ().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.boj().a(z, str, str2, str3, str4, list, str5);
+        r.boJ().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -207,15 +207,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bog = r.boj().bog();
-        if (bog == null) {
+        h boG = r.boJ().boG();
+        if (boG == null) {
             return false;
         }
-        if (bog.iC(str)) {
-            bog.a(tbPageContext.getPageActivity(), strArr, true);
+        if (boG.iH(str)) {
+            boG.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bog.c(tbPageContext.getPageActivity(), strArr);
+        return boG.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int am(Context context, String str) {
@@ -234,14 +234,14 @@ public class s {
 
     private static boolean an(Context context, String str) {
         String[] strArr = {str};
-        h bog = r.boj().bog();
-        if (bog == null) {
+        h boG = r.boJ().boG();
+        if (boG == null) {
             return false;
         }
-        if (bog.iC(str)) {
-            bog.a(context, strArr, true);
+        if (boG.iH(str)) {
+            boG.a(context, strArr, true);
             return true;
         }
-        return bog.c(context, strArr);
+        return boG.c(context, strArr);
     }
 }

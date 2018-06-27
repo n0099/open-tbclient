@@ -64,6 +64,7 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_TALK_BALL = 1003403;
     public static final int CMD_FRS_VIDEO_TOPIC = 1003405;
     public static final int CMD_GET_BFB_INFO = 1003100;
+    public static final int CMD_GET_BIGDAY_INFO = 1003408;
     public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;
     public static final int CMD_GET_CARD_BY_CATEGORY = 1003093;
     public static final int CMD_GET_CARD_DETAIL = 1003094;
@@ -88,6 +89,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
     public static final int CMD_GET_LEVLE_INFO = 1001710;
     public static final int CMD_GET_MANGA_COVER = 1003097;
+    public static final int CMD_GET_MY_FORBIDDEN_FANS = 1003406;
     public static final int CMD_GET_MY_POST = 1003010;
     public static final int CMD_GET_MY_SHELF = 1003092;
     public static final int CMD_GET_NANI_VIDEO = 1003399;
@@ -98,7 +100,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
-    public static final int CMD_GET_RN_SYNC = 1003406;
+    public static final int CMD_GET_RN_SYNC = 1003409;
     public static final int CMD_GET_SPLASH_INFO = 1003192;
     public static final int CMD_GET_STICKERS = 1003368;
     public static final int CMD_GET_STICKET_LIST = 1003341;
@@ -120,6 +122,8 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
+    public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
+    public static final int CMD_HTTP_GET_BIG_TBEAN_URL = 1003410;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
     public static final int CMD_HTTP_GET_YINJI = 1001533;
@@ -133,6 +137,7 @@ public class CmdConfigHttp {
     public static final int CMD_MEMBER_CLOSE_AD = 1003090;
     public static final int CMD_MEMBER_TASK = 1003187;
     public static final int CMD_MOOV_UPLOAD = 1003388;
+    public static final int CMD_NEG_DELETE_THREAD = 1003185;
     public static final int CMD_NEG_FEED_BACK = 1003184;
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
     public static final int CMD_PAYMENT_PAY = 1001537;
@@ -147,6 +152,7 @@ public class CmdConfigHttp {
     public static final int CMD_PLAY_DURATION_STATISTICS = 1003359;
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
+    public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
     public static final int CMD_REMOVE_FANS = 1003396;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_SCHEMA_UPLOAD = 1003393;

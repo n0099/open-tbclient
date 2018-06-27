@@ -9,6 +9,8 @@ public class SetPortraitResult extends SapiResult {
     public static final String RESULT_MSG_FORMAT_ERROR = "头像格式错误";
     public static final String RESULT_MSG_SUCCESS = "设置头像成功";
     public static final String RESULT_MSG_SYSTEM_ERROR = "系统错误";
+    public String portraitHttps;
+    public String portraitSign;
 
     public SetPortraitResult() {
         this.msgMap.put(0, RESULT_MSG_SUCCESS);

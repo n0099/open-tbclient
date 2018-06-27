@@ -9,44 +9,40 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    public static Domain aAq = Domain.DOMAIN_ONLINE;
-    private static boolean aAr = true;
-    public static c aAs = null;
+    public static Domain aBi = Domain.DOMAIN_ONLINE;
+    private static boolean aBj = true;
+    public static c aBk = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (aAs == null && (runTask = MessageManager.getInstance().runTask(2001268, c.class)) != null && runTask.getData() != null) {
-            aAs = (c) runTask.getData();
+        if (aBk == null && (runTask = MessageManager.getInstance().runTask(2001268, c.class)) != null && runTask.getData() != null) {
+            aBk = (c) runTask.getData();
         }
     }
 
-    public static c Bn() {
-        return aAs;
-    }
-
-    public static boolean Bo() {
-        return aAr;
+    public static c BF() {
+        return aBk;
     }
 
     public static void checkPassV6Switch() {
         if (TbConfig.USE_OLD_LOGIN) {
-            aAr = true;
+            aBj = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                aAr = false;
+                aBj = false;
             } else {
-                aAr = true;
+                aBj = true;
             }
         } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-            aAr = false;
+            aBj = false;
         } else {
-            aAr = true;
+            aBj = true;
         }
-        if (Build.VERSION.SDK_INT <= 10 && !aAr && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+        if (Build.VERSION.SDK_INT <= 10 && !aBj && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
             TbadkCoreApplication.getInst().incPassportV6CrashCount();
-            aAr = true;
+            aBj = true;
         }
     }
 }

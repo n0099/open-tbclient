@@ -3,73 +3,72 @@ package com.baidu.tieba.godSquare;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.core.view.g;
+import com.baidu.tbadk.core.view.h;
 import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private BaseActivity bkU;
-    private PbListView btv;
-    private NoNetworkView cRO;
-    private com.baidu.tieba.godSquare.a.a dKZ;
+    private BaseActivity bmt;
+    private PbListView buU;
+    private NoNetworkView cPM;
+    private com.baidu.tieba.godSquare.a.a dOq;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
-    private g mPullView;
+    private h mPullView;
     private View mRootView;
 
     public a(BaseActivity baseActivity) {
-        this.bkU = baseActivity;
-        this.bkU.setContentView(d.i.god_square_activity);
-        this.mRootView = this.bkU.findViewById(d.g.activity_root_view);
-        this.mNavigationBar = (NavigationBar) this.bkU.findViewById(d.g.view_navigation_bar);
+        this.bmt = baseActivity;
+        this.bmt.setContentView(d.i.god_square_activity);
+        this.mRootView = this.bmt.findViewById(d.g.activity_root_view);
+        this.mNavigationBar = (NavigationBar) this.bmt.findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(d.k.god_square);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cRO = (NoNetworkView) this.bkU.findViewById(d.g.view_no_network);
-        this.btv = new PbListView(this.bkU.getPageContext().getPageActivity());
-        this.btv.nn();
-        this.btv.Ar();
-        this.mListView = (BdTypeListView) this.bkU.findViewById(d.g.god_square_list_view);
-        this.mPullView = new g(this.bkU.getPageContext());
-        if (this.bkU instanceof f.b) {
-            this.mPullView.a((f.b) this.bkU);
+        this.cPM = (NoNetworkView) this.bmt.findViewById(d.g.view_no_network);
+        this.buU = new PbListView(this.bmt.getPageContext().getPageActivity());
+        this.buU.nn();
+        this.buU.AH();
+        this.mListView = (BdTypeListView) this.bmt.findViewById(d.g.god_square_list_view);
+        this.mPullView = new h(this.bmt.getPageContext());
+        if (this.bmt instanceof g.b) {
+            this.mPullView.a((g.b) this.bmt);
         }
-        if (this.bkU instanceof BdListView.e) {
-            this.mListView.setOnSrollToBottomListener((BdListView.e) this.bkU);
+        if (this.bmt instanceof BdListView.e) {
+            this.mListView.setOnSrollToBottomListener((BdListView.e) this.bmt);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.dKZ = new com.baidu.tieba.godSquare.a.a(this.bkU.getPageContext(), this.mListView);
-        this.mListView.addAdapters(this.dKZ.asu());
-        this.mListView.setNextPage(this.btv);
+        this.dOq = new com.baidu.tieba.godSquare.a.a(this.bmt.getPageContext(), this.mListView);
+        this.mListView.addAdapters(this.dOq.asF());
+        this.mListView.setNextPage(this.buU);
     }
 
     public void showLoadingView() {
         this.mListView.setVisibility(8);
-        this.bkU.showLoadingView(this.mRootView, true);
+        this.bmt.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
         this.mListView.setVisibility(0);
-        this.bkU.hideLoadingView(this.mRootView);
+        this.bmt.hideLoadingView(this.mRootView);
     }
 
     public void mo(String str) {
         this.mListView.setVisibility(8);
-        this.bkU.showNetRefreshView(this.mRootView, str, true);
+        this.bmt.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void TI() {
+    public void Uc() {
         this.mListView.setVisibility(0);
-        this.bkU.hideNetRefreshView(this.mRootView);
+        this.bmt.hideNetRefreshView(this.mRootView);
     }
 
-    public void bK(List<h> list) {
+    public void bO(List<com.baidu.adp.widget.ListView.h> list) {
         if (list != null) {
             this.mListView.setData(list);
         }
@@ -80,29 +79,29 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.dKZ.notifyDataSetChanged();
+        this.dOq.notifyDataSetChanged();
     }
 
-    public void aBx() {
-        this.btv.Ar();
+    public void aCd() {
+        this.buU.AH();
     }
 
-    public void aBy() {
-        this.btv.setText(this.bkU.getResources().getString(d.k.network_ungeilivable));
-        this.btv.As();
+    public void aCe() {
+        this.buU.setText(this.bmt.getResources().getString(d.k.network_ungeilivable));
+        this.buU.AI();
     }
 
-    public void aBz() {
-        this.btv.setText(this.bkU.getResources().getString(d.k.list_no_more));
-        this.btv.As();
+    public void aCf() {
+        this.buU.setText(this.bmt.getResources().getString(d.k.list_no_more));
+        this.buU.AI();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.bkU.getPageContext(), i);
-        this.btv.dx(d.C0141d.cp_bg_line_c);
-        this.btv.setTextColor(al.getColor(d.C0141d.cp_cont_d));
-        this.btv.dy(i);
-        this.cRO.onChangeSkinType(this.bkU.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.bmt.getPageContext(), i);
+        this.buU.dy(d.C0142d.cp_bg_line_c);
+        this.buU.setTextColor(am.getColor(d.C0142d.cp_cont_d));
+        this.buU.dz(i);
+        this.cPM.onChangeSkinType(this.bmt.getPageContext(), i);
     }
 
     public void startPullRefresh() {
@@ -111,7 +110,7 @@ public class a {
 
     public void g(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.cRO.a(aVar);
+            this.cPM.a(aVar);
         }
     }
 }

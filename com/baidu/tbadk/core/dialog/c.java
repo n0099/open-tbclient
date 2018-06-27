@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView ale;
-    private CircleView alf;
-    private FrameLayout mFrameLayout;
+    private TextView alE;
+    private CircleView alF;
+    private FrameLayout alG;
     private String mMessage;
     private TextView mTextView;
 
@@ -26,16 +26,16 @@ public class c extends AlertDialog {
         Window window = getWindow();
         if (window != null) {
             window.setContentView(d.i.progress_dialog);
-            this.mFrameLayout = (FrameLayout) window.findViewById(d.g.frame_progress_dialog);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mFrameLayout.getLayoutParams();
+            this.alG = (FrameLayout) window.findViewById(d.g.frame_progress_dialog);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.alG.getLayoutParams();
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(d.e.ds32);
-            this.mFrameLayout.setLayoutParams(layoutParams);
+            this.alG.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.ale = (TextView) window.findViewById(d.g.text_progress_dialog_message);
-                this.ale.setText(this.mMessage);
+                this.alE = (TextView) window.findViewById(d.g.text_progress_dialog_message);
+                this.alE.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(d.g.text_progress_dialog_percent);
-            this.alf = (CircleView) window.findViewById(d.g.circle_progress_dialog);
+            this.alF = (CircleView) window.findViewById(d.g.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.alf != null) {
-            this.alf.setProgress(i);
+        if (this.alF != null) {
+            this.alF.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.ale != null) {
-            this.ale.setText(this.mMessage);
+        if (this.alE != null) {
+            this.alE.setText(this.mMessage);
         }
     }
 }

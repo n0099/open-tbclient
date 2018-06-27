@@ -3,7 +3,6 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.sina.weibo.sdk.constant.WBPageConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class BaseLegoCardInfo implements ICardInfo {
@@ -59,7 +58,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.statTab = jSONObject.optInt("statTab");
         this.showCover = jSONObject.optInt("showCover") == 1;
         this.showLine = jSONObject.optInt("showLine", -1);
-        this.page = jSONObject.optInt(WBPageConstants.ParamKey.PAGE, 0);
+        this.page = jSONObject.optInt("page", 0);
     }
 
     public int getPage() {

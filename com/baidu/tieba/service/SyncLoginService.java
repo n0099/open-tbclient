@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.g;
 import com.baidu.tieba.model.c;
@@ -72,7 +72,7 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: A */
+        /* renamed from: B */
         public c doInBackground(String... strArr) {
             c cVar;
             Exception e;
@@ -87,7 +87,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.o("scr_w", String.valueOf(l.ah(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_h", String.valueOf(l.aj(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_dip", String.valueOf(l.ak(TbadkCoreApplication.getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.DE().DH() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().DZ() > 0) {
                     this.mNetWork.o("_msg_status", "0");
                 } else {
                     this.mNetWork.o("_msg_status", "1");
@@ -106,13 +106,13 @@ public class SyncLoginService extends BdBaseService {
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
                 this.mNetWork.o("package", packageName);
                 this.mNetWork.o("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.o("signmd5", ar.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.o("signmd5", as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.o(ARResourceKey.HTTP_AR_MD5, g.getTiebaApkMd5());
-                String yl = this.mNetWork.yl();
-                if (this.mNetWork.yJ().zJ().isRequestSuccess()) {
+                String yz = this.mNetWork.yz();
+                if (this.mNetWork.yX().zY().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(yl);
+                        cVar.parserJson(yz);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

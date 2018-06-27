@@ -18,22 +18,22 @@ import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.view.f;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.d;
 import com.baidu.tieba.signall.GetForumListModel;
 import com.baidu.tieba.signall.SignAllForumModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> implements f.b {
-    private com.baidu.tbadk.core.dialog.a Qk;
-    private j gzI;
-    private GetForumListModel gzJ;
-    private SignAllForumModel gzK;
-    private boolean gzL;
+public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> implements g.b {
+    private com.baidu.tbadk.core.dialog.a Qm;
+    private j gDB;
+    private GetForumListModel gDC;
+    private SignAllForumModel gDD;
+    private boolean gDE;
     private boolean isDestory;
     private final CustomMessageListener mMemListener = new CustomMessageListener(2001194) { // from class: com.baidu.tieba.signall.SignAllForumActivity.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,105 +41,105 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Integer num;
             if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
-                SignAllForumActivity.this.gzI.btX().setHasPrivilege(true);
+                SignAllForumActivity.this.gDB.bux().setHasPrivilege(true);
             }
         }
     };
-    private final CustomMessageListener gzM = new CustomMessageListener(2001222) { // from class: com.baidu.tieba.signall.SignAllForumActivity.2
+    private final CustomMessageListener gDF = new CustomMessageListener(2001222) { // from class: com.baidu.tieba.signall.SignAllForumActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c btZ;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (btZ = SignAllForumActivity.this.gzI.btZ()) != null) {
-                btZ.a((SignData) customResponsedMessage.getData());
-                SignAllForumActivity.this.gzI.bua().notifyDataSetChanged();
+            c buz;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (buz = SignAllForumActivity.this.gDB.buz()) != null) {
+                buz.a((SignData) customResponsedMessage.getData());
+                SignAllForumActivity.this.gDB.buA().notifyDataSetChanged();
             }
         }
     };
-    private GetForumListModel.a gzN = new GetForumListModel.a() { // from class: com.baidu.tieba.signall.SignAllForumActivity.3
+    private GetForumListModel.a gDG = new GetForumListModel.a() { // from class: com.baidu.tieba.signall.SignAllForumActivity.3
         @Override // com.baidu.tieba.signall.GetForumListModel.a
         public void a(c cVar) {
-            SignAllForumActivity.this.gzI.nW();
-            a btl = cVar.btl();
-            if (btl != null && btl.getErrorNumber() == 0) {
-                SignAllForumActivity.this.gzI.a(cVar, SignAllForumActivity.this.gzJ.btE());
+            SignAllForumActivity.this.gDB.nW();
+            a btL = cVar.btL();
+            if (btL != null && btL.getErrorNumber() == 0) {
+                SignAllForumActivity.this.gDB.a(cVar, SignAllForumActivity.this.gDC.bue());
                 return;
             }
-            SignAllForumActivity.this.showToast(btl.getUserMsg(), false);
+            SignAllForumActivity.this.showToast(btL.getUserMsg(), false);
             SignAllForumActivity.this.finish();
         }
 
         @Override // com.baidu.tieba.signall.GetForumListModel.a
-        public void ol(String str) {
-            SignAllForumActivity.this.gzI.nW();
+        public void om(String str) {
+            SignAllForumActivity.this.gDB.nW();
             SignAllForumActivity.this.showToast(str, false);
             SignAllForumActivity.this.finish();
         }
     };
-    private SignAllForumModel.a gzO = new SignAllForumModel.a() { // from class: com.baidu.tieba.signall.SignAllForumActivity.4
+    private SignAllForumModel.a gDH = new SignAllForumModel.a() { // from class: com.baidu.tieba.signall.SignAllForumActivity.4
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
-        public void ol(String str) {
-            SignAllForumActivity.this.tt(str);
+        public void om(String str) {
+            SignAllForumActivity.this.ts(str);
         }
 
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
         public void b(h hVar) {
-            a btl = hVar.btl();
-            if (btl == null || btl.getErrorNumber() != 0) {
-                SignAllForumActivity.this.tt(btl.getUserMsg());
+            a btL = hVar.btL();
+            if (btL == null || btL.getErrorNumber() != 0) {
+                SignAllForumActivity.this.ts(btL.getUserMsg());
                 return;
             }
-            c btZ = SignAllForumActivity.this.gzI.btZ();
-            btZ.a(hVar);
-            if (SignAllForumActivity.this.gzL) {
+            c buz = SignAllForumActivity.this.gDB.buz();
+            buz.a(hVar);
+            if (SignAllForumActivity.this.gDE) {
                 Intent intent = new Intent(SignAllForumActivity.this.getPageContext().getPageActivity(), SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
-                SignAllForumActivity.this.a(SignAllForumActivity.this.getPageContext().getPageActivity().getString(d.k.signallforum_back_finish, new Object[]{Integer.valueOf(btZ.bts()), Integer.valueOf(btZ.btt())}), PendingIntent.getActivity(SignAllForumActivity.this.getPageContext().getPageActivity(), 0, intent, 134217728), false);
+                SignAllForumActivity.this.a(SignAllForumActivity.this.getPageContext().getPageActivity().getString(d.k.signallforum_back_finish, new Object[]{Integer.valueOf(buz.btS()), Integer.valueOf(buz.btT())}), PendingIntent.getActivity(SignAllForumActivity.this.getPageContext().getPageActivity(), 0, intent, 134217728), false);
                 if (SignAllForumActivity.this.isDestory) {
                     return;
                 }
             }
-            SignAllForumActivity.this.gzI.bua().notifyDataSetChanged();
-            SignAllForumProgressView btX = SignAllForumActivity.this.gzI.btX();
-            if (!btZ.btr()) {
-                if (hVar.btK() != 0) {
-                    SignAllForumActivity.this.tu(hVar.btj());
-                    SignAllForumActivity.this.Qk.xa();
-                } else if (hVar.btM() != 0) {
-                    SignAllForumActivity.this.showToast(hVar.btN());
+            SignAllForumActivity.this.gDB.buA().notifyDataSetChanged();
+            SignAllForumProgressView bux = SignAllForumActivity.this.gDB.bux();
+            if (!buz.btR()) {
+                if (hVar.buk() != 0) {
+                    SignAllForumActivity.this.tt(hVar.btJ());
+                    SignAllForumActivity.this.Qm.xn();
+                } else if (hVar.bum() != 0) {
+                    SignAllForumActivity.this.showToast(hVar.bun());
                 } else {
                     SignAllForumActivity.this.showToast(d.k.signallforum_error);
                 }
             }
-            btX.setSignSuccess();
-            SignAllForumActivity.this.b(btZ);
+            bux.setSignSuccess();
+            SignAllForumActivity.this.b(buz);
         }
     };
     private AntiHelper.a mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.signall.SignAllForumActivity.5
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new am("c12536").r("obj_locate", as.a.arn));
+            TiebaStatic.log(new an("c12536").r("obj_locate", at.a.arQ));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new am("c12535").r("obj_locate", as.a.arn));
+            TiebaStatic.log(new an("c12535").r("obj_locate", at.a.arQ));
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(c cVar) {
         if (cVar != null) {
-            final String bta = cVar.bta();
-            final String KP = cVar.KP();
-            final boolean bto = cVar.bto();
-            if (cVar.bsZ()) {
-                this.gzI.setListViewSelection(0);
+            final String btA = cVar.btA();
+            final String Lh = cVar.Lh();
+            final boolean btO = cVar.btO();
+            if (cVar.btz()) {
+                this.gDB.setListViewSelection(0);
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumActivity.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        SignAllForumActivity.this.sendMessage(new CustomMessage(2002001, new SignAllForumAdvertActivityConfig(SignAllForumActivity.this.getPageContext().getPageActivity(), bta, KP, Boolean.valueOf(bto))));
+                        SignAllForumActivity.this.sendMessage(new CustomMessage(2002001, new SignAllForumAdvertActivityConfig(SignAllForumActivity.this.getPageContext().getPageActivity(), btA, Lh, Boolean.valueOf(btO))));
                     }
                 }, 500L);
             }
@@ -147,30 +147,30 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tt(String str) {
-        if (this.gzL) {
-            c btZ = this.gzI.btZ();
+    public void ts(String str) {
+        if (this.gDE) {
+            c buz = this.gDB.buz();
             Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
             intent.addFlags(805306368);
             intent.putExtra("signall_noyify_click", true);
             PendingIntent activity = PendingIntent.getActivity(getPageContext().getPageActivity(), 0, intent, 134217728);
-            str = getPageContext().getPageActivity().getString(d.k.signallforum_back_finish, new Object[]{0, Integer.valueOf(btZ.btn().size())});
+            str = getPageContext().getPageActivity().getString(d.k.signallforum_back_finish, new Object[]{0, Integer.valueOf(buz.btN().size())});
             a(str, activity, false);
             if (this.isDestory) {
                 return;
             }
         }
         showToast(str);
-        this.gzI.btX().setSignSuccess();
-        ArrayList<d> btn = this.gzI.btZ().btn();
-        int size = btn.size();
+        this.gDB.bux().setSignSuccess();
+        ArrayList<d> btN = this.gDB.buz().btN();
+        int size = btN.size();
         for (int i = 0; i < size; i++) {
-            d dVar = btn.get(i);
-            dVar.mi(true);
-            dVar.mj(false);
-            dVar.mh(false);
+            d dVar = btN.get(i);
+            dVar.mt(true);
+            dVar.mu(false);
+            dVar.ms(false);
         }
-        this.gzI.bua().notifyDataSetChanged();
+        this.gDB.buA().notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -178,7 +178,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         NotificationHelper.showNotification(getPageContext().getPageActivity(), d.f.singnallforum_progress, getPageContext().getString(d.k.app_name), str, str, pendingIntent, z);
     }
 
-    private void Db() {
+    private void Dt() {
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), d.f.singnallforum_progress);
     }
 
@@ -187,81 +187,81 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!TbadkCoreApplication.isLogin()) {
-            ba.aT(getActivity());
+            bb.aT(getActivity());
             finish();
             return;
         }
-        Db();
+        Dt();
         Intent intent = getIntent();
         if (intent.hasExtra("signall_noyify_click") && intent.getBooleanExtra("signall_noyify_click", false)) {
             TiebaStatic.log("signall_noyify_click");
         }
         registerListener(this.mMemListener);
-        registerListener(this.gzM);
+        registerListener(this.gDF);
         initData();
         initUI();
     }
 
     private void initUI() {
-        this.gzI = new j(this);
-        this.gzI.a(this);
-        this.gzI.setOnItemClickListener(this);
-        if (this.gzK.isRunning) {
-            this.gzN.a(this.gzK.btQ());
-            this.gzI.btX().setSigning(90);
+        this.gDB = new j(this);
+        this.gDB.a(this);
+        this.gDB.setOnItemClickListener(this);
+        if (this.gDD.isRunning) {
+            this.gDG.a(this.gDD.buq());
+            this.gDB.bux().setSigning(90);
             return;
         }
-        this.gzI.startPullRefresh();
+        this.gDB.startPullRefresh();
     }
 
     private void initData() {
-        this.gzJ = new GetForumListModel(this);
-        this.gzJ.a(this.gzN);
-        this.gzK = new SignAllForumModel(this);
-        this.gzK.a(this.gzO);
+        this.gDC = new GetForumListModel(this);
+        this.gDC.a(this.gDG);
+        this.gDD = new SignAllForumModel(this);
+        this.gDD.a(this.gDH);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gzI.onChangeSkinType(i);
+        this.gDB.onChangeSkinType(i);
     }
 
-    @Override // com.baidu.tbadk.core.view.f.b
-    public void aS(boolean z) {
+    @Override // com.baidu.tbadk.core.view.g.b
+    public void aU(boolean z) {
         if (!com.baidu.adp.lib.util.j.jD()) {
             showToast(d.k.neterror);
-            this.gzI.nW();
-        } else if (this.gzJ == null) {
+            this.gDB.nW();
+        } else if (this.gDC == null) {
             showToast(d.k.neterror);
-        } else if (!this.gzJ.LoadData()) {
-            this.gzI.nW();
+        } else if (!this.gDC.LoadData()) {
+            this.gDB.nW();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c btZ = this.gzI.btZ();
-        if (view == this.gzI.getProgressBar()) {
-            if (btZ.getBlockPopInfoData() != null) {
-                if (AntiHelper.a(getPageContext().getPageActivity(), btZ.getBlockPopInfoData(), this.mInjectListener) != null) {
-                    TiebaStatic.log(new am("c12534").r("obj_locate", as.a.arn));
+        c buz = this.gDB.buz();
+        if (view == this.gDB.getProgressBar()) {
+            if (buz.getBlockPopInfoData() != null) {
+                if (AntiHelper.a(getPageContext().getPageActivity(), buz.getBlockPopInfoData(), this.mInjectListener) != null) {
+                    TiebaStatic.log(new an("c12534").r("obj_locate", at.a.arQ));
                 }
-            } else if (this.gzI.btX().getCurrentStatus() == 2) {
+            } else if (this.gDB.bux().getCurrentStatus() == 2) {
                 showToast(d.k.signallforum_finished);
             } else {
-                if (btZ.bti() != 0) {
-                    tu(btZ.btj());
-                    this.Qk.xa();
+                if (buz.btI() != 0) {
+                    tt(buz.btJ());
+                    this.Qm.xn();
                 } else if (com.baidu.adp.lib.util.j.jD()) {
-                    btG();
+                    bug();
                 } else {
                     showToast(d.k.neterror);
                 }
                 TiebaStatic.log("signall_click");
             }
-        } else if (view == this.gzI.bub()) {
+        } else if (view == this.gDB.buB()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_3", "click", 1, new Object[0]);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getPageContext().getPageActivity(), 2, "msign", 1);
             memberPayActivityConfig.setSceneId("4007001000");
@@ -270,41 +270,41 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
     }
 
-    private void btG() {
-        c btZ = this.gzI.btZ();
-        this.gzI.btX().setDuration(Math.max(btZ.btn().size() * 50, 2000));
-        this.gzI.btX().setSigning(0);
-        this.gzK.d(btZ);
-        this.gzK.LoadData();
-        this.gzI.bua().notifyDataSetChanged();
+    private void bug() {
+        c buz = this.gDB.buz();
+        this.gDB.bux().setDuration(Math.max(buz.btN().size() * 50, 2000));
+        this.gDB.bux().setSigning(0);
+        this.gDD.d(buz);
+        this.gDD.LoadData();
+        this.gDB.buA().notifyDataSetChanged();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         d dVar;
-        if (this.gzI.bua().getItemViewType(i) == 0 && this.gzI.btZ() != null && this.gzI.btZ().btk() != null && this.gzI.btZ().btk().size() > i && (dVar = this.gzI.btZ().btk().get(i)) != null) {
-            sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(dVar.getForumName(), "signallforum")));
+        if (this.gDB.buA().getItemViewType(i) == 0 && this.gDB.buz() != null && this.gDB.buz().btK() != null && this.gDB.buz().btK().size() > i && (dVar = this.gDB.buz().btK().get(i)) != null) {
+            sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(dVar.getForumName(), "signallforum").setCallFrom(6)));
             TiebaStatic.log("signall_frs_click");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tu(String str) {
-        this.Qk = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).dB(str).a(d.k.signallforum_signnow, new a.b() { // from class: com.baidu.tieba.signall.SignAllForumActivity.7
+    public void tt(String str) {
+        this.Qm = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).dE(str).a(d.k.signallforum_signnow, new a.b() { // from class: com.baidu.tieba.signall.SignAllForumActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
         });
-        this.Qk.b(getPageContext());
+        this.Qm.b(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.gzK != null && this.gzK.isRunning) {
-            btH();
+        if (this.gDD != null && this.gDD.isRunning) {
+            buh();
         }
     }
 
@@ -313,31 +313,31 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void onDestroy() {
         super.onDestroy();
         this.isDestory = true;
-        if (this.Qk != null && this.Qk.isShowing()) {
-            this.Qk.dismiss();
+        if (this.Qm != null && this.Qm.isShowing()) {
+            this.Qm.dismiss();
         }
-        if (this.gzJ != null) {
-            this.gzJ.cancelLoadData();
-            this.gzJ = null;
+        if (this.gDC != null) {
+            this.gDC.cancelLoadData();
+            this.gDC = null;
         }
-        if (this.gzI != null && this.gzI.bua() != null) {
-            this.gzI.bua().btI();
+        if (this.gDB != null && this.gDB.buA() != null) {
+            this.gDB.buA().bui();
         }
-        if (this.gzK != null) {
-            if (this.gzK.isRunning) {
-                btH();
+        if (this.gDD != null) {
+            if (this.gDD.isRunning) {
+                buh();
             }
-            this.gzK.cancelMessage();
-            this.gzK = null;
+            this.gDD.cancelMessage();
+            this.gDD = null;
         }
-        if (this.gzJ != null) {
-            this.gzJ.cancelLoadData();
-            this.gzJ = null;
+        if (this.gDC != null) {
+            this.gDC.cancelLoadData();
+            this.gDC = null;
         }
     }
 
-    private void btH() {
-        this.gzL = true;
+    private void buh() {
+        this.gDE = true;
         Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
         intent.addFlags(805306368);
         a(getPageContext().getString(d.k.signallforum_back_signing), PendingIntent.getActivity(getPageContext().getPageActivity(), 0, intent, 134217728), true);
@@ -345,10 +345,10 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public com.baidu.adp.widget.ListView.k onGetPreLoadListView() {
-        if (this.gzI == null || this.gzI.btY() == null) {
+        if (this.gDB == null || this.gDB.buy() == null) {
             return null;
         }
-        return this.gzI.btY().getPreLoadHandle();
+        return this.gDB.buy().getPreLoadHandle();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.pageStayDuration.a

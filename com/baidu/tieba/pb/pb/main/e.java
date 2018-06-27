@@ -3,52 +3,52 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class e extends at {
-    private TextView fqT;
+public class e extends au {
+    private TextView fuM;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.fqT = null;
+        this.fuM = null;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.at
+    @Override // com.baidu.tieba.pb.pb.main.au
     protected void a(d dVar) {
-        this.fqT = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.fqT.setVisibility(8);
+        this.fuM = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.fuM.setVisibility(8);
     }
 
-    public void jC(boolean z) {
-        if (this.fqT != null) {
+    public void jM(boolean z) {
+        if (this.fuM != null) {
             if (z) {
-                this.fqT.setText(d.k.push);
-                com.baidu.tbadk.core.util.al.h(this.fqT, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.al.i(this.fqT, d.f.push_bg_selector);
-                this.fqT.setClickable(true);
+                this.fuM.setText(d.k.push);
+                com.baidu.tbadk.core.util.am.h(this.fuM, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.am.i(this.fuM, d.f.push_bg_selector);
+                this.fuM.setClickable(true);
             } else {
-                this.fqT.setText(d.k.already_push);
-                com.baidu.tbadk.core.util.al.i(this.fqT, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.al.h(this.fqT, d.C0141d.cp_cont_d);
-                this.fqT.setClickable(false);
+                this.fuM.setText(d.k.already_push);
+                com.baidu.tbadk.core.util.am.i(this.fuM, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.am.h(this.fuM, d.C0142d.cp_cont_d);
+                this.fuM.setClickable(false);
             }
-            this.fqT.setVisibility(0);
+            this.fuM.setVisibility(0);
         }
     }
 
-    public void ad(bd bdVar) {
-        if (bdVar != null && bdVar.vF() != null) {
-            int status = bdVar.vF().getStatus();
+    public void ai(bc bcVar) {
+        if (bcVar != null && bcVar.vP() != null) {
+            int status = bcVar.vP().getStatus();
             if (status == 1) {
-                jC(true);
+                jM(true);
             } else if (status == 2) {
-                jC(false);
+                jM(false);
             }
         }
     }
 
-    public TextView bbE() {
-        return this.fqT;
+    public TextView bcl() {
+        return this.fuM;
     }
 }

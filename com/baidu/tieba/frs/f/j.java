@@ -20,39 +20,39 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.plugins.XiaoyingUtil;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.frs.w;
+import com.baidu.tieba.frs.y;
 import com.baidu.tieba.tbadkCore.l;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes2.dex */
 public class j {
-    private static com.baidu.tbadk.core.dialog.c dzR = null;
-    private static a dzS = null;
+    private static com.baidu.tbadk.core.dialog.c dDd = null;
+    private static a dDe = null;
 
     public static void a(l lVar, TbPageContext tbPageContext) {
         Plugin plugin2;
-        TiebaStatic.log(new am("c11839").ah("uid", TbadkCoreApplication.getCurrentAccount()));
-        if (tbPageContext != null && lVar != null && lVar.bam() != null) {
+        TiebaStatic.log(new an("c11839").ah("uid", TbadkCoreApplication.getCurrentAccount()));
+        if (tbPageContext != null && lVar != null && lVar.baT() != null) {
             if (!TbadkCoreApplication.isLogin()) {
-                if (lVar != null && lVar.uo() != null) {
-                    lVar.uo().setIfpost(1);
+                if (lVar != null && lVar.uu() != null) {
+                    lVar.uu().setIfpost(1);
                 }
-                ba.aT(tbPageContext.getPageActivity());
+                bb.aT(tbPageContext.getPageActivity());
                 return;
             }
-            AntiData uo = lVar.uo();
-            if (uo != null && (AntiHelper.d(uo) || AntiHelper.e(uo) || AntiHelper.f(uo))) {
-                uo.setBlock_forum_name(lVar.bam().getName());
-                uo.setBlock_forum_id(lVar.bam().getId());
-                uo.setUser_name(lVar.getUserData().getUserName());
-                uo.setUser_id(lVar.getUserData().getUserId());
-                if (AntiHelper.a(tbPageContext.getPageActivity(), uo, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
+            AntiData uu = lVar.uu();
+            if (uu != null && (AntiHelper.d(uu) || AntiHelper.e(uu) || AntiHelper.f(uu))) {
+                uu.setBlock_forum_name(lVar.baT().getName());
+                uu.setBlock_forum_id(lVar.baT().getId());
+                uu.setUser_name(lVar.getUserData().getUserName());
+                uu.setUser_id(lVar.getUserData().getUserId());
+                if (AntiHelper.a(tbPageContext.getPageActivity(), uu, AntiHelper.OperationType.CREATE_THREAD, PageType.FRS)) {
                     return;
                 }
             }
@@ -61,7 +61,7 @@ public class j {
             } else if (lVar.getUserData() != null) {
                 MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
                 com.baidu.adp.lib.d.a.hB().I(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), lVar.bam().getName(), lVar.bam().getId(), lVar.getUserData().getUserId(), lVar.bam().getSpecialForumType())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(tbPageContext.getPageActivity(), lVar.baT().getName(), lVar.baT().getId(), lVar.getUserData().getUserId(), lVar.baT().getSpecialForumType())));
             }
         }
     }
@@ -71,23 +71,23 @@ public class j {
         String str;
         String str2;
         TiebaStatic.log("c10798");
-        if (ba.aU(tbPageContext.getPageActivity()) && lVar != null && tbPageContext != null) {
+        if (bb.aU(tbPageContext.getPageActivity()) && lVar != null && tbPageContext != null) {
             if (XiaoyingUtil.isXiaoyingInstalled()) {
                 if (XiaoyingUtil.isXiaoyingForbidden()) {
                     XiaoyingUtil.showGoPluginDetailDialog(tbPageContext, tbPageContext.getPageActivity().getString(d.k.plugin_video_not_active), tbPageContext.getPageActivity().getString(d.k.setup));
                     return;
                 }
-                AntiData uo = lVar.uo();
-                if (uo != null && !StringUtils.isNull(uo.getVideo_message())) {
-                    com.baidu.adp.lib.util.l.showToast(tbPageContext.getPageActivity(), uo.getVideo_message());
+                AntiData uu = lVar.uu();
+                if (uu != null && !StringUtils.isNull(uu.getVideo_message())) {
+                    com.baidu.adp.lib.util.l.showToast(tbPageContext.getPageActivity(), uu.getVideo_message());
                     return;
                 }
                 boolean z = false;
                 if (lVar != null && lVar.getUserData() != null && lVar.getUserData().getGodUserData() != null && (lVar.getUserData().getGodUserData().getType() == 2 || lVar.getUserData().getGodUserData().getType() == 1)) {
                     z = true;
                 }
-                if (lVar != null && lVar.bam() != null) {
-                    XiaoyingUtil.startXiaoying(tbPageContext.getPageActivity(), z, lVar.bam().getId(), lVar.bam().getName(), "");
+                if (lVar != null && lVar.baT() != null) {
+                    XiaoyingUtil.startXiaoying(tbPageContext.getPageActivity(), z, lVar.baT().getId(), lVar.baT().getName(), "");
                 }
             } else if (!com.baidu.adp.lib.util.j.jD()) {
                 tbPageContext.showToast(d.k.neterror);
@@ -104,20 +104,20 @@ public class j {
                     str2 = string;
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.dB(str);
+                aVar.dE(str);
                 aVar.a(str2, new a.b() { // from class: com.baidu.tieba.frs.f.j.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
                         j.l(TbPageContext.this);
-                        if (j.dzS == null) {
-                            a unused = j.dzS = new a();
+                        if (j.dDe == null) {
+                            a unused = j.dDe = new a();
                         }
-                        j.dzS.c(lVar, TbPageContext.this);
-                        if (PluginPackageManager.lL().bI(XiaoyingUtil.PKG_NAME_VIDEO)) {
-                            PluginPackageManager.lL().a(j.dzS);
+                        j.dDe.c(lVar, TbPageContext.this);
+                        if (PluginPackageManager.lL().bK(XiaoyingUtil.PKG_NAME_VIDEO)) {
+                            PluginPackageManager.lL().a(j.dDe);
                         } else {
-                            PluginPackageManager.lL().a(pluginConfig, j.dzS);
+                            PluginPackageManager.lL().a(pluginConfig, j.dDe);
                         }
                     }
                 });
@@ -127,109 +127,109 @@ public class j {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(tbPageContext).xa();
+                aVar.b(tbPageContext).xn();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void l(TbPageContext tbPageContext) {
-        if (dzR == null) {
-            dzR = new com.baidu.tbadk.core.dialog.c(tbPageContext.getPageActivity());
-            dzR.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.f.j.3
+        if (dDd == null) {
+            dDd = new com.baidu.tbadk.core.dialog.c(tbPageContext.getPageActivity());
+            dDd.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.f.j.3
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    j.ayX();
+                    j.azD();
                 }
             });
-            dzR.setCancelable(true);
-            dzR.setCanceledOnTouchOutside(false);
-            dzR.setMessage(tbPageContext.getPageActivity().getString(d.k.on_downloading));
+            dDd.setCancelable(true);
+            dDd.setCanceledOnTouchOutside(false);
+            dDd.setMessage(tbPageContext.getPageActivity().getString(d.k.on_downloading));
         }
-        com.baidu.adp.lib.g.g.a(dzR, tbPageContext.getPageActivity());
+        com.baidu.adp.lib.g.g.a(dDd, tbPageContext.getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
-        private l dzV;
-        private TbPageContext dzW;
+        private l dDh;
+        private TbPageContext dDi;
 
         private a() {
-            this.dzV = null;
-            this.dzW = null;
+            this.dDh = null;
+            this.dDi = null;
         }
 
         public void c(l lVar, TbPageContext tbPageContext) {
-            this.dzV = lVar;
-            this.dzW = tbPageContext;
+            this.dDh = lVar;
+            this.dDi = tbPageContext;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && j.dzR != null) {
-                j.dzR.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && j.dDd != null) {
+                j.dDd.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (j.dzR != null) {
-                com.baidu.adp.lib.g.g.b(j.dzR, this.dzW);
+            if (j.dDd != null) {
+                com.baidu.adp.lib.g.g.b(j.dDd, this.dDi);
             }
-            this.dzW.showToast(d.k.plugin_video_installing);
+            this.dDi.showToast(d.k.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (j.dzR != null) {
-                com.baidu.adp.lib.g.g.b(j.dzR, this.dzW);
+            if (j.dDd != null) {
+                com.baidu.adp.lib.g.g.b(j.dDd, this.dDi);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.dzW != null) {
-                this.dzW.showToast(bdFileDownloadData.getStatusMsg());
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.dDi != null) {
+                this.dDi.showToast(bdFileDownloadData.getStatusMsg());
             }
             PluginPackageManager.lL().a((com.baidu.adp.plugin.packageManager.d) null);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (j.dzR != null) {
-                com.baidu.adp.lib.g.g.b(j.dzR, this.dzW);
+            if (j.dDd != null) {
+                com.baidu.adp.lib.g.g.b(j.dDd, this.dDi);
             }
             if (i == 0) {
-                j.b(this.dzV, this.dzW);
+                j.b(this.dDh, this.dDi);
             } else {
-                this.dzW.showToast(this.dzW.getString(d.k.install_failed) + str);
+                this.dDi.showToast(this.dDi.getString(d.k.install_failed) + str);
             }
             PluginPackageManager.lL().a((com.baidu.adp.plugin.packageManager.d) null);
         }
     }
 
-    public static void c(FrsFragment frsFragment, int i) {
+    public static void d(FrsFragment frsFragment, int i) {
         if (frsFragment != null) {
-            l atI = frsFragment.atI();
-            FrsModelController atm = frsFragment.atm();
-            if (atI != null) {
-                if (atm != null || atI.bam() == null) {
+            l atZ = frsFragment.atZ();
+            FrsModelController atD = frsFragment.atD();
+            if (atZ != null) {
+                if (atD != null || atZ.baT() == null) {
                     int i2 = 0;
-                    if (atI.getUserData() != null) {
-                        i2 = atI.getUserData().getIsMem();
+                    if (atZ.getUserData() != null) {
+                        i2 = atZ.getUserData().getIsMem();
                     }
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(frsFragment.getPageContext().getPageActivity(), i, atI.bam().getId(), frsFragment.getForumName(), null, null, 0, atI.uo(), 13003, false, false, null, false, false, null, null, atI.bam().getPrefixData(), i2);
-                    if (w.auJ().ko(1) != null) {
-                        writeActivityConfig.setCategroyId(atm.ayr());
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(frsFragment.getPageContext().getPageActivity(), i, atZ.baT().getId(), frsFragment.getForumName(), null, null, 0, atZ.uu(), 13003, false, false, null, false, false, null, null, atZ.baT().getPrefixData(), i2);
+                    if (y.avd().ku(1) != null) {
+                        writeActivityConfig.setCategroyId(atD.ayX());
                     }
-                    ForumData bam = atI.bam();
-                    writeActivityConfig.setForumDir(bam.getFirst_class(), bam.getSecond_class());
+                    ForumData baT = atZ.baT();
+                    writeActivityConfig.setForumDir(baT.getFirst_class(), baT.getSecond_class());
                     frsFragment.sendMessage(new CustomMessage(2002001, writeActivityConfig));
                 }
             }
         }
     }
 
-    public static void ayX() {
-        dzS = null;
-        dzR = null;
+    public static void azD() {
+        dDe = null;
+        dDd = null;
         PluginPackageManager.lL().a((com.baidu.adp.plugin.packageManager.d) null);
     }
 }

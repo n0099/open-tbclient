@@ -12,14 +12,14 @@ public class f extends o<PointF, PointF> {
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<PointF, PointF> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mK) : new com.airbnb.lottie.a.b.j(this.mt);
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mJ) : new com.airbnb.lottie.a.b.j(this.mr);
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static f i(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            n.a cE = n.a(jSONObject, eVar.bp(), eVar, com.airbnb.lottie.model.j.nt).cE();
-            return new f(cE.mt, (PointF) cE.mK);
+            n.a cE = n.a(jSONObject, eVar.bp(), eVar, com.airbnb.lottie.model.j.ns).cE();
+            return new f(cE.mr, (PointF) cE.mJ);
         }
     }
 }

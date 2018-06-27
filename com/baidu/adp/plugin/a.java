@@ -5,12 +5,12 @@ import com.baidu.adp.lib.util.BdLog;
 import dalvik.system.DexClassLoader;
 /* loaded from: classes.dex */
 public class a extends DexClassLoader {
-    private ClassLoader Gt;
+    private ClassLoader Gv;
 
     public a(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
         super(str, str2, str3, classLoader);
-        this.Gt = null;
-        this.Gt = classLoader2;
+        this.Gv = null;
+        this.Gv = classLoader2;
     }
 
     @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
@@ -18,10 +18,10 @@ public class a extends DexClassLoader {
         try {
             return super.findClass(str);
         } catch (Exception e) {
-            if (this.Gt == null) {
+            if (this.Gv == null) {
                 return null;
             }
-            Class<?> loadClass = this.Gt.loadClass(str);
+            Class<?> loadClass = this.Gv.loadClass(str);
             if (BdBaseApplication.getInst().isDebugMode()) {
                 BdLog.i("findClass from container. classname is " + str);
                 return loadClass;

@@ -45,41 +45,40 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tk(String str) {
-        aM(str, d.f.icon_toast_game_error);
+    public void tj(String str) {
+        aN(str, d.f.icon_toast_game_error);
+    }
+
+    protected void tk(String str) {
+        aN(str, d.f.icon_toast_game_ok);
+    }
+
+    protected void aN(String str, int i) {
+        BdToast.b(getAppContext(), str, i).xv();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tl(String str) {
-        aM(str, d.f.icon_toast_game_ok);
-    }
-
-    protected void aM(String str, int i) {
-        BdToast.b(getAppContext(), str, i).xi();
+    public void sV(int i) {
+        ah(i, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sL(int i) {
-        ak(i, null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void ak(int i, String str) {
+    public void ah(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(d.k.share_success, new Object[0]);
             }
-            tl(str);
+            tk(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(d.k.share_cancel, new Object[0]);
             }
-            tk(str);
+            tj(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(d.k.share_failed, new Object[0]);
             }
-            tk(str);
+            tj(str);
         }
     }
 
@@ -94,22 +93,22 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bsr() {
+    public Bitmap bsR() {
         return BitmapHelper.getCashBitmap(d.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap tm(String str) {
+    public Bitmap tl(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap h(Uri uri) {
+    public Bitmap g(Uri uri) {
         return BitmapHelper.loadBitmap(uri.getPath());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean i(Uri uri) {
+    public boolean h(Uri uri) {
         if (uri == null) {
             return false;
         }

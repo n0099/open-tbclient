@@ -12,18 +12,17 @@ public class a implements ISapiBaseService {
     private static final String a = "SapiBaseService";
     private Context b;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0085a {
+    private static class C0087a {
         public static a a = new a();
 
-        private C0085a() {
+        private C0087a() {
         }
     }
 
     public static a a() {
-        return C0085a.a;
+        return C0087a.a;
     }
 
     public void a(Context context) {

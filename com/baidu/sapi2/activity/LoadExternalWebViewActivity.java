@@ -4,16 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.c.a.a;
+import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
-public class LoadExternalWebViewActivity extends TitleActivity {
+public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_EXTERNAL_TITLE = "extra_external_title";
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     private static final int REQUEST_CODE_LOGIN = 2001;
@@ -39,13 +43,18 @@ public class LoadExternalWebViewActivity extends TitleActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
-        init();
-        setupViews();
+        try {
+            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            init();
+            setupViews();
+        } catch (Throwable th) {
+            reportWebviewError(th);
+            finish();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
+    @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
         this.title = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
@@ -57,7 +66,7 @@ public class LoadExternalWebViewActivity extends TitleActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
         configTitle();
@@ -75,13 +84,7 @@ public class LoadExternalWebViewActivity extends TitleActivity {
                 LoadExternalWebViewActivity.this.finish();
             }
         });
-        this.sapiWebView.setWebViewTitleCallback(new SapiWebView.WebViewTitleCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.4
-            @Override // com.baidu.sapi2.SapiWebView.WebViewTitleCallback
-            public void onTitleChange(String str) {
-                LoadExternalWebViewActivity.this.setTitleText(str);
-            }
-        });
-        this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.5
+        this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.4
             @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
             public void onLeftBtnVisible(int i) {
                 if (i == 0) {
@@ -91,7 +94,7 @@ public class LoadExternalWebViewActivity extends TitleActivity {
                 }
             }
         });
-        this.sapiWebView.setCoverWebBdussCallback(new SapiWebView.CoverWebBdussCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.6
+        this.sapiWebView.setCoverWebBdussCallback(new SapiWebView.CoverWebBdussCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.5
             @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussCallback
             public void onCoverBduss(String str, SapiWebView.CoverWebBdussResult coverWebBdussResult) {
                 SapiAccount session = SapiAccountManager.getInstance().getSession();
@@ -100,23 +103,23 @@ public class LoadExternalWebViewActivity extends TitleActivity {
                 }
             }
         });
-        this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.7
+        this.sapiWebView.setSwitchAccountCallback(new SapiWebView.SwitchAccountCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.6
             @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
             public void onAccountSwitch() {
                 Intent intent = new Intent(LoadExternalWebViewActivity.this, LoginActivity.class);
-                intent.putExtra(LoginActivity.EXTRA_PARAM_LOGIN_FROM_BUSINESS, 1);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                 LoadExternalWebViewActivity.this.startActivityForResult(intent, 2001);
             }
 
             @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
                 Intent intent = new Intent(LoadExternalWebViewActivity.this, LoginActivity.class);
-                intent.putExtra(LoginActivity.EXTRA_PARAM_LOGIN_FROM_BUSINESS, 1);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                 intent.putExtra("username", result.userName);
                 LoadExternalWebViewActivity.this.startActivityForResult(intent, 2001);
             }
         });
-        this.sapiWebView.setPreFillUserNameCallback(new SapiWebView.PreFillUserNameCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.8
+        this.sapiWebView.setPreFillUserNameCallback(new SapiWebView.PreFillUserNameCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.7
             @Override // com.baidu.sapi2.SapiWebView.PreFillUserNameCallback
             public void onPreFillUserName(SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult) {
                 Intent intent = new Intent();
@@ -125,38 +128,30 @@ public class LoadExternalWebViewActivity extends TitleActivity {
                 LoadExternalWebViewActivity.this.setResult(-1, intent);
             }
         });
-        this.sapiWebView.loadExternalUrl(this.url);
+        ArrayList arrayList = new ArrayList();
+        WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
+        if (webLoginDTO != null && WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
+            arrayList.add(new BasicNameValuePair("extrajson", webLoginDTO.statExtra));
+        }
+        this.sapiWebView.loadExternalUrl(this.url, arrayList);
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void configTitle() {
-        PassportViewManager.TitleViewModule titleViewModule = PassportViewManager.getInstance().getTitleViewModule();
-        if (titleViewModule != null) {
-            setTitleLayoutBg(titleViewModule.bgColor);
-            setLeftBtnImage(titleViewModule.leftBtnImgResId);
-            setLeftBtnImgVisible(titleViewModule.leftBtnImgVisible);
-            setLeftBtnTextVisible(titleViewModule.leftBtnTextVisible);
-            setLeftBtnTextColor(titleViewModule.leftBtnTextColor);
-            setLeftBtnText(titleViewModule.leftBtnText);
-            setLeftBtnTextSize(SapiUtils.px2sp(this, titleViewModule.leftBtnTextSize));
-            setLeftBtnDrawable(titleViewModule.leftBtnDrawableLeft, titleViewModule.leftBtnDrawableTop, titleViewModule.leftBtnDrawableRight, titleViewModule.leftBtnDrawableBottom);
-            setTitleVisible(titleViewModule.titleVisible);
-            setTitleText(titleViewModule.titleText);
-            setTitleTextColor(titleViewModule.titleTextColor);
-            setTitleTextSize(SapiUtils.px2sp(this, titleViewModule.titleTextSize));
-            setTitleDrawable(titleViewModule.titleDrawableLeft, titleViewModule.titleDrawableTop, titleViewModule.titleDrawableRight, titleViewModule.titleDrawableBottom);
-            setRightBtnVisible(4);
-            setRightBtnText(titleViewModule.rightBtnText);
-            setRightBtnTextSize(SapiUtils.px2sp(this, titleViewModule.rightBtnTextSize));
-            setRightBtnColor(titleViewModule.rightBtnTextColor);
+        setTitleText(this.title);
+        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+        if (PassportViewManager.getInstance().getTitleViewModule() != null) {
+            configCustomTitle();
             return;
         }
         setBtnVisibility(4, 0, 4);
-        setTitleText(this.title);
+        if (sapiConfiguration.showBottomBack) {
+            setLeftBtnDrawable(null, null, null, null);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
         if (this.executeSubClassMethod) {
@@ -173,7 +168,21 @@ public class LoadExternalWebViewActivity extends TitleActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        super.onClose();
+        finish();
+    }
+
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }

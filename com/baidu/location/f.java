@@ -9,7 +9,7 @@ import com.baidu.location.h.i;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f extends Service {
     private static final String jarFileName = "app.jar";
     public static String replaceFileName = "repll.jar";

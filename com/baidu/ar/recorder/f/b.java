@@ -12,6 +12,7 @@ import com.baidu.ar.recorder.d.c;
 import com.baidu.ar.recorder.d.d;
 import com.baidu.ar.recorder.d.g;
 import com.baidu.ar.recorder.filter.FilterManager;
+import com.baidu.baiduarsdk.ArBridge;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.ar.recorder.a.a {
@@ -153,7 +154,7 @@ public class b implements com.baidu.ar.recorder.a.a {
             case 1004:
                 b((FilterManager.FilterType) message.obj);
                 return;
-            case 1005:
+            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
                 b((float[]) message.obj, (message.arg2 & 4294967295L) | (message.arg1 << 32));
                 return;
             case 1006:
@@ -188,7 +189,7 @@ public class b implements com.baidu.ar.recorder.a.a {
         if (this.d == null || !this.h) {
             return;
         }
-        this.d.sendMessage(this.d.obtainMessage(1005, i2, i3, fArr));
+        this.d.sendMessage(this.d.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC, i2, i3, fArr));
     }
 
     public boolean a(Context context, ArrayList<com.baidu.ar.recorder.b.a> arrayList, d dVar, com.baidu.ar.recorder.d.e eVar, c cVar) {

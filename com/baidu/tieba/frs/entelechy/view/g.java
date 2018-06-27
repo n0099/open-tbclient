@@ -6,49 +6,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class g {
-    private f dpD;
-    private h dpE;
+    private f dsM;
+    private h dsN;
     private TbPageContext<?> pageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dpD = new f(tbPageContext, bdUniqueId);
-        this.dpE = new h(tbPageContext, bdUniqueId);
+        this.dsM = new f(tbPageContext, bdUniqueId);
+        this.dsN = new h(tbPageContext, bdUniqueId);
         this.pageContext = tbPageContext;
         show(-1);
     }
 
-    public View awo() {
-        if (this.dpD == null || this.dpE == null) {
+    public View awS() {
+        if (this.dsM == null || this.dsN == null) {
             return null;
         }
         FrameLayout frameLayout = new FrameLayout(this.pageContext.getPageActivity());
-        frameLayout.addView(this.dpD.getView());
-        frameLayout.addView(this.dpE.getView());
+        frameLayout.addView(this.dsM.getView());
+        frameLayout.addView(this.dsN.getView());
         return frameLayout;
     }
 
-    public f awp() {
-        return this.dpD;
+    public f awT() {
+        return this.dsM;
     }
 
-    public h awq() {
-        return this.dpE;
+    public h awU() {
+        return this.dsN;
     }
 
     public void show(int i) {
-        if (this.dpD != null && this.dpE != null) {
+        if (this.dsM != null && this.dsN != null) {
             switch (i) {
                 case 1:
-                    this.dpD.setVisibility(0);
-                    this.dpE.setVisibility(8);
+                    this.dsM.setVisibility(0);
+                    this.dsN.setVisibility(8);
                     return;
                 case 2:
-                    this.dpD.setVisibility(8);
-                    this.dpE.setVisibility(0);
+                    this.dsM.setVisibility(8);
+                    this.dsN.setVisibility(0);
                     return;
                 default:
-                    this.dpD.setVisibility(8);
-                    this.dpE.setVisibility(8);
+                    this.dsM.setVisibility(8);
+                    this.dsN.setVisibility(8);
                     return;
             }
         }

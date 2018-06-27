@@ -1,20 +1,32 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
-public class q extends j {
-    private static q aUJ = new q();
-
-    public static boolean KJ() {
-        return aUJ.ip();
+public class q extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void R(int i) {
     }
 
-    @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "dui_switch";
+        return "android_bottle_enable";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
-    public int hn() {
-        return super.hn();
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] hm() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hn() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hp() {
+        return 10;
     }
 }

@@ -10,9 +10,9 @@ public final class c {
 
     public static void a(Context context, int i, File file, File file2) {
         try {
-            if (com.baidu.sofire.b.d.a(file)) {
-                if (!com.baidu.sofire.b.d.a(file2)) {
-                    com.baidu.sofire.b.d.a(file, file2);
+            if (com.baidu.sofire.b.e.a(file)) {
+                if (!com.baidu.sofire.b.e.a(file2)) {
+                    com.baidu.sofire.b.e.a(file, file2);
                 }
                 new StringBuilder("f=").append(file).append(", b=").append(file2);
                 if (!a.containsKey(file.getAbsolutePath())) {
@@ -22,7 +22,7 @@ public final class c {
                 }
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -37,7 +37,7 @@ public final class c {
                     dVar.a();
                 }
             } catch (Throwable th) {
-                com.baidu.sofire.b.d.a(th);
+                com.baidu.sofire.b.e.a(th);
             }
         }
     }

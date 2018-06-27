@@ -9,24 +9,24 @@ import com.baidu.tbadk.coreExtra.a.c;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b implements c {
-    private static b flA;
+    private static b fpt;
 
     private b() {
     }
 
-    public static synchronized b aZz() {
+    public static synchronized b bag() {
         b bVar;
         synchronized (b.class) {
-            if (flA == null) {
-                flA = new b();
+            if (fpt == null) {
+                fpt = new b();
             }
-            bVar = flA;
+            bVar = fpt;
         }
         return bVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void g(AccountData accountData) {
+    public void h(AccountData accountData) {
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
         if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
             for (SapiAccount sapiAccount : loginAccounts) {
@@ -39,7 +39,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void Bp() {
+    public void BG() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {
@@ -50,7 +50,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void h(AccountData accountData) {
+    public void f(AccountData accountData) {
         if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
             SapiAccountManager.getInstance().logout();
             return;

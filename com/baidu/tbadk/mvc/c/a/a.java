@@ -42,13 +42,13 @@ public abstract class a {
             while (i < size) {
                 try {
                     com.baidu.tbadk.mvc.c.a aVar = this.eventDelegates.get(i);
-                    if (aVar == null || (aVar.Jk() && !(aVar.Jk() && bVar.getUniqueId() == aVar.getUniqueId()))) {
+                    if (aVar == null || (aVar.JC() && !(aVar.JC() && bVar.getUniqueId() == aVar.getUniqueId()))) {
                         z2 = z;
                     } else {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.Jn()) {
+                                if (bVar.JF()) {
                                     return true;
                                 }
                             } catch (Throwable th) {

@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends n {
-    private l ana;
-    private String cBu;
+    private l anA;
+    private String czo;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.ana = lVar;
-        this.cBu = str;
+        this.anA = lVar;
+        this.czo = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,7 +32,7 @@ public class a extends n {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(value = "downloadGame", xI = false)
+    @o(value = "downloadGame", xV = false)
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -46,16 +46,16 @@ public class a extends n {
                 if (StringUtils.isNull(optString2)) {
                     mM(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.bop().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.sM(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.boQ().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.sL(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new am("c12775").ah(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cBu) ? "" : this.cBu));
+                TiebaStatic.log(new an("c12775").ah(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.czo) ? "" : this.czo));
             }
         }
     }
 
     private void mM(String str) {
         try {
-            this.ana.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str)));
+            this.anA.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str)));
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

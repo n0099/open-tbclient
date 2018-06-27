@@ -5,49 +5,49 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class f extends h implements Iterable<h> {
-    private final List<h> hIF = new ArrayList();
+    private final List<h> hML = new ArrayList();
 
     public void b(h hVar) {
         if (hVar == null) {
-            hVar = i.hIG;
+            hVar = i.hMM;
         }
-        this.hIF.add(hVar);
+        this.hML.add(hVar);
     }
 
     @Override // java.lang.Iterable
     public Iterator<h> iterator() {
-        return this.hIF.iterator();
+        return this.hML.iterator();
     }
 
     @Override // com.google.gson.h
-    public Number bNA() {
-        if (this.hIF.size() == 1) {
-            return this.hIF.get(0).bNA();
+    public Number bOc() {
+        if (this.hML.size() == 1) {
+            return this.hML.get(0).bOc();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.h
-    public String bNB() {
-        if (this.hIF.size() == 1) {
-            return this.hIF.get(0).bNB();
+    public String bOd() {
+        if (this.hML.size() == 1) {
+            return this.hML.get(0).bOd();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.h
     public boolean getAsBoolean() {
-        if (this.hIF.size() == 1) {
-            return this.hIF.get(0).getAsBoolean();
+        if (this.hML.size() == 1) {
+            return this.hML.get(0).getAsBoolean();
         }
         throw new IllegalStateException();
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof f) && ((f) obj).hIF.equals(this.hIF));
+        return obj == this || ((obj instanceof f) && ((f) obj).hML.equals(this.hML));
     }
 
     public int hashCode() {
-        return this.hIF.hashCode();
+        return this.hML.hashCode();
     }
 }

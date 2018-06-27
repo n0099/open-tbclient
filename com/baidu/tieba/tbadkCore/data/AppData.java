@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.ArrayList;
 import tbclient.App;
@@ -91,9 +91,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo pk = com.baidu.tieba.lego.card.b.pk(str);
-        if (pk != null) {
-            ICardInfo viewItem = pk.getViewItem(0, 4);
+        ICardInfo pl = com.baidu.tieba.lego.card.b.pl(str);
+        if (pl != null) {
+            ICardInfo viewItem = pl.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -112,7 +112,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo pk;
+        ICardInfo pl;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -164,8 +164,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.d.hv().aw("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (pk = com.baidu.tieba.lego.card.b.pk(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = pk.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.d.hv().aw("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (pl = com.baidu.tieba.lego.card.b.pl(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = pl.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -180,7 +180,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int tN() {
+    public int tT() {
         if (this.goods == null) {
             return 25;
         }
@@ -203,13 +203,13 @@ public class AppData extends OrmObject {
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!bd.ahV.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bc.aio.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {
-                return !tO() ? 26 : 0;
+                return !tU() ? 26 : 0;
             } else if (this.url_type == 1) {
-                return !tP() ? 27 : 0;
+                return !tV() ? 27 : 0;
             } else {
                 return 21;
             }
@@ -217,11 +217,11 @@ public class AppData extends OrmObject {
         return 0;
     }
 
-    public boolean tO() {
+    public boolean tU() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean tP() {
+    public boolean tV() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {
@@ -308,7 +308,7 @@ public class AppData extends OrmObject {
             this.id = goodsInfo.id.intValue();
             this.user_name = goodsInfo.user_name;
             this.user_portrait = goodsInfo.user_portrait;
-            this.thread_title = ao.d(goodsInfo.thread_title, 29, "...");
+            this.thread_title = ap.d(goodsInfo.thread_title, 29, "...");
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
             this.goods_style = goodsInfo.goods_style.intValue();

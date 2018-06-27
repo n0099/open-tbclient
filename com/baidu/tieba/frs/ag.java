@@ -1,11 +1,13 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes2.dex */
 public interface ag {
-    void UT();
+    void a(TbPageContext tbPageContext, View view, int i, boolean z, BdUniqueId bdUniqueId);
 
-    void a(int i, int i2, am amVar);
+    void changeSkinType(int i);
 
-    void a(aj ajVar);
-
-    void init();
+    void hide();
 }

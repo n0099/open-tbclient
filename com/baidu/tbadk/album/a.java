@@ -5,10 +5,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static final String aap = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String aaq = String.valueOf(2147483646);
-    private MediaFileInfo aar;
-    private List<MediaFileInfo> aas;
+    public static final String aas = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static final String aat = String.valueOf(2147483646);
+    private MediaFileInfo aau;
+    private List<MediaFileInfo> aav;
     private String albumId;
     private int count;
     private String name;
@@ -17,7 +17,7 @@ public class a {
         return this.albumId;
     }
 
-    public void cG(String str) {
+    public void cI(String str) {
         this.albumId = str;
     }
 
@@ -33,7 +33,7 @@ public class a {
         return this.count;
     }
 
-    public void cH(String str) {
+    public void cJ(String str) {
         this.count = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
@@ -42,25 +42,25 @@ public class a {
     }
 
     public ImageFileInfo rO() {
-        if (this.aar instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.aar;
+        if (this.aau instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.aau;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.aar = mediaFileInfo;
+        this.aau = mediaFileInfo;
     }
 
     public MediaFileInfo rP() {
-        return this.aar;
+        return this.aau;
     }
 
     public List<MediaFileInfo> rQ() {
-        return this.aas;
+        return this.aav;
     }
 
     public void p(List<MediaFileInfo> list) {
-        this.aas = list;
+        this.aav = list;
     }
 }

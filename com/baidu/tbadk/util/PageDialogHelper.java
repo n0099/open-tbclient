@@ -1,12 +1,8 @@
 package com.baidu.tbadk.util;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
-import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PageDialogHelper {
 
@@ -15,36 +11,6 @@ public class PageDialogHelper {
         NOT_SET,
         DIALOG,
         NORMAL
-    }
-
-    public static boolean a(Activity activity, Intent intent, int i, String str) {
-        boolean z;
-        PayForm payForm = (PayForm) intent.getSerializableExtra(BuyTBeanActivityConfig.PAY_FORM);
-        if (payForm == null) {
-            payForm = PayForm.NOT_SET;
-        }
-        if (payForm == PayForm.NOT_SET) {
-            com.baidu.tbadk.coreExtra.data.m consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
-            int intExtra = intent.getIntExtra("pay_type", i);
-            if (consumePathData != null) {
-                z = consumePathData.i(intExtra, str);
-            }
-            z = true;
-        } else if (payForm == PayForm.NORMAL) {
-            z = false;
-        } else {
-            if (payForm == PayForm.DIALOG) {
-                z = true;
-            }
-            z = true;
-        }
-        if (z) {
-            activity.setTheme(16973835);
-            activity.requestWindowFeature(1);
-        } else {
-            activity.setTheme(d.l.swipeback_activity_style);
-        }
-        return z;
     }
 
     public static void x(Activity activity) {

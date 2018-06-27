@@ -1,7 +1,7 @@
 package com.baidu.ubs.analytics.d;
 
 import com.baidu.ar.util.SystemInfoUtil;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class f {
     public static String encode(String str) {
         if (str != null && str.length() != 0) {

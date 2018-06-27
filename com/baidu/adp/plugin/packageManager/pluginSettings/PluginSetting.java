@@ -56,11 +56,11 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bM(str);
+        this.cmdRangeInt = bO(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bM(String str) {
+    private int[] bO(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;

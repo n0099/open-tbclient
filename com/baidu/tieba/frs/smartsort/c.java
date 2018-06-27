@@ -13,7 +13,7 @@ public class c {
     }
 
     public static boolean a(ArrayList<h> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        if (cardHListViewData == null || w.z(arrayList) || StringUtils.isNull(str) || i < 0) {
+        if (cardHListViewData == null || w.A(arrayList) || StringUtils.isNull(str) || i < 0) {
             return false;
         }
         int size = arrayList.size();

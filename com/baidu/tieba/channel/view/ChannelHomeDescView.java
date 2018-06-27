@@ -14,8 +14,8 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieba.channel.data.d> {
-    private TextView cFp;
-    private b cFq;
+    private TextView cDi;
+    private b cDj;
     private Context mContext;
     private boolean mIsHost;
 
@@ -34,10 +34,10 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, b bVar) {
         this.mIsHost = z;
-        this.cFq = bVar;
+        this.cDj = bVar;
         this.mContext = getContext();
         LayoutInflater.from(this.mContext).inflate(d.i.channel_home_header_desc_view, (ViewGroup) this, true);
-        this.cFp = (TextView) findViewById(d.g.channel_home_header_desc_text);
+        this.cDi = (TextView) findViewById(d.g.channel_home_header_desc_text);
     }
 
     public void d(ChannelInfo channelInfo) {
@@ -52,12 +52,12 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
             Drawable drawable = this.mContext.getResources().getDrawable(d.f.icon_channel_edit);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             spannableString.setSpan(new com.baidu.tieba.channel.c.a(drawable, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2), spannableString.length() - 1, spannableString.length(), 17);
-            this.cFp.setText(spannableString);
-            this.cFp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
+            this.cDi.setText(spannableString);
+            this.cDi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (ChannelHomeDescView.this.cFq != null) {
-                        ChannelHomeDescView.this.cFq.a(11, view, null, -1);
+                    if (ChannelHomeDescView.this.cDj != null) {
+                        ChannelHomeDescView.this.cDj.a(11, view, null, -1);
                     }
                 }
             });
@@ -67,19 +67,19 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
-    public void R(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.ajR() != null) {
-            ChannelInfo ajR = dVar.ajR();
+    public void T(com.baidu.tieba.channel.data.d dVar) {
+        if (dVar != null && dVar.ajl() != null) {
+            ChannelInfo ajl = dVar.ajl();
             if (this.mIsHost) {
-                d(ajR);
+                d(ajl);
                 return;
             }
-            if (TextUtils.isEmpty(ajR.getDescription())) {
-                this.cFp.setText(this.mContext.getResources().getString(d.k.channel_home_default_desc_guest));
+            if (TextUtils.isEmpty(ajl.getDescription())) {
+                this.cDi.setText(this.mContext.getResources().getString(d.k.channel_home_default_desc_guest));
             } else {
-                this.cFp.setText(ajR.getDescription());
+                this.cDi.setText(ajl.getDescription());
             }
-            this.cFp.setOnClickListener(null);
+            this.cDi.setOnClickListener(null);
         }
     }
 

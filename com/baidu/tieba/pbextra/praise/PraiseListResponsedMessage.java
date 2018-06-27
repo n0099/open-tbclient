@@ -1,6 +1,7 @@
 package com.baidu.tieba.pbextra.praise;
 
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class PraiseListResponsedMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            this.mErrCode = jSONObject.optInt("error_code");
+            this.mErrCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
             this.mTotalNum = jSONObject.optInt("num");
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");

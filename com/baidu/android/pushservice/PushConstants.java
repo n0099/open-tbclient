@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice;
 
 import com.baidu.ar.base.MsgField;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes3.dex */
 public final class PushConstants {
     public static final String ACTION_MESSAGE = "com.baidu.android.pushservice.action.MESSAGE";
@@ -28,7 +27,7 @@ public final class PushConstants {
                 return "Network Problem";
             case 10002:
                 return "Service not available";
-            case IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE /* 10003 */:
+            case 10003:
                 return "Service not available temporary";
             case 30600:
                 return "Internal Server Error";

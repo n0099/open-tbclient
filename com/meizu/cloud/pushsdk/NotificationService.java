@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.c;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -71,7 +70,7 @@ public class NotificationService extends IntentService {
             return;
         }
         try {
-            c.a(this, intent, "reflectReceiver startservice", PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE);
+            c.a(this, intent, "reflectReceiver startservice", 2003);
             Class<?> cls = Class.forName(receiver);
             Object newInstance = cls.getConstructor(null).newInstance(null);
             Method method = cls.getMethod("onReceive", Context.class, Intent.class);
@@ -79,7 +78,7 @@ public class NotificationService extends IntentService {
             method.invoke(newInstance, getApplicationContext(), intent);
         } catch (Exception e) {
             com.meizu.cloud.a.a.i(TAG, "reflect e: " + e);
-            c.a(this, intent, e.getMessage(), PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE_ERROR);
+            c.a(this, intent, e.getMessage(), 2004);
         }
     }
 }

@@ -7,29 +7,41 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.c.a.a;
+import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
+import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.sapi2.share.face.FaceLoginService;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.ImageUtil;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.views.CircleImageView;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class ShareActivity extends Activity {
     private static final String REASON_BDUSS_EXPIRED = "互通登录失败，请换种登录方式";
     private static final String REASON_CANCLE = "您已取消%s授权登录";
     private static final String REASON_NETWORK_ERROR = "网络请求失败，请稍后再试";
-    private static final String REASON_SIGN_ERROR = "互通登录失败，请从官方下载该应用";
+    private static final String REASON_SDK_NOT_INIT = "互通请求失败，请换种登录方式";
+    private static final String REASON_SIGN_ERROR = "互通登录失败，该应用暂未授权";
     public static final String SHARE_ACCOUNT = "share_account";
     public static final String SHARE_FAIL_REASON = "share_fail_reason";
     private String currentAppName;
@@ -51,6 +63,7 @@ public class ShareActivity extends Activity {
         super.onCreate(bundle);
         setContentView(a.e.layout_sapi_sdk_share_activity);
         checkCallingPermission();
+        checkSapiInit();
         initView();
     }
 
@@ -58,13 +71,13 @@ public class ShareActivity extends Activity {
     protected void onResume() {
         super.onResume();
         if (this.hasOpenLoginPage) {
-            if (SapiAccountManager.getInstance().isLogin()) {
+            if (SapiContext.getInstance(this).getCurrentAccount() != null) {
                 getUserInfo();
                 return;
+            } else {
+                loginFail(String.format(REASON_CANCLE, this.currentAppName));
+                return;
             }
-            setResult(0);
-            loginFail(REASON_CANCLE);
-            return;
         }
         getUserInfo();
     }
@@ -76,6 +89,12 @@ public class ShareActivity extends Activity {
         }
         if (!new ShareCallPacking().checkPkgSign(this, callingPackage)) {
             loginFail(REASON_SIGN_ERROR);
+        }
+    }
+
+    private void checkSapiInit() {
+        if (SapiAccountManager.getInstance().getConfignation() == null && SapiAccountManager.getReceiveShareListener() != null) {
+            SapiAccountManager.getReceiveShareListener().onReceiveShare();
         }
     }
 
@@ -144,9 +163,16 @@ public class ShareActivity extends Activity {
     public void loginSuccess() {
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
-        bundle.putParcelable(SHARE_ACCOUNT, SapiAccountManager.getInstance().getSession());
-        if (SapiContext.getInstance(this).shareLivingunameEnable()) {
+        bundle.putParcelable(SHARE_ACCOUNT, SapiContext.getInstance(this).getCurrentAccount());
+        boolean shareFaceLoginEnable = SapiContext.getInstance(this).getShareFaceLoginEnable();
+        if (SapiContext.getInstance(this).shareLivingunameEnable() || shareFaceLoginEnable) {
             bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(this).getFaceLoginUid());
+        }
+        if (shareFaceLoginEnable) {
+            String faceLoginModel = SapiContext.getInstance(this).getFaceLoginModel();
+            if (new FaceLoginService().convertResult2Model(faceLoginModel) != null) {
+                bundle.putString("FACE_LOGIN_MODEL", faceLoginModel);
+            }
         }
         intent.putExtras(bundle);
         setResult(-1, intent);
@@ -187,13 +213,39 @@ public class ShareActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void openLoginPage() {
+        if (SapiAccountManager.getInstance().getConfignation() == null) {
+            loginFail(REASON_SDK_NOT_INIT);
+            return;
+        }
         this.hasOpenLoginPage = true;
-        startActivity(new Intent(this, LoginActivity.class));
+        final boolean z = SapiAccountManager.getInstance().getConfignation().supportFaceLogin;
+        WebLoginDTO webLoginDTO = new WebLoginDTO();
+        webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
+        SapiAccountManager.getInstance().getConfignation().supportFaceLogin = false;
+        LoginActivity.supportShareLogin = false;
+        WebLoginDTO.Config config = new WebLoginDTO.Config();
+        config.fastLoginFeatureList = new ArrayList();
+        webLoginDTO.config = config;
+        PassportSDK.getInstance().startLogin(this, new WebAuthListener() { // from class: com.baidu.sapi2.activity.ShareActivity.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onSuccess(WebAuthResult webAuthResult) {
+                LoginActivity.supportShareLogin = true;
+                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFailure(WebAuthResult webAuthResult) {
+                LoginActivity.supportShareLogin = true;
+                SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
+            }
+        }, webLoginDTO);
     }
 
     private void getUserInfo() {
-        SapiAccount session = SapiAccountManager.getInstance().getSession();
-        if (session == null) {
+        final SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
+        if (currentAccount == null) {
             if (this.hasOpenLoginPage) {
                 loginFail(String.format(REASON_CANCLE, this.currentAppName));
                 return;
@@ -202,39 +254,53 @@ public class ShareActivity extends Activity {
                 return;
             }
         }
-        this.displayName.setText(session.displayname);
-        SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.sapi2.activity.ShareActivity.2
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onStart() {
-                ShareActivity.this.loadingDialog = new LoadingDialog.Builder(ShareActivity.this).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
-                ShareActivity.this.loadingDialog.show();
-            }
-
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFinish() {
-                ViewUtility.dismissDialog(ShareActivity.this, ShareActivity.this.loadingDialog);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onSuccess(GetUserInfoResult getUserInfoResult) {
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.LoginStatusAware
-            public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-                if (ShareActivity.this.hasOpenLoginPage) {
-                    ShareActivity.this.loginFail(ShareActivity.REASON_BDUSS_EXPIRED);
-                } else {
-                    ShareActivity.this.openLoginPage();
+        this.displayName.setText(currentAccount.displayname);
+        if (SapiAccountManager.getInstance().getConfignation() != null) {
+            SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback() { // from class: com.baidu.sapi2.activity.ShareActivity.3
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onStart() {
+                    ShareActivity.this.loadingDialog = new LoadingDialog.Builder(ShareActivity.this).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
+                    ShareActivity.this.loadingDialog.show();
                 }
-            }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.sapi2.callback.SapiCallback
-            public void onFailure(GetUserInfoResult getUserInfoResult) {
-                ShareActivity.this.loginFail(ShareActivity.REASON_NETWORK_ERROR);
-            }
-        }, session.bduss);
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFinish() {
+                    ViewUtility.dismissDialog(ShareActivity.this, ShareActivity.this.loadingDialog);
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(GetUserInfoResult getUserInfoResult) {
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.LoginStatusAware
+                public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+                    if (!ShareActivity.this.hasOpenLoginPage) {
+                        ShareActivity.this.openLoginPage();
+                        return;
+                    }
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("device", Build.MODEL);
+                    hashMap.put("uid", currentAccount.uid);
+                    hashMap.put("bduss", currentAccount.bduss);
+                    StatService.onEvent("share_bduss_expired", hashMap, false);
+                    ShareActivity.this.loginFail(ShareActivity.REASON_BDUSS_EXPIRED);
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFailure(GetUserInfoResult getUserInfoResult) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("device", Build.MODEL);
+                    hashMap.put("code", getUserInfoResult.getResultCode() + "");
+                    hashMap.put("msg", getUserInfoResult.getResultMsg());
+                    hashMap.put("has_active_network", SapiUtils.hasActiveNetwork(ShareActivity.this) + "");
+                    hashMap.put(HttpConstants.NETWORK_TYPE, SapiUtils.getNetworkClass(ShareActivity.this));
+                    StatService.onEvent("share_bduss_expired", hashMap, true);
+                    ShareActivity.this.loginSuccess();
+                }
+            }, currentAccount.bduss);
+        }
     }
 }

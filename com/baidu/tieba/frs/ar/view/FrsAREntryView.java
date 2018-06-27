@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 import tbclient.ForumArIno;
 /* loaded from: classes3.dex */
 public class FrsAREntryView extends View {
-    private AnimationDrawable aRe;
-    private ForumArIno dmy;
+    private AnimationDrawable aSa;
+    private ForumArIno dpj;
     private String forumName;
 
     public FrsAREntryView(Context context) {
@@ -48,17 +48,17 @@ public class FrsAREntryView extends View {
         animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_7), 100);
         animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_8), 100);
         animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_9), 100);
-        this.aRe = animationDrawable;
+        this.aSa = animationDrawable;
         setBackgroundDrawable(animationDrawable);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.view.FrsAREntryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FrsAREntryView.this.dmy != null) {
-                    am amVar = new am("c12836");
-                    amVar.ah(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
-                    amVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.dmy.ar_id.intValue());
-                    TiebaStatic.log(amVar);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.dmy.ar_id), String.valueOf(FrsAREntryView.this.dmy.ar_type), FrsAREntryView.this.dmy.title)));
+                if (FrsAREntryView.this.dpj != null) {
+                    an anVar = new an("c12836");
+                    anVar.ah(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
+                    anVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.dpj.ar_id.intValue());
+                    TiebaStatic.log(anVar);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.dpj.ar_id), String.valueOf(FrsAREntryView.this.dpj.ar_type), FrsAREntryView.this.dpj.title)));
                 }
             }
         });
@@ -74,12 +74,12 @@ public class FrsAREntryView extends View {
         }
     }
 
-    public void avm() {
-        this.aRe.start();
+    public void avP() {
+        this.aSa.start();
     }
 
     public void setForumArIno(ForumArIno forumArIno) {
-        this.dmy = forumArIno;
+        this.dpj = forumArIno;
     }
 
     public void setForumName(String str) {

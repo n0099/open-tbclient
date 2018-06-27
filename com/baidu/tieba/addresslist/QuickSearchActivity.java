@@ -21,7 +21,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
@@ -31,13 +31,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
-    private QuickSearchModel bmo;
-    private View bmp;
-    private EditText bmq;
-    private TextView bmr;
-    private TextView bms;
-    private ListView bmt;
-    private b bmu;
+    private QuickSearchModel bnN;
+    private View bnO;
+    private EditText bnP;
+    private TextView bnQ;
+    private TextView bnR;
+    private ListView bnS;
+    private b bnT;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,38 +45,38 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.i.quick_search_activity);
-        this.bmo = new QuickSearchModel(this);
-        this.bmo.setUniqueId(getUniqueId());
+        this.bnN = new QuickSearchModel(this);
+        this.bnN.setUniqueId(getUniqueId());
         initViews();
     }
 
     private void initViews() {
-        this.bmp = findViewById(d.g.quick_search_parent);
+        this.bnO = findViewById(d.g.quick_search_parent);
         adjustResizeForSoftInput();
-        QK();
-        this.bmt = (ListView) findViewById(d.g.quick_search_result);
+        Rh();
+        this.bnS = (ListView) findViewById(d.g.quick_search_result);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.bmt.addHeaderView(textView);
-        this.bmt.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.1
+        this.bnS.addHeaderView(textView);
+        this.bnS.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    l.b(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.bmq);
+                    l.b(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.bnP);
                     return false;
                 }
                 return false;
             }
         });
-        this.bmu = new b();
-        this.bmt.setAdapter((ListAdapter) this.bmu);
-        this.bmt.setOnItemClickListener(this);
-        this.bms = (TextView) findViewById(d.g.quick_search_empty_result);
-        this.bmp.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.2
+        this.bnT = new b();
+        this.bnS.setAdapter((ListAdapter) this.bnT);
+        this.bnS.setOnItemClickListener(this);
+        this.bnR = (TextView) findViewById(d.g.quick_search_empty_result);
+        this.bnO.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    l.b(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.bmq);
+                    l.b(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.bnP);
                     return false;
                 }
                 return false;
@@ -84,21 +84,21 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         });
     }
 
-    private void QK() {
+    private void Rh() {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (QuickSearchActivity.this.bmq.hasFocus()) {
-                    l.b(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.bmq);
+                if (QuickSearchActivity.this.bnP.hasFocus()) {
+                    l.b(QuickSearchActivity.this.getPageContext().getPageActivity(), QuickSearchActivity.this.bnP);
                 }
                 QuickSearchActivity.this.closeActivity();
             }
         });
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, d.i.quick_search_navigation, (View.OnClickListener) null);
-        this.bmq = (EditText) addCustomView.findViewById(d.g.quick_search_input);
-        this.bmq.addTextChangedListener(new a());
-        this.bmq.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.4
+        this.bnP = (EditText) addCustomView.findViewById(d.g.quick_search_input);
+        this.bnP.addTextChangedListener(new a());
+        this.bnP.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
@@ -106,15 +106,15 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
                 }
             }
         });
-        this.bmq.requestFocus();
-        this.bmr = (TextView) addCustomView.findViewById(d.g.quick_search_delete_button);
-        l.a(getPageContext().getPageActivity(), this.bmr, 10, 10, 10, 10);
-        this.bmr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.5
+        this.bnP.requestFocus();
+        this.bnQ = (TextView) addCustomView.findViewById(d.g.quick_search_delete_button);
+        l.a(getPageContext().getPageActivity(), this.bnQ, 10, 10, 10, 10);
+        this.bnQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.QuickSearchActivity.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                QuickSearchActivity.this.bmq.setText("");
-                QuickSearchActivity.this.bms.setVisibility(8);
-                QuickSearchActivity.this.bmt.setVisibility(8);
+                QuickSearchActivity.this.bnP.setText("");
+                QuickSearchActivity.this.bnR.setVisibility(8);
+                QuickSearchActivity.this.bnS.setVisibility(8);
             }
         });
     }
@@ -123,38 +123,38 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        l.b(getPageContext().getPageActivity(), this.bmq);
-        this.bmo = null;
+        l.b(getPageContext().getPageActivity(), this.bnP);
+        this.bnN = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iI(String str) {
-        List<com.baidu.tbadk.coreExtra.relationship.a> iV = this.bmo.iV(str);
-        if (iV.size() > 0) {
-            cu(true);
-            this.bmu.setContacts(iV);
-            this.bmu.notifyDataSetChanged();
-            this.bmt.setSelection(0);
+    public void iN(String str) {
+        List<com.baidu.tbadk.coreExtra.relationship.a> ja = this.bnN.ja(str);
+        if (ja.size() > 0) {
+            cy(true);
+            this.bnT.setContacts(ja);
+            this.bnT.notifyDataSetChanged();
+            this.bnS.setSelection(0);
             return;
         }
-        cu(false);
+        cy(false);
     }
 
-    private void cu(boolean z) {
-        this.bmt.setVisibility(z ? 0 : 8);
-        this.bms.setVisibility(z ? 8 : 0);
+    private void cy(boolean z) {
+        this.bnS.setVisibility(z ? 0 : 8);
+        this.bnR.setVisibility(z ? 8 : 0);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        int headerViewsCount = this.bmt.getHeaderViewsCount();
+        int headerViewsCount = this.bnS.getHeaderViewsCount();
         if (headerViewsCount > 0) {
             i -= headerViewsCount;
         }
-        com.baidu.tbadk.coreExtra.relationship.a item = this.bmu.getItem(i);
+        com.baidu.tbadk.coreExtra.relationship.a item = this.bnT.getItem(i);
         if (item != null && item.getUserId() > 0) {
             if (item.getUserType() == 1) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.getUserId(), item.getUserName(), item.Fg(), 0, 4)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.getUserId(), item.getUserName(), item.Fy(), 0, 4)));
                 return;
             }
             sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.getUserId()), item.getUserName())));
@@ -170,11 +170,11 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             if (charSequence.toString().trim().length() != 0) {
-                QuickSearchActivity.this.iI(charSequence.toString());
+                QuickSearchActivity.this.iN(charSequence.toString());
                 return;
             }
-            QuickSearchActivity.this.bms.setVisibility(8);
-            QuickSearchActivity.this.bmt.setVisibility(8);
+            QuickSearchActivity.this.bnR.setVisibility(8);
+            QuickSearchActivity.this.bnS.setVisibility(8);
         }
 
         @Override // android.text.TextWatcher
@@ -184,9 +184,9 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             if (editable.toString().trim().length() == 0) {
-                QuickSearchActivity.this.bmr.setVisibility(8);
+                QuickSearchActivity.this.bnQ.setVisibility(8);
             } else {
-                QuickSearchActivity.this.bmr.setVisibility(0);
+                QuickSearchActivity.this.bnQ.setVisibility(0);
             }
         }
     }
@@ -194,32 +194,32 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class b extends BaseAdapter {
-        private List<com.baidu.tbadk.coreExtra.relationship.a> bmw;
+        private List<com.baidu.tbadk.coreExtra.relationship.a> bnV;
 
         private b() {
-            this.bmw = new ArrayList();
+            this.bnV = new ArrayList();
         }
 
         public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-            this.bmw = list;
+            this.bnV = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.bmw != null) {
-                return this.bmw.size();
+            if (this.bnV != null) {
+                return this.bnV.size();
             }
             return 0;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: gv */
+        /* renamed from: gw */
         public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-            if (this.bmw == null || i < 0 || i >= getCount()) {
+            if (this.bnV == null || i < 0 || i >= getCount()) {
                 return null;
             }
-            return this.bmw.get(i);
+            return this.bnV.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -240,27 +240,27 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             if (view == null) {
                 view = LayoutInflater.from(QuickSearchActivity.this.getPageContext().getPageActivity()).inflate(d.i.quick_search_item, (ViewGroup) null);
                 c cVar2 = new c();
-                cVar2.bmx = (HeadImageView) view.findViewById(d.g.quick_search_item_icon);
-                cVar2.bmy = (TextView) view.findViewById(d.g.quick_search_item_text);
+                cVar2.bnW = (HeadImageView) view.findViewById(d.g.quick_search_item_icon);
+                cVar2.bnX = (TextView) view.findViewById(d.g.quick_search_item_text);
                 view.setTag(cVar2);
                 cVar = cVar2;
             } else {
                 cVar = (c) view.getTag();
             }
             layoutMode.onModeChanged(view);
-            al.i(view, d.f.addresslist_item_bg);
+            am.i(view, d.f.addresslist_item_bg);
             if (item.getUserName() != null) {
-                cVar.bmy.setText(item.getUserName());
+                cVar.bnX.setText(item.getUserName());
             }
-            cVar.bmx.startLoad(item.Fg(), 12, false);
+            cVar.bnW.startLoad(item.Fy(), 12, false);
             return view;
         }
     }
 
     /* loaded from: classes3.dex */
     private class c {
-        public HeadImageView bmx;
-        public TextView bmy;
+        public HeadImageView bnW;
+        public TextView bnX;
 
         private c() {
         }
@@ -270,9 +270,9 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        al.i(this.bmp, d.C0141d.cp_bg_line_d);
+        am.i(this.bnO, d.C0142d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.bmu.notifyDataSetChanged();
-        al.c(this.bms, d.C0141d.cp_cont_d, 1);
+        this.bnT.notifyDataSetChanged();
+        am.c(this.bnR, d.C0142d.cp_cont_d, 1);
     }
 }

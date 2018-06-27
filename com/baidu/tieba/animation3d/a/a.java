@@ -1,13 +1,13 @@
 package com.baidu.tieba.animation3d.a;
 /* loaded from: classes.dex */
 public abstract class a {
-    private int cty = -1;
+    private int crF = -1;
 
     public abstract boolean c(float f, float f2, float f3, int i);
 
     public abstract void e(float f, float f2, float f3, int i);
 
-    public boolean ahY() {
+    public boolean ahr() {
         return true;
     }
 
@@ -17,11 +17,11 @@ public abstract class a {
     public void d(float f, float f2, float f3, int i) {
     }
 
-    public int ahZ() {
-        return this.cty;
+    public int ahs() {
+        return this.crF;
     }
 
-    public void iB(int i) {
-        this.cty = i;
+    public void iy(int i) {
+        this.crF = i;
     }
 }

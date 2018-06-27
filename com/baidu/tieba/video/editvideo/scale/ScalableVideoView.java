@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
-    protected MediaPlayer aWV;
-    protected ScalableType gZi;
+    protected MediaPlayer aXQ;
+    protected ScalableType hdn;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -30,11 +30,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.gZi = ScalableType.NONE;
+        this.hdn = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.m.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(d.m.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.gZi = ScalableType.values()[i2];
+            this.hdn = ScalableType.values()[i2];
         }
     }
 
@@ -42,8 +42,8 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
         try {
             Surface surface = new Surface(surfaceTexture);
-            if (this.aWV != null) {
-                this.aWV.setSurface(surface);
+            if (this.aXQ != null) {
+                this.aXQ.setSurface(surface);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.aWV != null) {
+        if (this.aXQ != null) {
             if (isPlaying()) {
                 stop();
             }
@@ -81,15 +81,15 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void S(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.gZi)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hdn)) != null) {
             setTransform(a);
         }
     }
 
-    private void RD() {
-        if (this.aWV == null) {
-            this.aWV = new MediaPlayer();
-            this.aWV.setOnVideoSizeChangedListener(this);
+    private void Sa() {
+        if (this.aXQ == null) {
+            this.aXQ = new MediaPlayer();
+            this.aXQ.setOnVideoSizeChangedListener(this);
             setSurfaceTextureListener(this);
             return;
         }
@@ -110,142 +110,142 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        RD();
-        this.aWV.setDataSource(str);
+        Sa();
+        this.aXQ.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        RD();
-        this.aWV.setDataSource(context, uri, map);
+        Sa();
+        this.aXQ.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        RD();
-        this.aWV.setDataSource(context, uri);
+        Sa();
+        this.aXQ.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        RD();
-        this.aWV.setDataSource(fileDescriptor, j, j2);
+        Sa();
+        this.aXQ.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        RD();
-        this.aWV.setDataSource(fileDescriptor);
+        Sa();
+        this.aXQ.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.gZi = scalableType;
+        this.hdn = scalableType;
         S(getVideoWidth(), getVideoHeight());
     }
 
     public void c(MediaPlayer.OnPreparedListener onPreparedListener) throws IOException, IllegalStateException {
-        if (this.aWV != null) {
-            this.aWV.setOnPreparedListener(onPreparedListener);
-            this.aWV.prepare();
+        if (this.aXQ != null) {
+            this.aXQ.setOnPreparedListener(onPreparedListener);
+            this.aXQ.prepare();
         }
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        if (this.aWV != null) {
-            this.aWV.setOnErrorListener(onErrorListener);
+        if (this.aXQ != null) {
+            this.aXQ.setOnErrorListener(onErrorListener);
         }
     }
 
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
-        if (this.aWV != null) {
-            this.aWV.setOnCompletionListener(onCompletionListener);
+        if (this.aXQ != null) {
+            this.aXQ.setOnCompletionListener(onCompletionListener);
         }
     }
 
     public void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener) {
-        if (this.aWV != null) {
-            this.aWV.setOnInfoListener(onInfoListener);
+        if (this.aXQ != null) {
+            this.aXQ.setOnInfoListener(onInfoListener);
         }
     }
 
     public int getCurrentPosition() {
-        if (this.aWV == null) {
+        if (this.aXQ == null) {
             return 0;
         }
-        return this.aWV.getCurrentPosition();
+        return this.aXQ.getCurrentPosition();
     }
 
     public int getDuration() {
-        if (this.aWV == null) {
+        if (this.aXQ == null) {
             return 0;
         }
-        return this.aWV.getDuration();
+        return this.aXQ.getDuration();
     }
 
     public int getVideoHeight() {
-        if (this.aWV == null) {
+        if (this.aXQ == null) {
             return 0;
         }
-        return this.aWV.getVideoHeight();
+        return this.aXQ.getVideoHeight();
     }
 
     public int getVideoWidth() {
-        if (this.aWV == null) {
+        if (this.aXQ == null) {
             return 0;
         }
-        return this.aWV.getVideoWidth();
+        return this.aXQ.getVideoWidth();
     }
 
     public boolean isPlaying() {
-        if (this.aWV == null) {
+        if (this.aXQ == null) {
             return false;
         }
-        return this.aWV.isPlaying();
+        return this.aXQ.isPlaying();
     }
 
     public void pause() {
-        if (this.aWV != null) {
-            this.aWV.pause();
+        if (this.aXQ != null) {
+            this.aXQ.pause();
         }
     }
 
     public void seekTo(int i) {
-        if (this.aWV != null) {
-            this.aWV.seekTo(i);
+        if (this.aXQ != null) {
+            this.aXQ.seekTo(i);
         }
     }
 
     public void setLooping(boolean z) {
-        if (this.aWV != null) {
-            this.aWV.setLooping(z);
+        if (this.aXQ != null) {
+            this.aXQ.setLooping(z);
         }
     }
 
     public void setVolume(float f, float f2) {
-        if (this.aWV != null) {
-            this.aWV.setVolume(f, f2);
+        if (this.aXQ != null) {
+            this.aXQ.setVolume(f, f2);
         }
     }
 
     public void start() {
-        if (this.aWV != null) {
-            this.aWV.start();
+        if (this.aXQ != null) {
+            this.aXQ.start();
         }
     }
 
     public void stop() {
-        if (this.aWV != null) {
-            this.aWV.stop();
+        if (this.aXQ != null) {
+            this.aXQ.stop();
         }
     }
 
     public void reset() {
-        if (this.aWV != null) {
-            this.aWV.reset();
+        if (this.aXQ != null) {
+            this.aXQ.reset();
         }
     }
 
     public void release() {
         reset();
-        if (this.aWV != null) {
-            this.aWV.release();
-            this.aWV = null;
+        if (this.aXQ != null) {
+            this.aXQ.release();
+            this.aXQ = null;
         }
     }
 }

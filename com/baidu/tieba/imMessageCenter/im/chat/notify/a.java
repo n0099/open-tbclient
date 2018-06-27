@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean d(BaseFragmentActivity baseFragmentActivity, int i) {
+    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
         if (TbadkCoreApplication.getInst().appResponseToCmd(i)) {
             return true;
         }
-        l(baseFragmentActivity);
+        d(baseFragmentActivity);
         return false;
     }
 
@@ -18,11 +18,11 @@ public class a {
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(cls)) {
             return true;
         }
-        l(baseFragmentActivity);
+        d(baseFragmentActivity);
         return false;
     }
 
-    private static void l(BaseFragmentActivity baseFragmentActivity) {
+    private static void d(BaseFragmentActivity baseFragmentActivity) {
         if (baseFragmentActivity != null) {
             if (Build.VERSION.SDK_INT <= 10) {
                 baseFragmentActivity.showToast(d.k.plugin_not_exit_for_2_3);

@@ -10,16 +10,16 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ai;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NEGFeedBackView extends ImageView {
-    private int aNW;
-    private int aNX;
-    private long bgP;
-    c bgQ;
-    private View.OnClickListener bgR;
+    private int aOS;
+    private int aOT;
+    private long bih;
+    c bii;
+    private View.OnClickListener bij;
     private Context mContext;
 
     /* loaded from: classes2.dex */
@@ -34,16 +34,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.bgP = 0L;
-        this.bgR = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.bih = 0L;
+        this.bij = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.OU();
+                NEGFeedBackView.this.Pp();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.bgP > 500) {
-                    NEGFeedBackView.this.OT();
+                if (currentTimeMillis - NEGFeedBackView.this.bih > 500) {
+                    NEGFeedBackView.this.Po();
                 }
-                NEGFeedBackView.this.bgP = currentTimeMillis;
+                NEGFeedBackView.this.bih = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,14 +51,14 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void f(TbPageContext tbPageContext) {
-        this.bgQ = new c(tbPageContext, this);
-        setOnClickListener(this.bgR);
-        al.c(this, d.f.icon_home_feedback_selector);
+        this.bii = new c(tbPageContext, this);
+        setOnClickListener(this.bij);
+        am.c(this, d.f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.bgQ.setUniqueId(bdUniqueId);
+        this.bii.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -66,43 +66,43 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.aNW = i;
-        setPadding(i, 0, this.aNX, 0);
+        this.aOS = i;
+        setPadding(i, 0, this.aOT, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OT() {
-        this.bgQ.OT();
+    public void Po() {
+        this.bii.Po();
     }
 
-    public void OU() {
-        this.bgQ.OU();
+    public void Pp() {
+        this.bii.Pp();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bgQ.onDetachedFromWindow();
+        this.bii.onDetachedFromWindow();
     }
 
     public void setData(ai aiVar) {
-        this.bgQ.setData(aiVar);
+        this.bii.setData(aiVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.bgQ.setFirstRowSingleColumn(z);
+        this.bii.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        al.c(this, d.f.icon_home_feedback_selector);
+        am.c(this, d.f.icon_home_feedback_selector);
     }
 
     public void setEventCallback(a aVar) {
-        this.bgQ.setEventCallback(aVar);
+        this.bii.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.bgQ.setDefaultReasonArray(strArr);
+        this.bii.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

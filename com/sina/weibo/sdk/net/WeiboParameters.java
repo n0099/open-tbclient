@@ -8,9 +8,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.LinkedHashMap;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class WeiboParameters {
     private static final String DEFAULT_CHARSET = "UTF-8";
+    private String mAnonymousCookie;
     private String mAppKey;
     private LinkedHashMap<String, Object> mParams = new LinkedHashMap<>();
 
@@ -113,7 +114,7 @@ public class WeiboParameters {
             if (obj instanceof String) {
                 if (!TextUtils.isEmpty((String) obj)) {
                     try {
-                        sb.append(String.valueOf(URLEncoder.encode(str2, "UTF-8")) + "=" + URLEncoder.encode(str, "UTF-8"));
+                        sb.append(URLEncoder.encode(str2, "UTF-8") + "=" + URLEncoder.encode(str, "UTF-8"));
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
@@ -125,7 +126,7 @@ public class WeiboParameters {
         return sb.toString();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:7:0x0012  */
+    /* JADX WARN: Removed duplicated region for block: B:5:0x0010  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -139,5 +140,13 @@ public class WeiboParameters {
             }
         }
         return false;
+    }
+
+    public void setAnonymousCookie(String str) {
+        this.mAnonymousCookie = str;
+    }
+
+    public String getAnonymousCookie() {
+        return this.mAnonymousCookie;
     }
 }

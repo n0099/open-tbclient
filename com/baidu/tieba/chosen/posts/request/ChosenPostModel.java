@@ -17,22 +17,22 @@ public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostHttpResponse> Jy() {
+    protected Class<? extends ChosenPostHttpResponse> JQ() {
         return ChosenPostHttpResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostSocketResponse> Jz() {
+    protected Class<? extends ChosenPostSocketResponse> JR() {
         return ChosenPostSocketResponse.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JA() {
+    protected int JS() {
         return CmdConfigHttp.CMD_GET_HOT_THREAD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String JC() {
+    protected String JU() {
         return "c/f/choiceness/hotthread";
     }
 
@@ -42,7 +42,7 @@ public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JB() {
+    protected int JT() {
         return 307008;
     }
 }

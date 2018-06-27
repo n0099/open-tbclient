@@ -137,7 +137,7 @@ public class a implements ArBridge.d {
             case 1003:
                 com.baidu.baiduarsdk.a.a.a().b(aVar, hashMap);
                 return;
-            case 1005:
+            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
                 com.baidu.baiduarsdk.a.a.a().c(aVar, hashMap);
                 return;
             case 1007:
@@ -227,7 +227,7 @@ public class a implements ArBridge.d {
                 return;
             case 1001:
             case 1003:
-            case 1005:
+            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
             case 1007:
                 a(hashMap, i);
                 return;

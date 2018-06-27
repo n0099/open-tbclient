@@ -21,7 +21,6 @@ import android.util.Log;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.fsg.base.utils.PhoneUtils;
-import com.sina.weibo.sdk.exception.WeiboAuthException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -249,11 +248,11 @@ public class h {
     }
 
     public static String a() {
-        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE;
+        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "-1";
     }
 
     public static String b() {
-        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE;
+        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "-1";
     }
 
     public static String c() {

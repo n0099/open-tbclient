@@ -4,16 +4,16 @@ import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<String, e> eMn = new HashMap<>();
-    public long eMl;
-    public int eMm;
+    private static final HashMap<String, e> eQd = new HashMap<>();
+    public long eQb;
+    public int eQc;
     public String itemId = "";
     public String params;
     public int rn;
     public String tag_name;
 
     public void refresh() {
-        eMn.put(this.eMl + "_" + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
+        eQd.put(this.eQb + "_" + (TextUtils.isEmpty(this.itemId) ? "" : this.itemId), this);
     }
 
     public static e m(long j, String str) {
@@ -21,6 +21,6 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        return eMn.get(append.append(str).toString());
+        return eQd.get(append.append(str).toString());
     }
 }

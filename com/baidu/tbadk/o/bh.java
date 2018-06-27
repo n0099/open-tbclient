@@ -7,12 +7,12 @@ public class bh extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "webp_enable";
+        return "baidu_wallet_enable";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int hn() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -3,7 +3,6 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.am;
 import com.baidu.tbadk.core.util.w;
-import com.sina.weibo.sdk.constant.WBPageConstants;
 import com.squareup.wire.Message;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,17 +13,17 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Gp;
-    protected ArrayList<FeedData> ezW = new ArrayList<>();
-    protected am ezX = new am();
-    protected h ezY = new h();
+    protected boolean Gr;
+    protected ArrayList<FeedData> eDM = new ArrayList<>();
+    protected am eDN = new am();
+    protected h eDO = new h();
 
-    public ArrayList<FeedData> aNB() {
-        return this.ezW;
+    public ArrayList<FeedData> aOh() {
+        return this.eDM;
     }
 
-    public am uB() {
-        return this.ezX;
+    public am uJ() {
+        return this.eDN;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -36,17 +35,17 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.ezW.add(feedData);
-                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && w.y(feedData.getPraiseList()) == 0) {
-                        this.ezW.remove(feedData);
+                    this.eDM.add(feedData);
+                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && w.z(feedData.getPraiseList()) == 0) {
+                        this.eDM.remove(feedData);
                     }
                 }
             }
-            this.ezY.parserJson(jSONObject.optJSONObject("message"));
-            this.ezX.parserJson(jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE));
-            this.Gp = true;
+            this.eDO.parserJson(jSONObject.optJSONObject("message"));
+            this.eDN.parserJson(jSONObject.optJSONObject("page"));
+            this.Gr = true;
         } catch (Exception e) {
-            this.Gp = false;
+            this.Gr = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -61,16 +60,16 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.ezW.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && w.y(feedData.getPraiseList()) == 0) {
-                            this.ezW.remove(feedData);
+                        this.eDM.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && w.z(feedData.getPraiseList()) == 0) {
+                            this.eDM.remove(feedData);
                         }
                     }
                 }
-                this.ezX.a(dataRes.page);
-                this.Gp = true;
+                this.eDN.a(dataRes.page);
+                this.Gr = true;
             } catch (Exception e) {
-                this.Gp = false;
+                this.Gr = false;
                 BdLog.e(e.getMessage());
             }
         }

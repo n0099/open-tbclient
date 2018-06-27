@@ -9,19 +9,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.ae;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.o;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView axH;
-    private TextView axI;
-    private TextView axJ;
-    private TextView axK;
-    private ViewGroup axL;
+    private TextView ayA;
+    private TextView ayB;
+    private ViewGroup ayC;
+    private TbImageView ayy;
+    private TextView ayz;
     private Context mContext;
     private BdUniqueId mTag;
 
@@ -43,87 +43,87 @@ public class ThreadLinkView extends RelativeLayout {
     private void init(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(d.i.link_thread_item, (ViewGroup) this, true);
-        this.axL = (ViewGroup) inflate.findViewById(d.g.root_layout);
-        this.axH = (TbImageView) inflate.findViewById(d.g.link_thread_head_img);
-        this.axH.setDefaultBgResource(d.f.icon_card_url_n);
-        this.axH.setDefaultErrorResource(d.f.icon_card_url_n);
-        this.axI = (TextView) inflate.findViewById(d.g.link_thread_title);
-        this.axJ = (TextView) inflate.findViewById(d.g.link_thread_abstract);
-        this.axK = (TextView) inflate.findViewById(d.g.link_thread_url);
-        this.axH.setLongIconSupport(false);
-        this.axH.setGifIconSupport(false);
-        J(inflate);
+        this.ayC = (ViewGroup) inflate.findViewById(d.g.root_layout);
+        this.ayy = (TbImageView) inflate.findViewById(d.g.link_thread_head_img);
+        this.ayy.setDefaultBgResource(d.f.icon_card_url_n);
+        this.ayy.setDefaultErrorResource(d.f.icon_card_url_n);
+        this.ayz = (TextView) inflate.findViewById(d.g.link_thread_title);
+        this.ayA = (TextView) inflate.findViewById(d.g.link_thread_abstract);
+        this.ayB = (TextView) inflate.findViewById(d.g.link_thread_url);
+        this.ayy.setLongIconSupport(false);
+        this.ayy.setGifIconSupport(false);
+        K(inflate);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         this.mTag = bdUniqueId;
     }
 
-    public void setData(bd bdVar) {
-        if (bdVar == null || bdVar.wz() == null || ao.isEmpty(bdVar.wz().getLinkUrl())) {
+    public void setData(bc bcVar) {
+        if (bcVar == null || bcVar.wJ() == null || ap.isEmpty(bcVar.wJ().getLinkUrl())) {
             setVisibility(8);
             return;
         }
-        ae wz = bdVar.wz();
-        if (!wz.un() && wz.um() != ae.agw) {
+        ae wJ = bcVar.wJ();
+        if (!wJ.ut() && wJ.us() != ae.agL) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.axH.setPageId(this.mTag);
-        if (wz.un()) {
-            this.axK.setVisibility(0);
-            this.axI.setVisibility(8);
-            this.axJ.setVisibility(8);
-            this.axK.setText(wz.getLinkUrl());
-            this.axH.reset();
+        this.ayy.setPageId(this.mTag);
+        if (wJ.ut()) {
+            this.ayB.setVisibility(0);
+            this.ayz.setVisibility(8);
+            this.ayA.setVisibility(8);
+            this.ayB.setText(wJ.getLinkUrl());
+            this.ayy.reset();
         } else {
-            this.axK.setVisibility(8);
-            String uj = wz.uj();
-            String uk = wz.uk();
-            if (!ao.isEmpty(uj)) {
-                this.axI.setText(uj);
-                this.axI.setVisibility(0);
-                this.axJ.setVisibility(8);
+            this.ayB.setVisibility(8);
+            String up = wJ.up();
+            String uq = wJ.uq();
+            if (!ap.isEmpty(up)) {
+                this.ayz.setText(up);
+                this.ayz.setVisibility(0);
+                this.ayA.setVisibility(8);
             } else {
-                this.axI.setVisibility(8);
-                if (!ao.isEmpty(uk)) {
-                    this.axJ.setText(uk);
-                    this.axJ.setVisibility(0);
+                this.ayz.setVisibility(8);
+                if (!ap.isEmpty(uq)) {
+                    this.ayA.setText(uq);
+                    this.ayA.setVisibility(0);
                 } else {
-                    this.axJ.setVisibility(4);
+                    this.ayA.setVisibility(4);
                 }
             }
-            if (!ao.isEmpty(wz.ul())) {
-                this.axH.startLoad(wz.ul(), 10, false);
+            if (!ap.isEmpty(wJ.ur())) {
+                this.ayy.startLoad(wJ.ur(), 10, false);
             } else {
-                this.axH.reset();
+                this.ayy.reset();
             }
         }
-        fn(bdVar.getId());
+        fr(bcVar.getId());
     }
 
     public void onChangeSkinType() {
-        al.j(this, d.C0141d.cp_bg_line_e);
-        al.j(this.axH, d.C0141d.cp_bg_line_b);
+        am.j(this, d.C0142d.cp_bg_line_e);
+        am.j(this.ayy, d.C0142d.cp_bg_line_b);
     }
 
-    public void fn(String str) {
-        o.a(this.axI, str, d.C0141d.cp_cont_j, d.C0141d.cp_cont_d);
-        o.a(this.axK, str, d.C0141d.cp_cont_j, d.C0141d.cp_cont_d);
-        o.a(this.axJ, str, d.C0141d.cp_cont_j, d.C0141d.cp_cont_d);
+    public void fr(String str) {
+        o.a(this.ayz, str, d.C0142d.cp_cont_j, d.C0142d.cp_cont_d);
+        o.a(this.ayB, str, d.C0142d.cp_cont_j, d.C0142d.cp_cont_d);
+        o.a(this.ayA, str, d.C0142d.cp_cont_j, d.C0142d.cp_cont_d);
     }
 
-    private void J(View view) {
-        if (this.axL != null && this.axH != null) {
+    private void K(View view) {
+        if (this.ayC != null && this.ayy != null) {
             int ah = ((com.baidu.adp.lib.util.l.ah(this.mContext) - (com.baidu.adp.lib.util.l.e(this.mContext, d.e.tbds44) * 2)) - com.baidu.adp.lib.util.l.e(this.mContext, d.e.tbds120)) / 5;
-            ViewGroup.LayoutParams layoutParams = this.axL.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.ayC.getLayoutParams();
             layoutParams.height = ah;
-            this.axL.setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = this.axH.getLayoutParams();
+            this.ayC.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = this.ayy.getLayoutParams();
             layoutParams2.width = ah;
             layoutParams2.height = ah;
-            this.axH.setLayoutParams(layoutParams2);
+            this.ayy.setLayoutParams(layoutParams2);
         }
     }
 }

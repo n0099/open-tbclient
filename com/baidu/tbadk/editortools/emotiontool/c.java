@@ -3,22 +3,22 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a aMg;
-    private com.baidu.adp.widget.ImageView.a aMh;
+    private com.baidu.adp.widget.ImageView.a aNc;
+    private com.baidu.adp.widget.ImageView.a aNd;
     private int cols;
     private int rows;
 
-    public abstract boolean Hu();
+    public abstract boolean HM();
 
-    public abstract EmotionGroupType Hv();
+    public abstract EmotionGroupType HN();
 
-    public abstract String eP(int i);
+    public abstract String eQ(int i);
 
-    public abstract boolean gD(String str);
+    public abstract boolean gH(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a gE(String str);
+    public abstract com.baidu.adp.widget.ImageView.a gI(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a gF(String str);
+    public abstract com.baidu.adp.widget.ImageView.a gJ(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,43 +30,43 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.ImageView.a Hw() {
-        return this.aMg;
+    public com.baidu.adp.widget.ImageView.a HO() {
+        return this.aNc;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.mZ();
         }
-        this.aMg = aVar;
+        this.aNc = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a Hx() {
-        return this.aMh;
+    public com.baidu.adp.widget.ImageView.a HP() {
+        return this.aNd;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.mZ();
         }
-        this.aMh = aVar;
+        this.aNd = aVar;
     }
 
-    public int Hy() {
+    public int HQ() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eQ(int i) {
+    public void eR(int i) {
         this.cols = i;
     }
 
-    public int Hz() {
+    public int HR() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eR(int i) {
+    public void eS(int i) {
         this.rows = i;
     }
 }

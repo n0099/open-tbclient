@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String bjC = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String bjD = bjC + "/.tieba_video_cache";
-    public static final String vQ = bjD + "/v2";
-    public static final String bjE = vQ + "/";
-    public static final String bjF = vQ + "/files";
-    public static final String bjG = bjF + "/";
+    public static final String blb = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String blc = blb + "/.tieba_video_cache";
+    public static final String vO = blc + "/v2";
+    public static final String bld = vO + "/";
+    public static final String ble = vO + "/files";
+    public static final String blf = ble + "/";
 
-    private static long im(String str) {
+    private static long ir(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(bjG + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(blf + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -27,7 +27,7 @@ public class t {
         return j;
     }
 
-    private static String in(String str) {
+    private static String is(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class t {
         return substring;
     }
 
-    public static long sk(String str) {
+    public static long sj(String str) {
         try {
-            String in = in(str);
-            if (StringUtils.isNULL(in)) {
+            String is = is(str);
+            if (StringUtils.isNULL(is)) {
                 return 0L;
             }
-            return im(in);
+            return ir(is);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

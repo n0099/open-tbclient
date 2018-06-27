@@ -3,19 +3,19 @@ package com.baidu.tieba.frs.worldcup.talkball.b;
 import tbclient.BannerImage;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String dFK;
+    private String dJd;
     private String mImgUrl;
     private String mTitle;
 
     public void a(BannerImage bannerImage) {
         if (bannerImage != null) {
             this.mImgUrl = bannerImage.img_url;
-            this.dFK = bannerImage.ahead_url;
+            this.dJd = bannerImage.ahead_url;
             this.mTitle = bannerImage.title;
         }
     }
 
-    public String ub() {
+    public String uh() {
         return this.mImgUrl;
     }
 
@@ -29,7 +29,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String tW() {
-        return this.dFK;
+    public String uc() {
+        return this.dJd;
     }
 }

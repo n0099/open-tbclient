@@ -3,9 +3,9 @@ package com.baidu.location.h;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    static d Yq;
+    static d Yt;
     String a = "firll.dat";
     int b = 3164;
     int d = 0;
@@ -92,10 +92,10 @@ public class d {
     }
 
     public static d rg() {
-        if (Yq == null) {
-            Yq = new d();
+        if (Yt == null) {
+            Yt = new d();
         }
-        return Yq;
+        return Yt;
     }
 
     public void a(long j) {

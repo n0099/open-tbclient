@@ -13,17 +13,17 @@ public class TalkBallNetModelImpl<T> extends NetAutoModel<TalkBallRequestData, c
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JA() {
+    protected int JS() {
         return CmdConfigHttp.CMD_FRS_TALK_BALL;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String JC() {
+    protected String JU() {
         return TbConfig.FRS_TALK_BALL;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JB() {
+    protected int JT() {
         return 309605;
     }
 
@@ -33,12 +33,12 @@ public class TalkBallNetModelImpl<T> extends NetAutoModel<TalkBallRequestData, c
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> Jy() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> JQ() {
         return TalkBallHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> Jz() {
+    protected Class<? extends MvcSocketResponsedMessage> JR() {
         return TalkBallSocketResponseMessage.class;
     }
 }

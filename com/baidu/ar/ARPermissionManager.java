@@ -49,7 +49,7 @@ public class ARPermissionManager {
     private b i;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC0093a {
+    public class a implements a.InterfaceC0095a {
         private String b;
         private int c;
         private String d;
@@ -234,7 +234,7 @@ public class ARPermissionManager {
                 return;
             }
             StatisticHelper.getInstance().statisticInfo(StatisticConstants.BAIDU_CUSTOMIZED_PERMISSION_DIALOG_REQUEST_MICROPHONE);
-            com.baidu.searchbox.a.b.a("plugin_ar_audio_recg", this.b, strArr, new a.InterfaceC0093a() { // from class: com.baidu.ar.ARPermissionManager.3
+            com.baidu.searchbox.a.b.a("plugin_ar_audio_recg", this.b, strArr, new a.InterfaceC0095a() { // from class: com.baidu.ar.ARPermissionManager.3
             });
         }
     }

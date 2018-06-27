@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
     public List<ScanResult> a;
     private long b;
@@ -185,7 +185,7 @@ public class i {
     }
 
     public boolean c(i iVar) {
-        return j.a(iVar, this, com.baidu.location.h.i.YF);
+        return j.a(iVar, this, com.baidu.location.h.i.YI);
     }
 
     public int d() {

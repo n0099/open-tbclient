@@ -1,6 +1,5 @@
 package com.baidu.sapi2.passhost.pluginsdk.service;
 
-import com.baidu.sapi2.passhost.pluginsdk.callback.IGetUserInfoCallback;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface ISapiAccountManagerService {
@@ -13,8 +12,6 @@ public interface ISapiAccountManagerService {
     ISapiAccount getSession();
 
     int getShareAccountsSize();
-
-    void getUserInfo(IGetUserInfoCallback iGetUserInfoCallback);
 
     int getVersionCode();
 

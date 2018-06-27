@@ -6,14 +6,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
     private String p;
     private boolean q = true;
-    private static c VI = null;
+    private static c VK = null;
     private static String b = "Temp_in.dat";
     private static File c = new File(com.baidu.location.h.h.a, b);
-    private static StringBuffer VJ = null;
+    private static StringBuffer VL = null;
     private static boolean e = true;
     private static int f = 0;
     private static int g = 0;
@@ -80,10 +80,10 @@ public class c {
 
     private boolean a(Location location, int i2, int i3) {
         if (location != null && com.baidu.location.h.i.X && this.q) {
-            if (com.baidu.location.h.i.YI < 5) {
-                com.baidu.location.h.i.YI = 5;
-            } else if (com.baidu.location.h.i.YI > 1000) {
-                com.baidu.location.h.i.YI = 1000;
+            if (com.baidu.location.h.i.YL < 5) {
+                com.baidu.location.h.i.YL = 5;
+            } else if (com.baidu.location.h.i.YL > 1000) {
+                com.baidu.location.h.i.YL = 1000;
             }
             if (com.baidu.location.h.i.aa < 5) {
                 com.baidu.location.h.i.aa = 5;
@@ -95,9 +95,9 @@ public class c {
             long time = location.getTime() / 1000;
             if (e) {
                 f = 1;
-                VJ = new StringBuffer("");
-                VJ.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = VJ.length();
+                VL = new StringBuffer("");
+                VL.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                g = VL.length();
                 h = time;
                 k = longitude;
                 l = latitude;
@@ -109,13 +109,13 @@ public class c {
             float[] fArr = new float[1];
             Location.distanceBetween(latitude, longitude, l, k, fArr);
             long j2 = time - h;
-            if (fArr[0] >= com.baidu.location.h.i.YI || j2 >= com.baidu.location.h.i.aa) {
-                if (VJ == null) {
+            if (fArr[0] >= com.baidu.location.h.i.YL || j2 >= com.baidu.location.h.i.aa) {
+                if (VL == null) {
                     f++;
                     g = 0;
-                    VJ = new StringBuffer("");
-                    VJ.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = VJ.length();
+                    VL = new StringBuffer("");
+                    VL.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                    g = VL.length();
                     h = time;
                     k = longitude;
                     l = latitude;
@@ -129,15 +129,15 @@ public class c {
                     m = (int) (time - h);
                     n = (int) (floor - i);
                     o = (int) (floor2 - j);
-                    VJ.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = VJ.length();
+                    VL.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
+                    g = VL.length();
                     h = time;
                     i = floor;
                     j = floor2;
                 }
                 if (g + 15 > 750) {
-                    a(VJ.toString());
-                    VJ = null;
+                    a(VL.toString());
+                    VL = null;
                 }
                 if (f >= com.baidu.location.h.i.ab) {
                     this.q = false;
@@ -272,7 +272,7 @@ public class c {
 
     private static void c() {
         e = true;
-        VJ = null;
+        VL = null;
         f = 0;
         g = 0;
         h = 0L;
@@ -308,13 +308,13 @@ public class c {
     }
 
     public static c qh() {
-        if (VI == null) {
-            VI = new c(com.baidu.location.h.c.rf().c());
+        if (VK == null) {
+            VK = new c(com.baidu.location.h.c.rf().c());
         }
-        return VI;
+        return VK;
     }
 
     public boolean a(Location location) {
-        return a(location, com.baidu.location.h.i.YI, com.baidu.location.h.i.aa);
+        return a(location, com.baidu.location.h.i.YL, com.baidu.location.h.i.aa);
     }
 }

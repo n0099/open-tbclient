@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -18,6 +18,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_ID = "forum_id";
     public static final int KEY_FOR_PRAISE_DATA_NO_ACTION = -1;
     public static final String KEY_FROM = "from";
+    public static final String KEY_FROM_FORUM_ID = "from_forum_id";
     public static final String KEY_FROM_FORUM_NAME = "from_forum_name";
     public static final String KEY_FROM_FRS = "from_frs";
     public static final String KEY_FROM_GUIDE = "game_guide";
@@ -273,16 +274,16 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(bd bdVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (bdVar != null) {
+    public PbActivityConfig createFromThreadCfg(bc bcVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (bcVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", bdVar.getTid());
-            if (bdVar.wy() != null && !StringUtils.isNull(bdVar.wy().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bdVar.wy().getId());
+            intent.putExtra("thread_id", bcVar.getTid());
+            if (bcVar.wI() != null && !StringUtils.isNull(bcVar.wI().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bcVar.wI().getId());
             }
-            intent.putExtra("is_good", bdVar.vi());
-            intent.putExtra("is_top", bdVar.vh());
-            intent.putExtra("thread_time", bdVar.vg());
+            intent.putExtra("is_good", bcVar.vs());
+            intent.putExtra("is_top", bcVar.vr());
+            intent.putExtra("thread_time", bcVar.vp());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -292,12 +293,21 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bdVar.va() == null ? 0L : bdVar.va().getNum()));
-            if (bdVar.vm() != null && bdVar.vm().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bdVar.vm().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bdVar.vm().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bcVar.vj() == null ? 0L : bcVar.vj().getNum()));
+            if (bcVar.vw() != null && bcVar.vw().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bcVar.vw().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bcVar.vw().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
+            String valueOf = String.valueOf(bcVar.getFid());
+            String vB = bcVar.vB();
+            if (bcVar.akt != null) {
+                setFromForumId(valueOf);
+                valueOf = bcVar.akt.id;
+                vB = bcVar.akt.ori_fname;
+            }
+            setForumId(String.valueOf(valueOf));
+            setForumName(vB);
             addMoreIntentExtraParam();
         }
         return this;
@@ -459,6 +469,13 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra("from_forum_name", str);
+        }
+    }
+
+    public void setFromForumId(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("from_forum_id", str);
         }
     }
 

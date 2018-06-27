@@ -3,6 +3,7 @@ package com.baidu.tbadk.browser;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.d;
 import java.net.MalformedURLException;
@@ -22,7 +23,7 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     private String parseWebViewUrl(String str) {
-        if (str != null && !str.startsWith("http://") && !str.startsWith("https://")) {
+        if (str != null && !str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             return "http://".concat(str);
         }
         return str;
@@ -40,7 +41,7 @@ public class BaseWebViewFragment extends BaseFragment {
         return N(this.mUrl, "nomenu");
     }
 
-    public boolean cK(String str) {
+    public boolean cM(String str) {
         return N(str, "blank");
     }
 
@@ -91,7 +92,7 @@ public class BaseWebViewFragment extends BaseFragment {
             }
             String findSubString2 = findSubString("<img src=\"", "\"");
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.aFj = Uri.parse(findSubString2);
+                dVar.imageUri = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString("<meta name=\"shareurl\" content=\"", "\"");
             if (!StringUtils.isNull(findSubString3, true)) {
@@ -108,7 +109,7 @@ public class BaseWebViewFragment extends BaseFragment {
             dVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.aFj = Uri.parse(str4);
+            dVar.imageUri = Uri.parse(str4);
         }
         return dVar;
     }

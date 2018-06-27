@@ -6,7 +6,7 @@ public class g {
     private final String fileName;
     private final int height;
     private final String id;
-    private final String kZ;
+    private final String kY;
     private final int width;
 
     private g(int i, int i2, String str, String str2, String str3) {
@@ -14,7 +14,7 @@ public class g {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.kZ = str3;
+        this.kY = str3;
     }
 
     /* loaded from: classes2.dex */
@@ -34,6 +34,6 @@ public class g {
     }
 
     public String bB() {
-        return this.kZ;
+        return this.kY;
     }
 }

@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private TbHttpMessageTask goT;
-    private HttpMessageListener cqW = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.f.1
+    private TbHttpMessageTask gsL;
+    private HttpMessageListener cpd = new HttpMessageListener(CmdConfigHttp.CMD_AD_UPLOAD) { // from class: com.baidu.tieba.recapp.report.f.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,41 +23,41 @@ public class f implements c {
                 if (!(httpResponsedMessage.getError() == 0)) {
                     Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
                     if (orginalMessage instanceof AdUploadHttpRequest) {
-                        f.this.dk(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                        f.this.m17do(((AdUploadHttpRequest) orginalMessage).getDataArray());
                     }
                 }
             }
         }
     };
-    private ArrayList<a> goU = new ArrayList<>();
+    private ArrayList<a> gsM = new ArrayList<>();
 
     public f() {
-        aVm();
-        MessageManager.getInstance().registerListener(this.cqW);
+        aVT();
+        MessageManager.getInstance().registerListener(this.cpd);
     }
 
-    private void aVm() {
-        this.goT = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
-        this.goT.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.goT.setIsNeedAddCommenParam(true);
-        this.goT.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void aVT() {
+        this.gsL = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+        this.gsL.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.gsL.setIsNeedAddCommenParam(true);
+        this.gsL.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.c
     public void b(a aVar) {
         if (aVar != null) {
             com.baidu.tbadk.coreExtra.data.c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (!(adAdSense == null || adAdSense.BF())) {
-                this.goT.setUrl("http://als.baidu.com/clog/clog");
+            if (!(adAdSense == null || adAdSense.BW())) {
+                this.gsL.setUrl("http://als.baidu.com/clog/clog");
             }
             d(aVar);
-            bpf();
+            bpG();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.c
-    public void bpe() {
-        bpf();
+    public void bpF() {
+        bpG();
     }
 
     @Override // com.baidu.tieba.recapp.report.c
@@ -67,16 +67,17 @@ public class f implements c {
         }
     }
 
-    private void bpf() {
-        if (w.y(this.goU) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.goU), this.goT);
-            this.goU.clear();
+    private void bpG() {
+        if (w.z(this.gsM) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.gsM), this.gsL);
+            this.gsM.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dk(List<a> list) {
-        if (w.y(list) > 0) {
+    /* renamed from: do  reason: not valid java name */
+    public void m17do(List<a> list) {
+        if (w.z(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
                     d(aVar);
@@ -87,10 +88,10 @@ public class f implements c {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (w.y(this.goU) >= 20) {
-                this.goU.remove(0);
+            if (w.z(this.gsM) >= 20) {
+                this.gsM.remove(0);
             }
-            this.goU.add(aVar);
+            this.gsM.add(aVar);
         }
     }
 }

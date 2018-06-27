@@ -1,21 +1,15 @@
 package com.baidu.sapi2;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class AbstractService {
@@ -90,6 +84,16 @@ public abstract class AbstractService {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public String getErrorMsg(String str) {
+        try {
+            return new JSONObject(str).optString("errmsg");
+        } catch (Exception e) {
+            Log.e(e);
+            return SapiResult.ERROR_MSG_UNKNOWN;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public SapiAccount parseAccount(JSONObject jSONObject) {
         SapiAccount sapiAccount = new SapiAccount();
         sapiAccount.uid = jSONObject.optString("uid");
@@ -120,30 +124,9 @@ public abstract class AbstractService {
         return "tpl:" + this.configuration.tpl + ";android_sapi_v" + this.versionName;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String calculateSig(Map<String, String> map, String str) {
-        ArrayList arrayList = new ArrayList();
-        for (String str2 : map.keySet()) {
-            arrayList.add(str2);
+    public void cancelRequest() {
+        if (this.asyncHttpClient != null) {
+            this.asyncHttpClient.cancelRequests(this.configuration.context, true);
         }
-        Collections.sort(arrayList);
-        StringBuilder sb = new StringBuilder();
-        Iterator it = arrayList.iterator();
-        while (it.hasNext()) {
-            String str3 = (String) it.next();
-            sb.append(str3);
-            sb.append("=");
-            try {
-                String str4 = map.get(str3);
-                if (!TextUtils.isEmpty(str4)) {
-                    sb.append(URLEncoder.encode(str4, "UTF-8"));
-                }
-            } catch (UnsupportedEncodingException e) {
-                Log.e(e);
-            }
-            sb.append("&");
-        }
-        sb.append("sign_key=").append(str);
-        return MD5Util.toMd5(sb.toString().getBytes(), false);
     }
 }

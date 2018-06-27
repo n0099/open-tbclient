@@ -9,6 +9,7 @@ import android.util.Log;
 import com.baidu.ar.recorder.d.c;
 import com.baidu.ar.recorder.d.d;
 import com.baidu.ar.recorder.d.e;
+import com.baidu.baiduarsdk.ArBridge;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.ar.recorder.a.a {
@@ -131,7 +132,7 @@ public class a implements com.baidu.ar.recorder.a.a {
             case 1004:
                 g();
                 return;
-            case 1005:
+            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
                 h();
                 return;
             case 1006:
@@ -184,7 +185,7 @@ public class a implements com.baidu.ar.recorder.a.a {
 
     public void e() {
         if (this.c != null) {
-            this.c.sendMessage(this.c.obtainMessage(1005));
+            this.c.sendMessage(this.c.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC));
             this.c.sendMessage(this.c.obtainMessage(1006));
         }
     }

@@ -7,6 +7,7 @@ import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes2.dex */
 public class FRSPageRequestMessage extends NetMessage {
+    private int callFrom;
     private int categoryId;
     private int cid;
     private int ctime;
@@ -183,6 +184,10 @@ public class FRSPageRequestMessage extends NetMessage {
         this.categoryId = i;
     }
 
+    public void setCallFrom(int i) {
+        this.callFrom = i;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
@@ -204,7 +209,8 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.boX().bpa();
+        builder.call_from = Integer.valueOf(this.callFrom);
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bpy().bpB();
         com.baidu.tbadk.util.p.bindCommonParamsToProtobufData(builder, true, false, true);
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);

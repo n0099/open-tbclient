@@ -19,7 +19,6 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
@@ -224,7 +223,7 @@ public class f {
             }
             if (z) {
                 jSONObject2.put(Constants.EXTRA_KEY_TOKEN, str);
-                jSONObject.put(LoginActivityConfig.INFO, jSONObject2);
+                jSONObject.put("info", jSONObject2);
                 k.a(context, b2, str);
             }
             a2.putExtra("push_proxy", jSONObject.toString());

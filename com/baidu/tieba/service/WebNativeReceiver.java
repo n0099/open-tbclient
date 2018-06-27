@@ -10,7 +10,6 @@ import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
     private static final String DEFAULT_FROM = "aladdin_wake";
@@ -42,7 +41,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
             } else if (stringExtra.equals("groupinfo")) {
                 intent2.putExtra("class", 13);
                 intent2.putExtra(InviteFriendListActivityConfig.GROUP_ID, intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID));
-            } else if (stringExtra.equals(WBConstants.ACTION_LOG_TYPE_PAY)) {
+            } else if (stringExtra.equals("pay")) {
                 intent2.putExtra("class", 15);
                 intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));

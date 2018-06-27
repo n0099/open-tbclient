@@ -64,7 +64,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
         return this.portrait;
     }
 
-    public String aCh() {
+    public String aCL() {
         return this.recom_reason;
     }
 

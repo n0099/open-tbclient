@@ -15,7 +15,7 @@ public class ImagesInvalidService extends BdBaseService {
     private DiskFileOperate mDiskFileOperate = null;
 
     public static void setSuccess(boolean z) {
-        com.baidu.tbadk.core.diskCache.a.aD(z);
+        com.baidu.tbadk.core.diskCache.a.aF(z);
     }
 
     @Override // android.app.Service

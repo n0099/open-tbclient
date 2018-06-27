@@ -11,45 +11,45 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tieba.d;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes3.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private BaseActivity.LoadDataCallBack gtA;
-    private a gty;
-    private b gtz;
+    private a gxq;
+    private b gxr;
+    private BaseActivity.LoadDataCallBack gxs;
     private Context mContext;
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.gty = null;
-        this.gtz = null;
+        this.gxq = null;
+        this.gxr = null;
         this.mContext = null;
-        this.gtA = null;
+        this.gxs = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void bqk() {
-        if (this.gty == null) {
-            this.gty = new a();
-            this.gty.execute(new String[0]);
+    public void bqL() {
+        if (this.gxq == null) {
+            this.gxq = new a();
+            this.gxq.execute(new String[0]);
         }
     }
 
-    public void bql() {
+    public void bqM() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void bqm() {
-        if (this.gtz == null) {
-            this.gtz = new b();
-            this.gtz.execute(new String[0]);
+    public void bqN() {
+        if (this.gxr == null) {
+            this.gxr = new b();
+            this.gxr.execute(new String[0]);
         }
     }
 
@@ -68,9 +68,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.gty = null;
-            if (SystemHelpSettingModel.this.gtA != null) {
-                SystemHelpSettingModel.this.gtA.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.gxq = null;
+            if (SystemHelpSettingModel.this.gxs != null) {
+                SystemHelpSettingModel.this.gxs.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
 
@@ -80,10 +80,10 @@ public class SystemHelpSettingModel extends BdBaseModel {
         /* renamed from: i */
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().eG();
-            com.baidu.tbadk.core.voice.a.b.Bc();
+            com.baidu.tbadk.core.voice.a.b.Bu();
             try {
-                an.zk().zl();
-                an.zk().zm();
+                ao.zz().zA();
+                ao.zz().zB();
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -103,11 +103,11 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            String ye = l.ye();
-            String str = ye + "voice";
-            long em = l.em(ye + TbConfig.TMP_DATABASE_NAME) + l.i(str, false) + l.i(ye + "image", false) + l.i(TbConfig.IMAGE_CACHE_DIR_NAME, false);
-            float f = 0.0f + ((float) em);
-            if (em >= 10485.76d) {
+            String ys = l.ys();
+            String str = ys + "voice";
+            long ep = l.ep(ys + TbConfig.TMP_DATABASE_NAME) + l.i(str, false) + l.i(ys + TbConfig.TMP_PIC_DIR_NAME, false) + l.i(TbConfig.IMAGE_CACHE_DIR_NAME, false);
+            float f = 0.0f + ((float) ep);
+            if (ep >= 10485.76d) {
                 return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(d.k.mebibyte);
             }
             return "";
@@ -118,9 +118,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.gtz = null;
-            if (SystemHelpSettingModel.this.gtA != null) {
-                SystemHelpSettingModel.this.gtA.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.gxr = null;
+            if (SystemHelpSettingModel.this.gxs != null) {
+                SystemHelpSettingModel.this.gxs.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
@@ -136,6 +136,6 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.gtA = loadDataCallBack;
+        this.gxs = loadDataCallBack;
     }
 }

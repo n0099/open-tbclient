@@ -15,7 +15,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> aky() {
+    public List<tinfo> ajS() {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }
@@ -61,7 +61,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean z(byte[] bArr) {
+    public boolean A(byte[] bArr) {
         try {
             a((HotThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, HotThreadResIdl.class));
             return true;
@@ -72,7 +72,7 @@ public class b implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Jf() {
+    public byte[] Jx() {
         return null;
     }
 }

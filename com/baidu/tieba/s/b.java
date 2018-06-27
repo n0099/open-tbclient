@@ -8,9 +8,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class b {
-    private static BlockPopInfo gVM;
-    private static BlockPopInfo gVN;
-    private CustomMessageListener bvy = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.s.b.3
+    private static BlockPopInfo gZR;
+    private static BlockPopInfo gZS;
+    private CustomMessageListener bwT = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.s.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -24,7 +24,7 @@ public class b {
 
     public b(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.mContext.registerListener(this.bvy);
+        this.mContext.registerListener(this.bwT);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
@@ -42,18 +42,18 @@ public class b {
         return false;
     }
 
-    public boolean bAH() {
-        return a(gVM);
+    public boolean bBh() {
+        return a(gZR);
     }
 
-    public boolean bAI() {
-        return a(gVN);
+    public boolean bBi() {
+        return a(gZS);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            aVar.dB(blockPopInfo.block_info);
+            aVar.dE(blockPopInfo.block_info);
             aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.s.b.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -66,7 +66,7 @@ public class b {
                     b.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.mContext).xa();
+            aVar.b(this.mContext).xn();
         }
     }
 
@@ -78,10 +78,10 @@ public class b {
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        gVM = blockPopInfo;
+        gZR = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        gVN = blockPopInfo;
+        gZS = blockPopInfo;
     }
 }

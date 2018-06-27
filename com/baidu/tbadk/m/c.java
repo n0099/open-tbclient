@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.o.af;
+import com.baidu.tbadk.o.ag;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +72,7 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
         }
         int jJ = j.jJ();
-        if (!af.ip()) {
+        if (!ag.ip()) {
             httpMessage.addHeader("net", String.valueOf(jJ));
         }
         if (1 != jJ ? TbadkCoreApplication.getInst().getKeepaliveNonWifi() != 1 : TbadkCoreApplication.getInst().getKeepaliveWifi() != 1) {
@@ -85,6 +85,8 @@ public class c extends com.baidu.adp.framework.a.d {
         }
         httpMessage.addHeader("client_logid", String.valueOf(httpMessage.getClientLogID()));
         httpMessage.addHeader("cuid", TbadkCoreApplication.getInst().getCuid());
+        httpMessage.addHeader("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        httpMessage.addHeader("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
     }
 
     private void c(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
@@ -109,8 +111,8 @@ public class c extends com.baidu.adp.framework.a.d {
         }
         int jJ = j.jJ();
         httpMessage.addParam("net_type", String.valueOf(jJ));
-        if (com.baidu.tbadk.coreExtra.b.a.Bq().Br()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.Bq().Bs()));
+        if (com.baidu.tbadk.coreExtra.b.a.BH().BI()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.BH().BJ()));
         }
         if (1 == jJ) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -123,6 +125,8 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
         }
         httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+        httpMessage.addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+        httpMessage.addParam("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         httpMessage.addParam(HttpConstants.TIMESTAMP, Long.toString(System.currentTimeMillis()));
         httpMessage.addParam("model", Build.MODEL);
     }
@@ -131,7 +135,7 @@ public class c extends com.baidu.adp.framework.a.d {
         String currentBduss = TbadkCoreApplication.getCurrentBduss();
         if (currentBduss != null) {
             httpMessage.addParam("BDUSS", currentBduss);
-            String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
+            String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
             if (!StringUtils.isNull(c)) {
                 httpMessage.addParam(ISapiAccount.SAPI_ACCOUNT_STOKEN, c);
             }
@@ -153,22 +157,22 @@ public class c extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam("sign", s.bj(stringBuffer.toString()));
+        httpMessage.addParam("sign", s.bl(stringBuffer.toString()));
     }
 
     private void d(HttpMessage httpMessage) {
-        ab.a yU = ab.yU();
-        if (yU != null) {
-            httpMessage.addParam("stTime", String.valueOf(yU.mTime));
-            httpMessage.addParam("stSize", String.valueOf(yU.apN));
-            httpMessage.addParam("stTimesNum", String.valueOf(yU.apO));
-            httpMessage.addParam("stMode", String.valueOf(yU.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(yU.apM));
+        ab.a zi = ab.zi();
+        if (zi != null) {
+            httpMessage.addParam("stTime", String.valueOf(zi.mTime));
+            httpMessage.addParam("stSize", String.valueOf(zi.aqm));
+            httpMessage.addParam("stTimesNum", String.valueOf(zi.aqn));
+            httpMessage.addParam("stMode", String.valueOf(zi.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(zi.aql));
         }
-        int cG = ab.cG(0);
-        if (cG == 0 && yU != null) {
-            cG = yU.apO;
+        int cH = ab.cH(0);
+        if (cH == 0 && zi != null) {
+            cH = zi.aqn;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cG));
+        httpMessage.addParam("stErrorNums", String.valueOf(cH));
     }
 }

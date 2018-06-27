@@ -63,7 +63,7 @@ public class d {
             ih.append("netCostTime", String.valueOf(AK));
             ih.append("netNum", String.valueOf(AJ));
             ih.append("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", ih);
+            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, ih);
             AH = 0;
             AG = 0;
             AK = 0;

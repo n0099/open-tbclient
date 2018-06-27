@@ -3,10 +3,10 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import com.squareup.wire.Message;
 /* loaded from: classes.dex */
 public class p implements h {
-    private Message xa;
+    private Message wY;
 
     public p(Message message) {
-        this.xa = message;
+        this.wY = message;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h

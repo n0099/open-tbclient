@@ -13,7 +13,7 @@ public class LiveRoomClosedResponsedMessage extends CustomMessage<List<Long>> {
         super(2921026);
         this.mIds = new ArrayList();
         this.mOriginData = new ArrayList();
-        if (!w.z(list)) {
+        if (!w.A(list)) {
             this.mIds.addAll(list);
         }
     }

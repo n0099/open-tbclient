@@ -6,89 +6,89 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class g {
-    private PostSearchActivity gfi;
-    private a gga;
-    private c ggb;
-    private f ggc;
+    private PostSearchActivity gjj;
+    private a gka;
+    private c gkb;
+    private f gkc;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.gfi = postSearchActivity;
+        this.gjj = postSearchActivity;
     }
 
     public void initView() {
-        this.gfi.setContentView(d.i.post_search_activity);
-        this.mRootView = this.gfi.findViewById(d.g.search_rootview);
-        this.gga = new a(this.gfi, this.mRootView);
-        this.ggb = new c(this.gfi, this.mRootView);
-        this.ggc = new f(this.gfi, this.mRootView);
+        this.gjj.setContentView(d.i.post_search_activity);
+        this.mRootView = this.gjj.findViewById(d.g.search_rootview);
+        this.gka = new a(this.gjj, this.mRootView);
+        this.gkb = new c(this.gjj, this.mRootView);
+        this.gkc = new f(this.gjj, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.ggc != null) {
-            this.ggc.setOnPageChangeListener(onPageChangeListener);
+        if (this.gkc != null) {
+            this.gkc.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
-    public void as(ArrayList<String> arrayList) {
-        this.ggc.eR(false);
-        this.ggb.as(arrayList);
+    public void aw(ArrayList<String> arrayList) {
+        this.gkc.eR(false);
+        this.gkb.aw(arrayList);
     }
 
-    public void rN(int i) {
-        this.gga.azY();
-        bmN();
-        this.gga.bmO();
-        this.ggc.eR(true);
-        this.ggc.rN(i);
+    public void rW(int i) {
+        this.gka.aAF();
+        bnr();
+        this.gka.bns();
+        this.gkc.eR(true);
+        this.gkc.rW(i);
     }
 
-    public void sw(String str) {
-        this.gga.sw(str);
+    public void sv(String str) {
+        this.gka.sv(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.ggc.a(i, bVar, z);
+        this.gkc.a(i, bVar, z);
     }
 
-    public boolean bmS() {
-        return this.ggb.bna();
+    public boolean bnw() {
+        return this.gkb.bnE();
     }
 
     public void showLoadingView() {
-        this.ggb.showLoadingView();
+        this.gkb.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.ggb.hideLoadingView();
+        this.gkb.hideLoadingView();
     }
 
-    public void bmZ() {
-        this.ggb.bmZ();
+    public void bnD() {
+        this.gkb.bnD();
     }
 
-    public void bmN() {
-        this.gga.bmN();
+    public void bnr() {
+        this.gka.bnr();
     }
 
-    public void bnl() {
-        this.ggb.bmY();
+    public void bnP() {
+        this.gkb.bnC();
     }
 
     public int getCurrentTabType() {
-        return this.ggc.getCurrentTabType();
+        return this.gkc.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.gga.onChangeSkinType(i);
-        this.ggb.onChangeSkinType(i);
-        this.ggc.onChangeSkinType(i);
-        com.baidu.tbadk.n.a.a(this.gfi.getPageContext(), this.mRootView);
+        this.gka.onChangeSkinType(i);
+        this.gkb.onChangeSkinType(i);
+        this.gkc.onChangeSkinType(i);
+        com.baidu.tbadk.n.a.a(this.gjj.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.gga != null) {
-            this.gga.onDestroy();
+        if (this.gka != null) {
+            this.gka.onDestroy();
         }
     }
 }

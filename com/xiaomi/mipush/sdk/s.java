@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import com.xiaomi.push.service.ac;
 import com.xiaomi.push.service.ah;
@@ -102,7 +103,7 @@ public class s {
                 }
             } else if (am.c.equals(str3) && (str2 = map.get("web_uri")) != null) {
                 String trim = str2.trim();
-                String str5 = (trim.startsWith("http://") || trim.startsWith("https://")) ? trim : "http://" + trim;
+                String str5 = (trim.startsWith("http://") || trim.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? trim : "http://" + trim;
                 try {
                     String protocol = new URL(str5).getProtocol();
                     if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {

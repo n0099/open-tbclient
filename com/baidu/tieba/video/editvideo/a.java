@@ -5,21 +5,21 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes2.dex */
 public interface a {
-    void bBu();
+    void bBU();
 
-    void bBx();
+    void bBX();
 
-    void bBz();
+    void bBZ();
 
-    void bhS();
+    void biy();
 
-    void dH(List<PendantData> list);
+    void dK(List<PendantData> list);
 
     void finishPage();
 
-    void rO(String str);
+    void rN(String str);
 
-    void uJ(String str);
+    void uF(String str);
 
     void y(Bitmap bitmap);
 }

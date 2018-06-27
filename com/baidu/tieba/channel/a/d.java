@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.channel.data.h;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<h, a> {
-    private com.baidu.tieba.channel.view.b cDI;
+    private com.baidu.tieba.channel.view.b cBC;
     private boolean mIsHost;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,7 +28,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: Y */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(d.i.channel_home_big_video_item, viewGroup, false));
     }
@@ -50,111 +50,111 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
     }
 
     private void a(a aVar, final h hVar, final int i) {
-        aVar.cDM.setText(hVar.getTitle());
-        aVar.cDL.startLoad(hVar.getThumbnailUrl(), 10, false);
-        aVar.cDO.setText(this.mContext.getResources().getString(d.k.channel_home_play_count, ao.y(hVar.ajX())));
-        aVar.cDP.setText(com.baidu.tieba.channel.c.c.bn(hVar.getCreateTime()));
-        aVar.cDQ.setText(ao.cT(hVar.getVideoDuration() * 1000));
-        if (this.cDI != null) {
+        aVar.cBG.setText(hVar.getTitle());
+        aVar.cBF.startLoad(hVar.getThumbnailUrl(), 10, false);
+        aVar.cBI.setText(this.mContext.getResources().getString(d.k.channel_home_play_count, ap.z(hVar.ajr())));
+        aVar.cBJ.setText(com.baidu.tieba.channel.c.c.bh(hVar.getCreateTime()));
+        aVar.cBK.setText(ap.cU(hVar.getVideoDuration() * 1000));
+        if (this.cBC != null) {
             aVar.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (d.this.cDI != null) {
-                        d.this.cDI.a(1, view, hVar, i);
+                    if (d.this.cBC != null) {
+                        d.this.cBC.a(1, view, hVar, i);
                     }
                 }
             });
         }
         if (this.mIsHost) {
-            aVar.cDS.setVisibility(0);
-            aVar.cDR.setVisibility(8);
-            aVar.cDS.setClickable(true);
-            aVar.cDT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.d.2
+            aVar.cBM.setVisibility(0);
+            aVar.cBL.setVisibility(8);
+            aVar.cBM.setClickable(true);
+            aVar.cBN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.a.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (d.this.cDI != null) {
-                        d.this.cDI.a(8, view, hVar, i);
+                    if (d.this.cBC != null) {
+                        d.this.cBC.a(8, view, hVar, i);
                     }
                 }
             });
         } else {
-            aVar.cDS.setVisibility(8);
-            aVar.cDR.setVisibility(0);
+            aVar.cBM.setVisibility(8);
+            aVar.cBL.setVisibility(0);
         }
-        if (hVar.vL()) {
-            aVar.cDU.setVisibility(0);
-            aVar.cDV.setVisibility(0);
+        if (hVar.vV()) {
+            aVar.biI.setVisibility(0);
+            aVar.cBO.setVisibility(0);
             return;
         }
-        aVar.cDU.setVisibility(8);
-        aVar.cDV.setVisibility(8);
+        aVar.biI.setVisibility(8);
+        aVar.cBO.setVisibility(8);
     }
 
     private void a(a aVar, h hVar) {
-        al.h(aVar.cDU, d.C0141d.cp_cont_g);
-        al.h(aVar.cDM, d.C0141d.cp_cont_g);
-        al.h(aVar.cDM, d.C0141d.cp_cont_g);
-        al.c(aVar.cDV, d.f.channel_home_dot);
-        al.h(aVar.cDO, d.C0141d.cp_cont_g);
-        al.h(aVar.cDQ, d.C0141d.cp_cont_g);
-        al.h(aVar.cDP, d.C0141d.cp_cont_g);
+        am.h(aVar.biI, d.C0142d.cp_cont_g);
+        am.h(aVar.cBG, d.C0142d.cp_cont_g);
+        am.h(aVar.cBG, d.C0142d.cp_cont_g);
+        am.c(aVar.cBO, d.f.channel_home_dot);
+        am.h(aVar.cBI, d.C0142d.cp_cont_g);
+        am.h(aVar.cBK, d.C0142d.cp_cont_g);
+        am.h(aVar.cBJ, d.C0142d.cp_cont_g);
     }
 
     public void a(com.baidu.tieba.channel.view.b bVar) {
-        this.cDI = bVar;
+        this.cBC = bVar;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        public TbImageView cDL;
-        public TextView cDM;
-        public ImageView cDN;
-        public TextView cDO;
-        public TextView cDP;
-        public TextView cDQ;
-        public View cDR;
-        public View cDS;
-        public ImageView cDT;
-        public TextView cDU;
-        public ImageView cDV;
+        public TextView biI;
+        public TbImageView cBF;
+        public TextView cBG;
+        public ImageView cBH;
+        public TextView cBI;
+        public TextView cBJ;
+        public TextView cBK;
+        public View cBL;
+        public View cBM;
+        public ImageView cBN;
+        public ImageView cBO;
         public View mRootView;
 
         public a(View view) {
             super(view);
-            ai(view);
+            ak(view);
         }
 
-        private void ai(View view) {
+        private void ak(View view) {
             if (view != null) {
                 this.mRootView = view;
                 this.mRootView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.channel.a.d.a.1
                     @Override // android.view.View.OnTouchListener
                     public boolean onTouch(View view2, MotionEvent motionEvent) {
                         if (motionEvent.getAction() == 0) {
-                            al.j(a.this.mRootView, d.C0141d.cp_bg_line_c);
+                            am.j(a.this.mRootView, d.C0142d.cp_bg_line_c);
                             return false;
                         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                            a.this.mRootView.setBackgroundResource(d.C0141d.transparent);
+                            a.this.mRootView.setBackgroundResource(d.C0142d.transparent);
                             return false;
                         } else {
                             return false;
                         }
                     }
                 });
-                this.cDL = (TbImageView) view.findViewById(d.g.channel_home_video_cover);
-                this.cDM = (TextView) view.findViewById(d.g.channel_home_video_title);
-                this.cDN = (ImageView) view.findViewById(d.g.channel_home_video_play);
-                this.cDO = (TextView) view.findViewById(d.g.channel_home_big_video_count);
-                this.cDP = (TextView) view.findViewById(d.g.channel_home_big_video_time);
-                this.cDQ = (TextView) view.findViewById(d.g.channel_home_big_video_duration);
-                this.cDR = view.findViewById(d.g.channel_guest_big_video_gap);
-                this.cDS = view.findViewById(d.g.channel_host_big_video_more_layout);
-                this.cDT = (ImageView) view.findViewById(d.g.channel_host_big_video_more_btn);
-                this.cDU = (TextView) view.findViewById(d.g.channel_home_big_set_top_textview);
-                this.cDV = (ImageView) view.findViewById(d.g.channel_home_big_set_top_dot);
-                this.cDL.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.cDL.setDefaultResource(d.f.pic_bg_video_frs);
-                this.cDL.setDefaultErrorResource(d.f.pic_bg_video_frs);
+                this.cBF = (TbImageView) view.findViewById(d.g.channel_home_video_cover);
+                this.cBG = (TextView) view.findViewById(d.g.channel_home_video_title);
+                this.cBH = (ImageView) view.findViewById(d.g.channel_home_video_play);
+                this.cBI = (TextView) view.findViewById(d.g.channel_home_big_video_count);
+                this.cBJ = (TextView) view.findViewById(d.g.channel_home_big_video_time);
+                this.cBK = (TextView) view.findViewById(d.g.channel_home_big_video_duration);
+                this.cBL = view.findViewById(d.g.channel_guest_big_video_gap);
+                this.cBM = view.findViewById(d.g.channel_host_big_video_more_layout);
+                this.cBN = (ImageView) view.findViewById(d.g.channel_host_big_video_more_btn);
+                this.biI = (TextView) view.findViewById(d.g.channel_home_big_set_top_textview);
+                this.cBO = (ImageView) view.findViewById(d.g.channel_home_big_set_top_dot);
+                this.cBF.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.cBF.setDefaultResource(d.f.pic_bg_video_frs);
+                this.cBF.setDefaultErrorResource(d.f.pic_bg_video_frs);
             }
         }
     }

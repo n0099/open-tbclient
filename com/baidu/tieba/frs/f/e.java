@@ -16,28 +16,28 @@ import com.baidu.tieba.tbadkCore.l;
 public class e {
     private static ShareFromFrsMsgData f(l lVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(lVar.bam().getImage_url());
-        shareFromFrsMsgData.setName(lVar.bam().getName());
-        shareFromFrsMsgData.setMemberNum(lVar.bam().getMember_num());
-        shareFromFrsMsgData.setPostNum(lVar.bam().getPost_num());
-        shareFromFrsMsgData.setContent(lVar.bam().getSlogan());
+        shareFromFrsMsgData.setImageUrl(lVar.baT().getImage_url());
+        shareFromFrsMsgData.setName(lVar.baT().getName());
+        shareFromFrsMsgData.setMemberNum(lVar.baT().getMember_num());
+        shareFromFrsMsgData.setPostNum(lVar.baT().getPost_num());
+        shareFromFrsMsgData.setContent(lVar.baT().getSlogan());
         return shareFromFrsMsgData;
     }
 
     public static void a(final FrsFragment frsFragment, l lVar, final long j, final String str, final long j2) {
-        if (lVar != null && lVar.bam() != null) {
+        if (lVar != null && lVar.baT() != null) {
             final ShareFromFrsMsgData f = f(lVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsFragment.getPageContext().getPageActivity());
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(f);
-            aVar.ce(1);
+            aVar.cf(1);
             aVar.w(frsShareCardView);
             aVar.a(d.k.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     FrsFragment.this.HidenSoftKeyPad((InputMethodManager) TbadkCoreApplication.getInst().getSystemService("input_method"), frsShareCardView.getChatMsgView());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(FrsFragment.this.aiH().getPageActivity(), j, str, j2, "from_share", frsShareCardView.getLeaveMsg(), f.toChatMessageContent())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(FrsFragment.this.ahZ().getPageActivity(), j, str, j2, "from_share", frsShareCardView.getLeaveMsg(), f.toChatMessageContent())));
                     aVar2.dismiss();
                 }
             });
@@ -48,10 +48,10 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.av(true);
-            aVar.b(frsFragment.getPageContext()).xa();
+            aVar.ax(true);
+            aVar.b(frsFragment.getPageContext()).xn();
             if (!k.isEmpty(f.getImageUrl())) {
-                frsShareCardView.D(f.getImageUrl(), false);
+                frsShareCardView.E(f.getImageUrl(), false);
             }
         }
     }

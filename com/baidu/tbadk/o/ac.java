@@ -7,7 +7,7 @@ public class ac extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "switch_low_version_login_passv6";
+        return "switch_login_passv6";
     }
 
     @Override // com.baidu.adp.lib.b.a

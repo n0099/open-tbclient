@@ -6,9 +6,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.Signature;
 import com.sina.weibo.sdk.ApiUtils;
-import com.sina.weibo.sdk.WeiboAppManager;
+import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SecurityHelper {
     public static boolean validateAppSignatureForIntent(Context context, Intent intent) {
         ResolveInfo resolveActivity;
@@ -27,8 +27,8 @@ public class SecurityHelper {
         }
     }
 
-    public static boolean checkResponseAppLegal(Context context, WeiboAppManager.WeiboInfo weiboInfo, Intent intent) {
-        if ((weiboInfo == null || weiboInfo.getSupportApi() > 10352) && weiboInfo != null) {
+    public static boolean checkResponseAppLegal(Context context, WbAppInfo wbAppInfo, Intent intent) {
+        if ((wbAppInfo == null || wbAppInfo.getSupportVersion() > 10352) && wbAppInfo != null) {
             String stringExtra = intent != null ? intent.getStringExtra(WBConstants.Base.APP_PKG) : null;
             return (stringExtra == null || intent.getStringExtra(WBConstants.TRAN) == null || !ApiUtils.validateWeiboSign(context, stringExtra)) ? false : true;
         }

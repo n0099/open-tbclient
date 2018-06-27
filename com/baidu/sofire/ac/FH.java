@@ -1,15 +1,11 @@
 package com.baidu.sofire.ac;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.sofire.a.a;
-import com.baidu.sofire.b.d;
-import com.baidu.sofire.b.f;
+import com.baidu.sofire.b.e;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
-import com.baidu.sofire.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FH {
@@ -19,34 +15,11 @@ public class FH {
     }
 
     public static void init(Context context, String str, String str2, int... iArr) {
-        d.a(context, str, str2, iArr);
+        e.a(context, 0, str, str2, iArr);
     }
 
-    public static void initDelay(final Context context, final int i, final String str, final String str2, final int... iArr) {
-        try {
-            new Thread(new Runnable() { // from class: com.baidu.sofire.ac.FH.1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    try {
-                        f.a(context);
-                        if (i > 0) {
-                            Thread.sleep(i * 1000);
-                        }
-                        new e(context).a(iArr);
-                        c a = c.a(context);
-                        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                            a.a(str, str2);
-                        }
-                        c.a(1);
-                        a.a((Callback) null);
-                    } catch (Throwable th) {
-                        d.a(th);
-                    }
-                }
-            }).start();
-        } catch (Throwable th) {
-            d.a(th);
-        }
+    public static void initDelay(Context context, int i, String str, String str2, int... iArr) {
+        e.a(context, i, str, str2, iArr);
     }
 
     public static boolean call(int i, String str) {
@@ -68,7 +41,7 @@ public class FH {
             }
             return a;
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
             return new Pair<>(3, null);
         }
     }
@@ -82,7 +55,7 @@ public class FH {
     }
 
     public static boolean call(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
-        return d.a(i, str, callback, clsArr, objArr);
+        return e.a(i, str, callback, clsArr, objArr);
     }
 
     public static Object getPInfo(int i, int i2) {
@@ -110,7 +83,7 @@ public class FH {
                     }
                     return "";
                 } catch (Throwable th) {
-                    d.a(th);
+                    e.a(th);
                     return "";
                 }
             default:
@@ -119,44 +92,18 @@ public class FH {
     }
 
     public static String getVersion(Context context) {
-        return "3.1.0";
+        return "3.1.3.2";
     }
 
     public static String gzfi(Context context, String str, int i) {
         if (i != 0) {
             call(1, "ice", new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i));
         }
-        return gz(context);
+        return e.m(context);
     }
 
     public static String gz(Context context) {
-        e eVar;
-        String string;
-        byte[] re;
-        try {
-            eVar = new e(context);
-            string = eVar.b.getString("xytk", "");
-        } catch (Throwable th) {
-            d.a(th);
-        }
-        if (TextUtils.isEmpty(string)) {
-            String a = f.a(context);
-            if (!TextUtils.isEmpty(a)) {
-                String[] split = a.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
-                if (split != null && split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
-                    if (F.getInstance().re(split[1].getBytes(), split[0].getBytes()) != null) {
-                        String str = split[0] + d.a(re);
-                        eVar.d.putString("xytk", str);
-                        eVar.d.commit();
-                        return str;
-                    }
-                } else {
-                    return a;
-                }
-            }
-            return "";
-        }
-        return string;
+        return e.m(context);
     }
 
     public static boolean isInitSuc(int i) {
@@ -169,7 +116,7 @@ public class FH {
             }
             return a2.d(a.packageName) != null;
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
             return false;
         }
     }

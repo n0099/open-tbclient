@@ -6,11 +6,6 @@ public class w extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "hybridSwitch";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String[] hm() {
         return null;
     }
@@ -28,5 +23,10 @@ public class w extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int hp() {
         return 10;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "is_call_test_https";
     }
 }

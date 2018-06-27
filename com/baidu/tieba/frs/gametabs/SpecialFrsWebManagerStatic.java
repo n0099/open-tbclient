@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.ab;
+import com.baidu.tieba.frs.ad;
 import tbclient.FrsTabInfo;
 /* loaded from: classes3.dex */
 public class SpecialFrsWebManagerStatic {
@@ -14,17 +14,17 @@ public class SpecialFrsWebManagerStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
-                    ab abVar = (ab) customResponsedMessage.getData();
-                    for (FrsTabInfo frsTabInfo : abVar.auM()) {
+                    ad adVar = (ad) customResponsedMessage.getData();
+                    for (FrsTabInfo frsTabInfo : adVar.avg()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
                             c cVar = new c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
-                            abVar.b(cVar);
-                            if (abVar.getContext() == null) {
+                            adVar.b(cVar);
+                            if (adVar.getContext() == null) {
                                 continue;
                             } else {
-                                com.baidu.tbadk.mainTab.c Jb = cVar.Jb();
-                                if (Jb != null) {
-                                    Jb.aQP.setArguments(new Bundle());
+                                com.baidu.tbadk.mainTab.c Jt = cVar.Jt();
+                                if (Jt != null) {
+                                    Jt.aRL.setArguments(new Bundle());
                                 } else {
                                     return;
                                 }

@@ -3,7 +3,7 @@ package com.baidu.location.c;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i extends Handler {
     final /* synthetic */ a a;
 

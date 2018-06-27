@@ -7,7 +7,7 @@ public class be extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "movideo_split";
+        return "video_square_middle_page";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -27,6 +27,6 @@ public class be extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int hp() {
-        return 0;
+        return 10;
     }
 }

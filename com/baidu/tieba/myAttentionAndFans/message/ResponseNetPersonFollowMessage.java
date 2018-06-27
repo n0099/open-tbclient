@@ -4,6 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.c.a;
 import com.baidu.tbadk.core.data.ar;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -44,7 +45,7 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            this.mErrCode = jSONObject.optInt("error_code");
+            this.mErrCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
             this.data = new ar();
             this.data.parserJson(jSONObject);
@@ -59,9 +60,9 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
             boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
             String str = new String(bArr);
-            l<String> dy = a.wW().dy("tb.my_pages");
-            if (dy != null) {
-                dy.a((z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, 604800000L);
+            l<String> dB = a.xj().dB("tb.my_pages");
+            if (dB != null) {
+                dB.a((z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, 604800000L);
             }
         }
     }

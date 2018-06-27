@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.e;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personExtra.d;
 import com.baidu.tieba.personPolymeric.a.i;
@@ -16,12 +16,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public i fUD;
-    public j gfg;
-    private b gfh;
+    public i fYF;
+    public j gjh;
+    private b gji;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<h> bQW = new ArrayList<>();
+    private ArrayList<h> bTf = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -29,20 +29,20 @@ public class a {
     }
 
     private void p(TbPageContext<?> tbPageContext) {
-        this.fUD = new i(tbPageContext);
-        this.gfg = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.fWP);
-        this.gfh = new d(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gfg.a(this.gfh);
-        this.mAdapters.add(this.fUD);
-        this.mAdapters.add(this.gfg);
+        this.fYF = new i(tbPageContext);
+        this.gjh = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gaP);
+        this.gji = new d(tbPageContext, this, tbPageContext.getUniqueId());
+        this.gjh.a(this.gji);
+        this.mAdapters.add(this.fYF);
+        this.mAdapters.add(this.gjh);
         this.mListView.addAdapters(this.mAdapters);
     }
 
-    public void y(ArrayList<h> arrayList) {
+    public void C(ArrayList<h> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.bQW.clear();
-            this.bQW.addAll(arrayList);
-            this.mListView.setData(this.bQW);
+            this.bTf.clear();
+            this.bTf.addAll(arrayList);
+            this.mListView.setData(this.bTf);
         }
     }
 
@@ -58,30 +58,30 @@ public class a {
         }
     }
 
-    public boolean sv(String str) {
+    public boolean su(String str) {
         boolean z;
-        if (ao.isEmpty(str)) {
+        if (ap.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.bQW == null) {
+        if (this.mListView == null || this.bTf == null) {
             return false;
         }
-        Iterator<h> it = this.bQW.iterator();
+        Iterator<h> it = this.bTf.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
             h next = it.next();
-            if ((next instanceof CardPersonDynamicThreadData) && ao.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
+            if ((next instanceof CardPersonDynamicThreadData) && ap.equals(str, ((CardPersonDynamicThreadData) next).threadId)) {
                 z = true;
                 it.remove();
                 break;
             }
         }
         if (z) {
-            this.bQW = PersonPostModel.mergeDynamicThreadByTime(this.bQW);
-            this.mListView.setData(this.bQW);
+            this.bTf = PersonPostModel.mergeDynamicThreadByTime(this.bTf);
+            this.mListView.setData(this.bTf);
             notifyDataSetChanged();
             return z;
         }

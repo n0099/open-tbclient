@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a implements b {
     @Override // com.baidu.tbadk.widget.layout.b
-    public int fG(int i) {
+    public int fH(int i) {
         if (i < 4) {
             return 1;
         }
@@ -20,7 +20,7 @@ public class a implements b {
 
     @Override // com.baidu.tbadk.widget.layout.b
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        if (w.y(list) > 0) {
+        if (w.z(list) > 0) {
             if (i == 0) {
                 return a(constrainImageLayout, list, i2);
             }
@@ -36,15 +36,15 @@ public class a implements b {
     }
 
     private int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || w.z(list)) {
+        if (constrainImageLayout == null || w.A(list)) {
             return i;
         }
-        int y = w.y(list);
-        int i2 = y - 3;
-        if (y == 1) {
+        int z = w.z(list);
+        int i2 = z - 3;
+        if (z == 1) {
             constrainImageLayout.setUrls(list, i);
             return 0;
-        } else if (y == 2 || y == 4 || y == 5) {
+        } else if (z == 2 || z == 4 || z == 5) {
             int i3 = i + 2;
             constrainImageLayout.setUrls(w.a(list, i, i3), i);
             return i3;
@@ -56,10 +56,10 @@ public class a implements b {
     }
 
     private int b(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || w.z(list)) {
+        if (constrainImageLayout == null || w.A(list)) {
             return i;
         }
-        if (w.y(list) == 4) {
+        if (w.z(list) == 4) {
             int i2 = i + 2;
             constrainImageLayout.setUrls(w.a(list, i, i2), i);
             return i2;
@@ -70,12 +70,12 @@ public class a implements b {
     }
 
     private int c(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || w.z(list)) {
+        if (constrainImageLayout == null || w.A(list)) {
             return i;
         }
-        int y = w.y(list);
+        int z = w.z(list);
         constrainImageLayout.setImageMaxChildCount(3);
-        int i2 = y - 9;
+        int i2 = z - 9;
         if (i2 > 0) {
             int i3 = i + 3;
             List<MediaData> a = w.a(list, i, i3);
@@ -83,8 +83,8 @@ public class a implements b {
             constrainImageLayout.setUrls(a, i, true);
             return i3;
         }
-        constrainImageLayout.setUrls(w.a(list, i, y), i);
+        constrainImageLayout.setUrls(w.a(list, i, z), i);
         constrainImageLayout.setExtraCenterText(null);
-        return y;
+        return z;
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.ab;
+import com.baidu.tieba.frs.ad;
 /* loaded from: classes2.dex */
 public class TalkBallFragmentStatic {
     static {
@@ -14,11 +14,11 @@ public class TalkBallFragmentStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ab) {
+                    if (data instanceof ad) {
                         a aVar = new a();
-                        aVar.Jb().type = 12;
-                        aVar.Jb().aQQ = d.k.frs_tab_talkball;
-                        aVar.a((ab) data);
+                        aVar.Jt().type = 12;
+                        aVar.Jt().aRM = d.k.frs_tab_talkball;
+                        aVar.a((ad) data);
                     }
                 }
             }

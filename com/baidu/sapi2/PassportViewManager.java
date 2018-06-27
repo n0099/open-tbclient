@@ -15,6 +15,7 @@ public class PassportViewManager {
     private View noNetworkView = null;
     private View timeoutView = null;
     private ProgressBar progressBar = null;
+    private View webviewLoadingView = null;
     private TitleViewModule titleViewModule = null;
 
     /* loaded from: classes2.dex */
@@ -89,6 +90,10 @@ public class PassportViewManager {
         return this.progressBar;
     }
 
+    public View getWebviewLoadingView() {
+        return this.webviewLoadingView;
+    }
+
     public void setNoNetworkView(View view) {
         this.noNetworkView = view;
     }
@@ -99,6 +104,10 @@ public class PassportViewManager {
 
     public void setProgressBar(ProgressBar progressBar) {
         this.progressBar = progressBar;
+    }
+
+    public void setWebviewLoadingView(View view) {
+        this.webviewLoadingView = view;
     }
 
     public void reloadWebview() {
@@ -113,6 +122,12 @@ public class PassportViewManager {
 
     public void configTitle(TitleViewModule titleViewModule) {
         this.titleViewModule = titleViewModule;
+        if (titleViewModule.bgColor == Integer.MAX_VALUE) {
+            titleViewModule.bgColor = -1;
+        }
+        if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
+            titleViewModule.leftBtnImgResId = a.c.sapi_sdk_btn_back;
+        }
     }
 
     public void release() {

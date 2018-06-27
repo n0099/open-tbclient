@@ -15,13 +15,13 @@ import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j extends l {
-    private static j Yk = null;
+    private static j Yn = null;
     public static long a = 0;
-    private WifiManager Yl = null;
-    private a Ym = null;
-    private i Yn = null;
+    private WifiManager Yo = null;
+    private a Yp = null;
+    private i Yq = null;
     private long f = 0;
     private long g = 0;
     private boolean h = false;
@@ -29,7 +29,7 @@ public class j extends l {
     private boolean j = true;
     private Handler k = new Handler();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class a extends BroadcastReceiver {
         private long b;
         private boolean c;
@@ -115,13 +115,13 @@ public class j extends l {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        if (this.Yl == null) {
+        if (this.Yo == null) {
             return;
         }
         try {
-            i iVar = new i(this.Yl.getScanResults(), System.currentTimeMillis());
-            if (this.Yn == null || !iVar.a(this.Yn)) {
-                this.Yn = iVar;
+            i iVar = new i(this.Yo.getScanResults(), System.currentTimeMillis());
+            if (this.Yq == null || !iVar.a(this.Yq)) {
+                this.Yq = iVar;
             }
         } catch (Exception e) {
         }
@@ -130,10 +130,10 @@ public class j extends l {
     public static synchronized j qZ() {
         j jVar;
         synchronized (j.class) {
-            if (Yk == null) {
-                Yk = new j();
+            if (Yn == null) {
+                Yn = new j();
             }
-            jVar = Yk;
+            jVar = Yn;
         }
         return jVar;
     }
@@ -141,10 +141,10 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public synchronized void b() {
         if (!this.h && com.baidu.location.f.isServing) {
-            this.Yl = (WifiManager) com.baidu.location.f.getServiceContext().getSystemService("wifi");
-            this.Ym = new a();
+            this.Yo = (WifiManager) com.baidu.location.f.getServiceContext().getSystemService("wifi");
+            this.Yp = new a();
             try {
-                com.baidu.location.f.getServiceContext().registerReceiver(this.Ym, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
+                com.baidu.location.f.getServiceContext().registerReceiver(this.Yp, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
             } catch (Exception e) {
             }
             this.h = true;
@@ -152,7 +152,7 @@ public class j extends l {
                 Field declaredField = Class.forName("android.net.wifi.WifiManager").getDeclaredField("mService");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.i = declaredField.get(this.Yl);
+                    this.i = declaredField.get(this.Yo);
                     this.i.getClass();
                 }
             } catch (Exception e2) {
@@ -164,12 +164,12 @@ public class j extends l {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Ym);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Yp);
                 a = 0L;
             } catch (Exception e) {
             }
-            this.Ym = null;
-            this.Yl = null;
+            this.Yp = null;
+            this.Yo = null;
             this.h = false;
         }
     }
@@ -186,7 +186,7 @@ public class j extends l {
 
     @Override // com.baidu.location.f.l
     public boolean e() {
-        if (this.Yl == null) {
+        if (this.Yo == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -202,8 +202,8 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public boolean f() {
         try {
-            if (this.Yl.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.Yl.isScanAlwaysAvailable())) {
-                this.Yl.startScan();
+            if (this.Yo.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.Yo.isScanAlwaysAvailable())) {
+                this.Yo.startScan();
                 this.f = System.currentTimeMillis();
                 return true;
             }
@@ -233,7 +233,7 @@ public class j extends l {
     @Override // com.baidu.location.f.l
     public String l() {
         try {
-            WifiInfo connectionInfo = this.Yl.getConnectionInfo();
+            WifiInfo connectionInfo = this.Yo.getConnectionInfo();
             if (connectionInfo != null) {
                 return connectionInfo.getMacAddress();
             }
@@ -245,11 +245,11 @@ public class j extends l {
 
     @Override // com.baidu.location.f.l
     public WifiInfo ra() {
-        if (this.Yl == null) {
+        if (this.Yo == null) {
             return null;
         }
         try {
-            WifiInfo connectionInfo = this.Yl.getConnectionInfo();
+            WifiInfo connectionInfo = this.Yo.getConnectionInfo();
             if (connectionInfo == null || connectionInfo.getBSSID() == null) {
                 return null;
             }
@@ -271,19 +271,19 @@ public class j extends l {
 
     @Override // com.baidu.location.f.l
     public i rb() {
-        return (this.Yn == null || !this.Yn.f()) ? rd() : this.Yn;
+        return (this.Yq == null || !this.Yq.f()) ? rd() : this.Yq;
     }
 
     @Override // com.baidu.location.f.l
     public i rc() {
-        return (this.Yn == null || !this.Yn.g()) ? rd() : this.Yn;
+        return (this.Yq == null || !this.Yq.g()) ? rd() : this.Yq;
     }
 
     @Override // com.baidu.location.f.l
     public i rd() {
-        if (this.Yl != null) {
+        if (this.Yo != null) {
             try {
-                return new i(this.Yl.getScanResults(), this.f);
+                return new i(this.Yo.getScanResults(), this.f);
             } catch (Exception e) {
             }
         }

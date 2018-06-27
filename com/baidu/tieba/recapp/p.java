@@ -24,7 +24,7 @@ public class p implements com.baidu.b.a.b.b {
             headImageView.setDrawerType(1);
             headImageView.setDefaultResource(d.f.icon_default_avatar100);
             headImageView.setDefaultErrorResource(d.f.icon_default_avatar100);
-            headImageView.setDefaultBgResource(d.C0141d.cp_bg_line_e);
+            headImageView.setDefaultBgResource(d.C0142d.cp_bg_line_e);
             return headImageView;
         } else if ("time".equalsIgnoreCase(str)) {
             TextView textView = new TextView(context);
@@ -44,7 +44,7 @@ public class p implements com.baidu.b.a.b.b {
                 linearLayout.setOrientation(1);
                 AdThreadCommentAndPraiseInfoLayout adThreadCommentAndPraiseInfoLayout = new AdThreadCommentAndPraiseInfoLayout(context);
                 adThreadCommentAndPraiseInfoLayout.setStyle(1);
-                adThreadCommentAndPraiseInfoLayout.setGravity(16);
+                adThreadCommentAndPraiseInfoLayout.getRootView().setGravity(16);
                 linearLayout.addView(adThreadCommentAndPraiseInfoLayout);
                 ViewGroup.LayoutParams layoutParams = adThreadCommentAndPraiseInfoLayout.getLayoutParams();
                 if (layoutParams != null) {
@@ -52,7 +52,7 @@ public class p implements com.baidu.b.a.b.b {
                     layoutParams.height = -1;
                     adThreadCommentAndPraiseInfoLayout.setLayoutParams(layoutParams);
                 }
-                adThreadCommentAndPraiseInfoLayout.setGravity(16);
+                adThreadCommentAndPraiseInfoLayout.getRootView().setGravity(16);
                 return linearLayout;
             }
             ImageView imageView = new ImageView(context);
@@ -67,8 +67,8 @@ public class p implements com.baidu.b.a.b.b {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.TC > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.TC * view.getResources().getDisplayMetrics().density));
+            if (aVar.TF > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.TF * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -78,11 +78,11 @@ public class p implements com.baidu.b.a.b.b {
         if ("time".equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.TD);
+                textView.setTextColor(aVar.TG);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.TF * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.TH * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);

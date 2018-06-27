@@ -12,6 +12,8 @@ public class c {
     public String Bg;
     public String Bh;
     public String Bi;
+    public String Bj;
+    public String Bk;
     public String mAppVersion;
     public String mChannel;
     public String mCuid;

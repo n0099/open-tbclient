@@ -17,7 +17,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Z */
+    /* renamed from: X */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.l> onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.personPolymeric.view.l(this.mPageContext));
     }
@@ -27,14 +27,14 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.o oVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.l> aVar) {
-        if (oVar == null || aVar == null || aVar.ajG() == null) {
+        if (oVar == null || aVar == null || aVar.aja() == null) {
             return null;
         }
-        aVar.ajG().a(oVar);
-        if (aVar.ajG().getView() != null) {
-            aVar.ajG().getView().setOnClickListener(this.mOnClickListener);
+        aVar.aja().a(oVar);
+        if (aVar.aja().getView() != null) {
+            aVar.aja().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.ajG().getView();
+        return aVar.aja().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

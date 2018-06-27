@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.c;
 
 import android.text.TextUtils;
-import com.sina.weibo.sdk.component.WidgetRequestParam;
 import com.tencent.tauth.AuthActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class c {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     String optString = jSONObject2.optString(AuthActivity.ACTION_KEY);
                     if (TextUtils.isEmpty(optString)) {
-                        String optString2 = jSONObject2.optString(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY);
+                        String optString2 = jSONObject2.optString("category");
                         if (TextUtils.isEmpty(optString2)) {
                             String optString3 = jSONObject2.optString("data");
                             if (!TextUtils.isEmpty(optString3)) {

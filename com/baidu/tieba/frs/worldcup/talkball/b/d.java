@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.worldcup.talkball.b;
 
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import tbclient.TalkBall.Country;
 /* loaded from: classes2.dex */
 public class d {
@@ -14,8 +14,8 @@ public class d {
         }
     }
 
-    public boolean aAm() {
-        return (ao.isEmpty(this.mIcon) || ao.isEmpty(this.mName)) ? false : true;
+    public boolean aAT() {
+        return (ap.isEmpty(this.mIcon) || ap.isEmpty(this.mName)) ? false : true;
     }
 
     public String getIcon() {

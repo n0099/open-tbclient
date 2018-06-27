@@ -1,30 +1,53 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes.dex */
-public class g implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dhn = BdUniqueId.gen();
-    private int height = 0;
-    private int dho = 0;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+/* loaded from: classes2.dex */
+public class g {
+    private static UserData mUserData;
 
-    @Override // com.baidu.adp.widget.ListView.h
-    public BdUniqueId getType() {
-        return dhn;
+    public static UserData atv() {
+        return mUserData;
     }
 
-    public int getHeight() {
-        return this.height;
+    private static UserData a(com.baidu.tieba.tbadkCore.l lVar) {
+        mUserData = lVar != null ? lVar.getUserData() : null;
+        return mUserData;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.l lVar) {
+        if (threadCommentAndPraiseInfoLayout != null) {
+            if (lVar != null && lVar.gLI != 303 && b(a(lVar))) {
+                threadCommentAndPraiseInfoLayout.setManageVisible(true);
+            } else {
+                threadCommentAndPraiseInfoLayout.setManageVisible(false);
+            }
+        }
     }
 
-    public int ath() {
-        return this.dho;
+    public static boolean b(UserData userData) {
+        if (userData == null) {
+            return false;
+        }
+        switch (userData.getIs_manager()) {
+            case 1:
+            case 2:
+                return true;
+            default:
+                return false;
+        }
     }
 
-    public void kb(int i) {
-        this.dho = i;
+    public static boolean atw() {
+        UserData atv = atv();
+        if (atv == null) {
+            return false;
+        }
+        switch (atv.getIs_manager()) {
+            case 1:
+                return true;
+            default:
+                return false;
+        }
     }
 }

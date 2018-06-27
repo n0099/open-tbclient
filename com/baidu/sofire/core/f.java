@@ -30,7 +30,7 @@ public final class f {
                     return false;
                 }
             } catch (Throwable th) {
-                com.baidu.sofire.b.d.a(th);
+                com.baidu.sofire.b.e.a(th);
                 return false;
             }
         }

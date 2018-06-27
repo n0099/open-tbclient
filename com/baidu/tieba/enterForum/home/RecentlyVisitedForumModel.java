@@ -11,7 +11,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.util.v;
 import com.baidu.tbadk.util.w;
@@ -21,11 +21,11 @@ import java.util.LinkedList;
 public class RecentlyVisitedForumModel extends BdBaseModel {
     public static final String CACHE_KEY = "recently_visited_forum";
     public static final String LOCAL_ACCOUNT = "local";
-    private boolean aPM;
-    a cSv;
-    private boolean cSw = false;
+    private boolean aQI;
+    a cQt;
+    private boolean cQu = false;
     private boolean isLoading = false;
-    CustomMessageListener cSx = new CustomMessageListener(2016564) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.1
+    CustomMessageListener cQv = new CustomMessageListener(2016564) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,16 +34,16 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
             }
         }
     };
-    CustomMessageListener bkM = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.2
+    CustomMessageListener bml = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                RecentlyVisitedForumModel.this.aoZ();
+                RecentlyVisitedForumModel.this.aou();
             }
         }
     };
-    com.baidu.adp.framework.listener.a cSy = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.3
+    com.baidu.adp.framework.listener.a cQw = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_HISTORY_FORUM, 309601) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.3
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             RecentlyVisitedForumModel.this.isLoading = false;
@@ -56,77 +56,77 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
             }
         }
     };
-    RecentlyVisitedForumData cSu = new RecentlyVisitedForumData();
+    RecentlyVisitedForumData cQs = new RecentlyVisitedForumData();
 
     /* loaded from: classes2.dex */
     public interface a {
-        void apb();
+        void aow();
 
         void b(LinkedList<VisitedForumData> linkedList, boolean z);
 
-        void jz(int i);
+        void jx(int i);
     }
 
     public RecentlyVisitedForumModel() {
         registerTask();
         registerListener();
-        aoZ();
+        aou();
     }
 
     public void a(a aVar) {
-        this.cSv = aVar;
+        this.cQt = aVar;
     }
 
     public void a(LinkedList<VisitedForumData> linkedList, boolean z) {
         if (linkedList != null) {
-            this.cSu.setForumData(linkedList);
-            this.aPM = z;
-            if (this.cSv != null) {
-                this.cSv.b(this.cSu.getForumData(), z);
+            this.cQs.setForumData(linkedList);
+            this.aQI = z;
+            if (this.cQt != null) {
+                this.cQt.b(this.cQs.getForumData(), z);
             }
         }
     }
 
     public void refresh() {
-        if (this.cSv != null) {
-            this.cSv.b(this.cSu.getForumData(), this.aPM);
+        if (this.cQt != null) {
+            this.cQt.b(this.cQs.getForumData(), this.aQI);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(VisitedForumData visitedForumData) {
         if (visitedForumData != null) {
-            this.cSu.a(visitedForumData);
+            this.cQs.a(visitedForumData);
         }
     }
 
     public void d(VisitedForumData visitedForumData) {
         int b;
-        if (visitedForumData != null && (b = this.cSu.b(visitedForumData)) >= 0) {
-            if (this.cSv != null) {
-                this.cSv.jz(b);
+        if (visitedForumData != null && (b = this.cQs.b(visitedForumData)) >= 0) {
+            if (this.cQt != null) {
+                this.cQt.jx(b);
             }
             e(visitedForumData);
         }
     }
 
     public void onPrimary() {
-        if (this.cSv != null) {
-            this.cSv.apb();
+        if (this.cQt != null) {
+            this.cQt.aow();
         }
         LoadData();
     }
 
     public void onPause() {
-        if (!this.cSw) {
-            apa();
+        if (!this.cQu) {
+            aov();
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cSy);
-        MessageManager.getInstance().unRegisterListener(this.cSx);
-        MessageManager.getInstance().unRegisterListener(this.bkM);
+        MessageManager.getInstance().unRegisterListener(this.cQw);
+        MessageManager.getInstance().unRegisterListener(this.cQv);
+        MessageManager.getInstance().unRegisterListener(this.bml);
     }
 
     private void e(VisitedForumData visitedForumData) {
@@ -149,7 +149,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         }
         this.isLoading = true;
         RecentlyVisitedForumRequestMessage recentlyVisitedForumRequestMessage = new RecentlyVisitedForumRequestMessage();
-        recentlyVisitedForumRequestMessage.setForumData(this.cSu.getForumData());
+        recentlyVisitedForumRequestMessage.setForumData(this.cQs.getForumData());
         sendMessage(recentlyVisitedForumRequestMessage);
         return true;
     }
@@ -169,9 +169,9 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.cSy);
-        MessageManager.getInstance().registerListener(this.cSx);
-        MessageManager.getInstance().registerListener(this.bkM);
+        MessageManager.getInstance().registerListener(this.cQw);
+        MessageManager.getInstance().registerListener(this.cQv);
+        MessageManager.getInstance().registerListener(this.bml);
     }
 
     private void registerTask() {
@@ -181,25 +181,25 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoZ() {
-        this.cSw = true;
+    public void aou() {
+        this.cQu = true;
         BdAsyncTask<Void, Void, RecentlyVisitedForumData> bdAsyncTask = new BdAsyncTask<Void, Void, RecentlyVisitedForumData>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.4
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: e */
+            /* renamed from: f */
             public RecentlyVisitedForumData doInBackground(Void... voidArr) {
                 RecentlyVisitedForumData recentlyVisitedForumData = null;
-                l<String> R = com.baidu.tbadk.core.c.a.wW().R("tb.recently_visited_forum", RecentlyVisitedForumModel.LOCAL_ACCOUNT);
-                if (R != null && !ao.isEmpty(R.get(RecentlyVisitedForumModel.CACHE_KEY))) {
+                l<String> R = com.baidu.tbadk.core.c.a.xj().R("tb.recently_visited_forum", RecentlyVisitedForumModel.LOCAL_ACCOUNT);
+                if (R != null && !ap.isEmpty(R.get(RecentlyVisitedForumModel.CACHE_KEY))) {
                     recentlyVisitedForumData = (RecentlyVisitedForumData) OrmObject.objectWithJsonStr(R.get(RecentlyVisitedForumModel.CACHE_KEY), RecentlyVisitedForumData.class);
                 }
                 if (TbadkCoreApplication.getCurrentAccount() != null) {
                     if (R != null) {
                         R.e(RecentlyVisitedForumModel.CACHE_KEY, "");
                     }
-                    l<String> R2 = com.baidu.tbadk.core.c.a.wW().R("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount());
-                    if (R2 != null && !ao.isEmpty(R2.get(RecentlyVisitedForumModel.CACHE_KEY))) {
+                    l<String> R2 = com.baidu.tbadk.core.c.a.xj().R("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount());
+                    if (R2 != null && !ap.isEmpty(R2.get(RecentlyVisitedForumModel.CACHE_KEY))) {
                         RecentlyVisitedForumData recentlyVisitedForumData2 = (RecentlyVisitedForumData) OrmObject.objectWithJsonStr(R2.get(RecentlyVisitedForumModel.CACHE_KEY), RecentlyVisitedForumData.class);
                         if (recentlyVisitedForumData != null) {
                             recentlyVisitedForumData.a(recentlyVisitedForumData2);
@@ -218,7 +218,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             /* renamed from: b */
             public void onPostExecute(RecentlyVisitedForumData recentlyVisitedForumData) {
-                RecentlyVisitedForumModel.this.cSw = false;
+                RecentlyVisitedForumModel.this.cQu = false;
                 if (recentlyVisitedForumData != null) {
                     RecentlyVisitedForumModel.this.a(recentlyVisitedForumData.getForumData(), true);
                 }
@@ -228,13 +228,13 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private void apa() {
+    private void aov() {
         w.a(new v<Object>() { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.5
             @Override // com.baidu.tbadk.util.v
             public Object doInBackground() {
-                l<String> R = com.baidu.tbadk.core.c.a.wW().R("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? RecentlyVisitedForumModel.LOCAL_ACCOUNT : TbadkCoreApplication.getCurrentAccount());
-                if (R != null && RecentlyVisitedForumModel.this.cSu != null) {
-                    R.e(RecentlyVisitedForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(RecentlyVisitedForumModel.this.cSu));
+                l<String> R = com.baidu.tbadk.core.c.a.xj().R("tb.recently_visited_forum", TbadkCoreApplication.getCurrentAccount() == null ? RecentlyVisitedForumModel.LOCAL_ACCOUNT : TbadkCoreApplication.getCurrentAccount());
+                if (R != null && RecentlyVisitedForumModel.this.cQs != null) {
+                    R.e(RecentlyVisitedForumModel.CACHE_KEY, OrmObject.jsonStrWithObject(RecentlyVisitedForumModel.this.cQs));
                 }
                 return null;
             }

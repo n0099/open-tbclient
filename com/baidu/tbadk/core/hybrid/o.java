@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 public @interface o {
     String value() default "";
 
-    boolean xI() default false;
+    boolean xV() default false;
 }

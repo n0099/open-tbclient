@@ -10,21 +10,21 @@ import android.widget.LinearLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.UserCollectManageActivityConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private EditorTools Qh;
-    private EmotionTabHorizonScrollView cQJ;
-    private ImageView cQK;
-    private ImageView cQL;
-    private View cQM;
+    private EditorTools Qj;
+    private EmotionTabHorizonScrollView cOE;
+    private ImageView cOF;
+    private ImageView cOG;
+    private View cOH;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eX(int i);
+        void eY(int i);
     }
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -40,81 +40,81 @@ public class EmotionTabWidgetView extends LinearLayout {
     private void init(Context context) {
         removeAllViews();
         LayoutInflater.from(context).inflate(d.i.emotion_tab_widget, (ViewGroup) this, true);
-        this.cQJ = (EmotionTabHorizonScrollView) findViewById(d.g.face_tab_scroll_view);
-        this.cQK = (ImageView) findViewById(d.g.face_tab_delete);
-        this.cQL = (ImageView) findViewById(d.g.face_tab_setting);
-        this.cQM = findViewById(d.g.vertical_div_line);
-        this.cQK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.1
+        this.cOE = (EmotionTabHorizonScrollView) findViewById(d.g.face_tab_scroll_view);
+        this.cOF = (ImageView) findViewById(d.g.face_tab_delete);
+        this.cOG = (ImageView) findViewById(d.g.face_tab_setting);
+        this.cOH = findViewById(d.g.vertical_div_line);
+        this.cOF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (EmotionTabWidgetView.this.Qh != null) {
-                    EmotionTabWidgetView.this.Qh.b(new com.baidu.tbadk.editortools.a(3, -1, null));
+                if (EmotionTabWidgetView.this.Qj != null) {
+                    EmotionTabWidgetView.this.Qj.b(new com.baidu.tbadk.editortools.a(3, -1, null));
                 }
             }
         });
-        this.cQL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.2
+        this.cOG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UserCollectManageActivityConfig(EmotionTabWidgetView.this.getContext())));
             }
         });
-        this.cQL.setVisibility(8);
+        this.cOG.setVisibility(8);
     }
 
     public void setFrom(int i) {
-        if (this.cQJ != null) {
-            this.cQJ.setFrom(i);
+        if (this.cOE != null) {
+            this.cOE.setFrom(i);
         }
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList) {
-        this.cQJ.setDatas(arrayList);
+        this.cOE.setDatas(arrayList);
     }
 
     public void c(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cQJ.c(cVar);
+        this.cOE.c(cVar);
     }
 
     public void setCurrentTab(int i) {
-        this.cQJ.setCurrentTab(i);
+        this.cOE.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.cQJ.setOnTabSelectedListener(aVar);
+        this.cOE.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.cQJ.reset();
+        this.cOE.reset();
     }
 
     public void onChangeSkinType(int i) {
-        al.e(this, d.C0141d.common_color_10255, i);
-        this.cQJ.dC(i);
-        al.b(this.cQK, d.f.emotion_delete, i);
-        al.e(this.cQK, d.C0141d.common_color_10255, i);
-        al.b(this.cQL, d.f.icon_sett_s, i);
-        al.e(this.cQL, d.C0141d.common_color_10255, i);
-        al.e(this.cQM, d.C0141d.common_color_10288, i);
+        am.e(this, d.C0142d.common_color_10255, i);
+        this.cOE.dD(i);
+        am.b(this.cOF, d.f.emotion_delete, i);
+        am.e(this.cOF, d.C0142d.common_color_10255, i);
+        am.b(this.cOG, d.f.icon_sett_s, i);
+        am.e(this.cOG, d.C0142d.common_color_10255, i);
+        am.e(this.cOH, d.C0142d.common_color_10288, i);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.cQK.setVisibility(0);
+            this.cOF.setVisibility(0);
         } else {
-            this.cQK.setVisibility(8);
+            this.cOF.setVisibility(8);
         }
     }
 
     public void setTabWidgetVisibility(int i, boolean z) {
-        this.cQJ.setTabWidgetVisibility(i, z);
+        this.cOE.setTabWidgetVisibility(i, z);
     }
 
     public void setTabWidgetBigEmontionVisibility(boolean z) {
-        this.cQJ.setTabWidgetBigEmontionVisibility(z);
+        this.cOE.setTabWidgetBigEmontionVisibility(z);
     }
 
     public void setOnDataSelected(EditorTools editorTools) {
-        this.Qh = editorTools;
-        this.cQJ.setEditorTools(this.Qh);
+        this.Qj = editorTools;
+        this.cOE.setEditorTools(this.Qj);
     }
 }

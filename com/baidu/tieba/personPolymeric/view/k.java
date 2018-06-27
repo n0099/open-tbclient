@@ -22,26 +22,26 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class k implements View.OnClickListener {
-    private View cUb;
-    private FrameLayout fYb;
-    private TbImageView fYc;
-    private TbImageView fYd;
-    private TextView fYe;
-    private LinearLayout fYf;
-    private TextView fYg;
-    private TextView fYh;
-    private LinearLayout fYi;
-    private LinearLayout fYj;
-    private LinearLayout fYk;
-    private ImageView fYl;
+    private View cSc;
+    private FrameLayout gcb;
+    private TbImageView gcc;
+    private TbImageView gcd;
+    private TextView gce;
+    private LinearLayout gcf;
+    private TextView gcg;
+    private TextView gch;
+    private LinearLayout gci;
+    private LinearLayout gcj;
+    private LinearLayout gck;
+    private ImageView gcl;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -49,50 +49,50 @@ public class k implements View.OnClickListener {
 
     public k(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        Y(aga());
+        W(agG());
     }
 
-    private void Y(View view) {
-        this.fYb = (FrameLayout) view.findViewById(d.g.ala_entrance_root);
-        this.fYc = (TbImageView) view.findViewById(d.g.entrance_background);
-        this.fYc.setAutoChangeStyle(false);
-        this.fYc.setDrawerType(1);
-        this.fYc.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
-        this.fYd = (TbImageView) view.findViewById(d.g.live_level_img);
-        this.fYd.setAutoChangeStyle(false);
-        this.fYd.setDrawerType(1);
-        this.fYd.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
-        this.fYe = (TextView) view.findViewById(d.g.live_level_text);
-        this.fYf = (LinearLayout) view.findViewById(d.g.replay_root);
-        this.fYh = (TextView) this.fYf.findViewById(d.g.tv_replay_more);
-        this.fYl = (ImageView) this.fYf.findViewById(d.g.replay_more_arrow);
-        this.fYg = (TextView) this.fYf.findViewById(d.g.tv_replay_tile);
-        this.fYi = (LinearLayout) this.fYf.findViewById(d.g.replay_item_one);
-        this.fYj = (LinearLayout) this.fYf.findViewById(d.g.replay_item_two);
-        this.fYk = (LinearLayout) this.fYf.findViewById(d.g.replay_item_three);
-        f(this.fYi);
-        f(this.fYj);
-        f(this.fYk);
-        this.fYb.setOnClickListener(this);
-        this.fYi.setOnClickListener(this);
-        this.fYj.setOnClickListener(this);
-        this.fYk.setOnClickListener(this);
-        this.fYh.setOnClickListener(this);
-        this.cUb = view.findViewById(d.g.divider_view);
+    private void W(View view) {
+        this.gcb = (FrameLayout) view.findViewById(d.g.ala_entrance_root);
+        this.gcc = (TbImageView) view.findViewById(d.g.entrance_background);
+        this.gcc.setAutoChangeStyle(false);
+        this.gcc.setDrawerType(1);
+        this.gcc.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
+        this.gcd = (TbImageView) view.findViewById(d.g.live_level_img);
+        this.gcd.setAutoChangeStyle(false);
+        this.gcd.setDrawerType(1);
+        this.gcd.setRadius(com.baidu.adp.lib.util.l.e(this.mPageContext.getPageActivity(), d.e.ds10));
+        this.gce = (TextView) view.findViewById(d.g.live_level_text);
+        this.gcf = (LinearLayout) view.findViewById(d.g.replay_root);
+        this.gch = (TextView) this.gcf.findViewById(d.g.tv_replay_more);
+        this.gcl = (ImageView) this.gcf.findViewById(d.g.replay_more_arrow);
+        this.gcg = (TextView) this.gcf.findViewById(d.g.tv_replay_tile);
+        this.gci = (LinearLayout) this.gcf.findViewById(d.g.replay_item_one);
+        this.gcj = (LinearLayout) this.gcf.findViewById(d.g.replay_item_two);
+        this.gck = (LinearLayout) this.gcf.findViewById(d.g.replay_item_three);
+        f(this.gci);
+        f(this.gcj);
+        f(this.gck);
+        this.gcb.setOnClickListener(this);
+        this.gci.setOnClickListener(this);
+        this.gcj.setOnClickListener(this);
+        this.gck.setOnClickListener(this);
+        this.gch.setOnClickListener(this);
+        this.cSc = view.findViewById(d.g.divider_view);
     }
 
     public void onChangeSkinType(int i) {
-        al.j(this.mRootView, d.C0141d.cp_bg_line_d);
-        al.h(this.fYg, d.C0141d.cp_cont_b);
-        al.h(this.fYh, d.C0141d.cp_cont_d);
-        al.j(this.cUb, d.C0141d.cp_bg_line_e);
-        al.c(this.fYl, d.f.icon_mine_list_arrow);
-        g(this.fYi);
-        g(this.fYj);
-        g(this.fYk);
+        am.j(this.mRootView, d.C0142d.cp_bg_line_d);
+        am.h(this.gcg, d.C0142d.cp_cont_b);
+        am.h(this.gch, d.C0142d.cp_cont_d);
+        am.j(this.cSc, d.C0142d.cp_bg_line_e);
+        am.c(this.gcl, d.f.icon_mine_list_arrow);
+        g(this.gci);
+        g(this.gcj);
+        g(this.gck);
     }
 
-    public View aga() {
+    public View agG() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.i.item_person_center_ala_live, (ViewGroup) null);
         }
@@ -103,62 +103,62 @@ public class k implements View.OnClickListener {
         this.mIsHost = z;
         this.mUserData = userData;
         a(alaLiveInfoCoreData, z, userData);
-        dg(list);
+        dk(list);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, boolean z, UserData userData) {
         if (z || alaLiveInfoCoreData == null || alaLiveInfoCoreData.liveStatus != 1 || userData == null || userData.alaUserData == null || StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.fYb.setVisibility(8);
+            this.gcb.setVisibility(8);
             return;
         }
-        this.fYb.setVisibility(0);
-        this.fYb.setTag(alaLiveInfoCoreData);
+        this.gcb.setVisibility(0);
+        this.gcb.setTag(alaLiveInfoCoreData);
         if (!StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.fYc.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
+            this.gcc.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
         }
         int i = userData.alaUserData.level_id;
         if (i <= 10) {
-            this.fYd.setBackgroundResource(d.f.shape_ala_grade_1_green);
+            this.gcd.setBackgroundResource(d.f.shape_ala_grade_1_green);
         } else if (i <= 20) {
-            this.fYd.setBackgroundResource(d.f.shape_ala_grade_2_blue);
+            this.gcd.setBackgroundResource(d.f.shape_ala_grade_2_blue);
         } else if (i <= 30) {
-            this.fYd.setBackgroundResource(d.f.shape_ala_grade_3_yellow);
+            this.gcd.setBackgroundResource(d.f.shape_ala_grade_3_yellow);
         } else if (i <= 40) {
-            this.fYd.setBackgroundResource(d.f.shape_ala_grade_4_orange);
+            this.gcd.setBackgroundResource(d.f.shape_ala_grade_4_orange);
         } else {
-            this.fYd.setBackgroundResource(d.f.shape_ala_grade_5_purple);
+            this.gcd.setBackgroundResource(d.f.shape_ala_grade_5_purple);
         }
-        this.fYe.setText(sf(String.valueOf(i)));
+        this.gce.setText(se(String.valueOf(i)));
     }
 
-    private void dg(List<AlaLiveInfoCoreData> list) {
-        if (w.z(list)) {
-            this.fYf.setVisibility(8);
+    private void dk(List<AlaLiveInfoCoreData> list) {
+        if (w.A(list)) {
+            this.gcf.setVisibility(8);
             return;
         }
-        this.fYf.setVisibility(0);
-        this.fYj.setVisibility(0);
-        this.fYk.setVisibility(0);
-        this.fYi.setVisibility(0);
+        this.gcf.setVisibility(0);
+        this.gcj.setVisibility(0);
+        this.gck.setVisibility(0);
+        this.gci.setVisibility(0);
         int size = list.size();
         if (size >= 4) {
-            this.fYh.setVisibility(0);
-            this.fYl.setVisibility(0);
+            this.gch.setVisibility(0);
+            this.gcl.setVisibility(0);
         } else {
-            this.fYh.setVisibility(4);
-            this.fYl.setVisibility(4);
+            this.gch.setVisibility(4);
+            this.gcl.setVisibility(4);
         }
-        a(list.get(0), this.fYi);
+        a(list.get(0), this.gci);
         if (size >= 3) {
-            a(list.get(1), this.fYj);
-            a(list.get(2), this.fYk);
+            a(list.get(1), this.gcj);
+            a(list.get(2), this.gck);
         } else if (size >= 2) {
-            a(list.get(1), this.fYj);
-            this.fYk.setVisibility(4);
+            a(list.get(1), this.gcj);
+            this.gck.setVisibility(4);
         } else {
-            this.fYj.setVisibility(4);
-            this.fYk.setVisibility(4);
+            this.gcj.setVisibility(4);
+            this.gck.setVisibility(4);
         }
     }
 
@@ -175,7 +175,7 @@ public class k implements View.OnClickListener {
         tbImageView.setAutoChangeStyle(true);
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(d.f.pic_bg_video_frs);
-        al.h((TextView) linearLayout.findViewById(d.g.replay_item_title), d.C0141d.cp_cont_b);
+        am.h((TextView) linearLayout.findViewById(d.g.replay_item_title), d.C0142d.cp_cont_b);
     }
 
     private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, LinearLayout linearLayout) {
@@ -198,11 +198,11 @@ public class k implements View.OnClickListener {
         }
     }
 
-    private SpannableStringBuilder sf(String str) {
+    private SpannableStringBuilder se(String str) {
         String string = this.mPageContext.getResources().getString(d.k.ala_live_entrance_level_text_pre);
         String str2 = string + String.format(this.mPageContext.getResources().getString(d.k.ala_live_entrance_level_text_content), str);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str2);
-        int color = this.mPageContext.getResources().getColor(d.C0141d.cp_cont_g);
+        int color = this.mPageContext.getResources().getColor(d.C0142d.cp_cont_g);
         int parseColor = Color.parseColor("#FFD026");
         spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, string.length(), 17);
         spannableStringBuilder.setSpan(new ForegroundColorSpan(parseColor), string.length(), string.length() + str.length(), 17);
@@ -212,33 +212,33 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fYb) {
-            if (this.fYb.getTag() != null && (this.fYb.getTag() instanceof AlaLiveInfoCoreData)) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.fYb.getTag();
+        if (view == this.gcb) {
+            if (this.gcb.getTag() != null && (this.gcb.getTag() instanceof AlaLiveInfoCoreData)) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.gcb.getTag();
                 if (alaLiveInfoCoreData.liveID > 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921315, Long.valueOf(alaLiveInfoCoreData.liveID)));
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, TbadkCoreApplication.getCurrentAccount(), this.mIsHost, "")));
-                TiebaStatic.log(new am("c12544"));
+                TiebaStatic.log(new an("c12544"));
             }
-        } else if (view == this.fYi) {
-            br(this.fYi);
-        } else if (view == this.fYj) {
-            br(this.fYj);
-        } else if (view == this.fYk) {
-            br(this.fYk);
-        } else if (view == this.fYh) {
-            bkH();
+        } else if (view == this.gci) {
+            bs(this.gci);
+        } else if (view == this.gcj) {
+            bs(this.gcj);
+        } else if (view == this.gck) {
+            bs(this.gck);
+        } else if (view == this.gch) {
+            blm();
         }
     }
 
-    private void br(View view) {
+    private void bs(View view) {
         if (view.getTag() != null && (view.getTag() instanceof AlaLiveInfoCoreData)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(String.valueOf(((AlaLiveInfoCoreData) view.getTag()).threadId), null, "person_page")));
         }
     }
 
-    private void bkH() {
+    private void blm() {
         if (this.mUserData != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount()))));
         }

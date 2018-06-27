@@ -14,17 +14,17 @@ import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class m {
-    private static final double[] XR = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d Xp;
+    private static final double[] XU = {45.0d, 135.0d, 225.0d, 315.0d};
+    private final d Xs;
     private final int c;
     private final SQLiteDatabase d;
     private int e = -1;
     private int f = -1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         private double a;
         private double b;
@@ -38,7 +38,7 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static abstract class b {
         public static final b a = new n("AREA", 0, "RGCAREA", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, "addrv", 0, 1000);
         public static final b b = new o("ROAD", 1, "RGCROAD", "road", "addrv", 1000, 10000);
@@ -68,10 +68,10 @@ public final class m {
                 int i2 = 0;
                 while (true) {
                     int i3 = i2;
-                    if (i3 >= m.XR.length) {
+                    if (i3 >= m.XU.length) {
                         break;
                     }
-                    double[] b2 = m.b(d3, d2, d4, m.XR[i3]);
+                    double[] b2 = m.b(d3, d2, d4, m.XU[i3]);
                     hashSet.add(m.b(i, b2[1], b2[0]));
                     i2 = i3 + 1;
                 }
@@ -122,7 +122,7 @@ public final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.Xp = dVar;
+        this.Xs = dVar;
         this.d = sQLiteDatabase;
         this.c = i;
         if (this.d == null || !this.d.isOpen()) {
@@ -284,7 +284,7 @@ public final class m {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.Xp.qH().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
+        if (this.Xs.qH().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
             try {
                 cursor = this.d.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
             } catch (Exception e) {
@@ -362,8 +362,8 @@ public final class m {
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Xp.qH().p())), null);
-                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Xp.qH().q())), null);
+                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Xs.qH().p())), null);
+                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.Xs.qH().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {

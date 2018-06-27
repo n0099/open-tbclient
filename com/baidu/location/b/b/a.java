@@ -1,7 +1,7 @@
 package com.baidu.location.b.b;
 
 import android.content.Context;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
     private static final String a = a.class.getSimpleName();
 

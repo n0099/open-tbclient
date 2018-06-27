@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogFileUtil {
     public static final String ANALYTICS_FILE_NAME = "app_logs";
     private static final String ANALYTICS_FILE_SUFFIX = ".txt";
@@ -26,9 +26,9 @@ public class LogFileUtil {
     public static String getAppLogPath(String str) {
         String str2 = "";
         if (LogReport.getPackageName() != null) {
-            str2 = String.valueOf(MD5.hexdigest(LogReport.getPackageName())) + "/";
+            str2 = MD5.hexdigest(LogReport.getPackageName()) + "/";
         }
-        return String.valueOf(getSDPath()) + SDCARD_WEIBO_ANALYTICS_DIR + str2 + str + ANALYTICS_FILE_SUFFIX;
+        return getSDPath() + SDCARD_WEIBO_ANALYTICS_DIR + str2 + str + ANALYTICS_FILE_SUFFIX;
     }
 
     private static String getSDPath() {
@@ -39,7 +39,7 @@ public class LogFileUtil {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [84=4, 86=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [84=5, 86=4] */
     /* JADX WARN: Type inference failed for: r1v2, types: [int] */
     private static String readStringFromFile(String str) {
         BufferedReader bufferedReader;
@@ -116,6 +116,7 @@ public class LogFileUtil {
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
     public static synchronized void writeToFile(String str, String str2, boolean z) {
         FileWriter fileWriter;
         Throwable th;
@@ -143,40 +144,40 @@ public class LogFileUtil {
                             z = false;
                         }
                         fileWriter = new FileWriter(file, z);
-                        try {
-                            fileWriter.write(sb.toString());
-                            fileWriter.flush();
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        } catch (IOException e2) {
-                            fileWriter2 = fileWriter;
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (IOException e4) {
-                                    e4.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    } catch (IOException e5) {
-                    } catch (Throwable th3) {
+                    } catch (IOException e) {
+                    } catch (Throwable th2) {
                         fileWriter = null;
+                        th = th2;
+                    }
+                    try {
+                        fileWriter.write(sb.toString());
+                        fileWriter.flush();
+                        if (fileWriter != null) {
+                            try {
+                                fileWriter.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    } catch (IOException e3) {
+                        fileWriter2 = fileWriter;
+                        if (fileWriter2 != null) {
+                            try {
+                                fileWriter2.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                    } catch (Throwable th3) {
                         th = th3;
+                        if (fileWriter != null) {
+                            try {
+                                fileWriter.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        throw th;
                     }
                 }
             }

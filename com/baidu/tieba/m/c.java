@@ -5,7 +5,7 @@ import com.baidu.tieba.VideoPlatformStatic;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface c {
-    JSONObject bmg();
+    JSONObject bmK();
 
     /* loaded from: classes2.dex */
     public static abstract class a implements c {
@@ -17,12 +17,12 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.m.c
-        public JSONObject bmg() {
+        public JSONObject bmK() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);
                 jSONObject.put(HttpConstants.TIMESTAMP, this.timestamp);
-                jSONObject.put("network_status", VideoPlatformStatic.PZ());
+                jSONObject.put("network_status", VideoPlatformStatic.Qw());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -42,7 +42,7 @@ public interface c {
         }
 
         @Override // com.baidu.tieba.m.c
-        public JSONObject bmg() {
+        public JSONObject bmK() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.state);

@@ -10,12 +10,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     public static final String TYPE = "odaf";
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_5 = null;
     private byte allBits;
     private int initVectorLength;
     private int keyIndicatorLength;
@@ -60,12 +60,12 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     }
 
     public void setInitVectorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wM(i)));
         this.initVectorLength = i;
     }
 
     public void setKeyIndicatorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.wD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.wM(i)));
         this.keyIndicatorLength = i;
     }
 

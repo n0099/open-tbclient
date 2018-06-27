@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i implements b {
     @Nullable
-    private final com.airbnb.lottie.model.a.a nG;
+    private final com.airbnb.lottie.model.a.a nF;
     @Nullable
-    private final com.airbnb.lottie.model.a.d nO;
-    private final Path.FillType nY;
+    private final com.airbnb.lottie.model.a.d nN;
+    private final Path.FillType nX;
     private final String name;
-    private final boolean oA;
+    private final boolean oz;
 
     private i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.oA = z;
-        this.nY = fillType;
-        this.nG = aVar;
-        this.nO = dVar;
+        this.oz = z;
+        this.nX = fillType;
+        this.nF = aVar;
+        this.nN = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,16 +42,16 @@ public class i implements b {
 
     @Nullable
     public com.airbnb.lottie.model.a.a dg() {
-        return this.nG;
+        return this.nF;
     }
 
     @Nullable
     public com.airbnb.lottie.model.a.d cz() {
-        return this.nO;
+        return this.nN;
     }
 
     public Path.FillType getFillType() {
-        return this.nY;
+        return this.nX;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=" + (this.nG == null ? "null" : Integer.toHexString(this.nG.cm().intValue())) + ", fillEnabled=" + this.oA + ", opacity=" + (this.nO == null ? "null" : this.nO.cm()) + '}';
+        return "ShapeFill{color=" + (this.nF == null ? "null" : Integer.toHexString(this.nF.cm().intValue())) + ", fillEnabled=" + this.oz + ", opacity=" + (this.nN == null ? "null" : this.nN.cm()) + '}';
     }
 }

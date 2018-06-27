@@ -4,18 +4,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 final class k {
-    private SQLiteDatabase hxy = f.bJR().getDatabase();
+    private SQLiteDatabase hBF = f.bKs().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
-        this.hxy.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        this.hBF.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> bJQ() {
-        Cursor rawQuery = this.hxy.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+    public final List<l> bKr() {
+        Cursor rawQuery = this.hBF.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             l lVar = new l();
@@ -33,6 +33,6 @@ final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.hxy.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        this.hBF.execSQL("delete from tb_ab_page_log where _id <= " + i);
     }
 }

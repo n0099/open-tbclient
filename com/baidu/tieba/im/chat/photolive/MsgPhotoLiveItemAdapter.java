@@ -16,7 +16,7 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bb */
+    /* renamed from: aZ */
     public e.a<MsgPhotoLiveCardVew> onCreateViewHolder(ViewGroup viewGroup) {
         MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.mPageContext);
         return new a(msgPhotoLiveCardVew.eC(), msgPhotoLiveCardVew);
@@ -28,10 +28,10 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgPhotoLiveCardVew aFN = aVar.aFN();
-        aFN.a(this.mPageContext, chatMessage, viewGroup);
-        aFN.a(this.ecQ);
-        aFN.setPosition(i);
+        MsgPhotoLiveCardVew aGv = aVar.aGv();
+        aGv.a(this.mPageContext, chatMessage, viewGroup);
+        aGv.a(this.egK);
+        aGv.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

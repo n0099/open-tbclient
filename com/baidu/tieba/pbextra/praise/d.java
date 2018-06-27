@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private boolean aLG;
-    private String fOo;
-    private int fOp;
-    private int fOq;
-    private int fOr;
-    private final List<com.baidu.tieba.pbextra.praise.a> fOs;
-    private a fOt;
-    private final HttpMessageListener fOu;
+    private boolean aMC;
+    private String fSr;
+    private int fSs;
+    private int fSt;
+    private int fSu;
+    private final List<com.baidu.tieba.pbextra.praise.a> fSv;
+    private a fSw;
+    private final HttpMessageListener fSx;
     private boolean isAuthor;
     private String mPostId;
     private String mThreadId;
@@ -32,8 +32,8 @@ public class d {
     }
 
     static /* synthetic */ int c(d dVar) {
-        int i = dVar.fOp;
-        dVar.fOp = i + 1;
+        int i = dVar.fSs;
+        dVar.fSs = i + 1;
         return i;
     }
 
@@ -41,30 +41,30 @@ public class d {
         this.isAuthor = false;
         this.mThreadId = "";
         this.mPostId = "";
-        this.fOo = "";
-        this.aLG = true;
-        this.fOp = 1;
-        this.fOq = 0;
-        this.fOr = 0;
-        this.fOs = new ArrayList(100);
-        this.fOt = null;
-        this.fOu = new HttpMessageListener(CmdConfigHttp.PRAISE_LIST_HTTP_CMD) { // from class: com.baidu.tieba.pbextra.praise.d.1
+        this.fSr = "";
+        this.aMC = true;
+        this.fSs = 1;
+        this.fSt = 0;
+        this.fSu = 0;
+        this.fSv = new ArrayList(100);
+        this.fSw = null;
+        this.fSx = new HttpMessageListener(CmdConfigHttp.PRAISE_LIST_HTTP_CMD) { // from class: com.baidu.tieba.pbextra.praise.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001400) {
-                    if (d.this.fOt != null) {
-                        d.this.fOt.onLoadFailed(null);
+                    if (d.this.fSw != null) {
+                        d.this.fSw.onLoadFailed(null);
                     }
                 } else if (httpResponsedMessage.getError() != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
-                    if (d.this.fOt != null) {
-                        d.this.fOt.onLoadFailed(null);
+                    if (d.this.fSw != null) {
+                        d.this.fSw.onLoadFailed(null);
                     }
                 } else {
                     PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
                     if (praiseListResponsedMessage.getError() != 0) {
-                        if (d.this.fOt != null) {
-                            d.this.fOt.onLoadFailed(praiseListResponsedMessage.getErrMsg());
+                        if (d.this.fSw != null) {
+                            d.this.fSw.onLoadFailed(praiseListResponsedMessage.getErrMsg());
                             return;
                         }
                         return;
@@ -72,21 +72,21 @@ public class d {
                     List<com.baidu.tieba.pbextra.praise.a> list = praiseListResponsedMessage.getmZanItemDataList();
                     if (list != null) {
                         for (com.baidu.tieba.pbextra.praise.a aVar : list) {
-                            d.this.fOs.add(aVar);
+                            d.this.fSv.add(aVar);
                         }
                     }
-                    d.this.fOr = d.this.fOs.size();
-                    d.this.fOq = praiseListResponsedMessage.getTotalNum();
+                    d.this.fSu = d.this.fSv.size();
+                    d.this.fSt = praiseListResponsedMessage.getTotalNum();
                     d.c(d.this);
                     int i = 1001;
-                    if (d.this.fOp > 5) {
+                    if (d.this.fSs > 5) {
                         i = 1003;
                     }
-                    if (d.this.fOr >= d.this.fOq) {
+                    if (d.this.fSu >= d.this.fSt) {
                         i = 1002;
                     }
-                    if (d.this.fOt != null) {
-                        d.this.fOt.a(d.this.fOq, d.this.fOs, i, d.this.fOq - d.this.fOr);
+                    if (d.this.fSw != null) {
+                        d.this.fSw.a(d.this.fSt, d.this.fSv, i, d.this.fSt - d.this.fSu);
                     }
                 }
             }
@@ -99,30 +99,30 @@ public class d {
         this.isAuthor = false;
         this.mThreadId = "";
         this.mPostId = "";
-        this.fOo = "";
-        this.aLG = true;
-        this.fOp = 1;
-        this.fOq = 0;
-        this.fOr = 0;
-        this.fOs = new ArrayList(100);
-        this.fOt = null;
-        this.fOu = new HttpMessageListener(CmdConfigHttp.PRAISE_LIST_HTTP_CMD) { // from class: com.baidu.tieba.pbextra.praise.d.1
+        this.fSr = "";
+        this.aMC = true;
+        this.fSs = 1;
+        this.fSt = 0;
+        this.fSu = 0;
+        this.fSv = new ArrayList(100);
+        this.fSw = null;
+        this.fSx = new HttpMessageListener(CmdConfigHttp.PRAISE_LIST_HTTP_CMD) { // from class: com.baidu.tieba.pbextra.praise.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001400) {
-                    if (d.this.fOt != null) {
-                        d.this.fOt.onLoadFailed(null);
+                    if (d.this.fSw != null) {
+                        d.this.fSw.onLoadFailed(null);
                     }
                 } else if (httpResponsedMessage.getError() != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
-                    if (d.this.fOt != null) {
-                        d.this.fOt.onLoadFailed(null);
+                    if (d.this.fSw != null) {
+                        d.this.fSw.onLoadFailed(null);
                     }
                 } else {
                     PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
                     if (praiseListResponsedMessage.getError() != 0) {
-                        if (d.this.fOt != null) {
-                            d.this.fOt.onLoadFailed(praiseListResponsedMessage.getErrMsg());
+                        if (d.this.fSw != null) {
+                            d.this.fSw.onLoadFailed(praiseListResponsedMessage.getErrMsg());
                             return;
                         }
                         return;
@@ -130,34 +130,34 @@ public class d {
                     List<com.baidu.tieba.pbextra.praise.a> list = praiseListResponsedMessage.getmZanItemDataList();
                     if (list != null) {
                         for (com.baidu.tieba.pbextra.praise.a aVar2 : list) {
-                            d.this.fOs.add(aVar2);
+                            d.this.fSv.add(aVar2);
                         }
                     }
-                    d.this.fOr = d.this.fOs.size();
-                    d.this.fOq = praiseListResponsedMessage.getTotalNum();
+                    d.this.fSu = d.this.fSv.size();
+                    d.this.fSt = praiseListResponsedMessage.getTotalNum();
                     d.c(d.this);
                     int i = 1001;
-                    if (d.this.fOp > 5) {
+                    if (d.this.fSs > 5) {
                         i = 1003;
                     }
-                    if (d.this.fOr >= d.this.fOq) {
+                    if (d.this.fSu >= d.this.fSt) {
                         i = 1002;
                     }
-                    if (d.this.fOt != null) {
-                        d.this.fOt.a(d.this.fOq, d.this.fOs, i, d.this.fOq - d.this.fOr);
+                    if (d.this.fSw != null) {
+                        d.this.fSw.a(d.this.fSt, d.this.fSv, i, d.this.fSt - d.this.fSu);
                     }
                 }
             }
         };
         this.mThreadId = str;
         this.mPostId = str2;
-        this.fOo = str3;
-        this.fOt = aVar;
-        this.aLG = z;
+        this.fSr = str3;
+        this.fSw = aVar;
+        this.aMC = z;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, TbConfig.SERVER_ADDRESS + "c/u/zan/getuserlist");
         tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.fOu);
+        MessageManager.getInstance().registerListener(this.fSx);
     }
 
     public void setIsAuthor(boolean z) {
@@ -168,12 +168,12 @@ public class d {
         return this.mThreadId;
     }
 
-    public boolean bgs() {
-        return this.aLG;
+    public boolean bha() {
+        return this.aMC;
     }
 
     public void c(Bundle bundle, String str) {
-        bundle.putBoolean(str, this.aLG);
+        bundle.putBoolean(str, this.aMC);
     }
 
     public void d(Bundle bundle, String str) {
@@ -185,43 +185,43 @@ public class d {
     }
 
     public void f(Bundle bundle, String str) {
-        bundle.putString(str, this.fOo);
+        bundle.putString(str, this.fSr);
     }
 
     public void g(Bundle bundle, String str) {
-        bundle.putInt(str, this.fOq);
+        bundle.putInt(str, this.fSt);
     }
 
-    public void bir() {
+    public void biX() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.fOu);
+        messageManager.unRegisterListener(this.fSx);
         messageManager.unRegisterTask(CmdConfigHttp.CMD_GRAFFITI_LIST);
         messageManager.unRegisterTask(309326);
     }
 
-    public String bis() {
-        return this.fOo;
+    public String biY() {
+        return this.fSr;
     }
 
-    public void rh(int i) {
-        this.fOq = i;
+    public void rq(int i) {
+        this.fSt = i;
     }
 
-    public com.baidu.tieba.pbextra.praise.a ri(int i) {
-        if (i <= -1 || i >= this.fOs.size()) {
+    public com.baidu.tieba.pbextra.praise.a rr(int i) {
+        if (i <= -1 || i >= this.fSv.size()) {
             return null;
         }
-        return this.fOs.get(i);
+        return this.fSv.get(i);
     }
 
-    public void rj(int i) {
-        bit();
+    public void rs(int i) {
+        biZ();
     }
 
-    private void bit() {
+    private void biZ() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         httpMessage.addParam("post_id", this.mPostId + "");
-        httpMessage.addParam("page_num", this.fOp + "");
+        httpMessage.addParam("page_num", this.fSs + "");
         httpMessage.addParam("res_num", "20");
         MessageManager.getInstance().sendMessage(httpMessage);
     }

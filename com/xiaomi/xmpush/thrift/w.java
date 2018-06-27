@@ -2,7 +2,6 @@ package com.xiaomi.xmpush.thrift;
 
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.idl.authority.BuildConfig;
-import com.sina.weibo.sdk.component.WidgetRequestParam;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -43,7 +42,7 @@ public class w implements Serializable, Cloneable, org.apache.thrift.a<w, a> {
     private static final org.apache.thrift.protocol.b C = new org.apache.thrift.protocol.b("aliasName", (byte) 11, 7);
     private static final org.apache.thrift.protocol.b D = new org.apache.thrift.protocol.b("request", (byte) 12, 8);
     private static final org.apache.thrift.protocol.b E = new org.apache.thrift.protocol.b("packageName", (byte) 11, 9);
-    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 11, 10);
+    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("category", (byte) 11, 10);
     private static final org.apache.thrift.protocol.b G = new org.apache.thrift.protocol.b("isOnline", (byte) 2, 11);
     private static final org.apache.thrift.protocol.b H = new org.apache.thrift.protocol.b("regId", (byte) 11, 12);
     private static final org.apache.thrift.protocol.b I = new org.apache.thrift.protocol.b("callbackUrl", (byte) 11, 13);
@@ -68,7 +67,7 @@ public class w implements Serializable, Cloneable, org.apache.thrift.a<w, a> {
         ALIAS_NAME(7, "aliasName"),
         REQUEST(8, "request"),
         PACKAGE_NAME(9, "packageName"),
-        CATEGORY(10, WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY),
+        CATEGORY(10, "category"),
         IS_ONLINE(11, "isOnline"),
         REG_ID(12, "regId"),
         CALLBACK_URL(13, "callbackUrl"),
@@ -113,7 +112,7 @@ public class w implements Serializable, Cloneable, org.apache.thrift.a<w, a> {
         enumMap.put((EnumMap) a.ALIAS_NAME, (a) new org.apache.thrift.meta_data.b("aliasName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.REQUEST, (a) new org.apache.thrift.meta_data.b("request", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, aj.class)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.IS_ONLINE, (a) new org.apache.thrift.meta_data.b("isOnline", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.REG_ID, (a) new org.apache.thrift.meta_data.b("regId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.CALLBACK_URL, (a) new org.apache.thrift.meta_data.b("callbackUrl", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));

@@ -7,7 +7,7 @@ import com.baidu.fsg.base.restnet.beans.business.UploadBean;
 import com.baidu.fsg.base.restnet.beans.business.core.DebugConfig;
 import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
-import com.baidu.sapi2.bio.BiometricsManager;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.biometrics.liveness.datamodel.UploadContrastPortraitModel;
 import com.baidu.sapi2.biometrics.liveness.dto.LivenessRecogDTO;
 import com.baidu.sapi2.biometrics.liveness.utils.enums.LivenessRecogType;
@@ -45,20 +45,20 @@ public class h extends UploadBean {
                 arrayList.add(new RestNameValuePair("type", "contrastportrait"));
                 arrayList.add(new RestNameValuePair("atbc", a()));
             } else if (this.d.livenessType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
-                arrayList.add(new RestNameValuePair("type", BiometricsManager.LIVENESS_RECOGNIZE_TYPE_CERTINFO));
+                arrayList.add(new RestNameValuePair("type", SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_CERTINFO));
                 arrayList.add(new RestNameValuePair("exuid", this.d.exUid));
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("name", this.d.realName);
                     jSONObject.put("cert", this.d.idCardNum);
                     jSONObject.put("bankmobile", this.d.phoneNum);
-                    arrayList.add(new RestNameValuePair(BiometricsManager.LIVENESS_RECOGNIZE_TYPE_CERTINFO, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, jSONObject.toString())));
+                    arrayList.add(new RestNameValuePair(SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_CERTINFO, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, jSONObject.toString())));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else if (this.d.livenessType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
-                arrayList.add(new RestNameValuePair("type", BiometricsManager.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN));
-                arrayList.add(new RestNameValuePair(BiometricsManager.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN, this.d.authToken));
+                arrayList.add(new RestNameValuePair("type", SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN));
+                arrayList.add(new RestNameValuePair(SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN, this.d.authToken));
             } else if (this.d.livenessType == LivenessRecogType.RECOG_TYPE_OUTER) {
                 arrayList.add(new RestNameValuePair("type", "outer"));
                 arrayList.add(new RestNameValuePair("exuid", this.d.exUid));

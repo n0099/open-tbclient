@@ -6,6 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
+import com.baidu.sapi2.utils.SapiGIDEvent;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AtListActivityConfig;
@@ -19,7 +20,7 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.editortools.c {
-    private boolean aNv = false;
+    private boolean aOr = false;
 
     @Override // com.baidu.tbadk.editortools.c
     protected com.baidu.tbadk.editortools.d aZ(Context context) {
@@ -28,25 +29,25 @@ public class h extends com.baidu.tbadk.editortools.c {
         editorTools.setBarMaxLauCount(5);
         editorTools.setBackgroundColorId(0);
         editorTools.setBarLauncherType(2);
-        editorTools.setBarBackgroundColorId(d.C0141d.cp_bg_line_d);
-        editorTools.bC(false);
+        editorTools.setBarBackgroundColorId(d.C0142d.cp_bg_line_d);
+        editorTools.bF(false);
         return new g(editorTools);
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(com.baidu.tbadk.editortools.d dVar) {
         if (dVar != null) {
-            final EditorTools Hg = dVar.Hg();
+            final EditorTools Hy = dVar.Hy();
             final g gVar = (g) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tbadk.editortools.pb.h.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar) {
-                    k eM;
+                    k eN;
                     if (aVar != null) {
                         switch (aVar.code) {
                             case 4:
-                                gVar.gM((String) aVar.data);
-                                h.this.aNv = false;
+                                gVar.gQ((String) aVar.data);
+                                h.this.aOr = false;
                                 return;
                             case 5:
                             case 6:
@@ -58,12 +59,12 @@ public class h extends com.baidu.tbadk.editortools.c {
                             default:
                                 return;
                             case 7:
-                                gVar.BR().showToast(d.k.over_limit_tip);
-                                h.this.aNv = true;
+                                gVar.Ci().showToast(d.k.over_limit_tip);
+                                h.this.aOr = true;
                                 return;
                             case 8:
-                                if (h.this.a(gVar.BR(), 11001)) {
-                                    gVar.HY();
+                                if (h.this.a(gVar.Ci(), (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
+                                    gVar.Iq();
                                     TiebaStatic.log("c10090");
                                     return;
                                 }
@@ -77,17 +78,17 @@ public class h extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 11:
                                 gVar.setVoiceModel(null);
-                                if (Hg != null && (eM = Hg.eM(6)) != null && eM.aLj != null) {
-                                    eM.aLj.a(new com.baidu.tbadk.editortools.a(52, 0, null));
+                                if (Hy != null && (eN = Hy.eN(6)) != null && eN.aMf != null) {
+                                    eN.aMf.a(new com.baidu.tbadk.editortools.a(52, 0, null));
                                     return;
                                 }
                                 return;
                             case 16:
-                                if (h.this.aNv) {
-                                    gVar.BR().showToast(d.k.over_limit_tip);
+                                if (h.this.aOr) {
+                                    gVar.Ci().showToast(d.k.over_limit_tip);
                                 }
-                                if (h.this.a(gVar.BR(), 11025)) {
-                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(gVar.BR().getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_MODIFY, true)));
+                                if (h.this.a(gVar.Ci(), 11025)) {
+                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(gVar.Ci().getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_MODIFY, true)));
                                     return;
                                 }
                                 return;
@@ -95,12 +96,12 @@ public class h extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            Hg.setActionListener(4, bVar);
-            Hg.setActionListener(7, bVar);
-            Hg.setActionListener(16, bVar);
-            Hg.setActionListener(8, bVar);
-            Hg.setActionListener(10, bVar);
-            Hg.setActionListener(11, bVar);
+            Hy.setActionListener(4, bVar);
+            Hy.setActionListener(7, bVar);
+            Hy.setActionListener(16, bVar);
+            Hy.setActionListener(8, bVar);
+            Hy.setActionListener(10, bVar);
+            Hy.setActionListener(11, bVar);
         }
     }
 
@@ -108,39 +109,39 @@ public class h extends com.baidu.tbadk.editortools.c {
     protected void a(com.baidu.tbadk.editortools.d dVar) {
         CustomResponsedMessage runTask;
         k kVar;
-        EditorTools Hg = dVar.Hg();
+        EditorTools Hy = dVar.Hy();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        Hg.F(arrayList);
-        k eM = Hg.eM(5);
-        if (eM != null) {
-            eM.bE(false);
-            eM.aLY = 1;
-            eM.aLW = d.f.new_pbeditor_face_button;
+        Hy.G(arrayList);
+        k eN = Hy.eN(5);
+        if (eN != null) {
+            eN.bH(false);
+            eN.aMU = 1;
+            eN.aMS = d.f.new_pbeditor_face_button;
         }
-        if (com.baidu.tieba.tbadkCore.voice.c.byj() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, Hg.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
-            kVar.aLW = d.f.new_pbeditor_voice_button;
-            kVar.aLY = 2;
-            Hg.b(kVar);
+        if (com.baidu.tieba.tbadkCore.voice.c.byN() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, Hy.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
+            kVar.aMS = d.f.new_pbeditor_voice_button;
+            kVar.aMU = 2;
+            Hy.b(kVar);
         }
-        com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(Hg.getContext(), 4);
-        aVar.aLW = d.f.new_pbeditor_at_button;
-        Hg.b(aVar);
-        e eVar = new e(Hg.getContext());
+        com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(Hy.getContext(), 4);
+        aVar.aMS = d.f.new_pbeditor_at_button;
+        Hy.b(aVar);
+        e eVar = new e(Hy.getContext());
         if (eVar.getInputView() != null) {
             eVar.getInputView().setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
-        Hg.b(eVar);
-        Hg.Hh();
-        Hg.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-        Hg.FB();
+        Hy.b(eVar);
+        Hy.Hz();
+        Hy.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        Hy.FT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(d.k.login_to_use), true, i)));
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
             return false;
         }
         return true;

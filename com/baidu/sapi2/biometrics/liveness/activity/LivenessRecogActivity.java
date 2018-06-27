@@ -48,7 +48,7 @@ import com.baidu.idl.facesdk.FaceInfo;
 import com.baidu.idl.facesdk.FaceSDK;
 import com.baidu.idl.facesdk.FaceTracker;
 import com.baidu.idl.facesdk.FaceVerifyData;
-import com.baidu.sapi2.bio.BiometricsManager;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.biometrics.liveness.R;
 import com.baidu.sapi2.biometrics.liveness.SapiLivenessRecogManager;
 import com.baidu.sapi2.biometrics.liveness.beans.FaceSDKBeansFactory;
@@ -342,7 +342,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int[] iArr) {
-        a.C0082a g2 = this.aL.g();
+        a.C0084a g2 = this.aL.g();
         Bitmap createBitmap = Bitmap.createBitmap(iArr, g2.b, g2.a, Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -935,10 +935,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private void a(a.C0082a c0082a) {
+    private void a(a.C0084a c0084a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.V.getLayoutParams());
-        a.C0082a b2 = b(c0082a);
-        if (b2 == null || (b2.a == c0082a.a && b2.b == c0082a.b)) {
+        a.C0084a b2 = b(c0084a);
+        if (b2 == null || (b2.a == c0084a.a && b2.b == c0084a.b)) {
             layoutParams.width = -2;
             layoutParams.height = -1;
         } else {
@@ -960,10 +960,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             try {
                 jSONObject.put("processid", this.livenessRecogDTO.processid);
                 if (!TextUtils.isEmpty(this.livenessRecogDTO.getCertInfo())) {
-                    jSONObject.put(BiometricsManager.LIVENESS_RECOGNIZE_TYPE_CERTINFO, this.livenessRecogDTO.getCertInfo());
+                    jSONObject.put(SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_CERTINFO, this.livenessRecogDTO.getCertInfo());
                 }
                 if (!TextUtils.isEmpty(this.livenessRecogDTO.authToken)) {
-                    jSONObject.put(BiometricsManager.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN, this.livenessRecogDTO.authToken);
+                    jSONObject.put(SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN, this.livenessRecogDTO.authToken);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -1010,30 +1010,30 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.aL.b();
     }
 
-    private a.C0082a b(a.C0082a c0082a) {
-        if (c0082a == null) {
+    private a.C0084a b(a.C0084a c0084a) {
+        if (c0084a == null) {
             return null;
         }
-        a.C0082a s2 = s();
-        a.C0082a c0082a2 = new a.C0082a(c0082a.a, c0082a.b);
-        float f2 = c0082a.a / c0082a.b;
+        a.C0084a s2 = s();
+        a.C0084a c0084a2 = new a.C0084a(c0084a.a, c0084a.b);
+        float f2 = c0084a.a / c0084a.b;
         float f3 = s2.b / s2.a;
         if (Math.abs(f2 - f3) > 0.02d) {
             if (f2 < f3) {
-                c0082a2.a = (s2.b * c0082a.b) / c0082a.a;
-                c0082a2.b = s2.b;
-                return c0082a2;
+                c0084a2.a = (s2.b * c0084a.b) / c0084a.a;
+                c0084a2.b = s2.b;
+                return c0084a2;
             }
-            c0082a2.a = s2.a;
-            c0082a2.b = (s2.a * c0082a.a) / c0082a.b;
-            return c0082a2;
+            c0084a2.a = s2.a;
+            c0084a2.b = (s2.a * c0084a.a) / c0084a.b;
+            return c0084a2;
         }
-        return c0082a2;
+        return c0084a2;
     }
 
-    private a.C0082a s() {
+    private a.C0084a s() {
         Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
-        return new a.C0082a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + com.baidu.fsg.biometrics.base.d.d.a(this));
+        return new a.C0084a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + com.baidu.fsg.biometrics.base.d.d.a(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2822,7 +2822,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         int ab;
         long ac;
         int ai;
-        a.C0082a aq;
+        a.C0084a aq;
         boolean M = false;
         int ad = 1;
         int ae = 0;
@@ -2876,7 +2876,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             long j3 = this.X - this.W;
             Display defaultDisplay = ((WindowManager) LivenessRecogActivity.this.getSystemService("window")).getDefaultDisplay();
             HashMap hashMap = new HashMap();
-            hashMap.put("display", defaultDisplay.getWidth() + "," + defaultDisplay.getHeight());
+            hashMap.put(a, defaultDisplay.getWidth() + "," + defaultDisplay.getHeight());
             this.aq = LivenessRecogActivity.this.aL.g();
             if (this.aq != null) {
                 hashMap.put(b, this.aq.a + "," + this.aq.b);

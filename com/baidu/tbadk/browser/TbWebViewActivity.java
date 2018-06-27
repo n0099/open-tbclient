@@ -23,6 +23,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ar.paddle.PaddleController;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.TbConfig;
@@ -32,7 +33,6 @@ import com.baidu.tbadk.core.atomData.FrsGameCommentActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsGameSubPbActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
 import com.baidu.tbadk.core.hybrid.l;
 import com.baidu.tbadk.core.hybrid.m;
@@ -40,8 +40,8 @@ import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.hybrid.q;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -247,7 +247,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_Performance";
                     }
 
-                    @o(value = "trackFPS", xI = false)
+                    @o(value = "trackFPS", xV = false)
                     private void trackFPS() {
                     }
                 });
@@ -261,12 +261,12 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_Share";
                     }
 
-                    @o(value = "share", xI = false)
+                    @o(value = "share", xV = false)
                     private void share(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optString("title");
                             String optString2 = jSONObject.optString(SocialConstants.PARAM_APP_DESC);
-                            String optString3 = jSONObject.optString("img");
+                            String optString3 = jSONObject.optString(SocialConstants.PARAM_IMG_URL);
                             String optString4 = jSONObject.optString("url");
                             String optString5 = jSONObject.optString("bid");
                             if (!StringUtils.isNULL(optString5)) {
@@ -290,7 +290,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_UISwitch";
                     }
 
-                    @o(value = "viewHideSwitch", xI = false)
+                    @o(value = "viewHideSwitch", xV = false)
                     private void viewHideSwitch(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             String optString = jSONObject.optJSONObject("share").optString("value");
@@ -310,10 +310,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_GAME_COMMENT";
                     }
 
-                    @o(value = "gameComment", xI = false)
+                    @o(value = "gameComment", xV = false)
                     private void goToGameComment(JSONObject jSONObject) {
                         if (jSONObject != null) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsGameCommentActivityConfig(TbWebViewActivity.this.getPageContext().getPageActivity(), jSONObject.optInt("score"), jSONObject.optInt("forum_id"))));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsGameCommentActivityConfig(TbWebViewActivity.this.getPageContext().getPageActivity(), jSONObject.optInt(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE), jSONObject.optInt("forum_id"))));
                         }
                     }
                 });
@@ -324,9 +324,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                         return "TBHY_COMMON_COMMENT_FLOOR";
                     }
 
-                    @o(value = "enterCommentFloor", xI = false)
+                    @o(value = "enterCommentFloor", xV = false)
                     private void goToFrsGameSubPbActivity(JSONObject jSONObject) {
-                        if (jSONObject != null && ba.aU(TbWebViewActivity.this.getPageContext().getPageActivity())) {
+                        if (jSONObject != null && bb.aU(TbWebViewActivity.this.getPageContext().getPageActivity())) {
                             String optString = jSONObject.optString("forum_id");
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsGameSubPbActivityConfig(TbWebViewActivity.this.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.g(optString, 0), jSONObject.optString("comment_id"))));
                         }
@@ -386,7 +386,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (this.mHybridBridge != null) {
                     HashMap hashMap = new HashMap(4);
                     hashMap.put("errNo", "0");
-                    hashMap.put("errMsg", ImagesInvalidReceiver.SUCCESS);
+                    hashMap.put("errMsg", "success");
                     m a2 = m.a("TBHY_COMMON_COMMENT_FLOOR_CALLBACK", "onGameSubCommentSuccess", hashMap, 0L, false);
                     if (this.mHybridBridge != null) {
                         this.mHybridBridge.a(a2);
@@ -402,7 +402,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (i2 == -1 && this.mHybridBridge != null) {
                     HashMap hashMap2 = new HashMap(4);
                     hashMap2.put("errNo", "0");
-                    hashMap2.put("errMsg", ImagesInvalidReceiver.SUCCESS);
+                    hashMap2.put("errMsg", "success");
                     m a3 = m.a("TBJS_COMMON_Game_Comment", "onGameCommentSuccess", hashMap2, 0L, false);
                     if (this.mHybridBridge != null) {
                         this.mHybridBridge.a(a3);
@@ -500,7 +500,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.bxC();
+            this.jsBridge.byf();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -537,7 +537,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!TbWebViewActivity.this.isShowFullScreen) {
-                    TbWebViewActivity.this.mView.cW(TbWebViewActivity.this.mUrlTitle);
+                    TbWebViewActivity.this.mView.cY(TbWebViewActivity.this.mUrlTitle);
                 }
                 if (TbWebViewActivity.this.isTranslucent()) {
                     TbWebViewActivity.this.mView.setNavBarVisibility(false);
@@ -577,7 +577,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int b = ay.zG().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
+            int b = az.zV().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
             if (b == 1) {
                 TbWebViewActivity.this.finish();
                 return true;
@@ -590,7 +590,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            TbWebViewActivity.this.mView.sN();
+                            TbWebViewActivity.this.mView.sP();
                         }
                     });
                 }
@@ -638,10 +638,13 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         }
         hideProgressBar();
         if (isTranslucent()) {
-            this.mWebView.setVisibility(8);
-        } else {
-            showNoDataView();
+            if (this.mWebView != null) {
+                this.mWebView.setVisibility(8);
+                return;
+            }
+            return;
         }
+        showNoDataView();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -732,7 +735,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 this.mUrlTitle = str;
             }
             if (!this.isShowFullScreen && this.mView != null) {
-                this.mView.cW(this.mUrlTitle);
+                this.mView.cY(this.mUrlTitle);
             }
         }
     }
@@ -749,7 +752,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (!StringUtils.isNull(this.mShareParams)) {
             try {
                 JSONObject jSONObject = new JSONObject(this.mShareParams);
-                final com.baidu.tbadk.coreExtra.c.d createShareContent = createShareContent(jSONObject.optString("title"), jSONObject.optString("url"), jSONObject.optString(SocialConstants.PARAM_APP_DESC), jSONObject.optString("img"));
+                final com.baidu.tbadk.coreExtra.c.d createShareContent = createShareContent(jSONObject.optString("title"), jSONObject.optString("url"), jSONObject.optString(SocialConstants.PARAM_APP_DESC), jSONObject.optString(SocialConstants.PARAM_IMG_URL));
                 com.baidu.adp.lib.g.e.im().post(new Runnable() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.5
                     @Override // java.lang.Runnable
                     public void run() {
@@ -778,7 +781,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     JSONObject jSONObject = new JSONObject(customMessage.getData());
                     String optString = jSONObject.optString("title");
                     String optString2 = jSONObject.optString(SocialConstants.PARAM_APP_DESC);
-                    String optString3 = jSONObject.optString("img");
+                    String optString3 = jSONObject.optString(SocialConstants.PARAM_IMG_URL);
                     return new CustomResponsedMessage<>(2016568, TbWebViewActivity.this.createShareContent(optString, jSONObject.optString("url"), optString2, optString3));
                 } catch (JSONException e) {
                     BdLog.e(e);

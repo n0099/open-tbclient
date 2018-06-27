@@ -21,7 +21,7 @@ public final class d extends DexClassLoader {
                 try {
                     findLoadedClass = getParent() != null ? getParent().loadClass(str) : (Class) getClass().getDeclaredMethod("findBootstrapClassOrNull", String.class).invoke(this, str);
                 } catch (Throwable th2) {
-                    com.baidu.sofire.b.d.a(th2);
+                    com.baidu.sofire.b.e.a(th2);
                 }
             }
             findLoadedClass = cls;
@@ -33,7 +33,7 @@ public final class d extends DexClassLoader {
             try {
                 return super.loadClass(str, z);
             } catch (Throwable th3) {
-                com.baidu.sofire.b.d.a(th3);
+                com.baidu.sofire.b.e.a(th3);
                 return findLoadedClass;
             }
         }
@@ -46,7 +46,7 @@ public final class d extends DexClassLoader {
             try {
                 return findClass(str);
             } catch (Throwable th) {
-                com.baidu.sofire.b.d.a(th);
+                com.baidu.sofire.b.e.a(th);
                 return findLoadedClass;
             }
         }

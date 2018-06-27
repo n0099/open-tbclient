@@ -12,22 +12,22 @@ public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> Jy() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> JQ() {
         return ReplyMeHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> Jz() {
+    protected Class<? extends MvcSocketResponsedMessage> JR() {
         return ReplyMeSocketResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JA() {
+    protected int JS() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String JC() {
+    protected String JU() {
         return "c/u/feed/replyme";
     }
 
@@ -37,7 +37,7 @@ public class ReplyMeNetModel extends NetAutoModel<k, l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JB() {
+    protected int JT() {
         return 303007;
     }
 }

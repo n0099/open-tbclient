@@ -13,6 +13,7 @@ import com.baidu.ar.task.ActionResponseListener;
 import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.NetworkUtil;
 import com.baidu.baiduarsdk.ArBridge;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -96,7 +97,7 @@ public class f {
         String str4 = (String) hashMap.get("content");
         if (!b()) {
             a(str, 1);
-        } else if (str3 == null || !str3.contains("https://")) {
+        } else if (str3 == null || !str3.contains(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             a(str, 2);
         } else if (str2 == null) {
             a(str, 2);

@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.net;
 import android.content.Context;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.AsyncWeiboRunner;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetUtils {
     public static String internalGetRedirectUri(Context context, String str, String str2, WeiboParameters weiboParameters) {
         return HttpManager.openRedirectUrl4LocationUri(context, str, str2, weiboParameters);
@@ -18,6 +18,6 @@ public class NetUtils {
     }
 
     public static void internalHttpRequest(Context context, String str, WeiboParameters weiboParameters, String str2, RequestListener requestListener) {
-        new AsyncWeiboRunner.RequestRunner(context, str, weiboParameters, str2, requestListener).execute(new Void[1]);
+        new AsyncWeiboRunner.RequestRunner(context, str, weiboParameters, str2, requestListener).execute(null);
     }
 }

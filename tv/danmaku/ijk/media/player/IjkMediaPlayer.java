@@ -620,11 +620,11 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     public void setSpeed(float f) {
-        _setPropertyFloat(FFP_PROP_FLOAT_PLAYBACK_RATE, f);
+        _setPropertyFloat(10003, f);
     }
 
     public float getSpeed(float f) {
-        return _getPropertyFloat(FFP_PROP_FLOAT_PLAYBACK_RATE, 0.0f);
+        return _getPropertyFloat(10003, 0.0f);
     }
 
     public int getVideoDecoder() {
@@ -806,7 +806,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.by(message.arg1, message.arg2);
+                    e.bx(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:

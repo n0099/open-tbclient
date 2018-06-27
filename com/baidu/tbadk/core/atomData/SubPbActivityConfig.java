@@ -17,6 +17,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public static final String ICON_LIST = "icon_list";
     public static final String KEY_ANTI = "anti";
     public static final String KEY_FROM_FORUM_ID = "from_forum_id";
+    public static final String KEY_FROM_FRS_FORUM_ID = "from_frs_forum_id";
     public static final String KEY_IMG_URLS = "img_urls";
     public static final String KEY_IS_JUMP_FROM_PB = "is_jump_from_pb";
     public static final String KEY_IS_SHOW_GO_TO_SUBJECT = "is_show_go_to_subject";
@@ -115,7 +116,7 @@ public class SubPbActivityConfig extends IntentConfig {
     public void setKeyFromForumId(String str) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_FROM_FORUM_ID, str);
+            intent.putExtra("from_forum_id", str);
         }
     }
 
@@ -123,6 +124,13 @@ public class SubPbActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_PAGE_START_FROM, i);
+        }
+    }
+
+    public void setFromFrsForumId(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FROM_FRS_FORUM_ID, str);
         }
     }
 }

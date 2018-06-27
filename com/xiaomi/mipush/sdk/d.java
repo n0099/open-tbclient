@@ -13,7 +13,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.sina.weibo.sdk.exception.WeiboAuthException;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
 import com.xiaomi.xmpush.thrift.ae;
@@ -179,7 +178,7 @@ public class d extends f.a {
             com.xiaomi.channel.commonutils.logger.b.d("GeoFenceNetInfoUpdateJobverifyUploadData");
         } else {
             byte[] a = aq.a(d());
-            ae aeVar = new ae(WeiboAuthException.DEFAULT_AUTH_ERROR_CODE, false);
+            ae aeVar = new ae("-1", false);
             aeVar.c(com.xiaomi.xmpush.thrift.o.GeoUpdateLoc.N);
             aeVar.a(a);
             u.a(this.g).a(aeVar, com.xiaomi.xmpush.thrift.a.Notification, true, null);

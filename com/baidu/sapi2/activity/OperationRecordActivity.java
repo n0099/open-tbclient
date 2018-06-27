@@ -8,7 +8,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.SapiWebCallback;
 import com.baidu.sapi2.result.SapiResult;
 /* loaded from: classes2.dex */
-public class OperationRecordActivity extends TitleActivity {
+public class OperationRecordActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     private String bduss;
     private SapiResult result = new SapiResult();
@@ -17,34 +17,36 @@ public class OperationRecordActivity extends TitleActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
-        init();
-        setupViews();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
-    public void init() {
-        super.init();
-        this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
-        if (TextUtils.isEmpty(this.bduss)) {
-            SapiWebCallback sapiWebCallback = PassportSDK.getInstance().getSapiWebCallback();
-            if (sapiWebCallback != null) {
-                this.result.setResultCode(-204);
-                this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
-                sapiWebCallback.onFinish(this.result);
-            }
-            PassportSDK.getInstance().release();
-            finish();
+        try {
+            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            init();
+            setupViews();
+        } catch (Throwable th) {
+            reportWebviewError(th);
+            this.result.setResultCode(-202);
+            this.result.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            finishActivity();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void init() {
+        super.init();
+        this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
+        if (TextUtils.isEmpty(this.bduss)) {
+            this.result.setResultCode(-204);
+            this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+            finishActivity();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
         setBtnVisibility(4, 0, 4);
-        setTitleText(a.f.sapi_sdk_operation_record_title);
+        setTitleText(a.f.sapi_sdk_title_operation_record);
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.OperationRecordActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
@@ -54,21 +56,14 @@ public class OperationRecordActivity extends TitleActivity {
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.OperationRecordActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
-                SapiWebCallback sapiWebCallback = PassportSDK.getInstance().getSapiWebCallback();
-                if (sapiWebCallback != null) {
-                    OperationRecordActivity.this.result.setResultCode(-301);
-                    OperationRecordActivity.this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-                    sapiWebCallback.onFinish(OperationRecordActivity.this.result);
-                }
-                PassportSDK.getInstance().release();
-                OperationRecordActivity.this.finish();
+                OperationRecordActivity.this.onClose();
             }
         });
         this.sapiWebView.loadOperationRecord(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
         if (this.executeSubClassMethod) {
@@ -76,16 +71,34 @@ public class OperationRecordActivity extends TitleActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        super.onClose();
+        this.result.setResultCode(-301);
+        this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        finishActivity();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
         if (this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
-            return;
+        } else {
+            onClose();
         }
+    }
+
+    private void finishActivity() {
         SapiWebCallback sapiWebCallback = PassportSDK.getInstance().getSapiWebCallback();
         if (sapiWebCallback != null) {
-            this.result.setResultCode(-301);
-            this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
             sapiWebCallback.onFinish(this.result);
         }
         PassportSDK.getInstance().release();

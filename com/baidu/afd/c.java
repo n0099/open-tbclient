@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements g {
-    private final int OR;
-    private final int OT;
     private final int OU;
-    private final String OV;
-    private HashMap OW;
+    private final int OV;
+    private final int OW;
+    private final String OX;
+    private HashMap OY;
     private int floor;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.OR = i;
-        this.OT = i2;
-        this.OU = i3;
-        this.OV = str;
+        this.OU = i;
+        this.OV = i2;
+        this.OW = i3;
+        this.OX = str;
         this.tabName = str2;
         this.floor = i4;
     }
@@ -27,12 +27,12 @@ public class c implements g {
 
     @Override // com.baidu.afd.g
     public int of() {
-        return this.OR;
+        return this.OU;
     }
 
     @Override // com.baidu.afd.g
     public int og() {
-        return this.OT;
+        return this.OV;
     }
 
     @Override // com.baidu.afd.g
@@ -42,11 +42,11 @@ public class c implements g {
 
     @Override // com.baidu.afd.g
     public Map<String, String> oi() {
-        return this.OW;
+        return this.OY;
     }
 
     @Override // com.baidu.afd.g
     public void h(HashMap hashMap) {
-        this.OW = hashMap;
+        this.OY = hashMap;
     }
 }

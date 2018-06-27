@@ -20,7 +20,7 @@ public final class f {
                         field.set(activity2, field.get(activity));
                     }
                 } catch (Throwable th) {
-                    com.baidu.sofire.b.d.a(th);
+                    com.baidu.sofire.b.e.a(th);
                 }
             }
         }
@@ -38,7 +38,7 @@ public final class f {
                     field.setAccessible(true);
                     field.set(obj2, field.get(obj));
                 } catch (Throwable th) {
-                    com.baidu.sofire.b.d.a(th);
+                    com.baidu.sofire.b.e.a(th);
                 }
             }
             cls = cls.getSuperclass();
@@ -58,7 +58,7 @@ public final class f {
         try {
             declaredMethod = cls.getMethod(str, clsArr);
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
         while (cls != null) {
             try {
@@ -66,7 +66,7 @@ public final class f {
                 declaredMethod.setAccessible(true);
                 return declaredMethod;
             } catch (NoSuchMethodException e) {
-                com.baidu.sofire.b.d.a(e);
+                com.baidu.sofire.b.e.a(e);
                 cls = cls.getSuperclass();
             }
         }
@@ -89,7 +89,7 @@ public final class f {
             method.setAccessible(true);
         } catch (Throwable th3) {
             th = th3;
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
             return method;
         }
         return method;
@@ -107,7 +107,7 @@ public final class f {
         try {
             declaredField = cls.getField(str);
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
         while (cls != null) {
             try {
@@ -115,7 +115,7 @@ public final class f {
                 declaredField.setAccessible(true);
                 return declaredField;
             } catch (NoSuchFieldException e) {
-                com.baidu.sofire.b.d.a(e);
+                com.baidu.sofire.b.e.a(e);
                 cls = cls.getSuperclass();
             }
         }
@@ -129,7 +129,7 @@ public final class f {
         try {
             return b(cls, str);
         } catch (NoSuchFieldException e) {
-            com.baidu.sofire.b.d.a(e);
+            com.baidu.sofire.b.e.a(e);
             return null;
         }
     }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] aUB = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] aVx = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -34,7 +34,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.aUB;
+                    String[] strArr = Static.aVx;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -45,7 +45,7 @@ public class Static {
                         if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                             i++;
                         } else {
-                            com.baidu.adp.plugin.b.a.ly().bw("plugin_crash_inflate");
+                            com.baidu.adp.plugin.b.a.ly().by("plugin_crash_inflate");
                             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("is_plugin_resource_open_local", false);
                             z = false;
                             break;

@@ -8,6 +8,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.view.SurfaceHolder;
+import com.baidu.baiduarsdk.ArBridge;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes3.dex */
@@ -199,7 +200,7 @@ public class CameraController implements ICamera, e {
             case 1004:
                 handleSetSurfaceTexture((SurfaceTexture) message.obj);
                 return;
-            case 1005:
+            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
                 handleSetSurfaceHolder((SurfaceHolder) message.obj);
                 return;
             case 1006:
@@ -283,7 +284,7 @@ public class CameraController implements ICamera, e {
     @Override // com.baidu.ar.camera.ICamera
     public void setSurfaceHolder(SurfaceHolder surfaceHolder) {
         if (this.mCameraHandler != null) {
-            this.mCameraHandler.sendMessage(this.mCameraHandler.obtainMessage(1005, surfaceHolder));
+            this.mCameraHandler.sendMessage(this.mCameraHandler.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC, surfaceHolder));
         }
     }
 

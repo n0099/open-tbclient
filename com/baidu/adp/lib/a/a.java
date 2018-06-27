@@ -13,31 +13,31 @@ import java.net.UnknownHostException;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class a {
-    private static a yi = null;
-    private final String yj = "c.tieba.baidu.com";
+    private static a yg = null;
+    private final String yh = "c.tieba.baidu.com";
+    private long yi;
+    private String yj;
     private long yk;
-    private String yl;
-    private long ym;
 
     public static final a hl() {
-        if (yi == null) {
+        if (yg == null) {
             synchronized (a.class) {
-                if (yi == null) {
-                    yi = new a();
+                if (yg == null) {
+                    yg = new a();
                 }
             }
         }
-        return yi;
+        return yg;
     }
 
     private a() {
+        this.yi = 0L;
+        this.yj = null;
         this.yk = 0L;
-        this.yl = null;
-        this.ym = 0L;
         SharedPreferences config = getConfig();
-        this.yk = config.getLong(as("c.tieba.baidu.com"), 0L);
-        this.yl = config.getString(at("c.tieba.baidu.com"), null);
-        this.ym = config.getLong(au("c.tieba.baidu.com"), 0L);
+        this.yi = config.getLong(as("c.tieba.baidu.com"), 0L);
+        this.yj = config.getString(at("c.tieba.baidu.com"), null);
+        this.yk = config.getLong(au("c.tieba.baidu.com"), 0L);
     }
 
     public void a(String str, String str2, boolean z, boolean z2) {
@@ -54,9 +54,9 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.yk;
-                    long j2 = this.ym;
-                    String str3 = this.yl;
+                    long j = this.yi;
+                    long j2 = this.yk;
+                    String str3 = this.yj;
                     if (currentTimeMillis - j > 43200000) {
                         b(host, host2, z, "12hour", z2);
                         return;
@@ -74,7 +74,7 @@ public class a {
                         if (!TextUtils.equals(host2, str3) || str3 == null) {
                             b(host, host2, z, "ipchange", z2);
                         } else {
-                            this.ym = System.currentTimeMillis();
+                            this.yk = System.currentTimeMillis();
                         }
                     }
                 }
@@ -106,9 +106,9 @@ public class a {
                 EditorHelper.putLong(config, as(str), currentTimeMillis);
                 EditorHelper.putString(config, at(str), str2);
                 EditorHelper.putLong(config, au(str), currentTimeMillis2);
-                this.yk = currentTimeMillis;
-                this.ym = currentTimeMillis2;
-                this.yl = str2;
+                this.yi = currentTimeMillis;
+                this.yk = currentTimeMillis2;
+                this.yj = str2;
             }
         }
     }

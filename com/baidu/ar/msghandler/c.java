@@ -11,7 +11,6 @@ import com.baidu.baiduarsdk.gpuimage.a.g;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.sina.weibo.sdk.exception.WeiboAuthException;
 import com.tencent.tauth.AuthActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -268,28 +267,28 @@ public class c implements d {
                         a();
                         break;
                     case ComponentMessageType.MSG_TYPE_FILTER_UPDATE /* 1069 */:
-                        a(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)).intValue(), (String) null);
+                        a(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), "-1")).intValue(), (String) null);
                         break;
                     case ComponentMessageType.MSG_TYPE_FILTER_DISABLE_TECHNIQUE /* 1071 */:
-                        b(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)).intValue(), MsgParamsUtil.obj2String(hashMap.get("disable"), "0"));
+                        b(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), "-1")).intValue(), MsgParamsUtil.obj2String(hashMap.get("disable"), "0"));
                         break;
                     case ComponentMessageType.MSG_TYPE_FILTER_RESET /* 1072 */:
                         switch (FilterData.ResetType.a(MsgParamsUtil.obj2Int(hashMap.get("reset_type"), -1))) {
                             case UPDATE:
-                                a(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2HashMap(hashMap.get("pass"), null));
+                                a(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), "-1")).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2HashMap(hashMap.get("pass"), null));
                                 break;
                             case ADD:
-                                b(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2HashMap(hashMap.get("pass"), null));
+                                b(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), "-1")).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2HashMap(hashMap.get("pass"), null));
                                 break;
                             case DELETE:
-                                c(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2HashMap(hashMap.get("pass"), null));
+                                c(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), "-1")).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2HashMap(hashMap.get("pass"), null));
                                 break;
                         }
                     case ComponentMessageType.MSG_TYPE_FILTER_DISABLE_TARGET /* 1073 */:
-                        a(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2String(hashMap.get("disable"), "0"));
+                        a(Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("filter_group_id"), "-1")).intValue(), MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), MsgParamsUtil.obj2String(hashMap.get("disable"), "0"));
                         break;
                     case ComponentMessageType.MSG_TYPE_FILTER_ADJUST /* 1074 */:
-                        a(MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("pass_id"), WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)).intValue(), MsgParamsUtil.obj2HashMap(hashMap.get("adjust_params"), null));
+                        a(MsgParamsUtil.obj2String(hashMap.get(BaiduRimConstants.ACTION_TARGET), null), Integer.valueOf(MsgParamsUtil.obj2String(hashMap.get("pass_id"), "-1")).intValue(), MsgParamsUtil.obj2HashMap(hashMap.get("adjust_params"), null));
                         break;
                 }
             } catch (NumberFormatException e) {

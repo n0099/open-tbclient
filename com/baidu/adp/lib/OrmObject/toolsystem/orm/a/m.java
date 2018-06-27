@@ -5,15 +5,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m implements h {
-    private OrmObject wK;
+    private OrmObject wI;
 
     public m(OrmObject ormObject) {
-        this.wK = ormObject;
+        this.wI = ormObject;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return OrmObject.jsonWithObject(this.wK);
+        return OrmObject.jsonWithObject(this.wI);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -32,7 +32,7 @@ public class m implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wK;
+        return this.wI;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -52,6 +52,6 @@ public class m implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wK;
+        return this.wI;
     }
 }

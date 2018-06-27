@@ -7,18 +7,18 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.data.g implements p {
-    private CardForum dRy;
+    private CardForum dVr;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.dRy = cardForum;
+            this.dVr = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(ajy() + cardForum.position.intValue());
+                setYuelaouLocate(aiS() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(ajy() + 0);
+                setYuelaouLocate(aiS() + 0);
             }
-            if (w.y(cardForum.forum_list) > 0) {
+            if (w.z(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.data.e eVar = new com.baidu.tieba.card.data.e();
@@ -35,14 +35,14 @@ public class b extends com.baidu.tieba.card.data.g implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.dRy != null) {
-            return this.dRy.position.intValue();
+        if (this.dVr != null) {
+            return this.dVr.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean ajw() {
+    public boolean aiQ() {
         return true;
     }
 
@@ -57,13 +57,13 @@ public class b extends com.baidu.tieba.card.data.g implements p {
     }
 
     public boolean isValidate() {
-        if (w.y(getDataList()) > 0) {
+        if (w.z(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean mz(int i) {
+    public static boolean mG(int i) {
         return i == 1;
     }
 }

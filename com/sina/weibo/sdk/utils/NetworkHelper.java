@@ -10,7 +10,7 @@ import android.net.wifi.WifiManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
         return context == null || context.checkCallingOrSelfPermission("android.permission.INTERNET") == 0;

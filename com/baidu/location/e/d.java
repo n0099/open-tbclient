@@ -13,31 +13,31 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class d {
-    private static volatile d Xk;
+    private static volatile d Xn;
     private static Context c;
-    private final k Xl;
-    private final e Xm;
-    private final m Xn;
-    private final h Xo;
+    private final k Xo;
+    private final e Xp;
+    private final m Xq;
+    private final h Xr;
     private final File e;
     static final String b = "com.baidu.lbs.offlinelocationprovider";
     static final String a = "http://loc.map.baidu.com/offline_loc";
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum a {
         NEED_TO_LOG,
         NO_NEED_TO_LOG
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum b {
         IS_MIX_MODE,
         IS_NOT_MIX_MODE
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private enum c {
         NETWORK_UNKNOWN,
         NETWORK_WIFI,
@@ -60,10 +60,10 @@ public final class d {
             file = null;
         }
         this.e = file;
-        this.Xm = new e(this);
-        this.Xl = new k(this.Xm.qJ());
-        this.Xo = new h(this, this.Xm.qJ());
-        this.Xn = new m(this, this.Xm.qJ(), this.Xo.n());
+        this.Xp = new e(this);
+        this.Xo = new k(this.Xp.qJ());
+        this.Xr = new h(this, this.Xp.qJ());
+        this.Xq = new m(this, this.Xp.qJ(), this.Xr.n());
     }
 
     public static void a(Context context) {
@@ -74,7 +74,7 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Uri cy(String str) {
+    public static final Uri cA(String str) {
         return Uri.parse(String.format("content://%s/", str));
     }
 
@@ -108,22 +108,22 @@ public final class d {
     }
 
     private void q() {
-        this.Xo.g();
+        this.Xr.g();
     }
 
     public static d qD() {
-        if (Xk == null) {
+        if (Xn == null) {
             synchronized (d.class) {
-                if (Xk == null) {
+                if (Xn == null) {
                     if (c == null) {
                         a(com.baidu.location.f.getServiceContext());
                     }
-                    Xk = new d();
+                    Xn = new d();
                 }
             }
         }
-        Xk.q();
-        return Xk;
+        Xn.q();
+        return Xn;
     }
 
     private boolean r() {
@@ -131,7 +131,7 @@ public final class d {
         String packageName = c.getPackageName();
         ProviderInfo resolveContentProvider = c.getPackageManager().resolveContentProvider(b, 0);
         if (resolveContentProvider == null) {
-            String[] qN = this.Xo.qN();
+            String[] qN = this.Xr.qN();
             providerInfo = resolveContentProvider;
             for (int i = 0; i < qN.length && (providerInfo = c.getPackageManager().resolveContentProvider(qN[i], 0)) == null; i++) {
             }
@@ -142,14 +142,14 @@ public final class d {
     }
 
     public long a(String str) {
-        return this.Xo.a(str);
+        return this.Xr.a(str);
     }
 
     public BDLocation a(com.baidu.location.f.a aVar, com.baidu.location.f.i iVar, BDLocation bDLocation, b bVar, a aVar2) {
         String d;
         int i;
         if (bVar == b.IS_MIX_MODE) {
-            i = this.Xo.a();
+            i = this.Xr.a();
             d = com.baidu.location.h.c.rf().d() + "&mixMode=1";
         } else {
             d = com.baidu.location.h.c.rf().d();
@@ -168,32 +168,32 @@ public final class d {
     }
 
     public boolean d() {
-        return this.Xo.h();
+        return this.Xr.h();
     }
 
     public boolean e() {
-        return this.Xo.i();
+        return this.Xr.i();
     }
 
     public boolean f() {
-        return this.Xo.j();
+        return this.Xr.j();
     }
 
     public boolean g() {
-        return this.Xo.k();
+        return this.Xr.k();
     }
 
     public boolean h() {
-        return this.Xo.m();
+        return this.Xr.m();
     }
 
     public void i() {
-        this.Xl.a();
+        this.Xo.a();
     }
 
     public void m() {
         if (r()) {
-            this.Xm.b();
+            this.Xp.b();
         }
     }
 
@@ -219,19 +219,19 @@ public final class d {
             }
         }
         if (cVar == c.NETWORK_UNKNOWN) {
-            return this.Xo.b();
+            return this.Xr.b();
         }
         if (cVar == c.NETWORK_WIFI) {
-            return this.Xo.c();
+            return this.Xr.c();
         }
         if (cVar == c.NETWORK_2G) {
-            return this.Xo.qK();
+            return this.Xr.qK();
         }
         if (cVar == c.NETWORK_3G) {
-            return this.Xo.qL();
+            return this.Xr.qL();
         }
         if (cVar == c.NETWORK_4G) {
-            return this.Xo.qM();
+            return this.Xr.qM();
         }
         return 0.0d;
     }
@@ -242,16 +242,16 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k qF() {
-        return this.Xl;
+        return this.Xo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m qG() {
-        return this.Xn;
+        return this.Xq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h qH() {
-        return this.Xo;
+        return this.Xr;
     }
 }

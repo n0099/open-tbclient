@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.weibo.sdk.constant.WBConstants;
+import com.sina.weibo.sdk.utils.AidTask;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
@@ -15,9 +16,8 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
-public class WBAgentHandler {
+/* loaded from: classes2.dex */
+class WBAgentHandler {
     private static int MAX_CACHE_SIZE = 5;
     private static CopyOnWriteArrayList<PageLog> mActivePages;
     private static WBAgentHandler mInstance;
@@ -49,7 +49,7 @@ public class WBAgentHandler {
             synchronized (mPages) {
                 mPages.put(str, pageLog);
             }
-            LogUtil.d(WBAgent.TAG, String.valueOf(str) + ", " + (pageLog.getStartTime() / 1000));
+            LogUtil.d(WBAgent.TAG, str + ", " + (pageLog.getStartTime() / 1000));
         }
     }
 
@@ -64,7 +64,7 @@ public class WBAgentHandler {
                 synchronized (mPages) {
                     mPages.remove(str);
                 }
-                LogUtil.d(WBAgent.TAG, String.valueOf(str) + ", " + (pageLog.getStartTime() / 1000) + ", " + (pageLog.getDuration() / 1000));
+                LogUtil.d(WBAgent.TAG, str + ", " + (pageLog.getStartTime() / 1000) + ", " + (pageLog.getDuration() / 1000));
             } else {
                 LogUtil.e(WBAgent.TAG, "please call onPageStart before onPageEnd");
             }
@@ -94,7 +94,7 @@ public class WBAgentHandler {
                 mPages.put(name, pageLog);
             }
         }
-        LogUtil.d(WBAgent.TAG, String.valueOf(name) + ", " + (currentTimeMillis / 1000));
+        LogUtil.d(WBAgent.TAG, name + ", " + (currentTimeMillis / 1000));
     }
 
     public void onPause(Context context) {
@@ -112,7 +112,7 @@ public class WBAgentHandler {
                 synchronized (mPages) {
                     mPages.remove(name);
                 }
-                LogUtil.d(WBAgent.TAG, String.valueOf(name) + ", " + (pageLog.getStartTime() / 1000) + ", " + (pageLog.getDuration() / 1000));
+                LogUtil.d(WBAgent.TAG, name + ", " + (pageLog.getStartTime() / 1000) + ", " + (pageLog.getDuration() / 1000));
             } else {
                 LogUtil.e(WBAgent.TAG, "please call onResume before onPause");
             }
@@ -270,7 +270,7 @@ public class WBAgentHandler {
             if (isFirstStartBoolean(context)) {
                 adEventLog.setmEvent_id("1");
             }
-            adEventLog.setmImei(MD5.hexdigest(Utility.getImei(context)));
+            adEventLog.setmImei(MD5.hexdigest(AidTask.getImei(context)));
             adEventLog.setmStart_time(System.currentTimeMillis());
             adEventLog.setmExtend(map);
             String aid = Utility.getAid(context, str);

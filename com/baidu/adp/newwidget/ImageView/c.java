@@ -3,16 +3,16 @@ package com.baidu.adp.newwidget.ImageView;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class c {
-    public BitmapDrawable FR;
-    public com.baidu.adp.widget.ImageView.a FT;
+    public BitmapDrawable FU;
+    public com.baidu.adp.widget.ImageView.a FV;
     public volatile boolean isDefault = true;
 
     public boolean kT() {
-        return (this.FR == null || this.FR.getBitmap() == null || this.FR.getBitmap().isRecycled()) ? false : true;
+        return (this.FU == null || this.FU.getBitmap() == null || this.FU.getBitmap().isRecycled()) ? false : true;
     }
 
     public boolean kU() {
-        return this.FT != null && this.FT.na();
+        return this.FV != null && this.FV.na();
     }
 
     public boolean isAvailable() {
@@ -21,26 +21,26 @@ public class c {
 
     public int getWidth() {
         if (kT()) {
-            return this.FR.getIntrinsicWidth();
+            return this.FU.getIntrinsicWidth();
         }
         if (kU()) {
-            return this.FT.getWidth();
+            return this.FV.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
         if (kT()) {
-            return this.FR.getIntrinsicHeight();
+            return this.FU.getIntrinsicHeight();
         }
         if (kU()) {
-            return this.FT.getHeight();
+            return this.FV.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.FT = null;
-        this.FR = null;
+        this.FV = null;
+        this.FU = null;
     }
 }

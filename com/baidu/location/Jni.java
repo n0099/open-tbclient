@@ -3,7 +3,7 @@ package com.baidu.location;
 import com.baidu.ar.util.SystemInfoUtil;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Jni {
     private static int a = 0;
     private static int b = 1;

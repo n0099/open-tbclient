@@ -10,43 +10,42 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.c;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a HB = null;
-    private HashMap<String, Integer> HA = new HashMap<>();
+    private static volatile a HD = null;
+    private HashMap<String, Integer> HC = new HashMap<>();
 
     public static synchronized a ly() {
         a aVar;
         synchronized (a.class) {
-            if (HB == null) {
+            if (HD == null) {
                 synchronized (a.class) {
-                    if (HB == null) {
-                        HB = new a();
+                    if (HD == null) {
+                        HD = new a();
                     }
                 }
             }
-            aVar = HB;
+            aVar = HD;
         }
         return aVar;
     }
 
-    public void bv(String str) {
+    public void bx(String str) {
         if (str != null) {
-            Integer num = this.HA.get(str);
+            Integer num = this.HC.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.HA.put(str, Integer.valueOf(num.intValue() + 1));
+            this.HC.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
     public void B(String str, String str2) {
         if (str != null && str2 != null) {
-            bv(str);
+            bx(str);
         }
     }
 
@@ -67,7 +66,7 @@ public class a {
         ih.append("workflow", str + "_cost");
         ih.f("cost", Long.valueOf(j));
         if (i != 0) {
-            ih.f(WBPageConstants.ParamKey.COUNT, Integer.valueOf(i));
+            ih.f("count", Integer.valueOf(i));
         }
         if (str2 != null) {
             ih.append("pname", str2);
@@ -134,14 +133,14 @@ public class a {
     }
 
     public void lz() {
-        if (this.HA.size() != 0) {
+        if (this.HC.size() != 0) {
             com.baidu.adp.lib.stats.a ih = ih();
             c(ih);
             BdStatisticsManager.getInstance().debug("pluginproxy", ih);
         }
     }
 
-    public void bw(String str) {
+    public void by(String str) {
         BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), str, null, 1, new Object[0]);
     }
 
@@ -173,10 +172,10 @@ public class a {
 
     private void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.HA.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.HC.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.HA.clear();
+            this.HC.clear();
         }
     }
 

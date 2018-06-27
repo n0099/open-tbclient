@@ -1,222 +1,123 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.os.Parcelable;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.atomData.BookCoverActivityConfig;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.d;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class ai {
-    private boolean fwA;
-    private com.baidu.tieba.pb.data.d fwM;
-    private boolean fwy;
-    private String fzp;
-    private boolean fzq;
-    private boolean fzr;
-    private Parcelable fzs;
-    private boolean fzt;
-    private PostData fzu;
-    private PostData fzv;
-    private int fzw;
+public class ai extends q.a {
+    View.OnClickListener avZ;
+    public View devider;
+    public TextView fDf;
+    public TextView fDg;
+    public TbImageView fDh;
+    public TextView fDi;
+    public TextView fDj;
+    public TextView fDk;
+    public TextView fDl;
+    public TbImageView fDm;
+    public LinearLayout fDn;
+    private com.baidu.tbadk.core.data.ap fDo;
+    private TbPageContext mContext;
 
-    static {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.pb.pb.main.ai.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.bep().reset();
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2004006) { // from class: com.baidu.tieba.pb.pb.main.ai.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.bep().reset();
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2001335) { // from class: com.baidu.tieba.pb.pb.main.ai.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.bep().a(1, customResponsedMessage);
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2001336) { // from class: com.baidu.tieba.pb.pb.main.ai.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ai.bep().a(0, customResponsedMessage);
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(2016485) { // from class: com.baidu.tieba.pb.pb.main.ai.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.i)) {
-                    ai.bep().a((com.baidu.tbadk.data.i) customResponsedMessage.getData());
-                }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        private static ai fzx = new ai();
-    }
-
-    public static ai bep() {
-        return a.fzx;
-    }
-
-    private ai() {
-        this.fzp = null;
-        this.fzq = false;
-        this.fwM = null;
-        this.fzr = false;
-        this.fzs = null;
-        this.fwA = true;
-        this.fwy = false;
-        this.fzt = false;
-    }
-
-    public void L(String str, boolean z) {
-        this.fzq = false;
-        if (z) {
-            str = null;
-        }
-        if (str == null || str.length() < 1) {
-            reset();
-            this.fzp = null;
-        } else if (!str.equals(this.fzp)) {
-            reset();
-            this.fzp = str;
-        } else {
-            this.fzq = true;
-        }
-    }
-
-    public com.baidu.tieba.pb.data.d getPbData() {
-        if (!this.fzq) {
-            this.fzr = false;
-            return null;
-        } else if (this.fwM != null && this.fwM.baq() != null && this.fwM.baq().size() > 0) {
-            this.fzr = true;
-            com.baidu.tieba.pb.data.d dVar = this.fwM;
-            this.fwM = null;
-            return dVar;
-        } else {
-            this.fzr = false;
-            this.fwM = null;
-            return null;
-        }
-    }
-
-    public Parcelable beq() {
-        if (this.fzr) {
-            this.fzr = false;
-            Parcelable parcelable = this.fzs;
-            this.fzs = null;
-            return parcelable;
-        }
-        this.fzs = null;
-        return null;
-    }
-
-    public int ber() {
-        return this.fzw;
-    }
-
-    public void qG(int i) {
-        this.fzw = i;
-    }
-
-    public PostData bes() {
-        return this.fzv;
-    }
-
-    public void h(PostData postData) {
-        this.fzv = postData;
-    }
-
-    public PostData bet() {
-        return this.fzu;
-    }
-
-    public void i(PostData postData) {
-        this.fzu = postData;
-    }
-
-    public boolean bdi() {
-        return this.fwA;
-    }
-
-    public boolean beu() {
-        return this.fwy;
-    }
-
-    public boolean bev() {
-        return this.fzt;
-    }
-
-    public boolean a(com.baidu.tieba.pb.data.d dVar, Parcelable parcelable, boolean z, boolean z2, boolean z3) {
-        this.fzq = false;
-        if (this.fzp == null) {
-            reset();
-            return false;
-        } else if (dVar == null) {
-            reset();
-            return false;
-        } else if (dVar.baq() == null) {
-            reset();
-            return false;
-        } else if (dVar.baq().size() < 1) {
-            reset();
-            return false;
-        } else if (parcelable == null) {
-            reset();
-            return false;
-        } else {
-            this.fwM = dVar;
-            this.fzr = false;
-            this.fzs = parcelable;
-            this.fwA = z;
-            this.fwy = z2;
-            this.fzt = z3;
-            return true;
-        }
-    }
-
-    public void reset() {
-        this.fzq = false;
-        this.fwM = null;
-        this.fzr = false;
-        this.fzs = null;
-    }
-
-    public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.fwM != null && this.fwM.bam() != null) {
-            Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.c(this.fwM.bam().getId(), 0L)) {
-                this.fwM.bam().setLike(i);
-            }
-        }
-    }
-
-    public void a(com.baidu.tbadk.data.i iVar) {
-        if (iVar != null && this.fwM != null && this.fwM.baq() != null && this.fwM.baq().size() > 0) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount)) {
-                int size = this.fwM.baq().size();
-                for (int i = 0; i < size; i++) {
-                    if (this.fwM.baq().get(i) != null && this.fwM.baq().get(i).vm() != null && currentAccount.equals(this.fwM.baq().get(i).vm().getUserId()) && this.fwM.baq().get(i).vm().getPendantData() != null) {
-                        this.fwM.baq().get(i).vm().getPendantData().dj(iVar.ub());
-                        this.fwM.baq().get(i).vm().getPendantData().W(iVar.GL());
+    public ai(TbPageContext tbPageContext, View view) {
+        super(view);
+        this.avZ = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.ai.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                if (bb.aU(ai.this.mContext.getPageActivity()) && com.baidu.adp.lib.util.l.jU() && ai.this.fDo != null && !StringUtils.isNull(ai.this.fDo.afx)) {
+                    if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
+                        com.baidu.adp.lib.util.l.showToast(ai.this.mContext.getPageActivity(), d.k.book_plugin_not_install_tip);
+                    } else if (view2 == ai.this.fDl) {
+                        String str = ai.this.fDo.afx;
+                        com.baidu.tbadk.core.data.al alVar = new com.baidu.tbadk.core.data.al();
+                        alVar.pageContext = (TbPageContext) com.baidu.adp.base.i.ad(ai.this.mContext.getPageActivity());
+                        alVar.afx = str;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, alVar));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11387").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 6).ah("obj_locate", "0").ah("obj_param1", str));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11442").ah(VideoPlayActivityConfig.OBJ_ID, ai.this.fDo.afx).ah("obj_locate", "3"));
+                    } else if (view2 == ai.this.fDn) {
+                        ai.this.mContext.sendMessage(new CustomMessage(2002001, new BookCoverActivityConfig(ai.this.mContext.getPageActivity(), ai.this.fDo.afx)));
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11442").ah(VideoPlayActivityConfig.OBJ_ID, ai.this.fDo.afx).ah("obj_locate", "1"));
+                    } else if (view2 == ai.this.fDg && !StringUtils.isNull(ai.this.fDo.ahr)) {
+                        az.zV().c((TbPageContext) com.baidu.adp.base.i.ad(ai.this.mContext.getPageActivity()), new String[]{ai.this.fDo.ahr});
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11442").ah(VideoPlayActivityConfig.OBJ_ID, ai.this.fDo.afx).ah("obj_locate", "2"));
                     }
                 }
             }
+        };
+        this.mContext = tbPageContext;
+        this.fDf = (TextView) view.findViewById(d.g.textview_recommend_title);
+        this.fDg = (TextView) view.findViewById(d.g.textview_recommend_option_btn);
+        this.fDh = (TbImageView) view.findViewById(d.g.novel_cover);
+        this.fDi = (TextView) view.findViewById(d.g.novel_title);
+        this.fDj = (TextView) view.findViewById(d.g.novel_author);
+        this.fDk = (TextView) view.findViewById(d.g.novel_read_number);
+        this.fDl = (TextView) view.findViewById(d.g.novel_read_btn);
+        this.fDn = (LinearLayout) view.findViewById(d.g.novel_recommend_item_layout);
+        this.fDm = (TbImageView) view.findViewById(d.g.novel_subscription);
+        this.fDm.setDefaultResource(d.f.transparent_bg);
+        this.fDm.setDefaultBgResource(d.f.transparent_bg);
+        this.fDm.setDefaultErrorResource(d.f.transparent_bg);
+        this.devider = view.findViewById(d.g.recommend_devider);
+        this.fDl.setOnClickListener(this.avZ);
+        this.fDn.setOnClickListener(this.avZ);
+        this.fDg.setOnClickListener(this.avZ);
+    }
+
+    public void a(com.baidu.tbadk.core.data.ap apVar) {
+        if (apVar != null) {
+            this.fDo = apVar;
+            this.fDf.setText(apVar.ahp);
+            this.fDg.setText(apVar.ahq);
+            this.fDm.startLoad(apVar.ahu, 10, false);
+            this.fDh.startLoad(apVar.afz, 10, false);
+            this.fDl.setText(apVar.aht);
+            this.fDi.setText(apVar.afy);
+            List<String> list = apVar.ahs;
+            if (list != null) {
+                switch (list.size()) {
+                    case 1:
+                        if (list.get(0) != null) {
+                            this.fDj.setText(list.get(0));
+                            break;
+                        }
+                        break;
+                    case 2:
+                        if (list.get(0) != null) {
+                            this.fDj.setText(list.get(0));
+                        }
+                        if (list.get(1) != null) {
+                            this.fDk.setText(list.get(1));
+                            break;
+                        }
+                        break;
+                }
+            }
+            com.baidu.tbadk.core.util.am.c(this.fDf, d.C0142d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.am.c(this.fDg, d.C0142d.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.am.c(this.fDi, d.C0142d.cp_cont_b, 1);
+            com.baidu.tbadk.core.util.am.c(this.fDj, d.C0142d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.am.c(this.fDk, d.C0142d.cp_cont_d, 1);
+            com.baidu.tbadk.core.util.am.c(this.fDl, d.C0142d.cp_link_tip_a, 1);
+            com.baidu.tbadk.core.util.am.j(this.devider, d.C0142d.cp_bg_line_b);
+            com.baidu.tbadk.core.util.am.i(this.fDl, d.f.btn_pb_novel_recommend_read);
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11441").ah(VideoPlayActivityConfig.OBJ_ID, this.fDo.afx));
         }
     }
 }

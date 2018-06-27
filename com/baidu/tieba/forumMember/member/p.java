@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dfe = BdUniqueId.gen();
-    private String dfh;
-    private String dfi;
-    private int dff = -1;
-    private int dfg = -1;
-    private int dfj = -1;
+    public static final BdUniqueId dgV = BdUniqueId.gen();
+    private String dgY;
+    private String dgZ;
+    private int dgW = -1;
+    private int dgX = -1;
+    private int dha = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dfe;
+        return dgV;
     }
 
-    public int asp() {
-        return this.dff;
+    public int asA() {
+        return this.dgW;
     }
 
-    public void jU(int i) {
-        this.dff = i;
+    public void jX(int i) {
+        this.dgW = i;
     }
 
-    public int asq() {
-        return this.dfj;
+    public int asB() {
+        return this.dha;
     }
 
-    public void jV(int i) {
-        this.dfj = i;
+    public void jY(int i) {
+        this.dha = i;
     }
 
-    public int asr() {
-        return this.dfg;
+    public int asC() {
+        return this.dgX;
     }
 
-    public void jW(int i) {
-        this.dfg = i;
+    public void jZ(int i) {
+        this.dgX = i;
     }
 
-    public String ass() {
-        return this.dfh;
+    public String asD() {
+        return this.dgY;
     }
 
     public void mm(String str) {
-        this.dfh = str;
+        this.dgY = str;
     }
 
-    public String ast() {
-        return this.dfi;
+    public String asE() {
+        return this.dgZ;
     }
 
     public void mn(String str) {
-        this.dfi = str;
+        this.dgZ = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.dfh) || StringUtils.isNull(this.dfi) || this.dff < 0 || this.dfg < 0;
+        return StringUtils.isNull(this.dgY) || StringUtils.isNull(this.dgZ) || this.dgW < 0 || this.dgX < 0;
     }
 }

@@ -4,28 +4,28 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View cCE;
-    private View cCF;
+    private View cAy;
+    private View cAz;
     private TextView mTitle;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.cCE = getView().findViewById(d.g.card_divider_top_margin);
+        this.cAy = getView().findViewById(d.g.card_divider_top_margin);
         this.mTitle = (TextView) getView().findViewById(d.g.card_divider_tv);
-        this.cCF = getView().findViewById(d.g.bottom_line);
+        this.cAz = getView().findViewById(d.g.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.h(this.mTitle, d.C0141d.cp_cont_d);
-            al.j(this.cCF, d.C0141d.cp_bg_line_b);
-            al.j(this.cCE, d.C0141d.cp_bg_line_c);
+            am.h(this.mTitle, d.C0142d.cp_cont_d);
+            am.j(this.cAz, d.C0142d.cp_bg_line_b);
+            am.j(this.cAy, d.C0142d.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -40,9 +40,9 @@ public class c extends com.baidu.tieba.card.a<b> {
     public void a(b bVar) {
         if (bVar != null) {
             if (bVar.needTopMargin) {
-                this.cCE.setVisibility(0);
+                this.cAy.setVisibility(0);
             } else {
-                this.cCE.setVisibility(8);
+                this.cAy.setVisibility(8);
             }
             this.mTitle.setText(bVar.title);
             d(null, TbadkCoreApplication.getInst().getSkinType());

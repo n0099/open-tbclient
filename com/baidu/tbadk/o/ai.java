@@ -1,20 +1,36 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
-public class ai extends j {
-    private static ai aUN = new ai();
-
-    public static boolean KJ() {
-        return aUN.ip();
+public class ai extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void R(int i) {
     }
 
-    @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "pb_reply_switch";
+        return "nickname_activity";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
-    public int hn() {
-        return super.hn();
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] hm() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hn() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hp() {
+        return 10;
+    }
+
+    public static boolean ip() {
+        return com.baidu.adp.lib.b.d.hv().aw("nickname_activity") == 1;
     }
 }

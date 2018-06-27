@@ -3,5 +3,5 @@ package com.baidu.adp.plugin.install;
 public interface a {
     void R(boolean z);
 
-    void bq(String str);
+    void bs(String str);
 }

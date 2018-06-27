@@ -2,13 +2,13 @@ package com.baidu.location.b.b;
 
 import com.baidu.location.b.b.c;
 import java.util.Comparator;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 class d implements Comparator<c.a> {
-    final /* synthetic */ c Wu;
+    final /* synthetic */ c Ww;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.Wu = cVar;
+        this.Ww = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

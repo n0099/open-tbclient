@@ -14,20 +14,20 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    private static j Db;
-    private long CZ;
+    private static j Dd;
+    private long Db;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-    private static boolean CY = true;
-    private NetworkInfo CO = null;
+    private static boolean Da = true;
+    private NetworkInfo CQ = null;
     private boolean isWifi = true;
-    private boolean CP = false;
-    private boolean CQ = true;
-    private int CT = 0;
-    private int CU = 0;
-    private int CV = -1;
-    private String CW = null;
+    private boolean CT = false;
+    private boolean CU = true;
+    private int CV = 0;
+    private int CW = 0;
     private int CX = -1;
-    private boolean Da = true;
+    private String CY = null;
+    private int CZ = -1;
+    private boolean Dc = true;
 
     static {
         try {
@@ -39,41 +39,41 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        Db = null;
+        Dd = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void jq() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        this.CO = activeNetworkInfo;
+        this.CQ = activeNetworkInfo;
         if (activeNetworkInfo != null) {
             if (activeNetworkInfo.getType() == 1) {
                 this.isWifi = true;
-                this.CP = false;
+                this.CT = false;
             } else if (activeNetworkInfo.getType() == 0) {
                 this.isWifi = false;
-                this.CP = true;
+                this.CT = true;
             } else {
                 this.isWifi = false;
-                this.CP = false;
+                this.CT = false;
             }
-            this.CQ = true;
-            this.CT = activeNetworkInfo.getSubtype();
-            if (this.CP) {
-                this.CU = aq(this.CT);
+            this.CU = true;
+            this.CV = activeNetworkInfo.getSubtype();
+            if (this.CT) {
+                this.CW = aq(this.CV);
             } else {
-                this.CU = 0;
+                this.CW = 0;
             }
         } else {
             this.isWifi = false;
-            this.CP = false;
-            this.CQ = false;
-            this.CT = 0;
-            this.CT = 0;
+            this.CT = false;
+            this.CU = false;
+            this.CV = 0;
+            this.CV = 0;
         }
-        this.CV = jz();
-        this.CW = Proxy.getDefaultHost();
-        this.CX = Proxy.getDefaultPort();
+        this.CX = jz();
+        this.CY = Proxy.getDefaultHost();
+        this.CZ = Proxy.getDefaultPort();
     }
 
     private NetworkInfo getActiveNetworkInfo() {
@@ -103,64 +103,64 @@ public class j {
     }
 
     public boolean js() {
-        if (this.CO == null) {
+        if (this.CQ == null) {
             jq();
         }
-        return this.CQ;
+        return this.CU;
     }
 
     public boolean jt() {
-        if (this.CO == null) {
+        if (this.CQ == null) {
             jq();
         }
         return this.isWifi;
     }
 
     public boolean ju() {
-        if (this.CO == null) {
+        if (this.CQ == null) {
             jq();
         }
-        return this.CP;
+        return this.CT;
     }
 
     public int jv() {
-        if (this.CO == null) {
+        if (this.CQ == null) {
             jq();
-        }
-        return this.CU;
-    }
-
-    public int jw() {
-        if (this.CV == -1) {
-            try {
-                this.CV = jz();
-            } catch (Exception e) {
-                this.CV = 0;
-            }
-        }
-        return this.CV;
-    }
-
-    public String jx() {
-        if (this.CW == null) {
-            this.CW = Proxy.getDefaultHost();
         }
         return this.CW;
     }
 
+    public int jw() {
+        if (this.CX == -1) {
+            try {
+                this.CX = jz();
+            } catch (Exception e) {
+                this.CX = 0;
+            }
+        }
+        return this.CX;
+    }
+
+    public String jx() {
+        if (this.CY == null) {
+            this.CY = Proxy.getDefaultHost();
+        }
+        return this.CY;
+    }
+
     private long jy() {
-        return this.CZ;
+        return this.Db;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(long j) {
-        this.CZ = j;
+        this.Db = j;
     }
 
     private static int jz() {
         int i;
         String networkOperator = ((TelephonyManager) BdBaseApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNetworkOperator();
-        if (networkOperator == null || networkOperator.length() < 4 || k.bd(networkOperator)) {
+        if (networkOperator == null || networkOperator.length() < 4 || k.bf(networkOperator)) {
             return 0;
         }
         String substring = networkOperator.substring(0, 3);
@@ -219,28 +219,28 @@ public class j {
     }
 
     public int jA() {
-        if (-1 == this.CX) {
-            this.CX = Proxy.getDefaultPort();
+        if (-1 == this.CZ) {
+            this.CZ = Proxy.getDefaultPort();
         }
-        return this.CX;
+        return this.CZ;
     }
 
     public boolean jB() {
-        return this.Da;
+        return this.Dc;
     }
 
     public void P(boolean z) {
-        this.Da = z;
+        this.Dc = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized j jC() {
         j jVar;
         synchronized (j.class) {
-            if (Db == null) {
-                Db = new j();
+            if (Dd == null) {
+                Dd = new j();
             }
-            jVar = Db;
+            jVar = Dd;
         }
         return jVar;
     }
@@ -354,10 +354,10 @@ public class j {
     }
 
     public static boolean jP() {
-        return CY;
+        return Da;
     }
 
-    public static boolean bb(String str) {
+    public static boolean bd(String str) {
         if (mPattern.matcher(str).find()) {
             return true;
         }

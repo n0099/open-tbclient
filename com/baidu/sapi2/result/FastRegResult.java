@@ -13,9 +13,9 @@ public class FastRegResult extends SapiResult {
     public boolean newReg;
 
     public FastRegResult() {
-        this.msgMap.put(0, "注册成功");
+        this.msgMap.put(0, RESULT_MSG_SUCCESS);
         this.msgMap.put(-101, ERROR_MSG_SIM_UNAVAILABLE);
-        this.msgMap.put(-102, ERROR_MSG_SEND_SMS_FAILED);
+        this.msgMap.put(ERROR_CODE_SEND_SMS_FAILED, ERROR_MSG_SEND_SMS_FAILED);
         this.msgMap.put(-103, ERROR_MSG_REG_TIMEOUT);
     }
 

@@ -10,19 +10,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class Auth {
-    private static Throwable Ps;
-    private String Pu;
-    private String Pv;
+    private static Throwable Pu;
+    private String Pw;
+    private String Px;
     private long mExpiresTime;
-    private int Pt = 1;
+    private int Pv = 1;
     private String mToken = null;
 
     static {
         try {
             System.loadLibrary("aip-native-auth");
-            Ps = null;
+            Pu = null;
         } catch (Throwable th) {
-            Ps = new AuthException(283506, AuthException.a);
+            Pu = new AuthException(283506, AuthException.a);
         }
     }
 
@@ -40,7 +40,7 @@ public class Auth {
 
     private static String md5(String str) {
         try {
-            return v(MessageDigest.getInstance("MD5").digest(str.getBytes()));
+            return w(MessageDigest.getInstance("MD5").digest(str.getBytes()));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return "";
@@ -72,7 +72,7 @@ public class Auth {
         }
     }
 
-    private static String v(byte[] bArr) {
+    private static String w(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] cArr2 = new char[bArr.length * 2];
         int i = 0;
@@ -89,13 +89,13 @@ public class Auth {
         String str;
         String str2 = null;
         if (os() || this.mToken == null) {
-            if (this.Pt == 0) {
+            if (this.Pv == 0) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/sk?channel=ar";
-                str = f(context, this.Pu, this.Pv);
+                str = f(context, this.Pw, this.Px);
             } else {
                 str = null;
             }
-            if (this.Pt == 1) {
+            if (this.Pv == 1) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/bin?channel=ar";
                 str = ao(context);
             }

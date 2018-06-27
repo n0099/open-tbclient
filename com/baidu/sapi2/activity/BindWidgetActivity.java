@@ -7,85 +7,92 @@ import com.baidu.c.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.callback.WebBindWidgetCallback;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import java.util.Collections;
 /* loaded from: classes2.dex */
-public class BindWidgetActivity extends TitleActivity {
+public class BindWidgetActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_BIND_WIDGET_ACTION = "EXTRA_BIND_WIDGET_ACTION";
+    public static final int REQUEST_CODE_LOGIN = 200001;
     private String bduss;
     private BindWidgetAction bindWidgetAction;
-    private WebBindWidgetResult result = new WebBindWidgetResult();
+    private WebBindWidgetResult result = new WebBindWidgetResult() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.1
+        @Override // com.baidu.sapi2.result.WebBindWidgetResult
+        public void loginSuc() {
+            super.loginSuc();
+            BindWidgetActivity.this.onClose();
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
-        init();
-        setupViews();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
-    public void init() {
-        super.init();
-        WebBindWidgetCallback webBindWidgetCallback = PassportSDK.getInstance().getWebBindWidgetCallback();
-        this.bindWidgetAction = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
-        this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
-        if (this.bindWidgetAction == null || TextUtils.isEmpty(this.bduss)) {
-            if (webBindWidgetCallback != null) {
-                this.result.setResultCode(-204);
-                this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
-                webBindWidgetCallback.onFinish(this.result);
-            }
-            PassportSDK.getInstance().release();
-            finish();
+        try {
+            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            init();
+            setupViews();
+        } catch (Throwable th) {
+            reportWebviewError(th);
+            onClose();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void init() {
+        super.init();
+        this.bindWidgetAction = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
+        this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
+        if (this.bindWidgetAction == null || TextUtils.isEmpty(this.bduss)) {
+            this.result.setResultCode(-204);
+            this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+            finishActivity();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setBtnVisibility(4, 0, 4);
+        configTitle();
         setTitleText(this.bindWidgetAction.getName());
-        this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.1
+        this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
                 BindWidgetActivity.this.goBack();
             }
         });
-        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.2
+        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
-                if (PassportSDK.getInstance().getWebBindWidgetCallback() != null) {
-                    BindWidgetActivity.this.result.setResultCode(-301);
-                    BindWidgetActivity.this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-                    PassportSDK.getInstance().getWebBindWidgetCallback().onFinish(BindWidgetActivity.this.result);
-                }
-                PassportSDK.getInstance().release();
-                BindWidgetActivity.this.finish();
+                BindWidgetActivity.this.onClose();
             }
         });
-        this.sapiWebView.setBindWidgetCallback(new SapiWebView.BindWidgetCallback() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.3
+        this.sapiWebView.setBindWidgetCallback(new SapiWebView.BindWidgetCallback() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.4
             @Override // com.baidu.sapi2.SapiWebView.BindWidgetCallback
             public void onPhoneNumberExist(String str) {
                 SapiAccountManager.getInstance().getSapiConfiguration().presetPhoneNumber = str;
+                if (PassportSDK.getInstance().getWebBindWidgetDTO().handleLogin && PassportSDK.getInstance().getWebBindWidgetCallback() != null) {
+                    BindWidgetActivity.this.result.setResultCode(-10001);
+                    BindWidgetActivity.this.result.setResultMsg("请登录");
+                    PassportSDK.getInstance().getWebBindWidgetCallback().onFinish(BindWidgetActivity.this.result);
+                    return;
+                }
                 Intent intent = new Intent(BindWidgetActivity.this, LoginActivity.class);
                 intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_SMS);
-                BindWidgetActivity.this.startActivityForResult(intent, 0);
+                intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
+                BindWidgetActivity.this.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
             }
         });
         this.sapiWebView.loadBindWidget(this.bindWidgetAction, this.bduss, Collections.singletonList(SapiWebView.EXTRA_BIND_WIDGET_CONFLICT_DETECT));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
         if (this.executeSubClassMethod) {
@@ -93,15 +100,33 @@ public class BindWidgetActivity extends TitleActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
         if (this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
-            return;
+        } else {
+            onClose();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        super.onClose();
+        this.result.setResultCode(-301);
+        this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        finishActivity();
+    }
+
+    private void finishActivity() {
         if (PassportSDK.getInstance().getWebBindWidgetCallback() != null) {
-            this.result.setResultCode(-301);
-            this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
             PassportSDK.getInstance().getWebBindWidgetCallback().onFinish(this.result);
         }
         PassportSDK.getInstance().release();
@@ -112,14 +137,8 @@ public class BindWidgetActivity extends TitleActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            if (PassportSDK.getInstance().getWebBindWidgetCallback() != null) {
-                this.result.setResultCode(-301);
-                this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-                PassportSDK.getInstance().getWebBindWidgetCallback().onFinish(this.result);
-            }
-            PassportSDK.getInstance().release();
-            finish();
+        if (i == 200001 && i2 == -1) {
+            onClose();
         }
     }
 }

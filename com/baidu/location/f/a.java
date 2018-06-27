@@ -3,9 +3,9 @@ package com.baidu.location.f;
 import android.support.v7.widget.ActivityChooserView;
 import java.util.Locale;
 import org.apache.http.HttpStatus;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public char XS;
+    public char XV;
     public int a;
     public int b;
     public int c;
@@ -25,7 +25,7 @@ public class a {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.g = 0L;
         this.h = -1;
-        this.XS = (char) 0;
+        this.XV = (char) 0;
         this.j = false;
         this.g = System.currentTimeMillis();
     }
@@ -39,19 +39,19 @@ public class a {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.g = 0L;
         this.h = -1;
-        this.XS = (char) 0;
+        this.XV = (char) 0;
         this.j = false;
         this.a = i;
         this.b = i2;
         this.c = i3;
         this.d = i4;
         this.h = i5;
-        this.XS = c;
+        this.XV = c;
         this.g = System.currentTimeMillis();
     }
 
     public a(a aVar) {
-        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.XS);
+        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.XV);
         this.g = aVar.g;
     }
 
@@ -98,7 +98,7 @@ public class a {
     public String h() {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
-        stringBuffer.append(this.XS);
+        stringBuffer.append(this.XV);
         stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.h)));
         if (this.j) {
             stringBuffer.append("&newcl=1");

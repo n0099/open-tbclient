@@ -6,19 +6,19 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast Dq;
+    private static Toast Ds;
     private static Handler mHandler = new Handler();
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.Dq != null) {
-                e.Dq.cancel();
+            if (e.Ds != null) {
+                e.Ds.cancel();
             }
         }
     };
-    private boolean aom;
+    private boolean aoL;
 
-    public static e xZ() {
+    public static e ym() {
         return new e();
     }
 
@@ -26,24 +26,24 @@ public class e {
     }
 
     public void i(String str, int i, int i2) {
-        if (!this.aom && str != null) {
+        if (!this.aoL && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (Dq != null && Dq.getView() != null) {
+                if (Ds != null && Ds.getView() != null) {
                     try {
-                        Dq.setText(trim);
+                        Ds.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        Dq = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        Dq.setGravity(17, 0, i2);
+                        Ds = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        Ds.setGravity(17, 0, i2);
                     }
                 } else {
-                    Dq = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    Dq.setGravity(17, 0, i2);
+                    Ds = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    Ds.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                Dq.show();
+                Ds.show();
             }
         }
     }
@@ -69,19 +69,19 @@ public class e {
     }
 
     public void onPause() {
-        this.aom = true;
+        this.aoL = true;
         cancel();
     }
 
     public void onResume() {
-        this.aom = false;
+        this.aoL = false;
     }
 
     public static void cancel() {
-        if (Dq != null) {
+        if (Ds != null) {
             mHandler.removeCallbacks(r);
-            Dq.cancel();
-            Dq = null;
+            Ds.cancel();
+            Ds = null;
         }
     }
 }

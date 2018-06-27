@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private float hcI;
-    private int hcJ;
-    private i hcK;
+    private float hgN;
+    private int hgO;
+    private i hgP;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.hcK = iVar;
+        this.hgP = iVar;
     }
 
     public boolean j(MotionEvent motionEvent) {
-        if (this.hcK == null || !this.hcK.isRecording()) {
+        if (this.hgP == null || !this.hgP.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float s = s(motionEvent);
-                        int i = (int) ((s - this.hcI) / 10.0f);
+                        int i = (int) ((s - this.hgN) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.hcJ;
+                            int i2 = i + this.hgO;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.hcI = s;
+                            this.hgN = s;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.hcI = s(motionEvent);
+                    this.hgN = s(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.hcJ = i;
+                this.hgO = i;
             }
         }
     }

@@ -4,19 +4,19 @@ import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes2.dex */
 public interface a {
-    void F(View.OnClickListener onClickListener);
+    void I(View.OnClickListener onClickListener);
 
     void b(com.baidu.tieba.pb.data.d dVar);
 
-    void jx(boolean z);
+    void jH(boolean z);
 
-    void jy(boolean z);
+    void jI(boolean z);
 
-    void jz(boolean z);
+    void jJ(boolean z);
 
-    void n(View.OnClickListener onClickListener);
+    void q(View.OnClickListener onClickListener);
 
-    void ql(int i);
+    void qs(int i);
 
     void setFromCDN(boolean z);
 

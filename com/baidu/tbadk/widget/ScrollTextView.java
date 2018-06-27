@@ -7,64 +7,64 @@ import android.widget.Scroller;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class ScrollTextView extends TextView implements Runnable {
-    private Scroller aWY;
-    private boolean aWZ;
-    private float pL;
+    private Scroller aXT;
+    private boolean aXU;
+    private float speed;
 
     public ScrollTextView(Context context) {
         super(context);
-        this.pL = 15.0f;
-        this.aWZ = true;
+        this.speed = 15.0f;
+        this.aXU = true;
         setup(context);
     }
 
     public ScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.pL = 15.0f;
-        this.aWZ = true;
+        this.speed = 15.0f;
+        this.aXU = true;
         setup(context);
     }
 
     private void setup(Context context) {
-        this.aWY = new Scroller(context, new LinearInterpolator());
-        setScroller(this.aWY);
+        this.aXT = new Scroller(context, new LinearInterpolator());
+        setScroller(this.aXT);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.aWY.isFinished()) {
-            LM();
+        if (this.aXT.isFinished()) {
+            Me();
         }
     }
 
-    private void LM() {
+    private void Me() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
-        this.aWY.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.pL));
-        if (this.aWZ) {
+        this.aXT.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.speed));
+        if (this.aXU) {
             post(this);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.aWY.isFinished()) {
-            LM();
+        if (this.aXT.isFinished()) {
+            Me();
         } else {
             post(this);
         }
     }
 
     public void setSpeed(float f) {
-        this.pL = f;
+        this.speed = f;
     }
 
     public float getSpeed() {
-        return this.pL;
+        return this.speed;
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.aWZ = z;
+        this.aXU = z;
     }
 }

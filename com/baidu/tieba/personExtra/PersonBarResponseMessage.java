@@ -1,5 +1,6 @@
 package com.baidu.tieba.personExtra;
 
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -44,7 +45,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             this.resultString = jSONObject.toString();
-            this.errCode = jSONObject.optInt("error_code");
+            this.errCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             this.data.parserJson(jSONObject);
         }
     }

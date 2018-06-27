@@ -8,33 +8,33 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class x {
-    private static x gcY = null;
-    private HashMap<String, a> gcZ = new HashMap<>();
+    private static x ggZ = null;
+    private HashMap<String, a> gha = new HashMap<>();
 
     private x() {
     }
 
-    public static x blZ() {
-        if (gcY == null) {
+    public static x bmD() {
+        if (ggZ == null) {
             synchronized (x.class) {
-                if (gcY == null) {
-                    gcY = new x();
+                if (ggZ == null) {
+                    ggZ = new x();
                 }
             }
         }
-        return gcY;
+        return ggZ;
     }
 
-    public void aG(String str, int i) {
-        a aVar = this.gcZ.get(str);
+    public void aH(String str, int i) {
+        a aVar = this.gha.get(str);
         if (aVar == null) {
-            this.gcZ.put(str, new a(i, System.currentTimeMillis()));
+            this.gha.put(str, new a(i, System.currentTimeMillis()));
         } else {
             aVar.lastUpdateTime = System.currentTimeMillis();
             aVar.position = i;
         }
-        if (this.gcZ.size() > 20) {
-            ArrayList arrayList = new ArrayList(this.gcZ.entrySet());
+        if (this.gha.size() > 20) {
+            ArrayList arrayList = new ArrayList(this.gha.entrySet());
             Collections.sort(arrayList, new Comparator<Map.Entry<String, a>>() { // from class: com.baidu.tieba.play.x.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Comparator
@@ -47,7 +47,7 @@ public class x {
             while (true) {
                 int i3 = i2;
                 if (i3 < 10) {
-                    this.gcZ.remove(((Map.Entry) arrayList.get(i3)).getKey());
+                    this.gha.remove(((Map.Entry) arrayList.get(i3)).getKey());
                     i2 = i3 + 1;
                 } else {
                     return;
@@ -58,12 +58,12 @@ public class x {
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gcZ.remove(str);
+            this.gha.remove(str);
         }
     }
 
-    public int sl(String str) {
-        a aVar = this.gcZ.get(str);
+    public int sk(String str) {
+        a aVar = this.gha.get(str);
         if (aVar != null) {
             return aVar.position;
         }

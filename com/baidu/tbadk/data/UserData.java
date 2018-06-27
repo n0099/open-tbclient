@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -267,17 +267,17 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             j jVar = new j();
-            jVar.go(getPortraitH());
-            jVar.gp(getPortrait());
-            jVar.bu(true);
+            jVar.gt(getPortraitH());
+            jVar.gu(getPortrait());
+            jVar.bx(true);
             this.mPhotoAlbum.add(jVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
                         j jVar2 = new j();
-                        jVar2.go(userPics.big);
-                        jVar2.gp(userPics.small);
-                        jVar2.bu(false);
+                        jVar2.gt(userPics.big);
+                        jVar2.gu(userPics.small);
+                        jVar2.bx(false);
                         this.mPhotoAlbum.add(jVar2);
                     }
                 }
@@ -384,7 +384,7 @@ public class UserData extends MetaData {
                     if (this.sex != 2 && this.sex != 1) {
                         this.sex = 1;
                     }
-                    this.alaUserData.sex = ao.cW(this.sex);
+                    this.alaUserData.sex = ap.cX(this.sex);
                 }
             }
             this.isGodInvited = user.is_invited.intValue() == 1;
@@ -474,9 +474,9 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 j jVar = new j();
-                jVar.go(getPortraitH());
-                jVar.gp(getPortrait());
-                jVar.bu(true);
+                jVar.gt(getPortraitH());
+                jVar.gu(getPortrait());
+                jVar.bx(true);
                 this.mPhotoAlbum.add(jVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -485,9 +485,9 @@ public class UserData extends MetaData {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             j jVar2 = new j();
-                            jVar2.go(jSONObject2.optString("big"));
-                            jVar2.gp(jSONObject2.optString("small"));
-                            jVar2.bu(false);
+                            jVar2.gt(jSONObject2.optString("big"));
+                            jVar2.gu(jSONObject2.optString("small"));
+                            jVar2.bx(false);
                             this.mPhotoAlbum.add(jVar2);
                         }
                     }
@@ -536,7 +536,7 @@ public class UserData extends MetaData {
                     this.liveId = optJSONObject9.optString("live_id");
                     this.alaUserData = (AlaUserInfoData) OrmObject.objectWithJson(jSONObject.optJSONObject("ala_info"), AlaUserInfoData.class);
                     if (StringUtils.isNull(this.alaUserData.sex)) {
-                        this.alaUserData.sex = ao.cW(this.sex);
+                        this.alaUserData.sex = ap.cX(this.sex);
                     }
                 }
             }

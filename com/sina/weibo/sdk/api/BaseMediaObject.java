@@ -6,15 +6,12 @@ import android.os.Parcelable;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseMediaObject implements Parcelable {
-    public static final int BUSINESS_TYPE_CARD_IMAGE = 8;
-    public static final int MEDIA_TYPE_CMD = 7;
     public static final int MEDIA_TYPE_IMAGE = 2;
-    public static final int MEDIA_TYPE_MUSIC = 3;
+    public static final int MEDIA_TYPE_MULITI_IMAGE = 6;
+    public static final int MEDIA_TYPE_SOURCE_VIDEO = 7;
     public static final int MEDIA_TYPE_TEXT = 1;
-    public static final int MEDIA_TYPE_VIDEO = 4;
-    public static final int MEDIA_TYPE_VOICE = 6;
     public static final int MEDIA_TYPE_WEBPAGE = 5;
     public String actionUrl;
     public String description;
@@ -43,7 +40,7 @@ public abstract class BaseMediaObject implements Parcelable {
         this.thumbData = parcel.createByteArray();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0036 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x003b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

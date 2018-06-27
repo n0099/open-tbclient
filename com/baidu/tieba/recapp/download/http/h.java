@@ -13,9 +13,9 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> zX = new HashMap();
-    protected LinkedList<BasicNameValuePair> zY = new LinkedList<>();
-    protected HashMap<String, byte[]> zZ = new HashMap<>();
+    protected Map<String, String> zV = new HashMap();
+    protected LinkedList<BasicNameValuePair> zW = new LinkedList<>();
+    protected HashMap<String, byte[]> zX = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -30,13 +30,13 @@ public class h {
     }
 
     public boolean hZ() {
-        return this.zZ != null && this.zZ.size() > 0;
+        return this.zX != null && this.zX.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.zY.size() == 0) {
+        if (this.zW.size() == 0) {
             if (eVar != null) {
-                eVar.zE = this.url.length();
+                eVar.zC = this.url.length();
             }
             return this.url;
         }
@@ -50,26 +50,26 @@ public class h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.zY.size()) {
+            if (i2 >= this.zW.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.zY.get(i2).getName());
+            sb.append(this.zW.get(i2).getName());
             sb.append("=");
-            sb.append(k.be(this.zY.get(i2).getValue()));
+            sb.append(k.bg(this.zW.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.zE = sb.length();
+            eVar.zC = sb.length();
         }
         return sb.toString();
     }
 
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.zX != null) {
-            for (Map.Entry<String, String> entry : this.zX.entrySet()) {
+        if (httpURLConnection != null && this.zV != null) {
+            for (Map.Entry<String, String> entry : this.zV.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -82,8 +82,8 @@ public class h {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.zY != null) {
-                    Iterator<BasicNameValuePair> it = this.zY.iterator();
+                if (this.zW != null) {
+                    Iterator<BasicNameValuePair> it = this.zW.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -100,8 +100,8 @@ public class h {
                         }
                     }
                 }
-                if (this.zZ != null) {
-                    for (Map.Entry<String, byte[]> entry : this.zZ.entrySet()) {
+                if (this.zX != null) {
+                    for (Map.Entry<String, byte[]> entry : this.zX.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -121,7 +121,7 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.zE = i;
+            eVar.zC = i;
         }
     }
 
@@ -141,14 +141,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.zE = i;
+            eVar.zC = i;
         }
     }
 
     private StringBuilder ia() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.zY != null) {
-            Iterator<BasicNameValuePair> it = this.zY.iterator();
+        if (this.zW != null) {
+            Iterator<BasicNameValuePair> it = this.zW.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -159,7 +159,7 @@ public class h {
                         sb.append("&");
                     }
                     sb.append(name + "=");
-                    sb.append(k.be(value));
+                    sb.append(k.bg(value));
                     i++;
                 }
             }
@@ -171,19 +171,19 @@ public class h {
     }
 
     public String ay(String str) {
-        if (this.zX != null) {
-            return this.zX.get(str);
+        if (this.zV != null) {
+            return this.zV.get(str);
         }
         return null;
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.zY.add(basicNameValuePair);
+        this.zW.add(basicNameValuePair);
     }
 
     public void q(String str, String str2) {
-        if (this.zX != null) {
-            this.zX.put(str, str2);
+        if (this.zV != null) {
+            this.zV.put(str, str2);
         }
     }
 }

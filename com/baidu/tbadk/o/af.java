@@ -1,36 +1,34 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.lib.b.a {
+    public static final String[] aVI = {"cn.jingling.lib"};
+
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_net_delete";
+        return "motu_sdk";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] hm() {
-        return new String[0];
+        return aVI;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int hn() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int ho() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int hp() {
         return 10;
-    }
-
-    public static boolean ip() {
-        return com.baidu.adp.lib.b.d.hv().aw("android_net_delete") == 1;
     }
 }

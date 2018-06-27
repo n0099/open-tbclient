@@ -5,35 +5,35 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean aRf;
+    protected boolean aSb;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.aRf = false;
+        this.aSb = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aRf = false;
+        this.aSb = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aRf = false;
+        this.aSb = false;
     }
 
-    public void dC(int i) {
+    public void dD(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bN(boolean z) {
+    public void bQ(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +49,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a hk(String str) {
+    public a ho(String str) {
         return null;
     }
 
@@ -89,40 +89,40 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void au(String str, String str2) {
     }
 
-    public void Jc() {
+    public void Ju() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aRf = z;
+        this.aSb = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aRh;
-        public TbFragmentTabIndicator aRj;
+        public int aSd;
+        public TbFragmentTabIndicator aSf;
         public View view;
-        public int zd;
-        public boolean aRg = true;
-        public int aRi = d.C0141d.common_color_10225;
+        public int zb;
+        public boolean aSc = true;
+        public int aSe = d.C0142d.common_color_10225;
 
-        public void dC(int i) {
-            if (this.aRh != 0) {
-                al.i(this.view, this.aRh);
+        public void dD(int i) {
+            if (this.aSd != 0) {
+                am.i(this.view, this.aSd);
             }
             if (this.view instanceof TextView) {
-                if (this.aRi != 0) {
-                    al.c(this.view, this.aRi, 1);
+                if (this.aSe != 0) {
+                    am.c(this.view, this.aSe, 1);
                 }
                 int c = c((TextView) this.view);
                 if (c > 0 && c < 10) {
-                    al.i(this.view, d.f.icon_news_head_prompt_one);
+                    am.i(this.view, d.f.icon_news_head_prompt_one);
                 } else if (c >= 10 && c < 100) {
-                    al.i(this.view, d.f.icon_news_head_prompt_two);
+                    am.i(this.view, d.f.icon_news_head_prompt_two);
                 } else if (c >= 100) {
-                    al.i(this.view, d.f.icon_news_head_prompt_more);
+                    am.i(this.view, d.f.icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {

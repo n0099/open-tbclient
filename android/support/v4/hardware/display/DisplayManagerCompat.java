@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
 public abstract class DisplayManagerCompat {
@@ -71,7 +72,7 @@ public abstract class DisplayManagerCompat {
         private final DisplayManager mDisplayManager;
 
         DisplayManagerCompatApi17Impl(Context context) {
-            this.mDisplayManager = (DisplayManager) context.getSystemService("display");
+            this.mDisplayManager = (DisplayManager) context.getSystemService(LivenessRecogActivity.f.a);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat

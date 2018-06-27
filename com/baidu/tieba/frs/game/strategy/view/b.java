@@ -17,7 +17,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.game.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aB */
+    /* renamed from: az */
     public d.a onCreateViewHolder(ViewGroup viewGroup) {
         return new d.a(new d(this.mPageContext));
     }
@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.game.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.game.strategy.data.b bVar, d.a aVar) {
-        aVar.drP.a(bVar);
+        aVar.duY.a(bVar);
         return aVar.getView();
     }
 }

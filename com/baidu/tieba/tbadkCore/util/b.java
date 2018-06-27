@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes.dex */
 public class b {
-    private static String fGd = "tbgametype";
+    private static String fKe = "tbgametype";
 
     public static String tX(String str) {
         String[] split;

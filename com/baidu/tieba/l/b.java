@@ -6,7 +6,6 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.util.Log;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.baidu.tieba.l.c;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -26,7 +25,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method fdZ;
+    private static Method fhQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -40,7 +39,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().aXf();
+                    ((c.a) context).getSplash().aXM();
                 }
                 c = c(file2, file);
                 b(context, C(file2), D, c.size() + 1);
@@ -48,7 +47,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().aXf();
+                ((c.a) context).getSplash().aXM();
             }
             c = c(file2, file);
             b(context, C(file2), D, c.size() + 1);
@@ -115,7 +114,7 @@ final class b {
                     int i3 = i2 + 1;
                     a(zipFile, entry, file3, str);
                     boolean F = F(file3);
-                    Log.i("MultiDex", "Extraction " + (F ? ImagesInvalidReceiver.SUCCESS : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
+                    Log.i("MultiDex", "Extraction " + (F ? "success" : "failed") + " - length " + file3.getAbsolutePath() + ": " + file3.length());
                     if (!F) {
                         file3.delete();
                         if (file3.exists()) {
@@ -243,9 +242,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (fdZ != null) {
+        if (fhQ != null) {
             try {
-                fdZ.invoke(editor, new Object[0]);
+                fhQ.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -256,9 +255,9 @@ final class b {
 
     static {
         try {
-            fdZ = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            fhQ = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            fdZ = null;
+            fhQ = null;
         }
     }
 }

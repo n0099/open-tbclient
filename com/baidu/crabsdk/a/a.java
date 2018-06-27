@@ -9,25 +9,25 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class a {
-    private long RJ;
-    private StringBuilder RK = new StringBuilder();
-    public ArrayList<String> RL = new ArrayList<>();
+    private long RL;
+    private StringBuilder RO = new StringBuilder();
+    public ArrayList<String> RP = new ArrayList<>();
     private long V;
     private long W;
     private long X;
     public static int T = 2000;
     public static int U = 1;
-    static a RO = null;
+    static a RQ = null;
 
     private a() {
     }
 
     private String f() {
-        Iterator<String> it = this.RL.iterator();
+        Iterator<String> it = this.RP.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            com.baidu.crabsdk.c.a.cd("===== stackEntry ===== \n" + next);
-            this.RK.append(next);
+            com.baidu.crabsdk.c.a.cf("===== stackEntry ===== \n" + next);
+            this.RO.append(next);
             String[] split = next.split(SystemInfoUtil.LINE_END);
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -46,28 +46,28 @@ public final class a {
     }
 
     public static a oS() {
-        if (RO == null) {
+        if (RQ == null) {
             synchronized (a.class) {
-                if (RO == null) {
-                    RO = new a();
+                if (RQ == null) {
+                    RQ = new a();
                 }
             }
         }
-        return RO;
+        return RQ;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
         this.V = j2 - j;
         this.W = j4 - j3;
         this.X = j;
-        this.RJ = j2;
+        this.RL = j2;
         return this;
     }
 
     public final Map<String, Object> g() {
         HashMap hashMap = new HashMap();
         long j = this.X;
-        long j2 = this.RJ;
+        long j2 = this.RL;
         long j3 = this.V;
         long j4 = this.W;
         String f = f();
@@ -80,10 +80,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.RK.toString());
+        hashMap.put("errorTrace", this.RO.toString());
         hashMap.put("errorLine", f);
         hashMap.put("errorOriLine", f);
-        this.RK.setLength(0);
+        this.RO.setLength(0);
         return hashMap;
     }
 }

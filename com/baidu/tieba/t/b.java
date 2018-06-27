@@ -15,24 +15,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private static b gVQ = new b();
+    private static b gZV = new b();
 
-    public static b bAJ() {
-        return gVQ;
+    public static b bBj() {
+        return gZV;
     }
 
-    public void bAK() {
+    public void bBk() {
         if (f.ge()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.t.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List bAM = b.bAM();
-                    int size = bAM.size();
+                    List bBm = b.bBm();
+                    int size = bBm.size();
                     for (int i = 0; i < size; i++) {
-                        a aVar = (a) bAM.get(i);
-                        b.this.f(aVar.uuid, aVar.cnj);
+                        a aVar = (a) bBm.get(i);
+                        b.this.f(aVar.uuid, aVar.gsr);
                     }
                     return null;
                 }
@@ -40,8 +40,8 @@ public class b {
         }
     }
 
-    private static File[] bAL() {
-        File file = new File(g.a.fde);
+    private static File[] bBl() {
+        File file = new File(g.a.fgV);
         if (file.exists()) {
             return file.listFiles();
         }
@@ -49,21 +49,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<a> bAM() {
+    public static List<a> bBm() {
         ArrayList arrayList = new ArrayList();
-        File[] bAL = bAL();
-        if (bAL != null) {
-            for (File file : bAL) {
+        File[] bBl = bBl();
+        if (bBl != null) {
+            for (File file : bBl) {
                 String name = file.getName();
-                JSONObject uA = uA(file.getAbsolutePath() + g.a.fcV + "kpi");
-                if (uA == null) {
+                JSONObject uw = uw(file.getAbsolutePath() + g.a.fgM + "kpi");
+                if (uw == null) {
                     com.baidu.tieba.j.d.qr(name);
                 } else {
-                    JSONObject uB = uB(file.getAbsolutePath() + g.a.fcV + BuildConfig.BUILD_TYPE);
-                    if (uB == null) {
+                    JSONObject ux = ux(file.getAbsolutePath() + g.a.fgM + BuildConfig.BUILD_TYPE);
+                    if (ux == null) {
                         com.baidu.tieba.j.d.qr(name);
                     } else {
-                        arrayList.add(new a(name, a(VideoPlatformStatic.PY(), uA, uB)));
+                        arrayList.add(new a(name, a(VideoPlatformStatic.Qv(), uw, ux)));
                     }
                 }
             }
@@ -71,12 +71,12 @@ public class b {
         return arrayList;
     }
 
-    private static JSONObject uA(String str) {
+    private static JSONObject uw(String str) {
         File file = new File(str);
         if (file.exists()) {
             try {
                 JSONObject jSONObject = new JSONObject(com.baidu.tieba.j.d.B(file));
-                if (ac(jSONObject)) {
+                if (ab(jSONObject)) {
                     return jSONObject;
                 }
                 return null;
@@ -88,17 +88,17 @@ public class b {
         return null;
     }
 
-    private static boolean ac(JSONObject jSONObject) {
+    private static boolean ab(JSONObject jSONObject) {
         int optInt = jSONObject.optInt("errorTimes", -1);
         int optInt2 = jSONObject.optInt("postSuccess", -1);
         int optInt3 = jSONObject.optInt("posted", -1);
         return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
     }
 
-    private static JSONObject uB(String str) {
+    private static JSONObject ux(String str) {
         if (!StringUtils.isNull(str) && new File(str).exists()) {
             try {
-                return new JSONObject().put("running", g(com.baidu.tieba.j.d.qq(str)));
+                return new JSONObject().put("running", l(com.baidu.tieba.j.d.qq(str)));
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -107,7 +107,7 @@ public class b {
         return null;
     }
 
-    private static JSONArray g(JSONArray jSONArray) {
+    private static JSONArray l(JSONArray jSONArray) {
         int optInt;
         boolean z = false;
         if (jSONArray == null) {
@@ -122,7 +122,7 @@ public class b {
             }
         }
         if (!z) {
-            jSONArray.put(new com.baidu.tieba.m.d(HttpStatus.SC_BAD_GATEWAY, "unknown", -4399, "").bmg());
+            jSONArray.put(new com.baidu.tieba.m.d(HttpStatus.SC_BAD_GATEWAY, "unknown", -4399, "").bmK());
             return jSONArray;
         }
         return jSONArray;
@@ -159,7 +159,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
         try {
-            c.f(c.ad(aVar.cnj), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+            c.f(c.ac(aVar.gsr), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
             com.baidu.tieba.j.d.qr(aVar.uuid);
         } catch (Exception e) {
             e.printStackTrace();

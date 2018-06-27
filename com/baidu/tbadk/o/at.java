@@ -7,7 +7,7 @@ public class at extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_stoken_new";
+        return "android_show_answer";
     }
 
     @Override // com.baidu.adp.lib.b.a

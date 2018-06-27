@@ -1,7 +1,7 @@
 package com.baidu.location.a;
 
 import android.os.HandlerThread;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i {
     private static HandlerThread a = null;
 

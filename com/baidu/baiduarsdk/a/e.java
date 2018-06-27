@@ -7,6 +7,7 @@ import android.view.Surface;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -195,7 +196,7 @@ public class e {
         hashMap2.put("platform", HttpConstants.OS_TYPE_VALUE);
         hashMap2.put("type", bVar2.e);
         HashMap hashMap3 = new HashMap();
-        hashMap3.put("error_code", Integer.valueOf(bVar2.f));
+        hashMap3.put(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, Integer.valueOf(bVar2.f));
         hashMap3.put("buffer_status", Integer.valueOf(bVar2.h));
         hashMap3.put("buffer_progress", Integer.valueOf(bVar2.i));
         hashMap3.put("play_status", Integer.valueOf(bVar2.g));

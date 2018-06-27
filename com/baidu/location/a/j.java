@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j {
     private int B;
-    private a Wn;
+    private a Wp;
     long a = 0;
     private static ArrayList<String> b = new ArrayList<>();
     private static ArrayList<String> c = new ArrayList<>();
@@ -23,26 +23,26 @@ public class j {
     private static final String g = com.baidu.location.h.h.a + "/yom.dat";
     private static final String h = com.baidu.location.h.h.a + "/yol.dat";
     private static final String i = com.baidu.location.h.h.a + "/yor.dat";
-    private static File Wg = null;
+    private static File Wi = null;
     private static int k = 8;
     private static int l = 8;
     private static int m = 16;
     private static int n = 1024;
     private static double o = 0.0d;
     private static double p = 0.1d;
-    private static double Wh = 30.0d;
-    private static double Wi = 100.0d;
+    private static double Wj = 30.0d;
+    private static double Wk = 100.0d;
     private static int s = 0;
     private static int t = 64;
     private static int u = 128;
-    private static Location Wj = null;
-    private static Location Wk = null;
     private static Location Wl = null;
-    private static com.baidu.location.f.i Wm = null;
-    private static j Wo = null;
+    private static Location Wm = null;
+    private static Location Wn = null;
+    private static com.baidu.location.f.i Wo = null;
+    private static j Wq = null;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends com.baidu.location.h.f {
         boolean a = false;
         int b = 0;
@@ -126,9 +126,9 @@ public class j {
     }
 
     private j() {
-        this.Wn = null;
+        this.Wp = null;
         this.B = 0;
-        this.Wn = new a();
+        this.Wp = new a();
         this.B = 0;
     }
 
@@ -312,10 +312,10 @@ public class j {
                     String a4 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 1);
                     if (a4 != null) {
                         c(Jni.encode(a4));
-                        Wk = location;
-                        Wj = location;
+                        Wm = location;
+                        Wl = location;
                         if (iVar != null) {
-                            Wm = iVar;
+                            Wo = iVar;
                         }
                     }
                 } else if (iVar != null && iVar.h() && a(location, iVar)) {
@@ -329,10 +329,10 @@ public class j {
                     String a5 = com.baidu.location.h.i.a(aVar, iVar, location, str2, 2);
                     if (a5 != null) {
                         d(Jni.encode(a5));
+                        Wn = location;
                         Wl = location;
-                        Wj = location;
                         if (iVar != null) {
-                            Wm = iVar;
+                            Wo = iVar;
                         }
                     }
                 } else {
@@ -350,9 +350,9 @@ public class j {
                         return;
                     }
                     e(Jni.encode(a2));
-                    Wj = location;
+                    Wl = location;
                     if (iVar != null) {
-                        Wm = iVar;
+                        Wo = iVar;
                     }
                 }
             }
@@ -393,27 +393,27 @@ public class j {
         if (location == null) {
             return false;
         }
-        if (Wk == null || Wj == null) {
-            Wk = location;
+        if (Wm == null || Wl == null) {
+            Wm = location;
             return true;
         }
-        double distanceTo = location.distanceTo(Wk);
-        return ((double) location.distanceTo(Wj)) > ((distanceTo * ((double) com.baidu.location.h.i.YH)) + ((((double) com.baidu.location.h.i.YG) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.R);
+        double distanceTo = location.distanceTo(Wm);
+        return ((double) location.distanceTo(Wl)) > ((distanceTo * ((double) com.baidu.location.h.i.YK)) + ((((double) com.baidu.location.h.i.YJ) * distanceTo) * distanceTo)) + ((double) com.baidu.location.h.i.R);
     }
 
     private static boolean a(Location location, com.baidu.location.f.i iVar) {
-        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(Wm)) {
+        if (location == null || iVar == null || iVar.a == null || iVar.a.isEmpty() || iVar.b(Wo)) {
             return false;
         }
-        if (Wl == null) {
-            Wl = location;
+        if (Wn == null) {
+            Wn = location;
             return true;
         }
         return true;
     }
 
     public static boolean a(Location location, boolean z) {
-        return com.baidu.location.f.e.a(Wj, location, z);
+        return com.baidu.location.f.e.a(Wl, location, z);
     }
 
     public static boolean a(String str, List<String> list) {
@@ -471,14 +471,14 @@ public class j {
                         e2.printStackTrace();
                         i3 = -5;
                     }
-                    if (Wg == null) {
-                        Wg = new File(e);
-                        if (!Wg.exists()) {
-                            Wg = null;
+                    if (Wi == null) {
+                        Wi = new File(e);
+                        if (!Wi.exists()) {
+                            Wi = null;
                             i3 = -2;
                         }
                     }
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(Wg, "rw");
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(Wi, "rw");
                     if (randomAccessFile.length() < 1) {
                         randomAccessFile.close();
                         i3 = -3;
@@ -668,17 +668,17 @@ public class j {
     public static synchronized j qq() {
         j jVar;
         synchronized (j.class) {
-            if (Wo == null) {
-                Wo = new j();
+            if (Wq == null) {
+                Wq = new j();
             }
-            jVar = Wo;
+            jVar = Wq;
         }
         return jVar;
     }
 
     public void c() {
         if (com.baidu.location.f.k.re().g()) {
-            this.Wn.b();
+            this.Wp.b();
         }
     }
 }

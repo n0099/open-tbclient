@@ -12,9 +12,9 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
-    private TbImageView glQ;
-    private View glR;
-    private TextView glS;
+    private TbImageView gpH;
+    private View gpI;
+    private TextView gpJ;
 
     public AdCardSinglePicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -31,39 +31,39 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void bu(View view) {
-        this.glQ = (TbImageView) view.findViewById(d.g.ad_img);
-        this.glQ.setDrawBorder(true);
-        this.glQ.setBorderWidth(1);
-        this.glR = view.findViewById(d.g.channel_ad);
-        this.glS = (TextView) view.findViewById(d.g.advert_source_img);
+    protected void bv(View view) {
+        this.gpH = (TbImageView) view.findViewById(d.g.ad_img);
+        this.gpH.setDrawBorder(true);
+        this.gpH.setBorderWidth(1);
+        this.gpI = view.findViewById(d.g.channel_ad);
+        this.gpJ = (TextView) view.findViewById(d.g.advert_source_img);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList == null || adCard.threadPicList.length < 1) {
-            this.gkN.setVisibility(8);
+            this.goD.setVisibility(8);
             return;
         }
         String str = adCard.threadPicList[0].pic;
-        boolean a = a(this.glQ, adCard);
+        boolean a = a(this.gpH, adCard);
         if (!TextUtils.isEmpty(str) && a) {
-            this.gkN.setVisibility(0);
-            this.glQ.startLoad(str, 17, false);
+            this.goD.setVisibility(0);
+            this.gpH.startLoad(str, 17, false);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (!StringUtils.isNull(adCard.adSource, true)) {
-                this.glS.setText(adCard.adSource);
-                this.glR.setVisibility(0);
-            } else if (advertAppInfo != null && advertAppInfo.adX != null && !TextUtils.isEmpty(advertAppInfo.adX.adSource)) {
-                this.glS.setText(advertAppInfo.adX.adSource);
-                this.glR.setVisibility(0);
+                this.gpJ.setText(adCard.adSource);
+                this.gpI.setVisibility(0);
+            } else if (advertAppInfo != null && advertAppInfo.aem != null && !TextUtils.isEmpty(advertAppInfo.aem.adSource)) {
+                this.gpJ.setText(advertAppInfo.aem.adSource);
+                this.gpI.setVisibility(0);
             } else {
-                this.glR.setVisibility(8);
+                this.gpI.setVisibility(8);
             }
-            a(this.glQ, adCard.threadPicList[0].gkx);
+            a(this.gpH, adCard.threadPicList[0].gon);
             return;
         }
-        this.gkN.setVisibility(8);
+        this.goD.setVisibility(8);
     }
 
     protected boolean a(TbImageView tbImageView, AdCard adCard) {

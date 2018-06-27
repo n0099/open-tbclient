@@ -1,7 +1,11 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes2.dex */
 public interface ai {
-    NavigationBar UB();
+    void Vo();
+
+    void a(int i, int i2, ao aoVar);
+
+    void a(al alVar);
+
+    void init();
 }

@@ -7,15 +7,15 @@ import com.airbnb.lottie.model.a.m;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PolystarShape implements b {
-    private final Type lX;
-    private final m<PointF, PointF> nL;
-    private final com.airbnb.lottie.model.a.b nN;
+    private final Type lV;
+    private final m<PointF, PointF> nK;
+    private final com.airbnb.lottie.model.a.b nM;
     private final String name;
+    private final com.airbnb.lottie.model.a.b om;
     private final com.airbnb.lottie.model.a.b on;
     private final com.airbnb.lottie.model.a.b oo;
     private final com.airbnb.lottie.model.a.b oq;
     private final com.airbnb.lottie.model.a.b or;
-    private final com.airbnb.lottie.model.a.b ot;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -41,14 +41,14 @@ public class PolystarShape implements b {
 
     private PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.lX = type;
-        this.on = bVar;
-        this.nL = mVar;
-        this.nN = bVar2;
-        this.oo = bVar3;
-        this.oq = bVar4;
-        this.or = bVar5;
-        this.ot = bVar6;
+        this.lV = type;
+        this.om = bVar;
+        this.nK = mVar;
+        this.nM = bVar2;
+        this.on = bVar3;
+        this.oo = bVar4;
+        this.oq = bVar5;
+        this.or = bVar6;
     }
 
     public String getName() {
@@ -56,35 +56,35 @@ public class PolystarShape implements b {
     }
 
     public Type cU() {
-        return this.lX;
+        return this.lV;
     }
 
     public com.airbnb.lottie.model.a.b cV() {
-        return this.on;
+        return this.om;
     }
 
     public m<PointF, PointF> cw() {
-        return this.nL;
+        return this.nK;
     }
 
     public com.airbnb.lottie.model.a.b cy() {
-        return this.nN;
+        return this.nM;
     }
 
     public com.airbnb.lottie.model.a.b cW() {
-        return this.oo;
+        return this.on;
     }
 
     public com.airbnb.lottie.model.a.b cX() {
-        return this.oq;
+        return this.oo;
     }
 
     public com.airbnb.lottie.model.a.b cY() {
-        return this.or;
+        return this.oq;
     }
 
     public com.airbnb.lottie.model.a.b cZ() {
-        return this.ot;
+        return this.or;
     }
 
     @Override // com.airbnb.lottie.model.content.b

@@ -3,7 +3,7 @@ package com.baidu.tbadk.util;
 import android.content.Context;
 import android.media.AudioManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class z {
@@ -18,7 +18,7 @@ public class z {
         return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean fr(int i) {
+    public static boolean fs(int i) {
         boolean z = true;
         switch (i) {
             case 2:
@@ -33,7 +33,7 @@ public class z {
             case 4:
                 return com.baidu.adp.lib.util.j.jE();
             case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.o.s.KK() && com.baidu.adp.lib.util.j.jE() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
+                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.o.t.Lc() && com.baidu.adp.lib.util.j.jE() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
             default:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
                     return (com.baidu.adp.lib.util.j.jF() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.jE() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
@@ -46,12 +46,12 @@ public class z {
     }
 
     public static boolean o(int i, String str) {
-        if (!ao.isEmpty(com.baidu.tieba.play.s.iq(str))) {
+        if (!ap.isEmpty(com.baidu.tieba.play.s.iv(str))) {
             if (TbadkCoreApplication.getInst().getVideoAutoPlay() == 1) {
                 return false;
             }
             return (com.baidu.adp.lib.util.j.jF() && TbadkCoreApplication.getInst().getVideoAutoPlay() == 0) ? false : true;
         }
-        return fr(i);
+        return fs(i);
     }
 }

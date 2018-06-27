@@ -3,6 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.content.Intent;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
@@ -135,7 +136,7 @@ public class VideoInfo extends OrmObject implements Serializable {
     public void parseFromIntent(Intent intent) {
         if (intent != null) {
             this.videoPath = intent.getStringExtra("video");
-            this.thumbPath = intent.getStringExtra("image");
+            this.thumbPath = intent.getStringExtra(TbConfig.TMP_PIC_DIR_NAME);
             this.videoDuration = (int) (intent.getLongExtra("video_l", 8000L) / 1000);
             this.videoHeight = intent.getIntExtra("video_h", com.baidu.sapi2.biometrics.liveness.camera.a.d);
             this.videoWidth = intent.getIntExtra("video_w", com.baidu.sapi2.biometrics.liveness.camera.a.d);

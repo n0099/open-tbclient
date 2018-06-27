@@ -8,15 +8,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g implements b {
     private final String name;
+    private final com.airbnb.lottie.model.a.b ou;
     private final com.airbnb.lottie.model.a.b ov;
-    private final com.airbnb.lottie.model.a.b ow;
-    private final l ox;
+    private final l ow;
 
     g(String str, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.ov = bVar;
-        this.ow = bVar2;
-        this.ox = lVar;
+        this.ou = bVar;
+        this.ov = bVar2;
+        this.ow = lVar;
     }
 
     public String getName() {
@@ -24,15 +24,15 @@ public class g implements b {
     }
 
     public com.airbnb.lottie.model.a.b db() {
-        return this.ov;
+        return this.ou;
     }
 
     public com.airbnb.lottie.model.a.b dc() {
-        return this.ow;
+        return this.ov;
     }
 
     public l dd() {
-        return this.ox;
+        return this.ow;
     }
 
     @Override // com.airbnb.lottie.model.content.b

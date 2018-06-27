@@ -19,8 +19,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class VideoMiddleModel extends BdBaseModel {
-    private a dBU;
-    private final HttpMessageListener dmc;
+    private a dFi;
+    private final HttpMessageListener doO;
     private String mId;
     private boolean mIsLoading;
     private TbPageContext mPageContext;
@@ -43,12 +43,12 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.dmc = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
+        this.doO = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    VideoMiddleModel.this.dBU.mB("error");
+                    VideoMiddleModel.this.dFi.mB("error");
                     return;
                 }
                 VideoMiddleModel.this.mIsLoading = false;
@@ -58,18 +58,18 @@ public class VideoMiddleModel extends BdBaseModel {
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(d.k.error_unkown_try_again);
                     }
-                    VideoMiddleModel.this.dBU.mB(errorString);
+                    VideoMiddleModel.this.dFi.mB(errorString);
                     return;
                 }
-                VideoMiddleModel.this.dBU.g(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                VideoMiddleModel.this.dFi.g(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
             }
         };
         this.mPageContext = tbPageContext;
-        this.dBU = aVar;
+        this.dFi = aVar;
         registerTask();
-        this.dmc.setTag(getUniqueId());
-        this.dmc.setSelfListener(true);
-        registerListener(this.dmc);
+        this.doO.setTag(getUniqueId());
+        this.doO.setSelfListener(true);
+        registerListener(this.doO);
     }
 
     public void setId(String str) {
@@ -112,7 +112,7 @@ public class VideoMiddleModel extends BdBaseModel {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         com.baidu.tieba.frs.aggregation.g gVar = new com.baidu.tieba.frs.aggregation.g();
                         gVar.parseJson(jSONArray.optString(i2));
-                        if (gVar.dlT != null) {
+                        if (gVar.doF != null) {
                             this.mDataList.add(gVar);
                         }
                     }

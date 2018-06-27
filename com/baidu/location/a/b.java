@@ -22,25 +22,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import org.apache.http.HttpStatus;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
     private static Method e = null;
     private static Method f = null;
     private static Method g = null;
     private static Class<?> h = null;
-    private LocationClientOption VD;
-    private InterfaceC0065b VE;
+    private LocationClientOption VF;
+    private InterfaceC0066b VG;
     private Context b;
     private TelephonyManager c;
     private WifiManager i;
     private String k;
-    private a VB = new a();
-    private d VC = null;
+    private a VD = new a();
+    private d VE = null;
     private String n = null;
-    c VF = new c();
+    c VH = new c();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a {
         public int a;
         public int b;
@@ -96,13 +96,13 @@ public class b {
     }
 
     /* renamed from: com.baidu.location.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0065b {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0066b {
         void onReceiveLocation(BDLocation bDLocation);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class c extends com.baidu.location.h.f {
         String a = null;
 
@@ -141,8 +141,8 @@ public class b {
                         bDLocation.setLocType(63);
                     }
                     if (bDLocation != null && bDLocation.getLocType() == 161) {
-                        bDLocation.setCoorType(b.this.VD.coorType);
-                        b.this.VE.onReceiveLocation(bDLocation);
+                        bDLocation.setCoorType(b.this.VF.coorType);
+                        b.this.VG.onReceiveLocation(bDLocation);
                     }
                 } catch (Exception e2) {
                 }
@@ -154,7 +154,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class d {
         public List<ScanResult> a;
         private long c;
@@ -238,7 +238,7 @@ public class b {
         }
     }
 
-    public b(Context context, LocationClientOption locationClientOption, InterfaceC0065b interfaceC0065b) {
+    public b(Context context, LocationClientOption locationClientOption, InterfaceC0066b interfaceC0066b) {
         String str;
         String str2;
         this.b = null;
@@ -246,8 +246,8 @@ public class b {
         this.i = null;
         this.k = null;
         this.b = context.getApplicationContext();
-        this.VD = locationClientOption;
-        this.VE = interfaceC0065b;
+        this.VF = locationClientOption;
+        this.VG = interfaceC0066b;
         String packageName = this.b.getPackageName();
         try {
             this.c = (TelephonyManager) this.b.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
@@ -261,9 +261,9 @@ public class b {
             str2 = null;
         }
         if (str2 != null) {
-            this.k = "&prod=" + this.VD.prodName + SystemInfoUtil.COLON + packageName + "|&cu=" + str2 + "&coor=" + locationClientOption.getCoorType();
+            this.k = "&prod=" + this.VF.prodName + SystemInfoUtil.COLON + packageName + "|&cu=" + str2 + "&coor=" + locationClientOption.getCoorType();
         } else {
-            this.k = "&prod=" + this.VD.prodName + SystemInfoUtil.COLON + packageName + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
+            this.k = "&prod=" + this.VF.prodName + SystemInfoUtil.COLON + packageName + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
         }
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&fw=");
@@ -307,14 +307,14 @@ public class b {
         }
         try {
             a(this.c.getCellLocation());
-            str = this.VB.b();
+            str = this.VD.b();
         } catch (Exception e2) {
             str = null;
         }
         try {
-            this.VC = null;
-            this.VC = new d(this.i.getScanResults());
-            str2 = this.VC.a(i);
+            this.VE = null;
+            this.VE = new d(this.i.getScanResults());
+            str2 = this.VE.a(i);
         } catch (Exception e3) {
             str2 = null;
         }
@@ -344,7 +344,7 @@ public class b {
                 if (networkOperator.length() >= 3) {
                     int intValue = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
                     if (intValue < 0) {
-                        intValue = this.VB.c;
+                        intValue = this.VD.c;
                     }
                     aVar.c = intValue;
                 }
@@ -357,7 +357,7 @@ public class b {
                 }
                 int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
                 if (intValue2 < 0) {
-                    intValue2 = this.VB.d;
+                    intValue2 = this.VD.d;
                 }
                 aVar.d = intValue2;
             } catch (Exception e2) {
@@ -384,7 +384,7 @@ public class b {
                 try {
                     int intValue3 = ((Integer) g.invoke(cellLocation, new Object[0])).intValue();
                     if (intValue3 < 0) {
-                        intValue3 = this.VB.d;
+                        intValue3 = this.VD.d;
                     }
                     aVar.d = intValue3;
                     aVar.b = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
@@ -395,7 +395,7 @@ public class b {
             }
         }
         if (aVar.d()) {
-            this.VB = aVar;
+            this.VD = aVar;
         }
     }
 
@@ -424,31 +424,31 @@ public class b {
         if (this.n == null) {
             return;
         }
-        if (this.VB == null || this.VB.a() == 1) {
-            if (this.i == null || this.VD.scanSpan < 1000 || this.VD.getAddrType().equals("all") || this.VD.isNeedAptag || this.VD.isNeedAptagd) {
+        if (this.VD == null || this.VD.a() == 1) {
+            if (this.i == null || this.VF.scanSpan < 1000 || this.VF.getAddrType().equals("all") || this.VF.isNeedAptag || this.VF.isNeedAptagd) {
                 bDLocation = null;
             } else {
                 try {
-                    bDLocation = com.baidu.location.e.a.qC().a(this.VB.c(), this.i.getScanResults(), false);
-                    if (!this.VD.coorType.equals("gcj02")) {
+                    bDLocation = com.baidu.location.e.a.qC().a(this.VD.c(), this.i.getScanResults(), false);
+                    if (!this.VF.coorType.equals("gcj02")) {
                         double longitude = bDLocation.getLongitude();
                         double latitude = bDLocation.getLatitude();
                         if (longitude != Double.MIN_VALUE && latitude != Double.MIN_VALUE) {
-                            double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.VD.coorType);
+                            double[] coorEncrypt = Jni.coorEncrypt(longitude, latitude, this.VF.coorType);
                             bDLocation.setLongitude(coorEncrypt[0]);
                             bDLocation.setLatitude(coorEncrypt[1]);
-                            bDLocation.setCoorType(this.VD.coorType);
+                            bDLocation.setCoorType(this.VF.coorType);
                         }
                     }
                     if (bDLocation.getLocType() == 66) {
-                        this.VE.onReceiveLocation(bDLocation);
+                        this.VG.onReceiveLocation(bDLocation);
                     }
                 } catch (Exception e2) {
                     bDLocation = null;
                 }
             }
             if (bDLocation == null) {
-                this.VF.a(this.n);
+                this.VH.a(this.n);
             }
         }
     }

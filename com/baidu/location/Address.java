@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class Address {
     public final String address;
     public final String city;
@@ -11,7 +11,7 @@ public final class Address {
     public final String street;
     public final String streetNumber;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         private static final String BEI_JING = "北京";
         private static final String CHONG_QIN = "重庆";

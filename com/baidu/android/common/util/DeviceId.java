@@ -1,5 +1,6 @@
 package com.baidu.android.common.util;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +15,11 @@ import android.os.Environment;
 import android.os.Process;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.system.ErrnoException;
+import android.system.Os;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.android.common.logging.Log;
+import android.util.Log;
 import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.MD5Util;
@@ -53,7 +56,8 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class DeviceId {
     private static final String ACTION_GLAXY_CUID = "com.baidu.intent.action.GALAXY";
-    private static final String AES_KEY = "30212102dicudiab";
+    private static final String AES_KEY;
+    private static final boolean CONFIG_WRITE_V1_STORAGE = true;
     private static final boolean DEBUG = false;
     private static final String DEFAULT_TM_DEVICEID = "";
     private static final String EXT_DIR = "backups/.SystemConfig";
@@ -73,6 +77,18 @@ public final class DeviceId {
     private static final int STORAGE_SELF_FILE = 16;
     private static final int STORAGE_SYSTEM_SETTING_V1 = 1;
     private static final int STORAGE_SYSTEM_SETTING_V2 = 2;
+    private static final int S_IRGRP = 32;
+    private static final int S_IROTH = 4;
+    private static final int S_IRUSR = 256;
+    private static final int S_IRWXG = 56;
+    private static final int S_IRWXO = 7;
+    private static final int S_IRWXU = 448;
+    private static final int S_IWGRP = 16;
+    private static final int S_IWOTH = 2;
+    private static final int S_IWUSR = 128;
+    private static final int S_IXGRP = 8;
+    private static final int S_IXOTH = 1;
+    private static final int S_IXUSR = 64;
     private static final String TAG = "DeviceId";
     private static CUIDInfo sCachedCuidInfo;
     private final Context mContext;
@@ -145,6 +161,28 @@ public final class DeviceId {
                 return null;
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public static class TargetApiSupport {
+        TargetApiSupport() {
+        }
+
+        static boolean doChmodSafely(String str, int i) {
+            try {
+                Os.chmod(str, i);
+                return true;
+            } catch (ErrnoException e) {
+                DeviceId.handleThrowable(e);
+                return false;
+            }
+        }
+    }
+
+    static {
+        String str = new String(Base64.decode(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+        AES_KEY = str + new String(Base64.decode(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
     }
 
     private DeviceId(Context context) {
@@ -452,8 +490,8 @@ public final class DeviceId {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00bd  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -786,44 +824,67 @@ public final class DeviceId {
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private boolean writeToCuidFile(String str) {
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2 = null;
+        int i = Build.VERSION.SDK_INT >= 24 ? 0 : 1;
         try {
             try {
-                fileOutputStream = this.mContext.openFileOutput(SELF_CUID_FILE, 1);
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                if (fileOutputStream != null) {
+                FileOutputStream openFileOutput = this.mContext.openFileOutput(SELF_CUID_FILE, i);
+                try {
+                    openFileOutput.write(str.getBytes());
+                    openFileOutput.flush();
+                    if (openFileOutput != null) {
+                        try {
+                            openFileOutput.close();
+                        } catch (Exception e) {
+                            handleThrowable(e);
+                        }
+                    }
+                    if (i == 0) {
+                        return TargetApiSupport.doChmodSafely(new File(this.mContext.getFilesDir(), SELF_CUID_FILE).getAbsolutePath(), 436);
+                    }
+                    return true;
+                } catch (Exception e2) {
+                    e = e2;
+                    fileOutputStream = openFileOutput;
                     try {
-                        fileOutputStream.close();
-                        return true;
-                    } catch (Exception e) {
                         handleThrowable(e);
-                        return true;
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (Exception e3) {
+                                handleThrowable(e3);
+                            }
+                        }
+                        return false;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream2 = fileOutputStream;
+                        if (fileOutputStream2 != null) {
+                            try {
+                                fileOutputStream2.close();
+                            } catch (Exception e4) {
+                                handleThrowable(e4);
+                            }
+                        }
+                        throw th;
                     }
                 }
-                return true;
-            } catch (Throwable th) {
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e2) {
-                        handleThrowable(e2);
-                    }
+            } catch (Throwable th2) {
+                th = th2;
+                if (fileOutputStream2 != null) {
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            handleThrowable(e3);
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e4) {
-                    handleThrowable(e4);
-                }
-            }
-            return false;
+        } catch (Exception e5) {
+            e = e5;
+            fileOutputStream = null;
         }
     }
 

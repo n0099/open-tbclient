@@ -12,8 +12,8 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String gMw;
-    private String gMx;
+    private String gQy;
+    private String gQz;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean byl() {
+    public boolean byP() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean bym() {
+    public boolean byQ() {
         return this.errorCode == 1990055;
     }
 
-    public boolean byn() {
+    public boolean byR() {
         return this.errorCode == 3250012;
     }
 
-    public boolean byo() {
+    public boolean byS() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bbg() {
+    public AntiData Cm() {
         return this.antiData;
     }
 
@@ -107,20 +107,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String byp() {
-        return this.gMw;
+    public String byT() {
+        return this.gQy;
     }
 
     public void uf(String str) {
-        this.gMw = str;
+        this.gQy = str;
     }
 
-    public String byq() {
-        return this.gMx;
+    public String byU() {
+        return this.gQz;
     }
 
     public void ug(String str) {
-        this.gMx = str;
+        this.gQz = str;
     }
 
     public CustomDialogData getActivityDialog() {

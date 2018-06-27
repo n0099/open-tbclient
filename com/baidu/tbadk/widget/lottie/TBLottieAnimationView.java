@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.e;
 import com.airbnb.lottie.h;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.widget.lottie.b;
 import java.io.InputStream;
@@ -15,26 +15,26 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
-    private static final Map<String, e> bbZ = new HashMap();
-    private static final Map<String, WeakReference<e>> bca = new HashMap();
-    private b bcb;
-    private com.airbnb.lottie.a bcc;
-    private LottieAnimationView.CacheStrategy bcd;
-    private boolean bce;
-    private b.a bcf;
+    private static final Map<String, e> bdn = new HashMap();
+    private static final Map<String, WeakReference<e>> bdo = new HashMap();
+    private b bdp;
+    private com.airbnb.lottie.a bdq;
+    private LottieAnimationView.CacheStrategy bdr;
+    private boolean bds;
+    private b.a bdt;
     private LottieAnimationView.CacheStrategy jZ;
     private String mUrl;
 
     public TBLottieAnimationView(Context context) {
         super(context);
         this.jZ = LottieAnimationView.CacheStrategy.Weak;
-        this.bcd = this.jZ;
-        this.bce = false;
-        this.bcf = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
+        this.bdr = this.jZ;
+        this.bds = false;
+        this.bdt = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.tbadk.widget.lottie.b.a
             public void e(boolean z, String str) {
-                if (z && !ao.isEmpty(str)) {
-                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.bcd);
+                if (z && !ap.isEmpty(str)) {
+                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.bdr);
                 }
             }
         };
@@ -43,13 +43,13 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public TBLottieAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.jZ = LottieAnimationView.CacheStrategy.Weak;
-        this.bcd = this.jZ;
-        this.bce = false;
-        this.bcf = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
+        this.bdr = this.jZ;
+        this.bds = false;
+        this.bdt = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.tbadk.widget.lottie.b.a
             public void e(boolean z, String str) {
-                if (z && !ao.isEmpty(str)) {
-                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.bcd);
+                if (z && !ap.isEmpty(str)) {
+                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.bdr);
                 }
             }
         };
@@ -58,13 +58,13 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public TBLottieAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.jZ = LottieAnimationView.CacheStrategy.Weak;
-        this.bcd = this.jZ;
-        this.bce = false;
-        this.bcf = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
+        this.bdr = this.jZ;
+        this.bds = false;
+        this.bdt = new b.a() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.1
             @Override // com.baidu.tbadk.widget.lottie.b.a
             public void e(boolean z, String str) {
-                if (z && !ao.isEmpty(str)) {
-                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.bcd);
+                if (z && !ap.isEmpty(str)) {
+                    TBLottieAnimationView.this.setAnimationDir(str, TBLottieAnimationView.this.bdr);
                 }
             }
         };
@@ -75,23 +75,23 @@ public class TBLottieAnimationView extends LottieAnimationView {
     }
 
     public void setAnimationUrl(String str, LottieAnimationView.CacheStrategy cacheStrategy) {
-        if (MQ() && !ao.isEmpty(str) && !str.equals(this.mUrl)) {
+        if (Nj() && !ap.isEmpty(str) && !str.equals(this.mUrl)) {
             this.mUrl = str;
-            this.bcd = cacheStrategy;
-            this.bcb = new b(l.yh(), str, this.bcf);
-            this.bcb.execute(new Void[0]);
+            this.bdr = cacheStrategy;
+            this.bdp = new b(l.yv(), str, this.bdt);
+            this.bdp.execute(new Void[0]);
         }
     }
 
     public void setAnimationDir(String str, LottieAnimationView.CacheStrategy cacheStrategy) {
-        if (!ao.isEmpty(str)) {
-            hR(str);
+        if (!ap.isEmpty(str)) {
+            hV(str);
             a(str, cacheStrategy);
         }
     }
 
-    private void hR(String str) {
-        if (!ao.isEmpty(str)) {
+    private void hV(String str) {
+        if (!ap.isEmpty(str)) {
             a aVar = new a();
             aVar.setPath(str);
             setImageAssetDelegate(aVar);
@@ -100,30 +100,30 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     private void a(final String str, final LottieAnimationView.CacheStrategy cacheStrategy) {
         e eVar;
-        if (!ao.isEmpty(str)) {
-            if (bca.containsKey(str)) {
-                e eVar2 = bca.get(str).get();
+        if (!ap.isEmpty(str)) {
+            if (bdo.containsKey(str)) {
+                e eVar2 = bdo.get(str).get();
                 if (eVar2 != null) {
                     setComposition(eVar2);
                     return;
                 }
-            } else if (bbZ.containsKey(str) && (eVar = bbZ.get(str)) != null) {
+            } else if (bdn.containsKey(str) && (eVar = bdn.get(str)) != null) {
                 setComposition(eVar);
                 return;
             }
-            final boolean z = this.bce;
+            final boolean z = this.bds;
             bb();
-            MP();
+            Ni();
             InputStream ag = l.ag(str, "data.json");
             if (ag != null) {
-                this.bcc = e.a.a(getContext(), ag, new h() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.2
+                this.bdq = e.a.a(getContext(), ag, new h() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.2
                     @Override // com.airbnb.lottie.h
                     public void a(@Nullable e eVar3) {
                         if (eVar3 != null) {
                             if (cacheStrategy == LottieAnimationView.CacheStrategy.Weak) {
-                                TBLottieAnimationView.bca.put(str, new WeakReference(eVar3));
+                                TBLottieAnimationView.bdo.put(str, new WeakReference(eVar3));
                             } else if (cacheStrategy == LottieAnimationView.CacheStrategy.Strong) {
-                                TBLottieAnimationView.bbZ.put(str, eVar3);
+                                TBLottieAnimationView.bdn.put(str, eVar3);
                             }
                             TBLottieAnimationView.this.setComposition(eVar3);
                             if (z) {
@@ -136,26 +136,26 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    private void MP() {
-        if (this.bcc != null) {
-            this.bcc.cancel();
-            this.bcc = null;
+    private void Ni() {
+        if (this.bdq != null) {
+            this.bdq.cancel();
+            this.bdq = null;
         }
     }
 
-    private boolean MQ() {
+    private boolean Nj() {
         return com.baidu.d.a.a.N(getContext(), "android.permission.WRITE_EXTERNAL_STORAGE");
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView
     public void ba() {
         super.ba();
-        this.bce = true;
+        this.bds = true;
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView
     public void bb() {
         super.bb();
-        this.bce = false;
+        this.bds = false;
     }
 }

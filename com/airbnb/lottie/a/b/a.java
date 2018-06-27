@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.airbnb.lottie.a.a<K>> mt;
+    private final List<? extends com.airbnb.lottie.a.a<K>> mr;
     @Nullable
-    private com.airbnb.lottie.a.a<K> mu;
-    final List<InterfaceC0006a> listeners = new ArrayList();
-    private boolean mr = false;
-    private float kl = 0.0f;
+    private com.airbnb.lottie.a.a<K> mt;
+    final List<InterfaceC0006a> ml = new ArrayList();
+    private boolean mq = false;
+    private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -23,15 +23,15 @@ public abstract class a<K, A> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.airbnb.lottie.a.a<K>> list) {
-        this.mt = list;
+        this.mr = list;
     }
 
     public void bU() {
-        this.mr = true;
+        this.mq = true;
     }
 
     public void b(InterfaceC0006a interfaceC0006a) {
-        this.listeners.add(interfaceC0006a);
+        this.ml.add(interfaceC0006a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
@@ -40,13 +40,13 @@ public abstract class a<K, A> {
         } else if (f > bD()) {
             f = bD();
         }
-        if (f != this.kl) {
-            this.kl = f;
+        if (f != this.progress) {
+            this.progress = f;
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.listeners.size()) {
-                    this.listeners.get(i2).bH();
+                if (i2 < this.ml.size()) {
+                    this.ml.get(i2).bH();
                     i = i2 + 1;
                 } else {
                     return;
@@ -56,50 +56,50 @@ public abstract class a<K, A> {
     }
 
     private com.airbnb.lottie.a.a<K> bV() {
-        if (this.mt.isEmpty()) {
+        if (this.mr.isEmpty()) {
             throw new IllegalStateException("There are no keyframes");
         }
-        if (this.mu != null && this.mu.g(this.kl)) {
-            return this.mu;
+        if (this.mt != null && this.mt.g(this.progress)) {
+            return this.mt;
         }
-        com.airbnb.lottie.a.a<K> aVar = this.mt.get(this.mt.size() - 1);
-        if (this.kl < aVar.bC()) {
-            for (int size = this.mt.size() - 1; size >= 0; size--) {
-                aVar = this.mt.get(size);
-                if (aVar.g(this.kl)) {
+        com.airbnb.lottie.a.a<K> aVar = this.mr.get(this.mr.size() - 1);
+        if (this.progress < aVar.bC()) {
+            for (int size = this.mr.size() - 1; size >= 0; size--) {
+                aVar = this.mr.get(size);
+                if (aVar.g(this.progress)) {
                     break;
                 }
             }
         }
-        this.mu = aVar;
+        this.mt = aVar;
         return aVar;
     }
 
     private float bW() {
-        if (this.mr) {
+        if (this.mq) {
             return 0.0f;
         }
         com.airbnb.lottie.a.a<K> bV = bV();
         if (bV.bE()) {
             return 0.0f;
         }
-        return bV.li.getInterpolation((this.kl - bV.bC()) / (bV.bD() - bV.bC()));
+        return bV.lh.getInterpolation((this.progress - bV.bC()) / (bV.bD() - bV.bC()));
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
     private float bX() {
-        if (this.mt.isEmpty()) {
+        if (this.mr.isEmpty()) {
             return 0.0f;
         }
-        return this.mt.get(0).bC();
+        return this.mr.get(0).bC();
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
     private float bD() {
-        if (this.mt.isEmpty()) {
+        if (this.mr.isEmpty()) {
             return 1.0f;
         }
-        return this.mt.get(this.mt.size() - 1).bD();
+        return this.mr.get(this.mr.size() - 1).bD();
     }
 
     public A getValue() {
@@ -107,6 +107,6 @@ public abstract class a<K, A> {
     }
 
     public float getProgress() {
-        return this.kl;
+        return this.progress;
     }
 }

@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.util.Pair;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
-import com.baidu.sofire.b.d;
-import com.baidu.sofire.b.g;
-import com.baidu.sofire.b.q;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sofire.b.h;
+import com.baidu.sofire.b.u;
 import com.baidu.sofire.e;
 import java.net.URI;
 import java.util.concurrent.CountDownLatch;
@@ -36,54 +36,54 @@ public class JI {
     }
 
     private boolean checkAuthority() {
-        if (this.mWebView != null && new e(this.mContext).a.getInt("appinv_js", 0) != 0) {
-            final CountDownLatch countDownLatch = new CountDownLatch(1);
-            this.mWebView.post(new Runnable() { // from class: com.baidu.sofire.ac.JI.1
-                @Override // java.lang.Runnable
-                public final void run() {
-                    try {
-                        JI.this.mUrl = JI.this.mWebView.getUrl();
-                        countDownLatch.countDown();
-                    } catch (Throwable th) {
-                        new StringBuilder().append(th.getMessage());
-                    }
+        if (this.mWebView == null || new e(this.mContext).a.getInt("appinv_js", 0) == 0) {
+            return false;
+        }
+        final CountDownLatch countDownLatch = new CountDownLatch(1);
+        this.mWebView.post(new Runnable() { // from class: com.baidu.sofire.ac.JI.1
+            @Override // java.lang.Runnable
+            public final void run() {
+                try {
+                    JI.this.mUrl = JI.this.mWebView.getUrl();
+                    countDownLatch.countDown();
+                } catch (Throwable th) {
+                    new StringBuilder().append(th.getMessage());
                 }
-            });
-            try {
-                countDownLatch.await();
-            } catch (InterruptedException e) {
             }
-            new StringBuilder(" url ").append(this.mUrl);
-            if (TextUtils.isEmpty(this.mUrl)) {
-                return false;
-            }
-            if (!this.mUrl.toLowerCase().startsWith("http://") && !this.mUrl.toLowerCase().startsWith("https://")) {
-                this.mUrl = "http://" + this.mUrl;
-            }
-            try {
-                String host = new URI(this.mUrl).getHost();
-                if (!TextUtils.isEmpty(host) && host.toLowerCase().endsWith(".baidu.com") && d.d(this.mContext)) {
-                    int a = q.a().a(this.mUrl);
-                    if (a == 0) {
-                        return true;
-                    }
-                    if (a == -3) {
-                        return false;
-                    }
-                    String str = d.a() + "plugin/v1/url/check";
+        });
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+        }
+        new StringBuilder(" url ").append(this.mUrl);
+        if (TextUtils.isEmpty(this.mUrl)) {
+            return false;
+        }
+        if (!this.mUrl.toLowerCase().startsWith("http://") && !this.mUrl.toLowerCase().startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
+            this.mUrl = "http://" + this.mUrl;
+        }
+        try {
+            String host = new URI(this.mUrl).getHost();
+            if (!TextUtils.isEmpty(host) && host.toLowerCase().endsWith(".baidu.com") && com.baidu.sofire.b.e.d(this.mContext)) {
+                int a = u.a().a(this.mUrl);
+                if (a == 0) {
+                    return true;
+                }
+                if (a != -3) {
+                    String str = com.baidu.sofire.b.e.a() + "p/1/uck";
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(this.mUrl);
-                    int i = new JSONArray(g.a(this.mContext, str, jSONArray.toString(), true, false, "")).getInt(0);
+                    int i = new JSONArray(h.a(this.mContext, str, jSONArray.toString(), true, false)).getInt(0);
                     new StringBuilder("js-url-").append(Integer.toString(i));
-                    q.a().a(this.mUrl, i);
+                    u.a().a(this.mUrl, i);
                     return i == 1;
                 }
                 return false;
-            } catch (Throwable th) {
-                return false;
             }
+            return false;
+        } catch (Throwable th) {
+            return false;
         }
-        return false;
     }
 
     @JavascriptInterface
@@ -97,7 +97,7 @@ public class JI {
             }
             return FH.gz(this.mContext);
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.e.a(th);
             return "";
         }
     }
@@ -110,7 +110,7 @@ public class JI {
             }
             return FH.gz(this.mContext);
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.e.a(th);
             return "";
         }
     }
@@ -133,7 +133,7 @@ public class JI {
                                 jSONObject.put("status", 101);
                             }
                         } catch (Throwable th) {
-                            d.a(th);
+                            com.baidu.sofire.b.e.a(th);
                             try {
                                 jSONObject.put("status", 102);
                             } catch (JSONException e) {
@@ -155,7 +155,7 @@ public class JI {
                                 jSONObject.put("status", 103);
                             }
                         } catch (Throwable th) {
-                            d.a(th);
+                            com.baidu.sofire.b.e.a(th);
                             try {
                                 jSONObject.put("status", 104);
                             } catch (JSONException e) {
@@ -168,7 +168,7 @@ public class JI {
                 }, new Class[]{Integer.TYPE, String.class, Integer.TYPE}, Integer.valueOf(i), str, Integer.valueOf(i2));
             }
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -188,11 +188,11 @@ public class JI {
                 jSONObject.put("status", 105);
             }
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.e.a(th);
             try {
                 jSONObject.put("status", 106);
             } catch (JSONException e) {
-                d.a(th);
+                com.baidu.sofire.b.e.a(th);
             }
         }
         new StringBuilder().append(jSONObject.toString());
@@ -217,7 +217,7 @@ public class JI {
                                 jSONObject.put("status", 101);
                             }
                         } catch (Throwable th) {
-                            d.a(th);
+                            com.baidu.sofire.b.e.a(th);
                             try {
                                 jSONObject.put("status", 102);
                             } catch (JSONException e) {
@@ -239,7 +239,7 @@ public class JI {
                                 jSONObject.put("status", 103);
                             }
                         } catch (Throwable th) {
-                            d.a(th);
+                            com.baidu.sofire.b.e.a(th);
                             try {
                                 jSONObject.put("status", 104);
                             } catch (JSONException e) {
@@ -251,7 +251,7 @@ public class JI {
                     }
                 }, new Class[]{String.class, Integer.TYPE}, str, Integer.valueOf(i));
             } catch (Throwable th) {
-                d.a(th);
+                com.baidu.sofire.b.e.a(th);
             }
         }
     }
@@ -272,11 +272,11 @@ public class JI {
                 jSONObject.put("status", 105);
             }
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.e.a(th);
             try {
                 jSONObject.put("status", 106);
             } catch (JSONException e) {
-                d.a(th);
+                com.baidu.sofire.b.e.a(th);
             }
         }
         new StringBuilder().append(jSONObject.toString());
@@ -296,7 +296,7 @@ public class JI {
                         clsArr[i2] = String.class;
                     }
                 } catch (Throwable th) {
-                    d.a(th);
+                    com.baidu.sofire.b.e.a(th);
                     return;
                 }
             }
@@ -312,7 +312,7 @@ public class JI {
                             jSONObject.put("status", 101);
                         }
                     } catch (Throwable th2) {
-                        d.a(th2);
+                        com.baidu.sofire.b.e.a(th2);
                         try {
                             jSONObject.put("status", 102);
                         } catch (JSONException e) {
@@ -333,7 +333,7 @@ public class JI {
                             jSONObject.put("status", 103);
                         }
                     } catch (Throwable th2) {
-                        d.a(th2);
+                        com.baidu.sofire.b.e.a(th2);
                         try {
                             jSONObject.put("status", 104);
                         } catch (JSONException e) {
@@ -390,7 +390,7 @@ public class JI {
                 });
             }
         } catch (Throwable th) {
-            d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 }

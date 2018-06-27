@@ -6,6 +6,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import com.baidu.baiduarsdk.ArBridge;
 /* loaded from: classes3.dex */
 public class AudioController implements IAudio, c {
     private static final String AUDIO_THREAD_NAME = "AudioHandlerThread";
@@ -111,7 +112,7 @@ public class AudioController implements IAudio, c {
             case 1004:
                 handleReleaseAudioEngine();
                 return;
-            case 1005:
+            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
                 handleQuit();
                 return;
             default:
@@ -131,7 +132,7 @@ public class AudioController implements IAudio, c {
     public void releaseAudio() {
         if (this.mAudioHandler != null) {
             this.mAudioHandler.sendMessage(this.mAudioHandler.obtainMessage(1004));
-            this.mAudioHandler.sendMessage(this.mAudioHandler.obtainMessage(1005));
+            this.mAudioHandler.sendMessage(this.mAudioHandler.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC));
         }
     }
 

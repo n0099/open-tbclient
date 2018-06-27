@@ -3,15 +3,19 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Anti;
+import tbclient.DeleteThreadInfo;
 /* loaded from: classes.dex */
 public class AntiData implements Serializable {
     private static final long serialVersionUID = 2355009973517935888L;
     private String block_forum_id;
     private String block_forum_name;
     private int block_stat;
+    private List<DeleteThreadInfo> delThreadInfoList;
     private int forbid_flag;
     private String forbid_info;
     private int hide_stat;
@@ -33,6 +37,7 @@ public class AntiData implements Serializable {
     private int ifvoice = 1;
     private int ifaddition = 0;
     public int replyPrivateFlag = 1;
+    private boolean isMultiDeleteEnable = false;
 
     public boolean isIfvoice() {
         return this.ifvoice == 1;
@@ -179,6 +184,14 @@ public class AntiData implements Serializable {
             this.days_tofree = anti.days_tofree.intValue();
             this.has_chance = anti.has_chance.intValue() == 1;
             this.ifaddition = anti.ifaddition.intValue();
+            this.isMultiDeleteEnable = anti.multi_delthread.intValue() == 1;
+            this.delThreadInfoList = new ArrayList();
+            for (int i = 0; i < anti.del_thread_text.size(); i++) {
+                DeleteThreadInfo deleteThreadInfo = new DeleteThreadInfo();
+                deleteThreadInfo.text_id = anti.del_thread_text.get(i).text_id.intValue();
+                deleteThreadInfo.text_info = anti.del_thread_text.get(i).text_info;
+                this.delThreadInfoList.add(deleteThreadInfo);
+            }
             this.poll_message = anti.poll_message;
             this.video_message = anti.video_message;
             if (anti.block_pop_info != null) {
@@ -226,6 +239,7 @@ public class AntiData implements Serializable {
                 this.ifaddition = jSONObject.optInt("ifaddition", 0);
                 this.poll_message = jSONObject.optString("poll_message");
                 this.video_message = jSONObject.optString("video_message");
+                this.isMultiDeleteEnable = jSONObject.optInt("multi_delthread", 0) == 1;
                 JSONObject optJSONObject = jSONObject.optJSONObject("block_pop_info");
                 if (optJSONObject != null) {
                     this.mFrsForbidenDialogInfo = new BlockPopInfoData();
@@ -264,6 +278,7 @@ public class AntiData implements Serializable {
             jSONObject.put("ifaddition", this.ifaddition);
             jSONObject.put("poll_message", this.poll_message);
             jSONObject.put("video_message", this.video_message);
+            jSONObject.put("multi_delthread", this.isMultiDeleteEnable ? 1 : 0);
             if (this.mFrsForbidenDialogInfo != null) {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("ahead_info", this.mFrsForbidenDialogInfo.ahead_info);
@@ -296,5 +311,13 @@ public class AntiData implements Serializable {
 
     public String getPollMessage() {
         return this.poll_message;
+    }
+
+    public boolean isMultiDeleteEnable() {
+        return this.isMultiDeleteEnable;
+    }
+
+    public List<DeleteThreadInfo> getDelThreadInfoList() {
+        return this.delThreadInfoList;
     }
 }

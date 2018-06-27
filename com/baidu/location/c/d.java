@@ -7,9 +7,9 @@ import java.io.RandomAccessFile;
 import java.net.InetAddress;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private static d WD = null;
+    private static d WF = null;
     private long b = 0;
     private long c = 0;
     private long d = 0;
@@ -18,9 +18,9 @@ public class d {
     private String g = "loc.map.baidu.com";
     private String h = "dns.map.baidu.com";
     private int i = 0;
-    private a WE = new a();
+    private a WG = new a();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     private class a extends com.baidu.location.h.f {
         private boolean b = false;
 
@@ -232,10 +232,10 @@ public class d {
     }
 
     public static d qx() {
-        if (WD == null) {
-            WD = new d();
+        if (WF == null) {
+            WF = new d();
         }
-        return WD;
+        return WF;
     }
 
     public String b() {
@@ -244,7 +244,7 @@ public class d {
             str = this.g;
         }
         if (System.currentTimeMillis() - this.b > ReportUserInfoModel.TIME_INTERVAL) {
-            this.WE.b();
+            this.WG.b();
         }
         return str;
     }

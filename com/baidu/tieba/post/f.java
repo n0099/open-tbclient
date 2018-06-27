@@ -10,17 +10,17 @@ public class f {
             if (gVar == null) {
                 gVar = new com.baidu.tbadk.j.g(context, onClickListener);
             }
-            gVar.ff(context.getResources().getDimensionPixelSize(d.e.ds280));
+            gVar.fg(context.getResources().getDimensionPixelSize(d.e.ds280));
             gVar.setSubText(str);
             gVar.d(view, z);
-            gVar.IX();
+            gVar.Jp();
             gVar.onChangeSkinType();
         }
     }
 
     private static boolean a(com.baidu.tbadk.j.g gVar) {
         if (gVar != null) {
-            return gVar.IP();
+            return gVar.Jh();
         }
         return false;
     }

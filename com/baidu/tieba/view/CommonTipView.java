@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
@@ -167,8 +167,8 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        al.d(this, d.C0141d.common_color_10260, i);
-        al.b(this, d.C0141d.cp_cont_g, 1, i);
+        am.d(this, d.C0142d.common_color_10260, i);
+        am.b(this, d.C0142d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {

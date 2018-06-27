@@ -20,7 +20,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
@@ -55,7 +55,7 @@ public class c {
             this.pluginRes = this.contextRes;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
-            bVar.cZ(str);
+            bVar.db(str);
             for (int i = 0; i < attributeCount; i++) {
                 String attributeName = attributeSet.getAttributeName(i);
                 String attributeValue = attributeSet.getAttributeValue(i);
@@ -130,7 +130,7 @@ public class c {
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (g = com.baidu.adp.lib.g.b.g(attributeValue.substring(1), 0)) != 0) {
-                    bVar.cY(attributeName + "=" + this.contextRes.getResourceName(g));
+                    bVar.da(attributeName + "=" + this.contextRes.getResourceName(g));
                 }
             }
             if (z) {
@@ -210,10 +210,10 @@ public class c {
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (viewGroup instanceof AdapterView) {
-                if ((viewGroup instanceof ListView) && bVar.sZ() != 0) {
+                if ((viewGroup instanceof ListView) && bVar.tb() != 0) {
                     ListView listView = (ListView) viewGroup;
                     int dividerHeight = listView.getDividerHeight();
-                    listView.setDivider(getDrawable(this.isNightMode, bVar.sY(), bVar.sZ()));
+                    listView.setDivider(getDrawable(this.isNightMode, bVar.ta(), bVar.tb()));
                     listView.setDividerHeight(dividerHeight);
                 }
                 Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -221,16 +221,16 @@ public class c {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
             }
-            if (bVar.td() != 0) {
+            if (bVar.tf() != 0) {
                 int paddingLeft = viewGroup.getPaddingLeft();
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.tc());
+                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.te());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    viewGroup.setBackgroundColor(getColor(this.isNightMode, bVar.tc(), bVar.td()));
+                    viewGroup.setBackgroundColor(getColor(this.isNightMode, bVar.te(), bVar.tf()));
                 } else {
-                    viewGroup.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.tc(), bVar.td()));
+                    viewGroup.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.te(), bVar.tf()));
                 }
                 viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -241,57 +241,57 @@ public class c {
         Drawable drawable;
         Drawable drawable2;
         Drawable drawable3;
-        int tl;
+        int tn;
         String str = "@" + view.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (view instanceof TextView) {
+                if (bVar.tj() != 0) {
+                    ((TextView) view).setTextColor(getColorList(this.isNightMode, bVar.ti(), bVar.tj()));
+                }
                 if (bVar.th() != 0) {
-                    ((TextView) view).setTextColor(getColorList(this.isNightMode, bVar.tg(), bVar.th()));
+                    ((TextView) view).setHintTextColor(getColorList(this.isNightMode, bVar.tg(), bVar.th()));
                 }
-                if (bVar.tf() != 0) {
-                    ((TextView) view).setHintTextColor(getColorList(this.isNightMode, bVar.te(), bVar.tf()));
-                }
-                if (bVar.tk() != 0) {
+                if (bVar.tm() != 0) {
                     TextView textView = (TextView) view;
                     Context context = view.getContext();
                     if (this.isNightMode) {
-                        tl = bVar.tk();
+                        tn = bVar.tm();
                     } else {
-                        tl = bVar.tl();
+                        tn = bVar.tn();
                     }
-                    textView.setTextAppearance(context, tl);
+                    textView.setTextAppearance(context, tn);
+                }
+                if (bVar.sZ() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getDrawable(this.isNightMode, bVar.sY(), bVar.sZ()), (Drawable) null, (Drawable) null);
                 }
                 if (bVar.sX() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getDrawable(this.isNightMode, bVar.sW(), bVar.sX()), (Drawable) null, (Drawable) null);
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(getDrawable(this.isNightMode, bVar.sW(), bVar.sX()), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
-                if (bVar.sV() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(getDrawable(this.isNightMode, bVar.sU(), bVar.sV()), (Drawable) null, (Drawable) null, (Drawable) null);
-                }
-                if (bVar.tb() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, getDrawable(this.isNightMode, bVar.ta(), bVar.tb()), (Drawable) null);
+                if (bVar.td() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, getDrawable(this.isNightMode, bVar.tc(), bVar.td()), (Drawable) null);
                 }
             } else if (view instanceof ImageButton) {
-                if (bVar.ti() != 0 && (drawable3 = getDrawable(this.isNightMode, bVar.tj(), bVar.ti())) != null) {
+                if (bVar.tk() != 0 && (drawable3 = getDrawable(this.isNightMode, bVar.tl(), bVar.tk())) != null) {
                     ((ImageView) view).setImageDrawable(drawable3);
                 }
             } else if (view instanceof ImageView) {
-                if (bVar.ti() != 0 && (drawable2 = getDrawable(this.isNightMode, bVar.tj(), bVar.ti())) != null) {
+                if (bVar.tk() != 0 && (drawable2 = getDrawable(this.isNightMode, bVar.tl(), bVar.tk())) != null) {
                     ((ImageView) view).setImageDrawable(drawable2);
                 }
-            } else if ((view instanceof ProgressBar) && bVar.tn() != 0 && (drawable = getDrawable(this.isNightMode, bVar.tm(), bVar.tn())) != null) {
+            } else if ((view instanceof ProgressBar) && bVar.tq() != 0 && (drawable = getDrawable(this.isNightMode, bVar.tp(), bVar.tq())) != null) {
                 ((ProgressBar) view).setProgressDrawable(drawable);
             }
-            if (bVar.td() != 0) {
+            if (bVar.tf() != 0) {
                 int paddingLeft = view.getPaddingLeft();
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.tc());
+                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.te());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(getColor(this.isNightMode, bVar.tc(), bVar.td()));
+                    view.setBackgroundColor(getColor(this.isNightMode, bVar.te(), bVar.tf()));
                 } else {
-                    view.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.tc(), bVar.td()));
+                    view.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.te(), bVar.tf()));
                 }
                 view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -300,7 +300,7 @@ public class c {
 
     private Drawable getDrawable(boolean z, int i, int i2) {
         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-            return al.getDrawable(i);
+            return am.getDrawable(i);
         }
         if (!z) {
             try {
@@ -335,7 +335,7 @@ public class c {
 
     private int getColor(boolean z, int i, int i2) {
         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-            return al.getColor(i);
+            return am.getColor(i);
         }
         if (!z) {
             return this.contextRes.getColor(i);
@@ -356,7 +356,7 @@ public class c {
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
         if (TbadkCoreApplication.getInst().getSkinType() == 2) {
-            return al.cP(i);
+            return am.cQ(i);
         }
         if (!z) {
             return this.contextRes.getColorStateList(i);

@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 /* loaded from: classes3.dex */
@@ -41,37 +41,37 @@ public class AdDebugService extends Service {
         mFloatView = new TextView(this);
         mFloatView.setGravity(17);
         mFloatView.setTextSize(getResources().getDimension(d.e.ds12));
-        al.i(mFloatView, d.f.ad_debug_view_bg);
+        am.i(mFloatView, d.f.ad_debug_view_bg);
         mFloatView.setText("AD");
         this.mParams = new WindowManager.LayoutParams(-2, -2, 2005, 40, -3);
         this.mParams.gravity = 51;
         this.mWindowManager.addView(mFloatView, this.mParams);
         mFloatView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.recapp.AdDebugService.1
-            private int giq;
-            private int gir;
-            private float gis;
-            private float git;
+            private int gmi;
+            private int gmj;
+            private float gmk;
+            private float gml;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        this.giq = AdDebugService.this.mParams.x;
-                        this.gir = AdDebugService.this.mParams.y;
-                        this.gis = motionEvent.getRawX();
-                        this.git = motionEvent.getRawY();
+                        this.gmi = AdDebugService.this.mParams.x;
+                        this.gmj = AdDebugService.this.mParams.y;
+                        this.gmk = motionEvent.getRawX();
+                        this.gml = motionEvent.getRawY();
                         return true;
                     case 1:
-                        float abs = Math.abs(motionEvent.getRawX() - this.gis);
-                        float abs2 = Math.abs(motionEvent.getRawY() - this.git);
+                        float abs = Math.abs(motionEvent.getRawX() - this.gmk);
+                        float abs2 = Math.abs(motionEvent.getRawY() - this.gml);
                         if (abs >= 10.0f || abs2 >= 10.0f) {
                             return true;
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
                         return true;
                     case 2:
-                        AdDebugService.this.mParams.x = this.giq + ((int) (motionEvent.getRawX() - this.gis));
-                        AdDebugService.this.mParams.y = this.gir + ((int) (motionEvent.getRawY() - this.git));
+                        AdDebugService.this.mParams.x = this.gmi + ((int) (motionEvent.getRawX() - this.gmk));
+                        AdDebugService.this.mParams.y = this.gmj + ((int) (motionEvent.getRawY() - this.gml));
                         AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
                         return true;
                     default:

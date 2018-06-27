@@ -16,7 +16,6 @@ import com.baidu.crabsdk.b.r;
 import com.baidu.crabsdk.b.s;
 import com.baidu.crabsdk.b.t;
 import com.sina.weibo.sdk.constant.WBConstants;
-import com.sina.weibo.sdk.exception.WeiboAuthException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -38,10 +37,10 @@ public final class d {
                 jSONObject.put("appvn", com.baidu.crabsdk.a.o);
             }
             jSONObject.put("apiType", str);
-            if (!CrabSDK.NDK_VERSION.equals(WeiboAuthException.DEFAULT_AUTH_ERROR_CODE)) {
+            if (!CrabSDK.NDK_VERSION.equals("-1")) {
                 jSONObject.put("ndkVN", CrabSDK.NDK_VERSION);
             }
-            com.baidu.crabsdk.c.a.cb("agent is " + jSONObject.toString());
+            com.baidu.crabsdk.c.a.cd("agent is " + jSONObject.toString());
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -52,13 +51,13 @@ public final class d {
     public static Map<String, Object> a(Context context, Throwable th, boolean z) {
         Map<String, Object> au = au(context);
         if (com.baidu.crabsdk.a.q) {
-            com.baidu.crabsdk.c.a.cb("SEND_PRIVACYINFORMATION true");
+            com.baidu.crabsdk.c.a.cd("SEND_PRIVACYINFORMATION true");
             au = a(au, context, z);
         }
         try {
             return a(au, th);
         } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.cd("createCrashRecord fail." + e);
+            com.baidu.crabsdk.c.a.cf("createCrashRecord fail." + e);
             return au;
         }
     }
@@ -66,7 +65,7 @@ public final class d {
     @SuppressLint({"NewApi"})
     public static Map<String, Object> a(Throwable th, Context context) {
         if (context == null) {
-            com.baidu.crabsdk.c.a.ce("null context in createCatchedExceptionRecord");
+            com.baidu.crabsdk.c.a.cg("null context in createCatchedExceptionRecord");
         }
         Map<String, Object> au = au(context);
         au.put("apiType", "Exception");
@@ -76,7 +75,7 @@ public final class d {
         try {
             au = a(au, th);
         } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.cd("createCrashRecord fail." + e);
+            com.baidu.crabsdk.c.a.cf("createCrashRecord fail." + e);
         }
         au.put("type", au.get("errorType"));
         au.put("apiType", "Exception");
@@ -89,7 +88,7 @@ public final class d {
                 map.put("screenshot", new byte[0]);
             } else if (com.baidu.crabsdk.a.m) {
                 byte[] oY = com.baidu.crabsdk.b.a.oY();
-                com.baidu.crabsdk.c.a.cd("截图大小：" + (oY.length / 1024) + "KB");
+                com.baidu.crabsdk.c.a.cf("截图大小：" + (oY.length / 1024) + "KB");
                 map.put("screenshot", oY);
             } else {
                 map.put("screenshot", new byte[0]);
@@ -107,10 +106,10 @@ public final class d {
             map.put("errorType", th.getClass().getName());
             String c = com.baidu.crabsdk.c.c.c(th);
             map.put("errorLine", c);
-            com.baidu.crabsdk.c.a.cb("errorLine: " + c);
+            com.baidu.crabsdk.c.a.cd("errorLine: " + c);
             String f = com.baidu.crabsdk.c.c.f(th);
             map.put("errorOriLine", f);
-            com.baidu.crabsdk.c.a.cb("errorOriLine: " + f);
+            com.baidu.crabsdk.c.a.cd("errorOriLine: " + f);
             map.put("errorTrace", Log.getStackTraceString(th));
         }
         return map;
@@ -134,7 +133,7 @@ public final class d {
         try {
             hashMap.put("logcat", com.baidu.crabsdk.b.j.z());
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.ce(e.getMessage());
+            com.baidu.crabsdk.c.a.cg(e.getMessage());
         }
         hashMap.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
         hashMap.put("uname", s.getUserName());
@@ -268,7 +267,7 @@ public final class d {
         jSONObject.put("errorTrace", "N/A");
         jSONObject.put("dump", str);
         if (!com.baidu.crabsdk.a.L) {
-            jSONObject.put("soLibs", f.cn(context.getApplicationInfo().nativeLibraryDir));
+            jSONObject.put("soLibs", f.cp(context.getApplicationInfo().nativeLibraryDir));
         }
         return jSONObject;
     }

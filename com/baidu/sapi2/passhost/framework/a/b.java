@@ -18,8 +18,9 @@ public class b implements IServiceCenter, IServiceName {
     private ReentrantReadWriteLock b;
     private HashMap<String, Object> c;
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class a {
+    public static class a {
         public static b a = new b();
 
         private a() {

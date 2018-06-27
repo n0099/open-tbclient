@@ -5,87 +5,87 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChannelMoreView extends LinearLayout {
-    private View.OnClickListener aGc;
-    private com.baidu.tieba.channel.data.d cDi;
-    private TextView cFZ;
-    private TextView cGa;
-    private TextView cGb;
-    private View cGc;
+    private View.OnClickListener aGU;
+    private com.baidu.tieba.channel.data.d cBc;
+    private TextView cDS;
+    private TextView cDT;
+    private TextView cDU;
+    private View cDV;
     private View.OnClickListener mClickListener;
 
     public ChannelMoreView(Context context, com.baidu.tieba.channel.data.d dVar, View.OnClickListener onClickListener) {
         super(context);
-        this.aGc = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
+        this.aGU = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ChannelMoreView.this.mClickListener.onClick(view);
             }
         };
         this.mClickListener = onClickListener;
-        this.cDi = dVar;
+        this.cBc = dVar;
         initView();
     }
 
     private void initView() {
         View.inflate(getContext(), d.i.channel_more_view_layout, this);
-        this.cFZ = (TextView) findViewById(d.g.channel_more_cancel);
-        this.cGc = findViewById(d.g.channel_more_layer);
-        this.cGa = (TextView) findViewById(d.g.channel_up_info);
-        this.cGb = (TextView) findViewById(d.g.channel_push_switch);
-        this.cFZ.setOnClickListener(this.mClickListener);
-        this.cGc.setOnClickListener(this.mClickListener);
-        this.cGa.setOnClickListener(this.mClickListener);
-        this.cGb.setOnClickListener(this.mClickListener);
-        if (this.cDi != null && this.cDi.ajR() != null) {
-            ChannelInfo ajR = this.cDi.ajR();
-            if (ajR.isSubscribe()) {
-                this.cGb.setVisibility(0);
-                if (ajR.isPushOpen()) {
-                    this.cGb.setText(getContext().getResources().getString(d.k.channel_push_switch_close));
+        this.cDS = (TextView) findViewById(d.g.channel_more_cancel);
+        this.cDV = findViewById(d.g.channel_more_layer);
+        this.cDT = (TextView) findViewById(d.g.channel_up_info);
+        this.cDU = (TextView) findViewById(d.g.channel_push_switch);
+        this.cDS.setOnClickListener(this.mClickListener);
+        this.cDV.setOnClickListener(this.mClickListener);
+        this.cDT.setOnClickListener(this.mClickListener);
+        this.cDU.setOnClickListener(this.mClickListener);
+        if (this.cBc != null && this.cBc.ajl() != null) {
+            ChannelInfo ajl = this.cBc.ajl();
+            if (ajl.isSubscribe()) {
+                this.cDU.setVisibility(0);
+                if (ajl.isPushOpen()) {
+                    this.cDU.setText(getContext().getResources().getString(d.k.channel_push_switch_close));
                     return;
                 } else {
-                    this.cGb.setText(getContext().getResources().getString(d.k.channel_push_switch_open));
+                    this.cDU.setText(getContext().getResources().getString(d.k.channel_push_switch_open));
                     return;
                 }
             }
-            this.cGb.setVisibility(8);
+            this.cDU.setVisibility(8);
         }
     }
 
     public TextView getCancelView() {
-        return this.cFZ;
+        return this.cDS;
     }
 
     public View getLayerView() {
-        return this.cGc;
+        return this.cDV;
     }
 
     public TextView getUpInfoView() {
-        return this.cGa;
+        return this.cDT;
     }
 
     public TextView getPushView() {
-        return this.cGb;
+        return this.cDU;
     }
 
     public void setBackGround() {
-        al.i(this.cFZ, d.f.pb_more_pop_cancle_selector);
-        al.c(this.cFZ, d.C0141d.channel_pop_cancel_text_color, 1);
-        al.i(this.cGa, d.f.pb_more_pop_cancle_selector);
-        al.c(this.cGa, d.C0141d.channel_pop_text_color, 1);
-        al.i(this.cGb, d.f.pb_more_pop_cancle_selector);
-        al.c(this.cGb, d.C0141d.channel_pop_text_color, 1);
+        am.i(this.cDS, d.f.pb_more_pop_cancle_selector);
+        am.c(this.cDS, d.C0142d.channel_pop_cancel_text_color, 1);
+        am.i(this.cDT, d.f.pb_more_pop_cancle_selector);
+        am.c(this.cDT, d.C0142d.channel_pop_text_color, 1);
+        am.i(this.cDU, d.f.pb_more_pop_cancle_selector);
+        am.c(this.cDU, d.C0142d.channel_pop_text_color, 1);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         View findViewById = findViewById(d.g.channel_devide_line);
         if (skinType == 1) {
-            findViewById.setBackgroundDrawable(getContext().getResources().getDrawable(d.C0141d.cp_bg_line_c_1));
+            findViewById.setBackgroundDrawable(getContext().getResources().getDrawable(d.C0142d.cp_bg_line_c_1));
         } else {
-            findViewById.setBackgroundDrawable(getContext().getResources().getDrawable(d.C0141d.channel_pop_devide_line));
+            findViewById.setBackgroundDrawable(getContext().getResources().getDrawable(d.C0142d.channel_pop_devide_line));
         }
     }
 }

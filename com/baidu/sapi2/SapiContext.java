@@ -28,8 +28,9 @@ public final class SapiContext {
     public static final String KEY_INIT_SHARE_LOGIN_GRAY = "init_share_login_gray";
     public static final String KEY_LAST_LOGIN_USER_PORTRAIT = "last_login_user_portrait";
     public static final String KEY_LOGIN_PAGE_IS_CACHED = "login_page_is_cached";
+    public static final String KEY_OPENID_UID_LIST = "openid_uid_list";
     public static final String KEY_SDK_VERSION = "sdk_version";
-    public static final int MAX_SHARE_ACCOUNTS = 5;
+    public static int MAX_SHARE_ACCOUNTS = 5;
     private static final String a = "app_version_code";
     private static final String b = "current_account";
     private static final String c = "share_accounts";
@@ -188,7 +189,7 @@ public final class SapiContext {
                 shareAccounts.remove(shareAccounts.indexOf(sapiAccount));
                 shareAccounts.add(sapiAccount);
             }
-            a(a(shareAccounts, 5));
+            a(a(shareAccounts, MAX_SHARE_ACCOUNTS));
         }
     }
 
@@ -243,7 +244,7 @@ public final class SapiContext {
         }
         if (!TextUtils.isEmpty(str)) {
             try {
-                return a(SapiAccount.fromJSONArray(new JSONArray(str)), 5);
+                return a(SapiAccount.fromJSONArray(new JSONArray(str)), MAX_SHARE_ACCOUNTS);
             } catch (Throwable th) {
                 return new ArrayList();
             }
@@ -287,7 +288,6 @@ public final class SapiContext {
         return new ArrayList();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public SapiAccount getAccountFromBduss(String str) {
         if (str == null) {
             return null;
@@ -404,16 +404,24 @@ public final class SapiContext {
         return getSapiOptions().getAuthorizedPackages();
     }
 
+    public Map<String, String> getSCAuthorizedPackages() {
+        return getSapiOptions().getSCAuthorizedPackages();
+    }
+
     public List<String> getAuthorizedDomains() {
         return getSapiOptions().getAuthorizedDomains();
     }
 
+    public List<String> getCuidAuthorizedDomains() {
+        return getSapiOptions().getCuidAuthorizedDomains();
+    }
+
     public List<String> getAuthorizedDomainsForPtoken() {
-        return getSapiOptions().e();
+        return getSapiOptions().f();
     }
 
     public List<String> getAuthorizedPackagesForUA() {
-        return getSapiOptions().c();
+        return getSapiOptions().d();
     }
 
     public String getFastRegChannel() {
@@ -421,7 +429,7 @@ public final class SapiContext {
     }
 
     public Map<String, Integer> getOrderAuthorizedPackages() {
-        return getSapiOptions().b();
+        return getSapiOptions().c();
     }
 
     public boolean getDefaultHttpsEnabled() {
@@ -624,24 +632,11 @@ public final class SapiContext {
         return (list == null || i2 < 0 || i2 >= list.size()) ? list : list.subList(list.size() - i2, list.size());
     }
 
-    public String getFaceLoginHash() {
-        String faceLoginContainHashJson = getFaceLoginContainHashJson();
-        if (TextUtils.isEmpty(faceLoginContainHashJson)) {
-            return "";
-        }
-        try {
-            return new JSONObject(faceLoginContainHashJson).optString("type");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return "";
-        }
-    }
-
-    public String getFaceLoginContainHashJson() {
+    public String getFaceLoginModel() {
         return TextUtils.isEmpty(getString(y)) ? "" : SapiDataEncryptor.decryptAccountInfo(getString(y), c());
     }
 
-    public void setFaceLoginContainHashJson(String str) {
+    public void setFaceLoginModel(String str) {
         if (TextUtils.isEmpty(str)) {
             put(y, "");
         } else {
@@ -654,7 +649,7 @@ public final class SapiContext {
     }
 
     public void setFaceLoginUid(String str) {
-        setFaceLoginContainHashJson("");
+        setFaceLoginModel("");
         if (TextUtils.isEmpty(str)) {
             put(x, "");
         } else {
@@ -684,6 +679,22 @@ public final class SapiContext {
 
     public int getShareAccountGray() {
         return getSapiOptions().shareAccountGray;
+    }
+
+    public int getFaceLoginCheckFreq() {
+        return getSapiOptions().faceLoginCheckFreq;
+    }
+
+    public boolean getShareFaceLoginEnable() {
+        return getSapiOptions().shareFaceLoginEnable;
+    }
+
+    public boolean getShareCommonStorageEnabel() {
+        return getSapiOptions().shareCommonStorageEnable;
+    }
+
+    public int getLoginStatExtraLimitLen() {
+        return getSapiOptions().loginStatExtraLimitLen;
     }
 
     public void setShareStorage(JSONArray jSONArray) {

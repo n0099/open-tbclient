@@ -1,36 +1,114 @@
 package com.baidu.sofire.b;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.sofire.ac.U;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import java.security.PublicKey;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class o {
-    public static byte[] a(byte[] bArr, byte[] bArr2) {
-        byte[] bArr3 = new byte[256];
-        for (int i = 0; i < 256; i++) {
-            bArr3[i] = (byte) i;
-        }
-        if (bArr2 == null || bArr2.length == 0) {
-            bArr3 = null;
-        } else {
-            int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < 256; i4++) {
-                i2 = (i2 + (bArr2[i3] & 255) + (bArr3[i4] & 255)) & 255;
-                byte b = bArr3[i4];
-                bArr3[i4] = bArr3[i2];
-                bArr3[i2] = b;
-                i3 = (i3 + 1) % bArr2.length;
+    public static Map<String, String> a = new HashMap();
+
+    public static void a(Context context) {
+        try {
+            String str = e.a() + "p/1/prt";
+            JSONObject jSONObject = new JSONObject();
+            String packageName = context.getPackageName();
+            jSONObject.put(PushConstants.URI_PACKAGE_NAME, packageName);
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
+            if (packageInfo != null) {
+                PublicKey a2 = e.a(packageInfo, packageInfo.applicationInfo.sourceDir);
+                if (a2 != null) {
+                    byte[] encoded = a2.getEncoded();
+                    if (encoded != null) {
+                        e.a(context, encoded);
+                        jSONObject.put("sm", n.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", "")));
+                    }
+                } else {
+                    jSONObject.put("sm", "");
+                }
+            } else {
+                jSONObject.put("sm", "");
             }
+            String a3 = h.a(context, str, jSONObject.toString(), false, false);
+            new StringBuilder().append(a3);
+            JSONObject jSONObject2 = new JSONObject(a3);
+            JSONArray optJSONArray = jSONObject2.optJSONArray("product");
+            long optLong = jSONObject2.optLong("pt");
+            if (optJSONArray != null && optLong > 0) {
+                new com.baidu.sofire.e(context).a(optJSONArray.toString(), optLong);
+            }
+            if (optLong > 0) {
+                e.h(context);
+            }
+        } catch (Throwable th) {
+            e.a(th);
         }
-        byte[] bArr4 = new byte[bArr.length];
-        int i5 = 0;
-        int i6 = 0;
-        for (int i7 = 0; i7 < bArr.length; i7++) {
-            i6 = (i6 + 1) & 255;
-            i5 = (i5 + (bArr3[i6] & 255)) & 255;
-            byte b2 = bArr3[i6];
-            bArr3[i6] = bArr3[i5];
-            bArr3[i5] = b2;
-            bArr4[i7] = (byte) (bArr3[((bArr3[i6] & 255) + (bArr3[i5] & 255)) & 255] ^ bArr[i7]);
-            bArr4[i7] = (byte) (bArr4[i7] ^ 42);
+    }
+
+    public static void b(Context context) {
+        try {
+            a.clear();
+            String a2 = new com.baidu.sofire.e(context).a();
+            if (!TextUtils.isEmpty(a2)) {
+                JSONArray jSONArray = new JSONArray(a2);
+                HashMap hashMap = new HashMap();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    String optString = optJSONObject.optString("p");
+                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    new StringBuilder("167:").append(optString).append("_").append(optString2);
+                    hashMap.put(optString, optString2);
+                }
+                for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {
+                    String str = packageInfo.packageName;
+                    if (hashMap.keySet().contains(str) && !str.equals(context.getPackageName())) {
+                        String str2 = (String) hashMap.get(str);
+                        PublicKey a3 = e.a(packageInfo, packageInfo.applicationInfo.sourceDir);
+                        new StringBuilder("194:").append(a3 == null);
+                        if (a3 != null) {
+                            byte[] encoded = a3.getEncoded();
+                            new StringBuilder("197:").append(encoded == null);
+                            if (encoded != null) {
+                                e.a(context, encoded);
+                                String a4 = n.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
+                                if (!TextUtils.isEmpty(a4) && a4.equals(str2)) {
+                                    JSONObject jSONObject = new JSONObject();
+                                    jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
+                                    jSONObject.put("av", packageInfo.versionName);
+                                    jSONObject.put("sm", a4);
+                                    jSONObject.put("dm", Build.MODEL);
+                                    jSONObject.put("al", String.valueOf(Build.VERSION.SDK_INT));
+                                    a.put(str, jSONObject.toString());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Throwable th) {
+            e.a(th);
         }
-        return bArr4;
+    }
+
+    public static void a(Context context, Intent intent) {
+        try {
+            String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
+            if (!intent.getBooleanExtra("android.intent.extra.REPLACING", false) && a.containsKey(schemeSpecificPart)) {
+                a.remove(schemeSpecificPart);
+                new U(context, 4, false).start();
+            }
+        } catch (Throwable th) {
+            e.a(th);
+        }
     }
 }

@@ -14,13 +14,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.a;
-import com.baidu.tbadk.core.view.c;
+import com.baidu.tbadk.core.view.d;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.write.vcode.newVcode.a.b;
 /* loaded from: classes3.dex */
 public class NewVcodeView {
-    private b hri;
+    private b hvr;
     private BaseActivity mContext;
     private float mRatio;
     private BaseWebView mWebView = null;
@@ -28,7 +28,7 @@ public class NewVcodeView {
     private View mPostThreadLoadingView = null;
     private a mWebLoadingDialog = null;
     private TextView mPostThreadLoadingText = null;
-    private c mVcodeToast = null;
+    private d mVcodeToast = null;
     private boolean onPageFinishHasBeenCalled = false;
     private Runnable mShowWebViewRunnable = new Runnable() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.1
         @Override // java.lang.Runnable
@@ -47,7 +47,7 @@ public class NewVcodeView {
     }
 
     public void setPresenter(b bVar) {
-        this.hri = bVar;
+        this.hvr = bVar;
         this.onPageFinishHasBeenCalled = false;
     }
 
@@ -65,15 +65,15 @@ public class NewVcodeView {
         this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.hri.onPostThreadCancle();
+                NewVcodeView.this.hvr.onPostThreadCancle();
                 NewVcodeView.this.mContext.finish();
             }
         });
         this.mPostThreadLoadingView = newVcodeActivity.findViewById(d.g.post_thread_loading_view);
         this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(d.g.custom_loading_text);
         this.mPostThreadLoadingText.setText(newVcodeActivity.getResources().getString(d.k.sending));
-        this.mVcodeToast = new c();
-        this.mVcodeToast.auA = 1000L;
+        this.mVcodeToast = new com.baidu.tbadk.core.view.d();
+        this.mVcodeToast.avm = 1000L;
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) newVcodeActivity.findViewById(d.g.new_vcode_webview);
@@ -91,12 +91,12 @@ public class NewVcodeView {
                         if (!NewVcodeView.this.onPageFinishHasBeenCalled) {
                             NewVcodeView.this.onPageFinishHasBeenCalled = true;
                             e.im().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
-                            if (NewVcodeView.this.hri != null) {
-                                NewVcodeView.this.hri.onPageFinished(webView, str);
+                            if (NewVcodeView.this.hvr != null) {
+                                NewVcodeView.this.hvr.onPageFinished(webView, str);
                             }
                         }
-                        if (NewVcodeView.this.hri != null) {
-                            return NewVcodeView.this.hri.onUrlLoad(webView, str);
+                        if (NewVcodeView.this.hvr != null) {
+                            return NewVcodeView.this.hvr.onUrlLoad(webView, str);
                         }
                         return false;
                     }
@@ -105,8 +105,8 @@ public class NewVcodeView {
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                        if (NewVcodeView.this.hri != null) {
-                            NewVcodeView.this.hri.onPageFinished(webView, str);
+                        if (NewVcodeView.this.hvr != null) {
+                            NewVcodeView.this.hvr.onPageFinished(webView, str);
                         }
                     }
 
@@ -191,6 +191,6 @@ public class NewVcodeView {
                 }
             });
         }
-        this.mWebLoadingDialog.aM(z);
+        this.mWebLoadingDialog.aO(z);
     }
 }

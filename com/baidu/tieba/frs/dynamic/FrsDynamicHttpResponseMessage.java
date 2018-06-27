@@ -20,13 +20,13 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new b();
-        StarTrendsResIdl C = this.responseData.C(bArr);
-        if (C != null && C.error != null) {
-            if (C.error.errorno != null) {
-                setError(C.error.errorno.intValue());
-                this.responseData.dmW = C.error.errorno.intValue();
+        StarTrendsResIdl D = this.responseData.D(bArr);
+        if (D != null && D.error != null) {
+            if (D.error.errorno != null) {
+                setError(D.error.errorno.intValue());
+                this.responseData.dqh = D.error.errorno.intValue();
             }
-            setErrorString(C.error.usermsg);
+            setErrorString(D.error.usermsg);
         }
         setData(this.responseData);
     }

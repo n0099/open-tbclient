@@ -15,22 +15,22 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> implements f {
-    private ICardInfo Pk;
-    private TbPageContext Pl;
-    private com.baidu.tieba.frs.aggregation.a Pm;
-    private com.baidu.tieba.frs.videomiddlepage.b Pn;
-    private i Po;
-    private List<i> Pp;
-    private f Pq;
+    private ICardInfo Pm;
+    private TbPageContext Pn;
+    private com.baidu.tieba.frs.aggregation.a Po;
+    private com.baidu.tieba.frs.videomiddlepage.b Pp;
+    private i Pq;
+    private List<i> Pr;
+    private f Ps;
     private com.baidu.afd.d adFacadeData;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.frs.aggregation.a aVar, com.baidu.tieba.frs.videomiddlepage.b bVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Pp = new ArrayList();
-        this.Pl = tbPageContext;
-        this.Pm = aVar;
-        this.Pn = bVar;
-        this.Pq = fVar;
+        this.Pr = new ArrayList();
+        this.Pn = tbPageContext;
+        this.Po = aVar;
+        this.Pp = bVar;
+        this.Ps = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,11 +39,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: d */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         e a;
-        if (this.Pk == null || (a = com.baidu.tieba.lego.card.b.aPu().a(this.Pl, this.Pk, 2)) == null) {
+        if (this.Pm == null || (a = com.baidu.tieba.lego.card.b.aQa().a(this.Pn, this.Pm, 2)) == null) {
             return null;
         }
         if (a instanceof i) {
-            this.Pp.add((i) a);
+            this.Pr.add((i) a);
         }
         a.setAfterClickSchemeListener(new com.baidu.tieba.lego.card.a() { // from class: com.baidu.afd.a.b.1
             @Override // com.baidu.tieba.lego.card.a
@@ -68,8 +68,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
                 i2 = 102;
             }
             com.baidu.tieba.recapp.report.a c = com.baidu.tieba.recapp.report.e.c(ok, i2, i);
-            c.tb(str2);
-            com.baidu.tieba.recapp.report.b.bpc().a(c);
+            c.ta(str2);
+            com.baidu.tieba.recapp.report.b.bpD().a(c);
             com.baidu.tieba.lego.card.b.c.a(dVar);
         }
     }
@@ -84,14 +84,14 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
         }
         if (aVar.oo() instanceof g) {
             g gVar = (g) aVar.oo();
-            gVar.setAutoPlayCallBack(this.Pm);
-            gVar.setOnVideoContainerForegroundClickListener(this.Pn);
+            gVar.setAutoPlayCallBack(this.Po);
+            gVar.setOnVideoContainerForegroundClickListener(this.Pp);
             gVar.setCurrentPlayCallBack(this);
         }
         dVar.om();
         if (aVar.oo() != null) {
             aVar.oo().setPosition(i);
-            aVar.oo().R(dVar.oj());
+            aVar.oo().T(dVar.oj());
         }
         return aVar.getView();
     }
@@ -101,39 +101,39 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, com.baidu.afd.d dVar) {
         this.adFacadeData = dVar;
-        this.Pk = dVar.oj();
+        this.Pm = dVar.oj();
         return super.getView(i, view, viewGroup, dVar);
     }
 
     public void op() {
-        if (this.Po != null) {
-            this.Po.pausePlay();
+        if (this.Pq != null) {
+            this.Pq.pausePlay();
         }
     }
 
     public void oq() {
-        if (this.Po != null) {
-            this.Po.stopPlay();
+        if (this.Pq != null) {
+            this.Pq.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.f
     public void a(i iVar) {
-        this.Po = iVar;
-        if (this.Pq != null) {
-            this.Pq.a(this.Po);
+        this.Pq = iVar;
+        if (this.Ps != null) {
+            this.Ps.a(this.Pq);
         }
     }
 
     public boolean or() {
-        if (this.Po != null) {
-            return this.Po.isPlaying();
+        if (this.Pq != null) {
+            return this.Pq.isPlaying();
         }
         return false;
     }
 
     public void onDestory() {
-        for (i iVar : this.Pp) {
+        for (i iVar : this.Pr) {
             if (iVar != null) {
                 iVar.onDestroy();
             }

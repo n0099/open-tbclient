@@ -7,7 +7,7 @@ public class aq extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_im_window_open";
+        return "android_gif_autoplay";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class aq extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int hn() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,5 +28,9 @@ public class aq extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int hp() {
         return 10;
+    }
+
+    public static boolean ip() {
+        return com.baidu.adp.lib.b.d.hv().aw("android_gif_autoplay") == 1;
     }
 }

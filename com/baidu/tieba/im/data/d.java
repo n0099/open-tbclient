@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.data;
 /* loaded from: classes.dex */
 public class d {
-    public String eis;
+    public String eml;
     public String taskId;
 }

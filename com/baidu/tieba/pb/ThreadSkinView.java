@@ -10,15 +10,15 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.d.a;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private a.C0234a fmA;
-    private SkinInfo fmz;
+    private SkinInfo fqs;
+    private a.C0236a fqt;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,22 +40,22 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0234a c0234a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0236a c0236a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fmz != skinInfo && c0234a != null) {
-            this.fmA = c0234a;
-            this.fmA.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fmA.cl(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.fmA.cl("obj_url", skinInfo.url);
-            this.fmA.cl("obj_name", skinInfo.monitor_id);
-            this.fmA.cl(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fmA.save();
+        if (this.fqs != skinInfo && c0236a != null) {
+            this.fqt = c0236a;
+            this.fqt.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+            this.fqt.cp(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.fqt.cp("obj_url", skinInfo.url);
+            this.fqt.cp("obj_name", skinInfo.monitor_id);
+            this.fqt.cp(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
+            this.fqt.save();
         }
-        this.fmz = skinInfo;
+        this.fqs = skinInfo;
         int ah = l.ah(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = ah;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fmz != null && !StringUtils.isNull(this.fmz.url)) {
-            if (this.fmA != null) {
-                this.fmA.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fmA.cl(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fmA.save();
+        if (this.fqs != null && !StringUtils.isNull(this.fqs.url)) {
+            if (this.fqt != null) {
+                this.fqt.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
+                this.fqt.cp(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
+                this.fqt.save();
             }
-            ay.zG().c(this.mTbPageContext, new String[]{this.fmz.url});
+            az.zV().c(this.mTbPageContext, new String[]{this.fqs.url});
         }
     }
 }

@@ -8,7 +8,6 @@ import com.baidu.android.pushservice.e.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.ar.util.IoUtils;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.tencent.connect.common.Constants;
 import java.io.IOException;
 import java.io.InputStream;
@@ -166,7 +165,7 @@ public class y implements Runnable {
             str2 = str2.substring(0, 127);
         }
         jSONObject.put("manufacturer", str2);
-        hashMap.put(LoginActivityConfig.INFO, jSONObject.toString());
+        hashMap.put("info", jSONObject.toString());
         return hashMap;
     }
 

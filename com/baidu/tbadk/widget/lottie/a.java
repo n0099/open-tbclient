@@ -5,7 +5,7 @@ import com.airbnb.lottie.c;
 import com.airbnb.lottie.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.l;
 /* loaded from: classes.dex */
 public class a implements c {
@@ -13,7 +13,7 @@ public class a implements c {
 
     @Override // com.airbnb.lottie.c
     public Bitmap a(g gVar) {
-        if (ao.isEmpty(this.mPath)) {
+        if (ap.isEmpty(this.mPath)) {
             return null;
         }
         String str = this.mPath + gVar.bB() + "/" + gVar.getFileName();
@@ -32,6 +32,6 @@ public class a implements c {
     }
 
     public void setPath(String str) {
-        this.mPath = l.yh() + str + "/";
+        this.mPath = l.yv() + str + "/";
     }
 }

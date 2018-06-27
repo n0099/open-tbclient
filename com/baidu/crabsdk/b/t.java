@@ -13,14 +13,14 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public final class t {
-    private static com.baidu.crabsdk.c.b<List> Ta = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String Tb = "";
-    private static String SH = "";
+    private static com.baidu.crabsdk.c.b<List> Tc = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static String Td = "";
+    private static String SK = "";
     private static int widthPixels = 0;
     private static int heightPixels = 0;
 
     public static String P() {
-        return Ta.size() > 0 ? new JSONArray((Collection) Ta).toString() : "";
+        return Tc.size() > 0 ? new JSONArray((Collection) Tc).toString() : "";
     }
 
     public static boolean pe() {
@@ -68,10 +68,10 @@ public final class t {
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(SH)) {
-                    com.baidu.crabsdk.c.a.cd("***** !tempName.equals(activityName) *****");
-                    SH = name;
-                    Ta.clear();
+                if (!name.equals(SK)) {
+                    com.baidu.crabsdk.c.a.cf("***** !tempName.equals(activityName) *****");
+                    SK = name;
+                    Tc.clear();
                 }
                 if (activity != null) {
                     try {
@@ -80,24 +80,24 @@ public final class t {
                             u = u(decorView);
                             if (u == null) {
                                 String url = u.getUrl();
-                                if (url.equals(Tb)) {
+                                if (url.equals(Td)) {
                                     return;
                                 }
-                                com.baidu.crabsdk.c.a.cd("-------- !tempUrl.equals(mUrl) --------");
-                                Tb = url;
+                                com.baidu.crabsdk.c.a.cf("-------- !tempUrl.equals(mUrl) --------");
+                                Td = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 arrayList.add(u.getTitle());
-                                arrayList.add(Tb);
-                                com.baidu.crabsdk.c.a.cd("title:" + u.getTitle() + "; url:" + Tb);
-                                Ta.add(arrayList);
-                                com.baidu.crabsdk.c.a.cd("###### jsonArray.toString() : " + P());
+                                arrayList.add(Td);
+                                com.baidu.crabsdk.c.a.cf("title:" + u.getTitle() + "; url:" + Td);
+                                Tc.add(arrayList);
+                                com.baidu.crabsdk.c.a.cf("###### jsonArray.toString() : " + P());
                                 return;
                             }
                             return;
                         }
                     } catch (Exception e) {
-                        com.baidu.crabsdk.c.a.ce("createUrlRecord error!!");
+                        com.baidu.crabsdk.c.a.cg("createUrlRecord error!!");
                         return;
                     }
                 }

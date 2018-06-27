@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class h extends b<JSONObject> {
     private final com.airbnb.lottie.h jX;
-    private final Resources nn;
+    private final Resources nm;
 
     public h(Resources resources, com.airbnb.lottie.h hVar) {
-        this.nn = resources;
+        this.nm = resources;
         this.jX = hVar;
     }
 
@@ -18,7 +18,7 @@ public final class h extends b<JSONObject> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public com.airbnb.lottie.e doInBackground(JSONObject... jSONObjectArr) {
-        return e.a.a(this.nn, jSONObjectArr[0]);
+        return e.a.a(this.nm, jSONObjectArr[0]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

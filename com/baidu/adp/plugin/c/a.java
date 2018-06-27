@@ -14,22 +14,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a HF = null;
-    private HashMap<String, ArrayList<Message<?>>> HE = null;
+    private static volatile a HH = null;
+    private HashMap<String, ArrayList<Message<?>>> HG = null;
 
     public static a lB() {
-        if (HF == null) {
+        if (HH == null) {
             synchronized (a.class) {
-                if (HF == null) {
-                    HF = new a();
+                if (HH == null) {
+                    HH = new a();
                 }
             }
         }
-        return HF;
+        return HH;
     }
 
     public void init() {
-        this.HE = new HashMap<>();
+        this.HG = new HashMap<>();
         lD();
         lC();
     }
@@ -43,13 +43,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.HD == 0 && a.this.HE.size() > 0 && (arrayList = (ArrayList) a.this.HE.get(aVar.HC)) != null && arrayList.size() > 0) {
+                    if (aVar.HF == 0 && a.this.HG.size() > 0 && (arrayList = (ArrayList) a.this.HG.get(aVar.HE)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.HE.remove(aVar.HC);
+                    a.this.HG.remove(aVar.HE);
                 }
             }
         });
@@ -63,12 +63,12 @@ public class a {
                     return false;
                 }
                 String aA = c.mn().aA(message.getCmd());
-                if (TextUtils.isEmpty(aA) || c.mn().bR(aA)) {
+                if (TextUtils.isEmpty(aA) || c.mn().bT(aA)) {
                     return false;
                 }
                 if (!PluginCenter.getInstance().hasInstance(aA)) {
                     a.this.a(aA, message);
-                    return PluginCenter.getInstance().launch(aA).Gp;
+                    return PluginCenter.getInstance().launch(aA).Gr;
                 } else if (PluginCenter.getInstance().isLoaded(aA)) {
                     return false;
                 } else {
@@ -82,10 +82,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.HE.get(str);
+            ArrayList<Message<?>> arrayList = this.HG.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.HE.put(str, arrayList);
+                this.HG.put(str, arrayList);
             }
             arrayList.add(message);
         }

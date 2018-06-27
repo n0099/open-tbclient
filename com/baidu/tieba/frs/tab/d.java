@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.frs.as;
+import com.baidu.tieba.frs.au;
 /* loaded from: classes2.dex */
 public class d {
-    public as dzl;
+    public au dCy;
     public String name;
     public int tabId;
     public String url;

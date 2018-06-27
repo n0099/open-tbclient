@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Oauth2AccessToken {
     public static final String KEY_ACCESS_TOKEN = "access_token";
     public static final String KEY_EXPIRES_IN = "expires_in";
     public static final String KEY_PHONE_NUM = "phone_num";
     public static final String KEY_REFRESH_TOKEN = "refresh_token";
     public static final String KEY_UID = "uid";
+    Bundle bundle;
     private String mAccessToken;
     private long mExpiresTime;
     private String mPhoneNum;
@@ -85,6 +86,7 @@ public class Oauth2AccessToken {
             oauth2AccessToken.setExpiresIn(getString(bundle, "expires_in", ""));
             oauth2AccessToken.setRefreshToken(getString(bundle, KEY_REFRESH_TOKEN, ""));
             oauth2AccessToken.setPhoneNum(getString(bundle, KEY_PHONE_NUM, ""));
+            oauth2AccessToken.setBundle(bundle);
             return oauth2AccessToken;
         }
         return null;
@@ -92,16 +94,6 @@ public class Oauth2AccessToken {
 
     public boolean isSessionValid() {
         return !TextUtils.isEmpty(this.mAccessToken);
-    }
-
-    public Bundle toBundle() {
-        Bundle bundle = new Bundle();
-        bundle.putString("uid", this.mUid);
-        bundle.putString("access_token", this.mAccessToken);
-        bundle.putString(KEY_REFRESH_TOKEN, this.mRefreshToken);
-        bundle.putString("expires_in", Long.toString(this.mExpiresTime));
-        bundle.putString(KEY_PHONE_NUM, this.mPhoneNum);
-        return bundle;
     }
 
     public String toString() {
@@ -157,5 +149,13 @@ public class Oauth2AccessToken {
 
     private void setPhoneNum(String str) {
         this.mPhoneNum = str;
+    }
+
+    public Bundle getBundle() {
+        return this.bundle;
+    }
+
+    public void setBundle(Bundle bundle) {
+        this.bundle = bundle;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.location.h;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
     private String a;
     private String b;

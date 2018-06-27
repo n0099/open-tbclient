@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes2.dex */
 public class b {
-    private SearchEmotionModel.a cUD;
-    private SearchEmotionModel fEA;
-    private String fEB;
-    private Runnable fEC = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a cSF;
+    private SearchEmotionModel fIB;
+    private String fIC;
+    private Runnable fID = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.fEB) && b.this.cUD != null) {
-                if (b.this.fEA == null) {
-                    b.this.fEA = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.fIC) && b.this.cSF != null) {
+                if (b.this.fIB == null) {
+                    b.this.fIB = new SearchEmotionModel();
                 }
-                b.this.fEA.a(b.this.fEB, 0, 30, b.this.cUD);
+                b.this.fIB.a(b.this.fIC, 0, 30, b.this.cSF);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void rE(String str) {
+    public void rD(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.fEB = "";
+            this.fIC = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.fEC);
-        this.mHandler.postDelayed(this.fEC, 300L);
-        this.fEB = str;
+        this.mHandler.removeCallbacks(this.fID);
+        this.mHandler.postDelayed(this.fID, 300L);
+        this.fIC = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.cUD = aVar;
+        this.cSF = aVar;
     }
 
-    public void avk() {
-        if (this.fEA != null) {
-            this.fEA.cancelLoadData();
+    public void avN() {
+        if (this.fIB != null) {
+            this.fIB.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.fEC);
+        this.mHandler.removeCallbacks(this.fID);
     }
 }

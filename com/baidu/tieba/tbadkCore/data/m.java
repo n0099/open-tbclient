@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class m {
-    private long aab;
-    private String bkR;
-    private String gJQ;
-    private List<String> gJR;
-    private String gJS;
+    private long aae;
+    private String bmq;
+    private String gNR;
+    private List<String> gNS;
+    private String gNT;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.aab = redpacketRain.end_time.longValue() * 1000;
-            this.bkR = redpacketRain.jump_url;
-            this.gJQ = redpacketRain.float_url;
-            this.gJR = redpacketRain.dynamic_img;
-            this.gJS = redpacketRain.activity_id;
+            this.aae = redpacketRain.end_time.longValue() * 1000;
+            this.bmq = redpacketRain.jump_url;
+            this.gNR = redpacketRain.float_url;
+            this.gNS = redpacketRain.dynamic_img;
+            this.gNT = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,47 +29,47 @@ public class m {
     }
 
     public long getEndTime() {
-        return this.aab;
+        return this.aae;
     }
 
-    public String Qs() {
-        return this.bkR;
+    public String QP() {
+        return this.bmq;
     }
 
-    public String bxo() {
-        return this.gJQ;
+    public String bxR() {
+        return this.gNR;
     }
 
-    public List<String> bxp() {
-        return this.gJR;
+    public List<String> bxS() {
+        return this.gNS;
     }
 
-    public String bxq() {
-        return this.gJS;
+    public String bxT() {
+        return this.gNT;
     }
 
     public void setStartTime(long j) {
         this.mStartTime = j;
     }
 
-    public void db(long j) {
-        this.aab = j;
+    public void cW(long j) {
+        this.aae = j;
+    }
+
+    public void tN(String str) {
+        this.bmq = str;
     }
 
     public void tO(String str) {
-        this.bkR = str;
+        this.gNR = str;
+    }
+
+    public void dA(List<String> list) {
+        this.gNS = list;
     }
 
     public void tP(String str) {
-        this.gJQ = str;
-    }
-
-    public void dw(List<String> list) {
-        this.gJR = list;
-    }
-
-    public void tQ(String str) {
-        this.gJS = str;
+        this.gNT = str;
     }
 
     public int getType() {

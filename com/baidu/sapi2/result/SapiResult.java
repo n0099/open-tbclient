@@ -8,19 +8,22 @@ import java.util.Map;
 public class SapiResult {
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
+    public static final int ERROR_CODE_NOT_IMPORT_SOFIRE_SDK = -401;
     public static final int ERROR_CODE_PARAMS_ERROR = -204;
     public static final int ERROR_CODE_PROCESSED_END = -301;
     public static final int ERROR_CODE_SERVER_DATA_ERROR = -205;
     public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
     public static final int ERROR_CODE_UNKNOWN = -202;
+    public static final int ERROR_CODE_V2_SHARE_ACCOUNT_FAIL = -207;
     public static final String ERROR_MSG_METHOD_DEPRECATED = "接口已下线";
     public static final String ERROR_MSG_NETWORK_UNAVAILABLE = "网络连接不可用，请检查网络设置";
+    public static final String ERROR_MSG_NOT_IMPORT_SOFIRE_SDK = "没有导入安全SDK";
     public static final String ERROR_MSG_PARAMS_ERROR = "参数错误";
     public static final String ERROR_MSG_PROCESSED_END = "流程已结束";
     public static final String ERROR_MSG_SERVER_DATA_ERROR = "服务端数据异常";
-    public static final String ERROR_MSG_SHARE_ACCOUNT_IS_EMPTY = "互通登录失败,请稍后再试";
     public static final String ERROR_MSG_SSL_PEER_UNVERIFIED = "网站安全证书已过期或不可信，系统时间错误可能导致此问题";
     public static final String ERROR_MSG_UNKNOWN = "网络连接失败，请检查网络设置";
+    public static final String ERROR_MSG_V2_SHARE_ACCOUNT_FAIL = "互通登录失败,请稍后再试";
     public static final int RESULT_CODE_SUCCESS = 0;
     public static final int RESULT_CODE_WAPPASS_SUCCESS = 110000;
     public static final String RESULT_MSG_SUCCESS = "成功";
@@ -112,6 +115,7 @@ public class SapiResult {
         this.msgMap.put(-205, ERROR_MSG_SERVER_DATA_ERROR);
         this.msgMap.put(-206, ERROR_MSG_METHOD_DEPRECATED);
         this.msgMap.put(-301, ERROR_MSG_PROCESSED_END);
+        this.msgMap.put(ERROR_CODE_V2_SHARE_ACCOUNT_FAIL, ERROR_MSG_V2_SHARE_ACCOUNT_FAIL);
     }
 
     public int getResultCode() {

@@ -11,44 +11,44 @@ import com.baidu.tieba.recapp.l;
 import com.baidu.tieba.recapp.r;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b bfq;
-    private long bfn;
-    private final int bfl = 2;
-    private final int bfm = 3;
-    private int bfr = -1;
-    private CustomMessageListener bfs = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
+    private static volatile b bgE;
+    private long bgB;
+    private final int bgz = 2;
+    private final int bgA = 3;
+    private int bgF = -1;
+    private CustomMessageListener bgG = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.boj().boe() != null) {
-                r.boj().boe().bnW();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.boJ().boE() != null) {
+                r.boJ().boE().bow();
             }
         }
     };
-    private CustomMessageListener bft = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
+    private CustomMessageListener bgH = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                b.this.Oe();
+                b.this.Ox();
             }
         }
     };
-    private CustomMessageListener bfu = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
+    private CustomMessageListener bgI = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.bfn != 0) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.bgB != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
-                    if (b.this.Of()) {
+                    if (b.this.Oy()) {
                         BaseActivity baseActivity = (BaseActivity) data;
                         Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                         intent.putExtra("splash", true);
                         intent.setFlags(65536);
                         baseActivity.startActivity(intent);
                     }
-                } else if ((data instanceof BaseFragmentActivity) && b.this.Of()) {
+                } else if ((data instanceof BaseFragmentActivity) && b.this.Oy()) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                     intent2.putExtra("splash", true);
@@ -58,7 +58,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener bfv = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
+    private CustomMessageListener bgJ = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -67,69 +67,69 @@ public class b {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        b.this.bfo = currentTimeMillis - b.this.bfn <= 1;
+                        b.this.bgC = currentTimeMillis - b.this.bgB <= 1;
                     }
                 }
             }
         }
     };
-    private boolean bfo = false;
-    private boolean bfp = false;
+    private boolean bgC = false;
+    private boolean bgD = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b Od() {
-        if (bfq == null) {
+    public static b Ow() {
+        if (bgE == null) {
             synchronized (b.class) {
-                if (bfq == null) {
-                    bfq = new b();
+                if (bgE == null) {
+                    bgE = new b();
                 }
             }
         }
-        return bfq;
+        return bgE;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.bft);
-        MessageManager.getInstance().registerListener(this.bfu);
-        MessageManager.getInstance().registerListener(this.bfs);
-        MessageManager.getInstance().registerListener(this.bfv);
-        if (r.boj().boe() != null) {
-            r.boj().boe().bnV();
+        MessageManager.getInstance().registerListener(this.bgH);
+        MessageManager.getInstance().registerListener(this.bgI);
+        MessageManager.getInstance().registerListener(this.bgG);
+        MessageManager.getInstance().registerListener(this.bgJ);
+        if (r.boJ().boE() != null) {
+            r.boJ().boE().bov();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Oe() {
-        this.bfp = true;
-        this.bfn = System.currentTimeMillis() / 1000;
+    public void Ox() {
+        this.bgD = true;
+        this.bgB = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Of() {
-        Og();
-        this.bfp = false;
+    public boolean Oy() {
+        Oz();
+        this.bgD = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.bfo) {
-            this.bfo = false;
+        if (this.bgC) {
+            this.bgC = false;
             return false;
-        } else if (currentTimeMillis - this.bfn <= 2 || currentTimeMillis - this.bfn <= this.bfr) {
+        } else if (currentTimeMillis - this.bgB <= 2 || currentTimeMillis - this.bgB <= this.bgF) {
             return false;
         } else {
-            l boe = r.boj().boe();
-            return (boe != null ? boe.bnX() : 3) < 3;
+            l boE = r.boJ().boE();
+            return (boE != null ? boE.box() : 3) < 3;
         }
     }
 
-    private void Og() {
+    private void Oz() {
         com.baidu.tbadk.coreExtra.data.c adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.bfr = adAdSense.BL();
-            if (this.bfr <= 0) {
-                this.bfr = 86400;
+            this.bgF = adAdSense.Cc();
+            if (this.bgF <= 0) {
+                this.bgF = 86400;
                 return;
             }
             return;
         }
-        this.bfr = 300;
+        this.bgF = 300;
     }
 }

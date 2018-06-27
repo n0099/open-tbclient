@@ -15,17 +15,17 @@ public interface r {
 
     void hP();
 
-    void l(ArrayList<BasicNameValuePair> arrayList);
-
     void o(String str, String str2);
 
-    ArrayList<BasicNameValuePair> yk();
+    void p(ArrayList<BasicNameValuePair> arrayList);
 
-    String yl();
+    byte[] yA();
 
-    byte[] ym();
+    String yB();
 
-    String yn();
+    String yC();
 
-    String yo();
+    ArrayList<BasicNameValuePair> yy();
+
+    String yz();
 }

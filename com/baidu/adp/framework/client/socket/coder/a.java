@@ -3,17 +3,17 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    public static byte uA = 4;
-    private static byte uB = Byte.MIN_VALUE;
-    private static byte uC = 64;
-    private static byte uD = 8;
-    private static byte uE = 4;
-    private int uI;
-    private int uJ;
+    private int uG;
+    private int uH;
+    public static byte uy = 4;
+    private static byte uz = Byte.MIN_VALUE;
+    private static byte uA = 64;
+    private static byte uB = 8;
+    private static byte uC = 4;
+    private boolean uD = false;
+    private boolean uE = false;
     private boolean uF = false;
-    private boolean uG = false;
-    private boolean uH = false;
-    private boolean uK = false;
+    private boolean uI = false;
 
     public static int fz() {
         return 9;
@@ -21,13 +21,13 @@ public class a {
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + fz());
-        byte b = z ? (byte) (uB | 0) : (byte) 0;
+        byte b = z ? (byte) (uz | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | uC);
+            b = (byte) (b | uA);
         }
-        byte b2 = (byte) (b | uD);
+        byte b2 = (byte) (b | uB);
         if (z3) {
-            b2 = (byte) (b2 | uE);
+            b2 = (byte) (b2 | uC);
         }
         allocate.put(b2);
         allocate.putInt(i);
@@ -39,48 +39,48 @@ public class a {
         return allocate.array();
     }
 
-    public static a f(byte[] bArr) {
+    public static a h(byte[] bArr) {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fz());
         a aVar = new a();
         byte b = wrap.get();
+        if ((uz & b) != 0) {
+            aVar.uD = true;
+        }
+        if ((uA & b) != 0) {
+            aVar.uE = true;
+        }
         if ((uB & b) != 0) {
             aVar.uF = true;
         }
-        if ((uC & b) != 0) {
-            aVar.uG = true;
+        if ((b & uC) != 0) {
+            aVar.uI = true;
         }
-        if ((uD & b) != 0) {
-            aVar.uH = true;
-        }
-        if ((b & uE) != 0) {
-            aVar.uK = true;
-        }
-        aVar.uI = wrap.getInt();
-        aVar.uJ = wrap.getInt();
+        aVar.uG = wrap.getInt();
+        aVar.uH = wrap.getInt();
         return aVar;
     }
 
     public boolean fA() {
-        return this.uG;
+        return this.uE;
     }
 
     public int fB() {
-        return this.uI;
+        return this.uG;
     }
 
     public boolean fC() {
-        return this.uF;
+        return this.uD;
     }
 
     public int fD() {
-        return this.uJ;
-    }
-
-    public boolean fE() {
         return this.uH;
     }
 
+    public boolean fE() {
+        return this.uF;
+    }
+
     public boolean fF() {
-        return this.uK;
+        return this.uI;
     }
 }

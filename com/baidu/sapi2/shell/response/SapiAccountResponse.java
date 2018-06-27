@@ -22,4 +22,5 @@ public class SapiAccountResponse extends SapiResponse {
     public SapiAccount.ReloginCredentials reloginCredentials = new SapiAccount.ReloginCredentials();
     public AccountType accountType = AccountType.UNKNOWN;
     public Map<String, String> tplStokenMap = new HashMap();
+    public String isGuestAccount = "";
 }

@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements af {
     private String avatar;
-    private int bvX;
-    private int cKw;
+    private int bxt;
+    private int cIq;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gzr;
-    private int gzs;
-    private int gzt;
-    private boolean gzu;
-    private boolean gzv;
-    private boolean gzw;
-    private boolean gzx;
-    private int gzy;
+    private int gDk;
+    private int gDl;
+    private int gDm;
+    private boolean gDn;
+    private boolean gDo;
+    private boolean gDp;
+    private boolean gDq;
+    private int gDr;
 
     public int getForumId() {
         return this.forumId;
@@ -33,70 +33,70 @@ public class d implements af {
         return this.avatar;
     }
 
-    public int btv() {
-        return this.gzr;
+    public int btV() {
+        return this.gDk;
     }
 
-    public int btw() {
-        return this.bvX;
+    public int btW() {
+        return this.bxt;
     }
 
-    public int btx() {
-        return this.cKw;
+    public int btX() {
+        return this.cIq;
     }
 
-    public int bty() {
-        return this.gzs;
+    public int btY() {
+        return this.gDl;
     }
 
-    public int btz() {
-        return this.gzt;
+    public int btZ() {
+        return this.gDm;
     }
 
-    public void ta(int i) {
-        this.gzr = i;
+    public void tk(int i) {
+        this.gDk = i;
     }
 
-    public void tb(int i) {
-        this.bvX = i;
+    public void tl(int i) {
+        this.bxt = i;
     }
 
-    public void tc(int i) {
-        this.cKw = i;
+    public void tm(int i) {
+        this.cIq = i;
     }
 
-    public boolean Tv() {
-        return this.gzu;
+    public boolean TP() {
+        return this.gDn;
     }
 
-    public void mh(boolean z) {
-        this.gzu = z;
-        this.gzr = 1;
+    public void ms(boolean z) {
+        this.gDn = z;
+        this.gDk = 1;
     }
 
-    public boolean btA() {
-        return this.gzw;
+    public boolean bua() {
+        return this.gDp;
     }
 
-    public void mi(boolean z) {
-        this.gzw = z;
-        this.gzr = 0;
+    public void mt(boolean z) {
+        this.gDp = z;
+        this.gDk = 0;
     }
 
-    public boolean btB() {
-        return this.gzx;
+    public boolean bub() {
+        return this.gDq;
     }
 
-    public void mj(boolean z) {
-        this.gzx = z;
+    public void mu(boolean z) {
+        this.gDq = z;
     }
 
-    public int btC() {
-        return this.gzy;
+    public int buc() {
+        return this.gDr;
     }
 
-    public void td(int i) {
-        this.gzy = i;
+    public void tn(int i) {
+        this.gDr = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class d implements af {
         this.errorMsg = str;
     }
 
-    public boolean btD() {
-        return this.gzv;
+    public boolean bud() {
+        return this.gDo;
     }
 
-    public void mk(boolean z) {
-        this.gzv = z;
+    public void mv(boolean z) {
+        this.gDo = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -120,14 +120,14 @@ public class d implements af {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gzr = jSONObject.optInt("is_sign_in");
-            this.bvX = jSONObject.optInt("cont_sign_num");
-            this.cKw = jSONObject.optInt("user_level");
-            this.gzs = jSONObject.optInt("user_exp");
-            this.gzt = jSONObject.optInt("need_exp");
-            if (this.gzr != 0) {
-                this.gzu = true;
-                this.gzw = false;
+            this.gDk = jSONObject.optInt("is_sign_in");
+            this.bxt = jSONObject.optInt("cont_sign_num");
+            this.cIq = jSONObject.optInt("user_level");
+            this.gDl = jSONObject.optInt("user_exp");
+            this.gDm = jSONObject.optInt("need_exp");
+            if (this.gDk != 0) {
+                this.gDn = true;
+                this.gDp = false;
             }
         }
     }

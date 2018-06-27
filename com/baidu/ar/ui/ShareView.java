@@ -46,8 +46,8 @@ import com.baidu.ar.util.UrlUtils;
 import com.baidu.ar.util.Utils;
 import com.baidu.ar.utils.AppUtils;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.tencent.open.SocialConstants;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Timer;
@@ -467,13 +467,13 @@ public class ShareView extends FrameLayout {
             } else {
                 jSONObject = new JSONObject(str);
             }
-            if (!jSONObject.has(ImagesInvalidReceiver.SUCCESS) || !jSONObject.optBoolean(ImagesInvalidReceiver.SUCCESS)) {
+            if (!jSONObject.has("success") || !jSONObject.optBoolean("success")) {
                 m();
                 return;
             }
             JSONObject jSONObject3 = new JSONObject(jSONObject.optString("data"));
             String optString = jSONObject3.optString("title");
-            String optString2 = jSONObject3.optString("description");
+            String optString2 = jSONObject3.optString(SocialConstants.PARAM_COMMENT);
             String concat = UrlUtils.URL_AR_PREFIX.concat(jSONObject3.optString(PbChosenActivityConfig.KEY_SHARE_URL));
             String optString3 = jSONObject3.optString("pic_url");
             String optString4 = jSONObject3.optString("thumbnail");
@@ -537,7 +537,7 @@ public class ShareView extends FrameLayout {
                 hashMap.put(HttpConstants.TIMESTAMP, String.valueOf(ARConfig.getTimestamp()));
                 String hidePictureUrl = Utils.getHidePictureUrl();
                 if (ShareView.this.b == 2) {
-                    str = "img";
+                    str = SocialConstants.PARAM_IMG_URL;
                     hidePictureUrl = Utils.getHidePictureUrl();
                 } else if (ShareView.this.b == 1) {
                     str = "video";

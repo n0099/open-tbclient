@@ -7,6 +7,7 @@ import com.baidu.ar.msghandler.ComponentMessageType;
 import com.baidu.ar.tts.TTSCallback;
 import com.baidu.ar.tts.TTSManager;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class a {
@@ -40,7 +41,7 @@ public class a {
                     a.this.d = new HashMap();
                     a.this.d.put("id", 2005);
                     a.this.d.put(NotificationCompat.CATEGORY_STATUS, 3);
-                    a.this.d.put("error_code", Integer.valueOf(i));
+                    a.this.d.put(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, Integer.valueOf(i));
                     a.this.b.sendMessage2Lua(a.this.d);
                 }
 

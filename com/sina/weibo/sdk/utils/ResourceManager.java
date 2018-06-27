@@ -21,8 +21,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
-import org.apache.http.util.EncodingUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ResourceManager {
     private static final String TAG = ResourceManager.class.getName();
     private static final String DRAWABLE_XXHDPI = "drawable-xxhdpi";
@@ -35,10 +34,7 @@ public class ResourceManager {
 
     public static String getString(Context context, String str, String str2, String str3) {
         Locale language = getLanguage();
-        if (Locale.SIMPLIFIED_CHINESE.equals(language)) {
-            return str2;
-        }
-        return Locale.TRADITIONAL_CHINESE.equals(language) ? str3 : str;
+        return (Locale.SIMPLIFIED_CHINESE.equals(language) || ("zh".equals(language.getLanguage()) && language.getCountry().contains("CN"))) ? str2 : (Locale.TRADITIONAL_CHINESE.equals(language) || ("zh".equals(language.getLanguage()) && language.getCountry().contains("TW"))) ? str3 : str;
     }
 
     public static Drawable getDrawable(Context context, String str) {
@@ -51,7 +47,10 @@ public class ResourceManager {
 
     public static Locale getLanguage() {
         Locale locale = Locale.getDefault();
-        return (Locale.SIMPLIFIED_CHINESE.equals(locale) || Locale.TRADITIONAL_CHINESE.equals(locale)) ? locale : Locale.ENGLISH;
+        if (Locale.SIMPLIFIED_CHINESE.equals(locale) || Locale.TRADITIONAL_CHINESE.equals(locale)) {
+            return locale;
+        }
+        return (locale.getLanguage().equals("zh") && (locale.getCountry().contains("CN") || locale.getCountry().contains("TW"))) ? locale : Locale.ENGLISH;
     }
 
     private static String getAppropriatePathOfDrawable(Context context, String str) {
@@ -72,7 +71,7 @@ public class ResourceManager {
             if (PRE_INSTALL_DRAWBLE_PATHS[i].equals(currentDpiFolder)) {
                 i2 = i;
             }
-            String str2 = String.valueOf(PRE_INSTALL_DRAWBLE_PATHS[i]) + "/" + str;
+            String str2 = PRE_INSTALL_DRAWBLE_PATHS[i] + "/" + str;
             if (isFileExisted(context, str2)) {
                 if (i2 != i) {
                     if (i2 >= 0) {
@@ -101,10 +100,11 @@ public class ResourceManager {
             LogUtil.e(TAG, "Not find the appropriate path for drawable");
             return null;
         }
-        return String.valueOf(PRE_INSTALL_DRAWBLE_PATHS[i3]) + "/" + str;
+        return PRE_INSTALL_DRAWBLE_PATHS[i3] + "/" + str;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [227=4] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x006c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -179,18 +179,15 @@ public class ResourceManager {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x000f */
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: java.io.IOException */
-    /* JADX WARN: Multi-variable type inference failed */
     private static boolean isFileExisted(Context context, String str) {
         boolean z = false;
         if (context != null && !TextUtils.isEmpty(str)) {
             InputStream inputStream = null;
-            inputStream = null;
             try {
                 try {
                     inputStream = context.getAssets().open(str);
                     LogUtil.d(TAG, "file [" + str + "] existed");
+                    z = true;
                     if (inputStream != null) {
                         try {
                             inputStream.close();
@@ -198,30 +195,25 @@ public class ResourceManager {
                             e.printStackTrace();
                         }
                     }
-                    z = true;
-                    inputStream = inputStream;
-                } catch (Throwable th) {
+                } catch (IOException e2) {
+                    LogUtil.d(TAG, "file [" + str + "] NOT existed");
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
-                    throw th;
                 }
-            } catch (IOException e3) {
-                LogUtil.d(TAG, "file [" + str + "] NOT existed");
-                inputStream = inputStream;
+            } catch (Throwable th) {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                        inputStream = inputStream;
                     } catch (IOException e4) {
                         e4.printStackTrace();
-                        inputStream = e4;
                     }
                 }
+                throw th;
             }
         }
         return z;
@@ -316,7 +308,8 @@ public class ResourceManager {
     }
 
     public static String readCountryFromAsset(Context context, String str) {
-        String str2 = "";
+        String str2;
+        IOException e;
         try {
             InputStream open = context.getAssets().open(str);
             if (open == null) {
@@ -325,12 +318,18 @@ public class ResourceManager {
             DataInputStream dataInputStream = new DataInputStream(open);
             byte[] bArr = new byte[dataInputStream.available()];
             dataInputStream.read(bArr);
-            str2 = EncodingUtils.getString(bArr, "UTF-8");
-            open.close();
-            return str2;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return str2;
+            str2 = new String(bArr, "UTF-8");
+            try {
+                open.close();
+                return str2;
+            } catch (IOException e2) {
+                e = e2;
+                e.printStackTrace();
+                return str2;
+            }
+        } catch (IOException e3) {
+            str2 = "";
+            e = e3;
         }
     }
 }

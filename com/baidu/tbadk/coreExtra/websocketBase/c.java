@@ -11,52 +11,52 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.framework.listener.c {
-    private static c aIO = new c();
-    private boolean aIJ;
-    private int aIK;
-    private long aIL;
-    private final SparseArray<a> aIM;
-    private final HashSet<Integer> aIN;
-    private int aIP;
+    private static c aJL = new c();
+    private boolean aJG;
+    private int aJH;
+    private long aJI;
+    private final SparseArray<a> aJJ;
+    private final HashSet<Integer> aJK;
+    private int aJM;
 
-    public static c Gj() {
-        return aIO;
+    public static c GB() {
+        return aJL;
     }
 
     private c() {
         super(1001);
-        this.aIK = 3;
-        this.aIL = ReportUserInfoModel.TIME_INTERVAL;
-        this.aIM = new SparseArray<>();
-        this.aIN = new HashSet<>();
-        this.aIP = 0;
+        this.aJH = 3;
+        this.aJI = ReportUserInfoModel.TIME_INTERVAL;
+        this.aJJ = new SparseArray<>();
+        this.aJK = new HashSet<>();
+        this.aJM = 0;
         MessageManager.getInstance().registerListener(0, this);
     }
 
-    public boolean ew(int i) {
-        this.aIP = 0;
-        if (this.aIJ) {
-            this.aIP = 3;
+    public boolean ex(int i) {
+        this.aJM = 0;
+        if (this.aJG) {
+            this.aJM = 3;
             return false;
-        } else if (this.aIN.contains(Integer.valueOf(i))) {
-            this.aIP = 6;
+        } else if (this.aJK.contains(Integer.valueOf(i))) {
+            this.aJM = 6;
             return false;
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
-            this.aIP = 1;
+            this.aJM = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().fq() > PingManager.Gn().Gp() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().fq() > PingManager.GF().GH() + 20000) {
             i.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
-            this.aIP = 2;
+            this.aJM = 2;
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
             return false;
         } else {
-            a aVar = this.aIM.get(i);
-            if (aVar != null && aVar.aIR) {
-                if (Math.abs(System.currentTimeMillis() - aVar.aIS) > this.aIL) {
+            a aVar = this.aJJ.get(i);
+            if (aVar != null && aVar.aJO) {
+                if (Math.abs(System.currentTimeMillis() - aVar.aJP) > this.aJI) {
                     aVar.reset();
                 } else {
-                    this.aIP = 4;
+                    this.aJM = 4;
                     return false;
                 }
             }
@@ -68,8 +68,8 @@ public class c extends com.baidu.adp.framework.listener.c {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.aIM.size()) {
-                this.aIM.valueAt(i2).reset();
+            if (i2 < this.aJJ.size()) {
+                this.aJJ.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -77,41 +77,41 @@ public class c extends com.baidu.adp.framework.listener.c {
         }
     }
 
-    public void ex(int i) {
-        a aVar = this.aIM.get(i);
+    public void ey(int i) {
+        a aVar = this.aJJ.get(i);
         if (aVar == null) {
             aVar = new a();
-            this.aIM.append(i, aVar);
+            this.aJJ.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.aIK);
+            aVar.onError(this.aJH);
         }
-        this.aIP = 5;
+        this.aJM = 5;
     }
 
-    public void ey(int i) {
-        this.aIM.remove(i);
+    public void ez(int i) {
+        this.aJJ.remove(i);
     }
 
-    public void bs(boolean z) {
-        this.aIJ = z;
+    public void bv(boolean z) {
+        this.aJG = z;
     }
 
     public void h(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.aIN.clear();
+            this.aJK.clear();
             for (int i : iArr) {
-                this.aIN.add(Integer.valueOf(i));
+                this.aJK.add(Integer.valueOf(i));
             }
         }
     }
 
-    public void ez(int i) {
-        this.aIK = i;
+    public void eA(int i) {
+        this.aJH = i;
     }
 
-    public void V(long j) {
-        this.aIL = j;
+    public void W(long j) {
+        this.aJI = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -125,31 +125,31 @@ public class c extends com.baidu.adp.framework.listener.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int aIQ;
-        public boolean aIR;
-        public long aIS;
+        public int aJN;
+        public boolean aJO;
+        public long aJP;
 
         private a() {
         }
 
         public void reset() {
-            this.aIQ = 0;
-            if (this.aIR) {
-                this.aIR = false;
-                this.aIS = 0L;
+            this.aJN = 0;
+            if (this.aJO) {
+                this.aJO = false;
+                this.aJP = 0L;
             }
         }
 
         public void onError(int i) {
-            this.aIQ++;
-            if (!this.aIR && this.aIQ >= i) {
-                this.aIR = true;
-                this.aIS = System.currentTimeMillis();
+            this.aJN++;
+            if (!this.aJO && this.aJN >= i) {
+                this.aJO = true;
+                this.aJP = System.currentTimeMillis();
             }
         }
     }
 
-    public int Gk() {
-        return this.aIP;
+    public int GC() {
+        return this.aJM;
     }
 }

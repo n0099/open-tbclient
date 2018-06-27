@@ -1,26 +1,23 @@
 package com.baidu.tbadk.o;
-
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
-        TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "check_user_name";
+        return "android_bigday_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] hm() {
-        return new String[0];
+        return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int hn() {
-        return 1;
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_bigday_sync_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.b.a

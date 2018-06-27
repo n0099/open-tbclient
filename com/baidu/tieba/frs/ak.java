@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes2.dex */
 public interface ak {
-    String getForumId();
-
-    String getForumName();
+    NavigationBar UW();
 }

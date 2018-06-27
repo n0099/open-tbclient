@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -67,7 +67,7 @@ public class aa {
         return str3;
     }
 
-    public static Bundle hJ(String str) {
+    public static Bundle hN(String str) {
         URL url;
         String query;
         String[] split;
@@ -97,17 +97,17 @@ public class aa {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String aVQ;
+        public String aWL;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.aVQ = "";
+            this.aWL = "";
             this.BDUSS = str;
-            this.aVQ = str2;
+            this.aWL = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aVQ != null ? this.aVQ.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.aWL != null ? this.aWL.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -123,7 +123,7 @@ public class aa {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.aVQ == null ? aVar.aVQ == null : this.aVQ.equals(aVar.aVQ);
+                return this.aWL == null ? aVar.aWL == null : this.aWL.equals(aVar.aWL);
             }
             return false;
         }
@@ -147,8 +147,8 @@ public class aa {
         }
     }
 
-    public static String hK(String str) {
-        if (!ao.isEmpty(str) && !str.contains("page_type")) {
+    public static String hO(String str) {
+        if (!ap.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {
                 sb.append("&");

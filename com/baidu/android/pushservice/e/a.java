@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 /* loaded from: classes3.dex */
 public abstract class a extends com.baidu.android.pushservice.i.c {
     protected Context a;
@@ -132,7 +132,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                             com.baidu.android.pushservice.j.m.b("tryConnect failed setResult UnKnown " + e.getMessage(), this.a);
                             a(20001);
                         } else {
-                            a(IjkMediaPlayer.FFP_PROP_FLOAT_PLAYBACK_RATE);
+                            a(10003);
                         }
                         i2 = -1;
                         com.baidu.android.pushservice.f.b.a(inputStream);
@@ -297,7 +297,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int i = jSONObject.getInt("error_code");
+            int i = jSONObject.getInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             String string = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
             String string2 = jSONObject.getString(StatisticConstants.REQUEST_ID);
             JSONObject jSONObject2 = new JSONObject();

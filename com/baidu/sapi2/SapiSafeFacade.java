@@ -14,6 +14,7 @@ import com.baidu.sapi2.passhost.pluginsdk.AbsPassPiSafe;
 import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
 import com.baidu.sapi2.result.SafeBindDeviceResult;
 import com.baidu.sapi2.result.SafeFacadeResult;
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.FH;
 /* loaded from: classes.dex */
@@ -41,6 +42,11 @@ public final class SapiSafeFacade {
             throw new IllegalArgumentException(SafeFacadeResult.class.getSimpleName() + " can't be null");
         }
         SafeFacadeResult safeFacadeResult = new SafeFacadeResult();
+        if (!SapiAccountManager.getInstance().getConfignation().importSofire) {
+            safeFacadeResult.setResultCode(SapiResult.ERROR_CODE_NOT_IMPORT_SOFIRE_SDK);
+            safeFacadeResult.setResultMsg(SapiResult.ERROR_MSG_NOT_IMPORT_SOFIRE_SDK);
+            safeFacadeCallback.onFailure(safeFacadeResult);
+        }
         ThreadPoolService.getInstance().runInUiThread(new TPRunnable(new AnonymousClass1(safeFacadeCallback, SapiAccountManager.getInstance().getSapiConfiguration(), safeFacadeResult, str, str2, i)));
     }
 
@@ -73,13 +79,13 @@ public final class SapiSafeFacade {
                 this.a.onFinish();
                 return;
             }
-            ThreadPoolService.getInstance().runImport(new TPRunnable(new RunnableC00721()));
+            ThreadPoolService.getInstance().runImport(new TPRunnable(new RunnableC00731()));
         }
 
         /* renamed from: com.baidu.sapi2.SapiSafeFacade$1$1  reason: invalid class name and collision with other inner class name */
         /* loaded from: classes.dex */
-        class RunnableC00721 implements Runnable {
-            RunnableC00721() {
+        class RunnableC00731 implements Runnable {
+            RunnableC00731() {
             }
 
             @Override // java.lang.Runnable
@@ -153,6 +159,11 @@ public final class SapiSafeFacade {
             throw new IllegalArgumentException(SafeBindDeviceCallback.class.getSimpleName() + " can't be null");
         }
         SafeBindDeviceResult safeBindDeviceResult = new SafeBindDeviceResult();
+        if (!SapiAccountManager.getInstance().getConfignation().importSofire) {
+            safeBindDeviceResult.setResultCode(SapiResult.ERROR_CODE_NOT_IMPORT_SOFIRE_SDK);
+            safeBindDeviceResult.setResultMsg(SapiResult.ERROR_MSG_NOT_IMPORT_SOFIRE_SDK);
+            safeBindDeviceCallback.onFailure(safeBindDeviceResult);
+        }
         SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
         SapiContext.getInstance(sapiConfiguration.context).setSofireZidInited(false);
         new Handler(Looper.getMainLooper()).post(new AnonymousClass2(safeBindDeviceCallback, sapiConfiguration, safeBindDeviceResult, str2, i2, str, i));
@@ -245,6 +256,9 @@ public final class SapiSafeFacade {
     }
 
     public String getCurrentZid(Context context) {
+        if (!SapiAccountManager.getInstance().getConfignation().importSofire) {
+            return "NotImportSofireSdk";
+        }
         String str = null;
         if (SapiAccountManager.getInstance().isLogin()) {
             str = SapiAccountManager.getInstance().getSession("uid");
@@ -254,6 +268,9 @@ public final class SapiSafeFacade {
     }
 
     public String getZidAndCheckSafe(Context context, String str, int i) {
+        if (!SapiAccountManager.getInstance().getConfignation().importSofire) {
+            return "NotImportSofireSdk";
+        }
         String gzfi = FH.gzfi(context, str, i);
         return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
     }

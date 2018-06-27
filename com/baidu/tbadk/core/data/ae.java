@@ -7,30 +7,30 @@ import tbclient.LinkThreadContent;
 import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ae {
-    public static int agw = 1;
-    private int agA = 0;
-    private boolean agB = false;
-    private String agx;
-    private String agy;
-    private String agz;
+    public static int agL = 1;
+    private String agM;
+    private String agN;
+    private String agO;
+    private int agP = 0;
+    private boolean agQ = false;
     private String linkUrl;
 
     public void a(LinkThreadInfo linkThreadInfo) {
         if (linkThreadInfo != null) {
             this.linkUrl = linkThreadInfo.link_url;
-            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.w.c(linkThreadInfo.link_content, 0);
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.w.d(linkThreadInfo.link_content, 0);
             if (linkThreadContent != null) {
-                this.agx = linkThreadContent.link_title;
-                this.agy = linkThreadContent.link_abstract;
-                this.agz = linkThreadContent.link_head_small_pic;
-                this.agA = linkThreadContent.link_type.intValue();
-                if (com.baidu.tbadk.core.util.ao.isEmpty(this.agx) && com.baidu.tbadk.core.util.ao.isEmpty(this.agy)) {
-                    this.agB = true;
+                this.agM = linkThreadContent.link_title;
+                this.agN = linkThreadContent.link_abstract;
+                this.agO = linkThreadContent.link_head_small_pic;
+                this.agP = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.ap.isEmpty(this.agM) && com.baidu.tbadk.core.util.ap.isEmpty(this.agN)) {
+                    this.agQ = true;
                     return;
                 }
                 return;
             }
-            this.agB = true;
+            this.agQ = true;
         }
     }
 
@@ -42,23 +42,23 @@ public class ae {
                 try {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
                     if (jSONObject2 != null) {
-                        this.agx = jSONObject2.optString("link_title");
-                        this.agy = jSONObject2.optString("link_abstract");
-                        this.agz = jSONObject2.optString("link_head_small_pic");
-                        this.agA = jSONObject2.optInt("link_type");
-                        if (com.baidu.tbadk.core.util.ao.isEmpty(this.agx) && com.baidu.tbadk.core.util.ao.isEmpty(this.agy)) {
-                            this.agB = true;
+                        this.agM = jSONObject2.optString("link_title");
+                        this.agN = jSONObject2.optString("link_abstract");
+                        this.agO = jSONObject2.optString("link_head_small_pic");
+                        this.agP = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.ap.isEmpty(this.agM) && com.baidu.tbadk.core.util.ap.isEmpty(this.agN)) {
+                            this.agQ = true;
                         }
                     } else {
-                        this.agB = true;
+                        this.agQ = true;
                     }
                     return;
                 } catch (JSONException e) {
-                    this.agB = true;
+                    this.agQ = true;
                     return;
                 }
             }
-            this.agB = true;
+            this.agQ = true;
         }
     }
 
@@ -66,23 +66,23 @@ public class ae {
         return this.linkUrl;
     }
 
-    public String uj() {
-        return this.agx;
+    public String up() {
+        return this.agM;
     }
 
-    public String uk() {
-        return this.agy;
+    public String uq() {
+        return this.agN;
     }
 
-    public String ul() {
-        return this.agz;
+    public String ur() {
+        return this.agO;
     }
 
-    public int um() {
-        return this.agA;
+    public int us() {
+        return this.agP;
     }
 
-    public boolean un() {
-        return this.agB;
+    public boolean ut() {
+        return this.agQ;
     }
 }

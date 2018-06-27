@@ -14,20 +14,20 @@ import com.baidu.tieba.d;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class FlipLoadingLayout extends LoadingLayout {
-    private final Animation bcL;
-    private final Animation bcM;
+    private final Animation bdZ;
+    private final Animation bea;
 
     public FlipLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
         int i = mode == PullToRefreshBase.Mode.PULL_FROM_START ? -180 : 180;
-        this.bcL = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
-        this.bcL.setInterpolator(bcN);
-        this.bcL.setDuration(150L);
-        this.bcL.setFillAfter(true);
-        this.bcM = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.bcM.setInterpolator(bcN);
-        this.bcM.setDuration(150L);
-        this.bcM.setFillAfter(true);
+        this.bdZ = new RotateAnimation(0.0f, i, 1, 0.5f, 1, 0.5f);
+        this.bdZ.setInterpolator(beb);
+        this.bdZ.setDuration(150L);
+        this.bdZ.setFillAfter(true);
+        this.bea = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.bea.setInterpolator(beb);
+        this.bea.setDuration(150L);
+        this.bea.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -35,16 +35,16 @@ public class FlipLoadingLayout extends LoadingLayout {
         if (drawable != null) {
             int intrinsicHeight = drawable.getIntrinsicHeight();
             int intrinsicWidth = drawable.getIntrinsicWidth();
-            ViewGroup.LayoutParams layoutParams = this.bcP.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.bed.getLayoutParams();
             int max = Math.max(intrinsicHeight, intrinsicWidth);
             layoutParams.height = max;
             layoutParams.width = max;
-            this.bcP.requestLayout();
-            this.bcP.setScaleType(ImageView.ScaleType.MATRIX);
+            this.bed.requestLayout();
+            this.bed.setScaleType(ImageView.ScaleType.MATRIX);
             Matrix matrix = new Matrix();
             matrix.postTranslate((layoutParams.width - intrinsicWidth) / 2.0f, (layoutParams.height - intrinsicHeight) / 2.0f);
             matrix.postRotate(getDrawableRotationAngle(), layoutParams.width / 2.0f, layoutParams.height / 2.0f);
-            this.bcP.setImageMatrix(matrix);
+            this.bed.setImageMatrix(matrix);
         }
     }
 
@@ -53,28 +53,28 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Nb() {
-        if (this.bcL == this.bcP.getAnimation()) {
-            this.bcP.startAnimation(this.bcM);
+    protected void Nu() {
+        if (this.bdZ == this.bed.getAnimation()) {
+            this.bed.startAnimation(this.bea);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Nc() {
-        this.bcP.setVisibility(0);
-        this.bcQ.setVisibility(8);
+    protected void Nv() {
+        this.bed.setVisibility(0);
+        this.bee.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Nd() {
-        this.bcP.startAnimation(this.bcL);
+    protected void Nw() {
+        this.bed.startAnimation(this.bdZ);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Ne() {
-        this.bcP.clearAnimation();
-        this.bcQ.setVisibility(8);
-        this.bcP.setVisibility(0);
+    protected void Nx() {
+        this.bed.clearAnimation();
+        this.bee.setVisibility(8);
+        this.bed.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -83,14 +83,14 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     private float getDrawableRotationAngle() {
-        switch (this.bck) {
+        switch (this.bdy) {
             case PULL_FROM_END:
-                if (this.bcU == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.bej == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;
             case PULL_FROM_START:
-                if (this.bcU != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.bej != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;

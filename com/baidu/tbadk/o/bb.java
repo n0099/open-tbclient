@@ -6,11 +6,6 @@ public class bb extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "video_list_weaklock_android";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String[] hm() {
         return null;
     }
@@ -21,12 +16,17 @@ public class bb extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
-        return 0;
+    protected int hp() {
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hp() {
-        return 10;
+    protected String getName() {
+        return "android_video_http_dns_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
+        return 0;
     }
 }

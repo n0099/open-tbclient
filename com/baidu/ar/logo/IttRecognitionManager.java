@@ -10,6 +10,7 @@ import com.baidu.ar.util.FileUtils;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.UrlUtils;
 import com.baidu.ar.util.Utils;
+import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -158,7 +159,7 @@ public class IttRecognitionManager {
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("image", Uri.encode(Base64.encodeToString(byteArray, 1)));
+            hashMap.put(TbConfig.TMP_PIC_DIR_NAME, Uri.encode(Base64.encodeToString(byteArray, 1)));
             d.a().a(UrlUtils.URL_LOGO_RECG, hashMap, byteArray);
             if (weakReference2.get() != null) {
                 ((Bitmap) weakReference2.get()).recycle();

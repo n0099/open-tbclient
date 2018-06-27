@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class RecordLayout extends RelativeLayout {
-    private a hei;
+    private a hip;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bDF();
+        void bEf();
 
-        void bDG();
+        void bEg();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.hei != null) {
+                if (this.hip != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.hei.bDG();
+                            this.hip.bEg();
                         } else {
-                            this.hei.bDF();
+                            this.hip.bEf();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.ah(getContext())) {
                         if (rawX > 0) {
-                            this.hei.bDG();
+                            this.hip.bEg();
                         } else {
-                            this.hei.bDG();
+                            this.hip.bEg();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.hei = aVar;
+        this.hip = aVar;
     }
 }

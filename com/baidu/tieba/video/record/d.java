@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.video.editvideo.data.MusicData;
@@ -20,18 +20,18 @@ import com.baidu.tieba.video.record.VideoEffectLayout;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d extends BaseAdapter implements View.OnClickListener {
-    private String hcL;
-    private int hcM = -1;
-    private VideoEffectLayout.a hcN;
+    private String hgQ;
+    private int hgR = -1;
+    private VideoEffectLayout.a hgS;
     private List<e> mList;
 
     public void f(List<e> list, String str) {
         this.mList = list;
-        this.hcL = str;
+        this.hgQ = str;
     }
 
     public void setListener(VideoEffectLayout.a aVar) {
-        this.hcN = aVar;
+        this.hgS = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -44,7 +44,7 @@ public class d extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: uF */
+    /* renamed from: uN */
     public e getItem(int i) {
         if (this.mList != null && i >= 0 && i < this.mList.size()) {
             return this.mList.get(i);
@@ -80,13 +80,13 @@ public class d extends BaseAdapter implements View.OnClickListener {
     }
 
     private void a(a aVar, View view, ViewGroup viewGroup) {
-        aVar.gYk = (TbImageView) view.findViewById(d.g.iv_effect);
-        aVar.gYk.setIsRound(true);
-        aVar.gYk.setDrawerType(1);
-        aVar.gYk.setDefaultBgResource(d.C0141d.transparent);
-        aVar.gYk.setBorderWidth(com.baidu.adp.lib.util.l.e(viewGroup.getContext(), d.e.ds4));
-        aVar.gYk.setBorderColor(al.getColor(d.C0141d.cp_link_tip_a));
-        aVar.fvN = (TextView) view.findViewById(d.g.tv_name);
+        aVar.hcp = (TbImageView) view.findViewById(d.g.iv_effect);
+        aVar.hcp.setIsRound(true);
+        aVar.hcp.setDrawerType(1);
+        aVar.hcp.setDefaultBgResource(d.C0142d.transparent);
+        aVar.hcp.setBorderWidth(com.baidu.adp.lib.util.l.e(viewGroup.getContext(), d.e.ds4));
+        aVar.hcp.setBorderColor(am.getColor(d.C0142d.cp_link_tip_a));
+        aVar.fzO = (TextView) view.findViewById(d.g.tv_name);
     }
 
     @Override // android.widget.Adapter
@@ -101,20 +101,20 @@ public class d extends BaseAdapter implements View.OnClickListener {
                     a(aVar2, view, viewGroup);
                     aVar2.mProgressBar = (ProgressBar) view.findViewById(d.g.iv_loading);
                     aVar2.mProgressBar.setVisibility(4);
-                    al.h(aVar2.fvN, d.C0141d.cp_cont_i);
+                    am.h(aVar2.fzO, d.C0142d.cp_cont_i);
                     break;
                 case 1:
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.list_item_effect, (ViewGroup) null);
                     a(aVar2, view, viewGroup);
                     aVar2.mProgressBar = (ProgressBar) view.findViewById(d.g.iv_loading);
-                    aVar2.gYk.setDefaultErrorResource(d.f.bg_video_cloudmusic);
-                    aVar2.gYk.setDefaultResource(d.f.bg_video_cloudmusic);
-                    al.h(aVar2.fvN, d.C0141d.cp_cont_i);
+                    aVar2.hcp.setDefaultErrorResource(d.f.bg_video_cloudmusic);
+                    aVar2.hcp.setDefaultResource(d.f.bg_video_cloudmusic);
+                    am.h(aVar2.fzO, d.C0142d.cp_cont_i);
                     break;
                 case 2:
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.list_item_beauty, (ViewGroup) null);
                     a(aVar2, view, viewGroup);
-                    al.h(aVar2.fvN, d.C0141d.cp_cont_i);
+                    am.h(aVar2.fzO, d.C0142d.cp_cont_i);
                     break;
             }
             view.setTag(aVar2);
@@ -125,49 +125,49 @@ public class d extends BaseAdapter implements View.OnClickListener {
         if (this.mList != null && i >= 0 && i <= this.mList.size() - 1 && (eVar = this.mList.get(i)) != null) {
             switch (getItemViewType(i)) {
                 case 0:
-                    aVar.gYk.startLoad(String.valueOf(eVar.bCZ()), 24, false);
-                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.hcL)) {
-                        aVar.gYk.setDrawBorder(true);
+                    aVar.hcp.startLoad(String.valueOf(eVar.bDz()), 24, false);
+                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.hgQ)) {
+                        aVar.hcp.setDrawBorder(true);
                         break;
                     } else {
-                        aVar.gYk.setDrawBorder(false);
+                        aVar.hcp.setDrawBorder(false);
                         break;
                     }
                     break;
                 case 1:
                     MusicData musicData = (MusicData) eVar.getValue();
                     if (musicData.editMusicType == 0) {
-                        aVar.gYk.startLoad(musicData.img, 10, false);
+                        aVar.hcp.startLoad(musicData.img, 10, false);
                     } else {
-                        aVar.gYk.startLoad(String.valueOf(eVar.bCZ()), 24, false);
+                        aVar.hcp.startLoad(String.valueOf(eVar.bDz()), 24, false);
                     }
-                    if (this.hcM != i) {
+                    if (this.hgR != i) {
                         aVar.mProgressBar.setVisibility(4);
                     } else if (aVar.mProgressBar.getVisibility() == 0) {
-                        aVar.gYk.setDrawBorder(false);
+                        aVar.hcp.setDrawBorder(false);
                     }
-                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.hcL)) {
-                        aVar.gYk.setDrawBorder(true);
+                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.hgQ)) {
+                        aVar.hcp.setDrawBorder(true);
                         break;
                     } else {
-                        aVar.gYk.setDrawBorder(false);
+                        aVar.hcp.setDrawBorder(false);
                         break;
                     }
                     break;
                 case 2:
-                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.hcL)) {
-                        aVar.gYk.setBackgroundResource(d.f.bg_beauty_item_choosed);
+                    if (!TextUtils.isEmpty(eVar.getName()) && eVar.getName().equals(this.hgQ)) {
+                        aVar.hcp.setBackgroundResource(d.f.bg_beauty_item_choosed);
                         break;
                     } else {
-                        aVar.gYk.setBackgroundResource(d.f.bg_beauty_item);
+                        aVar.hcp.setBackgroundResource(d.f.bg_beauty_item);
                         break;
                     }
                     break;
             }
-            aVar.gYk.setTag(eVar);
-            aVar.gYk.setTag(d.g.record_video_effect_holder, aVar);
-            aVar.gYk.setOnClickListener(this);
-            aVar.fvN.setText(eVar.getName());
+            aVar.hcp.setTag(eVar);
+            aVar.hcp.setTag(d.g.record_video_effect_holder, aVar);
+            aVar.hcp.setOnClickListener(this);
+            aVar.fzO.setText(eVar.getName());
             aVar.position = i;
         }
         return view;
@@ -178,45 +178,45 @@ public class d extends BaseAdapter implements View.OnClickListener {
         if (view.getId() == d.g.iv_effect && (view.getTag() instanceof e)) {
             e eVar = (e) view.getTag();
             if (eVar.getType() == 3 && (eVar.getValue() instanceof MusicData)) {
-                am amVar = new am("c12423");
-                amVar.ah(VideoPlayActivityConfig.OBJ_ID, ((MusicData) eVar.getValue()).id);
-                amVar.r("obj_locate", this.mList.indexOf(eVar) + 1);
-                amVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1);
-                TiebaStatic.log(amVar);
-                if (view.getResources().getString(d.k.music_cloud).equals(eVar.getName()) && this.hcN != null) {
-                    this.hcN.a(eVar, view.getTag(d.g.record_video_effect_holder));
-                    this.hcM = this.mList.indexOf(eVar);
-                    this.hcL = eVar.getName();
+                an anVar = new an("c12423");
+                anVar.ah(VideoPlayActivityConfig.OBJ_ID, ((MusicData) eVar.getValue()).id);
+                anVar.r("obj_locate", this.mList.indexOf(eVar) + 1);
+                anVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1);
+                TiebaStatic.log(anVar);
+                if (view.getResources().getString(d.k.music_cloud).equals(eVar.getName()) && this.hgS != null) {
+                    this.hgS.a(eVar, view.getTag(d.g.record_video_effect_holder));
+                    this.hgR = this.mList.indexOf(eVar);
+                    this.hgQ = eVar.getName();
                 }
-                if (TextUtils.isEmpty(eVar.getName()) || !eVar.getName().equals(this.hcL)) {
+                if (TextUtils.isEmpty(eVar.getName()) || !eVar.getName().equals(this.hgQ)) {
                     if (!eVar.getName().equals(view.getResources().getString(d.k.music_cloud))) {
-                        this.hcM = this.mList.indexOf(eVar);
+                        this.hgR = this.mList.indexOf(eVar);
                     }
                 } else {
                     return;
                 }
             } else {
-                this.hcM = this.mList.indexOf(eVar);
+                this.hgR = this.mList.indexOf(eVar);
             }
-            this.hcL = eVar.getName();
+            this.hgQ = eVar.getName();
             notifyDataSetChanged();
-            if (this.hcN != null) {
-                this.hcN.a(eVar, view.getTag(d.g.record_video_effect_holder));
+            if (this.hgS != null) {
+                this.hgS.a(eVar, view.getTag(d.g.record_video_effect_holder));
             }
         }
     }
 
-    public void bCX() {
+    public void bDx() {
         if (getItem(0) != null && getItem(0).getType() == 3) {
-            this.hcM = 0;
-            this.hcL = TbadkCoreApplication.getInst().getString(d.k.music_normal);
+            this.hgR = 0;
+            this.hgQ = TbadkCoreApplication.getInst().getString(d.k.music_normal);
         }
     }
 
-    public void bCY() {
+    public void bDy() {
         if (getItem(0) != null && getItem(0).getType() == 3) {
-            this.hcM = 1;
-            this.hcL = TbadkCoreApplication.getInst().getString(d.k.music_cloud);
+            this.hgR = 1;
+            this.hgQ = TbadkCoreApplication.getInst().getString(d.k.music_cloud);
             notifyDataSetChanged();
         }
     }
@@ -224,8 +224,8 @@ public class d extends BaseAdapter implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a {
-        TextView fvN;
-        TbImageView gYk;
+        TextView fzO;
+        TbImageView hcp;
         ProgressBar mProgressBar;
         int position;
 

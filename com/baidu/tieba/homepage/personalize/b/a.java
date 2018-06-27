@@ -1,37 +1,38 @@
 package com.baidu.tieba.homepage.personalize.b;
 
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tieba.card.a<c> {
-    private View abp;
-    private View dRO;
-    private View dRP;
-    private TextView dRQ;
-    private String dRR;
-    private c dRS;
+    private View abt;
+    private View dVH;
+    private View dVI;
+    private TextView dVJ;
+    private String dVK;
+    private c dVL;
     private final TbPageContext<?> mPageContext;
     private int mSkinType;
 
-    public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public a(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         this.mSkinType = 3;
         this.mPageContext = tbPageContext;
-        this.abp = getView();
-        this.dRQ = (TextView) this.abp.findViewById(d.g.read_progress_bar_time);
-        this.dRO = this.abp.findViewById(d.g.divider_line_under_homepage_read_progress);
-        this.dRP = this.abp.findViewById(d.g.divider_line_under_homepage_read_time);
-        this.dRR = this.mPageContext.getResources().getString(d.k.read_here);
-        this.abp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.1
+        this.abt = getView();
+        this.dVJ = (TextView) this.abt.findViewById(d.g.read_progress_bar_time);
+        this.dVH = this.abt.findViewById(d.g.divider_line_under_homepage_read_progress);
+        this.dVI = this.abt.findViewById(d.g.divider_line_under_homepage_read_time);
+        this.dVK = this.mPageContext.getResources().getString(d.k.read_here);
+        this.abt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aiI() != null) {
-                    a.this.aiI().a(view, a.this.dRS);
+                if (a.this.aia() != null) {
+                    a.this.aia().a(view, a.this.dVL);
                 }
             }
         });
@@ -40,10 +41,10 @@ public class a extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.h(this.dRQ, d.C0141d.cp_link_tip_a);
-            al.i(this.abp, d.f.addresslist_item_bg);
-            al.j(this.dRO, d.C0141d.cp_bg_line_c);
-            al.j(this.dRP, d.C0141d.cp_bg_line_c);
+            am.h(this.dVJ, d.C0142d.cp_link_tip_a);
+            am.i(this.abt, d.f.addresslist_item_bg);
+            am.j(this.dVH, d.C0142d.cp_bg_line_c);
+            am.j(this.dVI, d.C0142d.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
@@ -57,12 +58,12 @@ public class a extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.dRS = cVar;
-            this.dRQ.setText(ao.w(cVar.dRW) + this.dRR);
+            this.dVL = cVar;
+            this.dVJ.setText(ap.x(cVar.dVQ) + this.dVK);
             if (cVar.showBottomDivider) {
-                this.dRP.setVisibility(0);
+                this.dVI.setVisibility(0);
             } else {
-                this.dRP.setVisibility(8);
+                this.dVI.setVisibility(8);
             }
             d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }

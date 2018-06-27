@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.InetAddress;
@@ -82,7 +84,7 @@ public final class h {
     }
 
     public static String b() {
-        return "https://" + g;
+        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + g;
     }
 
     public static String b(Context context, boolean z) {
@@ -150,7 +152,7 @@ public final class h {
                 if (m.F(context)) {
                     properties.put("socket_server_port_v3", "8006");
                 } else {
-                    properties.put("socket_server_port", "8005");
+                    properties.put("socket_server_port", WbAuthConstants.AUTH_FAILED_QUICK_NULL_TOKEN_ERROR_CODE);
                 }
                 properties.put("socket_server", "10.95.41.15");
                 fileInputStream = null;

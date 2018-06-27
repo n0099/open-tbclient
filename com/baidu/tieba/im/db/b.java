@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.db;
 /* loaded from: classes.dex */
 public class b {
-    private static b eiw = new b();
+    private static b emp = new b();
 
-    public static b aHP() {
-        return eiw;
+    public static b aIw() {
+        return emp;
     }
 
     private b() {
     }
 
-    public synchronized void aHQ() {
-        com.baidu.tieba.im.settingcache.e.aLQ().aHQ();
-        com.baidu.tieba.im.settingcache.d.aLP().aHQ();
-        com.baidu.tieba.im.settingcache.b.aLN().aHQ();
+    public synchronized void aIx() {
+        com.baidu.tieba.im.settingcache.e.aMw().aIx();
+        com.baidu.tieba.im.settingcache.d.aMv().aIx();
+        com.baidu.tieba.im.settingcache.b.aMt().aIx();
     }
 }

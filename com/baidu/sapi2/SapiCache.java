@@ -17,6 +17,7 @@ import com.baidu.sapi2.passhost.framework.PluginFacade;
 import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
 import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
+import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -229,7 +230,7 @@ public final class SapiCache {
 
     static void a(final JSONObject jSONObject) {
         final SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-        if (TextUtils.isEmpty(sapiConfiguration.sofireAppKey) || TextUtils.isEmpty(sapiConfiguration.sofireSecKey) || sapiConfiguration.sofireHostID == -1) {
+        if (sapiConfiguration.importSofire && (TextUtils.isEmpty(sapiConfiguration.sofireAppKey) || TextUtils.isEmpty(sapiConfiguration.sofireSecKey) || sapiConfiguration.sofireHostID == -1)) {
             throw new IllegalArgumentException("sofireAppKey or sofireSecKey can't be empty and sofireHostID can't equal -1");
         }
         ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.4
@@ -237,7 +238,7 @@ public final class SapiCache {
             public void run() {
                 SapiOptions sapiOptions = SapiContext.getInstance(SapiCache.d).getSapiOptions();
                 final SapiOptions fromJSON = SapiOptions.fromJSON(jSONObject);
-                if (fromJSON.getSofireSdkEnabled()) {
+                if (fromJSON.getSofireSdkEnabled() && sapiConfiguration.importSofire) {
                     SapiCache.a(sapiConfiguration);
                 }
                 PluginFacade.setSwitch(SapiCache.d, fromJSON.getPluginsEnabled());
@@ -245,6 +246,7 @@ public final class SapiCache {
                 final SapiOptions.Cache cache2 = sapiOptions.getCache();
                 SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
                 SapiAccountManager.getInstance().preFetchStoken(SapiAccountManager.getInstance().getSession(), false);
+                new FaceLoginService().requestFaceLoginModel();
                 SapiCache.c.clear();
                 if (cache.isEnabled()) {
                     for (SapiOptions.Cache.Module module : cache.getModules()) {
@@ -392,7 +394,7 @@ public final class SapiCache {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [603=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [608=4] */
     static void a(android.content.Context r5, java.lang.String r6, byte[] r7) {
         /*
             r0 = 0
@@ -441,7 +443,7 @@ public final class SapiCache {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.SapiCache.a(android.content.Context, java.lang.String, byte[]):void");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [636=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [641=4] */
     static void a(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
@@ -504,11 +506,6 @@ public final class SapiCache {
 
     static String d(Context context, String str) throws IOException {
         return a(context.openFileInput(str));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String e(Context context, String str) throws IOException {
-        return a(context.getAssets().open(str));
     }
 
     static String a(InputStream inputStream) throws IOException {

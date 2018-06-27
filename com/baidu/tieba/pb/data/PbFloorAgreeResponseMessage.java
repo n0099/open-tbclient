@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.data;
 
+import com.baidu.ar.paddle.PaddleController;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
@@ -22,9 +23,9 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error >= 0 && jSONObject != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("agree");
             if (optJSONObject2 != null) {
-                this.mScore = optJSONObject2.optInt("score");
+                this.mScore = optJSONObject2.optInt(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             }
-            this.mActDialogData = com.baidu.tieba.pb.b.Y(optJSONObject);
+            this.mActDialogData = com.baidu.tieba.pb.b.X(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             this.mContriInfo = new ContriInfo();
             this.mContriInfo.parseJson(optJSONObject3);

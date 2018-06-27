@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.message.RemindRecommendMessage;
 public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (j.jD() && a.bzb() && !a.R(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("tieba_last_active_time", 0L))) {
+        if (j.jD() && a.bzJ() && !a.S(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("tieba_last_active_time", 0L))) {
             RemindRecommendMessage ul = a.ul(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
             if (ul != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(ul);

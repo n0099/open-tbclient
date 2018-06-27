@@ -19,20 +19,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h CH = null;
+    private static h CJ = null;
 
     public static h jp() {
         h hVar;
-        if (CH == null) {
+        if (CJ == null) {
             synchronized (h.class) {
-                if (CH == null) {
-                    CH = new h();
+                if (CJ == null) {
+                    CJ = new h();
                 }
-                hVar = CH;
+                hVar = CJ;
             }
             return hVar;
         }
-        return CH;
+        return CJ;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -51,11 +51,11 @@ public class h {
             if (z2) {
                 z = z2;
             } else {
-                String ba = ba(str);
-                File file = new File(ba);
+                String bc = bc(str);
+                File file = new File(bc);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean loadSoLibrary = loadSoLibrary(ba, sb);
+                        boolean loadSoLibrary = loadSoLibrary(bc, sb);
                         if (loadSoLibrary) {
                             sb.append("-Succ2-");
                             z = loadSoLibrary;
@@ -68,7 +68,7 @@ public class h {
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, ba, sb, iVar);
+                    a aVar = new a(str, bc, sb, iVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
@@ -100,11 +100,11 @@ public class h {
             }
         }
         if (!z2) {
-            String ba = ba(str);
-            File file = new File(ba);
+            String bc = bc(str);
+            File file = new File(bc);
             if (file.exists()) {
                 if (file.length() > 0) {
-                    boolean loadSoLibrary = loadSoLibrary(ba, sb);
+                    boolean loadSoLibrary = loadSoLibrary(bc, sb);
                     if (loadSoLibrary) {
                         sb.append("-Succ2-");
                         z = loadSoLibrary;
@@ -127,7 +127,7 @@ public class h {
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean loadSoLibrary = loadSoLibrary(aZ(str), sb);
+        boolean loadSoLibrary = loadSoLibrary(bb(str), sb);
         if (!loadSoLibrary) {
             try {
                 System.loadLibrary(str);
@@ -161,11 +161,11 @@ public class h {
         }
     }
 
-    private String aZ(String str) {
+    private String bb(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + Plugin.SO_LIB_DIR_NAME + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String ba(String str) {
+    private String bc(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.biometrics.base.b.c.g + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -217,9 +217,9 @@ public class h {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String ba = ba(str2);
-                                a(ba, byteArrayOutputStream.toByteArray(), sb);
-                                if (loadSoLibrary(ba, sb)) {
+                                String bc = bc(str2);
+                                a(bc, byteArrayOutputStream.toByteArray(), sb);
+                                if (loadSoLibrary(bc, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
@@ -289,24 +289,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
-        String CI;
-        String CJ;
-        StringBuilder CK;
-        i CL;
-        boolean CM = false;
+        String CK;
+        String CL;
+        StringBuilder CM;
+        i CN;
+        boolean CO = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.CI = str;
-            this.CJ = str2;
-            this.CK = sb;
-            this.CL = iVar;
+            this.CK = str;
+            this.CL = str2;
+            this.CM = sb;
+            this.CN = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.CM = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.CI, this.CK);
-            if (!this.CM) {
-                h.this.a(this.CJ, "".getBytes(), this.CK);
+            this.CO = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.CK, this.CM);
+            if (!this.CO) {
+                h.this.a(this.CL, "".getBytes(), this.CM);
                 return null;
             }
             return null;
@@ -315,11 +315,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.CK.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.CI + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.CK.toString(), new Object[0]);
+            if (this.CM.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.CK + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.CM.toString(), new Object[0]);
             }
-            if (this.CL != null) {
-                this.CL.t(this.CM);
+            if (this.CN != null) {
+                this.CN.t(this.CO);
             }
         }
     }

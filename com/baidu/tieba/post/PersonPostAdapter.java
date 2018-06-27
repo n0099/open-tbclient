@@ -6,37 +6,37 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes3.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] bDT;
-    private PersonThreadFragment ges;
-    private PersonReplyFragment get;
+    private int[] bFQ;
+    private PersonThreadFragment git;
+    private PersonReplyFragment giu;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
-        bundle.putString("key_empty_view_text", personPostActivity.bmo());
-        this.get = new PersonReplyFragment();
-        this.get.setArguments(bundle);
-        this.get.a(personPostActivity);
-        this.ges = new PersonThreadFragment();
-        this.ges.setArguments(bundle);
-        this.ges.a((d) personPostActivity);
-        this.ges.a((b) personPostActivity);
-        this.bDT = new int[]{0, 1};
+        bundle.putString("key_empty_view_text", personPostActivity.bmS());
+        this.giu = new PersonReplyFragment();
+        this.giu.setArguments(bundle);
+        this.giu.a(personPostActivity);
+        this.git = new PersonThreadFragment();
+        this.git.setArguments(bundle);
+        this.git.a((d) personPostActivity);
+        this.git.a((b) personPostActivity);
+        this.bFQ = new int[]{0, 1};
     }
 
-    public PersonThreadFragment bmp() {
-        return this.ges;
+    public PersonThreadFragment bmT() {
+        return this.git;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.ges;
+                return this.git;
             case 1:
-                return this.get;
+                return this.giu;
             default:
                 return null;
         }
@@ -47,7 +47,7 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int of(int i) {
-        return this.bDT[i];
+    public int om(int i) {
+        return this.bFQ[i];
     }
 }

@@ -8,39 +8,39 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.card.ab;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tieba.card.ad;
 import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a>> implements com.baidu.tieba.a.f {
-    public BdUniqueId aQJ;
-    private String bER;
-    private ab dNe;
-    private com.baidu.tieba.homepage.concern.view.a dNi;
+    public BdUniqueId aRF;
+    private String bGM;
+    private com.baidu.tieba.homepage.concern.view.a dQA;
+    private ad dQw;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dNe = new ab<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
+        this.dQw = new ad<j>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
+            @Override // com.baidu.tieba.card.ad
             public void a(View view, j jVar) {
-                if (view != null && c.this.dNi != null && c.this.dNi.getView() != null && jVar != null && jVar.Sz() != null && !StringUtils.isNull(jVar.Sz().getTid())) {
-                    boolean z = view == c.this.dNi.getHeaderImg();
-                    am amVar = new am("c12352");
-                    amVar.r("obj_locate", z ? 1 : 2);
-                    amVar.ah("obj_type", jVar.ajs());
-                    amVar.ah("tid", jVar.threadData.getTid());
-                    amVar.f(ImageViewerConfig.FORUM_ID, jVar.threadData.getFid());
-                    amVar.ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-                    TiebaStatic.log(amVar);
-                    if (view == c.this.dNi.bFe.getCommentContainer() || view == c.this.dNi.bFT.axN.getCommentContainer()) {
-                        am amVar2 = new am("c12942");
-                        amVar2.r("obj_locate", 7);
-                        amVar2.r("obj_type", 5);
-                        amVar2.ah("tid", jVar.Sz().getTid());
-                        TiebaStatic.log(amVar2);
+                if (view != null && c.this.dQA != null && c.this.dQA.getView() != null && jVar != null && jVar.SV() != null && !StringUtils.isNull(jVar.SV().getTid())) {
+                    boolean z = view == c.this.dQA.getHeaderImg();
+                    an anVar = new an("c12352");
+                    anVar.r("obj_locate", z ? 1 : 2);
+                    anVar.ah("obj_type", jVar.aiM());
+                    anVar.ah("tid", jVar.threadData.getTid());
+                    anVar.f(ImageViewerConfig.FORUM_ID, jVar.threadData.getFid());
+                    anVar.ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
+                    TiebaStatic.log(anVar);
+                    if (view == c.this.dQA.bGZ.getCommentContainer() || view == c.this.dQA.bHN.ayE.getCommentContainer()) {
+                        an anVar2 = new an("c12942");
+                        anVar2.r("obj_locate", 7);
+                        anVar2.r("obj_type", 5);
+                        anVar2.ah("tid", jVar.SV().getTid());
+                        TiebaStatic.log(anVar2);
                     }
                 }
             }
@@ -51,13 +51,13 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: Z */
+    /* renamed from: X */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dNi = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
-        if (this.aQJ != null) {
-            this.dNi.j(this.aQJ);
+        this.dQA = new com.baidu.tieba.homepage.concern.view.a(this.mPageContext);
+        if (this.aRF != null) {
+            this.dQA.j(this.aRF);
         }
-        return new com.baidu.tieba.card.a.a<>(this.dNi);
+        return new com.baidu.tieba.card.a.a<>(this.dQA);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,21 +65,21 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> aVar) {
-        if (jVar == null || aVar == null || aVar.ajG() == null) {
+        if (jVar == null || aVar == null || aVar.aja() == null) {
             return null;
         }
-        jVar.iN(i + 1);
-        v.ajh().a(jVar.lh("c12351"));
-        if (aVar.ajG() instanceof com.baidu.tieba.a.e) {
-            aVar.ajG().setPage(this.bER);
+        jVar.iL(i + 1);
+        v.aiz().a(jVar.le("c12351"));
+        if (aVar.aja() instanceof com.baidu.tieba.a.e) {
+            aVar.aja().setPage(this.bGM);
         }
-        aVar.ajG().a(jVar);
-        aVar.ajG().b(this.dNe);
+        aVar.aja().a(jVar);
+        aVar.aja().b(this.dQw);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void iy(String str) {
-        this.bER = str;
+    public void iD(String str) {
+        this.bGM = str;
     }
 }

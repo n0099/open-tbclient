@@ -4,9 +4,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
-public class ag extends k<com.baidu.tbadk.core.data.ap, ah> {
+public class ag extends k<ad, af> {
     /* JADX INFO: Access modifiers changed from: protected */
     public ag(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -15,19 +16,20 @@ public class ag extends k<com.baidu.tbadk.core.data.ap, ah> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: br */
-    public ah onCreateViewHolder(ViewGroup viewGroup) {
-        return new ah(this.ftp.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.i.pb_recommend_novel, viewGroup, false));
+    /* renamed from: bo */
+    public af onCreateViewHolder(ViewGroup viewGroup) {
+        return new af(this.fxh.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.i.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.ap apVar, ah ahVar) {
-        super.onFillViewHolder(i, view, viewGroup, apVar, ahVar);
-        if (apVar != null) {
-            ahVar.a(apVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ad adVar, af afVar) {
+        super.onFillViewHolder(i, view, viewGroup, adVar, afVar);
+        if (adVar != null) {
+            afVar.a(adVar);
+            afVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }

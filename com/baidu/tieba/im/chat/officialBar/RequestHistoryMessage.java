@@ -26,12 +26,12 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.forum_id = i;
         this.user_id = j;
         this.id = i2;
-        LocalViewSize.ImageSize yF = LocalViewSize.yC().yF();
-        this.width = yF.width;
-        this.height = yF.height;
-        LocalViewSize.ImageSize yE = LocalViewSize.yC().yE();
-        this.sWidth = yE.width;
-        this.sHeight = yE.height;
+        LocalViewSize.ImageSize yT = LocalViewSize.yQ().yT();
+        this.width = yT.width;
+        this.height = yT.height;
+        LocalViewSize.ImageSize yS = LocalViewSize.yQ().yS();
+        this.sWidth = yS.width;
+        this.sHeight = yS.height;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
