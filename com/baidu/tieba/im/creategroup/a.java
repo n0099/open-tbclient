@@ -9,41 +9,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<BaseActivity> {
-    private ImageView aHB;
+    private ImageView aIy;
     private View divider;
-    private TextView egu;
+    private TextView ekn;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.egu = null;
-        this.aHB = null;
+        this.ekn = null;
+        this.aIy = null;
         this.divider = null;
         initUI();
     }
 
-    public View aga() {
+    public View agG() {
         return this.layoutView;
     }
 
-    public void nM(String str) {
-        this.egu.setText(str);
+    public void nN(String str) {
+        this.ekn.setText(str);
     }
 
-    public void gX(boolean z) {
-        this.aHB.setVisibility(z ? 0 : 8);
+    public void hh(boolean z) {
+        this.aIy.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
         this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(d.i.address_lbs_item, (ViewGroup) null);
-        this.egu = (TextView) this.layoutView.findViewById(d.g.text);
-        this.aHB = (ImageView) this.layoutView.findViewById(d.g.group_address_list_item_selected);
+        this.ekn = (TextView) this.layoutView.findViewById(d.g.text);
+        this.aIy = (ImageView) this.layoutView.findViewById(d.g.group_address_list_item_selected);
         this.divider = this.layoutView.findViewById(d.g.group_address_list_item_divider);
         this.layoutView.setTag(this);
     }
 
-    public View aGq() {
+    public View aGX() {
         return this.divider;
     }
 }

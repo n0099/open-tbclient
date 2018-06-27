@@ -7,29 +7,29 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class j extends Thread {
-    final /* synthetic */ f YQ;
+    final /* synthetic */ f YT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.YQ = fVar;
+        this.YT = fVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         HttpURLConnection httpURLConnection;
-        this.YQ.h = i.c();
-        this.YQ.b();
-        this.YQ.a();
+        this.YT.h = i.c();
+        this.YT.b();
+        this.YT.a();
         HttpURLConnection httpURLConnection2 = null;
-        int i = this.YQ.i;
+        int i = this.YT.i;
         while (true) {
             if (i <= 0) {
                 break;
             }
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.YQ.h).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.YT.h).openConnection();
                 try {
                     try {
                         httpURLConnection.setRequestMethod("GET");
@@ -74,8 +74,8 @@ public class j extends Thread {
                 }
                 inputStream.close();
                 byteArrayOutputStream.close();
-                this.YQ.j = new String(byteArrayOutputStream.toByteArray(), IoUtils.UTF_8);
-                this.YQ.a(true);
+                this.YT.j = new String(byteArrayOutputStream.toByteArray(), IoUtils.UTF_8);
+                this.YT.a(true);
                 httpURLConnection.disconnect();
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -94,7 +94,7 @@ public class j extends Thread {
             return;
         }
         f.o++;
-        this.YQ.j = null;
-        this.YQ.a(false);
+        this.YT.j = null;
+        this.YT.a(false);
     }
 }

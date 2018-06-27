@@ -5,7 +5,6 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
-import com.sina.weibo.sdk.constant.WBConstants;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -17,7 +16,7 @@ public class a<T> {
     /* JADX WARN: Type inference failed for: r1v3, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v10, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int bv(String str, String str2) {
+    public int bz(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -30,7 +29,7 @@ public class a<T> {
                         String optString = optJSONObject.optString("button");
                         String optString2 = optJSONObject.optString("shareSourceIcon");
                         String optString3 = optJSONObject.optString("shareSource");
-                        String optString4 = optJSONObject.optString(WBConstants.SDK_WEOYOU_SHAREURL);
+                        String optString4 = optJSONObject.optString("shareUrl");
                         String optString5 = optJSONObject.optString("shareSourceUrl");
                         if (TextUtils.isEmpty(optString4)) {
                             ?? r2 = (T) new ShareFromPBMsgData();
@@ -80,7 +79,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T aMi() {
+    public T aMO() {
         return this.payload;
     }
 }

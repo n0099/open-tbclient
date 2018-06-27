@@ -12,29 +12,29 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 /* loaded from: classes2.dex */
 public final class b {
-    private final Map<Type, com.google.gson.e<?>> hIK;
+    private final Map<Type, com.google.gson.e<?>> hMQ;
 
     public b(Map<Type, com.google.gson.e<?>> map) {
-        this.hIK = map;
+        this.hMQ = map;
     }
 
     public <T> d<T> b(com.google.gson.b.a<T> aVar) {
-        final Type bOg = aVar.bOg();
-        Class<? super T> bOf = aVar.bOf();
-        final com.google.gson.e<?> eVar = this.hIK.get(bOg);
+        final Type bOI = aVar.bOI();
+        Class<? super T> bOH = aVar.bOH();
+        final com.google.gson.e<?> eVar = this.hMQ.get(bOI);
         if (eVar != null) {
             return new d<T>() { // from class: com.google.gson.internal.b.1
             };
         }
-        final com.google.gson.e<?> eVar2 = this.hIK.get(bOf);
+        final com.google.gson.e<?> eVar2 = this.hMQ.get(bOH);
         if (eVar2 != null) {
             return new d<T>() { // from class: com.google.gson.internal.b.5
             };
         }
-        d<T> p = p(bOf);
+        d<T> p = p(bOH);
         if (p == null) {
-            d<T> c = c(bOg, bOf);
-            return c == null ? d(bOg, bOf) : c;
+            d<T> c = c(bOI, bOH);
+            return c == null ? d(bOI, bOH) : c;
         }
         return p;
     }
@@ -77,7 +77,7 @@ public final class b {
                 return new d<T>() { // from class: com.google.gson.internal.b.12
                 };
             }
-            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).bOf())) {
+            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).bOH())) {
                 return new d<T>() { // from class: com.google.gson.internal.b.2
                 };
             }
@@ -90,11 +90,11 @@ public final class b {
 
     private <T> d<T> d(final Type type, final Class<? super T> cls) {
         return new d<T>() { // from class: com.google.gson.internal.b.4
-            private final g hIO = g.bNV();
+            private final g hMU = g.bOx();
         };
     }
 
     public String toString() {
-        return this.hIK.toString();
+        return this.hMQ.toString();
     }
 }

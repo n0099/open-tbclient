@@ -6,9 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e extends c.a {
-    private final int aoz;
-    private final int gdB;
-    private final int gdC;
+    private final int aoY;
+    private final int ghC;
+    private final int ghD;
     private final String ip;
     private final int type;
     private final int what;
@@ -16,26 +16,26 @@ public class e extends c.a {
     public e(int i, int i2, int i3, int i4, int i5, String str, int i6) {
         super(i);
         this.type = i2;
-        this.gdB = i3;
+        this.ghC = i3;
         this.what = i4;
-        this.gdC = i5;
+        this.ghD = i5;
         this.ip = str;
-        this.aoz = i6;
+        this.aoY = i6;
     }
 
     @Override // com.baidu.tieba.m.c.a, com.baidu.tieba.m.c
-    public JSONObject bmg() {
-        JSONObject bmg = super.bmg();
+    public JSONObject bmK() {
+        JSONObject bmK = super.bmK();
         try {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(new JSONObject().put("retry_type", this.type));
-            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b.b(this.gdB, this.what, this.gdC, 0L).toString()));
+            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, b.b(this.ghC, this.what, this.ghD, 0L).toString()));
             jSONArray.put(new JSONObject().put("retry_ip", this.ip));
-            jSONArray.put(new JSONObject().put("retry_error_times", this.aoz));
-            bmg.put("ext", jSONArray);
+            jSONArray.put(new JSONObject().put("retry_error_times", this.aoY));
+            bmK.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return bmg;
+        return bmK;
     }
 }

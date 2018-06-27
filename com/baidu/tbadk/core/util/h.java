@@ -7,24 +7,24 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class h extends DiskFileOperate {
-    protected a aoo;
+    protected a aoN;
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options wz;
+    protected BitmapFactory.Options wx;
 
     public h(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.wz = null;
-        this.aoo = null;
-        this.aoo = new a();
+        this.wx = null;
+        this.aoN = null;
+        this.aoN = new a();
     }
 
     public boolean isGif() {
-        return this.aoo.mIsGif;
+        return this.aoN.mIsGif;
     }
 
     public void A(boolean z) {
-        this.aoo.mIsGif = z;
+        this.aoN.mIsGif = z;
     }
 
     public Bitmap getBitmap() {
@@ -34,7 +34,7 @@ public class h extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!isGif() && com.baidu.adp.lib.util.l.l(bArr)) {
+        if (!isGif() && com.baidu.adp.lib.util.l.m(bArr)) {
             A(true);
         }
     }
@@ -44,26 +44,26 @@ public class h extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.aoo.toByteArray();
+        return this.aoN.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean j(byte[] bArr) {
+    public boolean k(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
-        if (this.wz == null) {
-            this.wz = new BitmapFactory.Options();
-            this.wz.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.wx == null) {
+            this.wx = new BitmapFactory.Options();
+            this.wx.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean k = this.aoo.k(bArr);
-        if (this.aoo.wD == 0 || this.aoo.wD >= System.currentTimeMillis()) {
+        boolean l = this.aoN.l(bArr);
+        if (this.aoN.wB == 0 || this.aoN.wB >= System.currentTimeMillis()) {
             int headerSize = a.getHeaderSize();
-            if (!k) {
+            if (!l) {
                 headerSize = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.wz);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.wx);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
@@ -75,9 +75,9 @@ public class h extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte wB = Byte.MIN_VALUE;
+        private static byte wz = Byte.MIN_VALUE;
         boolean mIsGif = false;
-        long wD = 0;
+        long wB = 0;
 
         a() {
         }
@@ -89,22 +89,22 @@ public class h extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600510);
-            allocate.put(this.mIsGif ? (byte) (0 | wB) : (byte) 0);
-            allocate.putLong(this.wD);
+            allocate.put(this.mIsGif ? (byte) (0 | wz) : (byte) 0);
+            allocate.putLong(this.wB);
             allocate.flip();
             return allocate.array();
         }
 
-        public boolean k(byte[] bArr) {
+        public boolean l(byte[] bArr) {
             if (bArr == null || bArr.length < getHeaderSize()) {
                 return false;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600510) {
-                if ((wrap.get() & wB) != 0) {
+                if ((wrap.get() & wz) != 0) {
                     this.mIsGif = true;
                 }
-                this.wD = wrap.getLong();
+                this.wB = wrap.getLong();
                 return true;
             }
             return false;

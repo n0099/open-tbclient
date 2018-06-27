@@ -42,11 +42,13 @@ public class p {
                 builder._phone_imei = TbadkCoreApplication.getInst().getImei();
                 builder.from = TbadkCoreApplication.getFrom();
                 builder.cuid = TbadkCoreApplication.getInst().getCuid();
+                builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
                 builder._timestamp = Long.valueOf(System.currentTimeMillis());
                 builder.model = Build.MODEL;
                 if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
                     builder.BDUSS = currentAccountInfo.getBDUSS();
-                    String c = com.baidu.tbadk.core.a.e.c(currentAccountInfo);
+                    String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
                     if (!StringUtils.isNull(c)) {
                         builder.stoken = c;
                     }

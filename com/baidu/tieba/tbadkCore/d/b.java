@@ -5,60 +5,60 @@ import com.baidu.adp.lib.util.j;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a gKf;
-    private final int gKg = 10;
-    private final int gKh = 3000;
-    public String gKi = null;
-    public boolean asn = false;
+    private com.baidu.adp.lib.stats.a gOg;
+    private final int gOh = 10;
+    private final int gOi = 3000;
+    public String gOj = null;
+    public boolean asQ = false;
 
     public b(String str) {
-        U(str, false);
+        V(str, false);
     }
 
-    public void U(String str, boolean z) {
-        this.gKi = str;
-        this.asn = z;
-        this.gKf = new com.baidu.adp.lib.stats.a("dbg");
+    public void V(String str, boolean z) {
+        this.gOj = str;
+        this.asQ = z;
+        this.gOg = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.gKf.iq();
+        this.gOg.iq();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e bxt;
-        if (this.gKf != null && (bxt = bxt()) != null) {
+        e bxW;
+        if (this.gOg != null && (bxW = bxW()) != null) {
             if (z) {
-                if (bxt.gKn != null) {
-                    bxt.gKn.num++;
+                if (bxW.gOo != null) {
+                    bxW.gOo.num++;
                     if (z2) {
-                        bxt.gKn.gKk += j2;
-                        bxt.gKn.size += j;
+                        bxW.gOo.gOl += j2;
+                        bxW.gOo.size += j;
                     } else {
-                        bxt.gKn.gKl++;
+                        bxW.gOo.gOm++;
                     }
                 } else {
                     return;
                 }
-            } else if (bxt.gKo != null) {
-                bxt.gKo.num++;
+            } else if (bxW.gOp != null) {
+                bxW.gOp.num++;
                 if (z2) {
-                    bxt.gKo.gKk += j3;
-                    bxt.gKo.size += j;
+                    bxW.gOp.gOl += j3;
+                    bxW.gOp.size += j;
                     j2 = j3;
                 } else {
-                    bxt.gKo.gKl++;
+                    bxW.gOp.gOm++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.gKf = null;
+            this.gOg = null;
             if (z2) {
-                c.a(bxt, 10);
+                c.a(bxW, 10);
             }
-            if (this.gKi == "frsStat") {
+            if (this.gOj == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append(SocialConstants.PARAM_ACT, "frs");
@@ -75,20 +75,20 @@ public class b {
     }
 
     public void destory() {
-        e bxt;
-        if (this.gKf != null && (bxt = bxt()) != null && bxt.gKp != null) {
-            long ir = this.gKf.ir();
+        e bxW;
+        if (this.gOg != null && (bxW = bxW()) != null && bxW.gOq != null) {
+            long ir = this.gOg.ir();
             if (ir > 3000) {
-                d dVar = bxt.gKp;
-                dVar.gKk = ir + dVar.gKk;
-                bxt.gKp.num++;
-                c.a(bxt, 10);
+                d dVar = bxW.gOq;
+                dVar.gOl = ir + dVar.gOl;
+                bxW.gOq.num++;
+                c.a(bxW, 10);
             }
         }
     }
 
-    private e bxt() {
-        return c.l(this.gKi, getNetType(), this.asn);
+    private e bxW() {
+        return c.l(this.gOj, getNetType(), this.asQ);
     }
 
     private String getNetType() {

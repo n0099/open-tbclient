@@ -10,47 +10,47 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
-    private g vo;
+    private g vm;
 
     public d(MessageManager messageManager) {
         super(messageManager);
-        this.vo = null;
-        this.vo = new g(messageManager);
-        this.vk = com.baidu.adp.framework.c.c.fR();
+        this.vm = null;
+        this.vm = new g(messageManager);
+        this.vi = com.baidu.adp.framework.c.c.fR();
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.vo.removeMessage(bdUniqueId);
+        this.vm.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.vo.removeMessage(i, bdUniqueId);
+        this.vm.removeMessage(i, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        this.vo.a(socketMessage, socketMessageTask);
+        this.vm.a(socketMessage, socketMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.c
     /* renamed from: c */
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return this.sQ.getController().b(socketMessage, socketMessageTask);
+        return this.sO.getController().b(socketMessage, socketMessageTask);
     }
 
     public LinkedList<SocketMessage> a(BdUniqueId bdUniqueId) {
-        return this.vo.a(bdUniqueId);
+        return this.vm.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<SocketMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.vo.findMessage(i, bdUniqueId);
+        return this.vm.findMessage(i, bdUniqueId);
     }
 
     public g getSocketClient() {
-        return this.vo;
+        return this.vm;
     }
 }

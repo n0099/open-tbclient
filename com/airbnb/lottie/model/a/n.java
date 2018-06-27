@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class n<T> {
     private final com.airbnb.lottie.e kg;
     @Nullable
-    private final JSONObject nR;
-    private final m.a<T> nS;
+    private final JSONObject nQ;
+    private final m.a<T> nR;
     private final float scale;
 
     private n(@Nullable JSONObject jSONObject, float f, com.airbnb.lottie.e eVar, m.a<T> aVar) {
-        this.nR = jSONObject;
+        this.nQ = jSONObject;
         this.scale = f;
         this.kg = eVar;
-        this.nS = aVar;
+        this.nR = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,10 +35,10 @@ public class n<T> {
     }
 
     private List<com.airbnb.lottie.a.a<T>> cF() {
-        if (this.nR != null) {
-            Object opt = this.nR.opt("k");
+        if (this.nQ != null) {
+            Object opt = this.nQ.opt("k");
             if (f(opt)) {
-                return a.C0004a.a((JSONArray) opt, this.kg, this.scale, this.nS);
+                return a.C0004a.a((JSONArray) opt, this.kg, this.scale, this.nR);
             }
             return Collections.emptyList();
         }
@@ -47,11 +47,11 @@ public class n<T> {
 
     @Nullable
     private T h(List<com.airbnb.lottie.a.a<T>> list) {
-        if (this.nR != null) {
+        if (this.nQ != null) {
             if (!list.isEmpty()) {
-                return list.get(0).lg;
+                return list.get(0).lf;
             }
-            return this.nS.b(this.nR.opt("k"), this.scale);
+            return this.nR.b(this.nQ.opt("k"), this.scale);
         }
         return null;
     }
@@ -68,12 +68,12 @@ public class n<T> {
     /* loaded from: classes2.dex */
     public static class a<T> {
         @Nullable
-        final T mK;
-        final List<com.airbnb.lottie.a.a<T>> mt;
+        final T mJ;
+        final List<com.airbnb.lottie.a.a<T>> mr;
 
         a(List<com.airbnb.lottie.a.a<T>> list, @Nullable T t) {
-            this.mt = list;
-            this.mK = t;
+            this.mr = list;
+            this.mJ = t;
         }
     }
 }

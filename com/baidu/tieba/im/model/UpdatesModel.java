@@ -29,7 +29,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.v
                 public Boolean doInBackground() {
-                    return d.aHS().r(linkedList);
+                    return d.aIz().p(linkedList);
                 }
             }, hVar);
         }
@@ -42,7 +42,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.v
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.aHS().od(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.aIz().oe(UpdatesItemData.this.getNotice_id()));
                 }
             }, hVar);
         }
@@ -54,7 +54,7 @@ public class UpdatesModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.v
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.aHS().cd(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.aIz().ch(UpdatesModel.this.dataToDelete));
             }
         }, hVar);
     }
@@ -112,7 +112,7 @@ public class UpdatesModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.v
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.aHS().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.aIz().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, hVar);
     }

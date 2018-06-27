@@ -1,6 +1,5 @@
 package com.baidu.tieba.channel.data;
 
-import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -23,7 +22,7 @@ public class a {
                         this.mItems.add(bVar);
                     }
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject(WBPageConstants.ParamKey.PAGE);
+                JSONObject optJSONObject = jSONObject.optJSONObject("page");
                 if (optJSONObject != null) {
                     if ("0".equals(optJSONObject.optString("has_more"))) {
                         this.hasMore = false;

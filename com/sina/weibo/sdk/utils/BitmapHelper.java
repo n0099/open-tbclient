@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BitmapHelper {
     public static boolean makesureSizeNotTooLarge(Rect rect) {
         return (rect.width() * rect.height()) * 2 <= 5242880;

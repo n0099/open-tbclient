@@ -18,10 +18,12 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a {
+    private static String Ae;
+    private static String Af;
     private static String Ag;
-    private static String Ah;
+    private static boolean Ah;
     private static String Ai;
-    private static boolean Aj;
+    private static String Aj;
     private static String Ak;
     private e Al;
     private c Am;
@@ -33,23 +35,31 @@ public class a {
     }
 
     public static void az(String str) {
-        Ag = str;
+        Ae = str;
     }
 
     public static void aA(String str) {
+        Ai = str;
+    }
+
+    public static void aB(String str) {
+        Aj = str;
+    }
+
+    public static void aC(String str) {
         Ak = str;
     }
 
     public static void setUserAgent(String str) {
-        Ah = str;
+        Af = str;
     }
 
     public static void setUid(String str) {
-        Ai = str;
+        Ag = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        Aj = z;
+        Ah = z;
     }
 
     public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -155,30 +165,36 @@ public class a {
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(Ag)) {
-                eVar.hV().q(SM.COOKIE, Ag);
+            if (!TextUtils.isEmpty(Ae)) {
+                eVar.hV().q(SM.COOKIE, Ae);
             } else {
                 eVar.hV().q(SM.COOKIE, "");
             }
-            if (!TextUtils.isEmpty(Ai)) {
-                eVar.hV().q("client_user_token", Ai);
+            if (!TextUtils.isEmpty(Ag)) {
+                eVar.hV().q("client_user_token", Ag);
             }
-            if (!TextUtils.isEmpty(Ah)) {
-                eVar.hV().q(HTTP.USER_AGENT, Ah);
+            if (!TextUtils.isEmpty(Af)) {
+                eVar.hV().q(HTTP.USER_AGENT, Af);
             }
             if (z) {
                 eVar.hV().q("Accept-Encoding", "gzip");
             } else {
                 eVar.hV().q("Accept-Encoding", "");
             }
-            if (Aj) {
+            if (Ah) {
                 eVar.hV().q(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
                 eVar.hV().q(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
             }
             eVar.hV().q("client_logid", String.valueOf(this.An));
+            if (!TextUtils.isEmpty(Ai)) {
+                eVar.hV().q("cuid", Ai);
+            }
+            if (!TextUtils.isEmpty(Aj)) {
+                eVar.hV().q("cuid_galaxy2", Aj);
+            }
             if (!TextUtils.isEmpty(Ak)) {
-                eVar.hV().q("cuid", Ak);
+                eVar.hV().q("cuid_gid", Ak);
             }
         }
     }

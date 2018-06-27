@@ -6,7 +6,9 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.coremedia.iso.boxes.UserBox;
+import com.tencent.open.SocialConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.TreeMap;
 import org.json.JSONObject;
@@ -96,7 +98,7 @@ public class o {
                     a(context, nVar);
                     a = nVar;
                 } else {
-                    r.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
+                    r.a(context, jSONObject.getInt("code"), jSONObject.optString(SocialConstants.PARAM_COMMENT));
                     com.xiaomi.channel.commonutils.logger.b.a(a4);
                 }
             }
@@ -108,7 +110,7 @@ public class o {
         if (com.xiaomi.channel.commonutils.misc.a.b()) {
             return "http://" + com.xiaomi.smack.b.c + ":9085/pass/register";
         }
-        return "https://" + (com.xiaomi.channel.commonutils.misc.a.a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com") + "/pass/register";
+        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + (com.xiaomi.channel.commonutils.misc.a.a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com") + "/pass/register";
     }
 
     public static void a(Context context, n nVar) {

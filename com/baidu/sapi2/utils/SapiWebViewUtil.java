@@ -24,7 +24,22 @@ public class SapiWebViewUtil {
             }
             sapiWebView.setNoNetworkView(passportViewManager.getNoNetworkView());
         }
-        if (passportViewManager.getProgressBar() == null) {
+        if (passportViewManager.getTimeoutView() == null) {
+            setTimeoutView(context, sapiWebView);
+        } else {
+            SapiWebView sapiWebView3 = (SapiWebView) passportViewManager.getTimeoutView().getParent();
+            if (sapiWebView3 != null) {
+                sapiWebView3.removeView(passportViewManager.getTimeoutView());
+            }
+            sapiWebView.setTimeoutView(passportViewManager.getTimeoutView());
+        }
+        if (passportViewManager.getWebviewLoadingView() != null) {
+            SapiWebView sapiWebView4 = (SapiWebView) passportViewManager.getWebviewLoadingView().getParent();
+            if (sapiWebView4 != null) {
+                sapiWebView4.removeView(passportViewManager.getWebviewLoadingView());
+            }
+            sapiWebView.setWebviewLoadingView(passportViewManager.getWebviewLoadingView());
+        } else if (passportViewManager.getProgressBar() == null) {
             setProgressBar(context, sapiWebView);
         } else {
             ProgressBar progressBar = passportViewManager.getProgressBar();
@@ -36,15 +51,6 @@ public class SapiWebViewUtil {
                 sapiWebView.setProgressBar(progressBar);
             }
         }
-        if (passportViewManager.getTimeoutView() == null) {
-            setTimeoutView(context, sapiWebView);
-            return;
-        }
-        SapiWebView sapiWebView3 = (SapiWebView) passportViewManager.getTimeoutView().getParent();
-        if (sapiWebView3 != null) {
-            sapiWebView3.removeView(passportViewManager.getTimeoutView());
-        }
-        sapiWebView.setTimeoutView(passportViewManager.getTimeoutView());
     }
 
     public static void setNoNetworkView(final Context context, SapiWebView sapiWebView) {

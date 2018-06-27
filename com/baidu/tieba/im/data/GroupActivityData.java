@@ -13,8 +13,17 @@ public class GroupActivityData implements Serializable {
     private long groupId;
     private String groupName;
     private int isEnd;
+    private String nameShow;
     private long userId;
     private String userName;
+
+    public String getNameShow() {
+        return this.nameShow;
+    }
+
+    public void setNameShow(String str) {
+        this.nameShow = str;
+    }
 
     public String getActivityPortrait() {
         return this.activityPortrait;

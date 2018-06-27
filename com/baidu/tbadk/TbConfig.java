@@ -34,6 +34,7 @@ public class TbConfig {
     public static final int AUTO_PLAY_IN_WIFI = 0;
     public static final int AUTO_PLAY_UNSET = -1;
     public static final String AVATAR_PENDANT = "c/e/theme/getPendantByCategory";
+    public static final String BIGDAY_IMAGE_CACHE_DIR_NAME = "bigday_images";
     public static final int BIG_IMAGE_MIN_CAPACITY = 10000;
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static final String BIG_IMG_SPEC = "big_img";
@@ -146,6 +147,7 @@ public class TbConfig {
     public static final String GET_CARD_DETAIL = "c/e/theme/getCard";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
     public static final String GET_FEEDBACK_TIP = "mo/q/msg/remindnumber";
+    public static final String GET_FORBIDDEN_FANS = "c/u/fans/blockPage";
     public static final String GET_FORUM_DETAIL = "c/f/forum/getforumdetail";
     public static final String GET_FORUM_PRIVATE_INFO = "c/f/forum/getForumPrivateInfo";
     public static final String GET_FRIEND_AND_STRANGER_MSG_SWITCH = "c/u/user/getMsgMask";
@@ -273,6 +275,7 @@ public class TbConfig {
     public static final int NAVI_STATE_EDIT = 2;
     public static final int NAVI_STATE_SEARCH = 0;
     public static final int NAVI_STATE_SIGN = 1;
+    public static final String NEG_DELETE_THREAD = "c/c/bawu/multiDelThread";
     public static final String NEG_FEED_BACK = "c/c/excellent/submitDislike";
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
@@ -348,6 +351,7 @@ public class TbConfig {
     public static final String RECOMMEND_FRS_GOD = "c/r/god/feed";
     public static final String RECOMMEND_HOME_PAGE_ADDRESS = "c/f/excellent/personalized";
     public static final String REGISTER_ADDRESS = "c/m/register";
+    public static final String REMOVE_MULTI_FANS = "c/c/user/multiRemoveFans";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
     public static final String REPORT_APPLIST = "https://als.baidu.com/device/logForC";
     public static final String REPORT_PLOG = "https://als.baidu.com/elog/plog";
@@ -417,7 +421,7 @@ public class TbConfig {
     public static final int UPLOAD_IMAGE_QUALITY_MID = 2;
     public static final String URL_ADD_EXPERIENCED = "c/c/forum/share";
     public static final String URL_APPLY_COPY_THREAD = "c/c/livegroup/applycopythread";
-    public static final String URL_BAIDU_SINGKIL = "https://jing.baidu.com/h5/bdprivilege.html?channel=7";
+    public static final String URL_BAIDU_SINGKIL = "https://eopa.baidu.com/page/HomePage-YW54iXYf?channel=7";
     public static final String URL_BUYPROPS = "c/e/mema/buyprops";
     public static final String URL_CHECK_BIG_V = "c/u/user/getvuserinfo";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
@@ -689,7 +693,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.ID().eZ(i);
+            c.IV().fa(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

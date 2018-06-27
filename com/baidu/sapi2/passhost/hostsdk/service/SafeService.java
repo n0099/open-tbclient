@@ -36,17 +36,29 @@ public class SafeService implements ISafeService {
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISafeService
     public Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
         Log.d(a, "callSync()", Integer.valueOf(i), str);
-        return FH.callSync(i, str, new Class[]{String.class, Integer.TYPE}, objArr);
+        try {
+            return FH.callSync(i, str, new Class[]{String.class, Integer.TYPE}, objArr);
+        } catch (NoClassDefFoundError e) {
+            return new Pair<>(-1, null);
+        }
     }
 
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISafeService
     public String getCurZid(Context context) {
-        String gz = FH.gz(context);
-        return TextUtils.isEmpty(gz) ? "NoZidYet" : gz;
+        try {
+            String gz = FH.gz(context);
+            return TextUtils.isEmpty(gz) ? "NoZidYet" : gz;
+        } catch (NoClassDefFoundError e) {
+            return "NotImportSofireSdk";
+        }
     }
 
     public String getZidAndCheckSafe(Context context, String str, int i) {
-        String gzfi = FH.gzfi(context, str, i);
-        return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
+        try {
+            String gzfi = FH.gzfi(context, str, i);
+            return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
+        } catch (NoClassDefFoundError e) {
+            return "NotImportSofireSdk";
+        }
     }
 }

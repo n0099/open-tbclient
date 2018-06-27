@@ -1,152 +1,89 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.b;
-import com.baidu.tieba.d;
-import java.util.ArrayList;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.az;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class x extends com.baidu.tbadk.core.dialog.b {
-    private View.OnClickListener dfx;
-    private TextView fxK;
-    private TextView fxL;
-    private TextView fxM;
-    private TextView fxN;
-    private TextView fxO;
-    private TextView fxP;
-    private boolean fxQ;
-    private boolean fxR;
-    private TbPageContext<?> mContext;
+public class x {
+    public int fBK;
 
-    public x(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity());
-        this.fxR = false;
-        this.mContext = tbPageContext;
-        this.dfx = onClickListener;
-        bdZ();
+    public x(PbModel pbModel, BaseActivity baseActivity) {
     }
 
-    public TextView bdT() {
-        return this.fxK;
-    }
-
-    public TextView bdU() {
-        return this.fxL;
-    }
-
-    public TextView bdV() {
-        return this.fxM;
-    }
-
-    public TextView bdW() {
-        return this.fxN;
-    }
-
-    public TextView bdX() {
-        return this.fxP;
-    }
-
-    public TextView bdY() {
-        return this.fxO;
-    }
-
-    private void bdZ() {
-        a(new CharSequence[]{this.mContext.getString(d.k.reply_current_floor), this.mContext.getString(d.k.no_interesting), this.mContext.getString(d.k.mark), this.mContext.getString(d.k.mute), this.mContext.getString(d.k.report_text), this.mContext.getString(d.k.delete)}, new b.InterfaceC0103b() { // from class: com.baidu.tieba.pb.pb.main.x.1
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0103b
-            public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
-                if (bVar != null && view != null) {
-                    bVar.dismiss();
-                    x.this.dfx.onClick(view);
+    private void nc(String str) {
+        if (str.startsWith("//")) {
+            str = str.substring(2);
+        }
+        Map<String, String> eR = az.eR(str);
+        if (eR != null) {
+            this.fBK = 5;
+            com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
+            anVar.ah("obj_locate", eR.get("obj_locate"));
+            anVar.r("obj_type", 1);
+            anVar.ah("tid", eR.get("tid"));
+            anVar.ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eR.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            anVar.ah("obj_param2", eR.get("obj_param2"));
+            anVar.r("obj_to", 3);
+            anVar.ah(VideoPlayActivityConfig.OBJ_ID, eR.get("bdid"));
+            if (!com.baidu.tbadk.core.util.ap.isEmpty(eR.get("ext_log"))) {
+                try {
+                    JSONObject jSONObject = new JSONObject(eR.get("ext_log"));
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        anVar.ah(next, jSONObject.getString(next));
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
-        });
-        d(this.mContext);
-        this.fxO = bf(ck(0));
-        this.fxP = bf(ck(1));
-        this.fxK = bf(ck(2));
-        this.fxL = bf(ck(3));
-        this.fxM = bf(ck(4));
-        this.fxN = bf(ck(5));
-    }
-
-    public void showDialog() {
-        xd();
-    }
-
-    private TextView bf(View view) {
-        return (TextView) view.findViewById(d.g.dialog_item_btn);
-    }
-
-    private View bg(View view) {
-        if (view == null) {
-            return null;
+            TiebaStatic.log(anVar);
         }
-        return view.findViewById(d.g.line);
     }
 
-    public void jX(boolean z) {
-        this.fxM.setVisibility(z ? 0 : 8);
-    }
-
-    public View getView() {
-        return getRootView();
-    }
-
-    public void jY(boolean z) {
-        this.fxQ = z;
-    }
-
-    public boolean bea() {
-        return this.fxR;
-    }
-
-    public void jZ(boolean z) {
-        this.fxR = z;
-    }
-
-    public void refreshUI() {
-        View view;
-        TextView bf;
-        int itemCount = getItemCount();
-        ArrayList arrayList = new ArrayList();
-        boolean z = true;
-        for (int i = itemCount - 1; i >= 0; i--) {
-            View ck = ck(i);
-            if (ck != null) {
-                TextView bf2 = bf(ck(i));
-                View bg = bg(ck(i));
-                if (bf2 != null) {
-                    if (bf2.getVisibility() == 8) {
-                        bg.setVisibility(8);
-                    } else {
-                        arrayList.add(ck);
-                        if (z) {
-                            bg.setVisibility(8);
-                            com.baidu.tbadk.core.util.al.i(ck, d.f.dialog_single_button_bg_selector);
-                            z = false;
+    public String U(Intent intent) {
+        int length;
+        String str = null;
+        if (intent != null && intent.getData() != null) {
+            String dataString = intent.getDataString();
+            if (!StringUtils.isNull(dataString) && dataString.startsWith("tbpb://")) {
+                String decode = Uri.decode(intent.getData().getEncodedPath());
+                if (!StringUtils.isNull(decode)) {
+                    Matcher matcher = Pattern.compile(".*fr=(.*)&tid=([\\d]+).*").matcher(decode);
+                    if (matcher.find()) {
+                        if ("mpush".equals(matcher.group(1))) {
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").ah("tid", matcher.group(2)));
                         } else {
-                            bg.setVisibility(0);
+                            nc(decode);
+                        }
+                        str = matcher.group(2);
+                    } else {
+                        nc(decode);
+                        int indexOf = decode.indexOf("tid=");
+                        if (indexOf >= 0 && (length = indexOf + "tid=".length()) <= decode.length()) {
+                            str = decode.substring(length);
                         }
                     }
+                    HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
+                    httpMessage.addParam("call_url", dataString);
+                    MessageManager.getInstance().sendMessage(httpMessage);
                 }
             }
         }
-        int i2 = 0;
-        while (true) {
-            if (i2 >= itemCount) {
-                break;
-            }
-            View ck2 = ck(i2);
-            if (ck2 == null || (bf = bf(ck(i2))) == null || bf.getVisibility() != 0) {
-                i2++;
-            } else {
-                com.baidu.tbadk.core.util.al.i(ck2, d.f.dialog_single_button_first_bg_selector);
-                break;
-            }
-        }
-        if (com.baidu.tbadk.core.util.w.y(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
-            com.baidu.tbadk.core.util.al.i(view, d.f.dialog_single_button_only_one_bg_selector);
-        }
+        return str;
     }
 }

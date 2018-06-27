@@ -6,9 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
-import com.baidu.sofire.b.d;
+import com.baidu.sofire.b.e;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.core.e;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
@@ -21,16 +20,16 @@ public final class a {
     int a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0095a e;
+    private C0096a e;
     private Context f;
 
     private a(Context context) {
         this.f = context.getApplicationContext();
-        this.e = new C0095a(context.getApplicationContext());
+        this.e = new C0096a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 
@@ -48,8 +47,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0095a extends SQLiteOpenHelper {
-        public C0095a(Context context) {
+    private class C0096a extends SQLiteOpenHelper {
+        public C0096a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
             new StringBuilder().append(a.this.a);
         }
@@ -59,7 +58,7 @@ public final class a {
             try {
                 sQLiteDatabase.execSQL(a.this.b);
             } catch (Throwable th) {
-                d.a(th);
+                e.a(th);
             }
         }
 
@@ -83,7 +82,7 @@ public final class a {
                     sQLiteDatabase.execSQL("drop table if exists tbch");
                 }
             } catch (Throwable th) {
-                d.a(th);
+                e.a(th);
             }
         }
     }
@@ -142,7 +141,7 @@ public final class a {
                     } catch (Throwable th) {
                         th = th;
                         try {
-                            d.a(th);
+                            e.a(th);
                             return arrayList;
                         } finally {
                             if (cursor != null) {
@@ -151,7 +150,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable th2) {
-                                    d.a(th2);
+                                    e.a(th2);
                                 }
                             }
                         }
@@ -164,7 +163,7 @@ public final class a {
                         cursor.close();
                     }
                 } catch (Throwable th3) {
-                    d.a(th3);
+                    e.a(th3);
                 }
             }
         } catch (Throwable th4) {
@@ -186,7 +185,7 @@ public final class a {
                     } catch (Throwable th) {
                         th = th;
                         try {
-                            d.a(th);
+                            e.a(th);
                             return hashMap;
                         } finally {
                             if (cursor != null) {
@@ -195,7 +194,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable th2) {
-                                    d.a(th2);
+                                    e.a(th2);
                                 }
                             }
                         }
@@ -208,7 +207,7 @@ public final class a {
                         cursor.close();
                     }
                 } catch (Throwable th3) {
-                    d.a(th3);
+                    e.a(th3);
                 }
             }
         } catch (Throwable th4) {
@@ -230,7 +229,7 @@ public final class a {
                     } catch (Throwable th) {
                         th = th;
                         try {
-                            d.a(th);
+                            e.a(th);
                             return hashMap;
                         } finally {
                             if (cursor != null) {
@@ -239,7 +238,7 @@ public final class a {
                                         cursor.close();
                                     }
                                 } catch (Throwable th2) {
-                                    d.a(th2);
+                                    e.a(th2);
                                 }
                             }
                         }
@@ -252,7 +251,7 @@ public final class a {
                         cursor.close();
                     }
                 } catch (Throwable th3) {
-                    d.a(th3);
+                    e.a(th3);
                 }
             }
         } catch (Throwable th4) {
@@ -429,7 +428,7 @@ public final class a {
             return r0
         L195:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L194
         L19a:
             r0 = move-exception
@@ -437,7 +436,7 @@ public final class a {
             r2 = r8
             r0 = r8
         L19e:
-            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> L1c7
+            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> L1c7
             if (r2 == 0) goto L194
             boolean r1 = r2.isClosed()     // Catch: java.lang.Throwable -> L1ad
             if (r1 != 0) goto L194
@@ -445,7 +444,7 @@ public final class a {
             goto L194
         L1ad:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L194
         L1b2:
             r0 = move-exception
@@ -459,7 +458,7 @@ public final class a {
             throw r0
         L1c0:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L1bf
         L1c5:
             r0 = move-exception
@@ -510,7 +509,7 @@ public final class a {
                                 }
                                 return z;
                             } catch (Throwable th) {
-                                d.a(th);
+                                e.a(th);
                                 return z;
                             }
                         }
@@ -519,14 +518,14 @@ public final class a {
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        d.a(th);
+                        e.a(th);
                         if (cursor != null) {
                             try {
                                 if (!cursor.isClosed()) {
                                     cursor.close();
                                 }
                             } catch (Throwable th3) {
-                                d.a(th3);
+                                e.a(th3);
                                 return false;
                             }
                         }
@@ -539,7 +538,7 @@ public final class a {
                                     cursor2.close();
                                 }
                             } catch (Throwable th5) {
-                                d.a(th5);
+                                e.a(th5);
                             }
                         }
                         throw th4;
@@ -577,7 +576,7 @@ public final class a {
                                 }
                                 return i2;
                             } catch (Throwable th) {
-                                d.a(th);
+                                e.a(th);
                                 return i2;
                             }
                         }
@@ -586,14 +585,14 @@ public final class a {
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        d.a(th);
+                        e.a(th);
                         if (cursor != null) {
                             try {
                                 if (!cursor.isClosed()) {
                                     cursor.close();
                                 }
                             } catch (Throwable th3) {
-                                d.a(th3);
+                                e.a(th3);
                                 return 0;
                             }
                         }
@@ -606,7 +605,7 @@ public final class a {
                                     cursor2.close();
                                 }
                             } catch (Throwable th5) {
-                                d.a(th5);
+                                e.a(th5);
                             }
                         }
                         throw th4;
@@ -628,7 +627,7 @@ public final class a {
             try {
                 this.c.delete("pgn", "p=?", new String[]{str});
             } catch (Throwable th) {
-                d.a(th);
+                e.a(th);
             }
         }
     }
@@ -637,23 +636,23 @@ public final class a {
         try {
             ArrayList<ApkInfo> arrayList = new ArrayList();
             for (ApkInfo apkInfo : a()) {
-                if (!d.a(apkInfo.pkgPath) && e.b != null && !e.b.contains(Integer.valueOf(apkInfo.key))) {
+                if (!e.a(apkInfo.pkgPath) && com.baidu.sofire.core.e.b != null && !com.baidu.sofire.core.e.b.contains(Integer.valueOf(apkInfo.key))) {
                     arrayList.add(apkInfo);
                 }
             }
-            e a = e.a();
+            com.baidu.sofire.core.e a = com.baidu.sofire.core.e.a();
             for (ApkInfo apkInfo2 : arrayList) {
                 if (a != null) {
                     a.b(apkInfo2.packageName);
                 }
                 new StringBuilder().append(apkInfo2.packageName).append(this.c.delete("pgn", "k=" + apkInfo2.key, null));
-                d.b(this.f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
+                e.b(this.f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
                 if (this.f != null) {
-                    d.b(this.f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
+                    e.b(this.f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
                 }
             }
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 
@@ -670,14 +669,14 @@ public final class a {
                 } catch (Throwable th) {
                     th = th;
                     try {
-                        d.a(th);
+                        e.a(th);
                         if (cursor != null) {
                             try {
                                 if (!cursor.isClosed()) {
                                     cursor.close();
                                 }
                             } catch (Throwable th2) {
-                                d.a(th2);
+                                e.a(th2);
                             }
                         }
                         return z;
@@ -689,7 +688,7 @@ public final class a {
                                     cursor2.close();
                                 }
                             } catch (Throwable th3) {
-                                d.a(th3);
+                                e.a(th3);
                             }
                         }
                     }
@@ -715,14 +714,14 @@ public final class a {
                 } catch (Throwable th) {
                     th = th;
                     try {
-                        d.a(th);
+                        e.a(th);
                         if (cursor != null) {
                             try {
                                 if (!cursor.isClosed()) {
                                     cursor.close();
                                 }
                             } catch (Throwable th2) {
-                                d.a(th2);
+                                e.a(th2);
                             }
                         }
                         return z;
@@ -734,7 +733,7 @@ public final class a {
                                     cursor2.close();
                                 }
                             } catch (Throwable th3) {
-                                d.a(th3);
+                                e.a(th3);
                             }
                         }
                     }
@@ -763,7 +762,7 @@ public final class a {
             contentValues.put("n", (Integer) (-1));
             this.c.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 
@@ -842,7 +841,7 @@ public final class a {
             goto L43
         L7f:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L7c
         L84:
             r0 = move-exception
@@ -850,7 +849,7 @@ public final class a {
             r2 = r8
             r0 = r8
         L88:
-            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> Lb1
+            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> Lb1
             if (r2 == 0) goto L7c
             boolean r1 = r2.isClosed()     // Catch: java.lang.Throwable -> L97
             if (r1 != 0) goto L7c
@@ -858,7 +857,7 @@ public final class a {
             goto L7c
         L97:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L7c
         L9c:
             r0 = move-exception
@@ -872,7 +871,7 @@ public final class a {
             throw r0
         Laa:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto La9
         Laf:
             r0 = move-exception
@@ -906,7 +905,7 @@ public final class a {
         try {
             this.c.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 
@@ -932,7 +931,7 @@ public final class a {
                                 }
                                 return i2;
                             } catch (Throwable th) {
-                                d.a(th);
+                                e.a(th);
                                 return i2;
                             }
                         }
@@ -941,14 +940,14 @@ public final class a {
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        d.a(th);
+                        e.a(th);
                         if (cursor != null) {
                             try {
                                 if (!cursor.isClosed()) {
                                     cursor.close();
                                 }
                             } catch (Throwable th3) {
-                                d.a(th3);
+                                e.a(th3);
                                 return 0;
                             }
                         }
@@ -961,7 +960,7 @@ public final class a {
                                     cursor2.close();
                                 }
                             } catch (Throwable th5) {
-                                d.a(th5);
+                                e.a(th5);
                             }
                         }
                         throw th4;
@@ -983,7 +982,7 @@ public final class a {
             try {
                 new StringBuilder().append(this.c.delete("pgn", "k=" + i, null));
             } catch (Throwable th) {
-                d.a(th);
+                e.a(th);
             }
         }
     }
@@ -994,7 +993,7 @@ public final class a {
             contentValues.put("pr", Integer.valueOf(i2));
             this.c.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 
@@ -1172,14 +1171,14 @@ public final class a {
             goto L9
         L1a1:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L9
         L1a7:
             r0 = move-exception
             r1 = r0
             r0 = r8
         L1aa:
-            com.baidu.sofire.b.d.a(r1)     // Catch: java.lang.Throwable -> L1d5
+            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> L1d5
             if (r8 == 0) goto L9
             boolean r1 = r8.isClosed()     // Catch: java.lang.Throwable -> L1ba
             if (r1 != 0) goto L9
@@ -1187,7 +1186,7 @@ public final class a {
             goto L9
         L1ba:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L9
         L1c0:
             r0 = move-exception
@@ -1201,7 +1200,7 @@ public final class a {
             throw r0
         L1ce:
             r1 = move-exception
-            com.baidu.sofire.b.d.a(r1)
+            com.baidu.sofire.b.e.a(r1)
             goto L1cd
         L1d3:
             r0 = move-exception

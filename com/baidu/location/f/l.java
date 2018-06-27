@@ -1,7 +1,7 @@
 package com.baidu.location.f;
 
 import android.net.wifi.WifiInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class l {
     public synchronized void b() {
     }

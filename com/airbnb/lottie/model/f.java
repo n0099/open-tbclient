@@ -5,18 +5,18 @@ import org.json.JSONObject;
 public class f {
     private final float ascent;
     private final String name;
-    private final String np;
+    private final String nn;
     private final String style;
 
     f(String str, String str2, String str3, float f) {
-        this.np = str;
+        this.nn = str;
         this.name = str2;
         this.style = str3;
         this.ascent = f;
     }
 
     public String getFamily() {
-        return this.np;
+        return this.nn;
     }
 
     public String getName() {

@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -30,7 +29,7 @@ public class AccessState implements Serializable {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO)) != null) {
+                if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("info")) != null) {
                     parserJson(optJSONObject.optJSONObject(AccountAccessActivityConfig.KEY_ACCESS_STATE));
                 }
             } catch (Exception e) {

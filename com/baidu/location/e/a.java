@@ -23,9 +23,9 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
-    private static a Xi = null;
+    private static a Xl = null;
     private static final String k = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/";
     private static final String l = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/ls.db";
     private String b = null;
@@ -35,18 +35,18 @@ public final class a {
     private double f = 0.0d;
     private double g = 0.0d;
     private double h = 0.0d;
-    private double WQ = 0.0d;
+    private double WT = 0.0d;
     private volatile boolean j = false;
     private Handler m = new Handler();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class AsyncTaskC0068a extends AsyncTask<Boolean, Void, Boolean> {
-        private AsyncTaskC0068a() {
+    /* loaded from: classes2.dex */
+    public class AsyncTaskC0069a extends AsyncTask<Boolean, Void, Boolean> {
+        private AsyncTaskC0069a() {
         }
 
-        /* synthetic */ AsyncTaskC0068a(a aVar, com.baidu.location.e.b bVar) {
+        /* synthetic */ AsyncTaskC0069a(a aVar, com.baidu.location.e.b bVar) {
             this();
         }
 
@@ -91,7 +91,7 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b extends AsyncTask<Object, Void, Boolean> {
         private b() {
         }
@@ -511,7 +511,7 @@ public final class a {
                     if (i3 > 0) {
                         this.d = true;
                         this.h = d3 / i3;
-                        this.WQ = d4 / i3;
+                        this.WT = d4 / i3;
                     }
                 }
                 if (cursor != null) {
@@ -554,7 +554,7 @@ public final class a {
         double d3 = 0.0d;
         if (this.d) {
             d2 = this.h;
-            d = this.WQ;
+            d = this.WT;
             d3 = 246.4d;
             z2 = true;
             z3 = true;
@@ -596,7 +596,7 @@ public final class a {
             boolean z = queryNumEntries > 10000;
             boolean z2 = queryNumEntries2 > 10000;
             if (z || z2) {
-                new AsyncTaskC0068a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+                new AsyncTaskC0069a(this, null).execute(Boolean.valueOf(z), Boolean.valueOf(z2));
             }
             sQLiteDatabase.close();
         } catch (Exception e2) {
@@ -606,10 +606,10 @@ public final class a {
     public static synchronized a qC() {
         a aVar;
         synchronized (a.class) {
-            if (Xi == null) {
-                Xi = new a();
+            if (Xl == null) {
+                Xl = new a();
             }
-            aVar = Xi;
+            aVar = Xl;
         }
         return aVar;
     }

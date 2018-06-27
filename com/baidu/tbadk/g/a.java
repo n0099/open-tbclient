@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long abR = 86400000;
+    private static long abW = 604800000;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void o(File file) {
@@ -40,18 +40,22 @@ public class a {
     public static void init() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tbadk.g.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.tbadk.g.a$1$1] */
+            /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.g.a$1$1] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 long j = b.getInstance().getLong("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - j > a.abR) {
+                if (j == 0) {
+                    b.getInstance().putLong("key_clear_resource", currentTimeMillis);
+                    j = currentTimeMillis;
+                }
+                if (currentTimeMillis - j > a.abW) {
                     new Thread() { // from class: com.baidu.tbadk.g.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.xY();
+                                c.yl();
                                 a.o(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }

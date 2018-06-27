@@ -2,8 +2,8 @@ package com.baidu.sofire.rp.d.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sofire.b.d;
-import com.baidu.sofire.b.g;
+import com.baidu.sofire.b.e;
+import com.baidu.sofire.b.h;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
@@ -17,18 +17,15 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
-        String str3 = null;
         try {
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = "&topic=" + str2;
-            }
-            String a = g.a(this.a, d.a() + "plugin/v1/report", str, false, false, str3);
+            TextUtils.isEmpty(str2);
+            String a = h.a(this.a, e.a() + "p/1/r", str, false, false);
             if (TextUtils.isEmpty(a)) {
                 return false;
             }
             return new JSONObject(a).getInt("response") == 1;
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
             return true;
         }
     }

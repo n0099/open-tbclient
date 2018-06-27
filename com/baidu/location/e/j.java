@@ -14,14 +14,14 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class j {
     private static final String[] a = {"CoorType", "Time", "LocType", "Longitude", "Latitude", "Radius", "NetworkLocationType", "Country", "CountryCode", "Province", "City", "CityCode", "District", "Street", "StreetNumber", "PoiList", "LocationDescription"};
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     static final class a {
-        final BDLocation XL;
-        final LinkedHashMap<String, Integer> XM;
+        final BDLocation XO;
+        final LinkedHashMap<String, Integer> XP;
         final String a;
         final String b;
         final boolean c;
@@ -35,11 +35,11 @@ public final class j {
             if (strArr == null) {
                 this.a = null;
                 this.b = null;
-                this.XM = null;
+                this.XP = null;
                 this.c = false;
                 this.d = false;
                 this.e = false;
-                this.XL = null;
+                this.XO = null;
                 this.h = false;
                 this.f = 8;
                 return;
@@ -85,12 +85,12 @@ public final class j {
                                 z = false;
                                 this.a = str2;
                                 this.b = str;
-                                this.XM = linkedHashMap;
+                                this.XP = linkedHashMap;
                                 this.c = z;
                                 this.d = z4;
                                 this.e = z3;
                                 this.f = i;
-                                this.XL = bDLocation;
+                                this.XO = bDLocation;
                                 this.h = z2;
                             }
                         } else {
@@ -123,12 +123,12 @@ public final class j {
             z = true;
             this.a = str2;
             this.b = str;
-            this.XM = linkedHashMap;
+            this.XP = linkedHashMap;
             this.c = z;
             this.d = z4;
             this.e = z3;
             this.f = i;
-            this.XL = bDLocation;
+            this.XO = bDLocation;
             this.h = z2;
         }
     }

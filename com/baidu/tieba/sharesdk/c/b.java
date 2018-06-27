@@ -4,13 +4,13 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes3.dex */
 public class b {
     public static void a(int i, ShareEntity shareEntity) {
         int i2;
-        am amVar = new am("share_success");
+        an anVar = new an("share_success");
         int i3 = 0;
         switch (i) {
             case 2:
@@ -30,30 +30,30 @@ public class b {
                 break;
         }
         if (i3 != 0) {
-            amVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i3);
+            anVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i3);
         }
         if (shareEntity == null) {
-            TiebaStatic.log(amVar);
+            TiebaStatic.log(anVar);
             return;
         }
-        Bundle Fl = shareEntity.Fl();
-        if (Fl != null && (i2 = Fl.getInt("obj_param1")) != 0) {
-            amVar.r("obj_param1", i2);
+        Bundle FD = shareEntity.FD();
+        if (FD != null && (i2 = FD.getInt("obj_param1")) != 0) {
+            anVar.r("obj_param1", i2);
             if (i2 == 2) {
-                amVar.ah(ImageViewerConfig.FORUM_ID, Fl.getString(ImageViewerConfig.FORUM_ID));
+                anVar.ah(ImageViewerConfig.FORUM_ID, FD.getString(ImageViewerConfig.FORUM_ID));
             } else if (i2 == 3) {
-                int i4 = Fl.getInt("obj_type");
+                int i4 = FD.getInt("obj_type");
                 if (i4 != 0) {
-                    amVar.r("obj_type", i4);
+                    anVar.r("obj_type", i4);
                 }
-                amVar.ah("tid", Fl.getString("tid")).ah(ImageViewerConfig.FORUM_ID, Fl.getString(ImageViewerConfig.FORUM_ID));
+                anVar.ah("tid", FD.getString("tid")).ah(ImageViewerConfig.FORUM_ID, FD.getString(ImageViewerConfig.FORUM_ID));
             }
         }
-        TiebaStatic.log(amVar);
+        TiebaStatic.log(anVar);
     }
 
     public static void b(int i, ShareEntity shareEntity) {
-        am amVar = new am("c12481");
+        an anVar = new an("c12481");
         int i2 = 0;
         switch (i) {
             case 2:
@@ -73,18 +73,18 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            amVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
+            anVar.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
         }
         if (shareEntity == null) {
-            TiebaStatic.log(amVar);
+            TiebaStatic.log(anVar);
             return;
         }
-        Bundle Fl = shareEntity.Fl();
-        if (Fl != null) {
-            amVar.ah("tid", Fl.getString("tid"));
-            amVar.ah("uid", Fl.getString("uid"));
-            amVar.ah(ImageViewerConfig.FORUM_ID, Fl.getString(ImageViewerConfig.FORUM_ID));
+        Bundle FD = shareEntity.FD();
+        if (FD != null) {
+            anVar.ah("tid", FD.getString("tid"));
+            anVar.ah("uid", FD.getString("uid"));
+            anVar.ah(ImageViewerConfig.FORUM_ID, FD.getString(ImageViewerConfig.FORUM_ID));
         }
-        TiebaStatic.log(amVar);
+        TiebaStatic.log(anVar);
     }
 }

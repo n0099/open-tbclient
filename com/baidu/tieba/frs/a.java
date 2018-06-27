@@ -1,40 +1,147 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
-public class a implements ad {
-    public static final AtomicReference<ad> dgP = new AtomicReference<>(null);
-    private static final ad dgQ = new a();
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.bc;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes.dex */
+public class a {
+    private AntiData aBW;
+    private final ArrayList<bc> diG;
+    private boolean diH;
+    private b diI;
+    private String forumId;
+
+    /* loaded from: classes.dex */
+    public interface b {
+        void ate();
+
+        void kd(int i);
+
+        void t(boolean z, boolean z2);
+    }
 
     private a() {
+        this.diH = false;
+        this.diG = new ArrayList<>();
     }
 
-    public static ad asO() {
-        ad adVar = dgP.get();
-        return adVar == null ? dgQ : adVar;
+    public static a asZ() {
+        return C0151a.diJ;
     }
 
-    @Override // com.baidu.tieba.frs.ad
-    public f<ICardInfo, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public boolean ata() {
+        return this.diH;
     }
 
-    @Override // com.baidu.tieba.frs.ad
-    public com.baidu.adp.widget.ListView.a<? extends bd, ? extends q.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public void s(boolean z, boolean z2) {
+        this.diH = z;
+        if (this.diI != null) {
+            this.diI.t(this.diH, z2);
+        }
     }
 
-    @Override // com.baidu.tieba.frs.ad
-    public com.baidu.adp.widget.ListView.a<? extends bd, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        BdLog.e("Frs extra project not loaded.");
-        return null;
+    public boolean S(bc bcVar) {
+        if (bcVar == null) {
+            return false;
+        }
+        if (this.diG.size() > 29) {
+            if (this.diI != null) {
+                this.diI.ate();
+                return false;
+            }
+            return false;
+        }
+        this.diG.add(bcVar);
+        if (this.diI != null) {
+            this.diI.kd(this.diG.size());
+        }
+        return true;
+    }
+
+    public List<bc> atb() {
+        return this.diG;
+    }
+
+    public void T(bc bcVar) {
+        this.diG.remove(bcVar);
+        if (this.diI != null) {
+            this.diI.kd(this.diG.size());
+        }
+    }
+
+    public void clearData() {
+        Iterator<bc> it = this.diG.iterator();
+        while (it.hasNext()) {
+            bc next = it.next();
+            if (next != null) {
+                next.av(false);
+            }
+        }
+        this.diG.clear();
+        if (this.diI != null) {
+            this.diI.kd(0);
+        }
+    }
+
+    public void reset() {
+        s(false, false);
+        clearData();
+    }
+
+    public void a(b bVar) {
+        this.diI = bVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0151a {
+        private static a diJ = new a();
+    }
+
+    public AntiData Cm() {
+        return this.aBW;
+    }
+
+    public void b(AntiData antiData) {
+        this.aBW = antiData;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public void bl(List<String> list) {
+        if (!com.baidu.tbadk.core.util.w.A(list) && !com.baidu.tbadk.core.util.w.A(this.diG)) {
+            Iterator<bc> it = this.diG.iterator();
+            while (it.hasNext()) {
+                bc next = it.next();
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= list.size()) {
+                        break;
+                    } else if (!com.baidu.tbadk.core.util.ap.equals(list.get(i2), next.getId())) {
+                        i = i2 + 1;
+                    } else {
+                        it.remove();
+                        break;
+                    }
+                }
+            }
+            if (this.diI != null) {
+                this.diI.kd(this.diG.size());
+            }
+        }
+    }
+
+    public boolean atc() {
+        return this.aBW != null && this.aBW.isMultiDeleteEnable();
     }
 }

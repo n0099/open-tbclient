@@ -15,17 +15,17 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a implements d, a.InterfaceC0006a {
     private final com.airbnb.lottie.f jY;
+    private final float[] lr;
+    private final com.airbnb.lottie.a.b.a<?, Float> lt;
+    private final com.airbnb.lottie.a.b.a<?, Integer> lu;
+    private final List<com.airbnb.lottie.a.b.a<?, Float>> lw;
     @Nullable
-    private final com.airbnb.lottie.a.b.a<?, Float> lA;
-    private final float[] lu;
-    private final com.airbnb.lottie.a.b.a<?, Float> lw;
-    private final com.airbnb.lottie.a.b.a<?, Integer> lx;
-    private final List<com.airbnb.lottie.a.b.a<?, Float>> ly;
-    private final PathMeasure lo = new PathMeasure();
+    private final com.airbnb.lottie.a.b.a<?, Float> lx;
+    private final PathMeasure ln = new PathMeasure();
+    private final Path lo = new Path();
     private final Path lp = new Path();
-    private final Path lq = new Path();
-    private final RectF lr = new RectF();
-    private final List<C0005a> lt = new ArrayList();
+    private final RectF rect = new RectF();
+    private final List<C0005a> lq = new ArrayList();
     final Paint paint = new Paint(1);
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,33 +34,33 @@ public abstract class a implements d, a.InterfaceC0006a {
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeCap(cap);
         this.paint.setStrokeJoin(join);
-        this.lx = dVar.ck();
-        this.lw = bVar.ck();
+        this.lu = dVar.ck();
+        this.lt = bVar.ck();
         if (bVar2 == null) {
-            this.lA = null;
+            this.lx = null;
         } else {
-            this.lA = bVar2.ck();
+            this.lx = bVar2.ck();
         }
-        this.ly = new ArrayList(list.size());
-        this.lu = new float[list.size()];
+        this.lw = new ArrayList(list.size());
+        this.lr = new float[list.size()];
         for (int i = 0; i < list.size(); i++) {
-            this.ly.add(list.get(i).ck());
+            this.lw.add(list.get(i).ck());
         }
-        aVar.a(this.lx);
-        aVar.a(this.lw);
-        for (int i2 = 0; i2 < this.ly.size(); i2++) {
-            aVar.a(this.ly.get(i2));
+        aVar.a(this.lu);
+        aVar.a(this.lt);
+        for (int i2 = 0; i2 < this.lw.size(); i2++) {
+            aVar.a(this.lw.get(i2));
         }
-        if (this.lA != null) {
-            aVar.a(this.lA);
+        if (this.lx != null) {
+            aVar.a(this.lx);
         }
-        this.lx.b(this);
-        this.lw.b(this);
+        this.lu.b(this);
+        this.lt.b(this);
         for (int i3 = 0; i3 < list.size(); i3++) {
-            this.ly.get(i3).b(this);
+            this.lw.get(i3).b(this);
         }
-        if (this.lA != null) {
-            this.lA.b(this);
+        if (this.lx != null) {
+            this.lx.b(this);
         }
     }
 
@@ -88,14 +88,14 @@ public abstract class a implements d, a.InterfaceC0006a {
             b bVar2 = list2.get(size2);
             if ((bVar2 instanceof q) && ((q) bVar2).bQ() == ShapeTrimPath.Type.Individually) {
                 if (c0005a2 != null) {
-                    this.lt.add(c0005a2);
+                    this.lq.add(c0005a2);
                 }
                 C0005a c0005a3 = new C0005a((q) bVar2);
                 ((q) bVar2).a(this);
                 c0005a = c0005a3;
             } else if (bVar2 instanceof k) {
                 c0005a = c0005a2 == null ? new C0005a(qVar) : c0005a2;
-                c0005a.lB.add((k) bVar2);
+                c0005a.ly.add((k) bVar2);
             } else {
                 c0005a = c0005a2;
             }
@@ -103,15 +103,15 @@ public abstract class a implements d, a.InterfaceC0006a {
             c0005a2 = c0005a;
         }
         if (c0005a2 != null) {
-            this.lt.add(c0005a2);
+            this.lq.add(c0005a2);
         }
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         com.airbnb.lottie.d.beginSection("StrokeContent#draw");
-        this.paint.setAlpha((int) (((this.lx.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f));
-        this.paint.setStrokeWidth(this.lw.getValue().floatValue() * com.airbnb.lottie.c.f.c(matrix));
+        this.paint.setAlpha((int) (((this.lu.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f));
+        this.paint.setStrokeWidth(this.lt.getValue().floatValue() * com.airbnb.lottie.c.f.c(matrix));
         if (this.paint.getStrokeWidth() <= 0.0f) {
             com.airbnb.lottie.d.D("StrokeContent#draw");
             return;
@@ -120,19 +120,19 @@ public abstract class a implements d, a.InterfaceC0006a {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.lt.size()) {
-                C0005a c0005a = this.lt.get(i3);
-                if (c0005a.lC != null) {
+            if (i3 < this.lq.size()) {
+                C0005a c0005a = this.lq.get(i3);
+                if (c0005a.lA != null) {
                     a(canvas, c0005a, matrix);
                 } else {
                     com.airbnb.lottie.d.beginSection("StrokeContent#buildPath");
-                    this.lp.reset();
-                    for (int size = c0005a.lB.size() - 1; size >= 0; size--) {
-                        this.lp.addPath(((k) c0005a.lB.get(size)).getPath(), matrix);
+                    this.lo.reset();
+                    for (int size = c0005a.ly.size() - 1; size >= 0; size--) {
+                        this.lo.addPath(((k) c0005a.ly.get(size)).getPath(), matrix);
                     }
                     com.airbnb.lottie.d.D("StrokeContent#buildPath");
                     com.airbnb.lottie.d.beginSection("StrokeContent#drawPath");
-                    canvas.drawPath(this.lp, this.paint);
+                    canvas.drawPath(this.lo, this.paint);
                     com.airbnb.lottie.d.D("StrokeContent#drawPath");
                 }
                 i2 = i3 + 1;
@@ -146,42 +146,42 @@ public abstract class a implements d, a.InterfaceC0006a {
     private void a(Canvas canvas, C0005a c0005a, Matrix matrix) {
         float f;
         com.airbnb.lottie.d.beginSection("StrokeContent#applyTrimPath");
-        if (c0005a.lC == null) {
+        if (c0005a.lA == null) {
             com.airbnb.lottie.d.D("StrokeContent#applyTrimPath");
             return;
         }
-        this.lp.reset();
-        for (int size = c0005a.lB.size() - 1; size >= 0; size--) {
-            this.lp.addPath(((k) c0005a.lB.get(size)).getPath(), matrix);
+        this.lo.reset();
+        for (int size = c0005a.ly.size() - 1; size >= 0; size--) {
+            this.lo.addPath(((k) c0005a.ly.get(size)).getPath(), matrix);
         }
-        this.lo.setPath(this.lp, false);
-        float length = this.lo.getLength();
+        this.ln.setPath(this.lo, false);
+        float length = this.ln.getLength();
         while (true) {
             f = length;
-            if (!this.lo.nextContour()) {
+            if (!this.ln.nextContour()) {
                 break;
             }
-            length = this.lo.getLength() + f;
+            length = this.ln.getLength() + f;
         }
-        float floatValue = (c0005a.lC.bT().getValue().floatValue() * f) / 360.0f;
-        float floatValue2 = ((c0005a.lC.bR().getValue().floatValue() * f) / 100.0f) + floatValue;
-        float floatValue3 = ((c0005a.lC.bS().getValue().floatValue() * f) / 100.0f) + floatValue;
-        int size2 = c0005a.lB.size() - 1;
+        float floatValue = (c0005a.lA.bT().getValue().floatValue() * f) / 360.0f;
+        float floatValue2 = ((c0005a.lA.bR().getValue().floatValue() * f) / 100.0f) + floatValue;
+        float floatValue3 = ((c0005a.lA.bS().getValue().floatValue() * f) / 100.0f) + floatValue;
+        int size2 = c0005a.ly.size() - 1;
         float f2 = 0.0f;
         while (size2 >= 0) {
-            this.lq.set(((k) c0005a.lB.get(size2)).getPath());
-            this.lq.transform(matrix);
-            this.lo.setPath(this.lq, false);
-            float length2 = this.lo.getLength();
+            this.lp.set(((k) c0005a.ly.get(size2)).getPath());
+            this.lp.transform(matrix);
+            this.ln.setPath(this.lp, false);
+            float length2 = this.ln.getLength();
             if (floatValue3 > f && floatValue3 - f < f2 + length2 && f2 < floatValue3 - f) {
-                com.airbnb.lottie.c.f.a(this.lq, floatValue2 > f ? (floatValue2 - f) / length2 : 0.0f, Math.min((floatValue3 - f) / length2, 1.0f), 0.0f);
-                canvas.drawPath(this.lq, this.paint);
+                com.airbnb.lottie.c.f.a(this.lp, floatValue2 > f ? (floatValue2 - f) / length2 : 0.0f, Math.min((floatValue3 - f) / length2, 1.0f), 0.0f);
+                canvas.drawPath(this.lp, this.paint);
             } else if (f2 + length2 >= floatValue2 && f2 <= floatValue3) {
                 if (f2 + length2 <= floatValue3 && floatValue2 < f2) {
-                    canvas.drawPath(this.lq, this.paint);
+                    canvas.drawPath(this.lp, this.paint);
                 } else {
-                    com.airbnb.lottie.c.f.a(this.lq, floatValue2 < f2 ? 0.0f : (floatValue2 - f2) / length2, floatValue3 > f2 + length2 ? 1.0f : (floatValue3 - f2) / length2, 0.0f);
-                    canvas.drawPath(this.lq, this.paint);
+                    com.airbnb.lottie.c.f.a(this.lp, floatValue2 < f2 ? 0.0f : (floatValue2 - f2) / length2, floatValue3 > f2 + length2 ? 1.0f : (floatValue3 - f2) / length2, 0.0f);
+                    canvas.drawPath(this.lp, this.paint);
                 }
             }
             size2--;
@@ -193,24 +193,24 @@ public abstract class a implements d, a.InterfaceC0006a {
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         com.airbnb.lottie.d.beginSection("StrokeContent#getBounds");
-        this.lp.reset();
-        for (int i = 0; i < this.lt.size(); i++) {
-            C0005a c0005a = this.lt.get(i);
-            for (int i2 = 0; i2 < c0005a.lB.size(); i2++) {
-                this.lp.addPath(((k) c0005a.lB.get(i2)).getPath(), matrix);
+        this.lo.reset();
+        for (int i = 0; i < this.lq.size(); i++) {
+            C0005a c0005a = this.lq.get(i);
+            for (int i2 = 0; i2 < c0005a.ly.size(); i2++) {
+                this.lo.addPath(((k) c0005a.ly.get(i2)).getPath(), matrix);
             }
         }
-        this.lp.computeBounds(this.lr, false);
-        float floatValue = this.lw.getValue().floatValue();
-        this.lr.set(this.lr.left - (floatValue / 2.0f), this.lr.top - (floatValue / 2.0f), this.lr.right + (floatValue / 2.0f), (floatValue / 2.0f) + this.lr.bottom);
-        rectF.set(this.lr);
+        this.lo.computeBounds(this.rect, false);
+        float floatValue = this.lt.getValue().floatValue();
+        this.rect.set(this.rect.left - (floatValue / 2.0f), this.rect.top - (floatValue / 2.0f), this.rect.right + (floatValue / 2.0f), (floatValue / 2.0f) + this.rect.bottom);
+        rectF.set(this.rect);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
         com.airbnb.lottie.d.D("StrokeContent#getBounds");
     }
 
     private void a(Matrix matrix) {
         com.airbnb.lottie.d.beginSection("StrokeContent#applyDashPattern");
-        if (this.ly.isEmpty()) {
+        if (this.lw.isEmpty()) {
             com.airbnb.lottie.d.D("StrokeContent#applyDashPattern");
             return;
         }
@@ -218,22 +218,22 @@ public abstract class a implements d, a.InterfaceC0006a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.ly.size()) {
+            if (i2 >= this.lw.size()) {
                 break;
             }
-            this.lu[i2] = this.ly.get(i2).getValue().floatValue();
+            this.lr[i2] = this.lw.get(i2).getValue().floatValue();
             if (i2 % 2 == 0) {
-                if (this.lu[i2] < 1.0f) {
-                    this.lu[i2] = 1.0f;
+                if (this.lr[i2] < 1.0f) {
+                    this.lr[i2] = 1.0f;
                 }
-            } else if (this.lu[i2] < 0.1f) {
-                this.lu[i2] = 0.1f;
+            } else if (this.lr[i2] < 0.1f) {
+                this.lr[i2] = 0.1f;
             }
-            float[] fArr = this.lu;
+            float[] fArr = this.lr;
             fArr[i2] = fArr[i2] * c;
             i = i2 + 1;
         }
-        this.paint.setPathEffect(new DashPathEffect(this.lu, this.lA == null ? 0.0f : this.lA.getValue().floatValue()));
+        this.paint.setPathEffect(new DashPathEffect(this.lr, this.lx == null ? 0.0f : this.lx.getValue().floatValue()));
         com.airbnb.lottie.d.D("StrokeContent#applyDashPattern");
     }
 
@@ -241,13 +241,13 @@ public abstract class a implements d, a.InterfaceC0006a {
     /* renamed from: com.airbnb.lottie.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static final class C0005a {
-        private final List<k> lB;
         @Nullable
-        private final q lC;
+        private final q lA;
+        private final List<k> ly;
 
         private C0005a(@Nullable q qVar) {
-            this.lB = new ArrayList();
-            this.lC = qVar;
+            this.ly = new ArrayList();
+            this.lA = qVar;
         }
     }
 }

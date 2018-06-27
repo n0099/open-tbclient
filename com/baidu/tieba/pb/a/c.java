@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a fpF;
-    private View fpG;
+    private a fty;
+    private View ftz;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.fpF = aVar;
+        this.fty = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.fpG = view;
+        this.ftz = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.fpF != null) {
-            return this.fpF.a(this.fpG, motionEvent);
+        if (this.fty != null) {
+            return this.fty.a(this.ftz, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.fpF != null) {
-            return this.fpF.b(this.fpG, motionEvent);
+        if (this.fty != null) {
+            return this.fty.b(this.ftz, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.fpF != null) {
-            return this.fpF.c(this.fpG, motionEvent);
+        if (this.fty != null) {
+            return this.fty.c(this.ftz, motionEvent);
         }
         return false;
     }
 
-    public void aW(View view) {
-        this.fpG = view;
+    public void aX(View view) {
+        this.ftz = view;
     }
 }

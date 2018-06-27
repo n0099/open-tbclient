@@ -16,6 +16,7 @@ import com.baidu.ar.util.HttpUtils;
 import com.baidu.ar.util.MD5Utils;
 import com.baidu.ar.util.Utils;
 import com.baidu.ar.util.ZipUtils;
+import com.baidu.baiduarsdk.ArBridge;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -381,7 +382,7 @@ public class f implements com.baidu.ar.recg.feares.a {
             case 1004:
                 c((String) message.obj);
                 return;
-            case 1005:
+            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
                 f();
                 return;
             case 1006:
@@ -438,7 +439,7 @@ public class f implements com.baidu.ar.recg.feares.a {
         a(true);
         if (this.c != null) {
             this.c.removeMessages(1006);
-            this.c.sendMessage(this.c.obtainMessage(1005));
+            this.c.sendMessage(this.c.obtainMessage(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC));
         }
     }
 

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.game;
 
+import com.tencent.open.SocialConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -55,7 +56,7 @@ public class GameShareJsBridge {
             this.mShareContent = String.valueOf(jSONObject.opt("content"));
             this.mIconUrl = String.valueOf(jSONObject.opt("app_icon"));
             this.mShareContentUrl = String.valueOf(jSONObject.opt("app_link"));
-            this.mShareImage = String.valueOf(jSONObject.opt("img"));
+            this.mShareImage = String.valueOf(jSONObject.opt(SocialConstants.PARAM_IMG_URL));
             this.mShareName = String.valueOf(jSONObject.opt("app_name"));
             this.mGameId = String.valueOf(jSONObject.opt("app_key"));
         } catch (JSONException e) {

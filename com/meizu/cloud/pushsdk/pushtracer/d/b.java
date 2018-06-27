@@ -5,7 +5,6 @@ import android.location.Location;
 import android.os.Build;
 import com.baidu.ar.constants.HttpConstants;
 import com.meizu.cloud.pushsdk.pushtracer.utils.d;
-import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -82,8 +81,8 @@ public class b {
             com.meizu.cloud.pushsdk.pushtracer.utils.b.a(a, "Location information not available.", new Object[0]);
             return;
         }
-        a(WBPageConstants.ParamKey.LATITUDE, Double.valueOf(c.getLatitude()));
-        a(WBPageConstants.ParamKey.LONGITUDE, Double.valueOf(c.getLongitude()));
+        a("latitude", Double.valueOf(c.getLatitude()));
+        a("longitude", Double.valueOf(c.getLongitude()));
         a("altitude", Double.valueOf(c.getAltitude()));
         a("latitudeLongitudeAccuracy", Float.valueOf(c.getAccuracy()));
         a("speed", Float.valueOf(c.getSpeed()));

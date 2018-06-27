@@ -12,22 +12,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class m {
-    private BitmapFactory.Options aoA;
-    private int[] aot;
-    private SoftReference<ImageView> aov;
-    private int aow;
-    private a aox;
-    private int aoy;
+    private int[] aoS;
+    private SoftReference<ImageView> aoU;
+    private int aoV;
+    private a aoW;
+    private int aoX;
+    private BitmapFactory.Options aoZ;
     private Bitmap mBitmap;
-    private int aoz = 1;
+    private int aoY = 1;
     private Handler mHandler = new Handler();
     private int mIndex = -1;
-    private boolean aou = false;
-    private boolean Bo = false;
+    private boolean aoT = false;
+    private boolean Bq = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        void yj();
+        void yx();
     }
 
     public static m a(ImageView imageView, int i, int i2, int i3) {
@@ -36,19 +36,19 @@ public class m {
 
     public m(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.aot = cC(i);
-        this.aov = new SoftReference<>(imageView);
-        this.aow = 1000 / i2;
-        this.aoy = i3;
-        imageView.setImageResource(this.aot[0]);
+        this.aoS = cD(i);
+        this.aoU = new SoftReference<>(imageView);
+        this.aoV = 1000 / i2;
+        this.aoX = i3;
+        imageView.setImageResource(this.aoS[0]);
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
                 this.mBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-                this.aoA = new BitmapFactory.Options();
-                this.aoA.inBitmap = this.mBitmap;
-                this.aoA.inMutable = true;
-                this.aoA.inSampleSize = 1;
+                this.aoZ = new BitmapFactory.Options();
+                this.aoZ.inBitmap = this.mBitmap;
+                this.aoZ.inMutable = true;
+                this.aoZ.inSampleSize = 1;
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -56,32 +56,32 @@ public class m {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int yi() {
+    public int yw() {
         this.mIndex++;
-        if (this.mIndex + 1 >= this.aot.length) {
-            this.aoz++;
+        if (this.mIndex + 1 >= this.aoS.length) {
+            this.aoY++;
         }
-        if (this.mIndex >= this.aot.length) {
+        if (this.mIndex >= this.aoS.length) {
             this.mIndex = 0;
         }
-        return this.aot[this.mIndex];
+        return this.aoS[this.mIndex];
     }
 
     public synchronized void b(ImageView imageView) {
-        this.aou = true;
-        if (!this.Bo) {
-            if (this.aov.get() == null) {
-                this.aov = new SoftReference<>(imageView);
+        this.aoT = true;
+        if (!this.Bq) {
+            if (this.aoU.get() == null) {
+                this.aoU = new SoftReference<>(imageView);
             }
             this.mHandler.post(new Runnable() { // from class: com.baidu.tbadk.core.util.m.1
                 @Override // java.lang.Runnable
                 public void run() {
                     Bitmap bitmap;
-                    ImageView imageView2 = (ImageView) m.this.aov.get();
-                    if (!m.this.aou || imageView2 == null || m.this.aoz > m.this.aoy) {
-                        m.this.Bo = false;
-                        if (m.this.aox != null) {
-                            m.this.aox.yj();
+                    ImageView imageView2 = (ImageView) m.this.aoU.get();
+                    if (!m.this.aoT || imageView2 == null || m.this.aoY > m.this.aoX) {
+                        m.this.Bq = false;
+                        if (m.this.aoW != null) {
+                            m.this.aoW.yx();
                         }
                         if (m.this.mBitmap != null && !m.this.mBitmap.isRecycled()) {
                             m.this.mBitmap.recycle();
@@ -90,13 +90,13 @@ public class m {
                         }
                         return;
                     }
-                    m.this.Bo = true;
-                    m.this.mHandler.postDelayed(this, m.this.aow);
+                    m.this.Bq = true;
+                    m.this.mHandler.postDelayed(this, m.this.aoV);
                     if (imageView2.isShown()) {
-                        int yi = m.this.yi();
+                        int yw = m.this.yw();
                         if (m.this.mBitmap != null && !m.this.mBitmap.isRecycled()) {
                             try {
-                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), yi, m.this.aoA);
+                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), yw, m.this.aoZ);
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 bitmap = null;
@@ -105,12 +105,12 @@ public class m {
                                 imageView2.setImageBitmap(bitmap);
                                 return;
                             }
-                            imageView2.setImageResource(yi);
+                            imageView2.setImageResource(yw);
                             m.this.mBitmap.recycle();
                             m.this.mBitmap = null;
                             return;
                         }
-                        imageView2.setImageResource(yi);
+                        imageView2.setImageResource(yw);
                     }
                 }
             });
@@ -118,18 +118,18 @@ public class m {
     }
 
     public synchronized void stop() {
-        this.aou = false;
-        this.aov.clear();
-        this.Bo = false;
+        this.aoT = false;
+        this.aoU.clear();
+        this.Bq = false;
         this.mIndex = -1;
-        this.aoz = 1;
+        this.aoY = 1;
     }
 
     public void a(a aVar) {
-        this.aox = aVar;
+        this.aoW = aVar;
     }
 
-    private int[] cC(int i) {
+    private int[] cD(int i) {
         TypedArray obtainTypedArray = TbadkCoreApplication.getInst().getResources().obtainTypedArray(i);
         int length = obtainTypedArray.length();
         int[] iArr = new int[obtainTypedArray.length()];

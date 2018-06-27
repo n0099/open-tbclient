@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.widget.ListView.h;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tbadk.core.util.w;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    public int dqQ;
-    public List<h> dqR;
+    public int dtZ;
+    public List<h> dua;
     public boolean hasMore;
     public String key;
     public int labelId;
     public int pn;
 
-    public int bo(List<h> list) {
+    public int br(List<h> list) {
         boolean z;
-        if (w.z(list)) {
+        if (w.A(list)) {
             return 0;
         }
-        if (w.z(this.dqR)) {
-            this.dqR = new LinkedList();
-            this.dqR.addAll(list);
+        if (w.A(this.dua)) {
+            this.dua = new LinkedList();
+            this.dua.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             h hVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.dqR.size()) {
+                if (i2 >= this.dua.size()) {
                     z = false;
                     break;
                 }
-                h hVar2 = this.dqR.get(i2);
+                h hVar2 = this.dua.get(i2);
                 if (hVar != null && (hVar instanceof b) && hVar2 != null && (hVar2 instanceof b)) {
-                    bd Sz = ((b) hVar).Sz();
-                    bd Sz2 = ((b) hVar2).Sz();
-                    if (Sz != null && Sz2 != null && Sz.getTid() != null && Sz2.getTid() != null && Sz.getTid().equals(Sz2.getTid())) {
+                    bc SV = ((b) hVar).SV();
+                    bc SV2 = ((b) hVar2).SV();
+                    if (SV != null && SV2 != null && SV.getTid() != null && SV2.getTid() != null && SV.getTid().equals(SV2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            w.a((List) this.dqR, 0, (List) linkedList);
+            w.a((List) this.dua, 0, (List) linkedList);
         }
         return linkedList.size();
     }

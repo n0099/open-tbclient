@@ -7,41 +7,41 @@ import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class a extends d {
-    private com.baidu.tieba.easterEgg.d cPK;
-    private HashMap<String, String> cPL;
-    private com.google.gson.d cPM;
+    private com.baidu.tieba.easterEgg.d cNF;
+    private HashMap<String, String> cNG;
+    private com.google.gson.d cNH;
 
     public a(int i) {
         super(i);
-        this.cPM = new com.google.gson.d();
+        this.cNH = new com.google.gson.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        String lz = lz(httpMessageTask.getUrl());
-        if (lz != null && this.cPK != null) {
-            this.cPK.A(httpMessageTask.getUrl(), this.cPM.toJson(lz), this.cPM.toJson(this.cPM.toJson(httpMessage.getParams())));
+        String lv = lv(httpMessageTask.getUrl());
+        if (lv != null && this.cNF != null) {
+            this.cNF.y(httpMessageTask.getUrl(), this.cNH.toJson(lv), this.cNH.toJson(this.cNH.toJson(httpMessage.getParams())));
         }
         return httpMessage;
     }
 
-    public String lz(String str) {
+    public String lv(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.cPL != null) {
-            return this.cPL.get(replace);
+        if (this.cNG != null) {
+            return this.cNG.get(replace);
         }
         return null;
     }
 
     public void l(HashMap<String, String> hashMap) {
-        this.cPL = hashMap;
+        this.cNG = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.cPK = dVar;
+        this.cNF = dVar;
     }
 }

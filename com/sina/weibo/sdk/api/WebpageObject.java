@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class WebpageObject extends BaseMediaObject {
     public static final Parcelable.Creator<WebpageObject> CREATOR = new Parcelable.Creator<WebpageObject>() { // from class: com.sina.weibo.sdk.api.WebpageObject.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public class WebpageObject extends BaseMediaObject {
     public BaseMediaObject toExtraMediaObject(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.defaultText = new JSONObject(str).optString("extra_key_defaulttext");
+                this.defaultText = new JSONObject(str).optString(EXTRA_KEY_DEFAULTTEXT);
             } catch (JSONException e) {
             }
         }
@@ -65,7 +65,7 @@ public class WebpageObject extends BaseMediaObject {
         try {
             JSONObject jSONObject = new JSONObject();
             if (!TextUtils.isEmpty(this.defaultText)) {
-                jSONObject.put("extra_key_defaulttext", this.defaultText);
+                jSONObject.put(EXTRA_KEY_DEFAULTTEXT, this.defaultText);
             }
             return jSONObject.toString();
         } catch (JSONException e) {

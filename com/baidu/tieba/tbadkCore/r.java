@@ -2,7 +2,6 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private String aCz;
+    private String aDt;
     private int cur_score;
     private int errorCode;
     private String errorMsg;
@@ -20,9 +19,9 @@ public class r {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> gHQ = new ArrayList();
-    private int gHO = 0;
-    private int gHP = 0;
+    private List<FeedForumData> gLQ = new ArrayList();
+    private int gLO = 0;
+    private int gLP = 0;
     private int user_level = 0;
 
     public r() {
@@ -40,11 +39,11 @@ public class r {
         this.fid = str;
     }
 
-    public int btx() {
+    public int btX() {
         return this.user_level;
     }
 
-    public void tc(int i) {
+    public void tm(int i) {
         if (i >= 0) {
             this.user_level = i;
         }
@@ -53,8 +52,8 @@ public class r {
     public void parserJson(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            parserJson(jSONObject.optJSONObject(LoginActivityConfig.INFO));
-            f(jSONObject.optJSONArray("feed_forum"));
+            parserJson(jSONObject.optJSONObject("info"));
+            k(jSONObject.optJSONArray("feed_forum"));
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -63,8 +62,8 @@ public class r {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gHO = jSONObject.optInt("is_black", 0);
-                this.gHP = jSONObject.optInt("like_num", 0);
+                this.gLO = jSONObject.optInt("is_black", 0);
+                this.gLP = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
                 setLevelName(jSONObject.optString("level_name", ""));
@@ -79,19 +78,19 @@ public class r {
 
     private void r(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aCz = jSONObject.optString("block_dealurl");
+            this.aDt = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             if (!StringUtils.isNull(optString)) {
                 this.mBlockPopInfoData = new BlockPopInfoData();
                 this.mBlockPopInfoData.block_info = optString;
-                this.mBlockPopInfoData.ahead_url = this.aCz;
+                this.mBlockPopInfoData.ahead_url = this.aDt;
                 this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
                 this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
             }
         }
     }
 
-    public void f(JSONArray jSONArray) {
+    public void k(JSONArray jSONArray) {
         int i = 0;
         while (true) {
             try {
@@ -107,7 +106,7 @@ public class r {
                     feedForumData.setReason(jSONObject.optString("reason"));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.gHQ.add(feedForumData);
+                    this.gLQ.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -151,8 +150,8 @@ public class r {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> buU() {
-        return this.gHQ;
+    public List<FeedForumData> bvu() {
+        return this.gLQ;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -163,8 +162,8 @@ public class r {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String bwr() {
-        return this.aCz;
+    public String bwS() {
+        return this.aDt;
     }
 
     public void setErrorCode(int i) {

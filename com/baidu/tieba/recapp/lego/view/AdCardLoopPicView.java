@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.i;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
@@ -14,8 +14,8 @@ import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
 /* loaded from: classes3.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
-    private View glB;
-    private LoopADView glC;
+    private View gps;
+    private LoopADView gpt;
 
     public AdCardLoopPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -27,45 +27,45 @@ public class AdCardLoopPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void bu(View view) {
-        this.glB = view.findViewById(d.g.advert_loop_ad_container);
-        this.glC = (LoopADView) view.findViewById(d.g.loop_view);
+    protected void bv(View view) {
+        this.gps = view.findViewById(d.g.advert_loop_ad_container);
+        this.gpt = (LoopADView) view.findViewById(d.g.loop_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(final AdCard adCard) {
         AdCard.d[] dVarArr = adCard.threadPicList;
         boolean tz = i.tt().tz();
-        this.glC.setBussinessType(getBusinessType());
+        this.gpt.setBussinessType(getBusinessType());
         if (!tz) {
-            this.glB.setVisibility(8);
+            this.gps.setVisibility(8);
             return;
         }
-        this.glB.setVisibility(0);
-        v(this.glB, 0);
-        this.glC.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
+        this.gps.setVisibility(0);
+        x(this.gps, 0);
+        this.gpt.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void b(TbImageView tbImageView, AdCard.b bVar) {
                 AdCardLoopPicView.this.a(tbImageView, bVar, new AdCardBaseView.b(adCard));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String sS(String str) {
-                return AdCardLoopPicView.this.sP(ao.d(str, 100, "..."));
+            public String sR(String str) {
+                return AdCardLoopPicView.this.sO(ap.d(str, 100, "..."));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void reset() {
-                if (AdCardLoopPicView.this.glB != null) {
-                    AdCardLoopPicView.this.glB.setScrollX(0);
+                if (AdCardLoopPicView.this.gps != null) {
+                    AdCardLoopPicView.this.gps.setScrollX(0);
                 }
             }
         });
-        int i = this.gll.getHeaderImg().getLayoutParams().width;
+        int i = this.gpc.getHeaderImg().getLayoutParams().width;
         if (!adCard.needResize) {
-            this.glC.a(dVarArr, 30, 0, 0, i);
+            this.gpt.a(dVarArr, 30, 0, 0, i);
         } else {
-            this.glC.a(dVarArr, 30, adCard.width, adCard.height, i);
+            this.gpt.a(dVarArr, 30, adCard.width, adCard.height, i);
         }
     }
 
@@ -79,12 +79,12 @@ public class AdCardLoopPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
-        if (this.glC != null && this.glC.getVisibility() == 0) {
-            this.glC.aNN();
+        if (this.gpt != null && this.gpt.getVisibility() == 0) {
+            this.gpt.aOt();
         }
     }
 
-    private void v(View view, int i) {
+    private void x(View view, int i) {
         if (view != null && view.getVisibility() == 0) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {

@@ -9,31 +9,31 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
     protected Bitmap mBitmap;
-    protected a wA;
-    protected BitmapFactory.Options wz;
+    protected BitmapFactory.Options wx;
+    protected a wy;
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.wz = null;
-        this.wA = null;
-        this.wA = new a();
+        this.wx = null;
+        this.wy = null;
+        this.wy = new a();
     }
 
     public boolean isGif() {
-        return this.wA.mIsGif;
+        return this.wy.mIsGif;
     }
 
     public void A(boolean z) {
-        this.wA.mIsGif = z;
+        this.wy.mIsGif = z;
     }
 
     public boolean gC() {
-        return this.wA.wE;
+        return this.wy.wC;
     }
 
     public void B(boolean z) {
-        this.wA.wE = z;
+        this.wy.wC = z;
     }
 
     public Bitmap getBitmap() {
@@ -43,7 +43,7 @@ public class c extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!isGif() && l.l(bArr)) {
+        if (!isGif() && l.m(bArr)) {
             A(true);
         }
     }
@@ -53,20 +53,20 @@ public class c extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.wA.toByteArray();
+        return this.wy.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean j(byte[] bArr) {
-        if (bArr != null && this.wA.k(bArr)) {
-            if (this.wA.wD == 0 || this.wA.wD >= System.currentTimeMillis()) {
-                if (this.wz == null) {
-                    this.wz = new BitmapFactory.Options();
-                    this.wz.inPreferredConfig = Bitmap.Config.RGB_565;
+    public boolean k(byte[] bArr) {
+        if (bArr != null && this.wy.l(bArr)) {
+            if (this.wy.wB == 0 || this.wy.wB >= System.currentTimeMillis()) {
+                if (this.wx == null) {
+                    this.wx = new BitmapFactory.Options();
+                    this.wx.inPreferredConfig = Bitmap.Config.RGB_565;
                 }
                 int headerSize = a.getHeaderSize();
                 try {
-                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.wz);
+                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.wx);
                 } catch (Error e) {
                     BdLog.e(e.getMessage());
                 }
@@ -87,11 +87,11 @@ public class c extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte wB = Byte.MIN_VALUE;
-        private static byte wC = Byte.MIN_VALUE;
         boolean mIsGif = false;
-        long wD = 0;
-        boolean wE = true;
+        long wB = 0;
+        boolean wC = true;
+        private static byte wz = Byte.MIN_VALUE;
+        private static byte wA = Byte.MIN_VALUE;
 
         a() {
         }
@@ -103,25 +103,25 @@ public class c extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600511);
-            allocate.put(this.mIsGif ? (byte) (wB | 0) : (byte) 0);
-            allocate.putLong(this.wD);
-            allocate.put(this.wE ? (byte) 0 : (byte) (wC | 0));
+            allocate.put(this.mIsGif ? (byte) (wz | 0) : (byte) 0);
+            allocate.putLong(this.wB);
+            allocate.put(this.wC ? (byte) 0 : (byte) (wA | 0));
             allocate.flip();
             return allocate.array();
         }
 
-        public boolean k(byte[] bArr) {
+        public boolean l(byte[] bArr) {
             if (bArr == null || bArr.length < getHeaderSize()) {
                 return false;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600511) {
-                if ((wrap.get() & wB) != 0) {
+                if ((wrap.get() & wz) != 0) {
                     this.mIsGif = true;
                 }
-                this.wD = wrap.getLong();
-                if ((wrap.get() & wC) != 0) {
-                    this.wE = false;
+                this.wB = wrap.getLong();
+                if ((wrap.get() & wA) != 0) {
+                    this.wC = false;
                 }
                 return true;
             }

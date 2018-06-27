@@ -10,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class i {
-    public static void dQ(String str) {
+    public static void dT(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -37,13 +37,13 @@ public class i {
             }
         }
         if (i > 0) {
-            am amVar = new am("c12231");
-            amVar.r("obj_param1", i);
-            TiebaStatic.log(amVar);
+            an anVar = new an("c12231");
+            anVar.r("obj_param1", i);
+            TiebaStatic.log(anVar);
         }
     }
 
-    public static void yb() {
+    public static void yp() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.i.1
             @Override // java.lang.Runnable
             public void run() {
@@ -62,10 +62,10 @@ public class i {
                             try {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.e(cursor);
-                                am amVar = new am("c12232");
-                                amVar.ah("uid", TbadkCoreApplication.getCurrentAccount());
-                                amVar.r("obj_param1", i);
-                                TiebaStatic.log(amVar);
+                                an anVar = new an("c12232");
+                                anVar.ah("uid", TbadkCoreApplication.getCurrentAccount());
+                                anVar.r("obj_param1", i);
+                                TiebaStatic.log(anVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.e(cursor);
                                 throw th3;
@@ -78,10 +78,10 @@ public class i {
                     th = th4;
                     i = 0;
                 }
-                am amVar2 = new am("c12232");
-                amVar2.ah("uid", TbadkCoreApplication.getCurrentAccount());
-                amVar2.r("obj_param1", i);
-                TiebaStatic.log(amVar2);
+                an anVar2 = new an("c12232");
+                anVar2.ah("uid", TbadkCoreApplication.getCurrentAccount());
+                anVar2.r("obj_param1", i);
+                TiebaStatic.log(anVar2);
             }
         }).start();
     }

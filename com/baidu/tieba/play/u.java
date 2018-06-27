@@ -8,7 +8,7 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
     private int duration;
-    private String gcz;
+    private String ggA;
     private String videoMd5;
     private long videoSize;
     private String videoUrl;
@@ -19,7 +19,7 @@ public class u {
             String str2 = videoInfo.video_url;
             videoInfo.video_width.toString();
             videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.w.z(videoInfo.video_desc)) {
+            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.w.A(videoInfo.video_desc)) {
                 VideoDesc videoDesc = null;
                 Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
                 while (true) {
@@ -46,7 +46,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.gcz = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.ggA = videoInfo.video_width + "x" + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -54,12 +54,12 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.gcz = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.ggA = videoInfo.video_width + "x" + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
 
-    public void d(VideoInfo videoInfo) {
+    public void g(VideoInfo videoInfo) {
         a(videoInfo, false);
     }
 
@@ -69,7 +69,7 @@ public class u {
         }
     }
 
-    public long blR() {
+    public long bmv() {
         return this.videoSize;
     }
 
@@ -77,7 +77,7 @@ public class u {
         return this.duration;
     }
 
-    public String blS() {
-        return this.gcz;
+    public String bmw() {
+        return this.ggA;
     }
 }

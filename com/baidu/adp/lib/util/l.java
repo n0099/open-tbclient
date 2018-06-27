@@ -24,26 +24,26 @@ import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
-    private static float Dn;
-    static int Do;
-    static int Dp;
-    private static String Ds;
-    static boolean Dm = false;
-    private static Toast Dq = null;
-    private static a Dr = null;
+    private static float Dp;
+    static int Dq;
+    static int Dr;
+    private static String Du;
+    static boolean Do = false;
+    private static Toast Ds = null;
+    private static a Dt = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.Dq != null) {
-                l.Dq.cancel();
+            if (l.Ds != null) {
+                l.Ds.cancel();
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void bi(String str);
+        void bk(String str);
 
         View ka();
     }
@@ -54,74 +54,81 @@ public class l {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            Do = displayMetrics.heightPixels;
-            Dp = displayMetrics.widthPixels;
+            Dq = displayMetrics.heightPixels;
+            Dr = displayMetrics.widthPixels;
         } else {
-            Do = displayMetrics.widthPixels;
-            Dp = displayMetrics.heightPixels;
+            Dq = displayMetrics.widthPixels;
+            Dr = displayMetrics.heightPixels;
         }
-        Dn = displayMetrics.density;
-        Dm = true;
+        Dp = displayMetrics.density;
+        Do = true;
     }
 
     public static int ah(Context context) {
-        if (!Dm) {
+        if (!Do) {
             ai(context);
         }
-        return Do;
+        return Dq;
     }
 
     public static int aj(Context context) {
-        if (!Dm) {
+        if (!Do) {
+            ai(context);
+        }
+        return Dr;
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (!Do) {
+            ai(context);
+        }
+        return (int) ((Dp * f) + 0.5f);
+    }
+
+    public static int px2dip(Context context, float f) {
+        if (!Do) {
+            ai(context);
+        }
+        return (int) ((f / Dp) + 0.5f);
+    }
+
+    public static float ak(Context context) {
+        if (!Do) {
             ai(context);
         }
         return Dp;
     }
 
-    public static int dip2px(Context context, float f) {
-        if (!Dm) {
-            ai(context);
-        }
-        return (int) ((Dn * f) + 0.5f);
-    }
-
-    public static float ak(Context context) {
-        if (!Dm) {
-            ai(context);
-        }
-        return Dn;
-    }
-
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (Dq == null) {
-                if (Dr == null || Dr.ka() == null) {
-                    Dq = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (Ds == null) {
+                if (Dt == null || Dt.ka() == null) {
+                    Ds = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    Dq = new Toast(BdBaseApplication.getInst().getApp());
-                    Dq.setDuration(0);
-                    Dr.bi(str);
-                    Dq.setView(Dr.ka());
+                    Ds = new Toast(BdBaseApplication.getInst().getApp());
+                    Ds.setDuration(0);
+                    Dt.bk(str);
+                    Ds.setView(Dt.ka());
                 }
-                Dq.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                Ds.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(Ds)) {
-                    if (Dr == null || Dr.ka() == null) {
-                        Dq.setText(str);
+                if (!str.equals(Du)) {
+                    if (Dt == null || Dt.ka() == null) {
+                        Ds.setText(str);
                     } else {
-                        Dr.bi(str);
+                        Dt.bk(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                Dq.setGravity(17, 0, dip2px);
+                Ds.setGravity(17, 0, dip2px);
             }
-            Ds = str;
+            Du = str;
             mHandler.postDelayed(mRunnable, i);
-            Dq.show();
+            Ds.show();
         }
     }
 
@@ -218,14 +225,14 @@ public class l {
         return null;
     }
 
-    public static boolean l(byte[] bArr) {
+    public static boolean m(byte[] bArr) {
         if (bArr == null || bArr.length < 3) {
             return false;
         }
         return bArr[0] == 71 && bArr[1] == 73 && bArr[2] == 70;
     }
 
-    public static boolean m(byte[] bArr) {
+    public static boolean n(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
@@ -438,11 +445,11 @@ public class l {
     }
 
     public static boolean jX() {
-        String bh;
+        String bj;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (bh = bh(str)) != null && bh.length() >= 3) {
-            int g = com.baidu.adp.lib.g.b.g(bh(bh.substring(0, 1)), 0);
-            int g2 = com.baidu.adp.lib.g.b.g(bh(bh.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (bj = bj(str)) != null && bj.length() >= 3) {
+            int g = com.baidu.adp.lib.g.b.g(bj(bj.substring(0, 1)), 0);
+            int g2 = com.baidu.adp.lib.g.b.g(bj(bj.substring(1, 2)), 0);
             if (g > 3) {
                 return true;
             }
@@ -453,7 +460,7 @@ public class l {
         return false;
     }
 
-    public static String bh(String str) {
+    public static String bj(String str) {
         if (str == null) {
             return null;
         }
@@ -461,10 +468,10 @@ public class l {
     }
 
     public static a jY() {
-        return Dr;
+        return Dt;
     }
 
     public static void a(a aVar) {
-        Dr = aVar;
+        Dt = aVar;
     }
 }

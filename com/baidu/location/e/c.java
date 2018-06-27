@@ -3,15 +3,15 @@ package com.baidu.location.e;
 import java.util.List;
 import java.util.concurrent.Callable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c implements Callable<String> {
-    final /* synthetic */ a Xj;
+    final /* synthetic */ a Xm;
     final /* synthetic */ String a;
     final /* synthetic */ List b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str, List list) {
-        this.Xj = aVar;
+        this.Xm = aVar;
         this.a = str;
         this.b = list;
     }
@@ -21,8 +21,8 @@ public class c implements Callable<String> {
     /* renamed from: a */
     public String call() {
         String ag;
-        this.Xj.a(this.a, this.b);
-        ag = this.Xj.ag(true);
+        this.Xm.a(this.a, this.b);
+        ag = this.Xm.ag(true);
         return ag;
     }
 }

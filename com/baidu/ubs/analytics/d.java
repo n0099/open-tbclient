@@ -8,26 +8,26 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class d {
     private Context g;
     private String h;
-    private JSONArray hxv;
+    private JSONArray hBC;
     private String i;
     private boolean j;
     private Map<String, g> k;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
-        public static final d hxw = new d((byte) 0);
+        public static final d hBD = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> bJO() {
+    public final Map<String, g> bKp() {
         return this.k;
     }
 
@@ -39,8 +39,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d bJP() {
-        return a.hxw;
+    public static d bKq() {
+        return a.hBD;
     }
 
     public final void a(Context context) {
@@ -86,20 +86,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult wa(String str) {
-        if (this.hxv == null) {
+    public final SampleResult vW(String str) {
+        if (this.hBC == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.wn(this.k.get(str).getGroup());
+                return i.wj(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.hxv.length(); i++) {
-            JSONObject optJSONObject = this.hxv.optJSONObject(i);
+        for (int i = 0; i < this.hBC.length(); i++) {
+            JSONObject optJSONObject = this.hBC.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.wn(optJSONObject.optString("group"));
+                return i.wj(optJSONObject.optString("group"));
             }
         }
         return SampleResult.OTHERE;

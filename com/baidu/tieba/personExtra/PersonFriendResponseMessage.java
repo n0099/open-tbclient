@@ -2,6 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.aq;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -49,7 +50,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             this.resultString = jSONObject.toString();
-            this.errCode = jSONObject.optInt("error_code");
+            this.errCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             this.data.parserJson(jSONObject);
         }
     }
@@ -57,7 +58,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> dy;
+        l<String> dB;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -67,8 +68,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (dy = com.baidu.tbadk.core.c.a.wW().dy("tb.my_pages")) != null) {
-                        dy.a("personal_myfollow_" + str, parseToString, 604800000L);
+                    if (parseToString != null && (dB = com.baidu.tbadk.core.c.a.xj().dB("tb.my_pages")) != null) {
+                        dB.a("personal_myfollow_" + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

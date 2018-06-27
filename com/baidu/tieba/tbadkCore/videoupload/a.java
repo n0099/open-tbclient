@@ -8,48 +8,48 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int gLE = 6144000;
-    private static int gLF = 524288;
-    private h gJZ;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b gLG;
+    private static int gPG = 6144000;
+    private static int gPH = 524288;
+    private h gOa;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b gPI;
 
     public a(h hVar) {
-        this.gJZ = hVar;
+        this.gOa = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.hv().aw("is_video_batch") == 1) {
-                this.gLG = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gLF, this.gJZ);
+                this.gPI = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gPH, this.gOa);
             } else {
-                this.gLG = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gLE, this.gJZ);
+                this.gPI = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gPG, this.gOa);
             }
-            this.gLG.a(eVar);
-            return this.gLG.aO(str2, i);
+            this.gPI.a(eVar);
+            return this.gPI.aP(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.gJZ != null) {
-                this.gJZ.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.m(e));
+            if (this.gOa != null) {
+                this.gOa.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.m(e));
             }
             return null;
         }
     }
 
-    public void byb() {
-        if (this.gLG != null) {
-            this.gLG.cancel();
+    public void byF() {
+        if (this.gPI != null) {
+            this.gPI.cancel();
         }
     }
 
-    public static void tJ(int i) {
+    public static void tV(int i) {
         if (i <= 0) {
-            gLF = 524288;
+            gPH = 524288;
         } else {
-            gLF = i;
+            gPH = i;
         }
     }
 
-    public static void tK(int i) {
+    public static void tW(int i) {
         if (i <= 0) {
             chunkLength = 524288;
         } else {
@@ -57,11 +57,11 @@ public class a {
         }
     }
 
-    public static void tL(int i) {
+    public static void tX(int i) {
         if (i <= 0) {
-            gLE = 6144000;
+            gPG = 6144000;
         } else {
-            gLE = i;
+            gPG = i;
         }
     }
 }

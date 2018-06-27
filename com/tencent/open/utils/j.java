@@ -20,6 +20,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.tencent.connect.common.Constants;
 import java.io.File;
@@ -302,7 +303,7 @@ public class j {
         if (str == null) {
             return false;
         }
-        return str.startsWith("http://") || str.startsWith("https://");
+        return str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
     public static boolean h(String str) {

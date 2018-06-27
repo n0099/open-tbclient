@@ -8,26 +8,26 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.widget.DragImageView;
 /* loaded from: classes.dex */
 public class LargeImageView extends DragImageView {
-    private b bbe;
+    private b bbZ;
 
     public LargeImageView(Context context) {
         super(context);
-        this.bbe = new b(this);
+        this.bbZ = new b(this);
     }
 
     public LargeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bbe = new b(this);
+        this.bbZ = new b(this);
     }
 
     public LargeImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bbe = new b(this);
+        this.bbZ = new b(this);
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bbe.onTouchEvent(motionEvent)) {
+        if (this.bbZ.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -36,39 +36,39 @@ public class LargeImageView extends DragImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (!this.bbe.j(canvas)) {
+        if (!this.bbZ.l(canvas)) {
             super.onDraw(canvas);
         }
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void computeScroll() {
-        this.bbe.Mv();
+        this.bbZ.MN();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float g(Bitmap bitmap) {
-        return this.bbe.My();
+        return this.bbZ.MQ();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float getMinScaleValue() {
-        return this.bbe.getMinScaleValue();
+        return this.bbZ.getMinScaleValue();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float h(Bitmap bitmap) {
-        return this.bbe.Mz();
+        return this.bbZ.MR();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
-    public void Lw() {
-        this.bbe.a(getImageBitmap(), getImageData());
+    public void LO() {
+        this.bbZ.a(getImageBitmap(), getImageData());
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
-        this.bbe.release();
+        this.bbZ.release();
         super.onDetachedFromWindow();
     }
 }

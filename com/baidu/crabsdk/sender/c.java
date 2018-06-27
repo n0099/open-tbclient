@@ -12,11 +12,11 @@ import java.io.StringWriter;
 import java.lang.Thread;
 /* loaded from: classes2.dex */
 public final class c implements Thread.UncaughtExceptionHandler {
-    public static boolean To = false;
-    private static final String Tp = Environment.getExternalStorageDirectory().getPath() + File.separator + o.G() + File.separator + "oom" + File.separator;
-    private static c Tq = new c();
-    private Thread.UncaughtExceptionHandler Tr = null;
-    private Context Ts = null;
+    public static boolean Tq = false;
+    private static final String Tr = Environment.getExternalStorageDirectory().getPath() + File.separator + o.G() + File.separator + "oom" + File.separator;
+    private static c Ts = new c();
+    private Thread.UncaughtExceptionHandler Tt = null;
+    private Context Tu = null;
 
     private c() {
     }
@@ -32,16 +32,16 @@ public final class c implements Thread.UncaughtExceptionHandler {
     }
 
     public static c pk() {
-        return Tq;
+        return Ts;
     }
 
     public final void d(Context context) {
-        if (this.Tr == null) {
-            this.Tr = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.Tt == null) {
+            this.Tt = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.Ts == null) {
-            this.Ts = context.getApplicationContext();
+        if (this.Tu == null) {
+            this.Tu = context.getApplicationContext();
         }
     }
 
@@ -77,42 +77,42 @@ public final class c implements Thread.UncaughtExceptionHandler {
         if (obj != null && !str.trim().equals("")) {
             if (com.baidu.crabsdk.a.n && g(th)) {
                 try {
-                    String str2 = Tp;
+                    String str2 = Tr;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
-                            com.baidu.crabsdk.c.a.ce("app文件创建ok  fileName is " + str2);
+                            com.baidu.crabsdk.c.a.cg("app文件创建ok  fileName is " + str2);
                         } else {
-                            com.baidu.crabsdk.c.a.ce("app文件创建失败  fileName is " + str2);
+                            com.baidu.crabsdk.c.a.cg("app文件创建失败  fileName is " + str2);
                         }
                     }
                     String str3 = str2 + System.currentTimeMillis() + ".hprof";
                     Debug.dumpHprofData(str3);
-                    com.baidu.crabsdk.c.a.cd("输出OOM的dump信息 name=" + str3);
+                    com.baidu.crabsdk.c.a.cf("输出OOM的dump信息 name=" + str3);
                 } catch (Throwable th3) {
-                    com.baidu.crabsdk.c.a.ce("oom save fail" + th3.getMessage());
+                    com.baidu.crabsdk.c.a.cg("oom save fail" + th3.getMessage());
                 }
             }
             if (e.pm() && e.po() && e.h(th)) {
-                To = false;
-                if (this.Ts != null && thread != null && th != null) {
-                    f.c(this.Ts, f.j(d.a(this.Ts, th, false)));
+                Tq = false;
+                if (this.Tu != null && thread != null && th != null) {
+                    f.c(this.Tu, f.j(d.a(this.Tu, th, false)));
                     e.i(th);
                     e.j(th);
                     e.aa();
-                    h.a(false, this.Ts);
+                    h.a(false, this.Tu);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!To) {
+                        if (!Tq) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
-                                com.baidu.crabsdk.c.a.cd("T^T upload timeout!");
+                                com.baidu.crabsdk.c.a.cf("T^T upload timeout!");
                                 break;
                             }
                         } else {
-                            com.baidu.crabsdk.c.a.cd("^^ upload finished()! --> cost : " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                            com.baidu.crabsdk.c.a.cf("^^ upload finished()! --> cost : " + (currentTimeMillis2 - currentTimeMillis) + "ms");
                             break;
                         }
                     }
@@ -124,8 +124,8 @@ public final class c implements Thread.UncaughtExceptionHandler {
                 com.baidu.crabsdk.a.M.onCrashStarted(thread, th);
             }
         }
-        if (!this.Tr.equals(this)) {
-            this.Tr.uncaughtException(thread, th);
+        if (!this.Tt.equals(this)) {
+            this.Tt.uncaughtException(thread, th);
         }
         throw new RuntimeException(th);
     }

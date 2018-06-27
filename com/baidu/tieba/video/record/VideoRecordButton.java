@@ -10,14 +10,14 @@ import android.widget.TextView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView Qg;
-    private ObjectAnimator hgA;
-    private ObjectAnimator hgB;
-    private ObjectAnimator hgC;
-    private ObjectAnimator hgD;
-    private View hgx;
-    private View hgy;
-    private View hgz;
+    private TextView Qi;
+    private View hkE;
+    private View hkF;
+    private View hkG;
+    private ObjectAnimator hkH;
+    private ObjectAnimator hkI;
+    private ObjectAnimator hkJ;
+    private ObjectAnimator hkK;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), d.i.layout_record_button, this);
-        this.hgx = findViewById(d.g.record_layer1);
-        this.hgy = findViewById(d.g.record_layer2);
-        this.hgz = findViewById(d.g.record_layer3);
-        this.Qg = (TextView) findViewById(d.g.tv_tip);
-        this.hgz.setScaleX(0.766f);
-        this.hgz.setScaleY(0.766f);
+        this.hkE = findViewById(d.g.record_layer1);
+        this.hkF = findViewById(d.g.record_layer2);
+        this.hkG = findViewById(d.g.record_layer3);
+        this.Qi = (TextView) findViewById(d.g.tv_tip);
+        this.hkG.setScaleX(0.766f);
+        this.hkG.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.hgz;
+        return this.hkG;
     }
 
     public View getLayer1() {
-        return this.hgx;
+        return this.hkE;
     }
 
     public View getLayer2() {
-        return this.hgy;
+        return this.hkF;
     }
 
     public TextView getTvTip() {
-        return this.Qg;
+        return this.Qi;
     }
 
-    public void bEq() {
-        if (this.hgD != null && this.hgD.isRunning()) {
-            this.hgC.cancel();
+    public void bEQ() {
+        if (this.hkK != null && this.hkK.isRunning()) {
+            this.hkJ.cancel();
         }
-        if (this.hgC == null) {
-            this.hgC = ObjectAnimator.ofPropertyValuesHolder(this.hgy, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.hgC.setDuration(200L);
+        if (this.hkJ == null) {
+            this.hkJ = ObjectAnimator.ofPropertyValuesHolder(this.hkF, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.hkJ.setDuration(200L);
         }
-        this.hgC.start();
+        this.hkJ.start();
     }
 
-    public void bEr() {
-        if (this.hgC != null && this.hgC.isRunning()) {
-            this.hgC.cancel();
+    public void bER() {
+        if (this.hkJ != null && this.hkJ.isRunning()) {
+            this.hkJ.cancel();
         }
-        if (this.hgy.getScaleX() != 1.0f) {
-            if (this.hgD == null) {
-                this.hgD = ObjectAnimator.ofPropertyValuesHolder(this.hgy, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.hgD.setDuration(200L);
+        if (this.hkF.getScaleX() != 1.0f) {
+            if (this.hkK == null) {
+                this.hkK = ObjectAnimator.ofPropertyValuesHolder(this.hkF, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.hkK.setDuration(200L);
             }
-            this.hgD.start();
+            this.hkK.start();
         }
     }
 
-    public void ni(boolean z) {
-        if (this.hgB != null && this.hgB.isRunning()) {
-            this.hgB.cancel();
+    public void nq(boolean z) {
+        if (this.hkI != null && this.hkI.isRunning()) {
+            this.hkI.cancel();
         }
-        if (this.hgA == null) {
-            this.hgA = ObjectAnimator.ofPropertyValuesHolder(this.hgz, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.hgA.setRepeatCount(-1);
-            this.hgA.setRepeatMode(2);
-            this.hgA.setDuration(1000L);
+        if (this.hkH == null) {
+            this.hkH = ObjectAnimator.ofPropertyValuesHolder(this.hkG, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.hkH.setRepeatCount(-1);
+            this.hkH.setRepeatMode(2);
+            this.hkH.setDuration(1000L);
         }
-        this.hgz.setVisibility(0);
+        this.hkG.setVisibility(0);
         if (z) {
-            this.hgx.setVisibility(8);
+            this.hkE.setVisibility(8);
         } else {
-            this.hgx.setBackgroundResource(d.f.red_square_bg);
+            this.hkE.setBackgroundResource(d.f.red_square_bg);
         }
-        this.Qg.setVisibility(8);
-        this.hgA.start();
+        this.Qi.setVisibility(8);
+        this.hkH.start();
     }
 
-    public void bEf() {
-        if (this.hgA != null && this.hgA.isRunning()) {
-            this.hgA.cancel();
+    public void bEF() {
+        if (this.hkH != null && this.hkH.isRunning()) {
+            this.hkH.cancel();
         }
-        if (this.hgB == null) {
-            this.hgB = ObjectAnimator.ofPropertyValuesHolder(this.hgz, PropertyValuesHolder.ofFloat("scaleX", this.hgz.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hgz.getScaleY(), 0.766f));
-            this.hgB.setDuration((500.0f * Math.abs(0.766f - this.hgz.getScaleX())) / 0.3f);
+        if (this.hkI == null) {
+            this.hkI = ObjectAnimator.ofPropertyValuesHolder(this.hkG, PropertyValuesHolder.ofFloat("scaleX", this.hkG.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hkG.getScaleY(), 0.766f));
+            this.hkI.setDuration((500.0f * Math.abs(0.766f - this.hkG.getScaleX())) / 0.3f);
         }
-        this.hgx.setVisibility(0);
-        this.hgx.setBackgroundResource(d.f.red_circle_bg);
-        this.hgB.start();
+        this.hkE.setVisibility(0);
+        this.hkE.setBackgroundResource(d.f.red_circle_bg);
+        this.hkI.start();
     }
 }

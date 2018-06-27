@@ -8,7 +8,7 @@ public interface a {
 
     boolean a(f fVar, int i);
 
-    void ca(String str);
+    void cc(String str);
 
     void oF();
 

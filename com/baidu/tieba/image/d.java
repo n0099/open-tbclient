@@ -2,31 +2,32 @@ package com.baidu.tieba.image;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes3.dex */
 public class d {
-    public static String oZ(String str) {
+    public static String pa(String str) {
         int lastIndexOf;
         int indexOf;
-        String bf = ao.bf(str);
-        if (bf != null) {
-            if (bf.indexOf(".baidu.com") != -1 && (lastIndexOf = bf.lastIndexOf("/")) != -1 && (indexOf = bf.indexOf(".", lastIndexOf)) != -1) {
-                return bf.substring(lastIndexOf + 1, indexOf);
+        String bh = ap.bh(str);
+        if (bh != null) {
+            if (bh.indexOf(".baidu.com") != -1 && (lastIndexOf = bh.lastIndexOf("/")) != -1 && (indexOf = bh.indexOf(".", lastIndexOf)) != -1) {
+                return bh.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return bf;
-    }
-
-    public static boolean pa(String str) {
-        if (StringUtils.isNull(str)) {
-            return false;
-        }
-        String bf = ao.bf(str);
-        return !StringUtils.isNull(bf) && bf.contains("?t=");
+        return bh;
     }
 
     public static boolean pb(String str) {
-        return (TextUtils.isEmpty(str) || str.startsWith("http://") || str.startsWith("https://")) ? false : true;
+        if (StringUtils.isNull(str)) {
+            return false;
+        }
+        String bh = ap.bh(str);
+        return !StringUtils.isNull(bh) && bh.contains("?t=");
+    }
+
+    public static boolean pc(String str) {
+        return (TextUtils.isEmpty(str) || str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? false : true;
     }
 }

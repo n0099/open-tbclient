@@ -30,7 +30,7 @@ public class MultiAttentionModel extends BdBaseModel {
         return false;
     }
 
-    public void aBr() {
+    public void aBX() {
         this.mIsLoading = false;
     }
 
@@ -40,7 +40,7 @@ public class MultiAttentionModel extends BdBaseModel {
     }
 
     public void i(List<String> list, boolean z) {
-        if (!w.z(list) && !this.mIsLoading) {
+        if (!w.A(list) && !this.mIsLoading) {
             MultiAttentionRequestMessage multiAttentionRequestMessage = new MultiAttentionRequestMessage();
             multiAttentionRequestMessage.setPortraitList(list);
             multiAttentionRequestMessage.setAttentionAll(z);

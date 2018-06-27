@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bc;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 import com.baidu.tieba.recapp.activity.WebVideoActivity;
@@ -22,9 +22,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.gjf.set(new t());
+        r.gmX.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.Qy().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.QV().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -37,7 +37,7 @@ public class RecAppStatic {
                         if (queryParameter.startsWith("tel:")) {
                             if (context instanceof Activity) {
                                 com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                                aVar.zU();
+                                aVar.Aj();
                                 aVar.c((Activity) context, "android.permission.CALL_PHONE");
                                 if (aVar.u((Activity) context)) {
                                     return 0;
@@ -73,9 +73,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.Oo().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.Oo().a(2, new d());
-        bd.ahU.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.OH().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.OH().a(2, new d());
+        bc.ain.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);
@@ -88,8 +88,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.bnT().bnW();
-        b.bnT().bnU();
+        b.bot().bow();
+        b.bot().bou();
         com.baidu.b.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.b.a.a.a(new p());
         com.baidu.b.a.a.a(new q());

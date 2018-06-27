@@ -30,7 +30,7 @@ public class c extends PopupWindow {
             setWidth(-1);
             setSoftInputMode(16);
             setFocusable(false);
-            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0141d.common_color_10022)));
+            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0142d.common_color_10022)));
             setAnimationStyle(d.l.pb_more_pop_anim);
         }
     }

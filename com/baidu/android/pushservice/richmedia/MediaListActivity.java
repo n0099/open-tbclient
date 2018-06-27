@@ -34,6 +34,7 @@ import android.widget.Toast;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.richmedia.c;
+import com.tencent.open.SocialConstants;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -163,8 +164,8 @@ public class MediaListActivity extends Activity {
                     if (textView3 != null && hashMap.get("timetext") != null) {
                         textView3.setText(hashMap.get("timetext").toString());
                     }
-                    if (imageView != null && hashMap.get("img") != null) {
-                        imageView.setImageDrawable((Drawable) hashMap.get("img"));
+                    if (imageView != null && hashMap.get(SocialConstants.PARAM_IMG_URL) != null) {
+                        imageView.setImageDrawable((Drawable) hashMap.get(SocialConstants.PARAM_IMG_URL));
                     }
                 }
             } catch (Exception e) {
@@ -308,7 +309,7 @@ public class MediaListActivity extends Activity {
         if (this.d == 0) {
             return;
         }
-        String[] strArr = {"img", "title", "fromtext", "timetext"};
+        String[] strArr = {SocialConstants.PARAM_IMG_URL, "title", "fromtext", "timetext"};
         this.a = new ArrayList<>();
         List<a.g> b = com.baidu.android.pushservice.d.a.b(this);
         if (b == null || b.isEmpty()) {

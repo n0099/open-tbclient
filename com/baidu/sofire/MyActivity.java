@@ -16,7 +16,7 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Window;
 import com.baidu.appsearchlib.Info;
-import com.baidu.sofire.a;
+import com.baidu.sofire.b.t;
 import com.baidu.sofire.core.ApkInfo;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -54,7 +54,7 @@ public class MyActivity extends Activity {
                 sb.append(getClass().getSimpleName()).append(": mode=").append(this.a).append(", activity=").append(this.b).append(", path=").append(this.c).append(",pkgName=").append(this.d);
                 return sb.toString();
             } catch (Throwable th) {
-                com.baidu.sofire.b.d.a(th);
+                com.baidu.sofire.b.e.a(th);
                 return "";
             }
         }
@@ -98,7 +98,7 @@ public class MyActivity extends Activity {
             aVar.e = intent;
             return true;
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
             return false;
         }
     }
@@ -114,19 +114,30 @@ public class MyActivity extends Activity {
         String str;
         int i2 = 0;
         try {
+            final Intent intent = getIntent();
+            if ("a".equals(intent.getStringExtra(Info.kBaiduTimeKey))) {
+                final Context applicationContext = getApplicationContext();
+                t.a().a.execute(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        try {
+                            new StringBuilder("PPP(activity) now to active ").append(intent.toString());
+                            String stringExtra = intent.getStringExtra("c");
+                            Intent intent2 = new Intent();
+                            intent2.putExtra(Info.kBaiduTimeKey, "a");
+                            intent2.putExtra("c", stringExtra);
+                            com.baidu.sofire.a.a(applicationContext.getApplicationContext(), intent2);
+                        } catch (Throwable th) {
+                            com.baidu.sofire.b.e.a(th);
+                        }
+                    }
+                });
+            }
             com.baidu.sofire.core.e a2 = com.baidu.sofire.core.e.a();
             if (a2 == null) {
                 super.onCreate(bundle);
                 finish();
                 return;
-            }
-            Intent intent = getIntent();
-            if ("a".equals(intent.getStringExtra(Info.kBaiduTimeKey))) {
-                String stringExtra = intent.getStringExtra("c");
-                Intent intent2 = new Intent();
-                intent2.putExtra(Info.kBaiduTimeKey, "a");
-                intent2.putExtra("c", stringExtra);
-                new a.AnonymousClass1(getApplicationContext(), getIntent()).start();
             }
             a(this.b, intent);
             this.b.toString();
@@ -279,7 +290,7 @@ public class MyActivity extends Activity {
             }
             super.onCreate(bundle);
         } catch (Throwable th7) {
-            com.baidu.sofire.b.d.a(th7);
+            com.baidu.sofire.b.e.a(th7);
         }
     }
 
@@ -291,7 +302,7 @@ public class MyActivity extends Activity {
                 j.invoke(this.c, bundle);
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -303,7 +314,7 @@ public class MyActivity extends Activity {
                 p.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -315,7 +326,7 @@ public class MyActivity extends Activity {
                 n.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -327,7 +338,7 @@ public class MyActivity extends Activity {
                 l.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -339,7 +350,7 @@ public class MyActivity extends Activity {
                 m.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -351,7 +362,7 @@ public class MyActivity extends Activity {
                 k.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -363,7 +374,7 @@ public class MyActivity extends Activity {
                 o.invoke(this.c, new Object[0]);
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -386,7 +397,7 @@ public class MyActivity extends Activity {
                 }
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -400,7 +411,7 @@ public class MyActivity extends Activity {
             int diff = configuration2.diff(configuration);
             return diff != 0 && (diff & i2) == 0;
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
             return false;
         }
     }

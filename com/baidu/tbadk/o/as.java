@@ -7,7 +7,7 @@ public class as extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_show_answer";
+        return "android_share_switch";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class as extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int hn() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,5 +28,9 @@ public class as extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int hp() {
         return 10;
+    }
+
+    public static boolean ip() {
+        return com.baidu.adp.lib.b.d.hv().aw("android_share_switch") == 1;
     }
 }

@@ -1,11 +1,14 @@
 package com.baidu.tieba.frs.c.a;
 
 import android.view.View;
+import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public interface a {
+    LinearLayout ayH();
+
     View getHeaderView();
 
-    void hT(String str);
+    void hX(String str);
 
     void hideTitle();
 

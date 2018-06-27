@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
@@ -49,7 +49,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ai.zg().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ai.zu().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -94,7 +94,7 @@ public class KuangFloatingViewController {
                     public void onClick(View view) {
                         KuangFloatingViewController.this.hideFloatingView();
                         KuangFloatingViewController.this.needShowFloatingView = false;
-                        TiebaStatic.log(new am("C12265").r("obj_type", 2));
+                        TiebaStatic.log(new an("C12265").r("obj_type", 2));
                     }
                 });
             } else if (this.mFloatingView.getParent() != null) {

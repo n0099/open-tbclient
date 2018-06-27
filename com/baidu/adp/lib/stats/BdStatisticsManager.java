@@ -24,6 +24,7 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import com.tencent.open.SocialConstants;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -390,7 +391,7 @@ public class BdStatisticsManager {
     }
 
     private void addLog(String str, String str2, long j, String str3, com.baidu.adp.lib.stats.a aVar, Object... objArr) {
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.is().aF(str)) {
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !e.is().aH(str)) {
             if (j == -1) {
                 g.jd().a(str, str2, null, str3, aVar, objArr);
             } else {
@@ -412,7 +413,7 @@ public class BdStatisticsManager {
 
     public void imgNet(String str, String str2, long j, long j2, long j3, long j4, long j5, int i, int i2, String str3, Object... objArr) {
         if ((i2 != 0 && i2 != 200) || (j3 > 2000 && "WIFI".equals(d.getNetType(this.mContext)))) {
-            net("img", str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
+            net(SocialConstants.PARAM_IMG_URL, str, str2, j, j2, j3, j4, j5, i, i2, str3, objArr);
         }
     }
 
@@ -439,37 +440,37 @@ public class BdStatisticsManager {
     }
 
     public void file(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.is().aF("file")) {
+        if (!e.is().aH("file")) {
             op(true, "file", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void db(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.is().aF("db")) {
+        if (!e.is().aH("db")) {
             op(true, "db", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void imgErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.is().aF("img")) {
-            op(true, "img", str, str2, 0L, i, str3, objArr);
+        if (!e.is().aH(SocialConstants.PARAM_IMG_URL)) {
+            op(true, SocialConstants.PARAM_IMG_URL, str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void voiceErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.is().aF("voice")) {
+        if (!e.is().aH("voice")) {
             op(true, "voice", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void liveErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.is().aF("live")) {
+        if (!e.is().aH("live")) {
             op(true, "live", str, str2, 0L, i, str3, objArr);
         }
     }
 
     public void aladinPortErr(String str, String str2, int i, String str3, Object... objArr) {
-        if (!e.is().aF("aladin_port_error")) {
+        if (!e.is().aH("aladin_port_error")) {
             op(true, "aladin_port_error", str, str2, 0L, i, str3, objArr);
         }
     }

@@ -1,53 +1,53 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d bkg;
-    private ArrayList<Integer> bkc = new ArrayList<>();
-    private c bkd;
-    private a bkh;
+    private static volatile d blF;
+    private ArrayList<Integer> blB = new ArrayList<>();
+    private c blC;
+    private a blG;
 
-    public static d Qe() {
-        if (bkg == null) {
+    public static d QB() {
+        if (blF == null) {
             synchronized (c.class) {
-                if (bkg == null) {
-                    bkg = new d();
+                if (blF == null) {
+                    blF = new d();
                 }
             }
         }
-        return bkg;
+        return blF;
     }
 
     private d() {
-        this.bkc.add(1);
-        this.bkc.add(2);
-        this.bkd = new c();
-        this.bkh = new a(this.bkd, this.bkc);
-        gt(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
+        this.blB.add(1);
+        this.blB.add(2);
+        this.blC = new c();
+        this.blG = new a(this.blC, this.blB);
+        gu(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
     }
 
     public int L(String str, int i) {
-        if (this.bkh == null) {
+        if (this.blG == null) {
             return 0;
         }
-        return this.bkh.L(str, i);
+        return this.blG.L(str, i);
     }
 
-    public void ix(String str) {
-        if (this.bkh != null) {
-            this.bkh.iw(str);
+    public void iC(String str) {
+        if (this.blG != null) {
+            this.blG.iB(str);
         }
     }
 
-    public void a(String str, String str2, am amVar) {
-        if (amVar != null && this.bkd != null && this.bkd.Qc()) {
+    public void a(String str, String str2, an anVar) {
+        if (anVar != null && this.blC != null && this.blC.Qz()) {
             HashMap hashMap = new HashMap();
-            List<Object> params = amVar.getParams();
+            List<Object> params = anVar.getParams();
             if (params != null) {
                 int size = params.size();
                 for (int i = 0; i < size; i += 2) {
@@ -64,25 +64,25 @@ public class d {
                     hashMap.put(str3, str4);
                 }
             }
-            com.baidu.ubs.analytics.a.a(str2 + amVar.getKey(), str, "", hashMap);
+            com.baidu.ubs.analytics.a.a(str2 + anVar.getKey(), str, "", hashMap);
         }
     }
 
     public void onPageStart(String str) {
-        if (ao.isEmpty(str) || this.bkd == null || !this.bkd.Qc()) {
-            com.baidu.ubs.analytics.a.vX(str);
+        if (ap.isEmpty(str) || this.blC == null || !this.blC.Qz()) {
+            com.baidu.ubs.analytics.a.vT(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (ao.isEmpty(str) || this.bkd == null || !this.bkd.Qc()) {
-            com.baidu.ubs.analytics.a.vY(str);
+        if (ap.isEmpty(str) || this.blC == null || !this.blC.Qz()) {
+            com.baidu.ubs.analytics.a.vU(str);
         }
     }
 
-    public void gt(int i) {
-        if (this.bkd != null) {
-            this.bkd.gt(i);
+    public void gu(int i) {
+        if (this.blC != null) {
+            this.blC.gu(i);
         }
     }
 }

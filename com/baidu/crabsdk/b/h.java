@@ -10,7 +10,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public final class h {
-    private static String SO = null;
+    private static String SR = null;
 
     public static String b(String str) {
         MessageDigest messageDigest = null;
@@ -37,16 +37,16 @@ public final class h {
 
     public static String g(Context context) {
         if (com.baidu.crabsdk.a.K) {
-            if (SO != null) {
-                return SO;
+            if (SR != null) {
+                return SR;
             }
             try {
-                SO = b(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                SR = b(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.cd("getCUID fail," + e);
-                SO = "N/A";
+                com.baidu.crabsdk.c.a.cf("getCUID fail," + e);
+                SR = "N/A";
             }
-            return SO;
+            return SR;
         }
         return "N/A";
     }

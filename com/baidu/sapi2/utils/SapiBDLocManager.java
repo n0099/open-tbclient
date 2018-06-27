@@ -19,10 +19,13 @@ import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
+import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
@@ -36,6 +39,7 @@ public class SapiBDLocManager {
     private static Method g = null;
     private static Class<?> h = null;
     private static char[] n = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.".toCharArray();
+    private static String o;
     private Context b;
     private TelephonyManager c;
     private WifiManager i;
@@ -57,7 +61,6 @@ public class SapiBDLocManager {
             this.c = (TelephonyManager) this.b.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
             str = this.c.getDeviceId();
         } catch (Exception e2) {
-            Log.e(e2);
             str = null;
         }
         this.m = "&" + packageName + "&" + str;
@@ -73,22 +76,31 @@ public class SapiBDLocManager {
         }
     }
 
-    public String getLocString(int i) {
-        try {
-            return a(i);
-        } catch (Exception e2) {
-            Log.e(e2);
-            return null;
+    public String getLocString(final int i) {
+        if (!TextUtils.isEmpty(o)) {
+            return o;
         }
+        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.utils.SapiBDLocManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                try {
+                    String unused = SapiBDLocManager.o = SapiBDLocManager.this.a(i);
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+            }
+        }));
+        return o;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:25:0x007f  */
     /* JADX WARN: Removed duplicated region for block: B:28:0x0099  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00ca  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00cf  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String a(int i) {
+    public String a(int i) {
         String str;
         String str2;
         if (i < 3) {
@@ -101,12 +113,12 @@ public class SapiBDLocManager {
                     a(this.c.getCellLocation());
                 }
             } else {
-                Log.e("new cell api is valid = " + a2.toCellString(), new Object[0]);
+                Log.i("new cell api is valid = " + a2.toCellString(), new Object[0]);
                 this.d = a2;
             }
             str = this.d.toCellString();
         } catch (Exception e2) {
-            Log.e(e2);
+            Log.i(e2);
             str = null;
         }
         if (str == null) {
@@ -136,7 +148,7 @@ public class SapiBDLocManager {
             str = str + str2;
         }
         if (str.equals("Z")) {
-            return a(str + Info.kBaiduTimeKey + System.currentTimeMillis() + this.m);
+            return b(str + Info.kBaiduTimeKey + System.currentTimeMillis() + this.m);
         }
         return null;
     }
@@ -208,17 +220,17 @@ public class SapiBDLocManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0041, code lost:
-        if (r0.a() != false) goto L30;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0043, code lost:
+        if (r0.a() != false) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0045, code lost:
         com.baidu.sapi2.base.debug.Log.e(" !res.isValid()", new java.lang.Object[0]);
         r0 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004f, code lost:
         r1 = r0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x004f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0051, code lost:
         com.baidu.sapi2.base.debug.Log.e(" res.isValid()", new java.lang.Object[0]);
      */
     @TargetApi(17)
@@ -249,7 +261,7 @@ public class SapiBDLocManager {
                                         } catch (Exception e2) {
                                             bDCellInfo = a2;
                                             e = e2;
-                                            Log.e(e);
+                                            Log.i(e);
                                             return bDCellInfo;
                                         }
                                     }
@@ -263,11 +275,11 @@ public class SapiBDLocManager {
                     } else {
                         Log.e("getAllCellInfo =null", new Object[0]);
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (NoSuchMethodError e4) {
+                    Log.i(e4);
                 }
-            } catch (NoSuchMethodError e5) {
-                Log.e(e5);
+            } catch (Exception e5) {
+                e = e5;
             }
         }
         return bDCellInfo;
@@ -516,7 +528,7 @@ public class SapiBDLocManager {
         }
     }
 
-    private static String a(String str) {
+    private static String b(String str) {
         int i = 0;
         if (str == null) {
             return null;

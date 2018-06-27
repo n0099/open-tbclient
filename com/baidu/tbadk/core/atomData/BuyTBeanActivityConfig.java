@@ -6,6 +6,7 @@ import com.baidu.tbadk.util.PageDialogHelper;
 /* loaded from: classes.dex */
 public class BuyTBeanActivityConfig extends IntentConfig {
     public static final String GIFT_TBEAN = "gift_tbean";
+    public static final String IS_FROM_ALA = "is_from_ala";
     public static final String PAY_FORM = "pay_form";
     public static final String PAY_TYPE = "pay_type";
     public static final String SCENE_ID = "scene_id";
@@ -26,5 +27,10 @@ public class BuyTBeanActivityConfig extends IntentConfig {
     public void setReferPageAndClickZone(String str, String str2) {
         getIntent().putExtra("refer_page", str);
         getIntent().putExtra("click_zone", str2);
+    }
+
+    public BuyTBeanActivityConfig setIsFromALa(boolean z) {
+        getIntent().putExtra(IS_FROM_ALA, z);
+        return this;
     }
 }

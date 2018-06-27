@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView dEi;
-    private TextView dEz;
-    private ShareFromPBMsgData evH;
+    private HeadImageView dHD;
+    private TextView dHU;
+    private ShareFromPBMsgData ezy;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(d.i.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(d.g.chat_title);
-        this.dEi = (HeadImageView) findViewById(d.g.chat_group_img);
-        this.dEz = (TextView) findViewById(d.g.chat_group_desc);
+        this.dHD = (HeadImageView) findViewById(d.g.chat_group_img);
+        this.dHU = (TextView) findViewById(d.g.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.title.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_b));
-            this.dEz.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_f));
+            this.title.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_b));
+            this.dHU.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_f));
             return;
         }
-        this.title.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_g));
-        this.dEz.setTextColor(getContext().getResources().getColor(d.C0141d.cp_cont_g));
+        this.title.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_g));
+        this.dHU.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.evH = shareFromPBMsgData;
-        Al();
+        this.ezy = shareFromPBMsgData;
+        AB();
     }
 
-    private void Al() {
-        this.title.setText(this.evH.getTitle());
-        this.dEi.setDefaultResource(d.f.icon_default_ba_120);
-        this.dEi.setAutoChangeStyle(false);
-        this.dEi.startLoad(this.evH.getImageUrl(), 10, false);
-        this.dEz.setText(this.evH.getContent());
+    private void AB() {
+        this.title.setText(this.ezy.getTitle());
+        this.dHD.setDefaultResource(d.f.icon_default_ba_120);
+        this.dHD.setAutoChangeStyle(false);
+        this.dHD.startLoad(this.ezy.getImageUrl(), 10, false);
+        this.dHU.setText(this.ezy.getContent());
     }
 }

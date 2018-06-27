@@ -3,11 +3,12 @@ package com.baidu.tbadk.core.data;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class az {
-    public u ahC;
+    public u ahV;
     private String avatar;
     private String forumId;
     private int forumLevel;
     private String forumName;
+    public boolean isBrandForum;
 
     public String getForumId() {
         return this.forumId;
@@ -24,9 +25,10 @@ public class az {
             this.avatar = simpleForum.avatar;
             this.forumLevel = simpleForum.level_id.intValue();
             if (simpleForum.multi_forum_perm != null) {
-                this.ahC = new u();
-                this.ahC.a(simpleForum.multi_forum_perm);
+                this.ahV = new u();
+                this.ahV.a(simpleForum.multi_forum_perm);
             }
+            this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
         }
     }
 }

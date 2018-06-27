@@ -8,57 +8,57 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class c {
-    private static c RU;
-    private static Context RV;
-    private static ExecutorService RW;
+    private static c RW;
+    private static Context RX;
+    private static ExecutorService RY;
     private static boolean ak = false;
-    public l RR;
-    public p RT;
+    public l RU;
+    public p RV;
 
     private c(Context context) {
-        RV = context;
-        this.RT = new p(Looper.getMainLooper().getThread(), a.T);
-        this.RR = new l(new d(this), context);
-        if (RW == null) {
-            RW = Executors.newSingleThreadExecutor();
+        RX = context;
+        this.RV = new p(Looper.getMainLooper().getThread(), a.T);
+        this.RU = new l(new d(this), context);
+        if (RY == null) {
+            RY = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c at(Context context) {
-        if (RU == null) {
+        if (RW == null) {
             synchronized (c.class) {
-                if (RU == null) {
-                    RU = new c(context);
+                if (RW == null) {
+                    RW = new c(context);
                 }
             }
         }
-        return RU;
+        return RW;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(long j, long j2, long j3, long j4) {
         ArrayList<String> b = p.b(j, j2);
-        com.baidu.crabsdk.c.a.cd("-BlockCanaryCore- threadStackEntries: size = " + b.size());
+        com.baidu.crabsdk.c.a.cf("-BlockCanaryCore- threadStackEntries: size = " + b.size());
         if (b.isEmpty()) {
             return;
         }
         a oS = a.oS();
-        oS.RL = b;
+        oS.RP = b;
         oS.a(j, j2, j3, j4);
     }
 
     public static void start() {
         ak = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.RY.start();
-            com.baidu.crabsdk.c.a.cb("start FrameMonitor...");
+            e.Sa.start();
+            com.baidu.crabsdk.c.a.cd("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         ak = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.RY.stop();
+            e.Sa.stop();
         }
     }
 }

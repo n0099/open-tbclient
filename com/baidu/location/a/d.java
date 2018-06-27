@@ -11,16 +11,16 @@ import com.baidu.location.Jni;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class d {
     public static String c = null;
-    public com.baidu.location.f.i VK = null;
-    public com.baidu.location.f.a VL = null;
+    public com.baidu.location.f.i VM = null;
+    public com.baidu.location.f.a VN = null;
     private boolean e = true;
     private boolean f = false;
     final Handler d = new a();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends Handler {
         public a() {
         }
@@ -44,7 +44,7 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b extends com.baidu.location.h.f {
         String a = null;
         String b = null;
@@ -129,14 +129,14 @@ public abstract class d {
     }
 
     public String a(String str) {
-        if (this.VL == null || !this.VL.a()) {
-            this.VL = com.baidu.location.f.c.qV().qR();
+        if (this.VN == null || !this.VN.a()) {
+            this.VN = com.baidu.location.f.c.qV().qR();
         }
-        if (this.VK == null || !this.VK.f()) {
-            this.VK = com.baidu.location.f.k.re().rc();
+        if (this.VM == null || !this.VM.f()) {
+            this.VM = com.baidu.location.f.k.re().rc();
         }
         Location qX = com.baidu.location.f.f.qY().i() ? com.baidu.location.f.f.qY().qX() : null;
-        if ((this.VL == null || this.VL.c()) && ((this.VK == null || this.VK.a() == 0) && qX == null)) {
+        if ((this.VN == null || this.VN.c()) && ((this.VM == null || this.VM.a() == 0) && qX == null)) {
             return null;
         }
         String c2 = com.baidu.location.a.a.qg().c();
@@ -161,7 +161,7 @@ public abstract class d {
         if (str != null) {
             str2 = str + str2;
         }
-        return com.baidu.location.h.i.a(this.VL, this.VK, qX, str2, 0);
+        return com.baidu.location.h.i.a(this.VN, this.VM, qX, str2, 0);
     }
 
     public abstract void a();

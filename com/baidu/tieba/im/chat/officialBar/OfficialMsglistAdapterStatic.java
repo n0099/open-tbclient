@@ -14,10 +14,10 @@ public class OfficialMsglistAdapterStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.ecW != null && aVar.context != null) {
+                    if (aVar.egQ != null && aVar.context != null) {
                         MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
-                        msgMultiImageTextViewItemAdapter.gN(true);
-                        aVar.ecW.add(msgMultiImageTextViewItemAdapter);
+                        msgMultiImageTextViewItemAdapter.gX(true);
+                        aVar.egQ.add(msgMultiImageTextViewItemAdapter);
                     }
                 }
             }

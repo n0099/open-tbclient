@@ -7,7 +7,7 @@ public class ab extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "switch_login_passv6";
+        return "android_lbs_webview_open";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,12 +17,12 @@ public class ab extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int hn() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int ho() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a

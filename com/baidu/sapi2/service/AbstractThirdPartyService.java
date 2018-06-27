@@ -12,9 +12,11 @@ public interface AbstractThirdPartyService {
     public static final int RESULT_AUTH_FAILURE = 1002;
     public static final int RESULT_AUTH_SUCCESS = 1001;
 
+    void handleWXLoginResp(Activity activity, String str, String str2, int i);
+
     void loadHuaweiLogin(Context context, WebAuthListener webAuthListener, String str, String str2);
 
-    void loadThirdPartyIndirect(Activity activity, int i, int i2);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i);
 
-    void loadThirdPartyLogin(Context context, WebAuthListener webAuthListener, SocialType socialType);
+    void socialBind(Activity activity, SocialType socialType, int i, String str);
 }

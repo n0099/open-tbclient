@@ -13,13 +13,13 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0070a {
+    /* loaded from: classes2.dex */
+    public static class C0071a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
             StringBuilder sb = new StringBuilder(bArr.length * 2);
@@ -57,7 +57,7 @@ public class a {
 
     static String a(X509Certificate x509Certificate) {
         try {
-            return C0070a.a(a(x509Certificate.getEncoded()));
+            return C0071a.a(a(x509Certificate.getEncoded()));
         } catch (CertificateEncodingException e) {
             return null;
         }

@@ -1,10 +1,10 @@
 package com.baidu.location.a;
 
 import android.location.Location;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class h {
-    private static com.baidu.location.f.a VL;
-    private static Location Wf;
+    private static com.baidu.location.f.a VN;
+    private static Location Wh;
     private static long a;
     private static String d;
 
@@ -25,18 +25,18 @@ public class h {
     }
 
     public static void b(Location location) {
-        Wf = location;
+        Wh = location;
     }
 
     public static void c(com.baidu.location.f.a aVar) {
-        VL = aVar;
+        VN = aVar;
     }
 
     public static com.baidu.location.f.a qn() {
-        return VL;
+        return VN;
     }
 
     public static Location qo() {
-        return Wf;
+        return Wh;
     }
 }

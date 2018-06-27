@@ -6,15 +6,7 @@ public interface SapiEnv {
     public static final String ACCOUNT_CENTER_MODIFY_PWD_RESULT = "/wp/passwordresult";
     public static final String CAPTCHA_URI = "/cgi-bin/genimage?";
     public static final String DEFAULT_PORTRAIT = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/img/default_portrait.png";
-    public static final String DEVICE_FORCE_REG_URI = "/yunid/device/forcereg";
-    public static final String DEVICE_LOGIN_URI = "/yunid/device/login";
-    public static final String DEVICE_REG_URI = "/yunid/device/reg";
-    public static final String DEVICE_SERVICE_STATUS_URI = "/yunid/device/service/status";
-    public static final String FACE_CHECK_URI = "/v2/sapi/getfaceid";
-    public static final String FACE_DELETE_URI = "/v2/sapi/delface";
-    public static final String FACE_LOGIN_URI = "/v2/sapi/facelogin";
-    public static final String FACE_MODIFY_URI = "/v2/sapi/updateface";
-    public static final String FACE_REG_URI = "/v2/sapi/regface";
+    public static final String FACE_LOGIN_ENABLE = "/v3/login/facelogincheck";
     public static final String FAST_REG_SMS_NUMBER = "10698000036592";
     public static final String FAST_REG_URI = "/v2/sapi/smsgetlogin";
     public static final String FILL_USER_PROFILE_BIND_URI = "/v2/security/sapibindwidgetbind";
@@ -22,6 +14,7 @@ public interface SapiEnv {
     public static final String GET_DYNAMIC_PWD_URI = "/v2/sapi/getdpass";
     public static final String GET_IQIYI_ACCOUNT_INFO_URI = "/v3/phoenix/iqiyiat";
     public static final String GET_QR_CODE_IMAGE_URI = "/v2/api/getqrcode";
+    public static final String GET_QR_JOIN_LOGIN_RESULT = "/v3/login/main/qrbdusslogin";
     public static final String GET_QR_LOGIN_RESULT = "/v2/api/bdusslogin";
     public static final String GET_QR_LOGIN_STATUS_CHECK = "/channel/unicast";
     public static final String GET_REG_CODE_URI = "/v2/sapi/applyregcode";
@@ -29,16 +22,16 @@ public interface SapiEnv {
     public static final String GET_USER_INFO_URI = "/v2/sapi/center/getuinfo";
     public static final String LOGIN_PROXY_URI = "/wp/login/proxy";
     public static final String LOGIN_URI = "/v2/sapi/login";
+    public static final String NORMALIZE_GUEST_ACCOUNT_URI = "/phoenix/account/guidetouristnormalize";
     public static final String OAUTH_URI = "/v2/sapi/bdussexchangeaccesstoken";
     public static final String PASS_RETRY_IP1 = "http://119.75.220.29";
     public static final String PASS_RETRY_IP2 = "http://220.181.111.48";
     public static final String PASS_RETRY_IP3 = "http://123.125.115.81";
     public static final String PHONE_REG_URI = "/v2/sapi/phoneregverify";
     public static final String QR_APP_LOGIN_URI = "/v2/sapi/qrlogin?lp=app";
-    public static final String QR_PC_LOGIN_URI = "/v2/sapi/qrlogin?lp=pc";
-    public static final String RELOGIN_URI = "/v5/login/sapi/relogin";
     public static final String SAPI_CONFIG_HTTPS_URI = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/conf/config.txt";
     public static final String SAPI_CONFIG_URI = "/static/appsapi/conf/config.txt";
+    public static final String SAPI_PLUGIN_CONFIG_OFFLINE_URI = "/static/appsapi/hosts/";
     public static final String SAPI_PLUGIN_CONFIG_URI = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/hosts/";
     public static final String SHARE_AES_MODE = "AES/CBC/PKCS5Padding";
     public static final String SHARE_ALGORITHM = "AES";
@@ -49,11 +42,5 @@ public interface SapiEnv {
     public static final String SOCIAL_START_URI = "/phoenix/account/startlogin";
     public static final String SSO_FINISH_URI = "/phoenix/account/ssologin";
     public static final String SSO_START_URI = "/phoenix/account/ssologin";
-    public static final String VOICE_CHECK_URI = "/v2/sapi/getvoiceid";
-    public static final String VOICE_LOGIN_URI = "/v2/sapi/voicelogin";
-    public static final String VOICE_REG_URI = "/v2/sapi/regvoice";
-    public static final String VOICE_SET_NUM_URI = "/v2/sapi/updatevoicepassword";
-    public static final String VOICE_SWITCH_SET_URI = "/v2/sapi/updatevoiceloginswitch";
-    public static final String VOICE_VERIFY_URI = "/v2/sapi/verifyvoice";
     public static final String WAP_SSO_CONFIRM = "/v2/sapi/setssochannelinfo";
 }

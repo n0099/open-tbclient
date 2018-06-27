@@ -10,24 +10,24 @@ import java.util.List;
 public class e implements k, a.InterfaceC0006a {
     private final com.airbnb.lottie.f jY;
     @Nullable
-    private q lC;
-    private final com.airbnb.lottie.a.b.a<?, PointF> lG;
-    private final com.airbnb.lottie.a.b.a<?, PointF> lH;
-    private final com.airbnb.lottie.model.content.a lI;
-    private boolean lJ;
-    private final Path lp = new Path();
+    private q lA;
+    private final com.airbnb.lottie.a.b.a<?, PointF> lE;
+    private final com.airbnb.lottie.a.b.a<?, PointF> lF;
+    private final com.airbnb.lottie.model.content.a lG;
+    private boolean lH;
+    private final Path lo = new Path();
     private final String name;
 
     public e(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.a aVar2) {
         this.name = aVar2.getName();
         this.jY = fVar;
-        this.lG = aVar2.cG().ck();
-        this.lH = aVar2.cw().ck();
-        this.lI = aVar2;
-        aVar.a(this.lG);
-        aVar.a(this.lH);
-        this.lG.b(this);
-        this.lH.b(this);
+        this.lE = aVar2.cG().ck();
+        this.lF = aVar2.cw().ck();
+        this.lG = aVar2;
+        aVar.a(this.lE);
+        aVar.a(this.lF);
+        this.lE.b(this);
+        this.lF.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0006a
@@ -36,7 +36,7 @@ public class e implements k, a.InterfaceC0006a {
     }
 
     private void invalidate() {
-        this.lJ = false;
+        this.lH = false;
         this.jY.invalidateSelf();
     }
 
@@ -48,8 +48,8 @@ public class e implements k, a.InterfaceC0006a {
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
                 if ((bVar instanceof q) && ((q) bVar).bQ() == ShapeTrimPath.Type.Simultaneously) {
-                    this.lC = (q) bVar;
-                    this.lC.a(this);
+                    this.lA = (q) bVar;
+                    this.lA.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -65,34 +65,34 @@ public class e implements k, a.InterfaceC0006a {
 
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
-        if (this.lJ) {
-            return this.lp;
+        if (this.lH) {
+            return this.lo;
         }
-        this.lp.reset();
-        PointF value = this.lG.getValue();
+        this.lo.reset();
+        PointF value = this.lE.getValue();
         float f = value.x / 2.0f;
         float f2 = value.y / 2.0f;
         float f3 = f * 0.55228f;
         float f4 = f2 * 0.55228f;
-        this.lp.reset();
-        if (this.lI.isReversed()) {
-            this.lp.moveTo(0.0f, -f2);
-            this.lp.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
-            this.lp.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
-            this.lp.cubicTo(0.0f + f3, f2, f, 0.0f + f4, f, 0.0f);
-            this.lp.cubicTo(f, 0.0f - f4, 0.0f + f3, -f2, 0.0f, -f2);
+        this.lo.reset();
+        if (this.lG.isReversed()) {
+            this.lo.moveTo(0.0f, -f2);
+            this.lo.cubicTo(0.0f - f3, -f2, -f, 0.0f - f4, -f, 0.0f);
+            this.lo.cubicTo(-f, 0.0f + f4, 0.0f - f3, f2, 0.0f, f2);
+            this.lo.cubicTo(0.0f + f3, f2, f, 0.0f + f4, f, 0.0f);
+            this.lo.cubicTo(f, 0.0f - f4, 0.0f + f3, -f2, 0.0f, -f2);
         } else {
-            this.lp.moveTo(0.0f, -f2);
-            this.lp.cubicTo(0.0f + f3, -f2, f, 0.0f - f4, f, 0.0f);
-            this.lp.cubicTo(f, 0.0f + f4, 0.0f + f3, f2, 0.0f, f2);
-            this.lp.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
-            this.lp.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
+            this.lo.moveTo(0.0f, -f2);
+            this.lo.cubicTo(0.0f + f3, -f2, f, 0.0f - f4, f, 0.0f);
+            this.lo.cubicTo(f, 0.0f + f4, 0.0f + f3, f2, 0.0f, f2);
+            this.lo.cubicTo(0.0f - f3, f2, -f, 0.0f + f4, -f, 0.0f);
+            this.lo.cubicTo(-f, 0.0f - f4, 0.0f - f3, -f2, 0.0f, -f2);
         }
-        PointF value2 = this.lH.getValue();
-        this.lp.offset(value2.x, value2.y);
-        this.lp.close();
-        com.airbnb.lottie.c.f.a(this.lp, this.lC);
-        this.lJ = true;
-        return this.lp;
+        PointF value2 = this.lF.getValue();
+        this.lo.offset(value2.x, value2.y);
+        this.lo.close();
+        com.airbnb.lottie.c.f.a(this.lo, this.lA);
+        this.lH = true;
+        return this.lo;
     }
 }

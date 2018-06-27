@@ -13,14 +13,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.av;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int fLb;
+    private int fPd;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -29,7 +29,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fLb = 3;
+        this.fPd = 3;
         setOrientation(0);
     }
 
@@ -38,10 +38,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.fLb) {
+        if (childCount > this.fPd) {
             while (true) {
                 childCount--;
-                if (childCount <= this.fLb) {
+                if (childCount <= this.fPd) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -66,7 +66,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public void setData(List<av.a> list) {
         int i = 0;
-        if (w.z(list)) {
+        if (w.A(list)) {
             setVisibility(8);
             return;
         }
@@ -94,14 +94,14 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int e = l.e(context, d.e.tbds22);
             layoutParams.rightMargin = e;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.hp(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.ht(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.e(context, d.e.tbds33));
             textView.setGravity(17);
             textView.setOnClickListener(this);
             textView.setPadding(e, 0, e, 0);
-            al.i(textView, d.f.shape_corner_gray_tbds4);
-            al.h(textView, d.C0141d.cp_cont_b);
+            am.i(textView, d.f.shape_corner_gray_tbds4);
+            am.h(textView, d.C0142d.cp_cont_b);
         }
     }
 
@@ -110,19 +110,19 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.fLb = i;
+        this.fPd = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof av.a) {
-            TiebaStatic.log(new am("c11455").ah("obj_locate", "pb_bottom"));
+            TiebaStatic.log(new an("c11455").ah("obj_locate", "pb_bottom"));
             av.a aVar = (av.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.uJ() + "", aVar.getTopicName(), "2")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.uR() + "", aVar.getTopicName(), "2")));
                 return;
             }
-            com.baidu.tbadk.browser.a.O(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.uJ() + "&topic_name=" + aVar.getTopicName());
+            com.baidu.tbadk.browser.a.O(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.uR() + "&topic_name=" + aVar.getTopicName());
         }
     }
 }

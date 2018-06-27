@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    List<ValidateItemData> epG = new ArrayList();
-    ValidateActivity euX;
+    List<ValidateItemData> bBz = new ArrayList();
+    ValidateActivity eyO;
 
     public a(ValidateActivity validateActivity) {
-        this.euX = validateActivity;
+        this.eyO = validateActivity;
     }
 
     public void destroy() {
-        this.euX = null;
+        this.eyO = null;
     }
 
     public void setData(List<ValidateItemData> list) {
         if (list != null) {
-            this.epG.addAll(list);
+            this.bBz.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.epG == null) {
+        if (this.bBz == null) {
             return 0;
         }
-        return this.epG.size();
+        return this.bBz.size();
     }
 
     @Override // android.widget.Adapter
@@ -40,14 +40,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.euX) : bVar;
-        bVar2.f(this.epG.get(i));
+        b bVar2 = bVar == null ? new b(this.eyO) : bVar;
+        bVar2.f(this.bBz.get(i));
         return bVar2.eC();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.epG.get(i);
+        return this.bBz.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,6 +56,6 @@ public class a extends BaseAdapter {
     }
 
     public List<ValidateItemData> getDatas() {
-        return this.epG;
+        return this.bBz;
     }
 }

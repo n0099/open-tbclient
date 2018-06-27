@@ -1,6 +1,8 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import java.util.ArrayList;
@@ -11,17 +13,17 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
 public class g {
-    private LinkedList<f> eCy;
+    private LinkedList<f> eGo;
     private String fid = null;
-    private int eCx = 0;
-    private AdvertAppInfo eCz = null;
+    private int eGn = 0;
+    private AdvertAppInfo eGp = null;
 
     public g() {
-        this.eCy = null;
-        this.eCy = new LinkedList<>();
+        this.eGo = null;
+        this.eGo = new LinkedList<>();
     }
 
-    public void G(String str, boolean z) {
+    public void H(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -29,12 +31,12 @@ public class g {
         }
     }
 
-    public LinkedList<f> aOl() {
-        return this.eCy;
+    public LinkedList<f> aOR() {
+        return this.eGo;
     }
 
     public int getImageNum() {
-        return this.eCx;
+        return this.eGn;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -44,7 +46,7 @@ public class g {
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
                 }
-                this.eCx = jSONObject.optInt("pic_amount", 0);
+                this.eGn = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -52,8 +54,8 @@ public class g {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.eCx) {
-                                this.eCy.addLast(fVar);
+                            if (index >= 1 && index <= this.eGn) {
+                                this.eGo.addLast(fVar);
                             }
                         }
                     } else {
@@ -61,20 +63,20 @@ public class g {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.eCx) {
-                                this.eCy.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.eGn) {
+                                this.eGo.addFirst(fVar2);
                             }
                         }
                     }
                 }
-                L(jSONObject);
+                K(jSONObject);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    private void L(JSONObject jSONObject) {
+    private void K(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("app");
         if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
@@ -88,7 +90,7 @@ public class g {
             builder.app_desc = optJSONObject.optString("app_desc");
             builder.p_name = optJSONObject.optString("p_name");
             builder.p_url = optJSONObject.optString("p_url");
-            builder.img_url = optJSONObject.optString("img_url");
+            builder.img_url = optJSONObject.optString(BigdayActivityConfig.IMG_URL);
             builder.app_time = Integer.valueOf(optJSONObject.optInt("app_time", 0));
             builder.web_url = optJSONObject.optString("web_url");
             builder.ad_id = optJSONObject.optString("ad_id");
@@ -107,24 +109,24 @@ public class g {
             builder.plan_id = Integer.valueOf(optJSONObject.optInt("plan_id", 0));
             builder.user_id = optJSONObject.optString("user_id");
             builder.price = optJSONObject.optString("price");
-            builder.verify = optJSONObject.optString("verify");
+            builder.verify = optJSONObject.optString(SmsLoginView.StatEvent.BEGIN_LOGIN);
             builder.ext_info = optJSONObject.optString("ext_info");
             builder.pos_name = optJSONObject.optString("pos_name");
-            GoodsInfo M = M(optJSONObject);
-            if (M != null) {
+            GoodsInfo L = L(optJSONObject);
+            if (L != null) {
                 builder.goods_info = new ArrayList();
-                builder.goods_info.add(M);
+                builder.goods_info.add(L);
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.eCz = new AdvertAppInfo();
-            this.eCz.a(build);
-            this.eCz.adPosition = "c0111";
-            this.eCz.aec = this.fid;
+            this.eGp = new AdvertAppInfo();
+            this.eGp.a(build);
+            this.eGp.adPosition = "c0111";
+            this.eGp.aer = this.fid;
         }
     }
 
-    private GoodsInfo M(JSONObject jSONObject) {
+    private GoodsInfo L(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
         if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
@@ -152,7 +154,7 @@ public class g {
         return builder.build(true);
     }
 
-    public AdvertAppInfo aOm() {
-        return this.eCz;
+    public AdvertAppInfo aOS() {
+        return this.eGp;
     }
 }

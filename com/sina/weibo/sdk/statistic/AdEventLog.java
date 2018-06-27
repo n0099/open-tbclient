@@ -1,7 +1,7 @@
 package com.sina.weibo.sdk.statistic;
 
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 class AdEventLog extends EventLog {
     private String mAid = "";
     private String mAppkey = "";

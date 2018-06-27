@@ -16,10 +16,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class c {
+    private static String SB = "data/anr/traces.txt";
+    private static int SC = 5;
+    private static Thread SD = null;
     private static Context mContext;
-    private static String Sz = "data/anr/traces.txt";
-    private static int SA = 5;
-    private static Thread SB = null;
 
     private static void a(Map<String, Object> map) {
         StringBuilder sb = new StringBuilder();
@@ -85,23 +85,23 @@ public final class c {
     }
 
     public static void d(Context context) {
-        com.baidu.crabsdk.c.a.cb("init AnrCollector");
-        com.baidu.crabsdk.c.a.cb("===Anr init!===");
+        com.baidu.crabsdk.c.a.cd("init AnrCollector");
+        com.baidu.crabsdk.c.a.cd("===Anr init!===");
         mContext = context;
         if (com.baidu.crabsdk.sender.e.Y()) {
-            com.baidu.crabsdk.c.a.cb("===Anr watchThread start!===");
+            com.baidu.crabsdk.c.a.cd("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.a aVar = new com.baidu.crabsdk.sender.a(context);
-                SB = aVar;
+                SD = aVar;
                 aVar.start();
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.ce("Anr watchThread start failed !!");
+                com.baidu.crabsdk.c.a.cg("Anr watchThread start failed !!");
             }
         }
     }
 
     public static Thread oZ() {
-        return SB;
+        return SD;
     }
 
     public static Map<String, Object> t() {
@@ -114,7 +114,7 @@ public final class c {
         ArrayList arrayList2 = new ArrayList();
         int i = 0;
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Sz)));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(SB)));
             String readLine = bufferedReader.readLine();
             String F = o.F();
             while (true) {
@@ -123,7 +123,7 @@ public final class c {
                 }
                 if (readLine.startsWith("-----") && readLine.endsWith("-----") && readLine.contains(" pid ") && readLine.contains(" at ")) {
                     i++;
-                    if (i > SA) {
+                    if (i > SC) {
                         bufferedReader.close();
                         return null;
                     }

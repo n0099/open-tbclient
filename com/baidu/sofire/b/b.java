@@ -42,7 +42,7 @@ public final class b {
             alarmManager.cancel(service);
             alarmManager.set(0, currentTimeMillis, service);
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 
@@ -78,7 +78,7 @@ public final class b {
                 alarmManager.set(0, currentTimeMillis, service);
             }
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 
@@ -98,7 +98,7 @@ public final class b {
             alarmManager.cancel(service);
             alarmManager.set(0, currentTimeMillis, service);
         } catch (Throwable th) {
-            d.a(th);
+            e.a(th);
         }
     }
 }

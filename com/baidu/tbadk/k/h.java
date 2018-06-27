@@ -1,22 +1,24 @@
 package com.baidu.tbadk.k;
+
+import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class h extends g {
-    public String KN;
-    public long KO;
-    public boolean aSN;
+    public String KP;
+    public long KQ;
+    public boolean aTJ;
     public boolean isSuccess;
 
-    public void Kn() {
+    public void KF() {
         o oVar;
-        if (m.Ks().Kt() && (oVar = (o) m.Ks().fn(this.mSubType)) != null) {
+        if (m.KK().KL() && (oVar = (o) m.KK().fo(this.mSubType)) != null) {
             oVar.a(this, "head");
         }
     }
 
-    public void Ko() {
+    public void KG() {
         o oVar;
-        if (m.Ks().Kt() && (oVar = (o) m.Ks().fn(this.mSubType)) != null) {
-            oVar.a(this, "img");
+        if (m.KK().KL() && (oVar = (o) m.KK().fo(this.mSubType)) != null) {
+            oVar.a(this, SocialConstants.PARAM_IMG_URL);
         }
     }
 }

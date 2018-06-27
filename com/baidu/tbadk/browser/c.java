@@ -22,14 +22,14 @@ public class c extends n {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(value = "showToast", xI = false)
+    @o(value = "showToast", xV = false)
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).xi();
+            BdToast.a(getContext(), jSONObject.optString("message")).xv();
         }
     }
 
-    @o(value = "showNetStatus", xI = false)
+    @o(value = "showNetStatus", xV = false)
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -55,7 +55,7 @@ public class c extends n {
         return jSONObject;
     }
 
-    @o(value = "showDeviceInfo", xI = false)
+    @o(value = "showDeviceInfo", xV = false)
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();

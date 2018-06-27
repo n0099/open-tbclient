@@ -14,21 +14,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class BdPersonListView extends BdTypeListView {
-    private float LA;
-    private final int LB;
-    private final int LC;
-    private View Lt;
-    private float Lv;
-    private float Lw;
-    private boolean Ly;
-    private float Lz;
-    private final Scroller fPC;
-    private View fPD;
-    private b fPE;
-    private b fPF;
-    public a fPG;
-    private boolean fPH;
-    private boolean fPI;
+    private boolean LA;
+    private float LB;
+    private float LC;
+    private final int LD;
+    private final int LE;
+    private View Lv;
+    private float Lx;
+    private float Ly;
+    private final Scroller fTE;
+    private View fTF;
+    private b fTG;
+    private b fTH;
+    public a fTI;
+    private boolean fTJ;
+    private boolean fTK;
     private final Context mContext;
     private final Scroller mScroller;
     public static int ExpandListView_expandDistance = 1;
@@ -45,86 +45,86 @@ public class BdPersonListView extends BdTypeListView {
 
     public BdPersonListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Ly = false;
-        this.fPH = true;
-        this.fPI = false;
+        this.LA = false;
+        this.fTJ = true;
+        this.fTK = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.fPC = new Scroller(this.mContext);
-        this.LB = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.fTE = new Scroller(this.mContext);
+        this.LD = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.m.ExpandListView);
-        this.LC = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
+        this.LE = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
     }
 
     public void setExpandView(View view) {
-        this.Lt = view;
+        this.Lv = view;
     }
 
     public void setOuterExpandView(View view) {
-        this.fPD = view;
+        this.fTF = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.Lt == null || !this.fPH) {
+        if (this.Lv == null || !this.fTJ) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            this.Lw = motionEvent.getY();
+            this.Ly = motionEvent.getY();
             switch (action) {
                 case 0:
-                    int height = this.Lt.getHeight();
-                    this.Lv = this.Lw;
-                    this.Lz = this.LA;
-                    this.fPE = new b(0, height, 0, this.LC + height);
-                    int height2 = this.fPD.getHeight();
-                    this.fPF = new b(0, height2, 0, this.LC + height2);
+                    int height = this.Lv.getHeight();
+                    this.Lx = this.Ly;
+                    this.LB = this.LC;
+                    this.fTG = new b(0, height, 0, this.LE + height);
+                    int height2 = this.fTF.getHeight();
+                    this.fTH = new b(0, height2, 0, this.LE + height2);
                     break;
                 case 1:
                 case 3:
-                    if (this.Ly) {
+                    if (this.LA) {
                         nk();
-                        if (this.fPI) {
+                        if (this.fTK) {
                             return true;
                         }
                     } else {
-                        this.fPG.nm();
+                        this.fTI.nm();
                         break;
                     }
                     break;
                 case 2:
-                    float f = this.LA - this.Lz;
-                    float f2 = this.Lw - this.Lv;
-                    this.Lz = this.LA;
-                    if (this.Lt.getParent() == this && this.fPE != null && this.Lt.isShown() && this.Lt.getTop() >= 0 && Math.abs(f2) >= this.LB && Math.abs(f) < this.LB) {
-                        int O = this.fPE.O(this.Lw - this.Lv);
-                        if (O > this.fPE.startY && O <= this.fPE.endY) {
-                            this.Ly = true;
-                            this.Lt.setLayoutParams(new AbsListView.LayoutParams(this.Lt.getWidth(), O));
-                            if (this.fPD != null) {
-                                int O2 = this.fPF.O(this.Lw - this.Lv);
-                                ViewGroup.LayoutParams layoutParams = this.fPD.getLayoutParams();
+                    float f = this.LC - this.LB;
+                    float f2 = this.Ly - this.Lx;
+                    this.LB = this.LC;
+                    if (this.Lv.getParent() == this && this.fTG != null && this.Lv.isShown() && this.Lv.getTop() >= 0 && Math.abs(f2) >= this.LD && Math.abs(f) < this.LD) {
+                        int O = this.fTG.O(this.Ly - this.Lx);
+                        if (O > this.fTG.startY && O <= this.fTG.endY) {
+                            this.LA = true;
+                            this.Lv.setLayoutParams(new AbsListView.LayoutParams(this.Lv.getWidth(), O));
+                            if (this.fTF != null) {
+                                int O2 = this.fTH.O(this.Ly - this.Lx);
+                                ViewGroup.LayoutParams layoutParams = this.fTF.getLayoutParams();
                                 if (layoutParams != null) {
                                     layoutParams.height = O2;
-                                    this.fPD.setLayoutParams(layoutParams);
+                                    this.fTF.setLayoutParams(layoutParams);
                                 }
                             }
-                            M(O - this.fPE.startY);
+                            M(O - this.fTG.startY);
                             break;
-                        } else if (O <= this.fPE.startY) {
-                            this.Ly = false;
+                        } else if (O <= this.fTG.startY) {
+                            this.LA = false;
                             break;
-                        } else if (O > this.fPE.endY) {
-                            this.Ly = true;
+                        } else if (O > this.fTG.endY) {
+                            this.LA = true;
                             break;
                         } else {
-                            this.Ly = false;
+                            this.LA = false;
                             break;
                         }
                     } else {
-                        this.Ly = false;
+                        this.LA = false;
                         break;
                     }
                     break;
@@ -136,7 +136,7 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.Ly) {
+        if (this.LA) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -144,55 +144,55 @@ public class BdPersonListView extends BdTypeListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.Ly) {
+        if (this.LA) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
     private void nk() {
-        if (this.fPE != null) {
-            if (this.Lt.getHeight() >= this.fPE.endY - (this.LC / 2)) {
+        if (this.fTG != null) {
+            if (this.Lv.getHeight() >= this.fTG.endY - (this.LE / 2)) {
                 nl();
             } else {
-                this.fPG.nm();
+                this.fTI.nm();
             }
-            this.mScroller.startScroll(0, this.Lt.getHeight(), 0, this.fPE.startY - this.Lt.getHeight(), 200);
-            this.fPC.startScroll(0, this.fPD.getHeight(), 0, this.fPF.startY - this.fPD.getHeight(), 200);
+            this.mScroller.startScroll(0, this.Lv.getHeight(), 0, this.fTG.startY - this.Lv.getHeight(), 200);
+            this.fTE.startScroll(0, this.fTF.getHeight(), 0, this.fTH.startY - this.fTF.getHeight(), 200);
             invalidate();
-            this.Ly = false;
+            this.LA = false;
         }
     }
 
     public void nl() {
-        if (this.fPG != null) {
-            this.fPG.onRefresh();
+        if (this.fTI != null) {
+            this.fTI.onRefresh();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.fPG = aVar;
+        this.fTI = aVar;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         ViewGroup.LayoutParams layoutParams;
         if (this.mScroller.computeScrollOffset()) {
-            this.Lt.setLayoutParams(new AbsListView.LayoutParams(this.Lt.getWidth(), this.mScroller.getCurrY()));
+            this.Lv.setLayoutParams(new AbsListView.LayoutParams(this.Lv.getWidth(), this.mScroller.getCurrY()));
         } else {
             super.computeScroll();
         }
-        if (this.fPC.computeScrollOffset()) {
-            int currY = this.fPC.getCurrY();
-            if (this.fPD != null && (layoutParams = this.fPD.getLayoutParams()) != null) {
+        if (this.fTE.computeScrollOffset()) {
+            int currY = this.fTE.getCurrY();
+            if (this.fTF != null && (layoutParams = this.fTF.getLayoutParams()) != null) {
                 layoutParams.height = currY;
-                this.fPD.setLayoutParams(layoutParams);
+                this.fTF.setLayoutParams(layoutParams);
             }
         }
     }
 
     private void M(float f) {
-        this.fPG.N(360.0f - ((f * 360.0f) / this.LC));
+        this.fTI.N(360.0f - ((f * 360.0f) / this.LE));
     }
 
     /* loaded from: classes2.dex */

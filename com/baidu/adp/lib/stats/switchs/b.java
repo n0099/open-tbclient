@@ -8,8 +8,8 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    public long BS = 0;
-    public String BT = null;
+    public long BU = 0;
+    public String BV = null;
 
     public boolean iZ() {
         String str = null;
@@ -25,15 +25,15 @@ public class b {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.BS = jSONObject.getLong("time");
-            this.BT = jSONObject.getString("data");
+            this.BU = jSONObject.getLong("time");
+            this.BV = jSONObject.getString("data");
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return true;
     }
 
-    public void aK(String str) {
+    public void aM(String str) {
         if (!TextUtils.isEmpty(str)) {
             long currentTimeMillis = System.currentTimeMillis();
             try {

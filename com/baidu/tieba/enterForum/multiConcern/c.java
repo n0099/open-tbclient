@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
@@ -19,12 +19,12 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public View bir;
-        public TbImageView cTh;
-        public TextView cTi;
-        public TextView cTj;
-        public TextView cTk;
-        public View cTl;
+        public View bjR;
+        public TbImageView cRf;
+        public TextView cRg;
+        public TextView cRh;
+        public TextView cRi;
+        public View cRj;
     }
 
     public c(Context context) {
@@ -37,14 +37,14 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return w.y(this.mDatas);
+        return w.z(this.mDatas);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: jA */
+    /* renamed from: jy */
     public b getItem(int i) {
-        return (b) w.c(this.mDatas, i);
+        return (b) w.d(this.mDatas, i);
     }
 
     @Override // android.widget.Adapter
@@ -63,29 +63,29 @@ public class c extends BaseAdapter {
         } else {
             View inflate = LayoutInflater.from(this.mContext).inflate(d.i.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.cTh = (TbImageView) inflate.findViewById(d.g.imageview_forum);
-            aVar.cTi = (TextView) inflate.findViewById(d.g.textview_forum_name);
-            aVar.cTj = (TextView) inflate.findViewById(d.g.textview_forum_concern_count);
-            aVar.cTk = (TextView) inflate.findViewById(d.g.textview_forum_thread_count);
-            aVar.cTl = inflate.findViewById(d.g.view_check_state);
-            aVar.bir = inflate.findViewById(d.g.view_bottom_line);
+            aVar.cRf = (TbImageView) inflate.findViewById(d.g.imageview_forum);
+            aVar.cRg = (TextView) inflate.findViewById(d.g.textview_forum_name);
+            aVar.cRh = (TextView) inflate.findViewById(d.g.textview_forum_concern_count);
+            aVar.cRi = (TextView) inflate.findViewById(d.g.textview_forum_thread_count);
+            aVar.cRj = inflate.findViewById(d.g.view_check_state);
+            aVar.bjR = inflate.findViewById(d.g.view_bottom_line);
             inflate.setTag(aVar);
             view2 = inflate;
         }
         if (item != null) {
-            aVar.cTh.startLoad(item.avatar, 10, false);
-            aVar.cTi.setText(item.forumName);
-            aVar.cTj.setText(String.format(this.mContext.getString(d.k.concern), ao.y(item.followNum)));
-            aVar.cTk.setText(String.format(this.mContext.getString(d.k.forum_thread_number), ao.y(item.threadNum)));
+            aVar.cRf.startLoad(item.avatar, 10, false);
+            aVar.cRg.setText(item.forumName);
+            aVar.cRh.setText(String.format(this.mContext.getString(d.k.concern), ap.z(item.followNum)));
+            aVar.cRi.setText(String.format(this.mContext.getString(d.k.forum_thread_number), ap.z(item.threadNum)));
             if (item.isSelected) {
-                al.i(aVar.cTl, d.f.icon_list_confirm_s);
+                am.i(aVar.cRj, d.f.icon_list_confirm_s);
             } else {
-                al.i(aVar.cTl, d.f.icon_jinba_confirm_n);
+                am.i(aVar.cRj, d.f.icon_jinba_confirm_n);
             }
-            al.h(aVar.cTi, d.C0141d.cp_cont_b);
-            al.h(aVar.cTj, d.C0141d.cp_cont_f);
-            al.h(aVar.cTk, d.C0141d.cp_cont_f);
-            al.j(aVar.bir, d.C0141d.cp_bg_line_c);
+            am.h(aVar.cRg, d.C0142d.cp_cont_b);
+            am.h(aVar.cRh, d.C0142d.cp_cont_f);
+            am.h(aVar.cRi, d.C0142d.cp_cont_f);
+            am.j(aVar.bjR, d.C0142d.cp_bg_line_c);
         }
         return view2;
     }

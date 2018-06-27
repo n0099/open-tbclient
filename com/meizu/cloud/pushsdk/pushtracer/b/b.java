@@ -13,7 +13,7 @@ public class b extends com.meizu.cloud.pushsdk.pushtracer.b.a {
     private String j;
 
     /* loaded from: classes3.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC0270a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC0272a<T> {
         private String a;
         private String b;
         private String c;
@@ -64,21 +64,21 @@ public class b extends com.meizu.cloud.pushsdk.pushtracer.b.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.pushtracer.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0271b extends a<C0271b> {
-        private C0271b() {
+    private static class C0273b extends a<C0273b> {
+        private C0273b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.meizu.cloud.pushsdk.pushtracer.b.a.AbstractC0270a
+        @Override // com.meizu.cloud.pushsdk.pushtracer.b.a.AbstractC0272a
         /* renamed from: c */
-        public C0271b a() {
+        public C0273b a() {
             return this;
         }
     }
 
     public static a<?> d() {
-        return new C0271b();
+        return new C0273b();
     }
 
     protected b(a<?> aVar) {

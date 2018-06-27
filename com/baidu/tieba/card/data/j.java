@@ -1,8 +1,8 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes2.dex */
 public class j extends k {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
@@ -12,24 +12,24 @@ public class j extends k {
         return TYPE;
     }
 
-    public j(bd bdVar) {
-        this.threadData = bdVar;
+    public j(bc bcVar) {
+        this.threadData = bcVar;
     }
 
-    public static boolean N(bd bdVar) {
-        return bdVar != null && bdVar.getThreadType() == 49;
+    public static boolean P(bc bcVar) {
+        return bcVar != null && bcVar.getThreadType() == 49;
     }
 
-    public am lh(String str) {
-        am li = li(str);
-        li.delete("obj_type");
-        li.delete("obj_type");
-        li.r("obj_type", 3);
-        return li;
+    public an le(String str) {
+        an lf = lf(str);
+        lf.delete("obj_type");
+        lf.delete("obj_type");
+        lf.r("obj_type", 3);
+        return lf;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.c
-    public bd Sz() {
+    public bc SV() {
         return this.threadData;
     }
 }

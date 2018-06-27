@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int ayX;
-    protected int gHU;
-    protected int gHV;
+    private int azP;
+    protected int gLU;
+    protected int gLV;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -21,10 +21,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ayX = 3;
-        this.gHU = (int) context.getResources().getDimension(d.e.ds18);
-        this.gHV = (int) context.getResources().getDimension(d.e.ds6);
-        setPadding(this.gHU, this.gHV, this.gHU, this.gHV);
+        this.azP = 3;
+        this.gLU = (int) context.getResources().getDimension(d.e.ds18);
+        this.gLV = (int) context.getResources().getDimension(d.e.ds6);
+        setPadding(this.gLU, this.gLV, this.gLU, this.gLV);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(d.e.ds24));
@@ -37,9 +37,9 @@ public class EditorInfoView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.ayX) {
-            al.h(this, d.C0141d.cp_cont_f);
-            this.ayX = i;
+        if (i != this.azP) {
+            am.h(this, d.C0142d.cp_cont_f);
+            this.azP = i;
         }
     }
 }

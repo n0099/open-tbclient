@@ -4,12 +4,12 @@ import com.airbnb.lottie.model.a.m;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class k {
+    private final float nt;
     private final float nu;
-    private final float nv;
 
     public k(float f, float f2) {
-        this.nu = f;
-        this.nv = f2;
+        this.nt = f;
+        this.nu = f2;
     }
 
     public k() {
@@ -17,11 +17,11 @@ public class k {
     }
 
     public float getScaleX() {
-        return this.nu;
+        return this.nt;
     }
 
     public float getScaleY() {
-        return this.nv;
+        return this.nu;
     }
 
     public String toString() {
@@ -30,7 +30,7 @@ public class k {
 
     /* loaded from: classes2.dex */
     public static class a implements m.a<k> {
-        public static final a nw = new a();
+        public static final a nv = new a();
 
         private a() {
         }

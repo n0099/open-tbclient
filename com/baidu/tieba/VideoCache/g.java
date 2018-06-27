@@ -1,7 +1,7 @@
 package com.baidu.tieba.VideoCache;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,15 +14,15 @@ import java.util.Collections;
 /* loaded from: classes2.dex */
 public class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
-    private String biU;
+    private String bcS;
 
     public synchronized void setVideoUrl(String str) {
-        this.biU = str;
+        this.bcS = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        PC();
+        PZ();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -52,7 +52,7 @@ public class g implements Runnable {
         if (r10 == r14) goto L86;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x01a1, code lost:
-        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").ah("errormsg", "准备合并文件时文件片段错误").ah("url", r18.biU));
+        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").ah("errormsg", "准备合并文件时文件片段错误").ah("url", r18.bcS));
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x01cd, code lost:
         if (a(r12.getAbsolutePath(), r13) == false) goto L89;
@@ -65,24 +65,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void PC() {
+    private synchronized void PZ() {
         File file;
-        long ih;
+        long im;
         File[] fileArr;
         int i;
         long j;
         long h;
         long j2;
         j.aB(TAG, "merge ...");
-        String in = m.in(this.biU);
-        if (in != null && !in.isEmpty() && ((file = new File(i.bjG + in + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.bjG + in + "/completed.temp");
+        String is = m.is(this.bcS);
+        if (is != null && !is.isEmpty() && ((file = new File(i.blf + is + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.blf + is + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.bjG + in + "/segments");
+            File file3 = new File(i.blf + is + "/segments");
             if (file3 != null && file3.exists()) {
-                ih = ih(in);
+                im = im(is);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -129,7 +129,7 @@ public class g implements Runnable {
             }
             if (j + h == j2) {
             }
-        } else if (m.h(fileArr[i]) + j == ih) {
+        } else if (m.h(fileArr[i]) + j == im) {
             i++;
         }
     }
@@ -181,7 +181,7 @@ public class g implements Runnable {
                 e = e3;
                 fileChannel = channel;
                 try {
-                    TiebaStatic.log(new am("c12027").ah("errormsg", "合并文件出现异常").ah("error", e.getMessage()).ah("url", this.biU));
+                    TiebaStatic.log(new an("c12027").ah("errormsg", "合并文件出现异常").ah("error", e.getMessage()).ah("url", this.bcS));
                     e.printStackTrace();
                     if (fileChannel != null) {
                         try {
@@ -243,12 +243,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long ih(String str) {
+    private long im(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.bjG + str + "/content_length");
+        File file = new File(i.blf + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

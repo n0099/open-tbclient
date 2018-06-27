@@ -8,32 +8,32 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsMoreFeedForumsConfig;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.frs.ae;
+import com.baidu.tieba.frs.ag;
 import com.baidu.tieba.tbadkCore.h;
 /* loaded from: classes3.dex */
 public class FrsMoreFeedForumsActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(FrsMoreFeedForumsConfig.class, FrsMoreFeedForumsActivity.class);
-        awA();
-        awB();
+        axe();
+        axf();
     }
 
-    private static void awA() {
+    private static void axe() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivityStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c(null, h.gGj, true));
+                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c(null, h.gKc, true));
                 }
             }
         });
     }
 
-    private static void awB() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2016468, new CustomMessageTask.CustomRunnable<ae>() { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivityStatic.2
+    private static void axf() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016468, new CustomMessageTask.CustomRunnable<ag>() { // from class: com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<ae> customMessage) {
+            public CustomResponsedMessage<?> run(CustomMessage<ag> customMessage) {
                 return new CustomResponsedMessage<>(2016468, new a());
             }
         });

@@ -14,6 +14,17 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FOLLOWED_HAS_NEW = "followed_has_new";
     public static final String FROM = "from";
     public static final String FROM_SHORT_CUT = "from_short_cut";
+    public static final String FRS_CALL_FROM = "frs_call_from";
+    public static final int FRS_CALL_FROM_ENTERFORUM_FREQUENTLY = 4;
+    public static final int FRS_CALL_FROM_ENTERFORUM_LIKE = 3;
+    public static final int FRS_CALL_FROM_ONE_KEY_SIGN = 6;
+    public static final int FRS_CALL_FROM_PB = 2;
+    public static final int FRS_CALL_FROM_PERSON_GUEST_LIKE = 9;
+    public static final int FRS_CALL_FROM_PERSON_GUEST_SAME_FORUM = 8;
+    public static final int FRS_CALL_FROM_PERSON_HOST = 7;
+    public static final int FRS_CALL_FROM_SEARCH = 10;
+    public static final int FRS_CALL_FROM_SQUARE = 5;
+    public static final String FRS_CREATE_WITH_GAME = "create_with_game";
     public static final String FRS_FROM_ENTERFORUM_RECOMMEND = "recom_flist";
     public static final String FRS_FROM_FOLLOWED_RECOMMEND = "followed_recommend_forumlist";
     public static final String FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD = "frequently_forum_new_thread";
@@ -33,6 +44,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_GAME_DEFAULT_TAB_ID = "frs_game_default_tab_id";
     public static final String FRS_TO_PB = "tb_frslist";
     public static final String GOOD = "good";
+    public static final String IS_SELECTION = "is_selection";
     public static final String KEY_REFRESH = "refresh_all";
     public static final String NAME = "name";
     public static final int READ_CHAT = 1;
@@ -100,6 +112,11 @@ public class FrsActivityConfig extends IntentConfig {
 
     public FrsActivityConfig setDefaultGameTabId(int i) {
         getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i);
+        return this;
+    }
+
+    public FrsActivityConfig setCallFrom(int i) {
+        getIntent().putExtra(FRS_CALL_FROM, i);
         return this;
     }
 }

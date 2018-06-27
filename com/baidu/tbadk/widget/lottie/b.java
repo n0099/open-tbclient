@@ -3,13 +3,13 @@ package com.baidu.tbadk.widget.lottie;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.s;
 import com.baidu.tbadk.core.hybrid.r;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.util.y;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private a bbY;
+    private a bdm;
     private y mNetWork;
     private String mPath;
     private String mUrl;
@@ -22,30 +22,30 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.bbY = aVar;
+        this.bdm = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
+    /* renamed from: e */
     public String doInBackground(Void... voidArr) {
-        if (ao.isEmpty(this.mPath) || ao.isEmpty(this.mUrl) || !l.dR(this.mPath)) {
+        if (ap.isEmpty(this.mPath) || ap.isEmpty(this.mUrl) || !l.dU(this.mPath)) {
             return null;
         }
-        String bj = s.bj(this.mUrl);
-        String str = this.mPath + bj + "/";
-        if (hQ(str)) {
-            return bj;
+        String bl = s.bl(this.mUrl);
+        String str = this.mPath + bl + "/";
+        if (hU(str)) {
+            return bl;
         }
         this.mNetWork = new y();
         this.mNetWork.setUrl(this.mUrl);
-        String str2 = this.mPath + bj + ".zip";
+        String str2 = this.mPath + bl + ".zip";
         if (this.mNetWork.a(str2, null, 0, 3, 0, true) && az(str2, str)) {
-            hP(str2);
-            return bj;
+            hT(str2);
+            return bl;
         }
-        hP(str2);
+        hT(str2);
         return null;
     }
 
@@ -53,29 +53,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.bbY != null) {
-            if (!ao.isEmpty(str)) {
-                this.bbY.e(true, str);
+        if (this.bdm != null) {
+            if (!ap.isEmpty(str)) {
+                this.bdm.e(true, str);
             } else {
-                this.bbY.e(false, null);
+                this.bdm.e(false, null);
             }
         }
     }
 
     private boolean az(String str, String str2) {
-        if (ao.isEmpty(str) || ao.isEmpty(str2)) {
+        if (ap.isEmpty(str) || ap.isEmpty(str2)) {
             return false;
         }
         return r.X(str, str2);
     }
 
-    private void hP(String str) {
-        if (!ao.isEmpty(str)) {
+    private void hT(String str) {
+        if (!ap.isEmpty(str)) {
             l.r(new File(str));
         }
     }
 
-    private boolean hQ(String str) {
-        return !ao.isEmpty(str) && new File(str).exists();
+    private boolean hU(String str) {
+        return !ap.isEmpty(str) && new File(str).exists();
     }
 }

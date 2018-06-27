@@ -2,17 +2,18 @@ package com.baidu.tbadk.core.hybrid;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private static final AtomicLong amI = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> amJ;
-    final Map<String, Object> amK;
-    final String amL;
-    final long amM;
+    private static final AtomicLong ani = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
+    final Map<String, Object> anj;
+    final Map<String, Object> ank;
+    final String anl;
+    final long anm;
     final String cmd;
     final String method;
     final long start;
@@ -21,21 +22,21 @@ public class m {
     private m(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.amJ = map;
-        this.amK = map2;
+        this.anj = map;
+        this.ank = map2;
         this.type = i;
-        this.amL = str3;
-        this.amM = j;
+        this.anl = str3;
+        this.anm = j;
         this.start = System.currentTimeMillis();
     }
 
     private static m a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
-        return new m(i, str, str2, map, null, z ? xH() : null, j);
+        return new m(i, str, str2, map, null, z ? xU() : null, j);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m a(Map<String, Object> map, long j, k kVar) {
-        return new a(1, null, null, map, null, xH(), kVar, j);
+        return new a(1, null, null, map, null, xU(), kVar, j);
     }
 
     public static m a(String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -46,7 +47,7 @@ public class m {
         return new m(3, null, null, null, map, str, -1L);
     }
 
-    private String xF() {
+    private String xS() {
         switch (this.type) {
             case 1:
                 return "ping";
@@ -59,7 +60,7 @@ public class m {
         }
     }
 
-    public String xG() throws JSONException {
+    public String xT() throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(this.cmd)) {
             jSONObject.put(IntentConfig.CMD, this.cmd);
@@ -67,19 +68,19 @@ public class m {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put("method", this.method);
         }
-        if (this.amJ != null && !this.amJ.isEmpty()) {
+        if (this.anj != null && !this.anj.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            b(this.amJ, jSONObject2);
+            b(this.anj, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.amK != null && !this.amK.isEmpty()) {
+        if (this.ank != null && !this.ank.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            b(this.amK, jSONObject3);
+            b(this.ank, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
-        jSONObject.put("messageType", xF());
-        if (!TextUtils.isEmpty(this.amL)) {
-            jSONObject.put("callbackId", this.amL);
+        jSONObject.put("messageType", xS());
+        if (!TextUtils.isEmpty(this.anl)) {
+            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.anl);
         }
         return encode(jSONObject.toString());
     }
@@ -88,8 +89,8 @@ public class m {
     public void q(JSONObject jSONObject) {
     }
 
-    private static String xH() {
-        return "TBCWebViewJsBridge_callback_ID_" + amI.getAndIncrement();
+    private static String xU() {
+        return "TBCWebViewJsBridge_callback_ID_" + ani.getAndIncrement();
     }
 
     private void b(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -108,21 +109,21 @@ public class m {
 
     /* loaded from: classes.dex */
     private static final class a extends m {
-        private final k amN;
+        private final k ann;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, k kVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.amN = kVar;
+            this.ann = kVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         protected void q(JSONObject jSONObject) {
-            this.amN.a(this, jSONObject);
+            this.ann.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         void b(int i, Throwable th) {
-            this.amN.b(i, th);
+            this.ann.b(i, th);
         }
     }
 }

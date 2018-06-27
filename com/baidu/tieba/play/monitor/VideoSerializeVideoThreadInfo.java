@@ -1,6 +1,6 @@
 package com.baidu.tieba.play.monitor;
 
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bc;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class VideoSerializeVideoThreadInfo implements Serializable {
@@ -61,44 +61,47 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
         public int cardViewY;
     }
 
-    public void copyFromThreadInfo(bd bdVar) {
-        if (bdVar != null) {
+    public void copyFromThreadInfo(bc bcVar) {
+        if (bcVar != null) {
             VideoAggregationAuthorData videoAggregationAuthorData = new VideoAggregationAuthorData();
-            if (bdVar.vm() != null) {
-                videoAggregationAuthorData.userId = bdVar.vm().getUserId();
-                videoAggregationAuthorData.userName = bdVar.vm().getUserName();
-                videoAggregationAuthorData.userNickname = bdVar.vm().getName_show();
-                videoAggregationAuthorData.isBigV = bdVar.vm().isBigV();
-                videoAggregationAuthorData.isGod = bdVar.vm().isGod();
-                videoAggregationAuthorData.portrait = bdVar.vm().getPortrait();
-                videoAggregationAuthorData.hasFocus = bdVar.vm().getIsLike();
+            if (bcVar.vw() != null) {
+                videoAggregationAuthorData.userId = bcVar.vw().getUserId();
+                videoAggregationAuthorData.userName = bcVar.vw().getUserName();
+                videoAggregationAuthorData.userNickname = bcVar.vw().getName_show();
+                videoAggregationAuthorData.isBigV = bcVar.vw().isBigV();
+                videoAggregationAuthorData.isGod = bcVar.vw().isGod();
+                videoAggregationAuthorData.portrait = bcVar.vw().getPortrait();
+                videoAggregationAuthorData.hasFocus = bcVar.vw().getIsLike();
             }
             this.author = videoAggregationAuthorData;
             VideoAggregationVideoData videoAggregationVideoData = new VideoAggregationVideoData();
-            if (bdVar.vD() != null) {
-                videoAggregationVideoData.thumbnailWidth = String.valueOf(bdVar.vD().thumbnail_width);
-                videoAggregationVideoData.thumbnailHeight = String.valueOf(bdVar.vD().thumbnail_height);
-                videoAggregationVideoData.videoMd5 = bdVar.vD().video_md5;
-                videoAggregationVideoData.videoUrl = bdVar.vD().video_url;
-                videoAggregationVideoData.videoDuration = bdVar.vD().video_duration.intValue();
-                videoAggregationVideoData.videoWidth = String.valueOf(bdVar.vD().video_width);
-                videoAggregationVideoData.videoHeight = String.valueOf(bdVar.vD().video_height);
-                videoAggregationVideoData.videoSize = bdVar.vD().video_length.intValue();
-                videoAggregationVideoData.thumbnailUrl = bdVar.vD().thumbnail_url;
-                videoAggregationVideoData.originVideoUrl = bdVar.vD().video_url;
-                this.playCount = bdVar.vD().play_count.intValue();
+            if (bcVar.vN() != null) {
+                videoAggregationVideoData.thumbnailWidth = String.valueOf(bcVar.vN().thumbnail_width);
+                videoAggregationVideoData.thumbnailHeight = String.valueOf(bcVar.vN().thumbnail_height);
+                videoAggregationVideoData.videoMd5 = bcVar.vN().video_md5;
+                videoAggregationVideoData.videoUrl = bcVar.vN().video_url;
+                videoAggregationVideoData.videoDuration = bcVar.vN().video_duration.intValue();
+                videoAggregationVideoData.videoWidth = String.valueOf(bcVar.vN().video_width);
+                videoAggregationVideoData.videoHeight = String.valueOf(bcVar.vN().video_height);
+                videoAggregationVideoData.videoSize = bcVar.vN().video_length.intValue();
+                videoAggregationVideoData.thumbnailUrl = bcVar.vN().thumbnail_url;
+                videoAggregationVideoData.originVideoUrl = bcVar.vN().video_url;
+                this.playCount = bcVar.vN().play_count.intValue();
             }
             this.video = videoAggregationVideoData;
-            this.forumId = String.valueOf(bdVar.getFid());
-            this.threadId = bdVar.getId();
-            this.firstPostId = bdVar.uZ();
-            this.createTime = String.valueOf(bdVar.getCreateTime());
-            this.postNum = bdVar.ve();
-            this.agreeNum = bdVar.wv();
-            this.shareNum = bdVar.wx();
-            this.hasAgree = bdVar.ww() == 1;
-            this.source = bdVar.wt();
-            this.title = bdVar.getTitle();
+            this.forumId = String.valueOf(bcVar.getFid());
+            this.threadId = bcVar.getId();
+            if (bcVar.akt != null) {
+                this.forumId = bcVar.akt.id;
+            }
+            this.firstPostId = bcVar.vi();
+            this.createTime = String.valueOf(bcVar.getCreateTime());
+            this.postNum = bcVar.vn();
+            this.agreeNum = bcVar.wF();
+            this.shareNum = bcVar.wH();
+            this.hasAgree = bcVar.wG() == 1;
+            this.source = bcVar.wD();
+            this.title = bcVar.getTitle();
         }
     }
 

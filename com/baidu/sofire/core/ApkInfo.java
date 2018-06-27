@@ -3,7 +3,6 @@ package com.baidu.sofire.core;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
-import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ApkInfo {
@@ -68,13 +67,5 @@ public class ApkInfo {
             return this.packageName == null ? apkInfo.packageName == null : this.packageName.equals(apkInfo.packageName);
         }
         return false;
-    }
-
-    public String toString() {
-        try {
-            return "ApkInfo [key=" + this.key + ", initStatus=" + this.initStatus + ", packageName=" + this.packageName + ", versionName=" + this.versionName + ", pkgPath=" + this.pkgPath + ", hostContext=" + this.hostContext + ", classLoader=" + this.classLoader + ", libPath=" + this.libPath + ", downloadURL=" + this.downloadURL + ", apkMD5=" + this.apkMD5 + ", signMD5=" + this.signMD5 + ", activities=" + Arrays.toString(this.activities) + ", dataDir=" + this.dataDir + ", dexPath=" + this.dexPath + ", className=" + this.className + ", apkParseSuc=" + this.apkParseSuc + ", applicationTheme=" + this.applicationTheme + ", intentFilters=" + this.intentFilters + ", cloudPkgInfo=" + this.cloudPkgInfo + ", startTime=" + this.startTime + ", duration=" + this.duration + ", network=" + this.network + ", isOnce=" + this.isOnce + "]";
-        } catch (Throwable th) {
-            return "";
-        }
     }
 }

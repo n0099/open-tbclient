@@ -1,9 +1,12 @@
 package com.baidu.sapi2.utils;
 
+import android.annotation.TargetApi;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.appsearchlib.Info;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
@@ -11,22 +14,26 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.passhost.framework.a.b;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class StatService {
+    private static final String b = ((ISapiAccountManagerService) b.a().getService(6, 0)).getSapiConfiguration().getTpl();
     private static final Map<String, String> a = new HashMap();
-
-    private StatService() {
-    }
 
     static {
         a.put(Info.kBaiduPIDKey, "111");
         a.put("type", "1023");
         a.put("device", HttpConstants.OS_TYPE_VALUE);
+    }
+
+    private StatService() {
     }
 
     public static void onEvent(StatEvent statEvent) {
@@ -81,6 +88,23 @@ public final class StatService {
                 Log.e(th);
             }
         }
+    }
+
+    @TargetApi(8)
+    public static void onEventAutoStatistic(LinkedHashMap<String, String> linkedHashMap, Map<String, String> map) {
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        for (String str : linkedHashMap.keySet()) {
+            sb.append(str).append(SystemInfoUtil.COLON).append(linkedHashMap.get(str));
+        }
+        sb.append("}");
+        map.put("auto_statistic", Base64.encodeToString(sb.toString().getBytes(), 0));
+        map.put("source", "native");
+        map.put("data_source", "client");
+        onEvent("auto_statistic", map);
     }
 
     public static void replay() {

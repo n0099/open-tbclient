@@ -16,171 +16,171 @@ import com.baidu.tieba.service.SignAlertReceiver;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class c {
-    private static c aDf = new c();
-    public int aDg = 300;
-    public boolean aDh = true;
-    public boolean aDi = false;
-    public boolean aDj = true;
-    public boolean aDk = true;
-    public boolean aDl = true;
-    public boolean aDm = true;
-    public boolean aDn = false;
-    public boolean aDo = true;
-    public boolean aDp = true;
-    public boolean aDq = false;
-    public String aDr = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String aDs = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    private static c aDZ = new c();
+    public int aEa = 300;
+    public boolean aEb = true;
+    public boolean aEc = false;
+    public boolean aEd = true;
+    public boolean aEe = true;
+    public boolean aEf = true;
+    public boolean aEg = true;
+    public boolean aEh = false;
+    public boolean aEi = true;
+    public boolean aEj = true;
+    public boolean aEk = false;
+    public String aEl = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String aEm = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private c() {
     }
 
-    public static c DE() {
-        return aDf;
+    public static c DW() {
+        return aDZ;
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.bxV();
+        com.baidu.tieba.tbadkCore.util.a.byz();
     }
 
-    public void DF() {
-        com.baidu.tieba.tbadkCore.util.a.DF();
+    public void DX() {
+        com.baidu.tieba.tbadkCore.util.a.DX();
     }
 
-    public boolean DG() {
-        return this.aDg > 0;
+    public boolean DY() {
+        return this.aEa > 0;
     }
 
-    public int DH() {
-        return this.aDg;
+    public int DZ() {
+        return this.aEa;
     }
 
-    public boolean DI() {
-        return this.aDi;
+    public boolean Ea() {
+        return this.aEc;
     }
 
-    public boolean DJ() {
-        return this.aDj;
+    public boolean Eb() {
+        return this.aEd;
     }
 
-    public boolean DK() {
-        return this.aDm;
+    public boolean Ec() {
+        return this.aEg;
     }
 
-    public boolean DL() {
-        return this.aDk;
+    public boolean Ed() {
+        return this.aEe;
     }
 
-    public boolean DM() {
-        return this.aDh;
+    public boolean Ee() {
+        return this.aEb;
     }
 
-    public boolean DN() {
-        return this.aDo;
+    public boolean Ef() {
+        return this.aEi;
     }
 
-    public boolean DO() {
-        return this.aDp;
+    public boolean Eg() {
+        return this.aEj;
     }
 
-    public boolean DP() {
-        return this.aDq;
+    public boolean Eh() {
+        return this.aEk;
     }
 
-    public boolean DQ() {
-        return this.aDn;
+    public boolean Ei() {
+        return this.aEh;
     }
 
-    public String DR() {
-        return this.aDr;
+    public String Ej() {
+        return this.aEl;
     }
 
-    public String DS() {
-        return this.aDs;
+    public String Ek() {
+        return this.aEm;
     }
 
-    public void bb(boolean z) {
-        this.aDh = z;
+    public void be(boolean z) {
+        this.aEb = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
     }
 
-    public void dX(int i) {
+    public void dY(int i) {
         if (i == 0) {
-            this.aDg = i;
-            a.CX().setMsgBookmark(0);
-            a.CX().setMsgGiftNum(0);
-            a.CX().setMsgFans(0);
+            this.aEa = i;
+            a.Dp().setMsgBookmark(0);
+            a.Dp().setMsgGiftNum(0);
+            a.Dp().setMsgFans(0);
         } else {
-            this.aDg = 300;
+            this.aEa = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
     }
 
-    public boolean DT() {
+    public boolean El() {
         return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
     }
 
-    public void bc(boolean z) {
+    public void bf(boolean z) {
         TbadkSettings.getInst().saveBoolean("group_notify", z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
     }
 
-    public boolean DU() {
-        return this.aDl;
-    }
-
-    public void bd(boolean z) {
-        this.aDl = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
-    }
-
-    public void be(boolean z) {
-        this.aDi = z;
-    }
-
-    public void bf(boolean z) {
-        this.aDq = z;
-    }
-
-    public void fF(String str) {
-        this.aDr = str;
-    }
-
-    public void fG(String str) {
-        this.aDs = str;
+    public boolean Em() {
+        return this.aEf;
     }
 
     public void bg(boolean z) {
-        this.aDn = z;
+        this.aEf = z;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
     }
 
     public void bh(boolean z) {
-        this.aDp = z;
+        this.aEc = z;
     }
 
     public void bi(boolean z) {
-        this.aDo = z;
+        this.aEk = z;
+    }
+
+    public void fJ(String str) {
+        this.aEl = str;
+    }
+
+    public void fK(String str) {
+        this.aEm = str;
     }
 
     public void bj(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("permit_screen_lock", z);
-    }
-
-    public boolean DV() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("permit_screen_lock", true);
+        this.aEh = z;
     }
 
     public void bk(boolean z) {
-        this.aDk = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
+        this.aEj = z;
     }
 
     public void bl(boolean z) {
-        this.aDj = z;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
+        this.aEi = z;
     }
 
     public void bm(boolean z) {
-        this.aDm = z;
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("permit_screen_lock", z);
+    }
+
+    public boolean En() {
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("permit_screen_lock", true);
+    }
+
+    public void bn(boolean z) {
+        this.aEe = z;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
+    }
+
+    public void bo(boolean z) {
+        this.aEd = z;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
+    }
+
+    public void bp(boolean z) {
+        this.aEg = z;
     }
 
     public boolean isSignAlertOn() {
@@ -257,28 +257,28 @@ public class c {
         updateSignAlarm();
     }
 
-    public void dY(int i) {
+    public void dZ(int i) {
         if (i == 0) {
-            bi(false);
-            bg(false);
+            bl(false);
+            bj(false);
         } else if (i == 1) {
-            bi(true);
-            bg(false);
+            bl(true);
+            bj(false);
         } else if (i == 2) {
-            bi(false);
-            bg(true);
+            bl(false);
+            bj(true);
         } else {
-            bi(true);
-            bg(true);
+            bl(true);
+            bj(true);
         }
     }
 
-    public int DW() {
-        if (!this.aDo && !this.aDn) {
+    public int Eo() {
+        if (!this.aEi && !this.aEh) {
             return 0;
         }
-        if (!this.aDo || this.aDn) {
-            if (!this.aDo && this.aDn) {
+        if (!this.aEi || this.aEh) {
+            if (!this.aEi && this.aEh) {
                 return 2;
             }
             return 3;
@@ -286,11 +286,11 @@ public class c {
         return 1;
     }
 
-    public void bn(boolean z) {
+    public void bq(boolean z) {
         TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", z);
     }
 
-    public boolean DX() {
+    public boolean Ep() {
         return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", true);
     }
 }

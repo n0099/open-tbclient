@@ -1,9 +1,9 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface f {
-    void bH(String str, String str2);
+    void bL(String str, String str2);
 
-    void bI(String str, String str2);
+    void bM(String str, String str2);
 
     void e(String str, int i, int i2, String str2);
 

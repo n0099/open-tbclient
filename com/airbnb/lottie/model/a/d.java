@@ -17,14 +17,14 @@ public class d extends o<Integer, Integer> {
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<Integer, Integer> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mK) : new com.airbnb.lottie.a.b.e(this.mt);
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mJ) : new com.airbnb.lottie.a.b.e(this.mr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
     /* renamed from: co */
     public Integer cm() {
-        return (Integer) this.mK;
+        return (Integer) this.mJ;
     }
 
     /* loaded from: classes2.dex */
@@ -38,15 +38,15 @@ public class d extends o<Integer, Integer> {
             if (jSONObject != null && jSONObject.has("x")) {
                 eVar.E("Lottie doesn't support expressions.");
             }
-            n.a cE = n.a(jSONObject, 1.0f, eVar, b.nz).cE();
-            return new d(cE.mt, (Integer) cE.mK);
+            n.a cE = n.a(jSONObject, 1.0f, eVar, b.ny).cE();
+            return new d(cE.mr, (Integer) cE.mJ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b implements m.a<Integer> {
-        private static final b nz = new b();
+        private static final b ny = new b();
 
         private b() {
         }

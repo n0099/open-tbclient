@@ -7,22 +7,22 @@ public class x extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "img_log";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
-        return 1;
+        return "hybridSwitch";
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] hm() {
         return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hn() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a

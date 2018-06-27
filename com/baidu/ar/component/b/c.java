@@ -28,7 +28,6 @@ import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.ar.util.sputil.SPUtils;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
 import com.baidu.fsg.base.armor.RimArmor;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
@@ -435,14 +434,14 @@ public class c implements View.OnClickListener, EasyAudioCallback {
                 case 2002:
                     c();
                     return;
-                case PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE /* 2003 */:
+                case 2003:
                     if (this.a != null) {
                         this.a.f(true);
                         b(true);
                         return;
                     }
                     return;
-                case PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE_ERROR /* 2004 */:
+                case 2004:
                     if (this.a != null) {
                         this.a.f(false);
                         return;

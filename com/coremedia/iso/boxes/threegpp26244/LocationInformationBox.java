@@ -5,7 +5,6 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
-import com.sina.weibo.sdk.constant.WBPageConstants;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
@@ -13,22 +12,22 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class LocationInformationBox extends AbstractFullBox {
     public static final String TYPE = "loci";
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_13 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_14 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_15 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0296a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_13 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_14 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_15 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_9 = null;
     private String additionalNotes;
     private double altitude;
     private String astronomicalBody;
@@ -57,9 +56,9 @@ public class LocationInformationBox extends AbstractFullBox {
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getRole", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "int"), 46);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setRole", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "int", "role", "", "void"), 50);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getLongitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "double"), 54);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setLongitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", WBPageConstants.ParamKey.LONGITUDE, "", "void"), 58);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setLongitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", "longitude", "", "void"), 58);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getLatitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "", "", "", "double"), 62);
-        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLatitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", WBPageConstants.ParamKey.LATITUDE, "", "void"), 66);
+        ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setLatitude", "com.coremedia.iso.boxes.threegpp26244.LocationInformationBox", "double", "latitude", "", "void"), 66);
     }
 
     public LocationInformationBox() {
@@ -95,7 +94,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setRole(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wD(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wM(i)));
         this.role = i;
     }
 
@@ -105,7 +104,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setLongitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.t(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.s(d)));
         this.longitude = d;
     }
 
@@ -115,7 +114,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setLatitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.t(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.s(d)));
         this.latitude = d;
     }
 
@@ -125,7 +124,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setAltitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.t(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.s(d)));
         this.altitude = d;
     }
 

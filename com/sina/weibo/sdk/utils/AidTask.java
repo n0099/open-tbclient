@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
@@ -17,10 +18,11 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.security.RSAUtil;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
-import com.sina.weibo.sdk.net.NetUtils;
+import com.sina.weibo.sdk.net.HttpManager;
 import com.sina.weibo.sdk.net.WeiboParameters;
 import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
@@ -28,40 +30,43 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 import javax.crypto.Cipher;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class AidTask implements Serializable {
+/* loaded from: classes2.dex */
+public class AidTask {
     private static final String AID_FILE_NAME = "weibo_sdk_aid";
+    public static final String AID_TAG = "weibo_aid_value";
     private static final int MAX_RETRY_NUM = 3;
     private static final String TAG = "AidTask";
     private static final int VERSION = 1;
     public static final int WHAT_LOAD_AID_ERR = 1002;
     public static final int WHAT_LOAD_AID_SUC = 1001;
-    private static AidTask sInstance = null;
-    private static final long serialVersionUID = 1;
+    private static AidTask sInstance;
+    private String hash;
     private AidInfo mAidInfo;
     private String mAppKey;
     private Context mContext;
     private CallbackHandler mHandler;
+    private String pkg;
     private volatile ReentrantLock mTaskLock = new ReentrantLock(true);
+    private ArrayList<WeiboUtilListener> mListeners = new ArrayList<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface AidResultCallBack {
         void onAidGenFailed(Exception exc);
 
         void onAidGenSuccessed(AidInfo aidInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     private static class CallbackHandler extends Handler {
         private WeakReference<AidResultCallBack> callBackReference;
 
@@ -102,7 +107,7 @@ public class AidTask implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class AidInfo {
         private String mAid;
         private String mSubCookie;
@@ -119,7 +124,7 @@ public class AidTask implements Serializable {
             AidInfo aidInfo = new AidInfo();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.has("error") || jSONObject.has("error_code")) {
+                if (jSONObject.has("error") || jSONObject.has(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
                     LogUtil.d(AidTask.TAG, "loadAidFromNet has error !!!");
                     throw new WeiboException("loadAidFromNet has error !!!");
                 }
@@ -140,20 +145,26 @@ public class AidTask implements Serializable {
         }
     }
 
+    public synchronized void setAppkey(String str) {
+        this.mAppKey = str;
+    }
+
     private AidTask(Context context) {
-        this.mContext = context.getApplicationContext();
-        this.mHandler = new CallbackHandler(this.mContext.getMainLooper());
-        new Thread(new Runnable() { // from class: com.sina.weibo.sdk.utils.AidTask.1
-            @Override // java.lang.Runnable
-            public void run() {
-                for (int i = 0; i < 1; i++) {
-                    try {
-                        AidTask.this.getAidInfoFile(i).delete();
-                    } catch (Exception e) {
+        if (context != null) {
+            this.mContext = context.getApplicationContext();
+            this.mHandler = new CallbackHandler(this.mContext.getMainLooper());
+            new Thread(new Runnable() { // from class: com.sina.weibo.sdk.utils.AidTask.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    for (int i = 0; i < 1; i++) {
+                        try {
+                            AidTask.this.getAidInfoFile(i).delete();
+                        } catch (Exception e) {
+                        }
                     }
                 }
-            }
-        }).start();
+            }).start();
+        }
     }
 
     public static synchronized AidTask getInstance(Context context) {
@@ -174,9 +185,18 @@ public class AidTask implements Serializable {
         }
     }
 
-    private void initAidInfo(String str) {
+    private void aidTaskInit(String str, String str2, String str3) {
+        if (!TextUtils.isEmpty(str)) {
+            LogUtil.e(TAG, "aidTaskInit ");
+            initAidInfo(str, str2, str3);
+        }
+    }
+
+    public void initAidInfo(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str)) {
             this.mAppKey = str;
+            this.pkg = str2;
+            this.hash = str3;
             new Thread(new Runnable() { // from class: com.sina.weibo.sdk.utils.AidTask.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -196,6 +216,7 @@ public class AidTask implements Serializable {
                                 AidInfo parseJson = AidInfo.parseJson(loadAidFromNet);
                                 AidTask.this.cacheAidInfo(loadAidFromNet);
                                 AidTask.this.mAidInfo = parseJson;
+                                AidTask.this.notifyListener(AidTask.this.mAidInfo);
                                 break;
                             } catch (WeiboException e) {
                                 LogUtil.e(AidTask.TAG, "AidTaskInit WeiboException Msg : " + e.getMessage());
@@ -208,6 +229,10 @@ public class AidTask implements Serializable {
                 }
             }).start();
         }
+    }
+
+    private void initAidInfo(String str) {
+        initAidInfo(str, null, null);
     }
 
     public AidInfo getAidSync(String str) throws WeiboException {
@@ -231,9 +256,15 @@ public class AidTask implements Serializable {
         }
     }
 
-    private void generateAid(String str, final AidResultCallBack aidResultCallBack) {
+    private void generateAid(String str, AidResultCallBack aidResultCallBack) {
+        generateAid(str, null, null, aidResultCallBack);
+    }
+
+    private void generateAid(String str, String str2, String str3, final AidResultCallBack aidResultCallBack) {
         if (!TextUtils.isEmpty(str)) {
             this.mAppKey = str;
+            this.hash = str3;
+            this.pkg = str2;
             new Thread(new Runnable() { // from class: com.sina.weibo.sdk.utils.AidTask.3
                 @Override // java.lang.Runnable
                 public void run() {
@@ -267,8 +298,8 @@ public class AidTask implements Serializable {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized AidInfo loadAidInfoFromCache() {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [360=4] */
+    protected synchronized AidInfo loadAidInfoFromCache() {
         FileInputStream fileInputStream;
         Throwable th;
         AidInfo aidInfo = null;
@@ -313,6 +344,11 @@ public class AidTask implements Serializable {
         return aidInfo;
     }
 
+    public String loadAidFromCache() {
+        AidInfo loadAidInfoFromCache = loadAidInfoFromCache();
+        return (loadAidInfoFromCache == null || loadAidInfoFromCache.getAid() == null) ? "" : loadAidInfoFromCache.getAid();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public File getAidInfoFile(int i) {
         return new File(this.mContext.getFilesDir(), AID_FILE_NAME + i);
@@ -320,8 +356,8 @@ public class AidTask implements Serializable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String loadAidFromNet() throws WeiboException {
-        String packageName = this.mContext.getPackageName();
-        String sign = Utility.getSign(this.mContext, packageName);
+        String packageName = this.pkg == null ? this.mContext.getPackageName() : this.pkg;
+        String sign = this.hash == null ? Utility.getSign(this.mContext, packageName) : this.hash;
         String mfp = getMfp(this.mContext);
         WeiboParameters weiboParameters = new WeiboParameters(this.mAppKey);
         weiboParameters.put("appkey", this.mAppKey);
@@ -329,15 +365,16 @@ public class AidTask implements Serializable {
         weiboParameters.put("packagename", packageName);
         weiboParameters.put("key_hash", sign);
         try {
-            String internalHttpRequest = NetUtils.internalHttpRequest(this.mContext, "https://api.weibo.com/oauth2/getaid.json", "GET", weiboParameters);
-            LogUtil.d(TAG, "loadAidFromNet response : " + internalHttpRequest);
-            return internalHttpRequest;
+            String openUrl = HttpManager.openUrl(this.mContext, "https://api.weibo.com/oauth2/getaid.json", "GET", weiboParameters);
+            LogUtil.d(TAG, "loadAidFromNet response : " + openUrl);
+            return openUrl;
         } catch (WeiboException e) {
             LogUtil.d(TAG, "loadAidFromNet WeiboException Msg : " + e.getMessage());
             throw e;
         }
     }
 
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [430=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void cacheAidInfo(String str) {
         FileOutputStream fileOutputStream;
@@ -543,7 +580,7 @@ public class AidTask implements Serializable {
         }
     }
 
-    private static String getImei(Context context) {
+    public static String getImei(Context context) {
         try {
             return ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
         } catch (Exception e) {
@@ -631,7 +668,7 @@ public class AidTask implements Serializable {
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            return String.valueOf(String.valueOf(displayMetrics.widthPixels)) + "*" + String.valueOf(displayMetrics.heightPixels);
+            return String.valueOf(displayMetrics.widthPixels) + "*" + String.valueOf(displayMetrics.heightPixels);
         } catch (Exception e) {
             return "";
         }
@@ -697,6 +734,43 @@ public class AidTask implements Serializable {
             return str;
         } catch (Exception e) {
             return "none";
+        }
+    }
+
+    public void addListener(WeiboUtilListener weiboUtilListener) {
+        if (this.mListeners == null) {
+            this.mListeners = new ArrayList<>();
+        }
+        this.mListeners.add(weiboUtilListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void notifyListener(AidInfo aidInfo) {
+        Bundle bundle = new Bundle();
+        if (aidInfo != null) {
+            bundle.putString(AID_TAG, aidInfo.getAid());
+        }
+        try {
+            if (this.mListeners != null && this.mListeners.size() > 0) {
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 < this.mListeners.size()) {
+                        this.mListeners.get(i2).onComplete(bundle);
+                        i = i2 + 1;
+                    } else {
+                        return;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeListener(WeiboUtilListener weiboUtilListener) {
+        if (this.mListeners != null && this.mListeners.size() > 0) {
+            this.mListeners.remove(weiboUtilListener);
         }
     }
 }

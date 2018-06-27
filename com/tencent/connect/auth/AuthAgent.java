@@ -36,7 +36,7 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.fsg.biometrics.base.d.h;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
+import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -210,7 +210,7 @@ public class AuthAgent extends BaseApi {
         String str = (System.currentTimeMillis() / 1000) + "";
         a2.putString("sign", com.tencent.open.utils.h.b(e.a(), str));
         a2.putString("time", str);
-        a2.putString("display", "mobile");
+        a2.putString(LivenessRecogActivity.f.a, "mobile");
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN);
         a2.putString(WBConstants.AUTH_PARAMS_REDIRECT_URL, "auth://tauth.qq.com/");
         a2.putString("cancel_display", "1");
@@ -336,7 +336,7 @@ public class AuthAgent extends BaseApi {
             JSONObject jSONObject = (JSONObject) obj;
             try {
                 int i = jSONObject.getInt(ARResourceKey.HTTP_RET);
-                String string = i == 0 ? ImagesInvalidReceiver.SUCCESS : jSONObject.getString("msg");
+                String string = i == 0 ? "success" : jSONObject.getString("msg");
                 if (this.a != null) {
                     this.a.onComplete(new JSONObject().put(ARResourceKey.HTTP_RET, i).put("msg", string));
                 }

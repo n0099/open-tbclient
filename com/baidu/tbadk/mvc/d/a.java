@@ -1,44 +1,44 @@
 package com.baidu.tbadk.mvc.d;
 /* loaded from: classes.dex */
 public class a implements b {
-    private boolean aRK = false;
-    private boolean aRL = true;
-    private boolean aRM = false;
-    private boolean aRN = true;
-    private boolean aRO = true;
-    private boolean aRP = false;
-    private boolean aRQ = true;
-    private boolean aRR = true;
+    private boolean aSG = false;
+    private boolean aSH = true;
+    private boolean aSI = false;
+    private boolean aSJ = true;
+    private boolean aSK = true;
+    private boolean aSL = false;
+    private boolean aSM = true;
+    private boolean aSN = true;
 
     public boolean isPullRefreshing() {
-        return this.aRK;
-    }
-
-    public void bP(boolean z) {
-        this.aRK = z;
-    }
-
-    public boolean JL() {
-        return this.aRM;
-    }
-
-    public void bQ(boolean z) {
-        this.aRM = z;
-    }
-
-    public boolean JM() {
-        return this.aRN;
-    }
-
-    public void bR(boolean z) {
-        this.aRN = z;
-    }
-
-    public boolean JN() {
-        return this.aRO;
+        return this.aSG;
     }
 
     public void bS(boolean z) {
-        this.aRO = z;
+        this.aSG = z;
+    }
+
+    public boolean Kd() {
+        return this.aSI;
+    }
+
+    public void bT(boolean z) {
+        this.aSI = z;
+    }
+
+    public boolean Ke() {
+        return this.aSJ;
+    }
+
+    public void bU(boolean z) {
+        this.aSJ = z;
+    }
+
+    public boolean Kf() {
+        return this.aSK;
+    }
+
+    public void bV(boolean z) {
+        this.aSK = z;
     }
 }

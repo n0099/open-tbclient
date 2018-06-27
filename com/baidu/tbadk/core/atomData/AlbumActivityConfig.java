@@ -18,6 +18,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final String FROM_MAIN_TAB = "main_tab";
     public static final String FROM_PB = "pb";
     public static final int FROM_PB_SHOW_PICTURE = 2;
+    public static final String FROM_PERSON = "person";
     public static final int FROM_PHOTO_LIVE_COVER = 1;
     public static final int FROM_PHOTO_LIVE_UPGRADE_DIALOG = 3;
     public static final int FROM_VOTE = 3;

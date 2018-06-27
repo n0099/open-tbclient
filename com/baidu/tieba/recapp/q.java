@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
@@ -18,12 +19,12 @@ import tbclient.VideoInfo;
 public class q implements com.baidu.b.a.b.c {
     @Override // com.baidu.b.a.b.c
     public View K(Context context, String str) {
-        if ("image".equalsIgnoreCase(str)) {
+        if (TbConfig.TMP_PIC_DIR_NAME.equalsIgnoreCase(str)) {
             TbClipImageView tbClipImageView = new TbClipImageView(context);
-            tbClipImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbClipImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             tbClipImageView.setDrawerType(1);
             tbClipImageView.setDefaultResource(17170445);
-            tbClipImageView.setDefaultBgResource(d.C0141d.cp_bg_line_e);
+            tbClipImageView.setDefaultBgResource(d.C0142d.cp_bg_line_e);
             return tbClipImageView;
         } else if ("video".equalsIgnoreCase(str)) {
             View inflate = LayoutInflater.from(context).inflate(d.i.ad_card_video_view, (ViewGroup) null);
@@ -44,8 +45,8 @@ public class q implements com.baidu.b.a.b.c {
             return false;
         }
         if (view instanceof TbClipImageView) {
-            if (aVar.TC > 0.0f) {
-                ((TbClipImageView) view).setRadius((int) (aVar.TC * view.getResources().getDisplayMetrics().density));
+            if (aVar.TF > 0.0f) {
+                ((TbClipImageView) view).setRadius((int) (aVar.TF * view.getResources().getDisplayMetrics().density));
             } else {
                 ((TbClipImageView) view).setRadius(0);
             }
@@ -57,7 +58,7 @@ public class q implements com.baidu.b.a.b.c {
             int dimension = (int) view.getContext().getResources().getDimension(d.e.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.TB;
+            builder.thumbnail_url = aVar.TD;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);

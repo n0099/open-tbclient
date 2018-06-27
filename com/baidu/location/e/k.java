@@ -9,18 +9,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class k {
     private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", 3000);
     private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
     private final SQLiteDatabase b;
     private String a = null;
-    private final a XN = new a(this);
+    private final a XQ = new a(this);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends com.baidu.location.h.f {
-        private k XO;
+        private k XR;
         private int b;
         private long c;
         private String d = null;
@@ -28,7 +28,7 @@ public final class k {
         private boolean f = false;
 
         a(k kVar) {
-            this.XO = kVar;
+            this.XR = kVar;
             this.k = new HashMap();
             this.b = 0;
             this.c = -1L;
@@ -39,7 +39,7 @@ public final class k {
             if (this.e) {
                 return;
             }
-            this.d = this.XO.b();
+            this.d = this.XR.b();
             if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
                 this.b = 0;
                 this.c = -1L;
@@ -171,7 +171,7 @@ public final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.XN.b();
+        this.XQ.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

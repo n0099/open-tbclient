@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements m<PointF, PointF> {
-    private final List<com.airbnb.lottie.a.b.h> mt;
-    private PointF nA;
+    private final List<com.airbnb.lottie.a.b.h> mr;
+    private PointF nz;
 
     public static m<PointF, PointF> h(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
         if (jSONObject.has("k")) {
@@ -23,23 +23,23 @@ public class e implements m<PointF, PointF> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e() {
-        this.mt = new ArrayList();
-        this.nA = new PointF(0.0f, 0.0f);
+        this.mr = new ArrayList();
+        this.nz = new PointF(0.0f, 0.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Object obj, com.airbnb.lottie.e eVar) {
-        this.mt = new ArrayList();
+        this.mr = new ArrayList();
         if (f(obj)) {
             JSONArray jSONArray = (JSONArray) obj;
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
-                this.mt.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.nB));
+                this.mr.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.nA));
             }
-            com.airbnb.lottie.a.a.f(this.mt);
+            com.airbnb.lottie.a.a.f(this.mr);
             return;
         }
-        this.nA = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.bp());
+        this.nz = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.bp());
     }
 
     private boolean f(Object obj) {
@@ -52,20 +52,20 @@ public class e implements m<PointF, PointF> {
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<PointF, PointF> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nA) : new com.airbnb.lottie.a.b.i(this.mt);
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nz) : new com.airbnb.lottie.a.b.i(this.mr);
     }
 
     public boolean hasAnimation() {
-        return !this.mt.isEmpty();
+        return !this.mr.isEmpty();
     }
 
     public String toString() {
-        return "initialPoint=" + this.nA;
+        return "initialPoint=" + this.nz;
     }
 
     /* loaded from: classes2.dex */
     private static class a implements m.a<PointF> {
-        private static final m.a<PointF> nB = new a();
+        private static final m.a<PointF> nA = new a();
 
         private a() {
         }

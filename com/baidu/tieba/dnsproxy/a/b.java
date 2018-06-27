@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     String address;
-    float cOU;
+    float cMO;
     private List<Integer> data = new ArrayList();
-    boolean cOV = false;
-    boolean cOW = false;
+    boolean cMP = false;
+    boolean cMQ = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void jo(int i) {
+    public void jm(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.cOU = 0.0f;
+            this.cMO = 0.0f;
         } else if (size == 1) {
-            this.cOU = this.data.get(0).intValue();
+            this.cMO = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.cOU = ((i * f3) / size) + f;
-            if (this.cOU < 0.05d) {
-                if (!this.cOV) {
-                    com.baidu.tieba.dnsproxy.d.anD().z("ip_weight_lower", this.address, String.valueOf(this.cOU));
-                    this.cOV = true;
+            this.cMO = ((i * f3) / size) + f;
+            if (this.cMO < 0.05d) {
+                if (!this.cMP) {
+                    com.baidu.tieba.dnsproxy.d.amX().x("ip_weight_lower", this.address, String.valueOf(this.cMO));
+                    this.cMP = true;
                 }
-            } else if (this.cOV && this.cOU > 0.5d && !this.cOW) {
-                com.baidu.tieba.dnsproxy.d.anD().z("ip_weight_lower_recover", this.address, String.valueOf(this.cOU));
-                this.cOW = true;
+            } else if (this.cMP && this.cMO > 0.5d && !this.cMQ) {
+                com.baidu.tieba.dnsproxy.d.amX().x("ip_weight_lower_recover", this.address, String.valueOf(this.cMO));
+                this.cMQ = true;
             }
         }
     }

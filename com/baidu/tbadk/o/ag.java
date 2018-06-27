@@ -7,7 +7,7 @@ public class ag extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_net_type_fixed";
+        return "android_net_delete";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -31,6 +31,6 @@ public class ag extends com.baidu.adp.lib.b.a {
     }
 
     public static boolean ip() {
-        return com.baidu.adp.lib.b.d.hv().aw("android_net_type_fixed") == 1;
+        return com.baidu.adp.lib.b.d.hv().aw("android_net_delete") == 1;
     }
 }

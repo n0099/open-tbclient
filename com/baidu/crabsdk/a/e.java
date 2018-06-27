@@ -18,11 +18,11 @@ import java.util.zip.DeflaterOutputStream;
 @TargetApi(16)
 /* loaded from: classes2.dex */
 public final class e implements Choreographer.FrameCallback {
-    static final e RY = new e();
+    static final e Sa = new e();
     private boolean an = false;
-    private long RZ = 0;
-    private long Sa = 41666666;
-    private long Sb = 16666665;
+    private long Sb = 0;
+    private long Sc = 41666666;
+    private long Sd = 16666665;
     private int ar = 0;
 
     private e() {
@@ -34,11 +34,11 @@ public final class e implements Choreographer.FrameCallback {
         byte[] bArr = null;
         Map<String, Object> g = a.oS().g();
         if (g == null) {
-            com.baidu.crabsdk.c.a.ce("no keyStack; blockRecord = null; not a block!!!");
+            com.baidu.crabsdk.c.a.cg("no keyStack; blockRecord = null; not a block!!!");
             return;
         }
-        com.baidu.crabsdk.c.a.cd("^^ -BlockCanaryCore- ^^" + g.toString());
-        context = c.RV;
+        com.baidu.crabsdk.c.a.cf("^^ -BlockCanaryCore- ^^" + g.toString());
+        context = c.RX;
         Map<String, Object> a = com.baidu.crabsdk.sender.d.a(context, (Throwable) null, true);
         a.putAll(g);
         com.baidu.crabsdk.sender.d.b(a);
@@ -46,15 +46,15 @@ public final class e implements Choreographer.FrameCallback {
         String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, UUID.randomUUID().toString());
         String M = com.baidu.crabsdk.c.d.M(j, c);
         try {
-            c = com.baidu.crabsdk.c.e.ck(c);
+            c = com.baidu.crabsdk.c.e.cm(c);
         } catch (Exception e) {
             e.printStackTrace();
         }
         com.baidu.crabsdk.sender.e.ac();
         if (com.baidu.crabsdk.sender.e.pm()) {
-            com.baidu.crabsdk.c.a.cb("-BlockCanaryCore- switch on -  *^o^* doUploadBlock *^o^*");
+            com.baidu.crabsdk.c.a.cd("-BlockCanaryCore- switch on -  *^o^* doUploadBlock *^o^*");
             if (!com.baidu.crabsdk.sender.e.pp()) {
-                com.baidu.crabsdk.c.a.cb("CrashSwitch.canBlockUploadToday() == false");
+                com.baidu.crabsdk.c.a.cd("CrashSwitch.canBlockUploadToday() == false");
                 b.oT().stop();
                 eVar.stop();
                 return;
@@ -85,7 +85,7 @@ public final class e implements Choreographer.FrameCallback {
     }
 
     private void reset() {
-        this.RZ = 0L;
+        this.Sb = 0L;
         this.ar = 0;
     }
 
@@ -93,15 +93,15 @@ public final class e implements Choreographer.FrameCallback {
     public final void doFrame(long j) {
         ExecutorService executorService;
         try {
-            if (this.RZ != 0) {
-                long j2 = j - this.RZ;
-                if (j2 > this.Sa) {
-                    this.ar = (int) ((j2 / this.Sb) + this.ar);
+            if (this.Sb != 0) {
+                long j2 = j - this.Sb;
+                if (j2 > this.Sc) {
+                    this.ar = (int) ((j2 / this.Sd) + this.ar);
                 } else if (this.ar > 0) {
                     if (this.ar > 30) {
-                        com.baidu.crabsdk.c.a.cd("^^ block skip frames = " + this.ar + "\n^^ costs : " + TimeUnit.NANOSECONDS.toMillis(this.ar * this.Sb) + "ms");
-                        if (TimeUnit.NANOSECONDS.toMillis(this.ar * this.Sb) >= a.T) {
-                            executorService = c.RW;
+                        com.baidu.crabsdk.c.a.cf("^^ block skip frames = " + this.ar + "\n^^ costs : " + TimeUnit.NANOSECONDS.toMillis(this.ar * this.Sd) + "ms");
+                        if (TimeUnit.NANOSECONDS.toMillis(this.ar * this.Sd) >= a.T) {
+                            executorService = c.RY;
                             executorService.execute(new f(this));
                         }
                         this.ar = 1;
@@ -109,11 +109,11 @@ public final class e implements Choreographer.FrameCallback {
                     this.ar--;
                 }
             }
-            this.RZ = j;
+            this.Sb = j;
         } catch (Throwable th) {
-            com.baidu.crabsdk.c.a.ce("doFrame:" + th.toString());
+            com.baidu.crabsdk.c.a.cg("doFrame:" + th.toString());
         }
-        Choreographer.getInstance().postFrameCallback(RY);
+        Choreographer.getInstance().postFrameCallback(Sa);
     }
 
     public final void start() {
@@ -124,7 +124,7 @@ public final class e implements Choreographer.FrameCallback {
         reset();
         try {
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                Choreographer.getInstance().postFrameCallback(RY);
+                Choreographer.getInstance().postFrameCallback(Sa);
             } else {
                 new Handler(Looper.getMainLooper()).post(new g(this));
             }
@@ -140,7 +140,7 @@ public final class e implements Choreographer.FrameCallback {
             new Handler(Looper.getMainLooper()).post(new h(this));
             return;
         }
-        Choreographer.getInstance().removeFrameCallback(RY);
-        com.baidu.crabsdk.c.a.cb("stop FrameMonitor !!");
+        Choreographer.getInstance().removeFrameCallback(Sa);
+        com.baidu.crabsdk.c.a.cd("stop FrameMonitor !!");
     }
 }

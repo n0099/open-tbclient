@@ -29,11 +29,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         return this.list.size();
     }
 
-    public String aWZ() {
+    public String aXG() {
         if (StringUtils.isNull(this.uuid) || !l.ge() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.fdb + aXa();
+        String str = c.a.fgS + aXH();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -47,17 +47,17 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         }
     }
 
-    protected String aXa() {
+    protected String aXH() {
         return "_" + this.uuid + "_" + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e aXb() {
-        return new e(getKey(), aWZ());
+    public e aXI() {
+        return new e(getKey(), aXG());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cJ(List<T> list) {
+    public void cN(List<T> list) {
         new BdAsyncTask<List<T>, Void, Void>() { // from class: com.baidu.tieba.j.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -65,9 +65,9 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
             /* renamed from: e */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String aWZ = a.this.aWZ();
-                    if (!StringUtils.isNull(aWZ)) {
-                        a.this.k(aWZ, listArr[0]);
+                    String aXG = a.this.aXG();
+                    if (!StringUtils.isNull(aXG)) {
+                        a.this.k(aXG, listArr[0]);
                     }
                 }
                 return null;
@@ -80,7 +80,7 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).bmg());
+            jSONArray.put(list.get(i).bmK());
         }
         com.baidu.tieba.j.d.e(new File(str), jSONArray.toString() + "\n");
     }

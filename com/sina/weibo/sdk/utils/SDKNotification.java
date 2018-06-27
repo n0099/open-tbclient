@@ -8,7 +8,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SDKNotification {
     private Context mContext;
     private Notification mNotification;
@@ -18,17 +18,13 @@ public class SDKNotification {
         this.mNotification = notification;
     }
 
-    /* synthetic */ SDKNotification(Context context, Notification notification, SDKNotification sDKNotification) {
-        this(context, notification);
-    }
-
     public void show(int i) {
         if (this.mNotification != null) {
             ((NotificationManager) this.mContext.getSystemService("notification")).notify(i, this.mNotification);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SDKNotificationBuilder {
         private String mNotificationContent;
         private PendingIntent mNotificationPendingIntent;
@@ -87,7 +83,7 @@ public class SDKNotification {
             builder.setLargeIcon(((BitmapDrawable) ResourceManager.getDrawable(context, "weibosdk_notification_icon.png")).getBitmap());
             builder.setContentTitle(this.mNotificationTitle);
             builder.setContentText(this.mNotificationContent);
-            return new SDKNotification(context, builder.build(), null);
+            return new SDKNotification(context, builder.build());
         }
 
         private static int getNotificationIcon(Context context) {

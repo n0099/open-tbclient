@@ -1,65 +1,36 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
-public class av {
-    public static void KL() {
-        com.baidu.adp.lib.b.d.hv().f(u.class);
-        com.baidu.adp.lib.b.d.hv().f(a.class);
-        com.baidu.adp.lib.b.d.hv().f(b.class);
-        com.baidu.adp.lib.b.d.hv().f(c.class);
-        com.baidu.adp.lib.b.d.hv().f(d.class);
-        com.baidu.adp.lib.b.d.hv().f(f.class);
-        com.baidu.adp.lib.b.d.hv().f(e.class);
-        com.baidu.adp.lib.b.d.hv().f(h.class);
-        com.baidu.adp.lib.b.d.hv().f(i.class);
-        com.baidu.adp.lib.b.d.hv().f(l.class);
-        com.baidu.adp.lib.b.d.hv().f(m.class);
-        com.baidu.adp.lib.b.d.hv().f(n.class);
-        com.baidu.adp.lib.b.d.hv().f(o.class);
-        com.baidu.adp.lib.b.d.hv().f(p.class);
-        com.baidu.adp.lib.b.d.hv().f(s.class);
-        com.baidu.adp.lib.b.d.hv().f(t.class);
-        com.baidu.adp.lib.b.d.hv().f(v.class);
-        com.baidu.adp.lib.b.d.hv().f(w.class);
-        com.baidu.adp.lib.b.d.hv().f(y.class);
-        com.baidu.adp.lib.b.d.hv().f(aa.class);
-        com.baidu.adp.lib.b.d.hv().f(ab.class);
-        com.baidu.adp.lib.b.d.hv().f(ac.class);
-        com.baidu.adp.lib.b.d.hv().f(ae.class);
-        com.baidu.adp.lib.b.d.hv().f(al.class);
-        com.baidu.adp.lib.b.d.hv().f(ao.class);
-        com.baidu.adp.lib.b.d.hv().f(aq.class);
-        com.baidu.adp.lib.b.d.hv().f(at.class);
-        com.baidu.adp.lib.b.d.hv().f(ax.class);
-        com.baidu.adp.lib.b.d.hv().f(az.class);
-        com.baidu.adp.lib.b.d.hv().f(bb.class);
-        com.baidu.adp.lib.b.d.hv().f(be.class);
-        com.baidu.adp.lib.b.d.hv().f(bg.class);
-        com.baidu.adp.lib.b.d.hv().f(bh.class);
-        com.baidu.adp.lib.b.d.hv().f(bi.class);
-        com.baidu.adp.lib.b.d.hv().f(bf.class);
-        com.baidu.adp.lib.b.d.hv().f(x.class);
-        com.baidu.adp.lib.b.d.hv().f(aj.class);
-        com.baidu.adp.lib.b.d.hv().f(aw.class);
-        com.baidu.adp.lib.b.d.hv().f(g.class);
-        com.baidu.adp.lib.b.d.hv().f(ak.class);
-        com.baidu.adp.lib.b.d.hv().f(ba.class);
-        com.baidu.adp.lib.b.d.hv().f(ah.class);
-        com.baidu.adp.lib.b.d.hv().f(r.class);
-        com.baidu.adp.lib.b.d.hv().f(an.class);
-        com.baidu.adp.lib.b.d.hv().f(am.class);
-        com.baidu.adp.lib.b.d.hv().f(ay.class);
-        com.baidu.adp.lib.b.d.hv().f(q.class);
-        com.baidu.adp.lib.b.d.hv().f(ai.class);
-        com.baidu.adp.lib.b.d.hv().f(ar.class);
-        com.baidu.adp.lib.b.d.hv().f(au.class);
-        com.baidu.adp.lib.b.d.hv().f(bc.class);
-        com.baidu.adp.lib.b.d.hv().f(ap.class);
-        com.baidu.adp.lib.b.d.hv().f(bd.class);
-        com.baidu.adp.lib.b.d.hv().f(af.class);
-        com.baidu.adp.lib.b.d.hv().f(ag.class);
-        com.baidu.adp.lib.b.d.hv().f(ad.class);
-        com.baidu.adp.lib.b.d.hv().f(as.class);
-        com.baidu.adp.lib.b.d.hv().f(k.class);
-        com.baidu.adp.lib.b.d.hv().f(z.class);
+public class av extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void R(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "android_strange_clean";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] hm() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hn() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int ho() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hp() {
+        return 10;
+    }
+
+    public static boolean ip() {
+        return com.baidu.adp.lib.b.d.hv().aw("android_strange_clean") == 1;
     }
 }

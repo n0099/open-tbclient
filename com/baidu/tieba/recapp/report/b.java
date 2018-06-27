@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b goO;
-    private CustomMessageListener goQ = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
+    private static b gsG;
+    private CustomMessageListener gsI = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jD() && b.this.goP != null) {
-                b.this.goP.bpe();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jD() && b.this.gsH != null) {
+                b.this.gsH.bpF();
             }
         }
     };
-    private c goP = new f();
+    private c gsH = new f();
 
-    public static b bpc() {
-        if (goO == null) {
+    public static b bpD() {
+        if (gsG == null) {
             synchronized (b.class) {
-                if (goO == null) {
-                    goO = new b();
+                if (gsG == null) {
+                    gsG = new b();
                 }
             }
         }
-        return goO;
+        return gsG;
     }
 
-    private boolean bpd() {
+    private boolean bpE() {
         return com.baidu.adp.lib.b.d.hv().aw("ad_log_open") != 0;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.goQ);
+        MessageManager.getInstance().registerListener(this.gsI);
     }
 
     public void a(a aVar) {
-        if (bpd() && aVar != null && this.goP != null) {
+        if (bpE() && aVar != null && this.gsH != null) {
             if (j.jD()) {
-                this.goP.b(aVar);
+                this.gsH.b(aVar);
             } else {
-                this.goP.c(aVar);
+                this.gsH.c(aVar);
             }
         }
     }

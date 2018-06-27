@@ -4,4 +4,6 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public interface ISAccountService {
     boolean webLogin(Context context, String str);
+
+    boolean webLogin(Context context, String str, String str2);
 }

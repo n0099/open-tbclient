@@ -39,7 +39,7 @@ public final class e {
             this.c.putLong("lslt", j);
             this.c.commit();
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -137,7 +137,7 @@ public final class e {
             this.c.putString("pdcgts", str);
             this.c.commit();
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 
@@ -200,7 +200,7 @@ public final class e {
         }
         int i = this.e.getInt("re_net_hr", 3);
         try {
-            String[] e = com.baidu.sofire.b.d.e(this.g);
+            String[] e = com.baidu.sofire.b.e.e(this.g);
             if (e != null && e.length == 2 && !TextUtils.isEmpty(e[0]) && !TextUtils.isEmpty(e[1]) && "200080".equals(e[0])) {
                 if ("com.baidu.BaiduMap".equals(this.g.getPackageName()) && i < 24) {
                     return 24;

@@ -8,6 +8,7 @@ public final class DataRes extends Message {
     public static final String DEFAULT_GACTIVITYAREA = "";
     public static final String DEFAULT_GACTIVITYCONTENT = "";
     public static final String DEFAULT_GACTIVITYTITLE = "";
+    public static final String DEFAULT_NAMESHOW = "";
     public static final String DEFAULT_USERNAME = "";
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer activityId;
@@ -25,6 +26,8 @@ public final class DataRes extends Message {
     public final Long groupId;
     @ProtoField(tag = 8, type = Message.Datatype.INT32)
     public final Integer isEnd;
+    @ProtoField(tag = 11, type = Message.Datatype.STRING)
+    public final String nameShow;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long userId;
     @ProtoField(tag = 10, type = Message.Datatype.STRING)
@@ -85,9 +88,14 @@ public final class DataRes extends Message {
             }
             if (builder.userName == null) {
                 this.userName = "";
-                return;
             } else {
                 this.userName = builder.userName;
+            }
+            if (builder.nameShow == null) {
+                this.nameShow = "";
+                return;
+            } else {
+                this.nameShow = builder.nameShow;
                 return;
             }
         }
@@ -101,6 +109,7 @@ public final class DataRes extends Message {
         this.isEnd = builder.isEnd;
         this.activityPortrait = builder.activityPortrait;
         this.userName = builder.userName;
+        this.nameShow = builder.nameShow;
     }
 
     /* loaded from: classes3.dex */
@@ -113,6 +122,7 @@ public final class DataRes extends Message {
         public String gActivityTitle;
         public Long groupId;
         public Integer isEnd;
+        public String nameShow;
         public Long userId;
         public String userName;
 
@@ -132,6 +142,7 @@ public final class DataRes extends Message {
                 this.isEnd = dataRes.isEnd;
                 this.activityPortrait = dataRes.activityPortrait;
                 this.userName = dataRes.userName;
+                this.nameShow = dataRes.nameShow;
             }
         }
 

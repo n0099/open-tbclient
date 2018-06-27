@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.o;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.lego.card.a;
@@ -18,10 +18,10 @@ import com.baidu.tieba.lego.card.view.e;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 /* loaded from: classes3.dex */
 public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLayout implements e<T> {
-    protected int eHO;
-    protected View eII;
-    protected a eIN;
-    protected c eIO;
+    protected int eLF;
+    protected a eME;
+    protected c eMF;
+    protected View eMz;
     private boolean isInit;
     protected TbPageContext mContext;
     protected int mSkinType;
@@ -29,7 +29,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     protected abstract void a(T t, int i);
 
-    protected abstract View aPQ();
+    protected abstract View aQw();
 
     public PostAdBaseView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
@@ -45,23 +45,23 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     protected final void b(T t) {
         if (t != null && !TextUtils.isEmpty(t.getShowKey()) && !TextUtils.isEmpty(t.getShowExtra())) {
-            am amVar = new am(t.getShowKey());
+            an anVar = new an(t.getShowKey());
             for (String str : t.getShowExtra().split("&")) {
                 String[] split = str.split("=");
                 if (split.length == 2) {
-                    amVar.ah(split[0], split[1]);
+                    anVar.ah(split[0], split[1]);
                 }
             }
-            amVar.r("obj_locate", getStatPosition());
-            amVar.ah("obj_param3", o.aiY());
-            v.ajh().a(amVar);
+            anVar.r("obj_locate", getStatPosition());
+            anVar.ah("obj_param3", o.aiq());
+            v.aiz().a(anVar);
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.tieba.recapp.lego.view.postad.PostAdBaseView<T extends com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.lego.card.view.e
-    public void R(Object obj) {
+    public void T(Object obj) {
         ICardInfo updateCard;
         ICardInfo iCardInfo = (ICardInfo) obj;
         if (iCardInfo != null && (updateCard = iCardInfo.getUpdateCard()) != null) {
@@ -71,43 +71,43 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                aPV();
+                aQB();
                 a((PostAdBaseData) updateCard, this.mSkinType);
             }
-            aPU();
+            aQA();
             a((PostAdBaseData) updateCard);
             c((PostAdBaseData) updateCard);
         }
     }
 
-    private void aPV() {
+    private void aQB() {
     }
 
     protected final void c(T t) {
     }
 
-    public final void aPU() {
-        this.eII.setVisibility(0);
+    public final void aQA() {
+        this.eMz.setVisibility(0);
     }
 
     private void init() {
-        aPS();
-        aPT();
+        aQy();
+        aQz();
         this.isInit = false;
     }
 
-    protected void aPT() {
+    protected void aQz() {
     }
 
-    public final void aPS() {
+    public final void aQy() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.eII = aPQ();
-        frameLayout.addView(this.eII, aPR());
+        this.eMz = aQw();
+        frameLayout.addView(this.eMz, aQx());
         addView(frameLayout, layoutParams);
     }
 
-    protected final ViewGroup.LayoutParams aPR() {
+    protected final ViewGroup.LayoutParams aQx() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
@@ -122,7 +122,7 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setBusinessType(int i) {
-        this.eHO = i;
+        this.eLF = i;
     }
 
     public int getBusinessType() {
@@ -130,15 +130,15 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aPW() {
+    public void aQC() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aPX() {
+    public void aQD() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aPY() {
+    public void aQE() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -147,11 +147,11 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setAfterClickSchemeListener(a aVar) {
-        this.eIN = aVar;
+        this.eME = aVar;
     }
 
     public void setDownloadAppCallback(c cVar) {
-        this.eIO = cVar;
+        this.eMF = cVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -159,6 +159,6 @@ public abstract class PostAdBaseView<T extends PostAdBaseData> extends LinearLay
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void aPZ() {
+    public void aQF() {
     }
 }

@@ -3,8 +3,12 @@ package com.sina.weibo.sdk.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.widget.Toast;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UIUtils {
+    public static int dip2px(int i, Context context) {
+        return (int) ((context.getResources().getDisplayMetrics().density * i) + 0.5f);
+    }
+
     public static void showAlert(Context context, String str, String str2) {
         if (context != null) {
             new AlertDialog.Builder(context).setTitle(str).setMessage(str2).create().show();

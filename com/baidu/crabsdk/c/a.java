@@ -4,52 +4,52 @@ import android.util.Log;
 import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes2.dex */
 public final class a {
-    public static String Tc = "CRAB";
-    public static String Td = "CRAB-NA";
+    public static String Te = "CRAB";
+    public static String Tf = "CRAB-NA";
 
     public static int b(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(Tc, cg(str), th);
-        }
-        return -1;
-    }
-
-    public static int cb(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.i(Tc, cg(str));
-        }
-        return -1;
-    }
-
-    public static int cc(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.d(Td, cg(str));
+            return Log.e(Te, ci(str), th);
         }
         return -1;
     }
 
     public static int cd(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(Tc, cg(str));
+            return Log.i(Te, ci(str));
         }
         return -1;
     }
 
     public static int ce(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(Tc, cg(str));
+            return Log.d(Tf, ci(str));
         }
         return -1;
     }
 
     public static int cf(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(Tc, cg(str));
+            return Log.d(Te, ci(str));
         }
         return -1;
     }
 
-    private static String cg(String str) {
+    public static int cg(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.e(Te, ci(str));
+        }
+        return -1;
+    }
+
+    public static int ch(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.w(Te, ci(str));
+        }
+        return -1;
+    }
+
+    private static String ci(String str) {
         String str2;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace != null) {

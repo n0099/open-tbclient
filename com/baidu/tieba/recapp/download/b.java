@@ -5,28 +5,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.r;
 /* loaded from: classes3.dex */
 public class b {
-    private r apt = null;
-    private com.baidu.tbadk.core.util.a.a aps = null;
+    private r apS = null;
+    private com.baidu.tbadk.core.util.a.a apR = null;
 
     public b() {
-        yI();
+        yW();
     }
 
     public void hP() {
-        if (this.apt != null) {
-            this.apt.hP();
+        if (this.apS != null) {
+            this.apS.hP();
         }
     }
 
     public void setUrl(String str) {
-        this.aps.zI().zL().mUrl = str;
+        this.apR.zX().Aa().mUrl = str;
     }
 
-    private void yI() {
-        this.aps = new com.baidu.tbadk.core.util.a.a();
-        this.apt = new c(this.aps);
-        this.aps.zI().zL().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+    private void yW() {
+        this.apR = new com.baidu.tbadk.core.util.a.a();
+        this.apS = new c(this.apR);
+        this.apR.zX().Aa().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.aA(TbadkCoreApplication.getInst().getCuid());
+        com.baidu.adp.lib.network.a.a.aB(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        com.baidu.adp.lib.network.a.a.aC(TbadkCoreApplication.getInst().getCuidGid());
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3) {
@@ -34,11 +36,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        yJ().zI().a(this.apt);
-        return this.apt.a(str, handler, i, i2, i3, z);
+        yX().zX().a(this.apS);
+        return this.apS.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a yJ() {
-        return this.aps;
+    public com.baidu.tbadk.core.util.a.a yX() {
+        return this.apR;
     }
 }

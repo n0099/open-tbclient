@@ -1,56 +1,83 @@
 package com.baidu.tbadk.core.a;
 
-import android.content.Context;
-import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsoluteLayout;
-import android.widget.ProgressBar;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.tieba.d;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    public static void addCustomView(Context context, SapiWebView sapiWebView) {
-        setProgressBar(context, sapiWebView);
-        setNoNetworkView(context, sapiWebView);
-        setTimeoutView(context, sapiWebView);
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void onFailed();
+
+        void onSuccess(String str);
     }
 
-    public static void setNoNetworkView(final Context context, SapiWebView sapiWebView) {
-        View inflate = LayoutInflater.from(context).inflate(d.i.layout_sapi_network_unavailable, (ViewGroup) null);
-        inflate.findViewById(d.g.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                Intent intent = new Intent("android.settings.SETTINGS");
-                intent.setFlags(270532608);
-                context.startActivity(intent);
-            }
-        });
-        sapiWebView.setNoNetworkView(inflate);
+    public static boolean tH() {
+        return com.baidu.adp.lib.b.d.hv().aw("android_stoken_new") == 1;
     }
 
-    public static void setTimeoutView(Context context, final SapiWebView sapiWebView) {
-        final View inflate = LayoutInflater.from(context).inflate(d.i.layout_sapi_loading_timeout, (ViewGroup) null);
-        inflate.findViewById(d.g.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.a.d.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                SapiWebView.this.post(new Runnable() { // from class: com.baidu.tbadk.core.a.d.2.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        inflate.setVisibility(4);
-                        SapiWebView.this.reload();
+    public static String c(AccountData accountData) {
+        if (accountData != null && tH()) {
+            return accountData.getStoken();
+        }
+        return null;
+    }
+
+    public void a(String str, final a aVar) {
+        if (!StringUtils.isNull(str)) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(TbConfig.PassConfig.TPL);
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.tbadk.core.a.d.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(GetTplStokenResult getTplStokenResult) {
+                    if (getTplStokenResult == null) {
+                        if (aVar != null) {
+                            aVar.onFailed();
+                            return;
+                        }
+                        return;
                     }
-                });
-            }
-        });
-        sapiWebView.setTimeoutView(inflate);
-    }
+                    Map<String, String> map = getTplStokenResult.tplStokenMap;
+                    if (map == null || map.size() <= 0) {
+                        if (aVar != null) {
+                            aVar.onFailed();
+                            return;
+                        }
+                        return;
+                    }
+                    String str2 = map.get(TbConfig.PassConfig.TPL);
+                    if (StringUtils.isNULL(str2)) {
+                        if (aVar != null) {
+                            aVar.onFailed();
+                        }
+                    } else if (aVar != null) {
+                        aVar.onSuccess(str2);
+                    }
+                }
 
-    public static void setProgressBar(Context context, SapiWebView sapiWebView) {
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.ds8);
-        ProgressBar progressBar = new ProgressBar(context, null, 16842872);
-        progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, dimensionPixelSize, 0, 0));
-        sapiWebView.setProgressBar(progressBar);
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFailure(GetTplStokenResult getTplStokenResult) {
+                    if (aVar != null) {
+                        aVar.onFailed();
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onStart() {
+                }
+
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onFinish() {
+                }
+            }, str, linkedList);
+        }
     }
 }

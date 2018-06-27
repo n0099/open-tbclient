@@ -15,7 +15,7 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.pushtracer.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC0270a<T extends AbstractC0270a<T>> {
+    public static abstract class AbstractC0272a<T extends AbstractC0272a<T>> {
         private List<com.meizu.cloud.pushsdk.pushtracer.a.b> a = new LinkedList();
         private long b = System.currentTimeMillis();
         private String c = d.b();
@@ -30,13 +30,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(AbstractC0270a<?> abstractC0270a) {
-        c.a(((AbstractC0270a) abstractC0270a).a);
-        c.a(((AbstractC0270a) abstractC0270a).c);
-        c.a(!((AbstractC0270a) abstractC0270a).c.isEmpty(), "eventId cannot be empty");
-        this.a = ((AbstractC0270a) abstractC0270a).a;
-        this.b = ((AbstractC0270a) abstractC0270a).b;
-        this.c = ((AbstractC0270a) abstractC0270a).c;
+    public a(AbstractC0272a<?> abstractC0272a) {
+        c.a(((AbstractC0272a) abstractC0272a).a);
+        c.a(((AbstractC0272a) abstractC0272a).c);
+        c.a(!((AbstractC0272a) abstractC0272a).c.isEmpty(), "eventId cannot be empty");
+        this.a = ((AbstractC0272a) abstractC0272a).a;
+        this.b = ((AbstractC0272a) abstractC0272a).b;
+        this.c = ((AbstractC0272a) abstractC0272a).c;
     }
 
     public List<com.meizu.cloud.pushsdk.pushtracer.a.b> a() {

@@ -13,6 +13,7 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.fsg.base.utils.PhoneUtils;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -228,7 +229,7 @@ public final class m {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int i = jSONObject.getInt("error_code");
+            int i = jSONObject.getInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
             if (i == 50009) {
                 PushSettings.a(this.b, 1);

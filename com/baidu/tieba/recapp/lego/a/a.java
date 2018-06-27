@@ -9,17 +9,17 @@ public class a {
     public static boolean E(Activity activity) {
         Resources resources;
         int identifier;
-        if (!aPO() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE)) <= 0) {
+        if (!aQu() || (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", HttpConstants.OS_TYPE_VALUE)) <= 0) {
             return false;
         }
         return resources.getBoolean(identifier);
     }
 
-    public static boolean aPO() {
-        return aPP() >= 14;
+    public static boolean aQu() {
+        return aQv() >= 14;
     }
 
-    public static int aPP() {
+    public static int aQv() {
         try {
             return Integer.valueOf(Build.VERSION.SDK).intValue();
         } catch (NumberFormatException e) {

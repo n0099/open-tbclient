@@ -1,106 +1,100 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.q;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.d;
+import java.util.Locale;
 /* loaded from: classes2.dex */
-public class ao extends k<com.baidu.tieba.pb.data.j, ap> {
-    private View.OnTouchListener aVI;
-    private com.baidu.tieba.pb.a.c beE;
-    private FrameLayout buC;
-    private com.baidu.tieba.pb.view.b fAa;
-    public boolean fAb;
-    private View.OnClickListener mClickListener;
+public class ao extends k<ForumData, a> implements View.OnClickListener {
+    private ForumData fDW;
+    private String mThreadId;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ao(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.aVI = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.ao.1
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (ao.this.fAa != null) {
-                    return ao.this.fAa.onTouch(view, motionEvent);
-                }
-                return false;
-            }
-        };
-        this.buC = new FrameLayout(pbActivity.getPageContext().getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.buC.setBackgroundResource(d.C0141d.transparent);
-        this.buC.setTag("PraiseContainerView");
-        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.buC, layoutParams);
-        this.fAa = new com.baidu.tieba.pb.view.b(pbActivity.getPageContext().getPageActivity(), this.buC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bu */
-    public ap onCreateViewHolder(ViewGroup viewGroup) {
-        ap apVar = new ap(LayoutInflater.from(this.mContext).inflate(d.i.layout_thread_praise_item, viewGroup, false));
-        if (this.beE != null && apVar.mRootView != null) {
-            apVar.mRootView.setClickable(true);
-            apVar.mRootView.setOnTouchListener(this.beE);
-        }
-        return apVar;
+    /* renamed from: br */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        return new a(LayoutInflater.from(this.mContext).inflate(d.i.view_main_thread_forum_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, ap apVar) {
-        super.onFillViewHolder(i, view, viewGroup, jVar, apVar);
-        if (jVar != null && apVar != null) {
-            apVar.fAj.setOnClickListener(this.mClickListener);
-            apVar.fAh.setOnClickListener(this.mClickListener);
-            apVar.b(jVar);
-            apVar.fAf.setTag(d.g.pb_main_thread_praise_data, jVar);
-            apVar.fAf.setTag(d.g.pb_main_thread_praise_view, apVar);
-            ((ap) this.viewholder).fAg.setTag(d.g.pb_main_thread_praise_view, apVar);
-            apVar.fAd.setTag(d.g.pb_main_thread_praise_view, apVar);
-            if (this.fAa != null) {
-                this.fAa.setAnchorView(apVar.fAd);
-                this.fAa.bo(((ap) this.viewholder).fAg);
-                this.fAa.setOnTouchListener(this.aVI);
-            } else {
-                apVar.fAf.setOnClickListener(this.mClickListener);
-            }
-            apVar.fAg.setOnClickListener(this.mClickListener);
-            apVar.fAe.setOnClickListener(this.mClickListener);
-            if (this.fAb) {
-                apVar.bez();
-            } else {
-                apVar.bey();
-            }
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ForumData forumData, a aVar) {
+        if (forumData == null || aVar == null || StringUtils.isNull(forumData.getName())) {
+            return null;
         }
-        return view;
+        this.fDW = forumData;
+        aVar.fEa.setText(String.format(Locale.CHINA, this.mContext.getString(d.k.forum_number), com.baidu.tbadk.core.util.ap.F(forumData.getPost_num())));
+        aVar.fDZ.setText(String.format(Locale.CHINA, this.mContext.getString(d.k.attention_number), com.baidu.tbadk.core.util.ap.F(forumData.getMember_num())));
+        aVar.getView().setOnClickListener(this);
+        aVar.cRg.setText(com.baidu.tbadk.core.util.ap.e(this.fDW.getName(), 14, "...") + this.fxh.getString(d.k.forum));
+        aVar.fDY.startLoad(forumData.getImage_url(), 10, false);
+        a(aVar);
+        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c13006").ah(ImageViewerConfig.FORUM_ID, forumData.getId()).ah("tid", this.mThreadId));
+        return aVar.getView();
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.mClickListener = onClickListener;
-        if (this.fAa != null) {
-            this.fAa.setOnClickListener(onClickListener);
+    private void a(a aVar) {
+        if (aVar != null) {
+            com.baidu.tbadk.core.util.am.h(aVar.cRg, d.C0142d.cp_cont_b);
+            com.baidu.tbadk.core.util.am.h(aVar.fDZ, d.C0142d.cp_cont_j);
+            com.baidu.tbadk.core.util.am.h(aVar.fEa, d.C0142d.cp_cont_j);
+            com.baidu.tbadk.core.util.am.j(aVar.eOo, d.C0142d.cp_bg_line_e);
+            com.baidu.tbadk.core.util.am.c(aVar.fDX, d.f.icon_arrow12_gray60_right);
         }
     }
 
-    public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.beE = cVar;
-    }
-
-    public void qu(int i) {
-        if (i == 3 && this.ftp != null && this.buC != null) {
-            this.buC.removeAllViews();
-            ((FrameLayout) this.ftp.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.buC);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.fDW != null) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c13007").ah(ImageViewerConfig.FORUM_ID, this.fDW.getId()).ah("tid", this.mThreadId));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fxh).createNormalCfg(this.fDW.getName(), FrsActivityConfig.FRS_FROM_PB).setCallFrom(2)));
         }
-        this.fAa.qu(i);
     }
 
-    public void j(boolean z, int i) {
-        this.fAa.k(z, i);
+    public void setThreadId(String str) {
+        this.mThreadId = str;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public static class a extends q.a {
+        TextView cRg;
+        RelativeLayout eOo;
+        ImageView fDX;
+        BarImageView fDY;
+        TextView fDZ;
+        TextView fEa;
+
+        a(View view) {
+            super(view);
+            this.cRg = (TextView) view.findViewById(d.g.pb_forum_name);
+            this.fDX = (ImageView) view.findViewById(d.g.pb_goto_forum);
+            this.fDY = (BarImageView) view.findViewById(d.g.pb_forum_image);
+            this.fDZ = (TextView) view.findViewById(d.g.pb_forum_attention);
+            this.fEa = (TextView) view.findViewById(d.g.pb_forum_thread_num);
+            this.eOo = (RelativeLayout) view.findViewById(d.g.pb_forum_root);
+        }
     }
 }

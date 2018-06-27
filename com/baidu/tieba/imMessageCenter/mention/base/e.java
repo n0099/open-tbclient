@@ -4,40 +4,40 @@ import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.adp.widget.ListView.n;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.ab;
+import com.baidu.tieba.card.ad;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private BdTypeRecyclerView bwl;
-    private ArrayList<h> cQn;
-    private b eBv;
-    private b eBw;
-    private b eBx;
-    private b eBy;
-    private b eBz;
+    private BdTypeRecyclerView bxH;
+    private ArrayList<h> cOi;
+    private b eFl;
+    private b eFm;
+    private b eFn;
+    private b eFo;
+    private b eFp;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.bwl = bdTypeRecyclerView;
+            this.bxH = bdTypeRecyclerView;
             p(tbPageContext);
         }
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.eBv = new b(tbPageContext, a.eBc);
-        this.eBw = new b(tbPageContext, a.eBd);
-        this.eBx = new b(tbPageContext, a.eBg);
-        this.eBy = new b(tbPageContext, a.eBf);
-        this.eBz = new b(tbPageContext, a.eBe);
-        this.mAdapters.add(this.eBv);
-        this.mAdapters.add(this.eBw);
-        this.mAdapters.add(this.eBx);
-        this.mAdapters.add(this.eBy);
-        this.mAdapters.add(this.eBz);
-        this.bwl.addAdapters(this.mAdapters);
+        this.eFl = new b(tbPageContext, a.eES);
+        this.eFm = new b(tbPageContext, a.eET);
+        this.eFn = new b(tbPageContext, a.eEW);
+        this.eFo = new b(tbPageContext, a.eEV);
+        this.eFp = new b(tbPageContext, a.eEU);
+        this.mAdapters.add(this.eFl);
+        this.mAdapters.add(this.eFm);
+        this.mAdapters.add(this.eFn);
+        this.mAdapters.add(this.eFo);
+        this.mAdapters.add(this.eFp);
+        this.bxH.addAdapters(this.mAdapters);
     }
 
     public void onDestory() {
@@ -46,12 +46,12 @@ public class e {
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.bwl.setData(arrayList);
-        this.cQn = arrayList;
+        this.bxH.setData(arrayList);
+        this.cOi = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.bwl.getAdapter().notifyDataSetChanged();
+        this.bxH.getAdapter().notifyDataSetChanged();
     }
 
     public void d(n nVar) {
@@ -62,9 +62,9 @@ public class e {
         }
     }
 
-    public void e(ab abVar) {
-        this.eBz.e(abVar);
-        this.eBy.e(abVar);
-        this.eBx.e(abVar);
+    public void e(ad adVar) {
+        this.eFp.e(adVar);
+        this.eFo.e(adVar);
+        this.eFn.e(adVar);
     }
 }

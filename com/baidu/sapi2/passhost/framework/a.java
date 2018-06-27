@@ -33,10 +33,12 @@ import com.baidu.sapi2.passhost.pluginsdk.PassPiInfo;
 import com.baidu.sapi2.passhost.pluginsdk.PluginContext;
 import com.baidu.sapi2.passhost.pluginsdk.service.MultiHashMap;
 import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
+import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.AES;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
+import com.baidu.sapi2.utils.enums.Domain;
 import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.DexClassLoader;
 import java.io.BufferedInputStream;
@@ -82,15 +84,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0084a {
+    public static class C0086a {
         public static a a = new a();
 
-        private C0084a() {
+        private C0086a() {
         }
     }
 
     public static a a() {
-        return C0084a.a;
+        return C0086a.a;
     }
 
     a() {
@@ -610,7 +612,7 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [990=5, 991=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [991=5, 992=4] */
     private void a(String str, String str2, String str3) {
         BufferedOutputStream bufferedOutputStream;
         Exception e;
@@ -945,7 +947,8 @@ public class a {
     }
 
     private String i() {
-        return ServiceManager.getInstance().getIsAccountManager().getConfignation().environment.getConfigHttpsUrl() + SapiEnv.SAPI_PLUGIN_CONFIG_URI;
+        ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
+        return !isAccountManager.getConfignation().environment.equals(Domain.DOMAIN_ONLINE) ? isAccountManager.getConfignation().environment.getConfigHttpsUrl() + SapiEnv.SAPI_PLUGIN_CONFIG_OFFLINE_URI : isAccountManager.getConfignation().environment.getConfigHttpsUrl() + SapiEnv.SAPI_PLUGIN_CONFIG_URI;
     }
 
     private void a(Map<Integer, PluginContext> map) {

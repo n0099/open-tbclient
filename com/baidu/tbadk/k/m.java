@@ -4,54 +4,55 @@ import android.os.Process;
 import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.baiduarsdk.ArBridge;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String aTw = "tb_perfor_samllflow_time";
-    private static volatile m aTz;
-    private long aTy;
-    private boolean aTu = false;
-    private long aTx = 86400;
-    private long aTv = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aTw, 0);
+    private static String aUs = "tb_perfor_samllflow_time";
+    private static volatile m aUv;
+    private long aUu;
+    private boolean aUq = false;
+    private long aUt = 86400;
+    private long aUr = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aUs, 0);
 
-    public static m Ks() {
-        if (aTz == null) {
+    public static m KK() {
+        if (aUv == null) {
             synchronized (m.class) {
-                if (aTz == null) {
-                    aTz = new m();
+                if (aUv == null) {
+                    aUv = new m();
                 }
             }
         }
-        return aTz;
+        return aUv;
     }
 
     private m() {
-        this.aTy = 0L;
-        this.aTy = this.aTx;
+        this.aUu = 0L;
+        this.aUu = this.aUt;
     }
 
-    public boolean Kt() {
-        if (!this.aTu || (System.currentTimeMillis() - this.aTv) / 1000 <= this.aTy) {
-            return this.aTu;
+    public boolean KL() {
+        if (!this.aUq || (System.currentTimeMillis() - this.aUr) / 1000 <= this.aUu) {
+            return this.aUq;
         }
         return false;
     }
 
-    public void bX(boolean z) {
+    public void ca(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aTv || currentTimeMillis - this.aTv >= this.aTy) {
-                this.aTv = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aTw, this.aTv);
+            if (0 == this.aUr || currentTimeMillis - this.aUr >= this.aUu) {
+                this.aUr = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aUs, this.aUr);
             }
         } else {
-            this.aTv = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aTw, this.aTv);
+            this.aUr = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aUs, this.aUr);
         }
-        this.aTu = z;
+        this.aUq = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.Kx().Ky();
+            n.KP().KQ();
         }
     }
 
@@ -74,7 +75,7 @@ public class m {
         return "2G";
     }
 
-    public static String fm(int i) {
+    public static String fn(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -87,7 +88,7 @@ public class m {
         return "WIFI";
     }
 
-    public long Ku() {
+    public long KM() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
@@ -97,8 +98,8 @@ public class m {
         }
     }
 
-    public l fn(int i) {
-        if (Kt()) {
+    public l fo(int i) {
+        if (KL()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -119,7 +120,7 @@ public class m {
                     o oVar3 = new o();
                     oVar3.subType = "photo_live";
                     return oVar3;
-                case 1005:
+                case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
                     e eVar = new e();
                     eVar.subType = "home_page";
                     return eVar;
@@ -128,9 +129,9 @@ public class m {
         return null;
     }
 
-    public void Z(long j) {
+    public void aa(long j) {
         if (j > 0) {
-            this.aTy = j;
+            this.aUu = j;
         }
     }
 
@@ -143,7 +144,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Kv() {
+    public int KN() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

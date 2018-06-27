@@ -6,15 +6,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.app.NotificationCompat;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private static b Wz = null;
+    private static b WB = null;
     private boolean a = false;
     private String b = null;
-    private a Wy = null;
+    private a WA = null;
     private int e = -1;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends BroadcastReceiver {
         public a() {
         }
@@ -70,27 +70,27 @@ public class b {
     public static synchronized b qv() {
         b bVar;
         synchronized (b.class) {
-            if (Wz == null) {
-                Wz = new b();
+            if (WB == null) {
+                WB = new b();
             }
-            bVar = Wz;
+            bVar = WB;
         }
         return bVar;
     }
 
     public void b() {
-        this.Wy = new a();
-        com.baidu.location.f.getServiceContext().registerReceiver(this.Wy, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        this.WA = new a();
+        com.baidu.location.f.getServiceContext().registerReceiver(this.WA, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public void c() {
-        if (this.Wy != null) {
+        if (this.WA != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Wy);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.WA);
             } catch (Exception e) {
             }
         }
-        this.Wy = null;
+        this.WA = null;
     }
 
     public String d() {

@@ -1,19 +1,12 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
-/* loaded from: classes.dex */
-public class w {
-    private static w dkx = new w();
-    private SparseArray<x> dkw = new SparseArray<>();
+import android.view.View;
+import com.baidu.adp.widget.ListView.q;
+/* loaded from: classes2.dex */
+public class w extends q.a {
+    public com.baidu.tbadk.j.f dmB;
 
-    private w() {
-    }
-
-    public static w auJ() {
-        return dkx;
-    }
-
-    public x ko(int i) {
-        return this.dkw.get(i);
+    public w(View view) {
+        super(view);
     }
 }

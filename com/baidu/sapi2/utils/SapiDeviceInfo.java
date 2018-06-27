@@ -11,7 +11,6 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
-import com.baidu.sapi2.passhost.framework.a.a;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.tencent.connect.common.Constants;
@@ -124,7 +123,7 @@ public class SapiDeviceInfo {
         arrayList.add("");
         arrayList.add("");
         arrayList.add("");
-        arrayList.add(diExceptIndex.contains(34) ? "" : a.a().getAppZid());
+        arrayList.add(diExceptIndex.contains(34) ? "" : isAccountManager.getCurrentZid(context));
         arrayList.add(diExceptIndex.contains(35) ? "" : "1.0.3");
         arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
         return arrayList;
@@ -175,6 +174,10 @@ public class SapiDeviceInfo {
     }
 
     public static String getDiCookieInfo(List<String> list) {
+        return getDiCookieInfo(list, true);
+    }
+
+    public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
         if (DeviceInfoCookieManager.a.isEmpty()) {
             return null;
@@ -208,7 +211,10 @@ public class SapiDeviceInfo {
         if (jSONObject.length() == 0) {
             return null;
         }
-        return a(jSONObject.toString());
+        if (z) {
+            return a(jSONObject.toString());
+        }
+        return jSONObject.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -263,7 +269,7 @@ public class SapiDeviceInfo {
 
         static void a(List<String> list) {
             List<String> a2 = a();
-            for (int i = 0; i < a2.size(); i++) {
+            for (int i = 0; i < a2.size() && i < list.size(); i++) {
                 a.put(a2.get(i), list.get(i));
             }
         }

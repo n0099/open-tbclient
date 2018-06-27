@@ -6,25 +6,25 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes2.dex */
 public class a {
-    public final View aUR;
-    public final View fFk;
-    private PbActivity ftp;
+    public final View aVN;
+    public final View fJl;
+    private PbActivity fxh;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.aUR && a.this.ftp != null) {
-                a.this.ftp.finish();
+            if (view == a.this.aVN && a.this.fxh != null) {
+                a.this.fxh.finish();
             }
         }
     };
     public final TextView mTitleView;
 
     public a(PbActivity pbActivity) {
-        this.ftp = pbActivity;
-        this.aUR = this.ftp.findViewById(d.g.manga_navigation_bar_back);
-        this.mTitleView = (TextView) this.ftp.findViewById(d.g.manga_navigation_bar_title);
-        this.fFk = this.ftp.findViewById(d.g.manga_browser_navigation_bar);
-        this.aUR.setOnClickListener(this.mClickListener);
+        this.fxh = pbActivity;
+        this.aVN = this.fxh.findViewById(d.g.manga_navigation_bar_back);
+        this.mTitleView = (TextView) this.fxh.findViewById(d.g.manga_navigation_bar_title);
+        this.fJl = this.fxh.findViewById(d.g.manga_browser_navigation_bar);
+        this.aVN.setOnClickListener(this.mClickListener);
     }
 
     public void setTitle(String str) {
@@ -32,6 +32,6 @@ public class a {
     }
 
     public void show() {
-        this.fFk.setVisibility(0);
+        this.fJl.setVisibility(0);
     }
 }

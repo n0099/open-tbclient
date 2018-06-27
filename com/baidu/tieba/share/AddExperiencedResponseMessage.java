@@ -1,6 +1,5 @@
 package com.baidu.tieba.share;
 
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.data.ContriInfo;
@@ -16,7 +15,7 @@ public class AddExperiencedResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO)) != null) {
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("info")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("contri_info");
             this.mContriInfo = new ContriInfo();
             this.mContriInfo.parseJson(optJSONObject2);

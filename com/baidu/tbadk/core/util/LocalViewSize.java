@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize apk = null;
+    private static LocalViewSize apK = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,11 +13,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize yC() {
-        if (apk == null) {
-            apk = new LocalViewSize();
+    public static LocalViewSize yQ() {
+        if (apK == null) {
+            apK = new LocalViewSize();
         }
-        return apk;
+        return apK;
     }
 
     private LocalViewSize() {
@@ -58,7 +58,7 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int yD() {
+    public int yR() {
         int ah = com.baidu.adp.lib.util.l.ah(this.mContext);
         if (ah >= 1080) {
             return 1080;
@@ -69,7 +69,7 @@ public class LocalViewSize {
         return 720;
     }
 
-    public ImageSize yE() {
+    public ImageSize yS() {
         int i = 240;
         int ah = com.baidu.adp.lib.util.l.ah(this.mContext);
         if (ah < 240) {
@@ -87,15 +87,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize yF() {
+    public ImageSize yT() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.aj(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.ah(this.mContext);
         return imageSize;
     }
 
-    public int yG() {
-        ImageSize yE = yE();
-        return yE.height >= yE.width ? yE.height : yE.width;
+    public int yU() {
+        ImageSize yS = yS();
+        return yS.height >= yS.width ? yS.height : yS.width;
     }
 }

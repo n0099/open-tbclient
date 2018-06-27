@@ -5,7 +5,7 @@ import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class j extends Thread {
-    private String aop = "1";
+    private String aoO = "1";
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
@@ -14,11 +14,11 @@ public class j extends Thread {
         yVar.o("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         yVar.o(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE);
         yVar.o("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        yVar.o("op_type", this.aop);
-        yVar.yl();
+        yVar.o("op_type", this.aoO);
+        yVar.yz();
     }
 
     public void setOpType(String str) {
-        this.aop = str;
+        this.aoO = str;
     }
 }

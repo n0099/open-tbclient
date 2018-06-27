@@ -2,34 +2,28 @@ package com.sina.weibo.sdk.statistic;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.ar.util.IoUtils;
-import com.sina.weibo.sdk.net.HttpManager;
+import com.sina.weibo.sdk.net.ConnectionFactory;
+import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPOutputStream;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LogReport {
     private static final int CONNECTION_TIMEOUT = 25000;
     private static final String PRIVATE_CODE = "dqwef1864il4c9m6";
@@ -78,7 +72,7 @@ public class LogReport {
         return mParams;
     }
 
-    private static void checkAid(Context context) {
+    private static boolean checkAid(Context context) {
         if (TextUtils.isEmpty(mAid)) {
             mAid = Utility.getAid(context, mAppkey);
         }
@@ -90,6 +84,10 @@ public class LogReport {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        if (TextUtils.isEmpty(mAid)) {
+            return false;
+        }
+        return true;
     }
 
     public static void setPackageName(String str) {
@@ -105,7 +103,7 @@ public class LogReport {
             if (mLogReport == null) {
                 mLogReport = new LogReport(context);
             }
-            if (!isNetworkConnected(context)) {
+            if (!NetStateManager.isNetworkConnected(context)) {
                 LogUtil.i(WBAgent.TAG, "network is not connected");
                 LogFileUtil.writeToFile(LogFileUtil.getAppLogPath(LogFileUtil.ANALYTICS_FILE_NAME), str, true);
             } else {
@@ -114,10 +112,13 @@ public class LogReport {
                     LogUtil.i(WBAgent.TAG, "applogs is null");
                 } else {
                     ArrayList<JSONArray> arrayList = new ArrayList();
-                    checkAid(context);
+                    boolean checkAid = checkAid(context);
                     for (JSONArray jSONArray : validUploadLogs) {
-                        HttpResponse requestHttpExecute = requestHttpExecute(mBaseUrl, "POST", mParams, jSONArray);
-                        if (requestHttpExecute == null || requestHttpExecute.getStatusLine().getStatusCode() != 200) {
+                        boolean z = false;
+                        if (checkAid) {
+                            z = requestHttpExecute(mBaseUrl, "POST", mParams, jSONArray, context);
+                        }
+                        if (!z) {
                             arrayList.add(jSONArray);
                             LogUtil.e(WBAgent.TAG, "upload applogs error");
                         } else {
@@ -136,67 +137,46 @@ public class LogReport {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [243=6, 245=6, 249=6] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0150 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0193 */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0166 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x0156 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x00c4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [227=6, 229=5, 230=5] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x012a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00e9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static HttpResponse requestHttpExecute(String str, String str2, JSONObject jSONObject, JSONArray jSONArray) {
-        HttpClient httpClient;
-        Throwable th;
+    private static boolean requestHttpExecute(String str, String str2, JSONObject jSONObject, JSONArray jSONArray, Context context) {
+        IOException e;
+        UnsupportedEncodingException e2;
+        HttpURLConnection createConnect;
         ByteArrayOutputStream byteArrayOutputStream;
-        HttpClient httpClient2;
-        HttpClient httpClient3;
-        HttpGet httpGet;
-        HttpResponse httpResponse = null;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        try {
+        boolean z = false;
+        if (TextUtils.isEmpty(mAppkey)) {
+            LogUtil.e(WBAgent.TAG, "unexpected null AppKey");
+        } else {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
             try {
-                httpClient2 = HttpManager.getNewHttpClient();
                 if (jSONObject == null) {
                     try {
                         jSONObject = initCommonParams();
-                    } catch (UnsupportedEncodingException e) {
-                        e = e;
-                        byteArrayOutputStream = null;
-                        httpClient3 = httpClient2;
-                        e.printStackTrace();
-                        if (byteArrayOutputStream != null) {
-                        }
-                        shutdownHttpClient(httpClient3);
-                        return httpResponse;
-                    } catch (ClientProtocolException e2) {
-                        e = e2;
-                        byteArrayOutputStream = null;
-                        e.printStackTrace();
-                        if (byteArrayOutputStream != null) {
-                        }
-                        shutdownHttpClient(httpClient2);
-                        return httpResponse;
-                    } catch (IOException e3) {
-                        e = e3;
-                        byteArrayOutputStream = null;
-                        e.printStackTrace();
-                        if (byteArrayOutputStream != null) {
-                        }
-                        shutdownHttpClient(httpClient2);
-                        return httpResponse;
-                    } catch (Throwable th2) {
-                        byteArrayOutputStream2 = null;
-                        th = th2;
-                        httpClient = httpClient2;
+                    } catch (UnsupportedEncodingException e3) {
+                        e2 = e3;
+                        e2.printStackTrace();
                         if (byteArrayOutputStream2 != null) {
                             try {
                                 byteArrayOutputStream2.close();
                             } catch (IOException e4) {
                             }
                         }
-                        shutdownHttpClient(httpClient);
-                        throw th;
+                        return z;
+                    } catch (IOException e5) {
+                        e = e5;
+                        e.printStackTrace();
+                        if (byteArrayOutputStream2 != null) {
+                            try {
+                                byteArrayOutputStream2.close();
+                            } catch (IOException e6) {
+                            }
+                        }
+                        return z;
                     }
                 }
                 try {
@@ -205,134 +185,85 @@ public class LogReport {
                     jSONObject.put("sign", getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong("time")));
                     jSONObject.put("content", jSONArray);
                     LogUtil.d(WBAgent.TAG, "post content--- " + jSONObject.toString());
-                } catch (JSONException e5) {
-                    e5.printStackTrace();
+                } catch (JSONException e7) {
+                    e7.printStackTrace();
                 }
-            } catch (Throwable th3) {
-                th = th3;
+                createConnect = ConnectionFactory.createConnect(str + "?source=" + mAppkey, context);
+                byteArrayOutputStream = new ByteArrayOutputStream();
+            } catch (Throwable th) {
+                th = th;
             }
-        } catch (UnsupportedEncodingException e6) {
-            e = e6;
-            byteArrayOutputStream = null;
-            httpClient3 = null;
-        } catch (ClientProtocolException e7) {
-            e = e7;
-            byteArrayOutputStream = null;
-            httpClient2 = null;
-        } catch (IOException e8) {
-            e = e8;
-            byteArrayOutputStream = null;
-            httpClient2 = null;
-        } catch (Throwable th4) {
-            byteArrayOutputStream2 = null;
-            httpClient = null;
-            th = th4;
-        }
-        if (str2.equals("GET")) {
-            byteArrayOutputStream = null;
-            httpGet = new HttpGet(String.valueOf(str) + "?" + jSONObject.toString());
-        } else if (!str2.equals("POST")) {
-            httpGet = null;
-            byteArrayOutputStream = null;
-        } else if (TextUtils.isEmpty(mAppkey)) {
-            LogUtil.e(WBAgent.TAG, "unexpected null AppKey");
-            if (0 != 0) {
-                try {
-                    byteArrayOutputStream2.close();
-                } catch (IOException e9) {
-                }
-            }
-            shutdownHttpClient(httpClient2);
-            return httpResponse;
-        } else {
-            HttpPost newHttpPost = getNewHttpPost(String.valueOf(str) + "?source=" + mAppkey, jSONObject);
-            Log.i("weibo_demo", jSONObject.toString());
-            byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 if (StatisticConfig.isNeedGizp()) {
                     byteArrayOutputStream.write(gzipLogs(jSONObject.toString()));
                 } else {
                     byteArrayOutputStream.write(jSONObject.toString().getBytes());
                 }
-                newHttpPost.setEntity(new ByteArrayEntity(byteArrayOutputStream.toByteArray()));
-                httpGet = newHttpPost;
+                setPost(createConnect);
+                createConnect.connect();
+                DataOutputStream dataOutputStream = new DataOutputStream(createConnect.getOutputStream());
+                dataOutputStream.write(gzipLogs(jSONObject.toString()));
+                dataOutputStream.flush();
+                dataOutputStream.close();
+                int responseCode = createConnect.getResponseCode();
+                if (responseCode == 200) {
+                    createConnect.getResponseMessage();
+                    z = true;
+                    if (byteArrayOutputStream != null) {
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (IOException e8) {
+                        }
+                    }
+                } else {
+                    LogUtil.i(WBAgent.TAG, "status code = " + responseCode);
+                    if (byteArrayOutputStream != null) {
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (IOException e9) {
+                        }
+                    }
+                }
             } catch (UnsupportedEncodingException e10) {
-                e = e10;
-                httpClient3 = httpClient2;
+                e2 = e10;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e2.printStackTrace();
+                if (byteArrayOutputStream2 != null) {
+                }
+                return z;
+            } catch (IOException e11) {
+                e = e11;
+                byteArrayOutputStream2 = byteArrayOutputStream;
                 e.printStackTrace();
-                if (byteArrayOutputStream != null) {
+                if (byteArrayOutputStream2 != null) {
+                }
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
                     try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e11) {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException e12) {
                     }
                 }
-                shutdownHttpClient(httpClient3);
-                return httpResponse;
-            } catch (ClientProtocolException e12) {
-                e = e12;
-                e.printStackTrace();
-                if (byteArrayOutputStream != null) {
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e13) {
-                    }
-                }
-                shutdownHttpClient(httpClient2);
-                return httpResponse;
-            } catch (IOException e14) {
-                e = e14;
-                e.printStackTrace();
-                if (byteArrayOutputStream != null) {
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e15) {
-                    }
-                }
-                shutdownHttpClient(httpClient2);
-                return httpResponse;
+                throw th;
             }
         }
-        httpResponse = httpClient2.execute(httpGet);
-        LogUtil.i(WBAgent.TAG, "status code = " + httpResponse.getStatusLine().getStatusCode());
-        if (byteArrayOutputStream != null) {
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e16) {
-            }
-        }
-        shutdownHttpClient(httpClient2);
-        return httpResponse;
+        return z;
     }
 
-    private static boolean isNetworkConnected(Context context) {
-        NetworkInfo networkInfo;
-        if (context == null) {
-            LogUtil.e(WBAgent.TAG, "unexpected null context in isNetworkConnected");
-            return false;
-        } else if (context.getPackageManager().checkPermission("android.permission.ACCESS_NETWORK_STATE", context.getPackageName()) != 0) {
-            return false;
-        } else {
-            try {
-                networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (NullPointerException e) {
-                networkInfo = null;
-            }
-            return networkInfo != null && networkInfo.isAvailable();
+    private static void setPost(HttpURLConnection httpURLConnection) {
+        try {
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
+            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            httpURLConnection.setRequestProperty("Charset", "UTF-8");
+        } catch (Exception e) {
         }
-    }
-
-    private static synchronized HttpPost getNewHttpPost(String str, JSONObject jSONObject) {
-        HttpPost httpPost;
-        synchronized (LogReport.class) {
-            httpPost = new HttpPost(str);
-            httpPost.setHeader("Content-Type", URLEncodedUtils.CONTENT_TYPE);
-            httpPost.setHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpPost.addHeader(HTTP.CONTENT_ENCODING, StatisticConfig.isNeedGizp() ? "gzip" : "charset=UTF-8");
-            httpPost.addHeader("Accept", "*/*");
-            httpPost.addHeader("Accept-Language", "en-us");
-            httpPost.addHeader("Accept-Encoding", "gzip");
-        }
-        return httpPost;
     }
 
     private static String getSign(String str, String str2, long j) {
@@ -343,8 +274,8 @@ public class LogReport {
         sb.append(str2).append(PRIVATE_CODE).append(j);
         String hexdigest = MD5.hexdigest(sb.toString());
         String substring = hexdigest.substring(hexdigest.length() - 6);
-        String hexdigest2 = MD5.hexdigest(String.valueOf(substring) + substring.substring(0, 4));
-        return String.valueOf(substring) + hexdigest2.substring(hexdigest2.length() - 1);
+        String hexdigest2 = MD5.hexdigest(substring + substring.substring(0, 4));
+        return substring + hexdigest2.substring(hexdigest2.length() - 1);
     }
 
     private static byte[] gzipLogs(String str) {
@@ -371,14 +302,5 @@ public class LogReport {
         SharedPreferences.Editor edit = context.getSharedPreferences(UPLOADTIME, 0).edit();
         edit.putLong("lasttime", l.longValue());
         edit.commit();
-    }
-
-    private static void shutdownHttpClient(HttpClient httpClient) {
-        if (httpClient != null) {
-            try {
-                httpClient.getConnectionManager().closeExpiredConnections();
-            } catch (Exception e) {
-            }
-        }
     }
 }

@@ -65,8 +65,6 @@ public interface ISapiConfiguration {
 
     boolean getUniteVerify();
 
-    String getVoicePid();
-
     String getWxAppID();
 
     Long getXiaomiAppID();

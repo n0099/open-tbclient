@@ -21,7 +21,6 @@ import com.baidu.sapi2.result.SetPopularPortraitResult;
 import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.sapi2.shell.callback.SapiCallBack;
 import com.baidu.sapi2.shell.response.GetPortraitResponse;
-import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
@@ -39,79 +38,6 @@ import org.json.JSONObject;
 public class PortraitService extends AbstractService {
     public PortraitService(SapiConfiguration sapiConfiguration, String str) {
         super(sapiConfiguration, str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setPortrait(final SapiCallBack<SapiResponse> sapiCallBack, final String str, final String str2, final String str3, final byte[] bArr, final String str4) {
-        if (sapiCallBack == null) {
-            throw new IllegalArgumentException(SapiCallBack.class.getSimpleName() + "can't be null");
-        }
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("bduss can't be empty");
-        }
-        if (bArr == null || bArr.length == 0) {
-            throw new IllegalArgumentException("file can't be empty");
-        }
-        if (!SapiUtils.hasActiveNetwork(this.configuration.context)) {
-            sapiCallBack.onNetworkFailed();
-            return;
-        }
-        this.asyncHttpClient = new AsyncHttpClient();
-        this.asyncHttpClient.setUserAgent(getUaInfo());
-        HashMap hashMap = new HashMap();
-        hashMap.put("appid", this.configuration.appId);
-        hashMap.put("tpl", this.configuration.tpl);
-        if (!TextUtils.isEmpty(this.configuration.clientId)) {
-            hashMap.put("clientid", this.configuration.clientId);
-        }
-        if (!TextUtils.isEmpty(this.configuration.clientIp)) {
-            hashMap.put("clientip", this.configuration.clientIp);
-        }
-        hashMap.put("bduss", str);
-        if (!TextUtils.isEmpty(str2)) {
-            hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, str2);
-        }
-        if (!TextUtils.isEmpty(str3)) {
-            hashMap.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, str3);
-        }
-        String calculateSig = calculateSig(hashMap, this.configuration.appSignKey);
-        MultipartRequestParams multipartRequestParams = new MultipartRequestParams();
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            multipartRequestParams.put(entry.getKey(), entry.getValue());
-        }
-        multipartRequestParams.put("sig", calculateSig);
-        multipartRequestParams.put("file", new ByteArrayInputStream(bArr), "portrait.jpg", TextUtils.isEmpty(str4) ? "image/jpeg" : str4);
-        this.asyncHttpClient.post(this.configuration.context, a(), multipartRequestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.1
-            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-            public void onFailure(Throwable th, String str5) {
-                if (!PortraitService.this.domainRetry.isShouldRetry()) {
-                    PortraitService.this.domainRetry.reset();
-                    if (th != null && SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
-                        StatService.onEvent("sslerr_interface", Collections.singletonMap("na_err_code", "0"), false);
-                        sapiCallBack.onSystemError(-203);
-                        return;
-                    }
-                    sapiCallBack.onSystemError(-100);
-                    return;
-                }
-                PortraitService.this.domainRetry.retry();
-                PortraitService.this.setPortrait(sapiCallBack, str, str2, str3, bArr, str4);
-            }
-
-            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-            public void onSuccess(int i, String str5) {
-                PortraitService.this.domainRetry.reset();
-                int errorCode = PortraitService.this.getErrorCode(str5);
-                if (errorCode == 0) {
-                    SapiResponse sapiResponse = new SapiResponse();
-                    sapiResponse.errorCode = errorCode;
-                    sapiResponse.errorMsg = SetPortraitResult.RESULT_MSG_SUCCESS;
-                    sapiCallBack.onSuccess(sapiResponse);
-                    return;
-                }
-                sapiCallBack.onSystemError(errorCode);
-            }
-        });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -143,14 +69,14 @@ public class PortraitService extends AbstractService {
             hashMap.put("clientip", this.configuration.clientIp);
         }
         hashMap.put("bduss", str);
-        String calculateSig = calculateSig(hashMap, this.configuration.appSignKey);
+        String calculateSig = SapiUtils.calculateSig(hashMap, this.configuration.appSignKey);
         MultipartRequestParams multipartRequestParams = new MultipartRequestParams();
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            multipartRequestParams.put(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : hashMap.entrySet()) {
+            multipartRequestParams.put((String) entry.getKey(), (String) entry.getValue());
         }
         multipartRequestParams.put("sig", calculateSig);
         multipartRequestParams.put("file", new ByteArrayInputStream(bArr), "portrait.jpg", TextUtils.isEmpty(str2) ? "image/jpeg" : str2);
-        this.asyncHttpClient.post(this.configuration.context, a(), multipartRequestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.2
+        this.asyncHttpClient.post(this.configuration.context, a(), multipartRequestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.1
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
                 setPortraitCallback.onStart();
@@ -166,8 +92,18 @@ public class PortraitService extends AbstractService {
             public void onSuccess(int i, String str3) {
                 PortraitService.this.domainRetry.reset();
                 setPortraitResult.setResultCode(PortraitService.this.getErrorCode(str3));
+                setPortraitResult.setResultMsg(PortraitService.this.getErrorMsg(str3));
                 switch (setPortraitResult.getResultCode()) {
                     case 0:
+                        try {
+                            JSONObject jSONObject = new JSONObject(str3);
+                            setPortraitResult.portraitSign = jSONObject.optString("portrait_tag");
+                            String optString = jSONObject.optString(IntentConfig.PORTRAIT);
+                            if (!TextUtils.isEmpty(optString)) {
+                                setPortraitResult.portraitHttps = String.format("https://ss0.bdstatic.com/7Ls0a8Sm1A5BphGlnYG/sys/portrait/item/%s.jpg?%s", optString, setPortraitResult.portraitSign);
+                            }
+                        } catch (JSONException e) {
+                        }
                         setPortraitCallback.onSuccess(setPortraitResult);
                         return;
                     case 160103:
@@ -234,13 +170,13 @@ public class PortraitService extends AbstractService {
         hashMap.put("bduss", setPopularPortraitDTO.bduss);
         hashMap.put("serie", setPopularPortraitDTO.series);
         hashMap.put("num", String.valueOf(setPopularPortraitDTO.num));
-        String calculateSig = calculateSig(hashMap, this.configuration.appSignKey);
+        String calculateSig = SapiUtils.calculateSig(hashMap, this.configuration.appSignKey);
         MultipartRequestParams multipartRequestParams = new MultipartRequestParams();
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            multipartRequestParams.put(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : hashMap.entrySet()) {
+            multipartRequestParams.put((String) entry.getKey(), (String) entry.getValue());
         }
         multipartRequestParams.put("sig", calculateSig);
-        this.asyncHttpClient.post(this.configuration.context, d(), multipartRequestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.3
+        this.asyncHttpClient.post(this.configuration.context, d(), multipartRequestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.2
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onFailure(Throwable th, String str) {
                 if (!PortraitService.this.domainRetry.isShouldRetry()) {
@@ -320,13 +256,13 @@ public class PortraitService extends AbstractService {
         if (!TextUtils.isEmpty(str3)) {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, str3);
         }
-        String calculateSig = calculateSig(hashMap, this.configuration.appSignKey);
+        String calculateSig = SapiUtils.calculateSig(hashMap, this.configuration.appSignKey);
         RequestParams requestParams = new RequestParams();
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            requestParams.put(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : hashMap.entrySet()) {
+            requestParams.put((String) entry.getKey(), (String) entry.getValue());
         }
         requestParams.put("sig", calculateSig);
-        this.asyncHttpClient.post(this.configuration.context, this.domainRetry.getDomain() + "/v2/sapi/center/getportrait", requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.4
+        this.asyncHttpClient.post(this.configuration.context, this.domainRetry.getDomain() + "/v2/sapi/center/getportrait", requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.3
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onFailure(Throwable th, String str4) {
                 if (!PortraitService.this.domainRetry.isShouldRetry()) {
@@ -404,13 +340,13 @@ public class PortraitService extends AbstractService {
             hashMap.put("clientip", this.configuration.clientIp);
         }
         hashMap.put("bduss", getHistoryPortraitsDTO.bduss);
-        String calculateSig = calculateSig(hashMap, this.configuration.appSignKey);
+        String calculateSig = SapiUtils.calculateSig(hashMap, this.configuration.appSignKey);
         RequestParams requestParams = new RequestParams();
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            requestParams.put(entry.getKey(), entry.getValue());
+        for (Map.Entry entry : hashMap.entrySet()) {
+            requestParams.put((String) entry.getKey(), (String) entry.getValue());
         }
         requestParams.put("sig", calculateSig);
-        this.asyncHttpClient.post(this.configuration.context, b(), requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.5
+        this.asyncHttpClient.post(this.configuration.context, b(), requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.4
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onFailure(Throwable th, String str) {
                 if (!PortraitService.this.domainRetry.isShouldRetry()) {
@@ -476,7 +412,7 @@ public class PortraitService extends AbstractService {
         for (Map.Entry entry : hashMap.entrySet()) {
             requestParams.put((String) entry.getKey(), (String) entry.getValue());
         }
-        this.asyncHttpClient.post(this.configuration.context, c(), requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.6
+        this.asyncHttpClient.post(this.configuration.context, c(), requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.PortraitService.5
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onStart() {
                 getPopularPortraitsCallback.onStart();

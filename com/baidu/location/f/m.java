@@ -2,7 +2,7 @@ package com.baidu.location.f;
 
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m {
     public static String a = null;
     private String d;

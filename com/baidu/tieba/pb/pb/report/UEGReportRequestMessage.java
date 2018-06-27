@@ -3,7 +3,6 @@ package com.baidu.tieba.pb.pb.report;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.sina.weibo.sdk.component.WidgetRequestParam;
 /* loaded from: classes2.dex */
 public class UEGReportRequestMessage extends HttpMessage {
     private String mPid;
@@ -18,7 +17,7 @@ public class UEGReportRequestMessage extends HttpMessage {
     }
 
     public void setPid(String str) {
-        addParam(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, 1);
+        addParam("category", 1);
         addParam(Info.kBaiduPIDKey, str);
         this.mPid = str;
     }
@@ -28,7 +27,7 @@ public class UEGReportRequestMessage extends HttpMessage {
     }
 
     public void setTUid(String str) {
-        addParam(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, 3);
+        addParam("category", 3);
         addParam("tuid", str);
         this.mTUid = str;
     }

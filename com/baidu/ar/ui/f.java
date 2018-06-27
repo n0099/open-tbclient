@@ -11,7 +11,6 @@ import com.baidu.ar.rotate.Orientation;
 import com.baidu.ar.speech.SpeechManager;
 import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class f {
@@ -120,8 +119,8 @@ public class f {
             switch (MsgParamsUtil.obj2Int(hashMap.get("id"), -1)) {
                 case 2001:
                 case 2002:
-                case PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE /* 2003 */:
-                case PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE_ERROR /* 2004 */:
+                case 2003:
+                case 2004:
                     if (this.g == null) {
                         this.g = new com.baidu.ar.component.b.c(this.d, this.c, this.e);
                         UiThreadUtil.runOnUiThread(new Runnable() { // from class: com.baidu.ar.ui.f.3

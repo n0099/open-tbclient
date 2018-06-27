@@ -6,6 +6,7 @@ public class OAuthResult extends SapiResult {
     public String accessToken;
     public int expiresIn;
     public String extra;
+    public String openid;
     public String refreshToken;
     public String scope;
     public String sessionKey;

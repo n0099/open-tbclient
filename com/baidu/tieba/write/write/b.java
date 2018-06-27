@@ -7,15 +7,15 @@ import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.widget.EditText;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private ArrayList<String> hnf;
-    private String hng;
+    private ArrayList<String> hrl;
+    private String hrm;
 
     public void i(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !w.z(this.hnf)) {
+        if (spannable != null && !w.A(this.hrl)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.hnf.iterator();
+                Iterator<String> it = this.hrl.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -49,8 +49,8 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = al.getColor(d.C0141d.cp_cont_i);
-                int color2 = al.getColor(d.C0141d.cp_cont_h_alpha85);
+                int color = am.getColor(d.C0142d.cp_cont_i);
+                int color2 = am.getColor(d.C0142d.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (w.z(bFY())) {
+        if (w.A(bGy())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -106,19 +106,19 @@ public class b {
         }
     }
 
-    public void ax(ArrayList<String> arrayList) {
-        this.hnf = arrayList;
+    public void aB(ArrayList<String> arrayList) {
+        this.hrl = arrayList;
     }
 
-    public ArrayList<String> bFY() {
-        return this.hnf;
+    public ArrayList<String> bGy() {
+        return this.hrl;
     }
 
-    public void vy(String str) {
-        this.hng = str;
+    public void vu(String str) {
+        this.hrm = str;
     }
 
-    public String bGc() {
-        return this.hng;
+    public String bGC() {
+        return this.hrm;
     }
 }

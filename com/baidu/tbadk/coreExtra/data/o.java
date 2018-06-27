@@ -3,31 +3,31 @@ package com.baidu.tbadk.coreExtra.data;
 import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class o {
-    private int aBv;
-    private int aBw;
-    private int aBx;
+    private int aCp;
+    private int aCq;
+    private int aCr;
 
-    public int Cd() {
-        return this.aBv == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aBv;
+    public int Cv() {
+        return this.aCp == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aCp;
     }
 
-    public void fy(String str) {
-        this.aBv = com.baidu.adp.lib.g.b.g(str, 0);
+    public void fC(String str) {
+        this.aCp = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int Ce() {
-        return this.aBw;
+    public int Cw() {
+        return this.aCq;
     }
 
-    public void fz(String str) {
-        this.aBw = com.baidu.adp.lib.g.b.g(str, 0);
+    public void fD(String str) {
+        this.aCq = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int Cf() {
-        return this.aBx;
+    public int Cx() {
+        return this.aCr;
     }
 
-    public void fA(String str) {
-        this.aBx = com.baidu.adp.lib.g.b.g(str, 0);
+    public void fE(String str) {
+        this.aCr = com.baidu.adp.lib.g.b.g(str, 0);
     }
 }

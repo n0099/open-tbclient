@@ -16,8 +16,8 @@ public class a {
         }
         String format = String.format(TbadkCoreApplication.getInst().getContext().getString(d.k.url_notify), str);
         String string = TbadkCoreApplication.getInst().getContext().getString(d.k.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).dA(string).dB(format).a(TbadkCoreApplication.getInst().getContext().getString(d.k.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(d.k.cancel), bVar2).b(tbPageContext);
-        b.xa();
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).dD(string).dE(format).a(TbadkCoreApplication.getInst().getContext().getString(d.k.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(d.k.cancel), bVar2).b(tbPageContext);
+        b.xn();
         return b;
     }
 
@@ -28,15 +28,15 @@ public class a {
         String string = TbadkCoreApplication.getInst().getContext().getString(d.k.setup);
         String string2 = TbadkCoreApplication.getInst().getContext().getString(d.k.cancel);
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.dB(TbadkCoreApplication.getInst().getContext().getString(i));
+        aVar.dE(TbadkCoreApplication.getInst().getContext().getString(i));
         aVar.a(string, bVar);
         aVar.b(string2, bVar2);
         aVar.b(tbPageContext);
         if (z) {
-            aVar.wY();
+            aVar.xl();
             return aVar;
         }
-        aVar.xa();
+        aVar.xn();
         return aVar;
     }
 
@@ -44,16 +44,16 @@ public class a {
         return a(tbPageContext, i, bVar, bVar2, false);
     }
 
-    public static b a(Context context, b.InterfaceC0103b interfaceC0103b) {
+    public static b a(Context context, b.InterfaceC0104b interfaceC0104b) {
         if (i.ad(context) == null) {
             return null;
         }
         b bVar = new b(i.ad(context).getPageActivity());
-        bVar.dC(TbadkCoreApplication.getInst().getString(d.k.operation));
-        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(d.k.delete_user_chat)}, interfaceC0103b);
+        bVar.dF(TbadkCoreApplication.getInst().getString(d.k.operation));
+        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(d.k.delete_user_chat)}, interfaceC0104b);
         bVar.d(i.ad(context));
         if (context instanceof Activity) {
-            bVar.xd();
+            bVar.xq();
             return bVar;
         }
         return bVar;
@@ -72,8 +72,8 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.dA(str);
-        aVar.dB(str2);
+        aVar.dD(str);
+        aVar.dE(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);
@@ -85,21 +85,21 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.dA(str);
-        aVar.dB(str2);
+        aVar.dD(str);
+        aVar.dE(str2);
         aVar.a(d.k.dialog_ok, bVar);
         aVar.b(d.k.dialog_cancel, bVar2);
         aVar.b(tbPageContext);
         return aVar;
     }
 
-    public static b a(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, b.InterfaceC0103b interfaceC0103b) {
+    public static b a(TbPageContext<?> tbPageContext, int i, CharSequence[] charSequenceArr, b.InterfaceC0104b interfaceC0104b) {
         if (tbPageContext == null) {
             return null;
         }
         b bVar = new b(tbPageContext.getPageActivity());
-        bVar.cf(i);
-        bVar.a(charSequenceArr, interfaceC0103b);
+        bVar.cg(i);
+        bVar.a(charSequenceArr, interfaceC0104b);
         bVar.d(tbPageContext);
         return bVar;
     }

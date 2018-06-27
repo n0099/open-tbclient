@@ -10,18 +10,18 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    private c htk;
+    private c hxt;
     private List<String> mDataList;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TbImageView hfi;
-        public TbImageView hfj;
+        public TbImageView hjp;
+        public TbImageView hjq;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (w.z(this.mDataList)) {
+        if (w.A(this.mDataList)) {
             return 0;
         }
         return (int) Math.ceil(this.mDataList.size() / 2.0d);
@@ -30,7 +30,7 @@ public class d extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     public String getItem(int i) {
-        return (String) w.c(this.mDataList, i);
+        return (String) w.d(this.mDataList, i);
     }
 
     @Override // android.widget.Adapter
@@ -44,31 +44,31 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.pic_sticker_item, (ViewGroup) null);
             aVar = new a();
-            aVar.hfi = (TbImageView) view.findViewById(d.g.top_sticker);
-            aVar.hfj = (TbImageView) view.findViewById(d.g.bottom_sticker);
+            aVar.hjp = (TbImageView) view.findViewById(d.g.top_sticker);
+            aVar.hjq = (TbImageView) view.findViewById(d.g.bottom_sticker);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.hfi.setGifIconSupport(false);
-        aVar.hfj.setGifIconSupport(false);
-        aVar.hfi.startLoad(this.mDataList.get(i * 2), 10, true);
-        aVar.hfi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
+        aVar.hjp.setGifIconSupport(false);
+        aVar.hjq.setGifIconSupport(false);
+        aVar.hjp.startLoad(this.mDataList.get(i * 2), 10, true);
+        aVar.hjp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TbImageView tbImageView = (TbImageView) view2;
-                if (d.this.htk != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().mZ() != null) {
-                    d.this.htk.d(tbImageView.getBdImage().mZ(), false);
+                if (d.this.hxt != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().mZ() != null) {
+                    d.this.hxt.d(tbImageView.getBdImage().mZ(), false);
                 }
             }
         });
-        aVar.hfj.startLoad(this.mDataList.get((i * 2) + 1), 10, true);
-        aVar.hfj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.2
+        aVar.hjq.startLoad(this.mDataList.get((i * 2) + 1), 10, true);
+        aVar.hjq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 TbImageView tbImageView = (TbImageView) view2;
-                if (d.this.htk != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().mZ() != null) {
-                    d.this.htk.d(tbImageView.getBdImage().mZ(), true);
+                if (d.this.hxt != null && tbImageView != null && tbImageView.getBdImage() != null && tbImageView.getBdImage().mZ() != null) {
+                    d.this.hxt.d(tbImageView.getBdImage().mZ(), true);
                 }
             }
         });
@@ -76,11 +76,11 @@ public class d extends BaseAdapter {
     }
 
     public void b(c cVar) {
-        this.htk = cVar;
+        this.hxt = cVar;
     }
 
     public void setData(List<String> list) {
-        if (!w.z(list)) {
+        if (!w.A(list)) {
             this.mDataList = list;
         }
     }

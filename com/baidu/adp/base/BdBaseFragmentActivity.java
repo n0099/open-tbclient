@@ -18,6 +18,7 @@ import com.baidu.adp.widget.ListView.k;
 import com.baidu.megapp.ma.MAFragmentActivity;
 /* loaded from: classes.dex */
 public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, f<T>, h {
+    private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
     protected final Handler mHandler = new Handler();
@@ -71,6 +72,9 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
 
     public void showToast(String str) {
         l.showToast(getApplicationContext(), str);
+    }
+
+    public void releaseResouce() {
     }
 
     @Override // android.content.DialogInterface.OnClickListener

@@ -79,7 +79,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean X(JSONObject jSONObject) {
+    public boolean W(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -110,7 +110,7 @@ public class a implements f {
         return true;
     }
 
-    public JSONObject aiE() {
+    public JSONObject ahW() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aXZ() {
+    public String aYG() {
         return this.threadName;
     }
 
@@ -201,7 +201,7 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String HB() {
+    public String HT() {
         return this.postID;
     }
 
@@ -209,19 +209,19 @@ public class a implements f {
         this.postID = str;
     }
 
-    public boolean aYa() {
+    public boolean aYH() {
         return this.isHostOnly;
     }
 
-    public void je(boolean z) {
+    public void jn(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean aYb() {
+    public boolean aYI() {
         return this.isSquence;
     }
 
-    public void jf(boolean z) {
+    public void jo(boolean z) {
         this.isSquence = z;
     }
 
@@ -255,15 +255,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Ji() {
-        return aiE().toString();
+    public String JA() {
+        return ahW().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean hl(String str) {
+    public boolean hp(String str) {
         if (str != null) {
             try {
-                return X(new JSONObject(str));
+                return W(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

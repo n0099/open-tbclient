@@ -15,9 +15,9 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g extends com.baidu.location.h.f {
-    private static g We = null;
+    private static g Wg = null;
     String a = null;
     String b = null;
     String c = null;
@@ -195,10 +195,10 @@ public class g extends com.baidu.location.h.f {
     }
 
     public static g qm() {
-        if (We == null) {
-            We = new g();
+        if (Wg == null) {
+            Wg = new g();
         }
-        return We;
+        return Wg;
     }
 
     @Override // com.baidu.location.h.f

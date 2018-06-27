@@ -1,7 +1,7 @@
 package com.baidu.location.c;
 
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
     private long a = 0;
     private long b = 0;

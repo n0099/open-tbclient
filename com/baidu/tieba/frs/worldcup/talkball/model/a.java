@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.worldcup.talkball.model;
 /* loaded from: classes2.dex */
 public interface a {
-    void SJ();
+    void Tf();
 
     String getForumId();
 

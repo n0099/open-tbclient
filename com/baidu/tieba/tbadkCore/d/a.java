@@ -10,122 +10,121 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
-import com.sina.weibo.sdk.constant.WBPageConstants;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
 public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String aVt;
-        public int cBm;
+        public String aWo;
+        public int czg;
         public String mPid;
     }
 
-    public static C0234a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0234a c0234a = new C0234a(str, str2, str3, str4, str5);
-        c0234a.e(str6, str7, str8, str9, str10);
-        return c0234a;
+    public static C0236a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0236a c0236a = new C0236a(str, str2, str3, str4, str5);
+        c0236a.e(str6, str7, str8, str9, str10);
+        return c0236a;
     }
 
-    public static C0234a d(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0234a c0234a = new C0234a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0234a.e(null, null, str3, str4, str5);
-        if (!ao.isEmpty(str6)) {
-            c0234a.cl("obj_ref", str6);
+    public static C0236a d(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0236a c0236a = new C0236a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0236a.e(null, null, str3, str4, str5);
+        if (!ap.isEmpty(str6)) {
+            c0236a.cp("obj_ref", str6);
         }
-        return c0234a;
+        return c0236a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0234a c0234a = new C0234a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0234a.e(str2, str7, str3, str4, str5);
-        c0234a.cl("obj_url", str6);
-        c0234a.save();
+        C0236a c0236a = new C0236a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0236a.e(str2, str7, str3, str4, str5);
+        c0236a.cp("obj_url", str6);
+        c0236a.save();
     }
 
     @Deprecated
-    public static void ck(String str, String str2) {
-        if (!ao.isEmpty(str)) {
-            am amVar = new am(str);
+    public static void co(String str, String str2) {
+        if (!ap.isEmpty(str)) {
+            an anVar = new an(str);
             if (str2 != null) {
-                amVar = amVar.ah("obj_type", str2);
+                anVar = anVar.ah("obj_type", str2);
             }
-            TiebaStatic.log(amVar);
+            TiebaStatic.log(anVar);
         }
     }
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0234a {
-        private final String adp;
-        private final boolean agu;
-        private final am eGp;
-        private final String gKc;
-        private final String gKd;
-        private final String gKe;
+    public static class C0236a {
+        private final String adE;
+        private final boolean agJ;
+        private final an eKf;
+        private final String gOd;
+        private final String gOe;
+        private final String gOf;
         private final String key;
 
-        private C0234a(String str, String str2, String str3, String str4, String str5) {
+        private C0236a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.gKc = str2;
-            this.adp = str3;
-            this.gKd = str4;
-            this.gKe = str5;
-            this.agu = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.eGp = bxs();
+            this.gOd = str2;
+            this.adE = str3;
+            this.gOe = str4;
+            this.gOf = str5;
+            this.agJ = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.eKf = bxV();
         }
 
-        private am bxs() {
-            am amVar = new am(this.key);
-            if (!StringUtils.isNull(this.gKc)) {
-                amVar = amVar.ah("line", this.gKc);
+        private an bxV() {
+            an anVar = new an(this.key);
+            if (!StringUtils.isNull(this.gOd)) {
+                anVar = anVar.ah("line", this.gOd);
             }
-            if (!StringUtils.isNull(this.adp)) {
-                amVar = amVar.ah(WBPageConstants.ParamKey.PAGE, this.adp);
+            if (!StringUtils.isNull(this.adE)) {
+                anVar = anVar.ah("page", this.adE);
             }
-            if (!StringUtils.isNull(this.gKd)) {
-                amVar = amVar.ah("locate", this.gKd);
+            if (!StringUtils.isNull(this.gOe)) {
+                anVar = anVar.ah("locate", this.gOe);
             }
-            if (!StringUtils.isNull(this.gKe)) {
-                return amVar.ah("task", this.gKe);
+            if (!StringUtils.isNull(this.gOf)) {
+                return anVar.ah("task", this.gOf);
             }
-            return amVar;
+            return anVar;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public am e(String str, String str2, String str3, String str4, String str5) {
+        public an e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.eGp.ah(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.eKf.ah(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.eGp.ah(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.eKf.ah(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.eGp.ah(ImageViewerConfig.FORUM_ID, str3);
+                this.eKf.ah(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.eGp.ah(ImageViewerConfig.FORUM_NAME, str4);
+                this.eKf.ah(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.eGp.ah("tid", str5);
+                this.eKf.ah("tid", str5);
             }
-            this.eGp.r("obj_cpid", 0).r("obj_good_id", 0).ah("obj_throw_type", "BY_POST").ah("client_type", "MOBILE_APP").ah("user_timestamp", String.valueOf(System.currentTimeMillis())).ah("os", HttpConstants.OS_TYPE_VALUE).ah(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ah("log_ver", "1.1");
-            return this.eGp;
+            this.eKf.r("obj_cpid", 0).r("obj_good_id", 0).ah("obj_throw_type", "BY_POST").ah("client_type", "MOBILE_APP").ah("user_timestamp", String.valueOf(System.currentTimeMillis())).ah("os", HttpConstants.OS_TYPE_VALUE).ah(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ah("log_ver", "1.1");
+            return this.eKf;
         }
 
-        public C0234a cl(String str, String str2) {
+        public C0236a cp(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.eGp.ah(str, str2);
+                this.eKf.ah(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.eGp);
-            if (!this.agu) {
+            TiebaStatic.log(this.eKf);
+            if (!this.agJ) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -134,7 +133,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.eGp.delete(str);
+            this.eKf.delete(str);
         }
     }
 }

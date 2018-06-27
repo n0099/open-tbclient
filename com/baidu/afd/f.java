@@ -1,7 +1,6 @@
 package com.baidu.afd;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,7 +88,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no material info");
             }
             try {
-                JSONArray jSONArray = new JSONArray(optJSONObject3.optString(LoginActivityConfig.INFO));
+                JSONArray jSONArray = new JSONArray(optJSONObject3.optString("info"));
                 if (jSONArray.length() == 0) {
                     throw new ParseError(1, "material has no info array");
                 }
@@ -98,8 +97,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.Pc = z;
-                eVar.Pd = com.baidu.tieba.lego.card.b.pk(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.Pe = z;
+                eVar.Pf = com.baidu.tieba.lego.card.b.pl(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

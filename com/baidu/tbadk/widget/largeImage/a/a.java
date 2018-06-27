@@ -8,37 +8,37 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private final C0122a bat;
-    private final Rect bau;
-    private final Rect bav;
-    private final Rect baw;
-    private int bax;
+    private final C0123a bbo;
+    private final Rect bbp;
+    private final Rect bbq;
+    private final Rect bbr;
+    private int bbs;
     private Bitmap mBitmap;
     private Canvas mCanvas;
 
     public a(int i) {
-        this.bat = new C0122a();
-        this.bau = new Rect();
-        this.bav = new Rect();
-        this.baw = new Rect();
+        this.bbo = new C0123a();
+        this.bbp = new Rect();
+        this.bbq = new Rect();
+        this.bbr = new Rect();
         this.mBitmap = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
-        this.bax = i;
+        this.bbs = i;
         this.mCanvas = new Canvas();
     }
 
     public a(Bitmap bitmap) {
-        this.bat = new C0122a();
-        this.bau = new Rect();
-        this.bav = new Rect();
-        this.baw = new Rect();
+        this.bbo = new C0123a();
+        this.bbp = new Rect();
+        this.bbq = new Rect();
+        this.bbr = new Rect();
         if (bitmap != null) {
             this.mBitmap = bitmap;
-            this.bau.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
+            this.bbp.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
         }
         this.mCanvas = new Canvas();
     }
 
-    public void Mg() {
+    public void My() {
         if (this.mBitmap != null && !this.mBitmap.isRecycled() && this.mBitmap.isMutable()) {
             this.mCanvas.setBitmap(this.mBitmap);
             this.mCanvas.drawColor(-1, PorterDuff.Mode.CLEAR);
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean e(Rect rect) {
-        return rect != null && rect.right - rect.left == this.bax && rect.bottom - rect.top == this.bax;
+        return rect != null && rect.right - rect.left == this.bbs && rect.bottom - rect.top == this.bbs;
     }
 
     public void setBitmap(Bitmap bitmap) {
@@ -57,81 +57,81 @@ public class a {
         return this.mBitmap;
     }
 
-    public Rect Mh() {
-        return this.bau;
+    public Rect Mz() {
+        return this.bbp;
     }
 
-    public Rect Mi() {
-        return this.bav;
+    public Rect MA() {
+        return this.bbq;
     }
 
     public void i(int i, int i2, int i3, int i4) {
-        this.bav.set(i, i2, i3, i4);
+        this.bbq.set(i, i2, i3, i4);
     }
 
     public void j(int i, int i2, int i3, int i4) {
-        this.bau.set(i, i2, i3, i4);
+        this.bbp.set(i, i2, i3, i4);
     }
 
     public void o(int i, int i2, int i3) {
-        this.bat.row = i;
-        this.bat.column = i2;
-        this.bat.bay = i3;
+        this.bbo.row = i;
+        this.bbo.column = i2;
+        this.bbo.bbt = i3;
     }
 
-    public C0122a Mj() {
-        return this.bat;
+    public C0123a MB() {
+        return this.bbo;
     }
 
-    public Rect Mk() {
-        int i = this.bax * this.bat.column * this.bat.bay;
-        int i2 = this.bax * this.bat.row * this.bat.bay;
-        this.baw.set(i, i2, (this.bax * this.bat.bay) + i, (this.bax * this.bat.bay) + i2);
-        return this.baw;
+    public Rect MC() {
+        int i = this.bbs * this.bbo.column * this.bbo.bbt;
+        int i2 = this.bbs * this.bbo.row * this.bbo.bbt;
+        this.bbr.set(i, i2, (this.bbs * this.bbo.bbt) + i, (this.bbs * this.bbo.bbt) + i2);
+        return this.bbr;
     }
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0122a {
-        int bay;
+    public static class C0123a {
+        int bbt;
         int column;
         int row;
 
-        public C0122a() {
+        public C0123a() {
         }
 
-        public C0122a(int i, int i2, int i3) {
+        public C0123a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
-            this.bay = i3;
+            this.bbt = i3;
         }
 
         public String toString() {
-            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.bay + '}';
+            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.bbt + '}';
         }
 
         public boolean equals(Object obj) {
-            if (obj instanceof C0122a) {
-                C0122a c0122a = (C0122a) obj;
-                return this.row == c0122a.getRow() && this.column == c0122a.Ij() && this.bay == c0122a.Ml();
+            if (obj instanceof C0123a) {
+                C0123a c0123a = (C0123a) obj;
+                return this.row == c0123a.getRow() && this.column == c0123a.IB() && this.bbt == c0123a.MD();
             }
             return false;
         }
 
         public int hashCode() {
-            return (17 * (((this.row + 119) * 17) + this.column)) + (this.bay * 100);
+            return (17 * (((this.row + 119) * 17) + this.column)) + (this.bbt * 100);
         }
 
         public int getRow() {
             return this.row;
         }
 
-        public int Ij() {
+        public int IB() {
             return this.column;
         }
 
-        public int Ml() {
-            return this.bay;
+        public int MD() {
+            return this.bbt;
         }
     }
 }

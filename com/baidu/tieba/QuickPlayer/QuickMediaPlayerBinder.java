@@ -9,7 +9,7 @@ import android.view.Surface;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayer;
 import java.util.HashMap;
 import java.util.List;
@@ -178,7 +178,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 } else if (MODEL_MX4.equals(Build.MODEL)) {
                     i2 = 2;
                 }
-                TiebaStatic.log(new am("c12200").r("obj_type", i2).ah("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new an("c12200").r("obj_type", i2).ah("uid", TbadkCoreApplication.getCurrentAccount()));
             }
             if (this.mContext instanceof a) {
                 ((a) this.mContext).addPlayer(this.mMediaPlayer);

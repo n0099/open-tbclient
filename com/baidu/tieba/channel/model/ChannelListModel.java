@@ -14,10 +14,10 @@ import com.baidu.tieba.channel.message.ResponseNetChannelListMessage;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
-    private boolean bEd;
-    private boolean buS;
-    private a cEI;
-    private e cEJ;
+    private boolean bwn;
+    private boolean byr;
+    private a cCB;
+    private e cCC;
     public HttpMessageListener httpListener;
     private boolean mHasMore;
     private int mPageNum;
@@ -30,8 +30,8 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
 
     public ChannelListModel(com.baidu.adp.base.e<ChannelListActivity> eVar, String str) {
         super(eVar);
-        this.bEd = true;
-        this.buS = false;
+        this.byr = true;
+        this.bwn = false;
         this.httpListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_SUBSCRIBE_CHANNEL_LIST) { // from class: com.baidu.tieba.channel.model.ChannelListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -40,17 +40,17 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
                     if (httpResponsedMessage.getError() == 0) {
                         ChannelListModel.this.a((ResponseNetChannelListMessage) httpResponsedMessage);
                     }
-                    if (ChannelListModel.this.cEI != null) {
-                        ChannelListModel.this.cEI.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelListModel.this.bEd, ChannelListModel.this.cEJ);
+                    if (ChannelListModel.this.cCB != null) {
+                        ChannelListModel.this.cCB.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelListModel.this.byr, ChannelListModel.this.cCC);
                     }
-                    ChannelListModel.this.bEd = false;
+                    ChannelListModel.this.byr = false;
                 }
             }
         };
         this.mUserId = str;
     }
 
-    public HttpMessage am(int i, int i2) {
+    public HttpMessage al(int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUBSCRIBE_CHANNEL_LIST);
         httpMessage.addParam("user_id", this.mUserId);
         httpMessage.addParam("pn", i);
@@ -62,19 +62,19 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponseNetChannelListMessage responseNetChannelListMessage) {
         if (responseNetChannelListMessage != null) {
-            if (this.cEJ == null) {
-                this.cEJ = new e();
+            if (this.cCC == null) {
+                this.cCC = new e();
             }
             e data = responseNetChannelListMessage.getData();
             if (data != null) {
-                this.cEJ.getItems().addAll(data.getItems());
-                this.cEJ.setHasMore(data.hasMore());
+                this.cCC.getItems().addAll(data.getItems());
+                this.cCC.setHasMore(data.hasMore());
                 this.mHasMore = data.hasMore();
             }
         }
     }
 
-    public void SH() {
+    public void Td() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUBSCRIBE_CHANNEL_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getUserChannelList");
         tbHttpMessageTask.setResponsedClass(ResponseNetChannelListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -87,21 +87,21 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        akb();
+        ajv();
         return false;
     }
 
-    private void akb() {
-        HttpMessage am;
+    private void ajv() {
+        HttpMessage al;
         LinkedList<HttpMessage> findHttpMessage = MessageManager.getInstance().findHttpMessage(getUniqueId());
         if (findHttpMessage == null || findHttpMessage.size() == 0) {
-            if (!this.buS) {
-                am = am(1, 8);
-                this.cEJ = null;
+            if (!this.bwn) {
+                al = al(1, 8);
+                this.cCC = null;
             } else {
-                am = am(this.mPageNum + 1, 8);
+                al = al(this.mPageNum + 1, 8);
             }
-            sendMessage(am);
+            sendMessage(al);
         }
     }
 
@@ -115,10 +115,10 @@ public class ChannelListModel extends BdBaseModel<ChannelListActivity> {
     }
 
     public void eD(boolean z) {
-        this.buS = z;
+        this.bwn = z;
     }
 
     public void a(a aVar) {
-        this.cEI = aVar;
+        this.cCB = aVar;
     }
 }

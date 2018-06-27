@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GameShareActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.data.GameShareData;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import org.json.JSONException;
@@ -28,7 +28,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private String sx() {
-        ba.aU(this.mContext);
+        bb.aU(this.mContext);
         JSResultData jSResultData = new JSResultData();
         jSResultData.setStatus(1);
         jSResultData.setErrorCode("0");
@@ -46,7 +46,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         return "";
     }
 
-    private void cL(String str) {
+    private void cN(String str) {
     }
 
     @Override // com.baidu.tieba.tbadkCore.e.b
@@ -65,7 +65,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 try {
                     String optString = new JSONObject(str3).optString("url");
                     if (!StringUtils.isNull(optString)) {
-                        cL(optString);
+                        cN(optString);
                     }
                     jsPromptResult.confirm();
                     return true;
@@ -91,7 +91,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("registerShareData".equals(str2)) {
                 try {
-                    cM(str3);
+                    cO(str3);
                     jsPromptResult.confirm();
                     return true;
                 } catch (Exception e5) {
@@ -100,7 +100,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             }
             if ("gameShare".equals(str2)) {
                 try {
-                    cN(str3);
+                    cP(str3);
                     jsPromptResult.confirm();
                     return true;
                 } catch (Exception e6) {
@@ -111,21 +111,21 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 jsPromptResult.confirm(sA());
                 return true;
             } else if ("registerShareDataNew".equals(str2)) {
-                jsPromptResult.confirm(cO(str3));
+                jsPromptResult.confirm(cQ(str3));
                 return true;
             } else if ("share".equals(str2)) {
-                jsPromptResult.confirm(cP(str3));
+                jsPromptResult.confirm(cR(str3));
                 return true;
             }
         }
         return false;
     }
 
-    private void cM(String str) {
+    private void cO(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921331, str));
     }
 
-    private void cN(String str) {
+    private void cP(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -153,9 +153,9 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private String cO(String str) {
+    private String cQ(String str) {
         int i = 0;
-        if (!ao.isEmpty(str)) {
+        if (!ap.isEmpty(str)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, str));
             i = 1;
         }
@@ -169,11 +169,11 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private String cP(String str) {
+    private String cR(String str) {
         int i;
         CustomResponsedMessage runTask;
         try {
-            if (!ao.isEmpty(str) && (runTask = MessageManager.getInstance().runTask(2016568, com.baidu.tbadk.coreExtra.c.d.class, str)) != null) {
+            if (!ap.isEmpty(str) && (runTask = MessageManager.getInstance().runTask(2016568, com.baidu.tbadk.coreExtra.c.d.class, str)) != null) {
                 com.baidu.tbadk.coreExtra.c.d dVar = (com.baidu.tbadk.coreExtra.c.d) runTask.getData();
                 try {
                     int optInt = new JSONObject(str).optInt("channel");

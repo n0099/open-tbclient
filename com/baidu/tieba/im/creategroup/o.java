@@ -3,17 +3,17 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 /* loaded from: classes3.dex */
 public interface o {
-    String aGA();
+    int aGY();
 
-    boolean aGB();
+    void aHe();
 
-    boolean aGC();
+    void aHf();
 
-    int aGr();
+    String aHh();
 
-    void aGx();
+    boolean aHi();
 
-    void aGy();
+    boolean aHj();
 
     String getErrMsg();
 

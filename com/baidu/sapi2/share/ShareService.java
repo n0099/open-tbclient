@@ -16,6 +16,7 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.Domain;
@@ -72,7 +73,7 @@ public final class ShareService extends Service {
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             Bundle readBundle;
             ShareModel shareModel;
-            if (!d.b(ShareService.this)) {
+            if (!c.b(ShareService.this)) {
                 return false;
             }
             if (SapiAccountManager.getReceiveShareListener() != null) {
@@ -107,22 +108,30 @@ public final class ShareService extends Service {
             boolean z = readBundle.getBoolean("EXTRA_OTHER_INFO");
             String string2 = readBundle.getString("FACE_LOGIN_UID");
             if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(ShareService.a).getFaceLoginUid())) {
-                SapiContext.getInstance(ShareService.a).setFaceLoginUid(string2);
+                new FaceLoginService().syncFaceLoginUID(ShareService.a, string2);
+            }
+            String string3 = readBundle.getString("FACE_LOGIN_MODEL");
+            if (!TextUtils.isEmpty(string3)) {
+                SapiContext.getInstance(ShareService.a).setFaceLoginModel(string3);
+                new FaceLoginService().syncShareFaceLoginModel(string3);
             }
             if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") == null || !(readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
                 int i3 = readBundle.getInt("SDK_VERSION");
                 if (!z) {
-                    d.b(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
+                    c.b(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
                 }
                 switch (shareModel.b()) {
                     case VALIDATE:
-                        d.a(ShareService.a, ShareService.b, shareModel, i3, string, z);
+                        c.a(ShareService.a, ShareService.b, shareModel, i3, string, z);
                         break;
                     case INVALIDATE:
-                        d.a(ShareService.a, shareModel);
+                        c.a(ShareService.a, shareModel);
                         break;
                     case SYNC_REQ:
-                        ShareService.this.a(parcel2);
+                        if (!SapiAccountManager.getInstance().getSession().isGuestAccount()) {
+                            ShareService.this.a(parcel2);
+                            break;
+                        }
                         break;
                 }
                 return true;
@@ -169,15 +178,22 @@ public final class ShareService extends Service {
         for (SapiAccount sapiAccount2 : shareModel.a()) {
             sapiAccount2.app = SapiUtils.getAppName(a);
         }
-        d.a(a, b, shareModel);
+        c.a(a, b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
         if (c.getReloginCredentials() != null) {
             bundle.putString("RELOGIN_CREDENTIALS", b.a(a, c.getReloginCredentials().toString()));
         }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
         bundle.putInt("SDK_VERSION", SapiAccountManager.VERSION_CODE);
-        if (SapiContext.getInstance(a).shareLivingunameEnable()) {
+        boolean shareFaceLoginEnable = SapiContext.getInstance(this).getShareFaceLoginEnable();
+        if (SapiContext.getInstance(a).shareLivingunameEnable() || shareFaceLoginEnable) {
             bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(a).getFaceLoginUid());
+        }
+        if (shareFaceLoginEnable) {
+            String faceLoginModel = SapiContext.getInstance(a).getFaceLoginModel();
+            if (new FaceLoginService().convertResult2Model(faceLoginModel) != null) {
+                bundle.putString("FACE_LOGIN_MODEL", faceLoginModel);
+            }
         }
         parcel.writeBundle(bundle);
     }

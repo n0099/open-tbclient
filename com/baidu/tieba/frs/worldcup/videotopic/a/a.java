@@ -2,54 +2,52 @@ package com.baidu.tieba.frs.worldcup.videotopic.a;
 
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tieba.frs.f;
-import com.baidu.tieba.frs.j;
-import com.baidu.tieba.frs.k;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tieba.frs.l;
 import com.baidu.tieba.frs.worldcup.videotopic.activity.VideoTopicFragment;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private VideoTopicFragment dGt;
-    private b dGy;
-    j dmH;
-    private m dnw;
+    private VideoTopicFragment dJM;
+    private b dJR;
+    l dnp;
+    private m dqF;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public a(VideoTopicFragment videoTopicFragment, m mVar) {
-        this.dGt = videoTopicFragment;
-        this.dnw = mVar;
+        this.dJM = videoTopicFragment;
+        this.dqF = mVar;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dGy = new b(this.dGt.getPageContext(), bd.ahX, this.dGt.getUniqueId());
-        this.dmH = new j(this.dGt.getPageContext(), k.djW);
-        this.mAdapters.add(this.dmH);
-        this.mAdapters.add(this.dGy);
-        this.dnw.addAdapters(this.mAdapters);
+        this.dJR = new b(this.dJM.getPageContext(), bc.aiq, this.dJM.getUniqueId());
+        this.dnp = new l(this.dJM.getPageContext(), com.baidu.tieba.frs.m.dmd);
+        this.mAdapters.add(this.dnp);
+        this.mAdapters.add(this.dJR);
+        this.dqF.addAdapters(this.mAdapters);
     }
 
     public void setForumId(String str) {
-        this.dGy.setForumId(str);
+        this.dJR.setForumId(str);
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.dnw.setData(arrayList);
+        this.dqF.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dnw.getListAdapter() != null) {
-            this.dnw.getListAdapter().notifyDataSetChanged();
+        if (this.dqF.getListAdapter() != null) {
+            this.dqF.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void onDestory() {
         for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
-            if (aVar instanceof f) {
-                ((f) aVar).release();
+            if (aVar instanceof com.baidu.tieba.frs.h) {
+                ((com.baidu.tieba.frs.h) aVar).release();
             }
         }
     }

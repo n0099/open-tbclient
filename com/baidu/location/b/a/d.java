@@ -2,7 +2,7 @@ package com.baidu.location.b.a;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class d {
     public static byte[] a(byte[] bArr) {
         try {

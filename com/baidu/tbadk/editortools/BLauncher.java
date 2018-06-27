@@ -6,11 +6,11 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean aKU;
+    private boolean aLQ;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aKU = false;
+        this.aLQ = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -29,7 +29,7 @@ public class BLauncher extends ImageView implements g {
 
     public void setIcon(int i) {
         this.mIcon = i;
-        al.b((ImageView) this, this.mIcon, this.mSkinType);
+        am.b((ImageView) this, this.mIcon, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -48,11 +48,11 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        Hf();
+        Hx();
         setVisibility(8);
     }
 
-    public void gy(String str) {
+    public void gC(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -67,23 +67,23 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            al.b(this.mTip, d.C0141d.cp_cont_g, 1, this.mSkinType);
+            am.b(this.mTip, d.C0142d.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                al.d(this.mTip, d.f.icon_news_head_prompt_one, this.mSkinType);
+                am.d(this.mTip, d.f.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                al.d(this.mTip, d.f.icon_news_down_bar_one, this.mSkinType);
+                am.d(this.mTip, d.f.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void Hf() {
+    public void Hx() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Hf();
+                Hx();
             } else if (aVar.data instanceof String) {
-                gy((String) aVar.data);
+                gC((String) aVar.data);
             }
         }
     }
@@ -108,23 +108,23 @@ public class BLauncher extends ImageView implements g {
     @Override // com.baidu.tbadk.editortools.g
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        al.b((ImageView) this, this.mIcon, i);
+        am.b((ImageView) this, this.mIcon, i);
         if (this.mTip != null) {
-            al.b(this.mTip, d.C0141d.cp_cont_g, 1, i);
+            am.b(this.mTip, d.C0142d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                al.d(this.mTip, d.f.icon_news_head_prompt_one, i);
+                am.d(this.mTip, d.f.icon_news_head_prompt_one, i);
             } else {
-                al.d(this.mTip, d.f.icon_news_down_bar_one, i);
+                am.d(this.mTip, d.f.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aKU;
+        return this.aLQ;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aKU = z;
+        this.aLQ = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

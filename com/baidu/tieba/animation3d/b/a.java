@@ -16,43 +16,43 @@ import javax.microedition.khronos.opengles.GL10;
 public class a implements TBGLSurfaceView.m {
     private int bgColor;
     public Context context;
-    private IntBuffer ctA;
-    private IntBuffer ctB;
-    protected float ctC;
-    protected float ctD;
-    protected float ctE;
-    protected Bitmap ctF;
-    protected Bitmap ctG;
-    protected Bitmap ctH;
-    protected Bitmap ctI;
-    protected Bitmap ctJ;
-    protected Bitmap ctK;
-    protected float ctL;
-    protected float ctM;
-    int ctO;
-    protected float ctN = 0.0f;
+    private IntBuffer crH;
+    private IntBuffer crI;
+    protected float crJ;
+    protected float crK;
+    protected float crL;
+    protected Bitmap crM;
+    protected Bitmap crN;
+    protected Bitmap crO;
+    protected Bitmap crP;
+    protected Bitmap crQ;
+    protected Bitmap crR;
+    protected float crS;
+    protected float crT;
+    int crV;
+    protected float crU = 0.0f;
     private int one = 65536;
-    private Queue<com.baidu.tieba.animation3d.a.b> ctP = new ConcurrentLinkedQueue();
-    private Queue<com.baidu.tieba.animation3d.a.c> ctQ = new ConcurrentLinkedQueue();
-    private int ctR = 0;
-    private int[] ctS = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
-    private int[] ctT = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
-    private int[] ctz = new int[1];
+    private Queue<com.baidu.tieba.animation3d.a.b> crW = new ConcurrentLinkedQueue();
+    private Queue<com.baidu.tieba.animation3d.a.c> crX = new ConcurrentLinkedQueue();
+    private int crY = 0;
+    private int[] crZ = {this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, -this.one, -this.one, -this.one, this.one, this.one, -this.one, this.one, this.one, this.one, this.one, -this.one, -this.one, this.one, -this.one, this.one};
+    private int[] csa = {this.one, 0, 0, 0, this.one, this.one, 0, this.one};
+    private int[] crG = new int[1];
 
     public a(Context context) {
         this.context = context;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.ctS.length * 4);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.crZ.length * 4);
         allocateDirect.order(ByteOrder.nativeOrder());
-        this.ctA = allocateDirect.asIntBuffer();
-        this.ctA.put(this.ctS);
-        this.ctA.position(0);
-        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.ctT.length * 4 * 6);
+        this.crH = allocateDirect.asIntBuffer();
+        this.crH.put(this.crZ);
+        this.crH.position(0);
+        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(this.csa.length * 4 * 6);
         allocateDirect2.order(ByteOrder.nativeOrder());
-        this.ctB = allocateDirect2.asIntBuffer();
+        this.crI = allocateDirect2.asIntBuffer();
         for (int i = 0; i < 6; i++) {
-            this.ctB.put(this.ctT);
+            this.crI.put(this.csa);
         }
-        this.ctB.position(0);
+        this.crI.position(0);
     }
 
     @Override // com.baidu.tieba.animation3d.View.TBGLSurfaceView.m
@@ -71,64 +71,64 @@ public class a implements TBGLSurfaceView.m {
         gl10.glHint(3152, 4354);
         gl10.glEnableClientState(32884);
         gl10.glEnableClientState(32888);
-        gl10.glVertexPointer(3, 5132, 0, this.ctA);
-        gl10.glTexCoordPointer(2, 5132, 0, this.ctB);
-        gl10.glTranslatef(this.ctL, this.ctM, this.ctN);
-        if (this.ctQ != null && this.ctQ.size() != 0 && (peek = this.ctQ.peek()) != null) {
-            if (peek.ahZ() == 2) {
-                peek.e(this.ctL, this.ctM, this.ctN, this.ctO);
-                this.ctQ.poll();
-            } else if (peek.ahZ() == -1) {
-                if (!peek.ahY()) {
-                    peek.iB(2);
+        gl10.glVertexPointer(3, 5132, 0, this.crH);
+        gl10.glTexCoordPointer(2, 5132, 0, this.crI);
+        gl10.glTranslatef(this.crS, this.crT, this.crU);
+        if (this.crX != null && this.crX.size() != 0 && (peek = this.crX.peek()) != null) {
+            if (peek.ahs() == 2) {
+                peek.e(this.crS, this.crT, this.crU, this.crV);
+                this.crX.poll();
+            } else if (peek.ahs() == -1) {
+                if (!peek.ahr()) {
+                    peek.iy(2);
                 } else {
-                    peek.iB(0);
+                    peek.iy(0);
                 }
-            } else if (peek.ahZ() == 0) {
-                peek.b(this.ctL, this.ctM, this.ctN, this.ctO);
-                float g = peek.g(this.ctL, this.ctM, this.ctN, this.ctO);
-                float h = peek.h(this.ctL, this.ctM, this.ctN, this.ctO);
-                float i = peek.i(this.ctL, this.ctM, this.ctN, this.ctO);
-                this.ctL = g;
-                this.ctM = h;
-                this.ctN = i;
-                peek.iB(1);
-            } else if (peek.ahZ() == 1) {
-                if (peek.c(this.ctL, this.ctM, this.ctN, this.ctO)) {
-                    peek.iB(2);
+            } else if (peek.ahs() == 0) {
+                peek.b(this.crS, this.crT, this.crU, this.crV);
+                float g = peek.g(this.crS, this.crT, this.crU, this.crV);
+                float h = peek.h(this.crS, this.crT, this.crU, this.crV);
+                float i = peek.i(this.crS, this.crT, this.crU, this.crV);
+                this.crS = g;
+                this.crT = h;
+                this.crU = i;
+                peek.iy(1);
+            } else if (peek.ahs() == 1) {
+                if (peek.c(this.crS, this.crT, this.crU, this.crV)) {
+                    peek.iy(2);
                 } else {
-                    peek.d(this.ctL, this.ctM, this.ctN, this.ctO);
-                    float g2 = peek.g(this.ctL, this.ctM, this.ctN, this.ctO);
-                    float h2 = peek.h(this.ctL, this.ctM, this.ctN, this.ctO);
-                    float i2 = peek.i(this.ctL, this.ctM, this.ctN, this.ctO);
-                    this.ctL = g2;
-                    this.ctM = h2;
-                    this.ctN = i2;
+                    peek.d(this.crS, this.crT, this.crU, this.crV);
+                    float g2 = peek.g(this.crS, this.crT, this.crU, this.crV);
+                    float h2 = peek.h(this.crS, this.crT, this.crU, this.crV);
+                    float i2 = peek.i(this.crS, this.crT, this.crU, this.crV);
+                    this.crS = g2;
+                    this.crT = h2;
+                    this.crU = i2;
                 }
             }
         }
-        gl10.glRotatef(this.ctC, 1.0f, 0.0f, 0.0f);
-        gl10.glRotatef(this.ctD, 0.0f, 1.0f, 0.0f);
-        gl10.glRotatef(this.ctE, 0.0f, 0.0f, 1.0f);
+        gl10.glRotatef(this.crJ, 1.0f, 0.0f, 0.0f);
+        gl10.glRotatef(this.crK, 0.0f, 1.0f, 0.0f);
+        gl10.glRotatef(this.crL, 0.0f, 0.0f, 1.0f);
         for (int i3 = 0; i3 < 6; i3++) {
             switch (i3) {
                 case 0:
-                    GLUtils.texImage2D(3553, 0, this.ctF, 0);
+                    GLUtils.texImage2D(3553, 0, this.crM, 0);
                     break;
                 case 1:
-                    GLUtils.texImage2D(3553, 0, this.ctG, 0);
+                    GLUtils.texImage2D(3553, 0, this.crN, 0);
                     break;
                 case 2:
-                    GLUtils.texImage2D(3553, 0, this.ctH, 0);
+                    GLUtils.texImage2D(3553, 0, this.crO, 0);
                     break;
                 case 3:
-                    GLUtils.texImage2D(3553, 0, this.ctI, 0);
+                    GLUtils.texImage2D(3553, 0, this.crP, 0);
                     break;
                 case 4:
-                    GLUtils.texImage2D(3553, 0, this.ctJ, 0);
+                    GLUtils.texImage2D(3553, 0, this.crQ, 0);
                     break;
                 case 5:
-                    GLUtils.texImage2D(3553, 0, this.ctK, 0);
+                    GLUtils.texImage2D(3553, 0, this.crR, 0);
                     break;
             }
             gl10.glDrawArrays(5, i3 * 4, 4);
@@ -136,45 +136,45 @@ public class a implements TBGLSurfaceView.m {
         gl10.glDisableClientState(32888);
         gl10.glDisableClientState(32884);
         double d2 = 0.0d;
-        if (this.ctP != null && this.ctP.size() != 0) {
-            com.baidu.tieba.animation3d.a.b peek2 = this.ctP.peek();
+        if (this.crW != null && this.crW.size() != 0) {
+            com.baidu.tieba.animation3d.a.b peek2 = this.crW.peek();
             if (peek2 != null) {
-                if (peek2.ahZ() == 2) {
-                    peek2.e(this.ctC, this.ctD, this.ctE, this.ctO);
-                    this.ctP.poll();
+                if (peek2.ahs() == 2) {
+                    peek2.e(this.crJ, this.crK, this.crL, this.crV);
+                    this.crW.poll();
                     return;
-                } else if (peek2.ahZ() == -1) {
-                    if (!peek2.ahY()) {
-                        peek2.iB(2);
+                } else if (peek2.ahs() == -1) {
+                    if (!peek2.ahr()) {
+                        peek2.iy(2);
                         return;
                     } else {
-                        peek2.iB(0);
+                        peek2.iy(0);
                         return;
                     }
                 } else {
-                    if (peek2.ahZ() == 0) {
-                        peek2.b(this.ctC, this.ctD, this.ctE, this.ctO);
-                        double f = peek2.f(this.ctC, this.ctD, this.ctE, this.ctO);
-                        peek2.iB(1);
+                    if (peek2.ahs() == 0) {
+                        peek2.b(this.crJ, this.crK, this.crL, this.crV);
+                        double f = peek2.f(this.crJ, this.crK, this.crL, this.crV);
+                        peek2.iy(1);
                         d = f;
-                    } else if (peek2.ahZ() == 1) {
-                        if (peek2.c(this.ctC, this.ctD, this.ctE, this.ctO)) {
-                            peek2.iB(2);
+                    } else if (peek2.ahs() == 1) {
+                        if (peek2.c(this.crJ, this.crK, this.crL, this.crV)) {
+                            peek2.iy(2);
                             return;
                         } else {
-                            peek2.d(this.ctC, this.ctD, this.ctE, this.ctO);
-                            d = peek2.f(this.ctC, this.ctD, this.ctE, this.ctO);
+                            peek2.d(this.crJ, this.crK, this.crL, this.crV);
+                            d = peek2.f(this.crJ, this.crK, this.crL, this.crV);
                         }
                     }
-                    aia();
+                    aht();
                     d2 = d;
                 }
             }
             d = 0.0d;
-            aia();
+            aht();
             d2 = d;
         }
-        this.ctC = (float) (this.ctC + d2);
+        this.crJ = (float) (this.crJ + d2);
     }
 
     @Override // com.baidu.tieba.animation3d.View.TBGLSurfaceView.m
@@ -183,7 +183,7 @@ public class a implements TBGLSurfaceView.m {
         gl10.glViewport(0, 0, i, i2);
         gl10.glMatrixMode(5889);
         gl10.glLoadIdentity();
-        switch (this.ctR) {
+        switch (this.crY) {
             case 0:
                 a(gl10, f);
                 break;
@@ -224,55 +224,55 @@ public class a implements TBGLSurfaceView.m {
         gl10.glEnable(2929);
         gl10.glDepthFunc(515);
         gl10.glEnable(3553);
-        gl10.glGenTextures(1, this.ctz, 0);
-        gl10.glBindTexture(3553, this.ctz[0]);
+        gl10.glGenTextures(1, this.crG, 0);
+        gl10.glBindTexture(3553, this.crG[0]);
         gl10.glEnable(32925);
         gl10.glTexParameterf(3553, 10241, 9729.0f);
         gl10.glTexParameterf(3553, 10240, 9729.0f);
     }
 
-    public void aia() {
-        this.ctO++;
+    public void aht() {
+        this.crV++;
     }
 
-    public boolean aib() {
-        this.ctO = 0;
+    public boolean ahu() {
+        this.crV = 0;
         return true;
     }
 
-    public void aic() {
-        this.ctC = 0.0f;
-        this.ctD = 0.0f;
-        this.ctE = 0.0f;
+    public void ahv() {
+        this.crJ = 0.0f;
+        this.crK = 0.0f;
+        this.crL = 0.0f;
     }
 
-    public void zR() {
-        this.ctQ.clear();
-        this.ctP.clear();
-        aib();
-        aic();
+    public void Ag() {
+        this.crX.clear();
+        this.crW.clear();
+        ahu();
+        ahv();
     }
 
     public void a(Bitmap bitmap, Bitmap bitmap2, Bitmap bitmap3, Bitmap bitmap4, Bitmap bitmap5, Bitmap bitmap6) {
-        this.ctF = bitmap;
-        this.ctG = bitmap2;
-        this.ctH = bitmap3;
-        this.ctI = bitmap4;
-        this.ctJ = bitmap5;
-        this.ctK = bitmap6;
+        this.crM = bitmap;
+        this.crN = bitmap2;
+        this.crO = bitmap3;
+        this.crP = bitmap4;
+        this.crQ = bitmap5;
+        this.crR = bitmap6;
     }
 
     public void setProjectionMode(int i) {
-        this.ctR = i;
+        this.crY = i;
     }
 
     public void a(com.baidu.tieba.animation3d.a.b bVar) {
         if (bVar != null) {
-            this.ctP.add(bVar);
+            this.crW.add(bVar);
         }
     }
 
-    public void iC(int i) {
+    public void iz(int i) {
         this.bgColor = i;
     }
 
@@ -283,6 +283,6 @@ public class a implements TBGLSurfaceView.m {
     }
 
     public void ae(float f) {
-        this.ctN = f;
+        this.crU = f;
     }
 }

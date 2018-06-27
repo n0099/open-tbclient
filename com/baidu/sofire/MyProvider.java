@@ -2,11 +2,12 @@ package com.baidu.sofire;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import com.baidu.appsearchlib.Info;
-import com.baidu.sofire.a;
+import com.baidu.sofire.b.t;
 /* loaded from: classes.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -15,18 +16,30 @@ public class MyProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
+    public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, final String str2) {
         try {
             if ("p".equals(str)) {
-                Intent intent = new Intent();
-                intent.putExtra(Info.kBaiduTimeKey, "p");
-                intent.putExtra("c", str2);
-                new a.AnonymousClass1(getContext(), intent).start();
+                final Context context = getContext();
+                t a = t.a();
+                a.a.execute(new Runnable() { // from class: com.baidu.sofire.MyProvider.1
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        try {
+                            new StringBuilder("PPP(provider) now to active ").append(str2);
+                            Intent intent = new Intent();
+                            intent.putExtra(Info.kBaiduTimeKey, "p");
+                            intent.putExtra("c", str2);
+                            a.a(context, intent);
+                        } catch (Throwable th) {
+                            com.baidu.sofire.b.e.a(th);
+                        }
+                    }
+                });
                 return null;
             }
             return null;
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
             return null;
         }
     }

@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.util.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a fr(String str) {
+    public static a fv(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.dM(aVar.error_code);
-        } else if (!l.dR(l.ye() + "voice")) {
+            aVar.error_msg = a.dN(aVar.error_code);
+        } else if (!l.dU(l.ys() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.dM(aVar.error_code);
+            aVar.error_msg = a.dN(aVar.error_code);
         } else {
-            String g = s.g(l.ek(str));
+            String g = s.g(l.en(str));
             if (g == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.dM(aVar.error_code);
+                aVar.error_msg = a.dN(aVar.error_code);
             } else {
                 String b = l.b(g, 1, true);
                 if (l.af(str, b)) {
@@ -25,7 +25,7 @@ public class b {
                     aVar.md5 = g;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.dM(aVar.error_code);
+                    aVar.error_msg = a.dN(aVar.error_code);
                 }
             }
         }
@@ -36,9 +36,9 @@ public class b {
         return l.af(str, l.b(str2, 1, true));
     }
 
-    public static synchronized void Bc() {
+    public static synchronized void Bu() {
         synchronized (b.class) {
-            File file = new File(l.ye() + "voice");
+            File file = new File(l.ys() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

@@ -203,12 +203,12 @@ public final class Util {
         }
     }
 
-    public static File bX(String str) {
-        PluginSetting bA = PluginPackageManager.lL().bA(str);
-        if (bA == null || bA.apkPath == null || bA.apkPath.length() <= ".apk".length()) {
+    public static File bZ(String str) {
+        PluginSetting bC = PluginPackageManager.lL().bC(str);
+        if (bC == null || bC.apkPath == null || bC.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bA.apkPath.substring(0, bA.apkPath.length() - ".apk".length()));
+        return new File(bC.apkPath.substring(0, bC.apkPath.length() - ".apk".length()));
     }
 
     public static File my() {
@@ -334,7 +334,7 @@ public final class Util {
         return pluginSetting.packageName + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bY(String str) {
+    public static String ca(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

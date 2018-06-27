@@ -17,8 +17,8 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 /* loaded from: classes2.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView ewF;
-    private CustomMessageListener ewG;
+    private MessageRedDotView eAw;
+    private CustomMessageListener eAx;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -26,28 +26,28 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Ja() {
+    public c Js() {
         c cVar = new c();
-        cVar.aQP = new MessageCenterFragment();
+        cVar.aRL = new MessageCenterFragment();
         cVar.type = 3;
-        cVar.aQQ = d.k.my_message;
-        cVar.aQR = d.f.s_tabbar_icon_three_bg;
+        cVar.aRM = d.k.my_message;
+        cVar.aRN = d.f.s_tabbar_icon_three_bg;
         cVar.kc = d.f.tabbar_message_anim;
-        cVar.aQW = c.aQV;
+        cVar.aRS = c.aRR;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bd(Context context) {
-        this.aQB = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
-        this.ewF = new MessageRedDotView(context);
+        this.aRx = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
+        this.eAw = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.aRj = this.aQB;
-        aVar.view = this.ewF;
-        aVar.aRg = true;
-        this.aQB.b("msg", aVar);
-        this.ewF.setVisibility(4);
-        return this.aQB;
+        aVar.aSf = this.aRx;
+        aVar.view = this.eAw;
+        aVar.aSc = true;
+        this.aRx.b("msg", aVar);
+        this.eAw.setVisibility(4);
+        return this.aRx;
     }
 
     static {
@@ -65,8 +65,8 @@ public class ImMessageCenterDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void IZ() {
-        this.ewG = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+    public void Jr() {
+        this.eAx = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -91,24 +91,24 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.ewG);
+        MessageManager.getInstance().registerListener(this.eAx);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(boolean z, int i) {
-        if (this.ewF != null) {
+        if (this.eAw != null) {
             if (z) {
-                this.ewF.refresh(i);
-                this.ewF.setVisibility(0);
+                this.eAw.refresh(i);
+                this.eAw.setVisibility(0);
                 return;
             }
-            this.ewF.setVisibility(8);
+            this.eAw.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void eY() {
         super.eY();
-        MessageManager.getInstance().unRegisterListener(this.ewG);
+        MessageManager.getInstance().unRegisterListener(this.eAx);
     }
 }

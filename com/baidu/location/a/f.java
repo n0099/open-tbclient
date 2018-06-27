@@ -5,10 +5,10 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class f implements SensorEventListener {
-    private static f Wd;
-    private SensorManager Wc;
+    private static f Wf;
+    private SensorManager We;
     private float[] a;
     private float[] b;
     private float e;
@@ -24,10 +24,10 @@ public class f implements SensorEventListener {
     private f() {
         this.i = false;
         try {
-            if (this.Wc == null) {
-                this.Wc = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.We == null) {
+                this.We = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.Wc.getDefaultSensor(6) != null) {
+            if (this.We.getDefaultSensor(6) != null) {
                 this.i = true;
             }
         } catch (Exception e) {
@@ -36,10 +36,10 @@ public class f implements SensorEventListener {
     }
 
     private void k() {
-        if (this.Wc != null) {
-            Sensor defaultSensor = this.Wc.getDefaultSensor(6);
+        if (this.We != null) {
+            Sensor defaultSensor = this.We.getDefaultSensor(6);
             if (defaultSensor != null) {
-                this.Wc.registerListener(Wd, defaultSensor, 3);
+                this.We.registerListener(Wf, defaultSensor, 3);
             }
             com.baidu.location.g.a.a().postDelayed(new k(this), 2000L);
         }
@@ -48,10 +48,10 @@ public class f implements SensorEventListener {
     public static synchronized f qj() {
         f fVar;
         synchronized (f.class) {
-            if (Wd == null) {
-                Wd = new f();
+            if (Wf == null) {
+                Wf = new f();
             }
-            fVar = Wd;
+            fVar = Wf;
         }
         return fVar;
     }
@@ -62,17 +62,17 @@ public class f implements SensorEventListener {
 
     public synchronized void b() {
         if (!this.l && (this.g || this.h)) {
-            if (this.Wc == null) {
-                this.Wc = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.We == null) {
+                this.We = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.Wc != null) {
-                Sensor defaultSensor = this.Wc.getDefaultSensor(11);
+            if (this.We != null) {
+                Sensor defaultSensor = this.We.getDefaultSensor(11);
                 if (defaultSensor != null && this.g) {
-                    this.Wc.registerListener(this, defaultSensor, 3);
+                    this.We.registerListener(this, defaultSensor, 3);
                 }
-                Sensor defaultSensor2 = this.Wc.getDefaultSensor(6);
+                Sensor defaultSensor2 = this.We.getDefaultSensor(6);
                 if (defaultSensor2 != null && this.h) {
-                    this.Wc.registerListener(this, defaultSensor2, 3);
+                    this.We.registerListener(this, defaultSensor2, 3);
                 }
             }
             this.l = true;
@@ -85,9 +85,9 @@ public class f implements SensorEventListener {
 
     public synchronized void c() {
         if (this.l) {
-            if (this.Wc != null) {
-                this.Wc.unregisterListener(this);
-                this.Wc = null;
+            if (this.We != null) {
+                this.We.unregisterListener(this);
+                this.We = null;
             }
             this.l = false;
             this.j = 0.0f;

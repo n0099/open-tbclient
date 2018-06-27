@@ -10,20 +10,22 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.AdTbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String O(String str, String str2) {
         String str3;
-        if (!str.startsWith("http://") && !str.startsWith("https://")) {
+        if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             str = "http://".concat(str);
         }
         if (str.contains("?")) {
@@ -64,7 +66,7 @@ public class e {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ao.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ap.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -75,6 +77,10 @@ public class e {
             if (!UtilHelper.isNativeAdURL(str)) {
                 sb.append("cuid=");
                 sb.append(TbadkCoreApplication.getInst().getCuid());
+                sb.append("&cuid_galaxy2=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                sb.append("&cuid_gid=");
+                sb.append(TbadkCoreApplication.getInst().getCuidGid());
             }
             sb.append("&timestamp=");
             sb.append(Long.toString(System.currentTimeMillis()));
@@ -84,12 +90,12 @@ public class e {
     }
 
     public static String appendVersionCode(String str) {
-        return (ao.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void aB(Context context) {
         CookieManager cookieManager;
-        a.b db = com.baidu.tbadk.core.a.a.tA().db(TbadkCoreApplication.getCurrentBduss());
+        a.b dd = com.baidu.tbadk.core.a.a.tA().dd(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -98,10 +104,10 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (db != null) {
+            if (dd != null) {
                 cookieManager.setAcceptCookie(true);
-                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com;");
-                String c = com.baidu.tbadk.core.a.e.c(TbadkCoreApplication.getCurrentAccountInfo());
+                cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
                     sb.append("STOKEN=").append(c).append("; domain=.tieba.baidu.com;");

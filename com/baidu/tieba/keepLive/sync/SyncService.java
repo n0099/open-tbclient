@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 /* loaded from: classes2.dex */
@@ -73,7 +72,7 @@ public class SyncService extends Service {
 
     public static void startAccountSync(Context context) {
         Account account = new Account("tiebaAccountSync", "com.baidu.tieba");
-        if (((AccountManager) context.getSystemService(LoginActivityConfig.ACCOUNT)).addAccountExplicitly(account, null, null)) {
+        if (((AccountManager) context.getSystemService("account")).addAccountExplicitly(account, null, null)) {
             ContentResolver.setIsSyncable(account, "com.baidu.tieba", 1);
             ContentResolver.setSyncAutomatically(account, "com.baidu.tieba", true);
             ContentResolver.addPeriodicSync(account, "com.baidu.tieba", new Bundle(), 900L);
@@ -87,6 +86,6 @@ public class SyncService extends Service {
     }
 
     private void removeAccount(Context context) {
-        ((AccountManager) context.getSystemService(LoginActivityConfig.ACCOUNT)).removeAccount(new Account("tiebaAccountSync", "com.baidu.tieba"), null, null);
+        ((AccountManager) context.getSystemService("account")).removeAccount(new Account("tiebaAccountSync", "com.baidu.tieba"), null, null);
     }
 }

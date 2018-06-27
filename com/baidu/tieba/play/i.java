@@ -11,11 +11,11 @@ public interface i {
 
     void e(Context context, String str, int i);
 
-    String ip(String str);
+    String iu(String str);
 
-    String iq(String str);
+    String iv(String str);
 
-    void ir(String str);
+    void iw(String str);
 
     String o(String str, boolean z);
 }

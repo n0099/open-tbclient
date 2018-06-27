@@ -4,12 +4,12 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
     private String mName;
-    private int yo;
-    private a yr;
-    private int yq = 0;
-    private String[] yt = null;
-    private int yp = 0;
-    private String[] yu = null;
+    private int ym;
+    private a yp;
+    private int yo = 0;
+    private String[] yr = null;
+    private int yn = 0;
+    private String[] ys = null;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,28 +18,28 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.yr = null;
-        this.yo = 0;
+        this.yp = null;
+        this.ym = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.yr = aVar;
-        this.yo = i;
+        this.yp = aVar;
+        this.ym = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.yq = i;
-        this.yt = strArr;
-        this.yp = i2;
+        this.yo = i;
+        this.yr = strArr;
+        this.yn = i2;
     }
 
     public void g(String[] strArr) {
-        this.yu = strArr;
+        this.ys = strArr;
     }
 
     public String[] hq() {
-        return this.yu;
+        return this.ys;
     }
 
     public String getName() {
@@ -47,24 +47,24 @@ public class b {
     }
 
     public int hp() {
-        return this.yq;
-    }
-
-    public String[] hs() {
-        return this.yt;
-    }
-
-    public int ho() {
-        return this.yp;
-    }
-
-    public int hn() {
         return this.yo;
     }
 
+    public String[] hs() {
+        return this.yr;
+    }
+
+    public int ho() {
+        return this.yn;
+    }
+
+    public int hn() {
+        return this.ym;
+    }
+
     public void f(int i, boolean z) {
-        if (this.yr != null) {
-            this.yr.a(this.mName, i, z);
+        if (this.yp != null) {
+            this.yp.a(this.mName, i, z);
         }
     }
 }

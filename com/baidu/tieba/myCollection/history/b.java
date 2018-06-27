@@ -6,27 +6,27 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
-    private TextView axM;
-    private TextView chM;
-    private TextView fgB;
+    private TextView ayD;
+    private TextView cjY;
+    private TextView fkz;
     private View mLine;
     private View mRootView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.fgB = (TextView) view.findViewById(d.g.title);
-        this.axM = (TextView) view.findViewById(d.g.content);
-        this.axM.setSingleLine();
-        this.axM.setEllipsize(TextUtils.TruncateAt.END);
-        this.chM = (TextView) view.findViewById(d.g.time);
+        this.fkz = (TextView) view.findViewById(d.g.title);
+        this.ayD = (TextView) view.findViewById(d.g.content);
+        this.ayD.setSingleLine();
+        this.ayD.setEllipsize(TextUtils.TruncateAt.END);
+        this.cjY = (TextView) view.findViewById(d.g.time);
         this.mLine = view.findViewById(d.g.line);
     }
 
@@ -36,34 +36,34 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void G(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.G(aVar);
         if (aVar != null) {
-            if (this.fgB != null) {
+            if (this.fkz != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.fgB.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
+                        this.fkz.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.fgB.setText(aVar.getDescription());
+                        this.fkz.setText(aVar.getDescription());
                     }
-                } else if (aVar.aXZ() != null) {
+                } else if (aVar.aYG() != null) {
                     if (aVar.isShareThread()) {
-                        this.fgB.setText(String.format("%s%s", getString(d.k.pb_history_share_prefix), aVar.aXZ()));
+                        this.fkz.setText(String.format("%s%s", getString(d.k.pb_history_share_prefix), aVar.aYG()));
                     } else {
-                        this.fgB.setText(aVar.aXZ());
+                        this.fkz.setText(aVar.aYG());
                     }
                 }
             }
-            if (this.axM != null) {
+            if (this.ayD != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.axM.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
+                    this.ayD.setText(String.format(getString(d.k.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.axM.setText(aVar.getForumName());
+                    this.ayD.setText(aVar.getForumName());
                 }
             }
-            if (this.chM != null) {
-                String h = ao.h(new Date(aVar.getTime()));
+            if (this.cjY != null) {
+                String h = ap.h(new Date(aVar.getTime()));
                 if (h == null) {
                     h = "";
                 }
-                this.chM.setText(h);
+                this.cjY.setText(h);
             }
         }
     }
@@ -71,11 +71,11 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     @Override // com.baidu.tieba.tbadkCore.o
     @SuppressLint({"ResourceAsColor"})
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        al.i(this.mRootView, d.f.list_item_selector);
-        al.i(this.mLine, d.C0141d.cp_bg_line_b);
-        al.c(this.fgB, d.C0141d.cp_cont_b, 1);
-        al.c(this.axM, d.C0141d.cp_cont_d, 1);
-        al.c(this.chM, d.C0141d.cp_cont_d, 1);
+        am.i(this.mRootView, d.f.list_item_selector);
+        am.i(this.mLine, d.C0142d.cp_bg_line_b);
+        am.c(this.fkz, d.C0142d.cp_cont_b, 1);
+        am.c(this.ayD, d.C0142d.cp_cont_d, 1);
+        am.c(this.cjY, d.C0142d.cp_cont_d, 1);
         return true;
     }
 }

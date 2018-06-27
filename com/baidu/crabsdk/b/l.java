@@ -11,7 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public final class l {
-    private static ActivityManager SS;
+    private static ActivityManager SU;
     private static Context mContext;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x007a */
@@ -162,14 +162,14 @@ public final class l {
     public static String B() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (SS == null) {
+        if (SU == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            SS.getMemoryInfo(memoryInfo2);
+            SU.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.threshold)).append("\n");
-            if (com.baidu.crabsdk.c.c.pf() >= 5 && (memoryInfo = SS.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (com.baidu.crabsdk.c.c.pf() >= 5 && (memoryInfo = SU.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
@@ -181,7 +181,7 @@ public final class l {
     public static void d(Context context) {
         if (mContext == null) {
             mContext = context;
-            SS = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            SU = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 }

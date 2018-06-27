@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.sapi2.base.network.Apn;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class f {
     public String h = null;
     public int i = 3;

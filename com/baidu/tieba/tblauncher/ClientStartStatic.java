@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.y;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes.dex */
@@ -18,7 +18,7 @@ public class ClientStartStatic {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             new a().execute(new Void[0]);
             MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.tblauncher.ClientStartStatic.1
-                private long dRW;
+                private long dVQ;
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
@@ -26,13 +26,13 @@ public class ClientStartStatic {
                     Boolean data;
                     if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                         if (data.booleanValue()) {
-                            this.dRW = SystemClock.elapsedRealtime();
+                            this.dVQ = SystemClock.elapsedRealtime();
                             return;
                         }
-                        if (SystemClock.elapsedRealtime() - this.dRW > StatisticConfig.MIN_UPLOAD_INTERVAL) {
+                        if (SystemClock.elapsedRealtime() - this.dVQ > StatisticConfig.MIN_UPLOAD_INTERVAL) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new am("c11894").r("obj_param1", 1));
+                        TiebaStatic.log(new an("c11894").r("obj_param1", 1));
                     }
                 }
             });
@@ -51,7 +51,7 @@ public class ClientStartStatic {
         public Void doInBackground(Void... voidArr) {
             y yVar = new y(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
             yVar.o("type", "1");
-            yVar.yl();
+            yVar.yz();
             return null;
         }
     }

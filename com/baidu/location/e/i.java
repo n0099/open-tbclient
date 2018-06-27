@@ -9,14 +9,14 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.e.j;
 import java.util.concurrent.Callable;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class i implements Callable<BDLocation> {
-    final /* synthetic */ d XK;
+    final /* synthetic */ d XN;
     final /* synthetic */ String[] a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar, String[] strArr) {
-        this.XK = dVar;
+        this.XN = dVar;
         this.a = strArr;
     }
 
@@ -32,7 +32,7 @@ public class i implements Callable<BDLocation> {
         Cursor cursor;
         BDLocation bDLocation;
         Context context3;
-        Uri cy;
+        Uri cA;
         e eVar;
         Cursor cursor2 = null;
         BDLocation bDLocation2 = new BDLocation();
@@ -40,7 +40,7 @@ public class i implements Callable<BDLocation> {
             context = d.c;
             ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(d.b, 0);
             if (resolveContentProvider == null) {
-                hVar = this.XK.Xo;
+                hVar = this.XN.Xr;
                 String[] qN = hVar.qN();
                 providerInfo = resolveContentProvider;
                 for (String str : qN) {
@@ -57,8 +57,8 @@ public class i implements Callable<BDLocation> {
                 try {
                     context3 = d.c;
                     ContentResolver contentResolver = context3.getContentResolver();
-                    cy = d.cy(providerInfo.authority);
-                    Cursor query = contentResolver.query(cy, this.a, null, null, null);
+                    cA = d.cA(providerInfo.authority);
+                    Cursor query = contentResolver.query(cA, this.a, null, null, null);
                     try {
                         bDLocation = j.f(query);
                         if (query != null) {
@@ -104,7 +104,7 @@ public class i implements Callable<BDLocation> {
             } else {
                 j.a aVar = new j.a(this.a);
                 try {
-                    eVar = this.XK.Xm;
+                    eVar = this.XN.Xp;
                     cursor2 = eVar.a(aVar);
                     bDLocation2 = j.f(cursor2);
                     if (cursor2 != null) {

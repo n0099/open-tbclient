@@ -7,7 +7,7 @@ public class ad extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_message_can_friend_chat";
+        return "switch_low_version_login_passv6";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,12 +17,12 @@ public class ad extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int hn() {
-        return 1;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected int ho() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

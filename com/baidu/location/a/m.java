@@ -1,12 +1,12 @@
 package com.baidu.location.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class m implements Runnable {
-    final /* synthetic */ g Wr;
+    final /* synthetic */ g Wt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(g gVar) {
-        this.Wr = gVar;
+        this.Wt = gVar;
     }
 
     @Override // java.lang.Runnable

@@ -1,6 +1,5 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -28,8 +27,8 @@ import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.write.album.AlbumActivity;
@@ -45,8 +44,8 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class WriteActivityStatic {
-    private static int huS = 11;
-    private static int huT = 18;
+    private static int hzb = 11;
+    private static int hzc = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -62,9 +61,9 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumActivityConfig.class, SelectForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
-        LocationModel.bxM();
-        ay.zG().a("feedback:", new ay.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.ay.b
+        LocationModel.byp();
+        az.zV().a("feedback:", new az.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.az.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
                     WriteActivityStatic.C(tbPageContext);
@@ -79,7 +78,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void C(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= huT && Build.VERSION.SDK_INT >= huS) {
+        if (Build.VERSION.SDK_INT <= hzc && Build.VERSION.SDK_INT >= hzb) {
             G(tbPageContext);
         } else {
             H(tbPageContext);
@@ -93,7 +92,7 @@ public class WriteActivityStatic {
     private static void H(TbPageContext<?> tbPageContext) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig((Context) tbPageContext.getPageActivity(), tbPageContext.getString(d.k.login_feedback), true, (int) IEventCenterService.EventId.EventMode.SAPIACCOUNT_CAPTCHA)));
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, IEventCenterService.EventId.EventMode.SAPIACCOUNT_CAPTCHA)));
             return;
         }
         AntiData antiData = new AntiData();
@@ -111,7 +110,7 @@ public class WriteActivityStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && aw.zC() != null && aw.zC().indexOf("NewVcode") != -1) {
+                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ax.zR() != null && ax.zR().indexOf("NewVcode") != -1) {
                     TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
                 }
             }

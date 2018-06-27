@@ -10,11 +10,11 @@ public class a extends RelativeLayout {
     private static final String a = a.class.getName();
     private Rect b;
     private boolean c;
-    private InterfaceC0281a d;
+    private InterfaceC0283a d;
 
     /* renamed from: com.tencent.open.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0281a {
+    public interface InterfaceC0283a {
         void a();
 
         void a(int i);
@@ -30,8 +30,8 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC0281a interfaceC0281a) {
-        this.d = interfaceC0281a;
+    public void a(InterfaceC0283a interfaceC0283a) {
+        this.d = interfaceC0283a;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View

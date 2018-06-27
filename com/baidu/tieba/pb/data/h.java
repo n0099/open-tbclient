@@ -3,16 +3,16 @@ package com.baidu.tieba.pb.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId fpb = BdUniqueId.gen();
-    public static final BdUniqueId fpc = BdUniqueId.gen();
-    public long fpd;
-    public String fpe;
+    public static final BdUniqueId fsV = BdUniqueId.gen();
+    public static final BdUniqueId fsW = BdUniqueId.gen();
+    public long fsX;
+    public String fsY;
     public BdUniqueId mType;
     public boolean isNew = true;
-    public boolean fpf = false;
+    public boolean fsZ = false;
 
     public h(BdUniqueId bdUniqueId) {
-        this.mType = fpc;
+        this.mType = fsW;
         this.mType = bdUniqueId;
     }
 

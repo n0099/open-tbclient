@@ -17,20 +17,20 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.g.g;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener, com.baidu.tieba.r.a {
-    private AlertDialog akG;
-    private TextView cFZ;
-    private ImageView gBo;
-    private TextView gBp;
-    private TextView gBq;
-    private TextView gBr;
-    private TextView gBs;
-    private TextView gBt;
-    private SlumdogMillionaireChannelView gBu;
+    private AlertDialog alf;
+    private TextView cDS;
+    private ImageView gFh;
+    private TextView gFi;
+    private TextView gFj;
+    private TextView gFk;
+    private TextView gFl;
+    private TextView gFm;
+    private SlumdogMillionaireChannelView gFn;
     private Context mContext;
     private DialogInterface.OnDismissListener mOnDismissListener;
     private View mRootView;
@@ -40,16 +40,16 @@ public class a implements View.OnClickListener, com.baidu.tieba.r.a {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(context).inflate(d.i.slumdog_millionaire_share_dialog, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_title);
-        this.gBo = (ImageView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_img);
-        this.gBp = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_txt);
-        this.gBq = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_two_txt);
-        this.gBr = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_three_txt);
-        this.gBs = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_code_txt);
-        this.gBt = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_txt);
-        this.gBu = (SlumdogMillionaireChannelView) this.mRootView.findViewById(d.g.slumdog_millionaire_outer_container);
-        this.cFZ = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_cancel);
-        this.cFZ.setOnClickListener(this);
-        this.gBu.setShareItemClickListener(this);
+        this.gFh = (ImageView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_img);
+        this.gFi = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_one_txt);
+        this.gFj = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_two_txt);
+        this.gFk = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_des_three_txt);
+        this.gFl = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_code_txt);
+        this.gFm = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_invitation_txt);
+        this.gFn = (SlumdogMillionaireChannelView) this.mRootView.findViewById(d.g.slumdog_millionaire_outer_container);
+        this.cDS = (TextView) this.mRootView.findViewById(d.g.slumdog_millionaire_cancel);
+        this.cDS.setOnClickListener(this);
+        this.gFn.setShareItemClickListener(this);
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -58,16 +58,16 @@ public class a implements View.OnClickListener, com.baidu.tieba.r.a {
 
     public void setShareData(com.baidu.tbadk.coreExtra.c.d dVar) {
         if (dVar != null) {
-            this.gBs.setText(dVar.extData);
-            this.gBu.setShareData(dVar);
+            this.gFl.setText(dVar.extData);
+            this.gFn.setShareData(dVar);
         }
     }
 
     public void show() {
         onChangeSkinType();
-        this.akG = new AlertDialog.Builder(this.mContext).create();
-        this.akG.setCanceledOnTouchOutside(true);
-        this.akG.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.slumdogMillionaire.a.1
+        this.alf = new AlertDialog.Builder(this.mContext).create();
+        this.alf.setCanceledOnTouchOutside(true);
+        this.alf.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.slumdogMillionaire.a.1
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 if (a.this.mOnDismissListener != null) {
@@ -77,21 +77,21 @@ public class a implements View.OnClickListener, com.baidu.tieba.r.a {
             }
         });
         if (this.mContext instanceof Activity) {
-            g.a(this.akG, (Activity) this.mContext);
+            g.a(this.alf, (Activity) this.mContext);
         }
-        Window window = this.akG.getWindow();
+        Window window = this.alf.getWindow();
         window.setWindowAnimations(d.l.share_dialog_style);
         window.setGravity(80);
         window.setLayout(-1, -2);
         window.setContentView(this.mRootView);
-        UR();
+        Vm();
     }
 
-    private void UR() {
+    private void Vm() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001451, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.slumdogMillionaire.a.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                if (a.this.akG != null && a.this.akG.isShowing()) {
+                if (a.this.alf != null && a.this.alf.isShowing()) {
                     a.this.dismiss();
                     return null;
                 }
@@ -104,50 +104,50 @@ public class a implements View.OnClickListener, com.baidu.tieba.r.a {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cFZ) {
-            TiebaStatic.log(new am("c12916").r("obj_locate", 6));
+        if (view == this.cDS) {
+            TiebaStatic.log(new an("c12916").r("obj_locate", 6));
             dismiss();
         }
     }
 
     @Override // com.baidu.tieba.r.a
-    public void bw(View view) {
+    public void bx(View view) {
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
             if (num.intValue() == 4) {
-                TiebaStatic.log(new am("c12916").r("obj_locate", 1));
+                TiebaStatic.log(new an("c12916").r("obj_locate", 1));
             } else if (num.intValue() == 3) {
-                TiebaStatic.log(new am("c12916").r("obj_locate", 2));
+                TiebaStatic.log(new an("c12916").r("obj_locate", 2));
             } else if (num.intValue() == 9) {
-                TiebaStatic.log(new am("c12916").r("obj_locate", 3));
+                TiebaStatic.log(new an("c12916").r("obj_locate", 3));
             } else if (num.intValue() == 5) {
-                TiebaStatic.log(new am("c12916").r("obj_locate", 4));
+                TiebaStatic.log(new an("c12916").r("obj_locate", 4));
             } else if (num.intValue() == 7) {
-                TiebaStatic.log(new am("c12916").r("obj_locate", 5));
+                TiebaStatic.log(new an("c12916").r("obj_locate", 5));
             }
         }
         dismiss();
     }
 
     public void onChangeSkinType() {
-        al.i(this.mRootView, d.C0141d.cp_bg_line_e);
-        al.h(this.mTitleView, d.C0141d.cp_cont_f);
-        al.c(this.gBo, d.f.blue_circle_icon);
-        al.h(this.gBp, d.C0141d.cp_cont_j);
-        al.h(this.gBq, d.C0141d.cp_cont_j);
-        this.gBq.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.h(this.gBr, d.C0141d.cp_cont_j);
-        this.gBr.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.h(this.gBs, d.C0141d.cp_cont_b);
-        al.h(this.gBt, d.C0141d.cp_cont_j);
-        this.gBu.onChangeSkinType();
-        al.h(this.cFZ, d.C0141d.cp_cont_f);
-        al.i(this.cFZ, d.C0141d.cp_bg_line_d);
+        am.i(this.mRootView, d.C0142d.cp_bg_line_e);
+        am.h(this.mTitleView, d.C0142d.cp_cont_f);
+        am.c(this.gFh, d.f.blue_circle_icon);
+        am.h(this.gFi, d.C0142d.cp_cont_j);
+        am.h(this.gFj, d.C0142d.cp_cont_j);
+        this.gFj.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.h(this.gFk, d.C0142d.cp_cont_j);
+        this.gFk.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.blue_circle_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.h(this.gFl, d.C0142d.cp_cont_b);
+        am.h(this.gFm, d.C0142d.cp_cont_j);
+        this.gFn.onChangeSkinType();
+        am.h(this.cDS, d.C0142d.cp_cont_f);
+        am.i(this.cDS, d.C0142d.cp_bg_line_d);
     }
 
     public void dismiss() {
-        if (this.akG != null && (this.mContext instanceof Activity)) {
-            g.b(this.akG, (Activity) this.mContext);
+        if (this.alf != null && (this.mContext instanceof Activity)) {
+            g.b(this.alf, (Activity) this.mContext);
         }
     }
 }

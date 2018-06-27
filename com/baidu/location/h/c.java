@@ -7,9 +7,9 @@ import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.tencent.connect.common.Constants;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class c {
-    private static c Yp = null;
+    private static c Ys = null;
     public static String c = null;
     public static String d = null;
     public static String e = null;
@@ -25,10 +25,10 @@ public class c {
     }
 
     public static c rf() {
-        if (Yp == null) {
-            Yp = new c();
+        if (Ys == null) {
+            Ys = new c();
         }
-        return Yp;
+        return Ys;
     }
 
     public String a(boolean z) {

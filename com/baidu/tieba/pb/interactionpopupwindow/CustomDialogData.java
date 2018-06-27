@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.interactionpopupwindow;
 
+import com.baidu.tbadk.TbConfig;
 import com.tencent.tauth.AuthActivity;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -44,7 +45,7 @@ public class CustomDialogData implements IBaseDialogData {
         JSONObject optJSONObject = jSONObject.optJSONObject("head");
         if (optJSONObject != null) {
             Head head = new Head();
-            head.imageUrl = optJSONObject.optString("image");
+            head.imageUrl = optJSONObject.optString(TbConfig.TMP_PIC_DIR_NAME);
             head.text = optJSONObject.optString("text");
             customDialogData.head = head;
         }
@@ -56,7 +57,7 @@ public class CustomDialogData implements IBaseDialogData {
                 Button button = new Button();
                 button.text = optJSONObject2.optString("text");
                 button.action = optJSONObject2.optString(AuthActivity.ACTION_KEY);
-                button.image = optJSONObject2.optString("image");
+                button.image = optJSONObject2.optString(TbConfig.TMP_PIC_DIR_NAME);
                 if (optJSONObject2.optString("position").equals(POS_LEFT)) {
                     customDialogData.leftButton = button;
                 } else {

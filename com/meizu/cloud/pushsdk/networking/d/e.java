@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.networking.d;
 
-import com.baidu.tbadk.core.diskCache.ImagesInvalidReceiver;
 import com.meizu.cloud.pushsdk.networking.b.k;
 import com.meizu.cloud.pushsdk.networking.common.ResponseType;
 import com.meizu.cloud.pushsdk.networking.error.ANError;
@@ -92,7 +91,7 @@ public final class e {
                 cVar = new com.meizu.cloud.pushsdk.networking.common.c<>(com.meizu.cloud.pushsdk.networking.e.b.a(new ANError(b), bVar, b.a()));
                 cVar.a(b);
             } else {
-                cVar = new com.meizu.cloud.pushsdk.networking.common.c<>(ImagesInvalidReceiver.SUCCESS);
+                cVar = new com.meizu.cloud.pushsdk.networking.common.c<>("success");
                 cVar.a(b);
             }
             return cVar;

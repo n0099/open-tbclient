@@ -19,16 +19,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private a aQc;
-    private Object aQd;
-    private e aQe;
+    private a aQY;
+    private Object aQZ;
+    private e aRa;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aQb = 512000;
+    private int aQX = 512000;
     private String groupId = "1";
     private y mNetwork = null;
 
@@ -49,10 +49,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.aQc = aVar;
-        this.aQd = obj;
+        this.aQY = aVar;
+        this.aQZ = obj;
         if (aVar != null) {
-            this.aQb = 10240;
+            this.aQX = 10240;
         }
     }
 
@@ -135,10 +135,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.aQe == null) {
-            this.aQe = new e();
+        if (this.aRa == null) {
+            this.aRa = new e();
         }
-        return c(this.aQe.c(imageFileInfo, z), z, z2);
+        return c(this.aRa.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -213,7 +213,7 @@ public class f {
         r11 = r4.error_msg;
      */
     /* JADX WARN: Code restructure failed: missing block: B:43:0x01ab, code lost:
-        com.baidu.tbadk.core.d.a.a("img", -1, -1, "imageUpload", r10, r11, org.apache.http.cookie.ClientCookie.COMMENT_ATTR, r20.toString());
+        com.baidu.tbadk.core.d.a.a(com.tencent.open.SocialConstants.PARAM_IMG_URL, -1, -1, "imageUpload", r10, r11, org.apache.http.cookie.ClientCookie.COMMENT_ATTR, r20.toString());
      */
     /* JADX WARN: Code restructure failed: missing block: B:44:0x01c7, code lost:
         com.baidu.adp.lib.g.a.b(r13);
@@ -292,8 +292,8 @@ public class f {
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = g + this.aQb;
-                        long j2 = length % ((long) this.aQb) == 0 ? length / this.aQb : (length / this.aQb) + 1;
+                        String str2 = g + this.aQX;
+                        long j2 = length % ((long) this.aQX) == 0 ? length / this.aQX : (length / this.aQX) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -327,14 +327,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i3 < j2) {
-                                                    i4 = this.aQb;
+                                                    i4 = this.aQX;
                                                 } else if (i3 == j2) {
-                                                    i4 = (int) (length - (this.aQb * (j2 - 1)));
+                                                    i4 = (int) (length - (this.aQX * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i4) {
                                                     bArr2 = new byte[i4];
                                                 }
-                                                randomAccessFile2.seek(this.aQb * (i3 - 1));
+                                                randomAccessFile2.seek(this.aQX * (i3 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i4);
                                                 bArr = bArr2;
                                             }
@@ -378,9 +378,9 @@ public class f {
                                                     this.mNetwork.o("forum_name", ty);
                                                 }
                                             }
-                                            String yo = this.mNetwork.yo();
-                                            imageUploadResult3 = ImageUploadResult.parser(yo);
-                                            if (yo == null || imageUploadResult3 == null) {
+                                            String yC = this.mNetwork.yC();
+                                            imageUploadResult3 = ImageUploadResult.parser(yC);
+                                            if (yC == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
@@ -390,9 +390,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
-                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aQb) : j4;
-                                                    if (this.aQc != null) {
-                                                        this.aQc.a(str, this.aQd, j5, length);
+                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aQX) : j4;
+                                                    if (this.aQY != null) {
+                                                        this.aQY.a(str, this.aQZ, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

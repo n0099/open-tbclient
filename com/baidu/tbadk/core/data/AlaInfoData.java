@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
+import com.tencent.open.SocialConstants;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -58,7 +59,7 @@ public class AlaInfoData implements Serializable {
                 this.media_pic = jSONObject.optString("media_pic");
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
-                this.description = jSONObject.optString("description");
+                this.description = jSONObject.optString(SocialConstants.PARAM_COMMENT);
                 this.user_info = new AlaUserInfoData();
                 this.user_info.parserJson(jSONObject.optJSONObject("user_info"));
                 this.share_info = new AlaShareInfoData();

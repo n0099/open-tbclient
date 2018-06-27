@@ -6,15 +6,15 @@ import android.content.Context;
 import android.os.Build;
 import java.util.LinkedHashSet;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 final class a {
-    private static final a hxH = new a();
-    private final Set<InterfaceC0261a> hxI = new LinkedHashSet();
-    private boolean hxJ;
+    private static final a hBO = new a();
+    private final Set<InterfaceC0263a> hBP = new LinkedHashSet();
+    private boolean hBQ;
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public interface InterfaceC0261a {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0263a {
         void T();
 
         void U();
@@ -28,39 +28,39 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a bJS() {
-        return hxH;
+    public static a bKt() {
+        return hBO;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0261a> bJT() {
-        return this.hxI;
+    public final Set<InterfaceC0263a> bKu() {
+        return this.hBP;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0261a interfaceC0261a) {
-        synchronized (this.hxI) {
-            this.hxI.add(interfaceC0261a);
+    public final void a(InterfaceC0263a interfaceC0263a) {
+        synchronized (this.hBP) {
+            this.hBP.add(interfaceC0263a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.hxI) {
-            this.hxI.clear();
+        synchronized (this.hBP) {
+            this.hBP.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void c(Context context) {
-        if (this.hxJ || Build.VERSION.SDK_INT < 14) {
+        if (this.hBQ || Build.VERSION.SDK_INT < 14) {
             return;
         }
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.wh("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.wd("registerActivityLifecycleCallbacks encounter exception");
         }
-        this.hxJ = true;
+        this.hBQ = true;
     }
 }

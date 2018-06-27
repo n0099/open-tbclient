@@ -10,7 +10,7 @@ import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.WebFillUProfileResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 /* loaded from: classes2.dex */
-public class FillUProfileActivity extends TitleActivity {
+public class FillUProfileActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_SIMPLIFIED = "EXTRA_SIMPLIFIED";
     private String bduss;
@@ -21,13 +21,20 @@ public class FillUProfileActivity extends TitleActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
-        init();
-        setupViews();
+        try {
+            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            init();
+            setupViews();
+        } catch (Throwable th) {
+            reportWebviewError(th);
+            this.result.setResultCode(-202);
+            this.result.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
+            finishActivity();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
+    @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
         this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
@@ -35,19 +42,15 @@ public class FillUProfileActivity extends TitleActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity, com.baidu.sapi2.activity.BaseActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
         setBtnVisibility(4, 0, 4);
-        setTitleText(a.f.sapi_sdk_filluprofile);
+        setTitleText(a.f.sapi_sdk_title_filluprofile);
         final WebFillUProfileCallback webFillUProfileCallback = PassportSDK.getInstance().getWebFillUProfileCallback();
         if (TextUtils.isEmpty(this.bduss)) {
-            if (webFillUProfileCallback != null) {
-                this.result.setResultCode(-204);
-                webFillUProfileCallback.onFailure(this.result);
-            }
-            PassportSDK.getInstance().release();
-            finish();
+            this.result.setResultCode(-204);
+            finishActivity();
         }
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.FillUProfileActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
@@ -58,13 +61,7 @@ public class FillUProfileActivity extends TitleActivity {
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.FillUProfileActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
-                if (webFillUProfileCallback != null) {
-                    FillUProfileActivity.this.result.setResultCode(-301);
-                    FillUProfileActivity.this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-                    webFillUProfileCallback.onFailure(FillUProfileActivity.this.result);
-                }
-                PassportSDK.getInstance().release();
-                FillUProfileActivity.this.finish();
+                FillUProfileActivity.this.onClose();
             }
         });
         this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.FillUProfileActivity.3
@@ -93,7 +90,7 @@ public class FillUProfileActivity extends TitleActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
         if (this.executeSubClassMethod) {
@@ -101,16 +98,34 @@ public class FillUProfileActivity extends TitleActivity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        super.onBottomBackBtnClick();
+        goBack();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onClose() {
+        super.onClose();
+        this.result.setResultCode(-301);
+        this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+        finishActivity();
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
         if (this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
-            return;
+        } else {
+            onClose();
         }
+    }
+
+    private void finishActivity() {
         WebFillUProfileCallback webFillUProfileCallback = PassportSDK.getInstance().getWebFillUProfileCallback();
         if (webFillUProfileCallback != null) {
-            this.result.setResultCode(-301);
-            this.result.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
             webFillUProfileCallback.onFailure(this.result);
         }
         PassportSDK.getInstance().release();

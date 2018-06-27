@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Looper;
 /* loaded from: classes2.dex */
 public final class b {
-    private static b RP;
-    private c RQ;
+    private static b RR;
+    private c RT;
     private boolean ae = false;
 
     private b(Context context) {
-        this.RQ = c.at(context);
+        this.RT = c.at(context);
     }
 
     public static b ar(Context context) {
@@ -17,29 +17,29 @@ public final class b {
     }
 
     private static b as(Context context) {
-        if (RP == null) {
+        if (RR == null) {
             synchronized (b.class) {
-                if (RP == null) {
-                    RP = new b(context);
+                if (RR == null) {
+                    RR = new b(context);
                 }
             }
         }
-        return RP;
+        return RR;
     }
 
     public static b oT() {
-        return RP;
+        return RR;
     }
 
     public final void start() {
         if (this.ae) {
-            com.baidu.crabsdk.c.a.cb("Block monitoring has already started!");
+            com.baidu.crabsdk.c.a.cd("Block monitoring has already started!");
             return;
         }
         this.ae = true;
         try {
-            Looper.getMainLooper().setMessageLogging(this.RQ.RR);
-            com.baidu.crabsdk.c.a.cb("Start main-thread block monitoring!");
+            Looper.getMainLooper().setMessageLogging(this.RT.RU);
+            com.baidu.crabsdk.c.a.cd("Start main-thread block monitoring!");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.b("setMessageLogging error!!", e);
         }
@@ -47,12 +47,12 @@ public final class b {
 
     public final void stop() {
         if (!this.ae) {
-            com.baidu.crabsdk.c.a.cb("Block monitoring is not enabled!");
+            com.baidu.crabsdk.c.a.cd("Block monitoring is not enabled!");
             return;
         }
         this.ae = false;
         Looper.getMainLooper().setMessageLogging(null);
-        this.RQ.RT.stop();
-        com.baidu.crabsdk.c.a.cb("Stop main-thread block monitoring!");
+        this.RT.RV.stop();
+        com.baidu.crabsdk.c.a.cd("Stop main-thread block monitoring!");
     }
 }

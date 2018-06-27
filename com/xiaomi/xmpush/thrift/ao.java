@@ -2,7 +2,6 @@ package com.xiaomi.xmpush.thrift;
 
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.idl.authority.BuildConfig;
-import com.sina.weibo.sdk.component.WidgetRequestParam;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -20,7 +19,7 @@ public class ao implements Serializable, Cloneable, org.apache.thrift.a<ao, a> {
     private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
     private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("topic", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("packageName", (byte) 11, 6);
-    private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 11, 7);
+    private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("category", (byte) 11, 7);
     public String a;
     public u b;
     public String c;
@@ -37,7 +36,7 @@ public class ao implements Serializable, Cloneable, org.apache.thrift.a<ao, a> {
         APP_ID(4, "appId"),
         TOPIC(5, "topic"),
         PACKAGE_NAME(6, "packageName"),
-        CATEGORY(7, WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY);
+        CATEGORY(7, "category");
         
         private static final Map<String, a> h = new HashMap();
         private final short i;
@@ -69,7 +68,7 @@ public class ao implements Serializable, Cloneable, org.apache.thrift.a<ao, a> {
         enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TOPIC, (a) new org.apache.thrift.meta_data.b("topic", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b(WidgetRequestParam.REQ_PARAM_COMMENT_CATEGORY, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         h = Collections.unmodifiableMap(enumMap);
         org.apache.thrift.meta_data.b.a(ao.class, h);
     }

@@ -6,14 +6,12 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.ab;
+import com.baidu.tieba.frs.ad;
 import com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
-    private TalkBallFragment dFg = new TalkBallFragment();
-
     public a() {
-        Jb().aQP = this.dFg;
+        Jt().aRL = new TalkBallFragment();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -22,23 +20,23 @@ public class a extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Ja() {
+    public com.baidu.tbadk.mainTab.c Js() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 12;
-        cVar.aQQ = d.k.frs_tab_talkball;
-        cVar.aQW = com.baidu.tbadk.mainTab.c.aQV;
+        cVar.aRM = d.k.frs_tab_talkball;
+        cVar.aRS = com.baidu.tbadk.mainTab.c.aRR;
         return cVar;
     }
 
-    public void a(ab abVar) {
-        if (abVar != null && abVar.ks(12)) {
-            abVar.b(this);
+    public void a(ad adVar) {
+        if (adVar != null && adVar.ky(12)) {
+            adVar.b(this);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bd(Context context) {
-        this.aQB = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
-        return this.aQB;
+        this.aRx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+        return this.aRx;
     }
 }

@@ -14,21 +14,21 @@ import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b aOx;
-    private UserData aOy;
+    private static b aPt;
+    private UserData aPu;
 
     private b() {
     }
 
-    public static b Iu() {
-        if (aOx == null) {
+    public static b IM() {
+        if (aPt == null) {
             synchronized (b.class) {
-                if (aOx == null) {
-                    aOx = new b();
+                if (aPt == null) {
+                    aPt = new b();
                 }
             }
         }
-        return aOx;
+        return aPt;
     }
 
     public void registerTask() {
@@ -36,7 +36,7 @@ public class b {
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void Iv() {
+    public void IN() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -47,7 +47,7 @@ public class b {
     }
 
     public void a(UserData userData) {
-        this.aOy = userData;
+        this.aPu = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -68,7 +68,9 @@ public class b {
             }
             currentAccountObj.setIsBigV(userData.isBigV());
             currentAccountObj.setNameShow(userData.getName_show());
-            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+            if (!StringUtils.isNull(userData.getBimg_url())) {
+                TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
+            }
             PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
             if (currentAccountObj.getVipInfo() != null) {
                 currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
@@ -77,8 +79,8 @@ public class b {
             }
             CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.GB());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.GC());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.GT());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.GU());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
@@ -92,7 +94,7 @@ public class b {
         }
     }
 
-    public UserData Iw() {
-        return this.aOy;
+    public UserData IO() {
+        return this.aPu;
     }
 }

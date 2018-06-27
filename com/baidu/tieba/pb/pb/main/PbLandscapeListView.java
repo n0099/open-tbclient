@@ -9,18 +9,18 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes2.dex */
 public class PbLandscapeListView extends BdTypeListView {
-    private float cPr;
-    private float cPs;
-    private final int fwn;
-    private a fwo;
-    private b fwp;
+    private float cNl;
+    private float cNm;
+    private final int fAo;
+    private a fAp;
+    private b fAq;
     private boolean isLandscape;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bdd();
+        void bdL();
     }
 
     /* loaded from: classes2.dex */
@@ -30,17 +30,17 @@ public class PbLandscapeListView extends BdTypeListView {
 
     /* loaded from: classes2.dex */
     public static class c {
-        public float Lv;
-        public float Lz;
-        public float cKW;
-        public float cKX;
-        public int fwr;
-        public int fws;
+        public float LB;
+        public float Lx;
+        public float cIQ;
+        public float cIR;
+        public int fAs;
+        public int fAt;
     }
 
     public PbLandscapeListView(Context context) {
         super(context);
-        this.fwn = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getContext()) / 3;
+        this.fAo = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getContext()) / 3;
         this.isLandscape = false;
         this.mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.PbLandscapeListView.1
             @Override // android.os.Handler.Callback
@@ -49,8 +49,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     c cVar = (c) message.obj;
                     switch (message.what) {
                         case 0:
-                            if (PbLandscapeListView.this.fwp != null) {
-                                PbLandscapeListView.this.fwp.b(cVar.fwr, cVar.fws, cVar.Lz, cVar.cKW, cVar.Lv, cVar.cKX);
+                            if (PbLandscapeListView.this.fAq != null) {
+                                PbLandscapeListView.this.fAq.b(cVar.fAs, cVar.fAt, cVar.LB, cVar.cIQ, cVar.Lx, cVar.cIR);
                             }
                             return true;
                         default:
@@ -65,7 +65,7 @@ public class PbLandscapeListView extends BdTypeListView {
 
     public PbLandscapeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fwn = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getContext()) / 3;
+        this.fAo = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getContext()) / 3;
         this.isLandscape = false;
         this.mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.PbLandscapeListView.1
             @Override // android.os.Handler.Callback
@@ -74,8 +74,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     c cVar = (c) message.obj;
                     switch (message.what) {
                         case 0:
-                            if (PbLandscapeListView.this.fwp != null) {
-                                PbLandscapeListView.this.fwp.b(cVar.fwr, cVar.fws, cVar.Lz, cVar.cKW, cVar.Lv, cVar.cKX);
+                            if (PbLandscapeListView.this.fAq != null) {
+                                PbLandscapeListView.this.fAq.b(cVar.fAs, cVar.fAt, cVar.LB, cVar.cIQ, cVar.Lx, cVar.cIR);
                             }
                             return true;
                         default:
@@ -90,7 +90,7 @@ public class PbLandscapeListView extends BdTypeListView {
 
     public PbLandscapeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fwn = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getContext()) / 3;
+        this.fAo = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst().getContext()) / 3;
         this.isLandscape = false;
         this.mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.pb.pb.main.PbLandscapeListView.1
             @Override // android.os.Handler.Callback
@@ -99,8 +99,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     c cVar = (c) message.obj;
                     switch (message.what) {
                         case 0:
-                            if (PbLandscapeListView.this.fwp != null) {
-                                PbLandscapeListView.this.fwp.b(cVar.fwr, cVar.fws, cVar.Lz, cVar.cKW, cVar.Lv, cVar.cKX);
+                            if (PbLandscapeListView.this.fAq != null) {
+                                PbLandscapeListView.this.fAq.b(cVar.fAs, cVar.fAt, cVar.LB, cVar.cIQ, cVar.Lx, cVar.cIR);
                             }
                             return true;
                         default:
@@ -118,34 +118,34 @@ public class PbLandscapeListView extends BdTypeListView {
     }
 
     public void setOnLayoutListener(a aVar) {
-        this.fwo = aVar;
+        this.fAp = aVar;
     }
 
     public void setListViewDragListener(b bVar) {
-        this.fwp = bVar;
+        this.fAq = bVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.cPr = motionEvent.getRawX();
-                this.cPs = motionEvent.getRawY();
+                this.cNl = motionEvent.getRawX();
+                this.cNm = motionEvent.getRawY();
                 break;
             case 1:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.fwp != null) {
-                    int i = (int) (rawX - this.cPr);
-                    int i2 = (int) (rawY - this.cPs);
+                if (this.fAq != null) {
+                    int i = (int) (rawX - this.cNl);
+                    int i2 = (int) (rawY - this.cNm);
                     int abs = Math.abs(i);
-                    if (abs > this.fwn && abs > Math.abs(i2)) {
-                        a(i, i2, this.cPr, this.cPs, rawX, rawY);
+                    if (abs > this.fAo && abs > Math.abs(i2)) {
+                        a(i, i2, this.cNl, this.cNm, rawX, rawY);
                         return false;
                     }
                 }
-                this.cPr = 0.0f;
-                this.cPs = 0.0f;
+                this.cNl = 0.0f;
+                this.cNm = 0.0f;
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -171,8 +171,8 @@ public class PbLandscapeListView extends BdTypeListView {
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.fwo != null) {
-            this.fwo.bdd();
+        if (this.fAp != null) {
+            this.fAp.bdL();
         }
     }
 
@@ -182,12 +182,12 @@ public class PbLandscapeListView extends BdTypeListView {
             Message message = new Message();
             message.what = 0;
             c cVar = new c();
-            cVar.fwr = i;
-            cVar.fws = i2;
-            cVar.Lz = f;
-            cVar.Lv = f2;
-            cVar.cKW = f3;
-            cVar.cKX = f4;
+            cVar.fAs = i;
+            cVar.fAt = i2;
+            cVar.LB = f;
+            cVar.Lx = f2;
+            cVar.cIQ = f3;
+            cVar.cIR = f4;
             message.obj = cVar;
             this.mHandler.sendMessageDelayed(message, 60L);
         }

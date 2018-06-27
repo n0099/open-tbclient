@@ -15,7 +15,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0108a aDB;
+    private C0109a aEv;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -32,25 +32,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aDB == null) {
-            this.aDB = new C0108a();
-            this.aDB.setPriority(2);
-            this.aDB.bo(z);
-            this.aDB.setPortrait(str);
-            this.aDB.setToUid(str2);
-            this.aDB.setIsGod(z2);
-            this.aDB.setFrom(str3);
-            this.aDB.setPageId(bdUniqueId);
-            this.aDB.setForumId(str4);
-            this.aDB.setInLive(str5);
-            this.aDB.execute(new Integer[0]);
+        if (this.aEv == null) {
+            this.aEv = new C0109a();
+            this.aEv.setPriority(2);
+            this.aEv.br(z);
+            this.aEv.setPortrait(str);
+            this.aEv.setToUid(str2);
+            this.aEv.setIsGod(z2);
+            this.aEv.setFrom(str3);
+            this.aEv.setPageId(bdUniqueId);
+            this.aEv.setForumId(str4);
+            this.aEv.setInLive(str5);
+            this.aEv.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0108a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0109a extends BdAsyncTask<Integer, Integer, String> {
         private String forumId;
         private String from;
         private String inLive;
@@ -62,7 +62,7 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0108a() {
+        private C0109a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -79,7 +79,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bo(boolean z) {
+        public void br(boolean z) {
             this.isAttention = z;
         }
 
@@ -126,8 +126,8 @@ public class a {
                         this.mNetwork.o("forum_id", this.forumId);
                     }
                     this.mNetwork.o("in_live", this.inLive);
-                    this.mNetwork.yJ().zI().mIsNeedTbs = true;
-                    return this.mNetwork.yl();
+                    this.mNetwork.yX().zX().mIsNeedTbs = true;
+                    return this.mNetwork.yz();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -139,20 +139,20 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0108a) str);
-            a.this.aDB = null;
+            super.onPostExecute((C0109a) str);
+            a.this.aEv = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Gp = this.mNetwork.yJ().zJ().isRequestSuccess();
+                aVar.Gr = this.mNetwork.yX().zY().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.k(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.yJ().zJ().isRequestSuccess()) {
-                    aVar.aCA = null;
+                if (this.mNetwork.yX().zY().isRequestSuccess()) {
+                    aVar.aDu = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.yN(), aVar.aCz)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.zb(), aVar.aDt)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -167,9 +167,9 @@ public class a {
                 this.mNetwork.hN();
                 this.mNetwork = null;
             }
-            if (a.this.aDB != null) {
-                a.this.aDB.cancel();
-                a.this.aDB = null;
+            if (a.this.aEv != null) {
+                a.this.aEv.cancel();
+                a.this.aEv = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.i(false);
@@ -185,8 +185,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aDB != null) {
-            this.aDB.cancel();
+        if (this.aEv != null) {
+            this.aEv.cancel();
         }
     }
 }

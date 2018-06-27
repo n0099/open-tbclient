@@ -5,7 +5,7 @@ import com.baidu.adp.lib.g.b;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.util.p;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
@@ -14,6 +14,7 @@ import tbclient.ThreadList.ThreadListReqIdl;
 public class LoadMoreRequestMessage extends NetMessage {
     private String forumName;
     private long forum_id;
+    private boolean isBrandForum;
     private int loadCount;
     private long mLastClickTid;
     private int mPageType;
@@ -75,11 +76,11 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.st_type = Integer.valueOf(this.st_type);
         builder.scr_h = Integer.valueOf(aj);
         builder.scr_w = Integer.valueOf(ah);
-        builder.q_type = Integer.valueOf(aq.zq().zs() ? 2 : 1);
+        builder.q_type = Integer.valueOf(ar.zF().zH() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
         p.bindCommonParamsToProtobufData(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.boX().bpa();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bpy().bpB();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
@@ -103,5 +104,13 @@ public class LoadMoreRequestMessage extends NetMessage {
 
     public void setRefreshCount(int i) {
         this.refreshCount = i;
+    }
+
+    public boolean isBrandForum() {
+        return this.isBrandForum;
+    }
+
+    public void setBrandForum(boolean z) {
+        this.isBrandForum = z;
     }
 }

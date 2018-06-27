@@ -1,10 +1,10 @@
 package com.baidu.b.a.a;
 /* loaded from: classes3.dex */
 public class a {
-    public String TB;
-    public float TC;
-    public int TD;
+    public String TD;
     public float TF;
+    public int TG;
+    public float TH;
     public int color;
     public int height;
     public String src;

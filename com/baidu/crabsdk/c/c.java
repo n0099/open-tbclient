@@ -10,8 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public final class c {
-    private static SimpleDateFormat Te;
-    private static PackageManager Tf;
+    private static SimpleDateFormat Tg;
+    private static PackageManager Th;
 
     @SuppressLint({"NewApi"})
     public static void a(SharedPreferences.Editor editor, boolean z) {
@@ -24,7 +24,7 @@ public final class c {
 
     public static String c(Throwable th) {
         if (th == null) {
-            a.ce("getErrorLine thr is null.");
+            a.cg("getErrorLine thr is null.");
             return "";
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
@@ -33,7 +33,7 @@ public final class c {
 
     public static String f(Throwable th) {
         if (th == null) {
-            a.ce("getErrorOriginalLine thr is null.");
+            a.cg("getErrorOriginalLine thr is null.");
             return "";
         }
         while (th.getCause() != null) {
@@ -50,18 +50,18 @@ public final class c {
     }
 
     public static String f(Date date) {
-        if (Te == null) {
-            Te = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (Tg == null) {
+            Tg = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return Te.format(date);
+        return Tg.format(date);
     }
 
     public static boolean g(Context context, String str) {
-        if (Tf == null) {
-            Tf = context.getPackageManager();
+        if (Th == null) {
+            Th = context.getPackageManager();
         }
         try {
-            return Tf.checkPermission(str, context.getPackageName()) == 0;
+            return Th.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }

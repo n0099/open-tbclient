@@ -19,24 +19,24 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class SignAllForumProgressView extends FrameLayout {
-    private TextView cXm;
+    private TextView cVp;
     private int duration;
-    private int gAG;
-    private TextView gAH;
-    private TextView gAI;
-    private TbImageView gAJ;
-    private RelativeLayout gAK;
-    private Runnable gAL;
-    private Runnable gAM;
-    private Runnable gAN;
-    private boolean gyT;
+    private boolean gCM;
+    private TextView gEA;
+    private TextView gEB;
+    private TbImageView gEC;
+    private RelativeLayout gED;
+    private Runnable gEE;
+    private Runnable gEF;
+    private Runnable gEG;
+    private int gEz;
     private Context mContext;
     private ImageView mIcon;
     private ProgressBar mProgress;
@@ -44,20 +44,20 @@ public class SignAllForumProgressView extends FrameLayout {
 
     public SignAllForumProgressView(Context context) {
         super(context);
-        this.gAG = 0;
+        this.gEz = 0;
         this.duration = 2000;
-        this.gAL = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.1
+        this.gEE = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.1
             @Override // java.lang.Runnable
             public void run() {
                 if (SignAllForumProgressView.this.mScroller.computeScrollOffset()) {
                     int currX = SignAllForumProgressView.this.mScroller.getCurrX();
-                    if (currX < (SignAllForumProgressView.this.mProgress.getMax() * 9) / 10 || SignAllForumProgressView.this.gAG == 2) {
+                    if (currX < (SignAllForumProgressView.this.mProgress.getMax() * 9) / 10 || SignAllForumProgressView.this.gEz == 2) {
                         SignAllForumProgressView.this.mProgress.setProgress(currX);
-                        SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gAL, 16L);
+                        SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gEE, 16L);
                         return;
                     }
                     SignAllForumProgressView.this.mScroller.forceFinished(true);
-                    SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gAM, 2000L);
+                    SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gEF, 2000L);
                     return;
                 }
                 int progress = SignAllForumProgressView.this.mProgress.getProgress();
@@ -68,13 +68,13 @@ public class SignAllForumProgressView extends FrameLayout {
                 }
             }
         };
-        this.gAM = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.2
+        this.gEF = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.2
             @Override // java.lang.Runnable
             public void run() {
                 SignAllForumProgressView.this.postDelayed(this, 2000L);
             }
         };
-        this.gAN = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.3
+        this.gEG = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.3
             @Override // java.lang.Runnable
             public void run() {
                 int dip2px = l.dip2px(SignAllForumProgressView.this.mContext, 6.0f);
@@ -89,20 +89,20 @@ public class SignAllForumProgressView extends FrameLayout {
 
     public SignAllForumProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gAG = 0;
+        this.gEz = 0;
         this.duration = 2000;
-        this.gAL = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.1
+        this.gEE = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.1
             @Override // java.lang.Runnable
             public void run() {
                 if (SignAllForumProgressView.this.mScroller.computeScrollOffset()) {
                     int currX = SignAllForumProgressView.this.mScroller.getCurrX();
-                    if (currX < (SignAllForumProgressView.this.mProgress.getMax() * 9) / 10 || SignAllForumProgressView.this.gAG == 2) {
+                    if (currX < (SignAllForumProgressView.this.mProgress.getMax() * 9) / 10 || SignAllForumProgressView.this.gEz == 2) {
                         SignAllForumProgressView.this.mProgress.setProgress(currX);
-                        SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gAL, 16L);
+                        SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gEE, 16L);
                         return;
                     }
                     SignAllForumProgressView.this.mScroller.forceFinished(true);
-                    SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gAM, 2000L);
+                    SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gEF, 2000L);
                     return;
                 }
                 int progress = SignAllForumProgressView.this.mProgress.getProgress();
@@ -113,13 +113,13 @@ public class SignAllForumProgressView extends FrameLayout {
                 }
             }
         };
-        this.gAM = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.2
+        this.gEF = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.2
             @Override // java.lang.Runnable
             public void run() {
                 SignAllForumProgressView.this.postDelayed(this, 2000L);
             }
         };
-        this.gAN = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.3
+        this.gEG = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.3
             @Override // java.lang.Runnable
             public void run() {
                 int dip2px = l.dip2px(SignAllForumProgressView.this.mContext, 6.0f);
@@ -134,20 +134,20 @@ public class SignAllForumProgressView extends FrameLayout {
 
     public SignAllForumProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gAG = 0;
+        this.gEz = 0;
         this.duration = 2000;
-        this.gAL = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.1
+        this.gEE = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.1
             @Override // java.lang.Runnable
             public void run() {
                 if (SignAllForumProgressView.this.mScroller.computeScrollOffset()) {
                     int currX = SignAllForumProgressView.this.mScroller.getCurrX();
-                    if (currX < (SignAllForumProgressView.this.mProgress.getMax() * 9) / 10 || SignAllForumProgressView.this.gAG == 2) {
+                    if (currX < (SignAllForumProgressView.this.mProgress.getMax() * 9) / 10 || SignAllForumProgressView.this.gEz == 2) {
                         SignAllForumProgressView.this.mProgress.setProgress(currX);
-                        SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gAL, 16L);
+                        SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gEE, 16L);
                         return;
                     }
                     SignAllForumProgressView.this.mScroller.forceFinished(true);
-                    SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gAM, 2000L);
+                    SignAllForumProgressView.this.postDelayed(SignAllForumProgressView.this.gEF, 2000L);
                     return;
                 }
                 int progress = SignAllForumProgressView.this.mProgress.getProgress();
@@ -158,13 +158,13 @@ public class SignAllForumProgressView extends FrameLayout {
                 }
             }
         };
-        this.gAM = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.2
+        this.gEF = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.2
             @Override // java.lang.Runnable
             public void run() {
                 SignAllForumProgressView.this.postDelayed(this, 2000L);
             }
         };
-        this.gAN = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.3
+        this.gEG = new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.3
             @Override // java.lang.Runnable
             public void run() {
                 int dip2px = l.dip2px(SignAllForumProgressView.this.mContext, 6.0f);
@@ -182,12 +182,12 @@ public class SignAllForumProgressView extends FrameLayout {
         LayoutInflater.from(this.mContext).inflate(d.i.signallforum_progress_view, this);
         this.mProgress = (ProgressBar) findViewById(d.g.signallforum_progress);
         this.mIcon = (ImageView) findViewById(d.g.signallforum_icon);
-        this.cXm = (TextView) findViewById(d.g.signallforun_status);
-        this.gAH = (TextView) findViewById(d.g.signallforun_message1);
-        this.gAI = (TextView) findViewById(d.g.signallforun_message2);
-        this.gAJ = (TbImageView) findViewById(d.g.signallforum_banner_image);
-        this.gAK = (RelativeLayout) findViewById(d.g.signallforum_banner_layout);
-        Al();
+        this.cVp = (TextView) findViewById(d.g.signallforun_status);
+        this.gEA = (TextView) findViewById(d.g.signallforun_message1);
+        this.gEB = (TextView) findViewById(d.g.signallforun_message2);
+        this.gEC = (TbImageView) findViewById(d.g.signallforum_banner_image);
+        this.gED = (RelativeLayout) findViewById(d.g.signallforum_banner_layout);
+        AB();
         this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), d.f.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
@@ -198,67 +198,67 @@ public class SignAllForumProgressView extends FrameLayout {
     protected void dispatchSetPressed(boolean z) {
     }
 
-    public void Al() {
-        removeCallbacks(this.gAL);
-        removeCallbacks(this.gAM);
-        if (this.gyT) {
+    public void AB() {
+        removeCallbacks(this.gEE);
+        removeCallbacks(this.gEF);
+        if (this.gCM) {
             this.mProgress.setProgressDrawable(getResources().getDrawable(d.f.vip_singnallforum_progress));
         } else {
             this.mProgress.setProgressDrawable(getResources().getDrawable(d.f.singnallforum_progress));
         }
-        switch (this.gAG) {
+        switch (this.gEz) {
             case 0:
                 this.mProgress.setClickable(true);
                 this.mProgress.setProgress(0);
                 this.mProgress.setSecondaryProgress(0);
-                if (this.gyT) {
-                    al.i(this.mProgress, d.f.btn_vip_all_sign);
-                    al.c(this.mIcon, d.f.icon_vip_sign);
+                if (this.gCM) {
+                    am.i(this.mProgress, d.f.btn_vip_all_sign);
+                    am.c(this.mIcon, d.f.icon_vip_sign);
                 } else {
-                    al.i(this.mProgress, d.f.btn_all_sign);
-                    al.c(this.mIcon, d.f.icon_all_sign);
+                    am.i(this.mProgress, d.f.btn_all_sign);
+                    am.c(this.mIcon, d.f.icon_all_sign);
                 }
-                this.cXm.setText(d.k.signallforum_begin);
+                this.cVp.setText(d.k.signallforum_begin);
                 return;
             case 1:
-                post(this.gAN);
+                post(this.gEG);
                 this.mProgress.setClickable(false);
-                al.i(this.mProgress, d.f.bg_all_sign_conduct);
-                if (this.gyT) {
-                    al.c(this.mIcon, d.f.icon_vip_sign);
+                am.i(this.mProgress, d.f.bg_all_sign_conduct);
+                if (this.gCM) {
+                    am.c(this.mIcon, d.f.icon_vip_sign);
                 } else {
-                    al.c(this.mIcon, d.f.icon_all_sign);
+                    am.c(this.mIcon, d.f.icon_all_sign);
                 }
-                this.cXm.setText(d.k.signallforum_ing);
+                this.cVp.setText(d.k.signallforum_ing);
                 int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.mProgress.getMax()) / 100;
                 if (nextInt - this.mProgress.getProgress() < 0) {
                     this.mScroller.startScroll(nextInt, 0, this.mProgress.getProgress() - nextInt, 0, this.duration);
                 } else {
                     this.mScroller.startScroll(this.mProgress.getProgress(), 0, nextInt - this.mProgress.getProgress(), 0, this.duration);
                 }
-                post(this.gAL);
+                post(this.gEE);
                 return;
             case 2:
                 this.mProgress.setClickable(true);
-                if (this.gyT) {
-                    al.i(this.mProgress, d.f.bg_vip_sign_ok_d);
-                    al.c(this.mIcon, d.f.icon_vip_sign_ok);
+                if (this.gCM) {
+                    am.i(this.mProgress, d.f.bg_vip_sign_ok_d);
+                    am.c(this.mIcon, d.f.icon_vip_sign_ok);
                 } else {
-                    al.i(this.mProgress, d.f.bg_all_sign_ok_d);
-                    al.c(this.mIcon, d.f.icon_all_sign_ok);
+                    am.i(this.mProgress, d.f.bg_all_sign_ok_d);
+                    am.c(this.mIcon, d.f.icon_all_sign_ok);
                 }
                 this.mProgress.setProgress(0);
-                this.cXm.setText(d.k.signallforum_success);
+                this.cVp.setText(d.k.signallforum_success);
                 return;
             case 3:
                 this.mProgress.setClickable(false);
-                if (this.gyT) {
-                    al.c(this.mIcon, d.f.icon_vip_sign);
+                if (this.gCM) {
+                    am.c(this.mIcon, d.f.icon_vip_sign);
                 } else {
-                    al.c(this.mIcon, d.f.icon_all_sign);
+                    am.c(this.mIcon, d.f.icon_all_sign);
                 }
-                al.i(this.mProgress, d.f.bg_all_sign_conduct);
-                this.cXm.setText(d.k.can_not_sign);
+                am.i(this.mProgress, d.f.bg_all_sign_conduct);
+                this.cVp.setText(d.k.can_not_sign);
                 return;
             default:
                 return;
@@ -266,21 +266,21 @@ public class SignAllForumProgressView extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.gAG;
+        return this.gEz;
     }
 
     public void setSigning(int i) {
-        if (this.gAG != 1 && this.gAG == 0) {
+        if (this.gEz != 1 && this.gEz == 0) {
             this.mProgress.setProgress(i);
-            this.gAG = 1;
-            Al();
+            this.gEz = 1;
+            AB();
         }
     }
 
     public void setSignSuccess() {
-        if (this.gAG != 2) {
-            this.gAG = 2;
-            Al();
+        if (this.gEz != 2) {
+            this.gEz = 2;
+            AB();
         }
     }
 
@@ -288,16 +288,16 @@ public class SignAllForumProgressView extends FrameLayout {
         new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.4
             @Override // java.lang.Runnable
             public void run() {
-                if (SignAllForumProgressView.this.gAK.getVisibility() != 0) {
+                if (SignAllForumProgressView.this.gED.getVisibility() != 0) {
                     TiebaStatic.log("c11822");
                 }
-                SignAllForumProgressView.this.gAK.setVisibility(0);
-                SignAllForumProgressView.this.gAJ.startLoad(str, 10, true);
+                SignAllForumProgressView.this.gED.setVisibility(0);
+                SignAllForumProgressView.this.gEC.startLoad(str, 10, true);
                 if (!StringUtils.isNull(str2)) {
-                    SignAllForumProgressView.this.gAK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.4.1
+                    SignAllForumProgressView.this.gED.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumProgressView.4.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
-                            if (!ay.zG().a(baseActivity.getPageContext(), "", new String[]{str2}, false, null, true) && !ay.zG().eT(str2)) {
+                            if (!az.zV().a(baseActivity.getPageContext(), "", new String[]{str2}, false, null, true) && !az.zV().eW(str2)) {
                                 baseActivity.showToast(d.k.pluginstatus_tip_unknown);
                             } else {
                                 TiebaStatic.log("c11758");
@@ -309,8 +309,8 @@ public class SignAllForumProgressView extends FrameLayout {
         }, 3000L);
     }
 
-    public void btU() {
-        this.gAK.setVisibility(8);
+    public void buu() {
+        this.gED.setVisibility(8);
     }
 
     public ProgressBar getProgressBar() {
@@ -318,11 +318,11 @@ public class SignAllForumProgressView extends FrameLayout {
     }
 
     public TextView getMessage1() {
-        return this.gAH;
+        return this.gEA;
     }
 
     public TextView getMessage2() {
-        return this.gAI;
+        return this.gEB;
     }
 
     public void setDuration(int i) {
@@ -330,12 +330,12 @@ public class SignAllForumProgressView extends FrameLayout {
     }
 
     public void setmCurrentStatus(int i) {
-        this.gAG = i;
-        Al();
+        this.gEz = i;
+        AB();
     }
 
     public void setHasPrivilege(boolean z) {
-        this.gyT = z;
-        Al();
+        this.gCM = z;
+        AB();
     }
 }

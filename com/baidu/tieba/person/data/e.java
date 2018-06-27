@@ -4,22 +4,22 @@ import com.baidu.adp.widget.ListView.h;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class e {
-    private ArrayList<h> alt;
-    private boolean fPu = true;
+    private ArrayList<h> alT;
+    private boolean fTw = true;
 
-    public void ap(ArrayList<h> arrayList) {
-        this.alt = arrayList;
+    public void at(ArrayList<h> arrayList) {
+        this.alT = arrayList;
     }
 
-    public boolean biD() {
-        return this.fPu;
+    public boolean bjj() {
+        return this.fTw;
     }
 
-    public void kY(boolean z) {
-        this.fPu = z;
+    public void li(boolean z) {
+        this.fTw = z;
     }
 
-    public ArrayList<h> biE() {
-        return this.alt;
+    public ArrayList<h> bjk() {
+        return this.alT;
     }
 }

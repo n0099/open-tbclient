@@ -7,21 +7,21 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a gYj;
+    private com.baidu.tieba.video.editvideo.data.a hco;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.gYj = this.mList.get(0);
+                this.hco = this.mList.get(0);
             }
         }
     }
@@ -50,15 +50,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.list_item_filter, (ViewGroup) null);
-            aVar.gYk = (TbImageView) view.findViewById(d.g.iv_effect);
-            aVar.gYk.setIsRound(true);
-            aVar.gYk.setDrawerType(1);
-            aVar.gYk.setDefaultBgResource(d.C0141d.transparent);
-            aVar.gYk.setBorderWidth(l.e(viewGroup.getContext(), d.e.ds4));
-            aVar.gYk.setBorderColor(al.getColor(d.C0141d.cp_link_tip_a));
-            aVar.fvN = (TextView) view.findViewById(d.g.tv_name);
-            al.h(aVar.fvN, d.C0141d.cp_cont_j);
-            aVar.fvN = (TextView) view.findViewById(d.g.tv_name);
+            aVar.hcp = (TbImageView) view.findViewById(d.g.iv_effect);
+            aVar.hcp.setIsRound(true);
+            aVar.hcp.setDrawerType(1);
+            aVar.hcp.setDefaultBgResource(d.C0142d.transparent);
+            aVar.hcp.setBorderWidth(l.e(viewGroup.getContext(), d.e.ds4));
+            aVar.hcp.setBorderColor(am.getColor(d.C0142d.cp_link_tip_a));
+            aVar.fzO = (TextView) view.findViewById(d.g.tv_name);
+            am.h(aVar.fzO, d.C0142d.cp_cont_j);
+            aVar.fzO = (TextView) view.findViewById(d.g.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -66,15 +66,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.gYk.setTag(aVar2);
-                aVar.gYk.setOnClickListener(this);
-                aVar.gYk.startLoad(String.valueOf(aVar2.gYN), 24, false);
-                aVar.fvN.setText(aVar2.name);
+                aVar.hcp.setTag(aVar2);
+                aVar.hcp.setOnClickListener(this);
+                aVar.hcp.startLoad(String.valueOf(aVar2.hcS), 24, false);
+                aVar.fzO.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.gYj != null && TextUtils.equals(aVar2.name, this.gYj.name)) {
-                aVar.gYk.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.hco != null && TextUtils.equals(aVar2.name, this.hco.name)) {
+                aVar.hcp.setDrawBorder(true);
             } else {
-                aVar.gYk.setDrawBorder(false);
+                aVar.hcp.setDrawBorder(false);
             }
         }
         return view;
@@ -83,15 +83,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.g.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.gYj = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.hco = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes2.dex */
     class a {
-        TextView fvN;
-        TbImageView gYk;
+        TextView fzO;
+        TbImageView hcp;
 
         a() {
         }

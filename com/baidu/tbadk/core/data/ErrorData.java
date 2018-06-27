@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -48,7 +49,7 @@ public class ErrorData implements Serializable {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject == null) {
-                    this.error_code = jSONObject.optInt("error_code", 0);
+                    this.error_code = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, 0);
                     this.error_msg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                     this.error_data = jSONObject.optString("error_data");
                 } else {

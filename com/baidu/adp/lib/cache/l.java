@@ -11,8 +11,8 @@ public interface l<T> {
     public static class b<T> {
         public String key;
         public T value;
-        public long xN;
-        public long ya;
+        public long xL;
+        public long xY;
     }
 
     /* loaded from: classes.dex */

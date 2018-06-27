@@ -3,24 +3,21 @@ package com.baidu.sapi2.views;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
+import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 import com.baidu.c.a.a;
+import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes2.dex */
 public class CustomAlertDialog extends Dialog {
-    private Spinner domainSpinner;
     private TextView msgText;
-    private Button negativeBtn;
-    private Button neutralBtn;
-    private Button positiveBtn;
-    private LinearLayout spinnerLayout;
+    private TextView negativeBtn;
+    private TextView neutralBtn;
+    private TextView positiveBtn;
+    private TextView titleText;
     private ViewSwitcher viewSwitcher;
 
     public CustomAlertDialog(Context context) {
@@ -42,12 +39,14 @@ public class CustomAlertDialog extends Dialog {
         setContentView(a.e.layout_sapi_sdk_dialog_alert);
         setCanceledOnTouchOutside(false);
         this.viewSwitcher = (ViewSwitcher) findViewById(a.d.view_switcher);
+        this.titleText = (TextView) findViewById(a.d.title_text);
         this.msgText = (TextView) findViewById(a.d.msg_text);
-        this.positiveBtn = (Button) findViewById(a.d.positive_btn);
-        this.negativeBtn = (Button) findViewById(a.d.negative_btn);
-        this.neutralBtn = (Button) findViewById(a.d.neutral_btn);
-        this.spinnerLayout = (LinearLayout) findViewById(a.d.spinner_layout);
-        this.domainSpinner = (Spinner) findViewById(a.d.domain_spinner);
+        this.positiveBtn = (TextView) findViewById(a.d.positive_btn);
+        this.negativeBtn = (TextView) findViewById(a.d.negative_btn);
+        this.neutralBtn = (TextView) findViewById(a.d.neutral_btn);
+        if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
+            ((ViewGroup) this.titleText.getRootView()).addView(((LayoutInflater) getContext().getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
+        }
     }
 
     public void setBtnCount(int i) {
@@ -63,12 +62,20 @@ public class CustomAlertDialog extends Dialog {
         }
     }
 
+    public void setTitleText(String str) {
+        this.titleText.setText(str);
+    }
+
+    public void setTitleVisible(int i) {
+        this.titleText.setVisibility(i);
+    }
+
     public void setMessageText(String str) {
         this.msgText.setText(str);
     }
 
-    public void setMessageIcon(int i) {
-        this.msgText.setText(i);
+    public void setMessageVisible(int i) {
+        this.msgText.setVisibility(i);
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
@@ -84,12 +91,5 @@ public class CustomAlertDialog extends Dialog {
     public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
         this.neutralBtn.setText(str);
         this.neutralBtn.setOnClickListener(onClickListener);
-    }
-
-    public void setSpinnerVisible(ArrayAdapter arrayAdapter, AdapterView.OnItemSelectedListener onItemSelectedListener, int i) {
-        this.spinnerLayout.setVisibility(0);
-        this.domainSpinner.setAdapter((SpinnerAdapter) arrayAdapter);
-        this.domainSpinner.setOnItemSelectedListener(onItemSelectedListener);
-        this.domainSpinner.setSelection(i);
     }
 }

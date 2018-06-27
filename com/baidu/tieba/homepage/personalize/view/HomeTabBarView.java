@@ -15,15 +15,15 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 /* loaded from: classes2.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private PagerSlidingTabStrip dSf;
-    private ImageView dwa;
+    private PagerSlidingTabStrip dVZ;
+    private ImageView dzk;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
@@ -46,10 +46,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.i.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.dwa = (ImageView) findViewById(d.g.home_page_search_icon);
-        this.dSf = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
-        this.dSf.d(l.e(context, d.e.ds34), l.e(context, d.e.ds4), false);
-        this.dwa.setOnClickListener(this);
+        this.dzk = (ImageView) findViewById(d.g.home_page_search_icon);
+        this.dVZ = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
+        this.dVZ.d(l.e(context, d.e.ds34), l.e(context, d.e.ds4), false);
+        this.dzk.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -59,52 +59,56 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dwa) {
-            TiebaStatic.log(new am("c10378").r("obj_type", 1));
+        if (view == this.dzk) {
+            TiebaStatic.log(new an("c10378").r("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.dSf.setOnPageChangeListener(onPageChangeListener);
+        this.dVZ.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.dSf != null) {
-            this.dSf.setShowConcernRedTip(z);
+        if (this.dVZ != null) {
+            this.dVZ.setShowConcernRedTip(z);
         }
     }
 
-    public boolean aCu() {
-        if (this.dSf != null) {
-            return this.dSf.aCu();
+    public boolean aCY() {
+        if (this.dVZ != null) {
+            return this.dVZ.aCY();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.dSf.setViewPager(viewPager);
+        this.dVZ.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.dSf.setTabItemClicked(z);
+        this.dVZ.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.dSf.notifyDataSetChanged();
+        this.dVZ.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.j(this, d.C0141d.cp_bg_line_d);
-            ap.zp().c(this.dwa, d.f.icon_topbar_search_n_svg, d.C0141d.select_topbar_icon_color_tint);
-            this.dSf.onChangeSkinType();
+            am.j(this, d.C0142d.cp_bg_line_d);
+            aq.zE().c(this.dzk, d.f.icon_topbar_search_n_svg, d.C0142d.select_topbar_icon_color_tint);
+            this.dVZ.onChangeSkinType();
         }
     }
 
-    public View mr(int i) {
-        return this.dSf.mr(i);
+    public View my(int i) {
+        return this.dVZ.my(i);
+    }
+
+    public void onResume() {
+        aq.zE().c(this.dzk, d.f.icon_topbar_search_n_svg, d.C0142d.select_topbar_icon_color_tint);
     }
 }

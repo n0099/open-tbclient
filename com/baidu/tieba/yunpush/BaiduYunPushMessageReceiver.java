@@ -10,6 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.NotificationHelper;
+import com.tencent.open.SocialConstants;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -60,7 +61,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             try {
                 JSONObject jSONObject2 = new JSONObject(str);
                 String string = !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null;
-                String string2 = !jSONObject2.isNull("description") ? jSONObject2.getString("description") : null;
+                String string2 = !jSONObject2.isNull(SocialConstants.PARAM_COMMENT) ? jSONObject2.getString(SocialConstants.PARAM_COMMENT) : null;
                 if (!jSONObject2.isNull("custom_content")) {
                     JSONObject jSONObject3 = new JSONObject(jSONObject2.getString("custom_content"));
                     if (!jSONObject3.isNull("scheme")) {

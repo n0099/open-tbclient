@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.d;
@@ -26,14 +26,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.aHx.setText("new");
-            this.aHx.setTextAppearance(this.mContext, z2 ? d.l.setting_version_prompt_text_1 : d.l.setting_version_prompt_text);
-            al.i(this.aHx, d.f.icon_news_text_prompt);
+            this.aIu.setText("new");
+            this.aIu.setTextAppearance(this.mContext, z2 ? d.l.setting_version_prompt_text_1 : d.l.setting_version_prompt_text);
+            am.i(this.aIu, d.f.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.aHx.setText((TbConfig.getVersionType() != 1 || ao.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.aHx.setBackgroundDrawable(null);
-        this.aHx.setTextAppearance(this.mContext, z2 ? d.l.setting_version_text_1 : d.l.setting_version_text);
+        this.aIu.setText((TbConfig.getVersionType() != 1 || ap.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
+        this.aIu.setBackgroundDrawable(null);
+        this.aIu.setTextAppearance(this.mContext, z2 ? d.l.setting_version_text_1 : d.l.setting_version_text);
     }
 }

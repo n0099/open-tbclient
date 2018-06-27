@@ -73,7 +73,7 @@ public class ComponentMsgHandler implements d {
                 case 10002:
                     com.baidu.ar.a.b.a(this.a).a();
                     return;
-                case ComponentMessageType.MSG_TYPE_SET_SHAKE_ENABLE /* 10004 */:
+                case 10004:
                     com.baidu.ar.a.b.a(this.a).a(true);
                     return;
                 case ComponentMessageType.MST_TYPE_OPEN_ALGO_TRACK /* 10101 */:

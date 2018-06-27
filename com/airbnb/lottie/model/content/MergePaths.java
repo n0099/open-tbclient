@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class MergePaths implements b {
     private final String name;
-    private final MergePathsMode om;
+    private final MergePathsMode ol;
 
     /* loaded from: classes2.dex */
     public enum MergePathsMode {
@@ -37,7 +37,7 @@ public class MergePaths implements b {
 
     private MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.om = mergePathsMode;
+        this.ol = mergePathsMode;
     }
 
     public String getName() {
@@ -45,7 +45,7 @@ public class MergePaths implements b {
     }
 
     public MergePathsMode cT() {
-        return this.om;
+        return this.ol;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -59,7 +59,7 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.om + '}';
+        return "MergePaths{mode=" + this.ol + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

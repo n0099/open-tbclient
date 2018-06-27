@@ -6,72 +6,72 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup eEM;
-    private TextView eEN;
-    private TextView eEO;
-    private ImageView eEP;
-    private TextView eEQ;
-    private ImageView eER;
-    private TextView eES;
-    private int eET;
-    private int eEU;
-    private int eEV;
+    private ViewGroup eIC;
+    private TextView eID;
+    private TextView eIE;
+    private ImageView eIF;
+    private TextView eIG;
+    private ImageView eIH;
+    private TextView eII;
+    private int eIJ;
+    private int eIK;
+    private int eIL;
 
     public a(Context context) {
-        this.eEM = (ViewGroup) LayoutInflater.from(context).inflate(d.i.label_recommend_header, (ViewGroup) null);
-        this.eEN = (TextView) this.eEM.findViewById(d.g.choose_like_label);
-        this.eEO = (TextView) this.eEM.findViewById(d.g.recommend_interest_thread);
-        this.eEP = (ImageView) this.eEM.findViewById(d.g.male_icon);
-        this.eEQ = (TextView) this.eEM.findViewById(d.g.male_text);
-        this.eER = (ImageView) this.eEM.findViewById(d.g.female_icon);
-        this.eES = (TextView) this.eEM.findViewById(d.g.female_text);
-        this.eEP.setOnClickListener(this);
-        this.eER.setOnClickListener(this);
+        this.eIC = (ViewGroup) LayoutInflater.from(context).inflate(d.i.label_recommend_header, (ViewGroup) null);
+        this.eID = (TextView) this.eIC.findViewById(d.g.choose_like_label);
+        this.eIE = (TextView) this.eIC.findViewById(d.g.recommend_interest_thread);
+        this.eIF = (ImageView) this.eIC.findViewById(d.g.male_icon);
+        this.eIG = (TextView) this.eIC.findViewById(d.g.male_text);
+        this.eIH = (ImageView) this.eIC.findViewById(d.g.female_icon);
+        this.eII = (TextView) this.eIC.findViewById(d.g.female_text);
+        this.eIF.setOnClickListener(this);
+        this.eIH.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        al.h(this.eEN, d.C0141d.cp_cont_b);
-        al.h(this.eEO, d.C0141d.cp_cont_d);
-        al.c(this.eEP, d.f.img_lable_boy_n);
-        al.h(this.eEQ, d.C0141d.cp_cont_d);
-        al.c(this.eER, d.f.img_lable_girl_n);
-        al.h(this.eES, d.C0141d.cp_cont_d);
+        am.h(this.eID, d.C0142d.cp_cont_b);
+        am.h(this.eIE, d.C0142d.cp_cont_d);
+        am.c(this.eIF, d.f.img_lable_boy_n);
+        am.h(this.eIG, d.C0142d.cp_cont_d);
+        am.c(this.eIH, d.f.img_lable_girl_n);
+        am.h(this.eII, d.C0142d.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (w.y(list) == 2) {
-            this.eET = list.get(0).labelId;
-            this.eEU = list.get(1).labelId;
+        if (w.z(list) == 2) {
+            this.eIJ = list.get(0).labelId;
+            this.eIK = list.get(1).labelId;
         }
     }
 
-    public ViewGroup aOO() {
-        return this.eEM;
+    public ViewGroup aPu() {
+        return this.eIC;
     }
 
-    public int aOP() {
-        return this.eEV;
+    public int aPv() {
+        return this.eIL;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.eEP) {
+        if (view == this.eIF) {
             z = true;
         } else {
-            z = view == this.eER ? false : false;
+            z = view == this.eIH ? false : false;
         }
-        this.eEV = z ? this.eET : this.eEU;
-        al.c(this.eEP, z ? d.f.img_lable_boy_s : d.f.img_lable_boy_n);
-        al.h(this.eEQ, z ? d.C0141d.cp_link_tip_a : d.C0141d.cp_cont_d);
-        al.c(this.eER, z ? d.f.img_lable_girl_n : d.f.img_lable_girl_s);
-        al.h(this.eES, z ? d.C0141d.cp_cont_d : d.C0141d.cp_cont_h);
+        this.eIL = z ? this.eIJ : this.eIK;
+        am.c(this.eIF, z ? d.f.img_lable_boy_s : d.f.img_lable_boy_n);
+        am.h(this.eIG, z ? d.C0142d.cp_link_tip_a : d.C0142d.cp_cont_d);
+        am.c(this.eIH, z ? d.f.img_lable_girl_n : d.f.img_lable_girl_s);
+        am.h(this.eII, z ? d.C0142d.cp_cont_d : d.C0142d.cp_cont_h);
     }
 }

@@ -9,29 +9,29 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
-    private int anP;
-    private a anQ;
-    private c anR;
-    private final Rect anS;
-    private final Rect anT;
-    private final Rect anU;
-    private int anV;
-    private int anW;
-    private int anX;
-    private int anY;
-    private int anZ;
-    private boolean aoa;
-    private boolean aob;
-    private boolean aoc;
-    private int aod;
-    private boolean aoe;
-    private boolean aof;
+    private boolean aoA;
+    private boolean aoB;
+    private boolean aoC;
+    private int aoD;
+    private boolean aoE;
+    private boolean aoF;
+    private int aop;
+    private a aoq;
+    private c aor;
+    private final Rect aos;
+    private final Rect aot;
+    private final Rect aou;
+    private int aov;
+    private int aow;
+    private int aox;
+    private int aoy;
+    private int aoz;
     private int left;
     private int mChildCount;
     private int mDividerColor;
@@ -43,7 +43,7 @@ public class FragmentTabWidget extends LinearLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void i(int i, boolean z);
+        void onTabSelectionChanged(int i, boolean z);
     }
 
     /* loaded from: classes.dex */
@@ -54,32 +54,32 @@ public class FragmentTabWidget extends LinearLayout {
     public FragmentTabWidget(Context context) {
         super(context);
         this.mSelectedTabIndex = -1;
-        this.anS = new Rect();
-        this.anT = new Rect();
-        this.anU = new Rect();
+        this.aos = new Rect();
+        this.aot = new Rect();
+        this.aou = new Rect();
         this.mPaint = new Paint();
-        this.anY = 0;
-        this.aoa = true;
-        this.aob = false;
-        this.aoc = false;
-        this.aoe = false;
-        this.aof = true;
+        this.aoy = 0;
+        this.aoA = true;
+        this.aoB = false;
+        this.aoC = false;
+        this.aoE = false;
+        this.aoF = true;
         init();
     }
 
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSelectedTabIndex = -1;
-        this.anS = new Rect();
-        this.anT = new Rect();
-        this.anU = new Rect();
+        this.aos = new Rect();
+        this.aot = new Rect();
+        this.aou = new Rect();
         this.mPaint = new Paint();
-        this.anY = 0;
-        this.aoa = true;
-        this.aob = false;
-        this.aoc = false;
-        this.aoe = false;
-        this.aof = true;
+        this.aoy = 0;
+        this.aoA = true;
+        this.aoB = false;
+        this.aoC = false;
+        this.aoE = false;
+        this.aoF = true;
         init();
     }
 
@@ -87,12 +87,12 @@ public class FragmentTabWidget extends LinearLayout {
         this.mPaint = new Paint(6);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.anV = getResources().getDimensionPixelSize(d.e.ds1);
-        this.anW = l.dip2px(getContext(), 1.0f);
-        this.anX = l.dip2px(getContext(), 2.0f);
-        this.aod = getResources().getDimensionPixelSize(d.e.ds10);
+        this.aov = getResources().getDimensionPixelSize(d.e.ds1);
+        this.aow = l.dip2px(getContext(), 1.0f);
+        this.aox = l.dip2px(getContext(), 2.0f);
+        this.aoD = getResources().getDimensionPixelSize(d.e.ds10);
         setWillNotDraw(false);
-        this.anP = d.C0141d.common_color_10274;
+        this.aop = d.C0142d.common_color_10274;
     }
 
     public void setCurrentTab(int i, boolean z, boolean z2) {
@@ -102,7 +102,7 @@ public class FragmentTabWidget extends LinearLayout {
                 while (i2 < getChildCount()) {
                     TbFragmentTabIndicator tbFragmentTabIndicator = (TbFragmentTabIndicator) getChildAt(i2);
                     tbFragmentTabIndicator.setCheckDescriptionText(i == i2);
-                    tbFragmentTabIndicator.bN(i == i2);
+                    tbFragmentTabIndicator.bQ(i == i2);
                     i2++;
                 }
             }
@@ -122,8 +122,8 @@ public class FragmentTabWidget extends LinearLayout {
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        if (this.anR != null) {
-            this.anR.onSizeChanged(i, i2, i3, i4);
+        if (this.aor != null) {
+            this.aor.onSizeChanged(i, i2, i3, i4);
         }
     }
 
@@ -143,14 +143,14 @@ public class FragmentTabWidget extends LinearLayout {
 
     private void y(View view) {
         LinearLayout.LayoutParams layoutParams;
-        if (this.aoe) {
+        if (this.aoE) {
             layoutParams = new LinearLayout.LayoutParams(0, -1, 1.0f);
         } else {
             layoutParams = new LinearLayout.LayoutParams(-2, -1, 1.0f);
         }
         layoutParams.setMargins(0, 0, 0, 0);
-        if (this.aoc) {
-            view.setPadding(0, 0, 0, this.aod);
+        if (this.aoC) {
+            view.setPadding(0, 0, 0, this.aoD);
         }
         view.setLayoutParams(layoutParams);
         view.setFocusable(true);
@@ -173,9 +173,9 @@ public class FragmentTabWidget extends LinearLayout {
             if (this.mSelectedTabIndex != -1) {
                 d(this.mSelectedTabIndex, 0.0f);
             }
-            int i5 = this.mHeight - this.anV;
-            this.anT.set(0, i5, this.mWidth, this.anV + i5);
-            this.anU.set(0, 0, this.mWidth, this.anW);
+            int i5 = this.mHeight - this.aov;
+            this.aot.set(0, i5, this.mWidth, this.aov + i5);
+            this.aou.set(0, 0, this.mWidth, this.aow);
         }
     }
 
@@ -184,42 +184,42 @@ public class FragmentTabWidget extends LinearLayout {
         int i2 = (this.mItemWidth - dimensionPixelSize) / 2;
         this.left = this.mItemWidth * i;
         this.left += (int) (this.mItemWidth * f);
-        int i3 = this.mHeight - this.anX;
-        if (this.anY == -2) {
+        int i3 = this.mHeight - this.aox;
+        if (this.aoy == -2) {
             View childAt = getChildAt(i);
             if (childAt != null && (childAt instanceof TbFragmentTabIndicator)) {
                 View contentTv = ((TbFragmentTabIndicator) childAt).getContentTv();
                 if (contentTv != null) {
-                    this.anS.set(childAt.getLeft() + contentTv.getLeft(), i3, contentTv.getRight() + childAt.getLeft(), this.mHeight);
+                    this.aos.set(childAt.getLeft() + contentTv.getLeft(), i3, contentTv.getRight() + childAt.getLeft(), this.mHeight);
                 } else {
-                    this.anS.set((this.left + (this.mItemWidth / 2)) - (this.anY / 2), i3, this.left + (this.mItemWidth / 2) + (this.anY / 2), this.mHeight);
+                    this.aos.set((this.left + (this.mItemWidth / 2)) - (this.aoy / 2), i3, this.left + (this.mItemWidth / 2) + (this.aoy / 2), this.mHeight);
                 }
             } else {
-                this.anS.set((this.left + (this.mItemWidth / 2)) - (this.anY / 2), i3, this.left + (this.mItemWidth / 2) + (this.anY / 2), this.mHeight);
+                this.aos.set((this.left + (this.mItemWidth / 2)) - (this.aoy / 2), i3, this.left + (this.mItemWidth / 2) + (this.aoy / 2), this.mHeight);
             }
-        } else if (this.anY != 0) {
-            this.anS.set((this.left + (this.mItemWidth / 2)) - (this.anY / 2), i3, this.left + (this.mItemWidth / 2) + (this.anY / 2), this.mHeight);
+        } else if (this.aoy != 0) {
+            this.aos.set((this.left + (this.mItemWidth / 2)) - (this.aoy / 2), i3, this.left + (this.mItemWidth / 2) + (this.aoy / 2), this.mHeight);
         } else {
-            this.anS.set(this.left + i2, i3, dimensionPixelSize + i2 + this.left, this.mHeight);
+            this.aos.set(this.left + i2, i3, dimensionPixelSize + i2 + this.left, this.mHeight);
         }
         postInvalidateDelayed(16L);
     }
 
     public void setBackGroundDrawableResId(int i) {
-        this.anP = i;
+        this.aop = i;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.anP != 0) {
-            al.j(this, this.anP);
+        if (this.aop != 0) {
+            am.j(this, this.aop);
         }
-        this.anZ = al.getColor(d.C0141d.cp_cont_b);
-        this.mDividerColor = al.getColor(d.C0141d.cp_bg_line_c);
+        this.aoz = am.getColor(d.C0142d.cp_cont_b);
+        this.mDividerColor = am.getColor(d.C0142d.cp_bg_line_c);
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
             if (childAt instanceof FragmentTabIndicator) {
-                ((FragmentTabIndicator) childAt).dC(i);
+                ((FragmentTabIndicator) childAt).dD(i);
             }
         }
         invalidate();
@@ -229,69 +229,69 @@ public class FragmentTabWidget extends LinearLayout {
     public void draw(Canvas canvas) {
         super.draw(canvas);
         this.mPaint.setColor(this.mDividerColor);
-        if (this.aof) {
-            canvas.drawRect(this.anT, this.mPaint);
+        if (this.aoF) {
+            canvas.drawRect(this.aot, this.mPaint);
         }
-        if (this.aob) {
-            canvas.drawRect(this.anU, this.mPaint);
+        if (this.aoB) {
+            canvas.drawRect(this.aou, this.mPaint);
         }
-        if (this.aoa) {
-            this.mPaint.setColor(this.anZ);
-            canvas.drawRoundRect(new RectF(this.anS), 10.0f, 10.0f, this.mPaint);
+        if (this.aoA) {
+            this.mPaint.setColor(this.aoz);
+            canvas.drawRoundRect(new RectF(this.aos), 10.0f, 10.0f, this.mPaint);
         }
     }
 
     public void setShouldDrawDividerLine(boolean z) {
-        this.aof = z;
+        this.aoF = z;
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
-        this.aoa = z;
+        this.aoA = z;
     }
 
     public void setShouldDrawTopLine(boolean z) {
-        this.aob = z;
+        this.aoB = z;
     }
 
     public void setTabSelectionListener(a aVar) {
-        this.anQ = aVar;
+        this.aoq = aVar;
     }
 
     public void setOnSizeChangedListener(c cVar) {
-        this.anR = cVar;
+        this.aor = cVar;
     }
 
     /* loaded from: classes.dex */
     private class b implements View.OnClickListener {
-        private final int aog;
+        private final int aoG;
 
         private b(int i) {
-            this.aog = i;
+            this.aoG = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FragmentTabWidget.this.anQ.i(this.aog, true);
+            FragmentTabWidget.this.aoq.onTabSelectionChanged(this.aoG, true);
         }
     }
 
-    public void aG(boolean z) {
-        this.aoc = z;
+    public void aI(boolean z) {
+        this.aoC = z;
     }
 
     public void setDviderRectWidth(int i) {
-        this.anY = i;
+        this.aoy = i;
     }
 
     public void setDviderRectHeight(int i) {
-        this.anX = i;
+        this.aox = i;
     }
 
     public void setDiverColor(int i) {
-        this.anZ = i;
+        this.aoz = i;
     }
 
     public void setAbsoluteWeight(boolean z) {
-        this.aoe = z;
+        this.aoE = z;
     }
 }

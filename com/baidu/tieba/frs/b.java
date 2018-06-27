@@ -1,8 +1,17 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.bd;
+import tbclient.FrsPage.BrandForumInfo;
 /* loaded from: classes.dex */
-public interface b {
-    void a(int i, int i2, View view, View view2, bd bdVar);
+public class b {
+    public String adc;
+    public String diK;
+    public String diL;
+
+    public void a(BrandForumInfo brandForumInfo) {
+        if (brandForumInfo != null) {
+            this.diK = brandForumInfo.brand_desc;
+            this.adc = brandForumInfo.jump_url;
+            this.diL = brandForumInfo.jump_desc;
+        }
+    }
 }

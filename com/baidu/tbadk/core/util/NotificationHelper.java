@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.media.AudioManager;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.widget.RemoteViews;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.ar.util.MsgConstants;
@@ -21,9 +22,12 @@ import org.apache.http.HttpStatus;
 /* loaded from: classes.dex */
 public class NotificationHelper {
     private static NotificationCompat.Builder PROGRESS_BUILDER;
+    private static NotificationCompat.Builder PROGRESS_BUILDER_2;
     private static int lastProgressNotifiyId = 0;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
     private static String PRIMARY_CHANNEL = "default";
+    private static String PRIMARY_CHANNEL_2 = "default_2";
+    private static String PRIMARY_CHANNEL_3 = "default_3";
 
     public static boolean cancelNotification(Context context, int i) {
         if (context == null) {
@@ -72,43 +76,61 @@ public class NotificationHelper {
     }
 
     public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
-        Notification notif_excption;
         boolean processNotification;
         synchronized (NotificationHelper.class) {
             PendingIntent activity = pendingIntent == null ? PendingIntent.getActivity(context, 0, new Intent(), 0) : pendingIntent;
             if (!IS_SUPPORT_PROGRESS_NOTIFICATION) {
                 processNotification = showNotification(context, i, str3, str3, str, activity, z);
             } else {
-                try {
-                    if (PROGRESS_BUILDER == null) {
-                        PROGRESS_BUILDER = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
-                    }
-                    if (i != lastProgressNotifiyId) {
-                        PROGRESS_BUILDER.setWhen(System.currentTimeMillis());
-                    }
-                    lastProgressNotifiyId = i;
-                    PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(d.f.icon)).getBitmap());
-                    PROGRESS_BUILDER.setContent(remoteViews);
-                    notif_excption = PROGRESS_BUILDER.build();
-                    notif_excption.contentIntent = activity;
-                } catch (Exception e) {
-                    notif_excption = notif_excption(context);
-                }
-                if (notif_excption == null) {
+                Notification createNotificationByAPI = createNotificationByAPI(context, i, str, i2, str2, str3, activity, z, remoteViews, z2);
+                if (createNotificationByAPI == null) {
                     processNotification = false;
                 } else {
                     if (z2) {
                         if (!z) {
-                            notif_excption.flags = 16;
+                            createNotificationByAPI.flags = 16;
                         } else {
-                            notif_excption.flags = 2;
+                            createNotificationByAPI.flags = 2;
                         }
                     }
-                    processNotification = processNotification(context, i, notif_excption);
+                    processNotification = processNotification(context, i, createNotificationByAPI);
                 }
             }
         }
         return processNotification;
+    }
+
+    private static Notification createNotificationByAPI(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
+        try {
+            if (Build.VERSION.SDK_INT < 26) {
+                if (PROGRESS_BUILDER == null) {
+                    PROGRESS_BUILDER = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
+                }
+                if (i != lastProgressNotifiyId) {
+                    PROGRESS_BUILDER.setWhen(System.currentTimeMillis());
+                }
+                lastProgressNotifiyId = i;
+                PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(d.f.icon)).getBitmap());
+                PROGRESS_BUILDER.setContent(remoteViews);
+                Notification build = PROGRESS_BUILDER.build();
+                build.contentIntent = pendingIntent;
+                return build;
+            }
+            if (PROGRESS_BUILDER_2 == null) {
+                PROGRESS_BUILDER_2 = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL_2);
+            }
+            if (i != lastProgressNotifiyId) {
+                PROGRESS_BUILDER_2.setWhen(System.currentTimeMillis());
+            }
+            lastProgressNotifiyId = i;
+            PROGRESS_BUILDER_2.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(d.f.icon)).getBitmap());
+            PROGRESS_BUILDER_2.setContent(remoteViews);
+            Notification build2 = PROGRESS_BUILDER_2.build();
+            build2.contentIntent = pendingIntent;
+            return build2;
+        } catch (Exception e) {
+            return notif_excption(context);
+        }
     }
 
     public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, boolean z) {
@@ -121,6 +143,7 @@ public class NotificationHelper {
 
     private static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, Bitmap bitmap, boolean z) {
         Notification notif_excption;
+        NotificationCompat.Builder builder;
         if (pendingIntent == null) {
             pendingIntent = PendingIntent.getActivity(context, 0, new Intent(), 0);
         }
@@ -128,12 +151,16 @@ public class NotificationHelper {
         if (switchData == null) {
             return false;
         }
-        if (ao.isEmpty(str)) {
+        if (ap.isEmpty(str)) {
             str = context.getString(d.k.app_name);
         }
         try {
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
-            builder.setContentTitle(str).setContentText(str2).setSmallIcon(d.f.icon_notify).setTicker(str3);
+            if (Build.VERSION.SDK_INT < 26) {
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
+            } else {
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL_3);
+            }
+            builder.setContentTitle(str).setContentText(str2).setSmallIcon(d.f.icon_notify).setTicker(str3).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), d.C0142d.cp_link_tip_a));
             if (bitmap != null) {
                 builder.setLargeIcon(bitmap);
             }
@@ -145,11 +172,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.apQ) {
+            if (!switchData.aqp) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.apP) {
+            if (!switchData.aqo) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -157,14 +184,14 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.apR) {
+            if (switchData.aqq) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = HttpStatus.SC_BAD_REQUEST;
                 notif_excption.ledOffMS = MsgConstants.TRACK_CLOSE_CLOUD_RECOGNITION;
                 notif_excption.flags |= 1;
             }
-            return processNotification(context, i, notif_excption);
+            return processNotificationWithSoundAndVibration(context, i, notif_excption);
         }
         return false;
     }
@@ -179,45 +206,69 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.CZ() && com.baidu.tbadk.coreExtra.messageCenter.a.CY()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.Dr() && com.baidu.tbadk.coreExtra.messageCenter.a.Dq()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.DE().DN()) {
-                    aVar.apP = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().Ef()) {
+                    aVar.aqo = true;
                     if (z || z2) {
-                        aVar.apP = false;
+                        aVar.aqo = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.DE().DQ()) {
-                    aVar.apQ = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().Ei()) {
+                    aVar.aqp = true;
                     if (z) {
-                        aVar.apQ = false;
+                        aVar.aqp = false;
                     }
                     if (z2) {
-                        aVar.apQ = true;
+                        aVar.aqp = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.DE().DO()) {
-            aVar.apR = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().Eg()) {
+            aVar.aqq = true;
         }
         return aVar;
     }
 
     private static Notification notif_excption(Context context) {
-        return new Notification(d.f.icon, context.getString(d.k.notify_text), System.currentTimeMillis());
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
+        builder.setContentTitle(context.getString(d.k.notify_text)).setSmallIcon(d.f.icon_notify).setColor(ContextCompat.getColor(context, d.C0142d.cp_link_tip_a));
+        return builder.build();
     }
 
     private static boolean processNotification(Context context, int i, Notification notification) {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL, com.baidu.adp.lib.voice.h.getString(d.k.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(d.k.notify_channel_primary), 3);
+                notificationChannel.setLightColor(-16776961);
+                notificationChannel.setLockscreenVisibility(0);
+                notificationChannel.enableVibration(false);
+                notificationChannel.setSound(null, null);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+            if (notification == null || notificationManager == null) {
+                return false;
+            }
+            notificationManager.notify(i, notification);
+            return true;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
+        }
+    }
+
+    private static boolean processNotificationWithSoundAndVibration(Context context, int i, Notification notification) {
+        try {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            if (Build.VERSION.SDK_INT >= 26) {
+                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_3, com.baidu.adp.lib.voice.h.getString(d.k.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
                 notificationManager.createNotificationChannel(notificationChannel);
@@ -240,9 +291,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean apP = false;
-        boolean apQ = false;
-        boolean apR = false;
+        boolean aqo = false;
+        boolean aqp = false;
+        boolean aqq = false;
 
         a() {
         }

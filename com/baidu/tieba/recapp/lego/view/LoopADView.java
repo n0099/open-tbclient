@@ -10,18 +10,18 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class LoopADView extends LinearLayout {
-    private int gmA;
-    private int gmB;
-    private Resources gmC;
-    private AdCard.d[] gmD;
-    private int gmE;
-    private a gmz;
+    private a gqq;
+    private int gqr;
+    private int gqs;
+    private Resources gqt;
+    private AdCard.d[] gqu;
+    private int gqv;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,11 +37,11 @@ public class LoopADView extends LinearLayout {
 
         void reset();
 
-        String sS(String str);
+        String sR(String str);
     }
 
     public void setBussinessType(int i) {
-        this.gmE = i;
+        this.gqv = i;
     }
 
     public LoopADView(Context context) {
@@ -55,13 +55,13 @@ public class LoopADView extends LinearLayout {
     public LoopADView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = null;
-        this.gmz = null;
-        this.gmA = 0;
-        this.gmB = 0;
-        this.gmC = null;
-        this.gmD = null;
+        this.gqq = null;
+        this.gqr = 0;
+        this.gqs = 0;
+        this.gqt = null;
+        this.gqu = null;
         this.mContext = context.getApplicationContext();
-        this.gmC = this.mContext.getResources();
+        this.gqt = this.mContext.getResources();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
         setLayoutParams(layoutParams);
@@ -69,20 +69,20 @@ public class LoopADView extends LinearLayout {
     }
 
     public void a(AdCard.d[] dVarArr, int i, int i2, int i3, int i4) {
-        if (dVarArr != null && dVarArr.length > 0 && i3 <= i2 && dVarArr != this.gmD) {
-            this.gmD = dVarArr;
+        if (dVarArr != null && dVarArr.length > 0 && i3 <= i2 && dVarArr != this.gqu) {
+            this.gqu = dVarArr;
             if (i2 == 0 || i3 == 0) {
-                if (this.gmE == 2 || this.gmE == 1) {
-                    i2 = (int) this.gmC.getDimension(d.e.ds570);
-                    i3 = (int) this.gmC.getDimension(d.e.ds302);
-                } else if (this.gmE == 4) {
-                    i2 = (int) this.gmC.getDimension(d.e.ds500);
-                    i3 = (int) this.gmC.getDimension(d.e.ds265);
+                if (this.gqv == 2 || this.gqv == 1) {
+                    i2 = (int) this.gqt.getDimension(d.e.ds570);
+                    i3 = (int) this.gqt.getDimension(d.e.ds302);
+                } else if (this.gqv == 4) {
+                    i2 = (int) this.gqt.getDimension(d.e.ds500);
+                    i3 = (int) this.gqt.getDimension(d.e.ds265);
                 }
             }
             b(i2, i3, i4);
-            if (this.gmz != null) {
-                this.gmz.reset();
+            if (this.gqq != null) {
+                this.gqq.reset();
             }
             reset();
             a(dVarArr, i);
@@ -92,13 +92,13 @@ public class LoopADView extends LinearLayout {
     private void b(float f, float f2, int i) {
         float f3 = f / f2;
         float f4 = 0.0f;
-        if (this.gmE == 1 || this.gmE == 2) {
-            f4 = this.gmC.getDimension(d.e.ds40);
-        } else if (this.gmE == 4) {
-            f4 = this.gmC.getDimension(d.e.ds40) + this.gmC.getDimension(d.e.ds60) + this.gmC.getDimension(d.e.ds16);
+        if (this.gqv == 1 || this.gqv == 2) {
+            f4 = this.gqt.getDimension(d.e.ds40);
+        } else if (this.gqv == 4) {
+            f4 = this.gqt.getDimension(d.e.ds40) + this.gqt.getDimension(d.e.ds60) + this.gqt.getDimension(d.e.ds16);
         }
-        this.gmA = (int) (((int) ((l.al(this.mContext)[0] - f4) - ((int) this.gmC.getDimension(d.e.ds4)))) * 0.75f);
-        this.gmB = (int) (this.gmA / f3);
+        this.gqr = (int) (((int) ((l.al(this.mContext)[0] - f4) - ((int) this.gqt.getDimension(d.e.ds4)))) * 0.75f);
+        this.gqs = (int) (this.gqr / f3);
     }
 
     private void a(AdCard.d[] dVarArr, int i) {
@@ -132,10 +132,10 @@ public class LoopADView extends LinearLayout {
         if (view != null && dVar != null) {
             TbImageView tbImageView = (TbImageView) view.findViewById(d.g.loop_image_view);
             TextView textView = (TextView) view.findViewById(d.g.loop_text_view);
-            h(tbImageView, this.gmA, this.gmB);
-            h(view, this.gmA, -2);
-            if (this.gmz != null) {
-                this.gmz.b(tbImageView, dVar.gkx);
+            h(tbImageView, this.gqr, this.gqs);
+            h(view, this.gqr, -2);
+            if (this.gqq != null) {
+                this.gqq.b(tbImageView, dVar.gon);
             }
             tbImageView.startLoad(dVar.pic, i, false);
             if (itemType == ItemType.WITHOUT_BOTTOM_TITLE) {
@@ -143,8 +143,8 @@ public class LoopADView extends LinearLayout {
                 textView.setVisibility(8);
             } else if (itemType == ItemType.WITH_BOTTOM_TITLE) {
                 textView.setVisibility(0);
-                if (this.gmz != null) {
-                    textView.setText(this.gmz.sS(dVar.title));
+                if (this.gqq != null) {
+                    textView.setText(this.gqq.sR(dVar.title));
                 }
             }
         }
@@ -159,18 +159,18 @@ public class LoopADView extends LinearLayout {
         return true;
     }
 
-    public void aNN() {
+    public void aOt() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt != null) {
-                al.c((TextView) childAt.findViewById(d.g.loop_text_view), d.C0141d.cp_cont_b, 1);
+                am.c((TextView) childAt.findViewById(d.g.loop_text_view), d.C0142d.cp_cont_b, 1);
             }
         }
     }
 
     public void setOnClickCallbackListener(a aVar) {
-        this.gmz = aVar;
+        this.gqq = aVar;
     }
 
     private void reset() {

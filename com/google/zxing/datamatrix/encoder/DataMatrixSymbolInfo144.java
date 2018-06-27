@@ -1,4 +1,6 @@
 package com.google.zxing.datamatrix.encoder;
+
+import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes3.dex */
 final class DataMatrixSymbolInfo144 extends SymbolInfo {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,6 +15,9 @@ final class DataMatrixSymbolInfo144 extends SymbolInfo {
 
     @Override // com.google.zxing.datamatrix.encoder.SymbolInfo
     public int getDataLengthForInterleavedBlock(int i) {
-        return i <= 8 ? 156 : 155;
+        if (i <= 8) {
+            return SapiAccountManager.VERSION_CODE;
+        }
+        return 155;
     }
 }

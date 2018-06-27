@@ -18,7 +18,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SSLSocketFactoryEx extends SSLSocketFactory {
     private static final String TAG = SSLSocketFactoryEx.class.getName();
     SSLContext sslContext;
@@ -39,7 +39,7 @@ public class SSLSocketFactoryEx extends SSLSocketFactory {
         return this.sslContext.getSocketFactory().createSocket();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class KeyStoresTrustManagerEX implements X509TrustManager {
         protected ArrayList<X509TrustManager> x509TrustManagers = new ArrayList<>();
 

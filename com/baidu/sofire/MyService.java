@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
-import com.baidu.sofire.a;
+import com.baidu.sofire.b.t;
 import com.baidu.sofire.core.ApkInfo;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
@@ -14,33 +14,35 @@ import com.xiaomi.mipush.sdk.Constants;
 public class MyService extends Service {
     private volatile int a = 0;
 
-    /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.sofire.MyService$1] */
     @Override // android.app.Service
     public int onStartCommand(final Intent intent, int i, int i2) {
         try {
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
         if (intent == null) {
             return super.onStartCommand(intent, i, i2);
         }
         this.a++;
-        new Thread() { // from class: com.baidu.sofire.MyService.1
-            @Override // java.lang.Thread, java.lang.Runnable
+        final String stringExtra = intent.getStringExtra("from_plugin_package");
+        new StringBuilder("PPP(service) try do action ").append(intent.toString()).append(" ").append(stringExtra);
+        t.a().a.execute(new Runnable() { // from class: com.baidu.sofire.MyService.1
+            @Override // java.lang.Runnable
             public final void run() {
                 try {
-                    super.run();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    new StringBuilder("PPP(service) do action ").append(intent.toString()).append(" ").append(stringExtra);
                     if (NotifyType.SOUND.equals(intent.getStringExtra(Info.kBaiduTimeKey))) {
-                        String stringExtra = intent.getStringExtra("c");
+                        String stringExtra2 = intent.getStringExtra("c");
                         Intent intent2 = new Intent();
                         intent2.putExtra(Info.kBaiduTimeKey, NotifyType.SOUND);
-                        intent2.putExtra("c", stringExtra);
-                        new a.AnonymousClass1(MyService.this.getApplicationContext(), intent2).start();
+                        intent2.putExtra("c", stringExtra2);
+                        a.a(MyService.this.getApplicationContext(), intent2);
                     }
-                    String stringExtra2 = intent.getStringExtra("from_plugin_package");
-                    if (TextUtils.isEmpty(stringExtra2)) {
+                    new StringBuilder("p:=").append(stringExtra);
+                    if (TextUtils.isEmpty(stringExtra)) {
                         MyService.a(MyService.this);
-                    } else if (MyService.this.getPackageName().equals(stringExtra2)) {
+                    } else if (MyService.this.getPackageName().equals(stringExtra)) {
                         MyService.a(MyService.this, MyService.this.getClassLoader(), intent);
                         MyService.a(MyService.this);
                     } else {
@@ -49,21 +51,22 @@ public class MyService extends Service {
                             MyService.a(MyService.this);
                             return;
                         }
-                        ApkInfo d = a.d(stringExtra2);
+                        ApkInfo d = a.d(stringExtra);
                         new StringBuilder("i=").append(d);
                         if (d == null) {
                             MyService.a(MyService.this);
                             return;
                         }
                         MyService.a(MyService.this, d.classLoader, intent);
+                        new StringBuilder("PPP(service) after action ").append(((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f).append(intent.toString()).append(" ").append(stringExtra);
                         MyService.a(MyService.this);
                     }
                 } catch (Throwable th2) {
-                    com.baidu.sofire.b.d.a(th2);
+                    com.baidu.sofire.b.e.a(th2);
                     MyService.a(MyService.this);
                 }
             }
-        }.start();
+        });
         return super.onStartCommand(intent, i, i2);
     }
 
@@ -80,7 +83,7 @@ public class MyService extends Service {
                 myService.stopSelf();
             }
         } catch (Throwable th) {
-            com.baidu.sofire.b.d.a(th);
+            com.baidu.sofire.b.e.a(th);
         }
     }
 

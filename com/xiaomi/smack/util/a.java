@@ -2,8 +2,8 @@ package com.xiaomi.smack.util;
 
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import com.baidu.sapi2.views.SmsLoginView;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
-import com.sina.weibo.sdk.exception.WeiboAuthException;
 import com.tencent.connect.common.Constants;
 import com.xiaomi.push.service.ak;
 import com.xiaomi.push.service.aq;
@@ -274,7 +274,7 @@ public class a {
                     } catch (IllegalArgumentException e3) {
                         fVar.a(0);
                     }
-                } else if (name.equals("show")) {
+                } else if (name.equals(SmsLoginView.StatEvent.LOGIN_SHOW)) {
                     String nextText = xmlPullParser.nextText();
                     try {
                         fVar.a(f.a.valueOf(nextText));
@@ -311,7 +311,7 @@ public class a {
         ArrayList arrayList = new ArrayList();
         String str = null;
         String str2 = null;
-        String str3 = WeiboAuthException.DEFAULT_AUTH_ERROR_CODE;
+        String str3 = "-1";
         int i = 0;
         while (i < xmlPullParser.getAttributeCount()) {
             String attributeValue = xmlPullParser.getAttributeName(i).equals("code") ? xmlPullParser.getAttributeValue("", "code") : str3;

@@ -6,7 +6,7 @@ import com.airbnb.lottie.model.a.m;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class a implements m.a<Integer> {
-    public static final a nf = new a();
+    public static final a ne = new a();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.m.a

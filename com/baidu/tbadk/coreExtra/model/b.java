@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.util.y;
 import java.io.File;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        fH(str2);
+                        fL(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        fH(str2);
+                        fL(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DY() {
+    public void Eq() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String DZ() {
+    public String Er() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void fH(String str) {
-        String DZ = DZ();
-        if (!TextUtils.equals(DZ, str) || !isFileExist(DZ)) {
-            al(str, DZ);
+    public void fL(String str) {
+        String Er = Er();
+        if (!TextUtils.equals(Er, str) || !isFileExist(Er)) {
+            al(str, Er);
         }
     }
 
     private boolean isFileExist(String str) {
-        File dU = l.dU(ar.eL(str));
-        return dU != null && dU.exists() && dU.isFile();
+        File dX = l.dX(as.eO(str));
+        return dX != null && dX.exists() && dX.isFile();
     }
 
     private void al(String str, String str2) {
         if (j.jE()) {
-            new a(str, ar.eL(str), str2).execute(new String[0]);
+            new a(str, as.eO(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String aDD;
-        private final String aDE;
+        private final String aEx;
+        private final String aEy;
         private final String mFile;
         private y mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.aDD = str;
+            this.aEx = str;
             this.mFile = str2;
-            this.aDE = str3;
+            this.aEy = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new y(this.aDD);
+                this.mNetWork = new y(this.aEx);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aDD) && !this.aDD.equals(this.aDE)) {
-                        l.el(ar.eL(this.aDE));
+                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aEx) && !this.aEx.equals(this.aEy)) {
+                        l.eo(as.eO(this.aEy));
                     }
                 } else {
-                    l.el(this.mFile + ".tmp");
+                    l.eo(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().DY();
+                new b().Eq();
             }
         }
     }

@@ -4,9 +4,9 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class e {
     public static int ah(Context context) {
-        if (!l.Dm) {
+        if (!l.Do) {
             l.ai(context);
         }
-        return l.Do;
+        return l.Dq;
     }
 }

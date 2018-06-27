@@ -3,21 +3,21 @@ package com.baidu.adp.framework.c;
 import com.baidu.ar.constants.HttpConstants;
 /* loaded from: classes.dex */
 public class c extends d {
-    private static c vF = null;
+    private static c vD = null;
 
     public static c fR() {
-        if (vF == null) {
+        if (vD == null) {
             synchronized (c.class) {
-                if (vF == null) {
-                    vF = new c();
+                if (vD == null) {
+                    vD = new c();
                 }
             }
         }
-        return vF;
+        return vD;
     }
 
     private c() {
-        this.vG = new e(HttpConstants.HTTP_CONNECT_TIMEOUT, 10000, 5000);
+        this.vE = new e(HttpConstants.HTTP_CONNECT_TIMEOUT, 10000, 5000);
         this.mRetryCount = 3;
     }
 
@@ -31,6 +31,6 @@ public class c extends d {
         if (i3 < 3000) {
             i3 = 3000;
         }
-        this.vG = new e(i, i2, i3);
+        this.vE = new e(i, i2, i3);
     }
 }

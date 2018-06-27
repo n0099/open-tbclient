@@ -1,8 +1,6 @@
 package com.baidu.tieba.frs;
-
-import java.util.List;
 /* loaded from: classes.dex */
 public class x {
-    public int dky;
-    public List<v> dkz;
+    public int dmC;
+    public String name;
 }

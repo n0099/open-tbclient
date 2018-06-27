@@ -16,21 +16,21 @@ public class b extends o<Float, Float> {
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<Float, Float> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mK) : new com.airbnb.lottie.a.b.c(this.mt);
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mJ) : new com.airbnb.lottie.a.b.c(this.mr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
     /* renamed from: cl */
     public Float cm() {
-        return (Float) this.mK;
+        return (Float) this.mJ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0008b implements m.a<Float> {
-        static final C0008b nx = new C0008b();
+        static final C0008b nw = new C0008b();
 
         private C0008b() {
         }
@@ -59,8 +59,8 @@ public class b extends o<Float, Float> {
             if (jSONObject != null && jSONObject.has("x")) {
                 eVar.E("Lottie doesn't support expressions.");
             }
-            n.a cE = n.a(jSONObject, bp, eVar, C0008b.nx).cE();
-            return new b(cE.mt, (Float) cE.mK);
+            n.a cE = n.a(jSONObject, bp, eVar, C0008b.nw).cE();
+            return new b(cE.mr, (Float) cE.mJ);
         }
     }
 }

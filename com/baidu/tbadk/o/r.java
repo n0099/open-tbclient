@@ -1,14 +1,20 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class r extends j {
-    private static final r aUK = new r();
+    private static r aVF = new r();
 
-    public static boolean KK() {
-        return aUK.ip();
+    public static boolean Lb() {
+        return aVF.ip();
     }
 
     @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_show_call_followers";
+        return "dui_switch";
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.o.j, com.baidu.adp.lib.b.a
+    public int hn() {
+        return super.hn();
     }
 }

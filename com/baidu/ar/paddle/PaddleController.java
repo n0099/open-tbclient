@@ -68,7 +68,7 @@ public class PaddleController {
                             hashMap2.put("type", Float.valueOf(fArr[(i * 7) + i2]));
                             break;
                         case 2:
-                            hashMap2.put("score", Float.valueOf(fArr[(i * 7) + i2]));
+                            hashMap2.put(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE, Float.valueOf(fArr[(i * 7) + i2]));
                             break;
                         case 3:
                             hashMap2.put(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X1, Float.valueOf(fArr[(i * 7) + i2]));

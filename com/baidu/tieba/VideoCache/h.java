@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String aai;
-    private String bjw;
-    private boolean bjx;
-    private long bjy = -1;
-    private long bjz = -1;
-    private long bjA = 0;
-    private long bjB = 0;
+    private String aal;
+    private String bkV;
+    private boolean bkW;
+    private long bkX = -1;
+    private long bkY = -1;
+    private long bkZ = 0;
+    private long bla = 0;
 
-    public String PD() {
-        return this.bjw;
+    public String Qa() {
+        return this.bkV;
     }
 
-    public void ii(String str) {
-        this.bjw = str;
+    public void in(String str) {
+        this.bkV = str;
     }
 
-    public String PE() {
-        return this.aai;
+    public String Qb() {
+        return this.aal;
     }
 
-    public void ij(String str) {
-        this.aai = str;
+    public void io(String str) {
+        this.aal = str;
     }
 
-    public boolean PF() {
-        return this.bjx;
+    public boolean Qc() {
+        return this.bkW;
     }
 
-    public void cs(boolean z) {
-        this.bjx = z;
+    public void cw(boolean z) {
+        this.bkW = z;
     }
 
-    public long PG() {
-        return this.bjy;
-    }
-
-    public void az(long j) {
-        this.bjy = j;
-    }
-
-    public long PH() {
-        return this.bjz;
+    public long Qd() {
+        return this.bkX;
     }
 
     public void aA(long j) {
-        this.bjz = j;
+        this.bkX = j;
     }
 
-    public long getTotalLength() {
-        return this.bjA;
-    }
-
-    public void T(long j) {
-        this.bjA = j;
+    public long Qe() {
+        return this.bkY;
     }
 
     public void aB(long j) {
-        this.bjB = j;
+        this.bkY = j;
     }
 
-    public long PI() {
-        return this.bjB;
+    public long getTotalLength() {
+        return this.bkZ;
+    }
+
+    public void U(long j) {
+        this.bkZ = j;
+    }
+
+    public void aC(long j) {
+        this.bla = j;
+    }
+
+    public long Qf() {
+        return this.bla;
     }
 }

@@ -10,7 +10,7 @@ import tbclient.AlaLiveInfo;
 import tbclient.BannerFollowLive;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId aJE = BdUniqueId.gen();
+    public static final BdUniqueId aKB = BdUniqueId.gen();
     private List<com.baidu.adp.widget.ListView.h> mList;
 
     public List<com.baidu.adp.widget.ListView.h> getList() {
@@ -25,7 +25,8 @@ public class b implements com.baidu.adp.widget.ListView.h {
                 this.mList.clear();
             }
             List<AlaLiveInfo> list = bannerFollowLive.ala_live_list;
-            if (!w.z(list)) {
+            if (!w.A(list)) {
+                GS();
                 for (AlaLiveInfo alaLiveInfo : list) {
                     if (alaLiveInfo != null) {
                         a aVar = new a();
@@ -33,21 +34,20 @@ public class b implements com.baidu.adp.widget.ListView.h {
                         this.mList.add(aVar);
                     }
                 }
-                GA();
             }
         }
     }
 
-    private void GA() {
+    private void GS() {
         a aVar = new a();
-        aVar.aJB = -100;
-        aVar.aJC = TbadkCoreApplication.getInst().getResources().getString(d.k.ala_follow_live_enter_live_square_txt);
-        aVar.aJD = d.f.icon_follow_live_recommend;
+        aVar.aKy = -100;
+        aVar.aKz = TbadkCoreApplication.getInst().getResources().getString(d.k.ala_follow_live_enter_live_square_txt);
+        aVar.aKA = d.f.icon_follow_live_recommend;
         this.mList.add(aVar);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return aJE;
+        return aKB;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.sapi2.activity;
 
-import android.app.Activity;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.view.View;
 import android.webkit.ValueCallback;
 import android.widget.Toast;
 import com.baidu.c.a.a;
@@ -17,32 +18,50 @@ import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.bio.BiometricsManager;
 import com.baidu.sapi2.callback.ActivityResultCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
+import com.baidu.sapi2.dto.WebLoginDTO;
+import com.baidu.sapi2.provider.FileProvider;
 import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.sapi2.scheme.SapiScheme;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.SapiWebViewUtil;
+import com.baidu.sapi2.utils.enums.FastLoginFeature;
+import com.baidu.sapi2.views.CustomAlertDialog;
+import com.baidu.sapi2.views.ViewUtility;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import org.apache.http.NameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class BaseActivity extends Activity {
+public class BaseActivity extends TitleActivity {
     private static final String CAPTURE_IMAGE_FILE = "camera_temp_image.jpg";
-    public static final int FILECHOOSER_RESULTCODE = 1004;
-    public static final int FILECHOOSER_RESULTCODE_FOR_ANDROID_5 = 1005;
+    public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
+    public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
+    public static final int EXTRA_PARAM_FROM_CHOICE_SHARE = 2004;
+    public static final int EXTRA_PARAM_FROM_LOGIN = 2001;
+    public static final int EXTRA_PARAM_FROM_PASS_SDK_ENTER = 2002;
     private static final int PERMISSION_CAMERA_WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 100;
     private static final int PERMISSION_WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 101;
+    public static final int REQUEST_CODE_FILECHOOSER = 1010;
+    public static final int REQUEST_CODE_FILECHOOSER_FOR_ANDROID_5 = 1011;
+    protected static final int REQUEST_CODE_LOGIN = 1004;
+    protected static final int REQUEST_CODE_SOCIAL_BIND = 1003;
     private static final int REQUEST_PICK_PHOTO = 1002;
     private static final int REQUEST_TAKE_PHOTO = 1001;
     private SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult;
     private ValueCallback<Uri> mUploadMessage;
     private ValueCallback<Uri[]> mUploadMessageForAndroid5;
     private SapiWebView.PickPhotoResult pickPhotoResult;
+    private SapiScheme sapiScheme;
     protected SapiWebView sapiWebView;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,11 +83,22 @@ public class BaseActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void init() {
+    @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onLeftBtnClick() {
+        super.onLeftBtnClick();
+        SapiUtils.hideSoftInput(this);
+        this.executeSubClassMethod = true;
+        if (this.sapiWebView.notifyKefuBack()) {
+            this.executeSubClassMethod = false;
+        } else if (this.titleBtnCallback != null) {
+            this.executeSubClassMethod = this.titleBtnCallback.onLeftBtnClick() ? false : true;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
+        super.setupViews();
         this.sapiWebView = (SapiWebView) findViewById(a.d.sapi_webview);
         SapiWebViewUtil.addCustomView(this, this.sapiWebView);
         PassportViewManager.getInstance().setReloadWebviewObserver(new PassportViewManager.ReloadWebviewObserver() { // from class: com.baidu.sapi2.activity.BaseActivity.1
@@ -77,7 +107,28 @@ public class BaseActivity extends Activity {
                 BaseActivity.this.sapiWebView.reload();
             }
         });
-        this.sapiWebView.setFileChooserCallback(new SapiWebView.FileChooserCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.2
+        this.sapiWebView.setWebViewTitleCallback(new SapiWebView.WebViewTitleCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.2
+            @Override // com.baidu.sapi2.SapiWebView.WebViewTitleCallback
+            public void onTitleChange(String str) {
+                String string = BaseActivity.this.getString(a.f.sapi_sdk_account_center_webview_title_online_service);
+                String string2 = BaseActivity.this.getString(a.f.sapi_sdk_account_center_webview_title_common_problem);
+                if (string.equals(str)) {
+                    str = string2;
+                }
+                BaseActivity.this.setTitleText(str);
+            }
+        });
+        this.sapiWebView.setLocalConfigCallback(new SapiWebView.LocalConfigCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.3
+            @Override // com.baidu.sapi2.SapiWebView.LocalConfigCallback
+            public List<FastLoginFeature> getFastLoginFeatureList() {
+                WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
+                if (webLoginDTO == null || webLoginDTO.config == null) {
+                    return null;
+                }
+                return webLoginDTO.config.fastLoginFeatureList;
+            }
+        });
+        this.sapiWebView.setFileChooserCallback(new SapiWebView.FileChooserCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.4
             @Override // com.baidu.sapi2.SapiWebView.FileChooserCallback
             public void onFileChooser(ValueCallback<Uri> valueCallback) {
                 BaseActivity.this.openFileChooserImpl(valueCallback);
@@ -88,7 +139,7 @@ public class BaseActivity extends Activity {
                 BaseActivity.this.openFileChooserImplForAndroid5(valueCallback);
             }
         });
-        this.sapiWebView.setPickPhotoCallback(new SapiWebView.PickPhotoCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.3
+        this.sapiWebView.setPickPhotoCallback(new SapiWebView.PickPhotoCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.5
             @Override // com.baidu.sapi2.SapiWebView.PickPhotoCallback
             public void onPickImage(int i, SapiWebView.PickPhotoResult pickPhotoResult) {
                 BaseActivity.this.pickPhotoResult = pickPhotoResult;
@@ -96,40 +147,96 @@ public class BaseActivity extends Activity {
                     if (Build.VERSION.SDK_INT < 23 || (BaseActivity.this.checkSelfPermission("android.permission.CAMERA") == 0 && BaseActivity.this.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0)) {
                         BaseActivity.this.takePhoto();
                     } else {
-                        BaseActivity.this.requestPermissions(new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"}, 100);
+                        BaseActivity.this.getPermission(BaseActivity.this, true);
                     }
                 } else if (Build.VERSION.SDK_INT < 23 || BaseActivity.this.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0) {
                     BaseActivity.this.pickPhoto();
                 } else {
-                    BaseActivity.this.requestPermissions(new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 101);
+                    BaseActivity.this.getPermission(BaseActivity.this, false);
                 }
             }
         });
-        this.sapiWebView.setBiometricsIdentifyCallback(new SapiWebView.BiometricsIdentifyCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.4
+        this.sapiWebView.setBiometricsIdentifyCallback(new SapiWebView.BiometricsIdentifyCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.6
             @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyCallback
-            public void onBiometricsIdentify(int i, int i2, String str, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
+            public void onBiometricsIdentify(SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
                 BaseActivity.this.biometricsIdentifyResult = biometricsIdentifyResult;
-                BaseActivity.this.getStoken(i, str);
-            }
-
-            @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyCallback
-            public void onBiometricsIdentify(int i, int i2, String str, String str2, String str3, String str4, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
-                BaseActivity.this.biometricsIdentifyResult = biometricsIdentifyResult;
-                BaseActivity.this.livenessRecognize(BiometricsManager.LIVENESS_RECOGNIZE_TYPE_CERTINFO, str, str2, str3, null, null, str4);
-            }
-
-            @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyCallback
-            public void onBiometricsIdentify(int i, int i2, String str, String str2, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
-                BaseActivity.this.biometricsIdentifyResult = biometricsIdentifyResult;
-                BaseActivity.this.livenessRecognize(BiometricsManager.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN, null, null, null, null, str, str2);
+                if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
+                    BaseActivity.this.getStoken(biometricsIdentifyResult);
+                } else if (SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_CERTINFO.equals(biometricsIdentifyResult.livenessRecogType) || SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN.equals(biometricsIdentifyResult.livenessRecogType)) {
+                    BaseActivity.this.livenessRecognize(null, biometricsIdentifyResult);
+                }
             }
         });
-        this.sapiWebView.setBioScanFaceCallback(new SapiWebView.BioScanFaceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.5
+        this.sapiWebView.setPageStateCallback(new SapiJsCallBacks.PageStateCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.7
+            @Override // com.baidu.sapi2.SapiJsCallBacks.PageStateCallback
+            public void pageState(int i) {
+                BaseActivity.this.updateBottomBack(i);
+            }
+        });
+        this.sapiWebView.setBioScanFaceCallback(new SapiWebView.BioScanFaceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.8
             @Override // com.baidu.sapi2.SapiWebView.BioScanFaceCallback
             public void onBioScanFace(SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult) {
                 BaseActivity.this.bioScanFace(BaseActivity.this, bioScanFaceResult);
             }
         });
+        this.sapiWebView.setInvokeScAppCallback(new SapiWebView.InvokeScAppCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.9
+            @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback
+            public void onInvokeScApp(String str, String str2, List<NameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
+                BaseActivity.this.sapiScheme = new SapiScheme();
+                BaseActivity.this.sapiScheme.invokeScApp(BaseActivity.this, str, str2, list, invokeScAppResult);
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @TargetApi(23)
+    public void getPermission(final Context context, final boolean z) {
+        if (!SapiAccountManager.getInstance().getConfignation().showPmnRationaleDialog) {
+            requestPermission(context, z);
+            return;
+        }
+        final CustomAlertDialog customAlertDialog = new CustomAlertDialog(context);
+        customAlertDialog.setPositiveBtn(getString(a.f.sapi_sdk_pmn_ok), new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.10
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                ViewUtility.dismissDialog(BaseActivity.this, customAlertDialog);
+                BaseActivity.this.requestPermission(context, z);
+            }
+        });
+        customAlertDialog.setNegativeBtn(getString(a.f.sapi_sdk_pmn_cancel), new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.11
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                ViewUtility.dismissDialog(BaseActivity.this, customAlertDialog);
+                if (BaseActivity.this.pickPhotoResult != null) {
+                    BaseActivity.this.pickPhotoResult.setImageData("");
+                }
+            }
+        });
+        if (z) {
+            if (shouldShowRequestPermissionRationale("android.permission.CAMERA") || shouldShowRequestPermissionRationale("android.permission.WRITE_EXTERNAL_STORAGE")) {
+                customAlertDialog.setTitleText(String.format(getString(a.f.sapi_sdk_pmn_title_set_portrait), SapiUtils.getAppName(context), "摄像头/相机、存储权限"));
+                customAlertDialog.setMessageText(String.format(getString(a.f.sapi_sdk_pmn_msg_set_portrait), SapiUtils.getAppName(context), "存储权限"));
+                customAlertDialog.show();
+                return;
+            }
+            requestPermission(context, z);
+        } else if (shouldShowRequestPermissionRationale("android.permission.WRITE_EXTERNAL_STORAGE")) {
+            customAlertDialog.setTitleText(String.format(getString(a.f.sapi_sdk_pmn_title_set_portrait), SapiUtils.getAppName(context), "存储权限"));
+            customAlertDialog.setMessageText(String.format(getString(a.f.sapi_sdk_pmn_msg_set_portrait), SapiUtils.getAppName(context), "存储权限"));
+            customAlertDialog.show();
+        } else {
+            requestPermission(context, z);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    @TargetApi(23)
+    public void requestPermission(Context context, boolean z) {
+        if (z) {
+            requestPermissions(new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"}, 100);
+        } else {
+            requestPermissions(new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 101);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -138,7 +245,7 @@ public class BaseActivity extends Activity {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
-        startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1004);
+        startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1010);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -150,7 +257,7 @@ public class BaseActivity extends Activity {
         Intent intent2 = new Intent("android.intent.action.CHOOSER");
         intent2.putExtra("android.intent.extra.INTENT", intent);
         intent2.putExtra("android.intent.extra.TITLE", "Image Chooser");
-        startActivityForResult(intent2, 1005);
+        startActivityForResult(intent2, 1011);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -166,7 +273,12 @@ public class BaseActivity extends Activity {
             }
             Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
             intent.setAction("android.media.action.IMAGE_CAPTURE");
-            intent.putExtra("output", Uri.fromFile(new File(Environment.getExternalStorageDirectory(), CAPTURE_IMAGE_FILE)));
+            File file2 = new File(Environment.getExternalStorageDirectory(), CAPTURE_IMAGE_FILE);
+            if (Build.VERSION.SDK_INT >= 24 && getApplicationInfo().targetSdkVersion >= 24) {
+                intent.putExtra("output", FileProvider.getUriForFile(this, getPackageName() + ".fileprovider", file2));
+            } else {
+                intent.putExtra("output", Uri.fromFile(file2));
+            }
             intent.putExtra("orientation", 0);
             startActivityForResult(intent, 1001);
         } catch (Throwable th) {
@@ -193,7 +305,7 @@ public class BaseActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void getStoken(final int i, final String str) {
+    public void getStoken(final SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session == null) {
             Toast.makeText(this, "请先登录", 1).show();
@@ -201,14 +313,14 @@ public class BaseActivity extends Activity {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add("pp");
-        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.6
+        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                String str2 = getTplStokenResult.tplStokenMap.get("pp");
-                if (!TextUtils.isEmpty(str2)) {
-                    if (i == 1) {
-                        BaseActivity.this.livenessRecognize("bduss", null, null, null, str2, null, str);
+                String str = getTplStokenResult.tplStokenMap.get("pp");
+                if (!TextUtils.isEmpty(str)) {
+                    if (biometricsIdentifyResult.biometricType == 1) {
+                        BaseActivity.this.livenessRecognize(str, biometricsIdentifyResult);
                         return;
                     }
                     return;
@@ -251,8 +363,8 @@ public class BaseActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void livenessRecognize(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        BiometricsManager.getInstance().livenessRecognize(getApplicationContext(), str, str2, str3, str4, str5, str6, str7, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.7
+    public void livenessRecognize(String str, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
+        BiometricsManager.getInstance().livenessRecognize(getApplicationContext(), str, biometricsIdentifyResult, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.13
             /* JADX WARN: Removed duplicated region for block: B:10:0x0037  */
             /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
             @Override // com.baidu.fsg.api.RimServiceCallback
@@ -261,32 +373,32 @@ public class BaseActivity extends Activity {
             */
             public void onResult(int i, Map<String, Object> map) {
                 JSONException jSONException;
-                String str8;
-                String str9;
-                String str10;
+                String str2;
+                String str3;
+                String str4;
                 if (i == 0) {
-                    String str11 = (String) map.get("retMsg");
+                    String str5 = (String) map.get("retMsg");
                     try {
                         JSONObject jSONObject = new JSONObject((String) map.get("result"));
                         String optString = jSONObject.optString("callbackkey");
                         try {
-                            str10 = jSONObject.optString("authsid");
-                            str9 = optString;
+                            str4 = jSONObject.optString("authsid");
+                            str3 = optString;
                         } catch (JSONException e) {
-                            str8 = optString;
+                            str2 = optString;
                             jSONException = e;
                             Log.e(jSONException);
-                            str9 = str8;
-                            str10 = null;
-                            JSONObject livenessResult2JsonObj = BaseActivity.this.livenessResult2JsonObj(i, str11, str9, str10);
+                            str3 = str2;
+                            str4 = null;
+                            JSONObject livenessResult2JsonObj = BaseActivity.this.livenessResult2JsonObj(i, str5, str3, str4);
                             if (BaseActivity.this.biometricsIdentifyResult == null) {
                             }
                         }
                     } catch (JSONException e2) {
                         jSONException = e2;
-                        str8 = null;
+                        str2 = null;
                     }
-                    JSONObject livenessResult2JsonObj2 = BaseActivity.this.livenessResult2JsonObj(i, str11, str9, str10);
+                    JSONObject livenessResult2JsonObj2 = BaseActivity.this.livenessResult2JsonObj(i, str5, str3, str4);
                     if (BaseActivity.this.biometricsIdentifyResult == null) {
                         BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(livenessResult2JsonObj2.toString());
                         return;
@@ -303,7 +415,7 @@ public class BaseActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bioScanFace(Context context, final SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult) {
-        BiometricsManager.getInstance().bioScanFace(context, bioScanFaceResult, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.8
+        BiometricsManager.getInstance().bioScanFace(context, bioScanFaceResult, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.14
             /* JADX WARN: Removed duplicated region for block: B:10:0x0037  */
             /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
             @Override // com.baidu.fsg.api.RimServiceCallback
@@ -369,7 +481,7 @@ public class BaseActivity extends Activity {
         return jSONObject;
     }
 
-    @Override // android.app.Activity
+    @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 100) {
@@ -402,12 +514,12 @@ public class BaseActivity extends Activity {
         if (activityResultCallback != null) {
             activityResultCallback.onActivityResult(i, i2, intent);
         }
-        if (i == 1004) {
+        if (i == 1010) {
             if (this.mUploadMessage != null) {
                 this.mUploadMessage.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
                 this.mUploadMessage = null;
             }
-        } else if (i == 1005) {
+        } else if (i == 1011) {
             if (this.mUploadMessageForAndroid5 != null) {
                 Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                 if (data != null) {
@@ -418,41 +530,41 @@ public class BaseActivity extends Activity {
                 this.mUploadMessageForAndroid5 = null;
             }
         } else if (i == 1001) {
-            if (i2 == -1 && imageCropCallback != null) {
-                imageCropCallback.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), CAPTURE_IMAGE_FILE)), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.9
-                    @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
-                    public void onImageResult(String str) {
-                        if (str == null || BaseActivity.this.pickPhotoResult == null) {
-                            if (BaseActivity.this.pickPhotoResult != null) {
+            if (this.pickPhotoResult != null) {
+                if (i2 == -1 && imageCropCallback != null) {
+                    imageCropCallback.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), CAPTURE_IMAGE_FILE)), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.15
+                        @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
+                        public void onImageResult(String str) {
+                            if (str != null) {
+                                BaseActivity.this.pickPhotoResult.setImageData(str);
+                            } else {
                                 BaseActivity.this.pickPhotoResult.setImageData("");
-                                return;
                             }
-                            return;
                         }
-                        BaseActivity.this.pickPhotoResult.setImageData(str);
-                    }
-                });
-            } else if (this.pickPhotoResult != null) {
-                this.pickPhotoResult.setImageData("");
+                    });
+                } else {
+                    this.pickPhotoResult.setImageData("");
+                }
             }
         } else if (i == 1002) {
-            if (i2 == -1 && intent.getData() != null) {
-                imageCropCallback.onImageCrop(this, intent.getData(), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.10
-                    @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
-                    public void onImageResult(String str) {
-                        if (str == null || BaseActivity.this.pickPhotoResult == null) {
-                            if (BaseActivity.this.pickPhotoResult != null) {
+            if (this.pickPhotoResult != null) {
+                if (i2 == -1 && intent.getData() != null && imageCropCallback != null) {
+                    imageCropCallback.onImageCrop(this, intent.getData(), new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.16
+                        @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
+                        public void onImageResult(String str) {
+                            if (str != null) {
+                                BaseActivity.this.pickPhotoResult.setImageData(str);
+                            } else {
                                 BaseActivity.this.pickPhotoResult.setImageData("");
-                                return;
                             }
-                            return;
                         }
-                        BaseActivity.this.pickPhotoResult.setImageData(str);
-                    }
-                });
-            } else if (this.pickPhotoResult != null) {
-                this.pickPhotoResult.setImageData("");
+                    });
+                } else {
+                    this.pickPhotoResult.setImageData("");
+                }
             }
+        } else if (i == 3001 && this.sapiScheme != null) {
+            this.sapiScheme.onActivityResult(i, i2, intent);
         }
     }
 }

@@ -6,23 +6,22 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.sina.weibo.sdk.constant.WBConstants;
 /* loaded from: classes.dex */
 public class m extends a {
-    private static a eiS;
-    public static String eit = "tb_private_msg_";
+    private static a emL;
+    public static String emm = "tb_private_msg_";
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m aIj() {
+    public static synchronized m aIQ() {
         m mVar;
         synchronized (m.class) {
-            if (eiS == null) {
-                eiS = new m();
+            if (emL == null) {
+                emL = new m();
             }
-            mVar = (m) eiS;
+            mVar = (m) emL;
         }
         return mVar;
     }
@@ -42,16 +41,16 @@ public class m extends a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo aq(String str, int i) {
+    public CommonMsgPojo ap(String str, int i) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = eit;
+            ?? r2 = emm;
             try {
                 try {
-                    cursor = h.aHY().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.aIF().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -64,7 +63,7 @@ public class m extends a {
                             commonMsgPojo2.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
                             commonMsgPojo2.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
                             commonMsgPojo2.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            commonMsgPojo2.setCreate_time(cursor.getLong(cursor.getColumnIndex(WBConstants.GAME_PARAMS_GAME_CREATE_TIME)));
+                            commonMsgPojo2.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
                             commonMsgPojo2.setExt(cursor.getString(cursor.getColumnIndex("ext")));
                             commonMsgPojo2.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
                             commonMsgPojo2.setMsg_status(cursor.getInt(cursor.getColumnIndex("msg_status")));
@@ -81,7 +80,7 @@ public class m extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        nZ(str);
+                        oa(str);
                         com.baidu.adp.lib.util.n.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;

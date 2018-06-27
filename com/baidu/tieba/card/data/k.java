@@ -1,40 +1,41 @@
 package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
 /* loaded from: classes2.dex */
 public class k extends c {
-    public bd threadData;
-    public static String cBy = "";
-    public static String cBz = "";
-    public static String cBA = "";
-    public static String cBB = "";
-    public static String cBC = "";
-    public static String cBD = "";
-    public static String cBE = "";
-    public static String cBF = "";
-    public static String cBG = "";
-    public static String cBH = "";
-    public static String cBI = "";
+    public bc threadData;
+    public static String czs = "";
+    public static String czt = "";
+    public static String czu = "";
+    public static String czv = "";
+    public static String czw = "";
+    public static String czx = "";
+    public static String czy = "";
+    public static String czz = "";
+    public static String czA = "";
+    public static String czB = "";
+    public static String czC = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId cBJ = BdUniqueId.gen();
-    public static final BdUniqueId ahK = BdUniqueId.gen();
-    public static final BdUniqueId ahQ = BdUniqueId.gen();
-    public static final BdUniqueId cBK = BdUniqueId.gen();
-    public boolean cBL = false;
+    public static final BdUniqueId czD = BdUniqueId.gen();
+    public static final BdUniqueId aic = BdUniqueId.gen();
+    public static final BdUniqueId aii = BdUniqueId.gen();
+    public static final BdUniqueId czE = BdUniqueId.gen();
+    public boolean czF = false;
     public boolean isLinkThread = false;
-    public boolean cBM = false;
-    public boolean aMC = true;
+    public boolean czG = false;
+    public boolean aNy = true;
 
-    public static boolean N(bd bdVar) {
-        if (bdVar == null) {
+    public static boolean P(bc bcVar) {
+        if (bcVar == null) {
             return false;
         }
-        return bdVar.getType() == bd.ahJ || bdVar.getType() == bd.ahL || bdVar.getType() == bd.ahK || bdVar.getType() == bd.ahQ || bdVar.getType() == bd.ahS;
+        return bcVar.getType() == bc.aib || bcVar.getType() == bc.aid || bcVar.getType() == bc.aic || bcVar.getType() == bc.aii || bcVar.getType() == bc.aik;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
@@ -42,185 +43,185 @@ public class k extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.cBL) {
-            return cBJ;
+        if (this.czF) {
+            return czD;
         }
         if (this.isLinkThread) {
-            return ahK;
+            return aic;
         }
         if (this.threadData.isShareThread) {
-            return ahQ;
+            return aii;
         }
-        if (this.threadData.getType() == bd.ahS) {
-            return cBK;
+        if (this.threadData.getType() == bc.aik) {
+            return czE;
         }
         return TYPE;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bd Sz() {
+    public bc SV() {
         if (this.threadData == null) {
             return this.threadData;
         }
-        if (this.threadData.vc() == 5) {
+        if (this.threadData.vl() == 5) {
             return this.threadData;
         }
         this.threadData.setResource(1);
         return this.threadData;
     }
 
-    public boolean ajz() {
-        return (this.threadData == null || w.y(this.threadData.vA()) == 0) ? false : true;
+    public boolean aiT() {
+        return (this.threadData == null || w.z(this.threadData.vK()) == 0) ? false : true;
     }
 
-    public am ajA() {
-        bd Sz;
-        if (this.cBL) {
-            am amVar = new am("c11003");
-            if (Sz() != null && (Sz = Sz()) != null) {
-                amVar.ah("tid", Sz.getTid());
-                if (Sz.vm() != null) {
-                    amVar.r("ab_type", Sz.vm().hadConcerned() ? 1 : 0);
+    public an aiU() {
+        bc SV;
+        if (this.czF) {
+            an anVar = new an("c11003");
+            if (SV() != null && (SV = SV()) != null) {
+                anVar.ah("tid", SV.getTid());
+                if (SV.vw() != null) {
+                    anVar.r("ab_type", SV.vw().hadConcerned() ? 1 : 0);
                 }
             }
-            return amVar;
-        } else if (ajz()) {
-            am lg = lg(cBD);
-            if (lg != null && Sz() != null) {
-                bd Sz2 = Sz();
-                lg.r("obj_name", Sz2.wy() != null && (Sz2.wy().bxb() != null || Sz2.wy().No() != null) ? 1 : 0);
-                if (Sz2.vm() != null) {
-                    lg.r("ab_type", Sz2.vm().hadConcerned() ? 1 : 0);
+            return anVar;
+        } else if (aiT()) {
+            an ld = ld(czx);
+            if (ld != null && SV() != null) {
+                bc SV2 = SV();
+                ld.r("obj_name", SV2.wI() != null && (SV2.wI().bxE() != null || SV2.wI().NH() != null) ? 1 : 0);
+                if (SV2.vw() != null) {
+                    ld.r("ab_type", SV2.vw().hadConcerned() ? 1 : 0);
                 }
             }
-            return lg;
+            return ld;
         } else {
-            am lg2 = lg(cBy);
-            if (lg2 != null) {
-                lg2.ah("ab_tag", ajr()).ah("ab_action", "show");
-                if (Sz() != null) {
-                    bd Sz3 = Sz();
-                    boolean z = (Sz3.wy() == null || (Sz3.wy().bxb() == null && Sz3.wy().No() == null)) ? false : true;
-                    lg2.r("obj_name", z ? 1 : 0);
-                    if (z && Sz3.wy().bxb() != null && Sz3.wy().bxb().Ng() != null && Sz3.wy().bxb().Ng().size() > 0) {
-                        lg2.r("obj_to", Sz3.wy().gJA ? 2 : 1);
+            an ld2 = ld(czs);
+            if (ld2 != null) {
+                ld2.ah("ab_tag", aiL()).ah("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+                if (SV() != null) {
+                    bc SV3 = SV();
+                    boolean z = (SV3.wI() == null || (SV3.wI().bxE() == null && SV3.wI().NH() == null)) ? false : true;
+                    ld2.r("obj_name", z ? 1 : 0);
+                    if (z && SV3.wI().bxE() != null && SV3.wI().bxE().Nz() != null && SV3.wI().bxE().Nz().size() > 0) {
+                        ld2.r("obj_to", SV3.wI().gNB ? 2 : 1);
                     }
-                    if (Sz3.vm() != null) {
-                        lg2.r("ab_type", Sz3.vm().hadConcerned() ? 1 : 0);
+                    if (SV3.vw() != null) {
+                        ld2.r("ab_type", SV3.vw().hadConcerned() ? 1 : 0);
                     }
                 }
             }
-            return lg2;
+            return ld2;
         }
     }
 
-    public am li(String str) {
+    public an lf(String str) {
         int i;
-        am amVar = new am(str);
-        if (amVar != null && this.threadData != null) {
-            amVar.f(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
-            amVar.ah("tid", this.threadData.getTid());
+        an anVar = new an(str);
+        if (anVar != null && this.threadData != null) {
+            anVar.f(ImageViewerConfig.FORUM_ID, this.threadData.getFid());
+            anVar.ah("tid", this.threadData.getTid());
             if (this.threadData.isLinkThread()) {
                 i = 4;
             } else {
                 i = this.threadData.isShareThread ? 5 : 1;
             }
-            amVar.r("obj_type", i);
-            amVar.ah(VideoPlayActivityConfig.OBJ_ID, this.threadData.vm().getUserId());
-            amVar.r("obj_param1", ajv() ? 2 : 1);
+            anVar.r("obj_type", i);
+            anVar.ah(VideoPlayActivityConfig.OBJ_ID, this.threadData.vw().getUserId());
+            anVar.r("obj_param1", aiP() ? 2 : 1);
         }
-        return amVar;
+        return anVar;
     }
 
-    public am lj(String str) {
-        am lg = lg(str);
-        if (lg != null) {
-            lg.ah("ab_tag", ajr()).ah("ab_action", "show");
-            if (Sz() != null) {
-                bd Sz = Sz();
-                boolean z = (Sz.wy() == null || (Sz.wy().bxb() == null && Sz.wy().No() == null)) ? false : true;
-                lg.r("obj_name", z ? 1 : 0);
-                if (z && Sz.wy().bxb() != null && Sz.wy().bxb().Ng() != null && Sz.wy().bxb().Ng().size() > 0) {
-                    lg.r("obj_to", Sz.wy().gJA ? 2 : 1);
+    public an lg(String str) {
+        an ld = ld(str);
+        if (ld != null) {
+            ld.ah("ab_tag", aiL()).ah("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+            if (SV() != null) {
+                bc SV = SV();
+                boolean z = (SV.wI() == null || (SV.wI().bxE() == null && SV.wI().NH() == null)) ? false : true;
+                ld.r("obj_name", z ? 1 : 0);
+                if (z && SV.wI().bxE() != null && SV.wI().bxE().Nz() != null && SV.wI().bxE().Nz().size() > 0) {
+                    ld.r("obj_to", SV.wI().gNB ? 2 : 1);
                 }
             }
         }
-        return lg;
+        return ld;
     }
 
-    public am lk(String str) {
-        am lg = lg(str);
-        if (lg != null) {
-            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
+    public an lh(String str) {
+        an ld = ld(str);
+        if (ld != null) {
+            ld.ah("ab_tag", aiL()).ah("ab_action", "click");
         }
-        return lg;
+        return ld;
     }
 
-    public am ajB() {
-        if (ajz()) {
-            return lg(cBE);
+    public an aiV() {
+        if (aiT()) {
+            return ld(czy);
         }
-        am lg = lg(cBz);
-        if (lg != null) {
-            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
-            return lg;
+        an ld = ld(czt);
+        if (ld != null) {
+            ld.ah("ab_tag", aiL()).ah("ab_action", "click");
+            return ld;
         }
-        return lg;
+        return ld;
     }
 
-    public am ajC() {
-        if (ajz()) {
-            return lg(cBF);
+    public an aiW() {
+        if (aiT()) {
+            return ld(czz);
         }
-        am W = W(cBA, 0);
-        if (W != null) {
-            W.ah("ab_tag", ajr()).ah("ab_action", "click");
-            return W;
+        an U = U(czu, 0);
+        if (U != null) {
+            U.ah("ab_tag", aiL()).ah("ab_action", "click");
+            return U;
         }
-        return W;
+        return U;
     }
 
-    public am ajD() {
-        if (ajz()) {
-            return lg(cBG);
+    public an aiX() {
+        if (aiT()) {
+            return ld(czA);
         }
-        am lg = lg(cBB);
-        if (lg != null) {
-            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
-            return lg;
+        an ld = ld(czv);
+        if (ld != null) {
+            ld.ah("ab_tag", aiL()).ah("ab_action", "click");
+            return ld;
         }
-        return lg;
+        return ld;
     }
 
-    public am ajE() {
-        if (ajz()) {
-            return lg(cBH);
+    public an aiY() {
+        if (aiT()) {
+            return ld(czB);
         }
-        am lg = lg(cBC);
-        if (lg != null) {
-            lg.ah("ab_tag", ajr()).ah("ab_action", "click");
-            return lg;
+        an ld = ld(czw);
+        if (ld != null) {
+            ld.ah("ab_tag", aiL()).ah("ab_action", "click");
+            return ld;
         }
-        return lg;
+        return ld;
     }
 
-    public am ajF() {
-        return lg(cBI);
+    public an aiZ() {
+        return ld(czC);
     }
 
-    public am ll(String str) {
-        return lg(str);
+    public an li(String str) {
+        return ld(str);
     }
 
-    public am lm(String str) {
-        am lg = lg(str);
-        if (this.threadData != null && this.threadData.vm() != null) {
-            lg.r("ab_type", this.threadData.vm().hadConcerned() ? 1 : 0);
+    public an lj(String str) {
+        an ld = ld(str);
+        if (this.threadData != null && this.threadData.vw() != null) {
+            ld.r("ab_type", this.threadData.vw().hadConcerned() ? 1 : 0);
         }
-        return lg;
+        return ld;
     }
 
-    public am ln(String str) {
-        return lg(str);
+    public an lk(String str) {
+        return ld(str);
     }
 }

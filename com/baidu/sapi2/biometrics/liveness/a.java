@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
-import com.baidu.sapi2.bio.BiometricsManager;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.biometrics.liveness.SapiLivenessOperation;
 import com.baidu.sapi2.biometrics.liveness.callback.LivenessRecogCallback;
 import com.baidu.sapi2.biometrics.liveness.dto.LivenessRecogDTO;
@@ -27,15 +27,15 @@ public class a {
     }
 
     public static a a() {
-        return C0081a.a;
+        return C0083a.a;
     }
 
     /* renamed from: com.baidu.sapi2.biometrics.liveness.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0081a {
+    private static class C0083a {
         private static a a = new a();
 
-        private C0081a() {
+        private C0083a() {
         }
     }
 
@@ -119,13 +119,13 @@ public class a {
             livenessRecogDTO.bduss = hashMap.get("bduss") != null ? hashMap.get("bduss") + "" : "";
             livenessRecogDTO.stoken = hashMap.get(ISapiAccount.SAPI_ACCOUNT_STOKEN) != null ? hashMap.get(ISapiAccount.SAPI_ACCOUNT_STOKEN) + "" : "";
             livenessRecogDTO.uid = hashMap.get("uid") != null ? hashMap.get("uid") + "" : "";
-        } else if (BiometricsManager.LIVENESS_RECOGNIZE_TYPE_CERTINFO.equals(str)) {
+        } else if (SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_CERTINFO.equals(str)) {
             livenessRecogDTO.livenessType = LivenessRecogType.RECOG_TYPE_CERTINFO;
             livenessRecogDTO.realName = hashMap.get("realName") != null ? hashMap.get("realName") + "" : "";
             livenessRecogDTO.idCardNum = hashMap.get("idCardNo") != null ? hashMap.get("idCardNo") + "" : "";
             livenessRecogDTO.phoneNum = hashMap.get("phoneNo") != null ? hashMap.get("phoneNo") + "" : "";
             livenessRecogDTO.exUid = hashMap.get("exuid") != null ? hashMap.get("exuid") + "" : "";
-        } else if (BiometricsManager.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN.equals(str)) {
+        } else if (SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN.equals(str)) {
             livenessRecogDTO.livenessType = LivenessRecogType.RECOG_TYPE_AUTHTOKEN;
             livenessRecogDTO.authToken = hashMap.get("authToken") != null ? hashMap.get("authToken") + "" : "";
         } else if ("faceDetect".equals(str)) {

@@ -187,10 +187,10 @@ public class LottieAnimationView extends AppCompatImageView {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         savedState.kb = this.kb;
         savedState.kc = this.kc;
-        savedState.kl = this.jY.getProgress();
-        savedState.km = this.jY.isAnimating();
-        savedState.kn = this.jY.isLooping();
-        savedState.ko = this.jY.getImageAssetsFolder();
+        savedState.progress = this.jY.getProgress();
+        savedState.kl = this.jY.isAnimating();
+        savedState.km = this.jY.isLooping();
+        savedState.kn = this.jY.getImageAssetsFolder();
         return savedState;
     }
 
@@ -210,12 +210,12 @@ public class LottieAnimationView extends AppCompatImageView {
         if (this.kc != 0) {
             setAnimation(this.kc);
         }
-        setProgress(savedState.kl);
-        k(savedState.kn);
-        if (savedState.km) {
+        setProgress(savedState.progress);
+        k(savedState.km);
+        if (savedState.kl) {
             ba();
         }
-        this.jY.G(savedState.ko);
+        this.jY.G(savedState.kn);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -479,10 +479,10 @@ public class LottieAnimationView extends AppCompatImageView {
         };
         String kb;
         int kc;
-        float kl;
+        boolean kl;
         boolean km;
-        boolean kn;
-        String ko;
+        String kn;
+        float progress;
 
         SavedState(Parcelable parcelable) {
             super(parcelable);
@@ -491,20 +491,20 @@ public class LottieAnimationView extends AppCompatImageView {
         private SavedState(Parcel parcel) {
             super(parcel);
             this.kb = parcel.readString();
-            this.kl = parcel.readFloat();
+            this.progress = parcel.readFloat();
+            this.kl = parcel.readInt() == 1;
             this.km = parcel.readInt() == 1;
-            this.kn = parcel.readInt() == 1;
-            this.ko = parcel.readString();
+            this.kn = parcel.readString();
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.kb);
-            parcel.writeFloat(this.kl);
+            parcel.writeFloat(this.progress);
+            parcel.writeInt(this.kl ? 1 : 0);
             parcel.writeInt(this.km ? 1 : 0);
-            parcel.writeInt(this.kn ? 1 : 0);
-            parcel.writeString(this.ko);
+            parcel.writeString(this.kn);
         }
     }
 }

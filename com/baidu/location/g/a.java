@@ -25,9 +25,9 @@ import com.baidu.location.e.d;
 import com.baidu.location.f;
 import com.baidu.location.f.k;
 import org.apache.http.HttpStatus;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a extends Service implements LLSInterface {
-    static HandlerC0069a a = null;
+    static HandlerC0070a a = null;
     private static long f = 0;
     private Looper c;
     private HandlerThread d;
@@ -35,9 +35,9 @@ public class a extends Service implements LLSInterface {
     private boolean e = false;
 
     /* renamed from: com.baidu.location.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class HandlerC0069a extends Handler {
-        public HandlerC0069a(Looper looper) {
+    /* loaded from: classes2.dex */
+    public class HandlerC0070a extends Handler {
+        public HandlerC0070a(Looper looper) {
             super(looper);
         }
 
@@ -158,7 +158,7 @@ public class a extends Service implements LLSInterface {
         f = System.currentTimeMillis();
         this.d = i.qp();
         this.c = this.d.getLooper();
-        a = new HandlerC0069a(this.c);
+        a = new HandlerC0070a(this.c);
         this.b = new Messenger(a);
         a.sendEmptyMessage(0);
         Log.d("baidu_location_service", "baidu location service start1 ..." + Process.myPid());

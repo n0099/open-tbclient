@@ -1,16 +1,12 @@
 package com.baidu.sapi2.passhost.framework;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.AbsPassPiSafe;
 import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
-import java.util.Map;
 /* loaded from: classes.dex */
 public class PluginFacade {
     private static boolean a = false;
@@ -23,34 +19,9 @@ public class PluginFacade {
     public static void setSwitch(Context context, boolean z) {
         boolean z2 = a;
         a = z;
-        if (!z2 && z && a(context)) {
+        if (!z2 && z && SapiUtils.isOnline(context)) {
             onProcessStartAsync(context);
         }
-    }
-
-    private static boolean a(Context context) {
-        String packageName = context.getPackageName();
-        if (TextUtils.isEmpty(packageName)) {
-            return false;
-        }
-        if (packageName.matches("com.baidu.sapi2.(.*)")) {
-            return true;
-        }
-        try {
-            if ((context.getApplicationInfo().flags & 2) != 0) {
-                return false;
-            }
-        } catch (Exception e) {
-            Log.e(e);
-        }
-        Map<String, String> authorizedPackages = SapiContext.getInstance(context).getAuthorizedPackages();
-        String packageSign = SapiUtils.getPackageSign(context, packageName);
-        for (String str : authorizedPackages.keySet()) {
-            if (packageName.matches(str) && packageSign.equals(authorizedPackages.get(str))) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static AbsPassPiSafe getAbsPassPiSafe() {

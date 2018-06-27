@@ -7,10 +7,10 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class h {
-    private static h WX = null;
-    private a WY = null;
+    private static h Xa = null;
+    private a Xb = null;
     private boolean d = false;
     private boolean e = false;
     private boolean f = false;
@@ -19,7 +19,7 @@ public class h {
     final Handler a = new Handler();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a extends BroadcastReceiver {
         private a() {
         }
@@ -34,7 +34,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -81,10 +81,10 @@ public class h {
     public static synchronized h qB() {
         h hVar;
         synchronized (h.class) {
-            if (WX == null) {
-                WX = new h();
+            if (Xa == null) {
+                Xa = new h();
             }
-            hVar = WX;
+            hVar = Xa;
         }
         return hVar;
     }
@@ -92,10 +92,10 @@ public class h {
     public synchronized void b() {
         if (com.baidu.location.f.isServing && !this.h) {
             try {
-                this.WY = new a();
+                this.Xb = new a();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                com.baidu.location.f.getServiceContext().registerReceiver(this.WY, intentFilter);
+                com.baidu.location.f.getServiceContext().registerReceiver(this.Xb, intentFilter);
                 this.e = true;
                 f();
             } catch (Exception e) {
@@ -108,13 +108,13 @@ public class h {
     public synchronized void c() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.WY);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.Xb);
             } catch (Exception e) {
             }
             this.g = false;
             this.h = false;
             this.f = false;
-            this.WY = null;
+            this.Xb = null;
         }
     }
 

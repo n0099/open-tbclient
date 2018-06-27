@@ -11,72 +11,72 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a gou;
-    private String gos;
-    private String got = b.getInstance().getString("asp_shown_info", "");
+    private static a gsl;
+    private String gsj;
+    private String gsk = b.getInstance().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
-    private long xL;
+    private long xJ;
 
     private a() {
     }
 
-    public static a boX() {
-        if (gou == null) {
+    public static a bpy() {
+        if (gsl == null) {
             synchronized (c.class) {
-                if (gou == null) {
-                    gou = new a();
+                if (gsl == null) {
+                    gsl = new a();
                 }
             }
         }
-        return gou;
-    }
-
-    public void nN(String str) {
-        this.longitude = str;
+        return gsl;
     }
 
     public void nO(String str) {
+        this.longitude = str;
+    }
+
+    public void nP(String str) {
         this.latitude = str;
     }
 
-    public void cW(long j) {
-        this.xL = j;
+    public void cR(long j) {
+        this.xJ = j;
     }
 
-    private String boY() {
-        if (TextUtils.isEmpty(this.gos)) {
+    private String bpz() {
+        if (TextUtils.isEmpty(this.gsj)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.gos = connectionInfo.getBSSID();
+                this.gsj = connectionInfo.getBSSID();
             } else {
-                this.gos = "";
+                this.gsj = "";
             }
         }
-        return this.gos;
+        return this.gsj;
+    }
+
+    public void sV(String str) {
+        this.gsj = str;
     }
 
     public void sW(String str) {
-        this.gos = str;
+        this.gsk = str;
     }
 
-    public void sX(String str) {
-        this.got = str;
+    public void bpA() {
+        b.getInstance().putString("asp_shown_info", this.gsk);
     }
 
-    public void boZ() {
-        b.getInstance().putString("asp_shown_info", this.got);
-    }
-
-    public AppPosInfo bpa() {
+    public AppPosInfo bpB() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = boY();
+        builder.ap_mac = bpz();
         builder.ap_connected = Boolean.valueOf(j.jE());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
-        builder.addr_timestamp = Long.valueOf(this.xL);
+        builder.addr_timestamp = Long.valueOf(this.xJ);
         builder.coordinate_type = BDLocation.BDLOCATION_GCJ02_TO_BD09LL;
-        builder.asp_shown_info = this.got;
+        builder.asp_shown_info = this.gsk;
         return builder.build(false);
     }
 }

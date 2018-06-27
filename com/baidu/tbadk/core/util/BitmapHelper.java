@@ -584,19 +584,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream ej = l.ej(str);
-                BitmapFactory.decodeStream(ej, null, options);
+                InputStream em = l.em(str);
+                BitmapFactory.decodeStream(em, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.f(ej);
+                com.baidu.adp.lib.util.n.f(em);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream ej2 = l.ej(str);
-                        decodeStream = BitmapFactory.decodeStream(ej2, null, options);
-                        com.baidu.adp.lib.util.n.f(ej2);
+                        InputStream em2 = l.em(str);
+                        decodeStream = BitmapFactory.decodeStream(em2, null, options);
+                        com.baidu.adp.lib.util.n.f(em2);
                     }
                 }
             }

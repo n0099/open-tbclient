@@ -10,42 +10,42 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes2.dex */
 public class a {
-    private static a cSH;
-    private WindowManager.LayoutParams cSF;
-    private ImageView cSG;
-    private int cSI;
-    private boolean cSJ;
+    private static a cQF;
+    private WindowManager.LayoutParams cQD;
+    private ImageView cQE;
+    private int cQG;
+    private boolean cQH;
     private int mHeight;
     private boolean mIsDragging;
     private int mWidth;
     private WindowManager mWindowManager;
 
-    public static a apd() {
-        if (cSH == null) {
+    public static a aoy() {
+        if (cQF == null) {
             synchronized (a.class) {
-                if (cSH == null) {
-                    cSH = new a();
+                if (cQF == null) {
+                    cQF = new a();
                 }
             }
         }
-        return cSH;
+        return cQF;
     }
 
     private a() {
     }
 
     public void k(Context context, int i) {
-        this.cSJ = true;
+        this.cQH = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.mWindowManager = (WindowManager) context.getSystemService("window");
-        this.cSI = i;
+        this.cQG = i;
     }
 
     public void destroy() {
-        this.cSJ = false;
-        cSH = null;
+        this.cQH = false;
+        cQF = null;
     }
 
     public boolean isDragging() {
@@ -69,32 +69,32 @@ public class a {
         }
     }
 
-    public void av(int i, int i2) {
-        ape();
-        aw(i, i2);
+    public void au(int i, int i2) {
+        aoz();
+        av(i, i2);
         if (this.mWindowManager != null) {
-            this.mWindowManager.updateViewLayout(this.cSG, this.cSF);
+            this.mWindowManager.updateViewLayout(this.cQE, this.cQD);
         }
     }
 
-    private void ape() {
-        if (!this.cSJ) {
+    private void aoz() {
+        if (!this.cQH) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        ape();
+        aoz();
         if (bitmap != null) {
-            aw(i, i2);
-            this.cSG = new ImageView(context);
-            this.cSG.setImageBitmap(bitmap);
+            av(i, i2);
+            this.cQE = new ImageView(context);
+            this.cQE.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && p(activity.getWindow().getDecorView())) {
                     try {
                         if (this.mWindowManager != null) {
-                            this.mWindowManager.addView(this.cSG, this.cSF);
+                            this.mWindowManager.addView(this.cQE, this.cQD);
                         }
                     } catch (Exception e) {
                     }
@@ -118,30 +118,30 @@ public class a {
         return false;
     }
 
-    private void apf() {
-        this.cSF = new WindowManager.LayoutParams();
-        this.cSF.format = -3;
-        this.cSF.gravity = 51;
-        this.cSF.alpha = 1.0f;
-        this.cSF.width = -2;
-        this.cSF.height = -2;
-        this.cSF.flags = 24;
+    private void aoA() {
+        this.cQD = new WindowManager.LayoutParams();
+        this.cQD.format = -3;
+        this.cQD.gravity = 51;
+        this.cQD.alpha = 1.0f;
+        this.cQD.width = -2;
+        this.cQD.height = -2;
+        this.cQD.flags = 24;
     }
 
-    private void aw(int i, int i2) {
-        if (this.cSF == null) {
-            apf();
+    private void av(int i, int i2) {
+        if (this.cQD == null) {
+            aoA();
         }
-        this.cSF.x = i - (this.mWidth / 2);
-        this.cSF.y = (i2 - (this.mHeight / 2)) - this.cSI;
+        this.cQD.x = i - (this.mWidth / 2);
+        this.cQD.y = (i2 - (this.mHeight / 2)) - this.cQG;
     }
 
-    public void apg() {
-        if (this.cSG != null) {
+    public void aoB() {
+        if (this.cQE != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.cSG);
+                this.mWindowManager.removeView(this.cQE);
             }
-            this.cSG = null;
+            this.cQE = null;
         }
         this.mIsDragging = false;
     }

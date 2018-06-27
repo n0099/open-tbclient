@@ -1,7 +1,7 @@
 package com.baidu.location;
 
 import android.util.Log;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class BDNotifyListener {
     public double mLatitude = Double.MIN_VALUE;
     public double mLongitude = Double.MIN_VALUE;

@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Set<String> wP;
-    private Message wS;
+    private Set<String> wN;
+    private Message wQ;
 
     public g(Message message) {
-        this.wS = message;
+        this.wQ = message;
         List<Field> e = com.baidu.adp.lib.OrmObject.a.a.e(message.getClass());
-        this.wP = new HashSet();
+        this.wN = new HashSet();
         if (e != null && e.size() > 0) {
             for (Field field : e) {
                 if (field != null) {
-                    this.wP.add(field.getName());
+                    this.wN.add(field.getName());
                 }
             }
         }
@@ -26,16 +26,16 @@ public class g implements c {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> gE() {
-        return this.wP;
+        return this.wN;
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.OrmObject.a.a.c(this.wS, str);
+        return com.baidu.adp.lib.OrmObject.a.a.c(this.wQ, str);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public void d(String str, Object obj) {
-        com.baidu.adp.lib.OrmObject.a.a.a(this.wS, str, obj);
+        com.baidu.adp.lib.OrmObject.a.a.a(this.wQ, str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c

@@ -9,14 +9,14 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class FiltersView extends HorizontalScrollView {
-    private int aGf;
-    private int aGg;
-    private ImageView[] aGh;
-    private View aGi;
-    private View aGj;
-    private a aGk;
-    private boolean aGl;
-    private String aGm;
+    private int aGX;
+    private int aGY;
+    private ImageView[] aGZ;
+    private View aHa;
+    private View aHb;
+    private a aHc;
+    private boolean aHd;
+    private String aHe;
     private Context mContext;
     private Runnable scrollRunnable;
 
@@ -26,13 +26,13 @@ public class FiltersView extends HorizontalScrollView {
 
     public FiltersView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGf = 0;
-        this.aGg = 0;
+        this.aGX = 0;
+        this.aGY = 0;
         this.scrollRunnable = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.FiltersView.1
             @Override // java.lang.Runnable
             public void run() {
                 int i;
-                if (FiltersView.this.aGi != null) {
+                if (FiltersView.this.aHa != null) {
                     int childCount = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildCount();
                     int i2 = 0;
                     while (true) {
@@ -41,14 +41,14 @@ public class FiltersView extends HorizontalScrollView {
                             break;
                         }
                         View childAt = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildAt(i2);
-                        if (childAt != FiltersView.this.aGi) {
+                        if (childAt != FiltersView.this.aHa) {
                             i2++;
                         } else {
                             i = childAt.getRight();
                             break;
                         }
                     }
-                    FiltersView.this.aGi = null;
+                    FiltersView.this.aHa = null;
                     int width = i - FiltersView.this.getWidth();
                     if (width > 0) {
                         FiltersView.this.scrollBy(width, 0);
@@ -57,31 +57,31 @@ public class FiltersView extends HorizontalScrollView {
             }
         };
         this.mContext = null;
-        this.aGh = null;
-        this.aGi = null;
-        this.aGj = null;
-        this.aGk = null;
-        this.aGl = true;
-        this.aGm = "normal";
+        this.aGZ = null;
+        this.aHa = null;
+        this.aHb = null;
+        this.aHc = null;
+        this.aHd = true;
+        this.aHe = "normal";
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.aGi != null) {
+        if (this.aHa != null) {
             post(this.scrollRunnable);
         }
     }
 
     public String getSelectedFilter() {
-        return this.aGj != null ? (String) ((View) this.aGj.getTag()).getTag() : "normal";
+        return this.aHb != null ? (String) ((View) this.aHb.getTag()).getTag() : "normal";
     }
 
     public void setCanbeClick(boolean z) {
-        this.aGl = z;
+        this.aHd = z;
     }
 
-    public static int fY(String str) {
+    public static int gc(String str) {
         if (TbadkCoreApplication.getMotuFilterImageMap() == null || TbadkCoreApplication.getMotuFilterImageMap().size() == 0) {
             return 0;
         }

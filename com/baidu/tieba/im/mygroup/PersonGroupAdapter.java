@@ -7,49 +7,49 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class PersonGroupAdapter extends FragmentPagerAdapter {
-    public static int esp = 1;
-    private int[] bDT;
-    private ArrayList<PersonalGroupFragment> esq;
+    public static int ewg = 1;
+    private int[] bFQ;
+    private ArrayList<PersonalGroupFragment> ewh;
 
     public PersonGroupAdapter(PersonGroupActivity personGroupActivity, boolean z) {
         super(personGroupActivity.getSupportFragmentManager());
-        this.esq = new ArrayList<>();
+        this.ewh = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
         PersonalGroupFragment personalGroupFragment = new PersonalGroupFragment();
         personalGroupFragment.setArguments(bundle);
-        this.esq.add(personalGroupFragment);
+        this.ewh.add(personalGroupFragment);
         if (z) {
-            this.bDT = new int[]{0};
+            this.bFQ = new int[]{0};
         } else {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
             PersonalGroupFragment personalGroupFragment2 = new PersonalGroupFragment();
             personalGroupFragment2.setArguments(bundle2);
-            this.esq.add(personalGroupFragment2);
-            this.bDT = new int[]{0, 1};
+            this.ewh.add(personalGroupFragment2);
+            this.bFQ = new int[]{0, 1};
         }
-        esp = this.bDT.length;
-        Iterator<PersonalGroupFragment> it = this.esq.iterator();
+        ewg = this.bFQ.length;
+        Iterator<PersonalGroupFragment> it = this.ewh.iterator();
         while (it.hasNext()) {
-            it.next().getArguments().putInt("page_size", this.esq.size());
+            it.next().getArguments().putInt("page_size", this.ewh.size());
         }
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= esp || i < 0) {
+        if (i >= ewg || i < 0) {
             return null;
         }
-        return this.esq.get(i);
+        return this.ewh.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return esp;
+        return ewg;
     }
 
-    public int of(int i) {
-        return this.bDT[i];
+    public int om(int i) {
+        return this.bFQ[i];
     }
 }

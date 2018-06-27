@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bd;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
@@ -79,38 +79,38 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
 
     /* loaded from: classes3.dex */
     public static class a {
-        public String gks;
-        public String gkt;
+        public String goj;
+        public String gok;
     }
 
     /* loaded from: classes3.dex */
     public static class b {
-        public String Uc;
-        public String Ud;
-        public int gku;
+        public String Ue;
+        public String Uf;
+        public int gol;
         public String scheme;
     }
 
     /* loaded from: classes3.dex */
     public static class d {
         public String desc;
-        public b gkx;
+        public b gon;
         public String pic;
         public String title;
     }
 
     /* loaded from: classes3.dex */
     public static class e {
-        public b gkA;
-        public String gky;
-        public String gkz;
+        public String goo;
+        public String gop;
+        public b goq;
         public String text;
     }
 
     /* loaded from: classes3.dex */
     public static class g {
-        public String aer;
-        public float aes;
+        public String aeG;
+        public float aeH;
         public VideoInfo videoInfo;
     }
 
@@ -151,7 +151,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
 
     @Override // com.baidu.tieba.recapp.c.a
     public String getShareLink() {
-        return q.tH(this.scheme) ? Uri.parse(this.scheme).getQueryParameter("wap") : this.scheme;
+        return q.tG(this.scheme) ? Uri.parse(this.scheme).getQueryParameter("wap") : this.scheme;
     }
 
     @Override // com.baidu.tieba.recapp.c.a
@@ -166,18 +166,18 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
 
     /* loaded from: classes3.dex */
     public static class c {
-        public String Gq;
+        public String Gs;
         public String buttonText;
         public String downloadUrl;
-        public String gkv;
-        public boolean gkw = false;
+        public String gom;
+        public boolean init = false;
         public String scheme;
         public String style;
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.style = jSONObject.optString("style");
-                this.gkv = jSONObject.optString("brand_name");
+                this.gom = jSONObject.optString("brand_name");
                 String str = "jump".equals(this.style) ? "查看详情" : "";
                 this.buttonText = jSONObject.optString("button_text", str);
                 if (TextUtils.isEmpty(this.buttonText)) {
@@ -186,18 +186,18 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
                 this.scheme = jSONObject.optString("scheme");
                 JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
                 if (optJSONObject != null) {
-                    this.Gq = optJSONObject.optString("pkgname");
+                    this.Gs = optJSONObject.optString("pkgname");
                     this.downloadUrl = optJSONObject.optString(DownloadConstants.DOWNLOAD_URL);
                 }
-                this.gkw = true;
+                this.init = true;
             }
         }
 
-        public JSONObject aiE() {
+        public JSONObject ahW() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("style", this.style);
-                jSONObject.put("brand_name", this.gkv);
+                jSONObject.put("brand_name", this.gom);
                 jSONObject.put("scheme", this.scheme);
                 jSONObject.put("button_text", this.buttonText);
             } catch (JSONException e) {
@@ -209,12 +209,12 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
 
     /* loaded from: classes3.dex */
     public static class f {
-        public String Gq;
+        public String Gs;
         public String buttonText;
         public int count;
         public String downloadUrl;
-        public String gkB;
-        public boolean gkw = false;
+        public String gor;
+        public boolean init = false;
         public String scheme;
         public String style;
         public String userName;
@@ -223,20 +223,20 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             if (jSONObject != null) {
                 this.style = jSONObject.optString("style");
                 this.userName = jSONObject.optString("user_name");
-                this.gkB = jSONObject.optString("user_portrait");
+                this.gor = jSONObject.optString("user_portrait");
                 this.scheme = jSONObject.optString("scheme");
                 this.buttonText = jSONObject.optString("button_text");
                 this.count = jSONObject.optInt("close_time");
                 JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
                 if (optJSONObject != null) {
-                    this.Gq = optJSONObject.optString("pkgname");
+                    this.Gs = optJSONObject.optString("pkgname");
                     this.downloadUrl = optJSONObject.optString(DownloadConstants.DOWNLOAD_URL);
                 }
-                this.gkw = true;
+                this.init = true;
             }
         }
 
-        public void sO(String str) {
+        public void sN(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     parseFromJson(new JSONObject(str));
@@ -248,16 +248,16 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
 
         public void a(AdvertAppInfo advertAppInfo, AdCard adCard) {
             if (advertAppInfo != null) {
-                if (advertAppInfo.adN == 3) {
+                if (advertAppInfo.aec == 3) {
                     this.style = "apk_download";
-                    this.Gq = advertAppInfo.adQ;
-                    this.downloadUrl = advertAppInfo.adP;
-                } else if (advertAppInfo.adN == 1) {
+                    this.Gs = advertAppInfo.aef;
+                    this.downloadUrl = advertAppInfo.aee;
+                } else if (advertAppInfo.aec == 1) {
                     this.style = "jump";
                 }
                 this.buttonText = adCard.buttonText;
                 this.userName = adCard.userName;
-                this.gkB = adCard.userPortrait;
+                this.gor = adCard.userPortrait;
                 this.scheme = adCard.scheme;
             }
         }
@@ -267,11 +267,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             try {
                 jSONObject.put("style", this.style);
                 jSONObject.put("user_name", this.userName);
-                jSONObject.put("user_portrait", this.gkB);
+                jSONObject.put("user_portrait", this.gor);
                 jSONObject.put("scheme", this.scheme);
                 jSONObject.put("button_text", this.buttonText);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.Gq);
+                jSONObject2.put("pkgname", this.Gs);
                 jSONObject2.put(DownloadConstants.DOWNLOAD_URL, this.downloadUrl);
                 jSONObject.put("ext_data", jSONObject2);
             } catch (JSONException e) {
@@ -285,11 +285,11 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             try {
                 jSONObject.put("style", this.style);
                 jSONObject.put("user_name", this.userName);
-                jSONObject.put("user_portrait", this.gkB);
+                jSONObject.put("user_portrait", this.gor);
                 jSONObject.put("scheme", this.scheme);
                 jSONObject.put("button_text", this.buttonText);
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.Gq);
+                jSONObject2.put("pkgname", this.Gs);
                 jSONObject2.put(DownloadConstants.DOWNLOAD_URL, this.downloadUrl);
                 jSONObject.put("ext_data", jSONObject2);
             } catch (JSONException e) {
@@ -308,8 +308,8 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         }
         this.nextPageData = jSONObject.optString(LegoListActivityConfig.NEXT_PAGE);
         this.chargeInfo = new a();
-        this.chargeInfo.gks = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_STYLE, "cpc");
-        this.chargeInfo.gkt = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_URL);
+        this.chargeInfo.goj = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_STYLE, "cpc");
+        this.chargeInfo.gok = jSONObject.optString(WebVideoActivityConfig.KEY_CHARGE_URL);
         this.tailFrame = new f();
         this.tailFrame.parseFromJson(jSONObject.optJSONObject(WebVideoActivityConfig.KEY_TAIL_FRAME));
         this.parallelChargeInfo = new b.a();
@@ -320,9 +320,9 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (optJSONObject2 != null) {
             this.portraitClick = new b();
             this.portraitClick.scheme = optJSONObject2.optString("scheme");
-            this.portraitClick.Uc = optJSONObject2.optString("als_stat");
-            this.portraitClick.Ud = optJSONObject2.optString("url_stat");
-            this.portraitClick.gku = optJSONObject2.optInt("need_login");
+            this.portraitClick.Ue = optJSONObject2.optString("als_stat");
+            this.portraitClick.Uf = optJSONObject2.optString("url_stat");
+            this.portraitClick.gol = optJSONObject2.optInt("need_login");
         } else {
             this.portraitClick = null;
         }
@@ -341,14 +341,14 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
                     this.threadPicList[i].title = optJSONArray.getJSONObject(i).optString("title");
                     JSONObject optJSONObject3 = optJSONArray.getJSONObject(i).optJSONObject("pic_click");
                     if (optJSONObject3 != null) {
-                        this.threadPicList[i].gkx = new b();
-                        this.threadPicList[i].gkx.scheme = optJSONObject3.optString("scheme");
-                        getPropertyFromScheme(this.threadPicList[i].gkx.scheme);
-                        this.threadPicList[i].gkx.Uc = optJSONObject3.optString("als_stat");
-                        this.threadPicList[i].gkx.Ud = optJSONObject3.optString("url_stat");
-                        this.threadPicList[i].gkx.gku = optJSONObject3.optInt("need_login");
+                        this.threadPicList[i].gon = new b();
+                        this.threadPicList[i].gon.scheme = optJSONObject3.optString("scheme");
+                        getPropertyFromScheme(this.threadPicList[i].gon.scheme);
+                        this.threadPicList[i].gon.Ue = optJSONObject3.optString("als_stat");
+                        this.threadPicList[i].gon.Uf = optJSONObject3.optString("url_stat");
+                        this.threadPicList[i].gon.gol = optJSONObject3.optInt("need_login");
                     } else {
-                        this.threadPicList[i].gkx = null;
+                        this.threadPicList[i].gon = null;
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -366,9 +366,9 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         if (optJSONObject4 != null) {
             this.buttonClick = new b();
             this.buttonClick.scheme = optJSONObject4.optString("scheme");
-            this.buttonClick.Uc = optJSONObject4.optString("als_stat");
-            this.buttonClick.Ud = optJSONObject4.optString("url_stat");
-            this.buttonClick.gku = optJSONObject4.optInt("need_login");
+            this.buttonClick.Ue = optJSONObject4.optString("als_stat");
+            this.buttonClick.Uf = optJSONObject4.optString("url_stat");
+            this.buttonClick.gol = optJSONObject4.optInt("need_login");
         } else {
             this.buttonClick = null;
         }
@@ -389,7 +389,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             }
         }
         this.sScore = jSONObject.optString("s_score");
-        this.activityNum = sN(jSONObject.optString("activity_num"));
+        this.activityNum = sM(jSONObject.optString("activity_num"));
         this.buttonStatus = jSONObject.optInt("button_status");
         this.buttonTextDone = jSONObject.optString("button_text_done");
         this.activityId = jSONObject.optInt(GroupActivityActivityConfig.ACTIVITY_ID);
@@ -406,18 +406,18 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
                 this.subUrlInfos[i2] = new e();
                 try {
                     this.subUrlInfos[i2].text = optJSONArray2.getJSONObject(i2).optString("text");
-                    this.subUrlInfos[i2].gky = optJSONArray2.getJSONObject(i2).optString("t_color");
-                    this.subUrlInfos[i2].gkz = optJSONArray2.getJSONObject(i2).optString("t_color_n");
+                    this.subUrlInfos[i2].goo = optJSONArray2.getJSONObject(i2).optString("t_color");
+                    this.subUrlInfos[i2].gop = optJSONArray2.getJSONObject(i2).optString("t_color_n");
                     JSONObject optJSONObject5 = optJSONArray2.getJSONObject(i2).optJSONObject("sub_click");
                     if (optJSONObject5 != null) {
-                        this.subUrlInfos[i2].gkA = new b();
-                        this.subUrlInfos[i2].gkA.scheme = optJSONObject5.optString("scheme");
-                        getPropertyFromScheme(this.subUrlInfos[i2].gkA.scheme);
-                        this.subUrlInfos[i2].gkA.Uc = optJSONObject5.optString("als_stat");
-                        this.subUrlInfos[i2].gkA.Ud = optJSONObject5.optString("url_stat");
-                        this.subUrlInfos[i2].gkA.gku = optJSONObject5.optInt("need_login");
+                        this.subUrlInfos[i2].goq = new b();
+                        this.subUrlInfos[i2].goq.scheme = optJSONObject5.optString("scheme");
+                        getPropertyFromScheme(this.subUrlInfos[i2].goq.scheme);
+                        this.subUrlInfos[i2].goq.Ue = optJSONObject5.optString("als_stat");
+                        this.subUrlInfos[i2].goq.Uf = optJSONObject5.optString("url_stat");
+                        this.subUrlInfos[i2].goq.gol = optJSONObject5.optInt("need_login");
                     } else {
-                        this.subUrlInfos[i2].gkA = null;
+                        this.subUrlInfos[i2].goq = null;
                     }
                 } catch (JSONException e4) {
                     e4.printStackTrace();
@@ -446,18 +446,18 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
         }
         if (this.videoInfo != null) {
             this.vrVideoInfo = new g();
-            this.vrVideoInfo.aer = jSONObject.optString("brand_icon", "");
+            this.vrVideoInfo.aeG = jSONObject.optString("brand_icon", "");
             this.vrVideoInfo.videoInfo = this.videoInfo;
             String optString2 = jSONObject.optString("brand_icon_wh", null);
-            if (!ao.isEmpty(optString2)) {
+            if (!ap.isEmpty(optString2)) {
                 try {
                     String[] split2 = optString2.split(",");
                     int g4 = com.baidu.adp.lib.g.b.g(split2[0], 1);
                     int g5 = com.baidu.adp.lib.g.b.g(split2[1], 1);
                     if (g5 != 0) {
-                        this.vrVideoInfo.aes = g4 / g5;
+                        this.vrVideoInfo.aeH = g4 / g5;
                     } else {
-                        this.vrVideoInfo.aes = 1.0f;
+                        this.vrVideoInfo.aeH = 1.0f;
                     }
                     return;
                 } catch (Exception e5) {
@@ -497,8 +497,8 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     public void refreshReservation(Object obj) {
         com.baidu.tbadk.data.g gVar;
         if ((obj instanceof com.baidu.tbadk.data.g) && (gVar = (com.baidu.tbadk.data.g) obj) != null && gVar.getActivityId() == this.activityId) {
-            this.activityNum = sN(gVar.GK());
-            if (gVar.GJ() == 1) {
+            this.activityNum = sM(gVar.Hc());
+            if (gVar.Hb() == 1) {
                 this.buttonStatus = 0;
             } else {
                 this.buttonStatus = 1;
@@ -515,26 +515,26 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
         this.appInfo = advertAppInfo;
         updataThreadData(this.appInfo);
-        if (!this.tailFrame.gkw) {
+        if (!this.tailFrame.init) {
             this.tailFrame.a(this.appInfo, this);
         }
     }
 
-    public void updataThreadData(bd bdVar) {
-        if (bdVar != null) {
-            bdVar.q(this.time / 1000);
-            bdVar.bQ(this.reply_num);
-            bdVar.bZ(this.agree_num);
-            bdVar.r(this.share_num);
-            bdVar.setAddress(this.localAdsAddress);
-            bdVar.setTitle(this.threadTitle);
-            bdVar.dn(this.threadContent);
-            bdVar.vm().setName_show(this.userName);
-            bdVar.vm().setPortrait(this.userPortrait);
+    public void updataThreadData(bc bcVar) {
+        if (bcVar != null) {
+            bcVar.q(this.time / 1000);
+            bcVar.bR(this.reply_num);
+            bcVar.ca(this.agree_num);
+            bcVar.r(this.share_num);
+            bcVar.setAddress(this.localAdsAddress);
+            bcVar.setTitle(this.threadTitle);
+            bcVar.dq(this.threadContent);
+            bcVar.vw().setName_show(this.userName);
+            bcVar.vw().setPortrait(this.userPortrait);
         }
     }
 
-    private String sN(String str) {
+    private String sM(String str) {
         if (str != null && str.contains("{") && str.contains("}")) {
             String substring = str.substring(0, str.indexOf("{"));
             return substring + str.substring(str.indexOf("{") + 1, str.indexOf("}"));

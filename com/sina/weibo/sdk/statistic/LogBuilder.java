@@ -15,9 +15,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-class LogBuilder {
-    private static /* synthetic */ int[] $SWITCH_TABLE$com$sina$weibo$sdk$statistic$LogType = null;
+/* loaded from: classes2.dex */
+public class LogBuilder {
     private static final String APPKEY = "WEIBO_APPKEY";
     private static final String CHANNEL = "WEIBO_CHANNEL";
     public static final String KEY_AID = "aid";
@@ -37,42 +36,6 @@ class LogBuilder {
     public static final String KEY_VERSION = "version";
     private static final int MAX_COUNT = 500;
     public static final long MAX_INTERVAL = 86400000;
-
-    static /* synthetic */ int[] $SWITCH_TABLE$com$sina$weibo$sdk$statistic$LogType() {
-        int[] iArr = $SWITCH_TABLE$com$sina$weibo$sdk$statistic$LogType;
-        if (iArr == null) {
-            iArr = new int[LogType.valuesCustom().length];
-            try {
-                iArr[LogType.ACTIVITY.ordinal()] = 5;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[LogType.APP_AD_START.ordinal()] = 6;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[LogType.EVENT.ordinal()] = 4;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[LogType.FRAGMENT.ordinal()] = 3;
-            } catch (NoSuchFieldError e4) {
-            }
-            try {
-                iArr[LogType.SESSION_END.ordinal()] = 2;
-            } catch (NoSuchFieldError e5) {
-            }
-            try {
-                iArr[LogType.SESSION_START.ordinal()] = 1;
-            } catch (NoSuchFieldError e6) {
-            }
-            $SWITCH_TABLE$com$sina$weibo$sdk$statistic$LogType = iArr;
-        }
-        return iArr;
-    }
-
-    LogBuilder() {
-    }
 
     public static String getAppKey(Context context) {
         try {
@@ -131,35 +94,35 @@ class LogBuilder {
     private static JSONObject getLogInfo(PageLog pageLog) {
         JSONObject jSONObject = new JSONObject();
         try {
-            switch ($SWITCH_TABLE$com$sina$weibo$sdk$statistic$LogType()[pageLog.getType().ordinal()]) {
-                case 1:
+            switch (pageLog.getType()) {
+                case SESSION_START:
                     jSONObject.put("type", 0);
                     jSONObject.put("time", pageLog.getStartTime() / 1000);
                     break;
-                case 2:
+                case SESSION_END:
                     jSONObject.put("type", 1);
                     jSONObject.put("time", pageLog.getEndTime() / 1000);
                     jSONObject.put(KEY_DURATION, pageLog.getDuration() / 1000);
                     break;
-                case 3:
+                case FRAGMENT:
                     jSONObject.put("type", 2);
                     jSONObject.put("page_id", pageLog.getPage_id());
                     jSONObject.put("time", pageLog.getStartTime() / 1000);
                     jSONObject.put(KEY_DURATION, pageLog.getDuration() / 1000);
                     break;
-                case 4:
+                case EVENT:
                     jSONObject.put("type", 3);
                     jSONObject.put("page_id", pageLog.getPage_id());
                     jSONObject.put("time", pageLog.getStartTime() / 1000);
                     addEventData(jSONObject, (EventLog) pageLog);
                     break;
-                case 5:
+                case ACTIVITY:
                     jSONObject.put("type", 4);
                     jSONObject.put("page_id", pageLog.getPage_id());
                     jSONObject.put("time", pageLog.getStartTime() / 1000);
                     jSONObject.put(KEY_DURATION, pageLog.getDuration() / 1000);
                     break;
-                case 6:
+                case APP_AD_START:
                     AdEventLog adEventLog = (AdEventLog) pageLog;
                     jSONObject.put("type", 0);
                     jSONObject.put("page_id", adEventLog.getmImei());
@@ -175,22 +138,27 @@ class LogBuilder {
     }
 
     private static JSONObject addEventData(JSONObject jSONObject, EventLog eventLog) {
+        int i;
         try {
             jSONObject.put("event_id", eventLog.getEvent_id());
             if (eventLog.getExtend() != null) {
                 Map<String, String> extend = eventLog.getExtend();
                 StringBuilder sb = new StringBuilder();
-                int i = 0;
+                int i2 = 0;
                 for (String str : extend.keySet()) {
-                    if (i >= 10) {
+                    if (i2 >= 10) {
                         break;
-                    } else if (!TextUtils.isEmpty(extend.get(str))) {
+                    }
+                    if (TextUtils.isEmpty(extend.get(str))) {
+                        i = i2;
+                    } else {
                         if (sb.length() > 0) {
                             sb.append("|");
                         }
                         sb.append(str).append(SystemInfoUtil.COLON).append(extend.get(str));
-                        i++;
+                        i = i2 + 1;
                     }
+                    i2 = i;
                 }
                 jSONObject.put(KEY_EXTEND, sb.toString());
             }

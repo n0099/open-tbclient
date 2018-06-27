@@ -18,7 +18,6 @@ import com.baidu.fsg.biometrics.base.b.c;
 import com.baidu.fsg.biometrics.base.d.f;
 import com.baidu.fsg.biometrics.base.d.l;
 import com.baidu.fsg.biometrics.base.d.m;
-import com.sina.weibo.sdk.exception.WeiboAuthException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -561,17 +560,17 @@ public class e {
             HashMap hashMap = new HashMap();
             hashMap.put(c, e.this.g.a);
             hashMap.put(a, this.k);
-            hashMap.put(d, this.l ? "1" : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
+            hashMap.put(d, this.l ? "1" : "-1");
             if (this.l) {
-                hashMap.put(j, this.r ? "1" : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
-                hashMap.put(f, this.n ? "1" : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
+                hashMap.put(j, this.r ? "1" : "-1");
+                hashMap.put(f, this.n ? "1" : "-1");
             }
             if (this.r) {
-                hashMap.put(i, this.o ? "1" : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
+                hashMap.put(i, this.o ? "1" : "-1");
             }
             if (this.n) {
-                hashMap.put(g, this.p ? "1" : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
-                hashMap.put(e, this.m ? "1" : WeiboAuthException.DEFAULT_AUTH_ERROR_CODE);
+                hashMap.put(g, this.p ? "1" : "-1");
+                hashMap.put(e, this.m ? "1" : "-1");
             }
             hashMap.put(h, this.q);
             return hashMap;

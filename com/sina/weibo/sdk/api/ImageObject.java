@@ -7,7 +7,7 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ImageObject extends BaseMediaObject {
     public static final Parcelable.Creator<ImageObject> CREATOR = new Parcelable.Creator<ImageObject>() { // from class: com.sina.weibo.sdk.api.ImageObject.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public class ImageObject extends BaseMediaObject {
         this.imagePath = parcel.readString();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0036 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x003b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

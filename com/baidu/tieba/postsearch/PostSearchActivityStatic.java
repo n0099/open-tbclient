@@ -14,18 +14,18 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 public class PostSearchActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PostSearchActivityConfig.class, PostSearchActivity.class);
-        bmV();
-        bmW();
-        bmX();
+        bnz();
+        bnA();
+        bnB();
     }
 
-    private static void bmV() {
+    private static void bnz() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_POST_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.POST_SEARCH_URL);
         tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void bmW() {
+    private static void bnA() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2009003, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.postsearch.PostSearchActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Void> run(CustomMessage<String> customMessage) {
@@ -44,14 +44,14 @@ public class PostSearchActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bmX() {
+    private static void bnB() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2009004, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.postsearch.PostSearchActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Void> run(CustomMessage<Void> customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                com.baidu.tieba.tbadkCore.util.a.bxT();
+                com.baidu.tieba.tbadkCore.util.a.byx();
                 return new CustomResponsedMessage<>(2009004);
             }
         });

@@ -6,62 +6,62 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
-    private h gAA;
-    private a gAB;
-    private c gAC;
-    private b gAz;
+    private b gEs;
+    private h gEt;
+    private a gEu;
+    private c gEv;
     public boolean isRunning;
 
     /* loaded from: classes3.dex */
     public interface a {
         void b(h hVar);
 
-        void ol(String str);
+        void om(String str);
     }
 
     public SignAllForumModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.gAz = null;
-        this.gAA = null;
-        this.gAB = null;
-        this.gAA = new h();
+        this.gEs = null;
+        this.gEt = null;
+        this.gEu = null;
+        this.gEt = new h();
     }
 
     public void a(a aVar) {
-        this.gAB = aVar;
+        this.gEu = aVar;
     }
 
     public void d(c cVar) {
-        this.gAC = cVar;
+        this.gEv = cVar;
     }
 
-    public c btQ() {
-        return this.gAC;
+    public c buq() {
+        return this.gEv;
     }
 
-    private String btR() {
-        ArrayList<d> btn = this.gAC.btn();
-        if (btn == null) {
+    private String bur() {
+        ArrayList<d> btN = this.gEv.btN();
+        if (btN == null) {
             return "";
         }
-        if (!this.gAC.bto()) {
+        if (!this.gEv.btO()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = btn.iterator();
+            Iterator<d> it = btN.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next.btx() < this.gAC.getLevel()) {
+                if (next.btX() < this.gEv.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            btn.removeAll(arrayList);
+            btN.removeAll(arrayList);
         }
-        int size = btn.size();
+        int size = btN.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            d dVar = btn.get(i);
-            if (dVar.btA()) {
-                if (!dVar.btB()) {
-                    dVar.mj(true);
+            d dVar = btN.get(i);
+            if (dVar.bua()) {
+                if (!dVar.bub()) {
+                    dVar.mu(true);
                 }
             }
             if (i > 0) {
@@ -75,24 +75,24 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.gAz != null) {
+        if (this.gEs != null) {
             return false;
         }
         String str = null;
-        this.gAz = new b();
-        boolean btd = this.gAC.btd();
-        if (!btd) {
-            str = btR();
+        this.gEs = new b();
+        boolean btD = this.gEv.btD();
+        if (!btD) {
+            str = bur();
         }
-        this.gAz.ml(btd);
-        this.gAz.execute(str);
+        this.gEs.mw(btD);
+        this.gEs.execute(str);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.gAz != null) {
-            this.gAz.cancel();
+        if (this.gEs != null) {
+            this.gEs.cancel();
             return true;
         }
         return false;
@@ -100,19 +100,19 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes3.dex */
     private class b extends BdAsyncTask<String, Integer, h> {
-        private e gAD = null;
-        private boolean gAE = false;
+        private e gEw = null;
+        private boolean gEx = false;
 
         public b() {
             setPriority(3);
         }
 
-        public void ml(boolean z) {
-            this.gAE = z;
+        public void mw(boolean z) {
+            this.gEx = z;
         }
 
-        public boolean btS() {
-            return this.gAE;
+        public boolean bus() {
+            return this.gEx;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -125,15 +125,15 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: D */
         public h doInBackground(String... strArr) {
-            if (!btS() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
+            if (!bus() && (strArr == null || strArr.length == 0 || strArr[0] == null)) {
                 return null;
             }
-            if (btS()) {
-                this.gAD = new e();
+            if (bus()) {
+                this.gEw = new e();
                 if (com.baidu.adp.lib.util.j.jD()) {
-                    btT();
+                    but();
                 }
             } else {
                 String[] split = strArr[0].split(",");
@@ -148,41 +148,41 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                             sb.append(split[i2 + i3] + ",");
                         }
                     }
-                    this.gAD = new e();
+                    this.gEw = new e();
                     if (com.baidu.adp.lib.util.j.jD()) {
-                        tv(sb.toString());
+                        tu(sb.toString());
                     }
                 }
             }
-            return SignAllForumModel.this.gAA;
+            return SignAllForumModel.this.gEt;
         }
 
-        private h btT() {
-            String btF = this.gAD.btF();
-            if (this.gAD.isRequestSuccess()) {
-                SignAllForumModel.this.gAA.parserJson(btF);
-                return SignAllForumModel.this.gAA;
+        private h but() {
+            String buf = this.gEw.buf();
+            if (this.gEw.isRequestSuccess()) {
+                SignAllForumModel.this.gEt.parserJson(buf);
+                return SignAllForumModel.this.gEt;
             }
-            SignAllForumModel.this.gAA = null;
+            SignAllForumModel.this.gEt = null;
             return null;
         }
 
-        private h tv(String str) {
-            String ts = this.gAD.ts(str);
-            if (this.gAD.isRequestSuccess()) {
-                SignAllForumModel.this.gAA.parserJson(ts);
-                return SignAllForumModel.this.gAA;
+        private h tu(String str) {
+            String tr = this.gEw.tr(str);
+            if (this.gEw.isRequestSuccess()) {
+                SignAllForumModel.this.gEt.parserJson(tr);
+                return SignAllForumModel.this.gEt;
             }
-            SignAllForumModel.this.gAA = null;
+            SignAllForumModel.this.gEt = null;
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            this.gAD.cancel();
-            this.gAD = null;
-            SignAllForumModel.this.gAz = null;
+            this.gEw.cancel();
+            this.gEw = null;
+            SignAllForumModel.this.gEs = null;
             SignAllForumModel.this.isRunning = false;
         }
 
@@ -192,12 +192,12 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
         /* renamed from: c */
         public void onPostExecute(h hVar) {
             SignAllForumModel.this.isRunning = false;
-            SignAllForumModel.this.gAz = null;
-            if (SignAllForumModel.this.gAB != null) {
-                if (SignAllForumModel.this.gAA != null) {
-                    SignAllForumModel.this.gAB.b(SignAllForumModel.this.gAA);
+            SignAllForumModel.this.gEs = null;
+            if (SignAllForumModel.this.gEu != null) {
+                if (SignAllForumModel.this.gEt != null) {
+                    SignAllForumModel.this.gEu.b(SignAllForumModel.this.gEt);
                 } else {
-                    SignAllForumModel.this.gAB.ol(this.gAD != null ? this.gAD.tr() : null);
+                    SignAllForumModel.this.gEu.om(this.gEw != null ? this.gEw.tr() : null);
                 }
             }
         }

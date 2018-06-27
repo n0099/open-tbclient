@@ -50,6 +50,7 @@ public class WriteData extends OrmObject implements Serializable {
     private int mFloorNum;
     private String mForumId;
     private String mForumName;
+    private String mFromForumId;
     private boolean mHasLocationData;
     private boolean mHaveDraft;
     private boolean mIsAddition;
@@ -359,6 +360,14 @@ public class WriteData extends OrmObject implements Serializable {
 
     public String getForumName() {
         return this.mForumName;
+    }
+
+    public void setFromForumId(String str) {
+        this.mFromForumId = str;
+    }
+
+    public String getFromForumId() {
+        return this.mFromForumId;
     }
 
     public void setFloorNum(int i) {

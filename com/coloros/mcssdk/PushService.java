@@ -21,13 +21,13 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         List<com.coloros.mcssdk.e.c> j = com.coloros.mcssdk.a.c.j(getApplicationContext(), intent);
-        List<com.coloros.mcssdk.b.c> bKt = a.bKu().bKt();
-        if (j == null || j.size() == 0 || bKt == null || bKt.size() == 0) {
+        List<com.coloros.mcssdk.b.c> bKU = a.bKV().bKU();
+        if (j == null || j.size() == 0 || bKU == null || bKU.size() == 0) {
             return super.onStartCommand(intent, i, i2);
         }
         for (com.coloros.mcssdk.e.c cVar : j) {
             if (cVar != null) {
-                for (com.coloros.mcssdk.b.c cVar2 : bKt) {
+                for (com.coloros.mcssdk.b.c cVar2 : bKU) {
                     if (cVar2 != null) {
                         try {
                             cVar2.a(getApplicationContext(), cVar, this);
@@ -47,19 +47,19 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
 
     @Override // com.coloros.mcssdk.d.a
     public void processMessage(Context context, com.coloros.mcssdk.e.b bVar) {
-        if (a.bKu().bKv() == null) {
+        if (a.bKV().bKW() == null) {
             return;
         }
         switch (bVar.fB()) {
             case 12289:
-                a.bKu().bKv().onRegister(bVar.getResponseCode(), bVar.getContent());
+                a.bKV().bKW().onRegister(bVar.getResponseCode(), bVar.getContent());
                 if (bVar.getResponseCode() == 0) {
-                    a.bKu().ws(bVar.getContent());
+                    a.bKV().wo(bVar.getContent());
                     return;
                 }
                 return;
             case 12290:
-                a.bKu().bKv().onUnRegister(bVar.getResponseCode());
+                a.bKV().bKW().onUnRegister(bVar.getResponseCode());
                 return;
             case 12291:
             case 12299:
@@ -71,40 +71,40 @@ public class PushService extends Service implements com.coloros.mcssdk.d.a {
             default:
                 return;
             case 12292:
-                a.bKu().bKv().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bKV().bKW().onSetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12293:
-                a.bKu().bKv().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bKV().bKW().onGetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12294:
-                a.bKu().bKv().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
+                a.bKV().bKW().onUnsetAliases(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "alias", "aliasId", "aliasName"));
                 return;
             case 12295:
-                a.bKu().bKv().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bKV().bKW().onSetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12296:
-                a.bKu().bKv().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bKV().bKW().onGetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12297:
-                a.bKu().bKv().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
+                a.bKV().bKW().onUnsetTags(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "tagId", "tagName"));
                 return;
             case 12298:
-                a.bKu().bKv().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
+                a.bKV().bKW().onSetPushTime(bVar.getResponseCode(), bVar.getContent());
                 return;
             case 12301:
-                a.bKu().bKv().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bKV().bKW().onSetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12302:
-                a.bKu().bKv().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bKV().bKW().onGetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12303:
-                a.bKu().bKv().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
+                a.bKV().bKW().onUnsetUserAccounts(bVar.getResponseCode(), com.coloros.mcssdk.e.b.r(bVar.getContent(), "tags", "accountId", "accountName"));
                 return;
             case 12306:
-                a.bKu().bKv().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bKV().bKW().onGetPushStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
             case 12309:
-                a.bKu().bKv().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
+                a.bKV().bKW().onGetNotificationStatus(bVar.getResponseCode(), d.a(bVar.getContent()));
                 return;
         }
     }

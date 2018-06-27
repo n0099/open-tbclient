@@ -14,30 +14,30 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ConcernSelectView extends FrameLayout {
-    private View biz;
-    private LinearLayout fej;
-    private ImageView fek;
-    private TextView fel;
-    private TextView fem;
-    private TextView fen;
-    public LinearLayout feo;
-    private Animation fep;
-    private Animation feq;
-    private boolean fer;
-    private a fes;
+    private View bjZ;
+    private LinearLayout fia;
+    private ImageView fib;
+    private TextView fic;
+    private TextView fie;
+    private TextView fif;
+    public LinearLayout fig;
+    private Animation fih;
+    private Animation fii;
+    private boolean fij;
+    private a fik;
     private Context mContext;
     private int mSkinType;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void iS(boolean z);
+        void jc(boolean z);
 
-        void lj(int i);
+        void lq(int i);
     }
 
     public ConcernSelectView(Context context) {
@@ -63,83 +63,83 @@ public class ConcernSelectView extends FrameLayout {
 
     private void initUI() {
         LayoutInflater.from(this.mContext).inflate(d.i.concern_select_layout, this);
-        this.fej = (LinearLayout) findViewById(d.g.expandable_area);
-        this.fek = (ImageView) findViewById(d.g.expandable_btn);
-        this.feo = (LinearLayout) findViewById(d.g.menu_list);
-        this.fel = (TextView) findViewById(d.g.menu_title);
-        this.fem = (TextView) findViewById(d.g.all_concerned_item);
-        this.fen = (TextView) findViewById(d.g.each_concerned_item);
-        this.biz = findViewById(d.g.item_divider_line);
-        this.fej.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
+        this.fia = (LinearLayout) findViewById(d.g.expandable_area);
+        this.fib = (ImageView) findViewById(d.g.expandable_btn);
+        this.fig = (LinearLayout) findViewById(d.g.menu_list);
+        this.fic = (TextView) findViewById(d.g.menu_title);
+        this.fie = (TextView) findViewById(d.g.all_concerned_item);
+        this.fif = (TextView) findViewById(d.g.each_concerned_item);
+        this.bjZ = findViewById(d.g.item_divider_line);
+        this.fia.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.log(new am("c12774").ah("obj_locate", "1"));
-                ConcernSelectView.this.t(ConcernSelectView.this.feo, ConcernSelectView.this.feo.getVisibility() == 0 ? 1 : 0);
+                TiebaStatic.log(new an("c12774").ah("obj_locate", "1"));
+                ConcernSelectView.this.v(ConcernSelectView.this.fig, ConcernSelectView.this.fig.getVisibility() == 0 ? 1 : 0);
             }
         });
-        this.fem.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
+        this.fie.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.log(new am("c12774").ah("obj_locate", "2"));
-                al.h(ConcernSelectView.this.fem, d.C0141d.cp_cont_b);
-                al.h(ConcernSelectView.this.fen, d.C0141d.cp_cont_j);
-                ConcernSelectView.this.fel.setText(d.k.all_concerned);
-                if (ConcernSelectView.this.fes != null) {
-                    ConcernSelectView.this.fes.lj(0);
+                TiebaStatic.log(new an("c12774").ah("obj_locate", "2"));
+                am.h(ConcernSelectView.this.fie, d.C0142d.cp_cont_b);
+                am.h(ConcernSelectView.this.fif, d.C0142d.cp_cont_j);
+                ConcernSelectView.this.fic.setText(d.k.all_concerned);
+                if (ConcernSelectView.this.fik != null) {
+                    ConcernSelectView.this.fik.lq(0);
                 }
-                ConcernSelectView.this.t(ConcernSelectView.this.feo, 1);
+                ConcernSelectView.this.v(ConcernSelectView.this.fig, 1);
             }
         });
-        this.fen.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
+        this.fif.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.log(new am("c12774").ah("obj_locate", "3"));
-                al.h(ConcernSelectView.this.fem, d.C0141d.cp_cont_j);
-                al.h(ConcernSelectView.this.fen, d.C0141d.cp_cont_b);
-                ConcernSelectView.this.fel.setText(d.k.each_concerned);
-                if (ConcernSelectView.this.fes != null) {
-                    ConcernSelectView.this.fes.lj(1);
+                TiebaStatic.log(new an("c12774").ah("obj_locate", "3"));
+                am.h(ConcernSelectView.this.fie, d.C0142d.cp_cont_j);
+                am.h(ConcernSelectView.this.fif, d.C0142d.cp_cont_b);
+                ConcernSelectView.this.fic.setText(d.k.each_concerned);
+                if (ConcernSelectView.this.fik != null) {
+                    ConcernSelectView.this.fik.lq(1);
                 }
-                ConcernSelectView.this.t(ConcernSelectView.this.feo, 1);
+                ConcernSelectView.this.v(ConcernSelectView.this.fig, 1);
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void aXi() {
-        if (!(this.feo.getVisibility() == 0)) {
-            t(this.feo, 0);
+    public void aXP() {
+        if (!(this.fig.getVisibility() == 0)) {
+            v(this.fig, 0);
         }
     }
 
-    public void aXj() {
-        if (this.feo.getVisibility() == 0) {
-            t(this.feo, 1);
+    public void aXQ() {
+        if (this.fig.getVisibility() == 0) {
+            v(this.fig, 1);
         }
     }
 
-    public boolean aXk() {
-        return this.feo.getVisibility() == 0;
+    public boolean aXR() {
+        return this.fig.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.c(this.fek, d.f.icon_arrow_gray_down);
-            al.h(this.fel, d.C0141d.cp_cont_d);
-            al.h(this.fem, d.C0141d.cp_cont_b);
-            al.h(this.fen, d.C0141d.cp_cont_j);
-            al.i(this.feo, d.f.bg_user_float_shadow);
-            al.i(this.fel, d.C0141d.cp_bg_line_d);
-            al.i(this.fem, d.f.concern_item_bg);
-            al.i(this.fen, d.f.concern_item_bg);
-            al.i(this.biz, d.C0141d.cp_bg_line_c);
+            am.c(this.fib, d.f.icon_arrow_gray_down);
+            am.h(this.fic, d.C0142d.cp_cont_d);
+            am.h(this.fie, d.C0142d.cp_cont_b);
+            am.h(this.fif, d.C0142d.cp_cont_j);
+            am.i(this.fig, d.f.bg_user_float_shadow);
+            am.i(this.fic, d.C0142d.cp_bg_line_d);
+            am.i(this.fie, d.f.concern_item_bg);
+            am.i(this.fif, d.f.concern_item_bg);
+            am.i(this.bjZ, d.C0142d.cp_bg_line_c);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void t(final View view, final int i) {
-        if (view != null && view.getAnimation() == null && this.feo != null) {
-            int childCount = this.feo.getChildCount();
+    public void v(final View view, final int i) {
+        if (view != null && view.getAnimation() == null && this.fig != null) {
+            int childCount = this.fig.getChildCount();
             if (childCount < 0) {
                 childCount = 0;
             }
@@ -173,39 +173,39 @@ public class ConcernSelectView extends FrameLayout {
                             listView.smoothScrollBy(bottom, 260);
                         }
                     }
-                    if (ConcernSelectView.this.fes != null) {
-                        ConcernSelectView.this.fes.iS(z);
+                    if (ConcernSelectView.this.fik != null) {
+                        ConcernSelectView.this.fik.jc(z);
                     }
                 }
             });
             view.startAnimation(aVar);
-            if (this.fek != null) {
-                if (this.fek.getAnimation() == null || this.fek.getAnimation().hasEnded()) {
+            if (this.fib != null) {
+                if (this.fib.getAnimation() == null || this.fib.getAnimation().hasEnded()) {
                     if (i == 0) {
-                        if (this.fep == null) {
-                            aXm();
+                        if (this.fih == null) {
+                            aXT();
                         }
-                        if (this.feq != null) {
-                            this.feq.cancel();
+                        if (this.fii != null) {
+                            this.fii.cancel();
                         }
-                        this.fek.startAnimation(this.fep);
+                        this.fib.startAnimation(this.fih);
                         return;
                     }
-                    if (this.feq == null) {
-                        aXl();
+                    if (this.fii == null) {
+                        aXS();
                     }
-                    if (this.fep != null) {
-                        this.fep.cancel();
+                    if (this.fih != null) {
+                        this.fih.cancel();
                     }
-                    this.fek.startAnimation(this.feq);
+                    this.fib.startAnimation(this.fii);
                 }
             }
         }
     }
 
-    private void aXl() {
-        this.feq = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_collapse);
-        this.feq.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
+    private void aXS() {
+        this.fii = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_collapse);
+        this.fii.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -216,21 +216,21 @@ public class ConcernSelectView extends FrameLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationRepeat(Animation animation) {
-                ConcernSelectView.this.fer = false;
+                ConcernSelectView.this.fij = false;
             }
         });
     }
 
-    private void aXm() {
-        this.fep = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_expand);
-        this.fep.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
+    private void aXT() {
+        this.fih = AnimationUtils.loadAnimation(this.mContext, d.a.rotate_expand);
+        this.fih.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.myAttentionAndFans.ConcernSelectView.6
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                ConcernSelectView.this.fer = true;
+                ConcernSelectView.this.fij = true;
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -240,6 +240,6 @@ public class ConcernSelectView extends FrameLayout {
     }
 
     public void setOnExpandListener(a aVar) {
-        this.fes = aVar;
+        this.fik = aVar;
     }
 }

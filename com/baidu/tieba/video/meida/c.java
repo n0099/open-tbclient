@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.meida;
 /* loaded from: classes2.dex */
 public abstract class c {
-    String hbW;
-    a hbX;
+    String hgb;
+    a hgc;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -11,15 +11,15 @@ public abstract class c {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public String hbY;
-        public int hbZ;
-        public int hca;
+        public String hgd;
+        public int hge;
+        public int hgf;
         public long sampleRate;
         public int size;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.hbW = str;
+        this.hgb = str;
     }
 }

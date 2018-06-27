@@ -5,21 +5,21 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.animation3d.b.a {
-    private int ctX;
-    private a ctY;
+    private int cse;
+    private a csf;
     private Handler mHandler;
     private float mRadius;
 
     /* loaded from: classes.dex */
     public interface a {
-        void en(boolean z);
+        void em(boolean z);
     }
 
     public c(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.ctX = 1;
-        this.ctY = null;
+        this.cse = 1;
+        this.csf = null;
         hC();
     }
 
@@ -29,14 +29,14 @@ public class c extends com.baidu.tieba.animation3d.b.a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (c.this.ctY != null) {
-                            c.this.ctY.en(true);
+                        if (c.this.csf != null) {
+                            c.this.csf.em(true);
                             return true;
                         }
                         return true;
                     case 2:
-                        if (c.this.ctY != null) {
-                            c.this.ctY.en(false);
+                        if (c.this.csf != null) {
+                            c.this.csf.em(false);
                             return true;
                         }
                         return true;
@@ -49,30 +49,30 @@ public class c extends com.baidu.tieba.animation3d.b.a {
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
-        this.ctN = this.mRadius;
-        this.ctM = this.mRadius;
+        this.crU = this.mRadius;
+        this.crT = this.mRadius;
     }
 
-    private void aig() {
+    private void ahz() {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
     }
 
     public int getViewStatus() {
-        return this.ctX;
+        return this.cse;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
-    public void zR() {
-        super.zR();
-        this.ctN = this.mRadius;
-        this.ctM = this.mRadius;
-        this.ctX = 1;
-        aig();
+    public void Ag() {
+        super.Ag();
+        this.crU = this.mRadius;
+        this.crT = this.mRadius;
+        this.cse = 1;
+        ahz();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.ctY = aVar;
+        this.csf = aVar;
     }
 }

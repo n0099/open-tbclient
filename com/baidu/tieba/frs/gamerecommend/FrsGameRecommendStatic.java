@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.gamerecommend;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.frs.ab;
+import com.baidu.tieba.frs.ad;
 /* loaded from: classes3.dex */
 public class FrsGameRecommendStatic {
     static {
@@ -13,9 +13,9 @@ public class FrsGameRecommendStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
                     Object data = customResponsedMessage.getData();
-                    if (data instanceof ab) {
-                        ab abVar = (ab) data;
-                        abVar.b(new a(abVar.getForumId(), abVar.getForumName()));
+                    if (data instanceof ad) {
+                        ad adVar = (ad) data;
+                        adVar.b(new a(adVar.getForumId(), adVar.getForumName()));
                     }
                 }
             }

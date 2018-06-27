@@ -3,14 +3,14 @@ package com.baidu.ubs.analytics;
 import android.content.Context;
 import com.baidu.ubs.analytics.d.j;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class c {
     private long e;
-    private boolean hxp;
-    private long hxq;
-    private long hxr;
-    private boolean hxs;
-    private int hxt;
+    private int hBA;
+    private boolean hBw;
+    private long hBx;
+    private long hBy;
+    private boolean hBz;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -19,12 +19,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.hxp = aVar.hxp;
-        this.e = aVar.hxu;
-        this.hxq = aVar.hxq;
-        this.hxs = aVar.hxs;
-        this.hxr = aVar.hxr;
-        this.hxt = aVar.hxt;
+        this.hBw = aVar.hBw;
+        this.e = aVar.hBB;
+        this.hBx = aVar.hBx;
+        this.hBz = aVar.hBz;
+        this.hBy = aVar.hBy;
+        this.hBA = aVar.hBA;
     }
 
     public final Context qE() {
@@ -32,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.hxp;
+        return this.hBw;
     }
 
     public final long d() {
@@ -40,70 +40,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.hxq;
+        return this.hBx;
     }
 
     public final long f() {
-        return this.hxr;
+        return this.hBy;
     }
 
     public final boolean g() {
-        return this.hxs;
+        return this.hBz;
     }
 
     public final int h() {
-        return this.hxt;
+        return this.hBA;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         private Context mContext;
-        private boolean hxp = true;
-        private long hxu = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long hxq = 60000;
-        private long hxr = 10000;
-        private boolean hxs = false;
-        private int hxt = 1000;
+        private boolean hBw = true;
+        private long hBB = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long hBx = 60000;
+        private long hBy = 10000;
+        private boolean hBz = false;
+        private int hBA = 1000;
 
-        public a cw(Context context) {
+        public a cu(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a nL(boolean z) {
-            this.hxp = z;
+        public a nS(boolean z) {
+            this.hBw = z;
             return this;
         }
 
-        public a dh(long j) {
-            this.hxu = 1000 * j;
+        public a df(long j) {
+            this.hBB = 1000 * j;
             return this;
         }
 
-        public a vG(int i) {
-            this.hxq = i * 60 * 1000;
+        public a vP(int i) {
+            this.hBx = i * 60 * 1000;
             return this;
         }
 
-        public a di(long j) {
-            this.hxr = 1000 * j;
+        public a dg(long j) {
+            this.hBy = 1000 * j;
             return this;
         }
 
-        public a nM(boolean z) {
-            this.hxs = z;
+        public a nT(boolean z) {
+            this.hBz = z;
             return this;
         }
 
-        public a vH(int i) {
+        public a vQ(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.hxt = i2 < 1000 ? i2 : 1000;
+            this.hBA = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c bJN() {
+        public c bKo() {
             if (this.mContext == null) {
-                j.wh("Context must be not empty!");
+                j.wd("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

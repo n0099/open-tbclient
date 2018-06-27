@@ -2,8 +2,9 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.data.bd;
+import com.baidu.tbadk.core.data.bc;
 /* loaded from: classes2.dex */
 public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPraiseInfoLayout {
     public ThreadCommentAndPraiseInfoNewTypeLayout(Context context) {
@@ -26,63 +27,63 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void updatePraiseNum(bd bdVar) {
-        super.updatePraiseNum(bdVar);
-        if (this.awD != null && this.awT) {
-            if (this.awD.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.awD.getLayoutParams();
+    public void updatePraiseNum(bc bcVar) {
+        super.updatePraiseNum(bcVar);
+        if (this.axm != null && this.axF) {
+            if (this.axm.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axm.getLayoutParams();
                 layoutParams.width = -2;
                 layoutParams.leftMargin = 0;
                 layoutParams.weight = 0.0f;
-                this.awD.setLayoutParams(layoutParams);
+                this.axm.setLayoutParams(layoutParams);
             }
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.awC.getLayoutParams();
-            layoutParams2.leftMargin = this.awy;
-            this.awC.setLayoutParams(layoutParams2);
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.axl.getLayoutParams();
+            layoutParams2.leftMargin = this.axh;
+            this.axl.setLayoutParams(layoutParams2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void e(bd bdVar) {
-        super.e(bdVar);
-        if (this.awG != null && this.awZ) {
-            this.awG.setVisibility(0);
-            if (this.awG.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.awG.getLayoutParams();
+    public void f(bc bcVar) {
+        super.f(bcVar);
+        if (this.axp != null && this.axL) {
+            this.axp.setVisibility(0);
+            if (this.axp.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axp.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.awy;
+                layoutParams.leftMargin = this.axh;
                 layoutParams.weight = 0.0f;
-                this.awG.setLayoutParams(layoutParams);
+                this.axp.setLayoutParams(layoutParams);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void f(bd bdVar) {
-        super.f(bdVar);
-        if (this.awJ != null && this.axb && this.awJ.getLayoutParams() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.awJ.getLayoutParams();
+    public void g(bc bcVar) {
+        super.g(bcVar);
+        if (this.axs != null && this.axN && this.axs.getLayoutParams() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axs.getLayoutParams();
             layoutParams.width = -2;
-            layoutParams.leftMargin = this.awy;
+            layoutParams.leftMargin = this.axh;
             layoutParams.weight = 0.0f;
-            this.awJ.setLayoutParams(layoutParams);
+            this.axs.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void g(bd bdVar) {
-        super.g(bdVar);
-        if (this.awQ != null && this.axc) {
-            this.awQ.setVisibility(0);
-            if (this.awQ.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.awQ.getLayoutParams();
+    public void h(bc bcVar) {
+        super.h(bcVar);
+        if (this.axz != null && this.axO) {
+            this.axz.setVisibility(0);
+            if (this.axz.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axz.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.awy;
+                layoutParams.leftMargin = this.axh;
                 layoutParams.weight = 0.0f;
-                this.awQ.setLayoutParams(layoutParams);
+                this.axz.setLayoutParams(layoutParams);
             }
         }
     }

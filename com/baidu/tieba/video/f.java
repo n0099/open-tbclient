@@ -10,59 +10,59 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class f {
-    private static f gWP;
-    private VideoHolyCardModel.a fcT = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.f.2
+    private static f haU;
+    private VideoHolyCardModel.a fgK = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.f.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void ap(boolean z) {
-            f.this.gWR = z;
+            f.this.haW = z;
         }
     };
-    private VideoHolyCardModel gWQ;
-    private boolean gWR;
-    private boolean gWS;
+    private VideoHolyCardModel haV;
+    private boolean haW;
+    private boolean haX;
 
-    public static f bBb() {
-        if (gWP == null) {
+    public static f bBB() {
+        if (haU == null) {
             synchronized (f.class) {
-                if (gWP == null) {
-                    gWP = new f();
+                if (haU == null) {
+                    haU = new f();
                 }
             }
         }
-        return gWP;
+        return haU;
     }
 
-    public boolean bBc() {
-        return this.gWR;
+    public boolean bBC() {
+        return this.haW;
     }
 
-    public void bBd() {
+    public void bBD() {
         if (j.jF()) {
-            if (this.gWQ == null) {
-                this.gWQ = new VideoHolyCardModel();
-                this.gWQ.a(this.fcT);
+            if (this.haV == null) {
+                this.haV = new VideoHolyCardModel();
+                this.haV.a(this.fgK);
             }
-            this.gWQ.aWB();
+            this.haV.aXi();
         }
     }
 
-    public void cm(Context context) {
-        if (this.gWR && !this.gWS) {
+    public void ck(Context context) {
+        if (this.haW && !this.haX) {
             l.showToast(context, d.k.free_data_tips);
-            this.gWS = true;
+            this.haX = true;
         }
     }
 
     private f() {
-        bBe();
+        bBE();
     }
 
-    private void bBe() {
+    private void bBE() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2000994) { // from class: com.baidu.tieba.video.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                f.this.bBd();
+                f.this.bBD();
             }
         });
     }

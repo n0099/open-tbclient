@@ -6,6 +6,11 @@ public class ba extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "both_video_download";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
     protected String[] hm() {
         return null;
     }
@@ -16,17 +21,12 @@ public class ba extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hp() {
-        return 10;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_video_http_dns_open";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected int ho() {
         return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hp() {
+        return 10;
     }
 }

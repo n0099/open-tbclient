@@ -7,16 +7,16 @@ import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements b {
-    private final m<PointF, PointF> nL;
-    private final com.airbnb.lottie.model.a.f nT;
-    private final boolean nU;
+    private final m<PointF, PointF> nK;
+    private final com.airbnb.lottie.model.a.f nS;
+    private final boolean nT;
     private final String name;
 
     private a(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.nL = mVar;
-        this.nT = fVar;
-        this.nU = z;
+        this.nK = mVar;
+        this.nS = fVar;
+        this.nT = z;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -39,14 +39,14 @@ public class a implements b {
     }
 
     public m<PointF, PointF> cw() {
-        return this.nL;
+        return this.nK;
     }
 
     public com.airbnb.lottie.model.a.f cG() {
-        return this.nT;
+        return this.nS;
     }
 
     public boolean isReversed() {
-        return this.nU;
+        return this.nT;
     }
 }

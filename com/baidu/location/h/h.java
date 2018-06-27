@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class h {
-    private static volatile h Yw = null;
+    private static volatile h Yz = null;
     public static String a = ri().b() + "/baidu/tempdata";
     private final List<g> b = new ArrayList();
     private Context d;
@@ -195,14 +195,14 @@ public final class h {
     }
 
     public static h ri() {
-        if (Yw == null) {
+        if (Yz == null) {
             synchronized (h.class) {
-                if (Yw == null) {
-                    Yw = new h(com.baidu.location.f.getServiceContext());
+                if (Yz == null) {
+                    Yz = new h(com.baidu.location.f.getServiceContext());
                 }
             }
         }
-        return Yw;
+        return Yz;
     }
 
     public String b() {

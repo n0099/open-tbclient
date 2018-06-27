@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a HH;
-    private c HI;
-    private ArrayList<b> HJ = new ArrayList<>();
-    private C0019a HK;
+    private static a HJ;
+    private c HK;
+    private ArrayList<b> HL = new ArrayList<>();
+    private C0019a HM;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -22,25 +22,25 @@ public class a {
     }
 
     public static a lE() {
-        if (HH == null) {
+        if (HJ == null) {
             synchronized (a.class) {
-                if (HH == null) {
-                    HH = new a();
+                if (HJ == null) {
+                    HJ = new a();
                 }
             }
         }
-        return HH;
+        return HJ;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.HI = cVar;
+            this.HK = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.HJ.iterator();
+                    Iterator<b> it2 = this.HL.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,7 +51,7 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.HJ.add(next);
+                        this.HL.add(next);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lF() {
-        if (this.HJ.size() != 0 && this.HK == null) {
-            this.HK = new C0019a(this.HJ.get(0));
-            this.HK.execute(new String[0]);
+        if (this.HL.size() != 0 && this.HM == null) {
+            this.HM = new C0019a(this.HL.get(0));
+            this.HM.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0019a extends BdAsyncTask<String, Integer, Boolean> {
-        private b HL;
+        private b HN;
 
         public C0019a(b bVar) {
-            this.HL = bVar;
+            this.HN = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.HL != null) {
-                return Boolean.valueOf(bx(this.HL.apkPath));
+            if (this.HN != null) {
+                return Boolean.valueOf(bz(this.HN.apkPath));
             }
             return false;
         }
@@ -92,27 +92,27 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0019a) bool);
-            a.this.HK = null;
-            if (a.this.HJ.size() > 0) {
-                Iterator it = a.this.HJ.iterator();
+            a.this.HM = null;
+            if (a.this.HL.size() > 0) {
+                Iterator it = a.this.HL.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.HL, bVar)) {
-                        a.this.HJ.remove(bVar);
+                    if (a.this.a(this.HN, bVar)) {
+                        a.this.HL.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.HI != null) {
-                a.this.HI.D(this.HL.packageName, this.HL.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.HK != null) {
+                a.this.HK.D(this.HN.packageName, this.HN.apkPath);
             }
             a.this.lF();
         }
 
-        private boolean bx(String str) {
+        private boolean bz(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

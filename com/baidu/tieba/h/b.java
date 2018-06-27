@@ -10,46 +10,46 @@ import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements h {
-    public static final BdUniqueId dHk = BdUniqueId.gen();
-    private int cBm;
-    private List<a> dHl;
-    private String dHm;
-    private String dHn;
+    public static final BdUniqueId dKD = BdUniqueId.gen();
+    private int czg;
+    private List<a> dKE;
+    private String dKF;
+    private String dKG;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.cBm = esport.floor_no.intValue();
+            this.czg = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.dHm = esport._static.img;
-                this.dHn = esport._static.url;
+                this.dKF = esport._static.img;
+                this.dKG = esport._static.url;
             }
-            this.dHl = new ArrayList();
-            if (!StringUtils.isNull(this.dHm)) {
+            this.dKE = new ArrayList();
+            if (!StringUtils.isNull(this.dKF)) {
                 a aVar = new a();
-                aVar.nk(this.dHm);
-                aVar.nl(this.dHn);
-                this.dHl.add(aVar);
+                aVar.nl(this.dKF);
+                aVar.nm(this.dKG);
+                this.dKE.add(aVar);
             }
-            if (!w.z(esport.billboard)) {
+            if (!w.A(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.dHl.add(aVar2);
+                    this.dKE.add(aVar2);
                 }
             }
         }
     }
 
-    public int aAS() {
-        return this.cBm;
+    public int aBy() {
+        return this.czg;
     }
 
-    public List<a> aAT() {
-        return this.dHl;
+    public List<a> aBz() {
+        return this.dKE;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dHk;
+        return dKD;
     }
 }
