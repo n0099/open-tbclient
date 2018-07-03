@@ -584,20 +584,21 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements Naviga
                 return false;
             } else if (!SpecialFrsWebFragment.this.ayq() || SpecialFrsWebFragment.this.getPageContext() == null) {
                 if (!SpecialFrsWebFragment.this.mN(str) || TbadkCoreApplication.isLogin() || SpecialFrsWebFragment.this.getPageContext() == null) {
-                    if (SpecialFrsWebFragment.this.jG(str) || SpecialFrsWebFragment.this.getPageContext() == null || !SpecialFrsWebFragment.this.bGe.isShown()) {
-                        return true;
+                    if (!SpecialFrsWebFragment.this.jG(str) && SpecialFrsWebFragment.this.getPageContext() != null && SpecialFrsWebFragment.this.bGe.isShown()) {
+                        if (str.startsWith("tdoudiscount:")) {
+                            SpecialFrsWebFragment.this.dzf = true;
+                        }
+                        if (!SpecialFrsWebFragment.this.cM(str)) {
+                            if (SpecialFrsWebFragment.this.dze) {
+                                return az.zV().b(SpecialFrsWebFragment.this.getPageContext(), new String[]{str}) == 0;
+                            }
+                            az.zV().a((TbPageContext<?>) SpecialFrsWebFragment.this.getPageContext(), new String[]{str}, true);
+                        } else {
+                            int b = az.zV().b(SpecialFrsWebFragment.this.getPageContext(), new String[]{str});
+                            return b == 0 || b == 1;
+                        }
                     }
-                    if (str.startsWith("tdoudiscount:")) {
-                        SpecialFrsWebFragment.this.dzf = true;
-                    }
-                    if (SpecialFrsWebFragment.this.cM(str)) {
-                        return az.zV().b(SpecialFrsWebFragment.this.getPageContext(), new String[]{str}) == 0;
-                    } else if (SpecialFrsWebFragment.this.dze) {
-                        return az.zV().b(SpecialFrsWebFragment.this.getPageContext(), new String[]{str}) == 0;
-                    } else {
-                        az.zV().a((TbPageContext<?>) SpecialFrsWebFragment.this.getPageContext(), new String[]{str}, true);
-                        return true;
-                    }
+                    return true;
                 }
                 bb.aT(SpecialFrsWebFragment.this.getPageContext().getPageActivity());
                 return false;

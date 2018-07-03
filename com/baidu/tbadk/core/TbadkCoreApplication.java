@@ -3228,7 +3228,10 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             this.isMeiZuCanUseImmersiveHaveSet = true;
             String str = Build.BRAND;
             String str2 = Build.MODEL;
-            if ("Meizu".equalsIgnoreCase(str) && UtilHelper.isFlymeOsOver51()) {
+            if (UtilHelper.isMeizuM355()) {
+                this.isMeiZuCanUseImmersive = false;
+                return this.isMeiZuCanUseImmersive;
+            } else if ("Meizu".equalsIgnoreCase(str) && UtilHelper.isFlymeOsOver51()) {
                 this.isMeiZuCanUseImmersive = false;
                 return this.isMeiZuCanUseImmersive;
             }
