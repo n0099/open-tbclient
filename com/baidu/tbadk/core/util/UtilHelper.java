@@ -950,6 +950,10 @@ public class UtilHelper {
         return false;
     }
 
+    public static boolean isMeizuM355() {
+        return "Meizu".equalsIgnoreCase(Build.BRAND) && "M355".equalsIgnoreCase(Build.MODEL);
+    }
+
     public static boolean canUseStyleImmersiveSticky() {
         if (Build.VERSION.SDK_INT >= 19 && TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
             return TbadkCoreApplication.getInst().isImmersiveStickyCanUse();
@@ -1088,7 +1092,7 @@ public class UtilHelper {
 
     public static void changeStatusBarIconAndTextColor(boolean z, Activity activity) {
         int i;
-        if (activity != null && activity.getWindow() != null) {
+        if (activity != null && activity.getWindow() != null && !isMeizuM355()) {
             if (Build.DISPLAY.toLowerCase().contains("flyme")) {
                 changeFlyMeStatusBarColor(activity.getWindow());
             }
@@ -1127,9 +1131,8 @@ public class UtilHelper {
                 Method declaredMethod = Window.class.getDeclaredMethod("setStatusBarColor", Integer.TYPE);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(window, Integer.valueOf(TbadkCoreApplication.getInst().getSkinType() == 2 ? am.getColor(d.C0142d.black_alpha60) : am.getColor(d.C0142d.common_color_10274)));
-            } catch (IllegalAccessException e) {
-            } catch (NoSuchMethodException e2) {
-            } catch (InvocationTargetException e3) {
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
     }
@@ -1741,7 +1744,7 @@ public class UtilHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2419=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [2424=4] */
     public static String getSystemProperty(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

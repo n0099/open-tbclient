@@ -31,7 +31,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
-                if (b.this.dUo.cvV != view) {
+                if (b.this.dUo.bHY != view) {
                     if (view == b.this.dUo.bGZ.getCommentContainer() || view == b.this.dUo.bHN.ayE.getCommentContainer()) {
                         String str = "";
                         if (jVar != null && jVar.SV() != null) {
