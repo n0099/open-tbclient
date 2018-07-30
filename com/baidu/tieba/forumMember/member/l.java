@@ -30,8 +30,8 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                 } else if (view.getId() == d.g.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.asz() != null) {
-                        String[] split = !StringUtils.isNull(mVar.asz().member_group_type) ? mVar.asz().member_group_type.split("_") : null;
+                    if (mVar != null && mVar.atd() != null) {
+                        String[] split = !StringUtils.isNull(mVar.atd().member_group_type) ? mVar.atd().member_group_type.split("_") : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -49,9 +49,9 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aj */
+    /* renamed from: ak */
     public n onCreateViewHolder(ViewGroup viewGroup) {
-        return new n(LayoutInflater.from(this.mContext).inflate(d.i.forum_member_team_user_view, (ViewGroup) null), this.mClickListener);
+        return new n(LayoutInflater.from(this.mContext).inflate(d.h.forum_member_team_user_view, (ViewGroup) null), this.mClickListener);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,18 +60,18 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar != null && mVar.asz() != null) {
-            MemberGroupInfo asz = mVar.asz();
-            if (asz.member_group_list != null && asz.member_group_list.size() > 0 && !StringUtils.isNull(asz.member_group_type)) {
+        if (mVar != null && mVar.atd() != null) {
+            MemberGroupInfo atd = mVar.atd();
+            if (atd.member_group_list != null && atd.member_group_list.size() > 0 && !StringUtils.isNull(atd.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(asz.member_group_type) ? asz.member_group_type.split("_") : null;
+                String[] split = !StringUtils.isNull(atd.member_group_type) ? atd.member_group_type.split("_") : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + asz.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + atd.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : asz.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : atd.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -79,14 +79,14 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                         i2++;
                     }
                 }
-                nVar.fq(this.mSkinType == 1);
-                am.j(nVar.dgQ, d.C0142d.cp_bg_line_d);
-                am.j(nVar.dgR, d.C0142d.cp_bg_line_b);
-                am.c(nVar.mTitleView, d.C0142d.cp_cont_c, 1);
-                am.c(nVar.dgM, d.C0142d.cp_cont_f, 1);
-                am.c(nVar.dgN, d.C0142d.cp_cont_f, 1);
-                am.c(nVar.dgO, d.C0142d.cp_cont_f, 1);
-                am.c(nVar.dgP, d.C0142d.cp_cont_f, 1);
+                nVar.fr(this.mSkinType == 1);
+                am.j(nVar.djG, d.C0140d.cp_bg_line_d);
+                am.j(nVar.djH, d.C0140d.cp_bg_line_b);
+                am.c(nVar.mTitleView, d.C0140d.cp_cont_c, 1);
+                am.c(nVar.djC, d.C0140d.cp_cont_f, 1);
+                am.c(nVar.djD, d.C0140d.cp_cont_f, 1);
+                am.c(nVar.djE, d.C0140d.cp_cont_f, 1);
+                am.c(nVar.djF, d.C0140d.cp_cont_f, 1);
                 nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(d.f.icon_arrow_tab), (Drawable) null);
             }
         }

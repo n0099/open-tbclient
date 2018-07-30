@@ -7,7 +7,7 @@ import com.baidu.tieba.d;
 public class i extends k {
     public i(Context context) {
         super(context, null, 2, 0);
-        this.name = TbadkCoreApplication.getInst().getString(d.k.more_function);
+        this.name = TbadkCoreApplication.getInst().getString(d.j.more_function);
         this.aMS = d.f.selector_more_tool_btn;
         this.aMf = new MoreDeskView(context);
         this.aMW = true;
@@ -17,7 +17,7 @@ public class i extends k {
 
     public i(Context context, boolean z) {
         super(context, null, 2, 0);
-        this.name = TbadkCoreApplication.getInst().getString(d.k.more_function);
+        this.name = TbadkCoreApplication.getInst().getString(d.j.more_function);
         this.aMS = d.f.new_pbeditor_more_button;
         this.aMf = new MoreDeskView(context, !z);
         this.aMW = true;

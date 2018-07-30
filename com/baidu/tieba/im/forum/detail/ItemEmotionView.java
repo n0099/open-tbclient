@@ -21,7 +21,7 @@ public class ItemEmotionView extends RelativeLayout {
     }
 
     public void init(Context context) {
-        LayoutInflater.from(context).inflate(d.i.forum_emotion_msg_manage, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(d.h.forum_emotion_msg_manage, (ViewGroup) this, true);
         setVisibility(8);
     }
 

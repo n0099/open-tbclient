@@ -1,23 +1,42 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.MultiForumPerm;
+import java.util.ArrayList;
+import tbclient.ForumPresentInfo;
+import tbclient.UserRankPresentInfo;
 /* loaded from: classes.dex */
 public class u {
-    public boolean afV;
-    public boolean isDeleted;
-    public int type;
+    public String afq;
+    public ArrayList<a> users;
 
-    public void a(MultiForumPerm multiForumPerm) {
-        int i;
-        if (multiForumPerm != null) {
-            this.afV = multiForumPerm.is_bawu.intValue() == 1;
-            if ("manager".equals(multiForumPerm.bawu_type)) {
-                i = 1;
-            } else {
-                i = "assist".equals(multiForumPerm.bawu_type) ? 2 : 0;
+    public void a(ForumPresentInfo forumPresentInfo) {
+        if (forumPresentInfo != null) {
+            this.afq = forumPresentInfo.content;
+            this.users = new ArrayList<>();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < forumPresentInfo.user_list.size()) {
+                    this.users.add(new a(forumPresentInfo.user_list.get(i2)));
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
             }
-            this.type = i;
-            this.isDeleted = multiForumPerm.is_deleted.intValue() == 1;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class a {
+        public Integer afr;
+        public String userName;
+        public String userPortrait;
+
+        public a(UserRankPresentInfo userRankPresentInfo) {
+            if (userRankPresentInfo != null) {
+                this.afr = userRankPresentInfo.user_id;
+                this.userName = userRankPresentInfo.user_name;
+                this.userPortrait = userRankPresentInfo.portrait;
+            }
         }
     }
 }

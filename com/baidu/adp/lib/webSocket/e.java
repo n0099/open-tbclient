@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 /* loaded from: classes.dex */
 public class e {
-    private static com.baidu.adp.lib.webSocket.b Ed;
+    private static com.baidu.adp.lib.webSocket.b Ea;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,15 +18,15 @@ public class e {
 
         boolean isConnected();
 
-        String jV();
-
         String jW();
 
-        String kl();
+        String jX();
 
-        long km();
+        String km();
 
-        int kn();
+        long kn();
+
+        int ko();
 
         int read(ByteBuffer byteBuffer) throws Exception;
 
@@ -35,8 +35,8 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a a(String str, int i, l lVar, boolean z) throws Exception {
-        if (Ed != null) {
-            return Ed.a(str, i, lVar);
+        if (Ea != null) {
+            return Ea.a(str, i, lVar);
         }
         if (z) {
             return new b(str, i, lVar);
@@ -46,45 +46,45 @@ public class e {
 
     /* loaded from: classes.dex */
     static class c implements a {
-        private long Ef;
-        private String Eg;
-        private String Eh;
-        private String Ei;
-        private Socket Ej;
-        private InputStream Ek;
+        private long Ec;
+        private String Ed;
+        private String Ee;
+        private String Ef;
+        private Socket Eg;
+        private InputStream Eh;
         private byte[] mData;
         private OutputStream mOutputStream;
 
         public c(String str, int i, l lVar) throws Exception {
-            this.Ej = null;
-            this.Ek = null;
-            this.mOutputStream = null;
-            this.mData = null;
-            this.Ef = 0L;
             this.Eg = null;
             this.Eh = null;
-            this.Ei = null;
-            this.Ej = new Socket();
+            this.mOutputStream = null;
+            this.mData = null;
+            this.Ec = 0L;
+            this.Ed = null;
+            this.Ee = null;
+            this.Ef = null;
+            this.Eg = new Socket();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.Eg = inetSocketAddress.getAddress().getHostAddress();
-                this.Ef = System.currentTimeMillis() - currentTimeMillis;
+                this.Ed = inetSocketAddress.getAddress().getHostAddress();
+                this.Ec = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.Ej.connect(inetSocketAddress, lVar.kH());
-            this.Ej.setSoTimeout(lVar.kG());
-            this.Ej.setTcpNoDelay(lVar.getTcpNoDelay());
-            this.Ek = this.Ej.getInputStream();
-            this.mOutputStream = this.Ej.getOutputStream();
+            this.Eg.connect(inetSocketAddress, lVar.kJ());
+            this.Eg.setSoTimeout(lVar.kI());
+            this.Eg.setTcpNoDelay(lVar.getTcpNoDelay());
+            this.Eh = this.Eg.getInputStream();
+            this.mOutputStream = this.Eg.getOutputStream();
             this.mData = new byte[1024];
-            this.Eh = com.baidu.adp.lib.util.l.jV();
-            this.Ei = com.baidu.adp.lib.util.l.jW();
+            this.Ee = com.baidu.adp.lib.util.l.jW();
+            this.Ef = com.baidu.adp.lib.util.l.jX();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public void close() throws IOException {
             try {
-                this.Ek.close();
+                this.Eh.close();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -93,9 +93,9 @@ public class e {
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            if (this.Ej != null) {
+            if (this.Eg != null) {
                 try {
-                    this.Ej.close();
+                    this.Eg.close();
                 } catch (IOException e3) {
                     throw e3;
                 } catch (Throwable th) {
@@ -105,15 +105,15 @@ public class e {
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public boolean isConnected() {
-            if (this.Ej != null) {
-                return this.Ej.isConnected();
+            if (this.Eg != null) {
+                return this.Eg.isConnected();
             }
             return false;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            int read = this.Ek.read(this.mData);
+            int read = this.Eh.read(this.mData);
             if (read > 0) {
                 byteBuffer.put(this.mData, 0, read);
             }
@@ -132,106 +132,106 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String kl() {
-            return this.Eg;
+        public String km() {
+            return this.Ed;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long km() {
-            return this.Ef;
-        }
-
-        @Override // com.baidu.adp.lib.webSocket.e.a
-        public String jV() {
-            return this.Eh;
+        public long kn() {
+            return this.Ec;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String jW() {
-            return this.Ei;
+            return this.Ee;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int kn() {
+        public String jX() {
+            return this.Ef;
+        }
+
+        @Override // com.baidu.adp.lib.webSocket.e.a
+        public int ko() {
             return 0;
         }
     }
 
     /* loaded from: classes.dex */
     static class b implements a {
-        private SocketChannel Ee;
-        private long Ef;
-        private String Eg;
-        private String Eh;
-        private String Ei;
+        private SocketChannel Eb;
+        private long Ec;
+        private String Ed;
+        private String Ee;
+        private String Ef;
 
         public b(String str, int i, l lVar) throws Exception {
+            this.Eb = null;
+            this.Ec = 0L;
+            this.Ed = null;
             this.Ee = null;
-            this.Ef = 0L;
-            this.Eg = null;
-            this.Eh = null;
-            this.Ei = null;
-            this.Ee = SocketChannel.open();
+            this.Ef = null;
+            this.Eb = SocketChannel.open();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
             if (inetSocketAddress.getAddress() != null) {
-                this.Eg = inetSocketAddress.getAddress().getHostAddress();
-                this.Ef = System.currentTimeMillis() - currentTimeMillis;
+                this.Ed = inetSocketAddress.getAddress().getHostAddress();
+                this.Ec = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.Ee.socket().connect(inetSocketAddress, lVar.kH());
-            this.Ee.socket().setSoTimeout(lVar.kG());
-            this.Ee.socket().setTcpNoDelay(lVar.getTcpNoDelay());
-            this.Eh = com.baidu.adp.lib.util.l.jV();
-            this.Ei = com.baidu.adp.lib.util.l.jW();
+            this.Eb.socket().connect(inetSocketAddress, lVar.kJ());
+            this.Eb.socket().setSoTimeout(lVar.kI());
+            this.Eb.socket().setTcpNoDelay(lVar.getTcpNoDelay());
+            this.Ee = com.baidu.adp.lib.util.l.jW();
+            this.Ef = com.baidu.adp.lib.util.l.jX();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public void close() throws IOException {
-            if (this.Ee != null) {
-                this.Ee.close();
+            if (this.Eb != null) {
+                this.Eb.close();
             }
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public boolean isConnected() {
-            if (this.Ee != null) {
-                return this.Ee.isConnected();
+            if (this.Eb != null) {
+                return this.Eb.isConnected();
             }
             return false;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            return this.Ee.read(byteBuffer);
+            return this.Eb.read(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public int write(ByteBuffer byteBuffer) throws Exception {
-            return this.Ee.write(byteBuffer);
+            return this.Eb.write(byteBuffer);
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String kl() {
-            return this.Eg;
+        public String km() {
+            return this.Ed;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long km() {
-            return this.Ef;
-        }
-
-        @Override // com.baidu.adp.lib.webSocket.e.a
-        public String jV() {
-            return this.Eh;
+        public long kn() {
+            return this.Ec;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
         public String jW() {
-            return this.Ei;
+            return this.Ee;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int kn() {
+        public String jX() {
+            return this.Ef;
+        }
+
+        @Override // com.baidu.adp.lib.webSocket.e.a
+        public int ko() {
             return 0;
         }
     }

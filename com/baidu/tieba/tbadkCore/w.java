@@ -4,14 +4,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.y;
 import java.lang.ref.WeakReference;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private a gMg;
+    private a gNe;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -26,17 +30,19 @@ public class w {
     }
 
     public void a(a aVar) {
-        this.gMg = aVar;
+        this.gNe = aVar;
     }
 
     public void t(String str, long j) {
-        new b(str, j, this.mFrom, this.gMg).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.gNe).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private WeakReference<a> gMh;
+        private int errorCode;
+        private String errorMsg;
+        private WeakReference<a> gNf;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -45,10 +51,10 @@ public class w {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.gMh = null;
+            this.gNf = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.gMh = new WeakReference<>(aVar);
+            this.gNf = new WeakReference<>(aVar);
             this.mFrom = str2;
             setPriority(3);
         }
@@ -56,9 +62,9 @@ public class w {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
+        /* renamed from: c */
         public Integer doInBackground(Integer... numArr) {
-            int i;
+            JSONObject jSONObject;
             try {
                 if (this.mForumId != 0 && this.mForumName != null) {
                     this.mNetwork = new y(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
@@ -66,15 +72,17 @@ public class w {
                     this.mNetwork.o("kw", this.mForumName);
                     this.mNetwork.o("favo_type", "1");
                     this.mNetwork.o("st_type", this.mFrom);
-                    this.mNetwork.yX().zX().mIsNeedTbs = true;
-                    this.mNetwork.yz();
-                    if (this.mNetwork.yX().zY().isRequestSuccess()) {
-                        i = 1;
-                        return i;
+                    this.mNetwork.yO().zM().mIsNeedTbs = true;
+                    String yq = this.mNetwork.yq();
+                    if (!ap.isEmpty(yq) && (jSONObject = new JSONObject(yq)) != null) {
+                        this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+                        this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+                    }
+                    if (this.mNetwork.yO().zN().isRequestSuccess()) {
+                        return 1;
                     }
                 }
-                i = 0;
-                return i;
+                return 0;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return 0;
@@ -86,22 +94,23 @@ public class w {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.gMh != null) {
+            if (this.gNf != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.gMh.get();
+                a aVar2 = this.gNf.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.yX().zY().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.yO().zN().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar2.m(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.mForumId)));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.mForumName));
                         aVar.isSuccess = true;
                     } else {
-                        aVar2.n(this.mForumName, this.mForumId);
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            aVar.errorMessage = this.mNetwork.za() ? this.mNetwork.getErrorString() : this.mNetwork.zd();
+                            String errorString = this.mNetwork.yR() ? this.mNetwork.getErrorString() : this.mNetwork.yU();
+                            aVar.errorMessage = errorString;
+                            aVar2.n(errorString, this.errorCode);
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, aVar));

@@ -71,7 +71,7 @@ public class n {
         }
     }
 
-    public static void l(SQLiteDatabase sQLiteDatabase) {
+    public static void i(SQLiteDatabase sQLiteDatabase) {
         if (sQLiteDatabase != null) {
             try {
                 sQLiteDatabase.close();

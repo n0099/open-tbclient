@@ -8,7 +8,7 @@ import java.net.URL;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class n {
-    public static boolean TA = false;
+    public static boolean Tx = false;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0117: ARRAY_LENGTH  (r4v8 int A[REMOVE]) = (r9v0 byte[]))] */
     /* JADX WARN: Removed duplicated region for block: B:105:? A[RETURN, SYNTHETIC] */
@@ -38,7 +38,7 @@ public final class n {
         r2 = null;
         inputStreamReader2 = null;
         BufferedReader bufferedReader3 = null;
-        com.baidu.crabsdk.c.a.cf("上传文件大小：" + (bArr.length / 1024) + "KB");
+        com.baidu.crabsdk.c.a.cg("上传文件大小：" + (bArr.length / 1024) + "KB");
         try {
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
             try {
@@ -50,18 +50,18 @@ public final class n {
                 httpURLConnection2.setInstanceFollowRedirects(true);
                 httpURLConnection2.setRequestProperty("Content-Type", "application/octet-stream");
                 httpURLConnection2.setRequestProperty("EncryptType", "RSA-AES");
-                com.baidu.crabsdk.c.a.cf("*** filename =  ***" + str3);
+                com.baidu.crabsdk.c.a.cg("*** filename =  ***" + str3);
                 if (str2.equals("Block")) {
-                    com.baidu.crabsdk.c.a.cf("*** apiType == Block ***");
+                    com.baidu.crabsdk.c.a.cg("*** apiType == Block ***");
                     httpURLConnection2.setRequestProperty("EncryptData", str3);
                     httpURLConnection2.setRequestProperty(HTTP.USER_AGENT, d.a(str2, (String) null));
                 } else if (str2.equals("NDK")) {
-                    com.baidu.crabsdk.c.a.cf("*** apiType == NDK ***");
+                    com.baidu.crabsdk.c.a.cg("*** apiType == NDK ***");
                     httpURLConnection2.setRequestProperty("EncryptData", str3);
                     httpURLConnection2.setRequestProperty(HTTP.CONTENT_LEN, new StringBuilder().append(bArr.length).toString());
                     httpURLConnection2.setRequestProperty(HTTP.USER_AGENT, d.a(str2, (String) null));
                 } else {
-                    com.baidu.crabsdk.c.a.cf("*** apiType != Block ***");
+                    com.baidu.crabsdk.c.a.cg("*** apiType != Block ***");
                     httpURLConnection2.setRequestProperty("EncryptData", e.k("key_" + str3));
                     httpURLConnection2.setRequestProperty(HTTP.USER_AGENT, d.a(str2, e.i(str3)));
                 }
@@ -74,7 +74,7 @@ public final class n {
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
                     if (httpURLConnection2.getResponseCode() == 200) {
-                        TA = true;
+                        Tx = true;
                         InputStreamReader inputStreamReader3 = new InputStreamReader(httpURLConnection2.getInputStream());
                         try {
                             bufferedReader = new BufferedReader(inputStreamReader3);
@@ -256,15 +256,15 @@ public final class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void pq() {
+    public static void pu() {
         DataOutputStream dataOutputStream;
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2 = null;
         r2 = null;
         DataOutputStream dataOutputStream2 = null;
         try {
-            String pl = d.pl();
-            com.baidu.crabsdk.c.a.cf("sync json is " + pl);
+            String pp = d.pp();
+            com.baidu.crabsdk.c.a.cg("sync json is " + pp);
             HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
             try {
                 httpURLConnection3.setRequestMethod("POST");
@@ -285,12 +285,12 @@ public final class n {
                 th = th;
             }
             try {
-                dataOutputStream.writeBytes(pl);
+                dataOutputStream.writeBytes(pp);
                 dataOutputStream.flush();
                 dataOutputStream.close();
                 if (httpURLConnection3.getResponseCode() == 200) {
                     com.baidu.crabsdk.b.m.clear();
-                    com.baidu.crabsdk.c.a.cd("#### ^@^ sync ok!");
+                    com.baidu.crabsdk.c.a.ce("#### ^@^ sync ok!");
                 }
                 httpURLConnection3.disconnect();
                 try {

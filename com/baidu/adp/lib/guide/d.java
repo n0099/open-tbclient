@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a yN;
-    private boolean yQ;
-    private List<b> yR = new ArrayList();
-    private Configuration yI = new Configuration();
+    private a yI;
+    private boolean yL;
+    private List<b> yM = new ArrayList();
+    private Configuration yD = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,84 +18,84 @@ public class d {
     }
 
     public d X(int i) {
-        if (this.yQ) {
+        if (this.yL) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.yI.mAlpha = i;
+        this.yD.mAlpha = i;
         return this;
     }
 
     public d o(View view) {
-        if (this.yQ) {
+        if (this.yL) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.yI.mTargetView = view;
+        this.yD.mTargetView = view;
         return this;
     }
 
     public d Y(int i) {
-        if (this.yQ) {
+        if (this.yL) {
             throw new BuildException("Already created. rebuild a new one.");
         }
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.yI.yB = i;
+        this.yD.yw = i;
+        return this;
+    }
+
+    public d D(boolean z) {
+        if (this.yL) {
+            throw new BuildException("Already created, rebuild a new one.");
+        }
+        this.yD.yy = z;
         return this;
     }
 
     public d E(boolean z) {
-        if (this.yQ) {
+        if (this.yL) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.yI.yD = z;
-        return this;
-    }
-
-    public d F(boolean z) {
-        if (this.yQ) {
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        this.yI.yE = z;
+        this.yD.yz = z;
         return this;
     }
 
     public d a(b bVar) {
-        if (this.yQ) {
+        if (this.yL) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.yR.add(bVar);
+        this.yM.add(bVar);
         return this;
     }
 
     public d b(a aVar) {
-        if (this.yQ) {
+        if (this.yL) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.yN = aVar;
+        this.yI = aVar;
         return this;
     }
 
-    public d G(boolean z) {
-        this.yI.yz = z;
+    public d F(boolean z) {
+        this.yD.yu = z;
         return this;
     }
 
     public c hy() {
         c cVar = new c();
-        cVar.a((b[]) this.yR.toArray(new b[this.yR.size()]));
+        cVar.a((b[]) this.yM.toArray(new b[this.yM.size()]));
+        cVar.a(this.yD);
         cVar.a(this.yI);
-        cVar.a(this.yN);
-        this.yR = null;
+        this.yM = null;
+        this.yD = null;
         this.yI = null;
-        this.yN = null;
-        this.yQ = true;
+        this.yL = true;
         return cVar;
     }
 }

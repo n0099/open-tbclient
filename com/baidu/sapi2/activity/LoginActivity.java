@@ -9,7 +9,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.c.a.a;
+import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;

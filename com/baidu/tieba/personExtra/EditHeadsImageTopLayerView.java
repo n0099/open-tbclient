@@ -8,53 +8,72 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private Paint fWl;
-    private Paint fWm;
-    private int fWn;
-    private int fWo;
-    private float fWp;
-    private float fWq;
+    private int alo;
+    private Paint fWC;
+    private Paint fWD;
+    private int fWE;
+    private int fWF;
+    private float fWG;
+    private float fWH;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.fWl = null;
-        this.fWm = null;
-        this.fWn = 0;
-        this.fWo = 0;
-        this.fWp = 0.42857143f;
-        this.fWq = 1.0f;
+        this.fWC = null;
+        this.fWD = null;
+        this.fWE = 0;
+        this.fWF = 0;
+        this.fWG = 0.42857143f;
+        this.fWH = 1.0f;
+        this.alo = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fWl = null;
-        this.fWm = null;
-        this.fWn = 0;
-        this.fWo = 0;
-        this.fWp = 0.42857143f;
-        this.fWq = 1.0f;
+        this.fWC = null;
+        this.fWD = null;
+        this.fWE = 0;
+        this.fWF = 0;
+        this.fWG = 0.42857143f;
+        this.fWH = 1.0f;
+        this.alo = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fWl = null;
-        this.fWm = null;
-        this.fWn = 0;
-        this.fWo = 0;
-        this.fWp = 0.42857143f;
-        this.fWq = 1.0f;
+        this.fWC = null;
+        this.fWD = null;
+        this.fWE = 0;
+        this.fWF = 0;
+        this.fWG = 0.42857143f;
+        this.fWH = 1.0f;
+        this.alo = 1;
         init();
     }
 
     private void init() {
-        this.fWl = new Paint();
-        this.fWl.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.fWl.setAlpha(153);
-        this.fWm = new Paint();
-        this.fWm.setStyle(Paint.Style.STROKE);
-        this.fWm.setColor(-1);
+        this.fWC = new Paint();
+        this.fWC.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.fWC.setAlpha(153);
+        this.fWD = new Paint();
+        this.fWD.setStyle(Paint.Style.STROKE);
+        this.fWD.setColor(-1);
+    }
+
+    public void setLinePaintColor(int i) {
+        if (this.fWD != null) {
+            this.fWD.setColor(i);
+        }
+        invalidate();
+    }
+
+    public void setLineWidth(int i) {
+        this.alo = i;
+        if (this.fWD != null) {
+            this.fWD.setStrokeWidth(i);
+        }
+        invalidate();
     }
 
     @Override // android.view.View
@@ -62,19 +81,19 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.fWn, this.fWl);
-        canvas.drawRect(0.0f, getHeight() - this.fWo, getWidth(), getHeight(), this.fWl);
-        canvas.drawRect(1.0f, this.fWn, getWidth() - 1, getHeight() - this.fWo, this.fWm);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.fWE, this.fWC);
+        canvas.drawRect(0.0f, getHeight() - this.fWF, getWidth(), getHeight(), this.fWC);
+        canvas.drawRect(1.0f, this.fWE, getWidth() - 1, getHeight() - this.fWF, this.fWD);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.fWq * getWidth();
+        float width = this.fWH * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.fWn = (int) (((i4 - i2) - width) * this.fWp);
-        this.fWo = (int) (((i4 - i2) - width) * (1.0f - this.fWp));
+        this.fWE = (int) (((i4 - i2) - width) * this.fWG);
+        this.fWF = (int) (((i4 - i2) - width) * (1.0f - this.fWG));
     }
 }

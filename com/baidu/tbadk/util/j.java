@@ -1,25 +1,33 @@
 package com.baidu.tbadk.util;
 
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes.dex */
-public class j {
-    public static void Lo() {
-        if (!com.baidu.adp.lib.util.l.jT()) {
-            com.baidu.adp.lib.g.e.im().post(new Runnable() { // from class: com.baidu.tbadk.util.j.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    j.Lp();
-                }
-            });
-        } else {
-            Lp();
-        }
+public class j extends ClickableSpan {
+    private Context mContext;
+
+    public j(Context context) {
+        this.mContext = null;
+        this.mContext = context;
     }
 
-    public static void Lp() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InitUserNameDialogActivityConfig(TbadkCoreApplication.getInst().getContext())));
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public void hy(String str) {
+        com.baidu.tbadk.browser.a.Q(this.mContext, str);
+    }
+
+    public void hz(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

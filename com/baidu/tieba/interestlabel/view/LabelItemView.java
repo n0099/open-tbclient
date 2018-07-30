@@ -18,9 +18,9 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelItemView extends LinearLayout {
-    private int eIA;
-    private int eIB;
-    private boolean eIz;
+    private boolean eMt;
+    private int eMu;
+    private int eMv;
     private Paint mPaint;
 
     public LabelItemView(Context context) {
@@ -43,19 +43,19 @@ public class LabelItemView extends LinearLayout {
         setOrientation(0);
         this.mPaint = new Paint();
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setColor(am.getColor(d.C0142d.cp_bg_line_c));
+        this.mPaint.setColor(am.getColor(d.C0140d.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.eIB = l.e(getContext(), d.e.ds46);
+        this.eMv = l.f(getContext(), d.e.ds46);
         for (int i = 0; i < 3; i++) {
-            addView(aPt());
+            addView(aQt());
         }
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list, boolean z) {
-        if (!w.A(list)) {
-            this.eIz = z;
-            this.eIA = Math.min(list.size(), 3);
-            for (int i = 0; i < this.eIA; i++) {
+        if (!w.z(list)) {
+            this.eMt = z;
+            this.eMu = Math.min(list.size(), 3);
+            for (int i = 0; i < this.eMu; i++) {
                 com.baidu.tieba.interestlabel.b.a aVar = list.get(i);
                 if (aVar != null && (getChildAt(i) instanceof TextView)) {
                     TextView textView = (TextView) getChildAt(i);
@@ -71,7 +71,7 @@ public class LabelItemView extends LinearLayout {
                     textView.setTag(aVar);
                 }
             }
-            for (int i2 = this.eIA; i2 < getChildCount(); i2++) {
+            for (int i2 = this.eMu; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
                 if (childAt != null) {
                     childAt.setVisibility(8);
@@ -80,8 +80,8 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    private TextView aPt() {
-        return (TextView) LayoutInflater.from(getContext()).inflate(d.i.label_recommend_column_item, (ViewGroup) this, false);
+    private TextView aQt() {
+        return (TextView) LayoutInflater.from(getContext()).inflate(d.h.label_recommend_column_item, (ViewGroup) this, false);
     }
 
     @Override // android.view.View
@@ -104,13 +104,13 @@ public class LabelItemView extends LinearLayout {
         int i = 1;
         while (true) {
             int i2 = i;
-            if (i2 >= this.eIA) {
+            if (i2 >= this.eMu) {
                 break;
             }
-            canvas.drawLine(width * i2, (height - this.eIB) / 2, (width * i2) + 1, (this.eIB + height) / 2, this.mPaint);
+            canvas.drawLine(width * i2, (height - this.eMv) / 2, (width * i2) + 1, (this.eMv + height) / 2, this.mPaint);
             i = i2 + 1;
         }
-        if (!this.eIz) {
+        if (!this.eMt) {
             canvas.drawLine(0.0f, height - 1, getWidth(), height, this.mPaint);
         }
     }

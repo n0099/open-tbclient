@@ -61,7 +61,7 @@ public enum HttpStatus {
     BAD_GATEWAY(org.apache.http.HttpStatus.SC_BAD_GATEWAY, "Bad Gateway"),
     SERVICE_UNAVAILABLE(org.apache.http.HttpStatus.SC_SERVICE_UNAVAILABLE, "Service Unavailable"),
     GATEWAY_TIMEOUT(org.apache.http.HttpStatus.SC_GATEWAY_TIMEOUT, "Gateway Timeout"),
-    HTTP_VERSION_NOT_SUPPORTED(org.apache.http.HttpStatus.SC_HTTP_VERSION_NOT_SUPPORTED, "HTTP Version not supported"),
+    HTTP_VERSION_NOT_SUPPORTED(505, "HTTP Version not supported"),
     VARIANT_ALSO_NEGOTIATES(MsgConstants.SLAM_MODEL_SHOWING, "Variant Also Negotiates"),
     INSUFFICIENT_STORAGE(507, "Insufficient Storage"),
     LOOP_DETECTED(508, "Loop Detected"),

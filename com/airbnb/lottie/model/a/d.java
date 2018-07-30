@@ -16,21 +16,21 @@ public class d extends o<Integer, Integer> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Integer, Integer> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mJ) : new com.airbnb.lottie.a.b.e(this.mr);
+    public com.airbnb.lottie.a.b.a<Integer, Integer> ci() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.my) : new com.airbnb.lottie.a.b.e(this.mi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: co */
-    public Integer cm() {
-        return (Integer) this.mJ;
+    /* renamed from: cm */
+    public Integer ck() {
+        return (Integer) this.my;
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static d cp() {
+        public static d cn() {
             return new d();
         }
 
@@ -38,15 +38,15 @@ public class d extends o<Integer, Integer> {
             if (jSONObject != null && jSONObject.has("x")) {
                 eVar.E("Lottie doesn't support expressions.");
             }
-            n.a cE = n.a(jSONObject, 1.0f, eVar, b.ny).cE();
-            return new d(cE.mr, (Integer) cE.mJ);
+            n.a cC = n.a(jSONObject, 1.0f, eVar, b.nn).cC();
+            return new d(cC.mi, (Integer) cC.my);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b implements m.a<Integer> {
-        private static final b ny = new b();
+        private static final b nn = new b();
 
         private b() {
         }

@@ -7,19 +7,19 @@ import com.baidu.b.a.b.c;
 import com.baidu.b.a.b.d;
 /* loaded from: classes3.dex */
 public class a {
-    private static boolean TB;
-    private static boolean TC;
+    private static boolean Ty;
+    private static boolean Tz;
 
     public static void init(Context context) {
-        TB = h.jp().i("criusbase", 2);
-        TC = h.jp().i("crius", 2);
+        Ty = h.jq().i("criusbase", 2);
+        Tz = h.jq().i("crius", 2);
     }
 
     public static void a(b bVar) {
-        com.baidu.b.a.b.a.pr().b(bVar);
+        com.baidu.b.a.b.a.pv().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.ps().b(cVar);
+        d.pw().b(cVar);
     }
 }

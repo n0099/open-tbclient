@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes.dex */
 public class b {
-    private static String fKe = "tbgametype";
+    private static String fKs = "tbgametype";
 
-    public static String tX(String str) {
+    public static String tV(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(SystemInfoUtil.COLON)) == null) {
             return null;

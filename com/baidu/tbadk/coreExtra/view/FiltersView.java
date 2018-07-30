@@ -81,7 +81,7 @@ public class FiltersView extends HorizontalScrollView {
         this.aHd = z;
     }
 
-    public static int gc(String str) {
+    public static int ga(String str) {
         if (TbadkCoreApplication.getMotuFilterImageMap() == null || TbadkCoreApplication.getMotuFilterImageMap().size() == 0) {
             return 0;
         }

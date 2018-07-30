@@ -5,17 +5,17 @@ import android.net.Uri;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
-    private String EO;
-    private SurfaceTexture biM;
+    private String EL;
+    private SurfaceTexture bjr;
     private Map<String, String> headers;
     private Uri uri;
 
     public void setHost(String str) {
-        this.EO = str;
+        this.EL = str;
     }
 
     public String getHost() {
-        return this.EO;
+        return this.EL;
     }
 
     public Uri getUri() {
@@ -31,10 +31,10 @@ public class b {
     }
 
     public SurfaceTexture getSurfaceTexture() {
-        return this.biM;
+        return this.bjr;
     }
 
     public void setSurfaceTexture(SurfaceTexture surfaceTexture) {
-        this.biM = surfaceTexture;
+        this.bjr = surfaceTexture;
     }
 }

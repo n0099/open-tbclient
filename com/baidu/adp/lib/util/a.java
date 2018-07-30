@@ -14,7 +14,7 @@ public class a {
         return 0;
     }
 
-    public static void aP(String str) {
+    public static void aQ(String str) {
         if (str == null) {
             str = "";
         }

@@ -7,16 +7,16 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class e {
-    protected final String gtc;
-    protected com.baidu.tieba.recapp.report.a gtd;
-    protected AdvertAppInfo gte;
-    protected com.baidu.tieba.lego.card.b.b gtf;
+    protected final String gup;
+    protected com.baidu.tieba.recapp.report.b guq;
+    protected AdvertAppInfo gur;
+    protected com.baidu.tieba.lego.card.b.b gus;
     public TbPageContext mContext;
     protected final View mRootView;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.gtc = str;
+        this.gup = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -26,28 +26,28 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T st(int i) {
+    public final <T> T sr(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void bpH() {
+    public void bom() {
         this.mRootView.setVisibility(0);
-        if (this.gtd != null) {
-            this.gtd.sn(303);
-            com.baidu.tieba.recapp.report.b.bpD().a(this.gtd);
+        if (this.guq != null) {
+            this.guq.sl(303);
+            com.baidu.tieba.recapp.report.c.boi().a(this.guq);
         }
     }
 
-    public void bpI() {
+    public void bon() {
         this.mRootView.setVisibility(8);
     }
 
-    public void e(com.baidu.tieba.recapp.report.a aVar) {
-        this.gtd = aVar;
+    public void e(com.baidu.tieba.recapp.report.b bVar) {
+        this.guq = bVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.gtf = bVar;
+        this.gus = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
@@ -60,10 +60,10 @@ public class e {
     public void setTimeoutListener(CountDownTextView.b bVar) {
     }
 
-    public void lW(boolean z) {
+    public void lH(boolean z) {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.gte = advertAppInfo;
+        this.gur = advertAppInfo;
     }
 }

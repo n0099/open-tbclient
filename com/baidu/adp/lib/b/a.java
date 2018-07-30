@@ -4,11 +4,11 @@ import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
     protected String mName;
-    protected String[] yl;
-    protected int ym = 0;
-    protected int yn = 1;
-    protected int yo = 10;
-    protected b.a yp = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+    protected String[] yf;
+    protected int yg = 0;
+    protected int yh = 1;
+    protected int yi = 10;
+    protected b.a yj = new b.a() { // from class: com.baidu.adp.lib.b.a.1
         @Override // com.baidu.adp.lib.b.b.a
         public void a(String str, int i, boolean z) {
             a.this.R(i);
@@ -19,35 +19,36 @@ public abstract class a {
 
     protected abstract String getName();
 
-    protected abstract String[] hm();
+    protected abstract String[] hl();
+
+    protected abstract int hm();
 
     protected abstract int hn();
 
     protected abstract int ho();
 
-    protected abstract int hp();
-
-    protected String[] hq() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String[] hp() {
         return null;
     }
 
-    protected void hr() {
-        b bVar = new b(this.mName, this.ym, this.yp);
-        bVar.a(this.yo, this.yl, this.yn);
-        bVar.g(hq());
+    protected void hq() {
+        b bVar = new b(this.mName, this.yg, this.yj);
+        bVar.a(this.yi, this.yf, this.yh);
+        bVar.g(hp());
         d.hv().a(bVar);
     }
 
     public a() {
         initData();
-        hr();
+        hq();
     }
 
     protected void initData() {
         this.mName = getName();
-        this.yl = hm();
-        this.ym = hn();
-        this.yn = ho();
-        this.yo = hp();
+        this.yf = hl();
+        this.yg = hm();
+        this.yh = hn();
+        this.yi = ho();
     }
 }

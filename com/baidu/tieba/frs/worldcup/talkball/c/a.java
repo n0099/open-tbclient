@@ -4,15 +4,15 @@ import com.baidu.adp.widget.ListView.h;
 import com.baidu.tieba.frs.worldcup.talkball.model.c;
 import com.baidu.tieba.tbadkCore.d;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a(d.a aVar, ArrayList<h> arrayList, c cVar);
 
-    void aBl();
+    void aBU();
 
-    void aBm();
+    void aBV();
 
-    void aBn();
+    void aBW();
 
     String getForumId();
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.concern.c;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.data.k;
@@ -13,7 +13,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class a {
-    private final c dRb = new c();
+    private final c dTO = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -31,42 +31,42 @@ public class a {
         LinkedList linkedList = new LinkedList();
         for (ConcernData concernData : builder.thread_info) {
             if (concernData != null) {
-                bc bcVar = new bc();
-                bcVar.a(concernData.thread_list);
-                if (bcVar.isShareThread) {
+                bb bbVar = new bb();
+                bbVar.a(concernData.thread_list);
+                if (bbVar.isShareThread) {
                     k kVar = new k();
-                    kVar.threadData = bcVar;
+                    kVar.threadData = bbVar;
                     linkedList.add(kVar);
-                } else if (l.P(bcVar)) {
-                    l lVar = new l(bcVar);
-                    lVar.tid = bcVar.getTid();
-                    lVar.iM(concernData.source.intValue());
+                } else if (l.R(bbVar)) {
+                    l lVar = new l(bbVar);
+                    lVar.tid = bbVar.getTid();
+                    lVar.iY(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
-                } else if (j.P(bcVar)) {
-                    j jVar = new j(bcVar);
+                } else if (j.R(bbVar)) {
+                    j jVar = new j(bbVar);
                     if (jVar != null) {
-                        jVar.tid = bcVar.getTid();
-                        jVar.lc("3");
+                        jVar.tid = bbVar.getTid();
+                        jVar.la("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
                     }
                 } else {
                     k kVar2 = new k();
-                    kVar2.threadData = bcVar;
-                    kVar2.lc(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.threadData = bbVar;
+                    kVar2.la(kVar2.threadData.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
-                    kVar2.iM(concernData.source.intValue());
+                    kVar2.iY(concernData.source.intValue());
                     if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
             }
         }
-        this.dRb.bha = linkedList;
-        return this.dRb;
+        this.dTO.bhF = linkedList;
+        return this.dTO;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -77,7 +77,7 @@ public class a {
 
     private void a(boolean z, List<ConcernData> list, List<ConcernData> list2, int i) {
         if (list != null && list2 != null) {
-            int z2 = w.z(list);
+            int y = w.y(list);
             if (i == 1) {
                 for (ConcernData concernData : list2) {
                     if (concernData != null && concernData.thread_list.tid != null) {
@@ -86,14 +86,14 @@ public class a {
                 }
             } else {
                 list.clear();
-                for (int z3 = w.z(list2) - 1; z3 >= 0; z3--) {
-                    ConcernData concernData2 = (ConcernData) w.d(list2, z3);
+                for (int y2 = w.y(list2) - 1; y2 >= 0; y2--) {
+                    ConcernData concernData2 = (ConcernData) w.d(list2, y2);
                     if (concernData2 != null && concernData2.thread_list.tid != null) {
                         list.add(0, concernData2);
                     }
                 }
             }
-            this.dRb.dVE = w.z(list) - z2;
+            this.dTO.dZw = w.y(list) - y;
         }
     }
 

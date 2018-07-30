@@ -1,34 +1,31 @@
 package com.baidu.tbadk.core.data;
-
-import tbclient.SimpleForum;
 /* loaded from: classes.dex */
 public class az {
-    public u ahV;
-    private String avatar;
-    private String forumId;
-    private int forumLevel;
-    private String forumName;
-    public boolean isBrandForum;
+    protected String img_url = null;
+    protected String link = null;
+    protected String ahs = null;
 
-    public String getForumId() {
-        return this.forumId;
+    public String tU() {
+        return this.img_url;
     }
 
-    public String getForumName() {
-        return this.forumName;
+    public void dj(String str) {
+        this.img_url = str;
     }
 
-    public void parserProtobuf(SimpleForum simpleForum) {
-        if (simpleForum != null) {
-            this.forumId = String.valueOf(simpleForum.id);
-            this.forumName = simpleForum.name;
-            this.avatar = simpleForum.avatar;
-            this.forumLevel = simpleForum.level_id.intValue();
-            if (simpleForum.multi_forum_perm != null) {
-                this.ahV = new u();
-                this.ahV.a(simpleForum.multi_forum_perm);
-            }
-            this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
-        }
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public String uL() {
+        return this.ahs;
+    }
+
+    public void dk(String str) {
+        this.ahs = str;
     }
 }

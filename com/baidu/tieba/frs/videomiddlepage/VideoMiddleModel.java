@@ -6,21 +6,32 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class VideoMiddleModel extends BdBaseModel {
-    private a dFi;
-    private final HttpMessageListener doO;
+    public static final String TYPE_CALL_FROM_FRS = "client_frs";
+    public static final String TYPE_CALL_FROM_INDEX = "client_index";
+    public static final String TYPE_CALL_FROM_OTHER = "client_other";
+    private a dHV;
+    private String dHW;
+    private final HttpMessageListener drI;
+    private String mFrom;
     private String mId;
     private boolean mIsLoading;
     private TbPageContext mPageContext;
@@ -32,7 +43,7 @@ public class VideoMiddleModel extends BdBaseModel {
     public interface a {
         void g(List<com.baidu.tieba.card.data.b> list, boolean z);
 
-        void mB(String str);
+        void mA(String str);
     }
 
     static /* synthetic */ int b(VideoMiddleModel videoMiddleModel) {
@@ -43,12 +54,13 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.doO = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
+        this.dHW = "client_other";
+        this.drI = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    VideoMiddleModel.this.dFi.mB("error");
+                    VideoMiddleModel.this.dHV.mA("error");
                     return;
                 }
                 VideoMiddleModel.this.mIsLoading = false;
@@ -56,27 +68,28 @@ public class VideoMiddleModel extends BdBaseModel {
                     VideoMiddleModel.b(VideoMiddleModel.this);
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(d.k.error_unkown_try_again);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(d.j.error_unkown_try_again);
                     }
-                    VideoMiddleModel.this.dFi.mB(errorString);
+                    VideoMiddleModel.this.dHV.mA(errorString);
                     return;
                 }
-                VideoMiddleModel.this.dFi.g(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                TbSingleton.getInstance().clearVideoRecord();
+                VideoMiddleModel.this.dHV.g(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
             }
         };
         this.mPageContext = tbPageContext;
-        this.dFi = aVar;
+        this.dHV = aVar;
         registerTask();
-        this.doO.setTag(getUniqueId());
-        this.doO.setSelfListener(true);
-        registerListener(this.doO);
+        this.drI.setTag(getUniqueId());
+        this.drI.setSelfListener(true);
+        registerListener(this.drI);
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void mA(String str) {
+    public void mz(String str) {
         this.st_type = str;
     }
 
@@ -112,7 +125,7 @@ public class VideoMiddleModel extends BdBaseModel {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         com.baidu.tieba.frs.aggregation.g gVar = new com.baidu.tieba.frs.aggregation.g();
                         gVar.parseJson(jSONArray.optString(i2));
-                        if (gVar.doF != null) {
+                        if (gVar.dry != null) {
                             this.mDataList.add(gVar);
                         }
                     }
@@ -135,8 +148,43 @@ public class VideoMiddleModel extends BdBaseModel {
         int i = this.mPn + 1;
         this.mPn = i;
         httpMessage.addParam("pn", i);
+        httpMessage.addParam("user_view_data", aBb());
+        if ("frs".equals(this.mFrom)) {
+            this.dHW = "client_frs";
+        } else if ("index".equals(this.mFrom)) {
+            this.dHW = "client_index";
+        } else {
+            this.dHW = "client_other";
+        }
+        httpMessage.addParam(IntentConfig.CALL_FROM, this.dHW);
         sendMessage(httpMessage);
         return true;
+    }
+
+    private String aBb() {
+        JSONArray jSONArray = new JSONArray();
+        LinkedList<com.baidu.tbadk.c.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+        if (videoRecordList != null) {
+            try {
+                if (videoRecordList.size() > 0) {
+                    Iterator<com.baidu.tbadk.c.a> it = videoRecordList.iterator();
+                    while (it.hasNext()) {
+                        com.baidu.tbadk.c.a next = it.next();
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("tid", next.getKey());
+                        jSONObject.put("duration", next.getValue());
+                        jSONArray.put(jSONObject);
+                    }
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+        }
+        return jSONArray.toString();
+    }
+
+    public void setFrom(String str) {
+        this.mFrom = str;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

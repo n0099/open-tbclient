@@ -11,14 +11,14 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
-    private TextView bvD;
+    private TextView bwj;
     private Context context;
-    private HeadImageView dHD;
-    private ShareFromFrsMsgData dHG;
-    private TextView ezn;
-    private TextView ezo;
-    private TextView ezp;
-    private TextView ezq;
+    private HeadImageView dKs;
+    private ShareFromFrsMsgData dKv;
+    private TextView eDe;
+    private TextView eDf;
+    private TextView eDg;
+    private TextView eDh;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -33,46 +33,46 @@ public class ShareFromFrsView extends LinearLayout {
     }
 
     private void initUI() {
-        LayoutInflater.from(getContext()).inflate(d.i.share_from_frs_view, this);
-        this.bvD = (TextView) findViewById(d.g.frs_name);
-        this.dHD = (HeadImageView) findViewById(d.g.frs_img);
-        this.ezo = (TextView) findViewById(d.g.frs_member_num);
-        this.ezq = (TextView) findViewById(d.g.frs_post_num);
-        this.ezn = (TextView) findViewById(d.g.frs_member_num_label);
-        this.ezp = (TextView) findViewById(d.g.frs_post_num_label);
+        LayoutInflater.from(getContext()).inflate(d.h.share_from_frs_view, this);
+        this.bwj = (TextView) findViewById(d.g.frs_name);
+        this.dKs = (HeadImageView) findViewById(d.g.frs_img);
+        this.eDf = (TextView) findViewById(d.g.frs_member_num);
+        this.eDh = (TextView) findViewById(d.g.frs_post_num);
+        this.eDe = (TextView) findViewById(d.g.frs_member_num_label);
+        this.eDg = (TextView) findViewById(d.g.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.bvD.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_b));
-            this.ezo.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_f));
-            this.ezq.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_f));
-            this.ezn.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_f));
-            this.ezp.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_f));
+            this.bwj.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_b));
+            this.eDf.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_f));
+            this.eDh.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_f));
+            this.eDe.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_f));
+            this.eDg.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_f));
             return;
         }
-        this.bvD.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_g));
-        this.ezo.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_g));
-        this.ezq.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_g));
-        this.ezn.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_g));
-        this.ezp.setTextColor(getContext().getResources().getColor(d.C0142d.cp_cont_g));
+        this.bwj.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_g));
+        this.eDf.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_g));
+        this.eDh.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_g));
+        this.eDe.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_g));
+        this.eDg.setTextColor(getContext().getResources().getColor(d.C0140d.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.dHG = shareFromFrsMsgData;
-        AB();
+        this.dKv = shareFromFrsMsgData;
+        Ar();
     }
 
-    private void AB() {
-        this.bvD.setText(eQ(this.dHG.getName()));
-        this.dHD.setDefaultResource(d.f.icon_default_ba_120);
-        this.dHD.setAutoChangeStyle(false);
-        this.dHD.startLoad(this.dHG.getImageUrl(), 10, false);
-        this.ezo.setText(ap.D(this.dHG.getMemberNum()));
-        this.ezq.setText(ap.D(this.dHG.getPostNum()));
+    private void Ar() {
+        this.bwj.setText(eO(this.dKv.getName()));
+        this.dKs.setDefaultResource(d.f.icon_default_ba_120);
+        this.dKs.setAutoChangeStyle(false);
+        this.dKs.startLoad(this.dKv.getImageUrl(), 10, false);
+        this.eDf.setText(ap.F(this.dKv.getMemberNum()));
+        this.eDh.setText(ap.F(this.dKv.getPostNum()));
     }
 
-    private String eQ(String str) {
-        return ap.j(str, 8) + this.context.getString(d.k.forum);
+    private String eO(String str) {
+        return ap.j(str, 8) + this.context.getString(d.j.forum);
     }
 }

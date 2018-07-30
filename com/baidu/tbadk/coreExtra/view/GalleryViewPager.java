@@ -28,7 +28,7 @@ public class GalleryViewPager extends BaseViewPager {
         return this.aHh;
     }
 
-    private float[] r(MotionEvent motionEvent) {
+    private float[] s(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
             case 2:
@@ -46,24 +46,24 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
             if (this.aHh != null) {
-                this.aHh.LK();
+                this.aHh.LG();
             }
         }
         if (this.aHh == null) {
             return super.onTouchEvent(motionEvent);
         }
-        float[] r = r(motionEvent);
-        if (this.aHh.LL()) {
+        float[] s = s(motionEvent);
+        if (this.aHh.LH()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (r != null && this.aHh.LR() && r[0] < 0.0f) {
+        if (s != null && this.aHh.LN() && s[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (r != null && this.aHh.LS() && r[0] > 0.0f) {
+        if (s != null && this.aHh.LO() && s[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (r == null) {
-            if (this.aHh.LS() || this.aHh.LR()) {
+        if (s == null) {
+            if (this.aHh.LO() || this.aHh.LN()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -76,21 +76,21 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] r = r(motionEvent);
+        float[] s = s(motionEvent);
         if (this.aHh == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.aHh.LL()) {
+        if (this.aHh.LH()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (r != null && this.aHh.LR() && r[0] < 0.0f) {
+        if (s != null && this.aHh.LN() && s[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (r != null && this.aHh.LS() && r[0] > 0.0f) {
+        if (s != null && this.aHh.LO() && s[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (r == null) {
-            if (this.aHh.LS() || this.aHh.LR()) {
+        if (s == null) {
+            if (this.aHh.LO() || this.aHh.LN()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

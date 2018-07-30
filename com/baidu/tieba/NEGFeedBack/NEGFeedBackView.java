@@ -9,41 +9,41 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NEGFeedBackView extends ImageView {
+    private int aOR;
     private int aOS;
-    private int aOT;
-    private long bih;
-    c bii;
-    private View.OnClickListener bij;
+    private long biM;
+    c biN;
+    private View.OnClickListener biO;
     private Context mContext;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(ai aiVar);
+        void a(ah ahVar);
 
-        void a(ai aiVar, CompoundButton compoundButton, boolean z);
+        void a(ah ahVar, CompoundButton compoundButton, boolean z);
 
-        void a(ArrayList<Integer> arrayList, ai aiVar);
+        void a(ArrayList<Integer> arrayList, ah ahVar);
     }
 
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.bih = 0L;
-        this.bij = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.biM = 0L;
+        this.biO = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.Pp();
+                NEGFeedBackView.this.Pv();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.bih > 500) {
-                    NEGFeedBackView.this.Po();
+                if (currentTimeMillis - NEGFeedBackView.this.biM > 500) {
+                    NEGFeedBackView.this.Pu();
                 }
-                NEGFeedBackView.this.bih = currentTimeMillis;
+                NEGFeedBackView.this.biM = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,14 +51,14 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void f(TbPageContext tbPageContext) {
-        this.bii = new c(tbPageContext, this);
-        setOnClickListener(this.bij);
+        this.biN = new c(tbPageContext, this);
+        setOnClickListener(this.biO);
         am.c(this, d.f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.bii.setUniqueId(bdUniqueId);
+        this.biN.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -66,31 +66,31 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.aOS = i;
-        setPadding(i, 0, this.aOT, 0);
+        this.aOR = i;
+        setPadding(i, 0, this.aOS, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Po() {
-        this.bii.Po();
+    public void Pu() {
+        this.biN.Pu();
     }
 
-    public void Pp() {
-        this.bii.Pp();
+    public void Pv() {
+        this.biN.Pv();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bii.onDetachedFromWindow();
+        this.biN.onDetachedFromWindow();
     }
 
-    public void setData(ai aiVar) {
-        this.bii.setData(aiVar);
+    public void setData(ah ahVar) {
+        this.biN.setData(ahVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.bii.setFirstRowSingleColumn(z);
+        this.biN.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -98,11 +98,11 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.bii.setEventCallback(aVar);
+        this.biN.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.bii.setDefaultReasonArray(strArr);
+        this.biN.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

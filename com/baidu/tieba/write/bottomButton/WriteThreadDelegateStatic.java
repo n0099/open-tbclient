@@ -20,11 +20,11 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Js() {
+    public c Jn() {
         c cVar = new c();
         cVar.aRL = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.aRM = d.k.send;
+        cVar.aRM = d.j.send;
         cVar.aRN = d.f.icon_tabbar_add_n;
         cVar.aRO = d.f.icon_tabbar_chaticon_n;
         cVar.aRS = c.aRP;
@@ -36,12 +36,12 @@ public class WriteThreadDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c Jt;
+                c Jo;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Jt = writeThreadDelegateStatic.Jt()) != null) {
-                        Jt.aRL.setArguments(new Bundle());
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Jo = writeThreadDelegateStatic.Jo()) != null) {
+                        Jo.aRL.setArguments(new Bundle());
                     }
                 }
             }
@@ -51,8 +51,8 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bd(Context context) {
-        this.aRx = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.i.maintab_bottom_indicator, (ViewGroup) null);
+    public TbFragmentTabIndicator be(Context context) {
+        this.aRx = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
         return this.aRx;
     }
 }

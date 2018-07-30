@@ -11,38 +11,38 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, ForumData forumData, List<com.baidu.adp.widget.ListView.h> list, boolean z, int i) {
-        if (!w.A(list)) {
+        if (!w.z(list)) {
             com.baidu.tieba.InjectPlugin.b.b bVar2 = new com.baidu.tieba.InjectPlugin.b.b(bVar, 5);
-            bVar2.S(list);
+            bVar2.R(list);
             if (forumData != null) {
                 bVar2.setForumId(forumData.getId());
-                bVar2.hY(forumData.getFirst_class());
-                bVar2.hZ(forumData.getSecond_class());
+                bVar2.hV(forumData.getFirst_class());
+                bVar2.hW(forumData.getSecond_class());
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                bVar2.ia(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
+                bVar2.hX(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
             }
             bVar2.cq(z);
-            bVar2.gf(i);
+            bVar2.gk(i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, bVar2));
         }
     }
 
     public static void a(com.baidu.tieba.InjectPlugin.a.b bVar, l lVar, List<com.baidu.adp.widget.ListView.h> list, int i) {
         if (lVar != null) {
-            a(bVar, lVar.baT(), list, false, i);
+            a(bVar, lVar.aZl(), list, false, i);
         }
     }
 
     public static void a(com.baidu.tieba.tbadkCore.data.e eVar, List<com.baidu.adp.widget.ListView.h> list, List<com.baidu.adp.widget.ListView.h> list2) {
         int[] iArr;
         int indexOf;
-        if (eVar != null && w.z(list) > 0 && w.z(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.gMx) {
+        if (eVar != null && w.y(list) > 0 && w.y(list2) > 0) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.gNv) {
                 com.baidu.adp.widget.ListView.h hVar = (com.baidu.adp.widget.ListView.h) w.d(list, i);
                 if (hVar != null && (indexOf = list2.indexOf(hVar)) >= 0) {
-                    eVar.bI(i, indexOf);
+                    eVar.bJ(i, indexOf);
                 }
             }
         }

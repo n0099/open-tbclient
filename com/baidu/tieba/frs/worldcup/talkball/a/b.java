@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.worldcup.talkball.a;
 
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 import com.baidu.tieba.frs.entelechy.a.e;
 import com.baidu.tieba.frs.entelechy.a.i;
 import com.baidu.tieba.frs.entelechy.a.p;
@@ -14,56 +14,56 @@ import com.baidu.tieba.frs.worldcup.videotopic.b.d;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private TalkBallFragment dIZ;
-    private i dJa;
-    private d dJb;
-    private com.baidu.tieba.frs.entelechy.a.d dJc;
-    private i dpQ;
-    private p dpS;
-    private m dqF;
-    private e dqP;
+    private TalkBallFragment dLO;
+    private i dLP;
+    private d dLQ;
+    private com.baidu.tieba.frs.entelechy.a.d dLR;
+    private i dsD;
+    private p dsF;
+    private e dtC;
+    private m dts;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public b(TalkBallFragment talkBallFragment, m mVar) {
-        this.dIZ = talkBallFragment;
-        this.dqF = mVar;
+        this.dLO = talkBallFragment;
+        this.dts = mVar;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dJa = new i(this.dIZ.getPageContext(), bc.aib, this.dIZ.getUniqueId());
-        this.dJb = new d(this.dIZ.getPageContext(), f.dJj, this.dIZ.getUniqueId());
-        this.dqP = new e(this.dIZ.getPageContext(), bc.aik, this.dIZ.getUniqueId());
-        this.dpS = new p(this.dIZ.getPageContext(), bc.aie, this.dIZ.getUniqueId());
-        this.dJc = new com.baidu.tieba.frs.entelechy.a.d(this.dIZ.getPageContext(), bc.aij, this.dIZ.getUniqueId());
-        this.dpQ = new i(this.dIZ.getPageContext(), bc.aid, this.dIZ.getUniqueId());
-        this.dJa.setVoiceManager(this.dIZ.getVoiceManager());
-        this.dpQ.setVoiceManager(this.dIZ.getVoiceManager());
-        this.mAdapters.add(new l(this.dIZ.getPageContext(), com.baidu.tieba.frs.m.dmd));
-        this.mAdapters.add(this.dJa);
-        this.mAdapters.add(this.dJb);
-        this.mAdapters.add(this.dpS);
-        this.mAdapters.add(this.dqP);
-        this.mAdapters.add(this.dJc);
-        this.mAdapters.add(this.dpQ);
-        this.dqF.addAdapters(this.mAdapters);
+        this.dLP = new i(this.dLO.getPageContext(), bb.ahx, this.dLO.getUniqueId());
+        this.dLQ = new d(this.dLO.getPageContext(), f.dLZ, this.dLO.getUniqueId());
+        this.dtC = new e(this.dLO.getPageContext(), bb.ahG, this.dLO.getUniqueId());
+        this.dsF = new p(this.dLO.getPageContext(), bb.ahA, this.dLO.getUniqueId());
+        this.dLR = new com.baidu.tieba.frs.entelechy.a.d(this.dLO.getPageContext(), bb.ahF, this.dLO.getUniqueId());
+        this.dsD = new i(this.dLO.getPageContext(), bb.ahz, this.dLO.getUniqueId());
+        this.dLP.setVoiceManager(this.dLO.getVoiceManager());
+        this.dsD.setVoiceManager(this.dLO.getVoiceManager());
+        this.mAdapters.add(new l(this.dLO.getPageContext(), com.baidu.tieba.frs.m.doV));
+        this.mAdapters.add(this.dLP);
+        this.mAdapters.add(this.dLQ);
+        this.mAdapters.add(this.dsF);
+        this.mAdapters.add(this.dtC);
+        this.mAdapters.add(this.dLR);
+        this.mAdapters.add(this.dsD);
+        this.dts.addAdapters(this.mAdapters);
     }
 
     public void setData(ArrayList<h> arrayList) {
-        aAQ();
-        this.dJb.setForumId(this.dIZ.getForumId());
-        this.dqF.setData(arrayList);
+        aBz();
+        this.dLQ.setForumId(this.dLO.getForumId());
+        this.dts.setData(arrayList);
     }
 
-    private void aAQ() {
-        c.a(this.dIZ.getForumId(), 1, this.dJa, this.dpS, this.dqP, this.dpQ, this.dJc);
+    private void aBz() {
+        c.a(this.dLO.getForumId(), 1, this.dLP, this.dsF, this.dtC, this.dsD, this.dLR);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dqF.getListAdapter() != null) {
-            this.dqF.getListAdapter().notifyDataSetChanged();
+        if (this.dts.getListAdapter() != null) {
+            this.dts.getListAdapter().notifyDataSetChanged();
         }
     }
 

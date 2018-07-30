@@ -1,7 +1,7 @@
 package com.baidu.sapi2.activity.social;
 
 import android.os.Bundle;
-import com.baidu.c.a.a.a.a;
+import com.baidu.d.a.a.a.a;
 /* loaded from: classes2.dex */
 public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, android.app.Activity

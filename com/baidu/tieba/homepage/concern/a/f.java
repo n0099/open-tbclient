@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
-    private static int dQH;
-    private static int dQI;
+    private static int dTu;
+    private static int dTv;
 
     public f(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.dQO);
-        dQH = l.e(context, d.e.tbds102);
-        dQI = l.e(context, d.e.tbds166);
+        super(context, com.baidu.tieba.homepage.concern.b.a.dTB);
+        dTu = l.f(context, d.e.tbds102);
+        dTv = l.f(context, d.e.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aL */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = View.inflate(viewGroup.getContext(), d.i.concern_tip_layout, null);
+        View inflate = View.inflate(viewGroup.getContext(), d.h.concern_tip_layout, null);
         a aVar = new a(inflate);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
@@ -40,37 +40,37 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        aVar2.dQJ.setText(aVar.atN);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.dQJ.getLayoutParams();
-        if (aVar.dQR) {
-            layoutParams.height = dQI;
-            aVar2.drT.setVisibility(0);
-        } else if (aVar.dQS) {
-            layoutParams.height = dQH;
+        aVar2.dTw.setText(aVar.atr);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar2.dTw.getLayoutParams();
+        if (aVar.dTE) {
+            layoutParams.height = dTv;
+            aVar2.duG.setVisibility(0);
+        } else if (aVar.dTF) {
+            layoutParams.height = dTu;
         }
-        ((a) this.viewholder).dQJ.setLayoutParams(layoutParams);
+        ((a) this.viewholder).dTw.setLayoutParams(layoutParams);
         aVar2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return aVar2.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends q.a {
-        private int azP;
-        public TextView dQJ;
-        public View drT;
+        private int azI;
+        public TextView dTw;
+        public View duG;
 
         public a(View view) {
             super(view);
-            this.azP = 3;
-            this.dQJ = (TextView) view.findViewById(d.g.concern_tip_txt);
-            this.drT = view.findViewById(d.g.concern_tip_top_line);
+            this.azI = 3;
+            this.dTw = (TextView) view.findViewById(d.g.concern_tip_txt);
+            this.duG = view.findViewById(d.g.concern_tip_top_line);
         }
 
         protected void onChangeSkinType(int i) {
-            if (this.azP != i) {
-                am.j(getView(), d.C0142d.cp_bg_line_e);
-                am.h(this.dQJ, d.C0142d.cp_cont_d);
-                am.i(this.drT, d.C0142d.cp_bg_line_e);
+            if (this.azI != i) {
+                am.j(getView(), d.C0140d.cp_bg_line_e);
+                am.h(this.dTw, d.C0140d.cp_cont_d);
+                am.i(this.duG, d.C0140d.cp_bg_line_e);
             }
         }
     }

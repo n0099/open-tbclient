@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.TbPageContext;
@@ -27,7 +26,6 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
@@ -37,78 +35,78 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.ForumWriteData;
 /* loaded from: classes3.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, a.InterfaceC0062a {
-    private boolean dmQ;
-    private com.baidu.tieba.c.d fDV;
-    private i hsC;
-    private c hss;
-    private com.baidu.tieba.write.album.a hst;
-    private e hsw;
+    private boolean dpI;
+    private com.baidu.tieba.c.d fEi;
+    private c htA;
+    private com.baidu.tieba.write.album.a htB;
+    private e htD;
+    private i htJ;
     private int mCurrentPage = 0;
-    private boolean hsu = false;
+    private boolean htC = false;
     private String callFrom = "";
     private String from = "";
     private String forumName = "";
     private String forumId = "0";
-    private int hsx = 0;
-    private int hsy = 0;
-    private boolean hsz = false;
-    private boolean hsA = false;
-    private int hsB = 0;
-    private View dlF = null;
+    private int htE = 0;
+    private int htF = 0;
+    private boolean htG = false;
+    private boolean htH = false;
+    private int htI = 0;
+    private View dox = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        setContentView(d.i.album_activity);
-        this.dlF = findViewById(d.g.statebar_view);
-        this.dmQ = UtilHelper.canUseStyleImmersiveSticky();
-        TS();
+        setContentView(d.h.album_activity);
+        this.dox = findViewById(d.g.statebar_view);
+        this.dpI = UtilHelper.canUseStyleImmersiveSticky();
+        Ua();
         initData(bundle);
-        this.hst = new com.baidu.tieba.write.album.a(this);
-        this.hst.aZs();
-        vo(0);
+        this.htB = new com.baidu.tieba.write.album.a(this);
+        this.htB.aBc();
+        vn(0);
     }
 
     public void showTip(View view) {
-        if (this.fDV == null && view != null) {
-            this.fDV = new com.baidu.tieba.c.d(getPageContext(), view);
-            this.fDV.jd(d.f.bg_tip_blue_up_left);
-            this.fDV.k(new View.OnClickListener() { // from class: com.baidu.tieba.write.album.AlbumActivity.1
+        if (this.fEi == null && view != null) {
+            this.fEi = new com.baidu.tieba.c.d(getPageContext(), view);
+            this.fEi.jp(d.f.bg_tip_blue_up_left);
+            this.fEi.k(new View.OnClickListener() { // from class: com.baidu.tieba.write.album.AlbumActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    AlbumActivity.this.fDV.akn();
+                    AlbumActivity.this.fEi.akM();
                 }
             });
-            this.fDV.jc(16);
-            this.fDV.je(5000);
+            this.fEi.jo(16);
+            this.fEi.jq(5000);
         }
-        if (this.fDV != null) {
+        if (this.fEi != null) {
             String sharedPrefKeyWithAccount = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_show_take_photo_tip");
-            this.fDV.aQ(getString(d.k.album_take_photo_tip), sharedPrefKeyWithAccount);
+            this.fEi.aO(getString(d.j.album_take_photo_tip), sharedPrefKeyWithAccount);
         }
     }
 
-    private void TS() {
-        if (this.dlF != null) {
-            if (this.dmQ && this.dlF.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = this.dlF.getLayoutParams();
+    private void Ua() {
+        if (this.dox != null) {
+            if (this.dpI && this.dox.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = this.dox.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                this.dlF.setLayoutParams(layoutParams);
-                fN(true);
+                this.dox.setLayoutParams(layoutParams);
+                fP(true);
                 return;
             }
-            fN(false);
+            fP(false);
         }
     }
 
-    private void fN(boolean z) {
-        if (this.dlF != null) {
-            if (this.dmQ && z && this.dlF.getVisibility() != 0) {
-                this.dlF.setVisibility(0);
-            } else if (!z && this.dlF.getVisibility() != 8) {
-                this.dlF.setVisibility(8);
+    private void fP(boolean z) {
+        if (this.dox != null) {
+            if (this.dpI && z && this.dox.getVisibility() != 0) {
+                this.dox.setVisibility(0);
+            } else if (!z && this.dox.getVisibility() != 8) {
+                this.dox.setVisibility(8);
             }
         }
     }
@@ -116,53 +114,53 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString(AlbumActivityConfig.WRITE_IMAGES_INFO, this.hss.getWriteImagesInfo().toJsonString());
-        bundle.putBoolean(AlbumActivityConfig.USE_ORIGINAL_IMG, this.hsz);
-        bundle.putInt(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.hsx);
+        bundle.putString(AlbumActivityConfig.WRITE_IMAGES_INFO, this.htA.getWriteImagesInfo().toJsonString());
+        bundle.putBoolean(AlbumActivityConfig.USE_ORIGINAL_IMG, this.htG);
+        bundle.putInt(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.htE);
         bundle.putString("forum_id", this.forumId);
         bundle.putString("forum_name", this.forumName);
-        bundle.putInt(IntentConfig.KEY_ALBUM_THREAD, this.hsy);
-        bundle.putBoolean(IntentConfig.KEY_FROM_WRITEACTIVITY, this.hsA);
+        bundle.putInt(IntentConfig.KEY_ALBUM_THREAD, this.htF);
+        bundle.putBoolean(IntentConfig.KEY_FROM_WRITEACTIVITY, this.htH);
     }
 
     private void initData(Bundle bundle) {
-        this.hss = new c(this);
+        this.htA = new c(this);
         if (bundle != null) {
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(bundle.getString(AlbumActivityConfig.WRITE_IMAGES_INFO));
-            this.hss.setWriteImagesInfo(writeImagesInfo);
-            this.hsz = bundle.getBoolean(AlbumActivityConfig.USE_ORIGINAL_IMG, false);
-            this.hsx = bundle.getInt(AlbumActivityConfig.CAMERA_REQUEST_FROM, 0);
+            this.htA.setWriteImagesInfo(writeImagesInfo);
+            this.htG = bundle.getBoolean(AlbumActivityConfig.USE_ORIGINAL_IMG, false);
+            this.htE = bundle.getInt(AlbumActivityConfig.CAMERA_REQUEST_FROM, 0);
             this.forumId = bundle.getString("forum_id");
             this.forumName = bundle.getString("forum_name");
-            this.hsy = bundle.getInt(IntentConfig.KEY_ALBUM_THREAD);
-            this.hsA = bundle.getBoolean(IntentConfig.KEY_FROM_WRITEACTIVITY);
+            this.htF = bundle.getInt(IntentConfig.KEY_ALBUM_THREAD);
+            this.htH = bundle.getBoolean(IntentConfig.KEY_FROM_WRITEACTIVITY);
             this.callFrom = bundle.getString("KEY_CALL_FROM");
-            this.hsB = bundle.getInt("from_type");
+            this.htI = bundle.getInt("from_type");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
                 WriteImagesInfo writeImagesInfo2 = new WriteImagesInfo();
                 writeImagesInfo2.parseJson(intent.getStringExtra(AlbumActivityConfig.WRITE_IMAGES_INFO));
-                this.hss.setWriteImagesInfo(writeImagesInfo2);
-                this.hss.setOriginalImg(writeImagesInfo2.isOriginalImg());
-                this.hsz = intent.getBooleanExtra(AlbumActivityConfig.USE_ORIGINAL_IMG, false);
-                this.hsx = intent.getIntExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 0);
+                this.htA.setWriteImagesInfo(writeImagesInfo2);
+                this.htA.setOriginalImg(writeImagesInfo2.isOriginalImg());
+                this.htG = intent.getBooleanExtra(AlbumActivityConfig.USE_ORIGINAL_IMG, false);
+                this.htE = intent.getIntExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 0);
                 this.from = intent.getStringExtra("from");
                 this.forumId = intent.getStringExtra("forum_id");
                 this.forumName = intent.getStringExtra("forum_name");
-                this.hsy = intent.getIntExtra(IntentConfig.KEY_ALBUM_THREAD, 0);
-                this.hsA = intent.getBooleanExtra(IntentConfig.KEY_FROM_WRITEACTIVITY, false);
+                this.htF = intent.getIntExtra(IntentConfig.KEY_ALBUM_THREAD, 0);
+                this.htH = intent.getBooleanExtra(IntentConfig.KEY_FROM_WRITEACTIVITY, false);
                 this.callFrom = intent.getStringExtra("KEY_CALL_FROM");
-                this.hsB = intent.getIntExtra("from_type", 0);
+                this.htI = intent.getIntExtra("from_type", 0);
             }
         }
-        bGP();
+        bFA();
     }
 
-    private void bGP() {
-        if (this.hsx == 2) {
-            this.hsw = new e() { // from class: com.baidu.tieba.write.album.AlbumActivity.2
+    private void bFA() {
+        if (this.htE == 2) {
+            this.htD = new e() { // from class: com.baidu.tieba.write.album.AlbumActivity.2
                 @Override // com.baidu.tieba.write.album.e
                 public boolean e(ImageFileInfo imageFileInfo) {
                     if (imageFileInfo != null) {
@@ -177,7 +175,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
                             }
                         }
                     }
-                    AlbumActivity.this.showToastWithIcon(AlbumActivity.this.getPageContext().getPageActivity().getString(d.k.uploade_attation), d.f.icon_toast_game_error);
+                    AlbumActivity.this.showToastWithIcon(AlbumActivity.this.getPageContext().getPageActivity().getString(d.j.uploade_attation), d.f.icon_toast_game_error);
                     return false;
                 }
             };
@@ -186,32 +184,32 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.hst != null) {
-            this.hst.onChangeSkinType(i);
+        if (this.htB != null) {
+            this.htB.onChangeSkinType(i);
         }
-        am.e(this.dlF, d.C0142d.cp_bg_line_d, i);
+        am.e(this.dox, d.C0140d.cp_bg_line_d, i);
     }
 
-    public void bGQ() {
-        if (this.hsx == 3) {
+    public void bFB() {
+        if (this.htE == 3) {
             TiebaStatic.log("c10489");
         }
-        if (this.hsx == 5) {
+        if (this.htE == 5) {
             showLoadingDialog("正在上传");
             new a().execute(new String[0]);
-        } else if (this.hss != null) {
-            if (this.hsC == null || !this.hsC.bHD()) {
-                if (this.hss.bHk()) {
-                    VideoFileInfo bHi = this.hss.bHi();
-                    if (this.hsC == null) {
-                        this.hsC = new i(this, this.forumName, this.forumId, "");
-                        if (this.hst != null) {
-                            this.hst.a(this.hsC);
+        } else if (this.htA != null) {
+            if (this.htJ == null || !this.htJ.bGo()) {
+                if (this.htA.bFV()) {
+                    VideoFileInfo bFT = this.htA.bFT();
+                    if (this.htJ == null) {
+                        this.htJ = new i(this, this.forumName, this.forumId, "");
+                        if (this.htB != null) {
+                            this.htB.a(this.htJ);
                         }
                     }
-                    this.hsC.a(bHi, this.callFrom);
-                } else if (w.z(this.hss.bHm()) == 1 && this.hsB == 0) {
-                    bGR();
+                    this.htJ.a(bFT, this.callFrom);
+                } else if (w.y(this.htA.bFX()) == 1 && this.htI == 0) {
+                    bFC();
                 } else {
                     ab(null);
                 }
@@ -221,9 +219,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     private void ab(Intent intent) {
         Intent intent2 = new Intent();
-        intent2.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.hss.getWriteImagesInfo().toJsonString());
-        intent2.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.hsx);
-        intent2.putExtra("from_type", this.hsB);
+        intent2.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.htA.getWriteImagesInfo().toJsonString());
+        intent2.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.htE);
+        intent2.putExtra("from_type", this.htI);
         if (intent != null && !StringUtils.isNull(intent.getStringExtra("file_name"))) {
             intent2.putExtra("file_name", intent.getStringExtra("file_name"));
         }
@@ -231,10 +229,10 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         finish();
     }
 
-    private boolean abu() {
+    private boolean abJ() {
         Activity pageActivity = getPageContext().getPageActivity();
         com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-        aVar.Aj();
+        aVar.zY();
         aVar.c(pageActivity, "android.permission.CAMERA");
         aVar.c(pageActivity, "android.permission.RECORD_AUDIO");
         aVar.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -242,27 +240,27 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     }
 
     public void b(TbPageContext tbPageContext) {
-        if (!abu() && com.baidu.tieba.write.e.bGJ()) {
-            sendMessage(new CustomMessage(2002001, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.hsA ? 2 : 3, new ForumWriteData(this.forumId, this.forumName, null, null), this.hss.getWriteImagesInfo(), "", this.hsB)));
+        if (!abJ() && com.baidu.tieba.write.e.bFu()) {
+            sendMessage(new CustomMessage(2002001, new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.htH ? 2 : 3, new ForumWriteData(this.forumId, this.forumName, null, null), this.htA.getWriteImagesInfo(), "", this.htI)));
             TiebaStatic.log(new an("c12611").r("obj_locate", 5).r("obj_type", 2));
         }
     }
 
-    private void bGR() {
+    private void bFC() {
         WriteImagesInfo writeImagesInfo;
-        if (this.hss != null && (writeImagesInfo = this.hss.getWriteImagesInfo()) != null) {
+        if (this.htA != null && (writeImagesInfo = this.htA.getWriteImagesInfo()) != null) {
             sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(getPageContext().getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, writeImagesInfo, 0)));
         }
     }
 
     private void ac(Intent intent) {
-        if (intent == null || this.hss == null) {
+        if (intent == null || this.htA == null) {
             ab(null);
             return;
         }
         String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
         if (stringExtra != null) {
-            WriteImagesInfo writeImagesInfo = this.hss.getWriteImagesInfo();
+            WriteImagesInfo writeImagesInfo = this.htA.getWriteImagesInfo();
             writeImagesInfo.parseJson(stringExtra);
             writeImagesInfo.updateQuality();
             ab(intent);
@@ -280,69 +278,69 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hst.bHa()) {
-            bGQ();
-        } else if (view == this.hst.bHc()) {
-            bGQ();
-        } else if (view == this.hst.bGZ()) {
-            if (this.hss != null) {
-                this.hss.setLastAlbumId(null);
+        if (view == this.htB.bFL()) {
+            bFB();
+        } else if (view == this.htB.bFN()) {
+            bFB();
+        } else if (view == this.htB.bFK()) {
+            if (this.htA != null) {
+                this.htA.setLastAlbumId(null);
             }
-            bGW();
-        } else if (view == this.hst.bHb()) {
-            vo(0);
-        } else if (view == this.hst.bHd()) {
-            vm(2);
-        } else if (view == this.hst.bHe()) {
-            vm(1);
+            bFH();
+        } else if (view == this.htB.bFM()) {
+            vn(0);
+        } else if (view == this.htB.bFO()) {
+            vl(2);
+        } else if (view == this.htB.bFP()) {
+            vl(1);
+        }
+    }
+
+    private void vl(int i) {
+        if (this.htB != null && this.htA != null) {
+            this.htA.setOriginalImg(!this.htA.isOriginalImg());
+            bFD();
+            vm(i);
         }
     }
 
     private void vm(int i) {
-        if (this.hst != null && this.hss != null) {
-            this.hss.setOriginalImg(!this.hss.isOriginalImg());
-            bGS();
-            vn(i);
+        if (this.htA != null && this.htA.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
+            TiebaStatic.log(new an("c10349").af(ImageViewerConfig.FORUM_ID, this.forumId).af("obj_type", this.from).r("obj_locate", i));
         }
     }
 
-    private void vn(int i) {
-        if (this.hss != null && this.hss.isOriginalImg() && !StringUtils.isNull(this.from, true) && !StringUtils.isNull(this.forumId, true)) {
-            TiebaStatic.log(new an("c10349").ah(ImageViewerConfig.FORUM_ID, this.forumId).ah("obj_type", this.from).r("obj_locate", i));
+    public void bFD() {
+        if (this.htA != null && this.htB != null) {
+            this.htB.ns(this.htA.isOriginalImg());
         }
     }
 
-    public void bGS() {
-        if (this.hss != null && this.hst != null) {
-            this.hst.nE(this.hss.isOriginalImg());
-        }
+    public View auQ() {
+        return this.dox;
     }
 
-    public View aum() {
-        return this.dlF;
+    public int bFE() {
+        return this.htF;
     }
 
-    public int bGT() {
-        return this.hsy;
-    }
-
-    public c bGU() {
-        return this.hss;
+    public c bFF() {
+        return this.htA;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void vo(int i) {
-        if (!this.hsu) {
+    public void vn(int i) {
+        if (!this.htC) {
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.hst.vq(this.mCurrentPage));
+            Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.htB.vp(this.mCurrentPage));
             if (findFragmentByTag != null) {
                 beginTransaction.hide(findFragmentByTag);
             }
             this.mCurrentPage = i;
-            if (getSupportFragmentManager().findFragmentByTag(this.hst.vq(i)) != null) {
-                beginTransaction.show(this.hst.vp(i));
+            if (getSupportFragmentManager().findFragmentByTag(this.htB.vp(i)) != null) {
+                beginTransaction.show(this.htB.vo(i));
             } else {
-                beginTransaction.add(d.g.fragment, this.hst.vp(i), this.hst.vq(i));
+                beginTransaction.add(d.g.fragment, this.htB.vo(i), this.htB.vp(i));
             }
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
@@ -354,35 +352,35 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (imageFileInfo == null) {
             return false;
         }
-        int maxImagesAllowed = this.hss.getMaxImagesAllowed();
-        if (this.hss.size() < maxImagesAllowed) {
-            if (this.hsw == null || this.hsw.e(imageFileInfo)) {
+        int maxImagesAllowed = this.htA.getMaxImagesAllowed();
+        if (this.htA.size() < maxImagesAllowed) {
+            if (this.htD == null || this.htD.e(imageFileInfo)) {
                 ImageFileInfo imageFileInfo2 = new ImageFileInfo();
                 imageFileInfo2.setAlbumnId(imageFileInfo.getAlbumId());
                 imageFileInfo2.setFilePath(imageFileInfo.getFilePath());
                 imageFileInfo2.setModifyTime(imageFileInfo.getModifyTime());
                 imageFileInfo2.setIsGif(imageFileInfo.isGif());
                 imageFileInfo2.setIsLong(imageFileInfo.isLong());
-                this.hss.a(null);
-                this.hss.addChooseFile(imageFileInfo2);
-                bGS();
+                this.htA.a(null);
+                this.htA.addChooseFile(imageFileInfo2);
+                bFD();
                 return true;
             }
             return false;
-        } else if (bGV()) {
+        } else if (bFG()) {
             return c(imageFileInfo);
         } else {
-            showToast(String.format(getPageContext().getContext().getString(d.k.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
+            showToast(String.format(getPageContext().getContext().getString(d.j.album_beyond_max_choose), Integer.valueOf(maxImagesAllowed)));
             return false;
         }
     }
 
-    public boolean bGV() {
+    public boolean bFG() {
         if (getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false)) {
-            int maxImagesAllowed = this.hss.getMaxImagesAllowed();
-            if (this.hss.size() == maxImagesAllowed && maxImagesAllowed == 1) {
+            int maxImagesAllowed = this.htA.getMaxImagesAllowed();
+            if (this.htA.size() == maxImagesAllowed && maxImagesAllowed == 1) {
                 try {
-                    ImageFileInfo imageFileInfo = (ImageFileInfo) w.d(this.hss.bHm(), 0);
+                    ImageFileInfo imageFileInfo = (ImageFileInfo) w.d(this.htA.bFX(), 0);
                     if (d(imageFileInfo)) {
                         f(imageFileInfo, false);
                         g(imageFileInfo, false);
@@ -401,9 +399,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (imageFileInfo == null) {
             return false;
         }
-        this.hss.a(null);
-        this.hss.delChooseFile(imageFileInfo);
-        bGS();
+        this.htA.a(null);
+        this.htA.delChooseFile(imageFileInfo);
+        bFD();
         return true;
     }
 
@@ -412,13 +410,13 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (i == 4) {
             closeLoadingDialog();
             if (this.mCurrentPage == 0) {
-                if (this.hss != null) {
-                    this.hss.setLastAlbumId(null);
+                if (this.htA != null) {
+                    this.htA.setLastAlbumId(null);
                 }
-                bGW();
+                bFH();
                 return true;
             } else if (this.mCurrentPage == 1) {
-                vo(0);
+                vn(0);
                 return true;
             } else {
                 return true;
@@ -429,40 +427,40 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment vp;
-        if (this.hst != null && (vp = this.hst.vp(0)) != null && (vp instanceof ImageListFragment)) {
-            ((ImageListFragment) vp).h(imageFileInfo, z);
+        Fragment vo;
+        if (this.htB != null && (vo = this.htB.vo(0)) != null && (vo instanceof ImageListFragment)) {
+            ((ImageListFragment) vo).h(imageFileInfo, z);
         }
     }
 
     void g(ImageFileInfo imageFileInfo, boolean z) {
-        Fragment vp;
-        if (this.hst != null && (vp = this.hst.vp(1)) != null && (vp instanceof AlbumImageBrowseFragment)) {
-            ((AlbumImageBrowseFragment) vp).h(imageFileInfo, z);
+        Fragment vo;
+        if (this.htB != null && (vo = this.htB.vo(1)) != null && (vo instanceof AlbumImageBrowseFragment)) {
+            ((AlbumImageBrowseFragment) vo).h(imageFileInfo, z);
         }
     }
 
-    private void bGW() {
+    private void bFH() {
         Intent intent = new Intent();
-        String lastAlbumId = this.hss.getLastAlbumId();
+        String lastAlbumId = this.htA.getLastAlbumId();
         if (TextUtils.isEmpty(lastAlbumId)) {
             lastAlbumId = "";
         }
         intent.putExtra(AlbumActivityConfig.LAST_ALBUM_ID, lastAlbumId);
-        intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.hsx);
+        intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.htE);
         setResult(0, intent);
         finish();
     }
 
     private void stopCamera() {
-        if (this.hst != null) {
-            this.hst.stopCamera();
+        if (this.htB != null) {
+            this.htB.stopCamera();
         }
     }
 
-    private void bGX() {
-        if (this.hst != null) {
-            this.hst.bGX();
+    private void bFI() {
+        if (this.htB != null) {
+            this.htB.bFI();
         }
     }
 
@@ -475,32 +473,19 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.hsu = true;
+        this.htC = true;
         stopCamera();
         closeLoadingDialog();
         dismissAllDialog();
-        d.bHq().destory();
-        if (this.dlF != null) {
-            this.dlF.setBackgroundDrawable(null);
+        d.bGb().destory();
+        if (this.dox != null) {
+            this.dox.setBackgroundDrawable(null);
         }
-        if (this.hst != null) {
-            this.hst.onDestroy();
+        if (this.htB != null) {
+            this.htB.onDestroy();
         }
-        if (this.hsC != null) {
-            this.hsC.onDestroy();
-        }
-    }
-
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        if (i == 1) {
-            if (!ac.aN(getApplicationContext())) {
-                showToast(d.k.system_permission_prompt_camera);
-            }
-            ArrayMap<String, Boolean> b = ac.b(strArr, iArr);
-            if (b.containsKey("android.permission.WRITE_EXTERNAL_STORAGE") && !b.get("android.permission.WRITE_EXTERNAL_STORAGE").booleanValue()) {
-                showToast(d.k.sdcard_permission_denied_advert_for_camera);
-            }
+        if (this.htJ != null) {
+            this.htJ.onDestroy();
         }
     }
 
@@ -515,8 +500,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public String doInBackground(String... strArr) {
-            new com.baidu.tbadk.img.f(null).c(AlbumActivity.this.hss.getWriteImagesInfo(), true);
-            return AlbumActivity.this.hss.getWriteImagesInfo().toJsonString();
+            new com.baidu.tbadk.img.f(null).c(AlbumActivity.this.htA.getWriteImagesInfo(), true);
+            return AlbumActivity.this.htA.getWriteImagesInfo().toJsonString();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -544,8 +529,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        if (this.hsC != null) {
-            this.hsC.onStart();
+        if (this.htJ != null) {
+            this.htJ.onStart();
         }
     }
 
@@ -553,9 +538,9 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        bGX();
-        if (this.hsC != null) {
-            this.hsC.onResume();
+        bFI();
+        if (this.htJ != null) {
+            this.htJ.onResume();
         }
     }
 
@@ -563,8 +548,8 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.hsC != null) {
-            this.hsC.onStop();
+        if (this.htJ != null) {
+            this.htJ.onStop();
         }
     }
 

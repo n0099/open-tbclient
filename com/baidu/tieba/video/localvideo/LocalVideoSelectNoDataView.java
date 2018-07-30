@@ -24,6 +24,6 @@ public class LocalVideoSelectNoDataView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(d.i.local_video_no_data_layout, this);
+        LayoutInflater.from(context).inflate(d.h.local_video_no_data_layout, this);
     }
 }

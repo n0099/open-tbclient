@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements m<PointF, PointF> {
-    private final List<com.airbnb.lottie.a.b.h> mr;
-    private PointF nz;
+    private final List<com.airbnb.lottie.a.b.h> mi;
+    private PointF np;
 
     public static m<PointF, PointF> h(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
         if (jSONObject.has("k")) {
@@ -23,23 +23,23 @@ public class e implements m<PointF, PointF> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e() {
-        this.mr = new ArrayList();
-        this.nz = new PointF(0.0f, 0.0f);
+        this.mi = new ArrayList();
+        this.np = new PointF(0.0f, 0.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Object obj, com.airbnb.lottie.e eVar) {
-        this.mr = new ArrayList();
+        this.mi = new ArrayList();
         if (f(obj)) {
             JSONArray jSONArray = (JSONArray) obj;
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
-                this.mr.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.nA));
+                this.mi.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.nq));
             }
-            com.airbnb.lottie.a.a.f(this.mr);
+            com.airbnb.lottie.a.a.f(this.mi);
             return;
         }
-        this.nz = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.bp());
+        this.np = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.bn());
     }
 
     private boolean f(Object obj) {
@@ -51,21 +51,21 @@ public class e implements m<PointF, PointF> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<PointF, PointF> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nz) : new com.airbnb.lottie.a.b.i(this.mr);
+    public com.airbnb.lottie.a.b.a<PointF, PointF> ci() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.np) : new com.airbnb.lottie.a.b.i(this.mi);
     }
 
     public boolean hasAnimation() {
-        return !this.mr.isEmpty();
+        return !this.mi.isEmpty();
     }
 
     public String toString() {
-        return "initialPoint=" + this.nz;
+        return "initialPoint=" + this.np;
     }
 
     /* loaded from: classes2.dex */
     private static class a implements m.a<PointF> {
-        private static final m.a<PointF> nA = new a();
+        private static final m.a<PointF> nq = new a();
 
         private a() {
         }

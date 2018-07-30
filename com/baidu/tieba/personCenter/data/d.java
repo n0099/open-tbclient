@@ -23,105 +23,100 @@ import tbclient.User;
 import tbclient.UserMap;
 /* loaded from: classes2.dex */
 public class d implements com.baidu.tieba.person.b {
-    public PersonMoreData fTS;
-    public ArrayList<h> fUA = new ArrayList<>();
-    private b fUB;
-    private PersonUserGodInfo fUt;
-    public com.baidu.tieba.person.data.d fUu;
-    public e fUv;
-    public e fUw;
-    public e fUx;
-    public e fUy;
-    public f fUz;
+    private PersonUserGodInfo fUG;
+    public com.baidu.tieba.person.data.d fUH;
+    public e fUI;
+    public e fUJ;
+    public e fUK;
+    public e fUL;
+    public f fUM;
+    public ArrayList<h> fUN = new ArrayList<>();
+    private b fUO;
+    public PersonMoreData fUf;
     private UserData mUserData;
 
-    private void bjr() {
-        if (this.fUB != null) {
-            this.fUA.add(this.fUB);
+    private void bhK() {
+        if (this.fUO != null) {
+            this.fUN.add(this.fUO);
         } else if (this.mUserData != null) {
-            this.fUB = new b();
-            this.fUB.fUn = this.mUserData.getFansNum();
-            this.fUB.fUo = this.mUserData.getConcern_num();
-            this.fUB.fUp = this.mUserData.getLike_bars();
-            this.fUB.threadNum = this.mUserData.getThreadNum();
-            this.fUB.fso = this.mUserData;
-            this.fUA.add(this.fUB);
+            this.fUO = new b();
+            this.fUO.fUA = this.mUserData.getFansNum();
+            this.fUO.fUB = this.mUserData.getConcern_num();
+            this.fUO.fUC = this.mUserData.getLike_bars();
+            this.fUO.threadNum = this.mUserData.getThreadNum();
+            this.fUO.fsA = this.mUserData;
+            this.fUN.add(this.fUO);
         }
     }
 
-    private void bjs() {
-        this.fUA.add(new c());
-        if (this.fUv == null) {
-            this.fUv = S(d.f.icon_mine_list_collect, d.k.my_mark, 16);
-            this.fUv.fUD = new g();
+    private void bhL() {
+        this.fUN.add(new c());
+        if (this.fUI == null) {
+            this.fUI = R(d.f.icon_mine_list_collect, d.j.my_mark, 16);
+            this.fUI.fUQ = new g();
         }
-        this.fUA.add(this.fUv);
-        this.fUA.add(S(d.f.icon_mine_list_history, d.k.my_history, 17));
-        e S = S(d.f.icon_mine_list_friend, d.k.my_groups, 22);
-        S.fUC = true;
-        this.fUA.add(S);
-        if (com.baidu.adp.lib.b.d.hv().aw("android_show_answer") == 1) {
-            e S2 = S(d.f.icon_mine_list_rich, d.k.slumdog_millionaire_entrance, 40);
-            S2.fUC = true;
-            this.fUA.add(S2);
-        }
-        e S3 = S(d.f.borrow_cash, d.k.borrow_cash, 37);
+        this.fUN.add(this.fUI);
+        this.fUN.add(R(d.f.icon_mine_list_history, d.j.my_history, 17));
+        e R = R(d.f.icon_mine_list_friend, d.j.my_groups, 22);
+        R.fUP = true;
+        this.fUN.add(R);
+        e R2 = R(d.f.borrow_cash, d.j.borrow_cash, 37);
         if (!com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("key_has_borrow_cash_clicked", false)) {
-            S3.fUD = new g();
-            S3.fUD.fUH = true;
+            R2.fUQ = new g();
+            R2.fUQ.fUU = true;
         }
-        this.fUA.add(S3);
-        this.fUA.add(S(d.f.icon_mine_list_member, d.k.member_center, 12));
-        this.fUw = S(d.f.icon_mine_list_gift, d.k.my_gift, 10);
-        this.fUw.fUD = new g();
-        this.fUw.fUD.fUI = true;
-        this.fUw.fUD.fUJ = this.mUserData.getTDouNum();
-        this.fUA.add(this.fUw);
-        this.fUA.add(S(d.f.icon_mine_list_card, d.k.card_box, 18));
-        e S4 = S(d.f.icon_mine_list_grade, d.k.blue_diamond, 11);
+        this.fUN.add(R2);
+        this.fUN.add(R(d.f.icon_mine_list_member, d.j.member_center, 12));
+        this.fUJ = R(d.f.icon_mine_list_gift, d.j.my_gift, 10);
+        this.fUJ.fUQ = new g();
+        this.fUJ.fUQ.fUV = true;
+        this.fUJ.fUQ.fUW = this.mUserData.getTDouNum();
+        this.fUN.add(this.fUJ);
+        this.fUN.add(R(d.f.icon_mine_list_card, d.j.card_box, 18));
+        e R3 = R(d.f.icon_mine_list_grade, d.j.blue_diamond, 11);
         if (this.mUserData.membershipInfo != null) {
-            S4.adc = this.mUserData.membershipInfo.mLink;
+            R3.acG = this.mUserData.membershipInfo.mLink;
         }
-        this.fUA.add(S4);
-        boolean BM = TbadkCoreApplication.getInst().getActivityPrizeData().BM();
-        String BN = TbadkCoreApplication.getInst().getActivityPrizeData().BN();
-        if (BM && !StringUtils.isNull(BN)) {
-            this.fUx = f(d.f.icon_mine_list_logingift, BN, 38);
-            this.fUx.fUC = true;
-            this.fUx.fUD = new g();
-            this.fUA.add(this.fUx);
+        this.fUN.add(R3);
+        boolean BE = TbadkCoreApplication.getInst().getActivityPrizeData().BE();
+        String BF = TbadkCoreApplication.getInst().getActivityPrizeData().BF();
+        if (BE && !StringUtils.isNull(BF)) {
+            this.fUK = f(d.f.icon_mine_list_logingift, BF, 38);
+            this.fUK.fUP = true;
+            this.fUK.fUQ = new g();
+            this.fUN.add(this.fUK);
             TiebaStatic.log(new an("c12597"));
         } else {
-            S4.fUC = true;
+            R3.fUP = true;
         }
-        this.fUA.add(S(d.f.icon_mine_list_hot, d.k.hot_topic, 30));
+        this.fUN.add(R(d.f.icon_mine_list_hot, d.j.hot_topic, 30));
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AlaLiveRoomActivityConfig.class)) {
-            e S5 = S(d.f.icon_mine_list_live, d.k.ala_live, 25);
-            S5.fUC = true;
-            this.fUA.add(S5);
+            e R4 = R(d.f.icon_mine_list_live, d.j.ala_live, 25);
+            R4.fUP = true;
+            this.fUN.add(R4);
         }
-        this.fUy = S(d.f.icon_mine_list_service, d.k.person_service_centre, 31);
-        this.fUy.fUC = true;
-        this.fUA.add(this.fUy);
-        this.fUA.add(S(d.f.icon_mine_bdcard_72, d.k.baidu_singkil, 39));
-        e S6 = S(d.f.icon_mine_list_more, d.k.more, 33);
-        S6.fUD = new g();
-        S6.fUD.fUK = TbadkCoreApplication.getInst().getString(d.k.person_center_more_desc);
-        if (this.fTS == null) {
-            this.fTS = new PersonMoreData();
+        this.fUL = R(d.f.icon_mine_list_service, d.j.person_service_centre, 31);
+        this.fUL.fUP = true;
+        this.fUN.add(this.fUL);
+        this.fUN.add(R(d.f.icon_mine_bdcard_72, d.j.baidu_singkil, 39));
+        e R5 = R(d.f.icon_mine_list_more, d.j.more, 33);
+        R5.fUQ = new g();
+        R5.fUQ.fUX = TbadkCoreApplication.getInst().getString(d.j.person_center_more_desc);
+        if (this.fUf == null) {
+            this.fUf = new PersonMoreData();
         }
-        S6.fUE = OrmObject.bundleWithObject(this.fTS);
-        S6.fUC = true;
-        this.fUA.add(S6);
+        R5.fUR = OrmObject.bundleWithObject(this.fUf);
+        R5.fUP = true;
+        this.fUN.add(R5);
     }
 
-    private e S(int i, int i2, int i3) {
+    private e R(int i, int i2, int i3) {
         e eVar = new e();
         eVar.iconId = i;
         eVar.title = TbadkCoreApplication.getInst().getString(i2);
         eVar.type = i3;
         if (this.mUserData != null) {
-            eVar.fso = this.mUserData;
+            eVar.fsA = this.mUserData;
         }
         return eVar;
     }
@@ -132,7 +127,7 @@ public class d implements com.baidu.tieba.person.b {
         eVar.title = str;
         eVar.type = i2;
         if (this.mUserData != null) {
-            eVar.fso = this.mUserData;
+            eVar.fsA = this.mUserData;
         }
         return eVar;
     }
@@ -145,51 +140,51 @@ public class d implements com.baidu.tieba.person.b {
         return this.mUserData;
     }
 
-    public void ll(boolean z) {
-        if (this.fUv != null) {
-            if (this.fUv.fUD == null) {
-                this.fUv.fUD = new g();
+    public void kX(boolean z) {
+        if (this.fUI != null) {
+            if (this.fUI.fUQ == null) {
+                this.fUI.fUQ = new g();
             }
-            this.fUv.fUD.fUH = z;
+            this.fUI.fUQ.fUU = z;
         }
     }
 
-    public void lm(boolean z) {
-        if (this.fUy != null) {
-            if (this.fUy.fUD == null) {
-                this.fUy.fUD = new g();
+    public void kY(boolean z) {
+        if (this.fUL != null) {
+            if (this.fUL.fUQ == null) {
+                this.fUL.fUQ = new g();
             }
-            this.fUy.fUD.fUH = z;
+            this.fUL.fUQ.fUU = z;
         }
     }
 
-    public void ln(boolean z) {
-        if (this.fUx != null) {
-            if (this.fUx.fUD == null) {
-                this.fUx.fUD = new g();
+    public void kZ(boolean z) {
+        if (this.fUK != null) {
+            if (this.fUK.fUQ == null) {
+                this.fUK.fUQ = new g();
             }
-            this.fUx.fUD.fUH = z;
+            this.fUK.fUQ.fUU = z;
         }
     }
 
-    public void lo(boolean z) {
-        if (this.fUB != null) {
-            this.fUB.fUq = z;
+    public void la(boolean z) {
+        if (this.fUO != null) {
+            this.fUO.fUD = z;
         }
     }
 
     @Override // com.baidu.tieba.person.b
     public void a(ProfileResIdl profileResIdl) {
         if (profileResIdl != null && profileResIdl.data != null) {
-            this.fUz = new f();
+            this.fUM = new f();
             a(profileResIdl.data.user, profileResIdl.data.user_god_info);
             b(profileResIdl.data.tbbookrack);
             b(profileResIdl.data.uc_card);
-            df(profileResIdl.data.url_map);
-            this.fUA.add(this.fUz);
-            bjr();
-            bjs();
-            com.baidu.tieba.o.a.bpR().ma(true);
+            db(profileResIdl.data.url_map);
+            this.fUN.add(this.fUM);
+            bhK();
+            bhL();
+            com.baidu.tieba.o.a.box().lL(true);
         }
     }
 
@@ -200,12 +195,12 @@ public class d implements com.baidu.tieba.person.b {
                 this.mUserData = new UserData();
             }
             this.mUserData.parserProtobuf(personalResIdl.data.user);
-            this.fUz = new f();
-            this.fUz.fso = this.mUserData;
-            this.fUA.add(this.fUz);
-            bjr();
-            bjs();
-            com.baidu.tieba.o.a.bpR().ma(true);
+            this.fUM = new f();
+            this.fUM.fsA = this.mUserData;
+            this.fUN.add(this.fUM);
+            bhK();
+            bhL();
+            com.baidu.tieba.o.a.box().lL(true);
         }
     }
 
@@ -214,21 +209,21 @@ public class d implements com.baidu.tieba.person.b {
             this.mUserData = new UserData();
         }
         this.mUserData.parserProtobuf(user);
-        if (this.fUt == null && userGodInfo != null) {
-            this.fUt = new PersonUserGodInfo();
+        if (this.fUG == null && userGodInfo != null) {
+            this.fUG = new PersonUserGodInfo();
         }
         if (userGodInfo != null && (userGodInfo.god_type.intValue() == 2 || userGodInfo.god_type.intValue() == 1)) {
             this.mUserData.setIsBigV(true);
-            this.fUt.parserProtobuf(userGodInfo);
+            this.fUG.parserProtobuf(userGodInfo);
         }
-        this.fUz.fso = this.mUserData;
+        this.fUM.fsA = this.mUserData;
     }
 
     private void b(TbBookrack tbBookrack) {
         if (tbBookrack != null) {
             com.baidu.tieba.person.data.a aVar = new com.baidu.tieba.person.data.a();
             aVar.a(tbBookrack);
-            this.fUu = new com.baidu.tieba.person.data.d(true, aVar);
+            this.fUH = new com.baidu.tieba.person.data.d(true, aVar);
         }
     }
 
@@ -236,9 +231,9 @@ public class d implements com.baidu.tieba.person.b {
         new com.baidu.tieba.person.g().a(ucCard);
     }
 
-    private void df(List<UserMap> list) {
-        if (!w.A(list)) {
-            this.fTS = new PersonMoreData();
+    private void db(List<UserMap> list) {
+        if (!w.z(list)) {
+            this.fUf = new PersonMoreData();
             for (UserMap userMap : list) {
                 if (userMap != null && !StringUtils.isNull(userMap.name) && !StringUtils.isNull(userMap.url)) {
                     String replaceAll = userMap.url.replaceAll("amp;", "");
@@ -246,7 +241,7 @@ public class d implements com.baidu.tieba.person.b {
                     personMoreItemData.mId = userMap.id.intValue();
                     personMoreItemData.mName = userMap.name;
                     personMoreItemData.mUrl = replaceAll;
-                    this.fTS.mUrlMaps.add(personMoreItemData);
+                    this.fUf.mUrlMaps.add(personMoreItemData);
                 }
             }
         }

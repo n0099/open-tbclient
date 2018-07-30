@@ -27,12 +27,12 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ak() {
+    public boolean Aa() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Al() {
+    public boolean Ab() {
         return false;
     }
 
@@ -40,11 +40,11 @@ public class l extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a hi = com.baidu.tbadk.imageManager.c.IV().hi(str);
-        if (hi == null || hi.mZ() == null) {
+        com.baidu.adp.widget.ImageView.a he = com.baidu.tbadk.imageManager.c.IQ().he(str);
+        if (he == null || he.nb() == null) {
             return null;
         }
-        return hi;
+        return he;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Am() {
+    public int Ac() {
         return this.procType;
     }
 }

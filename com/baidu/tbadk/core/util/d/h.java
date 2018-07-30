@@ -27,14 +27,14 @@ public class h extends a {
     /* renamed from: g */
     public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.ImageView.a f = super.f(str, str2, objArr);
-        if (f != null && f.mZ() != null && f.mZ().isRecycled()) {
+        if (f != null && f.nb() != null && f.nb().isRecycled()) {
             return null;
         }
         return f;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
-    public boolean ij() {
+    public boolean ik() {
         return true;
     }
 
@@ -54,17 +54,17 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ak() {
+    public boolean Aa() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Al() {
+    public boolean Ab() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Am() {
+    public int Ac() {
         return this.procType;
     }
 }

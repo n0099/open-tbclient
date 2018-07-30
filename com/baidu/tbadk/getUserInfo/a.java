@@ -6,7 +6,7 @@ import tbclient.GetUserInfo.DataRes;
 public class a {
     private UserData aPs;
 
-    public UserData IL() {
+    public UserData IG() {
         return this.aPs;
     }
 

@@ -27,7 +27,7 @@ public class XiaoyingUtil {
     private static int showTime;
 
     public static boolean isXiaoyingForbidden() {
-        return PluginPackageManager.lL().bH(PKG_NAME_VIDEO);
+        return PluginPackageManager.lN().bI(PKG_NAME_VIDEO);
     }
 
     public static int getShowTime() {
@@ -39,7 +39,7 @@ public class XiaoyingUtil {
     }
 
     public static boolean isXiaoyingInstalled() {
-        return PluginPackageManager.lL().bB(PKG_NAME_VIDEO) && TbadkCoreApplication.getInst().appResponseToIntentClass(MotuVideoConfig.class);
+        return PluginPackageManager.lN().bC(PKG_NAME_VIDEO) && TbadkCoreApplication.getInst().appResponseToIntentClass(MotuVideoConfig.class);
     }
 
     public static void startXiaoying(Context context) {
@@ -63,11 +63,11 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2, boolean z) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.a(context, context.getString(d.k.plugin_xiaoying_install_fail)).xv();
-            } else if (z && !j.jD()) {
-                BdToast.a(context, context.getString(d.k.neterror)).xv();
+                BdToast.a(context, context.getString(d.j.plugin_xiaoying_install_fail)).xn();
+            } else if (z && !j.jE()) {
+                BdToast.a(context, context.getString(d.j.neterror)).xn();
             } else if (z) {
-                if (j.jE()) {
+                if (j.jF()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
                     return;
                 }
@@ -82,34 +82,34 @@ public class XiaoyingUtil {
         e<?> ad = i.ad(context);
         if (ad != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(ad.getPageActivity());
-            aVar.dE(TbadkCoreApplication.getInst().getString(d.k.play_video_mobile_tip));
-            aVar.a(d.k.confirm, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.1
+            aVar.dB(TbadkCoreApplication.getInst().getString(d.j.play_video_mobile_tip));
+            aVar.a(d.j.confirm, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
                     aVar2.dismiss();
                 }
             });
-            aVar.b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.2
+            aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(ad).xn();
+            aVar.b(ad).xf();
         }
     }
 
     public static boolean showXiaoyingTool() {
         PluginNetConfigInfos.PluginConfig pluginConfig;
-        return (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.lL().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || c.mn().findPluginSetting(PKG_NAME_VIDEO) == null) ? false : true;
+        return (!TbadkCoreApplication.getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.lN().getPluginConfig(PKG_NAME_VIDEO)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || c.mp().findPluginSetting(PKG_NAME_VIDEO) == null) ? false : true;
     }
 
     public static void showGoPluginDetailDialog(final TbPageContext<?> tbPageContext, String str, String str2) {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.dE(str);
+            aVar.dB(str);
             aVar.a(str2, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -117,13 +117,13 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(d.k.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.4
+            aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(tbPageContext).xn();
+            aVar.b(tbPageContext).xf();
         }
     }
 }

@@ -7,18 +7,18 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.data.g implements p {
-    private CardForum dVr;
+    private CardForum dZj;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.dVr = cardForum;
+            this.dZj = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(aiS() + cardForum.position.intValue());
+                setYuelaouLocate(ajr() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(aiS() + 0);
+                setYuelaouLocate(ajr() + 0);
             }
-            if (w.z(cardForum.forum_list) > 0) {
+            if (w.y(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.data.e eVar = new com.baidu.tieba.card.data.e();
@@ -35,35 +35,35 @@ public class b extends com.baidu.tieba.card.data.g implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.dVr != null) {
-            return this.dVr.position.intValue();
+        if (this.dZj != null) {
+            return this.dZj.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aiQ() {
+    public boolean ajp() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eA(boolean z) {
+    public void eB(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eB(boolean z) {
+    public void eC(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean isValidate() {
-        if (w.z(getDataList()) > 0) {
+    public boolean RR() {
+        if (w.y(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean mG(int i) {
+    public static boolean mU(int i) {
         return i == 1;
     }
 }

@@ -1,320 +1,717 @@
 package com.baidu.location.a;
 
-import android.location.Location;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.os.SystemClock;
+import android.telephony.CellIdentityCdma;
+import android.telephony.CellIdentityGsm;
+import android.telephony.CellIdentityLte;
+import android.telephony.CellIdentityWcdma;
+import android.telephony.CellInfo;
+import android.telephony.CellInfoCdma;
+import android.telephony.CellInfoGsm;
+import android.telephony.CellInfoLte;
+import android.telephony.CellInfoWcdma;
+import android.telephony.CellLocation;
+import android.telephony.TelephonyManager;
+import android.telephony.cdma.CdmaCellLocation;
+import android.telephony.gsm.GsmCellLocation;
+import android.text.TextUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import com.baidu.location.LocationClientOption;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
+import com.tencent.connect.common.Constants;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class c {
-    private String p;
-    private boolean q = true;
-    private static c VK = null;
-    private static String b = "Temp_in.dat";
-    private static File c = new File(com.baidu.location.h.h.a, b);
-    private static StringBuffer VL = null;
-    private static boolean e = true;
-    private static int f = 0;
-    private static int g = 0;
-    private static long h = 0;
-    private static long i = 0;
-    private static long j = 0;
-    private static double k = 0.0d;
-    private static double l = 0.0d;
-    private static int m = 0;
-    private static int n = 0;
-    private static int o = 0;
+    private static Class<?> VT = null;
+    private TelephonyManager VP;
+    private WifiManager VR;
+    private LocationClientOption VU;
+    private a VV;
+    String a;
+    String b;
+    private Context d;
+    private String j;
+    private String n;
+    private String o;
+    private com.baidu.location.b.a VQ = new com.baidu.location.b.a();
+    private C0066c VS = null;
+    private String m = null;
+    b VW = new b();
 
-    private c(String str) {
-        this.p = null;
-        if (str == null) {
-            str = "";
-        } else if (str.length() > 100) {
-            str = str.substring(0, 100);
-        }
-        this.p = str;
+    /* loaded from: classes2.dex */
+    public interface a {
+        void onReceiveLocation(BDLocation bDLocation);
     }
 
-    private String a(int i2) {
-        if (c.exists()) {
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                if (!a(readInt, randomAccessFile.readInt(), randomAccessFile.readInt())) {
-                    randomAccessFile.close();
-                    d();
-                    return null;
-                } else if (i2 == 0 || i2 == readInt + 1) {
-                    randomAccessFile.close();
-                    return null;
-                } else {
-                    long j2 = 12 + 0 + ((i2 - 1) * 1024);
-                    randomAccessFile.seek(j2);
-                    int readInt2 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[readInt2];
-                    randomAccessFile.seek(j2 + 4);
-                    for (int i3 = 0; i3 < readInt2; i3++) {
-                        bArr[i3] = randomAccessFile.readByte();
+    /* loaded from: classes2.dex */
+    class b extends com.baidu.location.d.e {
+        String a = null;
+
+        b() {
+            this.k = new HashMap();
+        }
+
+        @Override // com.baidu.location.d.e
+        public void a() {
+            this.h = com.baidu.location.d.g.c();
+            if (c.this.n != null && c.this.o != null) {
+                this.a += String.format(Locale.CHINA, "&ki=%s&sn=%s", c.this.n, c.this.o);
+            }
+            String encodeTp4 = Jni.encodeTp4(this.a);
+            this.a = null;
+            this.k.put(BaseLocationBox.TYPE, encodeTp4);
+            this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
+        }
+
+        public void a(String str) {
+            this.a = str;
+            b(com.baidu.location.d.g.f);
+        }
+
+        @Override // com.baidu.location.d.e
+        public void a(boolean z) {
+            BDLocation bDLocation;
+            if (z && this.j != null) {
+                try {
+                    try {
+                        bDLocation = new BDLocation(this.j);
+                    } catch (Exception e) {
+                        bDLocation = new BDLocation();
+                        bDLocation.setLocType(63);
                     }
-                    randomAccessFile.close();
-                    return new String(bArr);
+                    if (bDLocation != null && bDLocation.getLocType() == 161) {
+                        bDLocation.setCoorType(c.this.VU.coorType);
+                        bDLocation.setLocationID(Jni.en1(c.this.a + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + c.this.b + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + bDLocation.getTime()));
+                        c.this.VV.onReceiveLocation(bDLocation);
+                    }
+                } catch (Exception e2) {
                 }
-            } catch (IOException e2) {
+            }
+            if (this.k != null) {
+                this.k.clear();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: com.baidu.location.a.c$c  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public class C0066c {
+        public List<ScanResult> a;
+        private long c;
+
+        public C0066c(List<ScanResult> list) {
+            this.a = null;
+            this.c = 0L;
+            this.a = list;
+            this.c = System.currentTimeMillis();
+            c();
+        }
+
+        private String b() {
+            WifiInfo connectionInfo;
+            if (c.this.VR == null || (connectionInfo = c.this.VR.getConnectionInfo()) == null) {
+                return null;
+            }
+            try {
+                String bssid = connectionInfo.getBSSID();
+                String replace = bssid != null ? bssid.replace(SystemInfoUtil.COLON, "") : null;
+                if (replace == null || replace.length() == 12) {
+                    return new String(replace);
+                }
+                return null;
+            } catch (Exception e) {
                 return null;
             }
         }
-        return null;
-    }
 
-    private static boolean a(int i2, int i3, int i4) {
-        if (i2 < 0 || i2 > com.baidu.location.h.i.ab) {
-            return false;
+        private void c() {
+            boolean z;
+            if (a() < 1) {
+                return;
+            }
+            boolean z2 = true;
+            for (int size = this.a.size() - 1; size >= 1 && z2; size--) {
+                int i = 0;
+                z2 = false;
+                while (i < size) {
+                    if (this.a.get(i).level < this.a.get(i + 1).level) {
+                        this.a.set(i + 1, this.a.get(i));
+                        this.a.set(i, this.a.get(i + 1));
+                        z = true;
+                    } else {
+                        z = z2;
+                    }
+                    i++;
+                    z2 = z;
+                }
+            }
         }
-        if (i3 < 0 || i3 > i2 + 1) {
-            return false;
-        }
-        return i4 >= 1 && i4 <= i2 + 1 && i4 <= com.baidu.location.h.i.ab;
-    }
 
-    private boolean a(Location location, int i2, int i3) {
-        if (location != null && com.baidu.location.h.i.X && this.q) {
-            if (com.baidu.location.h.i.YL < 5) {
-                com.baidu.location.h.i.YL = 5;
-            } else if (com.baidu.location.h.i.YL > 1000) {
-                com.baidu.location.h.i.YL = 1000;
+        public int a() {
+            if (this.a == null) {
+                return 0;
             }
-            if (com.baidu.location.h.i.aa < 5) {
-                com.baidu.location.h.i.aa = 5;
-            } else if (com.baidu.location.h.i.aa > 3600) {
-                com.baidu.location.h.i.aa = 3600;
-            }
-            double longitude = location.getLongitude();
-            double latitude = location.getLatitude();
-            long time = location.getTime() / 1000;
-            if (e) {
-                f = 1;
-                VL = new StringBuffer("");
-                VL.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = VL.length();
-                h = time;
-                k = longitude;
-                l = latitude;
-                i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
-                e = false;
-                return true;
-            }
-            float[] fArr = new float[1];
-            Location.distanceBetween(latitude, longitude, l, k, fArr);
-            long j2 = time - h;
-            if (fArr[0] >= com.baidu.location.h.i.YL || j2 >= com.baidu.location.h.i.aa) {
-                if (VL == null) {
-                    f++;
-                    g = 0;
-                    VL = new StringBuffer("");
-                    VL.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = VL.length();
-                    h = time;
-                    k = longitude;
-                    l = latitude;
-                    i = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                    j = (long) Math.floor((latitude * 100000.0d) + 0.5d);
-                } else {
-                    k = longitude;
-                    l = latitude;
-                    long floor = (long) Math.floor((longitude * 100000.0d) + 0.5d);
-                    long floor2 = (long) Math.floor((latitude * 100000.0d) + 0.5d);
-                    m = (int) (time - h);
-                    n = (int) (floor - i);
-                    o = (int) (floor2 - j);
-                    VL.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = VL.length();
-                    h = time;
-                    i = floor;
-                    j = floor2;
-                }
-                if (g + 15 > 750) {
-                    a(VL.toString());
-                    VL = null;
-                }
-                if (f >= com.baidu.location.h.i.ab) {
-                    this.q = false;
-                }
-                return true;
-            }
-            return false;
+            return this.a.size();
         }
-        return false;
-    }
 
-    private boolean a(String str) {
-        if (str == null || !str.startsWith("&nr")) {
-            return false;
-        }
-        if (c.exists() || d()) {
-            try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                int readInt3 = randomAccessFile.readInt();
-                if (!a(readInt, readInt2, readInt3)) {
-                    randomAccessFile.close();
-                    d();
-                    return false;
+        /* JADX WARN: Code restructure failed: missing block: B:36:0x00e4, code lost:
+            if (r10 > r12) goto L30;
+         */
+        /* JADX WARN: Removed duplicated region for block: B:15:0x0047  */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x00ec  */
+        /* JADX WARN: Removed duplicated region for block: B:42:0x00fb A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x010c  */
+        /* JADX WARN: Removed duplicated region for block: B:73:0x019f A[SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public String a(int i) {
+            boolean z;
+            int size;
+            boolean z2;
+            int i2;
+            int i3;
+            int i4;
+            long j;
+            int i5;
+            if (a() < 2) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            long j2 = 0;
+            long j3 = 0;
+            if (Build.VERSION.SDK_INT >= 19) {
+                try {
+                    j2 = SystemClock.elapsedRealtimeNanos() / 1000;
+                } catch (Error e) {
+                    j2 = 0;
                 }
-                if (com.baidu.location.h.i.Y) {
-                    if (readInt == com.baidu.location.h.i.ab) {
-                        if (str.equals(a(readInt3 == 1 ? com.baidu.location.h.i.ab : readInt3 - 1))) {
-                            randomAccessFile.close();
-                            return false;
+                if (j2 > 0) {
+                    z = true;
+                    StringBuffer stringBuffer = new StringBuffer(512);
+                    size = this.a.size();
+                    z2 = true;
+                    i2 = 0;
+                    String b = b();
+                    int i6 = 0;
+                    i3 = 0;
+                    i4 = 0;
+                    while (true) {
+                        if (i4 < size) {
+                            j = j3;
+                            break;
                         }
-                    } else if (readInt3 > 1 && str.equals(a(readInt3 - 1))) {
-                        randomAccessFile.close();
-                        return false;
+                        if (this.a.get(i4).level == 0) {
+                            i5 = i2;
+                            j = j3;
+                        } else {
+                            i6++;
+                            if (z2) {
+                                stringBuffer.append("&wf=");
+                                z2 = false;
+                            } else {
+                                stringBuffer.append("|");
+                            }
+                            String replace = this.a.get(i4).BSSID.replace(SystemInfoUtil.COLON, "");
+                            stringBuffer.append(replace);
+                            if (b != null && replace.equals(b)) {
+                                i3 = i6;
+                            }
+                            int i7 = this.a.get(i4).level;
+                            if (i7 < 0) {
+                                i7 = -i7;
+                            }
+                            stringBuffer.append(String.format(Locale.CHINA, ";%d;", Integer.valueOf(i7)));
+                            int i8 = i2 + 1;
+                            if (z) {
+                                try {
+                                    j = (j2 - this.a.get(i4).timestamp) / 1000000;
+                                } catch (Throwable th) {
+                                    j = 0;
+                                }
+                                arrayList.add(Long.valueOf(j));
+                            }
+                            j = j3;
+                            if (i8 > i) {
+                                break;
+                            }
+                            i5 = i8;
+                        }
+                        i4++;
+                        j3 = j;
+                        i2 = i5;
                     }
-                }
-                randomAccessFile.seek(((readInt3 - 1) * 1024) + 12 + 0);
-                if (str.length() > 750) {
-                    randomAccessFile.close();
-                    return false;
-                }
-                String encode = Jni.encode(str);
-                int length = encode.length();
-                if (length > 1020) {
-                    randomAccessFile.close();
-                    return false;
-                }
-                randomAccessFile.writeInt(length);
-                randomAccessFile.writeBytes(encode);
-                if (readInt == 0) {
-                    randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(1);
-                    randomAccessFile.writeInt(1);
-                    randomAccessFile.writeInt(2);
-                } else if (readInt < com.baidu.location.h.i.ab - 1) {
-                    randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(readInt + 1);
-                    randomAccessFile.seek(8L);
-                    randomAccessFile.writeInt(readInt + 2);
-                } else if (readInt == com.baidu.location.h.i.ab - 1) {
-                    randomAccessFile.seek(0L);
-                    randomAccessFile.writeInt(com.baidu.location.h.i.ab);
-                    if (readInt2 == 0 || readInt2 == 1) {
-                        randomAccessFile.writeInt(2);
+                    if (i3 > 0) {
+                        stringBuffer.append("&wf_n=");
+                        stringBuffer.append(i3);
                     }
-                    randomAccessFile.seek(8L);
-                    randomAccessFile.writeInt(1);
-                } else if (readInt3 == readInt2) {
-                    int i2 = readInt3 == com.baidu.location.h.i.ab ? 1 : readInt3 + 1;
-                    int i3 = i2 == com.baidu.location.h.i.ab ? 1 : i2 + 1;
-                    randomAccessFile.seek(4L);
-                    randomAccessFile.writeInt(i3);
-                    randomAccessFile.writeInt(i2);
-                } else {
-                    int i4 = readInt3 == com.baidu.location.h.i.ab ? 1 : readInt3 + 1;
-                    if (i4 == readInt2) {
-                        int i5 = i4 == com.baidu.location.h.i.ab ? 1 : i4 + 1;
-                        randomAccessFile.seek(4L);
-                        randomAccessFile.writeInt(i5);
+                    if (z2) {
+                        if (j > 10 && arrayList.size() > 0 && ((Long) arrayList.get(0)).longValue() > 0) {
+                            StringBuffer stringBuffer2 = new StringBuffer(128);
+                            stringBuffer2.append("&wf_ut=");
+                            boolean z3 = true;
+                            Long l = (Long) arrayList.get(0);
+                            Iterator it = arrayList.iterator();
+                            while (true) {
+                                boolean z4 = z3;
+                                if (!it.hasNext()) {
+                                    break;
+                                }
+                                Long l2 = (Long) it.next();
+                                if (z4) {
+                                    z4 = false;
+                                    stringBuffer2.append(l2.longValue());
+                                } else {
+                                    long longValue = l2.longValue() - l.longValue();
+                                    if (longValue != 0) {
+                                        stringBuffer2.append("" + longValue);
+                                    }
+                                }
+                                z3 = z4;
+                                stringBuffer2.append("|");
+                            }
+                            stringBuffer.append(stringBuffer2.toString());
+                        }
+                        return stringBuffer.toString();
                     }
-                    randomAccessFile.seek(8L);
-                    randomAccessFile.writeInt(i4);
+                    return null;
                 }
-                randomAccessFile.close();
-                return true;
-            } catch (IOException e2) {
-                return false;
+            }
+            z = false;
+            StringBuffer stringBuffer3 = new StringBuffer(512);
+            size = this.a.size();
+            z2 = true;
+            i2 = 0;
+            String b2 = b();
+            int i62 = 0;
+            i3 = 0;
+            i4 = 0;
+            while (true) {
+                if (i4 < size) {
+                }
+                i4++;
+                j3 = j;
+                i2 = i5;
+            }
+            if (i3 > 0) {
+            }
+            if (z2) {
             }
         }
-        return false;
     }
 
-    public static String b() {
-        if (c != null && c.exists()) {
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0160  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x017c  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x01d8  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x021b  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x025e  */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0070  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public c(Context context, LocationClientOption locationClientOption, a aVar) {
+        String str;
+        String str2;
+        String a2;
+        this.d = null;
+        this.VP = null;
+        this.VR = null;
+        this.j = null;
+        this.n = null;
+        this.o = null;
+        this.a = null;
+        this.b = null;
+        this.d = context.getApplicationContext();
+        this.VU = new LocationClientOption(locationClientOption);
+        this.VV = aVar;
+        this.a = this.d.getPackageName();
+        this.b = null;
+        try {
+            this.VP = (TelephonyManager) this.d.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            str2 = this.VP.getDeviceId();
             try {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-                randomAccessFile.seek(0L);
-                int readInt = randomAccessFile.readInt();
-                int readInt2 = randomAccessFile.readInt();
-                int readInt3 = randomAccessFile.readInt();
-                if (!a(readInt, readInt2, readInt3)) {
-                    randomAccessFile.close();
-                    d();
-                    return null;
-                } else if (readInt2 == 0 || readInt2 == readInt3) {
-                    randomAccessFile.close();
-                    return null;
-                } else {
-                    long j2 = 0 + ((readInt2 - 1) * 1024) + 12;
-                    randomAccessFile.seek(j2);
-                    int readInt4 = randomAccessFile.readInt();
-                    byte[] bArr = new byte[readInt4];
-                    randomAccessFile.seek(j2 + 4);
-                    for (int i2 = 0; i2 < readInt4; i2++) {
-                        bArr[i2] = randomAccessFile.readByte();
-                    }
-                    String str = new String(bArr);
-                    int i3 = readInt < com.baidu.location.h.i.ab ? readInt2 + 1 : readInt2 == com.baidu.location.h.i.ab ? 1 : readInt2 + 1;
-                    randomAccessFile.seek(4L);
-                    randomAccessFile.writeInt(i3);
-                    randomAccessFile.close();
-                    return str;
+                this.VR = (WifiManager) this.d.getApplicationContext().getSystemService("wifi");
+            } catch (Exception e) {
+                str = str2;
+                str2 = str;
+                this.b = com.baidu.android.bbalbs.common.a.a.a(this.d);
+                if (this.b == null) {
                 }
-            } catch (IOException e2) {
-                return null;
+                StringBuffer stringBuffer = new StringBuffer(256);
+                stringBuffer.append("&fw=");
+                stringBuffer.append("7.42");
+                stringBuffer.append("&sdk=");
+                stringBuffer.append("7.42");
+                stringBuffer.append("&lt=1");
+                stringBuffer.append("&mb=");
+                stringBuffer.append(Build.MODEL);
+                stringBuffer.append("&resid=");
+                stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+                if (locationClientOption.getAddrType() == null) {
+                }
+                if (locationClientOption.getAddrType() != null) {
+                    this.j += "&addr=allj";
+                    if (locationClientOption.isNeedNewVersionRgc) {
+                    }
+                }
+                if (!locationClientOption.isNeedAptag) {
+                }
+                this.j += "&sema=";
+                if (locationClientOption.isNeedAptag) {
+                }
+                if (locationClientOption.isNeedAptagd) {
+                }
+                this.n = h.b(this.d);
+                this.o = h.c(this.d);
+                stringBuffer.append("&first=1");
+                stringBuffer.append("&os=A");
+                stringBuffer.append(Build.VERSION.SDK);
+                this.j += stringBuffer.toString();
+                a2 = a();
+                if (TextUtils.isEmpty(a2)) {
+                }
+                if (!TextUtils.isEmpty(a2)) {
+                    this.j += "&mac=" + a2;
+                }
+                b();
             }
-        }
-        return null;
-    }
-
-    private static void c() {
-        e = true;
-        VL = null;
-        f = 0;
-        g = 0;
-        h = 0L;
-        i = 0L;
-        j = 0L;
-        k = 0.0d;
-        l = 0.0d;
-        m = 0;
-        n = 0;
-        o = 0;
-    }
-
-    private static boolean d() {
-        if (c.exists()) {
-            c.delete();
-        }
-        if (!c.getParentFile().exists()) {
-            c.getParentFile().mkdirs();
+        } catch (Exception e2) {
+            str = null;
         }
         try {
-            c.createNewFile();
-            RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
-            randomAccessFile.seek(0L);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(0);
-            randomAccessFile.writeInt(1);
-            randomAccessFile.close();
-            c();
-            return c.exists();
-        } catch (IOException e2) {
-            return false;
+            this.b = com.baidu.android.bbalbs.common.a.a.a(this.d);
+        } catch (Exception e3) {
+            this.b = null;
+        }
+        if (this.b == null) {
+            com.baidu.location.d.g.o = "" + this.b;
+            this.j = "&prod=" + this.VU.prodName + SystemInfoUtil.COLON + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
+        } else {
+            this.j = "&prod=" + this.VU.prodName + SystemInfoUtil.COLON + this.a + "|&im=" + str2 + "&coor=" + locationClientOption.getCoorType();
+        }
+        StringBuffer stringBuffer2 = new StringBuffer(256);
+        stringBuffer2.append("&fw=");
+        stringBuffer2.append("7.42");
+        stringBuffer2.append("&sdk=");
+        stringBuffer2.append("7.42");
+        stringBuffer2.append("&lt=1");
+        stringBuffer2.append("&mb=");
+        stringBuffer2.append(Build.MODEL);
+        stringBuffer2.append("&resid=");
+        stringBuffer2.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);
+        if (locationClientOption.getAddrType() == null) {
+        }
+        if (locationClientOption.getAddrType() != null && locationClientOption.getAddrType().equals("all")) {
+            this.j += "&addr=allj";
+            if (locationClientOption.isNeedNewVersionRgc) {
+                stringBuffer2.append("&adtp=n2");
+            }
+        }
+        if (!locationClientOption.isNeedAptag || locationClientOption.isNeedAptagd) {
+            this.j += "&sema=";
+            if (locationClientOption.isNeedAptag) {
+                this.j += "aptag|";
+            }
+            if (locationClientOption.isNeedAptagd) {
+                this.j += "aptagd|";
+            }
+            this.n = h.b(this.d);
+            this.o = h.c(this.d);
+        }
+        stringBuffer2.append("&first=1");
+        stringBuffer2.append("&os=A");
+        stringBuffer2.append(Build.VERSION.SDK);
+        this.j += stringBuffer2.toString();
+        a2 = a();
+        a2 = TextUtils.isEmpty(a2) ? a2 : a2.replace(SystemInfoUtil.COLON, "");
+        if (!TextUtils.isEmpty(a2) && !a2.equals("020000000000")) {
+            this.j += "&mac=" + a2;
+        }
+        b();
+    }
+
+    private int a(int i) {
+        if (i == Integer.MAX_VALUE) {
+            return -1;
+        }
+        return i;
+    }
+
+    private void a(CellLocation cellLocation) {
+        int i = 0;
+        if (cellLocation == null || this.VP == null) {
+            return;
+        }
+        com.baidu.location.b.a aVar = new com.baidu.location.b.a();
+        String networkOperator = this.VP.getNetworkOperator();
+        if (networkOperator != null && networkOperator.length() > 0) {
+            try {
+                if (networkOperator.length() >= 3) {
+                    int intValue = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
+                    if (intValue < 0) {
+                        intValue = this.VQ.c;
+                    }
+                    aVar.c = intValue;
+                }
+                String substring = networkOperator.substring(3);
+                if (substring != null) {
+                    char[] charArray = substring.toCharArray();
+                    while (i < charArray.length && Character.isDigit(charArray[i])) {
+                        i++;
+                    }
+                }
+                int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
+                if (intValue2 < 0) {
+                    intValue2 = this.VQ.d;
+                }
+                aVar.d = intValue2;
+            } catch (Exception e) {
+            }
+        }
+        if (cellLocation instanceof GsmCellLocation) {
+            aVar.a = ((GsmCellLocation) cellLocation).getLac();
+            aVar.b = ((GsmCellLocation) cellLocation).getCid();
+            aVar.Xk = 'g';
+        } else if (cellLocation instanceof CdmaCellLocation) {
+            aVar.Xk = 'c';
+            if (VT == null) {
+                try {
+                    VT = Class.forName("android.telephony.cdma.CdmaCellLocation");
+                } catch (Exception e2) {
+                    VT = null;
+                    return;
+                }
+            }
+            if (VT != null && VT.isInstance(cellLocation)) {
+                try {
+                    int systemId = ((CdmaCellLocation) cellLocation).getSystemId();
+                    if (systemId < 0) {
+                        systemId = -1;
+                    }
+                    aVar.d = systemId;
+                    aVar.b = ((CdmaCellLocation) cellLocation).getBaseStationId();
+                    aVar.a = ((CdmaCellLocation) cellLocation).getNetworkId();
+                    int baseStationLatitude = ((CdmaCellLocation) cellLocation).getBaseStationLatitude();
+                    if (baseStationLatitude < Integer.MAX_VALUE) {
+                        aVar.e = baseStationLatitude;
+                    }
+                    int baseStationLongitude = ((CdmaCellLocation) cellLocation).getBaseStationLongitude();
+                    if (baseStationLongitude < Integer.MAX_VALUE) {
+                        aVar.f = baseStationLongitude;
+                    }
+                } catch (Exception e3) {
+                }
+            }
+        }
+        if (aVar.b()) {
+            this.VQ = aVar;
+        } else {
+            this.VQ = null;
         }
     }
 
-    public static c qh() {
-        if (VK == null) {
-            VK = new c(com.baidu.location.h.c.rf().c());
+    @SuppressLint({"NewApi"})
+    private com.baidu.location.b.a b(CellInfo cellInfo) {
+        boolean z = false;
+        int i = -1;
+        int intValue = Integer.valueOf(Build.VERSION.SDK_INT).intValue();
+        if (intValue < 17) {
+            return null;
         }
-        return VK;
+        com.baidu.location.b.a aVar = new com.baidu.location.b.a();
+        if (cellInfo instanceof CellInfoGsm) {
+            CellIdentityGsm cellIdentity = ((CellInfoGsm) cellInfo).getCellIdentity();
+            aVar.c = a(cellIdentity.getMcc());
+            aVar.d = a(cellIdentity.getMnc());
+            aVar.a = a(cellIdentity.getLac());
+            aVar.b = a(cellIdentity.getCid());
+            aVar.Xk = 'g';
+            aVar.h = ((CellInfoGsm) cellInfo).getCellSignalStrength().getAsuLevel();
+            z = true;
+        } else if (cellInfo instanceof CellInfoCdma) {
+            CellIdentityCdma cellIdentity2 = ((CellInfoCdma) cellInfo).getCellIdentity();
+            aVar.e = cellIdentity2.getLatitude();
+            aVar.f = cellIdentity2.getLongitude();
+            aVar.d = a(cellIdentity2.getSystemId());
+            aVar.a = a(cellIdentity2.getNetworkId());
+            aVar.b = a(cellIdentity2.getBasestationId());
+            aVar.Xk = 'c';
+            aVar.h = ((CellInfoCdma) cellInfo).getCellSignalStrength().getCdmaDbm();
+            if (this.VQ == null || this.VQ.c <= 0) {
+                try {
+                    String networkOperator = this.VP.getNetworkOperator();
+                    if (networkOperator != null && networkOperator.length() > 0 && networkOperator.length() >= 3) {
+                        int intValue2 = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
+                        if (intValue2 < 0) {
+                            intValue2 = -1;
+                        }
+                        i = intValue2;
+                    }
+                } catch (Exception e) {
+                }
+                if (i > 0) {
+                    aVar.c = i;
+                }
+            } else {
+                aVar.c = this.VQ.c;
+            }
+            z = true;
+        } else if (cellInfo instanceof CellInfoLte) {
+            CellIdentityLte cellIdentity3 = ((CellInfoLte) cellInfo).getCellIdentity();
+            aVar.c = a(cellIdentity3.getMcc());
+            aVar.d = a(cellIdentity3.getMnc());
+            aVar.a = a(cellIdentity3.getTac());
+            aVar.b = a(cellIdentity3.getCi());
+            aVar.Xk = 'g';
+            aVar.h = ((CellInfoLte) cellInfo).getCellSignalStrength().getAsuLevel();
+            z = true;
+        }
+        if (intValue >= 18 && !z) {
+            try {
+                if (cellInfo instanceof CellInfoWcdma) {
+                    CellIdentityWcdma cellIdentity4 = ((CellInfoWcdma) cellInfo).getCellIdentity();
+                    aVar.c = a(cellIdentity4.getMcc());
+                    aVar.d = a(cellIdentity4.getMnc());
+                    aVar.a = a(cellIdentity4.getLac());
+                    aVar.b = a(cellIdentity4.getCid());
+                    aVar.Xk = 'g';
+                    aVar.h = ((CellInfoWcdma) cellInfo).getCellSignalStrength().getAsuLevel();
+                }
+            } catch (Exception e2) {
+            }
+        }
+        try {
+            aVar.g = System.currentTimeMillis() - ((SystemClock.elapsedRealtimeNanos() - cellInfo.getTimeStamp()) / 1000000);
+        } catch (Error e3) {
+            aVar.g = System.currentTimeMillis();
+        }
+        return aVar;
     }
 
-    public boolean a(Location location) {
-        return a(location, com.baidu.location.h.i.YL, com.baidu.location.h.i.aa);
+    private String b(int i) {
+        String str;
+        String str2;
+        try {
+            com.baidu.location.b.a qp = qp();
+            if (qp == null || !qp.b()) {
+                a(this.VP.getCellLocation());
+            } else {
+                this.VQ = qp;
+            }
+            str = (this.VQ == null || !this.VQ.b()) ? null : this.VQ.g();
+            try {
+                if (!TextUtils.isEmpty(str) && this.VQ.j != null) {
+                    str = str + this.VQ.j;
+                }
+            } catch (Throwable th) {
+            }
+        } catch (Throwable th2) {
+            str = null;
+        }
+        try {
+            this.VS = null;
+            this.VS = new C0066c(this.VR.getScanResults());
+            str2 = this.VS.a(i);
+        } catch (Exception e) {
+            str2 = null;
+        }
+        if (str == null && str2 == null) {
+            this.m = null;
+            return null;
+        }
+        if (str2 != null) {
+            str = str == null ? str2 : str + str2;
+        }
+        if (str == null) {
+            return null;
+        }
+        this.m = str;
+        if (this.j != null) {
+            this.m += this.j;
+        }
+        return str + this.j;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0047, code lost:
+        if (r1 == null) goto L26;
+     */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private com.baidu.location.b.a qp() {
+        com.baidu.location.b.a aVar;
+        if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
+            return null;
+        }
+        try {
+            List<CellInfo> allCellInfo = this.VP.getAllCellInfo();
+            if (allCellInfo == null || allCellInfo.size() <= 0) {
+                return null;
+            }
+            com.baidu.location.b.a aVar2 = null;
+            for (CellInfo cellInfo : allCellInfo) {
+                if (cellInfo.isRegistered()) {
+                    boolean z = aVar2 != null;
+                    aVar = b(cellInfo);
+                    if (aVar == null) {
+                        continue;
+                    } else if (!aVar.b()) {
+                        aVar = null;
+                    } else if (z) {
+                        aVar2.j = aVar.h();
+                        return aVar2;
+                    }
+                }
+                aVar = aVar2;
+                aVar2 = aVar;
+            }
+            return aVar2;
+        } catch (Throwable th) {
+            return null;
+        }
+    }
+
+    public String a() {
+        try {
+            WifiInfo connectionInfo = this.VR.getConnectionInfo();
+            if (connectionInfo != null) {
+                return connectionInfo.getMacAddress();
+            }
+            return null;
+        } catch (Error e) {
+            return null;
+        } catch (Exception e2) {
+            return null;
+        }
+    }
+
+    public String b() {
+        try {
+            return b(15);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void c() {
+        if (this.m != null && 0 == 0) {
+            this.VW.a(this.m);
+        }
     }
 }

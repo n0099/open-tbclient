@@ -6,8 +6,8 @@ import java.util.List;
 public class b {
     private String content;
     private long create_time;
-    private int emi;
-    private int emj;
+    private int eqb;
+    private int eqc;
     private String forum_id;
     private String id;
     private int level;
@@ -31,8 +31,8 @@ public class b {
         this.level = i;
     }
 
-    public void nH(int i) {
-        this.emi = i;
+    public void nV(int i) {
+        this.eqb = i;
     }
 
     public String getName() {
@@ -43,12 +43,12 @@ public class b {
         this.name = str;
     }
 
-    public int aIq() {
-        return this.emj;
+    public int aJr() {
+        return this.eqc;
     }
 
-    public void nI(int i) {
-        this.emj = i;
+    public void nW(int i) {
+        this.eqc = i;
     }
 
     public void setCreate_time(long j) {
@@ -67,7 +67,7 @@ public class b {
         this.content = str;
     }
 
-    public List<b> aIr() {
+    public List<b> aJs() {
         return this.sub_menu;
     }
 

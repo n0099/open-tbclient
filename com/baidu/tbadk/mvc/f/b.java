@@ -12,7 +12,7 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     private final Class<?>[] aSP;
     private final int[] aSQ;
 
-    public abstract int fh(int i);
+    public abstract int fi(int i);
 
     public b(TbPageContext<?> tbPageContext, Class<?>[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
         super(tbPageContext, viewEventCenter);
@@ -25,10 +25,10 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.aSV && Kk()) {
+        if (this.aSV && Kf()) {
             return -1;
         }
-        return fh(i);
+        return fi(i);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -38,10 +38,10 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.aSV && Kk()) {
-            return Kj();
+        if (this.aSV && Kf()) {
+            return Ke();
         }
-        Ki();
+        Kd();
         int itemViewType = getItemViewType(i);
         Class<?> cls = this.aSP[itemViewType];
         int i2 = this.aSQ[itemViewType];

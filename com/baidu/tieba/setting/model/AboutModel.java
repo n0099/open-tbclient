@@ -20,15 +20,15 @@ import com.baidu.tbadk.coreExtra.messageCenter.c;
 import com.baidu.tieba.setting.more.AboutActivity;
 /* loaded from: classes3.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
-    private a gxc;
-    private final boolean gxd;
+    private a gyk;
+    private final boolean gyl;
     private Context mContext;
 
     public AboutModel(BaseActivity baseActivity, d dVar) {
         super(baseActivity.getPageContext());
         this.mContext = baseActivity.getPageContext().getPageActivity();
         this.mLoadDataCallBack = dVar;
-        this.gxd = false;
+        this.gyl = false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -38,19 +38,19 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.gxc != null) {
-            this.gxc.cancel();
+        if (this.gyk != null) {
+            this.gyk.cancel();
             return false;
         }
         return false;
     }
 
-    public void bqH() {
-        if (this.gxc == null) {
-            this.gxc = new a();
+    public void bpk() {
+        if (this.gyk == null) {
+            this.gyk = new a();
         }
-        this.gxc.setPriority(3);
-        this.gxc.execute(new String[0]);
+        this.gyk.setPriority(3);
+        this.gyk.execute(new String[0]);
     }
 
     /* loaded from: classes3.dex */
@@ -70,7 +70,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: B */
         public com.baidu.tbadk.coreExtra.model.d doInBackground(String... strArr) {
             com.baidu.tbadk.coreExtra.model.d dVar;
             Exception e;
@@ -82,12 +82,12 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(l.aj(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("_phone_screen", stringBuffer.toString());
-                if (c.DW().DZ() > 0) {
+                if (c.DS().DV() > 0) {
                     this.mNetWork.o("_msg_status", "0");
                 } else {
                     this.mNetWork.o("_msg_status", "1");
                 }
-                if (AboutModel.this.gxd) {
+                if (AboutModel.this.gyl) {
                     this.mNetWork.o("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
@@ -95,20 +95,20 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 this.mNetWork.o("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
                 this.mNetWork.o("signmd5", as.d(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.o(ARResourceKey.HTTP_AR_MD5, UtilHelper.getTiebaApkMd5());
-                String yz = this.mNetWork.yz();
-                if (!this.mNetWork.yX().zY().isRequestSuccess()) {
+                String yq = this.mNetWork.yq();
+                if (!this.mNetWork.yO().zN().isRequestSuccess()) {
                     return null;
                 }
                 dVar = new com.baidu.tbadk.coreExtra.model.d();
                 try {
-                    dVar.parserJson(yz);
-                    if (TbadkCoreApplication.getClientId() == null && dVar.EB().getClientId() != null && dVar.EB().getClientId().length() > 0) {
-                        TbadkCoreApplication.saveClientId(AboutModel.this.mContext, dVar.EB().getClientId());
-                        TbadkCoreApplication.setClientId(dVar.EB().getClientId());
+                    dVar.parserJson(yq);
+                    if (TbadkCoreApplication.getClientId() == null && dVar.Ex().getClientId() != null && dVar.Ex().getClientId().length() > 0) {
+                        TbadkCoreApplication.saveClientId(AboutModel.this.mContext, dVar.Ex().getClientId());
+                        TbadkCoreApplication.setClientId(dVar.Ex().getClientId());
                     }
-                    v EC = dVar.EC();
-                    if (EC != null) {
-                        b.getInstance().putBoolean("localvideo_open", EC.Dg());
+                    v Ey = dVar.Ey();
+                    if (Ey != null) {
+                        b.getInstance().putBoolean("localvideo_open", Ey.Db());
                         return dVar;
                     }
                     return dVar;
@@ -125,7 +125,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AboutModel.this.gxc = null;
+            AboutModel.this.gyk = null;
             if (this.mNetWork != null) {
                 this.mNetWork.hN();
             }
@@ -141,7 +141,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
             if (dVar != null && dVar.getAdAdSense() != null) {
                 TbadkCoreApplication.getInst().setAdAdSense(dVar.getAdAdSense());
             }
-            AboutModel.this.gxc = null;
+            AboutModel.this.gyk = null;
             AboutModel.this.mLoadDataCallBack.i(dVar);
         }
     }

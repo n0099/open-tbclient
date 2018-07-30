@@ -5,18 +5,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class a extends c<byte[]> {
-    private String xu;
+    private String xo;
 
     public a(com.baidu.adp.base.a.b bVar, String str) {
         super(bVar);
-        this.xu = str;
+        this.xo = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String aa(String str) {
-        this.xv.O("CREATE TABLE IF NOT EXISTS " + this.xu + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.xv.O("CREATE INDEX if not exists idx_mi_ns ON " + this.xu + "(m_ns)");
-        return this.xu;
+    public String ab(String str) {
+        this.xp.O("CREATE TABLE IF NOT EXISTS " + this.xo + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.xp.O("CREATE INDEX if not exists idx_mi_ns ON " + this.xo + "(m_ns)");
+        return this.xo;
     }
 
     @Override // com.baidu.adp.lib.cache.c
@@ -24,7 +24,7 @@ public class a extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int gS() {
+    public int gR() {
         return 1;
     }
 
@@ -35,7 +35,7 @@ public class a extends c<byte[]> {
         Throwable th;
         g<byte[]> gVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.xw + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.xq + " where m_key = ?", new String[]{str});
         } catch (Throwable th2) {
             cursor = null;
             th = th2;
@@ -43,11 +43,11 @@ public class a extends c<byte[]> {
         try {
             if (cursor.moveToNext()) {
                 gVar = new g<>();
-                gVar.xH = cursor.getString(0);
-                gVar.xI = cursor.getString(1);
-                gVar.xJ = cursor.getLong(2);
-                gVar.xK = cursor.getLong(3);
-                gVar.xL = cursor.getLong(4);
+                gVar.xB = cursor.getString(0);
+                gVar.xC = cursor.getString(1);
+                gVar.xD = cursor.getLong(2);
+                gVar.xE = cursor.getLong(3);
+                gVar.xF = cursor.getLong(4);
                 gVar.value = cursor.getBlob(5);
                 com.baidu.adp.lib.g.a.e(cursor);
             } else {
@@ -64,27 +64,27 @@ public class a extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(g<byte[]> gVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", gVar.xH);
-        contentValues.put("m_ns", gVar.xI);
+        contentValues.put("m_key", gVar.xB);
+        contentValues.put("m_ns", gVar.xC);
         contentValues.put("m_value", gVar.value);
-        contentValues.put("saveTime", Long.valueOf(gVar.xJ));
-        contentValues.put("lastHitTime", Long.valueOf(gVar.xK));
-        contentValues.put("timeToExpire", Long.valueOf(gVar.xL));
+        contentValues.put("saveTime", Long.valueOf(gVar.xD));
+        contentValues.put("lastHitTime", Long.valueOf(gVar.xE));
+        contentValues.put("timeToExpire", Long.valueOf(gVar.xF));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.xw + " where m_ns = ?", new String[]{str});
+        return sQLiteDatabase.rawQuery("select * from " + this.xq + " where m_ns = ?", new String[]{str});
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean ab(String str) {
+    protected boolean ac(String str) {
         try {
-            this.xv.eE().delete(this.xw, "m_ns = ?", new String[]{str});
+            this.xp.eD().delete(this.xq, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.xv.a(th, "failed to clear from " + str);
+            this.xp.a(th, "failed to clear from " + str);
             return false;
         }
     }

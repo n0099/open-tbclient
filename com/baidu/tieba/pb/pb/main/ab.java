@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes2.dex */
 public class ab {
-    public String fCE;
-    public boolean fCF;
-    public boolean fCG;
-    public boolean fCq = false;
-    public boolean fCr = false;
-    public boolean fto = false;
-    public boolean fCs = false;
-    public boolean nT = false;
-    public boolean fCt = false;
-    public boolean fCu = false;
-    public boolean fCv = false;
-    public boolean fCw = false;
-    public boolean fCx = false;
-    public boolean fCy = false;
-    public boolean fCz = false;
-    public boolean fCA = false;
-    public boolean fCB = false;
-    public boolean fCC = false;
+    public String fCR;
+    public boolean fCS;
+    public boolean fCT;
     public boolean fCD = false;
+    public boolean fCE = false;
+    public boolean ftz = false;
+    public boolean fCF = false;
+    public boolean nJ = false;
+    public boolean fCG = false;
+    public boolean fCH = false;
+    public boolean fCI = false;
+    public boolean fCJ = false;
+    public boolean fCK = false;
+    public boolean fCL = false;
+    public boolean fCM = false;
+    public boolean fCN = false;
+    public boolean fCO = false;
+    public boolean fCP = false;
+    public boolean fCQ = false;
     public boolean isHostOnly = false;
 }

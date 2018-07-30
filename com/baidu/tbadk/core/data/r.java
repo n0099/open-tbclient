@@ -1,114 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.FrsPage.HeadImgs;
-/* loaded from: classes.dex */
-public class r implements com.baidu.tbadk.core.flow.a.a {
-    private String afK;
-    private String afL;
-    private String afM;
-    private String afN;
-    private boolean afO;
-    private String mTitle;
-    private String tagNameUrl;
-    private float tagRatio;
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
+/* loaded from: classes2.dex */
+public class r {
+    private o afo;
+    private long threadId;
+    private long afj = 0;
+    private String afk = "";
+    private long afl = 0;
+    private String afm = "";
+    private String imgUrl = "";
+    private String afn = "";
 
-    public r(String str, String str2, String str3) {
-        this.afK = str;
-        this.afL = str2;
-        this.mTitle = str3;
-    }
-
-    public r() {
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.afK;
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String uc() {
-        return this.afL;
-    }
-
-    public String getImageUrl() {
-        return this.afK;
-    }
-
-    public void setImageUrl(String str) {
-        this.afK = str;
-    }
-
-    public String getLinkUrl() {
-        return this.afL;
-    }
-
-    public void setLinkUrl(String str) {
-        this.afL = str;
-    }
-
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    public String ud() {
-        return this.tagNameUrl;
-    }
-
-    public float ue() {
-        return this.tagRatio;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: uf */
-    public r clone() {
-        r rVar = new r();
-        rVar.afK = this.afK;
-        rVar.afL = this.afL;
-        rVar.mTitle = this.mTitle;
-        rVar.afM = this.afM;
-        rVar.afN = this.afN;
-        rVar.tagNameUrl = this.tagNameUrl;
-        rVar.tagRatio = this.tagRatio;
-        return rVar;
-    }
-
-    public void b(HeadImgs headImgs) {
-        if (headImgs != null) {
-            this.afK = headImgs.img_url;
-            this.afL = headImgs.pc_url;
-            this.tagNameUrl = headImgs.tag_name_url;
-            String str = headImgs.tag_name_wh;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    int g = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
-                    if (g2 != 0) {
-                        this.tagRatio = g / g2;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (headImgs.title != null) {
-                this.mTitle = headImgs.title.trim();
-            }
-            if (headImgs.subtitle != null) {
-                this.afM = headImgs.subtitle.trim();
-            }
-            if (headImgs.btn_text != null) {
-                this.afN = headImgs.btn_text.trim();
-            }
+    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        if (forumHeadlineImgInfo != null) {
+            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
+            this.afj = forumHeadlineImgInfo.thread_user_id.longValue();
+            this.afk = forumHeadlineImgInfo.thread_user_name;
+            this.afl = forumHeadlineImgInfo.img_user_id.longValue();
+            this.afm = forumHeadlineImgInfo.img_user_name;
+            this.imgUrl = forumHeadlineImgInfo.img_url;
+            this.afn = forumHeadlineImgInfo.headline_url;
+            this.afo = new o();
+            ArrayList<q> arrayList = new ArrayList<>();
+            q qVar = new q(this.imgUrl == null ? "" : this.imgUrl, this.afn == null ? "" : this.afn, null);
+            qVar.an(true);
+            arrayList.add(qVar);
+            this.afo.j(arrayList);
         }
     }
 
-    public boolean ug() {
-        return this.afO;
-    }
-
-    public void ar(boolean z) {
-        this.afO = z;
+    public String tU() {
+        return this.imgUrl;
     }
 }

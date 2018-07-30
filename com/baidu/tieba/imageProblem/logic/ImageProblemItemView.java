@@ -19,21 +19,21 @@ public class ImageProblemItemView extends FrameLayout {
     protected TextView aIt;
     protected TextView aIu;
     protected ImageView aIy;
-    protected LinearLayout eHI;
-    protected TextView eHJ;
+    protected LinearLayout eLC;
+    protected TextView eLD;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        FV();
+        FR();
         c(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        FV();
+        FR();
     }
 
     public void displayTip() {
@@ -68,29 +68,29 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eHI.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eLC.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(d.e.ds26);
-            this.eHI.setLayoutParams(layoutParams);
-            this.eHJ.setText("");
-            this.eHJ.setVisibility(8);
+            this.eLC.setLayoutParams(layoutParams);
+            this.eLD.setText("");
+            this.eLD.setVisibility(8);
             return;
         }
-        this.eHI.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eHI.getLayoutParams();
+        this.eLC.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.eLC.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(d.e.ds10);
-        this.eHI.setLayoutParams(layoutParams2);
-        this.eHJ.setText(str);
-        this.eHJ.setVisibility(0);
+        this.eLC.setLayoutParams(layoutParams2);
+        this.eLD.setText(str);
+        this.eLD.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void setStatus(int i) {
         if (i == 1) {
-            this.aIt.setTextColor(getResources().getColor(d.C0142d.cp_cont_b));
+            this.aIt.setTextColor(getResources().getColor(d.C0140d.cp_cont_b));
         } else if (i == 2) {
-            this.aIt.setTextColor(getResources().getColor(d.C0142d.cp_link_tip_d));
+            this.aIt.setTextColor(getResources().getColor(d.C0140d.cp_link_tip_d));
         } else if (i == 3) {
-            this.aIt.setTextColor(getResources().getColor(d.C0142d.cp_cont_e));
+            this.aIt.setTextColor(getResources().getColor(d.C0140d.cp_cont_e));
         }
     }
 
@@ -114,22 +114,22 @@ public class ImageProblemItemView extends FrameLayout {
         this.aIu.setBackgroundDrawable(drawable);
     }
 
-    protected void FV() {
-        LayoutInflater.from(this.mContext).inflate(d.i.image_problem_item_view, (ViewGroup) this, true);
+    protected void FR() {
+        LayoutInflater.from(this.mContext).inflate(d.h.image_problem_item_view, (ViewGroup) this, true);
         this.aIs = (LinearLayout) findViewById(d.g.container);
         this.aIt = (TextView) findViewById(d.g.text);
         this.aIu = (TextView) findViewById(d.g.tip);
         this.aIy = (ImageView) findViewById(d.g.arrow2);
-        this.eHI = (LinearLayout) findViewById(d.g.ll_container);
-        this.eHJ = (TextView) findViewById(d.g.tv_help);
+        this.eLC = (LinearLayout) findViewById(d.g.ll_container);
+        this.eLD = (TextView) findViewById(d.g.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, d.m.TbSettingView);
-        String string = obtainStyledAttributes.getString(d.m.TbSettingView_settingText);
-        int color = obtainStyledAttributes.getColor(d.m.TbSettingView_settingTextColor, -1);
-        String string2 = obtainStyledAttributes.getString(d.m.TbSettingView_settingTip);
-        int color2 = obtainStyledAttributes.getColor(d.m.TbSettingView_settingTipColor, -1);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, d.l.TbSettingView);
+        String string = obtainStyledAttributes.getString(d.l.TbSettingView_settingText);
+        int color = obtainStyledAttributes.getColor(d.l.TbSettingView_settingTextColor, -1);
+        String string2 = obtainStyledAttributes.getString(d.l.TbSettingView_settingTip);
+        int color2 = obtainStyledAttributes.getColor(d.l.TbSettingView_settingTipColor, -1);
         if (string != null) {
             this.aIt.setText(string);
         }

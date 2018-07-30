@@ -13,16 +13,16 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-            if (j.jD()) {
+            if (j.jE()) {
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
                 synchronized (f.class) {
-                    f.asE.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
-                    f.asC = null;
+                    f.ash.removeParameter(ConnRoutePNames.DEFAULT_PROXY);
+                    f.asf = null;
                 }
             }
         } else if ("com.baidu.android.pushservice.action.BIND_SYNC".equals(intent.getAction())) {
-            if (j.jD() && !BdSocketLinkService.isOpen()) {
+            if (j.jE() && !BdSocketLinkService.isOpen()) {
                 BdSocketLinkService.startService(false, "frombaidupushservice");
                 TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 1);
                 return;

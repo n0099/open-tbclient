@@ -7,68 +7,68 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a gTQ;
-    private InterfaceC0222a gTR = bAb();
+    private static a gUO;
+    private InterfaceC0222a gUP = byE();
 
     /* renamed from: com.baidu.tieba.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0222a {
-        void A(Activity activity);
-
         void b(Application application);
 
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
-        void onResume(Activity activity);
+        void y(Activity activity);
+
+        void z(Activity activity);
     }
 
-    private boolean bAa() {
+    private boolean byD() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0222a bAb() {
+    private InterfaceC0222a byE() {
         CustomResponsedMessage runTask;
-        if (!bAa() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0222a.class)) == null) {
+        if (!byD() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0222a.class)) == null) {
             return null;
         }
         return (InterfaceC0222a) runTask.getData();
     }
 
-    public static a bAc() {
-        if (gTQ == null) {
+    public static a byF() {
+        if (gUO == null) {
             synchronized (a.class) {
-                if (gTQ == null) {
-                    gTQ = new a();
+                if (gUO == null) {
+                    gUO = new a();
                 }
             }
         }
-        return gTQ;
+        return gUO;
     }
 
     public void b(Application application) {
-        if (this.gTR != null) {
-            this.gTR.b(application);
+        if (this.gUP != null) {
+            this.gUP.b(application);
         }
     }
 
-    public void A(Activity activity) {
-        if (this.gTR != null) {
-            this.gTR.A(activity);
+    public void y(Activity activity) {
+        if (this.gUP != null) {
+            this.gUP.y(activity);
         }
     }
 
-    public void onResume(Activity activity) {
-        if (this.gTR != null) {
-            this.gTR.onResume(activity);
+    public void z(Activity activity) {
+        if (this.gUP != null) {
+            this.gUP.z(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.gTR != null) {
-            this.gTR.behaviorRecordEvent(motionEvent, activity);
+        if (this.gUP != null) {
+            this.gUP.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

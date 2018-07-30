@@ -10,7 +10,7 @@ public interface f {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void IG();
+        void IB();
 
         void a(a aVar);
 

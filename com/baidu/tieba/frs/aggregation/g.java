@@ -11,16 +11,17 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.lego.card.view.h {
-    public static final BdUniqueId doB = BdUniqueId.gen();
+public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.lego.card.view.h, com.baidu.tieba.video.b {
+    public static final BdUniqueId dru = BdUniqueId.gen();
     public String abtest_tag;
     public long agreeNum;
     public boolean autoPlay;
     public String createTime;
-    public List<String> doC;
-    public List<String> doD;
-    public a doE;
-    public b doF;
+    public List<String> drv;
+    public List<String> drw;
+    public a drx;
+    public b dry;
+    public long drz;
     public String extra;
     public String firstPostId;
     public String forumId;
@@ -47,7 +48,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     /* loaded from: classes3.dex */
     public static class b {
-        public List<c> doG;
+        public List<c> drA;
         public String originVideoUrl;
         public String thumbnailHeight;
         public String thumbnailPicid;
@@ -69,6 +70,21 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
         public String videoId;
         public String videoUrl;
         public String videoWidth;
+    }
+
+    @Override // com.baidu.tieba.video.b
+    public long getVideoWatchDuration() {
+        return this.drz;
+    }
+
+    @Override // com.baidu.tieba.video.b
+    public void setVideoWatchDuration(long j) {
+        this.drz = j;
+    }
+
+    @Override // com.baidu.tieba.video.b
+    public String getThreadId() {
+        return this.threadId;
     }
 
     @Override // com.baidu.tieba.lego.card.view.h
@@ -99,53 +115,53 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
                 this.extra = jSONObject.optString("extra");
                 this.abtest_tag = jSONObject.optString("abtest_tag");
                 this.weight = jSONObject.optString("weight");
-                this.doC = new ArrayList();
+                this.drv = new ArrayList();
                 String optString = jSONObject.optString("forum_id_shared");
                 if (!StringUtils.isNull(optString)) {
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        this.doC.add(jSONArray.optString(i));
+                        this.drv.add(jSONArray.optString(i));
                     }
                 }
-                this.doD = new ArrayList();
+                this.drw = new ArrayList();
                 String optString2 = jSONObject.optString("forum_name_shared");
                 if (!StringUtils.isNull(optString2)) {
                     JSONArray jSONArray2 = new JSONArray(optString2);
                     for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                        this.doD.add(jSONArray2.optString(i2));
+                        this.drw.add(jSONArray2.optString(i2));
                     }
                 }
                 String optString3 = jSONObject.optString("author");
                 if (!TextUtils.isEmpty(optString3)) {
-                    this.doE = new a();
+                    this.drx = new a();
                     JSONObject jSONObject2 = new JSONObject(optString3);
-                    this.doE.userId = jSONObject2.optString("user_id");
-                    this.doE.userName = jSONObject2.optString("user_name");
-                    this.doE.userNickname = jSONObject2.optString("user_nickname");
-                    this.doE.portrait = jSONObject2.optString(IntentConfig.PORTRAIT);
-                    this.doE.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
-                    this.doE.isGod = jSONObject2.optInt("is_god") == 1;
+                    this.drx.userId = jSONObject2.optString("user_id");
+                    this.drx.userName = jSONObject2.optString("user_name");
+                    this.drx.userNickname = jSONObject2.optString("user_nickname");
+                    this.drx.portrait = jSONObject2.optString(IntentConfig.PORTRAIT);
+                    this.drx.hasFocus = jSONObject2.optInt(AddFriendActivityConfig.TYPE_FOCUS) == 1;
+                    this.drx.isGod = jSONObject2.optInt("is_god") == 1;
                 }
                 String optString4 = jSONObject.optString("video");
                 if (!TextUtils.isEmpty(optString4)) {
-                    this.doF = new b();
+                    this.dry = new b();
                     JSONObject jSONObject3 = new JSONObject(optString4);
-                    this.doF.thumbnailWidth = jSONObject3.optString("thumbnail_width");
-                    this.doF.thumbnailHeight = jSONObject3.optString("thumbnail_height");
-                    this.doF.videoMd5 = jSONObject3.optString("video_md5");
-                    this.doF.videoUrl = jSONObject3.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
-                    this.doF.videoDuration = jSONObject3.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
-                    this.doF.videoWidth = jSONObject3.optString("video_width");
-                    this.doF.videoHeight = jSONObject3.optString("video_height");
-                    this.doF.videoSize = jSONObject3.optLong("video_size");
-                    this.doF.videoType = jSONObject3.optString("video_type");
-                    this.doF.thumbnailUrl = jSONObject3.optString("thumbnail_url");
-                    this.doF.videoFormat = jSONObject3.optString("video_format");
-                    this.doF.thumbnailPicid = jSONObject3.optString("thumbnail_picid");
-                    this.doF.originVideoUrl = jSONObject3.optString("origin_video_url");
+                    this.dry.thumbnailWidth = jSONObject3.optString("thumbnail_width");
+                    this.dry.thumbnailHeight = jSONObject3.optString("thumbnail_height");
+                    this.dry.videoMd5 = jSONObject3.optString("video_md5");
+                    this.dry.videoUrl = jSONObject3.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
+                    this.dry.videoDuration = jSONObject3.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
+                    this.dry.videoWidth = jSONObject3.optString("video_width");
+                    this.dry.videoHeight = jSONObject3.optString("video_height");
+                    this.dry.videoSize = jSONObject3.optLong("video_size");
+                    this.dry.videoType = jSONObject3.optString("video_type");
+                    this.dry.thumbnailUrl = jSONObject3.optString("thumbnail_url");
+                    this.dry.videoFormat = jSONObject3.optString("video_format");
+                    this.dry.thumbnailPicid = jSONObject3.optString("thumbnail_picid");
+                    this.dry.originVideoUrl = jSONObject3.optString("origin_video_url");
                     String optString5 = jSONObject3.optString("video_desc");
                     if (!TextUtils.isEmpty(optString5)) {
-                        this.doF.doG = new ArrayList();
+                        this.dry.drA = new ArrayList();
                         JSONArray jSONArray3 = new JSONArray(optString5);
                         for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
                             c cVar = new c();
@@ -153,7 +169,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
                             cVar.videoUrl = jSONArray3.optJSONObject(i3).optString(WebVideoActivityConfig.KEY_VIDEO_URL);
                             cVar.videoWidth = jSONArray3.optJSONObject(i3).optString("video_width");
                             cVar.videoHeight = jSONArray3.optJSONObject(i3).optString("video_height");
-                            this.doF.doG.add(cVar);
+                            this.dry.drA.add(cVar);
                         }
                     }
                 }
@@ -165,6 +181,6 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return doB;
+        return dru;
     }
 }

@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.ActivityChooserView;
 import android.view.View;
 import android.widget.ProgressBar;
-import com.baidu.c.a.a;
+import com.baidu.d.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 /* loaded from: classes2.dex */
 public class PassportViewManager {

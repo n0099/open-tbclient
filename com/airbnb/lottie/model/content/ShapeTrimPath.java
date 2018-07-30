@@ -6,11 +6,11 @@ import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShapeTrimPath implements b {
-    private final Type mm;
+    private final Type mc;
     private final String name;
-    private final com.airbnb.lottie.model.a.b oD;
-    private final com.airbnb.lottie.model.a.b oE;
-    private final com.airbnb.lottie.model.a.b ov;
+    private final com.airbnb.lottie.model.a.b oi;
+    private final com.airbnb.lottie.model.a.b ot;
+    private final com.airbnb.lottie.model.a.b ou;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -31,30 +31,30 @@ public class ShapeTrimPath implements b {
 
     private ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.mm = type;
-        this.oD = bVar;
-        this.oE = bVar2;
-        this.ov = bVar3;
+        this.mc = type;
+        this.ot = bVar;
+        this.ou = bVar2;
+        this.oi = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type bQ() {
-        return this.mm;
+    public Type bO() {
+        return this.mc;
     }
 
-    public com.airbnb.lottie.model.a.b di() {
-        return this.oE;
+    public com.airbnb.lottie.model.a.b dg() {
+        return this.ou;
     }
 
-    public com.airbnb.lottie.model.a.b dj() {
-        return this.oD;
+    public com.airbnb.lottie.model.a.b dh() {
+        return this.ot;
     }
 
-    public com.airbnb.lottie.model.a.b dc() {
-        return this.ov;
+    public com.airbnb.lottie.model.a.b da() {
+        return this.oi;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -63,7 +63,7 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.oD + ", end: " + this.oE + ", offset: " + this.ov + "}";
+        return "Trim Path: {start: " + this.ot + ", end: " + this.ou + ", offset: " + this.oi + "}";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

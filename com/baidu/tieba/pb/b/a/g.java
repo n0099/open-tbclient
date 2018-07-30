@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder fLZ;
-    private int fMa;
+    private SpannableStringBuilder fMn;
+    private int fMo;
     private int textSize;
 
     public g() {
-        this.fMa = 0;
+        this.fMo = 0;
         this.textSize = -1;
-        this.fLZ = new SpannableStringBuilder();
+        this.fMn = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.fMa = 0;
+        this.fMo = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.fLZ = new SpannableStringBuilder();
+            this.fMn = new SpannableStringBuilder();
             if (excContent != null) {
-                this.fLZ.append((CharSequence) excContent.text);
+                this.fMn.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.fMa = excContent.align.intValue();
+                this.fMo = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -40,9 +40,9 @@ public class g implements c {
         }
     }
 
-    public void k(CharSequence charSequence) {
+    public void g(CharSequence charSequence) {
         if (charSequence != null) {
-            this.fLZ.append(charSequence);
+            this.fMn.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bhM() {
-        return this.fLZ;
+    public CharSequence bgf() {
+        return this.fMn;
     }
 
-    public int bhO() {
-        return this.fMa;
+    public int bgh() {
+        return this.fMo;
     }
 
-    public String bhP() {
+    public String bgi() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bhN() {
-        return (this.fMa > 0 && this.fMa < 3) || !StringUtils.isNull(this.color);
+    public boolean bgg() {
+        return (this.fMo > 0 && this.fMo < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

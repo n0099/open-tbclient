@@ -6,19 +6,19 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast Ds;
+    private static Toast Do;
     private static Handler mHandler = new Handler();
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.Ds != null) {
-                e.Ds.cancel();
+            if (e.Do != null) {
+                e.Do.cancel();
             }
         }
     };
-    private boolean aoL;
+    private boolean aon;
 
-    public static e ym() {
+    public static e ye() {
         return new e();
     }
 
@@ -26,24 +26,24 @@ public class e {
     }
 
     public void i(String str, int i, int i2) {
-        if (!this.aoL && str != null) {
+        if (!this.aon && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (Ds != null && Ds.getView() != null) {
+                if (Do != null && Do.getView() != null) {
                     try {
-                        Ds.setText(trim);
+                        Do.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        Ds = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        Ds.setGravity(17, 0, i2);
+                        Do = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        Do.setGravity(17, 0, i2);
                     }
                 } else {
-                    Ds = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    Ds.setGravity(17, 0, i2);
+                    Do = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    Do.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                Ds.show();
+                Do.show();
             }
         }
     }
@@ -69,19 +69,19 @@ public class e {
     }
 
     public void onPause() {
-        this.aoL = true;
+        this.aon = true;
         cancel();
     }
 
     public void onResume() {
-        this.aoL = false;
+        this.aon = false;
     }
 
     public static void cancel() {
-        if (Ds != null) {
+        if (Do != null) {
             mHandler.removeCallbacks(r);
-            Ds.cancel();
-            Ds = null;
+            Do.cancel();
+            Do = null;
         }
     }
 }

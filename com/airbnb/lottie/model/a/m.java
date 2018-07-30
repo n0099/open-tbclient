@@ -7,5 +7,5 @@ public interface m<K, A> {
         V b(Object obj, float f);
     }
 
-    com.airbnb.lottie.a.b.a<K, A> ck();
+    com.airbnb.lottie.a.b.a<K, A> ci();
 }

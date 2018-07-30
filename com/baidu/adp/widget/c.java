@@ -12,8 +12,8 @@ import android.text.style.DynamicDrawableSpan;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends DynamicDrawableSpan {
-    private Uri MM;
-    private a MN;
+    private Uri MG;
+    private a MH;
     private Context mContext;
     private Drawable mDrawable;
     private Rect mRect;
@@ -32,12 +32,12 @@ public class c extends DynamicDrawableSpan {
         super(i2);
         this.mRect = new Rect();
         this.mResourceId = i;
-        this.MN = aVar;
+        this.MH = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.mDrawable != null || this.MN == null) {
+        if (this.mDrawable != null || this.MH == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
@@ -54,15 +54,15 @@ public class c extends DynamicDrawableSpan {
         Drawable drawable = null;
         if (this.mDrawable != null) {
             drawable = this.mDrawable;
-        } else if (this.MN != null) {
-            drawable = this.MN.a(this);
+        } else if (this.MH != null) {
+            drawable = this.MH.a(this);
         }
         if (drawable != null) {
             return drawable;
         }
-        if (this.MM != null) {
+        if (this.MG != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.MM);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.MG);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
@@ -103,7 +103,7 @@ public class c extends DynamicDrawableSpan {
         }
     }
 
-    public void d(int i, int i2, int i3, int i4) {
+    public void c(int i, int i2, int i3, int i4) {
         this.mRect.set(i, i2, i3, i4);
     }
 }

@@ -7,7 +7,7 @@ import java.io.Writer;
 /* loaded from: classes2.dex */
 public final class f {
     public static void b(h hVar, com.google.gson.stream.a aVar) throws IOException {
-        k.hOY.a(aVar, hVar);
+        k.hHW.a(aVar, hVar);
     }
 
     public static Writer a(Appendable appendable) {
@@ -16,23 +16,23 @@ public final class f {
 
     /* loaded from: classes2.dex */
     private static final class a extends Writer {
-        private final Appendable hNy;
-        private final C0267a hNz;
+        private final Appendable hGv;
+        private final C0267a hGw;
 
         private a(Appendable appendable) {
-            this.hNz = new C0267a();
-            this.hNy = appendable;
+            this.hGw = new C0267a();
+            this.hGv = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.hNz.chars = cArr;
-            this.hNy.append(this.hNz, i, i + i2);
+            this.hGw.hGx = cArr;
+            this.hGv.append(this.hGw, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.hNy.append((char) i);
+            this.hGv.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -46,24 +46,24 @@ public final class f {
         /* renamed from: com.google.gson.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         static class C0267a implements CharSequence {
-            char[] chars;
+            char[] hGx;
 
             C0267a() {
             }
 
             @Override // java.lang.CharSequence
             public int length() {
-                return this.chars.length;
+                return this.hGx.length;
             }
 
             @Override // java.lang.CharSequence
             public char charAt(int i) {
-                return this.chars[i];
+                return this.hGx[i];
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i, int i2) {
-                return new String(this.chars, i, i2 - i);
+                return new String(this.hGx, i, i2 - i);
             }
         }
     }

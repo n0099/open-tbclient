@@ -3,35 +3,35 @@ package com.baidu.ubs.analytics.c;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes2.dex */
 public final class f {
-    private static long Sb;
-    private static long hBY;
+    private static long RY;
+    private static long hCD;
     private static boolean ak = true;
     private static boolean al = false;
-    private static long hBX = StatisticConfig.MIN_UPLOAD_INTERVAL;
+    private static long hCC = StatisticConfig.MIN_UPLOAD_INTERVAL;
     private static boolean ap = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
-        hBX = j;
+        hCC = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long bKz() {
-        return hBX;
+    public static long bJd() {
+        return hCC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long bKA() {
-        return hBY;
+    public static long bJe() {
+        return hCD;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        hBY = j;
+        hCD = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean bKB() {
+    public static boolean bJf() {
         return ak;
     }
 
@@ -46,10 +46,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        Sb = j;
+        RY = j;
     }
 
-    public static long bKC() {
-        return Sb;
+    public static long bJg() {
+        return RY;
     }
 }

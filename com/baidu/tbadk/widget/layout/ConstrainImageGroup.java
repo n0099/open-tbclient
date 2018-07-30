@@ -14,126 +14,126 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class ConstrainImageGroup extends LinearLayout {
     private BdUniqueId aRF;
-    private boolean atn;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> bci;
-    private com.baidu.adp.lib.e.b<TbImageView> bcj;
-    private b bck;
-    private int bcl;
-    private double bcm;
-    private c bcn;
-    private View.OnClickListener bco;
-    private ViewGroup.OnHierarchyChangeListener bcp;
+    private boolean asR;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> bcr;
+    private com.baidu.adp.lib.e.b<TbImageView> bcs;
+    private b bct;
+    private int bcu;
+    private double bcv;
+    private c bcw;
+    private View.OnClickListener bcx;
+    private ViewGroup.OnHierarchyChangeListener bcy;
 
     public ConstrainImageGroup(Context context) {
         super(context);
-        this.bck = new a();
-        this.atn = false;
-        this.bcp = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
+        this.bct = new a();
+        this.asR = false;
+        this.bcy = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.bci != null) {
+                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.bcr != null) {
                     ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
                     constrainImageLayout.reset();
-                    ConstrainImageGroup.this.bci.p(constrainImageLayout);
+                    ConstrainImageGroup.this.bcr.p(constrainImageLayout);
                 }
             }
         };
         setOrientation(1);
-        setOnHierarchyChangeListener(this.bcp);
+        setOnHierarchyChangeListener(this.bcy);
     }
 
     public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bck = new a();
-        this.atn = false;
-        this.bcp = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
+        this.bct = new a();
+        this.asR = false;
+        this.bcy = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.bci != null) {
+                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.bcr != null) {
                     ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
                     constrainImageLayout.reset();
-                    ConstrainImageGroup.this.bci.p(constrainImageLayout);
+                    ConstrainImageGroup.this.bcr.p(constrainImageLayout);
                 }
             }
         };
         setOrientation(1);
-        setOnHierarchyChangeListener(this.bcp);
+        setOnHierarchyChangeListener(this.bcy);
     }
 
     public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bck = new a();
-        this.atn = false;
-        this.bcp = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
+        this.bct = new a();
+        this.asR = false;
+        this.bcy = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
             }
 
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.bci != null) {
+                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.bcr != null) {
                     ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
                     constrainImageLayout.reset();
-                    ConstrainImageGroup.this.bci.p(constrainImageLayout);
+                    ConstrainImageGroup.this.bcr.p(constrainImageLayout);
                 }
             }
         };
         setOrientation(1);
-        setOnHierarchyChangeListener(this.bcp);
+        setOnHierarchyChangeListener(this.bcy);
     }
 
     public void setFromCDN(boolean z) {
-        this.atn = z;
+        this.asR = z;
     }
 
     public void setSingleImageRatio(double d) {
-        this.bcm = d;
+        this.bcv = d;
     }
 
     public void setChildClickListener(View.OnClickListener onClickListener) {
-        this.bco = onClickListener;
+        this.bcx = onClickListener;
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<ConstrainImageLayout> bVar) {
-        this.bci = bVar;
+        this.bcr = bVar;
     }
 
     public void setImageClickListener(c cVar) {
-        this.bcn = cVar;
+        this.bcw = cVar;
         int childCount = getChildCount();
         if (childCount > 0) {
             for (int i = 0; i < childCount; i++) {
                 View childAt = getChildAt(i);
                 if (childAt instanceof ConstrainImageLayout) {
-                    ((ConstrainImageLayout) childAt).setImageClickListener(this.bcn);
+                    ((ConstrainImageLayout) childAt).setImageClickListener(this.bcw);
                 }
             }
         }
     }
 
     public void setImageViewPool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        this.bcj = bVar;
+        this.bcs = bVar;
     }
 
     public void setImageMargin(int i) {
         if (i >= 0) {
-            this.bcl = i;
+            this.bcu = i;
         } else {
-            this.bcl = 0;
+            this.bcu = 0;
         }
     }
 
     @Deprecated
     public void setImageUrls(List<String> list) {
-        if (!w.A(list)) {
+        if (!w.z(list)) {
             LinkedList linkedList = new LinkedList();
             for (String str : list) {
                 MediaData mediaData = new MediaData();
@@ -147,8 +147,8 @@ public class ConstrainImageGroup extends LinearLayout {
 
     public void setImageMediaList(List<MediaData> list) {
         int i;
-        if (!w.A(list) && this.bci != null) {
-            fI(w.z(list));
+        if (!w.z(list) && this.bcr != null) {
+            fJ(w.y(list));
             int childCount = getChildCount();
             int i2 = 0;
             int i3 = 0;
@@ -156,17 +156,17 @@ public class ConstrainImageGroup extends LinearLayout {
                 View childAt = getChildAt(i2);
                 if (childAt instanceof ConstrainImageLayout) {
                     ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) childAt;
-                    constrainImageLayout.setImageClickListener(this.bcn);
-                    constrainImageLayout.setFromCDN(this.atn);
-                    if (this.bcm > 0.0d) {
-                        constrainImageLayout.setSingleImageRatio(this.bcm);
+                    constrainImageLayout.setImageClickListener(this.bcw);
+                    constrainImageLayout.setFromCDN(this.asR);
+                    if (this.bcv > 0.0d) {
+                        constrainImageLayout.setSingleImageRatio(this.bcv);
                     }
-                    if (this.bco == null) {
+                    if (this.bcx == null) {
                         constrainImageLayout.setClickable(false);
                     } else {
-                        constrainImageLayout.setOnClickListener(this.bco);
+                        constrainImageLayout.setOnClickListener(this.bcx);
                     }
-                    i = this.bck.a(constrainImageLayout, list, i2, i3);
+                    i = this.bct.a(constrainImageLayout, list, i2, i3);
                 } else {
                     i = i3;
                 }
@@ -176,11 +176,11 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    private void fI(int i) {
-        int fH = this.bck.fH(i);
-        int childCount = getChildCount() - fH;
+    private void fJ(int i) {
+        int fI = this.bct.fI(i);
+        int childCount = getChildCount() - fI;
         if (childCount > 0) {
-            removeViews(fH, childCount);
+            removeViews(fI, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
@@ -190,14 +190,14 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     private ConstrainImageLayout getConstrainImageLayout() {
-        ConstrainImageLayout ie = this.bci.ie();
-        ie.setImagePadding(this.bcl);
-        ie.setImageViewObjectPool(this.bcj);
-        ie.setImageMaxChildCount(-1);
-        ie.setExtraCenterText(null);
-        ie.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        ie.setPageUniqueId(this.aRF);
-        return ie;
+        ConstrainImageLayout m9if = this.bcr.m9if();
+        m9if.setImagePadding(this.bcu);
+        m9if.setImageViewObjectPool(this.bcs);
+        m9if.setImageMaxChildCount(-1);
+        m9if.setExtraCenterText(null);
+        m9if.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        m9if.setPageUniqueId(this.aRF);
+        return m9if;
     }
 
     public void onChangeSkinType() {
@@ -212,7 +212,7 @@ public class ConstrainImageGroup extends LinearLayout {
 
     public void setImageProcessor(b bVar) {
         if (bVar != null) {
-            this.bck = bVar;
+            this.bct = bVar;
         }
     }
 

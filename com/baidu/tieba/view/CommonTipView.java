@@ -101,7 +101,7 @@ public class CommonTipView extends TextView {
             public void onAnimationEnd(Animation animation) {
                 CommonTipView.this.onDestroy();
                 CommonTipView.this.setVisibility(8);
-                com.baidu.adp.lib.g.e.im().postDelayed(CommonTipView.this.mRunnable, 600L);
+                com.baidu.adp.lib.g.e.in().postDelayed(CommonTipView.this.mRunnable, 600L);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -167,13 +167,13 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        am.d(this, d.C0142d.common_color_10260, i);
-        am.b(this, d.C0142d.cp_cont_g, 1, i);
+        am.d(this, d.C0140d.common_color_10260, i);
+        am.b(this, d.C0140d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {
         removeCallbacks(this.mHideTipRunnable);
-        com.baidu.adp.lib.g.e.im().removeCallbacks(this.mRunnable);
+        com.baidu.adp.lib.g.e.in().removeCallbacks(this.mRunnable);
         hide();
     }
 }

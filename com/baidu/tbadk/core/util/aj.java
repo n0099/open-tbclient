@@ -13,18 +13,18 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class aj {
-    private BdUniqueId aqU;
-    private a aqV;
-    private HttpMessageListener aqW = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.aj.1
+    private BdUniqueId aqv;
+    private a aqw;
+    private HttpMessageListener aqx = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.aj.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Message<?> orginalMessage;
             if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
                 long longValue = ((Long) orginalMessage.getExtra()).longValue();
-                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == aj.this.aqU;
-                if (aj.this.aqV != null) {
-                    aj.this.aqV.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == aj.this.aqv;
+                if (aj.this.aqw != null) {
+                    aj.this.aqw.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
                 }
             }
         }
@@ -38,13 +38,13 @@ public class aj {
 
     public aj(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.aqU = bdUniqueId;
-        this.aqW.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.aqW);
-        zw();
+        this.aqv = bdUniqueId;
+        this.aqx.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.aqx);
+        zn();
     }
 
-    private static void zw() {
+    private static void zn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -56,12 +56,12 @@ public class aj {
     public void s(long j) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_FANS);
         httpMessage.addParam("fans_uid", j);
-        httpMessage.setTag(this.aqU);
+        httpMessage.setTag(this.aqv);
         httpMessage.setExtra(Long.valueOf(j));
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void a(a aVar) {
-        this.aqV = aVar;
+        this.aqw = aVar;
     }
 }

@@ -9,34 +9,34 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
-    private com.baidu.tieba.im.db.c eyt;
+    private com.baidu.tieba.im.db.c eCk;
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.aIy(), 2001145);
+        a(com.baidu.tieba.im.db.c.aJz(), 2001145);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
-        this.eyt = cVar;
+        this.eCk = cVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
-            return oq(this.mCmd);
+            return oE(this.mCmd);
         }
-        if (this.eyt == null) {
-            return oq(this.mCmd);
+        if (this.eCk == null) {
+            return oE(this.mCmd);
         }
         LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> a = this.eyt.a(data.id, data.evk, data.evl, data.limit);
+        LinkedList<ChatMessage> a = this.eCk.a(data.id, data.ezd, data.eze, data.limit);
         if (a == null) {
-            return oq(this.mCmd);
+            return oE(this.mCmd);
         }
         LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-        if (data.evk == null) {
+        if (data.ezd == null) {
             aVar.isFirst = true;
         } else {
             aVar.isFirst = false;
@@ -51,7 +51,7 @@ public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a>
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage oq(int i) {
+    private LoadHistoryResponsedMessage oE(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

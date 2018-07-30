@@ -15,5 +15,7 @@ public interface LLSInterface {
 
     int onStartCommand(Intent intent, int i, int i2);
 
+    void onTaskRemoved(Intent intent);
+
     boolean onUnBind(Intent intent);
 }

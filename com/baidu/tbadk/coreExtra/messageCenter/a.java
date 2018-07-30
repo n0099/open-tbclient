@@ -48,7 +48,7 @@ public class a {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 0) {
-                a.Dp().b(a.Dp().DM());
+                a.Dl().b(a.Dl().DI());
             }
         }
     };
@@ -65,7 +65,7 @@ public class a {
     private final int[] aDO = new int[10];
     private final Context aDy = TbadkCoreApplication.getInst().getApp();
 
-    public static a Dp() {
+    public static a Dl() {
         if (aDG == null) {
             aDG = new a();
         }
@@ -75,7 +75,7 @@ public class a {
     private a() {
     }
 
-    public void s(JSONObject jSONObject) {
+    public void r(JSONObject jSONObject) {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("replyme");
             int optInt2 = jSONObject.optInt("agree");
@@ -106,19 +106,19 @@ public class a {
                 i8 = 2;
             }
             int i9 = 0;
-            if (i > this.aDz && c.DW().Em()) {
+            if (i > this.aDz && c.DS().Ei()) {
                 i9 = 1;
             } else if (i < this.aDz) {
                 i9 = 2;
             }
             int i10 = 0;
-            if (i2 > this.aDA && c.DW().Ed()) {
+            if (i2 > this.aDA && c.DS().DZ()) {
                 i10 = 1;
             } else if (i2 < this.aDA) {
                 i10 = 2;
             }
             int i11 = 0;
-            if (i3 > this.aDB && c.DW().Eb()) {
+            if (i3 > this.aDB && c.DS().DX()) {
                 i11 = 1;
             } else if (i3 < this.aDB) {
                 i11 = 2;
@@ -142,7 +142,7 @@ public class a {
             this.aDE = i5;
             this.aDD = i6;
             this.aDF = i7;
-            if (DK() <= 0) {
+            if (DG() <= 0) {
                 i8 = 2;
                 i14 = 2;
                 i12 = 2;
@@ -152,14 +152,14 @@ public class a {
                 i9 = 2;
             }
             if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0) {
-                DH();
-                E(i14, 23);
-                E(i12, 16);
-                E(i8, 17);
-                E(i10, 24);
-                E(i11, 25);
-                E(i13, 26);
-                E(i9, 29);
+                DD();
+                F(i14, 23);
+                F(i12, 16);
+                F(i8, 17);
+                F(i10, 24);
+                F(i11, 25);
+                F(i13, 26);
+                F(i9, 29);
             }
         }
     }
@@ -172,15 +172,15 @@ public class a {
             this.aDC = i4;
             this.aDE = i5;
             this.aDF = i6;
-            DH();
-            if (DK() <= 0) {
-                E(2, 16);
-                E(2, 17);
+            DD();
+            if (DG() <= 0) {
+                F(2, 16);
+                F(2, 17);
             }
         }
     }
 
-    public static boolean Dq() {
+    public static boolean Dm() {
         if (aDJ == null) {
             aDJ = new Date();
         } else {
@@ -193,13 +193,13 @@ public class a {
         return true;
     }
 
-    public static boolean Dr() {
-        if (c.DW().Eh()) {
+    public static boolean Dn() {
+        if (c.DS().Ed()) {
             Calendar calendar = Calendar.getInstance();
             int i = calendar.get(12) + (calendar.get(11) * 60);
-            String[] split = c.DW().Ej().split(SystemInfoUtil.COLON);
+            String[] split = c.DS().Ef().split(SystemInfoUtil.COLON);
             int parseInt = Integer.parseInt(split[1]) + (Integer.parseInt(split[0]) * 60);
-            String[] split2 = c.DW().Ek().split(SystemInfoUtil.COLON);
+            String[] split2 = c.DS().Eg().split(SystemInfoUtil.COLON);
             int parseInt2 = Integer.parseInt(split2[1]) + (Integer.parseInt(split2[0]) * 60);
             if (parseInt < parseInt2) {
                 if (i >= parseInt && i <= parseInt2) {
@@ -217,19 +217,19 @@ public class a {
         return false;
     }
 
-    private void E(int i, int i2) {
+    private void F(int i, int i2) {
         try {
             if (i == 1) {
                 if (i2 == 23) {
                     if (this.aDF > 0) {
-                        String format = String.format(this.aDy.getString(d.k.notify_gift), String.valueOf(this.aDF));
-                        b(23, null, format, format);
+                        String format = String.format(this.aDy.getString(d.j.notify_gift), String.valueOf(this.aDF));
+                        a(23, null, format, format);
                     }
                 } else if (i2 == 29) {
                     if (this.aDz > 0) {
                         StringBuilder sb = new StringBuilder();
-                        sb.append(String.format(this.aDy.getString(d.k.notify_agree), Integer.valueOf(this.aDz)));
-                        b(29, null, sb.toString(), sb.toString());
+                        sb.append(String.format(this.aDy.getString(d.j.notify_agree), Integer.valueOf(this.aDz)));
+                        a(29, null, sb.toString(), sb.toString());
                     }
                 } else if (i2 == 24) {
                     if (this.aDA > 0) {
@@ -237,15 +237,15 @@ public class a {
                         if (this.aDA > 1) {
                             sb2.append("[");
                             sb2.append(String.valueOf(this.aDA));
-                            sb2.append(this.aDy.getString(d.k.notify_unit));
+                            sb2.append(this.aDy.getString(d.j.notify_unit));
                             sb2.append("]");
                         }
                         if (this.aDM != null) {
                             sb2.append(this.aDM);
                         } else {
-                            sb2.append(this.aDy.getString(d.k.notify_reply));
+                            sb2.append(this.aDy.getString(d.j.notify_reply));
                         }
-                        b(24, null, sb2.toString(), sb2.toString());
+                        a(24, null, sb2.toString(), sb2.toString());
                     }
                 } else if (i2 == 25) {
                     if (this.aDB > 0) {
@@ -253,23 +253,23 @@ public class a {
                         if (this.aDB > 1) {
                             sb3.append("[");
                             sb3.append(String.valueOf(this.aDB));
-                            sb3.append(this.aDy.getString(d.k.notify_unit));
+                            sb3.append(this.aDy.getString(d.j.notify_unit));
                             sb3.append("]");
                         }
                         if (this.aDN != null) {
                             sb3.append(this.aDN);
                         } else {
-                            sb3.append(this.aDy.getString(d.k.notify_at));
+                            sb3.append(this.aDy.getString(d.j.notify_at));
                         }
-                        b(25, null, sb3.toString(), sb3.toString());
+                        a(25, null, sb3.toString(), sb3.toString());
                     }
                 } else if (i2 == 26) {
                     if (this.aDE > 0) {
                         StringBuilder sb4 = new StringBuilder();
-                        sb4.append(String.format(this.aDy.getString(d.k.notify_fans), Integer.valueOf(this.aDE)));
-                        b(26, null, sb4.toString(), sb4.toString());
+                        sb4.append(String.format(this.aDy.getString(d.j.notify_fans), Integer.valueOf(this.aDE)));
+                        a(26, null, sb4.toString(), sb4.toString());
                     }
-                } else if (i2 == 16 || !c.DW().El() || c.DW().DZ() > 0) {
+                } else if (i2 == 16 || !c.DS().Eh() || c.DS().DV() > 0) {
                 }
             } else if (i == 2) {
                 NotificationHelper.cancelNotification(this.aDy, 16);
@@ -288,8 +288,8 @@ public class a {
     */
     private void a(int i, int i2, e eVar) {
         boolean z;
-        String ES;
-        String ER;
+        String EO;
+        String EN;
         String str;
         boolean z2 = false;
         boolean z3 = true;
@@ -299,8 +299,8 @@ public class a {
                     StringBuffer stringBuffer = new StringBuffer();
                     if (i2 == 23) {
                         if (this.aDF > 0) {
-                            String format = String.format(this.aDy.getString(d.k.notify_gift), String.valueOf(this.aDF));
-                            b(23, null, format, format);
+                            String format = String.format(this.aDy.getString(d.j.notify_gift), String.valueOf(this.aDF));
+                            a(23, null, format, format);
                         }
                     } else if (i2 == 29) {
                         if (this.aDz > 0) {
@@ -308,15 +308,15 @@ public class a {
                             if (this.aDz > 1) {
                                 sb.append("[");
                                 sb.append(String.valueOf(this.aDz));
-                                sb.append(this.aDy.getString(d.k.notify_unit));
+                                sb.append(this.aDy.getString(d.j.notify_unit));
                                 sb.append("]");
                             }
                             if (this.aDL != null) {
                                 sb.append(this.aDL);
                             } else {
-                                sb.append(this.aDy.getString(d.k.notify_agree));
+                                sb.append(this.aDy.getString(d.j.notify_agree));
                             }
-                            b(29, null, sb.toString(), sb.toString());
+                            a(29, null, sb.toString(), sb.toString());
                         }
                     } else if (i2 == 24) {
                         if (this.aDA > 0) {
@@ -324,15 +324,15 @@ public class a {
                             if (this.aDA > 1) {
                                 sb2.append("[");
                                 sb2.append(String.valueOf(this.aDA));
-                                sb2.append(this.aDy.getString(d.k.notify_unit));
+                                sb2.append(this.aDy.getString(d.j.notify_unit));
                                 sb2.append("]");
                             }
                             if (this.aDM != null) {
                                 sb2.append(this.aDM);
                             } else {
-                                sb2.append(this.aDy.getString(d.k.notify_reply));
+                                sb2.append(this.aDy.getString(d.j.notify_reply));
                             }
-                            b(24, null, sb2.toString(), sb2.toString());
+                            a(24, null, sb2.toString(), sb2.toString());
                         }
                     } else if (i2 == 25) {
                         if (this.aDB > 0) {
@@ -340,62 +340,62 @@ public class a {
                             if (this.aDB > 1) {
                                 sb3.append("[");
                                 sb3.append(String.valueOf(this.aDB));
-                                sb3.append(this.aDy.getString(d.k.notify_unit));
+                                sb3.append(this.aDy.getString(d.j.notify_unit));
                                 sb3.append("]");
                             }
                             if (this.aDN != null) {
                                 sb3.append(this.aDN);
                             } else {
-                                sb3.append(this.aDy.getString(d.k.notify_at));
+                                sb3.append(this.aDy.getString(d.j.notify_at));
                             }
-                            b(25, null, sb3.toString(), sb3.toString());
+                            a(25, null, sb3.toString(), sb3.toString());
                         }
                     } else if (i2 == 26) {
                         if (this.aDE > 0) {
                             StringBuilder sb4 = new StringBuilder();
                             if (this.aDE > 1) {
-                                sb4.append(String.format(this.aDy.getString(d.k.notify_fans_unit), Integer.valueOf(this.aDE)));
+                                sb4.append(String.format(this.aDy.getString(d.j.notify_fans_unit), Integer.valueOf(this.aDE)));
                             }
-                            sb4.append(this.aDy.getString(d.k.notify_fans));
-                            b(26, null, sb4.toString(), sb4.toString());
+                            sb4.append(this.aDy.getString(d.j.notify_fans));
+                            a(26, null, sb4.toString(), sb4.toString());
                         }
                     } else if (i2 == 16) {
-                        int EI = (!c.DW().El() || c.DW().DZ() <= 0) ? 0 : eVar.EI() - eVar.EP();
-                        long Fa = (!c.DW().Ee() || c.DW().DZ() <= 0) ? 0L : eVar.Fa();
-                        boolean z4 = Fa > 0;
-                        long j = EI + Fa;
+                        int EE = (!c.DS().Eh() || c.DS().DV() <= 0) ? 0 : eVar.EE() - eVar.EL();
+                        long EW = (!c.DS().Ea() || c.DS().DV() <= 0) ? 0L : eVar.EW();
+                        boolean z4 = EW > 0;
+                        long j = EE + EW;
                         if (j > 1) {
-                            stringBuffer.append(String.format(this.aDy.getString(d.k.notify_chat), Long.valueOf(j)));
+                            stringBuffer.append(String.format(this.aDy.getString(d.j.notify_chat), Long.valueOf(j)));
                             a(16, null, stringBuffer.toString(), stringBuffer.toString(), z4);
                         } else if (j == 1) {
-                            eVar.Fd();
-                            eVar.Fb();
-                            if (Fa == 1) {
-                                ES = eVar.Fd();
-                                str = eVar.Fb();
-                                ER = ES + "：" + str;
-                            } else if (EI == 1) {
-                                ES = eVar.ES();
-                                ER = eVar.ER();
-                                str = ER;
+                            eVar.EZ();
+                            eVar.EX();
+                            if (EW == 1) {
+                                EO = eVar.EZ();
+                                str = eVar.EX();
+                                EN = EO + "：" + str;
+                            } else if (EE == 1) {
+                                EO = eVar.EO();
+                                EN = eVar.EN();
+                                str = EN;
                             } else {
                                 return;
                             }
                             if (TextUtils.isEmpty(str)) {
-                                str = stringBuffer.append(String.format(this.aDy.getString(d.k.notify_chat), Long.valueOf(j))).toString();
+                                str = stringBuffer.append(String.format(this.aDy.getString(d.j.notify_chat), Long.valueOf(j))).toString();
                             }
-                            if (TextUtils.isEmpty(ER)) {
-                                ER = str;
+                            if (TextUtils.isEmpty(EN)) {
+                                EN = str;
                             }
-                            a(16, ES, str, ER, z4);
+                            a(16, EO, str, EN, z4);
                         }
                     } else if (i2 == 19) {
-                        List<e.a> Fg = eVar.Fg();
-                        if (Fg != null && Fg.size() != 0) {
-                            for (e.a aVar : Fg) {
+                        List<e.a> Fc = eVar.Fc();
+                        if (Fc != null && Fc.size() != 0) {
+                            for (e.a aVar : Fc) {
                                 if (aVar != null && !StringUtils.isNull(aVar.content) && !ap.isEmpty(aVar.gid) && aVar.unReadCount > aVar.aFv && aVar.aFw == null) {
-                                    DN();
-                                    if (DO().contains(aVar.gid)) {
+                                    DJ();
+                                    if (DK().contains(aVar.gid)) {
                                         a(aVar, 30);
                                     } else {
                                         a(aVar, 19);
@@ -403,34 +403,34 @@ public class a {
                                 }
                             }
                         }
-                    } else if (c.DW().El() && c.DW().DZ() > 0 && eVar.EJ() + eVar.EL() > 0) {
-                        if (eVar.EJ() > 0 && !Dy()) {
-                            long EJ = eVar.EJ() - eVar.EK();
-                            if (EJ > 0) {
-                                stringBuffer.append(String.format(this.aDy.getString(d.k.notify_updates), Long.valueOf(EJ)));
+                    } else if (c.DS().Eh() && c.DS().DV() > 0 && eVar.EF() + eVar.EH() > 0) {
+                        if (eVar.EF() > 0 && !Du()) {
+                            long EF = eVar.EF() - eVar.EG();
+                            if (EF > 0) {
+                                stringBuffer.append(String.format(this.aDy.getString(d.j.notify_updates), Long.valueOf(EF)));
                                 z = false;
                                 z2 = true;
-                            } else if (eVar.EK() > 0) {
+                            } else if (eVar.EG() > 0) {
                                 z = true;
                             }
-                            if (eVar.EL() > 0 || Dx()) {
+                            if (eVar.EH() > 0 || Dt()) {
                                 z3 = z2;
                             } else if (!z2) {
-                                stringBuffer.append(String.format(this.aDy.getString(d.k.notify_validate), Integer.valueOf(eVar.EL())));
+                                stringBuffer.append(String.format(this.aDy.getString(d.j.notify_validate), Integer.valueOf(eVar.EH())));
                             } else {
-                                stringBuffer.append(String.format(this.aDy.getString(d.k.notify_validate_1), Integer.valueOf(eVar.EL())));
+                                stringBuffer.append(String.format(this.aDy.getString(d.j.notify_validate_1), Integer.valueOf(eVar.EH())));
                             }
                             if (z3) {
-                                b(17, null, stringBuffer.toString(), stringBuffer.toString());
+                                a(17, null, stringBuffer.toString(), stringBuffer.toString());
                             }
                             if (!z) {
-                                b(18, eVar.EU(), eVar.EV(), eVar.EV());
+                                a(18, eVar.EQ(), eVar.ER(), eVar.ER());
                                 return;
                             }
                             return;
                         }
                         z = false;
-                        if (eVar.EL() > 0) {
+                        if (eVar.EH() > 0) {
                         }
                         z3 = z2;
                         if (z3) {
@@ -448,7 +448,7 @@ public class a {
         }
     }
 
-    private void b(int i, String str, String str2, String str3) {
+    private void a(int i, String str, String str2, String str3) {
         a(i, str, str2, str3, false);
     }
 
@@ -467,40 +467,40 @@ public class a {
             a.putExtra("KeyOfNotiId", i);
             a.setFlags(268435456);
             PendingIntent service = PendingIntent.getService(this.aDy, i, a, 134217728);
-            a(dX(i), i);
+            a(ea(i), i);
             NotificationHelper.showNotification(this.aDy, i, aVar.title, aVar.content, aVar.aFt, service, false);
         }
     }
 
     private void a(int i, String str, String str2, String str3, boolean z) {
-        Intent i2;
+        Intent h;
         if (this.aDK) {
             if (i == 23 && this.aDF > 0) {
-                i2 = dS(i);
+                h = dV(i);
             } else if (i == 26 && this.aDE > 0) {
-                i2 = dT(i);
+                h = dW(i);
             } else if (i == 18) {
-                i2 = Ds();
+                h = Do();
             } else if (i == 24) {
-                i2 = i(i, z);
-                i2.putExtra(MyBookrackActivityConfig.TAB_ID, 1);
+                h = h(i, z);
+                h.putExtra(MyBookrackActivityConfig.TAB_ID, 1);
                 WriteImageActivityConfig.isActivityInStack = true;
             } else if (i == 16 || i == 17 || i == 18) {
-                i2 = i(i, z);
-                i2.putExtra(MyBookrackActivityConfig.TAB_ID, 2);
+                h = h(i, z);
+                h.putExtra(MyBookrackActivityConfig.TAB_ID, 2);
                 WriteImageActivityConfig.isActivityInStack = true;
             } else {
-                i2 = i(i, z);
+                h = h(i, z);
                 WriteImageActivityConfig.isActivityInStack = true;
             }
-            i2.setFlags(268435456);
-            PendingIntent service = PendingIntent.getService(this.aDy, i, i2, 134217728);
-            a(dX(i), i);
+            h.setFlags(268435456);
+            PendingIntent service = PendingIntent.getService(this.aDy, i, h, 134217728);
+            a(ea(i), i);
             NotificationHelper.showNotification(this.aDy, i, str, str2, str3, service, false);
         }
     }
 
-    public Intent dS(int i) {
+    public Intent dV(int i) {
         Intent intent = new Intent(this.aDy, DealIntentService.class);
         intent.putExtra("class", 24);
         intent.putExtra("KeyOfNotiId", i);
@@ -514,7 +514,7 @@ public class a {
         return intent;
     }
 
-    public Intent dT(int i) {
+    public Intent dW(int i) {
         Intent intent = new Intent(this.aDy, DealIntentService.class);
         intent.putExtra("class", 35);
         intent.putExtra("KeyOfNotiId", i);
@@ -531,12 +531,12 @@ public class a {
         if (aVar == null) {
             return null;
         }
-        ImMessageCenterPojo ar = com.baidu.tieba.im.memorycache.b.aKX().ar(aVar.gid, aVar.userType);
-        if (ar == null || ar.getLast_content() == null) {
+        ImMessageCenterPojo an = com.baidu.tieba.im.memorycache.b.aLY().an(aVar.gid, aVar.userType);
+        if (an == null || an.getLast_content() == null) {
             return null;
         }
         try {
-            JSONArray jSONArray = new JSONArray(ar.getLastContentRawData());
+            JSONArray jSONArray = new JSONArray(an.getLastContentRawData());
             if (jSONArray.length() == 1) {
                 String optString = ((JSONObject) jSONArray.get(0)).optString("url");
                 if (StringUtils.isNull(optString)) {
@@ -570,12 +570,12 @@ public class a {
         if (aVar == null) {
             return null;
         }
-        ImMessageCenterPojo ar = com.baidu.tieba.im.memorycache.b.aKX().ar(aVar.gid + "", aVar.userType);
-        if (ar == null || ar.getLast_content() == null) {
+        ImMessageCenterPojo an = com.baidu.tieba.im.memorycache.b.aLY().an(aVar.gid + "", aVar.userType);
+        if (an == null || an.getLast_content() == null) {
             return null;
         }
         try {
-            jSONArray = new JSONArray(ar.getLastContentRawData());
+            jSONArray = new JSONArray(an.getLastContentRawData());
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -618,29 +618,29 @@ public class a {
     }
 
     public Intent d(e.a aVar) {
-        HashMap<Integer, HashSet> DN = DN();
+        HashMap<Integer, HashSet> DJ = DJ();
         String str = aVar.gid;
-        if (DN != null && !ap.isEmpty(str)) {
-            HashSet<String> DO = DO();
-            HashSet<String> DP = DP();
-            HashSet<String> DQ = DQ();
-            if (DO != null && DO.contains(str)) {
+        if (DJ != null && !ap.isEmpty(str)) {
+            HashSet<String> DK = DK();
+            HashSet<String> DL = DL();
+            HashSet<String> DM = DM();
+            if (DK != null && DK.contains(str)) {
                 return b(aVar, 3);
             }
-            if (DP != null && DP.contains(str)) {
+            if (DL != null && DL.contains(str)) {
                 return b(aVar, 1);
             }
-            if (DQ != null && DQ.contains(str)) {
+            if (DM != null && DM.contains(str)) {
                 return b(aVar, 2);
             }
         }
         return null;
     }
 
-    public Intent i(int i, boolean z) {
+    public Intent h(int i, boolean z) {
         String str = "";
         if (z) {
-            Set<String> keySet = this.aDH.Fc().keySet();
+            Set<String> keySet = this.aDH.EY().keySet();
             if (keySet.iterator().hasNext()) {
                 str = keySet.iterator().next();
             }
@@ -653,22 +653,22 @@ public class a {
         intent.putExtra("reply_me", this.aDA);
         intent.putExtra("fans", this.aDE);
         intent.putExtra("chat", getMsgChat());
-        intent.putExtra("group_msg", this.aDH.EI() - this.aDH.EP());
-        intent.putExtra("group_msg_validate", this.aDH.EL());
-        intent.putExtra("group_msg_updates", this.aDH.EJ());
-        intent.putExtra("officialbar_msg", this.aDH.EM());
+        intent.putExtra("group_msg", this.aDH.EE() - this.aDH.EL());
+        intent.putExtra("group_msg_validate", this.aDH.EH());
+        intent.putExtra("group_msg_updates", this.aDH.EF());
+        intent.putExtra("officialbar_msg", this.aDH.EI());
         intent.putExtra("privateGid", str);
         return intent;
     }
 
-    public Intent Ds() {
+    public Intent Do() {
         Intent intent = new Intent(this.aDy, DealIntentService.class);
         intent.putExtra("class", 14);
-        intent.putExtra("group_msg_updates", this.aDH.EK());
+        intent.putExtra("group_msg_updates", this.aDH.EG());
         return intent;
     }
 
-    public void Dt() {
+    public void Dp() {
         NotificationHelper.cancelNotification(this.aDy, 23);
         NotificationHelper.cancelNotification(this.aDy, 24);
         NotificationHelper.cancelNotification(this.aDy, 25);
@@ -680,88 +680,88 @@ public class a {
         NotificationHelper.cancelNotification(this.aDy, 12);
     }
 
-    public void Du() {
+    public void Dq() {
         NotificationHelper.cancelNotification(this.aDy, 16);
     }
 
-    public void Dv() {
+    public void Dr() {
         NotificationHelper.cancelNotification(this.aDy, 19);
     }
 
-    public void dU(int i) {
+    public void dX(int i) {
         NotificationHelper.cancelNotification(this.aDy, i);
     }
 
-    public void Dw() {
+    public void Ds() {
         NotificationHelper.cancelNotification(this.aDy, 30);
     }
 
-    public void fH(String str) {
+    public void fF(String str) {
         if (TextUtils.isEmpty(str)) {
-            Du();
+            Dq();
             return;
         }
-        e DL = DL();
-        if (DL == null) {
-            Du();
+        e DH = DH();
+        if (DH == null) {
+            Dq();
             return;
         }
-        HashMap<String, String> EW = DL.EW();
-        if (EW == null || EW.isEmpty()) {
-            Du();
-        } else if (EW.containsKey(str)) {
-            Du();
+        HashMap<String, String> ES = DH.ES();
+        if (ES == null || ES.isEmpty()) {
+            Dq();
+        } else if (ES.containsKey(str)) {
+            Dq();
         }
     }
 
-    public void fI(String str) {
+    public void fG(String str) {
         if (TextUtils.isEmpty(str)) {
-            Du();
+            Dq();
             return;
         }
-        e DL = DL();
-        if (DL == null) {
-            Du();
+        e DH = DH();
+        if (DH == null) {
+            Dq();
             return;
         }
-        HashMap<String, String> Fc = DL.Fc();
-        if (Fc == null || Fc.isEmpty()) {
-            Du();
-        } else if (Fc.containsKey(str)) {
-            Du();
+        HashMap<String, String> EY = DH.EY();
+        if (EY == null || EY.isEmpty()) {
+            Dq();
+        } else if (EY.containsKey(str)) {
+            Dq();
         }
     }
 
-    private boolean Dx() {
+    private boolean Dt() {
         return ChatStatusManager.getInst().getIsOpen(7);
     }
 
-    private boolean Dy() {
+    private boolean Du() {
         return ChatStatusManager.getInst().getIsOpen(6);
     }
 
-    public void Dz() {
+    public void Dv() {
         NotificationHelper.cancelNotification(this.aDy, 17);
     }
 
-    public void dV(int i) {
-        e DL = DL();
-        if (DL == null) {
-            Dz();
+    public void dY(int i) {
+        e DH = DH();
+        if (DH == null) {
+            Dv();
         } else if (1 == i) {
-            if (DL.EJ() <= 0) {
-                Dz();
+            if (DH.EF() <= 0) {
+                Dv();
             }
-        } else if (2 == i && DL.EL() <= 0) {
-            Dz();
+        } else if (2 == i && DH.EH() <= 0) {
+            Dv();
         }
     }
 
-    public void DA() {
+    public void Dw() {
         NotificationHelper.cancelNotification(this.aDy, 18);
     }
 
-    public void DB() {
+    public void Dx() {
         NotificationHelper.cancelNotification(this.aDy, 26);
         NotificationHelper.cancelNotification(this.aDy, 25);
         NotificationHelper.cancelNotification(this.aDy, 24);
@@ -771,7 +771,7 @@ public class a {
         NotificationHelper.cancelNotification(this.aDy, 29);
     }
 
-    public void DC() {
+    public void Dy() {
         NotificationHelper.cancelNotification(this.aDy, 17);
         NotificationHelper.cancelNotification(this.aDy, 19);
         NotificationHelper.cancelNotification(this.aDy, 16);
@@ -779,50 +779,50 @@ public class a {
         NotificationHelper.cancelNotification(this.aDy, 30);
     }
 
-    public void DD() {
+    public void Dz() {
         NotificationHelper.cancelNotification(this.aDy, 24);
     }
 
-    public void DE() {
+    public void DA() {
         NotificationHelper.cancelNotification(this.aDy, 25);
     }
 
-    public void DF() {
+    public void DB() {
         NotificationHelper.cancelNotification(this.aDy, 29);
     }
 
-    public void DG() {
+    public void DC() {
         NotificationHelper.cancelNotification(this.aDy, 23);
     }
 
-    public void DH() {
+    public void DD() {
         NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
-        newsNotifyMessage.setMsgAgree(DI());
+        newsNotifyMessage.setMsgAgree(DE());
         newsNotifyMessage.setMsgAtme(getMsgAtme());
         newsNotifyMessage.setMsgBookmark(getMsgBookmark());
-        newsNotifyMessage.setMsgChat(DJ());
+        newsNotifyMessage.setMsgChat(DF());
         newsNotifyMessage.setMsgFans(getMsgFans());
         newsNotifyMessage.setMsgReplyme(getMsgReplyme());
         newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
-        newsNotifyMessage.setMsgPrivateChat(this.aDH.Fa());
-        newsNotifyMessage.setMsgStrangerChat(this.aDH.Ff());
-        newsNotifyMessage.setMsgOfficialMerge(this.aDH.Fe());
+        newsNotifyMessage.setMsgPrivateChat(this.aDH.EW());
+        newsNotifyMessage.setMsgStrangerChat(this.aDH.Fb());
+        newsNotifyMessage.setMsgOfficialMerge(this.aDH.Fa());
         MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
     }
 
     public void a(e eVar) {
         if (eVar != null) {
             NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
-            newsNotifyMessage.setMsgAgree(DI());
+            newsNotifyMessage.setMsgAgree(DE());
             newsNotifyMessage.setMsgAtme(getMsgAtme());
             newsNotifyMessage.setMsgBookmark(getMsgBookmark());
-            newsNotifyMessage.setMsgChat(((((eVar.Fa() + eVar.EI()) + eVar.Ff()) + eVar.Fe()) + eVar.Fh()) - eVar.EP());
+            newsNotifyMessage.setMsgChat(((((eVar.EW() + eVar.EE()) + eVar.Fb()) + eVar.Fa()) + eVar.Fd()) - eVar.EL());
             newsNotifyMessage.setMsgFans(getMsgFans());
             newsNotifyMessage.setMsgReplyme(getMsgReplyme());
             newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
-            newsNotifyMessage.setMsgPrivateChat(eVar.Fa());
-            newsNotifyMessage.setMsgStrangerChat(eVar.Ff());
-            newsNotifyMessage.setMsgOfficialMerge(eVar.Fe());
+            newsNotifyMessage.setMsgPrivateChat(eVar.EW());
+            newsNotifyMessage.setMsgStrangerChat(eVar.Fb());
+            newsNotifyMessage.setMsgOfficialMerge(eVar.Fa());
             MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
         }
     }
@@ -847,11 +847,11 @@ public class a {
         }
     }
 
-    public int DI() {
+    public int DE() {
         return this.aDz;
     }
 
-    public void dW(int i) {
+    public void dZ(int i) {
         if (i >= 0) {
             a(i, this.aDA, this.aDB, this.aDC, this.aDE, this.aDD, this.aDF);
         }
@@ -861,8 +861,8 @@ public class a {
         return this.aDC;
     }
 
-    public int DJ() {
-        return ((((this.aDH.Fa() + this.aDH.EI()) + this.aDH.Ff()) + this.aDH.Fe()) + this.aDH.Fh()) - this.aDH.EP();
+    public int DF() {
+        return ((((this.aDH.EW() + this.aDH.EE()) + this.aDH.Fb()) + this.aDH.Fa()) + this.aDH.Fd()) - this.aDH.EL();
     }
 
     public int getMsgFans() {
@@ -901,7 +901,7 @@ public class a {
         }
     }
 
-    public void bd(boolean z) {
+    public void bb(boolean z) {
         if (z) {
             a(0, 0, 0, 0, 0, 0, 0);
             return;
@@ -914,7 +914,7 @@ public class a {
         this.aDD = 0;
     }
 
-    public int DK() {
+    public int DG() {
         return this.aDz + this.aDA + this.aDB + this.aDC + this.aDE + this.aDF;
     }
 
@@ -922,27 +922,27 @@ public class a {
         int i = 0;
         if (eVar != null) {
             this.aDH = eVar;
-            this.aDC = (eVar.EI() - eVar.EP()) + eVar.Fa() + eVar.Fe() + eVar.Fh();
+            this.aDC = (eVar.EE() - eVar.EL()) + eVar.EW() + eVar.Fa() + eVar.Fd();
             a(eVar);
-            if (eVar.EQ()) {
+            if (eVar.EM()) {
                 this.aDI = null;
                 mHandler.removeMessages(0);
             }
-            if (eVar.EQ()) {
-                if (c.DW().El() && c.DW().DZ() > 0) {
-                    i = eVar.EI() - eVar.EP();
+            if (eVar.EM()) {
+                if (c.DS().Eh() && c.DS().DV() > 0) {
+                    i = eVar.EE() - eVar.EL();
                 }
-                long Fa = (!c.DW().Ee() || c.DW().DZ() <= 0) ? 0L : eVar.Fa();
-                if ((i > 0 || Fa > 0) && ((i > eVar.ET() - eVar.EP() && i > 0) || Fa > eVar.EN())) {
+                long EW = (!c.DS().Ea() || c.DS().DV() <= 0) ? 0L : eVar.EW();
+                if ((i > 0 || EW > 0) && ((i > eVar.EP() - eVar.EL() && i > 0) || EW > eVar.EJ())) {
                     a(1, 16, eVar);
                 }
-                int EM = eVar.EM();
-                if (EM > 0 && EM > eVar.EZ()) {
+                int EI = eVar.EI();
+                if (EI > 0 && EI > eVar.EV()) {
                     a(1, 19, eVar);
                 }
-                if (eVar.EJ() > eVar.EX() || eVar.EL() > eVar.EY()) {
-                    if (eVar.EJ() <= eVar.EX() || eVar.EL() != eVar.EY() || !Dy()) {
-                        if (eVar.EJ() != eVar.EX() || eVar.EL() <= eVar.EY() || !Dx()) {
+                if (eVar.EF() > eVar.ET() || eVar.EH() > eVar.EU()) {
+                    if (eVar.EF() <= eVar.ET() || eVar.EH() != eVar.EU() || !Du()) {
+                        if (eVar.EF() != eVar.ET() || eVar.EH() <= eVar.EU() || !Dt()) {
                             a(1, 17, eVar);
                         }
                     }
@@ -951,7 +951,7 @@ public class a {
         }
     }
 
-    public e DL() {
+    public e DH() {
         return this.aDH;
     }
 
@@ -959,11 +959,11 @@ public class a {
         this.aDH = eVar;
     }
 
-    public e DM() {
+    public e DI() {
         return this.aDI;
     }
 
-    public int dX(int i) {
+    public int ea(int i) {
         switch (i) {
             case 12:
             case 13:
@@ -1008,7 +1008,7 @@ public class a {
         }
     }
 
-    public HashMap<Integer, HashSet> DN() {
+    public HashMap<Integer, HashSet> DJ() {
         JSONArray jSONArray;
         if (!aDv && aDw) {
             return this.aDx;
@@ -1072,25 +1072,25 @@ public class a {
         return this.aDx;
     }
 
-    public HashSet<String> DO() {
-        DN();
+    public HashSet<String> DK() {
+        DJ();
         return this.aDx.get(0);
     }
 
-    public HashSet<String> DP() {
-        DN();
+    public HashSet<String> DL() {
+        DJ();
         return this.aDx.get(1);
     }
 
-    public HashSet<String> DQ() {
-        DN();
+    public HashSet<String> DM() {
+        DJ();
         return this.aDx.get(2);
     }
 
-    public String DR() {
-        HashSet<String> DO = DO();
-        if (DO != null) {
-            Iterator<String> it = DO.iterator();
+    public String DN() {
+        HashSet<String> DK = DK();
+        if (DK != null) {
+            Iterator<String> it = DK.iterator();
             if (it.hasNext()) {
                 return it.next();
             }

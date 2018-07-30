@@ -14,33 +14,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b extends k {
-    private d cNF;
-    private HashMap<String, String> cNG;
-    private com.google.gson.d cNH;
-    private SparseArray<String> cNI;
+    private d cQo;
+    private HashMap<String, String> cQp;
+    private com.google.gson.d cQq;
+    private SparseArray<String> cQr;
 
     public b(int i) {
         super(i);
-        this.cNH = new com.google.gson.d();
-        anw();
+        this.cQq = new com.google.gson.d();
+        anV();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.cNI.get(socketMessage.getCmd());
-        if (str != null && this.cNG != null && this.cNG.get(str) != null && this.cNF != null) {
-            this.cNF.y(str, this.cNH.toJson(this.cNG.get(str)), this.cNH.toJson(this.cNH.toJson(socketMessage.getData())));
+        String str = this.cQr.get(socketMessage.getCmd());
+        if (str != null && this.cQp != null && this.cQp.get(str) != null && this.cQo != null) {
+            this.cQo.z(str, this.cQq.toJson(this.cQp.get(str)), this.cQq.toJson(this.cQq.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void anw() {
+    private void anV() {
         int g;
-        this.cNI = new SparseArray<>();
+        this.cQr = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
-        if (!w.A(findHttpTasks)) {
+        if (!w.z(findHttpTasks)) {
             for (int i = 0; i < findHttpTasks.size(); i++) {
                 String url = findHttpTasks.get(i).getUrl();
                 if (!ap.isEmpty(url) && url.contains("?")) {
@@ -48,18 +48,18 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!ap.isEmpty(str) && str.contains("=") && (g = com.baidu.adp.lib.g.b.g(str.split("[=]")[1], 0)) != 0) {
-                        this.cNI.put(g, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.cQr.put(g, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
         }
     }
 
-    public void l(HashMap<String, String> hashMap) {
-        this.cNG = hashMap;
+    public void n(HashMap<String, String> hashMap) {
+        this.cQp = hashMap;
     }
 
     public void a(d dVar) {
-        this.cNF = dVar;
+        this.cQo = dVar;
     }
 }

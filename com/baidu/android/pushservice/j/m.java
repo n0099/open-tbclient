@@ -778,7 +778,7 @@ public final class m {
         try {
             Context applicationContext = context.getApplicationContext();
             k.a(applicationContext, 8, "");
-            com.coloros.mcssdk.a.bKV().b(applicationContext, str, str2, bVar);
+            com.coloros.mcssdk.a.bJz().b(applicationContext, str, str2, bVar);
         } catch (Exception e) {
         }
     }

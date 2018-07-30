@@ -10,7 +10,7 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b extends k {
     public b(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(d.k.msglist_voice), 6);
+        super(context, TbadkCoreApplication.getInst().getResources().getString(d.j.msglist_voice), 6);
         this.aMS = d.f.btn_pb_add_microphone;
         this.aMV = 6;
         this.aMW = true;
@@ -19,13 +19,13 @@ public class b extends k {
     }
 
     @Override // com.baidu.tbadk.editortools.k
-    public boolean oR() {
+    public boolean oU() {
         if (TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
-            return super.oR();
+            return super.oU();
         }
         String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
         if (StringUtils.isNull(uegVoiceWarning)) {
-            uegVoiceWarning = TbadkCoreApplication.getInst().getString(d.k.ueg_voice_warning);
+            uegVoiceWarning = TbadkCoreApplication.getInst().getString(d.j.ueg_voice_warning);
         }
         UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
         return false;

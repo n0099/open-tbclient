@@ -1,32 +1,16 @@
 package com.baidu.tbadk.o;
+
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "switch_account_data_from_pass";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] hm() {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hp() {
-        return 10;
+public class a {
+    public static final boolean a(TbPageContext<?> tbPageContext, View view) {
+        if (tbPageContext == null || view == null) {
+            return false;
+        }
+        tbPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        tbPageContext.getLayoutMode().onModeChanged(view);
+        return true;
     }
 }

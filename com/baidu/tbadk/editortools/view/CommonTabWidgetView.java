@@ -14,13 +14,13 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
-    private EditorTools Qj;
+    private EditorTools Qg;
     private CommonTabHorizonScrollView aPk;
     private ImageView aPl;
 
     /* loaded from: classes.dex */
     public interface a {
-        void eY(int i);
+        void eZ(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -34,20 +34,20 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void setEditorTools(EditorTools editorTools) {
-        this.Qj = editorTools;
+        this.Qg = editorTools;
     }
 
     private void init(Context context) {
         setVisibility(8);
         removeAllViews();
-        LayoutInflater.from(context).inflate(d.i.common_tab_widget, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(d.h.common_tab_widget, (ViewGroup) this, true);
         this.aPk = (CommonTabHorizonScrollView) findViewById(d.g.privilege_tab_scroll_view);
         this.aPl = (ImageView) findViewById(d.g.privilege_tab_delete);
         this.aPl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.view.CommonTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CommonTabWidgetView.this.Qj != null) {
-                    CommonTabWidgetView.this.Qj.b(new com.baidu.tbadk.editortools.a(3, 3, null));
+                if (CommonTabWidgetView.this.Qg != null) {
+                    CommonTabWidgetView.this.Qg.b(new com.baidu.tbadk.editortools.a(3, 3, null));
                 }
             }
         });
@@ -79,10 +79,10 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        am.j(this, d.C0142d.common_color_10223);
-        this.aPk.dD(i);
+        am.j(this, d.C0140d.common_color_10223);
+        this.aPk.dG(i);
         am.c(this.aPl, d.f.but_face_close);
-        am.j(this.aPl, d.C0142d.common_color_10224);
+        am.j(this.aPl, d.C0140d.common_color_10224);
     }
 
     public void setShowDelete(boolean z) {

@@ -67,10 +67,12 @@ public class KeepLiveUtil {
             new ScreenBroadcastListener(TbadkCoreApplication.getInst().getBaseContext()).registerListener(new ScreenBroadcastListener.ScreenStateListener() { // from class: com.baidu.tieba.keepLive.KeepLiveUtil.2
                 @Override // com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener.ScreenStateListener
                 public void onScreenOn() {
+                    KeepLiveUtil.screenManager.finishActivity();
                 }
 
                 @Override // com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener.ScreenStateListener
                 public void onScreenOff() {
+                    KeepLiveUtil.screenManager.startActivity();
                 }
             });
         }
@@ -81,6 +83,9 @@ public class KeepLiveUtil {
             startKeepLiveForBackGroungActivity();
         }
         if (z) {
+            screenManager.startActivity();
+        } else {
+            screenManager.finishActivity();
         }
     }
 

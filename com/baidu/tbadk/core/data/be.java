@@ -1,86 +1,40 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
+import tbclient.FrsPage.TopNotice;
 /* loaded from: classes.dex */
 public class be {
-    private String akA;
-    private String akB;
-    private int akC;
-    private String akD;
-    private long akE;
-    private String akF;
-    private String imgUrl;
-    private String subTitle;
-    private String summary;
+    private String title = null;
+    private String title_link = null;
+    private String author = null;
+    private int id = 0;
 
-    public String uh() {
-        return this.imgUrl;
+    public String getTitle() {
+        return this.title;
     }
 
-    public String getSummary() {
-        return this.summary;
+    public String wS() {
+        return this.title_link;
     }
 
-    public String wV() {
-        return this.akB;
-    }
-
-    public int wW() {
-        return this.akC;
-    }
-
-    public String wX() {
-        return this.akD;
-    }
-
-    public long wY() {
-        return this.akE;
-    }
-
-    public void a(TopCode topCode) {
-        if (topCode != null) {
-            this.imgUrl = topCode.img_url;
-            this.akA = topCode.game_link;
-            this.summary = topCode.summary;
-            this.akB = topCode.code_link;
-            this.akC = topCode.get_type.intValue();
-            this.akD = topCode.surplusgift;
-            if (topCode.giftworth.longValue() < 0) {
-                this.akE = 0L;
-            } else {
-                this.akE = topCode.giftworth.longValue();
-            }
-            this.akF = topCode.type_text;
-            this.subTitle = topCode.subtitle;
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            this.title = jSONObject.getString("title");
+            this.title_link = jSONObject.getString("title_link");
+            this.author = jSONObject.getString("author");
+            this.id = jSONObject.getInt("id");
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.imgUrl = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-                this.akA = jSONObject.optString("game_link");
-                this.summary = jSONObject.optString("summary");
-                this.akB = jSONObject.optString("code_link");
-                this.akC = jSONObject.optInt("get_type", 1);
-                this.akD = jSONObject.optString("surplusgift");
-                this.akE = jSONObject.optLong("giftworth", 0L);
-                this.akF = jSONObject.optString("type_text");
-                this.subTitle = jSONObject.optString("subtitle");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    public void a(TopNotice topNotice) {
+        if (topNotice != null) {
+            this.title = topNotice.title;
+            this.title_link = topNotice.title_link;
+            this.author = topNotice.author;
+            this.id = topNotice.id.intValue();
         }
-    }
-
-    public String wZ() {
-        return this.akF;
-    }
-
-    public String getSubTitle() {
-        return this.subTitle;
     }
 }

@@ -8,17 +8,17 @@ public abstract class c {
     private int cols;
     private int rows;
 
-    public abstract boolean HM();
+    public abstract boolean HH();
 
-    public abstract EmotionGroupType HN();
+    public abstract EmotionGroupType HI();
 
-    public abstract String eQ(int i);
+    public abstract String eR(int i);
 
-    public abstract boolean gH(String str);
+    public abstract boolean gD(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a gI(String str);
+    public abstract com.baidu.adp.widget.ImageView.a gE(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a gJ(String str);
+    public abstract com.baidu.adp.widget.ImageView.a gF(String str);
 
     public abstract int getEmotionsCount();
 
@@ -30,43 +30,43 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.ImageView.a HO() {
+    public com.baidu.adp.widget.ImageView.a HJ() {
         return this.aNc;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.mZ();
+            aVar.nb();
         }
         this.aNc = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a HP() {
+    public com.baidu.adp.widget.ImageView.a HK() {
         return this.aNd;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.mZ();
+            aVar.nb();
         }
         this.aNd = aVar;
     }
 
-    public int HQ() {
+    public int HL() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eR(int i) {
+    public void eS(int i) {
         this.cols = i;
     }
 
-    public int HR() {
+    public int HM() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eS(int i) {
+    public void eT(int i) {
         this.rows = i;
     }
 }

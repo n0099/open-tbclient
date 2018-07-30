@@ -17,7 +17,7 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
     }
 
     public void refresh() {
-        if (PluginPackageManager.lL().lY()) {
+        if (PluginPackageManager.lN().ma()) {
             this.aIu.setVisibility(0);
             am.i(this.aIu, d.f.icon_news_head_new);
             return;

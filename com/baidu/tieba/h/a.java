@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String bmq;
-    private String dKA;
-    private String dKB;
-    private String dKC;
-    private String dKz;
+    private String bmW;
+    private String dNm;
+    private String dNn;
+    private String dNo;
+    private String dNp;
     private String mImgUrl;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.dKz = String.valueOf(esportRank.rank);
-            this.dKA = esportRank.text;
-            this.bmq = esportRank.url;
+            this.dNm = String.valueOf(esportRank.rank);
+            this.dNn = esportRank.text;
+            this.bmW = esportRank.url;
             if (esportRank.user != null) {
-                this.dKB = esportRank.user.steam_name;
-                this.dKC = esportRank.user.steam_portrait;
+                this.dNo = esportRank.user.steam_name;
+                this.dNp = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String aBr() {
+    public String aCa() {
         return this.mTitle;
     }
 
-    public String aBs() {
-        return this.dKz;
+    public String aCb() {
+        return this.dNm;
     }
 
-    public String aBt() {
-        return this.dKA;
+    public String aCc() {
+        return this.dNn;
     }
 
-    public String aBu() {
-        return this.dKB;
+    public String aCd() {
+        return this.dNo;
     }
 
-    public String aBv() {
-        return this.dKC;
+    public String aCe() {
+        return this.dNp;
     }
 
-    public String aBw() {
+    public String aCf() {
         return this.mImgUrl;
     }
 
-    public void nl(String str) {
+    public void nj(String str) {
         this.mImgUrl = str;
     }
 
-    public String aBx() {
-        return this.bmq;
+    public String aCg() {
+        return this.bmW;
     }
 
-    public void nm(String str) {
-        this.bmq = str;
+    public void nk(String str) {
+        this.bmW = str;
     }
 }

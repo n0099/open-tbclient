@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean aLQ;
+    private boolean aLP;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aLQ = false;
+        this.aLP = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -42,17 +42,17 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void oD() {
+    public void oF() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        Hx();
+        Hs();
         setVisibility(8);
     }
 
-    public void gC(String str) {
+    public void gy(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -67,7 +67,7 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            am.b(this.mTip, d.C0142d.cp_cont_g, 1, this.mSkinType);
+            am.b(this.mTip, d.C0140d.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
@@ -83,7 +83,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void Hx() {
+    public void Hs() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Hx();
+                Hs();
             } else if (aVar.data instanceof String) {
-                gC((String) aVar.data);
+                gy((String) aVar.data);
             }
         }
     }
@@ -110,7 +110,7 @@ public class BLauncher extends ImageView implements g {
         this.mSkinType = i;
         am.b((ImageView) this, this.mIcon, i);
         if (this.mTip != null) {
-            am.b(this.mTip, d.C0142d.cp_cont_g, 1, i);
+            am.b(this.mTip, d.C0140d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
                 am.d(this.mTip, d.f.icon_news_head_prompt_one, i);
             } else {
@@ -120,11 +120,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aLQ;
+        return this.aLP;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aLQ = z;
+        this.aLP = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

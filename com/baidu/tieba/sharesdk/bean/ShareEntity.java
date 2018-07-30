@@ -19,18 +19,18 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.sT(parcel.readInt());
+            shareEntity.sR(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
             shareEntity.f(parcel.readBundle());
-            shareEntity.mo(parcel.readInt() != 0);
+            shareEntity.lZ(parcel.readInt() != 0);
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: sU */
+        /* renamed from: sS */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
@@ -39,7 +39,7 @@ public class ShareEntity implements Parcelable {
     private boolean aGk;
     private Bundle aGm;
     private String content;
-    private int gAV;
+    private int gCd;
     private Uri imageUri;
     private String linkUrl;
     private String title;
@@ -49,7 +49,7 @@ public class ShareEntity implements Parcelable {
         this.aGm = bundle;
     }
 
-    public Bundle FD() {
+    public Bundle Fz() {
         return this.aGm;
     }
 
@@ -85,7 +85,7 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public String uh() {
+    public String tU() {
         return this.imageUri == null ? "" : this.imageUri.toString();
     }
 
@@ -101,19 +101,19 @@ public class ShareEntity implements Parcelable {
         this.aGd = location;
     }
 
-    public int bsP() {
-        return this.gAV;
+    public int brs() {
+        return this.gCd;
     }
 
-    public void sT(int i) {
-        this.gAV = i;
+    public void sR(int i) {
+        this.gCd = i;
     }
 
-    public boolean bsQ() {
+    public boolean brt() {
         return this.aGk;
     }
 
-    public void mo(boolean z) {
+    public void lZ(boolean z) {
         this.aGk = z;
     }
 
@@ -127,7 +127,7 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gAV);
+        parcel.writeInt(this.gCd);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
         parcel.writeParcelable(this.aGd, i);

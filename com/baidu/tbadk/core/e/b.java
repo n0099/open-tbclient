@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a anB = null;
+    private static a anc = null;
 
-    public static void g(Context context, int i) {
-        if (anB != null) {
-            anB.g(context, i);
+    public static void h(Context context, int i) {
+        if (anc != null) {
+            anc.h(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (anB != null) {
-            anB.b(context, i, z);
+        if (anc != null) {
+            anc.b(context, i, z);
         }
     }
 
-    public static void aI(Context context) {
-        if (anB != null) {
-            anB.aI(context);
+    public static void aJ(Context context) {
+        if (anc != null) {
+            anc.aJ(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (anB != null) {
-            anB.c(context, i, z);
+        if (anc != null) {
+            anc.c(context, i, z);
         }
     }
 
-    public static Class<?> ya() {
-        if (anB == null) {
+    public static Class<?> xS() {
+        if (anc == null) {
             return null;
         }
-        return anB.ya();
+        return anc.xS();
     }
 
-    public static String yb() {
-        if (anB == null) {
+    public static String xT() {
+        if (anc == null) {
             return null;
         }
-        return anB.yb();
+        return anc.xT();
     }
 
     public static void a(a aVar) {
-        anB = aVar;
+        anc = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (anB == null) {
+        if (anc == null) {
             return -1;
         }
-        return anB.getCurrentTabType();
+        return anc.getCurrentTabType();
     }
 }

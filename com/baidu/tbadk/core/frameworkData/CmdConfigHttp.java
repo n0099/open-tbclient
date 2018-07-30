@@ -44,6 +44,7 @@ public class CmdConfigHttp {
     public static final int CMD_CONCERN_PAGE = 1003343;
     public static final int CMD_CONCERN_UNREAD_TIP = 1003387;
     public static final int CMD_CUSTOM_ALS = 1003195;
+    public static final int CMD_DAILY_PAGE = 1003413;
     public static final int CMD_DEFAULT_GIFT_LIST = 1003045;
     public static final int CMD_DELETE_EMOTION_PACKAGE = 1003347;
     public static final int CMD_DELETE_HISTORY_FORUM = 1003395;
@@ -98,6 +99,8 @@ public class CmdConfigHttp {
     public static final int CMD_GET_PB_QUERY_MATCH_EMOTION = 1003369;
     public static final int CMD_GET_PB_SUG_MATCH_WORDS = 1003370;
     public static final int CMD_GET_PERSONAL_GIFT_LIST = 1003051;
+    public static final int CMD_GET_PUSH_DIALOG_DATA = 1003412;
+    public static final int CMD_GET_PUSH_DIALOG_TID = 1003415;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_REPOST_RECOMMEND_FORUM = 1003323;
     public static final int CMD_GET_RN_SYNC = 1003409;
@@ -186,6 +189,7 @@ public class CmdConfigHttp {
     public static final int CMD_TOPIC_BLESS = 1003065;
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
     public static final int CMD_TOP_THEME_LIST = 1003031;
+    public static final int CMD_UEG_CANCEL = 1003414;
     public static final int CMD_UEG_REPORT = 1003402;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
     public static final int CMD_UPLOAD_FACE_GROUP = 1003345;

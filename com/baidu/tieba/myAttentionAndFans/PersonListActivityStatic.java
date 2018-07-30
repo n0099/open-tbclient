@@ -19,22 +19,22 @@ public class PersonListActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902120));
-        ato();
+        atS();
     }
 
-    public static void ato() {
-        com.baidu.tbadk.ala.b.rM().a(5, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void atS() {
+        com.baidu.tbadk.ala.b.rx().a(5, new com.baidu.tbadk.ala.d() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.d
-            public View aA(Context context) {
-                TextView az = com.baidu.tbadk.ala.c.az(context);
-                if (az != null) {
+            public View aB(Context context) {
+                TextView aA = com.baidu.tbadk.ala.c.aA(context);
+                if (aA != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    am.h(az, d.C0142d.cp_link_tip_a);
-                    layoutParams.setMargins(l.e(context, d.e.ds8), 0, l.e(context, d.e.ds8), 0);
+                    am.h(aA, d.C0140d.cp_link_tip_a);
+                    layoutParams.setMargins(l.f(context, d.e.ds8), 0, l.f(context, d.e.ds8), 0);
                     layoutParams.gravity = 16;
-                    az.setLayoutParams(layoutParams);
+                    aA.setLayoutParams(layoutParams);
                 }
-                return az;
+                return aA;
             }
         });
     }

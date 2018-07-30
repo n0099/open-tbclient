@@ -1,10 +1,11 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
+import com.baidu.location.BDLocation;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize apK = null;
+    private static LocalViewSize apk = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,11 +14,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize yQ() {
-        if (apK == null) {
-            apK = new LocalViewSize();
+    public static LocalViewSize yH() {
+        if (apk == null) {
+            apk = new LocalViewSize();
         }
-        return apK;
+        return apk;
     }
 
     private LocalViewSize() {
@@ -49,7 +50,7 @@ public class LocalViewSize {
             imageSize2.width = (imageSize2.height * i2) / i;
             if (imageSize2.width == 0) {
                 imageSize2.height = 324;
-                imageSize2.width = 162;
+                imageSize2.width = BDLocation.TypeServerDecryptError;
             }
         } else {
             imageSize2.width = imageSize.width;
@@ -58,7 +59,7 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int yR() {
+    public int yI() {
         int ah = com.baidu.adp.lib.util.l.ah(this.mContext);
         if (ah >= 1080) {
             return 1080;
@@ -69,7 +70,7 @@ public class LocalViewSize {
         return 720;
     }
 
-    public ImageSize yS() {
+    public ImageSize yJ() {
         int i = 240;
         int ah = com.baidu.adp.lib.util.l.ah(this.mContext);
         if (ah < 240) {
@@ -87,15 +88,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize yT() {
+    public ImageSize yK() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.aj(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.ah(this.mContext);
         return imageSize;
     }
 
-    public int yU() {
-        ImageSize yS = yS();
-        return yS.height >= yS.width ? yS.height : yS.width;
+    public int yL() {
+        ImageSize yJ = yJ();
+        return yJ.height >= yJ.width ? yJ.height : yJ.width;
     }
 }

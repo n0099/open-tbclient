@@ -6,7 +6,7 @@ import java.util.Arrays;
 public final class c {
     public static final String[] aFQ = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
 
-    public static boolean fZ(String str) {
+    public static boolean fX(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

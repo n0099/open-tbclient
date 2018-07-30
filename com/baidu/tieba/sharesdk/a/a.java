@@ -45,40 +45,40 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tj(String str) {
-        aN(str, d.f.icon_toast_game_error);
+    public void th(String str) {
+        aJ(str, d.f.icon_toast_game_error);
     }
 
-    protected void tk(String str) {
-        aN(str, d.f.icon_toast_game_ok);
+    protected void ti(String str) {
+        aJ(str, d.f.icon_toast_game_ok);
     }
 
-    protected void aN(String str, int i) {
-        BdToast.b(getAppContext(), str, i).xv();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void sV(int i) {
-        ah(i, null);
+    protected void aJ(String str, int i) {
+        BdToast.b(getAppContext(), str, i).xn();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ah(int i, String str) {
+    public void sT(int i) {
+        aj(i, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void aj(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(d.k.share_success, new Object[0]);
+                str = getString(d.j.share_success, new Object[0]);
             }
-            tk(str);
+            ti(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(d.k.share_cancel, new Object[0]);
+                str = getString(d.j.share_cancel, new Object[0]);
             }
-            tj(str);
+            th(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(d.k.share_failed, new Object[0]);
+                str = getString(d.j.share_failed, new Object[0]);
             }
-            tj(str);
+            th(str);
         }
     }
 
@@ -93,12 +93,12 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bsR() {
+    public Bitmap bru() {
         return BitmapHelper.getCashBitmap(d.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap tl(String str) {
+    public Bitmap tj(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 

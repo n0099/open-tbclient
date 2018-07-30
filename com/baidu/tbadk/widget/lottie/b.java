@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.util.y;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private a bdm;
+    private a bdw;
     private y mNetWork;
-    private String mPath;
     private String mUrl;
+    private String wf;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -20,9 +20,9 @@ public class b extends BdAsyncTask<Void, Void, String> {
     }
 
     public b(String str, String str2, a aVar) {
-        this.mPath = str;
+        this.wf = str;
         this.mUrl = str2;
-        this.bdm = aVar;
+        this.bdw = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,22 +30,22 @@ public class b extends BdAsyncTask<Void, Void, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: e */
     public String doInBackground(Void... voidArr) {
-        if (ap.isEmpty(this.mPath) || ap.isEmpty(this.mUrl) || !l.dU(this.mPath)) {
+        if (ap.isEmpty(this.wf) || ap.isEmpty(this.mUrl) || !l.dR(this.wf)) {
             return null;
         }
-        String bl = s.bl(this.mUrl);
-        String str = this.mPath + bl + "/";
-        if (hU(str)) {
-            return bl;
+        String bm = s.bm(this.mUrl);
+        String str = this.wf + bm + "/";
+        if (hR(str)) {
+            return bm;
         }
         this.mNetWork = new y();
         this.mNetWork.setUrl(this.mUrl);
-        String str2 = this.mPath + bl + ".zip";
-        if (this.mNetWork.a(str2, null, 0, 3, 0, true) && az(str2, str)) {
-            hT(str2);
-            return bl;
+        String str2 = this.wf + bm + ".zip";
+        if (this.mNetWork.a(str2, null, 0, 3, 0, true) && av(str2, str)) {
+            hQ(str2);
+            return bm;
         }
-        hT(str2);
+        hQ(str2);
         return null;
     }
 
@@ -53,29 +53,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.bdm != null) {
+        if (this.bdw != null) {
             if (!ap.isEmpty(str)) {
-                this.bdm.e(true, str);
+                this.bdw.e(true, str);
             } else {
-                this.bdm.e(false, null);
+                this.bdw.e(false, null);
             }
         }
     }
 
-    private boolean az(String str, String str2) {
+    private boolean av(String str, String str2) {
         if (ap.isEmpty(str) || ap.isEmpty(str2)) {
             return false;
         }
-        return r.X(str, str2);
+        return r.W(str, str2);
     }
 
-    private void hT(String str) {
+    private void hQ(String str) {
         if (!ap.isEmpty(str)) {
             l.r(new File(str));
         }
     }
 
-    private boolean hU(String str) {
+    private boolean hR(String str) {
         return !ap.isEmpty(str) && new File(str).exists();
     }
 }

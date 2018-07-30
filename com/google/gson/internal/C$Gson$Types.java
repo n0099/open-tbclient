@@ -15,7 +15,7 @@ import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
 /* loaded from: classes2.dex */
 public final class C$Gson$Types {
-    static final Type[] hMP = new Type[0];
+    static final Type[] hFM = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
         return new ParameterizedTypeImpl(type, type2, typeArr);
@@ -26,7 +26,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType c(Type type) {
-        return new WildcardTypeImpl(new Type[]{type}, hMP);
+        return new WildcardTypeImpl(new Type[]{type}, hFM);
     }
 
     public static WildcardType d(Type type) {
@@ -122,7 +122,7 @@ public final class C$Gson$Types {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int ak(Object obj) {
+    public static int aj(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -256,14 +256,14 @@ public final class C$Gson$Types {
         if (a != null) {
             Type a2 = a(type, cls, a);
             if (a2 instanceof ParameterizedType) {
-                return ((ParameterizedType) a2).getActualTypeArguments()[indexOf(a.getTypeParameters(), typeVariable)];
+                return ((ParameterizedType) a2).getActualTypeArguments()[a(a.getTypeParameters(), typeVariable)];
             }
             return typeVariable;
         }
         return typeVariable;
     }
 
-    private static int indexOf(Object[] objArr, Object obj) {
+    private static int a(Object[] objArr, Object obj) {
         for (int i = 0; i < objArr.length; i++) {
             if (obj.equals(objArr[i])) {
                 return i;
@@ -334,7 +334,7 @@ public final class C$Gson$Types {
         }
 
         public int hashCode() {
-            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.ak(this.ownerType);
+            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.aj(this.ownerType);
         }
 
         public String toString() {
@@ -412,7 +412,7 @@ public final class C$Gson$Types {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.hMP;
+            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.hFM;
         }
 
         public boolean equals(Object obj) {

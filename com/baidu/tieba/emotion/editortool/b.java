@@ -3,12 +3,12 @@ package com.baidu.tieba.emotion.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class b {
-    private EmotionGroupType cOJ;
-    private int cOK;
-    private int cOL;
-    private com.baidu.tbadk.editortools.emotiontool.c cOM;
-    private int cON;
-    private int cOO;
+    private EmotionGroupType cRs;
+    private int cRt;
+    private int cRu;
+    private com.baidu.tbadk.editortools.emotiontool.c cRv;
+    private int cRw;
+    private int cRx;
     private int column;
     private int endIndex;
     private int index;
@@ -16,22 +16,22 @@ public class b {
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cOM = cVar;
+        this.cRv = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c anD() {
-        return this.cOM;
+    public com.baidu.tbadk.editortools.emotiontool.c aoc() {
+        return this.cRv;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cOJ = emotionGroupType;
+        this.cRs = emotionGroupType;
     }
 
-    public EmotionGroupType anE() {
-        return this.cOJ;
+    public EmotionGroupType aod() {
+        return this.cRs;
     }
 
-    public void eX(int i) {
+    public void eY(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class b {
         return this.row;
     }
 
-    public void eW(int i) {
+    public void eX(int i) {
         this.column = i;
     }
 
-    public int anF() {
+    public int aoe() {
         return this.column;
     }
 
-    public void jq(int i) {
-        this.cOO = i;
+    public void jC(int i) {
+        this.cRx = i;
     }
 
-    public int anG() {
-        return this.cOO;
+    public int aof() {
+        return this.cRx;
     }
 
-    public void jr(int i) {
-        this.cON = i;
+    public void jD(int i) {
+        this.cRw = i;
     }
 
-    public int anH() {
-        return this.cON;
+    public int aog() {
+        return this.cRw;
     }
 
-    public void js(int i) {
-        this.cOK = i;
+    public void jE(int i) {
+        this.cRt = i;
     }
 
-    public int anI() {
-        return this.cOK;
+    public int aoh() {
+        return this.cRt;
     }
 
-    public void jt(int i) {
+    public void jF(int i) {
         this.startIndex = i;
     }
 
-    public int anJ() {
+    public int aoi() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void ju(int i) {
-        this.cOL = i;
+    public void jG(int i) {
+        this.cRu = i;
     }
 
-    public int anK() {
-        return this.cOL;
+    public int aoj() {
+        return this.cRu;
     }
 }

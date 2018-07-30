@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public void t(JSONObject jSONObject) {
+    public void s(JSONObject jSONObject) {
         JSONArray jSONArray;
         JSONObject optJSONObject;
         String str;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        fL(str2);
+                        fJ(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        fL(str2);
+                        fJ(str2);
                     }
                 }
             }
@@ -68,32 +68,32 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Eq() {
+    public void Em() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String Er() {
+    public String En() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void fL(String str) {
-        String Er = Er();
-        if (!TextUtils.equals(Er, str) || !isFileExist(Er)) {
-            al(str, Er);
+    public void fJ(String str) {
+        String En = En();
+        if (!TextUtils.equals(En, str) || !isFileExist(En)) {
+            aj(str, En);
         }
     }
 
     private boolean isFileExist(String str) {
-        File dX = l.dX(as.eO(str));
-        return dX != null && dX.exists() && dX.isFile();
+        File dU = l.dU(as.eM(str));
+        return dU != null && dU.exists() && dU.isFile();
     }
 
-    private void al(String str, String str2) {
-        if (j.jE()) {
-            new a(str, as.eO(str), str2).execute(new String[0]);
+    private void aj(String str, String str2) {
+        if (j.jF()) {
+            new a(str, as.eM(str), str2).execute(new String[0]);
         }
     }
 
@@ -121,10 +121,10 @@ public class b {
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
                     if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aEx) && !this.aEx.equals(this.aEy)) {
-                        l.eo(as.eO(this.aEy));
+                        l.em(as.eM(this.aEy));
                     }
                 } else {
-                    l.eo(this.mFile + ".tmp");
+                    l.em(this.mFile + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().Eq();
+                new b().Em();
             }
         }
     }

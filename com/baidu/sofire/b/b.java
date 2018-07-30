@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes.dex */
@@ -27,7 +28,7 @@ public final class b {
             intent.putExtra("from", 6);
             PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
             if (!z) {
-                currentTimeMillis = ((System.currentTimeMillis() + 86400000) - 600000) + ((long) (1200000.0d * Math.random()));
+                currentTimeMillis = ((System.currentTimeMillis() + 86400000) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
                 eVar.c.putLong("npuct", currentTimeMillis);
                 eVar.c.commit();
             } else {
@@ -47,7 +48,7 @@ public final class b {
     }
 
     public static void a(Context context, int i, boolean z) {
-        long j = 600000;
+        long j = KeepJobService.JOB_CHECK_PERIODIC;
         try {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");

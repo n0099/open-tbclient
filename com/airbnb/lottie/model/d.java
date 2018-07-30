@@ -12,10 +12,10 @@ public class d {
     @ColorInt
     public int color;
     public String fontName;
-    int ni;
-    double nj;
-    public double nk;
-    public boolean nl;
+    int mW;
+    double mZ;
+    public double na;
+    public boolean nb;
     public int size;
     @ColorInt
     public int strokeColor;
@@ -27,19 +27,19 @@ public class d {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.ni = i2;
+        this.mW = i2;
         this.tracking = i3;
-        this.nj = d;
-        this.nk = d2;
+        this.mZ = d;
+        this.na = d2;
         this.color = i4;
         this.strokeColor = i5;
         this.strokeWidth = i6;
-        this.nl = z;
+        this.nb = z;
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
-        public static d d(JSONObject jSONObject) {
+        public static d c(JSONObject jSONObject) {
             String optString = jSONObject.optString(Info.kBaiduTimeKey);
             String optString2 = jSONObject.optString("f");
             int optInt = jSONObject.optInt(NotifyType.SOUND);
@@ -59,7 +59,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.nj);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.ni) * 31) + this.tracking) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.mZ);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.mW) * 31) + this.tracking) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

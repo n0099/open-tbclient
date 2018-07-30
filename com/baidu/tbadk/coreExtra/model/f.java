@@ -48,17 +48,17 @@ public class f {
             aFH = jSONObject.optString("android_debug_type");
             if (!StringUtils.isNull(aFH)) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_debug_type", aFH);
-                fU(aFH);
+                fS(aFH);
             }
             aFB = jSONObject.optString("step_cache_strategy");
             if (!StringUtils.isNull(aFB)) {
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putString("video_report_config_step_cache_strategy", aFB);
-                fV(aFB);
+                fT(aFB);
             }
         }
     }
 
-    private static void fU(String str) {
+    private static void fS(String str) {
         if (!StringUtils.isNull(str)) {
             if (mDebugParamsMap == null) {
                 mDebugParamsMap = new HashMap();
@@ -74,7 +74,7 @@ public class f {
         }
     }
 
-    private static void fV(String str) {
+    private static void fT(String str) {
         if (!StringUtils.isNull(str)) {
             if (aFC == null) {
                 aFC = new HashMap();
@@ -92,7 +92,7 @@ public class f {
         }
     }
 
-    public static boolean Fi() {
+    public static boolean Fe() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_switch", true) : aFD;
     }
 
@@ -100,61 +100,61 @@ public class f {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_type", 0) : aFE;
     }
 
-    public static int Fj() {
+    public static int Ff() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_number", 5) : aFF;
     }
 
-    public static boolean Fk() {
+    public static boolean Fg() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_moov_check", false) : aFG;
     }
 
-    public static String Fl() {
+    public static String Fh() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_report_config_debug_type", "");
         if (StringUtils.isNull(string)) {
             return "";
         }
-        fU(string);
+        fS(string);
         return string;
     }
 
-    public static Map<String, String> Fm() {
+    public static Map<String, String> Fi() {
         if (!isInit) {
-            Fl();
+            Fh();
         }
         return mDebugParamsMap;
     }
 
-    public static String Fn() {
+    public static String Fj() {
         if (!isInit) {
-            Fl();
+            Fh();
         }
         return mDebugParamsMap == null ? "0" : mDebugParamsMap.get("debug_avformat_open_input");
     }
 
-    public static int Fo() {
+    public static int Fk() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_prepare_max_wait_time", 10000) : aFI;
     }
 
-    public static int Fp() {
+    public static int Fl() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_prepare_max_loading_time", 3000) : aFJ;
     }
 
-    public static boolean Fq() {
+    public static boolean Fm() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_is_open_prepare_time", false) : aFK;
     }
 
-    private static String Fr() {
+    private static String Fn() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_report_config_step_cache_strategy", "");
         if (StringUtils.isNull(string)) {
             return "";
         }
-        fV(string);
+        fT(string);
         return string;
     }
 
-    public static boolean Fs() {
+    public static boolean Fo() {
         if (!isInit) {
-            Fr();
+            Fn();
         }
         if (aFC == null) {
             return false;
@@ -167,9 +167,9 @@ public class f {
         return aFx;
     }
 
-    public static boolean Ft() {
+    public static boolean Fp() {
         if (!isInit) {
-            Fr();
+            Fn();
         }
         if (aFC == null) {
             return false;
@@ -182,9 +182,9 @@ public class f {
         return aFy;
     }
 
-    public static int Fu() {
+    public static int Fq() {
         if (!isInit) {
-            Fr();
+            Fn();
         }
         if (aFC == null) {
             return 8;
@@ -197,9 +197,9 @@ public class f {
         return aFz;
     }
 
-    public static int Fv() {
+    public static int Fr() {
         if (!isInit) {
-            Fr();
+            Fn();
         }
         if (aFC == null) {
             return 16;
@@ -212,22 +212,22 @@ public class f {
         return aFA;
     }
 
-    public static boolean Fw() {
+    public static boolean Fs() {
         if (!isInit) {
-            Fr();
+            Fn();
         }
         if (aFC == null) {
-            return am("18:00", "01:00");
+            return ak("18:00", "01:00");
         }
         String str = aFC.get("step_cache_rush_hour");
         if (StringUtils.isNull(str)) {
-            return am("18:00", "01:00");
+            return ak("18:00", "01:00");
         }
         try {
             String[] split = str.split(",");
             for (String str2 : split) {
                 String[] split2 = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                if (split2.length == 2 && am(split2[0], split2[1])) {
+                if (split2.length == 2 && ak(split2[0], split2[1])) {
                     return true;
                 }
             }
@@ -237,7 +237,7 @@ public class f {
         return false;
     }
 
-    private static boolean am(String str, String str2) {
+    private static boolean ak(String str, String str2) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
         try {
             return a(simpleDateFormat.parse(simpleDateFormat.format(new Date())), simpleDateFormat.parse(str), simpleDateFormat.parse(str2));

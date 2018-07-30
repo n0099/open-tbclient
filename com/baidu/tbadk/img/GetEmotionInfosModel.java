@@ -22,7 +22,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003353 && (httpResponsedMessage instanceof GetEmotionInfosResponseMessage) && GetEmotionInfosModel.this.aQL != null) {
                 GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
                 if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                    GetEmotionInfosModel.this.aQL.H(getEmotionInfosResponseMessage.getEmotionList());
+                    GetEmotionInfosModel.this.aQL.G(getEmotionInfosResponseMessage.getEmotionList());
                 } else {
                     GetEmotionInfosModel.this.aQL.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
                 }
@@ -33,7 +33,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     /* loaded from: classes.dex */
     public interface a {
-        void H(List<c> list);
+        void G(List<c> list);
 
         void onFail(int i, String str);
     }
@@ -73,7 +73,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 i = i2 + 1;
             } else {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-                httpMessage.addParam("pic_urls", com.baidu.tbadk.browser.d.cT(jSONArray.toString()));
+                httpMessage.addParam("pic_urls", com.baidu.tbadk.browser.d.cQ(jSONArray.toString()));
                 sendMessage(httpMessage);
                 return;
             }

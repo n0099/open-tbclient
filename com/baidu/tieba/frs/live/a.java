@@ -31,192 +31,192 @@ import com.baidu.tieba.frs.k;
 import com.baidu.tieba.frs.live.c;
 /* loaded from: classes2.dex */
 public class a {
-    private as bwd;
-    private FrameLayout dAf;
-    private ImageView dAg;
-    private int dAi;
-    private String dAj;
-    private AlaLiveInfoCoreData dAk;
-    private AlaLiveInfoListCoreData dAl;
-    private c dAm;
-    private FrsFragment dla;
-    private TextView dve;
+    private as bwJ;
+    private FrameLayout dCR;
+    private ImageView dCS;
+    private int dCU;
+    private String dCV;
+    private AlaLiveInfoCoreData dCW;
+    private AlaLiveInfoListCoreData dCX;
+    private c dCY;
+    private FrsFragment dnR;
+    private TextView dxR;
     private int mForumId;
     private boolean isFirst = true;
-    private c.a dAn = new c.a() { // from class: com.baidu.tieba.frs.live.a.1
+    private c.a dCZ = new c.a() { // from class: com.baidu.tieba.frs.live.a.1
         @Override // com.baidu.tieba.frs.live.c.a
         public void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage) {
             if (frsLiveTipResponseMessage != null) {
-                a.this.dAi = frsLiveTipResponseMessage.remindType;
-                a.this.dAj = frsLiveTipResponseMessage.remindText;
-                a.this.dAk = frsLiveTipResponseMessage.infoCoreData;
-                a.this.dAl = frsLiveTipResponseMessage.listCoreData;
-                if (a.this.bwd != null) {
-                    a.this.bwd.avn();
+                a.this.dCU = frsLiveTipResponseMessage.remindType;
+                a.this.dCV = frsLiveTipResponseMessage.remindText;
+                a.this.dCW = frsLiveTipResponseMessage.infoCoreData;
+                a.this.dCX = frsLiveTipResponseMessage.listCoreData;
+                if (a.this.bwJ != null) {
+                    a.this.bwJ.avS();
                 }
-                if (a.this.dAi != 0) {
-                    a.this.ayJ();
+                if (a.this.dCU != 0) {
+                    a.this.azo();
                 }
             }
         }
     };
-    private Runnable dAo = new Runnable() { // from class: com.baidu.tieba.frs.live.a.2
+    private Runnable dDa = new Runnable() { // from class: com.baidu.tieba.frs.live.a.2
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.dAm != null) {
-                a.this.dAm.lg(a.this.mForumId);
+            if (a.this.dCY != null) {
+                a.this.dCY.lr(a.this.mForumId);
             }
         }
     };
-    private int dAh = ayN();
+    private int dCT = azt();
 
     public a(FrsFragment frsFragment, int i) {
-        this.dla = frsFragment;
+        this.dnR = frsFragment;
         this.mForumId = i;
     }
 
-    public void ayI() {
-        if (this.dla != null && this.dla.isAdded()) {
+    public void azn() {
+        if (this.dnR != null && this.dnR.isAdded()) {
             if (System.currentTimeMillis() - getLastShowTime() >= 1800000) {
-                if (this.dla.atR() && isFirst()) {
+                if (this.dnR.auv() && isFirst()) {
                     this.isFirst = false;
                     return;
                 }
-                if (this.dAm == null) {
-                    this.dAm = new c(this.dAn);
+                if (this.dCY == null) {
+                    this.dCY = new c(this.dCZ);
                 }
-                e.im().removeCallbacks(this.dAo);
-                e.im().postDelayed(this.dAo, TbConfig.NOTIFY_SOUND_INTERVAL);
+                e.in().removeCallbacks(this.dDa);
+                e.in().postDelayed(this.dDa, TbConfig.NOTIFY_SOUND_INTERVAL);
             }
         }
     }
 
-    public void ayJ() {
-        if (!StringUtils.isNull(this.dAj) && this.dAk != null) {
-            if (this.dAi != 2 || ayN() < 3) {
-                aW(this.dla.getPageContext().getPageActivity());
-                if (this.dve != null) {
-                    this.dve.setText(this.dAj);
+    public void azo() {
+        if (!StringUtils.isNull(this.dCV) && this.dCW != null) {
+            if (this.dCU != 2 || azt() < 3) {
+                aX(this.dnR.getPageContext().getPageActivity());
+                if (this.dxR != null) {
+                    this.dxR.setText(this.dCV);
                 }
                 onChangeSkinType();
-                agR();
+                ahq();
                 saveLastShowTime();
             }
         }
     }
 
-    public void ayK() {
-        if (this.dla != null) {
-            this.dla.atG().lF(49);
+    public void azp() {
+        if (this.dnR != null) {
+            this.dnR.auk().lQ(49);
         }
     }
 
     private void onChangeSkinType() {
-        am.i(this.dAf, d.f.bg_frs_hot_live_tip_selector);
-        am.h(this.dve, d.C0142d.cp_cont_i);
-        am.c(this.dAg, d.f.icon_home_card_close_white);
-        this.dve.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(d.f.icon_arrow_more_white), (Drawable) null);
+        am.i(this.dCR, d.f.bg_frs_hot_live_tip_selector);
+        am.h(this.dxR, d.C0140d.cp_cont_i);
+        am.c(this.dCS, d.f.icon_home_card_close_white);
+        this.dxR.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(d.f.icon_arrow_more_white), (Drawable) null);
     }
 
-    private void aW(Context context) {
-        if (context != null && this.dAf == null) {
-            this.dAf = (FrameLayout) LayoutInflater.from(context).inflate(d.i.frs_hot_live_tip, (ViewGroup) null);
-            this.dAf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.3
+    private void aX(Context context) {
+        if (context != null && this.dCR == null) {
+            this.dCR = (FrameLayout) LayoutInflater.from(context).inflate(d.h.frs_hot_live_tip, (ViewGroup) null);
+            this.dCR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.ayL();
+                    a.this.azq();
                 }
             });
-            this.dve = (TextView) this.dAf.findViewById(d.g.frs_hot_live_tip_content);
-            this.dAg = (ImageView) this.dAf.findViewById(d.g.frs_hot_live_tip_close);
-            this.dAg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.4
+            this.dxR = (TextView) this.dCR.findViewById(d.g.frs_hot_live_tip_content);
+            this.dCS = (ImageView) this.dCR.findViewById(d.g.frs_hot_live_tip_close);
+            this.dCS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.live.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.onClickClose();
+                    a.this.azr();
                 }
             });
             onChangeSkinType();
         }
     }
 
-    private void agR() {
-        k atI;
+    private void ahq() {
+        k aum;
         FrameLayout frameLayout;
-        if (this.dla != null && (atI = this.dla.atI()) != null && atI.getListView() != null && (frameLayout = (FrameLayout) atI.auR()) != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.e(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (atI.aux() != null && atI.aux().getLayoutParams() != null) {
-                layoutParams.topMargin = atI.aux().getLayoutParams().height;
+        if (this.dnR != null && (aum = this.dnR.aum()) != null && aum.getListView() != null && (frameLayout = (FrameLayout) aum.avv()) != null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.f(TbadkCoreApplication.getInst(), d.e.ds56));
+            if (aum.avb() != null && aum.avb().getLayoutParams() != null) {
+                layoutParams.topMargin = aum.avb().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.bwd == null) {
-                this.bwd = new as();
+            if (this.bwJ == null) {
+                this.bwJ = new as();
             }
-            if (this.dAi == 2) {
-                this.bwd.a(this.dAf, frameLayout, layoutParams, 5000);
-            } else if (this.dAi == 1) {
-                this.bwd.a(this.dAf, frameLayout, layoutParams);
+            if (this.dCU == 2) {
+                this.bwJ.a(this.dCR, frameLayout, layoutParams, 5000);
+            } else if (this.dCU == 1) {
+                this.bwJ.a(this.dCR, frameLayout, layoutParams);
                 TiebaStatic.log(new an("c12539"));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayL() {
-        ayO();
-        if (this.dAk != null && this.dla != null && this.dla.isAdded()) {
-            boolean equals = TextUtils.equals(getUserId(), String.valueOf(this.dAk.userID));
+    public void azq() {
+        azu();
+        if (this.dCW != null && this.dnR != null && this.dnR.isAdded()) {
+            boolean equals = TextUtils.equals(getUserId(), String.valueOf(this.dCW.userID));
             String str = "";
-            if (this.dAi == 1) {
+            if (this.dCU == 1) {
                 str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_FOLLOWED_LIVE_TIP;
                 TiebaStatic.log(new an("c12540"));
-                if (this.bwd != null) {
-                    this.bwd.hideTip();
+                if (this.bwJ != null) {
+                    this.bwJ.hideTip();
                 }
-            } else if (this.dAi == 2) {
+            } else if (this.dCU == 2) {
                 str = AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_HOT_LIVE_TIP;
                 TiebaStatic.log(new an("c12331"));
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.dla.getPageContext().getPageActivity(), this.dAk, this.dAl, str, getUserId(), equals, null, null)));
-            if (this.dla.atZ().baT().isGameForumType()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.dnR.getPageContext().getPageActivity(), this.dCW, this.dCX, str, getUserId(), equals, null, null)));
+            if (this.dnR.auD().aZl().isGameForumType()) {
                 CustomMessage customMessage = new CustomMessage(2001622);
-                customMessage.setTag(this.dla.getBaseFragmentActivity().getUniqueId());
+                customMessage.setTag(this.dnR.getBaseFragmentActivity().getUniqueId());
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001622);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 return;
             }
-            e.im().post(new Runnable() { // from class: com.baidu.tieba.frs.live.a.5
+            e.in().post(new Runnable() { // from class: com.baidu.tieba.frs.live.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.ayK();
+                    a.this.azp();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onClickClose() {
-        if (this.dAi == 2) {
-            ayM();
+    public void azr() {
+        if (this.dCU == 2) {
+            azs();
         }
-        if (this.bwd != null) {
-            this.bwd.hideTip();
+        if (this.bwJ != null) {
+            this.bwJ.hideTip();
         }
     }
 
-    private void ayM() {
-        this.dAh++;
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.dAh);
+    private void azs() {
+        this.dCT++;
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.dCT);
     }
 
-    private int ayN() {
+    private int azt() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), 0);
     }
 
-    private void ayO() {
-        this.dAh = 0;
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.dAh);
+    private void azu() {
+        this.dCT = 0;
+        com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("FRS_HOT_LIVE_TIP_CLOSE_NUM" + getUserId(), this.dCT);
     }
 
     private void saveLastShowTime() {
@@ -243,12 +243,12 @@ public class a {
     }
 
     public void onDestory() {
-        if (this.bwd != null) {
-            this.bwd.avn();
+        if (this.bwJ != null) {
+            this.bwJ.avS();
         }
-        e.im().removeCallbacks(this.dAo);
-        if (this.dAm != null) {
-            this.dAm.onDestory();
+        e.in().removeCallbacks(this.dDa);
+        if (this.dCY != null) {
+            this.dCY.onDestory();
         }
     }
 }

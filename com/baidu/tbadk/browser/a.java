@@ -27,7 +27,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String O(String str, String str2) {
+    public static String N(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             str = "http://".concat(str);
@@ -40,7 +40,7 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void O(Context context, String str) {
+    public static void Q(Context context, String str) {
         b(context, true, str);
     }
 
@@ -69,7 +69,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        sw();
+        si();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -84,7 +84,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        sw();
+        si();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -96,8 +96,8 @@ public class a {
         }
     }
 
-    public static void P(Context context, String str) {
-        sw();
+    public static void R(Context context, String str) {
+        si();
         try {
             if (!StringUtils.isNull(str)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, true, false);
@@ -110,11 +110,11 @@ public class a {
         }
     }
 
-    public static void Q(Context context, String str) {
-        O(context, str);
+    public static void S(Context context, String str) {
+        Q(context, str);
     }
 
-    public static void R(Context context, String str) {
+    public static void T(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -176,7 +176,7 @@ public class a {
         return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void aB(Context context) {
+    public static void aC(Context context) {
         CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -187,7 +187,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.tA().dd(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.tl().da(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -204,10 +204,10 @@ public class a {
             cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             try {
                 CookieSyncManager.getInstance().sync();
-            } catch (Exception e2) {
-                BdLog.e(e2);
+                SapiAccountManager.getInstance().getAccountService().webLogin(context);
+            } catch (Throwable th2) {
+                BdLog.e(th2);
             }
-            SapiAccountManager.getInstance().getAccountService().webLogin(context);
         }
     }
 
@@ -215,7 +215,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void sw() {
+    private static void si() {
         new ah("open_webview", true).start();
     }
 }

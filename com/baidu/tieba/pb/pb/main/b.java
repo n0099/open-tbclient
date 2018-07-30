@@ -8,19 +8,19 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double fuJ = 0.5d;
+    private static double fuU = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
         cm(true);
         setSupportNoImage();
-        setLineSpacing(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds15), 1.0f);
-        fS(0);
-        fT(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
-        fU(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
-        O(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
-        P(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
-        fV(com.baidu.adp.lib.util.l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
+        setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds15), 1.0f);
+        fU(0);
+        fV(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
+        fW(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
+        P(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
+        Q(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
+        fX(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -29,10 +29,10 @@ public class b extends com.baidu.tbadk.widget.richText.a {
                 int i2 = 0;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.ImageView.a hi = com.baidu.tbadk.imageManager.c.IV().hi(com.baidu.adp.lib.f.c.ig().f(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
-                    if (hi != null) {
-                        i2 = hi.getWidth();
-                        i = hi.getHeight();
+                    com.baidu.adp.widget.ImageView.a he = com.baidu.tbadk.imageManager.c.IQ().he(com.baidu.adp.lib.f.c.ih().f(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
+                    if (he != null) {
+                        i2 = he.getWidth();
+                        i = he.getHeight();
                     } else {
                         i = 0;
                     }
@@ -57,22 +57,22 @@ public class b extends com.baidu.tbadk.widget.richText.a {
     }
 
     @Override // com.baidu.tbadk.widget.richText.a
-    public int[] k(int i, int i2, int i3, int i4) {
+    public int[] j(int i, int i2, int i3, int i4) {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.beH || ber <= 1.0f) {
+        if (!this.beQ || beB <= 1.0f) {
             i3 = i;
         } else {
-            if (i * ber <= i3 * fuJ) {
-                i3 = (int) (i * ber);
+            if (i * beB <= i3 * fuU) {
+                i3 = (int) (i * beB);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.beF = ImageView.ScaleType.MATRIX;
+                this.beO = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.beF = ImageView.ScaleType.CENTER_CROP;
+                this.beO = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

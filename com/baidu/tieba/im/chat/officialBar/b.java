@@ -3,17 +3,17 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public class b {
-    public static b eiE = new b();
-    private com.baidu.adp.lib.e.b<MultiImageTextTopView> eis;
-    private com.baidu.adp.lib.e.b<MultiImageTextBottomView> eit;
-    private com.baidu.adp.lib.e.b<SingleImageTextView> eiu;
+    public static b emv = new b();
+    private com.baidu.adp.lib.e.b<MultiImageTextTopView> emi;
+    private com.baidu.adp.lib.e.b<MultiImageTextBottomView> emj;
+    private com.baidu.adp.lib.e.b<SingleImageTextView> emk;
 
-    private void bD(final Context context) {
-        this.eis = new com.baidu.adp.lib.e.b<MultiImageTextTopView>(new com.baidu.adp.lib.e.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
+    private void bE(final Context context) {
+        this.emi = new com.baidu.adp.lib.e.b<MultiImageTextTopView>(new com.baidu.adp.lib.e.c<MultiImageTextTopView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aGG */
-            public MultiImageTextTopView mo9if() {
+            /* renamed from: aHG */
+            public MultiImageTextTopView ig() {
                 return new MultiImageTextTopView(context);
             }
 
@@ -46,12 +46,12 @@ public class b {
         };
     }
 
-    private void bE(final Context context) {
-        this.eit = new com.baidu.adp.lib.e.b<MultiImageTextBottomView>(new com.baidu.adp.lib.e.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.3
+    private void bF(final Context context) {
+        this.emj = new com.baidu.adp.lib.e.b<MultiImageTextBottomView>(new com.baidu.adp.lib.e.c<MultiImageTextBottomView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aGH */
-            public MultiImageTextBottomView mo9if() {
+            /* renamed from: aHH */
+            public MultiImageTextBottomView ig() {
                 return new MultiImageTextBottomView(context);
             }
 
@@ -84,12 +84,12 @@ public class b {
         };
     }
 
-    private void bF(final Context context) {
-        this.eiu = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.5
+    private void bG(final Context context) {
+        this.emk = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<SingleImageTextView>() { // from class: com.baidu.tieba.im.chat.officialBar.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aGI */
-            public SingleImageTextView mo9if() {
+            /* renamed from: aHI */
+            public SingleImageTextView ig() {
                 return new SingleImageTextView(context);
             }
 
@@ -121,24 +121,24 @@ public class b {
         }, 1, 0);
     }
 
-    public com.baidu.adp.lib.e.b<MultiImageTextTopView> bG(Context context) {
-        if (this.eis == null) {
-            bD(context);
-        }
-        return this.eis;
-    }
-
-    public com.baidu.adp.lib.e.b<MultiImageTextBottomView> bH(Context context) {
-        if (this.eit == null) {
+    public com.baidu.adp.lib.e.b<MultiImageTextTopView> bH(Context context) {
+        if (this.emi == null) {
             bE(context);
         }
-        return this.eit;
+        return this.emi;
     }
 
-    public com.baidu.adp.lib.e.b<SingleImageTextView> bI(Context context) {
-        if (this.eiu == null) {
+    public com.baidu.adp.lib.e.b<MultiImageTextBottomView> bI(Context context) {
+        if (this.emj == null) {
             bF(context);
         }
-        return this.eiu;
+        return this.emj;
+    }
+
+    public com.baidu.adp.lib.e.b<SingleImageTextView> bJ(Context context) {
+        if (this.emk == null) {
+            bG(context);
+        }
+        return this.emk;
     }
 }

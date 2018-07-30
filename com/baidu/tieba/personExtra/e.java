@@ -12,7 +12,7 @@ public class e implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
             return null;
         }
-        String str = com.baidu.tbadk.core.c.a.xj().dB("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+        String str = com.baidu.tbadk.core.c.a.xb().dy("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
         ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
         if (str != null) {
             try {

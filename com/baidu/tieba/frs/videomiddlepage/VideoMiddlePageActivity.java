@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.videomiddlepage;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoMiddlePageActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.an;
@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment dFk;
+    private VideoMiddlePageFragment dHY;
     private String mFrom;
     private String mId;
 
@@ -23,7 +23,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.i.activity_video_middle_page_layout);
+        setContentView(d.h.activity_video_middle_page_layout);
         init();
     }
 
@@ -31,13 +31,24 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Intent intent = getIntent();
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
-        this.dFk = VideoMiddlePageFragment.bk(this.mFrom, this.mId);
-        getSupportFragmentManager().beginTransaction().add(d.g.video_middle_page_container, this.dFk, VideoMiddlePageFragment.class.getCanonicalName()).commit();
+        aBc();
         an anVar = new an("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
-            anVar.ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
+            anVar.af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
         }
         TiebaStatic.log(anVar);
+    }
+
+    private void aBc() {
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
+            VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
+            if (videoMiddlePageFragment == null) {
+                videoMiddlePageFragment = VideoMiddlePageFragment.bi(this.mFrom, this.mId);
+                supportFragmentManager.beginTransaction().add(d.g.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
+            }
+            this.dHY = videoMiddlePageFragment;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,10 +76,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.dFk == null) {
+        if (keyEvent == null || this.dHY == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.dFk.kB(i)) {
+        if (this.dHY.kM(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -86,12 +97,12 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             ArrayList arrayList = new ArrayList();
             if ("index".equals(this.mFrom)) {
                 arrayList.add("a002");
-            } else if (VideoMiddlePageActivityConfig.FROM_CONCERN_TAB.equals(this.mFrom)) {
+            } else if ("concern_tab".equals(this.mFrom)) {
                 arrayList.add("a038");
             } else if ("frs".equals(this.mFrom)) {
                 arrayList.add("a006");
             }
-            pageStayDurationItem.M(arrayList);
+            pageStayDurationItem.L(arrayList);
             pageStayDurationItem.aTm = "0";
         }
         return pageStayDurationItem;

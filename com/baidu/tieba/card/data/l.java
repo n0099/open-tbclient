@@ -3,90 +3,89 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes2.dex */
 public class l extends c {
-    public static final BdUniqueId czH = BdUniqueId.gen();
-    public static final BdUniqueId czI = BdUniqueId.gen();
-    public static String czJ = "";
-    public static String czK = "";
-    public static String czL = "";
-    public static String czM = "";
-    public static String czN = "";
-    public static String czO = "";
-    public static String czP = "";
-    public bc btc;
-    public boolean czG = false;
-    public boolean czQ = true;
+    public static final BdUniqueId cCn = BdUniqueId.gen();
+    public static final BdUniqueId cCo = BdUniqueId.gen();
+    public static String cCp = "";
+    public static String cCq = "";
+    public static String cCr = "";
+    public static String cCs = "";
+    public static String cCt = "";
+    public static String cCu = "";
+    public bb btJ;
+    public boolean cCm = false;
+    public boolean cCv = true;
     public int sourceType = 0;
 
-    public l(bc bcVar) {
-        this.btc = bcVar;
+    public l(bb bbVar) {
+        this.btJ = bbVar;
     }
 
-    public static boolean P(bc bcVar) {
-        return (bcVar == null || bcVar.vN() == null) ? false : true;
+    public static boolean R(bb bbVar) {
+        return (bbVar == null || bbVar.vC() == null) ? false : true;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (this.btc == null) {
-            return czH;
+        if (this.btJ == null) {
+            return cCn;
         }
-        if (this.btc.vz() || this.btc.vA()) {
-            return czI;
+        if (this.btJ.vn() || this.btJ.vo()) {
+            return cCo;
         }
-        return czH;
+        return cCn;
     }
 
     @Override // com.baidu.tieba.card.data.c
-    public bc SV() {
-        if (this.btc == null) {
-            return this.btc;
+    public bb Td() {
+        if (this.btJ == null) {
+            return this.btJ;
         }
-        if (this.btc.vl() == 5) {
-            return this.btc;
+        if (this.btJ.uZ() == 5) {
+            return this.btJ;
         }
-        this.btc.setResource(1);
-        return this.btc;
+        this.btJ.setResource(1);
+        return this.btJ;
     }
 
-    public an lf(String str) {
+    public an le(String str) {
         an anVar = new an(str);
-        if (this.btc != null) {
-            anVar.f(ImageViewerConfig.FORUM_ID, this.btc.getFid());
-            anVar.ah("tid", this.btc.getTid());
+        if (this.btJ != null) {
+            anVar.f(ImageViewerConfig.FORUM_ID, this.btJ.getFid());
+            anVar.af("tid", this.btJ.getTid());
             anVar.r("obj_type", 2);
-            anVar.r("obj_param1", aiP() ? 2 : 1);
-            if (this.btc.vw() != null) {
-                anVar.ah(VideoPlayActivityConfig.OBJ_ID, this.btc.vw().getUserId());
+            anVar.r("obj_param1", ajo() ? 2 : 1);
+            if (this.btJ.vk() != null) {
+                anVar.af(VideoPlayActivityConfig.OBJ_ID, this.btJ.vk().getUserId());
             }
         }
         return anVar;
     }
 
-    public an aiU() {
-        an p = p(czM, true);
-        if (p != null && SV() != null) {
-            bc SV = SV();
-            p.r("obj_name", SV.wI() != null && (SV.wI().bxE() != null || SV.wI().NH() != null) ? 1 : 0);
-            if (SV.vw() != null) {
-                p.r("ab_type", SV.vw().hadConcerned() ? 1 : 0);
+    public an ajt() {
+        an o = o(cCr, true);
+        if (o != null && Td() != null) {
+            bb Td = Td();
+            o.r("obj_name", Td.wx() != null && (Td.wx().bwh() != null || Td.wx().NF() != null) ? 1 : 0);
+            if (Td.vk() != null) {
+                o.r("ab_type", Td.vk().hadConcerned() ? 1 : 0);
             }
         }
-        return p;
+        return o;
     }
 
-    public an Q(bc bcVar) {
-        return (bcVar.ww() == null || bcVar.ww().channelId <= 0) ? p(czN, true) : p(czO, true);
+    public an S(bb bbVar) {
+        return (bbVar.wl() == null || bbVar.wl().channelId <= 0) ? o(cCs, true) : o(cCt, true);
     }
 
-    public an aiW() {
-        return p(czK, true);
+    public an ajv() {
+        return o(cCq, true);
     }
 
-    public an R(bc bcVar) {
-        return (bcVar.ww() == null || bcVar.ww().channelId <= 0) ? p(czJ, true) : p(czP, true);
+    public an T(bb bbVar) {
+        return (bbVar.wl() == null || bbVar.wl().channelId <= 0) ? o(cCp, true) : o(cCu, true);
     }
 }

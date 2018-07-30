@@ -17,14 +17,14 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.j(getView(), d.C0142d.cp_bg_line_e);
+            am.j(getView(), d.C0140d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.i.person_center_blank_layout;
+        return d.h.person_center_blank_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

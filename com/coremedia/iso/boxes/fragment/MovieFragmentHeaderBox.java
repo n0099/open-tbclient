@@ -53,7 +53,7 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setSequenceNumber(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dK(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dj(j)));
         this.sequenceNumber = j;
     }
 

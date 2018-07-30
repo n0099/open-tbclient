@@ -13,9 +13,9 @@ public class j extends o<com.airbnb.lottie.model.d, com.airbnb.lottie.model.d> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.m
-    /* renamed from: ct */
-    public com.airbnb.lottie.a.b.o ck() {
-        return new com.airbnb.lottie.a.b.o(this.mr);
+    /* renamed from: cr */
+    public com.airbnb.lottie.a.b.o ci() {
+        return new com.airbnb.lottie.a.b.o(this.mi);
     }
 
     /* loaded from: classes2.dex */
@@ -24,15 +24,15 @@ public class j extends o<com.airbnb.lottie.model.d, com.airbnb.lottie.model.d> {
             if (jSONObject != null && jSONObject.has("x")) {
                 eVar.E("Lottie doesn't support expressions.");
             }
-            n.a cE = n.a(jSONObject, 1.0f, eVar, b.nE).cE();
-            return new j(cE.mr, (com.airbnb.lottie.model.d) cE.mJ);
+            n.a cC = n.a(jSONObject, 1.0f, eVar, b.nu).cC();
+            return new j(cC.mi, (com.airbnb.lottie.model.d) cC.my);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b implements m.a<com.airbnb.lottie.model.d> {
-        private static final b nE = new b();
+        private static final b nu = new b();
 
         private b() {
         }
@@ -41,7 +41,7 @@ public class j extends o<com.airbnb.lottie.model.d, com.airbnb.lottie.model.d> {
         @Override // com.airbnb.lottie.model.a.m.a
         /* renamed from: g */
         public com.airbnb.lottie.model.d b(Object obj, float f) {
-            return d.a.d((JSONObject) obj);
+            return d.a.c((JSONObject) obj);
         }
     }
 }

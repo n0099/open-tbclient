@@ -9,18 +9,18 @@ import com.baidu.tbadk.coreExtra.a.c;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b implements c {
-    private static b fpt;
+    private static b fpE;
 
     private b() {
     }
 
-    public static synchronized b bag() {
+    public static synchronized b aYy() {
         b bVar;
         synchronized (b.class) {
-            if (fpt == null) {
-                fpt = new b();
+            if (fpE == null) {
+                fpE = new b();
             }
-            bVar = fpt;
+            bVar = fpE;
         }
         return bVar;
     }
@@ -39,7 +39,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void BG() {
+    public void By() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {

@@ -5,30 +5,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.r;
 /* loaded from: classes3.dex */
 public class b {
-    private r apS = null;
-    private com.baidu.tbadk.core.util.a.a apR = null;
+    private r apt = null;
+    private com.baidu.tbadk.core.util.a.a aps = null;
 
     public b() {
-        yW();
+        yN();
     }
 
-    public void hP() {
-        if (this.apS != null) {
-            this.apS.hP();
+    public void hQ() {
+        if (this.apt != null) {
+            this.apt.hQ();
         }
     }
 
     public void setUrl(String str) {
-        this.apR.zX().Aa().mUrl = str;
+        this.aps.zM().zP().mUrl = str;
     }
 
-    private void yW() {
-        this.apR = new com.baidu.tbadk.core.util.a.a();
-        this.apS = new c(this.apR);
-        this.apR.zX().Aa().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
-        com.baidu.adp.lib.network.a.a.aA(TbadkCoreApplication.getInst().getCuid());
-        com.baidu.adp.lib.network.a.a.aB(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        com.baidu.adp.lib.network.a.a.aC(TbadkCoreApplication.getInst().getCuidGid());
+    private void yN() {
+        this.aps = new com.baidu.tbadk.core.util.a.a();
+        this.apt = new c(this.aps);
+        this.aps.zM().zP().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        com.baidu.adp.lib.network.a.a.aB(TbadkCoreApplication.getInst().getCuid());
+        com.baidu.adp.lib.network.a.a.aC(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        com.baidu.adp.lib.network.a.a.aD(TbadkCoreApplication.getInst().getCuidGid());
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3) {
@@ -36,11 +36,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        yX().zX().a(this.apS);
-        return this.apS.a(str, handler, i, i2, i3, z);
+        yO().zM().a(this.apt);
+        return this.apt.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a yX() {
-        return this.apR;
+    public com.baidu.tbadk.core.util.a.a yO() {
+        return this.aps;
     }
 }

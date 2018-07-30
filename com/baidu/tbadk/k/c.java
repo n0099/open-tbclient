@@ -1,5 +1,7 @@
 package com.baidu.tbadk.k;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public class c extends b {
-    public int pageType = 0;
+public interface c {
+    void a(View view, View view2, boolean z);
 }

@@ -6,85 +6,87 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String yt = "_crashtime";
-    public static String yu = "_crashtype";
-    private int yv;
-    private int yw;
-    private b yx;
+    public static String yo = "_crashtime";
+    public static String yp = "_crashtype";
+    private int yq;
+    private int yr;
+    private b ys;
 
     public c(b bVar) {
-        this.yv = 0;
-        this.yw = 0;
-        this.yx = null;
+        this.yq = 0;
+        this.yr = 0;
+        this.ys = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.yx = bVar;
-        if (this.yx.hp() > 0 && this.yx.hs() != null) {
-            this.yv = hu();
-            if (this.yv == -1) {
+        this.ys = bVar;
+        if (this.ys.ho() > 0 && this.ys.hs() != null) {
+            this.yq = hu();
+            if (this.yq == -1) {
                 reset();
             }
         }
-        this.yw = ht();
-        this.yx.f(this.yw, true);
+        if (!bVar.hr()) {
+            this.yr = ht();
+        }
+        this.ys.f(this.yr, true);
     }
 
     public String getName() {
-        return this.yx.getName();
+        return this.ys.getName();
     }
 
-    public int hn() {
-        return this.yx.hn();
+    public int hm() {
+        return this.ys.hm();
     }
 
     public int getType() {
-        return this.yw;
+        return this.yr;
     }
 
     public boolean S(int i) {
-        if (this.yx.hp() >= 0 && this.yv >= this.yx.hp() + 2) {
-            i = this.yx.ho();
+        if (this.ys.ho() >= 0 && this.yq >= this.ys.ho() + 2) {
+            i = this.ys.hn();
         }
-        if (i == this.yw) {
+        if (i == this.yr) {
             return false;
         }
-        this.yw = i;
-        this.yx.f(this.yw, false);
+        this.yr = i;
+        this.ys.f(this.yr, false);
         T(i);
         return true;
     }
 
-    public boolean av(String str) {
-        String[] hq;
+    public boolean aw(String str) {
+        String[] hp;
         String[] hs;
-        if (str == null || this.yx.hp() <= 0) {
+        if (str == null || this.ys.ho() <= 0) {
             return false;
         }
-        if (this.yx.hs() != null) {
-            for (String str2 : this.yx.hs()) {
+        if (this.ys.hs() != null) {
+            for (String str2 : this.ys.hs()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.yv++;
-                    U(this.yv);
-                    if (this.yv >= this.yx.hp()) {
-                        T(this.yx.ho());
-                        this.yw = this.yx.ho();
-                        this.yx.f(this.yx.ho(), false);
+                    this.yq++;
+                    U(this.yq);
+                    if (this.yq >= this.ys.ho()) {
+                        T(this.ys.hn());
+                        this.yr = this.ys.hn();
+                        this.ys.f(this.ys.hn(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.yx.hq() != null) {
-            for (String str3 : this.yx.hq()) {
+        if (this.ys.hp() != null) {
+            for (String str3 : this.ys.hp()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.yv++;
-                    U(this.yv);
-                    if (this.yv >= this.yx.hp()) {
-                        T(this.yx.ho());
-                        this.yw = this.yx.ho();
-                        this.yx.f(this.yx.ho(), false);
+                    this.yq++;
+                    U(this.yq);
+                    if (this.yq >= this.ys.ho()) {
+                        T(this.ys.hn());
+                        this.yr = this.ys.hn();
+                        this.ys.f(this.ys.hn(), false);
                         return true;
                     }
                     return true;
@@ -96,29 +98,29 @@ public class c {
 
     private void T(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.yx.getName() + yu, i);
+        edit.putInt(this.ys.getName() + yp, i);
         edit.commit();
     }
 
     private int ht() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.yx.getName() + yu, this.yx.hn());
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ys.getName() + yp, this.ys.hm());
     }
 
     private int hu() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.yx.getName() + yt, -1);
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.ys.getName() + yo, -1);
     }
 
     private void U(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.yx.getName() + yt, i);
+        edit.putInt(this.ys.getName() + yo, i);
         edit.commit();
     }
 
     public void reset() {
-        this.yv = 0;
+        this.yq = 0;
     }
 
     public void V(int i) {
-        this.yv = i;
+        this.yq = i;
     }
 }

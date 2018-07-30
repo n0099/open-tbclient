@@ -25,7 +25,7 @@ public class EditMarkStatic {
     private static int msgCount = 0;
 
     static {
-        aYm();
+        aWI();
         CustomMessageListener customMessageListener = new CustomMessageListener(2001120) { // from class: com.baidu.tieba.myCollection.EditMarkStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -34,8 +34,8 @@ public class EditMarkStatic {
                     if (customResponsedMessage instanceof NewsNotifyMessage) {
                         int unused = EditMarkStatic.msgCount = ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark();
                         if (EditMarkStatic.msgCount > 0) {
-                            b.aYg().aYj();
-                            b.aYg().jh(true);
+                            b.aWC().aWF();
+                            b.aWC().iT(true);
                             return;
                         }
                         return;
@@ -55,13 +55,13 @@ public class EditMarkStatic {
                 }
                 if (!list.isEmpty()) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("collect_update_time_key", new JSONArray((Collection) list).toString());
-                    b.aYg().aYk();
+                    b.aWC().aWG();
                 }
             }
         });
         MessageManager.getInstance().registerListener(customMessageListener);
         com.baidu.tieba.tbadkCore.a.a.a(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, com.baidu.tieba.tbadkCore.a.a.aO("c/f/livegroup/getStoreRemindTime", 309117));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, com.baidu.tieba.tbadkCore.a.a.aK("c/f/livegroup/getStoreRemindTime", 309117));
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
@@ -78,7 +78,7 @@ public class EditMarkStatic {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902080));
     }
 
-    public static void aYm() {
+    public static void aWI() {
         Context context = TbadkCoreApplication.getInst().getContext();
         if (context != null && TbadkCoreApplication.getInst().isMainProcess(false)) {
             context.registerReceiver(new CollectUpdateReceiver(), new IntentFilter(CollectUpdateReceiver.ACTION_NAME));

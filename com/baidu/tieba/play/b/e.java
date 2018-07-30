@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class e {
-    public static void rM(int i) {
+    public static void rJ(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
@@ -20,7 +20,7 @@ public class e {
         TiebaStatic.log(new an("c12493").r("obj_type", i2));
     }
 
-    public static void rN(int i) {
+    public static void rK(int i) {
         int i2;
         int i3 = 2;
         if (i == -100) {
@@ -39,25 +39,25 @@ public class e {
                 i3 = 4;
             }
         }
-        TiebaStatic.log(new an("c12029").r("obj_type", i2).r("obj_param1", j.jE() ? 0 : 1).r("obj_param2", i3));
+        TiebaStatic.log(new an("c12029").r("obj_type", i2).r("obj_param1", j.jF() ? 0 : 1).r("obj_param2", i3));
     }
 
-    public static void sp(String str) {
-        TiebaStatic.log(new an("c12026").ah("tid", str));
+    public static void sj(String str) {
+        TiebaStatic.log(new an("c12026").af("tid", str));
     }
 
-    public static void rO(int i) {
+    public static void rL(int i) {
         int i2;
         if (i == -100) {
             i2 = 0;
         } else {
             i2 = i == -200 ? 1 : 2;
         }
-        TiebaStatic.log(new an("c12494").r("obj_type", i2).r("obj_param1", j.jE() ? 0 : 1));
+        TiebaStatic.log(new an("c12494").r("obj_type", i2).r("obj_param1", j.jF() ? 0 : 1));
     }
 
-    public static void b(Uri uri, String str) {
-        TiebaStatic.log(new an("c12199").ah("obj_param1", uri == null ? "null" : uri.toString()).ah("obj_param2", str).ah("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
+    public static void a(Uri uri, String str) {
+        TiebaStatic.log(new an("c12199").af("obj_param1", uri == null ? "null" : uri.toString()).af("obj_param2", str).af("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
         Object[] objArr = new Object[6];
         objArr[0] = "url";
@@ -69,7 +69,7 @@ public class e {
         bdStatisticsManager.newDebug("videoplay", 0L, null, objArr);
     }
 
-    public static void V(int i, int i2, int i3) {
+    public static void U(int i, int i2, int i3) {
         if (i == -100) {
             if (i2 == -24399) {
                 TiebaStatic.log(new an("c12512").r("obj_locate", 0));
@@ -169,7 +169,7 @@ public class e {
         }
     }
 
-    public static void bx(int i, int i2) {
+    public static void by(int i, int i2) {
         switch (i2) {
             case -10040:
                 TiebaStatic.log(new an("c12511").r("obj_locate", 6));

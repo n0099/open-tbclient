@@ -3,13 +3,13 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class j {
-    private h hBL = new h();
+    private h hCq = new h();
 
-    public final List<i> bKr() {
-        return this.hBL.bKr();
+    public final List<i> bIV() {
+        return this.hCq.bIV();
     }
 
     public final void a(int i) {
-        this.hBL.a(i);
+        this.hCq.a(i);
     }
 }

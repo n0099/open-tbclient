@@ -1,289 +1,186 @@
 package com.baidu.location.a;
 
+import android.location.Location;
 import android.os.Build;
 import android.os.Handler;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import android.os.Message;
+import android.text.TextUtils;
+import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.TbConfig;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.json.JSONObject;
+import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
+import java.util.HashMap;
+import java.util.Locale;
 /* loaded from: classes2.dex */
-public class g extends com.baidu.location.h.f {
-    private static g Wg = null;
-    String a = null;
-    String b = null;
-    String c = null;
-    String d = null;
-    int e = 1;
-    Handler f;
+public abstract class g {
+    public static String c = null;
+    public com.baidu.location.b.e Wx = null;
+    public com.baidu.location.b.a Wy = null;
+    private boolean e = true;
+    private boolean f = true;
+    private boolean g = false;
+    final Handler d = new a();
+    private String h = null;
+    private String i = null;
 
-    private g() {
-        this.f = null;
-        this.f = new Handler();
+    /* loaded from: classes2.dex */
+    public class a extends Handler {
+        public a() {
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (com.baidu.location.f.isServing) {
+                switch (message.what) {
+                    case 21:
+                        g.this.a(message);
+                        return;
+                    case 62:
+                    case 63:
+                        g.this.a();
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
     }
 
-    public static void a(File file, File file2) throws IOException {
-        BufferedOutputStream bufferedOutputStream;
-        BufferedInputStream bufferedInputStream = null;
-        try {
-            BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
-            try {
-                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public class b extends com.baidu.location.d.e {
+        String a = null;
+        String b = null;
+
+        public b() {
+            this.k = new HashMap();
+        }
+
+        @Override // com.baidu.location.d.e
+        public void a() {
+            this.h = com.baidu.location.d.g.c();
+            if ((com.baidu.location.d.g.h || com.baidu.location.d.g.i) && g.this.h != null && g.this.i != null) {
+                this.b += String.format(Locale.CHINA, "&ki=%s&sn=%s", g.this.h, g.this.i);
+            }
+            String encodeTp4 = Jni.encodeTp4(this.b);
+            this.b = null;
+            if (this.a == null) {
+                this.a = p.b();
+            }
+            this.k.put(BaseLocationBox.TYPE, encodeTp4);
+            if (this.a != null) {
+                this.k.put("up", this.a);
+            }
+            this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
+        }
+
+        public void a(String str) {
+            this.b = str;
+            b(com.baidu.location.d.g.f);
+        }
+
+        @Override // com.baidu.location.d.e
+        public void a(boolean z) {
+            BDLocation bDLocation;
+            if (!z || this.j == null) {
+                Message obtainMessage = g.this.d.obtainMessage(63);
+                obtainMessage.obj = "HttpStatus error";
+                obtainMessage.sendToTarget();
+            } else {
                 try {
-                    byte[] bArr = new byte[5120];
-                    while (true) {
-                        int read = bufferedInputStream2.read(bArr);
-                        if (read == -1) {
-                            break;
+                    String str = this.j;
+                    g.c = str;
+                    try {
+                        bDLocation = new BDLocation(str);
+                        if (bDLocation.getLocType() == 161) {
+                            f.qs().a(str);
                         }
-                        bufferedOutputStream.write(bArr, 0, read);
+                        bDLocation.setOperators(com.baidu.location.b.b.qE().h());
+                        if (l.qy().d()) {
+                            bDLocation.setDirection(l.qy().e());
+                        }
+                    } catch (Exception e) {
+                        bDLocation = new BDLocation();
+                        bDLocation.setLocType(0);
                     }
-                    bufferedOutputStream.flush();
-                    file.delete();
-                    if (bufferedInputStream2 != null) {
-                        bufferedInputStream2.close();
+                    this.a = null;
+                    if (bDLocation.getLocType() == 0 && bDLocation.getLatitude() == Double.MIN_VALUE && bDLocation.getLongitude() == Double.MIN_VALUE) {
+                        Message obtainMessage2 = g.this.d.obtainMessage(63);
+                        obtainMessage2.obj = "HttpStatus error";
+                        obtainMessage2.sendToTarget();
+                    } else {
+                        Message obtainMessage3 = g.this.d.obtainMessage(21);
+                        obtainMessage3.obj = bDLocation;
+                        obtainMessage3.sendToTarget();
                     }
-                    if (bufferedOutputStream != null) {
-                        bufferedOutputStream.close();
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedInputStream = bufferedInputStream2;
-                    if (bufferedInputStream != null) {
-                        bufferedInputStream.close();
-                    }
-                    if (bufferedOutputStream != null) {
-                        bufferedOutputStream.close();
-                    }
-                    throw th;
+                } catch (Exception e2) {
+                    Message obtainMessage4 = g.this.d.obtainMessage(63);
+                    obtainMessage4.obj = "HttpStatus error";
+                    obtainMessage4.sendToTarget();
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedOutputStream = null;
-                bufferedInputStream = bufferedInputStream2;
             }
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedOutputStream = null;
-        }
-    }
-
-    public static boolean a(String str, String str2) {
-        File file = new File(com.baidu.location.h.i.g() + File.separator + "tmp");
-        if (file.exists()) {
-            file.delete();
-        }
-        try {
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            byte[] bArr = new byte[4096];
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
-            while (true) {
-                int read = bufferedInputStream.read(bArr);
-                if (read <= 0) {
-                    break;
-                }
-                fileOutputStream.write(bArr, 0, read);
-            }
-            httpURLConnection.disconnect();
-            fileOutputStream.close();
-            if (file.length() < 10240) {
-                file.delete();
-                return false;
-            }
-            file.renameTo(new File(com.baidu.location.h.i.g() + File.separator + str2));
-            return true;
-        } catch (Exception e) {
-            file.delete();
-            return false;
-        }
-    }
-
-    private Handler f() {
-        return this.f;
-    }
-
-    private void g() {
-        try {
-            File file = new File(com.baidu.location.h.h.a + "/grtcf.dat");
-            if (!file.exists()) {
-                File file2 = new File(com.baidu.location.h.h.a);
-                if (!file2.exists()) {
-                    file2.mkdirs();
-                }
-                if (!file.createNewFile()) {
-                    return;
-                }
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-                randomAccessFile.seek(2L);
-                randomAccessFile.writeInt(0);
-                randomAccessFile.seek(8L);
-                byte[] bytes = "1980_01_01:0".getBytes();
-                randomAccessFile.writeInt(bytes.length);
-                randomAccessFile.write(bytes);
-                randomAccessFile.seek(200L);
-                randomAccessFile.writeBoolean(false);
-                randomAccessFile.seek(800L);
-                randomAccessFile.writeBoolean(false);
-                randomAccessFile.close();
-            }
-            RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
-            randomAccessFile2.seek(200L);
-            randomAccessFile2.writeBoolean(true);
-            if (this.e == 1) {
-                randomAccessFile2.writeBoolean(true);
-            } else {
-                randomAccessFile2.writeBoolean(false);
-            }
-            if (this.d != null) {
-                byte[] bytes2 = this.d.getBytes();
-                randomAccessFile2.writeInt(bytes2.length);
-                randomAccessFile2.write(bytes2);
-            } else {
-                randomAccessFile2.writeInt(0);
-            }
-            randomAccessFile2.close();
-        } catch (Exception e) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
-        if (this.a != null && com.baidu.location.f.k.re().g()) {
-            new o(this).start();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean i() {
-        if (this.c == null || new File(com.baidu.location.h.i.g() + File.separator + this.c).exists()) {
-            return true;
-        }
-        return a("http://" + this.a + "/" + this.c, this.c);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        if (this.b == null) {
-            return;
-        }
-        File file = new File(com.baidu.location.h.i.g() + File.separator + this.b);
-        if (file.exists() || !a("http://" + this.a + "/" + this.b, this.b)) {
-            return;
-        }
-        String a = com.baidu.location.h.i.a(file);
-        if (this.d == null || a == null || !this.d.equals(a)) {
-            return;
-        }
-        File file2 = new File(com.baidu.location.h.i.g() + File.separator + com.baidu.location.f.replaceFileName);
-        if (file2.exists()) {
-            file2.delete();
-        }
-        try {
-            a(file, file2);
-        } catch (Exception e) {
-            file2.delete();
-        }
-    }
-
-    public static g qm() {
-        if (Wg == null) {
-            Wg = new g();
-        }
-        return Wg;
-    }
-
-    @Override // com.baidu.location.h.f
-    public void a() {
-        String str;
-        int i = 0;
-        StringBuffer stringBuffer = new StringBuffer(128);
-        stringBuffer.append("&sdk=");
-        stringBuffer.append(6.23f);
-        stringBuffer.append("&fw=");
-        stringBuffer.append(com.baidu.location.f.getFrameVersion());
-        stringBuffer.append("&suit=");
-        stringBuffer.append(2);
-        if (com.baidu.location.h.c.rf().b == null) {
-            stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.h.c.rf().a);
-        } else {
-            stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.h.c.rf().b);
-        }
-        stringBuffer.append("&mb=");
-        stringBuffer.append(Build.MODEL);
-        stringBuffer.append("&sv=");
-        String str2 = Build.VERSION.RELEASE;
-        if (str2 != null && str2.length() > 10) {
-            str2 = str2.substring(0, 10);
-        }
-        stringBuffer.append(str2);
-        try {
-            if (Build.VERSION.SDK_INT > 20) {
-                String[] strArr = Build.SUPPORTED_ABIS;
-                str = null;
-                while (i < strArr.length) {
-                    str = i == 0 ? strArr[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : str + strArr[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-                    i++;
-                }
-            } else {
-                str = Build.CPU_ABI2;
-            }
-        } catch (Error e) {
-            str = null;
-        } catch (Exception e2) {
-            str = null;
-        }
-        if (str != null) {
-            stringBuffer.append("&cpuabi=");
-            stringBuffer.append(str);
-        }
-        stringBuffer.append("&pack=");
-        stringBuffer.append(com.baidu.location.h.c.c);
-        this.h = com.baidu.location.h.i.d() + "?&it=" + Jni.en1(stringBuffer.toString());
-    }
-
-    @Override // com.baidu.location.h.f
-    public void a(boolean z) {
-        if (z) {
-            try {
-                JSONObject jSONObject = new JSONObject(this.j);
-                if ("up".equals(jSONObject.getString("res"))) {
-                    this.a = jSONObject.getString("upath");
-                    if (jSONObject.has("u1")) {
-                        this.b = jSONObject.getString("u1");
-                    }
-                    if (jSONObject.has("u2")) {
-                        this.c = jSONObject.getString("u2");
-                    }
-                    if (jSONObject.has("u1_md5")) {
-                        this.d = jSONObject.getString("u1_md5");
-                    }
-                    f().post(new n(this));
-                }
-                if (jSONObject.has("ison")) {
-                    this.e = jSONObject.getInt("ison");
-                }
-                g();
-            } catch (Exception e) {
+            if (this.k != null) {
+                this.k.clear();
             }
         }
-        com.baidu.location.h.d.rg().a(System.currentTimeMillis());
     }
 
-    public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.h.d.rg().b() > 86400000) {
-            f().postDelayed(new l(this), 10000L);
-            f().postDelayed(new m(this), TbConfig.NOTIFY_SOUND_INTERVAL);
+    public String a(String str) {
+        String l;
+        if (this.h == null) {
+            this.h = h.b(com.baidu.location.f.getServiceContext());
         }
+        if (this.i == null) {
+            this.i = h.c(com.baidu.location.f.getServiceContext());
+        }
+        if (this.Wy == null || !this.Wy.a()) {
+            this.Wy = com.baidu.location.b.b.qE().qF();
+        }
+        if (this.Wx == null || !this.Wx.i()) {
+            this.Wx = com.baidu.location.b.f.qL().qO();
+        }
+        Location qK = com.baidu.location.b.d.qJ().i() ? com.baidu.location.b.d.qJ().qK() : null;
+        if ((this.Wy == null || this.Wy.d() || this.Wy.c()) && ((this.Wx == null || this.Wx.a() == 0) && qK == null)) {
+            return null;
+        }
+        String b2 = b();
+        if (f.qs().d() == -2) {
+            b2 = b2 + "&imo=1";
+        }
+        int b3 = com.baidu.location.d.g.b(com.baidu.location.f.getServiceContext());
+        if (b3 >= 0) {
+            b2 = b2 + "&lmd=" + b3;
+        }
+        String str2 = ((this.Wx == null || this.Wx.a() == 0) && (l = com.baidu.location.b.f.qL().l()) != null) ? l + b2 : b2;
+        if (this.f) {
+            this.f = false;
+            return com.baidu.location.d.g.a(this.Wy, this.Wx, qK, str2, 0, true);
+        }
+        return com.baidu.location.d.g.a(this.Wy, this.Wx, qK, str2, 0);
+    }
+
+    public abstract void a();
+
+    public abstract void a(Message message);
+
+    public String b() {
+        String c2 = com.baidu.location.a.a.qn().c();
+        String format = com.baidu.location.b.f.i() ? "&cn=32" : String.format(Locale.CHINA, "&cn=%d", Integer.valueOf(com.baidu.location.b.b.qE().e()));
+        if (this.e) {
+            this.e = false;
+            String q = com.baidu.location.b.f.qL().q();
+            if (!TextUtils.isEmpty(q) && !q.equals("02:00:00:00:00:00")) {
+                format = String.format(Locale.CHINA, "%s&mac=%s", format, q.replace(SystemInfoUtil.COLON, ""));
+            }
+            if (Build.VERSION.SDK_INT > 17) {
+            }
+        } else if (!this.g) {
+            String e = p.e();
+            if (e != null) {
+                format = format + e;
+            }
+            this.g = true;
+        }
+        return format + c2;
     }
 }

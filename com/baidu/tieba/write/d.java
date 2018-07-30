@@ -12,20 +12,20 @@ import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class d extends PopupWindow {
     private LinearLayout aIs;
-    private int aOZ;
+    private int aOY;
     private Context context;
     private int count;
-    private a hse;
+    private a htl;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void tj(int i);
+        void th(int i);
     }
 
     public d(Context context) {
         super(context);
-        this.aOZ = -1;
+        this.aOY = -1;
         this.context = context;
         init(context);
     }
@@ -67,7 +67,7 @@ public class d extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.hse));
+        view.setOnClickListener(new b(this.count, this.htl));
         this.aIs.addView(view);
         this.count++;
     }
@@ -77,31 +77,31 @@ public class d extends PopupWindow {
     }
 
     public void setCurrentIndex(int i) {
-        if (this.aOZ != -1) {
-            this.aIs.getChildAt(this.aOZ).setSelected(false);
+        if (this.aOY != -1) {
+            this.aIs.getChildAt(this.aOY).setSelected(false);
         }
-        this.aOZ = i;
-        this.aIs.getChildAt(this.aOZ).setSelected(true);
+        this.aOY = i;
+        this.aIs.getChildAt(this.aOY).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.hse = aVar;
+        this.htl = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a hsf;
+        private a htm;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.hsf = aVar;
+            this.htm = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.hsf != null) {
-                this.hsf.tj(this.position);
+            if (this.htm != null) {
+                this.htm.th(this.position);
             }
         }
     }

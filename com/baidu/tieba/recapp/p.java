@@ -17,14 +17,14 @@ import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.b.a.b.b {
     @Override // com.baidu.b.a.b.b
-    public View J(Context context, String str) {
+    public View K(Context context, String str) {
         if ("head".equalsIgnoreCase(str)) {
             HeadImageView headImageView = new HeadImageView(context);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.setDrawerType(1);
             headImageView.setDefaultResource(d.f.icon_default_avatar100);
             headImageView.setDefaultErrorResource(d.f.icon_default_avatar100);
-            headImageView.setDefaultBgResource(d.C0142d.cp_bg_line_e);
+            headImageView.setDefaultBgResource(d.C0140d.cp_bg_line_e);
             return headImageView;
         } else if ("time".equalsIgnoreCase(str)) {
             TextView textView = new TextView(context);
@@ -67,8 +67,8 @@ public class p implements com.baidu.b.a.b.b {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.TF > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.TF * view.getResources().getDisplayMetrics().density));
+            if (aVar.TB > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.TB * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -78,11 +78,11 @@ public class p implements com.baidu.b.a.b.b {
         if ("time".equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.TG);
+                textView.setTextColor(aVar.TC);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.TH * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.TD * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);

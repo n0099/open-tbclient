@@ -23,22 +23,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e gnP = new e();
-    private static DownloadData aLI = null;
+    private static e goZ = new e();
+    private static DownloadData aLL = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private a gnQ = null;
+    private a gpa = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
-    private Handler aLK = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.e.1
+    private Handler aLN = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (message.what == 900002 && message.arg2 > 0 && e.aLI != null) {
-                e.aLI.setLength(message.arg1);
-                e.aLI.setSize(message.arg2);
-                e.aLI.setStatus(1);
-                if (e.aLI.getCallback() != null) {
-                    e.aLI.getCallback().onFileUpdateProgress(e.aLI);
+            if (message.what == 900002 && message.arg2 > 0 && e.aLL != null) {
+                e.aLL.setLength(message.arg1);
+                e.aLL.setSize(message.arg2);
+                e.aLL.setStatus(1);
+                if (e.aLL.getCallback() != null) {
+                    e.aLL.getCallback().onFileUpdateProgress(e.aLL);
                 }
             }
         }
@@ -47,8 +47,8 @@ public class e {
     private e() {
     }
 
-    public static e boS() {
-        return gnP;
+    public static e bnw() {
+        return goZ;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -65,7 +65,7 @@ public class e {
         }
         if (i2 >= i) {
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail_over_max));
+            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail_over_max));
             if (downloadData.getCallback() != null) {
                 downloadData.getCallback().onFileUpdateProgress(downloadData);
                 return;
@@ -77,8 +77,8 @@ public class e {
 
     public void f(DownloadData downloadData) {
         if (downloadData != null) {
-            if (!l.ge()) {
-                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail_no_sd));
+            if (!l.gd()) {
+                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
             if (downloadData.getStatus() == 2) {
@@ -101,7 +101,7 @@ public class e {
                 } else {
                     downloadData.setStatus(5);
                     mTaskList.add(downloadData);
-                    Hs();
+                    Ho();
                     return;
                 }
             }
@@ -109,27 +109,27 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hs() {
-        if (aLI == null && !mTaskList.isEmpty()) {
-            aLI = mTaskList.get(0);
-            if (aLI != null) {
-                this.gnQ = new a();
-                this.gnQ.execute(aLI);
+    public void Ho() {
+        if (aLL == null && !mTaskList.isEmpty()) {
+            aLL = mTaskList.get(0);
+            if (aLL != null) {
+                this.gpa = new a();
+                this.gpa.execute(aLL);
             }
         }
     }
 
-    public void gz(String str) {
-        l(str, false);
+    public void gx(String str) {
+        k(str, false);
     }
 
-    public void l(String str, boolean z) {
-        if (aLI != null && aLI.getUrl().equals(str)) {
+    public void k(String str, boolean z) {
+        if (aLL != null && aLL.getUrl().equals(str)) {
             if (z) {
-                this.gnQ.Hu();
+                this.gpa.Hr();
                 return;
             } else {
-                this.gnQ.cancel(true);
+                this.gpa.cancel(true);
                 return;
             }
         }
@@ -153,17 +153,17 @@ public class e {
         }
     }
 
-    public void l(DownloadData downloadData) {
+    public void h(DownloadData downloadData) {
         if (downloadData != null) {
-            l(downloadData.getUrl(), true);
-            File dX = l.dX(downloadData.getId() + "_" + downloadData.getName() + ".tmp");
-            if (dX != null) {
-                dX.delete();
+            k(downloadData.getUrl(), true);
+            File dU = l.dU(downloadData.getId() + "_" + downloadData.getName() + ".tmp");
+            if (dU != null) {
+                dU.delete();
             }
         }
     }
 
-    public List<DownloadData> me() {
+    public List<DownloadData> mg() {
         return mTaskList;
     }
 
@@ -176,9 +176,9 @@ public class e {
         a() {
         }
 
-        public void Hu() {
+        public void Hr() {
             if (this.mNetWork != null) {
-                this.mNetWork.hP();
+                this.mNetWork.hQ();
             }
             cancel(true);
         }
@@ -187,17 +187,17 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.mNetWork.hP();
-            e.aLI.setStatus(4);
-            e.aLI.setStatusMsg(null);
-            if (e.aLI.getCallback() != null) {
-                e.aLI.getCallback().onFileUpdateProgress(e.aLI);
+            this.mNetWork.hQ();
+            e.aLL.setStatus(4);
+            e.aLL.setStatusMsg(null);
+            if (e.aLL.getCallback() != null) {
+                e.aLL.getCallback().onFileUpdateProgress(e.aLL);
             }
             if (!e.mTaskList.isEmpty()) {
                 e.mTaskList.remove(0);
             }
-            DownloadData unused = e.aLI = null;
-            e.this.Hs();
+            DownloadData unused = e.aLL = null;
+            e.this.Ho();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=5, 393=4, 394=4, 395=4] */
@@ -223,21 +223,21 @@ public class e {
                 }
                 if (!file.exists()) {
                     this.mNetWork.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.mNetWork.a(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", e.this.aLK, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
+                    if (!Boolean.valueOf(this.mNetWork.a(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", e.this.aLN, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                         return 3;
                     }
-                    File dX = l.dX(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
-                    if (dX == null) {
+                    File dU = l.dU(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
+                    if (dU == null) {
                         return 1;
                     }
                     try {
-                        String parent = dX.getParent();
+                        String parent = dU.getParent();
                         String parent2 = file.getParent();
                         if (parent.equals(parent2)) {
-                            dX.renameTo(new File(parent2, file.getName()));
+                            dU.renameTo(new File(parent2, file.getName()));
                         } else {
-                            com.baidu.adp.lib.util.f.b(dX, file);
-                            com.baidu.adp.lib.util.f.i(dX);
+                            com.baidu.adp.lib.util.f.b(dU, file);
+                            com.baidu.adp.lib.util.f.i(dU);
                         }
                     } catch (IOException e) {
                         try {
@@ -324,52 +324,52 @@ public class e {
             super.onPostExecute((a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
-                    e.aLI.setStatus(0);
-                    if (e.aLI.getCallback() != null) {
-                        e.aLI.getCallback().onFileUpdateProgress(e.aLI);
+                    e.aLL.setStatus(0);
+                    if (e.aLL.getCallback() != null) {
+                        e.aLL.getCallback().onFileUpdateProgress(e.aLL);
                     }
-                    if (e.aLI.getCallback() != null) {
-                        e.aLI.getCallback().onFileDownloadSucceed(e.aLI);
+                    if (e.aLL.getCallback() != null) {
+                        e.aLL.getCallback().onFileDownloadSucceed(e.aLL);
                     }
                 } else {
                     switch (num.intValue()) {
                         case 1:
-                            string = TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail);
+                            string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
                             break;
                         case 2:
-                            string = TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail);
+                            string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
                             break;
                         case 3:
-                            string = TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail_net);
+                            string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail_net);
                             break;
                         case 4:
-                            string = TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail);
+                            string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
                             break;
                         case 5:
                         default:
                             string = null;
                             break;
                         case 6:
-                            string = TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail);
+                            string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
                             break;
                         case 7:
-                            string = TbadkCoreApplication.getInst().getApp().getString(d.k.download_fail);
+                            string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
                             break;
                     }
-                    e.aLI.setStatusMsg(string);
-                    e.aLI.setErrorCode(num.intValue());
-                    e.aLI.setStatus(2);
-                    if (e.aLI.getCallback() != null) {
-                        e.aLI.getCallback().onFileUpdateProgress(e.aLI);
+                    e.aLL.setStatusMsg(string);
+                    e.aLL.setErrorCode(num.intValue());
+                    e.aLL.setStatus(2);
+                    if (e.aLL.getCallback() != null) {
+                        e.aLL.getCallback().onFileUpdateProgress(e.aLL);
                     }
-                    if (e.aLI.getCallback() != null) {
-                        e.aLI.getCallback().onFileDownloadFailed(e.aLI, num.intValue(), string);
+                    if (e.aLL.getCallback() != null) {
+                        e.aLL.getCallback().onFileDownloadFailed(e.aLL, num.intValue(), string);
                     }
                 }
-                DownloadData unused = e.aLI = null;
+                DownloadData unused = e.aLL = null;
                 if (!e.mTaskList.isEmpty()) {
                     e.mTaskList.remove(0);
-                    e.this.Hs();
+                    e.this.Ho();
                 }
             }
         }

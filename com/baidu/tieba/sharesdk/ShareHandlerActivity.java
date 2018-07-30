@@ -14,77 +14,77 @@ import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 /* loaded from: classes3.dex */
 public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu.tieba.sharesdk.b.b, WbShareCallback {
-    protected boolean gAP = false;
-    protected int gAQ = -1;
-    protected ShareEntity gAR;
-    protected com.baidu.tieba.sharesdk.a.a gAS;
-    protected e gAT;
-    private ShareReportModel gAU;
+    protected boolean gBX = false;
+    protected int gBY = -1;
+    protected ShareEntity gBZ;
+    protected com.baidu.tieba.sharesdk.a.a gCa;
+    protected e gCb;
+    private ShareReportModel gCc;
 
     @Override // com.baidu.tieba.sharesdk.ShareBaseActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         requestWindowFeature(1);
         super.onCreate(bundle);
         try {
-            this.gAR = (ShareEntity) getIntent().getParcelableExtra("extra_share_data");
+            this.gBZ = (ShareEntity) getIntent().getParcelableExtra("extra_share_data");
         } catch (Exception e) {
         }
-        if (this.gAR == null) {
+        if (this.gBZ == null) {
             finish();
             return;
         }
-        E(this.gAR.FD());
-        this.gAQ = this.gAR.bsP();
-        if (this.gAS != null) {
-            this.gAS.onDestroy();
-            this.gAS = null;
+        E(this.gBZ.Fz());
+        this.gBY = this.gBZ.brs();
+        if (this.gCa != null) {
+            this.gCa.onDestroy();
+            this.gCa = null;
         }
-        if (this.gAT != null) {
-            this.gAT.onDestroy();
-            this.gAT = null;
+        if (this.gCb != null) {
+            this.gCb.onDestroy();
+            this.gCb = null;
         }
-        switch (this.gAQ) {
+        switch (this.gBY) {
             case 0:
-                this.gAS = new d(this);
+                this.gCa = new d(this);
                 break;
             case 1:
             case 5:
             case 7:
             default:
-                this.gAS = null;
+                this.gCa = null;
                 break;
             case 2:
-                this.gAS = new f(this, 2);
+                this.gCa = new f(this, 2);
                 break;
             case 3:
-                this.gAS = new f(this, 3);
+                this.gCa = new f(this, 3);
                 break;
             case 4:
-                this.gAS = new com.baidu.tieba.sharesdk.a.c(this);
+                this.gCa = new com.baidu.tieba.sharesdk.a.c(this);
                 break;
             case 6:
-                this.gAT = new e(this, this, this);
-                this.gAS = this.gAT;
+                this.gCb = new e(this, this, this);
+                this.gCa = this.gCb;
                 break;
             case 8:
-                this.gAS = new com.baidu.tieba.sharesdk.a.b(this);
+                this.gCa = new com.baidu.tieba.sharesdk.a.b(this);
                 break;
         }
-        if (this.gAS != null) {
-            this.gAS.r(getUniqueId());
-            this.gAS.D(getIntent());
-            this.gAS.a(this.gAR, this);
+        if (this.gCa != null) {
+            this.gCa.r(getUniqueId());
+            this.gCa.D(getIntent());
+            this.gCa.a(this.gBZ, this);
             return;
         }
-        g(this.gAQ, 2, this.gAR.FD() != null ? this.gAR.FD().getString("tid") : null);
+        g(this.gBY, 2, this.gBZ.Fz() != null ? this.gBZ.Fz().getString("tid") : null);
     }
 
     private void E(Bundle bundle) {
         if (bundle != null) {
-            if (this.gAU == null) {
-                this.gAU = new ShareReportModel(getPageContext());
+            if (this.gCc == null) {
+                this.gCc = new ShareReportModel(getPageContext());
             }
-            this.gAU.j(bundle.getString(ImageViewerConfig.FORUM_ID), bundle.getString("tid"), bundle.getInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
+            this.gCc.j(bundle.getString(ImageViewerConfig.FORUM_ID), bundle.getString("tid"), bundle.getInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE));
         }
     }
 
@@ -101,18 +101,18 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (this.gAP) {
+        if (this.gBX) {
             finish();
         } else {
-            this.gAP = true;
+            this.gBX = true;
         }
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.gAS != null) {
-            this.gAS.D(intent);
+        if (this.gCa != null) {
+            this.gCa.D(intent);
         }
     }
 
@@ -125,27 +125,27 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
     }
 
     @Override // com.baidu.tieba.sharesdk.b.b
-    public void bC(int i, int i2) {
+    public void bD(int i, int i2) {
         if (i2 == 1) {
-            com.baidu.tieba.sharesdk.c.b.a(i, this.gAR);
+            com.baidu.tieba.sharesdk.c.b.a(i, this.gBZ);
         }
         if (i2 == 3) {
-            com.baidu.tieba.sharesdk.c.b.b(i, this.gAR);
+            com.baidu.tieba.sharesdk.c.b.b(i, this.gBZ);
         }
         String str = null;
-        if (this.gAR.FD() != null) {
-            str = this.gAR.FD().getString("tid");
+        if (this.gBZ.Fz() != null) {
+            str = this.gBZ.Fz().getString("tid");
         }
         g(i, i2, str);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onDestroy() {
-        if (this.gAS != null) {
-            this.gAS.onDestroy();
+        if (this.gCa != null) {
+            this.gCa.onDestroy();
         }
-        if (this.gAU != null) {
-            this.gAU.cancelMessage();
+        if (this.gCc != null) {
+            this.gCc.cancelMessage();
         }
         super.onDestroy();
     }
@@ -164,22 +164,22 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        if (this.gAT != null) {
-            this.gAT.onWbShareSuccess();
+        if (this.gCb != null) {
+            this.gCb.onWbShareSuccess();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        if (this.gAT != null) {
-            this.gAT.onWbShareCancel();
+        if (this.gCb != null) {
+            this.gCb.onWbShareCancel();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        if (this.gAT != null) {
-            this.gAT.onWbShareFail();
+        if (this.gCb != null) {
+            this.gCb.onWbShareFail();
         }
     }
 }

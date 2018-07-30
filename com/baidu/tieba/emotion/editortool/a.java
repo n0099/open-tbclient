@@ -7,7 +7,7 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends k {
     public a(Context context, int i, boolean z) {
-        super(context, TbadkCoreApplication.getInst().getString(d.k.editor_express), 5, i);
+        super(context, TbadkCoreApplication.getInst().getString(d.j.editor_express), 5, i);
         this.aMS = d.f.pbeditor_face_button;
         EmotionTabHost emotionTabHost = new EmotionTabHost(context);
         emotionTabHost.setShowBigEmotion(z);
@@ -18,7 +18,7 @@ public class a extends k {
     }
 
     public a(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(d.k.editor_express), 5, i);
+        super(context, TbadkCoreApplication.getInst().getString(d.j.editor_express), 5, i);
         this.aMS = d.f.pbeditor_face_button;
         this.aMf = new EmotionTabHost(context);
         this.aMW = true;
@@ -27,7 +27,7 @@ public class a extends k {
     }
 
     @Override // com.baidu.tbadk.editortools.k
-    public void bH(boolean z) {
+    public void bF(boolean z) {
         ((EmotionTabHost) this.aMf).setShowUserCollect(z);
     }
 }

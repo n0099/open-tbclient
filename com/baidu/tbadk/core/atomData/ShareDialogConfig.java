@@ -20,7 +20,6 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean isSupportNightMode;
     public ArrayList<TransmitForumData> mForumList;
     public boolean mIsAlaLive;
-    public boolean mIsShowSlumdogMillionaireShare;
     public boolean mIsShowTransmitShare;
     public int mPrivateThread;
     public SparseArray<String> mtjStatistics;
@@ -38,7 +37,6 @@ public class ShareDialogConfig extends IntentConfig {
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
-        this.mIsShowSlumdogMillionaireShare = false;
         this.shareItem = dVar;
         this.showLocation = z;
     }
@@ -52,7 +50,6 @@ public class ShareDialogConfig extends IntentConfig {
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
-        this.mIsShowSlumdogMillionaireShare = false;
         this.shareItem = dVar;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
@@ -67,7 +64,6 @@ public class ShareDialogConfig extends IntentConfig {
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
-        this.mIsShowSlumdogMillionaireShare = false;
         this.shareItem = dVar;
         this.showLocation = z;
         this.isInsertBack = z2;

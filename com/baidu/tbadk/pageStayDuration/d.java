@@ -15,11 +15,11 @@ public class d {
     private long pid;
     private long tid;
 
-    public List<String> Ko() {
+    public List<String> Kj() {
         return this.aTi;
     }
 
-    public void M(List<String> list) {
+    public void L(List<String> list) {
         this.aTi = list;
     }
 
@@ -27,7 +27,7 @@ public class d {
         return this.aTj;
     }
 
-    public void hq(String str) {
+    public void hn(String str) {
         this.aTj = str;
     }
 
@@ -51,15 +51,15 @@ public class d {
         return this.pid;
     }
 
-    public long Kp() {
+    public long Kk() {
         return this.aTk;
     }
 
-    public void Y(long j) {
+    public void aa(long j) {
         this.aTk = j;
     }
 
-    public boolean Kq() {
+    public boolean Kl() {
         return StringUtils.isNull(this.aTj);
     }
 }

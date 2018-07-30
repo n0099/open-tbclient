@@ -5,7 +5,7 @@ import com.baidu.tieba.tbadkCore.l;
 public interface j {
     void a(l lVar, int i);
 
-    void aAj();
+    void aAQ();
 
-    boolean lF(int i);
+    boolean lQ(int i);
 }

@@ -27,8 +27,8 @@ public class AdCloseReasonCheckBox extends CheckBox {
     private void init(Context context) {
         am.i(this, d.f.btn_home_neg_feedback_reason_selector);
         am.c(this, d.f.text_home_neg_feedback_reason_selector, 4);
-        int e = l.e(context, d.e.ds32);
-        setPadding(e, 0, e, 0);
+        int f = l.f(context, d.e.ds32);
+        setPadding(f, 0, f, 0);
         setGravity(17);
         setButtonDrawable((Drawable) null);
     }

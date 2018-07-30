@@ -14,9 +14,9 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         private int aDE = 0;
         private int aDD = 0;
         private int aDF = 0;
-        private int aKQ = 0;
-        private int aKR = 0;
-        private int aKS = 0;
+        private int aKW = 0;
+        private int aKX = 0;
+        private int aKY = 0;
 
         public a() {
         }
@@ -36,7 +36,7 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
         this.mData.aDC = i4;
         this.mData.aDD = i5;
         this.mData.aDF = i6;
-        this.mData.aKQ = i7;
+        this.mData.aKW = i7;
     }
 
     public int getMsgAgree() {
@@ -96,26 +96,26 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.aKQ = i;
+        this.mData.aKW = i;
     }
 
     public int getMsgPrivateChat() {
-        return this.mData.aKQ;
+        return this.mData.aKW;
     }
 
     public void setMsgStrangerChat(int i) {
-        this.mData.aKR = i;
+        this.mData.aKX = i;
     }
 
     public int getMsgStrangerChat() {
-        return this.mData.aKR;
+        return this.mData.aKX;
     }
 
     public void setMsgOfficialMerge(int i) {
-        this.mData.aKS = i;
+        this.mData.aKY = i;
     }
 
     public int getMsgOfficialMerge() {
-        return this.mData.aKS;
+        return this.mData.aKY;
     }
 }

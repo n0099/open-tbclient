@@ -26,7 +26,6 @@ public class ScreenManager {
     }
 
     public void startActivity() {
-        LiveActivity.actionToLiveActivity(this.mContext);
     }
 
     public void finishActivity() {

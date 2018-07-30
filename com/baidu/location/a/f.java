@@ -1,166 +1,333 @@
 package com.baidu.location.a;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import com.baidu.tbadk.TbConfig;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.wifi.WifiInfo;
+import android.os.Bundle;
+import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.location.Jni;
+import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.io.File;
+import java.util.HashMap;
+import org.apache.http.HttpStatus;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class f implements SensorEventListener {
-    private static f Wf;
-    private SensorManager We;
-    private float[] a;
-    private float[] b;
-    private float e;
-    private boolean i;
-    private double f = Double.MIN_VALUE;
+public class f {
+    private static Object c = new Object();
+    private static f Ws = null;
+    private static final String e = com.baidu.location.d.g.h() + "/hst.db";
+    private SQLiteDatabase Wt = null;
     private boolean g = false;
-    private boolean h = false;
-    private float j = 0.0f;
-    private long k = 0;
-    private boolean l = false;
-    private long m = 0;
+    a Wu = null;
+    a Wv = null;
+    private String h = null;
+    private int i = -2;
 
-    private f() {
-        this.i = false;
-        try {
-            if (this.We == null) {
-                this.We = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public class a extends com.baidu.location.d.e {
+        private String b = null;
+        private String c = null;
+        private boolean d = true;
+        private boolean e = false;
+
+        a() {
+            this.k = new HashMap();
+        }
+
+        @Override // com.baidu.location.d.e
+        public void a() {
+            this.i = 1;
+            this.h = com.baidu.location.d.g.c();
+            String encodeTp4 = Jni.encodeTp4(this.c);
+            this.c = null;
+            this.k.put(BaseLocationBox.TYPE, encodeTp4);
+        }
+
+        public void a(String str, String str2) {
+            if (f.this.g) {
+                return;
             }
-            if (this.We.getDefaultSensor(6) != null) {
-                this.i = true;
+            f.this.g = true;
+            this.b = str;
+            this.c = str2;
+            b(com.baidu.location.d.g.f);
+        }
+
+        @Override // com.baidu.location.d.e
+        public void a(boolean z) {
+            if (z && this.j != null) {
+                try {
+                    String str = this.j;
+                    if (this.d) {
+                        JSONObject jSONObject = new JSONObject(str);
+                        JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
+                        if (jSONObject2 != null && jSONObject2.has("imo")) {
+                            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
+                            int i = jSONObject2.getJSONObject("imo").getInt("mv");
+                            if (Jni.encode3(this.b).longValue() == valueOf.longValue()) {
+                                ContentValues contentValues = new ContentValues();
+                                contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
+                                contentValues.put("hst", Integer.valueOf(i));
+                                try {
+                                    if (f.this.Wt.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                                        contentValues.put("id", valueOf);
+                                        f.this.Wt.insert("hstdata", null, contentValues);
+                                    }
+                                } catch (Exception e) {
+                                }
+                                Bundle bundle = new Bundle();
+                                bundle.putByteArray("mac", this.b.getBytes());
+                                bundle.putInt("hotspot", i);
+                                f.this.a(bundle);
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                }
+            } else if (this.d) {
+                f.this.f();
             }
-        } catch (Exception e) {
-            this.i = false;
+            if (this.k != null) {
+                this.k.clear();
+            }
+            f.this.g = false;
         }
     }
 
-    private void k() {
-        if (this.We != null) {
-            Sensor defaultSensor = this.We.getDefaultSensor(6);
-            if (defaultSensor != null) {
-                this.We.registerListener(Wf, defaultSensor, 3);
-            }
-            com.baidu.location.g.a.a().postDelayed(new k(this), 2000L);
+    private String a(boolean z) {
+        com.baidu.location.b.a qF = com.baidu.location.b.b.qE().qF();
+        com.baidu.location.b.e qO = com.baidu.location.b.f.qL().qO();
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        if (qF != null && qF.b()) {
+            stringBuffer.append(qF.g());
         }
+        if (qO != null && qO.a() > 1) {
+            stringBuffer.append(qO.a(15));
+        } else if (com.baidu.location.b.f.qL().l() != null) {
+            stringBuffer.append(com.baidu.location.b.f.qL().l());
+        }
+        if (z) {
+            stringBuffer.append("&imo=1");
+        }
+        stringBuffer.append(com.baidu.location.d.b.qQ().a(false));
+        stringBuffer.append(com.baidu.location.a.a.qn().c());
+        return stringBuffer.toString();
     }
 
-    public static synchronized f qj() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Bundle bundle) {
+        com.baidu.location.a.a.qn().a(bundle, HttpStatus.SC_NOT_ACCEPTABLE);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void f() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("hotspot", -1);
+        a(bundle);
+    }
+
+    public static f qs() {
         f fVar;
-        synchronized (f.class) {
-            if (Wf == null) {
-                Wf = new f();
+        synchronized (c) {
+            if (Ws == null) {
+                Ws = new f();
             }
-            fVar = Wf;
+            fVar = Ws;
         }
         return fVar;
     }
 
-    public void a(boolean z) {
-        this.g = z;
-    }
-
-    public synchronized void b() {
-        if (!this.l && (this.g || this.h)) {
-            if (this.We == null) {
-                this.We = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
-            }
-            if (this.We != null) {
-                Sensor defaultSensor = this.We.getDefaultSensor(11);
-                if (defaultSensor != null && this.g) {
-                    this.We.registerListener(this, defaultSensor, 3);
-                }
-                Sensor defaultSensor2 = this.We.getDefaultSensor(6);
-                if (defaultSensor2 != null && this.h) {
-                    this.We.registerListener(this, defaultSensor2, 3);
-                }
-            }
-            this.l = true;
-        }
-    }
-
-    public void b(boolean z) {
-        this.h = z;
-    }
-
-    public synchronized void c() {
-        if (this.l) {
-            if (this.We != null) {
-                this.We.unregisterListener(this);
-                this.We = null;
-            }
-            this.l = false;
-            this.j = 0.0f;
-        }
-    }
-
-    public void d() {
-        if (this.h || !this.i || System.currentTimeMillis() - this.m <= 60000) {
+    public void a(String str) {
+        if (this.g) {
             return;
         }
-        this.m = System.currentTimeMillis();
-        k();
-    }
-
-    public float e() {
-        if (!this.i || this.k <= 0 || Math.abs(System.currentTimeMillis() - this.k) >= TbConfig.NOTIFY_SOUND_INTERVAL || this.j <= 0.0f) {
-            return 0.0f;
-        }
-        return this.j;
-    }
-
-    public boolean f() {
-        return this.g;
-    }
-
-    public boolean g() {
-        return this.h;
-    }
-
-    public float h() {
-        return this.e;
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        switch (sensorEvent.sensor.getType()) {
-            case 6:
-                try {
-                    this.b = (float[]) sensorEvent.values.clone();
-                    this.j = this.b[0];
-                    this.k = System.currentTimeMillis();
-                    this.f = SensorManager.getAltitude(1013.25f, this.b[0]);
-                    return;
-                } catch (Exception e) {
-                    return;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.has("content") ? jSONObject.getJSONObject("content") : null;
+            if (jSONObject2 == null || !jSONObject2.has("imo")) {
+                return;
+            }
+            Long valueOf = Long.valueOf(jSONObject2.getJSONObject("imo").getString("mac"));
+            int i = jSONObject2.getJSONObject("imo").getInt("mv");
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
+            contentValues.put("hst", Integer.valueOf(i));
+            try {
+                if (this.Wt.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                    contentValues.put("id", valueOf);
+                    this.Wt.insert("hstdata", null, contentValues);
                 }
-            case 11:
-                this.a = (float[]) sensorEvent.values.clone();
-                if (this.a != null) {
-                    float[] fArr = new float[9];
-                    try {
-                        SensorManager.getRotationMatrixFromVector(fArr, this.a);
-                        float[] fArr2 = new float[3];
-                        SensorManager.getOrientation(fArr, fArr2);
-                        this.e = (float) Math.toDegrees(fArr2[0]);
-                        this.e = (float) Math.floor(this.e >= 0.0f ? this.e : this.e + 360.0f);
-                        return;
-                    } catch (Exception e2) {
-                        this.e = 0.0f;
-                        return;
+            } catch (Exception e2) {
+            }
+        } catch (Exception e3) {
+        }
+    }
+
+    public void b() {
+        try {
+            File file = new File(e);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            if (file.exists()) {
+                this.Wt = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
+                this.Wt.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
+                this.Wt.setVersion(1);
+            }
+        } catch (Exception e2) {
+            this.Wt = null;
+        }
+    }
+
+    public void c() {
+        if (this.Wt != null) {
+            try {
+                this.Wt.close();
+            } catch (Exception e2) {
+            } finally {
+                this.Wt = null;
+            }
+        }
+    }
+
+    public int d() {
+        WifiInfo qM;
+        Cursor cursor = null;
+        int i = -3;
+        if (!this.g) {
+            try {
+                if (com.baidu.location.b.f.i() && this.Wt != null && (qM = com.baidu.location.b.f.qL().qM()) != null && qM.getBSSID() != null) {
+                    String replace = qM.getBSSID().replace(SystemInfoUtil.COLON, "");
+                    Long encode3 = Jni.encode3(replace);
+                    if (this.h == null || !replace.equals(this.h) || this.i <= -2) {
+                        try {
+                            cursor = this.Wt.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
+                            if (cursor == null || !cursor.moveToFirst()) {
+                                i = -2;
+                            } else {
+                                i = cursor.getInt(1);
+                                this.h = replace;
+                                this.i = i;
+                            }
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e2) {
+                                }
+                            }
+                        } catch (Exception e3) {
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e4) {
+                                }
+                            }
+                        } catch (Throwable th) {
+                            int i2 = i;
+                            if (cursor != null) {
+                                try {
+                                    cursor.close();
+                                } catch (Exception e5) {
+                                }
+                            }
+                            try {
+                                throw th;
+                            } catch (Exception e6) {
+                                i = i2;
+                            }
+                        }
+                    } else {
+                        i = this.i;
                     }
                 }
-                return;
-            default:
-                return;
+            } catch (Exception e7) {
+            }
+            this.i = i;
         }
+        return i;
     }
 
-    public double qk() {
-        return this.f;
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0080 A[Catch: Exception -> 0x009b, TRY_ENTER, TryCatch #1 {Exception -> 0x009b, blocks: (B:5:0x0007, B:7:0x000d, B:9:0x0011, B:11:0x001b, B:13:0x0021, B:26:0x0080, B:28:0x0084, B:29:0x008b, B:31:0x008f, B:49:0x00cb, B:50:0x00d0, B:15:0x0034, B:17:0x0058, B:19:0x005e, B:35:0x009e), top: B:58:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x007b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void e() {
+        Cursor cursor;
+        Cursor rawQuery;
+        boolean z = true;
+        if (this.g) {
+            return;
+        }
+        try {
+            if (!com.baidu.location.b.f.i() || this.Wt == null) {
+                f();
+                return;
+            }
+            WifiInfo qM = com.baidu.location.b.f.qL().qM();
+            if (qM == null || qM.getBSSID() == null) {
+                f();
+                return;
+            }
+            String replace = qM.getBSSID().replace(SystemInfoUtil.COLON, "");
+            boolean z2 = false;
+            try {
+                rawQuery = this.Wt.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);
+            } catch (Exception e2) {
+                cursor = null;
+            }
+            if (rawQuery != null) {
+                try {
+                } catch (Exception e3) {
+                    cursor = rawQuery;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    if (z2) {
+                    }
+                }
+                if (rawQuery.moveToFirst()) {
+                    int i = rawQuery.getInt(1);
+                    if ((System.currentTimeMillis() / 1000) - rawQuery.getInt(2) <= 259200) {
+                        Bundle bundle = new Bundle();
+                        bundle.putByteArray("mac", replace.getBytes());
+                        bundle.putInt("hotspot", i);
+                        a(bundle);
+                        z = false;
+                    }
+                    z2 = z;
+                    if (rawQuery != null) {
+                        try {
+                            rawQuery.close();
+                        } catch (Exception e5) {
+                        }
+                    }
+                    if (z2) {
+                        if (this.Wu == null) {
+                            this.Wu = new a();
+                        }
+                        if (this.Wu != null) {
+                            this.Wu.a(replace, a(true));
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+            }
+            z2 = true;
+            if (rawQuery != null) {
+            }
+            if (z2) {
+            }
+        } catch (Exception e6) {
+        }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ak;
+import com.baidu.tbadk.core.data.aj;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.b.a;
 import com.baidu.tieba.im.data.GroupMsgData;
@@ -14,18 +14,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g ekg;
+    private static g enY;
 
     private g() {
     }
 
-    public static synchronized g aGV() {
+    public static synchronized g aHV() {
         g gVar;
         synchronized (g.class) {
-            if (ekg == null) {
-                ekg = new g();
+            if (enY == null) {
+                enY = new g();
             }
-            gVar = ekg;
+            gVar = enY;
         }
         return gVar;
     }
@@ -36,7 +36,7 @@ public class g {
         }
     }
 
-    public long bV(long j) {
+    public long ca(long j) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + j, -1L);
     }
 
@@ -69,7 +69,7 @@ public class g {
                     TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
                 }
                 CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(new ak(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                customMessage.setData(new aj(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                 MessageManager.getInstance().sendMessage(customMessage);
             }
             if (groupMsgData.getListMessage().size() > 0) {
@@ -81,7 +81,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.g.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean nK(String str) {
+            public boolean nM(String str) {
                 return true;
             }
         }, false);

@@ -79,7 +79,7 @@ public class a implements f {
         return (((this.isHostOnly ? 1 : 0) + (hashCode6 * 7)) * 7) + (this.isSquence ? 1 : 0);
     }
 
-    public boolean W(JSONObject jSONObject) {
+    public boolean V(JSONObject jSONObject) {
         String optString = jSONObject.optString("forum_name");
         String optString2 = jSONObject.optString("thread_id");
         String optString3 = jSONObject.optString("thread_name");
@@ -110,7 +110,7 @@ public class a implements f {
         return true;
     }
 
-    public JSONObject ahW() {
+    public JSONObject aiv() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aYG() {
+    public String aXc() {
         return this.threadName;
     }
 
@@ -193,7 +193,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void qL(String str) {
+    public void qE(String str) {
         this.threadName = str;
     }
 
@@ -201,27 +201,27 @@ public class a implements f {
         this.forumName = str;
     }
 
-    public String HT() {
+    public String HO() {
         return this.postID;
     }
 
-    public void qM(String str) {
+    public void qF(String str) {
         this.postID = str;
     }
 
-    public boolean aYH() {
+    public boolean aXd() {
         return this.isHostOnly;
     }
 
-    public void jn(boolean z) {
+    public void iZ(boolean z) {
         this.isHostOnly = z;
     }
 
-    public boolean aYI() {
+    public boolean aXe() {
         return this.isSquence;
     }
 
-    public void jo(boolean z) {
+    public void ja(boolean z) {
         this.isSquence = z;
     }
 
@@ -229,7 +229,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void qN(String str) {
+    public void qG(String str) {
         this.liveId = str;
     }
 
@@ -255,15 +255,15 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String JA() {
-        return ahW().toString();
+    public String Jv() {
+        return aiv().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean hp(String str) {
+    public boolean hm(String str) {
         if (str != null) {
             try {
-                return W(new JSONObject(str));
+                return V(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

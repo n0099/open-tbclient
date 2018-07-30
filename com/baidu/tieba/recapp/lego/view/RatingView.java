@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class RatingView extends LinearLayout {
-    private a gqw;
+    private a grG;
     private Context mContext;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public String ePB;
-        public Double ePC;
+        public String eTx;
+        public Double eTy;
         public String title;
     }
 
@@ -42,12 +42,12 @@ public class RatingView extends LinearLayout {
     private ImageView g(Drawable drawable) {
         ImageView imageView = new ImageView(this.mContext);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        imageView.setPadding(0, 0, l.e(this.mContext, d.e.ds4), 0);
+        imageView.setPadding(0, 0, l.f(this.mContext, d.e.ds4), 0);
         imageView.setImageDrawable(drawable);
         return imageView;
     }
 
-    private a sS(String str) {
+    private a sO(String str) {
         a aVar = new a();
         aVar.title = "";
         if (!TextUtils.isEmpty(str)) {
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.ePC = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.eTy = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,39 +69,39 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.gqw = sS(str2);
-        this.gqw.ePB = str;
-        aRr();
+        this.grG = sO(str2);
+        this.grG.eTx = str;
+        aSs();
     }
 
-    private void aRr() {
+    private void aSs() {
         int i;
         removeAllViews();
-        if (this.gqw != null) {
-            if (!TextUtils.isEmpty(this.gqw.ePB)) {
+        if (this.grG != null) {
+            if (!TextUtils.isEmpty(this.grG.eTx)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.gqw.ePB);
-                textView.setTextSize(0, l.e(this.mContext, d.e.fontsize24));
-                textView.setTextColor(am.getColor(d.C0142d.cp_cont_d));
-                textView.setPadding(0, 0, l.e(this.mContext, d.e.ds30), 0);
+                textView.setText(this.grG.eTx);
+                textView.setTextSize(0, l.f(this.mContext, d.e.fontsize24));
+                textView.setTextColor(am.getColor(d.C0140d.cp_cont_d));
+                textView.setPadding(0, 0, l.f(this.mContext, d.e.ds30), 0);
                 textView.setLayoutParams(layoutParams);
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.gqw.title)) {
+            if (!TextUtils.isEmpty(this.grG.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.gqw.title);
-                textView2.setTextSize(0, l.e(this.mContext, d.e.fontsize24));
-                textView2.setTextColor(am.getColor(d.C0142d.cp_cont_d));
-                textView2.setPadding(0, 0, l.e(this.mContext, d.e.ds6), 0);
+                textView2.setText(this.grG.title);
+                textView2.setTextSize(0, l.f(this.mContext, d.e.fontsize24));
+                textView2.setTextColor(am.getColor(d.C0140d.cp_cont_d));
+                textView2.setPadding(0, 0, l.f(this.mContext, d.e.ds6), 0);
                 textView2.setLayoutParams(layoutParams2);
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.gqw.ePC != null && !Double.isNaN(this.gqw.ePC.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.gqw.ePC.intValue());
+            if (this.grG.eTy != null && !Double.isNaN(this.grG.eTy.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.grG.eTy.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }

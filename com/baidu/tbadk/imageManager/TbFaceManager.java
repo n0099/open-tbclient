@@ -29,10 +29,10 @@ public class TbFaceManager {
 
     /* loaded from: classes.dex */
     public interface a {
-        ImageSpan he(String str);
+        ImageSpan ha(String str);
     }
 
-    public static TbFaceManager IU() {
+    public static TbFaceManager IP() {
         if (aQf == null) {
             aQf = new TbFaceManager();
         }
@@ -50,52 +50,52 @@ public class TbFaceManager {
         this.aQg = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a hc(String str) {
-        return k(gE(str), str);
+    public com.baidu.adp.widget.ImageView.a gY(String str) {
+        return m(gA(str), str);
     }
 
-    private com.baidu.adp.widget.ImageView.a k(int i, String str) {
+    private com.baidu.adp.widget.ImageView.a m(int i, String str) {
         Bitmap resBitmap;
-        com.baidu.adp.widget.ImageView.a hi = c.IV().hi(str);
-        if (hi == null && (resBitmap = BitmapHelper.getResBitmap(this.mContext, i)) != null) {
+        com.baidu.adp.widget.ImageView.a he = c.IQ().he(str);
+        if (he == null && (resBitmap = BitmapHelper.getResBitmap(this.mContext, i)) != null) {
             com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(resBitmap, false, str);
-            c.IV().c(str, aVar);
+            c.IQ().c(str, aVar);
             return aVar;
         }
-        return hi;
+        return he;
     }
 
-    public int gE(String str) {
-        return this.aQg.gE(str);
+    public int gA(String str) {
+        return this.aQg.gA(str);
     }
 
-    public a.C0116a hd(String str) {
-        com.baidu.adp.widget.ImageView.a hc;
-        a.C0116a T = this.aQg.T(this.mContext, str);
-        if (T == null && (hc = hc(str)) != null) {
-            return new a.C0116a(hc.getWidth(), hc.getHeight());
+    public a.C0113a gZ(String str) {
+        com.baidu.adp.widget.ImageView.a gY;
+        a.C0113a V = this.aQg.V(this.mContext, str);
+        if (V == null && (gY = gY(str)) != null) {
+            return new a.C0113a(gY.getWidth(), gY.getHeight());
         }
-        return T;
+        return V;
     }
 
-    public int gF(String str) {
-        return this.aQg.gF(str);
+    public int gB(String str) {
+        return this.aQg.gB(str);
     }
 
-    public int HL() {
-        return this.aQg.HL();
+    public int HG() {
+        return this.aQg.HG();
     }
 
-    public String gG(String str) {
-        return this.aQg.gG(str);
+    public String gC(String str) {
+        return this.aQg.gC(str);
     }
 
-    public SpannableString U(Context context, String str) {
+    public SpannableString W(Context context, String str) {
         return a(context, str, 0, 0);
     }
 
     public SpannableString a(Context context, String str, int i, int i2) {
-        com.baidu.adp.widget.ImageView.a k;
+        com.baidu.adp.widget.ImageView.a m;
         if (str == null) {
             return null;
         }
@@ -103,21 +103,21 @@ public class TbFaceManager {
         Matcher matcher = Pattern.compile(aQh).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int gF = this.aQg.gF(group);
-            if (gF > 0 && (k = k(gF, String.valueOf(gF))) != null) {
+            int gB = this.aQg.gB(group);
+            if (gB > 0 && (m = m(gB, String.valueOf(gB))) != null) {
                 int length = group.length();
                 int start = matcher.start();
-                BitmapDrawable nb = k.nb();
-                nb.setBounds(0, 0, i > 0 ? i : k.getWidth(), i2 > 0 ? i2 : k.getHeight());
-                spannableString.setSpan(new com.baidu.tbadk.widget.c(nb), start, start + length, 33);
+                BitmapDrawable nd = m.nd();
+                nd.setBounds(0, 0, i > 0 ? i : m.getWidth(), i2 > 0 ? i2 : m.getHeight());
+                spannableString.setSpan(new com.baidu.tbadk.widget.c(nd), start, start + length, 33);
             }
         }
         return spannableString;
     }
 
     public SpannableString a(Context context, String str, a aVar) {
-        ImageSpan he;
-        ImageSpan he2;
+        ImageSpan ha;
+        ImageSpan ha2;
         if (str == null) {
             return null;
         }
@@ -125,21 +125,21 @@ public class TbFaceManager {
         Matcher matcher = Pattern.compile(aQh).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int gF = this.aQg.gF(group);
-            if (gF > 0) {
-                com.baidu.adp.widget.ImageView.a k = k(gF, String.valueOf(gF));
-                if (k != null) {
+            int gB = this.aQg.gB(group);
+            if (gB > 0) {
+                com.baidu.adp.widget.ImageView.a m = m(gB, String.valueOf(gB));
+                if (m != null) {
                     int length = group.length();
                     int start = matcher.start();
-                    BitmapDrawable nb = k.nb();
-                    int width = (int) (0.5d * k.getWidth());
-                    nb.setBounds(0, 0, width, width);
-                    spannableString.setSpan(new ImageSpan(nb, 0), start, length + start, 33);
+                    BitmapDrawable nd = m.nd();
+                    int width = (int) (0.5d * m.getWidth());
+                    nd.setBounds(0, 0, width, width);
+                    spannableString.setSpan(new ImageSpan(nd, 0), start, length + start, 33);
                 }
-            } else if (aVar != null && (he2 = aVar.he(group)) != null) {
+            } else if (aVar != null && (ha2 = aVar.ha(group)) != null) {
                 int length2 = group.length();
                 int start2 = matcher.start();
-                spannableString.setSpan(he2, start2, length2 + start2, 33);
+                spannableString.setSpan(ha2, start2, length2 + start2, 33);
             }
         }
         if (aVar != null) {
@@ -147,9 +147,9 @@ public class TbFaceManager {
             while (matcher2.find()) {
                 String group2 = matcher2.group();
                 String[] split = group2.split(",");
-                if (split != null && split.length == 5 && (he = aVar.he(group2)) != null) {
+                if (split != null && split.length == 5 && (ha = aVar.ha(group2)) != null) {
                     int start3 = matcher2.start();
-                    spannableString.setSpan(he, start3, group2.length() + start3, 33);
+                    spannableString.setSpan(ha, start3, group2.length() + start3, 33);
                 }
             }
             return spannableString;

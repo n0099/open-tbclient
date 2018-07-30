@@ -1,6 +1,7 @@
 package com.baidu.location;
 /* loaded from: classes2.dex */
 public final class Address {
+    public final String adcode;
     public final String address;
     public final String city;
     public final String cityCode;
@@ -26,6 +27,12 @@ public final class Address {
         private String mStreet = null;
         private String mStreetNumber = null;
         private String mAddress = null;
+        private String mAdcode = null;
+
+        public Builder adcode(String str) {
+            this.mAdcode = str;
+            return this;
+        }
 
         public Address build() {
             StringBuffer stringBuffer = new StringBuffer();
@@ -35,11 +42,15 @@ public final class Address {
             if (this.mProvince != null) {
                 stringBuffer.append(this.mProvince);
             }
-            if (this.mProvince != null && this.mCity != null && ((!this.mProvince.contains(BEI_JING) || !this.mCity.contains(BEI_JING)) && ((!this.mProvince.contains(SHANG_HAI) || !this.mCity.contains(SHANG_HAI)) && ((!this.mProvince.contains(TIAN_JIN) || !this.mCity.contains(TIAN_JIN)) && (!this.mProvince.contains(CHONG_QIN) || !this.mCity.contains(CHONG_QIN)))))) {
+            if (this.mProvince != null && this.mCity != null && !this.mProvince.equals(this.mCity)) {
                 stringBuffer.append(this.mCity);
             }
             if (this.mDistrict != null) {
-                stringBuffer.append(this.mDistrict);
+                if (this.mCity == null) {
+                    stringBuffer.append(this.mDistrict);
+                } else if (!this.mCity.equals(this.mDistrict)) {
+                    stringBuffer.append(this.mDistrict);
+                }
             }
             if (this.mStreet != null) {
                 stringBuffer.append(this.mStreet);
@@ -104,5 +115,6 @@ public final class Address {
         this.street = builder.mStreet;
         this.streetNumber = builder.mStreetNumber;
         this.address = builder.mAddress;
+        this.adcode = builder.mAdcode;
     }
 }

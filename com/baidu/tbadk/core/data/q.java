@@ -1,49 +1,114 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.ForumBookInfo;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class q {
-    private String afA;
-    private String afB;
-    private String afC;
-    private String afD;
-    private long afE;
-    private long afF;
-    private long afG;
-    private long afH;
-    private long afI;
-    private long afJ;
-    private int afl;
-    private String afx;
-    private String afy;
-    private String afz;
-    private String author;
+public class q implements com.baidu.tbadk.core.flow.a.a {
+    private String afe;
+    private String aff;
+    private String afg;
+    private String afh;
+    private boolean afi;
+    private String mTitle;
+    private String tagNameUrl;
+    private float tagRatio;
 
-    public String ub() {
-        return this.afx;
+    public q(String str, String str2, String str3) {
+        this.afe = str;
+        this.aff = str2;
+        this.mTitle = str3;
     }
 
-    public int getBookType() {
-        return this.afl;
+    public q() {
     }
 
-    public void a(ForumBookInfo forumBookInfo) {
-        if (forumBookInfo != null) {
-            this.afx = forumBookInfo.book_id;
-            this.afl = forumBookInfo.book_type.intValue();
-            this.afy = forumBookInfo.book_title;
-            this.afz = forumBookInfo.book_cover;
-            this.author = forumBookInfo.author;
-            this.afA = forumBookInfo.forum_pic;
-            this.afB = forumBookInfo.show_chapter_id;
-            this.afC = forumBookInfo.show_chapter_no;
-            this.afD = forumBookInfo.show_chapter_title;
-            this.afE = forumBookInfo.history_page_id.longValue();
-            this.afF = forumBookInfo.history_paragraph_id.longValue();
-            this.afG = forumBookInfo.history_word_id.longValue();
-            this.afH = forumBookInfo.history_percent.longValue();
-            this.afI = forumBookInfo.show_page_id.longValue();
-            this.afJ = forumBookInfo.show_paragraph_id.longValue();
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.afe;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String tP() {
+        return this.aff;
+    }
+
+    public String getImageUrl() {
+        return this.afe;
+    }
+
+    public void setImageUrl(String str) {
+        this.afe = str;
+    }
+
+    public String getLinkUrl() {
+        return this.aff;
+    }
+
+    public void setLinkUrl(String str) {
+        this.aff = str;
+    }
+
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    public String tQ() {
+        return this.tagNameUrl;
+    }
+
+    public float tR() {
+        return this.tagRatio;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: tS */
+    public q clone() {
+        q qVar = new q();
+        qVar.afe = this.afe;
+        qVar.aff = this.aff;
+        qVar.mTitle = this.mTitle;
+        qVar.afg = this.afg;
+        qVar.afh = this.afh;
+        qVar.tagNameUrl = this.tagNameUrl;
+        qVar.tagRatio = this.tagRatio;
+        return qVar;
+    }
+
+    public void b(HeadImgs headImgs) {
+        if (headImgs != null) {
+            this.afe = headImgs.img_url;
+            this.aff = headImgs.pc_url;
+            this.tagNameUrl = headImgs.tag_name_url;
+            String str = headImgs.tag_name_wh;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    int g = com.baidu.adp.lib.g.b.g(split[0], 1);
+                    int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    if (g2 != 0) {
+                        this.tagRatio = g / g2;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (headImgs.title != null) {
+                this.mTitle = headImgs.title.trim();
+            }
+            if (headImgs.subtitle != null) {
+                this.afg = headImgs.subtitle.trim();
+            }
+            if (headImgs.btn_text != null) {
+                this.afh = headImgs.btn_text.trim();
+            }
         }
+    }
+
+    public boolean tT() {
+        return this.afi;
+    }
+
+    public void an(boolean z) {
+        this.afi = z;
     }
 }

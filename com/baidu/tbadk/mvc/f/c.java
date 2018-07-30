@@ -28,7 +28,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     protected S aSj;
     private NoDataViewFactory.b aTa;
     private FrameLayout.LayoutParams aTb;
-    protected List<D> agK;
+    protected List<D> agd;
     protected final List<H> aSR = new ArrayList();
     protected final SparseArray<H> aSS = new SparseArray<>();
     protected boolean aSV = true;
@@ -38,79 +38,79 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         this.aSU = viewEventCenter;
     }
 
-    public void I(List<D> list) {
+    public void H(List<D> list) {
         if (list != null) {
-            if (this.agK == null) {
-                this.agK = new ArrayList();
+            if (this.agd == null) {
+                this.agd = new ArrayList();
             }
-            this.agK.addAll(list);
+            this.agd.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void E(D d) {
-        if (d != null && this.agK != null) {
-            this.agK.remove(d);
+        if (d != null && this.agd != null) {
+            this.agd.remove(d);
             notifyDataSetChanged();
         }
     }
 
-    public void J(List<D> list) {
-        K(list);
+    public void I(List<D> list) {
+        J(list);
         notifyDataSetChanged();
     }
 
     public void F(D d) {
         H h;
-        if (d != null && this.agK != null && this.agK.contains(d) && (h = this.aSS.get(this.agK.indexOf(d))) != null) {
+        if (d != null && this.agd != null && this.agd.contains(d) && (h = this.aSS.get(this.agd.indexOf(d))) != null) {
             h.G(d);
         }
     }
 
-    protected void K(List<D> list) {
+    protected void J(List<D> list) {
         if (list != null) {
-            if (this.agK == null) {
-                this.agK = new ArrayList();
+            if (this.agd == null) {
+                this.agd = new ArrayList();
             }
-            this.agK.clear();
-            this.agK.addAll(list);
+            this.agd.clear();
+            this.agd.addAll(list);
             this.aSS.clear();
         }
     }
 
     public List<D> getDataList() {
-        return this.agK == null ? new ArrayList() : new ArrayList(this.agK);
+        return this.agd == null ? new ArrayList() : new ArrayList(this.agd);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.agK == null) {
+        if (this.agd == null) {
             return 0;
         }
-        if (this.agK.size() == 0 && this.aSV) {
+        if (this.agd.size() == 0 && this.aSV) {
             return 1;
         }
-        return this.agK.size();
+        return this.agd.size();
     }
 
-    public int Kh() {
-        if (this.agK == null) {
+    public int Kc() {
+        if (this.agd == null) {
             return 0;
         }
-        return this.agK.size();
+        return this.agd.size();
     }
 
     @Override // android.widget.Adapter
     public D getItem(int i) {
-        if (this.agK != null && this.agK.size() != 0 && i >= 0 && i < this.agK.size()) {
-            return this.agK.get(i);
+        if (this.agd != null && this.agd.size() != 0 && i >= 0 && i < this.agd.size()) {
+            return this.agd.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.agK != null && this.agK.size() != 0 && i >= 0 && i < this.agK.size()) {
+        if (this.agd != null && this.agd.size() != 0 && i >= 0 && i < this.agd.size()) {
             return i;
         }
         return 0L;
@@ -178,7 +178,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ki() {
+    public void Kd() {
         if (this.aSX != null && this.aSW != null) {
             this.aSX.removeView(this.aSW);
             this.aSW = null;
@@ -186,7 +186,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View Kj() {
+    public View Ke() {
         if (this.aSX == null) {
             this.aSX = new FrameLayout(this.aST.getPageActivity());
         }
@@ -217,12 +217,12 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         }
     }
 
-    public void bW(boolean z) {
+    public void bU(boolean z) {
         this.aSV = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Kk() {
-        return this.agK != null && this.agK.size() == 0;
+    public boolean Kf() {
+        return this.agd != null && this.agd.size() == 0;
     }
 }

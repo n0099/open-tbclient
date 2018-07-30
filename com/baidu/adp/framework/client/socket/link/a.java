@@ -10,7 +10,7 @@ public interface a {
 
     void a(k.a aVar);
 
-    boolean d(int i, String str);
+    boolean e(int i, String str);
 
     void h(Map<String, String> map);
 }

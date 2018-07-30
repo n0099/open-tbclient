@@ -24,18 +24,18 @@ import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
 /* loaded from: classes3.dex */
 public class a extends c<ForumDetailActivity> {
-    private View.OnClickListener abB;
-    private NoNetworkView buT;
-    private ForumDetailActivity emX;
-    private LinearLayout ena;
-    private CustomScrollView enb;
-    private ItemHeaderView enc;
-    private ItemInfoView ene;
-    private ItemMsgManage enf;
-    private ItemEmotionView eng;
-    private ItemHotThreadView enh;
-    private ItemFootNavView eni;
-    private com.baidu.tbadk.core.dialog.a enj;
+    private View.OnClickListener abe;
+    private NoNetworkView bvz;
+    private ForumDetailActivity eqQ;
+    private LinearLayout eqT;
+    private CustomScrollView eqU;
+    private ItemHeaderView eqV;
+    private ItemInfoView eqW;
+    private ItemMsgManage eqX;
+    private ItemEmotionView eqY;
+    private ItemHotThreadView eqZ;
+    private ItemFootNavView era;
+    private com.baidu.tbadk.core.dialog.a erb;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private ProgressBar mProgressBar;
@@ -43,52 +43,52 @@ public class a extends c<ForumDetailActivity> {
 
     public a(ForumDetailActivity forumDetailActivity) {
         super(forumDetailActivity.getPageContext());
-        this.emX = forumDetailActivity;
+        this.eqQ = forumDetailActivity;
         initUI();
     }
 
     private void initUI() {
-        this.ena = (LinearLayout) this.emX.findViewById(d.g.scoll_view_ll);
-        TextView textView = new TextView(this.emX.getActivity());
+        this.eqT = (LinearLayout) this.eqQ.findViewById(d.g.scoll_view_ll);
+        TextView textView = new TextView(this.eqQ.getActivity());
         textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.ena.addView(textView, 0);
-        this.mNavigationBar = (NavigationBar) this.emX.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.emX.getPageContext().getString(d.k.forum_detail_title));
+        this.eqT.addView(textView, 0);
+        this.mNavigationBar = (NavigationBar) this.eqQ.findViewById(d.g.view_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.eqQ.getPageContext().getString(d.j.forum_detail_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.buT = (NoNetworkView) this.emX.findViewById(d.g.no_network_view);
-        this.enb = (CustomScrollView) this.emX.findViewById(d.g.scoll_view);
-        this.enb.setOnTouchListener(new View$OnTouchListenerC0174a());
-        this.enc = (ItemHeaderView) this.emX.findViewById(d.g.item_header);
-        this.ene = (ItemInfoView) this.emX.findViewById(d.g.item_info);
-        this.enf = (ItemMsgManage) this.emX.findViewById(d.g.item_msg_manage);
-        this.eng = (ItemEmotionView) this.emX.findViewById(d.g.item_emotion_manage);
-        this.enh = (ItemHotThreadView) this.emX.findViewById(d.g.item_hot_thread);
-        this.eni = (ItemFootNavView) this.emX.findViewById(d.g.item_foot_nav);
-        this.eni.setClickable(true);
-        this.mRootView = this.emX.findViewById(d.g.root_rl);
-        aJf();
-        this.enf.setMsgOnClickListener(this.emX);
-        this.eng.setEmotionOnClickListener(this.emX);
-        this.enf.setSwitchChangeListener(this.emX);
+        this.bvz = (NoNetworkView) this.eqQ.findViewById(d.g.no_network_view);
+        this.eqU = (CustomScrollView) this.eqQ.findViewById(d.g.scoll_view);
+        this.eqU.setOnTouchListener(new View$OnTouchListenerC0173a());
+        this.eqV = (ItemHeaderView) this.eqQ.findViewById(d.g.item_header);
+        this.eqW = (ItemInfoView) this.eqQ.findViewById(d.g.item_info);
+        this.eqX = (ItemMsgManage) this.eqQ.findViewById(d.g.item_msg_manage);
+        this.eqY = (ItemEmotionView) this.eqQ.findViewById(d.g.item_emotion_manage);
+        this.eqZ = (ItemHotThreadView) this.eqQ.findViewById(d.g.item_hot_thread);
+        this.era = (ItemFootNavView) this.eqQ.findViewById(d.g.item_foot_nav);
+        this.era.setClickable(true);
+        this.mRootView = this.eqQ.findViewById(d.g.root_rl);
+        aKg();
+        this.eqX.setMsgOnClickListener(this.eqQ);
+        this.eqY.setEmotionOnClickListener(this.eqQ);
+        this.eqX.setSwitchChangeListener(this.eqQ);
     }
 
     public void a(RecommendForumInfo recommendForumInfo, boolean z, ManagerApplyInfo managerApplyInfo) {
-        this.enc.setData(recommendForumInfo);
-        this.ene.setData(recommendForumInfo);
-        this.enf.setData(recommendForumInfo, z, managerApplyInfo);
-        this.eni.setData(recommendForumInfo, this.emX);
+        this.eqV.setData(recommendForumInfo);
+        this.eqW.setData(recommendForumInfo);
+        this.eqX.setData(recommendForumInfo, z, managerApplyInfo);
+        this.era.setData(recommendForumInfo, this.eqQ);
     }
 
     public void a(BarEmotionResponseMessage.ForumEmotionData forumEmotionData) {
-        this.eng.setEmotionData(forumEmotionData);
+        this.eqY.setEmotionData(forumEmotionData);
     }
 
-    public void S(List<SimpleThreadInfo> list) {
-        this.enh.setData(list);
+    public void R(List<SimpleThreadInfo> list) {
+        this.eqZ.setData(list);
     }
 
-    public void ayD() {
+    public void azi() {
         this.mProgressBar.setVisibility(8);
     }
 
@@ -96,68 +96,68 @@ public class a extends c<ForumDetailActivity> {
         this.mProgressBar.setVisibility(0);
     }
 
-    private ProgressBar aJf() {
-        this.mProgressBar = new ProgressBar(this.emX.getPageContext().getPageActivity());
+    private ProgressBar aKg() {
+        this.mProgressBar = new ProgressBar(this.eqQ.getPageContext().getPageActivity());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
         this.mProgressBar.setLayoutParams(layoutParams);
-        this.mProgressBar.setIndeterminateDrawable(this.emX.getPageContext().getResources().getDrawable(d.f.progressbar));
+        this.mProgressBar.setIndeterminateDrawable(this.eqQ.getPageContext().getResources().getDrawable(d.f.progressbar));
         this.mProgressBar.setVisibility(8);
-        ((ViewGroup) this.emX.findViewById(16908290)).addView(this.mProgressBar);
+        ((ViewGroup) this.eqQ.findViewById(16908290)).addView(this.mProgressBar);
         return this.mProgressBar;
     }
 
     public void onChangeSkinType(int i) {
-        this.emX.getLayoutMode().setNightMode(i == 1);
-        this.emX.getLayoutMode().onModeChanged(this.mRootView);
+        this.eqQ.getLayoutMode().setNightMode(i == 1);
+        this.eqQ.getLayoutMode().onModeChanged(this.mRootView);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.buT.onChangeSkinType(getPageContext(), i);
-        this.enc.a(this.emX, i);
-        this.ene.a(this.emX, i);
-        this.enf.a(this.emX, i);
-        this.enh.a(this.emX, i);
-        this.eni.a(this.emX, i);
+        this.bvz.onChangeSkinType(getPageContext(), i);
+        this.eqV.a(this.eqQ, i);
+        this.eqW.a(this.eqQ, i);
+        this.eqX.a(this.eqQ, i);
+        this.eqZ.a(this.eqQ, i);
+        this.era.a(this.eqQ, i);
     }
 
     public void onResume() {
-        this.eni.e(this.emX);
+        this.era.e(this.eqQ);
     }
 
-    public void aJg() {
-        if (this.enj == null) {
-            this.enj = new com.baidu.tbadk.core.dialog.a(this.emX.getPageContext().getPageActivity());
-            this.enj.cd(d.k.officical_bar_info_clean_alert);
-            this.enj.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.forum.detail.a.1
+    public void aKh() {
+        if (this.erb == null) {
+            this.erb = new com.baidu.tbadk.core.dialog.a(this.eqQ.getPageContext().getPageActivity());
+            this.erb.cf(d.j.officical_bar_info_clean_alert);
+            this.erb.a(d.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.forum.detail.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    a.this.enj.dismiss();
-                    a.this.emX.clearHistory();
+                    a.this.erb.dismiss();
+                    a.this.eqQ.clearHistory();
                 }
             });
-            this.enj.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.im.forum.detail.a.2
+            this.erb.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.im.forum.detail.a.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    a.this.enj.dismiss();
+                    a.this.erb.dismiss();
                 }
             });
         }
-        this.enj.b(getPageContext()).xn();
+        this.erb.b(getPageContext()).xf();
     }
 
-    public NoNetworkView aJh() {
-        return this.buT;
+    public NoNetworkView aKi() {
+        return this.bvz;
     }
 
     public void b(View.OnClickListener onClickListener) {
-        this.abB = onClickListener;
+        this.abe = onClickListener;
     }
 
     public void setSwitch(boolean z) {
-        this.enf.setSwitch(z);
+        this.eqX.setSwitch(z);
     }
 
     public void a(RecommendForumInfo recommendForumInfo, boolean z) {
-        this.enf.setShowState(recommendForumInfo, z);
+        this.eqX.setShowState(recommendForumInfo, z);
     }
 
     public void hideNoDataView() {
@@ -166,34 +166,34 @@ public class a extends c<ForumDetailActivity> {
         }
     }
 
-    public void il(int i) {
+    public void it(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.emX.getPageContext().getPageActivity(), this.ena, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 100), NoDataViewFactory.d.ds(i), null);
-            this.mNoDataView.setOnClickListener(this.abB);
+            this.mNoDataView = NoDataViewFactory.a(this.eqQ.getPageContext().getPageActivity(), this.eqT, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 100), NoDataViewFactory.d.du(i), null);
+            this.mNoDataView.setOnClickListener(this.abe);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.ds(i));
-        this.mNoDataView.onChangeSkinType(this.emX.getPageContext(), TbadkApplication.getInst().getSkinType());
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.du(i));
+        this.mNoDataView.onChangeSkinType(this.eqQ.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.im.forum.detail.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnTouchListenerC0174a implements View.OnTouchListener {
-        private View$OnTouchListenerC0174a() {
+    public class View$OnTouchListenerC0173a implements View.OnTouchListener {
+        private View$OnTouchListenerC0173a() {
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             switch (motionEvent.getAction()) {
                 case 0:
-                    a.this.eni.hs(false);
+                    a.this.era.hv(false);
                     break;
                 case 1:
-                    a.this.eni.hs(true);
+                    a.this.era.hv(true);
                     break;
                 case 2:
-                    a.this.eni.hs(false);
+                    a.this.era.hv(false);
                     break;
             }
             return false;
@@ -201,7 +201,7 @@ public class a extends c<ForumDetailActivity> {
     }
 
     public void b(RecommendForumInfo recommendForumInfo, boolean z) {
-        this.eni.hr(z);
-        this.enf.setShowState(recommendForumInfo, z);
+        this.era.hu(z);
+        this.eqX.setShowState(recommendForumInfo, z);
     }
 }

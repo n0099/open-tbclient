@@ -45,7 +45,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.wM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this, org.aspectj.a.a.a.wb(i)));
         this.version = i;
     }
 
@@ -60,7 +60,7 @@ public abstract class AbstractFullBox extends AbstractBox implements FullBox {
 
     @Override // com.coremedia.iso.boxes.FullBox
     public void setFlags(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wb(i)));
         this.flags = i;
     }
 

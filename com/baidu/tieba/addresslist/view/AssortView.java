@@ -12,15 +12,15 @@ import com.baidu.tbadk.coreExtra.relationship.c;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class AssortView extends View {
-    private a bpz;
+    private a bqg;
     private Paint mPaint;
     private int mPosition;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Rg();
+        void Rn();
 
-        void iM(String str);
+        void iJ(String str);
     }
 
     public AssortView(Context context) {
@@ -46,7 +46,7 @@ public class AssortView extends View {
     }
 
     public void setOnTouchListener(a aVar) {
-        this.bpz = aVar;
+        this.bqg = aVar;
     }
 
     @Override // android.view.View
@@ -60,7 +60,7 @@ public class AssortView extends View {
         for (int i = 0; i < length2; i++) {
             this.mPaint.setAntiAlias(true);
             this.mPaint.setTypeface(Typeface.DEFAULT_BOLD);
-            this.mPaint.setColor(am.getColor(d.C0142d.cp_cont_c));
+            this.mPaint.setColor(am.getColor(d.C0140d.cp_cont_c));
             this.mPaint.setTextSize(26.0f * f);
             canvas.drawText(c.aFQ[i], (width / 2.0f) - (this.mPaint.measureText(c.aFQ[i]) / 2.0f), (length * i) + length, this.mPaint);
             this.mPaint.reset();
@@ -80,22 +80,22 @@ public class AssortView extends View {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.mPosition = y;
-                    if (this.bpz != null) {
-                        this.bpz.iM(c.aFQ[this.mPosition]);
+                    if (this.bqg != null) {
+                        this.bqg.iJ(c.aFQ[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
-                    if (this.bpz != null) {
-                        this.bpz.Rg();
+                    if (this.bqg != null) {
+                        this.bqg.Rn();
                     }
                     this.mPosition = -1;
                     return true;
                 case 2:
                     if (this.mPosition != y) {
                         this.mPosition = y;
-                        if (this.bpz != null) {
-                            this.bpz.iM(c.aFQ[this.mPosition]);
+                        if (this.bqg != null) {
+                            this.bqg.iJ(c.aFQ[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -106,8 +106,8 @@ public class AssortView extends View {
             }
         }
         this.mPosition = -1;
-        if (this.bpz != null) {
-            this.bpz.Rg();
+        if (this.bqg != null) {
+            this.bqg.Rn();
             return true;
         }
         return true;

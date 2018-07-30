@@ -1,41 +1,31 @@
 package com.baidu.location;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.location.h.h;
-import com.baidu.location.h.i;
+import com.baidu.location.c.a;
+import com.baidu.location.d.g;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
 /* loaded from: classes2.dex */
 public class f extends Service {
-    private static final String jarFileName = "app.jar";
+    LLSInterface a = null;
+    LLSInterface b = null;
+    LLSInterface c = null;
     public static String replaceFileName = "repll.jar";
     public static Context mC = null;
     public static boolean isServing = false;
-    LLSInterface libJar = null;
-    LLSInterface libNat = null;
-    LLSInterface lib = null;
+    public static boolean isStartedServing = false;
 
-    public static float getFrameVersion() {
-        return 6.23f;
-    }
-
-    public static String getJarFileName() {
-        return jarFileName;
-    }
-
-    public static Context getServiceContext() {
-        return mC;
-    }
-
-    private boolean readConf(File file) {
+    private boolean a(File file) {
         int readInt;
         boolean z = false;
         try {
-            File file2 = new File(h.a + "/grtcf.dat");
+            File file2 = new File(g.h() + "/grtcfrsa.dat");
             if (file2.exists()) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
                 randomAccessFile.seek(200L);
@@ -43,8 +33,8 @@ public class f extends Service {
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
                     String str = new String(bArr);
-                    String a = i.a(file);
-                    if (str != null && a != null && a.equals(str)) {
+                    String a = g.a(file, "SHA-256");
+                    if (str != null && a != null && g.k(a, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                         z = true;
                     }
                 }
@@ -55,55 +45,90 @@ public class f extends Service {
         return z;
     }
 
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return this.lib.onBind(intent);
+    public static float getFrameVersion() {
+        return 7.42f;
+    }
+
+    public static String getJarFileName() {
+        return "app.jar";
+    }
+
+    public static Context getServiceContext() {
+        return mC;
     }
 
     @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return this.c.onBind(intent);
+    }
+
+    @Override // android.app.Service
+    @SuppressLint({"NewApi"})
     public void onCreate() {
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.libNat = new com.baidu.location.g.a();
+        this.b = new a();
         try {
-            File file = new File(i.g() + File.separator + replaceFileName);
-            File file2 = new File(i.g() + File.separator + jarFileName);
+            File file = new File(g.h() + File.separator + replaceFileName);
+            File file2 = new File(g.h() + File.separator + "app.jar");
             if (file.exists()) {
                 if (file2.exists()) {
                     file2.delete();
                 }
                 file.renameTo(file2);
             }
-            if (file2.exists()) {
-                this.libJar = (LLSInterface) new DexClassLoader(i.g() + File.separator + jarFileName, i.g(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+            if (file2.exists() && a(new File(g.h() + File.separator + "app.jar"))) {
+                this.a = (LLSInterface) new DexClassLoader(g.h() + File.separator + "app.jar", g.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
-            this.libJar = null;
+            this.a = null;
         }
-        if (this.libJar == null || this.libJar.getVersion() < this.libNat.getVersion() || !readConf(new File(i.g() + File.separator + jarFileName))) {
-            this.lib = this.libNat;
-            this.libJar = null;
+        if (this.a == null || this.a.getVersion() < this.b.getVersion()) {
+            this.c = this.b;
+            this.a = null;
         } else {
-            this.lib = this.libJar;
-            this.libNat = null;
+            this.c = this.a;
+            this.b = null;
         }
         isServing = true;
-        this.lib.onCreate(this);
+        this.c.onCreate(this);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         isServing = false;
-        this.lib.onDestroy();
+        this.c.onDestroy();
+        if (isStartedServing) {
+            stopForeground(true);
+        }
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
-        return this.lib.onStartCommand(intent, i, i2);
+        if (intent != null) {
+            try {
+                int intExtra = intent.getIntExtra("command", 0);
+                if (intExtra == 1) {
+                    startForeground(intent.getIntExtra("id", 0), (Notification) intent.getParcelableExtra("notification"));
+                    isStartedServing = true;
+                } else if (intExtra == 2) {
+                    stopForeground(intent.getBooleanExtra("removenotify", true));
+                    isStartedServing = false;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return this.c.onStartCommand(intent, i, i2);
+    }
+
+    @Override // android.app.Service
+    public void onTaskRemoved(Intent intent) {
+        this.c.onTaskRemoved(intent);
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return this.lib.onUnBind(intent);
+        return this.c.onUnBind(intent);
     }
 }

@@ -11,26 +11,26 @@ public interface l<T> {
     public static class b<T> {
         public String key;
         public T value;
-        public long xL;
-        public long xY;
+        public long xF;
+        public long xS;
     }
 
     /* loaded from: classes.dex */
     public interface c<T> extends l<T> {
-        String hg();
+        String hf();
 
-        k<T> hh();
+        k<T> hg();
 
-        void hi();
+        void hh();
     }
 
     void a(String str, a<T> aVar);
 
     void a(String str, T t, long j);
 
-    b<T> an(String str);
+    b<T> ao(String str);
 
-    void ao(String str);
+    void ap(String str);
 
     void b(String str, T t, long j);
 

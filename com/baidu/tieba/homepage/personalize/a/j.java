@@ -15,17 +15,17 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), o.cAo);
+        super(tbPageContext.getPageActivity(), o.cCT);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: Y */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
         u uVar = new u(this.mPageContext);
-        uVar.u("c10718", "c10719", "c10742");
+        uVar.x("c10718", "c10719", "c10742");
         return new com.baidu.tieba.card.a.a(uVar);
     }
 
@@ -34,9 +34,9 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.aja().a(oVar);
-        aVar.aja().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.aiz().a(new an("c10718").ah(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.cAp)));
+        aVar.ajz().a(oVar);
+        aVar.ajz().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        v.aiY().a(new an("c10718").af(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.cCU)));
         return aVar.getView();
     }
 }

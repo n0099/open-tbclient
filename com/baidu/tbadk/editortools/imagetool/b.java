@@ -8,7 +8,7 @@ public class b extends k {
         super(context, (String) null, 11);
         this.aMW = true;
         this.aMV = 6;
-        this.aMf = c.i(context, i);
+        this.aMf = c.j(context, i);
         this.aMX = new int[]{12, 13, 9};
     }
 }

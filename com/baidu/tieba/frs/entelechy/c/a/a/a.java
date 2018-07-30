@@ -13,28 +13,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends b {
-    private b.InterfaceC0104b als;
-    private FrsFragment dla;
-    private int dsh;
+    private b.InterfaceC0101b akR;
+    private FrsFragment dnR;
+    private int duU;
     private List<x> mDatas;
 
-    public a(FrsFragment frsFragment, b.InterfaceC0104b interfaceC0104b) {
+    public a(FrsFragment frsFragment, b.InterfaceC0101b interfaceC0101b) {
         super(frsFragment.getActivity());
-        this.dsh = 0;
-        if (frsFragment != null && interfaceC0104b != null) {
-            this.dla = frsFragment;
-            this.als = interfaceC0104b;
+        this.duU = 0;
+        if (frsFragment != null && interfaceC0101b != null) {
+            this.dnR = frsFragment;
+            this.akR = interfaceC0101b;
         }
     }
 
     public void setData(List<x> list) {
-        if (!w.A(list)) {
+        if (!w.z(list)) {
             this.mDatas = new ArrayList();
             this.mDatas.addAll(list);
             if (TbadkCoreApplication.isLogin()) {
                 x xVar = new x();
-                xVar.name = this.dla.getResources().getString(d.k.attention_users_thread);
-                xVar.dmC = 6;
+                xVar.name = this.dnR.getResources().getString(d.j.attention_users_thread);
+                xVar.dpu = 6;
                 this.mDatas.add(xVar);
             }
             ArrayList arrayList = new ArrayList();
@@ -44,20 +44,20 @@ public class a extends b {
                 }
             }
             reset();
-            a(arrayList, this.als);
+            a(arrayList, this.akR);
         }
     }
 
-    public List<x> awQ() {
+    public List<x> axv() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b xq() {
-        View cl;
-        super.xq();
-        if (this.mDatas != null && (cl = cl(this.mDatas.size())) != null && (cl.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
-            am.h((TextView) cl.findViewById(d.g.dialog_item_btn), d.C0142d.cp_link_tip_a);
+    public b xi() {
+        View cn;
+        super.xi();
+        if (this.mDatas != null && (cn = cn(this.mDatas.size())) != null && (cn.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
+            am.h((TextView) cn.findViewById(d.g.dialog_item_btn), d.C0140d.cp_link_tip_a);
         }
         return this;
     }

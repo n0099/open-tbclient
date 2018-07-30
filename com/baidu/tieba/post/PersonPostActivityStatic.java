@@ -6,18 +6,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes3.dex */
 public class PersonPostActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPostActivityConfig.class, PersonPostActivity.class);
         m.init();
-        aEz();
+        aFz();
     }
 
-    private static void aEz() {
-        az.zV().a(new az.a() { // from class: com.baidu.tieba.post.PersonPostActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.az.a
+    private static void aFz() {
+        ay.zK().a(new ay.a() { // from class: com.baidu.tieba.post.PersonPostActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 AccountData currentAccountObj;
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

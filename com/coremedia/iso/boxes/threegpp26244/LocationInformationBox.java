@@ -94,7 +94,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setRole(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wb(i)));
         this.role = i;
     }
 
@@ -104,7 +104,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setLongitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.s(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.r(d)));
         this.longitude = d;
     }
 
@@ -114,7 +114,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setLatitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.s(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.r(d)));
         this.latitude = d;
     }
 
@@ -124,7 +124,7 @@ public class LocationInformationBox extends AbstractFullBox {
     }
 
     public void setAltitude(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.s(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.r(d)));
         this.altitude = d;
     }
 

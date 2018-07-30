@@ -10,59 +10,59 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CDNLogSyncData {
-    private boolean afm;
-    private int afn;
-    private int afo;
-    private int afp = 25;
-    private int afq = 25;
-    private int afr = 10;
+    private boolean aeG;
+    private int aeH;
+    private int aeI;
+    private int aeJ = 25;
+    private int aeK = 25;
+    private int aeL = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.afp;
+        return this.aeJ;
     }
 
     public void setSuccRank(int i) {
-        this.afp = i;
+        this.aeJ = i;
     }
 
     public int getErrRank() {
-        return this.afq;
+        return this.aeK;
     }
 
     public void setErrRank(int i) {
-        this.afq = i;
+        this.aeK = i;
     }
 
     public int getSlowRank() {
-        return this.afr;
+        return this.aeL;
     }
 
     public void setSlowRank(int i) {
-        this.afr = i;
+        this.aeL = i;
     }
 
     public boolean ismSwitch() {
-        return this.afm;
+        return this.aeG;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.afm != z) {
-            a ih = t.ih();
-            ih.append(SocialConstants.PARAM_ACT, "fallback");
-            ih.append("result", z ? "1" : "0");
-            ih.append("type", "switch");
-            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, ih);
+        if (this.aeG != z) {
+            a ii = t.ii();
+            ii.append(SocialConstants.PARAM_ACT, "fallback");
+            ii.append("result", z ? "1" : "0");
+            ii.append("type", "switch");
+            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, ii);
         }
-        this.afm = z;
+        this.aeG = z;
     }
 
     public int getSlowNumber() {
-        return this.afn;
+        return this.aeH;
     }
 
     public void setSlowNumber(int i) {
-        this.afn = i;
+        this.aeH = i;
     }
 
     public int getTime() {
@@ -74,11 +74,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.afo;
+        return this.aeI;
     }
 
     public void setErrNumber(int i) {
-        this.afo = i;
+        this.aeI = i;
     }
 
     public void parseJson(String str) {
@@ -87,7 +87,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.afm = false;
+            this.aeG = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -96,30 +96,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.afm = true;
+                    this.aeG = true;
                 } else {
-                    this.afm = false;
+                    this.aeG = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.afo = optJSONObject.optInt("num");
+                    this.aeI = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.afn = optJSONObject2.optInt("num");
+                    this.aeH = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.afp = optJSONObject3.optInt("succ");
-                    this.afq = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.afr = optJSONObject3.optInt("slow");
+                    this.aeJ = optJSONObject3.optInt("succ");
+                    this.aeK = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.aeL = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.afn <= 0 || this.afo <= 0) {
-                    this.afm = false;
+                if (this.time <= 0 || this.aeH <= 0 || this.aeI <= 0) {
+                    this.aeG = false;
                 }
             } catch (Exception e) {
-                this.afm = false;
+                this.aeG = false;
                 BdLog.e(e.getMessage());
             }
         }

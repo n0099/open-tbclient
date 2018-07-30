@@ -6,7 +6,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.c.a;
-import com.baidu.tbadk.core.data.ar;
+import com.baidu.tbadk.core.data.aq;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private ar data;
+    private aq data;
     private int mErrCode;
     private String mErrMsg;
 
@@ -32,7 +32,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public ar getData() {
+    public aq getData() {
         return this.data;
     }
 
@@ -43,7 +43,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-            this.data = new ar();
+            this.data = new aq();
             this.data.parserJson(jSONObject);
         }
     }
@@ -65,9 +65,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> dB = a.xj().dB("tb.my_pages");
-                    if (dB != null) {
-                        dB.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
+                    l<String> dy = a.xb().dy("tb.my_pages");
+                    if (dy != null) {
+                        dy.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
                     }
                 }
             }

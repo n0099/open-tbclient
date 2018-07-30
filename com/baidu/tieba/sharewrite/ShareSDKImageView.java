@@ -20,7 +20,7 @@ public class ShareSDKImageView extends TbClipImageView {
     public ShareSDKImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDefaultId = d.f.pic_share_link;
-        this.mDefaultBgId = d.C0142d.cp_cont_e;
+        this.mDefaultBgId = d.C0140d.cp_cont_e;
         init();
     }
 

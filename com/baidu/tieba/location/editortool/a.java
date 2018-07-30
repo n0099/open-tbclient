@@ -20,11 +20,11 @@ public class a extends k {
         this.aMW = false;
         this.aMV = 3;
         this.aMf = new PbLocationInfoContainer(context);
-        RawLayout.a aVar = new RawLayout.a(-2, l.e(getContext(), d.e.ds48));
-        aVar.leftMargin = l.e(getContext(), d.e.ds32);
-        aVar.rightMargin = l.e(getContext(), d.e.ds32);
-        aVar.bottomMargin = l.e(getContext(), d.e.ds21);
-        aVar.topMargin = l.e(getContext(), d.e.ds21);
+        RawLayout.a aVar = new RawLayout.a(-2, l.f(getContext(), d.e.ds48));
+        aVar.leftMargin = l.f(getContext(), d.e.ds32);
+        aVar.rightMargin = l.f(getContext(), d.e.ds32);
+        aVar.bottomMargin = l.f(getContext(), d.e.ds21);
+        aVar.topMargin = l.f(getContext(), d.e.ds21);
         ((PbLocationInfoContainer) this.aMf).setLayoutParams(aVar);
         this.aMX = new int[]{20, 19};
     }

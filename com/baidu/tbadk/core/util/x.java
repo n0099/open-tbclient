@@ -6,43 +6,43 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class x implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection apL;
-    private String apM;
-    private String[] apN;
-    private String[] apO;
-    private boolean apP;
-    private a apQ;
+    private MediaScannerConnection apl;
+    private String apm;
+    private String[] apn;
+    private String[] apo;
+    private boolean apq;
+    private a apr;
     private int length;
     private Context mContext;
-    private String mPath;
+    private String wf;
 
     /* loaded from: classes.dex */
     public interface a {
-        void yV();
+        void yM();
     }
 
     public x(Context context) {
         this.mContext = context;
-        this.apL = new MediaScannerConnection(this.mContext, this);
+        this.apl = new MediaScannerConnection(this.mContext, this);
     }
 
-    public void eA(String str) {
-        this.mPath = str;
-        String substring = this.mPath.substring(this.mPath.lastIndexOf("."));
-        this.apM = "image/jpeg";
+    public void ey(String str) {
+        this.wf = str;
+        String substring = this.wf.substring(this.wf.lastIndexOf("."));
+        this.apm = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.apM = "image/gif";
+            this.apm = "image/gif";
         }
-        this.apL.connect();
+        this.apl.connect();
     }
 
-    public void eB(String str) {
-        this.mPath = str;
-        this.apM = eC(str);
-        this.apL.connect();
+    public void ez(String str) {
+        this.wf = str;
+        this.apm = eA(str);
+        this.apl.connect();
     }
 
-    private String eC(String str) {
+    private String eA(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -52,37 +52,37 @@ public class x implements MediaScannerConnection.MediaScannerConnectionClient {
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.apM)) {
-            this.apL.scanFile(this.mPath, this.apM);
+        if (!TextUtils.isEmpty(this.wf) && !TextUtils.isEmpty(this.apm)) {
+            this.apl.scanFile(this.wf, this.apm);
         }
-        if (this.apN != null && this.apO != null && this.apN.length == this.apO.length) {
-            int length = this.apN.length;
+        if (this.apn != null && this.apo != null && this.apn.length == this.apo.length) {
+            int length = this.apn.length;
             for (int i = 0; i < length; i++) {
-                this.apL.scanFile(this.apN[i], this.apO[i]);
+                this.apl.scanFile(this.apn[i], this.apo[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.mPath) && !TextUtils.isEmpty(this.apM) && str.equals(this.mPath)) {
-            this.apL.disconnect();
-            this.mPath = null;
-            this.apM = null;
-            this.apP = true;
-        } else if (this.apN != null && this.apO != null && this.apN.length == this.apO.length) {
+        if (!TextUtils.isEmpty(this.wf) && !TextUtils.isEmpty(this.apm) && str.equals(this.wf)) {
+            this.apl.disconnect();
+            this.wf = null;
+            this.apm = null;
+            this.apq = true;
+        } else if (this.apn != null && this.apo != null && this.apn.length == this.apo.length) {
             this.length--;
             if (this.length == 0) {
-                this.apL.disconnect();
-                this.apN = null;
-                this.apO = null;
-                this.apP = true;
+                this.apl.disconnect();
+                this.apn = null;
+                this.apo = null;
+                this.apq = true;
             } else {
-                this.apP = false;
+                this.apq = false;
             }
         }
-        if (this.apP && this.apQ != null) {
-            this.apQ.yV();
+        if (this.apq && this.apr != null) {
+            this.apr.yM();
         }
     }
 }

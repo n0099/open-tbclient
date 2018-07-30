@@ -9,29 +9,29 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.l;
 /* loaded from: classes.dex */
 public class a implements c {
-    private String mPath;
+    private String wf;
 
     @Override // com.airbnb.lottie.c
     public Bitmap a(g gVar) {
-        if (ap.isEmpty(this.mPath)) {
+        if (ap.isEmpty(this.wf)) {
             return null;
         }
-        String str = this.mPath + gVar.bB() + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.ig().a(str, 36, new Object[0]);
-        if (aVar != null && aVar.mZ() != null) {
-            Bitmap mZ = aVar.mZ();
+        String str = this.wf + gVar.bz() + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.ih().a(str, 36, new Object[0]);
+        if (aVar != null && aVar.nb() != null) {
+            Bitmap nb = aVar.nb();
             try {
-                return mZ.copy(mZ.getConfig(), false);
+                return nb.copy(nb.getConfig(), false);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.f.c.ig().a(str, 36, null, null);
+        com.baidu.adp.lib.f.c.ih().a(str, 36, null, null);
         return null;
     }
 
     public void setPath(String str) {
-        this.mPath = l.yv() + str + "/";
+        this.wf = l.ym() + str + "/";
     }
 }

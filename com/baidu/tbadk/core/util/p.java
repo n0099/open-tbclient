@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class p {
-    public static String ex(String str) {
+    public static String ev(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }

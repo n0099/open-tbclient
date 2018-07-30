@@ -24,6 +24,7 @@ import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
 import com.baidu.sofire.e;
 import com.baidu.sofire.jni.Asc;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
@@ -161,7 +162,7 @@ public class U extends Thread {
             synchronized (U.class) {
                 super.run();
                 handleThreadStart();
-                if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3 || this.mOut || System.currentTimeMillis() - sLastCheckTime >= 600000) {
+                if (this.mFrom == 1 || this.mFrom == 2 || this.mFrom == 3 || this.mOut || System.currentTimeMillis() - sLastCheckTime >= KeepJobService.JOB_CHECK_PERIODIC) {
                     if (com.baidu.sofire.b.e.d(this.context)) {
                         sLastCheckTime = System.currentTimeMillis();
                     }

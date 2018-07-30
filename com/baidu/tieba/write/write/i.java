@@ -23,81 +23,81 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.model.a {
-    private com.baidu.tbadk.core.util.b.a bkp;
-    private ForumWriteData hiU;
-    private h hxk;
-    private com.baidu.tbadk.core.dialog.a hxl;
-    private StickerModel hzE;
+    private com.baidu.tbadk.core.util.b.a bkU;
+    private StickerModel hAM;
+    private ForumWriteData hki;
+    private h hyr;
+    private com.baidu.tbadk.core.dialog.a hys;
     private TbPageContext<WriteMultiImgsActivity> mPageContext;
-    public MultiImagePagerAdapter hzC = null;
-    private int hzD = 0;
-    private int hzF = 0;
-    private WriteImagesInfo hzG = null;
+    public MultiImagePagerAdapter hAK = null;
+    private int hAL = 0;
+    private int hAN = 0;
+    private WriteImagesInfo hAO = null;
     public int mSkinType = TbadkCoreApplication.getInst().getSkinType();
-    private HashMap<String, String> hzH = new HashMap<>();
+    private HashMap<String, String> hAP = new HashMap<>();
 
     public i(TbPageContext<WriteMultiImgsActivity> tbPageContext, h hVar, Bundle bundle) {
         this.mPageContext = tbPageContext;
-        this.hxk = hVar;
+        this.hyr = hVar;
         initData(bundle);
         initListener();
-        bIy();
+        bHk();
     }
 
-    public void bIy() {
+    public void bHk() {
         if (this.mPageContext != null) {
-            if (!com.baidu.adp.lib.util.j.jD()) {
+            if (!com.baidu.adp.lib.util.j.jE()) {
                 if (this.mPageContext.getContext() != null) {
-                    l.showToast(this.mPageContext.getContext(), d.k.neterror);
+                    l.showToast(this.mPageContext.getContext(), d.j.neterror);
                     return;
                 }
                 return;
             }
-            if (this.hzE == null) {
-                this.hzE = new StickerModel(this.mPageContext);
+            if (this.hAM == null) {
+                this.hAM = new StickerModel(this.mPageContext);
             }
-            this.hzE.LoadData();
-            this.hzE.a(this);
+            this.hAM.LoadData();
+            this.hAM.a(this);
         }
     }
 
     @Override // com.baidu.tieba.write.write.model.a
-    public void dY(List<String> list) {
-        if (this.hxk != null) {
-            this.hxk.dX(list);
+    public void dU(List<String> list) {
+        if (this.hyr != null) {
+            this.hyr.dT(list);
         }
     }
 
     private void initListener() {
-        if (this.hxk != null) {
-            if (this.hxk.hzv != null) {
-                this.hxk.hzv.w(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.i.1
+        if (this.hyr != null) {
+            if (this.hyr.hAD != null) {
+                this.hyr.hAD.u(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.i.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (view.getTag() != null) {
-                            i.this.hzC.I(Integer.parseInt(view.getTag().toString()), i.this.bIA());
+                            i.this.hAK.H(Integer.parseInt(view.getTag().toString()), i.this.bHm());
                         }
                     }
                 });
             }
-            if (this.hxk.hzy != null) {
-                this.hxk.hzy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.i.2
+            if (this.hyr.hAG != null) {
+                this.hyr.hAG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.i.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (i.this.mPageContext != null) {
                             Activity pageActivity = i.this.mPageContext.getPageActivity();
-                            if (i.this.bkp == null) {
-                                i.this.bkp = new com.baidu.tbadk.core.util.b.a();
+                            if (i.this.bkU == null) {
+                                i.this.bkU = new com.baidu.tbadk.core.util.b.a();
                             }
-                            i.this.bkp.Aj();
-                            i.this.bkp.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-                            if (!i.this.bkp.u(pageActivity)) {
-                                i.this.hzC.nL(false);
-                                if (i.this.hxk != null) {
-                                    if (i.this.hzG == null || i.this.hzG.getChosedFiles() == null || i.this.hzG.getChosedFiles().size() <= 0 || !i.this.hzG.isOriginalImg() || i.this.hzF <= 0 || !i.this.bJB()) {
-                                        i.this.hxk.b(true, i.this.hzG);
+                            i.this.bkU.zY();
+                            i.this.bkU.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+                            if (!i.this.bkU.u(pageActivity)) {
+                                i.this.hAK.nz(false);
+                                if (i.this.hyr != null) {
+                                    if (i.this.hAO == null || i.this.hAO.getChosedFiles() == null || i.this.hAO.getChosedFiles().size() <= 0 || !i.this.hAO.isOriginalImg() || i.this.hAN <= 0 || !i.this.bIo()) {
+                                        i.this.hyr.b(true, i.this.hAO);
                                     } else {
-                                        i.this.hxk.bJy();
+                                        i.this.hyr.bIl();
                                     }
                                 }
                             }
@@ -115,8 +115,8 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         if (bundle != null) {
             String string = bundle.getString("OutState_Write_Img_Info");
             i = bundle.getInt("OutState_Current_Index");
-            this.hzD = bundle.getInt("OutState_Write_Entrance");
-            this.hiU = (ForumWriteData) bundle.getSerializable("OutState_Write_Info_Data");
+            this.hAL = bundle.getInt("OutState_Write_Entrance");
+            this.hki = (ForumWriteData) bundle.getSerializable("OutState_Write_Info_Data");
             this.mSkinType = bundle.getInt(WriteMulitImageActivityConfig.SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
             str = string;
         } else if (this.mPageContext == null || this.mPageContext.getPageActivity() == null || (intent = this.mPageContext.getPageActivity().getIntent()) == null) {
@@ -124,56 +124,56 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
         } else {
             String stringExtra = intent.getStringExtra(WriteMulitImageActivityConfig.EXTRA_WRITE_IMG_INFO_JSON_STR);
             i = intent.getIntExtra(WriteMulitImageActivityConfig.EXTRA_IMG_CURRENT_INDEX, 0);
-            this.hzD = intent.getIntExtra(WriteMulitImageActivityConfig.FOURM_WRITE_ENTRANCE, 0);
-            this.hiU = (ForumWriteData) intent.getSerializableExtra(WriteMulitImageActivityConfig.FOURM_WRITE_DATA);
+            this.hAL = intent.getIntExtra(WriteMulitImageActivityConfig.FOURM_WRITE_ENTRANCE, 0);
+            this.hki = (ForumWriteData) intent.getSerializableExtra(WriteMulitImageActivityConfig.FOURM_WRITE_DATA);
             this.mSkinType = intent.getIntExtra(WriteMulitImageActivityConfig.SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
             str = stringExtra;
         }
         if (str != null && i != -1) {
-            this.hzG = new WriteImagesInfo();
-            this.hzG.parseJson(str);
-            bJz();
-            if (this.hxk != null && this.hxk.hzw != null) {
-                this.hzC = new MultiImagePagerAdapter(this.mPageContext.getOrignalPage(), this.hxk.hzw, this.hzG.getChosedFiles(), i, this, this.hxk, this.hzG.mIsFromIm);
-                this.hxk.hzw.setAdapter(this.hzC);
-                this.hxk.hzw.setCurrentItem(i, true);
+            this.hAO = new WriteImagesInfo();
+            this.hAO.parseJson(str);
+            bIm();
+            if (this.hyr != null && this.hyr.hAE != null) {
+                this.hAK = new MultiImagePagerAdapter(this.mPageContext.getOrignalPage(), this.hyr.hAE, this.hAO.getChosedFiles(), i, this, this.hyr, this.hAO.mIsFromIm);
+                this.hyr.hAE.setAdapter(this.hAK);
+                this.hyr.hAE.setCurrentItem(i, true);
                 if (i == 0) {
-                    this.hzC.onPageSelected(0);
+                    this.hAK.onPageSelected(0);
                 }
-                this.hxk.d(this.hzG);
+                this.hyr.d(this.hAO);
             }
         }
     }
 
-    private void bJz() {
-        if (this.hzG != null && this.hzG.isOriginalImg() && this.hzG.getChosedFiles() != null && this.hzG.getChosedFiles().size() != 0) {
-            Iterator<ImageFileInfo> it = this.hzG.getChosedFiles().iterator();
+    private void bIm() {
+        if (this.hAO != null && this.hAO.isOriginalImg() && this.hAO.getChosedFiles() != null && this.hAO.getChosedFiles().size() != 0) {
+            Iterator<ImageFileInfo> it = this.hAO.getChosedFiles().iterator();
             while (it.hasNext()) {
                 ImageFileInfo next = it.next();
                 if (next != null && next.hasActionsWithoutResize()) {
-                    this.hzH.put(next.getFilePath(), "1");
+                    this.hAP.put(next.getFilePath(), "1");
                 }
             }
         }
     }
 
-    public int bJA() {
-        return this.hzD;
+    public int bIn() {
+        return this.hAL;
     }
 
-    public ForumWriteData auc() {
-        return this.hiU;
+    public ForumWriteData auG() {
+        return this.hki;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bJB() {
-        if (this.hzG == null || !this.hzG.isOriginalImg() || this.hzG.getChosedFiles() == null || this.hzG.getChosedFiles().size() == 0) {
+    public boolean bIo() {
+        if (this.hAO == null || !this.hAO.isOriginalImg() || this.hAO.getChosedFiles() == null || this.hAO.getChosedFiles().size() == 0) {
             return false;
         }
-        Iterator<ImageFileInfo> it = this.hzG.getChosedFiles().iterator();
+        Iterator<ImageFileInfo> it = this.hAO.getChosedFiles().iterator();
         while (it.hasNext()) {
             ImageFileInfo next = it.next();
-            if (next != null && next.hasActionsWithoutResize() && StringUtils.isNull(this.hzH.get(next.getFilePath()))) {
+            if (next != null && next.hasActionsWithoutResize() && StringUtils.isNull(this.hAP.get(next.getFilePath()))) {
                 return true;
             }
         }
@@ -181,108 +181,108 @@ public class i implements MultiImagePagerAdapter.a, com.baidu.tieba.write.write.
     }
 
     @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.a
-    public void bIz() {
+    public void bHl() {
     }
 
     @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.a
-    public boolean bIA() {
-        return (this.hxk == null || this.hxk.hzx == null || w.A(this.hxk.hzx.getStickerViews())) ? false : true;
+    public boolean bHm() {
+        return (this.hyr == null || this.hyr.hAF == null || w.z(this.hyr.hAF.getStickerViews())) ? false : true;
     }
 
-    public void bJx() {
-        this.hzF++;
+    public void bIk() {
+        this.hAN++;
     }
 
-    public void bJC() {
-        this.hzF--;
+    public void bIp() {
+        this.hAN--;
     }
 
-    public WriteImagesInfo bJD() {
-        return this.hzG;
+    public WriteImagesInfo bIq() {
+        return this.hAO;
     }
 
-    public void nQ(boolean z) {
-        if (bIA()) {
-            this.hxk.hzw.setmDisallowSlip(true);
+    public void nE(boolean z) {
+        if (bHm()) {
+            this.hyr.hAE.setmDisallowSlip(true);
         } else {
-            this.hxk.hzw.setmDisallowSlip(false);
+            this.hyr.hAE.setmDisallowSlip(false);
         }
     }
 
     @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.a
-    public void bIx() {
-        bJC();
-        nQ(false);
+    public void bHj() {
+        bIp();
+        nE(false);
     }
 
     @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.a
-    public void J(int i, boolean z) {
-        L(i, z);
+    public void I(int i, boolean z) {
+        K(i, z);
     }
 
-    private void L(final int i, final boolean z) {
+    private void K(final int i, final boolean z) {
         if (this.mPageContext != null && this.mPageContext.getPageActivity() != null) {
-            if (this.hxl == null) {
-                this.hxl = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-                this.hxl.cd(d.k.orginal_tip);
-                this.hxl.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.i.3
+            if (this.hys == null) {
+                this.hys = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+                this.hys.cf(d.j.orginal_tip);
+                this.hys.a(d.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.i.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        if (i.this.hxl != null) {
-                            i.this.hxl.dismiss();
+                        if (i.this.hys != null) {
+                            i.this.hys.dismiss();
                         }
-                        if (i.this.hzC != null) {
-                            i.this.hzC.I(i, z);
+                        if (i.this.hAK != null) {
+                            i.this.hAK.H(i, z);
                         }
                     }
                 });
-                this.hxl.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.write.write.i.4
+                this.hys.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.write.write.i.4
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        if (i.this.hxl != null) {
-                            i.this.hxl.dismiss();
+                        if (i.this.hys != null) {
+                            i.this.hys.dismiss();
                         }
                     }
                 });
-                this.hxl.b(this.mPageContext);
+                this.hys.b(this.mPageContext);
             }
-            this.hxl.xn();
+            this.hys.xf();
         }
     }
 
-    public boolean I(final Bitmap bitmap) {
-        if (!this.hzC.bIu() || this.mPageContext == null || this.mPageContext.getPageActivity() == null) {
+    public boolean H(final Bitmap bitmap) {
+        if (!this.hAK.bHg() || this.mPageContext == null || this.mPageContext.getPageActivity() == null) {
             return false;
         }
-        if (this.hxl == null) {
-            this.hxl = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            this.hxl.cd(d.k.orginal_tip);
-            this.hxl.a(d.k.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.i.5
+        if (this.hys == null) {
+            this.hys = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+            this.hys.cf(d.j.orginal_tip);
+            this.hys.a(d.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.write.write.i.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    if (i.this.hxl != null) {
-                        i.this.hxl.dismiss();
+                    if (i.this.hys != null) {
+                        i.this.hys.dismiss();
                     }
-                    i.this.hxk.H(bitmap);
+                    i.this.hyr.G(bitmap);
                 }
             });
-            this.hxl.b(d.k.cancel, new a.b() { // from class: com.baidu.tieba.write.write.i.6
+            this.hys.b(d.j.cancel, new a.b() { // from class: com.baidu.tieba.write.write.i.6
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    if (i.this.hxl != null) {
-                        i.this.hxl.dismiss();
+                    if (i.this.hys != null) {
+                        i.this.hys.dismiss();
                     }
                 }
             });
-            this.hxl.b(this.mPageContext);
+            this.hys.b(this.mPageContext);
         }
-        this.hxl.xn();
+        this.hys.xf();
         return true;
     }
 
     public void destroy() {
-        if (this.hzE != null) {
-            this.hzE.destroy();
+        if (this.hAM != null) {
+            this.hAM.destroy();
         }
     }
 }

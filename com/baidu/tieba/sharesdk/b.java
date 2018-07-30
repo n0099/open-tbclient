@@ -35,9 +35,9 @@ public class b implements com.baidu.tbadk.coreExtra.c.b {
             }
             shareEntity.setLinkUrl(str);
             shareEntity.setLocation(dVar.aGd);
-            shareEntity.sT(i);
-            shareEntity.f(dVar.FD());
-            shareEntity.mo(dVar.aGk);
+            shareEntity.sR(i);
+            shareEntity.f(dVar.Fz());
+            shareEntity.lZ(dVar.aGk);
             Bundle bundle = new Bundle();
             bundle.putParcelable("extra_share_data", shareEntity);
             intentConfig.getIntent().putExtras(bundle);

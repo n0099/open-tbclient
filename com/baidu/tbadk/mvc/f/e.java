@@ -28,7 +28,7 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements o {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ViewEventCenter Kl() {
+    public ViewEventCenter Kg() {
         return this.aSU;
     }
 

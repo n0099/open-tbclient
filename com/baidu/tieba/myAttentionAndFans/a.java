@@ -6,26 +6,26 @@ import android.view.animation.Transformation;
 import android.widget.FrameLayout;
 /* loaded from: classes3.dex */
 public class a extends Animation {
-    private View fin;
-    private int fio;
-    private FrameLayout.LayoutParams fip;
+    private View fiA;
+    private int fiB;
+    private FrameLayout.LayoutParams fiC;
     private int mType;
 
     public a(View view, int i, int i2) {
         if (view != null) {
-            this.fin = view;
-            if (this.fin.getVisibility() == 8 && i2 > 0) {
-                this.fio = i2;
+            this.fiA = view;
+            if (this.fiA.getVisibility() == 8 && i2 > 0) {
+                this.fiB = i2;
             } else {
-                this.fio = this.fin.getMeasuredHeight();
+                this.fiB = this.fiA.getMeasuredHeight();
             }
-            this.fip = (FrameLayout.LayoutParams) view.getLayoutParams();
+            this.fiC = (FrameLayout.LayoutParams) view.getLayoutParams();
             this.mType = i;
             if (this.mType == 0) {
-                this.fip.bottomMargin = -this.fio;
+                this.fiC.bottomMargin = -this.fiB;
                 return;
             }
-            this.fip.bottomMargin = 0;
+            this.fiC.bottomMargin = 0;
         }
     }
 
@@ -34,19 +34,19 @@ public class a extends Animation {
         super.applyTransformation(f, transformation);
         if (f < 1.0f) {
             if (this.mType == 0) {
-                this.fip.bottomMargin = (-this.fio) + ((int) (this.fio * f));
+                this.fiC.bottomMargin = (-this.fiB) + ((int) (this.fiB * f));
             } else {
-                this.fip.bottomMargin = -((int) (this.fio * f));
+                this.fiC.bottomMargin = -((int) (this.fiB * f));
             }
-            this.fin.requestLayout();
+            this.fiA.requestLayout();
         } else if (this.mType == 0) {
-            this.fip.bottomMargin = 0;
-            this.fin.requestLayout();
-            this.fio = this.fin.getMeasuredHeight();
+            this.fiC.bottomMargin = 0;
+            this.fiA.requestLayout();
+            this.fiB = this.fiA.getMeasuredHeight();
         } else {
-            this.fip.bottomMargin = -this.fio;
-            this.fin.setVisibility(8);
-            this.fin.requestLayout();
+            this.fiC.bottomMargin = -this.fiB;
+            this.fiA.setVisibility(8);
+            this.fiA.requestLayout();
         }
     }
 }

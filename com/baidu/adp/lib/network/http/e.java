@@ -5,34 +5,34 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    protected f zQ = new f();
-    protected g zR = new g();
-    private LinkedList<d> zS = new LinkedList<>();
-    private d zT = null;
+    protected f zL = new f();
+    protected g zM = new g();
+    private LinkedList<d> zN = new LinkedList<>();
+    private d zO = null;
 
-    public f hV() {
-        return this.zQ;
+    public f hW() {
+        return this.zL;
     }
 
-    public g hW() {
-        return this.zR;
+    public g hX() {
+        return this.zM;
     }
 
-    public List<d> hX() {
-        return Collections.unmodifiableList(this.zS);
+    public List<d> hY() {
+        return Collections.unmodifiableList(this.zN);
     }
 
     public void a(d dVar) {
         if (dVar != null) {
-            this.zS.add(dVar);
+            this.zN.add(dVar);
         }
     }
 
-    public d hY() {
-        return this.zT;
+    public d hZ() {
+        return this.zO;
     }
 
     public void b(d dVar) {
-        this.zT = dVar;
+        this.zO = dVar;
     }
 }

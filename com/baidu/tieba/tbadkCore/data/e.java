@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class e {
-    public static final int[] gMu = {3, 8, 13};
-    public static final int[] gMv = {2, 12};
-    public static final int[] gMw = {20};
-    public static final int[] gMx = {3, 13, 23};
-    private final int[] gMA;
-    private SparseIntArray gMy = new SparseIntArray();
-    private String gMz;
+    public static final int[] gNs = {3, 8, 13};
+    public static final int[] gNt = {2, 12};
+    public static final int[] gNu = {20};
+    public static final int[] gNv = {3, 13, 23};
+    private SparseIntArray gNw = new SparseIntArray();
+    private String gNx;
+    private final int[] gNy;
 
     public e(String str, int[] iArr) {
-        this.gMA = iArr;
-        this.gMz = str;
+        this.gNy = iArr;
+        this.gNx = str;
     }
 
-    public void tH(int i) {
+    public void tF(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.gMy != null) {
-            this.gMy.clear();
-            if (this.gMA != null) {
-                for (int i2 : this.gMA) {
+        if (this.gNw != null) {
+            this.gNw.clear();
+            if (this.gNy != null) {
+                for (int i2 : this.gNy) {
                     if (i2 >= 0) {
-                        this.gMy.append(i2 + i, i2);
+                        this.gNw.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void bxd() {
-        tH(0);
+    public void bvG() {
+        tF(0);
     }
 
-    public void bI(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.gMy != null) {
-            this.gMy.append(i2, i);
+    public void bJ(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.gNw != null) {
+            this.gNw.append(i2, i);
         }
     }
 
-    public int tI(int i) {
-        if (i >= 0 && this.gMy != null) {
-            return this.gMy.get(i, -1);
+    public int tG(int i) {
+        if (i >= 0 && this.gNw != null) {
+            return this.gNw.get(i, -1);
         }
         return -1;
     }
 
-    public void tJ(int i) {
-        if (this.gMy != null) {
-            this.gMy.delete(i);
+    public void tH(int i) {
+        if (this.gNw != null) {
+            this.gNw.delete(i);
         }
     }
 }

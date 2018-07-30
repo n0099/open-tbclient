@@ -9,8 +9,12 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM = "from";
-    public static final String FROM_MAINTAB_RECOMMEND = "from_mainrtab_recommend";
-    public static final String FROM_MAINTAB_VIDEO = "from_maintab_video";
+    public static final String FROM_DEFAULT = "from_default";
+    public static final String FROM_FRS = "frs";
+    public static final String FROM_MAINTAB_CONCERN = "concern_tab";
+    public static final String FROM_MAINTAB_DAILY = "daily_tab";
+    public static final String FROM_MAINTAB_RECOMMEND = "index";
+    public static final String FROM_MAINTAB_VIDEO = "video_tab";
     public static final String FROM_NANI_VIDEO = "from_nani_video";
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
     public static final String OBJ_ID = "obj_id";

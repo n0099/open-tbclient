@@ -2,45 +2,45 @@ package com.baidu.tieba.frs.worldcup.videotopic.a;
 
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 import com.baidu.tieba.frs.l;
 import com.baidu.tieba.frs.worldcup.videotopic.activity.VideoTopicFragment;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private VideoTopicFragment dJM;
-    private b dJR;
-    l dnp;
-    private m dqF;
+    private VideoTopicFragment dMC;
+    private b dMH;
+    l dqj;
+    private m dts;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public a(VideoTopicFragment videoTopicFragment, m mVar) {
-        this.dJM = videoTopicFragment;
-        this.dqF = mVar;
+        this.dMC = videoTopicFragment;
+        this.dts = mVar;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dJR = new b(this.dJM.getPageContext(), bc.aiq, this.dJM.getUniqueId());
-        this.dnp = new l(this.dJM.getPageContext(), com.baidu.tieba.frs.m.dmd);
-        this.mAdapters.add(this.dnp);
-        this.mAdapters.add(this.dJR);
-        this.dqF.addAdapters(this.mAdapters);
+        this.dMH = new b(this.dMC.getPageContext(), bb.ahM, this.dMC.getUniqueId());
+        this.dqj = new l(this.dMC.getPageContext(), com.baidu.tieba.frs.m.doV);
+        this.mAdapters.add(this.dqj);
+        this.mAdapters.add(this.dMH);
+        this.dts.addAdapters(this.mAdapters);
     }
 
     public void setForumId(String str) {
-        this.dJR.setForumId(str);
+        this.dMH.setForumId(str);
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.dqF.setData(arrayList);
+        this.dts.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dqF.getListAdapter() != null) {
-            this.dqF.getListAdapter().notifyDataSetChanged();
+        if (this.dts.getListAdapter() != null) {
+            this.dts.getListAdapter().notifyDataSetChanged();
         }
     }
 

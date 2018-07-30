@@ -152,7 +152,7 @@ public class NotificationHelper {
             return false;
         }
         if (ap.isEmpty(str)) {
-            str = context.getString(d.k.app_name);
+            str = context.getString(d.j.app_name);
         }
         try {
             if (Build.VERSION.SDK_INT < 26) {
@@ -160,7 +160,7 @@ public class NotificationHelper {
             } else {
                 builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL_3);
             }
-            builder.setContentTitle(str).setContentText(str2).setSmallIcon(d.f.icon_notify).setTicker(str3).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), d.C0142d.cp_link_tip_a));
+            builder.setContentTitle(str).setContentText(str2).setSmallIcon(d.f.icon_notify).setTicker(str3).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), d.C0140d.cp_link_tip_a));
             if (bitmap != null) {
                 builder.setLargeIcon(bitmap);
             }
@@ -172,11 +172,11 @@ public class NotificationHelper {
         }
         if (notif_excption != null) {
             notif_excption.defaults = -1;
-            if (!switchData.aqp) {
+            if (!switchData.apQ) {
                 notif_excption.defaults &= -3;
             }
             notif_excption.audioStreamType = 1;
-            if (!switchData.aqo) {
+            if (!switchData.apP) {
                 notif_excption.defaults &= -2;
             }
             if (z) {
@@ -184,7 +184,7 @@ public class NotificationHelper {
             } else {
                 notif_excption.flags |= 16;
             }
-            if (switchData.aqq) {
+            if (switchData.apR) {
                 notif_excption.defaults &= -5;
                 notif_excption.ledARGB = -16776961;
                 notif_excption.ledOnMS = HttpStatus.SC_BAD_REQUEST;
@@ -206,39 +206,39 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.Dr() && com.baidu.tbadk.coreExtra.messageCenter.a.Dq()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.Dn() && com.baidu.tbadk.coreExtra.messageCenter.a.Dm()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().Ef()) {
-                    aVar.aqo = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.DS().Eb()) {
+                    aVar.apP = true;
                     if (z || z2) {
-                        aVar.aqo = false;
+                        aVar.apP = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().Ei()) {
-                    aVar.aqp = true;
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.DS().Ee()) {
+                    aVar.apQ = true;
                     if (z) {
-                        aVar.aqp = false;
+                        aVar.apQ = false;
                     }
                     if (z2) {
-                        aVar.aqp = true;
+                        aVar.apQ = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().Eg()) {
-            aVar.aqq = true;
+        if (com.baidu.tbadk.coreExtra.messageCenter.c.DS().Ec()) {
+            aVar.apR = true;
         }
         return aVar;
     }
 
     private static Notification notif_excption(Context context) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
-        builder.setContentTitle(context.getString(d.k.notify_text)).setSmallIcon(d.f.icon_notify).setColor(ContextCompat.getColor(context, d.C0142d.cp_link_tip_a));
+        builder.setContentTitle(context.getString(d.j.notify_text)).setSmallIcon(d.f.icon_notify).setColor(ContextCompat.getColor(context, d.C0140d.cp_link_tip_a));
         return builder.build();
     }
 
@@ -246,7 +246,7 @@ public class NotificationHelper {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(d.k.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(d.j.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
                 notificationChannel.enableVibration(false);
@@ -268,7 +268,7 @@ public class NotificationHelper {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_3, com.baidu.adp.lib.voice.h.getString(d.k.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_3, com.baidu.adp.lib.voice.h.getString(d.j.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
                 notificationManager.createNotificationChannel(notificationChannel);
@@ -291,9 +291,9 @@ public class NotificationHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        boolean aqo = false;
-        boolean aqp = false;
-        boolean aqq = false;
+        boolean apP = false;
+        boolean apQ = false;
+        boolean apR = false;
 
         a() {
         }

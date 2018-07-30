@@ -7,6 +7,6 @@ public class e extends k {
     public e() {
         super((String) null, 1, 0);
         this.aMS = d.f.btn_pb_import;
-        this.name = TbadkCoreApplication.getInst().getString(d.k.switch_to_keyboard);
+        this.name = TbadkCoreApplication.getInst().getString(d.j.switch_to_keyboard);
     }
 }

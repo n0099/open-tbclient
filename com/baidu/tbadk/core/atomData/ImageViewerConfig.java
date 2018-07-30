@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
@@ -132,8 +133,8 @@ public class ImageViewerConfig extends IntentConfig {
         return this;
     }
 
-    public ImageViewerConfig setSrcRectInScreen(Rect rect) {
-        if (rect == null) {
+    public ImageViewerConfig setSrcRectInScreen(Rect rect, RectF rectF) {
+        if (rect == null || rectF == null) {
             return null;
         }
         int i = 0;
@@ -142,6 +143,10 @@ public class ImageViewerConfig extends IntentConfig {
         }
         JSONArray jSONArray = new JSONArray();
         try {
+            jSONArray.put((int) rectF.left);
+            jSONArray.put((int) (rectF.top - i));
+            jSONArray.put((int) rectF.right);
+            jSONArray.put((int) (rectF.bottom - i));
             jSONArray.put(rect.left);
             jSONArray.put(rect.top - i);
             jSONArray.put(rect.right);

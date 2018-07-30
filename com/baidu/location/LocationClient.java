@@ -1,151 +1,234 @@
 package com.baidu.location;
 
+import android.app.Notification;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.text.TextUtils;
-import com.baidu.location.a.b;
+import android.util.Log;
+import android.webkit.WebView;
+import com.baidu.location.a.c;
+import com.baidu.location.a.h;
+import com.baidu.location.a.i;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.commons.logging.LogFactory;
+import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
-public final class LocationClient implements b.InterfaceC0066b {
-    private static final int MIN_REQUEST_SPAN = 1000;
-    private static final int MSG_REG_LISTENER = 5;
-    private static final int MSG_REG_NOTIFY_LISTENER = 8;
-    private static final int MSG_REMOVE_NOTIFY = 10;
-    private static final int MSG_REQ_LOC = 4;
-    private static final int MSG_REQ_NOTIFY_LOC = 11;
-    private static final int MSG_REQ_OFFLINE_LOC = 12;
-    private static final int MSG_REQ_POI = 7;
-    private static final int MSG_RIGSTER_NOTIFY = 9;
-    private static final int MSG_SET_OPT = 3;
-    private static final int MSG_START = 1;
-    private static final int MSG_STOP = 2;
-    private static final int MSG_UNREG_LISTENER = 6;
-    private static final String mTAG = "baidu_location_Client";
-    private Context mContext;
-    private boolean mDebugByDev;
-    private String mKey;
-    private LocationClientOption mOption;
-    private long mLastRequestTime = 0;
-    private String mPackName = null;
-    private boolean mIsStarted = false;
-    private Messenger mServer = null;
-    private a mHandler = new a(this, null);
-    private final Messenger mMessenger = new Messenger(this.mHandler);
-    private ArrayList<BDLocationListener> mLocationListeners = null;
-    private BDLocation mLastLocation = null;
-    private boolean isWaitingForLocation = false;
-    private boolean isWaitingLocTag = false;
-    private boolean isScheduled = false;
-    private b mScheduledRequest = null;
-    private boolean mGpsStatus = false;
-    private final Object mLock = new Object();
-    private long lastReceiveGpsTime = 0;
-    private long lastReceiveLocationTime = 0;
-    private com.baidu.location.d.a mNotifyCache = null;
-    private BDLocationListener NotifyLocationListenner = null;
-    private String serviceName = null;
-    private boolean inDoorState = false;
-    private boolean isStop = true;
-    private Boolean mConfig_map = false;
-    private Boolean mConfig_preimport = false;
-    private Boolean firstConnected = true;
-    private com.baidu.location.a.b mloc = null;
-    private boolean clientFirst = false;
-    private boolean serverFirst = false;
-    private ServiceConnection mConnection = new com.baidu.location.b(this);
+public final class LocationClient implements c.a {
+    public static final int CONNECT_HOT_SPOT_FALSE = 0;
+    public static final int CONNECT_HOT_SPOT_TRUE = 1;
+    public static final int CONNECT_HOT_SPOT_UNKNOWN = -1;
+    public static final int LOC_DIAGNOSTIC_TYPE_BETTER_OPEN_GPS = 1;
+    public static final int LOC_DIAGNOSTIC_TYPE_BETTER_OPEN_WIFI = 2;
+    public static final int LOC_DIAGNOSTIC_TYPE_FAIL_UNKNOWN = 9;
+    public static final int LOC_DIAGNOSTIC_TYPE_NEED_CHECK_LOC_PERMISSION = 4;
+    public static final int LOC_DIAGNOSTIC_TYPE_NEED_CHECK_NET = 3;
+    public static final int LOC_DIAGNOSTIC_TYPE_NEED_CLOSE_FLYMODE = 7;
+    public static final int LOC_DIAGNOSTIC_TYPE_NEED_INSERT_SIMCARD_OR_OPEN_WIFI = 6;
+    public static final int LOC_DIAGNOSTIC_TYPE_NEED_OPEN_PHONE_LOC_SWITCH = 5;
+    public static final int LOC_DIAGNOSTIC_TYPE_SERVER_FAIL = 8;
+    private boolean B;
+    private LocationClientOption c;
+    private LocationClientOption d;
+    private Context f;
+    private String v;
+    private long a = 0;
+    private String b = null;
+    private boolean e = false;
+    private Messenger g = null;
+    private ArrayList<BDLocationListener> j = null;
+    private ArrayList<BDAbstractLocationListener> k = null;
+    private BDLocation l = null;
+    private boolean m = false;
+    private boolean n = false;
+    private boolean o = false;
+    private b p = null;
+    private boolean q = false;
+    private final Object r = new Object();
+    private long s = 0;
+    private long t = 0;
+    private String u = null;
+    private boolean w = false;
+    private boolean x = true;
+    private Boolean y = false;
+    private Boolean z = false;
+    private Boolean A = true;
+    private c C = null;
+    private boolean D = false;
+    private boolean E = false;
+    private boolean F = false;
+    private ServiceConnection G = new ServiceConnection() { // from class: com.baidu.location.LocationClient.1
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            LocationClient.this.g = new Messenger(iBinder);
+            if (LocationClient.this.g == null) {
+                return;
+            }
+            LocationClient.this.e = true;
+            Log.d("baidu_location_client", "baidu location connected ...");
+            if (LocationClient.this.x) {
+                LocationClient.this.h.obtainMessage(2).sendToTarget();
+                return;
+            }
+            try {
+                Message obtain = Message.obtain((Handler) null, 11);
+                obtain.replyTo = LocationClient.this.i;
+                obtain.setData(LocationClient.this.c());
+                LocationClient.this.g.send(obtain);
+                LocationClient.this.e = true;
+                if (LocationClient.this.c != null) {
+                    if (LocationClient.this.A.booleanValue()) {
+                    }
+                    LocationClient.this.h.obtainMessage(4).sendToTarget();
+                }
+            } catch (Exception e) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            LocationClient.this.g = null;
+            LocationClient.this.e = false;
+        }
+    };
+    private a h = new a(Looper.getMainLooper(), this);
+    private final Messenger i = new Messenger(this.h);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public class a extends Handler {
-        private a() {
-        }
+    public static class a extends Handler {
+        private final WeakReference<LocationClient> a;
 
-        /* synthetic */ a(LocationClient locationClient, com.baidu.location.b bVar) {
-            this();
+        a(Looper looper, LocationClient locationClient) {
+            super(looper);
+            this.a = new WeakReference<>(locationClient);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
+            LocationClient locationClient = this.a.get();
+            if (locationClient == null) {
+                return;
+            }
             switch (message.what) {
                 case 1:
-                    LocationClient.this.onStart();
+                    locationClient.a();
                     return;
                 case 2:
-                    LocationClient.this.onStop();
+                    locationClient.b();
                     return;
                 case 3:
-                    LocationClient.this.onSetOption(message);
+                    locationClient.a(message);
                     return;
                 case 4:
-                    LocationClient.this.onRequestLocation();
+                    locationClient.d();
                     return;
                 case 5:
-                    LocationClient.this.onRegisterListener(message);
+                    locationClient.b(message);
                     return;
                 case 6:
-                    LocationClient.this.onUnRegisterListener(message);
-                    return;
-                case 7:
-                    return;
-                case 8:
-                    LocationClient.this.onRegisterNotifyLocationListener(message);
-                    return;
-                case 9:
-                    LocationClient.this.onRegisterNotify(message);
-                    return;
-                case 10:
-                    LocationClient.this.onRemoveNotifyEvent(message);
-                    return;
-                case 11:
-                    LocationClient.this.onRequestNotifyLocation();
-                    return;
-                case 12:
-                    LocationClient.this.onRequestOffLineLocation();
+                    locationClient.e(message);
                     return;
                 case 21:
                     Bundle data = message.getData();
                     data.setClassLoader(BDLocation.class.getClassLoader());
                     BDLocation bDLocation = (BDLocation) data.getParcelable("locStr");
-                    if (!LocationClient.this.serverFirst && LocationClient.this.clientFirst && bDLocation.getLocType() == 66) {
+                    if (!locationClient.E && locationClient.D && bDLocation.getLocType() == 66) {
                         return;
                     }
-                    if (!LocationClient.this.serverFirst && LocationClient.this.clientFirst) {
-                        LocationClient.this.serverFirst = true;
+                    if (!locationClient.E && locationClient.D) {
+                        locationClient.E = true;
                         return;
                     }
-                    if (!LocationClient.this.serverFirst) {
-                        LocationClient.this.serverFirst = true;
+                    if (!locationClient.E) {
+                        locationClient.E = true;
                     }
-                    LocationClient.this.onNewLocation(message, 21);
-                    return;
-                case 26:
-                    LocationClient.this.onNewLocation(message, 26);
-                    return;
-                case 27:
-                    LocationClient.this.onNewNotifyLocation(message);
+                    locationClient.a(message, 21);
                     return;
                 case 54:
-                    if (LocationClient.this.mOption.location_change_notify) {
-                        LocationClient.this.mGpsStatus = true;
+                    if (locationClient.c.location_change_notify) {
+                        locationClient.q = true;
                         return;
                     }
                     return;
                 case 55:
-                    if (LocationClient.this.mOption.location_change_notify) {
-                        LocationClient.this.mGpsStatus = false;
+                    if (locationClient.c.location_change_notify) {
+                        locationClient.q = false;
                         return;
                     }
                     return;
+                case 303:
+                    try {
+                        Bundle data2 = message.getData();
+                        int i = data2.getInt("loctype");
+                        int i2 = data2.getInt("diagtype");
+                        byte[] byteArray = data2.getByteArray("diagmessage");
+                        if (i <= 0 || i2 <= 0 || byteArray == null || locationClient.k == null) {
+                            return;
+                        }
+                        Iterator it = locationClient.k.iterator();
+                        while (it.hasNext()) {
+                            ((BDAbstractLocationListener) it.next()).onLocDiagnosticMessage(i, i2, new String(byteArray, "UTF-8"));
+                        }
+                        return;
+                    } catch (Exception e) {
+                        return;
+                    }
+                case HttpStatus.SC_NOT_ACCEPTABLE /* 406 */:
+                    try {
+                        Bundle data3 = message.getData();
+                        byte[] byteArray2 = data3.getByteArray("mac");
+                        String str = byteArray2 != null ? new String(byteArray2, "UTF-8") : null;
+                        int i3 = data3.getInt("hotspot", -1);
+                        if (locationClient.k != null) {
+                            Iterator it2 = locationClient.k.iterator();
+                            while (it2.hasNext()) {
+                                ((BDAbstractLocationListener) it2.next()).onConnectHotSpotMessage(str, i3);
+                            }
+                            return;
+                        }
+                        return;
+                    } catch (Exception e2) {
+                        return;
+                    }
                 case 701:
-                    LocationClient.this.sendFirstLoc((BDLocation) message.obj);
+                    locationClient.a((BDLocation) message.obj);
+                    return;
+                case 703:
+                    try {
+                        Bundle data4 = message.getData();
+                        int i4 = data4.getInt("id", 0);
+                        if (i4 > 0) {
+                            locationClient.a(i4, (Notification) data4.getParcelable("notification"));
+                            return;
+                        }
+                        return;
+                    } catch (Exception e3) {
+                        return;
+                    }
+                case 704:
+                    try {
+                        locationClient.a(message.getData().getBoolean("removenotify"));
+                        return;
+                    } catch (Exception e4) {
+                        return;
+                    }
+                case 1300:
+                    locationClient.c(message);
+                    return;
+                case 1400:
+                    locationClient.d(message);
                     return;
                 default:
                     super.handleMessage(message);
@@ -160,63 +243,375 @@ public final class LocationClient implements b.InterfaceC0066b {
         private b() {
         }
 
-        /* synthetic */ b(LocationClient locationClient, com.baidu.location.b bVar) {
-            this();
-        }
-
         @Override // java.lang.Runnable
         public void run() {
-            synchronized (LocationClient.this.mLock) {
-                LocationClient.this.isScheduled = false;
-                if (LocationClient.this.mServer == null || LocationClient.this.mMessenger == null) {
+            synchronized (LocationClient.this.r) {
+                LocationClient.this.o = false;
+                if (LocationClient.this.g == null || LocationClient.this.i == null) {
                     return;
                 }
-                if (LocationClient.this.mLocationListeners == null || LocationClient.this.mLocationListeners.size() < 1) {
+                if ((LocationClient.this.j == null || LocationClient.this.j.size() < 1) && (LocationClient.this.k == null || LocationClient.this.k.size() < 1)) {
                     return;
                 }
-                if (!LocationClient.this.isWaitingLocTag) {
-                    LocationClient.this.mHandler.obtainMessage(4).sendToTarget();
+                if (!LocationClient.this.n) {
+                    LocationClient.this.h.obtainMessage(4).sendToTarget();
                     return;
                 }
-                if (LocationClient.this.mScheduledRequest == null) {
-                    LocationClient.this.mScheduledRequest = new b();
+                if (LocationClient.this.p == null) {
+                    LocationClient.this.p = new b();
                 }
-                LocationClient.this.mHandler.postDelayed(LocationClient.this.mScheduledRequest, LocationClient.this.mOption.scanSpan);
+                LocationClient.this.h.postDelayed(LocationClient.this.p, LocationClient.this.c.scanSpan);
             }
         }
     }
 
     public LocationClient(Context context) {
-        this.mOption = new LocationClientOption();
-        this.mContext = null;
-        this.mContext = context;
-        this.mOption = new LocationClientOption();
+        this.c = new LocationClientOption();
+        this.d = new LocationClientOption();
+        this.f = null;
+        this.f = context;
+        this.c = new LocationClientOption();
+        this.d = new LocationClientOption();
     }
 
     public LocationClient(Context context, LocationClientOption locationClientOption) {
-        this.mOption = new LocationClientOption();
-        this.mContext = null;
-        this.mContext = context;
-        this.mOption = locationClientOption;
+        this.c = new LocationClientOption();
+        this.d = new LocationClientOption();
+        this.f = null;
+        this.f = context;
+        this.c = locationClientOption;
+        this.d = new LocationClientOption(locationClientOption);
     }
 
-    private void callListeners(int i) {
-        if (this.mLastLocation.getCoorType() == null) {
-            this.mLastLocation.setCoorType(this.mOption.coorType);
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Type inference failed for: r0v11, types: [com.baidu.location.LocationClient$2] */
+    public void a() {
+        if (this.e) {
+            return;
         }
-        if (this.isWaitingForLocation || ((this.mOption.location_change_notify && this.mLastLocation.getLocType() == 61) || this.mLastLocation.getLocType() == 66 || this.mLastLocation.getLocType() == 67 || this.inDoorState || this.mLastLocation.getLocType() == 161)) {
-            if (this.mLocationListeners != null) {
-                Iterator<BDLocationListener> it = this.mLocationListeners.iterator();
+        if (this.A.booleanValue()) {
+            new Thread() { // from class: com.baidu.location.LocationClient.2
+                @Override // java.lang.Thread, java.lang.Runnable
+                public void run() {
+                    if (LocationClient.this.C == null) {
+                        LocationClient.this.C = new c(LocationClient.this.f, LocationClient.this.d, LocationClient.this);
+                    }
+                    LocationClient.this.C.c();
+                }
+            }.start();
+            this.A = false;
+        }
+        this.b = this.f.getPackageName();
+        this.u = this.b + "_bdls_v2.9";
+        Intent intent = new Intent(this.f, f.class);
+        try {
+            intent.putExtra("debug_dev", this.B);
+        } catch (Exception e) {
+        }
+        if (this.c == null) {
+            this.c = new LocationClientOption();
+        }
+        intent.putExtra("cache_exception", this.c.isIgnoreCacheException);
+        intent.putExtra("kill_process", this.c.isIgnoreKillProcess);
+        try {
+            this.f.bindService(intent, this.G, 1);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            this.e = false;
+        }
+    }
+
+    private void a(int i) {
+        if (this.l.getCoorType() == null) {
+            this.l.setCoorType(this.c.coorType);
+        }
+        if (this.m || ((this.c.location_change_notify && this.l.getLocType() == 61) || this.l.getLocType() == 66 || this.l.getLocType() == 67 || this.w || this.l.getLocType() == 161)) {
+            if (this.j != null) {
+                Iterator<BDLocationListener> it = this.j.iterator();
                 while (it.hasNext()) {
-                    it.next().onReceiveLocation(this.mLastLocation);
+                    it.next().onReceiveLocation(this.l);
                 }
             }
-            if (this.mLastLocation.getLocType() == 66 || this.mLastLocation.getLocType() == 67) {
+            if (this.k != null) {
+                Iterator<BDAbstractLocationListener> it2 = this.k.iterator();
+                while (it2.hasNext()) {
+                    it2.next().onReceiveLocation(this.l);
+                }
+            }
+            if (this.l.getLocType() == 66 || this.l.getLocType() == 67) {
                 return;
             }
-            this.isWaitingForLocation = false;
-            this.lastReceiveLocationTime = System.currentTimeMillis();
+            this.m = false;
+            this.t = System.currentTimeMillis();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i, Notification notification) {
+        try {
+            Intent intent = new Intent(this.f, f.class);
+            intent.putExtra("notification", notification);
+            intent.putExtra("id", i);
+            intent.putExtra("command", 1);
+            if (Build.VERSION.SDK_INT >= 26) {
+                this.f.startForegroundService(intent);
+            } else {
+                this.f.startService(intent);
+            }
+            this.F = true;
+        } catch (Exception e) {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Message message) {
+        this.n = false;
+        if (message == null || message.obj == null) {
+            return;
+        }
+        LocationClientOption locationClientOption = (LocationClientOption) message.obj;
+        if (this.c.optionEquals(locationClientOption)) {
+            return;
+        }
+        if (this.c.scanSpan != locationClientOption.scanSpan) {
+            try {
+                synchronized (this.r) {
+                    if (this.o) {
+                        this.h.removeCallbacks(this.p);
+                        this.o = false;
+                    }
+                    if (locationClientOption.scanSpan >= 1000 && !this.o) {
+                        if (this.p == null) {
+                            this.p = new b();
+                        }
+                        this.h.postDelayed(this.p, locationClientOption.scanSpan);
+                        this.o = true;
+                    }
+                }
+            } catch (Exception e) {
+            }
+        }
+        this.c = new LocationClientOption(locationClientOption);
+        if (this.g != null) {
+            try {
+                Message obtain = Message.obtain((Handler) null, 15);
+                obtain.replyTo = this.i;
+                obtain.setData(c());
+                this.g.send(obtain);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Message message, int i) {
+        if (this.e) {
+            try {
+                Bundle data = message.getData();
+                data.setClassLoader(BDLocation.class.getClassLoader());
+                this.l = (BDLocation) data.getParcelable("locStr");
+                if (this.l.getLocType() == 61) {
+                    this.s = System.currentTimeMillis();
+                }
+                a(i);
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(BDLocation bDLocation) {
+        if (this.x) {
+            return;
+        }
+        this.l = bDLocation;
+        if (!this.E && bDLocation.getLocType() == 161) {
+            this.D = true;
+        }
+        if (this.j != null) {
+            Iterator<BDLocationListener> it = this.j.iterator();
+            while (it.hasNext()) {
+                it.next().onReceiveLocation(bDLocation);
+            }
+        }
+        if (this.k != null) {
+            Iterator<BDAbstractLocationListener> it2 = this.k.iterator();
+            while (it2.hasNext()) {
+                it2.next().onReceiveLocation(bDLocation);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(boolean z) {
+        try {
+            Intent intent = new Intent(this.f, f.class);
+            intent.putExtra("removenotify", z);
+            intent.putExtra("command", 2);
+            this.f.startService(intent);
+            this.F = true;
+        } catch (Exception e) {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        if (!this.e || this.g == null) {
+            return;
+        }
+        Message obtain = Message.obtain((Handler) null, 12);
+        obtain.replyTo = this.i;
+        try {
+            this.g.send(obtain);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            this.f.unbindService(this.G);
+            if (this.F) {
+                try {
+                    this.f.stopService(new Intent(this.f, f.class));
+                } catch (Exception e2) {
+                }
+                this.F = false;
+            }
+        } catch (Exception e3) {
+        }
+        synchronized (this.r) {
+            try {
+                if (this.o) {
+                    this.h.removeCallbacks(this.p);
+                    this.o = false;
+                }
+            } catch (Exception e4) {
+            }
+        }
+        this.g = null;
+        this.n = false;
+        this.w = false;
+        this.e = false;
+        this.D = false;
+        this.E = false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Message message) {
+        if (message == null || message.obj == null) {
+            return;
+        }
+        BDLocationListener bDLocationListener = (BDLocationListener) message.obj;
+        if (this.j == null) {
+            this.j = new ArrayList<>();
+        }
+        if (this.j.contains(bDLocationListener)) {
+            return;
+        }
+        this.j.add(bDLocationListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Bundle c() {
+        if (this.c == null) {
+            return null;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("packName", this.b);
+        bundle.putString("prodName", this.c.prodName);
+        bundle.putString("coorType", this.c.coorType);
+        bundle.putString("addrType", this.c.addrType);
+        bundle.putBoolean("openGPS", this.c.openGps);
+        bundle.putBoolean("location_change_notify", this.c.location_change_notify);
+        bundle.putInt("scanSpan", this.c.scanSpan);
+        bundle.putBoolean("enableSimulateGps", this.c.enableSimulateGps);
+        bundle.putInt("timeOut", this.c.timeOut);
+        bundle.putInt(LogFactory.PRIORITY_KEY, this.c.priority);
+        bundle.putBoolean("map", this.y.booleanValue());
+        bundle.putBoolean("import", this.z.booleanValue());
+        bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
+        bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
+        bundle.putBoolean("isneedpoiregion", this.c.isNeedPoiRegion);
+        bundle.putBoolean("isneedregular", this.c.isNeedRegular);
+        bundle.putBoolean("isneedaptagd", this.c.isNeedAptagd);
+        bundle.putBoolean("isneedaltitude", this.c.isNeedAltitude);
+        bundle.putInt("autoNotifyMaxInterval", this.c.a());
+        bundle.putInt("autoNotifyMinTimeInterval", this.c.getAutoNotifyMinTimeInterval());
+        bundle.putInt("autoNotifyMinDistance", this.c.getAutoNotifyMinDistance());
+        bundle.putFloat("autoNotifyLocSensitivity", this.c.b());
+        bundle.putInt("wifitimeout", this.c.wifiCacheTimeOut);
+        return bundle;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(Message message) {
+        if (message == null || message.obj == null) {
+            return;
+        }
+        BDAbstractLocationListener bDAbstractLocationListener = (BDAbstractLocationListener) message.obj;
+        if (this.k == null) {
+            this.k = new ArrayList<>();
+        }
+        if (this.k.contains(bDAbstractLocationListener)) {
+            return;
+        }
+        this.k.add(bDAbstractLocationListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        if (this.g == null) {
+            return;
+        }
+        if ((System.currentTimeMillis() - this.s > 3000 || !this.c.location_change_notify || this.n) && (!this.w || System.currentTimeMillis() - this.t > 20000 || this.n)) {
+            Message obtain = Message.obtain((Handler) null, 22);
+            if (this.n) {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("isWaitingLocTag", this.n);
+                this.n = false;
+                obtain.setData(bundle);
+            }
+            try {
+                obtain.replyTo = this.i;
+                this.g.send(obtain);
+                this.a = System.currentTimeMillis();
+                this.m = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        synchronized (this.r) {
+            if (this.c != null && this.c.scanSpan >= 1000 && !this.o) {
+                if (this.p == null) {
+                    this.p = new b();
+                }
+                this.h.postDelayed(this.p, this.c.scanSpan);
+                this.o = true;
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d(Message message) {
+        if (message == null || message.obj == null) {
+            return;
+        }
+        BDAbstractLocationListener bDAbstractLocationListener = (BDAbstractLocationListener) message.obj;
+        if (this.k == null || !this.k.contains(bDAbstractLocationListener)) {
+            return;
+        }
+        this.k.remove(bDAbstractLocationListener);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void e(Message message) {
+        if (message == null || message.obj == null) {
+            return;
+        }
+        BDLocationListener bDLocationListener = (BDLocationListener) message.obj;
+        if (this.j == null || !this.j.contains(bDLocationListener)) {
+            return;
+        }
+        this.j.remove(bDLocationListener);
     }
 
     public static BDLocation getBDLocationInCoorType(BDLocation bDLocation, String str) {
@@ -227,448 +622,176 @@ public final class LocationClient implements b.InterfaceC0066b {
         return bDLocation2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Bundle getOptionBundle() {
-        if (this.mOption == null) {
-            return null;
+    public void disableAssistantLocation() {
+        i.qu().b();
+    }
+
+    public void disableLocInForeground(boolean z) {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("removenotify", z);
+        Message obtainMessage = this.h.obtainMessage(704);
+        obtainMessage.setData(bundle);
+        obtainMessage.sendToTarget();
+    }
+
+    public void enableAssistantLocation(WebView webView) {
+        i.qu().a(this.f, webView, this);
+    }
+
+    public void enableLocInForeground(int i, Notification notification) {
+        if (i <= 0 || notification == null) {
+            Log.e("baidu_location_Client", "can not startLocInForeground if the param is unlegal");
+            return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString("packName", this.mPackName);
-        bundle.putString("prodName", this.mOption.prodName);
-        bundle.putString("coorType", this.mOption.coorType);
-        bundle.putString("addrType", this.mOption.addrType);
-        bundle.putBoolean("openGPS", this.mOption.openGps);
-        bundle.putBoolean("location_change_notify", this.mOption.location_change_notify);
-        bundle.putInt("scanSpan", this.mOption.scanSpan);
-        bundle.putBoolean("enableSimulateGps", this.mOption.enableSimulateGps);
-        bundle.putInt("timeOut", this.mOption.timeOut);
-        bundle.putInt(LogFactory.PRIORITY_KEY, this.mOption.priority);
-        bundle.putBoolean("map", this.mConfig_map.booleanValue());
-        bundle.putBoolean("import", this.mConfig_preimport.booleanValue());
-        bundle.putBoolean("needDirect", this.mOption.mIsNeedDeviceDirect);
-        bundle.putBoolean("isneedaptag", this.mOption.isNeedAptag);
-        bundle.putBoolean("isneedpoiregion", this.mOption.isNeedPoiRegion);
-        bundle.putBoolean("isneedregular", this.mOption.isNeedRegular);
-        bundle.putBoolean("isneedaptagd", this.mOption.isNeedAptagd);
-        bundle.putBoolean("isneedaltitude", this.mOption.isNeedAltitude);
-        bundle.putInt("autoNotifyMaxInterval", this.mOption.getAutoNotifyMaxInterval());
-        bundle.putInt("autoNotifyMinTimeInterval", this.mOption.getAutoNotifyMinTimeInterval());
-        bundle.putInt("autoNotifyMinDistance", this.mOption.getAutoNotifyMinDistance());
-        bundle.putFloat("autoNotifyLocSensitivity", this.mOption.getAutoNotifyLocSensitivity());
-        return bundle;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onNewLocation(Message message, int i) {
-        if (this.mIsStarted) {
-            try {
-                Bundle data = message.getData();
-                data.setClassLoader(BDLocation.class.getClassLoader());
-                this.mLastLocation = (BDLocation) data.getParcelable("locStr");
-                if (this.mLastLocation.getLocType() == 61) {
-                    this.lastReceiveGpsTime = System.currentTimeMillis();
-                }
-                callListeners(i);
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onNewNotifyLocation(Message message) {
-        try {
-            Bundle data = message.getData();
-            data.setClassLoader(BDLocation.class.getClassLoader());
-            BDLocation bDLocation = (BDLocation) data.getParcelable("locStr");
-            if (this.NotifyLocationListenner != null) {
-                if (this.mOption != null && this.mOption.isDisableCache() && bDLocation.getLocType() == 65) {
-                    return;
-                }
-                this.NotifyLocationListenner.onReceiveLocation(bDLocation);
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onRegisterListener(Message message) {
-        if (message == null || message.obj == null) {
-            return;
-        }
-        BDLocationListener bDLocationListener = (BDLocationListener) message.obj;
-        if (this.mLocationListeners == null) {
-            this.mLocationListeners = new ArrayList<>();
-        }
-        if (this.mLocationListeners.contains(bDLocationListener)) {
-            return;
-        }
-        this.mLocationListeners.add(bDLocationListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onRegisterNotify(Message message) {
-        if (message == null || message.obj == null) {
-            return;
-        }
-        BDNotifyListener bDNotifyListener = (BDNotifyListener) message.obj;
-        if (this.mNotifyCache == null) {
-            this.mNotifyCache = new com.baidu.location.d.a(this.mContext, this);
-        }
-        this.mNotifyCache.a(bDNotifyListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onRegisterNotifyLocationListener(Message message) {
-        if (message == null || message.obj == null) {
-            return;
-        }
-        this.NotifyLocationListenner = (BDLocationListener) message.obj;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onRemoveNotifyEvent(Message message) {
-        if (message == null || message.obj == null) {
-            return;
-        }
-        BDNotifyListener bDNotifyListener = (BDNotifyListener) message.obj;
-        if (this.mNotifyCache != null) {
-            this.mNotifyCache.c(bDNotifyListener);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onRequestLocation() {
-        if (this.mServer == null) {
-            return;
-        }
-        if ((System.currentTimeMillis() - this.lastReceiveGpsTime > 3000 || !this.mOption.location_change_notify || this.isWaitingLocTag) && (!this.inDoorState || System.currentTimeMillis() - this.lastReceiveLocationTime > 20000 || this.isWaitingLocTag)) {
-            Message obtain = Message.obtain((Handler) null, 22);
-            if (this.isWaitingLocTag) {
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("isWaitingLocTag", this.isWaitingLocTag);
-                this.isWaitingLocTag = false;
-                obtain.setData(bundle);
-            }
-            try {
-                obtain.replyTo = this.mMessenger;
-                this.mServer.send(obtain);
-                this.mLastRequestTime = System.currentTimeMillis();
-                this.isWaitingForLocation = true;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        synchronized (this.mLock) {
-            if (this.mOption != null && this.mOption.scanSpan >= 1000 && !this.isScheduled) {
-                if (this.mScheduledRequest == null) {
-                    this.mScheduledRequest = new b(this, null);
-                }
-                this.mHandler.postDelayed(this.mScheduledRequest, this.mOption.scanSpan);
-                this.isScheduled = true;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onRequestNotifyLocation() {
-        if (this.mServer == null) {
-            return;
-        }
-        Message obtain = Message.obtain((Handler) null, 22);
-        try {
-            obtain.replyTo = this.mMessenger;
-            this.mServer.send(obtain);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onRequestOffLineLocation() {
-        Message obtain = Message.obtain((Handler) null, 28);
-        try {
-            obtain.replyTo = this.mMessenger;
-            this.mServer.send(obtain);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onSetOption(Message message) {
-        this.isWaitingLocTag = false;
-        if (message == null || message.obj == null) {
-            return;
-        }
-        LocationClientOption locationClientOption = (LocationClientOption) message.obj;
-        if (this.mOption.optionEquals(locationClientOption)) {
-            return;
-        }
-        if (this.mOption.scanSpan != locationClientOption.scanSpan) {
-            try {
-                synchronized (this.mLock) {
-                    if (this.isScheduled) {
-                        this.mHandler.removeCallbacks(this.mScheduledRequest);
-                        this.isScheduled = false;
-                    }
-                    if (locationClientOption.scanSpan >= 1000 && !this.isScheduled) {
-                        if (this.mScheduledRequest == null) {
-                            this.mScheduledRequest = new b(this, null);
-                        }
-                        this.mHandler.postDelayed(this.mScheduledRequest, locationClientOption.scanSpan);
-                        this.isScheduled = true;
-                    }
-                }
-            } catch (Exception e) {
-            }
-        }
-        this.mOption = new LocationClientOption(locationClientOption);
-        if (this.mServer != null) {
-            try {
-                Message obtain = Message.obtain((Handler) null, 15);
-                obtain.replyTo = this.mMessenger;
-                obtain.setData(getOptionBundle());
-                this.mServer.send(obtain);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onStart() {
-        if (this.mIsStarted) {
-            return;
-        }
-        if (this.firstConnected.booleanValue()) {
-            if (this.mloc == null) {
-                this.mloc = new com.baidu.location.a.b(this.mContext, this.mOption, this);
-            }
-            this.mloc.c();
-            this.firstConnected = false;
-        }
-        this.mPackName = this.mContext.getPackageName();
-        this.serviceName = this.mPackName + "_bdls_v2.9";
-        Intent intent = new Intent(this.mContext, f.class);
-        try {
-            intent.putExtra("debug_dev", this.mDebugByDev);
-        } catch (Exception e) {
-        }
-        if (this.mOption == null) {
-            this.mOption = new LocationClientOption();
-        }
-        intent.putExtra("cache_exception", this.mOption.isIgnoreCacheException);
-        intent.putExtra("kill_process", this.mOption.isIgnoreKillProcess);
-        try {
-            this.mContext.bindService(intent, this.mConnection, 1);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            this.mIsStarted = false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onStop() {
-        if (!this.mIsStarted || this.mServer == null) {
-            return;
-        }
-        Message obtain = Message.obtain((Handler) null, 12);
-        obtain.replyTo = this.mMessenger;
-        try {
-            this.mServer.send(obtain);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            this.mContext.unbindService(this.mConnection);
-        } catch (Exception e2) {
-        }
-        synchronized (this.mLock) {
-            try {
-                if (this.isScheduled) {
-                    this.mHandler.removeCallbacks(this.mScheduledRequest);
-                    this.isScheduled = false;
-                }
-            } catch (Exception e3) {
-            }
-        }
-        if (this.mNotifyCache != null) {
-            this.mNotifyCache.a();
-        }
-        this.mServer = null;
-        this.isWaitingLocTag = false;
-        this.inDoorState = false;
-        this.mIsStarted = false;
-        this.clientFirst = false;
-        this.serverFirst = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onUnRegisterListener(Message message) {
-        if (message == null || message.obj == null) {
-            return;
-        }
-        BDLocationListener bDLocationListener = (BDLocationListener) message.obj;
-        if (this.mLocationListeners == null || !this.mLocationListeners.contains(bDLocationListener)) {
-            return;
-        }
-        this.mLocationListeners.remove(bDLocationListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void sendFirstLoc(BDLocation bDLocation) {
-        if (this.isStop) {
-            return;
-        }
-        this.mLastLocation = bDLocation;
-        if (!this.serverFirst && bDLocation.getLocType() == 161) {
-            this.clientFirst = true;
-        }
-        if (this.mLocationListeners != null) {
-            Iterator<BDLocationListener> it = this.mLocationListeners.iterator();
-            while (it.hasNext()) {
-                it.next().onReceiveLocation(bDLocation);
-            }
-        }
+        bundle.putInt("id", i);
+        bundle.putParcelable("notification", notification);
+        Message obtainMessage = this.h.obtainMessage(703);
+        obtainMessage.setData(bundle);
+        obtainMessage.sendToTarget();
     }
 
     public String getAccessKey() {
         try {
-            this.mKey = com.baidu.location.h.a.b(this.mContext);
-            if (TextUtils.isEmpty(this.mKey)) {
+            this.v = h.b(this.f);
+            if (TextUtils.isEmpty(this.v)) {
                 throw new IllegalStateException("please setting key from Manifest.xml");
             }
-            return String.format("KEY=%s;SHA1=%s", this.mKey, com.baidu.location.h.a.a(this.mContext));
+            return String.format("KEY=%s", this.v);
         } catch (Exception e) {
             return null;
         }
     }
 
     public BDLocation getLastKnownLocation() {
-        return this.mLastLocation;
+        return this.l;
     }
 
     public LocationClientOption getLocOption() {
-        return this.mOption;
+        return this.c;
     }
 
     public String getVersion() {
-        return "6.2.3";
+        return "7.4.2";
     }
 
     public boolean isStarted() {
-        return this.mIsStarted;
+        return this.e;
     }
 
-    @Override // com.baidu.location.a.b.InterfaceC0066b
+    @Override // com.baidu.location.a.c.a
     public void onReceiveLocation(BDLocation bDLocation) {
-        if ((!this.serverFirst || this.clientFirst) && bDLocation != null) {
-            Message obtainMessage = this.mHandler.obtainMessage(701);
+        if ((!this.E || this.D) && bDLocation != null) {
+            Message obtainMessage = this.h.obtainMessage(701);
             obtainMessage.obj = bDLocation;
             obtainMessage.sendToTarget();
         }
+    }
+
+    public void registerLocationListener(BDAbstractLocationListener bDAbstractLocationListener) {
+        if (bDAbstractLocationListener == null) {
+            throw new IllegalStateException("please set a non-null listener");
+        }
+        Message obtainMessage = this.h.obtainMessage(1300);
+        obtainMessage.obj = bDAbstractLocationListener;
+        obtainMessage.sendToTarget();
     }
 
     public void registerLocationListener(BDLocationListener bDLocationListener) {
         if (bDLocationListener == null) {
             throw new IllegalStateException("please set a non-null listener");
         }
-        Message obtainMessage = this.mHandler.obtainMessage(5);
+        Message obtainMessage = this.h.obtainMessage(5);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }
 
-    public void registerNotify(BDNotifyListener bDNotifyListener) {
-        Message obtainMessage = this.mHandler.obtainMessage(9);
-        obtainMessage.obj = bDNotifyListener;
-        obtainMessage.sendToTarget();
-    }
-
-    public void registerNotifyLocationListener(BDLocationListener bDLocationListener) {
-        Message obtainMessage = this.mHandler.obtainMessage(8);
-        obtainMessage.obj = bDLocationListener;
-        obtainMessage.sendToTarget();
-    }
-
-    public void removeNotifyEvent(BDNotifyListener bDNotifyListener) {
-        Message obtainMessage = this.mHandler.obtainMessage(10);
-        obtainMessage.obj = bDNotifyListener;
-        obtainMessage.sendToTarget();
+    public boolean requestHotSpotState() {
+        if (this.g == null || !this.e) {
+            return false;
+        }
+        try {
+            this.g.send(Message.obtain((Handler) null, (int) HttpStatus.SC_NOT_ACCEPTABLE));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public int requestLocation() {
-        if (this.mServer == null || this.mMessenger == null) {
+        if (this.g == null || this.i == null) {
             return 1;
         }
-        if (this.mLocationListeners == null || this.mLocationListeners.size() < 1) {
+        if ((this.j == null || this.j.size() < 1) && (this.k == null || this.k.size() < 1)) {
             return 2;
         }
-        if (System.currentTimeMillis() - this.mLastRequestTime < 1000) {
+        if (System.currentTimeMillis() - this.a < 1000) {
             return 6;
         }
-        this.isWaitingLocTag = true;
-        Message obtainMessage = this.mHandler.obtainMessage(4);
+        this.n = true;
+        Message obtainMessage = this.h.obtainMessage(4);
         obtainMessage.arg1 = 0;
         obtainMessage.sendToTarget();
         return 0;
     }
 
-    public void requestNotifyLocation() {
-        this.mHandler.obtainMessage(11).sendToTarget();
-    }
-
-    public int requestOfflineLocation() {
-        if (this.mServer == null || this.mMessenger == null) {
-            return 1;
-        }
-        if (this.mLocationListeners == null || this.mLocationListeners.size() < 1) {
-            return 2;
-        }
-        this.mHandler.obtainMessage(12).sendToTarget();
-        return 0;
+    public void restart() {
+        stop();
+        this.x = false;
+        this.h.sendEmptyMessageDelayed(1, 1000L);
     }
 
     public void setLocOption(LocationClientOption locationClientOption) {
         if (locationClientOption == null) {
             locationClientOption = new LocationClientOption();
         }
-        if (locationClientOption.getAutoNotifyMaxInterval() > 0) {
+        if (locationClientOption.a() > 0) {
             locationClientOption.setScanSpan(0);
             locationClientOption.setLocationNotify(true);
         }
-        Message obtainMessage = this.mHandler.obtainMessage(3);
+        this.d = new LocationClientOption(locationClientOption);
+        Message obtainMessage = this.h.obtainMessage(3);
         obtainMessage.obj = locationClientOption;
         obtainMessage.sendToTarget();
     }
 
     public void start() {
-        this.isStop = false;
-        this.mHandler.obtainMessage(1).sendToTarget();
+        this.x = false;
+        this.h.obtainMessage(1).sendToTarget();
     }
 
     public void stop() {
-        this.isStop = true;
-        this.mHandler.obtainMessage(2).sendToTarget();
-        this.mloc = null;
+        this.x = true;
+        this.h.obtainMessage(2).sendToTarget();
+        this.C = null;
+    }
+
+    public void unRegisterLocationListener(BDAbstractLocationListener bDAbstractLocationListener) {
+        if (bDAbstractLocationListener == null) {
+            throw new IllegalStateException("please set a non-null listener");
+        }
+        Message obtainMessage = this.h.obtainMessage(1400);
+        obtainMessage.obj = bDAbstractLocationListener;
+        obtainMessage.sendToTarget();
     }
 
     public void unRegisterLocationListener(BDLocationListener bDLocationListener) {
         if (bDLocationListener == null) {
             throw new IllegalStateException("please set a non-null listener");
         }
-        Message obtainMessage = this.mHandler.obtainMessage(6);
+        Message obtainMessage = this.h.obtainMessage(6);
         obtainMessage.obj = bDLocationListener;
         obtainMessage.sendToTarget();
     }
 
     public boolean updateLocation(Location location) {
-        if (this.mServer == null || this.mMessenger == null || location == null) {
+        if (this.g == null || this.i == null || location == null) {
             return false;
         }
         try {
             Message obtain = Message.obtain((Handler) null, 57);
             obtain.obj = location;
-            this.mServer.send(obtain);
+            this.g.send(obtain);
         } catch (Exception e) {
             e.printStackTrace();
         }

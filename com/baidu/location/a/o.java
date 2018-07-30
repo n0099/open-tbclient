@@ -1,20 +1,19 @@
 package com.baidu.location.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.os.HandlerThread;
 /* loaded from: classes2.dex */
-public class o extends Thread {
-    final /* synthetic */ g Wt;
+public class o {
+    private static HandlerThread a = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(g gVar) {
-        this.Wt = gVar;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        boolean i;
-        i = this.Wt.i();
-        if (i) {
-            this.Wt.j();
+    public static synchronized HandlerThread qC() {
+        HandlerThread handlerThread;
+        synchronized (o.class) {
+            if (a == null) {
+                a = new HandlerThread("ServiceStartArguments", 10);
+                a.start();
+            }
+            handlerThread = a;
         }
+        return handlerThread;
     }
 }

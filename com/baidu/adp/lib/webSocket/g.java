@@ -19,12 +19,12 @@ public interface g {
 
         void c(c cVar);
 
-        void e(int i, String str);
+        void f(int i, String str);
 
         void i(Map<String, String> map);
 
-        void ko();
+        void kp();
 
-        void r(byte[] bArr);
+        void p(byte[] bArr);
     }
 }

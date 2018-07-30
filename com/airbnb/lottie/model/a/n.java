@@ -10,17 +10,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n<T> {
-    private final com.airbnb.lottie.e kg;
+    private final com.airbnb.lottie.e jX;
     @Nullable
-    private final JSONObject nQ;
-    private final m.a<T> nR;
+    private final JSONObject nG;
+    private final m.a<T> nH;
     private final float scale;
 
     private n(@Nullable JSONObject jSONObject, float f, com.airbnb.lottie.e eVar, m.a<T> aVar) {
-        this.nQ = jSONObject;
+        this.nG = jSONObject;
         this.scale = f;
-        this.kg = eVar;
-        this.nR = aVar;
+        this.jX = eVar;
+        this.nH = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,16 +29,16 @@ public class n<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a<T> cE() {
-        List<com.airbnb.lottie.a.a<T>> cF = cF();
-        return new a<>(cF, h(cF));
+    public a<T> cC() {
+        List<com.airbnb.lottie.a.a<T>> cD = cD();
+        return new a<>(cD, h(cD));
     }
 
-    private List<com.airbnb.lottie.a.a<T>> cF() {
-        if (this.nQ != null) {
-            Object opt = this.nQ.opt("k");
+    private List<com.airbnb.lottie.a.a<T>> cD() {
+        if (this.nG != null) {
+            Object opt = this.nG.opt("k");
             if (f(opt)) {
-                return a.C0004a.a((JSONArray) opt, this.kg, this.scale, this.nR);
+                return a.C0004a.a((JSONArray) opt, this.jX, this.scale, this.nH);
             }
             return Collections.emptyList();
         }
@@ -47,11 +47,11 @@ public class n<T> {
 
     @Nullable
     private T h(List<com.airbnb.lottie.a.a<T>> list) {
-        if (this.nQ != null) {
+        if (this.nG != null) {
             if (!list.isEmpty()) {
-                return list.get(0).lf;
+                return list.get(0).kX;
             }
-            return this.nR.b(this.nQ.opt("k"), this.scale);
+            return this.nH.b(this.nG.opt("k"), this.scale);
         }
         return null;
     }
@@ -67,13 +67,13 @@ public class n<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a<T> {
+        final List<com.airbnb.lottie.a.a<T>> mi;
         @Nullable
-        final T mJ;
-        final List<com.airbnb.lottie.a.a<T>> mr;
+        final T my;
 
         a(List<com.airbnb.lottie.a.a<T>> list, @Nullable T t) {
-            this.mr = list;
-            this.mJ = t;
+            this.mi = list;
+            this.my = t;
         }
     }
 }

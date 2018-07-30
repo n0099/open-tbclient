@@ -8,7 +8,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardVrPicView extends AdCardBaseView {
-    private VrPicView gpK;
+    private VrPicView gqU;
 
     public AdCardVrPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -16,37 +16,37 @@ public class AdCardVrPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getCustomLayout() {
-        return d.i.card_ad_vr_pic;
+        return d.h.card_ad_vr_pic;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void bv(View view) {
-        this.gpK = (VrPicView) view.findViewById(d.g.vr_pic_view);
+    protected void by(View view) {
+        this.gqU = (VrPicView) view.findViewById(d.g.vr_pic_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList != null && adCard.threadPicList.length >= 1) {
             String str = adCard.threadPicList[0].pic;
-            this.goD.setVisibility(0);
+            this.gpN.setVisibility(0);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            advertAppInfo.aem.width = this.mMaxWidth;
-            advertAppInfo.aem.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
-            advertAppInfo.aem.aex = str;
-            this.gpK.a(this.mContext, advertAppInfo);
-            ViewGroup.LayoutParams layoutParams = this.gpK.getLayoutParams();
+            advertAppInfo.adQ.width = this.mMaxWidth;
+            advertAppInfo.adQ.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
+            advertAppInfo.adQ.aeb = str;
+            this.gqU.a(this.mContext, advertAppInfo);
+            ViewGroup.LayoutParams layoutParams = this.gqU.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = advertAppInfo.aem.width;
-                layoutParams.height = advertAppInfo.aem.height;
+                layoutParams.width = advertAppInfo.adQ.width;
+                layoutParams.height = advertAppInfo.adQ.height;
             }
-            this.gpK.setLayoutParams(layoutParams);
+            this.gqU.setLayoutParams(layoutParams);
             return;
         }
-        this.goD.setVisibility(8);
+        this.gpN.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getLayout() {
-        return d.i.card_ad;
+        return d.h.card_ad;
     }
 }

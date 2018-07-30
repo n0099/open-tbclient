@@ -1,6 +1,7 @@
 package com.xiaomi.push.service;
 
 import android.os.SystemClock;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.concurrent.RejectedExecutionException;
 /* loaded from: classes3.dex */
 public class i {
@@ -197,7 +198,7 @@ public class i {
         }
 
         public boolean b() {
-            return this.b && SystemClock.uptimeMillis() - this.a > 600000;
+            return this.b && SystemClock.uptimeMillis() - this.a > KeepJobService.JOB_CHECK_PERIODIC;
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */

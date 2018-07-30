@@ -24,16 +24,16 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: au */
+    /* renamed from: av */
     public o onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.i.frs_video_activity_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_video_activity_item, (ViewGroup) null);
         o oVar = new o(inflate);
-        am.h(oVar.byV, d.C0142d.cp_cont_b);
-        am.h(oVar.drR, d.C0142d.cp_cont_h);
-        am.c(oVar.drQ, d.f.icon_news_list_prompt);
-        am.c(oVar.drS, d.f.icon_index_category_arrow_r);
-        am.j(oVar.drT, d.C0142d.cp_bg_line_b);
-        am.j(oVar.drU, d.C0142d.cp_bg_line_b);
+        am.h(oVar.bzC, d.C0140d.cp_cont_b);
+        am.h(oVar.duE, d.C0140d.cp_cont_h);
+        am.c(oVar.duD, d.f.icon_news_list_prompt);
+        am.c(oVar.duF, d.f.icon_index_category_arrow_r);
+        am.j(oVar.duG, d.C0140d.cp_bg_line_b);
+        am.j(oVar.duH, d.C0140d.cp_bg_line_b);
         am.i(inflate, d.f.home_thread_card_item_bg);
         return oVar;
     }
@@ -49,23 +49,23 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.n.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                TiebaStatic.log(new an("c12587").ah(ImageViewerConfig.FORUM_ID, n.this.mForumId));
+                TiebaStatic.log(new an("c12587").af(ImageViewerConfig.FORUM_ID, n.this.mForumId));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("frs_video_activity_tip" + n.this.mForumId, System.currentTimeMillis());
                 if (kVar != null && !StringUtils.isNull(kVar.url)) {
-                    com.baidu.tbadk.browser.a.Q(n.this.mContext, kVar.url);
+                    com.baidu.tbadk.browser.a.S(n.this.mContext, kVar.url);
                 }
             }
         });
-        oVar.byV.setText(kVar != null ? kVar.text : "");
-        if (bE(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            oVar.drQ.setVisibility(0);
+        oVar.bzC.setText(kVar != null ? kVar.text : "");
+        if (bJ(com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
+            oVar.duD.setVisibility(0);
         } else {
-            oVar.drQ.setVisibility(8);
+            oVar.duD.setVisibility(8);
         }
         return oVar.getView();
     }
 
-    private boolean bE(long j) {
+    private boolean bJ(long j) {
         if (j == 0) {
             return true;
         }

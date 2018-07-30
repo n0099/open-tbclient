@@ -14,10 +14,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.i;
 import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.f.c;
 import com.baidu.adp.newwidget.ImageView.h;
-import com.baidu.tbadk.util.i;
 import com.baidu.tieba.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
@@ -195,7 +195,7 @@ public class GiftGifView extends ImageView implements View.OnClickListener, h, R
                 this.aPT.clear();
             }
         } else if (aVar.getGif() == null) {
-            if (!aVar.mX()) {
+            if (!aVar.mZ()) {
                 aVar.a(this);
                 this.mIsLoading = false;
             }
@@ -394,8 +394,8 @@ public class GiftGifView extends ImageView implements View.OnClickListener, h, R
             this.mGifInfo = null;
             return;
         }
-        boolean Ln = i.Ln();
-        com.baidu.adp.base.h ab = com.baidu.adp.base.i.ab(getContext());
+        boolean Li = com.baidu.tbadk.util.h.Li();
+        com.baidu.adp.base.h ab = i.ab(getContext());
         if (ab != null) {
             bdUniqueId = ab.getUniqueId();
             z = ab.isScroll();
@@ -410,8 +410,8 @@ public class GiftGifView extends ImageView implements View.OnClickListener, h, R
         }
         this.mGifInfo = gifInfo;
         this.mPageId = bdUniqueId;
-        String str = Ln ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.ig().a(this.mGifInfo.mSharpText, 20, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Ln), str);
+        String str = Li ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.ih().a(this.mGifInfo.mSharpText, 20, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Li), str);
         if (aVar != null) {
             stopLoading();
             setGif(aVar);
@@ -420,7 +420,7 @@ public class GiftGifView extends ImageView implements View.OnClickListener, h, R
         } else {
             startLoading();
             if (!z) {
-                c.ig().a(this.mGifInfo.mSharpText, 20, this.aPR, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Ln), str);
+                c.ih().a(this.mGifInfo.mSharpText, 20, this.aPR, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Li), str);
             }
         }
     }
@@ -429,7 +429,7 @@ public class GiftGifView extends ImageView implements View.OnClickListener, h, R
         stopLoading();
         this.aPC = false;
         if (this.mGifInfo != null) {
-            c.ig().a(this.mGifInfo.mSharpText, 20, this.aPR);
+            c.ih().a(this.mGifInfo.mSharpText, 20, this.aPR);
         }
     }
 
@@ -447,15 +447,15 @@ public class GiftGifView extends ImageView implements View.OnClickListener, h, R
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.mGifInfo != null) {
-            boolean Ln = i.Ln();
-            String str = Ln ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
-            com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.ig().a(this.mGifInfo.mSharpText, 20, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Ln), str);
+            boolean Li = com.baidu.tbadk.util.h.Li();
+            String str = Li ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
+            com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.ih().a(this.mGifInfo.mSharpText, 20, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Li), str);
             if (aVar != null) {
                 this.mGifInfo.mLoadFailed = false;
                 setGif(aVar);
             } else {
                 startLoading();
-                c.ig().a(this.mGifInfo.mSharpText, 20, this.aPR, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Ln), str);
+                c.ih().a(this.mGifInfo.mSharpText, 20, this.aPR, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(Li), str);
                 return;
             }
         }

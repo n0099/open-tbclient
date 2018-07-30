@@ -7,7 +7,7 @@ public class PageStayDurationSwitchStatic extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
-        e.Kr().bY(1 == i);
+        e.Km().bW(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -16,22 +16,22 @@ public class PageStayDurationSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hm() {
+    protected String[] hl() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
+    protected int hm() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
+    protected int hn() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hp() {
+    protected int ho() {
         return 10;
     }
 }

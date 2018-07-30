@@ -10,22 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private a amT = null;
+    private a amt = null;
 
     /* loaded from: classes.dex */
     private static final class c {
-        private static final g anf = new g();
+        private static final g amF = new g();
     }
 
-    public static g xL() {
-        return c.anf;
+    public static g xD() {
+        return c.amF;
     }
 
     public void a(int i, j jVar) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                this.amT = new a(i, jVar);
-                this.amT.xN();
+                this.amt = new a(i, jVar);
+                this.amt.xF();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -35,12 +35,12 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b implements InvocationHandler {
-        protected a amT;
-        private final List<Long> and = new ArrayList(240);
-        private final List<Integer> ane = new ArrayList(15);
+        private final List<Long> amD = new ArrayList(240);
+        private final List<Integer> amE = new ArrayList(15);
+        protected a amt;
 
         public b(a aVar) {
-            this.amT = aVar;
+            this.amt = aVar;
         }
 
         @Override // java.lang.reflect.InvocationHandler
@@ -63,15 +63,15 @@ public class g {
         }
 
         private void doFrame(long j) {
-            this.and.add(Long.valueOf(j));
-            this.amT.xN();
+            this.amD.add(Long.valueOf(j));
+            this.amt.xF();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.amT = null;
-            this.and.clear();
-            this.ane.clear();
+            this.amt = null;
+            this.amD.clear();
+            this.amE.clear();
         }
     }
 
@@ -79,41 +79,41 @@ public class g {
     /* loaded from: classes.dex */
     public static class a {
         private final int MAX_FRAME_COUNT;
-        private final Class<?> amU;
-        private final Object amV;
-        private final Class<?> amW;
-        private final Method amX;
-        private final Object amY;
-        private final Method amZ;
-        private final b ana;
-        private final j anb;
+        private final b amA;
+        private final j amB;
+        private final Class<?> amu;
+        private final Object amv;
+        private final Class<?> amw;
+        private final Method amx;
+        private final Object amy;
+        private final Method amz;
         private int index;
 
         private a(int i, j jVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
             this.index = 0;
-            this.amW = Class.forName("android.view.Choreographer");
-            this.amU = Class.forName("android.view.Choreographer$FrameCallback");
-            this.ana = new b(this);
-            this.amV = Proxy.newProxyInstance(this.amU.getClassLoader(), new Class[]{this.amU}, this.ana);
-            this.amX = this.amW.getMethod("getInstance", new Class[0]);
-            this.amY = this.amX.invoke(null, new Object[0]);
-            this.amZ = this.amW.getMethod("postFrameCallback", this.amU);
+            this.amw = Class.forName("android.view.Choreographer");
+            this.amu = Class.forName("android.view.Choreographer$FrameCallback");
+            this.amA = new b(this);
+            this.amv = Proxy.newProxyInstance(this.amu.getClassLoader(), new Class[]{this.amu}, this.amA);
+            this.amx = this.amw.getMethod("getInstance", new Class[0]);
+            this.amy = this.amx.invoke(null, new Object[0]);
+            this.amz = this.amw.getMethod("postFrameCallback", this.amu);
             this.MAX_FRAME_COUNT = i <= 0 ? 16 : i;
-            this.anb = jVar;
+            this.amB = jVar;
         }
 
-        private void xM() throws InvocationTargetException, IllegalAccessException {
-            this.amZ.invoke(this.amY, this.amV);
+        private void xE() throws InvocationTargetException, IllegalAccessException {
+            this.amz.invoke(this.amy, this.amv);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void xN() {
+        public void xF() {
             if (this.index >= this.MAX_FRAME_COUNT) {
-                com.baidu.adp.lib.g.e.im().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
+                com.baidu.adp.lib.g.e.in().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.anb.x(a.this.xP());
-                        a.this.ana.destroy();
+                        a.this.amB.w(a.this.xH());
+                        a.this.amA.destroy();
                         a.this.destroy();
                     }
                 });
@@ -121,31 +121,31 @@ public class g {
             }
             this.index++;
             try {
-                xM();
+                xE();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
 
-        private List<Long> xO() {
-            return this.ana.and;
+        private List<Long> xG() {
+            return this.amA.amD;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void destroy() {
-            this.ana.destroy();
+            this.amA.destroy();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> xP() {
+        public List<Long> xH() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> xO = xO();
-            int size = xO.size();
+            List<Long> xG = xG();
+            int size = xG.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(xO.get(i2 + 1).longValue() - xO.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(xG.get(i2 + 1).longValue() - xG.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

@@ -5,8 +5,8 @@ public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
         com.baidu.adp.lib.b.d.hv().f(BdStatisticsSwitchStatic.class);
     }
 
-    public static boolean ip() {
-        return com.baidu.adp.lib.b.d.hv().aw("newUrlForPerf") == 1;
+    public static boolean iq() {
+        return com.baidu.adp.lib.b.d.hv().ax("newUrlForPerf") == 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -19,22 +19,22 @@ public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hm() {
+    protected String[] hl() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
+    protected int hm() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
+    protected int hn() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hp() {
+    protected int ho() {
         return 10;
     }
 }

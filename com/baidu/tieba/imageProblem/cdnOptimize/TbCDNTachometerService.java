@@ -62,9 +62,9 @@ public class TbCDNTachometerService extends BdBaseService {
                     if (customMsgData != null) {
                         String str = customMsgData.cdnIp;
                         boolean z = customMsgData.isSuccess;
-                        long j = customMsgData.KQ;
+                        long j = customMsgData.KM;
                         String valueOf = String.valueOf(j);
-                        if (customMsgData.eGY != null && customMsgData.eGY.length() > 0) {
+                        if (customMsgData.eKS != null && customMsgData.eKS.length() > 0) {
                             TbCDNTachometerService.this.canBroadCast = true;
                             if (!z || j > TbCDNTachometerService.this.hiPhotosMaxTime) {
                                 TbCDNTachometerService.this.isNormal = false;
@@ -141,7 +141,7 @@ public class TbCDNTachometerService extends BdBaseService {
     };
 
     public static void startTachometerService(Context context, boolean z, boolean z2) {
-        if (context != null && j.jE() && TbadkCoreApplication.getInst().isMainProcess(true)) {
+        if (context != null && j.jF() && TbadkCoreApplication.getInst().isMainProcess(true)) {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
@@ -214,30 +214,30 @@ public class TbCDNTachometerService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(TbCdnIpListData tbCdnIpListData) {
         this.numOfThrowIp = 0;
-        if (tbCdnIpListData == null || tbCdnIpListData.eGZ != 0) {
+        if (tbCdnIpListData == null || tbCdnIpListData.eKT != 0) {
             broadCastAndStopSelf(null);
-        } else if (!tbCdnIpListData.eHc) {
+        } else if (!tbCdnIpListData.eKW) {
             broadCastAndStopSelf(null);
-        } else if (tbCdnIpListData.eHb.size() == 0) {
+        } else if (tbCdnIpListData.eKV.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(tbCdnIpListData.eHb);
+            breakUpIpList(tbCdnIpListData.eKV);
             String str = tbCdnIpListData.imageUrl;
-            String str2 = tbCdnIpListData.eHd;
-            String str3 = tbCdnIpListData.eHa;
+            String str2 = tbCdnIpListData.eKX;
+            String str3 = tbCdnIpListData.eKU;
             if (str != null && str2 != null && str3 != null) {
-                int size = tbCdnIpListData.eHb.size();
+                int size = tbCdnIpListData.eKV.size();
                 if (size > 0) {
                     CustomMsgData customMsgData = new CustomMsgData(tbCdnIpListData, 0);
                     customMsgData.cdnTachometerModel = this.cdnTachometerModel;
                     customMsgData.isNormal = this.isNormal;
-                    customMsgData.eGY = "c.hiphotos.baidu.com";
+                    customMsgData.eKS = "c.hiphotos.baidu.com";
                     CustomMessage customMessage = new CustomMessage(2017000, customMsgData);
                     customMessage.setTag(this.mId);
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = tbCdnIpListData.eHb.get(i);
+                    ArrayList<String> arrayList = tbCdnIpListData.eKV.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);
@@ -354,14 +354,14 @@ public class TbCDNTachometerService extends BdBaseService {
 
     /* loaded from: classes2.dex */
     public class CustomMsgData {
-        public long KQ;
+        public long KM;
         public String cdnIp;
         public TbCdnTachometerModel cdnTachometerModel;
         public TbCdnIpListData ipListData;
         public boolean isSuccess;
         public int pos;
         public boolean isNormal = false;
-        public String eGY = null;
+        public String eKS = null;
 
         public CustomMsgData(TbCdnIpListData tbCdnIpListData, int i) {
             this.ipListData = tbCdnIpListData;

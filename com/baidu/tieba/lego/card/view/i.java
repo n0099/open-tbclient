@@ -1,11 +1,9 @@
 package com.baidu.tieba.lego.card.view;
+
+import java.util.List;
 /* loaded from: classes.dex */
 public interface i {
-    boolean isPlaying();
+    List<String> getMediaIDs();
 
-    void onDestroy();
-
-    void pausePlay();
-
-    void stopPlay();
+    String getMediaId();
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public class c extends BaseAdapter {
     private Context mContext;
     private boolean mHasMore = true;
-    private List<e> gvI = new ArrayList();
+    private List<d> gwU = new ArrayList();
 
     public c(Context context) {
         this.mContext = context;
@@ -22,20 +22,20 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gvI != null) {
-            return this.gvI.size();
+        if (this.gwU != null) {
+            return this.gwU.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: sB */
-    public e getItem(int i) {
-        if (this.gvI == null || i >= this.gvI.size()) {
+    /* renamed from: sz */
+    public d getItem(int i) {
+        if (this.gwU == null || i >= this.gwU.size()) {
             return null;
         }
-        return this.gvI.get(i);
+        return this.gwU.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -45,34 +45,34 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return a(this.gvI.get(i), view, viewGroup);
+        return a(this.gwU.get(i), view, viewGroup);
     }
 
-    public View a(e eVar, View view, ViewGroup viewGroup) {
+    public View a(d dVar, View view, ViewGroup viewGroup) {
         View inflate;
-        a bw;
+        a bz;
         if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
-            bw = (a) view.getTag();
+            bz = (a) view.getTag();
             inflate = view;
         } else {
-            inflate = LayoutInflater.from(this.mContext).inflate(d.i.screenlock_show_item_view_4, viewGroup, false);
-            bw = bw(inflate);
-            inflate.setTag(bw);
+            inflate = LayoutInflater.from(this.mContext).inflate(d.h.screenlock_show_item_view_4, viewGroup, false);
+            bz = bz(inflate);
+            inflate.setTag(bz);
         }
-        if (eVar == null) {
+        if (dVar == null) {
             return inflate;
         }
-        bw.gvJ.setText(eVar.title);
-        bw.gvK.setText(eVar.content);
-        bw.gvL.setDefaultErrorResource(d.f.screen_notify_default_bg);
-        bw.gvL.setDefaultResource(d.f.screen_notify_default_bg);
-        bw.gvL.startLoad(eVar.pic, 10, 0, 0, false);
+        bz.gwV.setText(dVar.title);
+        bz.gwW.setText(dVar.content);
+        bz.gwX.setDefaultErrorResource(d.f.screen_notify_default_bg);
+        bz.gwX.setDefaultResource(d.f.screen_notify_default_bg);
+        bz.gwX.startLoad(dVar.pic, 10, 0, 0, false);
         return inflate;
     }
 
-    public void dq(List<e> list) {
+    public void dm(List<d> list) {
         if (list != null && list.size() != 0) {
-            this.gvI.addAll(list);
+            this.gwU.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -80,21 +80,21 @@ public class c extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a {
-        TextView gvJ;
-        TextView gvK;
-        TbImageView gvL;
+        TextView gwV;
+        TextView gwW;
+        TbImageView gwX;
         View mLine;
 
         private a() {
         }
     }
 
-    private a bw(View view) {
+    private a bz(View view) {
         a aVar = new a();
-        aVar.gvJ = (TextView) view.findViewById(d.g.push_msg_title);
-        aVar.gvK = (TextView) view.findViewById(d.g.push_msg_content);
-        aVar.gvL = (TbImageView) view.findViewById(d.g.push_msg_pic);
-        aVar.gvL.setAutoChangeStyle(false);
+        aVar.gwV = (TextView) view.findViewById(d.g.push_msg_title);
+        aVar.gwW = (TextView) view.findViewById(d.g.push_msg_content);
+        aVar.gwX = (TbImageView) view.findViewById(d.g.push_msg_pic);
+        aVar.gwX.setAutoChangeStyle(false);
         aVar.mLine = view.findViewById(d.g.line);
         return aVar;
     }

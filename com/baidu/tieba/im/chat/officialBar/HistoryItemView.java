@@ -13,10 +13,10 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout awD;
-    TbRichTextView eim;
-    TextView ein;
-    ChatImageWithTailView eio;
+    LinearLayout awj;
+    TbRichTextView emc;
+    TextView emd;
+    ChatImageWithTailView eme;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -33,34 +33,34 @@ public class HistoryItemView extends LinearLayout {
 
     private void initView() {
         setOrientation(1);
-        LayoutInflater.from(this.mContext).inflate(d.i.official_history_item, (ViewGroup) this, true);
+        LayoutInflater.from(this.mContext).inflate(d.h.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.awD = (LinearLayout) findViewById(d.g.history_container);
-        this.ein = (TextView) findViewById(d.g.history_send_time);
-        this.eim = (TbRichTextView) findViewById(d.g.history_txt);
-        this.eio = (ChatImageWithTailView) findViewById(d.g.history_pic);
-        am.i(this.awD, d.f.selector_history_multi_single_bg);
-        am.c(this.ein, d.C0142d.common_color_10067, 1);
-        this.eim.setTextColor(am.getColor(d.C0142d.cp_cont_c));
-        this.eio.setIsSupportNight(true);
+        this.awj = (LinearLayout) findViewById(d.g.history_container);
+        this.emd = (TextView) findViewById(d.g.history_send_time);
+        this.emc = (TbRichTextView) findViewById(d.g.history_txt);
+        this.eme = (ChatImageWithTailView) findViewById(d.g.history_pic);
+        am.i(this.awj, d.f.selector_history_multi_single_bg);
+        am.c(this.emd, d.C0140d.common_color_10067, 1);
+        this.emc.setTextColor(am.getColor(d.C0140d.cp_cont_c));
+        this.eme.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.ein.setText(str);
+        this.emd.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.eim;
+        return this.emc;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.eio;
+        return this.eme;
     }
 
-    public void aJ(View view) {
-        this.awD.setBackgroundDrawable(null);
-        this.awD.removeAllViews();
-        this.awD.addView(view);
+    public void aM(View view) {
+        this.awj.setBackgroundDrawable(null);
+        this.awj.removeAllViews();
+        this.awj.addView(view);
     }
 }

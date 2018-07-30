@@ -9,13 +9,13 @@ public final class r {
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {
             for (Map.Entry<Thread, StackTraceElement[]> entry : allStackTraces.entrySet()) {
-                sb.append(b(entry.getKey())).append("\n");
+                sb.append(a(entry.getKey())).append("\n");
             }
         }
         return sb.toString();
     }
 
-    public static String b(Thread thread) {
+    public static String a(Thread thread) {
         String name;
         StringBuilder sb = new StringBuilder();
         if (thread != null) {

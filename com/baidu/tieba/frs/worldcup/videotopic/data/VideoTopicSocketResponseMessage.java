@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.worldcup.videotopic.data;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.VideoTopicList.VideoTopicListResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoTopicSocketResponseMessage extends MvcSocketResponsedMessage<c, VideoTopicListResIdl> {
     public VideoTopicSocketResponseMessage() {
         super(309607);

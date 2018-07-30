@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements h, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> bgN = new SparseArray<>();
-    private Object bgO;
-    private int bgP;
+    private static SparseArray<BdUniqueId> bhs = new SparseArray<>();
+    private Object bht;
+    private int bhu;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return bgN.get(this.bgP);
+        return bhs.get(this.bhu);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object OB() {
-        return this.bgO;
+    public Object OH() {
+        return this.bht;
     }
 
     public void I(Object obj) {
-        this.bgO = obj;
+        this.bht = obj;
     }
 
-    public int OC() {
-        return this.bgP;
+    public int OI() {
+        return this.bhu;
     }
 
-    public void gc(int i) {
-        this.bgP = i;
+    public void gh(int i) {
+        this.bhu = i;
     }
 
-    public static void O(List<Integer> list) {
-        if (bgN.size() <= 0 && list != null) {
+    public static void N(List<Integer> list) {
+        if (bhs.size() <= 0 && list != null) {
             for (Integer num : list) {
-                bgN.put(num.intValue(), BdUniqueId.gen());
+                bhs.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> OD() {
+    public static List<BdUniqueId> OJ() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bgN.size(); i++) {
-            arrayList.add(bgN.valueAt(i));
+        for (int i = 0; i < bhs.size(); i++) {
+            arrayList.add(bhs.valueAt(i));
         }
         return arrayList;
     }
 
     public static int i(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (bgN.size() == 0 || (indexOfValue = bgN.indexOfValue(bdUniqueId)) == -1 || bgN.size() <= indexOfValue) {
+        if (bhs.size() == 0 || (indexOfValue = bhs.indexOfValue(bdUniqueId)) == -1 || bhs.size() <= indexOfValue) {
             return -1;
         }
-        return bgN.keyAt(indexOfValue);
+        return bhs.keyAt(indexOfValue);
     }
 }

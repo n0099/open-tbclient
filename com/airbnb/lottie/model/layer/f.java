@@ -9,7 +9,7 @@ import android.graphics.RectF;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class f extends a {
-    private final Layer oP;
+    private final Layer oF;
     private final Paint paint;
     private final RectF rect;
 
@@ -18,7 +18,7 @@ public class f extends a {
         super(fVar, layer);
         this.rect = new RectF();
         this.paint = new Paint();
-        this.oP = layer;
+        this.oF = layer;
         this.paint.setAlpha(0);
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(layer.getSolidColor());
@@ -26,9 +26,9 @@ public class f extends a {
 
     @Override // com.airbnb.lottie.model.layer.a
     public void b(Canvas canvas, Matrix matrix, int i) {
-        int alpha = Color.alpha(this.oP.getSolidColor());
+        int alpha = Color.alpha(this.oF.getSolidColor());
         if (alpha != 0) {
-            int intValue = (int) (((this.mi.cc().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
+            int intValue = (int) (((this.lY.ca().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
             if (intValue > 0) {
                 b(matrix);
@@ -40,12 +40,12 @@ public class f extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        b(this.oO);
+        b(this.oE);
         rectF.set(this.rect);
     }
 
     private void b(Matrix matrix) {
-        this.rect.set(0.0f, 0.0f, this.oP.dx(), this.oP.dw());
+        this.rect.set(0.0f, 0.0f, this.oF.dv(), this.oF.du());
         matrix.mapRect(this.rect);
     }
 

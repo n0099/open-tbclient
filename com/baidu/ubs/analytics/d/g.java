@@ -9,21 +9,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes2.dex */
 public final class g {
-    private static String[] hCE = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File hCF = null;
-    private static RandomAccessFile hCG = null;
+    private static String[] hDj = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File hDk = null;
+    private static RandomAccessFile hDl = null;
 
-    public static synchronized boolean J(String str, String str2, String str3) {
+    public static synchronized boolean k(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (bKP() && cA(str2, str3)) {
+            if (bJt() && cw(str2, str3)) {
                 try {
-                    hCF = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(hCF, "rwd");
-                    hCG = randomAccessFile;
-                    randomAccessFile.seek(hCF.length());
-                    hCG.write((str + SystemInfoUtil.LINE_END).getBytes("UTF-8"));
-                    hCG.close();
+                    hDk = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(hDk, "rwd");
+                    hDl = randomAccessFile;
+                    randomAccessFile.seek(hDk.length());
+                    hDl.write((str + SystemInfoUtil.LINE_END).getBytes("UTF-8"));
+                    hDl.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -33,17 +33,17 @@ public final class g {
         return z;
     }
 
-    public static synchronized String M(String str, String str2) {
+    public static synchronized String L(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (bKP()) {
-                if (wh(str + str2)) {
+            if (bJt()) {
+                if (wi(str + str2)) {
                     try {
-                        hCF = new File(str + str2);
-                        hCG = new RandomAccessFile(hCF, "r");
+                        hDk = new File(str + str2);
+                        hDl = new RandomAccessFile(hDk, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = hCG.readLine();
+                            String readLine = hDl.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -51,14 +51,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            hCG.close();
+                            hDl.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            hCG.close();
+                            hDl.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -72,39 +72,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean bKP() {
+    private static boolean bJt() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.bKq().getContext().checkCallingOrSelfPermission(hCE[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
-    }
-
-    public static boolean wh(String str) {
-        File file = new File(str);
-        hCF = file;
-        return file.exists();
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.bIU().getContext().checkCallingOrSelfPermission(hDj[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
     public static boolean wi(String str) {
         File file = new File(str);
-        hCF = file;
+        hDk = file;
+        return file.exists();
+    }
+
+    public static boolean wj(String str) {
+        File file = new File(str);
+        hDk = file;
         return file.delete();
     }
 
-    private static boolean cA(String str, String str2) {
+    private static boolean cw(String str, String str2) {
         try {
-            hCF = new File(str);
-            if (!wh(str)) {
-                hCF.mkdirs();
+            hDk = new File(str);
+            if (!wi(str)) {
+                hDk.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            hCF = file;
+            hDk = file;
             if (file.exists()) {
                 return true;
             }
-            return hCF.createNewFile();
+            return hDk.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

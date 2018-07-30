@@ -12,9 +12,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static l i(Context context, int i) {
+    public static l j(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
-        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.i.editor_tool_container_image, (ViewGroup) null);
+        MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(d.h.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
         if (multiImgToolView == null || multiImgToolView.getDragLayer() == null || multiImgToolView.getDragHorizonScrollView() == null || multiImgToolView.getMutiImageTips() == null) {
             return null;
@@ -31,7 +31,7 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        am.c(multiImgToolView.getMutiImageTips(), d.C0142d.cp_cont_c, 1);
+        am.c(multiImgToolView.getMutiImageTips(), d.C0140d.cp_cont_c, 1);
         return multiImgToolView;
     }
 
@@ -40,7 +40,7 @@ public class c {
         am.c(imageView, d.f.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
-        imageView.setContentDescription(context.getString(d.k.add));
+        imageView.setContentDescription(context.getString(d.j.add));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
         imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(d.e.ds30) + dip2px, context.getResources().getDimensionPixelSize(d.e.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1

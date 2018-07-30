@@ -1,87 +1,168 @@
 package com.baidu.tieba.s;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import tbclient.BlockPopInfo;
-/* loaded from: classes.dex */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.f;
+import com.baidu.idl.authority.BuildConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.VideoPlatformStatic;
+import com.baidu.tieba.j.g;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.http.HttpStatus;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class b {
-    private static BlockPopInfo gZR;
-    private static BlockPopInfo gZS;
-    private CustomMessageListener bwT = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.s.b.3
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                b.d(null);
-                b.e(null);
-            }
-        }
-    };
-    private TbPageContext mContext;
+    private static b hbe = new b();
 
-    public b(TbPageContext tbPageContext) {
-        this.mContext = tbPageContext;
-        this.mContext.registerListener(this.bwT);
+    public static b bzL() {
+        return hbe;
     }
 
-    private boolean a(BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0 && (blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2)) {
-            if (blockPopInfo.ahead_type.intValue() == 1) {
-                b(blockPopInfo);
-                return true;
-            } else if (blockPopInfo.ahead_type.intValue() == 2) {
-                c(blockPopInfo);
-                return true;
-            } else {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean bBh() {
-        return a(gZR);
-    }
-
-    public boolean bBi() {
-        return a(gZS);
-    }
-
-    private void b(final BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            aVar.dE(blockPopInfo.block_info);
-            aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.s.b.1
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
+    public void bzM() {
+        if (f.gd()) {
+            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.b.1
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+                public Void doInBackground(Void... voidArr) {
+                    List bzO = b.bzO();
+                    int size = bzO.size();
+                    for (int i = 0; i < size; i++) {
+                        a aVar = (a) bzO.get(i);
+                        b.this.f(aVar.uuid, aVar.gtE);
+                    }
+                    return null;
                 }
-            });
-            aVar.a(blockPopInfo.ahead_info, new a.b() { // from class: com.baidu.tieba.s.b.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    b.this.c(blockPopInfo);
-                }
-            });
-            aVar.b(this.mContext).xn();
+            }.execute(new Void[0]);
         }
+    }
+
+    private static File[] bzN() {
+        File file = new File(g.a.fhe);
+        if (file.exists()) {
+            return file.listFiles();
+        }
+        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(BlockPopInfo blockPopInfo) {
-        if (blockPopInfo != null) {
-            AntiHelper.ap(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
+    public static List<a> bzO() {
+        ArrayList arrayList = new ArrayList();
+        File[] bzN = bzN();
+        if (bzN != null) {
+            for (File file : bzN) {
+                String name = file.getName();
+                JSONObject uu = uu(file.getAbsolutePath() + g.a.fgV + "kpi");
+                if (uu == null) {
+                    com.baidu.tieba.j.d.qk(name);
+                } else {
+                    JSONObject uv = uv(file.getAbsolutePath() + g.a.fgV + BuildConfig.BUILD_TYPE);
+                    if (uv == null) {
+                        com.baidu.tieba.j.d.qk(name);
+                    } else {
+                        arrayList.add(new a(name, a(VideoPlatformStatic.QC(), uu, uv)));
+                    }
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    private static JSONObject uu(String str) {
+        File file = new File(str);
+        if (file.exists()) {
+            try {
+                JSONObject jSONObject = new JSONObject(com.baidu.tieba.j.d.B(file));
+                if (aa(jSONObject)) {
+                    return jSONObject;
+                }
+                return null;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return null;
+    }
+
+    private static boolean aa(JSONObject jSONObject) {
+        int optInt = jSONObject.optInt("errorTimes", -1);
+        int optInt2 = jSONObject.optInt("postSuccess", -1);
+        int optInt3 = jSONObject.optInt("posted", -1);
+        return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
+    }
+
+    private static JSONObject uv(String str) {
+        if (!StringUtils.isNull(str) && new File(str).exists()) {
+            try {
+                return new JSONObject().put("running", l(com.baidu.tieba.j.d.qj(str)));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return null;
+    }
+
+    private static JSONArray l(JSONArray jSONArray) {
+        int optInt;
+        boolean z = false;
+        if (jSONArray == null) {
+            return null;
+        }
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
+                z = true;
+                break;
+            }
+        }
+        if (!z) {
+            jSONArray.put(new com.baidu.tieba.m.d(HttpStatus.SC_BAD_GATEWAY, "unknown", -4399, "").bld());
+            return jSONArray;
+        }
+        return jSONArray;
+    }
+
+    public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+        try {
+            JSONObject jSONObject4 = new JSONObject();
+            jSONObject4.put("kpiInfo", jSONObject2);
+            jSONObject4.put("baseInfo", jSONObject);
+            jSONObject4.put("debugInfo", jSONObject3);
+            return jSONObject4;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
-    public static void d(BlockPopInfo blockPopInfo) {
-        gZR = blockPopInfo;
+    public void f(String str, JSONObject jSONObject) {
+        new BdAsyncTask<a, Void, Void>() { // from class: com.baidu.tieba.s.b.2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            /* renamed from: a */
+            public Void doInBackground(a... aVarArr) {
+                if (aVarArr != null && aVarArr.length == 1 && aVarArr[0] != null) {
+                    b.this.a(aVarArr[0]);
+                }
+                return null;
+            }
+        }.execute(new a(str, jSONObject));
     }
 
-    public static void e(BlockPopInfo blockPopInfo) {
-        gZS = blockPopInfo;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(a aVar) {
+        try {
+            c.f(c.ab(aVar.gtE), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+            com.baidu.tieba.j.d.qk(aVar.uuid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

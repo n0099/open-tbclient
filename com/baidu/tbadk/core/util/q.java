@@ -4,28 +4,28 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public abstract class q {
-    public static q apc = null;
+    public static q aoD = null;
 
-    public abstract com.baidu.tbadk.core.data.l getmCdnLogData();
+    public abstract com.baidu.tbadk.core.data.k getmCdnLogData();
 
     public abstract void insertErrorData(int i, String str);
 
     public abstract void insertNormalData(long j, String str);
 
-    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.l lVar);
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.k kVar);
 
     public static q getInstance() {
-        if (apc == null) {
+        if (aoD == null) {
             synchronized (q.class) {
-                if (apc == null) {
+                if (aoD == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016101, q.class);
                     if (runTask != null && runTask.getData() != null) {
-                        apc = (q) runTask.getData();
+                        aoD = (q) runTask.getData();
                     }
-                    return apc;
+                    return aoD;
                 }
             }
         }
-        return apc;
+        return aoD;
     }
 }

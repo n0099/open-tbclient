@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class a implements d {
-    @Override // com.baidu.tbadk.download.d
+public class a implements c {
+    @Override // com.baidu.tbadk.download.c
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
             SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
@@ -19,12 +19,12 @@ public class a implements d {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            com.baidu.tieba.recapp.download.d.boQ().c(downloadData);
-            com.baidu.tieba.recapp.download.d.boQ().b(downloadData);
+            com.baidu.tieba.recapp.download.d.bnu().c(downloadData);
+            com.baidu.tieba.recapp.download.d.bnu().b(downloadData);
         }
     }
 
-    @Override // com.baidu.tbadk.download.d
+    @Override // com.baidu.tbadk.download.c
     public boolean onPreDownload(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
@@ -33,7 +33,7 @@ public class a implements d {
         return true;
     }
 
-    @Override // com.baidu.tbadk.download.d
+    @Override // com.baidu.tbadk.download.c
     public boolean onFileDownloaded(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
@@ -42,7 +42,7 @@ public class a implements d {
         return true;
     }
 
-    @Override // com.baidu.tbadk.download.d
+    @Override // com.baidu.tbadk.download.c
     public void onFileDownloadSucceed(DownloadData downloadData) {
         if (downloadData != null) {
             String[] tag = downloadData.getTag();
@@ -52,22 +52,22 @@ public class a implements d {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            com.baidu.tieba.recapp.download.d.boQ().b(downloadData);
+            com.baidu.tieba.recapp.download.d.bnu().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
             }
         }
     }
 
-    @Override // com.baidu.tbadk.download.d
+    @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        com.baidu.tieba.recapp.download.d boQ = com.baidu.tieba.recapp.download.d.boQ();
+        com.baidu.tieba.recapp.download.d bnu = com.baidu.tieba.recapp.download.d.bnu();
         if (i == 3) {
-            boQ.o(downloadData);
+            bnu.k(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else {
-            boQ.k(downloadData);
+            bnu.l(downloadData);
         }
-        com.baidu.tieba.recapp.download.d.boQ().b(downloadData);
+        com.baidu.tieba.recapp.download.d.bnu().b(downloadData);
     }
 }

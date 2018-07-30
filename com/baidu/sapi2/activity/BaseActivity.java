@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.widget.Toast;
-import com.baidu.c.a.a;
+import com.baidu.d.a.a;
 import com.baidu.fsg.api.RimServiceCallback;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;

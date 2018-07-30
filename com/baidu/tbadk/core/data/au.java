@@ -1,39 +1,96 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
-import tbclient.RecommendInfo;
-import tbclient.SchoolRecomUserInfo;
-/* loaded from: classes.dex */
-public class au extends bc {
-    public static final BdUniqueId ahE = BdUniqueId.gen();
-    private String title = "";
-    private ArrayList<aw> ahF = new ArrayList<>();
+import java.util.List;
+import tbclient.RecomTopicInfo;
+import tbclient.RecomTopicList;
+/* loaded from: classes2.dex */
+public class au {
+    private String aha;
+    private List<a> ahb = new ArrayList();
 
-    public void a(RecommendInfo recommendInfo) {
-        if (recommendInfo != null) {
-            this.title = recommendInfo.title;
-            for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
-                if (schoolRecomUserInfo != null) {
-                    aw awVar = new aw();
-                    awVar.a(schoolRecomUserInfo);
-                    this.ahF.add(awVar);
+    public String uC() {
+        return StringUtils.isNull(this.aha) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.aha;
+    }
+
+    public com.baidu.tieba.card.data.n uD() {
+        com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
+        ArrayList arrayList = null;
+        nVar.cCz = uC();
+        if (this.ahb != null) {
+            ArrayList arrayList2 = new ArrayList();
+            for (a aVar : this.ahb) {
+                if (aVar != null) {
+                    arrayList2.add(aVar.uF());
+                }
+            }
+            arrayList = arrayList2;
+        }
+        nVar.cCA = arrayList;
+        return nVar;
+    }
+
+    public void a(RecomTopicInfo recomTopicInfo) {
+        if (recomTopicInfo != null) {
+            this.aha = recomTopicInfo.recom_title;
+            if (com.baidu.tbadk.core.util.w.y(recomTopicInfo.topic_list) > 0) {
+                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
+                    if (recomTopicList != null) {
+                        a aVar = new a();
+                        aVar.a(recomTopicList);
+                        if (!a(aVar)) {
+                            this.ahb.add(aVar);
+                        }
+                    }
                 }
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.bc
-    public String getTitle() {
-        return this.title;
+    private boolean a(a aVar) {
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.uE() <= 0;
     }
 
-    public ArrayList<aw> uO() {
-        return this.ahF;
-    }
+    /* loaded from: classes2.dex */
+    public static class a {
+        private long ahc;
+        private String ahd;
+        private long ahe;
+        private String ahf;
+        private String ahg;
+        private int tag;
+        private int type;
 
-    @Override // com.baidu.tbadk.core.data.bc, com.baidu.adp.widget.ListView.h
-    public BdUniqueId getType() {
-        return ahE;
+        public long uE() {
+            return this.ahc;
+        }
+
+        public String getTopicName() {
+            return this.ahd;
+        }
+
+        public void a(RecomTopicList recomTopicList) {
+            if (recomTopicList != null) {
+                this.ahc = recomTopicList.topic_id.longValue();
+                this.ahd = recomTopicList.topic_name;
+                this.type = recomTopicList.type.intValue();
+                this.ahe = recomTopicList.discuss_num.longValue();
+                this.tag = recomTopicList.tag.intValue();
+                this.ahf = recomTopicList.topic_desc;
+                this.ahg = recomTopicList.topic_pic;
+            }
+        }
+
+        public com.baidu.tieba.card.data.m uF() {
+            com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
+            mVar.tag = this.tag;
+            mVar.desc = this.ahf;
+            mVar.ahc = this.ahc;
+            mVar.ahd = this.ahd;
+            return mVar;
+        }
     }
 }

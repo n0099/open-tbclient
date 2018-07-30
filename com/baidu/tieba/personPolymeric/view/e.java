@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.d;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.g> {
-    private HTypeListView bnt;
-    private View cSc;
-    private com.baidu.tieba.personPolymeric.a.o gbN;
+    private HTypeListView bnZ;
+    private View cUP;
+    private com.baidu.tieba.personPolymeric.a.o gcf;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -27,22 +27,22 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.cSc = this.mRootView.findViewById(d.g.divider_view);
+        this.cUP = this.mRootView.findViewById(d.g.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(d.g.gift_title);
-        this.bnt = (HTypeListView) this.mRootView.findViewById(d.g.gift_horizontal_list);
-        this.gbN = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bnt);
+        this.bnZ = (HTypeListView) this.mRootView.findViewById(d.g.gift_horizontal_list);
+        this.gcf = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bnZ);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
-        am.j(this.mRootView, d.C0142d.cp_bg_line_d);
-        am.j(this.cSc, d.C0142d.cp_bg_line_b);
-        am.h(this.mTitle, d.C0142d.cp_cont_d);
+        am.j(this.mRootView, d.C0140d.cp_bg_line_d);
+        am.j(this.cUP, d.C0140d.cp_bg_line_b);
+        am.h(this.mTitle, d.C0140d.cp_cont_d);
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.i.card_gift_list;
+        return d.h.card_gift_list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,16 +58,16 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.gbN.S(onClickListener);
+        this.gcf.Q(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.gbN.T(onClickListener);
-        this.bnt.setData(dj(gVar.gaM));
+        this.gcf.R(onClickListener);
+        this.bnZ.setData(df(gVar.gbd));
         if (gVar.mIsHost) {
-            this.mTitle.setText(d.k.gift_received_by_me);
-        } else if (gVar.gaK) {
-            this.mTitle.setText(d.k.gift_received_by_him);
+            this.mTitle.setText(d.j.gift_received_by_me);
+        } else if (gVar.gbb) {
+            this.mTitle.setText(d.j.gift_received_by_him);
         } else {
-            this.mTitle.setText(d.k.gift_received_by_her);
+            this.mTitle.setText(d.j.gift_received_by_her);
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -75,26 +75,26 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.personPolymeric.c.g gVar) {
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-            this.mPageContext.showToast(d.k.gift_load_fail);
-        } else if (bb.aU(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Bh, gVar.gaL, gVar.mSex)));
+            this.mPageContext.showToast(d.j.gift_load_fail);
+        } else if (ba.aV(this.mPageContext.getPageActivity())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Bc, gVar.gbc, gVar.mSex)));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.h> dj(List<com.baidu.adp.widget.ListView.h> list) {
-        int z = w.z(list);
-        if (z > 0) {
+    private List<com.baidu.adp.widget.ListView.h> df(List<com.baidu.adp.widget.ListView.h> list) {
+        int y = w.y(list);
+        if (y > 0) {
             List<com.baidu.adp.widget.ListView.h> arrayList = new ArrayList<>(list);
-            int e = com.baidu.adp.lib.util.l.e(this.mTbPageContext.getPageActivity(), d.e.ds100);
-            int e2 = com.baidu.adp.lib.util.l.e(this.mTbPageContext.getPageActivity(), d.e.ds32);
-            if (z > 7) {
+            int f = com.baidu.adp.lib.util.l.f(this.mTbPageContext.getPageActivity(), d.e.ds100);
+            int f2 = com.baidu.adp.lib.util.l.f(this.mTbPageContext.getPageActivity(), d.e.ds32);
+            if (y > 7) {
                 arrayList = arrayList.subList(0, 7);
                 com.baidu.tieba.personPolymeric.c.h hVar = new com.baidu.tieba.personPolymeric.c.h();
-                hVar.height = e;
-                hVar.width = e;
+                hVar.height = f;
+                hVar.width = f;
                 w.b(arrayList, hVar);
             }
-            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(e2, e);
+            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(f2, f);
             w.a((List<com.baidu.tieba.person.d>) arrayList, 0, dVar);
             w.b(arrayList, dVar);
             return arrayList;

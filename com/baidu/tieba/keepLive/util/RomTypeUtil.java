@@ -31,6 +31,10 @@ public class RomTypeUtil {
         return check(ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
     }
 
+    public static boolean isFlyme() {
+        return check(ROM_FLYME);
+    }
+
     public static String getVersion() {
         if (sVersion == null) {
             check("");
@@ -82,7 +86,7 @@ public class RomTypeUtil {
         return sName.equals(str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [105=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
     public static String getProp(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

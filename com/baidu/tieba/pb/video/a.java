@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes2.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener bpq;
+    public View.OnClickListener bpX;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -20,9 +20,9 @@ public class a extends k<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bt */
+    /* renamed from: br */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(d.i.pb_god_reply_look_more_item, viewGroup, false));
+        return new c(LayoutInflater.from(this.mContext).inflate(d.h.pb_god_reply_look_more_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,21 +31,21 @@ public class a extends k<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.cwI != null) {
-            if (this.bpq != null) {
-                cVar.cwI.setOnClickListener(this.bpq);
+        if (cVar != null && cVar.czl != null) {
+            if (this.bpX != null) {
+                cVar.czl.setOnClickListener(this.bpX);
             }
-            if (cVar.azP != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.azP = TbadkCoreApplication.getInst().getSkinType();
-                am.h(cVar.cwI, d.C0142d.cp_cont_f);
-                am.i(cVar.cwI, d.f.more_all);
-                am.i(cVar.bjR, d.C0142d.cp_bg_line_c);
+            if (cVar.azI != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.azI = TbadkCoreApplication.getInst().getSkinType();
+                am.h(cVar.czl, d.C0140d.cp_cont_f);
+                am.i(cVar.czl, d.f.more_all);
+                am.i(cVar.bkw, d.C0140d.cp_bg_line_c);
             }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bpq = onClickListener;
+        this.bpX = onClickListener;
     }
 }

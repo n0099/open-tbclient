@@ -21,7 +21,7 @@ public class EntelechyBannerView extends BannerView {
     private void init() {
         if (this.aGL != null && (this.aGL.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aGL.getLayoutParams();
-            layoutParams.topMargin = (l.e(getContext(), d.e.ds100) - l.dip2px(getContext(), 20.0f)) / 2;
+            layoutParams.topMargin = (l.f(getContext(), d.e.ds100) - l.dip2px(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
             this.aGL.requestLayout();
         }

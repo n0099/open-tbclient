@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.worldcup.talkball.model;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.o;
 import java.util.HashMap;
 import tbclient.TalkBall.DataReq;
 import tbclient.TalkBall.TalkBallReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TalkBallRequestData extends OrmObject implements e, h {
     private String forum_name;
     private Long last_thread_id;
@@ -20,7 +20,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     private Integer scr_w;
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bR(boolean z) {
+    public Object bP(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.scr_w = this.scr_w;
         builder.scr_h = this.scr_h;
@@ -30,7 +30,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         builder.last_thread_id = this.last_thread_id;
         builder.rn = this.rn;
         builder.pn = this.pn;
-        p.bindCommonParamsToProtobufData(builder, true, false, true);
+        o.bindCommonParamsToProtobufData(builder, true, false, true);
         TalkBallReqIdl.Builder builder2 = new TalkBallReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
@@ -52,11 +52,11 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         this.q_type = num;
     }
 
-    public void dp(String str) {
+    public void dm(String str) {
         this.forum_name = str;
     }
 
-    public void e(Long l) {
+    public void d(Long l) {
         this.last_thread_id = l;
     }
 
@@ -72,12 +72,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         return this.requestType;
     }
 
-    public void lW(int i) {
+    public void mi(int i) {
         this.requestType = i;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Jz() {
+    public boolean Ju() {
         return false;
     }
 
@@ -92,12 +92,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Jy() {
+    public String Jt() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> JB() {
+    public HashMap<String, Object> Jw() {
         return null;
     }
 }

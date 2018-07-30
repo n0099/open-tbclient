@@ -8,38 +8,38 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes2.dex */
 public class ar extends com.baidu.tbadk.core.view.userLike.c {
-    private String aWo;
-    public boolean fEm;
-    private int fEn;
-    private int fEo;
+    private String aWq;
+    private int fEA;
+    private int fEB;
+    public boolean fEz;
     public boolean isBigV;
     private TbPageContext mPageContext;
 
     public ar(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.fEm = false;
+        this.fEz = false;
         this.isBigV = false;
-        this.fEn = 0;
-        this.fEn = i;
+        this.fEA = 0;
+        this.fEA = i;
         this.mPageContext = tbPageContext;
-        if (this.fEn == 1) {
+        if (this.fEA == 1) {
             super.setFromType("4");
-        } else if (this.fEn == 3) {
+        } else if (this.fEA == 3) {
             super.setFromType("5");
         } else {
             super.setFromType("0");
         }
     }
 
-    public void dk(String str) {
-        this.aWo = str;
+    public void dh(String str) {
+        this.aWq = str;
     }
 
-    public void qP(int i) {
-        this.fEo = i;
+    public void qM(int i) {
+        this.fEB = i;
     }
 
-    private int bfi() {
+    private int bdB() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -70,23 +70,23 @@ public class ar extends com.baidu.tbadk.core.view.userLike.c {
         int i = 3;
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
-            String userId = this.azF != null ? this.azF.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bfi()).ah(VideoPlayActivityConfig.OBJ_ID, userId).ah("tid", this.aWo));
-            if (this.fEn != 1) {
-                i = this.fEn == 3 ? 2 : 0;
+            String userId = this.azy != null ? this.azy.getUserId() : "";
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12408").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bdB()).af(VideoPlayActivityConfig.OBJ_ID, userId).af("tid", this.aWq));
+            if (this.fEA != 1) {
+                i = this.fEA == 3 ? 2 : 0;
             }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12507").r("obj_locate", i).ah(VideoPlayActivityConfig.OBJ_ID, userId).ah("tid", this.aWo).r("obj_param1", this.fEo));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12507").r("obj_locate", i).af(VideoPlayActivityConfig.OBJ_ID, userId).af("tid", this.aWq).r("obj_param1", this.fEB));
             super.onClick(view);
-            if (this.fEm && this.azF != null) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11924").ah(VideoPlayActivityConfig.OBJ_ID, this.azF.getUserId()));
+            if (this.fEz && this.azy != null) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11924").af(VideoPlayActivityConfig.OBJ_ID, this.azy.getUserId()));
             }
-            if (this.isBigV && this.azF != null) {
-                if (this.fEn == 1) {
+            if (this.isBigV && this.azy != null) {
+                if (this.fEA == 1) {
                     i2 = 1;
-                } else if (this.fEn != 2) {
+                } else if (this.fEA != 2) {
                     i2 = 0;
                 }
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12150").r("obj_locate", i2).ah(VideoPlayActivityConfig.OBJ_ID, this.azF.getUserId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12150").r("obj_locate", i2).af(VideoPlayActivityConfig.OBJ_ID, this.azy.getUserId()));
             }
         }
     }

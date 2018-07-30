@@ -37,7 +37,7 @@ public class PixelAspectRationAtom extends AbstractBox {
     }
 
     public void sethSpacing(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wb(i)));
         this.hSpacing = i;
     }
 
@@ -47,7 +47,7 @@ public class PixelAspectRationAtom extends AbstractBox {
     }
 
     public void setvSpacing(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wM(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wb(i)));
         this.vSpacing = i;
     }
 

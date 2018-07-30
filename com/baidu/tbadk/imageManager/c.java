@@ -14,7 +14,7 @@ public class c {
     private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> aQm;
     private com.baidu.tbadk.widget.largeImage.b.b aQn;
 
-    public static c IV() {
+    public static c IQ() {
         return aQi;
     }
 
@@ -29,7 +29,7 @@ public class c {
             /* renamed from: a */
             public void entryRemoved(boolean z, String str, com.baidu.adp.widget.ImageView.a aVar, com.baidu.adp.widget.ImageView.a aVar2) {
                 if (aVar != null) {
-                    aVar.mY();
+                    aVar.na();
                 }
             }
         };
@@ -53,7 +53,7 @@ public class c {
                 if (aVar != null) {
                     if (BdLog.isDebugMode()) {
                     }
-                    aVar.mY();
+                    aVar.na();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
                 }
             }
@@ -71,12 +71,12 @@ public class c {
         };
     }
 
-    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> eZ(int i) {
+    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> fa(int i) {
         if (this.aQm != null && this.aQn != null) {
             if (this.aQn.getBlockSize() == i) {
                 return this.aQm;
             }
-            this.aQn.fG(i);
+            this.aQn.fH(i);
             this.aQm.clear();
         }
         if (this.aQn == null) {
@@ -88,35 +88,35 @@ public class c {
         return this.aQm;
     }
 
-    public void IW() {
+    public void IR() {
         if (this.aQm != null) {
+            this.aQm.ai(0);
             this.aQm.ah(0);
-            this.aQm.ag(0);
             this.aQm.clear();
             this.aQm = null;
         }
     }
 
-    public int IX() {
+    public int IS() {
         return this.aQk.getMaxSize();
     }
 
-    public void G(int i, int i2) {
-        fa(i);
-        fb(i2);
-        fc(30);
-    }
-
-    public void fa(int i) {
-        this.aQj.ad(i);
+    public void H(int i, int i2) {
+        fb(i);
+        fc(i2);
+        fd(30);
     }
 
     public void fb(int i) {
-        this.aQk.ad(i);
+        this.aQj.ae(i);
     }
 
     public void fc(int i) {
-        this.aQl.ad(i);
+        this.aQk.ae(i);
+    }
+
+    public void fd(int i) {
+        this.aQl.ae(i);
     }
 
     public void b(String str, Bitmap bitmap) {
@@ -142,8 +142,8 @@ public class c {
         }
     }
 
-    public boolean fd(int i) {
-        return this.aQk.ac(i);
+    public boolean fe(int i) {
+        return this.aQk.ad(i);
     }
 
     public void b(String str, com.baidu.adp.widget.ImageView.a aVar, boolean z) {
@@ -158,23 +158,23 @@ public class c {
         b(str, aVar, false);
     }
 
-    public void hf(String str) {
+    public void hb(String str) {
         this.aQj.remove(str);
     }
 
-    public void hg(String str) {
+    public void hc(String str) {
         this.aQk.remove(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a hh(String str) {
+    public com.baidu.adp.widget.ImageView.a hd(String str) {
         return this.aQj.get(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a hi(String str) {
+    public com.baidu.adp.widget.ImageView.a he(String str) {
         return this.aQk.get(str);
     }
 
-    public void IY() {
+    public void IT() {
         this.aQj.clear();
         this.aQk.clear();
     }
@@ -183,7 +183,7 @@ public class c {
         return "pic:" + this.aQk.toString() + "  photo:" + this.aQj.toString();
     }
 
-    public String gI() {
+    public String gH() {
         return this.aQk.size() + "/" + this.aQk.getMaxSize() + "/" + this.aQk.evictionCount() + "_" + this.aQj.size() + "/" + this.aQj.getMaxSize() + "/" + this.aQj.evictionCount();
     }
 }

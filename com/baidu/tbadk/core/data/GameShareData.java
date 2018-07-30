@@ -16,18 +16,18 @@ public class GameShareData implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bD */
+        /* renamed from: bF */
         public GameShareData[] newArray(int i) {
             return new GameShareData[i];
         }
     };
-    public String agq;
-    public String agr;
-    public float ags;
-    public float agt;
-    public String agu;
-    public String agv;
-    public String agw;
+    public String afJ;
+    public String afK;
+    public float afL;
+    public float afM;
+    public String afN;
+    public String afO;
+    public String afP;
     public String gameName;
     public String userName;
     public String userPortrait;
@@ -36,30 +36,30 @@ public class GameShareData implements Parcelable {
     }
 
     protected GameShareData(Parcel parcel) {
-        this.agq = parcel.readString();
+        this.afJ = parcel.readString();
         this.gameName = parcel.readString();
-        this.agr = parcel.readString();
-        this.ags = parcel.readFloat();
+        this.afK = parcel.readString();
+        this.afL = parcel.readFloat();
         this.userName = parcel.readString();
         this.userPortrait = parcel.readString();
-        this.agt = parcel.readFloat();
-        this.agu = parcel.readString();
-        this.agv = parcel.readString();
-        this.agw = parcel.readString();
+        this.afM = parcel.readFloat();
+        this.afN = parcel.readString();
+        this.afO = parcel.readString();
+        this.afP = parcel.readString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.agq);
+        parcel.writeString(this.afJ);
         parcel.writeString(this.gameName);
-        parcel.writeString(this.agr);
-        parcel.writeFloat(this.ags);
+        parcel.writeString(this.afK);
+        parcel.writeFloat(this.afL);
         parcel.writeString(this.userName);
         parcel.writeString(this.userPortrait);
-        parcel.writeFloat(this.agt);
-        parcel.writeString(this.agu);
-        parcel.writeString(this.agv);
-        parcel.writeString(this.agw);
+        parcel.writeFloat(this.afM);
+        parcel.writeString(this.afN);
+        parcel.writeString(this.afO);
+        parcel.writeString(this.afP);
     }
 
     @Override // android.os.Parcelable
@@ -69,16 +69,16 @@ public class GameShareData implements Parcelable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.agq = jSONObject.optString("barIconUrl");
+            this.afJ = jSONObject.optString("barIconUrl");
             this.gameName = jSONObject.optString("barName");
-            this.agr = jSONObject.optString("barDescribe");
-            this.ags = (float) jSONObject.optDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE);
+            this.afK = jSONObject.optString("barDescribe");
+            this.afL = (float) jSONObject.optDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.userName = jSONObject.optString("userName");
             this.userPortrait = jSONObject.optString("avastar");
-            this.agt = (float) jSONObject.optDouble("userScore");
-            this.agu = jSONObject.optString("content");
-            this.agv = jSONObject.optString("qrCodeUrl");
-            this.agw = jSONObject.optString("headBgUrl");
+            this.afM = (float) jSONObject.optDouble("userScore");
+            this.afN = jSONObject.optString("content");
+            this.afO = jSONObject.optString("qrCodeUrl");
+            this.afP = jSONObject.optString("headBgUrl");
         }
     }
 }

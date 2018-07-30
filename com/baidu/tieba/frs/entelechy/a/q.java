@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,21 +9,21 @@ import java.util.List;
 public interface q {
     void a(com.baidu.tieba.frs.d dVar);
 
-    HashMap<Integer, bc> awu();
+    HashMap<Integer, bb> awZ();
 
-    void awv();
+    void axa();
 
-    int aww();
+    int axb();
 
-    int awx();
+    int axc();
 
-    int awy();
+    int axd();
 
-    void awz();
+    void axe();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.h> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 
-    void fX(boolean z);
+    void fZ(boolean z);
 
     List<com.baidu.adp.widget.ListView.h> getDatas();
 

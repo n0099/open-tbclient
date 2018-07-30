@@ -46,7 +46,7 @@ public class aa extends SparseArray<ai> {
                 ai valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.Vo();
+                    valueAt.Vx();
                 }
                 i = i2 + 1;
             } else {
@@ -62,7 +62,7 @@ public class aa extends SparseArray<ai> {
         put(i, aiVar);
     }
 
-    public ai kv(int i) {
+    public ai kG(int i) {
         if (i > 100) {
             i = 100;
         }

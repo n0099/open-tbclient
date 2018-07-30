@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private BdUniqueId eDT;
-    private a eDU;
-    private com.baidu.adp.framework.listener.c eDV;
+    private BdUniqueId eHN;
+    private a eHO;
+    private com.baidu.adp.framework.listener.c eHP;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,9 +26,9 @@ public class ReplyMeModel extends BdBaseModel {
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eDT = BdUniqueId.gen();
+        this.eHN = BdUniqueId.gen();
         this.mPageContext = tbPageContext;
-        aOj();
+        aPj();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -41,13 +41,13 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aOj() {
-        this.eDV = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
+    public void aPj() {
+        this.eHP = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-                    ReplyMeModel.this.mPageContext.showToast(d.k.neterror);
+                    ReplyMeModel.this.mPageContext.showToast(d.j.neterror);
                     return;
                 }
                 CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
@@ -56,7 +56,7 @@ public class ReplyMeModel extends BdBaseModel {
                         ReplyMeModel.this.mPageContext.showToast(checkPostResponseMessage.getErrorString());
                         return;
                     } else {
-                        ReplyMeModel.this.mPageContext.showToast(d.k.neterror);
+                        ReplyMeModel.this.mPageContext.showToast(d.j.neterror);
                         return;
                     }
                 }
@@ -66,19 +66,19 @@ public class ReplyMeModel extends BdBaseModel {
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
                 if (postState == 1) {
-                    if (ReplyMeModel.this.eDU != null) {
-                        ReplyMeModel.this.eDU.a(forumId, quoteId, repostId, forumName);
+                    if (ReplyMeModel.this.eHO != null) {
+                        ReplyMeModel.this.eHO.a(forumId, quoteId, repostId, forumName);
                     }
                 } else if (postState == 0) {
-                    ReplyMeModel.this.mPageContext.showToast(d.k.thread_delete_tip);
+                    ReplyMeModel.this.mPageContext.showToast(d.j.thread_delete_tip);
                 } else if (postState == -1) {
-                    ReplyMeModel.this.mPageContext.showToast(d.k.thread_shield_tip);
+                    ReplyMeModel.this.mPageContext.showToast(d.j.thread_shield_tip);
                 }
             }
         };
-        this.eDV.setTag(this.mPageContext.getUniqueId());
-        this.eDV.setSelfListener(true);
-        this.mPageContext.registerListener(this.eDV);
+        this.eHP.setTag(this.mPageContext.getUniqueId());
+        this.eHP.setSelfListener(true);
+        this.mPageContext.registerListener(this.eHP);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -92,12 +92,12 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eDU = aVar;
+        this.eHO = aVar;
     }
 
     public void onDestroy() {
-        if (this.eDV != null) {
-            MessageManager.getInstance().unRegisterListener(this.eDV);
+        if (this.eHP != null) {
+            MessageManager.getInstance().unRegisterListener(this.eHP);
         }
     }
 }

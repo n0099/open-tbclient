@@ -28,9 +28,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.aeb;
-        if (StringUtils.isNull(str) && advertAppInfo.aem != null) {
-            str = advertAppInfo.aem.userName;
+        String str = advertAppInfo.adF;
+        if (StringUtils.isNull(str) && advertAppInfo.adQ != null) {
+            str = advertAppInfo.adQ.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -46,29 +46,29 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.Hj().b(advertAppInfo);
-        String str2 = advertAppInfo.aeb;
+        com.baidu.tbadk.distribute.a.Hf().b(advertAppInfo);
+        String str2 = advertAppInfo.adF;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.boQ().a(advertAppInfo.aef, advertAppInfo.aee, str2, i, com.baidu.tieba.recapp.download.d.sL(advertAppInfo.aef).intValue(), null, true, false, true, advertAppInfo.aem.userPortrait, downloadStaticsData, advertAppInfo.aem.userName);
+        com.baidu.tieba.recapp.download.d.bnu().a(advertAppInfo.adJ, advertAppInfo.adI, str2, i, com.baidu.tieba.recapp.download.d.sH(advertAppInfo.adJ).intValue(), null, true, false, true, advertAppInfo.adQ.userPortrait, downloadStaticsData, advertAppInfo.adQ.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.boQ().j(advertAppInfo.aee, advertAppInfo.aef, true);
+        com.baidu.tieba.recapp.download.d.bnu().i(advertAppInfo.adI, advertAppInfo.adJ, true);
     }
 
-    public static final void al(Context context, String str) {
+    public static final void an(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, d.k.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
             return;
         }
-        File dX = com.baidu.tbadk.core.util.l.dX(str.replace(".", "_") + ".apk");
-        if (dX != null) {
+        File dU = com.baidu.tbadk.core.util.l.dU(str.replace(".", "_") + ".apk");
+        if (dU != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(dX, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(dU, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -99,18 +99,18 @@ public class s {
         return false;
     }
 
-    public static boolean F(Activity activity) {
+    public static boolean G(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aQ = ac.aQ(activity);
+        boolean aR = ac.aR(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aQ;
+        return aR;
     }
 
-    public static List<String> cd(Context context) {
+    public static List<String> ce(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -164,7 +164,7 @@ public class s {
             tbImageView.startLoad(str, 10, false);
             tbImageView.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.s.1
                 @Override // com.baidu.tbadk.widget.TbImageView.a
-                public void n(String str2, boolean z) {
+                public void m(String str2, boolean z) {
                     ViewGroup.LayoutParams layoutParams = TbImageView.this.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = i;
@@ -184,11 +184,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.boJ().sendFRS(z, str, str2, str3, list, str4);
+        r.bnn().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.boJ().a(z, str, str2, str3, str4, list, str5);
+        r.bnn().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -207,41 +207,41 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h boG = r.boJ().boG();
-        if (boG == null) {
+        h bnk = r.bnn().bnk();
+        if (bnk == null) {
             return false;
         }
-        if (boG.iH(str)) {
-            boG.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bnk.iE(str)) {
+            bnk.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return boG.c(tbPageContext.getPageActivity(), strArr);
+        return bnk.c(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int am(Context context, String str) {
+    public static int ao(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return an(context, str) ? 3 : 0;
+            return ap(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (c(context, Uri.parse(parse.getQueryParameter("jump")))) {
             return 1;
         }
-        return an(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return ap(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean an(Context context, String str) {
+    private static boolean ap(Context context, String str) {
         String[] strArr = {str};
-        h boG = r.boJ().boG();
-        if (boG == null) {
+        h bnk = r.bnn().bnk();
+        if (bnk == null) {
             return false;
         }
-        if (boG.iH(str)) {
-            boG.a(context, strArr, true);
+        if (bnk.iE(str)) {
+            bnk.a(context, strArr, true);
             return true;
         }
-        return boG.c(context, strArr);
+        return bnk.c(context, strArr);
     }
 }

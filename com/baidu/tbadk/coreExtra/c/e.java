@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.d;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.tencent.connect.common.Constants;
@@ -22,8 +22,8 @@ import java.net.URISyntaxException;
 public class e {
     private a aGr;
     private b aGs;
-    private String aGt = TbadkCoreApplication.getInst().getContext().getString(d.k.share_tail);
-    private String aGu = TbadkCoreApplication.getInst().getContext().getString(d.k.weibo_share_tail) + this.aGt;
+    private String aGt = TbadkCoreApplication.getInst().getContext().getString(d.j.share_tail);
+    private String aGu = TbadkCoreApplication.getInst().getContext().getString(d.j.weibo_share_tail) + this.aGt;
     private final Context mContext;
 
     public e(Context context, a aVar) {
@@ -38,16 +38,16 @@ public class e {
         }
     }
 
-    public static boolean aX(Context context) {
-        return FH();
+    public static boolean aY(Context context) {
+        return FD();
     }
 
-    public static boolean FH() {
+    public static boolean FD() {
         return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
     }
 
-    public static String an(String str, String str2) {
-        return n(str, "copy", str2);
+    public static String al(String str, String str2) {
+        return o(str, "copy", str2);
     }
 
     public void b(d dVar) {
@@ -116,7 +116,7 @@ public class e {
     }
 
     private d a(d dVar, String str) {
-        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.FE() == null) {
+        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.FA() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
@@ -125,20 +125,20 @@ public class e {
         }
         if (dVar.imageUri != null && !dVar.imageUri.equals("")) {
             String uri = dVar.imageUri.toString();
-            if (!ga(uri) && !gb(uri)) {
+            if (!fY(uri) && !fZ(uri)) {
                 dVar.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 dVar.imageUri = Uri.parse(uri);
-                ao(uri, "sfc=" + str);
+                am(uri, "sfc=" + str);
             }
         }
         if (dVar.aGp) {
-            dVar.linkUrl = n(dVar.linkUrl, str, dVar.tid);
+            dVar.linkUrl = o(dVar.linkUrl, str, dVar.tid);
         }
         return dVar;
     }
 
-    protected boolean ga(String str) {
+    protected boolean fY(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
             try {
                 File file = new File(new URI(str));
@@ -150,33 +150,33 @@ public class e {
         return false;
     }
 
-    private static String n(String str, String str2, String str3) {
-        String bl;
+    private static String o(String str, String str2, String str3) {
+        String bm;
         if (ap.isEmpty(str)) {
             str = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
         }
-        String ao = ao(ao(ao(ao(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
+        String am = am(am(am(am(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
         if (str3 != null) {
-            if (com.baidu.adp.lib.b.d.hv().aw("android_url_need_cuid") == 1) {
-                bl = s.bl(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+            if (com.baidu.adp.lib.b.d.hv().ax("android_url_need_cuid") == 1) {
+                bm = s.bm(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
             } else {
-                bl = s.bl(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+                bm = s.bm(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
             }
-            return ao(ao, "unique=" + bl);
+            return am(am, "unique=" + bm);
         }
-        return ao;
+        return am;
     }
 
-    private static String ao(String str, String str2) {
+    private static String am(String str, String str2) {
         if (ap.isEmpty(Uri.parse(str).getQuery())) {
             str = str + "?";
         }
         return str + "&" + str2;
     }
 
-    private boolean gb(String str) {
+    private boolean fZ(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (az.zV().eW(str)) {
+        if (ay.zK().eU(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

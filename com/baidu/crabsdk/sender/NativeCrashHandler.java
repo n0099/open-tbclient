@@ -34,18 +34,18 @@ public class NativeCrashHandler {
 
     public final void af() {
         try {
-            com.baidu.crabsdk.c.a.ce("加载系统库，调用native接口");
+            com.baidu.crabsdk.c.a.cf("加载系统库，调用native接口");
             if (mContext == null) {
-                com.baidu.crabsdk.c.a.cd("NativeCrashHandler openNativeCrashHandler failed context is null!");
+                com.baidu.crabsdk.c.a.ce("NativeCrashHandler openNativeCrashHandler failed context is null!");
             } else {
                 String str = mContext.getApplicationInfo().nativeLibraryDir + "/" + System.mapLibraryName("crab_native");
                 if (TextUtils.isEmpty(str) || new File(str).exists()) {
                     System.loadLibrary("crab_native");
                     this.bN = true;
                     CrabSDK.NDK_VERSION = "3.1.0";
-                    com.baidu.crabsdk.c.a.cd("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
+                    com.baidu.crabsdk.c.a.ce("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
                 } else {
-                    com.baidu.crabsdk.c.a.cd("NativeCrashHandler openNativeCrashHandler failed so file is not exists! dir is " + str + " " + Build.CPU_ABI);
+                    com.baidu.crabsdk.c.a.ce("NativeCrashHandler openNativeCrashHandler failed so file is not exists! dir is " + str + " " + Build.CPU_ABI);
                 }
             }
         } catch (Exception e) {
@@ -59,7 +59,7 @@ public class NativeCrashHandler {
         if (this.bN) {
             nClearVarParams();
         } else {
-            com.baidu.crabsdk.c.a.cg("call after failed! native lib init failed");
+            com.baidu.crabsdk.c.a.ch("call after failed! native lib init failed");
         }
     }
 
@@ -73,7 +73,7 @@ public class NativeCrashHandler {
         if (this.bN) {
             nRequiredVarParams(str);
         } else {
-            com.baidu.crabsdk.c.a.cg("call before failed! native lib init failed");
+            com.baidu.crabsdk.c.a.ch("call before failed! native lib init failed");
         }
     }
 }
