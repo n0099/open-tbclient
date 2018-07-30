@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 /* loaded from: classes.dex */
 public interface c {
     ClickableHeaderImageView getHeaderImg();
@@ -12,7 +12,7 @@ public interface c {
 
     TextView getUserName();
 
-    boolean setData(bc bcVar);
+    boolean setData(bb bbVar);
 
     void setPageUniqueId(BdUniqueId bdUniqueId);
 

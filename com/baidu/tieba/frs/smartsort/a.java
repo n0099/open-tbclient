@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,44 +12,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a dBM;
-    private boolean dBK = false;
-    private final HashMap<String, ArrayList<d>> dBL = new HashMap<>();
+    private static volatile a dEy;
+    private boolean dEw = false;
+    private final HashMap<String, ArrayList<d>> dEx = new HashMap<>();
 
     private a() {
     }
 
-    public static a azo() {
-        if (dBM == null) {
+    public static a azU() {
+        if (dEy == null) {
             synchronized (a.class) {
-                if (dBM == null) {
-                    dBM = new a();
+                if (dEy == null) {
+                    dEy = new a();
                 }
             }
         }
-        return dBM;
+        return dEy;
     }
 
-    public String azp() {
+    public String azV() {
         return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized long mX(String str) {
-        d mY;
-        mY = mY(str);
-        return mY != null ? mY.lastTime : 0L;
+    public synchronized long mW(String str) {
+        d mX;
+        mX = mX(str);
+        return mX != null ? mX.lastTime : 0L;
     }
 
     public synchronized void l(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            String azp = azp();
-            ArrayList<d> arrayList = this.dBL.get(azp);
+            String azV = azV();
+            ArrayList<d> arrayList = this.dEx.get(azV);
             ArrayList<d> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            d mY = mY(str);
+            d mX = mX(str);
             boolean z = false;
-            if (mY != null) {
-                if (mY.lastTime != j) {
-                    mY.lastTime = j;
+            if (mX != null) {
+                if (mX.lastTime != j) {
+                    mX.lastTime = j;
                     z = true;
                 }
             } else {
@@ -59,13 +60,13 @@ public class a {
                 z = true;
             }
             if (z) {
-                d(azp, arrayList2);
+                d(azV, arrayList2);
             }
         }
     }
 
     private synchronized void d(String str, ArrayList<d> arrayList) {
-        JSONObject azv;
+        JSONObject aAc;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -73,26 +74,26 @@ public class a {
             ArrayList<d> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 d dVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(dVar.forumName) && (azv = dVar.azv()) != null) {
-                    jSONArray.put(azv);
+                if (!TextUtils.isEmpty(dVar.forumName) && (aAc = dVar.aAc()) != null) {
+                    jSONArray.put(aAc);
                     arrayList2.add(dVar);
                 }
             }
-            if (!w.A(arrayList2)) {
-                this.dBL.put(str, arrayList2);
-                if (!this.dBK) {
-                    azq();
+            if (!w.z(arrayList2)) {
+                this.dEx.put(str, arrayList2);
+                if (!this.dEw) {
+                    azW();
                 } else {
-                    mZ(jSONArray.toString());
+                    mY(jSONArray.toString());
                 }
             }
         }
     }
 
-    private synchronized d mY(String str) {
+    private synchronized d mX(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<d> arrayList = this.dBL.get(azp());
+            ArrayList<d> arrayList = this.dEx.get(azV());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -116,15 +117,15 @@ public class a {
         return dVar;
     }
 
-    private void mZ(final String str) {
-        com.baidu.tbadk.util.w.a(new v<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.1
+    private void mY(final String str) {
+        v.a(new u<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.v
-            /* renamed from: azs */
+            @Override // com.baidu.tbadk.util.u
+            /* renamed from: azY */
             public l<String> doInBackground() {
-                l azr = a.this.azr();
-                if (azr != null) {
-                    azr.e("frs_smart_sort_last_time", str);
+                l azX = a.this.azX();
+                if (azX != null) {
+                    azX.e("frs_smart_sort_last_time", str);
                     return null;
                 }
                 return null;
@@ -132,20 +133,20 @@ public class a {
         }, null);
     }
 
-    public void azq() {
-        com.baidu.tbadk.util.w.a(new v<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.2
+    public void azW() {
+        v.a(new u<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.v
-            /* renamed from: azs */
+            @Override // com.baidu.tbadk.util.u
+            /* renamed from: azY */
             public l<String> doInBackground() {
-                l azr = a.this.azr();
-                if (azr != null) {
-                    String str = (String) azr.get("frs_smart_sort_last_time");
+                l azX = a.this.azX();
+                if (azX != null) {
+                    String str = (String) azX.get("frs_smart_sort_last_time");
                     if (str != null) {
-                        ArrayList na = a.this.na(str);
-                        a.this.dBL.put(a.this.azp(), na);
+                        ArrayList mZ = a.this.mZ(str);
+                        a.this.dEx.put(a.this.azV(), mZ);
                     }
-                    a.this.dBK = true;
+                    a.this.dEw = true;
                     return null;
                 }
                 return null;
@@ -154,12 +155,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> azr() {
-        return com.baidu.tbadk.core.c.a.xj().R("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
+    public l<String> azX() {
+        return com.baidu.tbadk.core.c.a.xb().Q("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<d> na(String str) {
+    public ArrayList<d> mZ(String str) {
         ArrayList<d> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {

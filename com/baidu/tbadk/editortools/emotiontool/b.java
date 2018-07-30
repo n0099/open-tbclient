@@ -213,7 +213,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int gE(String str) {
+    public int gA(String str) {
         Integer num = aMY.get(str);
         if ("video_icon".equals(str)) {
             return Integer.valueOf(d.f.ico_link_video).intValue();
@@ -225,7 +225,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int gF(String str) {
+    public int gB(String str) {
         Integer num = aNa.get(str);
         if (num != null) {
             return num.intValue();
@@ -234,17 +234,17 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public String gG(String str) {
+    public String gC(String str) {
         return aNb.get(str);
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int HL() {
+    public int HG() {
         return aMZ.size();
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public a.C0116a T(Context context, String str) {
+    public a.C0113a V(Context context, String str) {
         return null;
     }
 }

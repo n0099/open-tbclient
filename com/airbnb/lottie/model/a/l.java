@@ -12,57 +12,57 @@ import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e nJ;
-    private final m<PointF, PointF> nK;
-    private final g nL;
-    private final b nM;
-    private final d nN;
+    private final m<PointF, PointF> nA;
+    private final g nB;
+    private final b nC;
+    private final d nD;
     @Nullable
-    private final b nO;
+    private final b nE;
     @Nullable
-    private final b nP;
+    private final b nF;
+    private final e nz;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nJ = eVar;
-        this.nK = mVar;
-        this.nL = gVar;
-        this.nM = bVar;
-        this.nN = dVar;
-        this.nO = bVar2;
-        this.nP = bVar3;
+        this.nz = eVar;
+        this.nA = mVar;
+        this.nB = gVar;
+        this.nC = bVar;
+        this.nD = dVar;
+        this.nE = bVar2;
+        this.nF = bVar3;
     }
 
-    public e cv() {
-        return this.nJ;
+    public e ct() {
+        return this.nz;
     }
 
-    public m<PointF, PointF> cw() {
-        return this.nK;
+    public m<PointF, PointF> cu() {
+        return this.nA;
     }
 
-    public g cx() {
-        return this.nL;
+    public g cv() {
+        return this.nB;
     }
 
+    public b cw() {
+        return this.nC;
+    }
+
+    public d cx() {
+        return this.nD;
+    }
+
+    @Nullable
     public b cy() {
-        return this.nM;
-    }
-
-    public d cz() {
-        return this.nN;
+        return this.nE;
     }
 
     @Nullable
-    public b cA() {
-        return this.nO;
+    public b cz() {
+        return this.nF;
     }
 
-    @Nullable
-    public b cB() {
-        return this.nP;
-    }
-
-    public p cC() {
+    public p cA() {
         return new p(this);
     }
 
@@ -74,8 +74,8 @@ public class l implements com.airbnb.lottie.model.content.b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static l cD() {
-            return new l(new e(), new e(), g.a.cs(), b.a.cn(), d.a.cp(), b.a.cn(), b.a.cn());
+        public static l cB() {
+            return new l(new e(), new e(), g.a.cq(), b.a.cl(), d.a.cn(), b.a.cl(), b.a.cl());
         }
 
         public static l n(JSONObject jSONObject, com.airbnb.lottie.e eVar) {

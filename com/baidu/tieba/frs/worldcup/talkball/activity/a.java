@@ -7,9 +7,9 @@ import com.baidu.tieba.tbadkCore.data.m;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.TalkBall.AdidasAdvert;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
-    void Tn();
+    void Tv();
 
     void W(ArrayList<h> arrayList);
 
@@ -17,7 +17,7 @@ public interface a {
 
     void a(AdidasAdvert adidasAdvert);
 
-    void bE(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
+    void bD(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
 
     void c(m mVar);
 

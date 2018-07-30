@@ -30,7 +30,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     private int aRZ;
     private int aRy;
     private AnimationDrawable aSa;
-    private int kc;
+    private int jT;
     private ImageView mIconView;
     private TextView mTextView;
 
@@ -56,7 +56,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     }
 
     private void init() {
-        this.aRT = LayoutInflater.from(getContext()).inflate(d.i.maintab_bottom_indicator_item, (ViewGroup) null);
+        this.aRT = LayoutInflater.from(getContext()).inflate(d.h.maintab_bottom_indicator_item, (ViewGroup) null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
         this.aRT.setLayoutParams(layoutParams);
@@ -143,7 +143,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a ho(String str) {
+    public TbFragmentTabIndicator.a hl(String str) {
         return this.aRJ.get(str);
     }
 
@@ -177,24 +177,24 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setAnimationResId(int i) {
-        this.kc = i;
+        this.jT = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        dD(TbadkCoreApplication.getInst().getSkinType());
+        dG(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void dD(int i) {
-        super.dD(i);
+    public void dG(int i) {
+        super.dG(i);
         Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.aRJ.entrySet();
         if (entrySet != null && (r1 = entrySet.iterator()) != null) {
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
                 TbFragmentTabIndicator.a value = entry.getValue();
                 if (value != null) {
-                    value.dD(i);
+                    value.dG(i);
                 }
             }
         }
@@ -206,7 +206,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if (this.aRW != 0) {
             am.h(this.mTextView, this.aRW);
         } else {
-            am.h(this.mTextView, d.C0142d.cp_cont_f);
+            am.h(this.mTextView, d.C0140d.cp_cont_f);
         }
         if (this.aRX != 0) {
             am.c(this.mIconView, this.aRX);
@@ -214,11 +214,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void bQ(boolean z) {
-        super.bQ(z);
-        if (this.kc != 0) {
+    public void bO(boolean z) {
+        super.bO(z);
+        if (this.jT != 0) {
             if (z) {
-                am.c(this.mIconView, this.kc);
+                am.c(this.mIconView, this.jT);
                 this.aSa = (AnimationDrawable) this.mIconView.getDrawable();
                 if (this.aSa != null) {
                     this.aSa.start();

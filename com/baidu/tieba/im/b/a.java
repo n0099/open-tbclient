@@ -13,23 +13,23 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a {
-    private static a eyo = new a();
-    private HashSet<String> eyp = new HashSet<>();
-    private StringBuilder eyq = new StringBuilder();
+    private static a eCf = new a();
+    private HashSet<String> eCg = new HashSet<>();
+    private StringBuilder eCh = new StringBuilder();
 
     private a() {
     }
 
-    public static a aMy() {
-        return eyo;
+    public static a aNy() {
+        return eCf;
     }
 
-    public void aMz() {
+    public void aNz() {
         String str;
         String str2 = null;
-        if (this.eyp != null) {
+        if (this.eCg != null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.eyp.iterator();
+            Iterator<String> it = this.eCg.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -40,44 +40,44 @@ public class a {
                 sb.deleteCharAt(sb.length() - 1);
                 if (sb.length() > 0) {
                     str = sb.toString();
-                    if (this.eyq != null && this.eyq.length() > 0) {
-                        this.eyq.deleteCharAt(this.eyq.length() - 1);
-                        str2 = this.eyq.toString();
+                    if (this.eCh != null && this.eCh.length() > 0) {
+                        this.eCh.deleteCharAt(this.eCh.length() - 1);
+                        str2 = this.eCh.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        if (this.eyq != null) {
-            this.eyq.deleteCharAt(this.eyq.length() - 1);
-            str2 = this.eyq.toString();
+        if (this.eCh != null) {
+            this.eCh.deleteCharAt(this.eCh.length() - 1);
+            str2 = this.eCh.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void aMA() {
-        if (this.eyq != null && this.eyq.length() > 0) {
-            this.eyq.delete(0, this.eyq.length());
+    public void aNA() {
+        if (this.eCh != null && this.eCh.length() > 0) {
+            this.eCh.delete(0, this.eCh.length());
         }
-        if (this.eyp != null) {
-            this.eyp.clear();
+        if (this.eCg != null) {
+            this.eCg.clear();
         }
     }
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d oO;
+        d oQ;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (oO = e.oO(chatMessage.getContent())) != null && !TextUtils.isEmpty(oO.taskId) && this.eyp.add(oO.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", oO.eml, "task_id", oO.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (oQ = e.oQ(chatMessage.getContent())) != null && !TextUtils.isEmpty(oQ.taskId) && this.eCg.add(oQ.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", oQ.eqe, "task_id", oQ.taskId);
             }
         }
     }
 
-    public void oJ(String str) {
+    public void oL(String str) {
         if (str != null && str.length() > 0) {
-            this.eyq.append(str).append(",");
+            this.eCh.append(str).append(",");
         }
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.afd;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public class e {
-    public boolean Pe = false;
-    public ICardInfo Pf;
-    public ParseError Pg;
+    public boolean Pb = false;
+    public ICardInfo Pc;
+    public ParseError Pd;
     public String ext;
 }

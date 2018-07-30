@@ -92,12 +92,12 @@ public final class a {
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
     private AsyncHttpClient d;
-    private C0081a e;
+    private C0078a e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0081a {
+    public static class C0078a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -109,7 +109,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0081a(Context context) {
+        public C0078a(Context context) {
             this.a = context;
             e();
             f();
@@ -145,7 +145,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.e = new C0081a(context);
+        this.e = new C0078a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

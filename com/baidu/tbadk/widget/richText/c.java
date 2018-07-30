@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private int bfA;
-    private String bfz;
+    private String bfL;
+    private int bfM;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void fY(int i) {
-        this.bfA = i;
+    public void ga(int i) {
+        this.bfM = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void fZ(int i) {
+    public void gb(int i) {
         this.urlType = i;
     }
 
-    public void hW(String str) {
-        this.bfz = str;
+    public void hT(String str) {
+        this.bfL = str;
     }
 
     public String getLink() {
@@ -72,21 +72,21 @@ public class c extends ClickableSpan {
         if (this.textColor != -1) {
             textPaint.setColor(am.getColor(this.textColor));
         } else if (18 == this.mType || 2 == this.mType) {
-            textPaint.setColor(TbadkCoreApplication.getInst().getApplicationContext().getResources().getColor(d.C0142d.cp_link_tip_c));
+            textPaint.setColor(TbadkCoreApplication.getInst().getApplicationContext().getResources().getColor(d.C0140d.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
         }
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.bfA == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bfM == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textPaint.bgColor = am.getColor(d.C0142d.cp_bg_line_c);
+                textPaint.bgColor = am.getColor(d.C0140d.cp_bg_line_c);
             } else {
-                textPaint.bgColor = am.getColor(d.C0142d.cp_bg_line_z);
+                textPaint.bgColor = am.getColor(d.C0140d.cp_bg_line_z);
             }
-        } else if (this.bfA == 2) {
-            textPaint.bgColor = am.getColor(d.C0142d.transparent);
+        } else if (this.bfM == 2) {
+            textPaint.bgColor = am.getColor(d.C0140d.transparent);
         }
     }
 
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bfz));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bfL));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -116,25 +116,25 @@ public class c extends ClickableSpan {
                     eVar.f(context, str, false);
                     return;
                 case 16:
-                    eVar.V(context, str);
+                    eVar.X(context, str);
                     return;
                 case 18:
                     eVar.f(context, str, true);
                     return;
                 case 32:
-                    eVar.W(context, str);
+                    eVar.Y(context, str);
                     return;
                 case 64:
-                    eVar.X(context, str);
+                    eVar.Z(context, str);
                     return;
                 case 128:
-                    eVar.Y(context, str);
+                    eVar.aa(context, str);
                     return;
                 case 256:
                     eVar.h(context, str, str2);
                     return;
                 case 1024:
-                    eVar.Z(context, str);
+                    eVar.ab(context, str);
                     return;
                 default:
                     return;

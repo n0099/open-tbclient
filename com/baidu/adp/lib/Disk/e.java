@@ -13,9 +13,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class e {
     protected final int BUFFER_SIZE = 1024;
-    protected b vX;
-    protected AtomicBoolean wg;
-    private DiskFileOperate wh;
+    protected b vQ;
+    protected AtomicBoolean vZ;
+    private DiskFileOperate wa;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,57 +23,57 @@ public class e {
     }
 
     public void cancel() {
-        this.wg.set(true);
+        this.vZ.set(true);
     }
 
     public e(b bVar, DiskFileOperate diskFileOperate) {
-        this.vX = null;
-        this.wg = null;
-        this.wh = null;
-        if (bVar == null || diskFileOperate == null || diskFileOperate.gn() == null) {
+        this.vQ = null;
+        this.vZ = null;
+        this.wa = null;
+        if (bVar == null || diskFileOperate == null || diskFileOperate.gm() == null) {
             throw new InvalidParameterException("DiskWorker Parameter is null");
         }
-        this.wg = new AtomicBoolean(false);
-        this.vX = bVar;
-        this.wh = diskFileOperate;
+        this.vZ = new AtomicBoolean(false);
+        this.vQ = bVar;
+        this.wa = diskFileOperate;
     }
 
-    public boolean gg() {
-        switch (this.wh.gn()) {
+    public boolean gf() {
+        switch (this.wa.gm()) {
             case WRITE:
-                return u(false);
+                return s(false);
             case WRITE_FORCE:
-                return u(true);
+                return s(true);
             case DELETE:
                 return delete();
             case DELETE_FILES:
-                return gh();
+                return gg();
             case APPEND:
-                return v(false);
+                return t(false);
             case APPEND_MORE:
-                return v(true);
+                return t(true);
             case INFO:
-                return gj();
-            case RENAME:
-                return gk();
-            case READ:
                 return gi();
+            case RENAME:
+                return gj();
+            case READ:
+                return gh();
             case CUSTOM:
-                return gl();
+                return gk();
             default:
                 return false;
         }
     }
 
     private boolean e(File file) {
-        if (file == null || !(this.wh instanceof com.baidu.adp.lib.Disk.a)) {
+        if (file == null || !(this.wa instanceof com.baidu.adp.lib.Disk.a)) {
             return false;
         }
-        com.baidu.adp.lib.Disk.a aVar = (com.baidu.adp.lib.Disk.a) this.wh;
+        com.baidu.adp.lib.Disk.a aVar = (com.baidu.adp.lib.Disk.a) this.wa;
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
             if (listFiles != null) {
-                for (int i = 0; i < listFiles.length && !this.wg.get(); i++) {
+                for (int i = 0; i < listFiles.length && !this.vZ.get(); i++) {
                     if (listFiles[i].isDirectory()) {
                         e(listFiles[i]);
                     } else if (aVar.d(listFiles[i])) {
@@ -88,19 +88,19 @@ public class e {
         return true;
     }
 
-    private boolean gh() {
+    private boolean gg() {
         boolean z = false;
         try {
-            File b = this.vX.b(this.wh.getPath(), false, this.wh.gu(), this.wh.gv());
+            File b = this.vQ.b(this.wa.getPath(), false, this.wa.gt(), this.wa.gu());
             z = e(b);
             if (z) {
-                this.wh.f(b);
-                this.wh.setSuccess(true);
+                this.wa.f(b);
+                this.wa.setSuccess(true);
             }
         } catch (Exception e) {
             e.getMessage();
         } finally {
-            this.wh.gm();
+            this.wa.gl();
         }
         return z;
     }
@@ -111,23 +111,23 @@ public class e {
         File a2;
         try {
             try {
-                a2 = this.vX.a(this.wh.gp(), this.wh.getName(), false, this.wh.gu(), this.wh.gv());
+                a2 = this.vQ.a(this.wa.go(), this.wa.getName(), false, this.wa.gt(), this.wa.gu());
             } catch (Exception e) {
                 e.getMessage();
-                this.wh.gm();
+                this.wa.gl();
                 z = false;
             }
-            if (a2 == null || this.wg.get()) {
+            if (a2 == null || this.vZ.get()) {
                 return false;
             }
             z = a2.exists() ? a2.delete() : false;
             if (z) {
-                this.wh.f(a2);
-                this.wh.setSuccess(true);
+                this.wa.f(a2);
+                this.wa.setSuccess(true);
             }
             return z;
         } finally {
-            this.wh.gm();
+            this.wa.gl();
         }
     }
 
@@ -136,7 +136,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean gi() {
+    private boolean gh() {
         FileInputStream fileInputStream;
         ByteArrayOutputStream byteArrayOutputStream;
         boolean z;
@@ -145,7 +145,7 @@ public class e {
         byteArrayOutputStream2 = null;
         FileInputStream fileInputStream2 = null;
         try {
-            a2 = this.vX.a(this.wh.gp(), this.wh.getName(), false, this.wh.gu(), this.wh.gv());
+            a2 = this.vQ.a(this.wa.go(), this.wa.getName(), false, this.wa.gt(), this.wa.gu());
         } catch (Exception e) {
             e = e;
             byteArrayOutputStream = null;
@@ -153,10 +153,10 @@ public class e {
             th = th;
             fileInputStream = null;
         }
-        if (a2 == null || !a2.exists() || this.wg.get()) {
+        if (a2 == null || !a2.exists() || this.vZ.get()) {
             com.baidu.adp.lib.g.a.f((InputStream) null);
             com.baidu.adp.lib.g.a.b((OutputStream) null);
-            this.wh.gm();
+            this.wa.gl();
             return false;
         }
         fileInputStream = new FileInputStream(a2);
@@ -166,7 +166,7 @@ public class e {
                 byte[] bArr = new byte[1024];
                 while (true) {
                     int read = fileInputStream.read(bArr, 0, 1024);
-                    if (read == -1 || this.wg.get()) {
+                    if (read == -1 || this.vZ.get()) {
                         break;
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
@@ -178,7 +178,7 @@ public class e {
                     BdLog.e(e.getMessage());
                     com.baidu.adp.lib.g.a.f(fileInputStream2);
                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
-                    this.wh.gm();
+                    this.wa.gl();
                     z = false;
                     return z;
                 } catch (Throwable th2) {
@@ -187,7 +187,7 @@ public class e {
                     byteArrayOutputStream2 = byteArrayOutputStream;
                     com.baidu.adp.lib.g.a.f(fileInputStream);
                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream2);
-                    this.wh.gm();
+                    this.wa.gl();
                     throw th;
                 }
             } catch (Throwable th3) {
@@ -195,7 +195,7 @@ public class e {
                 byteArrayOutputStream2 = byteArrayOutputStream;
                 com.baidu.adp.lib.g.a.f(fileInputStream);
                 com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream2);
-                this.wh.gm();
+                this.wa.gl();
                 throw th;
             }
         } catch (Exception e3) {
@@ -205,17 +205,17 @@ public class e {
         } catch (Throwable th4) {
             th = th4;
         }
-        if (!this.wg.get()) {
+        if (!this.vZ.get()) {
             byte[] byteArray = byteArrayOutputStream.toByteArray();
-            if (!this.wh.gs() || this.wh.k(byteArray)) {
-                this.wh.setData(byteArray);
+            if (!this.wa.gr() || this.wa.i(byteArray)) {
+                this.wa.setData(byteArray);
                 z = true;
                 com.baidu.adp.lib.g.a.f(fileInputStream);
                 com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
                 if (z) {
-                    this.wh.setSuccess(true);
+                    this.wa.setSuccess(true);
                 }
-                this.wh.gm();
+                this.wa.gl();
                 return z;
             }
         }
@@ -224,57 +224,57 @@ public class e {
         com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
         if (z) {
         }
-        this.wh.gm();
+        this.wa.gl();
         return z;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [256=6, 251=7] */
-    public boolean u(boolean z) {
+    public boolean s(boolean z) {
         FileOutputStream fileOutputStream;
         boolean z2;
         File a2;
         FileOutputStream fileOutputStream2 = null;
         try {
-            a2 = this.vX.a(this.wh.gp(), this.wh.getName(), true, this.wh.gu(), this.wh.gv());
+            a2 = this.vQ.a(this.wa.go(), this.wa.getName(), true, this.wa.gt(), this.wa.gu());
         } catch (Exception e) {
             e = e;
             fileOutputStream = null;
         } catch (Throwable th) {
             th = th;
             com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
-            this.wh.gm();
+            this.wa.gl();
             throw th;
         }
-        if (a2 == null || this.wg.get()) {
+        if (a2 == null || this.vZ.get()) {
             com.baidu.adp.lib.g.a.b((OutputStream) null);
-            this.wh.gm();
+            this.wa.gl();
             return false;
         }
         if (a2.exists()) {
             if (!z) {
                 com.baidu.adp.lib.g.a.b((OutputStream) null);
-                this.wh.gm();
+                this.wa.gl();
                 return true;
             }
             a2.delete();
         }
-        byte[] go = this.wh.go();
-        byte[] data = this.wh.getData();
-        if ((go == null && data == null) || this.wg.get()) {
+        byte[] gn = this.wa.gn();
+        byte[] data = this.wa.getData();
+        if ((gn == null && data == null) || this.vZ.get()) {
             com.baidu.adp.lib.g.a.b((OutputStream) null);
-            this.wh.gm();
+            this.wa.gl();
             return false;
         }
         fileOutputStream = new FileOutputStream(a2);
-        if (go != null) {
+        if (gn != null) {
             try {
                 try {
-                    fileOutputStream.write(go);
+                    fileOutputStream.write(gn);
                 } catch (Exception e2) {
                     e = e2;
                     BdLog.e(e.getMessage());
                     com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                    this.wh.gm();
+                    this.wa.gl();
                     z2 = false;
                     return z2;
                 }
@@ -282,7 +282,7 @@ public class e {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
                 com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
-                this.wh.gm();
+                this.wa.gl();
                 throw th;
             }
         }
@@ -291,9 +291,9 @@ public class e {
         }
         fileOutputStream.flush();
         com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-        this.wh.f(a2);
-        this.wh.setSuccess(true);
-        this.wh.gm();
+        this.wa.f(a2);
+        this.wa.setSuccess(true);
+        this.wa.gl();
         z2 = true;
         return z2;
     }
@@ -304,38 +304,38 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean v(boolean z) {
+    public boolean t(boolean z) {
         OutputStream outputStream;
         boolean z2;
-        byte[] go;
+        byte[] gn;
         byte[] data;
-        OutputStream outputStream2 = this.wh.getOutputStream();
-        File gt = this.wh.gt();
+        OutputStream outputStream2 = this.wa.getOutputStream();
+        File gs = this.wa.gs();
         if (outputStream2 == null) {
             try {
-                gt = this.vX.a(this.wh.gp(), this.wh.getName(), true, this.wh.gu(), this.wh.gv());
-                if (gt == null || this.wg.get()) {
+                gs = this.vQ.a(this.wa.go(), this.wa.getName(), true, this.wa.gt(), this.wa.gu());
+                if (gs == null || this.vZ.get()) {
                     if (!z) {
                         com.baidu.adp.lib.g.a.b(outputStream2);
                     }
-                    this.wh.gm();
+                    this.wa.gl();
                     return false;
                 }
-                outputStream = new FileOutputStream(gt, true);
+                outputStream = new FileOutputStream(gs, true);
             } catch (Exception e) {
                 e = e;
                 outputStream = outputStream2;
                 BdLog.e(e.getMessage());
                 if (!z) {
                 }
-                this.wh.gm();
+                this.wa.gl();
                 z2 = false;
                 return z2;
             } catch (Throwable th) {
                 th = th;
                 if (!z) {
                 }
-                this.wh.gm();
+                this.wa.gl();
                 throw th;
             }
         } else {
@@ -343,40 +343,40 @@ public class e {
         }
         try {
             try {
-                go = this.wh.go();
-                data = this.wh.getData();
+                gn = this.wa.gn();
+                data = this.wa.getData();
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
                 if (!z) {
                     com.baidu.adp.lib.g.a.b(outputStream);
                 }
-                this.wh.gm();
+                this.wa.gl();
                 z2 = false;
                 return z2;
             }
-            if ((go == null && data == null) || this.wg.get()) {
+            if ((gn == null && data == null) || this.vZ.get()) {
                 if (!z) {
                     com.baidu.adp.lib.g.a.b(outputStream);
                 }
-                this.wh.gm();
+                this.wa.gl();
                 return false;
             }
-            if (go != null) {
-                outputStream.write(go);
+            if (gn != null) {
+                outputStream.write(gn);
             }
             if (data != null) {
                 outputStream.write(data);
             }
             outputStream.flush();
-            this.wh.f(gt);
-            this.wh.setSuccess(true);
+            this.wa.f(gs);
+            this.wa.setSuccess(true);
             if (z) {
-                this.wh.setOutputStream(outputStream);
+                this.wa.setOutputStream(outputStream);
             } else {
                 com.baidu.adp.lib.g.a.b(outputStream);
             }
-            this.wh.gm();
+            this.wa.gl();
             z2 = true;
             return z2;
         } catch (Throwable th2) {
@@ -385,33 +385,33 @@ public class e {
             if (!z) {
                 com.baidu.adp.lib.g.a.b(outputStream2);
             }
-            this.wh.gm();
+            this.wa.gl();
             throw th;
         }
     }
 
-    public boolean gj() {
+    public boolean gi() {
         File b;
-        if (this.wh.getName() != null) {
-            b = this.vX.a(this.wh.gp(), this.wh.getName(), false, this.wh.gu(), this.wh.gv());
+        if (this.wa.getName() != null) {
+            b = this.vQ.a(this.wa.go(), this.wa.getName(), false, this.wa.gt(), this.wa.gu());
         } else {
-            b = this.vX.b(this.wh.gp(), false, this.wh.gu(), this.wh.gv());
+            b = this.vQ.b(this.wa.go(), false, this.wa.gt(), this.wa.gu());
         }
         if (b != null && b.exists()) {
-            this.wh.f(b);
-            this.wh.setSuccess(true);
-            this.wh.gm();
+            this.wa.f(b);
+            this.wa.setSuccess(true);
+            this.wa.gl();
             return true;
         }
-        this.wh.gm();
+        this.wa.gl();
         return false;
     }
 
-    public boolean gk() {
+    public boolean gj() {
         boolean z;
         try {
-            File a2 = this.vX.a(this.wh.gp(), this.wh.getName(), false, this.wh.gu(), this.wh.gv());
-            File a3 = this.vX.a(this.wh.gq(), this.wh.gy(), true, this.wh.gu(), this.wh.gv());
+            File a2 = this.vQ.a(this.wa.go(), this.wa.getName(), false, this.wa.gt(), this.wa.gu());
+            File a3 = this.vQ.a(this.wa.gp(), this.wa.gx(), true, this.wa.gt(), this.wa.gu());
             if (a2 != null) {
                 if (a3 != null) {
                     a3.delete();
@@ -421,30 +421,30 @@ public class e {
                 z = false;
             }
             if (z) {
-                this.wh.setSuccess(true);
+                this.wa.setSuccess(true);
             }
             return z;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         } finally {
-            this.wh.gm();
+            this.wa.gl();
         }
     }
 
-    public boolean gl() {
+    public boolean gk() {
         boolean z = false;
         try {
-            if (this.wh.gA() != null) {
-                z = this.wh.gA().a(this, this.wh, this.vX);
+            if (this.wa.gy() != null) {
+                z = this.wa.gy().a(this, this.wa, this.vQ);
             }
             if (z) {
-                this.wh.setSuccess(true);
+                this.wa.setSuccess(true);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            this.wh.gm();
+            this.wa.gl();
         }
         return z;
     }

@@ -29,14 +29,14 @@ public class a {
     }
 
     public void a(int i, d dVar, boolean z) {
-        Location aku;
+        Location akT;
         if (dVar != null) {
-            if (!j.jD()) {
-                l.showToast(TbadkCoreApplication.getInst().getContext(), d.k.share_on_no_network);
+            if (!j.jE()) {
+                l.showToast(TbadkCoreApplication.getInst().getContext(), d.j.share_on_no_network);
                 return;
             }
-            if (z && (aku = aku()) != null) {
-                dVar.aGd = aku;
+            if (z && (akT = akT()) != null) {
+                dVar.aGd = akT;
             }
             e eVar = new e(this.mContext, null);
             if (i == 3) {
@@ -45,7 +45,7 @@ public class a {
             } else if (i == 2) {
                 a(dVar, 3);
                 if (dVar.aFT) {
-                    dVar.content = j(dVar);
+                    dVar.content = m(dVar);
                 }
                 eVar.c(dVar);
             } else if (i == 4) {
@@ -54,23 +54,23 @@ public class a {
                     eVar.e(dVar);
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).xv();
+                BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).xn();
             } else if (i == 5) {
                 a(dVar, 6);
                 if (!dVar.aFS) {
-                    dVar.content = j(dVar);
+                    dVar.content = m(dVar);
                 }
                 eVar.f(dVar);
             } else if (i == 6) {
                 a(dVar, 7);
                 if (!dVar.aFS) {
-                    dVar.content = j(dVar);
+                    dVar.content = m(dVar);
                 }
                 eVar.g(dVar);
             } else if (i == 7) {
                 a(dVar, 8);
                 if (!dVar.aFS) {
-                    dVar.content = j(dVar);
+                    dVar.content = m(dVar);
                 }
                 eVar.h(dVar);
             } else if (i == 8) {
@@ -79,7 +79,7 @@ public class a {
                     eVar.d(dVar);
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(d.k.share_qq_not_install)).xv();
+                BdToast.a(this.mContext, this.mContext.getText(d.j.share_qq_not_install)).xn();
             }
         }
     }
@@ -87,15 +87,15 @@ public class a {
     private void a(com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
             if (dVar.aFT) {
-                TiebaStatic.log(new an("c10125").ah(ImageViewerConfig.FORUM_ID, dVar.extData).r("obj_type", i));
+                TiebaStatic.log(new an("c10125").af(ImageViewerConfig.FORUM_ID, dVar.extData).r("obj_type", i));
             } else if (dVar.aFU || dVar.aFX) {
-                TiebaStatic.log(new an("c10125").ah("tid", dVar.extData).r("obj_type", i).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aGh).r("obj_param1", dVar.aGi).ah(ImageViewerConfig.FORUM_ID, dVar.fid));
+                TiebaStatic.log(new an("c10125").af("tid", dVar.extData).r("obj_type", i).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aGh).r("obj_param1", dVar.aGi).af(ImageViewerConfig.FORUM_ID, dVar.fid));
             } else if (dVar.aFV) {
-                TiebaStatic.log(new an("c10427").ah("tid", dVar.extData).r("obj_type", i));
+                TiebaStatic.log(new an("c10427").af("tid", dVar.extData).r("obj_type", i));
             } else if (dVar.aFS) {
-                ag(i, dVar.aGe);
+                ai(i, dVar.aGe);
             } else if (dVar.aFW) {
-                TiebaStatic.log(new an("c10125").r("obj_param1", 7).r("obj_type", i).ah(ImageViewerConfig.FORUM_ID, dVar.extData));
+                TiebaStatic.log(new an("c10125").r("obj_param1", 7).r("obj_type", i).af(ImageViewerConfig.FORUM_ID, dVar.extData));
             } else if (dVar.aFY) {
                 an r = new an("c10125").r("obj_type", i);
                 if (!ap.isEmpty(dVar.linkUrl) && dVar.linkUrl.contains("worldcup")) {
@@ -106,18 +106,18 @@ public class a {
         }
     }
 
-    private String j(com.baidu.tbadk.coreExtra.c.d dVar) {
+    private String m(com.baidu.tbadk.coreExtra.c.d dVar) {
         String str = "【" + dVar.title + "】 " + dVar.content;
         dVar.content = str;
         return str;
     }
 
-    private void ag(int i, String str) {
+    private void ai(int i, String str) {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location aku() {
-        if (ac.aM(this.mContext)) {
+    private Location akT() {
+        if (ac.aN(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);

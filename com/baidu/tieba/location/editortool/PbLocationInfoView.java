@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect eRD;
+    private Rect eVy;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,41 +25,41 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.eRD = new Rect(0, 0, getResources().getDimensionPixelSize(d.e.ds32), getResources().getDimensionPixelSize(d.e.ds32));
+        this.eVy = new Rect(0, 0, getResources().getDimensionPixelSize(d.e.ds32), getResources().getDimensionPixelSize(d.e.ds32));
         setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        setTextColor(am.getColor(d.C0142d.cp_cont_c));
-        aRL();
+        setTextColor(am.getColor(d.C0140d.cp_cont_c));
+        aSN();
     }
 
     public void setState(int i, String str) {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(d.k.location_loading);
+                str = getResources().getString(d.j.location_loading);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(d.k.location_default);
+                str = getResources().getString(d.j.location_default);
             }
             setText(str);
         }
-        aRL();
+        aSN();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void aRL() {
+    public void aSN() {
         if (this.mState == 1) {
             Drawable drawable = am.getDrawable(d.f.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.eRD);
+                drawable.setBounds(this.eVy);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.ac(getContext()), (Animatable) drawable);
@@ -67,7 +67,7 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = am.getDrawable(d.f.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.eRD);
+            drawable2.setBounds(this.eVy);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

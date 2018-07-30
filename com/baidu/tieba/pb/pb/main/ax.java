@@ -34,12 +34,12 @@ public class ax {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.l.a(this.mUrl, this.mData, ax.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.l.yq();
+                    return com.baidu.tbadk.core.util.l.yi();
                 case -1:
                 default:
-                    return ax.this.mPageContext.getString(d.k.save_fail);
+                    return ax.this.mPageContext.getString(d.j.save_fail);
                 case 0:
-                    return ax.this.mPageContext.getString(d.k.save_image_to_album);
+                    return ax.this.mPageContext.getString(d.j.save_image_to_album);
             }
         }
 

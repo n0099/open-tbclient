@@ -1,6 +1,7 @@
 package com.baidu.sofire.b;
 
 import android.text.TextUtils;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public final class u {
@@ -35,7 +36,7 @@ public final class u {
     public final synchronized void a(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             new StringBuilder(" put key ").append(str).append(" status ").append(i);
-            this.a.put(str, new a(i, System.currentTimeMillis() + 600000));
+            this.a.put(str, new a(i, System.currentTimeMillis() + KeepJobService.JOB_CHECK_PERIODIC));
         }
     }
 

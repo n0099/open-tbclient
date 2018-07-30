@@ -22,15 +22,15 @@ public class d {
         public String url;
     }
 
-    public static String IZ() {
+    public static String IU() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String Ja() {
-        return Math.abs(IZ().hashCode()) + "";
+    public static String IV() {
+        return Math.abs(IU().hashCode()) + "";
     }
 
-    public static void hj(String str) {
+    public static void hf(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);

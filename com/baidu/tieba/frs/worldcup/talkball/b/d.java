@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.worldcup.talkball.b;
 
 import com.baidu.tbadk.core.util.ap;
 import tbclient.TalkBall.Country;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     private String mIcon;
     private String mName;
@@ -14,7 +14,7 @@ public class d {
         }
     }
 
-    public boolean aAT() {
+    public boolean aBC() {
         return (ap.isEmpty(this.mIcon) || ap.isEmpty(this.mName)) ? false : true;
     }
 

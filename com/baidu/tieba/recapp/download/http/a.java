@@ -1,13 +1,13 @@
 package com.baidu.tieba.recapp.download.http;
 /* loaded from: classes3.dex */
 public abstract class a {
-    private static a gnY = null;
+    private static a gpi = null;
 
     public abstract void a(g gVar);
 
-    public abstract String ax(String str);
+    public abstract String ay(String str);
 
-    public static final a boX() {
-        return gnY;
+    public static final a bnB() {
+        return gpi;
     }
 }

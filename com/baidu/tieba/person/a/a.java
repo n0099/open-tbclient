@@ -17,9 +17,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bv */
+    /* renamed from: bt */
     public com.baidu.tieba.person.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(d.i.item_person_center_list_interval, viewGroup, false));
+        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(d.h.item_person_center_list_interval, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.azP != skinType) {
-                aVar.azP = skinType;
-                am.i(aVar.fTx, dVar.aRO);
+            if (aVar.azI != skinType) {
+                aVar.azI = skinType;
+                am.i(aVar.fTK, dVar.aRO);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.fTx.getLayoutParams();
-            if (dVar.fPi > 0) {
-                layoutParams.height = dVar.fPi;
+            ViewGroup.LayoutParams layoutParams = aVar.fTK.getLayoutParams();
+            if (dVar.fPs > 0) {
+                layoutParams.height = dVar.fPs;
             }
-            if (dVar.fPh > 0) {
-                layoutParams.width = dVar.fPh;
+            if (dVar.fPr > 0) {
+                layoutParams.width = dVar.fPr;
             }
-            aVar.fTx.setLayoutParams(layoutParams);
-            aVar.fTx.setOnClickListener(null);
+            aVar.fTK.setLayoutParams(layoutParams);
+            aVar.fTK.setOnClickListener(null);
         }
         return view;
     }

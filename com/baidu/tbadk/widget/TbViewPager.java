@@ -11,8 +11,8 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aYk;
-    private boolean azL;
+    private float aYq;
+    private boolean azE;
     private int mDuration;
     private int mTouchSlop;
 
@@ -58,14 +58,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.azL = false;
+        this.azE = false;
         this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.azL = false;
+        this.azE = false;
         this.mDuration = 600;
         init();
     }
@@ -76,16 +76,16 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.azL = z;
+        this.azE = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (q(motionEvent)) {
+        if (r(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.azL) {
+        if (motionEvent.getPointerCount() > 1 && this.azE) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -100,7 +100,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (q(motionEvent)) {
+        if (r(motionEvent)) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -112,36 +112,36 @@ public class TbViewPager extends ViewPager {
             case 0:
             case 5:
             case 6:
-                aZ(true);
-                this.aYk = motionEvent.getX();
+                aX(true);
+                this.aYq = motionEvent.getX();
                 break;
             case 1:
             case 3:
-                aZ(false);
-                this.aYk = 0.0f;
+                aX(false);
+                this.aYq = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aYk;
+                float x = motionEvent.getX() - this.aYq;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
-                        aZ(false);
+                        aX(false);
                         break;
                     } else {
-                        aZ(true);
+                        aX(true);
                         break;
                     }
                 } else if (getCurrentItem() == getAdapter().getCount() - 1) {
                     if (x <= (-this.mTouchSlop)) {
-                        aZ(false);
+                        aX(false);
                         break;
                     } else {
-                        aZ(true);
+                        aX(true);
                         break;
                     }
                 }
                 break;
         }
-        if (q(motionEvent)) {
+        if (r(motionEvent)) {
             return true;
         }
         try {
@@ -151,12 +151,12 @@ public class TbViewPager extends ViewPager {
         }
     }
 
-    private boolean q(MotionEvent motionEvent) {
+    private boolean r(MotionEvent motionEvent) {
         int action = (motionEvent.getAction() & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void aZ(boolean z) {
+    private void aX(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }

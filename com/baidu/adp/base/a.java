@@ -11,10 +11,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
-    private static ArrayList<SoftReference<Activity>> rX;
-    private static a rY;
-    private InterfaceC0010a rZ;
-    private int sa = 0;
+    private static ArrayList<SoftReference<Activity>> rP;
+    private static a rQ;
+    private InterfaceC0010a rR;
+    private int rS = 0;
 
     /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -23,42 +23,42 @@ public final class a {
     }
 
     public void a(InterfaceC0010a interfaceC0010a) {
-        this.rZ = interfaceC0010a;
+        this.rR = interfaceC0010a;
     }
 
     private a() {
-        if (rX == null) {
-            rX = new ArrayList<>(20);
+        if (rP == null) {
+            rP = new ArrayList<>(20);
         }
     }
 
-    public static a ex() {
-        if (rY == null) {
-            rY = new a();
+    public static a ew() {
+        if (rQ == null) {
+            rQ = new a();
         }
-        return rY;
+        return rQ;
     }
 
     public int getSize() {
-        return rX.size();
+        return rP.size();
     }
 
     public void i(Activity activity) {
         if (activity != null) {
-            rX.add(new SoftReference<>(activity));
-            z(this.sa);
+            rP.add(new SoftReference<>(activity));
+            z(this.rS);
         }
     }
 
     public Activity y(int i) {
-        int size = rX.size();
+        int size = rP.size();
         if (size == 0) {
             return null;
         }
         if (i < 0 || i >= size) {
             return null;
         }
-        SoftReference<Activity> remove = rX.remove(i);
+        SoftReference<Activity> remove = rP.remove(i);
         if (remove == null) {
             return null;
         }
@@ -67,36 +67,36 @@ public final class a {
 
     public void j(Activity activity) {
         if (activity != null) {
-            int size = rX.size();
+            int size = rP.size();
             if (size == 0) {
-                if (this.rZ != null) {
-                    this.rZ.onActivityClosed();
+                if (this.rR != null) {
+                    this.rR.onActivityClosed();
                     return;
                 }
                 return;
             }
             for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = rX.get(i);
+                SoftReference<Activity> softReference = rP.get(i);
                 if (softReference == null) {
-                    rX.remove(i);
+                    rP.remove(i);
                 } else if (activity.equals(softReference.get())) {
-                    rX.remove(i);
-                    if (rX.size() == 0 && this.rZ != null) {
-                        this.rZ.onActivityClosed();
+                    rP.remove(i);
+                    if (rP.size() == 0 && this.rR != null) {
+                        this.rR.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (rX.size() == 0 && this.rZ != null) {
-                    this.rZ.onActivityClosed();
+                } else if (rP.size() == 0 && this.rR != null) {
+                    this.rR.onActivityClosed();
                 }
             }
         }
     }
 
-    public Activity ey() {
+    public Activity ex() {
         SoftReference<Activity> softReference;
-        int size = rX.size();
-        if (size != 0 && (softReference = rX.get(size - 1)) != null) {
+        int size = rP.size();
+        if (size != 0 && (softReference = rP.get(size - 1)) != null) {
             return softReference.get();
         }
         return null;
@@ -104,39 +104,39 @@ public final class a {
 
     public void setActivityStackMaxSize(int i) {
         if (i >= 10 || i == 0) {
-            this.sa = i;
+            this.rS = i;
         }
     }
 
-    public void ez() {
+    public void ey() {
         z(3);
     }
 
-    public void eA() {
+    public void ez() {
         Activity activity;
-        if (rX != null) {
-            while (!rX.isEmpty()) {
-                SoftReference<Activity> remove = rX.remove(0);
+        if (rP != null) {
+            while (!rP.isEmpty()) {
+                SoftReference<Activity> remove = rP.remove(0);
                 if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
                     activity.finish();
                 }
             }
         }
-        if (this.rZ != null) {
-            this.rZ.onActivityClosed();
+        if (this.rR != null) {
+            this.rR.onActivityClosed();
         }
     }
 
     public int getActivityStackMaxSize() {
-        return this.sa;
+        return this.rS;
     }
 
     private void z(int i) {
         if (i != 0) {
-            int size = ex().getSize();
+            int size = ew().getSize();
             while (size > i) {
                 size--;
-                Activity y = ex().y(1);
+                Activity y = ew().y(1);
                 if (y != null) {
                     y.finish();
                 }
@@ -144,13 +144,13 @@ public final class a {
         }
     }
 
-    public String eB() {
+    public String eA() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         String str;
         Activity activity;
         String str2;
-        if (rX == null || rX.size() == 0) {
+        if (rP == null || rP.size() == 0) {
             try {
                 if (BdBaseApplication.getInst() != null && (activityManager = (ActivityManager) BdBaseApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)) != null && (runningTasks = activityManager.getRunningTasks(1)) != null && runningTasks.size() > 0) {
                     StringBuilder sb = new StringBuilder();
@@ -175,7 +175,7 @@ public final class a {
             return "";
         }
         StringBuilder sb2 = new StringBuilder();
-        Iterator<SoftReference<Activity>> it = rX.iterator();
+        Iterator<SoftReference<Activity>> it = rP.iterator();
         while (it.hasNext()) {
             SoftReference<Activity> next = it.next();
             if (next != null && (activity = next.get()) != null) {

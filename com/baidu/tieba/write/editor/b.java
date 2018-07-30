@@ -18,21 +18,21 @@ public class b extends k {
         }
     }
 
-    public void aT(String str, int i) {
+    public void aP(String str, int i) {
         if (this.aMf instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aMf).aT(str, i);
+            ((EditorInfoContainer) this.aMf).aP(str, i);
         }
     }
 
-    public void aox() {
+    public void aoX() {
         if (this.aMf instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aMf).aox();
+            ((EditorInfoContainer) this.aMf).aoX();
         }
     }
 
-    public void bHH() {
+    public void bGs() {
         if (this.aMf instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aMf).bHH();
+            ((EditorInfoContainer) this.aMf).bGs();
         }
     }
 }

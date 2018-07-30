@@ -39,8 +39,22 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
         if (!StringUtils.isNull(this.mSourceImageRectInScreenStr)) {
             try {
                 JSONArray jSONArray = new JSONArray(this.mSourceImageRectInScreenStr);
-                if (jSONArray.length() == 4) {
+                if (jSONArray.length() == 8) {
                     return new Rect(((Integer) jSONArray.get(0)).intValue(), ((Integer) jSONArray.get(1)).intValue(), ((Integer) jSONArray.get(2)).intValue(), ((Integer) jSONArray.get(3)).intValue());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public Rect getDstRectInScreen() {
+        if (!StringUtils.isNull(this.mSourceImageRectInScreenStr)) {
+            try {
+                JSONArray jSONArray = new JSONArray(this.mSourceImageRectInScreenStr);
+                if (jSONArray.length() == 8) {
+                    return new Rect(((Integer) jSONArray.get(4)).intValue(), ((Integer) jSONArray.get(5)).intValue(), ((Integer) jSONArray.get(6)).intValue(), ((Integer) jSONArray.get(7)).intValue());
                 }
             } catch (Exception e) {
                 e.printStackTrace();

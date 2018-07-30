@@ -12,12 +12,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean Gr;
+        public boolean Gp;
         public JSONObject aDr;
         public boolean aDs;
         public String aDt;
         public BlockPopInfoData aDu;
-        public c asl;
+        public c arO;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -26,7 +26,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean isShowMessage = false;
         public int status = 0;
 
-        public void k(String str, boolean z) {
+        public void j(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
@@ -41,7 +41,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         }
                         this.isShowMessage = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
-                        r(optJSONObject);
+                        q(optJSONObject);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -49,7 +49,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
         }
 
-        private void r(JSONObject jSONObject) {
+        private void q(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.aDt = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
@@ -74,7 +74,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().Gr;
+        return getData().Gp;
     }
 
     public boolean isAttention() {

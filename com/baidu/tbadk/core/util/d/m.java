@@ -14,7 +14,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     public m() {
         this.width = 0;
         this.height = 0;
-        Aq();
+        Ag();
     }
 
     public m(int i, int i2) {
@@ -25,16 +25,16 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             this.height = i2;
             return;
         }
-        Aq();
+        Ag();
     }
 
-    private void Aq() {
+    private void Ag() {
         this.width = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.aj(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public boolean ij() {
+    public boolean ik() {
         return true;
     }
 
@@ -42,11 +42,11 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: g */
     public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a hi = com.baidu.tbadk.imageManager.c.IV().hi(fk(str));
-        if (hi == null || hi.mZ() == null) {
+        com.baidu.adp.widget.ImageView.a he = com.baidu.tbadk.imageManager.c.IQ().he(fi(str));
+        if (he == null || he.nb() == null) {
             return null;
         }
-        return hi;
+        return he;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,13 +56,13 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return fj(str);
+        return fh(str);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
-            com.baidu.tbadk.imageManager.c.IV().c(fk(str), (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.IQ().c(fi(str), (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
@@ -74,16 +74,16 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel ik() {
+    public BdAsyncTaskParallel il() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int il() {
+    public int im() {
         return 1;
     }
 
-    public com.baidu.adp.widget.ImageView.a fj(String str) {
+    public com.baidu.adp.widget.ImageView.a fh(String str) {
         com.baidu.adp.widget.ImageView.a aVar;
         try {
             if (str.toLowerCase().endsWith(".gif")) {
@@ -97,12 +97,12 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         }
     }
 
-    public String fk(String str) {
-        ImageOperation H = com.baidu.tbadk.img.effect.d.H(this.width, this.height);
+    public String fi(String str) {
+        ImageOperation I = com.baidu.tbadk.img.effect.d.I(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");
         sb.append(str);
-        sb.append(':').append(H.actionName).append('=').append(H.actionParam);
+        sb.append(':').append(I.actionName).append('=').append(I.actionParam);
         return sb.toString();
     }
 }

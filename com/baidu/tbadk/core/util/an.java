@@ -22,7 +22,7 @@ public class an {
         this.key = str;
     }
 
-    public an ah(String str, String str2) {
+    public an af(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;

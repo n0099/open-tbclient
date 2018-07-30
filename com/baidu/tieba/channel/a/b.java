@@ -14,11 +14,11 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private ChannelFansActivity cBv;
+    private ChannelFansActivity cEa;
     private List<i> mData;
 
     public b(ChannelFansActivity channelFansActivity) {
-        this.cBv = channelFansActivity;
+        this.cEa = channelFansActivity;
     }
 
     public void setData(List<i> list) {
@@ -35,7 +35,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iP */
+    /* renamed from: jb */
     public i getItem(int i) {
         if (this.mData != null) {
             return this.mData.get(i);
@@ -54,42 +54,42 @@ public class b extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.cBv.getPageContext().getPageActivity()).inflate(d.i.channel_fans_list_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.cEa.getPageContext().getPageActivity()).inflate(d.h.channel_fans_list_item_layout, viewGroup, false);
             a aVar2 = new a();
-            aVar2.cBw = (HeadImageView) view.findViewById(d.g.avatar);
-            aVar2.cBw.setAutoChangeStyle(true);
-            aVar2.cBw.setIsRound(true);
-            aVar2.cBw.setClickable(false);
-            aVar2.cBx = (TextView) view.findViewById(d.g.fans_name);
-            aVar2.cBy = (TextView) view.findViewById(d.g.fans_intro);
+            aVar2.cEb = (HeadImageView) view.findViewById(d.g.avatar);
+            aVar2.cEb.setAutoChangeStyle(true);
+            aVar2.cEb.setIsRound(true);
+            aVar2.cEb.setClickable(false);
+            aVar2.cEc = (TextView) view.findViewById(d.g.fans_name);
+            aVar2.cEd = (TextView) view.findViewById(d.g.fans_intro);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         i item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getPortrait())) {
-                aVar.cBw.setTag(null);
-                aVar.cBw.setDefaultResource(d.f.img_default_100);
-                aVar.cBw.startLoad(item.getPortrait(), 12, false);
-                aVar.cBw.invalidate();
+                aVar.cEb.setTag(null);
+                aVar.cEb.setDefaultResource(d.f.img_default_100);
+                aVar.cEb.startLoad(item.getPortrait(), 12, false);
+                aVar.cEb.invalidate();
             }
             if (!TextUtils.isEmpty(item.getUser_name())) {
-                aVar.cBx.setText(item.getUser_name());
+                aVar.cEc.setText(item.getUser_name());
             }
             if (!TextUtils.isEmpty(item.getIntro())) {
-                aVar.cBy.setText(item.getIntro());
+                aVar.cEd.setText(item.getIntro());
             }
         }
-        this.cBv.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.cBv.getLayoutMode().onModeChanged(view);
+        this.cEa.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.cEa.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        HeadImageView cBw;
-        TextView cBx;
-        TextView cBy;
+        HeadImageView cEb;
+        TextView cEc;
+        TextView cEd;
 
         private a() {
         }

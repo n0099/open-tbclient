@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId eoB = BdUniqueId.gen();
-    private Object bgZ;
-    private NoDataViewFactory.ImgType eoC;
-    private String eoD;
-    private String eoE;
-    private String eoF;
-    private int eoG;
+    public static final BdUniqueId est = BdUniqueId.gen();
+    private Object bhE;
+    private NoDataViewFactory.ImgType esu;
+    private String esv;
+    private String esw;
+    private String esx;
+    private int esy;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return eoB;
+        return est;
     }
 
-    public String aJi() {
-        return this.eoD;
-    }
-
-    public void op(String str) {
-        this.eoD = str;
-    }
-
-    public String aJj() {
-        return this.eoE;
-    }
-
-    public void oq(String str) {
-        this.eoE = str;
-    }
-
-    public String aJk() {
-        return this.eoF;
+    public String aKj() {
+        return this.esv;
     }
 
     public void or(String str) {
-        this.eoF = str;
+        this.esv = str;
     }
 
-    public int aJl() {
-        return this.eoG;
+    public String aKk() {
+        return this.esw;
     }
 
-    public void nP(int i) {
-        this.eoG = i;
+    public void os(String str) {
+        this.esw = str;
     }
 
-    public Object OM() {
-        return this.bgZ;
+    public String aKl() {
+        return this.esx;
+    }
+
+    public void ot(String str) {
+        this.esx = str;
+    }
+
+    public int aKm() {
+        return this.esy;
+    }
+
+    public void od(int i) {
+        this.esy = i;
+    }
+
+    public Object OS() {
+        return this.bhE;
     }
 
     public void setExtraData(Object obj) {
-        this.bgZ = obj;
+        this.bhE = obj;
     }
 
-    public NoDataViewFactory.ImgType aJm() {
-        return this.eoC;
+    public NoDataViewFactory.ImgType aKn() {
+        return this.esu;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.eoC = imgType;
+        this.esu = imgType;
     }
 }

@@ -19,7 +19,7 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 /* loaded from: classes2.dex */
 public final class f {
-    public static synchronized List<String> H(Context context, String str) {
+    public static synchronized List<String> I(Context context, String str) {
         ArrayList arrayList;
         synchronized (f.class) {
             arrayList = new ArrayList();
@@ -54,15 +54,15 @@ public final class f {
         deflaterOutputStream2 = null;
         FileOutputStream fileOutputStream2 = null;
         synchronized (f.class) {
-            com.baidu.crabsdk.c.a.cd("writeFile: " + str);
+            com.baidu.crabsdk.c.a.ce("writeFile: " + str);
             e.h(str);
             if (com.baidu.crabsdk.a.G) {
                 try {
                     String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, UUID.randomUUID().toString());
-                    str2 = com.baidu.crabsdk.c.d.M(str2, c);
-                    e.b("key_" + str, com.baidu.crabsdk.c.e.cm(c));
+                    str2 = com.baidu.crabsdk.c.d.L(str2, c);
+                    e.b("key_" + str, com.baidu.crabsdk.c.e.cn(c));
                 } catch (Exception e) {
-                    com.baidu.crabsdk.c.a.cg("RSA failed: " + e.getMessage());
+                    com.baidu.crabsdk.c.a.ch("RSA failed: " + e.getMessage());
                 }
             }
             try {
@@ -229,7 +229,7 @@ public final class f {
         }
     }
 
-    public static byte[] co(String str) {
+    public static byte[] cp(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -318,19 +318,19 @@ public final class f {
         return bArr;
     }
 
-    public static String cp(String str) {
+    public static String cq(String str) {
         if (str == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.ce("开始遍历..." + str);
+            com.baidu.crabsdk.c.a.cf("开始遍历..." + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     sb.append(file.getName()).append("$");
                 }
-                com.baidu.crabsdk.c.a.ce(sb.toString());
+                com.baidu.crabsdk.c.a.cf(sb.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -351,7 +351,7 @@ public final class f {
         if (map == null) {
             return "";
         }
-        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.pf() > 7) {
+        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.pj() > 7) {
             map.put("screenshot", Base64.encodeToString((byte[]) map.get("screenshot"), 0));
         }
         JSONObject jSONObject = new JSONObject();
@@ -367,7 +367,7 @@ public final class f {
                 } else if (obj instanceof Float) {
                     jSONObject.put(str, (Float) obj);
                 } else {
-                    com.baidu.crabsdk.c.a.ch("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+                    com.baidu.crabsdk.c.a.ci("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
                 }
             } catch (JSONException e) {
                 com.baidu.crabsdk.c.a.b("Could not create JSON object for key " + str, e);

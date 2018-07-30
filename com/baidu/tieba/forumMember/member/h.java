@@ -5,24 +5,24 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes3.dex */
 public class h extends q.a {
-    public View dgm;
+    public View djc;
 
     public h(View view) {
         super(view);
-        this.dgm = view;
+        this.djc = view;
     }
 
-    public void jW(int i) {
+    public void kh(int i) {
         if (i < 0) {
-            this.dgm.setMinimumHeight(0);
+            this.djc.setMinimumHeight(0);
         } else {
-            this.dgm.setMinimumHeight(i);
+            this.djc.setMinimumHeight(i);
         }
     }
 
-    public void setBackground(int i) {
+    public void dz(int i) {
         if (i != 0) {
-            am.i(this.dgm, i);
+            am.i(this.djc, i);
         }
     }
 }

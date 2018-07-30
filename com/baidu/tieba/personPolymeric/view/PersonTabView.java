@@ -10,29 +10,29 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class PersonTabView extends LinearLayout {
-    private int aun;
-    private int auo;
-    private int dzH;
-    private TextView gdN;
-    private TextView gdO;
-    private View gdP;
-    private View gdQ;
-    private View gdR;
-    private View gdS;
-    private a gdT;
+    private int atS;
+    private int atT;
+    private int dCt;
+    private TextView gef;
+    private TextView geg;
+    private View geh;
+    private View gei;
+    private View gej;
+    private View gek;
+    private a gel;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void rF(int i);
+        void rC(int i);
     }
 
     public PersonTabView(Context context) {
         super(context);
-        this.dzH = 0;
-        this.aun = am.getColor(d.C0142d.cp_cont_b);
-        this.auo = am.getColor(d.C0142d.cp_cont_f);
+        this.dCt = 0;
+        this.atS = am.getColor(d.C0140d.cp_cont_b);
+        this.atT = am.getColor(d.C0140d.cp_cont_f);
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -41,8 +41,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == d.g.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.gdT != null) {
-                    PersonTabView.this.gdT.rF(PersonTabView.this.dzH);
+                if (PersonTabView.this.gel != null) {
+                    PersonTabView.this.gel.rC(PersonTabView.this.dCt);
                 }
             }
         };
@@ -51,9 +51,9 @@ public class PersonTabView extends LinearLayout {
 
     public PersonTabView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dzH = 0;
-        this.aun = am.getColor(d.C0142d.cp_cont_b);
-        this.auo = am.getColor(d.C0142d.cp_cont_f);
+        this.dCt = 0;
+        this.atS = am.getColor(d.C0140d.cp_cont_b);
+        this.atT = am.getColor(d.C0140d.cp_cont_f);
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -62,8 +62,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == d.g.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.gdT != null) {
-                    PersonTabView.this.gdT.rF(PersonTabView.this.dzH);
+                if (PersonTabView.this.gel != null) {
+                    PersonTabView.this.gel.rC(PersonTabView.this.dCt);
                 }
             }
         };
@@ -72,9 +72,9 @@ public class PersonTabView extends LinearLayout {
 
     public PersonTabView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dzH = 0;
-        this.aun = am.getColor(d.C0142d.cp_cont_b);
-        this.auo = am.getColor(d.C0142d.cp_cont_f);
+        this.dCt = 0;
+        this.atS = am.getColor(d.C0140d.cp_cont_b);
+        this.atT = am.getColor(d.C0140d.cp_cont_f);
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonTabView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -83,8 +83,8 @@ public class PersonTabView extends LinearLayout {
                 } else if (view.getId() == d.g.reply_btn) {
                     PersonTabView.this.setCurrentTab(1);
                 }
-                if (PersonTabView.this.gdT != null) {
-                    PersonTabView.this.gdT.rF(PersonTabView.this.dzH);
+                if (PersonTabView.this.gel != null) {
+                    PersonTabView.this.gel.rC(PersonTabView.this.dCt);
                 }
             }
         };
@@ -93,36 +93,36 @@ public class PersonTabView extends LinearLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        LayoutInflater.from(this.mContext).inflate(d.i.person_button_header_view, this);
-        this.gdN = (TextView) findViewById(d.g.main_thread_btn);
-        this.gdN.setOnClickListener(this.mOnClickListener);
-        this.gdO = (TextView) findViewById(d.g.reply_btn);
-        this.gdO.setOnClickListener(this.mOnClickListener);
-        this.gdP = findViewById(d.g.main_thread_divider);
-        this.gdQ = findViewById(d.g.reply_btn_divider);
-        this.gdR = findViewById(d.g.main_thread_bottom_divider);
-        this.gdS = findViewById(d.g.reply_btn_bottom_divider);
+        LayoutInflater.from(this.mContext).inflate(d.h.person_button_header_view, this);
+        this.gef = (TextView) findViewById(d.g.main_thread_btn);
+        this.gef.setOnClickListener(this.mOnClickListener);
+        this.geg = (TextView) findViewById(d.g.reply_btn);
+        this.geg.setOnClickListener(this.mOnClickListener);
+        this.geh = findViewById(d.g.main_thread_divider);
+        this.gei = findViewById(d.g.reply_btn_divider);
+        this.gej = findViewById(d.g.main_thread_bottom_divider);
+        this.gek = findViewById(d.g.reply_btn_bottom_divider);
         setCurrentTab(0);
     }
 
     public void setCurrentTab(int i) {
-        if (i != this.dzH) {
-            this.dzH = i;
+        if (i != this.dCt) {
+            this.dCt = i;
             if (i == 0) {
-                this.gdP.setVisibility(0);
-                this.gdQ.setVisibility(4);
-                this.gdN.setTextColor(this.aun);
-                this.gdO.setTextColor(this.auo);
+                this.geh.setVisibility(0);
+                this.gei.setVisibility(4);
+                this.gef.setTextColor(this.atS);
+                this.geg.setTextColor(this.atT);
             } else if (i == 1) {
-                this.gdP.setVisibility(4);
-                this.gdQ.setVisibility(0);
-                this.gdN.setTextColor(this.auo);
-                this.gdO.setTextColor(this.aun);
+                this.geh.setVisibility(4);
+                this.gei.setVisibility(0);
+                this.gef.setTextColor(this.atT);
+                this.geg.setTextColor(this.atS);
             }
         }
     }
 
     public void setOnTabSelectListener(a aVar) {
-        this.gdT = aVar;
+        this.gel = aVar;
     }
 }

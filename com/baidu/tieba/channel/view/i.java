@@ -19,40 +19,40 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class i {
-    private NoNetworkView buT;
-    private PbListView buU;
-    private ChannelHomeActivity cDK;
-    private g cDL;
-    private f cDM;
-    private com.baidu.tieba.channel.a.c cDN = null;
-    private FrameLayout cDO = null;
+    private PbListView bvA;
+    private NoNetworkView bvz;
+    private ChannelHomeActivity cGq;
+    private g cGr;
+    private f cGs;
+    private com.baidu.tieba.channel.a.c cGt = null;
+    private FrameLayout cGu = null;
     private BdTypeListView mListView;
     private View mNoDataView;
     private View mRootView;
 
     public i(ChannelHomeActivity channelHomeActivity) {
-        this.cDK = channelHomeActivity;
-        this.cDK.setIsAddSwipeBackLayout(true);
-        this.cDK.setSwipeBackEnabled(true);
-        this.cDK.setUseStyleImmersiveSticky(true);
+        this.cGq = channelHomeActivity;
+        this.cGq.setIsAddSwipeBackLayout(true);
+        this.cGq.setSwipeBackEnabled(true);
+        this.cGq.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     public void initViews() {
-        this.cDK.setContentView(d.i.channel_home_layout);
-        this.mRootView = this.cDK.findViewById(d.g.channel_home_rootview);
-        this.cDO = (FrameLayout) this.cDK.findViewById(d.g.channel_home_loading_view);
-        this.buT = (NoNetworkView) this.mRootView.findViewById(d.g.channel_home_no_network_view);
-        this.cDL = new g(this.cDK.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(d.g.channel_home_navigation_bar), this.cDK);
-        TB();
+        this.cGq.setContentView(d.h.channel_home_layout);
+        this.mRootView = this.cGq.findViewById(d.g.channel_home_rootview);
+        this.cGu = (FrameLayout) this.cGq.findViewById(d.g.channel_home_loading_view);
+        this.bvz = (NoNetworkView) this.mRootView.findViewById(d.g.channel_home_no_network_view);
+        this.cGr = new g(this.cGq.getPageContext().getPageActivity(), (NavigationBar) this.mRootView.findViewById(d.g.channel_home_navigation_bar), this.cGq);
+        TJ();
     }
 
-    private void TB() {
+    private void TJ() {
         this.mListView = (BdTypeListView) this.mRootView.findViewById(d.g.channel_home_listview);
-        this.cDM = new f(this.cDK.getPageContext().getPageActivity(), this.cDK);
-        this.mListView.addHeaderView(this.cDM.agG());
-        this.cDN = new com.baidu.tieba.channel.a.c(this.cDK.getPageContext().getPageActivity(), this.mListView);
-        this.cDN.a(this.cDK);
+        this.cGs = new f(this.cGq.getPageContext().getPageActivity(), this.cGq);
+        this.mListView.addHeaderView(this.cGs.ahb());
+        this.cGt = new com.baidu.tieba.channel.a.c(this.cGq.getPageContext().getPageActivity(), this.mListView);
+        this.cGt.a(this.cGq);
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.channel.view.i.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -63,38 +63,38 @@ public class i {
                 i.this.a(absListView, i, i2, i3);
             }
         });
-        this.mListView.setOnSrollToBottomListener(this.cDK);
-        this.buU = new PbListView(this.cDK.getPageContext().getPageActivity());
-        this.buU.nn();
-        this.buU.setTextColor(am.getColor(d.C0142d.cp_cont_d));
-        this.mListView.setNextPage(this.buU);
+        this.mListView.setOnSrollToBottomListener(this.cGq);
+        this.bvA = new PbListView(this.cGq.getPageContext().getPageActivity());
+        this.bvA.np();
+        this.bvA.setTextColor(am.getColor(d.C0140d.cp_cont_d));
+        this.mListView.setNextPage(this.bvA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AbsListView absListView, int i, int i2, int i3) {
-        if (Build.VERSION.SDK_INT >= 11 && this.cDM != null) {
-            int dimension = (int) this.cDK.getResources().getDimension(d.e.ds98);
+        if (Build.VERSION.SDK_INT >= 11 && this.cGs != null) {
+            int dimension = (int) this.cGq.getResources().getDimension(d.e.ds98);
             int i4 = 0;
-            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.cDK.getPageContext().getPageActivity())) {
+            if (UtilHelper.useNavigationBarStyleImmersiveSticky(this.cGq.getPageContext().getPageActivity())) {
                 i4 = UtilHelper.getStatusBarHeight();
             }
-            int ajA = this.cDM.ajA() - (i4 + (-this.cDM.agG().getTop()));
-            if (this.cDL != null) {
-                this.cDL.x(ajA, dimension, i);
+            int ajY = this.cGs.ajY() - (i4 + (-this.cGs.ahb().getTop()));
+            if (this.cGr != null) {
+                this.cGr.x(ajY, dimension, i);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (ajI() != null && ajI().agG() != null) {
-            this.cDK.getLayoutMode().setNightMode(i == 1);
-            this.cDK.getLayoutMode().onModeChanged(ajI().agG());
+        if (akh() != null && akh().ahb() != null) {
+            this.cGq.getLayoutMode().setNightMode(i == 1);
+            this.cGq.getLayoutMode().onModeChanged(akh().ahb());
         }
-        ajF();
-        this.cDM.onChangeSkinType(i);
-        this.cDL.onChangeSkinType(i);
-        this.buU.dz(i);
-        this.buT.onChangeSkinType(this.cDK.getPageContext(), i);
+        akd();
+        this.cGs.onChangeSkinType(i);
+        this.cGr.onChangeSkinType(i);
+        this.bvA.dC(i);
+        this.bvz.onChangeSkinType(this.cGq.getPageContext(), i);
     }
 
     public void onPause() {
@@ -107,97 +107,97 @@ public class i {
     }
 
     public void g(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.ajl() != null) {
-            this.cDM.eG(dVar.isHost());
-            this.cDM.d(dVar);
-            this.cDN.setIsHost(dVar.isHost());
+        if (dVar != null && dVar.ajJ() != null) {
+            this.cGs.eH(dVar.isHost());
+            this.cGs.d(dVar);
+            this.cGt.setIsHost(dVar.isHost());
             h(dVar);
-            this.cDL.a(dVar.isHost(), this.cDK);
-            this.cDL.T(dVar);
+            this.cGr.a(dVar.isHost(), this.cGq);
+            this.cGr.T(dVar);
         }
     }
 
     public void h(com.baidu.tieba.channel.data.d dVar) {
         if (dVar != null) {
-            if (dVar.ajm() == null || dVar.ajm().size() == 0) {
-                Uf();
-                this.mNoDataView = LayoutInflater.from(this.cDK.getPageContext().getPageActivity()).inflate(d.i.channel_home_no_data, (ViewGroup) null);
+            if (dVar.ajK() == null || dVar.ajK().size() == 0) {
+                Un();
+                this.mNoDataView = LayoutInflater.from(this.cGq.getPageContext().getPageActivity()).inflate(d.h.channel_home_no_data, (ViewGroup) null);
                 this.mListView.setNoData(this.mNoDataView);
             } else {
                 this.mListView.setNoData((View) null);
-                eH(true);
+                eI(true);
             }
             ArrayList arrayList = new ArrayList();
-            if (dVar.ajm() != null) {
-                Iterator<E> it = dVar.ajm().iterator();
+            if (dVar.ajK() != null) {
+                Iterator<E> it = dVar.ajK().iterator();
                 while (it.hasNext()) {
                     arrayList.add((com.baidu.adp.widget.ListView.h) it.next());
                 }
             }
             this.mListView.setData(arrayList);
-            if (!dVar.ajn()) {
-                eH(true);
+            if (!dVar.ajL()) {
+                eI(true);
             }
         }
     }
 
-    public void ajF() {
+    public void akd() {
         if (this.mListView.getAdapter() != null && (this.mListView.getAdapter() instanceof com.baidu.adp.widget.ListView.e)) {
             this.mListView.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void e(com.baidu.tieba.channel.data.d dVar) {
-        this.cDL.T(dVar);
-        this.cDM.e(dVar);
+        this.cGr.T(dVar);
+        this.cGs.e(dVar);
     }
 
     public void f(com.baidu.tieba.channel.data.d dVar) {
-        this.cDM.f(dVar);
+        this.cGs.f(dVar);
     }
 
-    public void eH(boolean z) {
-        this.buU.AI();
+    public void eI(boolean z) {
+        this.bvA.Ay();
         if (z) {
-            this.buU.setText(this.cDK.getPageContext().getPageActivity().getResources().getString(d.k.list_no_more));
+            this.bvA.setText(this.cGq.getPageContext().getPageActivity().getResources().getString(d.j.list_no_more));
         } else {
-            this.buU.setText("");
+            this.bvA.setText("");
         }
     }
 
-    public void Uf() {
-        this.buU.dB(0);
+    public void Un() {
+        this.bvA.dE(0);
     }
 
-    public void ajG() {
-        this.buU.AH();
+    public void ake() {
+        this.bvA.Ax();
     }
 
     public void showLoadingView() {
-        this.cDK.showLoadingView(this.cDO);
-        this.cDO.setVisibility(0);
+        this.cGq.showLoadingView(this.cGu);
+        this.cGu.setVisibility(0);
     }
 
     public void hideLoadingView() {
-        this.cDO.setVisibility(8);
-        this.cDK.hideLoadingView(this.cDO);
+        this.cGu.setVisibility(8);
+        this.cGq.hideLoadingView(this.cGu);
     }
 
-    public void showErrorView() {
-        this.cDO.setVisibility(0);
-        this.cDK.showNetRefreshView(this.cDO, this.cDK.getResources().getString(d.k.neterror));
+    public void akf() {
+        this.cGu.setVisibility(0);
+        this.cGq.showNetRefreshView(this.cGu, this.cGq.getResources().getString(d.j.neterror));
     }
 
-    public void ajH() {
-        this.cDO.setVisibility(8);
-        this.cDK.hideNetRefreshView(this.cDO);
+    public void akg() {
+        this.cGu.setVisibility(8);
+        this.cGq.hideNetRefreshView(this.cGu);
     }
 
-    public f ajI() {
-        return this.cDM;
+    public f akh() {
+        return this.cGs;
     }
 
     public void f(ChannelInfo channelInfo) {
-        this.cDM.e(channelInfo);
+        this.cGs.e(channelInfo);
     }
 }

@@ -25,9 +25,9 @@ public class a {
     private static void d(BaseFragmentActivity baseFragmentActivity) {
         if (baseFragmentActivity != null) {
             if (Build.VERSION.SDK_INT <= 10) {
-                baseFragmentActivity.showToast(d.k.plugin_not_exit_for_2_3);
+                baseFragmentActivity.showToast(d.j.plugin_not_exit_for_2_3);
             } else {
-                baseFragmentActivity.showToast(d.k.plugin_not_exit);
+                baseFragmentActivity.showToast(d.j.plugin_not_exit);
             }
         }
     }

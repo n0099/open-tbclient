@@ -8,24 +8,24 @@ import com.baidu.tbadk.editortools.k;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends k {
-    private EditText aOg;
+    private EditText aOf;
 
     public e(Context context) {
         super(context, (String) null, 27);
         this.aMW = false;
         this.aMV = 3;
         this.aMf = new PbNewInputContainer(context);
-        this.aOg = ((PbNewInputContainer) this.aMf).getInputView();
-        ((PbNewInputContainer) this.aMf).setHint(context.getString(d.k.say_your_point));
+        this.aOf = ((PbNewInputContainer) this.aMf).getInputView();
+        ((PbNewInputContainer) this.aMf).setHint(context.getString(d.j.say_your_point));
         this.aMX = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void b(TextWatcher textWatcher) {
-        this.aOg.addTextChangedListener(textWatcher);
+        this.aOf.addTextChangedListener(textWatcher);
     }
 
     public void c(TextWatcher textWatcher) {
-        this.aOg.removeTextChangedListener(textWatcher);
+        this.aOf.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
@@ -35,7 +35,7 @@ public class e extends k {
     }
 
     public EditText getInputView() {
-        return this.aOg;
+        return this.aOf;
     }
 
     public void setType(int i) {
@@ -44,9 +44,9 @@ public class e extends k {
         }
     }
 
-    public void eV(int i) {
+    public void eW(int i) {
         if (this.aMf != null) {
-            ((PbNewInputContainer) this.aMf).eV(i);
+            ((PbNewInputContainer) this.aMf).eW(i);
         }
     }
 }

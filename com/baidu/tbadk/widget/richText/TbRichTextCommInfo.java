@@ -13,97 +13,97 @@ public class TbRichTextCommInfo extends OrmObject {
     public static final int URL_VALIDITY_INVALID = 1;
     public static final int URL_VALIDITY_NORMAL = 0;
     public static final int URL_VALIDITY_VALID = 2;
-    private String aoM;
-    private int beX;
-    private String beY;
-    private String beZ;
-    private int bfa;
+    private String aoo;
+    private int bfi;
+    private String bfj;
+    private String bfk;
+    private int bfl;
     private String mLink;
     private int mType;
 
     public TbRichTextCommInfo() {
-        this.aoM = null;
+        this.aoo = null;
         this.mLink = null;
         this.mType = 0;
-        this.bfa = 0;
+        this.bfl = 0;
     }
 
     public TbRichTextCommInfo(JSONObject jSONObject) {
-        this.aoM = null;
+        this.aoo = null;
         this.mLink = null;
         this.mType = 0;
-        this.bfa = 0;
+        this.bfl = 0;
         if (jSONObject != null) {
-            this.aoM = jSONObject.optString("text");
+            this.aoo = jSONObject.optString("text");
             this.mLink = jSONObject.optString("link");
             this.mType = jSONObject.optInt("type", 0);
-            this.bfa = jSONObject.optInt("url_type", 0);
-            this.beX = jSONObject.optInt("is_native_app", 0);
-            if (this.beX == 1) {
+            this.bfl = jSONObject.optInt("url_type", 0);
+            this.bfi = jSONObject.optInt("is_native_app", 0);
+            if (this.bfi == 1) {
                 if (jSONObject.optJSONObject("native_app") == null) {
-                    this.beX = 0;
+                    this.bfi = 0;
                     return;
                 }
-                this.beY = jSONObject.optString("jump_and");
-                this.beZ = jSONObject.optString("download_and");
-                if (TextUtils.isEmpty(this.beY) || TextUtils.isEmpty(this.beZ)) {
-                    this.beX = 0;
+                this.bfj = jSONObject.optString("jump_and");
+                this.bfk = jSONObject.optString("download_and");
+                if (TextUtils.isEmpty(this.bfj) || TextUtils.isEmpty(this.bfk)) {
+                    this.bfi = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.beY += ";download_url:" + this.beZ + ";web_play_url:" + this.mLink;
+                    this.bfj += ";download_url:" + this.bfk + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.beY += ";download_url:" + this.beZ + ";web_play_url:" + this.aoM;
+                    this.bfj += ";download_url:" + this.bfk + ";web_play_url:" + this.aoo;
                 }
-                this.beY += ";is_native_app=1";
+                this.bfj += ";is_native_app=1";
             }
         }
     }
 
     public TbRichTextCommInfo(PbContent pbContent) {
-        this.aoM = null;
+        this.aoo = null;
         this.mLink = null;
         this.mType = 0;
-        this.bfa = 0;
+        this.bfl = 0;
         if (pbContent != null) {
-            this.aoM = pbContent.text;
+            this.aoo = pbContent.text;
             this.mLink = pbContent.link;
             this.mType = pbContent.type.intValue();
-            this.bfa = pbContent.url_type.intValue();
-            this.beX = pbContent.is_native_app.intValue();
-            if (this.beX == 1) {
+            this.bfl = pbContent.url_type.intValue();
+            this.bfi = pbContent.is_native_app.intValue();
+            if (this.bfi == 1) {
                 NativeApp nativeApp = pbContent.native_app;
                 if (nativeApp == null) {
-                    this.beX = 0;
+                    this.bfi = 0;
                     return;
                 }
-                this.beY = nativeApp.jump_and;
-                this.beZ = nativeApp.download_and;
-                if (TextUtils.isEmpty(this.beY) || TextUtils.isEmpty(this.beZ)) {
-                    this.beX = 0;
+                this.bfj = nativeApp.jump_and;
+                this.bfk = nativeApp.download_and;
+                if (TextUtils.isEmpty(this.bfj) || TextUtils.isEmpty(this.bfk)) {
+                    this.bfi = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.beY += ";download_url:" + this.beZ + ";web_play_url:" + this.mLink;
+                    this.bfj += ";download_url:" + this.bfk + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.beY += ";download_url:" + this.beZ + ";web_play_url:" + this.aoM;
+                    this.bfj += ";download_url:" + this.bfk + ";web_play_url:" + this.aoo;
                 }
-                this.beY += ";is_native_app=1";
+                this.bfj += ";is_native_app=1";
             }
         }
     }
 
     public TbRichTextCommInfo(String str, String str2) {
-        this.aoM = null;
+        this.aoo = null;
         this.mLink = null;
         this.mType = 0;
-        this.bfa = 0;
-        this.aoM = str;
+        this.bfl = 0;
+        this.aoo = str;
         this.mLink = str2;
     }
 
     public void setText(String str) {
-        this.aoM = str;
+        this.aoo = str;
     }
 
     public void setLink(String str) {
@@ -111,28 +111,28 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     public String getText() {
-        return this.aoM;
+        return this.aoo;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
+    public int Ny() {
+        return this.bfi;
+    }
+
+    public String Nz() {
+        return this.bfj;
+    }
+
     public int NA() {
-        return this.beX;
+        return this.bfl;
     }
 
-    public String NB() {
-        return this.beY;
-    }
-
-    public int NC() {
-        return this.bfa;
-    }
-
-    public void ND() {
-        if (this.aoM != null) {
-            this.aoM = this.aoM.replaceAll("\n", "");
+    public void NB() {
+        if (this.aoo != null) {
+            this.aoo = this.aoo.replaceAll("\n", "");
         }
         if (this.mLink != null) {
             this.mLink = this.mLink.replaceAll("\n", "");

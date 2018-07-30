@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c ewL = null;
-    private long ehg = 0;
-    private List<Long> ewM = new ArrayList();
-    private final CustomMessageListener evN = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
+    private static c eAE = null;
+    private long ekW = 0;
+    private List<Long> eAF = new ArrayList();
+    private final CustomMessageListener ezG = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,31 +27,31 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.evN);
+        MessageManager.getInstance().registerListener(this.ezG);
     }
 
-    public static c aLU() {
-        if (ewL == null) {
+    public static c aMU() {
+        if (eAE == null) {
             synchronized (c.class) {
-                if (ewL == null) {
-                    ewL = new c();
+                if (eAE == null) {
+                    eAE = new c();
                 }
             }
         }
-        return ewL;
+        return eAE;
     }
 
-    public synchronized void bs(String str, String str2) {
+    public synchronized void bq(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.ehg = com.baidu.adp.lib.g.b.c(str, 0L);
+                this.ekW = com.baidu.adp.lib.g.b.c(str, 0L);
                 try {
                     String[] split = str2.split(",");
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.ewM.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.eAF.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -65,46 +65,46 @@ public class c {
     }
 
     public synchronized void clear() {
-        this.ehg = 0L;
-        this.ewM.clear();
+        this.ekW = 0L;
+        this.eAF.clear();
     }
 
     public long getGid() {
-        return this.ehg;
+        return this.ekW;
     }
 
-    public Long aLV() {
-        return com.baidu.tieba.im.memorycache.b.aKX().aLi().get(this.ehg);
+    public Long aMV() {
+        return com.baidu.tieba.im.memorycache.b.aLY().aMj().get(this.ekW);
     }
 
-    public synchronized List<Long> aLW() {
+    public synchronized List<Long> aMW() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.ewM) {
+        for (Long l : this.eAF) {
             if (l != null) {
-                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.cl(l.longValue())));
+                arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.cq(l.longValue())));
             }
         }
         return arrayList;
     }
 
-    public synchronized void aLX() {
-        this.ewM.clear();
+    public synchronized void aMX() {
+        this.eAF.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
-        r9.ewM.add(java.lang.Long.valueOf(r12));
+        r9.eAF.add(java.lang.Long.valueOf(r12));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void k(long j, long j2) {
-        if (this.ehg != 0 && this.ehg != j) {
-            this.ewM.clear();
-            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.ehg);
+        if (this.ekW != 0 && this.ekW != j) {
+            this.eAF.clear();
+            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.ekW);
         }
-        this.ehg = j;
-        Iterator<Long> it = this.ewM.iterator();
+        this.ekW = j;
+        Iterator<Long> it = this.eAF.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -116,17 +116,17 @@ public class c {
         }
     }
 
-    public synchronized boolean aLY() {
+    public synchronized boolean aMY() {
         boolean z;
-        if (this.ehg > 0) {
-            z = this.ewM.size() > 0;
+        if (this.ekW > 0) {
+            z = this.eAF.size() > 0;
         }
         return z;
     }
 
-    public synchronized boolean cf(long j) {
+    public synchronized boolean ck(long j) {
         boolean z;
-        Iterator<Long> it = this.ewM.iterator();
+        Iterator<Long> it = this.eAF.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -141,10 +141,10 @@ public class c {
         return z;
     }
 
-    public synchronized String aLZ() {
+    public synchronized String aMZ() {
         String str;
         str = "";
-        for (Long l : this.ewM) {
+        for (Long l : this.eAF) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + ",";
         }
         return str;

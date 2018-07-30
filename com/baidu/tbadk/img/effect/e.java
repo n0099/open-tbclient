@@ -13,7 +13,7 @@ public class e extends b {
         return "rotate";
     }
 
-    public static ImageOperation fe(int i) {
+    public static ImageOperation ff(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -32,7 +32,7 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.IV().fd(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.IQ().fe(BitmapHelper.getBitmapSize(bitmap) * 2);
         if (this.aRe == 0 || this.aRe == 1) {
             return BitmapHelper.rotateBitmap(bitmap, this.aRe);
         }
@@ -43,7 +43,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap hn(String str) throws Exception {
+    public Bitmap hj(String str) throws Exception {
         int max = Math.max(l.ah(TbadkCoreApplication.getInst().getApp()), l.aj(TbadkCoreApplication.getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }

@@ -9,51 +9,51 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class MaxHeightFrameLayout extends FrameLayout {
-    private float dvc;
-    private float dvd;
+    private float dxP;
+    private float dxQ;
 
     public MaxHeightFrameLayout(Context context) {
         super(context);
-        this.dvc = 0.6f;
-        this.dvd = 0.0f;
+        this.dxP = 0.6f;
+        this.dxQ = 0.0f;
         init();
     }
 
     public MaxHeightFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dvc = 0.6f;
-        this.dvd = 0.0f;
-        h(context, attributeSet);
+        this.dxP = 0.6f;
+        this.dxQ = 0.0f;
+        e(context, attributeSet);
         init();
     }
 
     public MaxHeightFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dvc = 0.6f;
-        this.dvd = 0.0f;
-        h(context, attributeSet);
+        this.dxP = 0.6f;
+        this.dxQ = 0.0f;
+        e(context, attributeSet);
         init();
     }
 
-    private void h(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.m.MaxHeightFrameLayout);
+    private void e(Context context, AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.MaxHeightFrameLayout);
         int indexCount = obtainStyledAttributes.getIndexCount();
         for (int i = 0; i < indexCount; i++) {
             int index = obtainStyledAttributes.getIndex(i);
-            if (index == d.m.MaxHeightFrameLayout_mhf_HeightRatio) {
-                this.dvc = obtainStyledAttributes.getFloat(index, 0.6f);
-            } else if (index == d.m.MaxHeightFrameLayout_mhf_HeightDimen) {
-                this.dvd = obtainStyledAttributes.getDimension(index, 0.0f);
+            if (index == d.l.MaxHeightFrameLayout_mhf_HeightRatio) {
+                this.dxP = obtainStyledAttributes.getFloat(index, 0.6f);
+            } else if (index == d.l.MaxHeightFrameLayout_mhf_HeightDimen) {
+                this.dxQ = obtainStyledAttributes.getDimension(index, 0.0f);
             }
         }
         obtainStyledAttributes.recycle();
     }
 
     private void init() {
-        if (this.dvd <= 0.0f) {
-            this.dvd = this.dvc * l.aj(getContext());
+        if (this.dxQ <= 0.0f) {
+            this.dxQ = this.dxP * l.aj(getContext());
         } else {
-            this.dvd = Math.min(this.dvd, this.dvc * l.aj(getContext()));
+            this.dxQ = Math.min(this.dxQ, this.dxP * l.aj(getContext()));
         }
     }
 
@@ -61,19 +61,19 @@ public class MaxHeightFrameLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         int mode = View.MeasureSpec.getMode(i2);
         int size = View.MeasureSpec.getSize(i2);
-        if (mode == 1073741824 && size > this.dvd) {
-            size = (int) this.dvd;
+        if (mode == 1073741824 && size > this.dxQ) {
+            size = (int) this.dxQ;
         }
-        if (mode == 0 && size > this.dvd) {
-            size = (int) this.dvd;
+        if (mode == 0 && size > this.dxQ) {
+            size = (int) this.dxQ;
         }
-        if (mode == Integer.MIN_VALUE && size > this.dvd) {
-            size = (int) this.dvd;
+        if (mode == Integer.MIN_VALUE && size > this.dxQ) {
+            size = (int) this.dxQ;
         }
         super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(size, mode));
     }
 
     public void setMaxHeight(int i) {
-        this.dvd = i;
+        this.dxQ = i;
     }
 }

@@ -5,17 +5,17 @@ import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes3.dex */
 public class RecommendsStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PbChosenActivityConfig.class, PbChosenActivity.class);
-        aEn();
+        aFn();
     }
 
-    private static void aEn() {
-        az.zV().a(new az.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
-            @Override // com.baidu.tbadk.core.util.az.a
+    private static void aFn() {
+        ay.zK().a(new ay.a() { // from class: com.baidu.tieba.pb.chosen.RecommendsStatic.1
+            @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length <= 0) {
                     return 3;

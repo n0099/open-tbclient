@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean nl(boolean z) {
+    public static boolean mX(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -34,7 +34,7 @@ public class a {
         return true;
     }
 
-    public static int getCameraId(boolean z) {
+    public static int mY(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -74,14 +74,14 @@ public class a {
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int H = H(activity);
+        int I = I(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + H) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + I) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - H) + 360) % 360;
+        return ((cameraInfo.orientation - I) + 360) % 360;
     }
 
-    public static int H(Activity activity) {
+    public static int I(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:

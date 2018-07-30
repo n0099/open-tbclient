@@ -9,12 +9,12 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class c extends h<com.baidu.tieba.tbadkCore.h, d> {
-    private boolean dqX;
-    protected a dtN;
+    private boolean dtK;
+    protected a dwA;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.dqX = z;
+        this.dtK = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class c extends h<com.baidu.tieba.tbadkCore.h, d> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ay */
     public d onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.i.frs_feed_item_layout, (ViewGroup) null);
-        this.dtN = new a(this.mPageContext, inflate, 2, this.dqX, this.mPageId);
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_feed_item_layout, (ViewGroup) null);
+        this.dwA = new a(this.mPageContext, inflate, 2, this.dtK, this.mPageId);
         return new d(inflate);
     }
 
@@ -34,7 +34,7 @@ public class c extends h<com.baidu.tieba.tbadkCore.h, d> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.h hVar, d dVar) {
         super.onFillViewHolder(i, view, viewGroup, hVar, dVar);
         if (hVar != null) {
-            this.dtN.d(hVar.getForumId(), hVar.bvu());
+            this.dwA.d(hVar.getForumId(), hVar.btY());
         }
         return view;
     }

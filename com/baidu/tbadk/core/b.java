@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private StringBuffer acA = new StringBuffer();
-    private String acf;
-    private int acg;
-    private int ach;
-    private int aci;
-    private int acj;
-    private int ack;
-    private int acl;
-    private int acm;
-    private int acn;
-    private int aco;
-    private int acp;
-    private int acq;
-    private int acr;
-    private int acs;
-    private int act;
-    private int acu;
-    private int acv;
-    private int acw;
-    private int acx;
-    private int acy;
-    private int acz;
+    private String abJ;
+    private int abK;
+    private int abL;
+    private int abM;
+    private int abN;
+    private int abO;
+    private int abP;
+    private int abQ;
+    private int abR;
+    private int abS;
+    private int abT;
+    private int abU;
+    private int abV;
+    private int abW;
+    private int abX;
+    private int abY;
+    private int abZ;
+    private int aca;
+    private int acb;
+    private int acc;
+    private int acd;
+    private StringBuffer ace = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.acA.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.ace.toString() + "]";
     }
 
-    public void da(String str) {
-        this.acA.append(str).append(" || ");
+    public void cX(String str) {
+        this.ace.append(str).append(" || ");
     }
 
-    public int sW() {
-        return this.acu;
-    }
-
-    public void bc(int i) {
-        this.acu = i;
-    }
-
-    public int sX() {
-        return this.acv;
-    }
-
-    public void bd(int i) {
-        this.acv = i;
-    }
-
-    public int sY() {
-        return this.acs;
+    public int sI() {
+        return this.abY;
     }
 
     public void be(int i) {
-        this.acs = i;
+        this.abY = i;
     }
 
-    public int sZ() {
-        return this.act;
+    public int sJ() {
+        return this.abZ;
     }
 
     public void bf(int i) {
-        this.act = i;
+        this.abZ = i;
     }
 
-    public int ta() {
-        return this.acq;
+    public int sK() {
+        return this.abW;
     }
 
     public void bg(int i) {
-        this.acq = i;
+        this.abW = i;
     }
 
-    public int tb() {
-        return this.acr;
+    public int sL() {
+        return this.abX;
     }
 
     public void bh(int i) {
-        this.acr = i;
+        this.abX = i;
+    }
+
+    public int sM() {
+        return this.abU;
+    }
+
+    public void bi(int i) {
+        this.abU = i;
+    }
+
+    public int sN() {
+        return this.abV;
+    }
+
+    public void bj(int i) {
+        this.abV = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int tc() {
-        return this.acw;
+    public int sO() {
+        return this.aca;
     }
 
-    public void bi(int i) {
-        this.acw = i;
+    public void bk(int i) {
+        this.aca = i;
     }
 
-    public int td() {
-        return this.acx;
+    public int sP() {
+        return this.acb;
     }
 
-    public void bj(int i) {
-        this.acx = i;
+    public void bl(int i) {
+        this.acb = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void db(String str) {
-        this.acf = str;
+    public void cY(String str) {
+        this.abJ = str;
     }
 
-    public int te() {
-        return this.acg;
-    }
-
-    public void bk(int i) {
-        this.acg = i;
-    }
-
-    public int tf() {
-        return this.ach;
-    }
-
-    public void bl(int i) {
-        this.ach = i;
-    }
-
-    public int tg() {
-        return this.ack;
+    public int sQ() {
+        return this.abK;
     }
 
     public void bm(int i) {
-        this.ack = i;
+        this.abK = i;
     }
 
-    public int th() {
-        return this.acl;
+    public int sR() {
+        return this.abL;
     }
 
     public void bn(int i) {
-        this.acl = i;
+        this.abL = i;
     }
 
-    public int ti() {
-        return this.aci;
+    public int sS() {
+        return this.abO;
     }
 
     public void bo(int i) {
-        this.aci = i;
+        this.abO = i;
     }
 
-    public int tj() {
-        return this.acj;
+    public int sT() {
+        return this.abP;
     }
 
     public void bp(int i) {
-        this.acj = i;
+        this.abP = i;
     }
 
-    public int tk() {
-        return this.acn;
-    }
-
-    public int tl() {
-        return this.acm;
+    public int sU() {
+        return this.abM;
     }
 
     public void bq(int i) {
-        this.acm = i;
+        this.abM = i;
+    }
+
+    public int sV() {
+        return this.abN;
     }
 
     public void br(int i) {
-        this.acn = i;
+        this.abN = i;
     }
 
-    public int tm() {
-        return this.acp;
+    public int sW() {
+        return this.abR;
+    }
+
+    public int sX() {
+        return this.abQ;
     }
 
     public void bs(int i) {
-        this.acp = i;
-    }
-
-    public int tn() {
-        return this.aco;
+        this.abQ = i;
     }
 
     public void bt(int i) {
-        this.aco = i;
+        this.abR = i;
     }
 
-    public int tp() {
-        return this.acy;
+    public int sY() {
+        return this.abT;
     }
 
     public void bu(int i) {
-        this.acy = i;
+        this.abT = i;
     }
 
-    public int tq() {
-        return this.acz;
+    public int sZ() {
+        return this.abS;
     }
 
     public void bv(int i) {
-        this.acz = i;
+        this.abS = i;
+    }
+
+    public int ta() {
+        return this.acc;
+    }
+
+    public void bw(int i) {
+        this.acc = i;
+    }
+
+    public int tb() {
+        return this.acd;
+    }
+
+    public void bx(int i) {
+        this.acd = i;
     }
 }

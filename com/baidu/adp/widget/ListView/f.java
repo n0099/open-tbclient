@@ -6,37 +6,37 @@ import android.view.View;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class f {
-    private int LW;
-    private com.baidu.adp.widget.a.a LX;
-    private boolean LY;
-    a LZ;
+    private int LR;
+    private com.baidu.adp.widget.a.a LS;
+    private boolean LU;
+    a LV;
     int mDuration;
     View mView;
-    private int LV = 1;
+    private int LQ = 1;
     Handler mHandler = new Handler();
-    Runnable Ma = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
+    Runnable LW = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.LZ == null) {
+            if (f.this.LV == null) {
                 return;
             }
-            f.this.LZ.nx();
+            f.this.LV.nz();
         }
     };
 
     public f(Context context, int i, int i2, int i3) {
-        this.LY = true;
+        this.LU = true;
         int abs = Math.abs(i - i2);
-        this.LW = i2;
-        if (abs < this.LV) {
-            this.LY = false;
+        this.LR = i2;
+        if (abs < this.LQ) {
+            this.LU = false;
         }
-        this.LZ = new a(context);
+        this.LV = new a(context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.a.a aVar) {
-        this.LX = aVar;
+        this.LS = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -48,9 +48,9 @@ public class f {
             this.mScroller = new Scroller(context);
         }
 
-        private void nw() {
+        private void ny() {
             if (f.this.mHandler != null) {
-                f.this.mHandler.removeCallbacks(f.this.Ma);
+                f.this.mHandler.removeCallbacks(f.this.LW);
             }
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
@@ -78,8 +78,8 @@ public class f {
                     }
                 }
                 if (z) {
-                    f.this.mHandler.removeCallbacks(f.this.Ma);
-                    f.this.mHandler.post(f.this.Ma);
+                    f.this.mHandler.removeCallbacks(f.this.LW);
+                    f.this.mHandler.post(f.this.LW);
                 }
             }
         }
@@ -87,7 +87,7 @@ public class f {
         public void p(int i, int i2) {
             if (f.this.mView != null && this.mScroller != null) {
                 int i3 = i == 0 ? i - 1 : i;
-                nw();
+                ny();
                 this.mLastFlingY = 0;
                 this.mScroller.startScroll(0, 0, 0, i3, i2);
                 f.this.mView.post(this);
@@ -95,8 +95,8 @@ public class f {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void nx() {
-            f.this.mHandler.removeCallbacks(f.this.Ma);
+        public void nz() {
+            f.this.mHandler.removeCallbacks(f.this.LW);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();
                 this.mScroller.forceFinished(true);
@@ -104,17 +104,17 @@ public class f {
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
             }
-            if (f.this.LX != null) {
-                f.this.LX.onOver();
+            if (f.this.LS != null) {
+                f.this.LS.onOver();
             }
         }
     }
 
     public void r(View view) {
-        if (this.LY && this.LZ != null) {
+        if (this.LU && this.LV != null) {
             this.mView = view;
-            this.LZ.p(Math.abs(this.LW), this.mDuration);
-            this.mHandler.postDelayed(this.Ma, this.mDuration);
+            this.LV.p(Math.abs(this.LR), this.mDuration);
+            this.mHandler.postDelayed(this.LW, this.mDuration);
         }
     }
 
@@ -122,8 +122,8 @@ public class f {
     public boolean move(int i) {
         boolean z = true;
         int paddingTop = this.mView.getPaddingTop() - Math.abs(i);
-        if (paddingTop <= this.LW) {
-            paddingTop = this.LW;
+        if (paddingTop <= this.LR) {
+            paddingTop = this.LR;
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());

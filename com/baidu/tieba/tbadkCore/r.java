@@ -2,6 +2,8 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
 import java.util.ArrayList;
@@ -19,9 +21,9 @@ public class r {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> gLQ = new ArrayList();
-    private int gLO = 0;
-    private int gLP = 0;
+    private List<FeedForumData> gMO = new ArrayList();
+    private int gMM = 0;
+    private int gMN = 0;
     private int user_level = 0;
 
     public r() {
@@ -39,11 +41,11 @@ public class r {
         this.fid = str;
     }
 
-    public int btX() {
+    public int bsA() {
         return this.user_level;
     }
 
-    public void tm(int i) {
+    public void tk(int i) {
         if (i >= 0) {
             this.user_level = i;
         }
@@ -54,6 +56,8 @@ public class r {
             JSONObject jSONObject = new JSONObject(str);
             parserJson(jSONObject.optJSONObject("info"));
             k(jSONObject.optJSONArray("feed_forum"));
+            this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -62,21 +66,21 @@ public class r {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gLO = jSONObject.optInt("is_black", 0);
-                this.gLP = jSONObject.optInt("like_num", 0);
+                this.gMM = jSONObject.optInt("is_black", 0);
+                this.gMN = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
                 setLevelName(jSONObject.optString("level_name", ""));
                 setLevelupScore(jSONObject.optInt("levelup_score", 0));
                 setCurScore(jSONObject.optInt("cur_score", 0));
-                r(jSONObject);
+                q(jSONObject);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    private void r(JSONObject jSONObject) {
+    private void q(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.aDt = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
@@ -106,7 +110,7 @@ public class r {
                     feedForumData.setReason(jSONObject.optString("reason"));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.gLQ.add(feedForumData);
+                    this.gMO.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -150,8 +154,8 @@ public class r {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> bvu() {
-        return this.gLQ;
+    public List<FeedForumData> btY() {
+        return this.gMO;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -162,15 +166,15 @@ public class r {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String bwS() {
+    public String bvw() {
         return this.aDt;
     }
 
-    public void setErrorCode(int i) {
-        this.errorCode = i;
+    public int getErrorCode() {
+        return this.errorCode;
     }
 
-    public void setErrorMsg(String str) {
-        this.errorMsg = str;
+    public String getErrorMsg() {
+        return this.errorMsg;
     }
 }

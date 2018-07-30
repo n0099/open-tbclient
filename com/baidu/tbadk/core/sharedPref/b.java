@@ -28,12 +28,12 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.anL, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.anM, "remote_settings");
-        mProcessMap.put(a.anN, "bdservice_settings");
-        mProcessMap.put(a.anO, a.anR);
-        mProcessMap.put(a.anP, a.anS);
-        mProcessMap.put(a.anQ, a.anT);
+        mProcessMap.put(a.anm, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.ann, "remote_settings");
+        mProcessMap.put(a.ano, "bdservice_settings");
+        mProcessMap.put(a.anp, a.ans);
+        mProcessMap.put(a.anq, a.ant);
+        mProcessMap.put(a.anr, a.anu);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
@@ -140,8 +140,13 @@ public class b {
             }
             return j;
         }
-        this.mSP = getSharedPreferences();
-        return this.mSP.getLong(str, j);
+        try {
+            this.mSP = getSharedPreferences();
+            return this.mSP.getLong(str, j);
+        } catch (ClassCastException e2) {
+            BdLog.e(e2);
+            return j;
+        }
     }
 
     public String getString(String str, String str2) {
@@ -215,9 +220,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.anU.length;
+        int length = a.anv.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.anU[i])) {
+            if (str.equals(a.anv[i])) {
                 return true;
             }
         }
@@ -300,7 +305,7 @@ public class b {
                 }
             }
         }
-        return a.anL;
+        return a.anm;
     }
 
     public void migrateToNewVersion() {
@@ -341,7 +346,7 @@ public class b {
     }
 
     protected void setValue(final Uri uri, final ContentValues contentValues) {
-        if (l.jT()) {
+        if (l.jU()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -375,7 +380,7 @@ public class b {
     }
 
     protected void deleteValue(final Uri uri) {
-        if (l.jT()) {
+        if (l.jU()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */

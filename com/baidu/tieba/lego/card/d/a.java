@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public static boolean oN(int i) {
+    public static boolean pc(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

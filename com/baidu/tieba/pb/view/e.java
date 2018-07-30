@@ -10,7 +10,7 @@ public class e extends h {
     }
 
     @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public View nn() {
-        return super.nn();
+    public View np() {
+        return super.np();
     }
 }

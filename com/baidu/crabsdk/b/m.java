@@ -5,50 +5,50 @@ import android.content.SharedPreferences;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes2.dex */
 public final class m {
-    private static SharedPreferences SV;
-    private static SharedPreferences.Editor SW;
-    private static long SX = StatisticConfig.MIN_UPLOAD_INTERVAL;
+    private static SharedPreferences SS;
+    private static SharedPreferences.Editor ST;
+    private static long SU = StatisticConfig.MIN_UPLOAD_INTERVAL;
 
     public static void clear() {
-        if (SW != null) {
-            SW.putInt("used_count", 0);
-            com.baidu.crabsdk.c.c.a(SW, false);
+        if (ST != null) {
+            ST.putInt("used_count", 0);
+            com.baidu.crabsdk.c.c.a(ST, false);
         }
     }
 
     public static void d(Context context) {
-        if (SV == null) {
-            SV = context.getSharedPreferences("crab_app_life", 0);
+        if (SS == null) {
+            SS = context.getSharedPreferences("crab_app_life", 0);
         }
-        if (SW == null) {
-            SW = SV.edit();
+        if (ST == null) {
+            ST = SS.edit();
         }
     }
 
     public static void onPause(Context context) {
         d(context);
-        if (SV == null || SW == null) {
+        if (SS == null || ST == null) {
             return;
         }
-        SW.putLong("used_last_time", System.currentTimeMillis());
-        com.baidu.crabsdk.c.c.a(SW, false);
+        ST.putLong("used_last_time", System.currentTimeMillis());
+        com.baidu.crabsdk.c.c.a(ST, false);
     }
 
     public static void onResume(Context context) {
         d(context);
-        if (SV == null || SW == null) {
-            com.baidu.crabsdk.c.a.cg("MobclickAgent init error!! applife upload failed!");
+        if (SS == null || ST == null) {
+            com.baidu.crabsdk.c.a.ch("MobclickAgent init error!! applife upload failed!");
             return;
         }
-        com.baidu.crabsdk.c.a.cd("MobclickAgent init success!");
-        if (System.currentTimeMillis() - SV.getLong("used_last_time", 0L) > SX) {
-            SW.putInt("used_count", pa() + 1);
-            com.baidu.crabsdk.c.c.a(SW, false);
+        com.baidu.crabsdk.c.a.ce("MobclickAgent init success!");
+        if (System.currentTimeMillis() - SS.getLong("used_last_time", 0L) > SU) {
+            ST.putInt("used_count", pe() + 1);
+            com.baidu.crabsdk.c.c.a(ST, false);
             com.baidu.crabsdk.sender.h.n(context);
         }
     }
 
-    public static int pa() {
-        return SV.getInt("used_count", 0);
+    public static int pe() {
+        return SS.getInt("used_count", 0);
     }
 }

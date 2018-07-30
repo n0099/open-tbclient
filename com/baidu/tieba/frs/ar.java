@@ -5,6 +5,6 @@ public class ar extends ao {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean dmX = true;
-    public boolean dmY = true;
+    public boolean dpP = true;
+    public boolean dpQ = true;
 }

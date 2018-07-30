@@ -16,7 +16,7 @@ public class ActivityItemData implements Parcelable, Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ux */
+        /* renamed from: uw */
         public ActivityItemData[] newArray(int i) {
             return new ActivityItemData[i];
         }

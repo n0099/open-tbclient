@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class b {
-    private View brw;
-    private HeadImageView fSk;
-    private TextView fSl;
-    private TextView fSm;
-    private ImageView fSn;
+    private View bse;
+    private HeadImageView fSv;
+    private TextView fSw;
+    private TextView fSx;
+    private ImageView fSy;
 
-    public static b d(Context context, View view) {
+    public static b c(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
             return new b(context);
         }
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.brw = null;
-        this.fSk = null;
-        this.fSl = null;
-        this.fSm = null;
-        this.fSn = null;
-        this.brw = LayoutInflater.from(context).inflate(d.i.zan_list_item, (ViewGroup) null);
-        this.fSk = (HeadImageView) this.brw.findViewById(d.g.zan_list_item_head);
-        this.fSl = (TextView) this.brw.findViewById(d.g.zan_list_item_name);
-        this.fSm = (TextView) this.brw.findViewById(d.g.zan_list_item_time);
-        this.fSn = (ImageView) this.brw.findViewById(d.g.zan_list_item_line_bottom);
-        this.fSn.setVisibility(0);
-        this.brw.setTag(this);
+        this.bse = null;
+        this.fSv = null;
+        this.fSw = null;
+        this.fSx = null;
+        this.fSy = null;
+        this.bse = LayoutInflater.from(context).inflate(d.h.zan_list_item, (ViewGroup) null);
+        this.fSv = (HeadImageView) this.bse.findViewById(d.g.zan_list_item_head);
+        this.fSw = (TextView) this.bse.findViewById(d.g.zan_list_item_name);
+        this.fSx = (TextView) this.bse.findViewById(d.g.zan_list_item_time);
+        this.fSy = (ImageView) this.bse.findViewById(d.g.zan_list_item_line_bottom);
+        this.fSy.setVisibility(0);
+        this.bse.setTag(this);
     }
 
     public View getView() {
-        return this.brw;
+        return this.bse;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.fSl.setText(str);
-        this.fSk.setImageDrawable(null);
-        this.fSm.setText(ap.w(j));
-        this.fSk.startLoad(str2, 28, false);
+        this.fSw.setText(str);
+        this.fSv.setImageDrawable(null);
+        this.fSx.setText(ap.w(j));
+        this.fSv.startLoad(str2, 28, false);
     }
 }

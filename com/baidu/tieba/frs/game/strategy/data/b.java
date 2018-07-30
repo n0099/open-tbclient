@@ -2,22 +2,22 @@ package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.h;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b implements h {
-    public static final BdUniqueId dtY = BdUniqueId.gen();
-    private bc threadData;
+    public static final BdUniqueId dwL = BdUniqueId.gen();
+    private bb threadData;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dtY;
+        return dwL;
     }
 
-    public bc SV() {
+    public bb Td() {
         return this.threadData;
     }
 
-    public void X(bc bcVar) {
-        this.threadData = bcVar;
+    public void Z(bb bbVar) {
+        this.threadData = bbVar;
     }
 }

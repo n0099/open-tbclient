@@ -1,15 +1,17 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.RealTime;
+import tbclient.RecomPostTopic;
 /* loaded from: classes.dex */
 public class as {
-    private Long ahC;
-    private String mIcon;
-    private String mUrl;
+    public long agX;
+    public String recom_title;
+    public String recom_topic;
 
-    public void a(RealTime realTime) {
-        this.ahC = realTime.task_id;
-        this.mIcon = realTime.icon;
-        this.mUrl = realTime.url;
+    public void a(RecomPostTopic recomPostTopic) {
+        if (recomPostTopic != null) {
+            this.recom_title = recomPostTopic.recom_title;
+            this.recom_topic = recomPostTopic.recom_topic;
+            this.agX = recomPostTopic.uniq_topicid.longValue();
+        }
     }
 }

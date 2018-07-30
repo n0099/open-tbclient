@@ -2,7 +2,7 @@ package com.davemorrissey.labs.subscaleview;
 
 import android.graphics.PointF;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ImageViewState implements Serializable {
     private static final long serialVersionUID = 7824752745943015695L;
     private float centerX;

@@ -9,7 +9,7 @@ import com.baidu.tieba.personCenter.data.e;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d>> {
     private TbPageContext mPageContext;
-    private ad<e> rW;
+    private ad<e> rO;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -19,10 +19,10 @@ public class c extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: Y */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.personCenter.view.d dVar = new com.baidu.tieba.personCenter.view.d(this.mPageContext);
-        dVar.b(this.rW);
+        dVar.b(this.rO);
         return new com.baidu.tieba.card.a.a<>(dVar);
     }
 
@@ -31,11 +31,11 @@ public class c extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.d> aVar) {
-        aVar.aja().a(eVar);
+        aVar.ajz().a(eVar);
         return aVar.getView();
     }
 
     public void b(ad<e> adVar) {
-        this.rW = adVar;
+        this.rO = adVar;
     }
 }

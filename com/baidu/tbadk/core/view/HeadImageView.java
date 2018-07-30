@@ -10,19 +10,19 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int auH;
-    public boolean auI;
-    public boolean auJ;
-    protected int auK;
-    private Drawable auL;
-    private int auM;
-    private float auN;
-    private float auO;
+    private int aum;
+    private int aun;
+    public boolean auo;
+    public boolean aup;
+    protected int auq;
+    private Drawable aur;
+    private int aus;
+    private float aut;
+    private float auu;
     private int height;
     public boolean isBigV;
     private int mDefaultBgId;
     private int mDefaultId;
-    private int mIconWidth;
     private Paint mPaint;
     private String mUrl;
     private String user_id;
@@ -39,24 +39,24 @@ public class HeadImageView extends TbClipImageView {
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.auH = 0;
-        this.mIconWidth = 0;
-        this.auI = false;
+        this.aum = 0;
+        this.aun = 0;
+        this.auo = false;
         this.isBigV = false;
-        this.auJ = false;
-        this.auK = 0;
-        this.auL = null;
+        this.aup = false;
+        this.auq = 0;
+        this.aur = null;
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
         this.mDefaultId = d.f.transparent_bg;
-        this.mDefaultBgId = d.C0142d.cp_bg_line_e;
-        this.auM = d.f.pic_v_avatar;
+        this.mDefaultBgId = d.C0140d.cp_bg_line_e;
+        this.aus = d.f.pic_v_avatar;
         init();
     }
 
     private void init() {
-        this.mIconWidth = com.baidu.adp.lib.util.l.e(getContext(), d.e.tbds42);
+        this.aun = com.baidu.adp.lib.util.l.f(getContext(), d.e.tbds42);
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
@@ -84,7 +84,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setUserName(String str) {
-        setUserName(str, str + getResources().getString(d.k.somebodys_portrait));
+        setUserName(str, str + getResources().getString(d.j.somebodys_portrait));
     }
 
     public void setUserName(String str, String str2) {
@@ -100,8 +100,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.aTJ) {
-            this.mPerfLog.KF();
+        } else if (this.mPerfLog != null && this.mPerfLog.aTK) {
+            this.mPerfLog.KA();
         }
     }
 
@@ -109,16 +109,16 @@ public class HeadImageView extends TbClipImageView {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.auK != 0) {
-                this.mPaint.setColor(this.auK);
-                canvas.drawCircle(this.auN, this.auO, this.auN, this.mPaint);
+            if (this.auq != 0) {
+                this.mPaint.setColor(this.auq);
+                canvas.drawCircle(this.aut, this.auu, this.aut, this.mPaint);
             }
-            i(canvas);
-            if (this.auI && !this.isBigV) {
-                Drawable drawable = this.auL == null ? am.getDrawable(d.f.pic_v_avatar) : this.auL;
+            h(canvas);
+            if (this.auo && !this.isBigV) {
+                Drawable drawable = this.aur == null ? am.getDrawable(d.f.pic_v_avatar) : this.aur;
                 if (drawable != null) {
-                    if (this.auI) {
-                        drawable.setBounds((this.width - this.mIconWidth) - this.auH, (this.height - this.mIconWidth) - this.auH, this.width - this.auH, this.height - this.auH);
+                    if (this.auo) {
+                        drawable.setBounds((this.width - this.aun) - this.aum, (this.height - this.aun) - this.aum, this.width - this.aum, this.height - this.aum);
                     }
                     drawable.draw(canvas);
                 }
@@ -127,28 +127,28 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setGodIconWidth(int i) {
-        this.auI = true;
+        this.auo = true;
         if (i < 0) {
-            this.auI = false;
-            this.mIconWidth = 0;
+            this.auo = false;
+            this.aun = 0;
         } else {
-            this.mIconWidth = com.baidu.adp.lib.util.l.e(getContext(), i);
+            this.aun = com.baidu.adp.lib.util.l.f(getContext(), i);
         }
-        if (this.mIconWidth < 0) {
-            this.mIconWidth = 0;
-            this.auI = false;
+        if (this.aun < 0) {
+            this.aun = 0;
+            this.auo = false;
         }
         invalidate();
     }
 
     public void setGodIconMargin(int i) {
-        this.auI = true;
+        this.auo = true;
         setIsRound(true);
         if (i > 0) {
-            this.auH = com.baidu.adp.lib.util.l.e(getContext(), i);
+            this.aum = com.baidu.adp.lib.util.l.f(getContext(), i);
         }
         if (i < 0) {
-            this.auI = false;
+            this.auo = false;
         }
         invalidate();
     }
@@ -158,18 +158,18 @@ public class HeadImageView extends TbClipImageView {
             setGodIconMargin(0);
             return;
         }
-        this.auI = false;
+        this.auo = false;
         setIsRound(true);
-        this.auH = 0;
+        this.aum = 0;
         invalidate();
     }
 
     public void setMaskColor(int i) {
-        this.auK = i;
+        this.auq = i;
     }
 
     public void setCustomGodIcon(Drawable drawable) {
-        this.auL = drawable;
+        this.aur = drawable;
     }
 
     public void setIsBigV(boolean z) {
@@ -177,27 +177,27 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setShowV(boolean z) {
-        this.auJ = z;
+        this.aup = z;
     }
 
-    public void i(Canvas canvas) {
+    public void h(Canvas canvas) {
         Drawable drawable;
-        if (this.auJ && (drawable = am.getDrawable(this.auM)) != null) {
-            drawable.setBounds((this.width - this.mIconWidth) - this.auH, (this.height - this.mIconWidth) - this.auH, this.width - this.auH, this.height - this.auH);
+        if (this.aup && (drawable = am.getDrawable(this.aus)) != null) {
+            drawable.setBounds((this.width - this.aun) - this.aum, (this.height - this.aun) - this.aum, this.width - this.aum, this.height - this.aum);
             drawable.draw(canvas);
         }
     }
 
     public void setIconMargin(int i) {
-        this.auH = i;
+        this.aum = i;
     }
 
     public void setIconWidth(int i) {
-        this.mIconWidth = i;
+        this.aun = i;
     }
 
     public void setCustomBigViewIconId(int i) {
-        this.auM = i;
+        this.aus = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -206,7 +206,7 @@ public class HeadImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.auN = this.width / 2.0f;
-        this.auO = this.height / 2.0f;
+        this.aut = this.width / 2.0f;
+        this.auu = this.height / 2.0f;
     }
 }

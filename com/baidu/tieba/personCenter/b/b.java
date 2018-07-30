@@ -14,13 +14,13 @@ import com.baidu.tieba.personCenter.model.PersonCenterModel;
 import com.baidu.tieba.personCenter.view.c;
 /* loaded from: classes2.dex */
 public class b implements c.a {
-    private PersonCenterModel fUf;
-    private com.baidu.tieba.personCenter.view.c fUg;
-    PersonCenterModel.a fUh = new PersonCenterModel.a() { // from class: com.baidu.tieba.personCenter.b.b.1
+    private PersonCenterModel fUs;
+    private com.baidu.tieba.personCenter.view.c fUt;
+    PersonCenterModel.a fUu = new PersonCenterModel.a() { // from class: com.baidu.tieba.personCenter.b.b.1
         @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.a
         public void a(d dVar) {
-            b.this.fUg.Uc();
-            b.this.fUg.b(dVar);
+            b.this.fUt.Uk();
+            b.this.fUt.b(dVar);
             if (dVar != null && dVar.getUserData() != null) {
                 e.a(dVar.getUserData().getPersonPrivate());
             }
@@ -28,69 +28,69 @@ public class b implements c.a {
 
         @Override // com.baidu.tieba.personCenter.model.PersonCenterModel.a
         public void onFail(int i, String str) {
-            if (i != -1 || b.this.fUf.mIsDataLoaded) {
-                b.this.fUg.B(i, str);
+            if (i != -1 || b.this.fUs.mIsDataLoaded) {
+                b.this.fUt.D(i, str);
             } else {
-                b.this.fUg.Ub();
+                b.this.fUt.Uj();
             }
         }
     };
-    private CustomMessageListener fUi = new CustomMessageListener(2001435) { // from class: com.baidu.tieba.personCenter.b.b.2
+    private CustomMessageListener fUv = new CustomMessageListener(2001435) { // from class: com.baidu.tieba.personCenter.b.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.o.b)) {
                 com.baidu.tieba.o.b bVar = (com.baidu.tieba.o.b) customResponsedMessage.getData();
-                if (bVar.gvi != null && bVar.gvi.size() > 0) {
-                    b.a aVar = bVar.gvi.get(2);
-                    b.a aVar2 = bVar.gvi.get(3);
-                    b.a aVar3 = bVar.gvi.get(9);
-                    b.a aVar4 = bVar.gvi.get(10);
-                    if (b.this.fUf.bjt() != null) {
+                if (bVar.gwv != null && bVar.gwv.size() > 0) {
+                    b.a aVar = bVar.gwv.get(2);
+                    b.a aVar2 = bVar.gwv.get(3);
+                    b.a aVar3 = bVar.gwv.get(9);
+                    b.a aVar4 = bVar.gwv.get(10);
+                    if (b.this.fUs.bhM() != null) {
                         if (aVar2 != null) {
-                            b.this.fUf.bjt().ll(aVar2.eRd);
+                            b.this.fUs.bhM().kX(aVar2.eUY);
                         }
                         if (aVar != null) {
-                            b.this.fUf.bjt().lo(aVar.eRd);
+                            b.this.fUs.bhM().la(aVar.eUY);
                         }
                         if (aVar3 != null) {
-                            b.this.fUf.bjt().ln(aVar3.eRd);
+                            b.this.fUs.bhM().kZ(aVar3.eUY);
                         }
                         if (aVar4 != null) {
-                            b.this.fUf.bjt().lm(aVar4.eRd);
+                            b.this.fUs.bhM().kY(aVar4.eUY);
                         }
                     }
-                    b.a aVar5 = bVar.gvi.get(5);
+                    b.a aVar5 = bVar.gwv.get(5);
                     if (aVar5 != null) {
-                        b.this.fUg.C(5, aVar5.eRd);
+                        b.this.fUt.B(5, aVar5.eUY);
                     }
-                    b.a aVar6 = bVar.gvi.get(6);
+                    b.a aVar6 = bVar.gwv.get(6);
                     if (aVar6 != null) {
-                        b.this.fUg.C(6, aVar6.eRd);
+                        b.this.fUt.B(6, aVar6.eUY);
                     }
-                    b.this.fUg.notifyDataSetChanged();
+                    b.this.fUt.notifyDataSetChanged();
                 }
             }
         }
     };
-    private CustomMessageListener blQ = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.personCenter.b.b.3
+    private CustomMessageListener bmw = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.personCenter.b.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                com.baidu.tieba.o.a.bpR().lZ(false);
+                com.baidu.tieba.o.a.box().lK(false);
             }
         }
     };
-    private CustomMessageListener fUj = new CustomMessageListener(2016485) { // from class: com.baidu.tieba.personCenter.b.b.4
+    private CustomMessageListener fUw = new CustomMessageListener(2016485) { // from class: com.baidu.tieba.personCenter.b.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             i iVar;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof i) && (iVar = (i) customResponsedMessage.getData()) != null) {
-                if (b.this.fUf.bjt() != null) {
-                    b.this.fUf.bjt().b(iVar);
-                    b.this.fUg.notifyDataSetChanged();
+                if (b.this.fUs.bhM() != null) {
+                    b.this.fUs.bhM().b(iVar);
+                    b.this.fUt.notifyDataSetChanged();
                     return;
                 }
                 b.this.refreshView();
@@ -99,50 +99,50 @@ public class b implements c.a {
     };
 
     public b(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.fUg = new com.baidu.tieba.personCenter.view.c(view, tbPageContext, bdUniqueId);
-        this.fUg.a(this);
-        this.fUf = new PersonCenterModel(tbPageContext, bdUniqueId);
-        this.fUf.a(this.fUh);
-        com.baidu.tieba.o.a.bpR();
-        this.fUi.setTag(bdUniqueId);
-        this.blQ.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.fUi);
-        MessageManager.getInstance().registerListener(this.blQ);
-        this.fUj.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.fUj);
+        this.fUt = new com.baidu.tieba.personCenter.view.c(view, tbPageContext, bdUniqueId);
+        this.fUt.a(this);
+        this.fUs = new PersonCenterModel(tbPageContext, bdUniqueId);
+        this.fUs.a(this.fUu);
+        com.baidu.tieba.o.a.box();
+        this.fUv.setTag(bdUniqueId);
+        this.bmw.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.fUv);
+        MessageManager.getInstance().registerListener(this.bmw);
+        this.fUw.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.fUw);
     }
 
     public void refreshView() {
-        this.fUf.LoadData();
+        this.fUs.LoadData();
     }
 
     public void initView() {
-        this.fUg.initView();
-        this.fUf.LoadData();
+        this.fUt.initView();
+        this.fUs.LoadData();
     }
 
-    public void lk(boolean z) {
-        this.fUf.lk(z);
+    public void kW(boolean z) {
+        this.fUs.kW(z);
     }
 
     public void onDestroy() {
-        this.fUg.onDestroy();
+        this.fUt.onDestroy();
     }
 
     public void onChangeSkinType(int i) {
-        this.fUg.onChangeSkinType(i);
+        this.fUt.onChangeSkinType(i);
     }
 
-    public void bjp() {
-        this.fUg.bjn();
+    public void bhI() {
+        this.fUt.bhG();
     }
 
-    public void bjq() {
-        this.fUg.bjo();
+    public void bhJ() {
+        this.fUt.bhH();
     }
 
     @Override // com.baidu.tieba.personCenter.view.c.a
-    public void bq(View view) {
-        this.fUf.LoadData();
+    public void bt(View view) {
+        this.fUs.LoadData();
     }
 }

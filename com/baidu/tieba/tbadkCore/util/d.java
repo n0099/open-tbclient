@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int gPD;
-    protected volatile HashMap<Long, Integer> gPE = new HashMap<>();
+    protected volatile int gQB;
+    protected volatile HashMap<Long, Integer> gQC = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.gPD = i;
+        this.gQB = i;
     }
 
-    public void tZ(String str) {
+    public void tX(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.gPE.size() >= this.gPD) {
-                    byB();
+                if (this.gQC.size() >= this.gQB) {
+                    bxe();
                 }
                 this.mWeight++;
-                this.gPE.put(valueOf, Integer.valueOf(this.mWeight));
+                this.gQC.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void byB() {
+    public void bxe() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.gPE.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.gQC.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.gPE.remove(l2);
+                this.gQC.remove(l2);
             } else {
-                this.gPE.clear();
+                this.gQC.clear();
             }
         }
     }
 
-    public boolean ua(String str) {
+    public boolean tY(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.gPE.get(valueOf) != null;
+                z = this.gQC.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class d {
         }
     }
 
-    public boolean ub(String str) {
+    public boolean tZ(String str) {
         try {
-            return this.gPE.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.gQC.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void byA() {
+    public void bxd() {
         synchronized (this) {
-            this.gPE.clear();
+            this.gQC.clear();
         }
     }
 }

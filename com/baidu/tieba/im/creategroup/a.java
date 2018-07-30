@@ -11,39 +11,39 @@ import com.baidu.tieba.d;
 public class a extends com.baidu.adp.base.c<BaseActivity> {
     private ImageView aIy;
     private View divider;
-    private TextView ekn;
+    private TextView eog;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.ekn = null;
+        this.eog = null;
         this.aIy = null;
         this.divider = null;
         initUI();
     }
 
-    public View agG() {
+    public View ahb() {
         return this.layoutView;
     }
 
-    public void nN(String str) {
-        this.ekn.setText(str);
+    public void nP(String str) {
+        this.eog.setText(str);
     }
 
-    public void hh(boolean z) {
+    public void hk(boolean z) {
         this.aIy.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
-        this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(d.i.address_lbs_item, (ViewGroup) null);
-        this.ekn = (TextView) this.layoutView.findViewById(d.g.text);
+        this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(d.h.address_lbs_item, (ViewGroup) null);
+        this.eog = (TextView) this.layoutView.findViewById(d.g.text);
         this.aIy = (ImageView) this.layoutView.findViewById(d.g.group_address_list_item_selected);
         this.divider = this.layoutView.findViewById(d.g.group_address_list_item_divider);
         this.layoutView.setTag(this);
     }
 
-    public View aGX() {
+    public View aHX() {
         return this.divider;
     }
 }

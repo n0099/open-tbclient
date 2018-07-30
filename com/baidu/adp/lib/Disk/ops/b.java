@@ -38,14 +38,14 @@ public class b extends c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean k(byte[] bArr) {
+    public boolean i(byte[] bArr) {
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.wy.l(bArr)) {
-            long j = this.wy.wB;
+        if (bArr != null && this.ws.j(bArr)) {
+            long j = this.ws.wv;
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             long j2 = j;
             if (i != 0) {
-                long j3 = this.wy.wB;
+                long j3 = this.ws.wv;
                 int i2 = (j3 > System.currentTimeMillis() ? 1 : (j3 == System.currentTimeMillis() ? 0 : -1));
                 j2 = j3;
                 if (i2 < 0) {
@@ -53,13 +53,13 @@ public class b extends c {
                 }
             }
             ByteArrayInputStream byteArrayInputStream2 = j2;
-            if (this.wx == null) {
-                this.wx = new BitmapFactory.Options();
-                this.wx.inDither = false;
+            if (this.wr == null) {
+                this.wr = new BitmapFactory.Options();
+                this.wr.inDither = false;
                 int i3 = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                this.wx.inScreenDensity = i3;
-                this.wx.inTargetDensity = i3;
-                ?? r2 = this.wx;
+                this.wr.inScreenDensity = i3;
+                this.wr.inTargetDensity = i3;
+                ?? r2 = this.wr;
                 ((BitmapFactory.Options) r2).inDensity = i3;
                 byteArrayInputStream2 = r2;
             }
@@ -68,7 +68,7 @@ public class b extends c {
                 try {
                     byteArrayInputStream = new ByteArrayInputStream(bArr, headerSize, bArr.length - headerSize);
                     try {
-                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.wx);
+                        this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.wr);
                         com.baidu.adp.lib.g.a.f(byteArrayInputStream);
                         byteArrayInputStream2 = byteArrayInputStream;
                     } catch (Error e) {

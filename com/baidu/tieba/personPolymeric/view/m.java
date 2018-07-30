@@ -11,20 +11,20 @@ import com.baidu.tieba.d;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class m implements View.OnClickListener {
-    private com.baidu.tieba.personPolymeric.event.b fZg = new com.baidu.tieba.personPolymeric.event.b();
-    protected com.baidu.tieba.view.g gcD;
-    private com.baidu.tieba.personPolymeric.c.a gcE;
+    private com.baidu.tieba.personPolymeric.event.b fZy = new com.baidu.tieba.personPolymeric.event.b();
+    protected com.baidu.tieba.view.g gcV;
+    private com.baidu.tieba.personPolymeric.c.a gcW;
     private boolean mIsHost;
 
     public m(Context context) {
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.g gVar) {
-        this.gcD = gVar;
+        this.gcV = gVar;
     }
 
     public void a(com.baidu.tieba.personPolymeric.c.a aVar) {
-        this.gcE = aVar;
+        this.gcW = aVar;
     }
 
     public void setIsHost(boolean z) {
@@ -33,51 +33,51 @@ public class m implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.gcD != null && this.gcE != null && this.gcE.getUserData() != null) {
-            UserData userData = this.gcE.getUserData();
-            this.fZg.cSt = -1;
+        if (this.gcV != null && this.gcW != null && this.gcW.getUserData() != null) {
+            UserData userData = this.gcW.getUserData();
+            this.fZy.cVg = -1;
             if (view.getId() == d.g.person_polymeric_header_user_img) {
-                TiebaStatic.log(new an("c12502").ah("obj_locate", "5"));
-                this.fZg.cSt = 1;
-                this.fZg.cSu = new Bundle();
-                this.fZg.cSu.putSerializable(UserData.TYPE_USER, userData);
+                TiebaStatic.log(new an("c12502").af("obj_locate", "5"));
+                this.fZy.cVg = 1;
+                this.fZy.cVh = new Bundle();
+                this.fZy.cVh.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == d.g.person_polymeric_header_user_vip_icon) {
-                TiebaStatic.log(new an("c12502").ah("obj_locate", Constants.VIA_SHARE_TYPE_INFO));
-                this.fZg.cSt = 2;
+                TiebaStatic.log(new an("c12502").af("obj_locate", Constants.VIA_SHARE_TYPE_INFO));
+                this.fZy.cVg = 2;
             } else if (view.getId() == d.g.person_polymeric_header_label_box) {
-                TiebaStatic.log(new an("c12502").ah("obj_locate", "4"));
-                this.fZg.cSt = 3;
-                this.fZg.cSu = new Bundle();
-                this.fZg.cSu.putSerializable(UserData.TYPE_USER, userData);
+                TiebaStatic.log(new an("c12502").af("obj_locate", "4"));
+                this.fZy.cVg = 3;
+                this.fZy.cVh = new Bundle();
+                this.fZy.cVh.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == d.g.container_send_gift) {
-                TiebaStatic.log(new an("c12503").ah("obj_locate", "3"));
-                this.fZg.cSt = 12;
-                this.fZg.cSu = new Bundle();
-                this.fZg.cSu.putSerializable(UserData.TYPE_USER, userData);
+                TiebaStatic.log(new an("c12503").af("obj_locate", "3"));
+                this.fZy.cVg = 12;
+                this.fZy.cVh = new Bundle();
+                this.fZy.cVh.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == d.g.seal_prefix_view) {
-                this.fZg.cSt = 13;
+                this.fZy.cVg = 13;
             } else if (view.getId() == d.g.person_center_header_tdou_txt || view.getId() == d.g.textview_get_tdou) {
                 if (view.getId() == d.g.person_center_header_tdou_txt) {
-                    TiebaStatic.log(new an("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
+                    TiebaStatic.log(new an("c12502").af("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
                 } else if (view.getId() == d.g.textview_get_tdou) {
-                    TiebaStatic.log(new an("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_JOININ_GROUP));
+                    TiebaStatic.log(new an("c12502").af("obj_locate", Constants.VIA_REPORT_TYPE_JOININ_GROUP));
                 }
-                this.fZg.cSt = 14;
+                this.fZy.cVg = 14;
             } else if (view.getId() == d.g.person_polymeric_header_user_name_txt || view.getId() == d.g.person_polymeric_header_sign_txt || view.getId() == d.g.btn_edit_person_info) {
                 if (view.getId() == d.g.person_polymeric_header_user_name_txt) {
-                    TiebaStatic.log(new an("c12502").ah("obj_locate", "7"));
+                    TiebaStatic.log(new an("c12502").af("obj_locate", "7"));
                 } else if (view.getId() == d.g.person_polymeric_header_sign_txt) {
-                    TiebaStatic.log(new an("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_MAKE_FRIEND));
+                    TiebaStatic.log(new an("c12502").af("obj_locate", Constants.VIA_REPORT_TYPE_MAKE_FRIEND));
                 } else if (view.getId() == d.g.btn_edit_person_info) {
-                    TiebaStatic.log(new an("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_START_WAP));
+                    TiebaStatic.log(new an("c12502").af("obj_locate", Constants.VIA_REPORT_TYPE_START_WAP));
                 }
                 if (this.mIsHost) {
-                    this.fZg.cSu = new Bundle();
-                    this.fZg.cSu.putSerializable(UserData.TYPE_USER, userData);
-                    if (this.gcE != null && this.gcE.gaz != null) {
-                        this.fZg.cSu.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.gcE.gaz.left_days.intValue());
+                    this.fZy.cVh = new Bundle();
+                    this.fZy.cVh.putSerializable(UserData.TYPE_USER, userData);
+                    if (this.gcW != null && this.gcW.gaQ != null) {
+                        this.fZy.cVh.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.gcW.gaQ.left_days.intValue());
                     }
-                    this.fZg.cSt = 11;
+                    this.fZy.cVg = 11;
                 } else {
                     view.requestLayout();
                     if (view instanceof TextView) {
@@ -86,15 +86,15 @@ public class m implements View.OnClickListener {
                 }
             } else if (view.getId() == d.g.layout_gift) {
                 if (this.mIsHost) {
-                    TiebaStatic.log(new an("c12502").ah("obj_locate", Constants.VIA_REPORT_TYPE_WPA_STATE));
+                    TiebaStatic.log(new an("c12502").af("obj_locate", Constants.VIA_REPORT_TYPE_WPA_STATE));
                 } else {
-                    TiebaStatic.log(new an("c12503").ah("obj_locate", "5"));
+                    TiebaStatic.log(new an("c12503").af("obj_locate", "5"));
                 }
-                this.fZg.cSt = 34;
-                this.fZg.cSu = new Bundle();
-                this.fZg.cSu.putSerializable(UserData.TYPE_USER, userData);
+                this.fZy.cVg = 34;
+                this.fZy.cVh = new Bundle();
+                this.fZy.cVh.putSerializable(UserData.TYPE_USER, userData);
             }
-            this.gcD.a(view, this.fZg);
+            this.gcV.a(view, this.fZy);
         }
     }
 }

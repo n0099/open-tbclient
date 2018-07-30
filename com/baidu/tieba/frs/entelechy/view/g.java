@@ -6,49 +6,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class g {
-    private f dsM;
-    private h dsN;
+    private f dvA;
+    private h dvB;
     private TbPageContext<?> pageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dsM = new f(tbPageContext, bdUniqueId);
-        this.dsN = new h(tbPageContext, bdUniqueId);
+        this.dvA = new f(tbPageContext, bdUniqueId);
+        this.dvB = new h(tbPageContext, bdUniqueId);
         this.pageContext = tbPageContext;
         show(-1);
     }
 
-    public View awS() {
-        if (this.dsM == null || this.dsN == null) {
+    public View axx() {
+        if (this.dvA == null || this.dvB == null) {
             return null;
         }
         FrameLayout frameLayout = new FrameLayout(this.pageContext.getPageActivity());
-        frameLayout.addView(this.dsM.getView());
-        frameLayout.addView(this.dsN.getView());
+        frameLayout.addView(this.dvA.getView());
+        frameLayout.addView(this.dvB.getView());
         return frameLayout;
     }
 
-    public f awT() {
-        return this.dsM;
+    public f axy() {
+        return this.dvA;
     }
 
-    public h awU() {
-        return this.dsN;
+    public h axz() {
+        return this.dvB;
     }
 
     public void show(int i) {
-        if (this.dsM != null && this.dsN != null) {
+        if (this.dvA != null && this.dvB != null) {
             switch (i) {
                 case 1:
-                    this.dsM.setVisibility(0);
-                    this.dsN.setVisibility(8);
+                    this.dvA.setVisibility(0);
+                    this.dvB.setVisibility(8);
                     return;
                 case 2:
-                    this.dsM.setVisibility(8);
-                    this.dsN.setVisibility(0);
+                    this.dvA.setVisibility(8);
+                    this.dvB.setVisibility(0);
                     return;
                 default:
-                    this.dsM.setVisibility(8);
-                    this.dsN.setVisibility(8);
+                    this.dvA.setVisibility(8);
+                    this.dvB.setVisibility(8);
                     return;
             }
         }

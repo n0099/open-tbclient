@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int aAc;
-    private List<h> aAj;
-    private List<h> aAk;
-    private boolean aAl;
-    private boolean aAm;
-    private int aAn = 2;
-    private int aAo = 1;
+    private List<h> aAc;
+    private List<h> aAd;
+    private boolean aAe;
+    private boolean aAf;
+    private int aAg = 2;
+    private int aAh = 1;
+    private int azV;
 
     public d(List<h> list, boolean z, int i) {
-        this.aAc = 2;
-        this.aAj = list;
-        this.aAm = z;
-        this.aAc = i;
-        B(list);
+        this.azV = 2;
+        this.aAc = list;
+        this.aAf = z;
+        this.azV = i;
+        A(list);
     }
 
-    public void B(List<h> list) {
-        if (list != null && list.size() >= this.aAn && list.size() <= this.aAc) {
-            this.aAl = true;
-        } else if (list.size() > this.aAc && this.aAm) {
-            this.aAl = true;
+    public void A(List<h> list) {
+        if (list != null && list.size() >= this.aAg && list.size() <= this.azV) {
+            this.aAe = true;
+        } else if (list.size() > this.azV && this.aAf) {
+            this.aAe = true;
         } else {
-            this.aAl = false;
+            this.aAe = false;
         }
-        this.aAk = Bn();
+        this.aAd = Be();
     }
 
-    private List<h> Bn() {
+    private List<h> Be() {
         ArrayList arrayList = new ArrayList();
-        if (this.aAj != null) {
-            if (this.aAl) {
-                if (this.aAj.size() > this.aAc && this.aAj.size() >= this.aAo) {
-                    arrayList.addAll(this.aAj.subList(0, this.aAc));
-                    arrayList.addAll(0, this.aAj.subList(this.aAc - this.aAo, this.aAc));
-                    arrayList.addAll(this.aAj.subList(0, this.aAo));
+        if (this.aAc != null) {
+            if (this.aAe) {
+                if (this.aAc.size() > this.azV && this.aAc.size() >= this.aAh) {
+                    arrayList.addAll(this.aAc.subList(0, this.azV));
+                    arrayList.addAll(0, this.aAc.subList(this.azV - this.aAh, this.azV));
+                    arrayList.addAll(this.aAc.subList(0, this.aAh));
                 } else {
-                    arrayList.addAll(this.aAj);
-                    arrayList.addAll(0, this.aAj.subList(this.aAj.size() - this.aAo, this.aAj.size()));
-                    arrayList.addAll(this.aAj.subList(0, this.aAo));
+                    arrayList.addAll(this.aAc);
+                    arrayList.addAll(0, this.aAc.subList(this.aAc.size() - this.aAh, this.aAc.size()));
+                    arrayList.addAll(this.aAc.subList(0, this.aAh));
                 }
-            } else if (this.aAj != null && this.aAj.size() > 0 && this.aAj.size() >= this.aAo) {
-                arrayList.addAll(this.aAj.subList(0, this.aAo));
+            } else if (this.aAc != null && this.aAc.size() > 0 && this.aAc.size() >= this.aAh) {
+                arrayList.addAll(this.aAc.subList(0, this.aAh));
             }
         }
         return arrayList;
     }
 
-    public int dI(int i) {
-        if (this.aAl) {
-            int size = this.aAk.size();
+    public int dL(int i) {
+        if (this.aAe) {
+            int size = this.aAd.size();
             if (i == 0) {
-                return (size - 1) - this.aAo;
+                return (size - 1) - this.aAh;
             }
-            if (i == size - this.aAo) {
-                return this.aAo;
+            if (i == size - this.aAh) {
+                return this.aAh;
             }
             return i;
         }
         return i;
     }
 
-    public int dJ(int i) {
-        if (this.aAl) {
-            return i - this.aAo;
+    public int dM(int i) {
+        if (this.aAe) {
+            return i - this.aAh;
         }
         return i;
     }
 
-    public int Bo() {
-        if (this.aAj == null) {
+    public int Bf() {
+        if (this.aAc == null) {
             return 0;
         }
-        return this.aAj.size();
+        return this.aAc.size();
     }
 
-    public int Bp() {
-        if (this.aAl) {
-            return this.aAo;
+    public int Bg() {
+        if (this.aAe) {
+            return this.aAh;
         }
         return 0;
     }
 
-    public void dK(int i) {
-        this.aAc = i;
-        B(this.aAj);
+    public void dN(int i) {
+        this.azV = i;
+        A(this.aAc);
     }
 
-    public void dL(int i) {
-        this.aAn = i;
-        B(this.aAj);
+    public void dO(int i) {
+        this.aAg = i;
+        A(this.aAc);
     }
 
-    public List<h> Bq() {
-        return this.aAk;
+    public List<h> Bh() {
+        return this.aAd;
     }
 
-    public void dM(int i) {
-        this.aAo = i;
-        B(this.aAj);
+    public void dP(int i) {
+        this.aAh = i;
+        A(this.aAc);
     }
 }

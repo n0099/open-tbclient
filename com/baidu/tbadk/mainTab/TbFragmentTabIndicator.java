@@ -27,13 +27,13 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         this.aSb = false;
     }
 
-    public void dD(int i) {
+    public void dG(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bQ(boolean z) {
+    public void bO(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +49,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a ho(String str) {
+    public a hl(String str) {
         return null;
     }
 
@@ -86,10 +86,10 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void au(String str, String str2) {
+    public void aq(String str, String str2) {
     }
 
-    public void Ju() {
+    public void Jp() {
     }
 
     public void setAnimationResId(int i) {
@@ -104,11 +104,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public int aSd;
         public TbFragmentTabIndicator aSf;
         public View view;
-        public int zb;
+        public int yW;
         public boolean aSc = true;
-        public int aSe = d.C0142d.common_color_10225;
+        public int aSe = d.C0140d.common_color_10225;
 
-        public void dD(int i) {
+        public void dG(int i) {
             if (this.aSd != 0) {
                 am.i(this.view, this.aSd);
             }
@@ -116,12 +116,12 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (this.aSe != 0) {
                     am.c(this.view, this.aSe, 1);
                 }
-                int c = c((TextView) this.view);
-                if (c > 0 && c < 10) {
+                int b = b((TextView) this.view);
+                if (b > 0 && b < 10) {
                     am.i(this.view, d.f.icon_news_head_prompt_one);
-                } else if (c >= 10 && c < 100) {
+                } else if (b >= 10 && b < 100) {
                     am.i(this.view, d.f.icon_news_head_prompt_two);
-                } else if (c >= 100) {
+                } else if (b >= 100) {
                     am.i(this.view, d.f.icon_news_head_prompt_more);
                 }
             }
@@ -130,7 +130,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             }
         }
 
-        private int c(TextView textView) {
+        private int b(TextView textView) {
             if (textView == null) {
                 return -1;
             }

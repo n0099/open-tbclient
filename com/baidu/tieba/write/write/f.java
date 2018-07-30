@@ -24,19 +24,19 @@ import java.util.List;
 public class f extends BaseAdapter {
     private com.baidu.tbadk.img.b aNm;
     private l aNw;
-    private a hzm;
+    private a hAu;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean htb = false;
+    private boolean hui = false;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bJw();
+        void bIj();
 
-        void vD(int i);
+        void vC(int i);
 
-        void vK(int i);
+        void vJ(int i);
     }
 
     private String getString(int i) {
@@ -48,16 +48,16 @@ public class f extends BaseAdapter {
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(this.mContext);
         this.aNm = bVar;
-        this.hzm = aVar;
+        this.hAu = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
         this.mDataList.clear();
-        int z = w.z(writeImagesInfo.getChosedFiles());
-        if (writeImagesInfo != null && z > 0) {
+        int y = w.y(writeImagesInfo.getChosedFiles());
+        if (writeImagesInfo != null && y > 0) {
             this.mDataList.addAll(writeImagesInfo.getChosedFiles());
         }
-        if (z < 10 && this.htb) {
+        if (y < 10 && this.hui) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath("FLAG_ADD_ICON");
             this.mDataList.add(imageFileInfo);
@@ -87,9 +87,9 @@ public class f extends BaseAdapter {
             return null;
         }
         if (view == null) {
-            view = this.mLayoutInflater.inflate(d.i.new_frame_editor_muti_image_item, (ViewGroup) null);
+            view = this.mLayoutInflater.inflate(d.h.new_frame_editor_muti_image_item, (ViewGroup) null);
         }
-        int ah = (com.baidu.adp.lib.util.l.ah(this.mContext) - ((com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds34) * 2) + (com.baidu.adp.lib.util.l.e(this.mContext, d.e.ds16) * 3))) / 4;
+        int ah = (com.baidu.adp.lib.util.l.ah(this.mContext) - ((com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds34) * 2) + (com.baidu.adp.lib.util.l.f(this.mContext, d.e.ds16) * 3))) / 4;
         if (view.getLayoutParams() instanceof AbsListView.LayoutParams) {
             layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
             layoutParams.width = ah;
@@ -110,8 +110,8 @@ public class f extends BaseAdapter {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (f.this.hzm != null) {
-                        f.this.hzm.bJw();
+                    if (f.this.hAu != null) {
+                        f.this.hAu.bIj();
                     }
                 }
             });
@@ -123,17 +123,17 @@ public class f extends BaseAdapter {
         tbImageView.setGifIconSupport(true);
         tbImageView.setLongIconSupport(true);
         tbImageView.setIsLongPic(imageFileInfo.isLong());
-        tbImageView.setTagStr(getString(d.k.edit));
+        tbImageView.setTagStr(getString(d.j.edit));
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds8);
         tbImageView.setTagPaddingDis(dimensionPixelSize, dimensionPixelSize);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            tbImageView.setTagColor(this.mContext.getResources().getColor(d.C0142d.cp_cont_i_alpha70));
+            tbImageView.setTagColor(this.mContext.getResources().getColor(d.C0140d.cp_cont_i_alpha70));
         } else {
-            tbImageView.setTagColor(this.mContext.getResources().getColor(d.C0142d.cp_cont_i));
+            tbImageView.setTagColor(this.mContext.getResources().getColor(d.C0140d.cp_cont_i));
         }
         if (ah > 0) {
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.H(ah, ah));
+            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.I(ah, ah));
             frameLayout.setForeground(am.getDrawable(d.f.new_frame_add_photo_foreground_selector));
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
             if (this.aNm.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.f.2
@@ -160,14 +160,14 @@ public class f extends BaseAdapter {
                         z = new File(imageFileInfo2.getFilePath()).exists();
                     }
                     if (!z) {
-                        com.baidu.adp.lib.util.l.showLongToast(f.this.mContext, d.k.editor_mutiiamge_image_error);
+                        com.baidu.adp.lib.util.l.e(f.this.mContext, d.j.editor_mutiiamge_image_error);
                         return;
                     }
                     if (f.this.aNw != null) {
                         f.this.aNw.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                     }
-                    if (f.this.hzm != null) {
-                        f.this.hzm.vK(i);
+                    if (f.this.hAu != null) {
+                        f.this.hAu.vJ(i);
                     }
                 }
             }
@@ -175,15 +175,15 @@ public class f extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (f.this.hzm != null) {
-                    f.this.hzm.vD(i);
+                if (f.this.hAu != null) {
+                    f.this.hAu.vC(i);
                 }
             }
         });
         return view;
     }
 
-    public void nH(boolean z) {
-        this.htb = z;
+    public void nv(boolean z) {
+        this.hui = z;
     }
 }

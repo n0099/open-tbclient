@@ -8,16 +8,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
-    private PraiseListActivity fSq;
+    private PraiseListActivity fSB;
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.fSq = null;
-        this.fSq = praiseListActivity;
+        this.fSB = null;
+        this.fSB = praiseListActivity;
     }
 
-    public void dd(List<a> list) {
+    public void cZ(List<a> list) {
         this.mZanItemDataList = list;
     }
 
@@ -31,7 +31,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: rp */
+    /* renamed from: rm */
     public a getItem(int i) {
         if (this.mZanItemDataList != null) {
             return this.mZanItemDataList.get(i);
@@ -64,10 +64,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View g(int i, View view, ViewGroup viewGroup) {
-        b d = b.d(this.fSq.getPageContext().getPageActivity(), view);
+        b c = b.c(this.fSB.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        d.a(StringUtils.isNull(item.biU()) ? item.getUserName() : item.biU(), item.getPortrait(), item.biV(), this.isScrolling);
-        this.fSq.changSkinType(d.getView());
-        return d.getView();
+        c.a(StringUtils.isNull(item.bhn()) ? item.getUserName() : item.bhn(), item.getPortrait(), item.bho(), this.isScrolling);
+        this.fSB.changSkinType(c.getView());
+        return c.getView();
     }
 }

@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private ArrayList<String> hrl;
-    private String hrm;
+    private ArrayList<String> hss;
+    private String hst;
 
     public void i(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !w.A(this.hrl)) {
+        if (spannable != null && !w.z(this.hss)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.hrl.iterator();
+                Iterator<String> it = this.hss.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -49,8 +49,8 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = am.getColor(d.C0142d.cp_cont_i);
-                int color2 = am.getColor(d.C0142d.cp_cont_h_alpha85);
+                int color = am.getColor(d.C0140d.cp_cont_i);
+                int color2 = am.getColor(d.C0140d.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (w.A(bGy())) {
+        if (w.z(bFj())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -106,19 +106,19 @@ public class b {
         }
     }
 
-    public void aB(ArrayList<String> arrayList) {
-        this.hrl = arrayList;
+    public void az(ArrayList<String> arrayList) {
+        this.hss = arrayList;
     }
 
-    public ArrayList<String> bGy() {
-        return this.hrl;
+    public ArrayList<String> bFj() {
+        return this.hss;
     }
 
-    public void vu(String str) {
-        this.hrm = str;
+    public void vv(String str) {
+        this.hst = str;
     }
 
-    public String bGC() {
-        return this.hrm;
+    public String bFn() {
+        return this.hst;
     }
 }

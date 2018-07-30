@@ -5,36 +5,36 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.Country;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private List<d> dJg;
-    private String mBtnTitle;
+    private List<d> dLV;
+    private String dLW;
     private long mTime;
     private String mType;
 
     public void a(Competition competition) {
         if (competition != null) {
-            this.dJg = new ArrayList();
+            this.dLV = new ArrayList();
             List<Country> list = competition.country;
             if (list != null) {
                 for (Country country : list) {
                     d dVar = new d();
                     dVar.a(country);
-                    this.dJg.add(dVar);
+                    this.dLV.add(dVar);
                 }
             }
             this.mTime = competition.time.longValue() * 1000;
             this.mType = competition.type;
-            this.mBtnTitle = competition.btn_title;
+            this.dLW = competition.btn_title;
         }
     }
 
-    public boolean aAT() {
-        return this.dJg.size() == 2 && this.dJg.get(0).aAT() && this.dJg.get(1).aAT() && !ap.isEmpty(this.mType) && this.mTime > 0 && !ap.isEmpty(this.mBtnTitle);
+    public boolean aBC() {
+        return this.dLV.size() == 2 && this.dLV.get(0).aBC() && this.dLV.get(1).aBC() && !ap.isEmpty(this.mType) && this.mTime > 0 && !ap.isEmpty(this.dLW);
     }
 
-    public List<d> aAU() {
-        return this.dJg;
+    public List<d> aBD() {
+        return this.dLV;
     }
 
     public long getTime() {
@@ -45,7 +45,7 @@ public class c {
         return this.mType;
     }
 
-    public String aAV() {
-        return this.mBtnTitle;
+    public String aBE() {
+        return this.dLW;
     }
 }

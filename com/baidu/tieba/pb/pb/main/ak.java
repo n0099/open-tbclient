@@ -8,28 +8,28 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ak extends k<com.baidu.tieba.pb.data.h, al> {
-    private BdUniqueId fDA;
-    private BdUniqueId fDz;
+    private BdUniqueId fDM;
+    private BdUniqueId fDN;
     private View.OnClickListener mCommonClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ak(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.fDz = BdUniqueId.gen();
-        this.fDA = BdUniqueId.gen();
+        this.fDM = BdUniqueId.gen();
+        this.fDN = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bq */
+    /* renamed from: bo */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.fxh.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.i.pb_reply_title_layout, viewGroup, false));
-        alVar.L(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.h.fsV) {
-            alVar.h(this.fDz);
-        } else if (getType() == com.baidu.tieba.pb.data.h.fsW) {
-            alVar.n(this.fDA);
+        al alVar = new al(this.fxt.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_title_layout, viewGroup, false));
+        alVar.J(this.mCommonClickListener);
+        if (getType() == com.baidu.tieba.pb.data.h.fth) {
+            alVar.h(this.fDM);
+        } else if (getType() == com.baidu.tieba.pb.data.h.fti) {
+            alVar.n(this.fDN);
         }
         return alVar;
     }
@@ -47,8 +47,8 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fDz);
-        MessageManager.getInstance().unRegisterListener(this.fDA);
+        MessageManager.getInstance().unRegisterListener(this.fDM);
+        MessageManager.getInstance().unRegisterListener(this.fDN);
     }
 
     public void q(View.OnClickListener onClickListener) {

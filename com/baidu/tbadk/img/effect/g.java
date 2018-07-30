@@ -22,12 +22,12 @@ public class g extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.IV().fd(BitmapHelper.getBitmapSize(bitmap) * 2);
+        com.baidu.tbadk.imageManager.c.IQ().fe(BitmapHelper.getBitmapSize(bitmap) * 2);
         return BitmapHelper.loadResizedBitmap(this.aRg, l.ah(TbadkCoreApplication.getInst()), l.aj(TbadkCoreApplication.getInst()));
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap hn(String str) throws Exception {
+    public Bitmap hj(String str) throws Exception {
         return b(BitmapHelper.loadResizedBitmap(str, l.ah(TbadkCoreApplication.getInst()), l.aj(TbadkCoreApplication.getInst())), true);
     }
 

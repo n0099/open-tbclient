@@ -17,14 +17,10 @@ public class c {
         void onCompleted();
     }
 
-    public static void a(TbPageContext<?> tbPageContext, final a aVar, RelativeLayout relativeLayout) {
+    public static void a(TbPageContext<?> tbPageContext, a aVar, RelativeLayout relativeLayout) {
         if (aVar != null) {
             aVar.onCompleted();
-        } else if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("logo_animation_overtime_count", 0) >= 2 || relativeLayout == null) {
-            if (aVar != null) {
-                aVar.onCompleted();
-            }
-        } else {
+        } else if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("logo_animation_overtime_count", 0) < 2 && relativeLayout != null && tbPageContext != null) {
             final long currentTimeMillis = System.currentTimeMillis();
             final ImageView imageView = new ImageView(tbPageContext.getPageActivity());
             am.i(imageView, d.f.circle_shape);
@@ -36,7 +32,7 @@ public class c {
             final GifView gifView = new GifView(tbPageContext.getPageActivity());
             gifView.setAutoPlay(false);
             gifView.setIsKeepLastFrame(true);
-            gifView.setGifRaw(d.j.qidong);
+            gifView.setGifRaw(d.i.qidong);
             gifView.setVisibility(4);
             gifView.setPlayCallback(new GifView.a() { // from class: com.baidu.tieba.c.1
                 @Override // com.baidu.tbadk.gif.GifView.a
@@ -45,9 +41,6 @@ public class c {
                     gifView.release();
                     if (System.currentTimeMillis() - currentTimeMillis > 3000) {
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("logo_animation_overtime_count", com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("logo_animation_overtime_count", 0) + 1);
-                    }
-                    if (aVar != null) {
-                        aVar.onCompleted();
                     }
                 }
             });
@@ -71,7 +64,7 @@ public class c {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     GifView.this.setVisibility(0);
-                    GifView.this.IQ();
+                    GifView.this.IL();
                 }
             });
             imageView.startAnimation(scaleAnimation);

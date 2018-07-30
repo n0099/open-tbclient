@@ -17,16 +17,16 @@ import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes2.dex */
 public class r {
-    private b fvN;
-    private PbModel fvh;
-    private final HttpMessageListener fzE = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true) { // from class: com.baidu.tieba.pb.pb.main.r.1
+    private b fvZ;
+    private PbModel fvs;
+    private final HttpMessageListener fzQ = new HttpMessageListener(CmdConfigHttp.CMD_PB_FLOOR_AGREE, true) { // from class: com.baidu.tieba.pb.pb.main.r.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             r.this.a(httpResponsedMessage, CmdConfigHttp.CMD_PB_FLOOR_AGREE);
         }
     };
-    private final HttpMessageListener fzF = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.r.2
+    private final HttpMessageListener fzR = new HttpMessageListener(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE) { // from class: com.baidu.tieba.pb.pb.main.r.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -40,7 +40,7 @@ public class r {
     public interface a {
         void c(CustomDialogData customDialogData);
 
-        void qz(int i);
+        void qw(int i);
     }
 
     /* loaded from: classes2.dex */
@@ -49,12 +49,12 @@ public class r {
     }
 
     public r(PbModel pbModel, BdUniqueId bdUniqueId) {
-        this.fvh = pbModel;
+        this.fvs = pbModel;
         this.mTag = bdUniqueId;
         registerTask();
-        this.fzE.setTag(this.mTag);
-        MessageManager.getInstance().registerListener(this.fzE);
-        MessageManager.getInstance().registerListener(this.fzF);
+        this.fzQ.setTag(this.mTag);
+        MessageManager.getInstance().registerListener(this.fzQ);
+        MessageManager.getInstance().registerListener(this.fzR);
     }
 
     private void registerTask() {
@@ -69,16 +69,16 @@ public class r {
     }
 
     public void a(String str, int i, a aVar) {
-        if (this.fvh != null && this.fvh.getPbData() != null) {
-            a(str, i, 1, 2, StringUtils.isNull(this.fvh.getForumId()) ? "" : this.fvh.getForumId(), aVar);
+        if (this.fvs != null && this.fvs.getPbData() != null) {
+            a(str, i, 1, 2, StringUtils.isNull(this.fvs.getForumId()) ? "" : this.fvs.getForumId(), aVar);
         }
     }
 
     public void a(String str, int i, int i2, int i3, String str2, a aVar) {
-        if (this.fvh != null && this.fvh.getPbData() != null) {
+        if (this.fvs != null && this.fvs.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("post_id", str);
-            httpMessage.addParam("thread_id", this.fvh.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.fvs.getPbData().getThreadId());
             httpMessage.addParam("op_type", i);
             httpMessage.addParam("obj_type", i2);
             httpMessage.addParam("agree_type", i3);
@@ -91,9 +91,9 @@ public class r {
     }
 
     public void a(String str, int i, int i2, String str2, a aVar) {
-        if (this.fvh != null && this.fvh.getPbData() != null) {
+        if (this.fvs != null && this.fvs.getPbData() != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_FLOOR_AGREE);
-            httpMessage.addParam("thread_id", this.fvh.getPbData().getThreadId());
+            httpMessage.addParam("thread_id", this.fvs.getPbData().getThreadId());
             httpMessage.addParam("post_id", str);
             httpMessage.addParam("obj_type", i);
             httpMessage.addParam("agree_type", i2);
@@ -116,9 +116,9 @@ public class r {
             if (aVar != null) {
                 PbFloorAgreeResponseMessage pbFloorAgreeResponseMessage = (PbFloorAgreeResponseMessage) httpResponsedMessage;
                 if (!pbFloorAgreeResponseMessage.hasError()) {
-                    aVar.qz(pbFloorAgreeResponseMessage.getScore());
-                    if (this.fvN != null && pbFloorAgreeResponseMessage.getContriInfo() != null && pbFloorAgreeResponseMessage.getContriInfo().isShowToast()) {
-                        this.fvN.c(pbFloorAgreeResponseMessage.getContriInfo());
+                    aVar.qw(pbFloorAgreeResponseMessage.getScore());
+                    if (this.fvZ != null && pbFloorAgreeResponseMessage.getContriInfo() != null && pbFloorAgreeResponseMessage.getContriInfo().isShowToast()) {
+                        this.fvZ.c(pbFloorAgreeResponseMessage.getContriInfo());
                     } else if (pbFloorAgreeResponseMessage.getActivityDialogData() != null) {
                         aVar.c(pbFloorAgreeResponseMessage.getActivityDialogData());
                     }
@@ -128,12 +128,12 @@ public class r {
     }
 
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.fzE);
-        MessageManager.getInstance().unRegisterListener(this.fzF);
+        MessageManager.getInstance().unRegisterListener(this.fzQ);
+        MessageManager.getInstance().unRegisterListener(this.fzR);
         return true;
     }
 
     public void a(b bVar) {
-        this.fvN = bVar;
+        this.fvZ = bVar;
     }
 }

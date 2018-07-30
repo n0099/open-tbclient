@@ -2,7 +2,7 @@ package com.baidu.tieba.godSquare.model.req;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.o;
 import tbclient.GetHotGod.DataReq;
 import tbclient.GetHotGod.GetHotGodReqIdl;
 /* loaded from: classes3.dex */
@@ -20,7 +20,7 @@ public class GodSquareRequestMsg extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = 30;
         if (z) {
-            p.bindCommonParamsToProtobufData(builder, true);
+            o.bindCommonParamsToProtobufData(builder, true);
         }
         GetHotGodReqIdl.Builder builder2 = new GetHotGodReqIdl.Builder();
         builder2.data = builder.build(false);

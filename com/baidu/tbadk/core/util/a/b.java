@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class b {
-    private final g asn = new g();
+    private final g arQ = new g();
     public boolean mIsNeedTbs = false;
-    public boolean aso = true;
+    public boolean arR = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean asp = false;
-    public int asq = 0;
+    public boolean arS = false;
+    public int arT = 0;
 
-    public g Aa() {
-        return this.asn;
+    public g zP() {
+        return this.arQ;
     }
 
     public void a(r rVar) {
@@ -61,26 +61,26 @@ public class b {
         if (from != null && from.length() > 0) {
             rVar.o("from", from);
         }
-        int jJ = j.jJ();
-        rVar.o("net_type", String.valueOf(jJ));
-        String BK = com.baidu.tbadk.coreExtra.b.a.BH().BK();
-        if (1 == jJ) {
+        int jK = j.jK();
+        rVar.o("net_type", String.valueOf(jK));
+        String BC = com.baidu.tbadk.coreExtra.b.a.Bz().BC();
+        if (1 == jK) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = BK + "ka=open";
+                str = BC + "ka=open";
                 z = true;
             }
-            str = BK;
+            str = BC;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = BK + "ka=open";
+                str = BC + "ka=open";
                 z = true;
             }
-            str = BK;
+            str = BC;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-        com.baidu.adp.lib.network.a.a.az(str);
+        com.baidu.adp.lib.network.a.a.aA(str);
         if (this.mIsNeedTbs) {
             rVar.o("tbs", TbadkCoreApplication.getInst().getTbs());
         }
@@ -94,18 +94,18 @@ public class b {
         }
     }
 
-    public String Ab() {
-        if (this.asn.mUrl == null) {
+    public String zQ() {
+        if (this.arQ.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.asn.mUrl.startsWith(str)) {
-            int indexOf = this.asn.mUrl.indexOf(63);
+        if (this.arQ.mUrl.startsWith(str)) {
+            int indexOf = this.arQ.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.asn.mUrl.length();
+                indexOf = this.arQ.mUrl.length();
             }
-            return this.asn.mUrl.substring(str.length(), indexOf);
+            return this.arQ.mUrl.substring(str.length(), indexOf);
         }
-        return this.asn.mUrl;
+        return this.arQ.mUrl;
     }
 }

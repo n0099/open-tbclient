@@ -12,42 +12,42 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes2.dex */
 public class TabItemView extends TextView {
-    private d dCB;
-    private boolean dCC;
-    private int dCD;
+    private d dFn;
+    private boolean dFo;
+    private int dFp;
     private int mState;
-    public static int dCz = 0;
-    public static int dCA = 1;
+    public static int dFl = 0;
+    public static int dFm = 1;
     public static int STATE_EXPANDED = 2;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = dCz;
-        this.dCD = 0;
-        this.dCB = dVar;
-        this.dCC = z;
-        k(context, i);
+        this.mState = dFl;
+        this.dFp = 0;
+        this.dFn = dVar;
+        this.dFo = z;
+        l(context, i);
     }
 
-    private void k(Context context, int i) {
-        if (this.dCC) {
-            setPadding(0, l.e(getContext(), d.e.tbds20), 0, 0);
-            setTextSize(0, l.e(context, d.e.tbds42));
+    private void l(Context context, int i) {
+        if (this.dFo) {
+            setPadding(0, l.f(getContext(), d.e.tbds20), 0, 0);
+            setTextSize(0, l.f(context, d.e.tbds42));
         } else {
             setGravity(17);
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.dCB != null) {
-            setText(this.dCB.name);
+        if (this.dFn != null) {
+            setText(this.dFn.name);
         }
-        AP();
+        AG();
     }
 
     public void setState(int i) {
-        if (this.dCB != null && this.dCB.dCy != null && this.dCB.dCy.dmG != null && this.dCB.dCy.dmG.size() > 0) {
-            int i2 = -l.e(getContext(), d.e.tbds20);
-            if (!this.dCC) {
+        if (this.dFn != null && this.dFn.dFk != null && this.dFn.dFk.dpy != null && this.dFn.dFk.dpy.size() > 0) {
+            int i2 = -l.f(getContext(), d.e.tbds20);
+            if (!this.dFo) {
                 i2 = 0;
             }
             if (i == STATE_EXPANDED) {
@@ -61,17 +61,17 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(d.e.tbds20));
         }
-        if (this.dCC) {
-            am.c(this, d.C0142d.cp_cont_b, 1);
+        if (this.dFo) {
+            am.c(this, d.C0140d.cp_cont_b, 1);
         } else {
-            if (i == dCA || i == STATE_EXPANDED) {
-                if (this.dCD == 0) {
-                    am.c(this, d.C0142d.cp_link_tip_a, 1);
+            if (i == dFm || i == STATE_EXPANDED) {
+                if (this.dFp == 0) {
+                    am.c(this, d.C0140d.cp_link_tip_a, 1);
                 } else {
-                    am.c(this, this.dCD, 1);
+                    am.c(this, this.dFp, 1);
                 }
             } else {
-                am.c(this, d.C0142d.cp_cont_f, 1);
+                am.c(this, d.C0140d.cp_cont_f, 1);
             }
             setGravity(17);
         }
@@ -80,17 +80,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.dCB == null) {
+        if (this.dFn == null) {
             return -1;
         }
-        return this.dCB.tabId;
+        return this.dFn.tabId;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void AP() {
+    public void AG() {
         setState(this.mState);
     }
 
@@ -98,8 +98,8 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.dCC) {
-                setPadding(0, l.e(getContext(), d.e.ds16), spaceWidth, 0);
+            if (this.dFo) {
+                setPadding(0, l.f(getContext(), d.e.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
             }
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.dCB == null) {
+        if (this.dFn == null) {
             return null;
         }
-        return this.dCB.url;
+        return this.dFn.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.dCC = z;
+        this.dFo = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.dCD = i;
+        this.dFp = i;
     }
 }

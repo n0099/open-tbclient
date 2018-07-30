@@ -59,6 +59,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private ThemeCardInUserData themeCard = new ThemeCardInUserData();
     private String sealPrefix = null;
     private int left_call_num = 0;
+    private boolean isBigGie = false;
 
     public void setUserId(String str) {
         this.userId = str;
@@ -221,6 +222,10 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
 
     public String getBawu_type() {
         return this.bawu_type;
+    }
+
+    public boolean getIs_biggie() {
+        return this.isBigGie;
     }
 
     public int getIsMyFriend() {
@@ -414,6 +419,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.virtualUserUrl = user.spring_virtual_user.url;
             }
             this.left_call_num = user.left_call_num.intValue();
+            this.isBigGie = user.is_videobiggie.intValue() == 1;
         }
     }
 
@@ -501,6 +507,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                     }
                 }
                 this.left_call_num = jSONObject.optInt("left_call_num", 0);
+                this.isBigGie = jSONObject.optInt("is_videobiggie", 0) == 1;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

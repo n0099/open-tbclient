@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i implements b {
     @Nullable
-    private final com.airbnb.lottie.model.a.a nF;
-    @Nullable
-    private final com.airbnb.lottie.model.a.d nN;
-    private final Path.FillType nX;
+    private final com.airbnb.lottie.model.a.d nD;
+    private final Path.FillType nN;
     private final String name;
-    private final boolean oz;
+    @Nullable
+    private final com.airbnb.lottie.model.a.a nv;
+    private final boolean on;
 
     private i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.oz = z;
-        this.nX = fillType;
-        this.nF = aVar;
-        this.nN = dVar;
+        this.on = z;
+        this.nN = fillType;
+        this.nv = aVar;
+        this.nD = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,17 +41,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.a dg() {
-        return this.nF;
+    public com.airbnb.lottie.model.a.a de() {
+        return this.nv;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.d cz() {
-        return this.nN;
+    public com.airbnb.lottie.model.a.d cx() {
+        return this.nD;
     }
 
     public Path.FillType getFillType() {
-        return this.nX;
+        return this.nN;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=" + (this.nF == null ? "null" : Integer.toHexString(this.nF.cm().intValue())) + ", fillEnabled=" + this.oz + ", opacity=" + (this.nN == null ? "null" : this.nN.cm()) + '}';
+        return "ShapeFill{color=" + (this.nv == null ? "null" : Integer.toHexString(this.nv.ck().intValue())) + ", fillEnabled=" + this.on + ", opacity=" + (this.nD == null ? "null" : this.nD.ck()) + '}';
     }
 }

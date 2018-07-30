@@ -14,133 +14,133 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.b.a;
-import com.baidu.tbadk.core.data.bc;
-import com.baidu.tbadk.core.data.bi;
+import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bh;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class e {
-    public int akL;
-    private bi bBj;
-    public BaseActivity bmt;
-    private View.OnClickListener bpq = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.e.1
+    public int akk;
+    private bh bBQ;
+    public BaseActivity bmZ;
+    private View.OnClickListener bpX = new View.OnClickListener() { // from class: com.baidu.tieba.pb.video.e.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                if (view == e.this.fMf || view == e.this.fMg || view == e.this.fMh) {
-                    if (e.this.bBj != null) {
-                        e.this.bmt.sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(e.this.bmt.getActivity(), e.this.bBj.channelId, 2)));
+                if (view == e.this.fMt || view == e.this.fMu || view == e.this.fMv) {
+                    if (e.this.bBQ != null) {
+                        e.this.bmZ.sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(e.this.bmZ.getActivity(), e.this.bBQ.channelId, 2)));
                     }
                     TiebaStatic.log(new an("c11923").r(VideoPlayActivityConfig.OBJ_ID, 1));
-                } else if (view == e.this.fMm) {
-                    if (l.jU()) {
-                        if (e.this.bBj != null && e.this.bBj.channelId > 0) {
+                } else if (view == e.this.fMA) {
+                    if (l.jV()) {
+                        if (e.this.bBQ != null && e.this.bBQ.channelId > 0) {
                             if (!TbadkCoreApplication.isLogin()) {
-                                bb.aT(e.this.bmt.getActivity());
+                                ba.aU(e.this.bmZ.getActivity());
                                 return;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0102a.a(e.this.bBj.channelId, e.this.bmt.getUniqueId())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0099a.a(e.this.bBQ.channelId, e.this.bmZ.getUniqueId())));
                             return;
                         }
                         return;
                     }
-                    e.this.bmt.showToast(d.k.no_network_guide);
+                    e.this.bmZ.showToast(d.j.no_network_guide);
                 }
             }
         }
     };
-    public HeadImageView fMf;
-    public TextView fMg;
-    public ImageView fMh;
-    public LinearLayout fMi;
-    public TextView fMj;
-    public TextView fMk;
-    public LinearLayout fMl;
-    public TextView fMm;
-    public RelativeLayout fMn;
+    public TextView fMA;
+    public RelativeLayout fMB;
+    public HeadImageView fMt;
+    public TextView fMu;
+    public ImageView fMv;
+    public LinearLayout fMw;
+    public TextView fMx;
+    public TextView fMy;
+    public LinearLayout fMz;
     public View rootView;
 
     public e(BaseActivity baseActivity, View view) {
         if (baseActivity != null && view != null) {
-            this.bmt = baseActivity;
+            this.bmZ = baseActivity;
             this.rootView = view;
-            this.fMf = (HeadImageView) this.rootView.findViewById(d.g.pb_video_channel_photo);
-            this.fMg = (TextView) this.rootView.findViewById(d.g.pb_video_channel_name);
-            this.fMh = (ImageView) this.rootView.findViewById(d.g.pb_video_channel_icon);
-            this.fMi = (LinearLayout) this.rootView.findViewById(d.g.pb_video_channel_panel);
-            this.fMj = (TextView) this.rootView.findViewById(d.g.pb_video_channel_publish_time);
-            this.fMk = (TextView) this.rootView.findViewById(d.g.pb_video_channel_location_address);
-            this.fMl = (LinearLayout) this.rootView.findViewById(d.g.pb_video_channel_sub_panel);
-            this.fMm = (TextView) this.rootView.findViewById(d.g.pb_video_order_button);
-            this.fMn = (RelativeLayout) this.rootView.findViewById(d.g.video_pb_header_channel_info_root);
-            this.fMf.setImageDrawable(null);
-            this.fMf.setRadius(l.e(baseActivity.getActivity(), d.e.ds40));
-            this.fMf.setOnClickListener(this.bpq);
-            this.fMh.setOnClickListener(this.bpq);
-            this.fMm.setOnClickListener(this.bpq);
-            this.fMg.setOnClickListener(this.bpq);
+            this.fMt = (HeadImageView) this.rootView.findViewById(d.g.pb_video_channel_photo);
+            this.fMu = (TextView) this.rootView.findViewById(d.g.pb_video_channel_name);
+            this.fMv = (ImageView) this.rootView.findViewById(d.g.pb_video_channel_icon);
+            this.fMw = (LinearLayout) this.rootView.findViewById(d.g.pb_video_channel_panel);
+            this.fMx = (TextView) this.rootView.findViewById(d.g.pb_video_channel_publish_time);
+            this.fMy = (TextView) this.rootView.findViewById(d.g.pb_video_channel_location_address);
+            this.fMz = (LinearLayout) this.rootView.findViewById(d.g.pb_video_channel_sub_panel);
+            this.fMA = (TextView) this.rootView.findViewById(d.g.pb_video_order_button);
+            this.fMB = (RelativeLayout) this.rootView.findViewById(d.g.video_pb_header_channel_info_root);
+            this.fMt.setImageDrawable(null);
+            this.fMt.setRadius(l.f(baseActivity.getActivity(), d.e.ds40));
+            this.fMt.setOnClickListener(this.bpX);
+            this.fMv.setOnClickListener(this.bpX);
+            this.fMA.setOnClickListener(this.bpX);
+            this.fMu.setOnClickListener(this.bpX);
         }
     }
 
-    public void am(bc bcVar) {
-        if (bcVar != null && bcVar.ww() != null && this.rootView != null) {
-            this.bBj = bcVar.ww();
-            this.fMj.setText(ap.w(bcVar.getCreateTime()));
-            this.fMk.setText(bcVar.getAddress());
-            this.fMg.setText(this.bBj.channelName);
-            this.fMf.startLoad(this.bBj.channelAvatar, 10, false);
-            if (this.bBj.akL == 1) {
-                this.akL = 0;
+    public void an(bb bbVar) {
+        if (bbVar != null && bbVar.wl() != null && this.rootView != null) {
+            this.bBQ = bbVar.wl();
+            this.fMx.setText(ap.w(bbVar.getCreateTime()));
+            this.fMy.setText(bbVar.getAddress());
+            this.fMu.setText(this.bBQ.channelName);
+            this.fMt.startLoad(this.bBQ.channelAvatar, 10, false);
+            if (this.bBQ.akk == 1) {
+                this.akk = 0;
             } else {
-                this.akL = this.bBj.akL;
+                this.akk = this.bBQ.akk;
             }
             if (!TbadkCoreApplication.isLogin()) {
-                this.akL = 2;
+                this.akk = 2;
             }
-            l(this.akL, this.bBj.channelId);
-            FK();
+            l(this.akk, this.bBQ.channelId);
+            FG();
         }
     }
 
-    public void FK() {
-        this.bmt.getLayoutMode().onModeChanged(this.rootView);
-        if (this.akL == 1) {
-            this.fMm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            am.h(this.fMm, d.C0142d.cp_cont_d);
-            this.fMm.setText(d.k.has_ordered_channel);
-            this.fMm.setVisibility(0);
-        } else if (this.akL == 2) {
-            this.fMm.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.h(this.fMm, d.C0142d.btn_forum_focus_color);
-            this.fMm.setVisibility(0);
-            this.fMm.setText(d.k.order_video_channel);
+    public void FG() {
+        this.bmZ.getLayoutMode().onModeChanged(this.rootView);
+        if (this.akk == 1) {
+            this.fMA.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            am.h(this.fMA, d.C0140d.cp_cont_d);
+            this.fMA.setText(d.j.has_ordered_channel);
+            this.fMA.setVisibility(0);
+        } else if (this.akk == 2) {
+            this.fMA.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.h(this.fMA, d.C0140d.btn_forum_focus_color);
+            this.fMA.setVisibility(0);
+            this.fMA.setText(d.j.order_video_channel);
         } else {
-            this.fMm.setVisibility(8);
+            this.fMA.setVisibility(8);
         }
-        am.h(this.fMg, d.C0142d.cp_cont_f);
-        am.h(this.fMj, d.C0142d.cp_cont_f);
-        am.h(this.fMk, d.C0142d.cp_cont_f);
-        am.i(this.fMh, d.f.icon_weiba);
+        am.h(this.fMu, d.C0140d.cp_cont_f);
+        am.h(this.fMx, d.C0140d.cp_cont_f);
+        am.h(this.fMy, d.C0140d.cp_cont_f);
+        am.i(this.fMv, d.f.icon_weiba);
     }
 
     public void l(int i, long j) {
-        if (this.bBj != null && j > 0 && j == this.bBj.channelId) {
+        if (this.bBQ != null && j > 0 && j == this.bBQ.channelId) {
             if (i == 1) {
-                this.fMm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                am.h(this.fMm, d.C0142d.cp_cont_d);
-                this.fMm.setClickable(false);
-                this.fMm.setText(d.k.has_ordered_channel);
+                this.fMA.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                am.h(this.fMA, d.C0140d.cp_cont_d);
+                this.fMA.setClickable(false);
+                this.fMA.setText(d.j.has_ordered_channel);
                 return;
             }
-            this.fMm.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-            am.h(this.fMm, d.C0142d.btn_forum_focus_color);
-            this.fMm.setClickable(true);
-            this.fMm.setText(d.k.order_video_channel);
+            this.fMA.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+            am.h(this.fMA, d.C0140d.btn_forum_focus_color);
+            this.fMA.setClickable(true);
+            this.fMA.setText(d.j.order_video_channel);
         }
     }
 
@@ -148,7 +148,7 @@ public class e {
         return this.rootView;
     }
 
-    public View bhQ() {
-        return this.fMm;
+    public View bgj() {
+        return this.fMA;
     }
 }

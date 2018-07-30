@@ -1,44 +1,62 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class ay {
-    private ah ahP;
-    private List<f> ahQ;
-    private String ahR;
-    private List<g> ahS;
-    private String ahT;
-    private List<ag> ahU;
+public class ay implements com.baidu.tbadk.core.view.commonLike.forum.b {
+    private boolean ahp;
+    private boolean ahq;
+    public t ahr;
+    private String avatar;
+    private String forumId;
+    private int forumLevel;
+    private String forumName;
+    public boolean isBrandForum;
 
-    public void a(SeniorLottery seniorLottery) {
-        if (seniorLottery != null) {
-            this.ahP = new ah();
-            this.ahP.a(seniorLottery.theme);
-            this.ahQ = new ArrayList();
-            int size = seniorLottery.award_info.size();
-            for (int i = 0; i < size; i++) {
-                f fVar = new f();
-                fVar.a(seniorLottery.award_info.get(i));
-                this.ahQ.add(fVar);
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public void ao(boolean z) {
+        this.ahq = z;
+    }
+
+    public boolean uI() {
+        return this.ahq;
+    }
+
+    public String getAvatar() {
+        return this.avatar;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.a
+    public boolean getIsLike() {
+        return this.ahp;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.a
+    public void setIsLike(boolean z) {
+        this.ahp = z;
+    }
+
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.ahp = simpleForum.is_liked.intValue() == 1;
+            this.forumLevel = simpleForum.level_id.intValue();
+            if (simpleForum.multi_forum_perm != null) {
+                this.ahr = new t();
+                this.ahr.a(simpleForum.multi_forum_perm);
             }
-            this.ahR = seniorLottery.myaward;
-            this.ahS = new ArrayList();
-            int size2 = seniorLottery.luck_users.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                g gVar = new g();
-                gVar.a(seniorLottery.luck_users.get(i2));
-                this.ahS.add(gVar);
-            }
-            this.ahT = seniorLottery.act_desc;
-            this.ahU = new ArrayList();
-            int size3 = seniorLottery.act_regular.size();
-            for (int i3 = 0; i3 < size3; i3++) {
-                ag agVar = new ag();
-                agVar.a(seniorLottery.act_regular.get(i3));
-                this.ahU.add(agVar);
-            }
+            this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
         }
     }
 }

@@ -12,86 +12,86 @@ import com.baidu.tieba.frs.as;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes2.dex */
 public class b {
-    private as bwd;
-    private int cVD;
-    private final FrsFragment dAK;
-    private boolean dBP;
-    private int dBQ = -1;
-    private TextView dve;
+    private as bwJ;
+    private int cYs;
+    private final FrsFragment dDw;
+    private boolean dEB;
+    private int dEC = -1;
+    private TextView dxR;
 
     public b(FrsFragment frsFragment) {
-        this.cVD = 0;
+        this.cYs = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.dAK = frsFragment;
+        this.dDw = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cVD = UtilHelper.getStatusBarHeight();
+            this.cYs = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void azu() {
-        if (this.dBP && this.dBQ >= 0) {
-            ll(this.dBQ);
+    public void aAb() {
+        if (this.dEB && this.dEC >= 0) {
+            lw(this.dEC);
         }
-        this.dBP = false;
+        this.dEB = false;
     }
 
-    public void lk(int i) {
+    public void lv(int i) {
         if (i >= 0) {
-            gl(true);
-            lm(i);
+            gn(true);
+            lx(i);
             return;
         }
-        gl(false);
-        lm(i);
+        gn(false);
+        lx(i);
     }
 
-    private void ll(int i) {
+    private void lw(int i) {
         FrameLayout frameLayout;
         String string;
-        k atI = this.dAK.atI();
-        if (atI != null && atI.getListView() != null && (frameLayout = (FrameLayout) atI.auR()) != null) {
-            if (this.dve == null && this.dAK.getPageContext() != null) {
-                this.dve = new TextView(this.dAK.getPageContext().getPageActivity());
-                this.dve.setTextSize(0, this.dAK.getResources().getDimensionPixelSize(d.e.fontsize28));
-                this.dve.setGravity(17);
+        k aum = this.dDw.aum();
+        if (aum != null && aum.getListView() != null && (frameLayout = (FrameLayout) aum.avv()) != null) {
+            if (this.dxR == null && this.dDw.getPageContext() != null) {
+                this.dxR = new TextView(this.dDw.getPageContext().getPageActivity());
+                this.dxR.setTextSize(0, this.dDw.getResources().getDimensionPixelSize(d.e.fontsize28));
+                this.dxR.setGravity(17);
             }
-            if (this.dve != null) {
+            if (this.dxR != null) {
                 if (i > 0) {
-                    string = String.format(TbadkCoreApplication.getInst().getString(d.k.recommend_frs_refresh_return), Integer.valueOf(i));
+                    string = String.format(TbadkCoreApplication.getInst().getString(d.j.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
-                    string = TbadkCoreApplication.getInst().getString(d.k.smart_frs_refresh_nodata);
+                    string = TbadkCoreApplication.getInst().getString(d.j.smart_frs_refresh_nodata);
                 }
-                this.dve.setText(string);
+                this.dxR.setText(string);
             }
-            am.i(this.dve, d.C0142d.common_color_10260);
-            am.h(this.dve, d.C0142d.cp_cont_g);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.e(TbadkCoreApplication.getInst(), d.e.ds56));
-            if (atI.aux() != null && atI.aux().getLayoutParams() != null) {
-                layoutParams.topMargin = atI.aux().getLayoutParams().height;
+            am.i(this.dxR, d.C0140d.common_color_10260);
+            am.h(this.dxR, d.C0140d.cp_cont_g);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.f(TbadkCoreApplication.getInst(), d.e.ds56));
+            if (aum.avb() != null && aum.avb().getLayoutParams() != null) {
+                layoutParams.topMargin = aum.avb().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.bwd == null) {
-                this.bwd = new as();
+            if (this.bwJ == null) {
+                this.bwJ = new as();
             }
-            this.bwd.a(this.dve, frameLayout, layoutParams, 2000);
-            this.dBQ = -1;
+            this.bwJ.a(this.dxR, frameLayout, layoutParams, 2000);
+            this.dEC = -1;
         }
     }
 
-    public void gl(boolean z) {
-        this.dBP = z;
+    public void gn(boolean z) {
+        this.dEB = z;
     }
 
-    public void lm(int i) {
-        this.dBQ = i;
+    public void lx(int i) {
+        this.dEC = i;
     }
 
     public void onDestroy() {
-        if (this.bwd != null) {
-            this.bwd.onDestroy();
+        if (this.bwJ != null) {
+            this.bwJ.onDestroy();
         }
     }
 }

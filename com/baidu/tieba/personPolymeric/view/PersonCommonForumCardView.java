@@ -9,50 +9,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PersonCommonForumCardView extends FlowLayout {
-    private List<com.baidu.tieba.personPolymeric.c.f> gcp;
-    private List<PersonCommonForumItemView> gcq;
-    private com.baidu.adp.lib.e.b<PersonCommonForumItemView> gcr;
+    private List<com.baidu.tieba.personPolymeric.c.f> gcH;
+    private List<PersonCommonForumItemView> gcI;
+    private com.baidu.adp.lib.e.b<PersonCommonForumItemView> gcJ;
     private Context mContext;
 
     public PersonCommonForumCardView(Context context) {
         super(context);
-        this.gcq = new ArrayList();
+        this.gcI = new ArrayList();
         this.mContext = context;
     }
 
     public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
-        this.gcp = list;
-        ash();
+        this.gcH = list;
+        asL();
     }
 
-    private void ash() {
-        if (!w.A(this.gcp)) {
-            for (com.baidu.tieba.personPolymeric.c.f fVar : this.gcp) {
+    private void asL() {
+        if (!w.z(this.gcH)) {
+            for (com.baidu.tieba.personPolymeric.c.f fVar : this.gcH) {
                 if (fVar != null) {
-                    PersonCommonForumItemView ie = this.gcr.ie();
-                    ie.setData(fVar);
-                    addView(ie, new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.l.ah(this.mContext) - com.baidu.adp.lib.util.l.e(this.mContext, d.e.tbds88)) - com.baidu.adp.lib.util.l.e(this.mContext, d.e.tbds96)) / 2, -2));
-                    this.gcq.add(ie);
+                    PersonCommonForumItemView m9if = this.gcJ.m9if();
+                    m9if.setData(fVar);
+                    addView(m9if, new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.l.ah(this.mContext) - com.baidu.adp.lib.util.l.f(this.mContext, d.e.tbds88)) - com.baidu.adp.lib.util.l.f(this.mContext, d.e.tbds96)) / 2, -2));
+                    this.gcI.add(m9if);
                 }
             }
         }
     }
 
     public void recycle() {
-        if (!w.A(this.gcq)) {
-            for (PersonCommonForumItemView personCommonForumItemView : this.gcq) {
-                this.gcr.p(personCommonForumItemView);
+        if (!w.z(this.gcI)) {
+            for (PersonCommonForumItemView personCommonForumItemView : this.gcI) {
+                this.gcJ.p(personCommonForumItemView);
             }
             removeAllViews();
         }
     }
 
     public void setForumItemViewBdObjectPool(com.baidu.adp.lib.e.b<PersonCommonForumItemView> bVar) {
-        this.gcr = bVar;
+        this.gcJ = bVar;
     }
 
     public void onChangeSkinType() {
-        for (PersonCommonForumItemView personCommonForumItemView : this.gcq) {
+        for (PersonCommonForumItemView personCommonForumItemView : this.gcI) {
             if (personCommonForumItemView != null) {
                 personCommonForumItemView.onChangeSkinType();
             }

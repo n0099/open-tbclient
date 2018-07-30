@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class RecordLayout extends RelativeLayout {
-    private a hip;
+    private a hjD;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bEf();
+        void bCP();
 
-        void bEg();
+        void bCQ();
     }
 
     public RecordLayout(Context context) {
@@ -41,7 +41,7 @@ public class RecordLayout extends RelativeLayout {
     private void init() {
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
-        this.mFlingDistance = com.baidu.adp.lib.util.l.e(getContext(), d.e.ds150);
+        this.mFlingDistance = com.baidu.adp.lib.util.l.f(getContext(), d.e.ds150);
     }
 
     @Override // android.view.ViewGroup
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.hip != null) {
+                if (this.hjD != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.hip.bEg();
+                            this.hjD.bCQ();
                         } else {
-                            this.hip.bEf();
+                            this.hjD.bCP();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.ah(getContext())) {
                         if (rawX > 0) {
-                            this.hip.bEg();
+                            this.hjD.bCQ();
                         } else {
-                            this.hip.bEg();
+                            this.hjD.bCQ();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.hip = aVar;
+        this.hjD = aVar;
     }
 }

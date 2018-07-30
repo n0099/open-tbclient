@@ -20,33 +20,33 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements BdListView.e, NoNetworkView.a, g.b {
-    private String czo;
-    private ar dgi;
-    private b eqe;
-    private String eqh;
-    private al eqi;
+    private String cBU;
+    private ar diY;
+    private b etX;
+    private String eua;
+    private al eub;
     private int mPageType;
     private final BdUniqueId pageId = BdUniqueId.gen();
-    private List<h> dgd = new ArrayList();
-    private boolean eqg = true;
-    private View.OnClickListener eqj = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.1
+    private List<h> diT = new ArrayList();
+    private boolean etZ = true;
+    private View.OnClickListener euc = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.eqg = true;
-            c.this.asw();
+            c.this.etZ = true;
+            c.this.ata();
         }
     };
-    private al eqk = new al() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
+    private al eud = new al() { // from class: com.baidu.tieba.im.frsgroup.view.a.c.2
         @Override // com.baidu.tieba.frs.al
         public void a(int i, int i2, ar arVar, ArrayList<h> arrayList) {
             if (arVar == null) {
-                c.this.eqe.completePullRefresh();
-                c.this.eqe.hideLoadingView();
+                c.this.etX.completePullRefresh();
+                c.this.etX.hideLoadingView();
                 return;
             }
-            c.this.dgi = arVar;
-            if ((c.this.dgi.pn == 0 || c.this.dgi.pn == 1) && c.this.dgi.hasMore && !c.this.dgi.isLocal) {
-                c.this.Tf();
+            c.this.diY = arVar;
+            if ((c.this.diY.pn == 0 || c.this.diY.pn == 1) && c.this.diY.hasMore && !c.this.diY.isLocal) {
+                c.this.Tn();
                 return;
             }
             if (arrayList != null) {
@@ -58,126 +58,126 @@ public class c implements BdListView.e, NoNetworkView.a, g.b {
                     }
                 }
             }
-            if (c.this.eqi != null) {
-                c.this.eqi.a(i, i2, arVar, arrayList);
+            if (c.this.eub != null) {
+                c.this.eub.a(i, i2, arVar, arrayList);
             }
-            if (w.A(arrayList)) {
-                if (c.this.eqg) {
-                    c.this.eqe.hideLoadingView();
-                    c.this.eqe.a(c.this.dgi.errMsg, c.this.eqj);
+            if (w.z(arrayList)) {
+                if (c.this.etZ) {
+                    c.this.etX.hideLoadingView();
+                    c.this.etX.a(c.this.diY.errMsg, c.this.euc);
                 } else {
-                    c.this.eqe.completePullRefresh();
-                    c.this.eqe.aCe();
+                    c.this.etX.completePullRefresh();
+                    c.this.etX.aCN();
                 }
             } else {
-                c.this.dgd = arrayList;
-                c.this.eqe.bO(c.this.dgd);
-                if (w.z(c.this.dgd) != 1 || !(w.d(c.this.dgd, 0) instanceof com.baidu.tieba.im.frsgroup.h)) {
-                    if (c.this.dgi.hasMore) {
-                        c.this.eqe.aCd();
+                c.this.diT = arrayList;
+                c.this.etX.bN(c.this.diT);
+                if (w.y(c.this.diT) != 1 || !(w.d(c.this.diT, 0) instanceof com.baidu.tieba.im.frsgroup.h)) {
+                    if (c.this.diY.hasMore) {
+                        c.this.etX.aCM();
                     } else {
-                        c.this.eqe.aCf();
+                        c.this.etX.aCO();
                     }
                 } else {
-                    c.this.eqe.aJK();
+                    c.this.etX.aKL();
                 }
-                if (c.this.eqg) {
-                    c.this.eqe.hideLoadingView();
+                if (c.this.etZ) {
+                    c.this.etX.hideLoadingView();
                 } else {
-                    c.this.eqe.completePullRefresh();
+                    c.this.etX.completePullRefresh();
                 }
             }
-            c.this.eqg = false;
+            c.this.etZ = false;
         }
     };
-    private d eqf = new d();
+    private d etY = new d();
 
     public c(TbPageContext<?> tbPageContext) {
-        this.eqe = new b(tbPageContext, this);
-        this.eqf.setTag(this.pageId);
-        this.eqf.init();
-        this.eqf.a(this.eqk);
+        this.etX = new b(tbPageContext, this);
+        this.etY.setTag(this.pageId);
+        this.etY.init();
+        this.etY.a(this.eud);
     }
 
     public void cq(List<com.baidu.adp.widget.ListView.a> list) {
-        if (this.eqe != null) {
-            this.eqe.cp(list);
+        if (this.etX != null) {
+            this.etX.cp(list);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aS(boolean z) {
-        if (this.eqe != null) {
-            this.eqe.hA(z);
+    public void aQ(boolean z) {
+        if (this.etX != null) {
+            this.etX.hD(z);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.g.b
-    public void aU(boolean z) {
-        aJM();
+    public void aS(boolean z) {
+        aKN();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!j.jD()) {
-            this.eqe.aCe();
+        if (!j.jE()) {
+            this.etX.aCN();
         }
-        if (this.dgi != null) {
-            if (!this.dgi.hasMore) {
-                this.eqe.aCf();
+        if (this.diY != null) {
+            if (!this.diY.hasMore) {
+                this.etX.aCO();
             } else {
-                Tf();
+                Tn();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tf() {
-        if (this.dgi != null) {
+    public void Tn() {
+        if (this.diY != null) {
             ao aoVar = new ao();
-            aoVar.forumName = this.eqh;
-            aoVar.forumId = this.czo;
-            this.dgi.pn++;
-            aoVar.pn = this.dgi.pn;
-            this.eqf.a(4, this.mPageType, aoVar);
+            aoVar.forumName = this.eua;
+            aoVar.forumId = this.cBU;
+            this.diY.pn++;
+            aoVar.pn = this.diY.pn;
+            this.etY.a(4, this.mPageType, aoVar);
         }
     }
 
-    private void aJM() {
+    private void aKN() {
         ao aoVar = new ao();
-        aoVar.forumName = this.eqh;
-        aoVar.forumId = this.czo;
+        aoVar.forumName = this.eua;
+        aoVar.forumId = this.cBU;
         aoVar.pn = -1;
-        this.eqf.a(4, this.mPageType, aoVar);
+        this.etY.a(4, this.mPageType, aoVar);
     }
 
     public void d(int i, String str, String str2) {
         this.mPageType = i;
-        this.czo = str;
-        this.eqh = str2;
+        this.cBU = str;
+        this.eua = str2;
     }
 
-    public void asw() {
-        if (this.eqg) {
-            this.eqe.Uc();
-            this.eqe.showLoadingView();
-            aJM();
+    public void ata() {
+        if (this.etZ) {
+            this.etX.Uk();
+            this.etX.showLoadingView();
+            aKN();
         }
     }
 
     public View getView() {
-        return this.eqe.getRootView();
+        return this.etX.getRootView();
     }
 
     public void onChangeSkinType(int i) {
-        this.eqe.onChangeSkinType(i);
+        this.etX.onChangeSkinType(i);
     }
 
     public void onDestroy() {
-        this.eqf.Vo();
+        this.etY.Vx();
     }
 
     public void b(al alVar) {
-        this.eqi = alVar;
+        this.eub = alVar;
     }
 }

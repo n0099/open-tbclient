@@ -1,8 +1,6 @@
 package com.baidu.location;
 
 import com.baidu.ar.util.SystemInfoUtil;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class Jni {
     private static int a = 0;
@@ -19,29 +17,10 @@ public class Jni {
     static {
         j = false;
         try {
-            System.loadLibrary("locSDK6a");
+            System.loadLibrary("locSDK7b");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             j = true;
-        }
-    }
-
-    public static String Encrypt(String str) {
-        if (j) {
-            return null;
-        }
-        try {
-            return URLEncoder.encode(a(encrypt(str.getBytes())), "UTF-8");
-        } catch (Exception e2) {
-            return "";
-        }
-    }
-
-    private static String a(byte[] bArr) {
-        try {
-            return com.baidu.location.b.a.b.a(bArr, "UTF-8");
-        } catch (UnsupportedEncodingException e2) {
-            return "";
         }
     }
 
@@ -63,7 +42,7 @@ public class Jni {
             i2 = b;
         } else if (str.equals("gcj02")) {
             i2 = c;
-        } else if (str.equals("gps2gcj")) {
+        } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
             i2 = d;
         } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
             i2 = e;
@@ -73,19 +52,12 @@ public class Jni {
             i2 = h;
         }
         try {
-            String[] split = b(d2, d3, i2, 132456).split(SystemInfoUtil.COLON);
+            String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(SystemInfoUtil.COLON);
             dArr[0] = Double.parseDouble(split[0]);
             dArr[1] = Double.parseDouble(split[1]);
         } catch (UnsatisfiedLinkError e2) {
         }
         return dArr;
-    }
-
-    public static String decodeIBeacon(byte[] bArr, byte[] bArr2) {
-        if (j) {
-            return null;
-        }
-        return ib(bArr, bArr2);
     }
 
     private static native String ee(String str, int i2);
@@ -195,53 +167,18 @@ public class Jni {
         return str3 + "|tp=4";
     }
 
-    private static native byte[] encrypt(byte[] bArr);
-
-    private static native void f(byte[] bArr, byte[] bArr2);
-
-    private static native String g(byte[] bArr);
-
-    public static String getSkyKey() {
+    public static double getGpsSwiftRadius(float f2, double d2, double d3) {
         if (j) {
-            return "err!";
+            return 0.0d;
         }
         try {
-            return sky();
+            return gsr(f2, d2, d3);
         } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-            return "err!";
+            return 0.0d;
         }
     }
 
-    public static String gtr2(String str) {
-        if (j) {
-            return null;
-        }
-        try {
-            String g2 = g(str.getBytes());
-            if (g2 == null || g2.length() < 2 || "no".equals(g2)) {
-                return null;
-            }
-            return g2;
-        } catch (UnsatisfiedLinkError e2) {
-            return null;
-        }
-    }
-
-    private static native String ib(byte[] bArr, byte[] bArr2);
+    private static native double gsr(float f2, double d2, double d3);
 
     private static native long murmur(String str);
-
-    private static native String sky();
-
-    public static void tr2(String str, String str2) {
-        if (j) {
-            return;
-        }
-        try {
-            f(str.getBytes(), str2.getBytes());
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
-        }
-    }
 }

@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.util.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class w extends a {
-    private boolean atn;
+    private boolean asR;
     private int procType;
 
     public w(boolean z, int i) {
-        this.atn = true;
+        this.asR = true;
         this.procType = 0;
-        this.atn = z;
+        this.asR = z;
         this.procType = i;
     }
 
@@ -25,21 +25,21 @@ public class w extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.atn;
+        return this.asR;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ak() {
+    public boolean Aa() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Al() {
+    public boolean Ab() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Am() {
+    public int Ac() {
         return this.procType;
     }
 }

@@ -6,28 +6,28 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes3.dex */
 public class d {
-    public static String pa(String str) {
+    public static String pc(String str) {
         int lastIndexOf;
         int indexOf;
-        String bh = ap.bh(str);
-        if (bh != null) {
-            if (bh.indexOf(".baidu.com") != -1 && (lastIndexOf = bh.lastIndexOf("/")) != -1 && (indexOf = bh.indexOf(".", lastIndexOf)) != -1) {
-                return bh.substring(lastIndexOf + 1, indexOf);
+        String bi = ap.bi(str);
+        if (bi != null) {
+            if (bi.indexOf(".baidu.com") != -1 && (lastIndexOf = bi.lastIndexOf("/")) != -1 && (indexOf = bi.indexOf(".", lastIndexOf)) != -1) {
+                return bi.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return bh;
+        return bi;
     }
 
-    public static boolean pb(String str) {
+    public static boolean pd(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        String bh = ap.bh(str);
-        return !StringUtils.isNull(bh) && bh.contains("?t=");
+        String bi = ap.bi(str);
+        return !StringUtils.isNull(bi) && bi.contains("?t=");
     }
 
-    public static boolean pc(String str) {
+    public static boolean pe(String str) {
         return (TextUtils.isEmpty(str) || str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? false : true;
     }
 }

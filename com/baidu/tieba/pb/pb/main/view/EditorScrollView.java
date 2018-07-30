@@ -5,25 +5,25 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class EditorScrollView extends ScrollView {
-    private boolean cSP;
-    private int fIY;
-    private ViewTreeObserver.OnScrollChangedListener fIZ;
+    private boolean cVC;
+    private int fJn;
+    private ViewTreeObserver.OnScrollChangedListener fJo;
 
     public EditorScrollView(Context context) {
         super(context);
-        this.fIY = 50;
+        this.fJn = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fIY = 50;
+        this.fJn = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fIY = 50;
+        this.fJn = 50;
     }
 
     @Override // android.widget.ScrollView, android.view.View
@@ -31,11 +31,11 @@ public class EditorScrollView extends ScrollView {
         switch (motionEvent.getAction()) {
             case 0:
             case 2:
-                this.cSP = true;
+                this.cVC = true;
                 break;
             case 1:
             case 3:
-                this.cSP = false;
+                this.cVC = false;
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -44,12 +44,12 @@ public class EditorScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.fIZ != null && this.cSP && Math.abs(i3 - i2) >= this.fIY) {
-            this.fIZ.onScrollChanged();
+        if (this.fJo != null && this.cVC && Math.abs(i3 - i2) >= this.fJn) {
+            this.fJo.onScrollChanged();
         }
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.fIZ = onScrollChangedListener;
+        this.fJo = onScrollChangedListener;
     }
 }

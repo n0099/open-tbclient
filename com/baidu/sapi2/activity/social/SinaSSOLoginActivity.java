@@ -2,7 +2,7 @@ package com.baidu.sapi2.activity.social;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.c.a.a.a.a;
+import com.baidu.d.a.a.a.a;
 /* loaded from: classes2.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     /* JADX INFO: Access modifiers changed from: protected */

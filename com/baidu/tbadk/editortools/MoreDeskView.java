@@ -16,7 +16,7 @@ public class MoreDeskView extends CommonTabHost {
         super(context);
         this.aMH = new SparseIntArray();
         this.aMI = true;
-        setBackgroundColorId(d.C0142d.cp_bg_line_d);
+        setBackgroundColorId(d.C0140d.cp_bg_line_d);
         setToolId(2);
     }
 
@@ -24,7 +24,7 @@ public class MoreDeskView extends CommonTabHost {
         super(context);
         this.aMH = new SparseIntArray();
         this.aMI = true;
-        setBackgroundColorId(d.C0142d.cp_bg_line_d);
+        setBackgroundColorId(d.C0140d.cp_bg_line_d);
         setToolId(2);
         this.aMI = z;
     }
@@ -47,7 +47,7 @@ public class MoreDeskView extends CommonTabHost {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            HJ();
+            HE();
         }
     }
 
@@ -67,7 +67,7 @@ public class MoreDeskView extends CommonTabHost {
         this.aMH.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void HJ() {
+    private void HE() {
         int i = 0;
         for (int i2 = 0; i2 < this.aMH.size(); i2++) {
             i += this.aMH.valueAt(i2);
@@ -80,7 +80,7 @@ public class MoreDeskView extends CommonTabHost {
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.l
-    public void oD() {
-        super.oD();
+    public void oF() {
+        super.oF();
     }
 }

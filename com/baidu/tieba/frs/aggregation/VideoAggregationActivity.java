@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
-    private VideoAggregationFragment dor;
+    private VideoAggregationFragment drk;
     private String mFrom;
     private String mId;
 
@@ -18,7 +18,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.i.activity_video_aggregation);
+        setContentView(d.h.activity_video_aggregation);
         this.mFrom = getIntent().getStringExtra("PARAM_FROM");
         this.mId = getIntent().getStringExtra("PARAM_FID");
         String stringExtra = getIntent().getStringExtra("st_type");
@@ -26,16 +26,16 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.dor = VideoAggregationFragment.l(this.mId, this.mFrom, stringExtra, stringExtra2);
-        getSupportFragmentManager().beginTransaction().replace(d.g.container, this.dor).commit();
+        this.drk = VideoAggregationFragment.l(this.mId, this.mFrom, stringExtra, stringExtra2);
+        getSupportFragmentManager().beginTransaction().replace(d.g.container, this.drk).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.dor != null) {
+        if (this.drk != null) {
             getLayoutMode().setNightMode(i == 1);
-            getLayoutMode().onModeChanged(this.dor.getView());
-            this.dor.onChangeSkinType(i);
+            getLayoutMode().onModeChanged(this.drk.getView());
+            this.drk.onChangeSkinType(i);
         }
     }
 
@@ -51,10 +51,10 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.dor == null) {
+        if (keyEvent == null || this.drk == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.dor.kB(i)) {
+        if (this.drk.kM(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);

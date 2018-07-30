@@ -18,6 +18,7 @@ import com.baidu.sofire.ac.U;
 import com.baidu.sofire.b.h;
 import com.baidu.sofire.rp.Report;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
+import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
@@ -1060,7 +1061,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                             new StringBuilder("d: ").append(file2.getAbsolutePath()).append(" s=").append(file2.delete());
                                         }
                                     }
-                                }, 600000L);
+                                }, KeepJobService.JOB_CHECK_PERIODIC);
                                 new StringBuilder().append(this.a).append(", CommonMethods.callMethodOfClass result object=").append(com.baidu.sofire.b.e.a(invoke, "unload", (Class<?>[]) null, new Object[0]));
                                 a.b(this.a);
                                 c.this.c.a(this.a);

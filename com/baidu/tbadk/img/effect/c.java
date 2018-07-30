@@ -10,7 +10,7 @@ public class c {
     private static c aRc = new c();
     private final HashMap<String, Class<? extends b>> aRd = new HashMap<>();
 
-    public static c Jg() {
+    public static c Jb() {
         return aRc;
     }
 
@@ -25,7 +25,7 @@ public class c {
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
         Bitmap b;
         int i;
-        if (bitmap != null && !w.A(list)) {
+        if (bitmap != null && !w.z(list)) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 b a = a(list.get(i2));
@@ -76,14 +76,14 @@ public class c {
         Bitmap bitmap;
         int i;
         int i2 = 0;
-        if (w.A(list)) {
+        if (w.z(list)) {
             return null;
         }
         int size = list.size();
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.hn(imageFileInfo.getFilePath());
+                return a.hj(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,25 +103,25 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap hn = dVar != null ? dVar.hn(str) : null;
+        Bitmap hj = dVar != null ? dVar.hj(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = hn;
+                bitmap = hj;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    hn = bitmap;
+                    hj = bitmap;
                 } else if (bitmap == null) {
-                    hn = a2.hn(str);
+                    hj = a2.hj(str);
                 } else {
-                    hn = a2.b(bitmap, true);
+                    hj = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = hn;
+            bitmap = hj;
         }
         return bitmap;
     }

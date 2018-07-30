@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes2.dex */
 public class b implements c.a {
-    private final CloudMusicModel hbp;
-    private final c.b hbq;
+    private final CloudMusicModel hcC;
+    private final c.b hcD;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.hbp = cloudMusicModel;
-        this.hbq = bVar;
+        this.hcC = cloudMusicModel;
+        this.hcD = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void bBI() {
-        this.hbq.ne(true);
-        this.hbp.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void bAt() {
+        this.hcD.mQ(true);
+        this.hcC.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void ag(CloudMusicData cloudMusicData) {
-                b.this.hbq.ne(false);
+                b.this.hcD.mQ(false);
                 if (cloudMusicData != null) {
-                    b.this.hbq.nf(false);
+                    b.this.hcD.mR(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.hbq.nf(true);
+                        b.this.hcD.mR(true);
                         return;
                     } else {
-                        b.this.hbq.a(cloudMusicData);
+                        b.this.hcD.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.hbq.nf(true);
+                b.this.hcD.mR(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void avN() {
-        this.hbp.cancelLoadData();
+    public void aws() {
+        this.hcC.cancelLoadData();
     }
 }

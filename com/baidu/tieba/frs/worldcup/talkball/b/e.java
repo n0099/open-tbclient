@@ -5,46 +5,46 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.GuessingCompetition;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
-    private String dJd;
-    private List<c> dJh;
-    private List<String> dJi;
+    private String dLS;
+    private List<c> dLX;
+    private List<String> dLY;
 
     public void a(GuessingCompetition guessingCompetition) {
         if (guessingCompetition != null) {
-            this.dJh = new ArrayList();
+            this.dLX = new ArrayList();
             List<Competition> list = guessingCompetition.competition;
             if (list != null) {
                 for (Competition competition : list) {
                     c cVar = new c();
                     cVar.a(competition);
-                    if (cVar.aAT()) {
-                        this.dJh.add(cVar);
+                    if (cVar.aBC()) {
+                        this.dLX.add(cVar);
                     }
                 }
             }
-            this.dJd = guessingCompetition.ahead_url;
-            this.dJi = new ArrayList();
+            this.dLS = guessingCompetition.ahead_url;
+            this.dLY = new ArrayList();
             if (guessingCompetition.winning_message != null) {
                 for (String str : guessingCompetition.winning_message) {
                     if (!ap.isEmpty(str)) {
-                        this.dJi.add(str);
+                        this.dLY.add(str);
                     }
                 }
             }
         }
     }
 
-    public List<c> aAW() {
-        return this.dJh;
+    public List<c> aBF() {
+        return this.dLX;
     }
 
-    public String aAX() {
-        return this.dJd;
+    public String aBG() {
+        return this.dLS;
     }
 
-    public List<String> aAY() {
-        return this.dJi;
+    public List<String> aBH() {
+        return this.dLY;
     }
 }

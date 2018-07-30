@@ -73,15 +73,15 @@ public class g {
         bundle.putInt("versioncode", versionData.getNewVersionCode());
         bundle.putLong("patch_size", com.baidu.adp.lib.g.b.c(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
-        bundle.putString("sname", context.getString(d.k.app_name));
+        bundle.putString("sname", context.getString(d.j.app_name));
         bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", ap.e(new Date(System.currentTimeMillis())));
+        bundle.putString("updatetime", ap.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
-        bundle.putString("tj", str + context.getString(d.k.app_name));
+        bundle.putString("tj", str + context.getString(d.j.app_name));
         intent.putExtra("extra_client_downloadinfo", bundle);
         context.startActivity(intent);
     }

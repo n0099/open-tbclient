@@ -21,15 +21,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q extends l implements i {
-    private static final int[] anv = {TbConfig.POST_IMAGE_SMALL, 2000, 3500, 4600, 6000, 8000};
-    private static final int[] anw = {201, 202, HttpStatus.SC_NON_AUTHORITATIVE_INFORMATION};
-    private static final int[] anx = {501, HttpStatus.SC_BAD_GATEWAY, HttpStatus.SC_SERVICE_UNAVAILABLE};
-    private final HashMap<String, m> amN;
-    private final f anq;
-    private final com.baidu.tbadk.core.hybrid.c anr;
-    private final c ans;
-    private final HashMap<String, h> ant;
-    private int anu;
+    private static final int[] amW = {TbConfig.POST_IMAGE_SMALL, 2000, 3500, 4600, 6000, 8000};
+    private static final int[] amX = {201, 202, HttpStatus.SC_NON_AUTHORITATIVE_INFORMATION};
+    private static final int[] amY = {501, HttpStatus.SC_BAD_GATEWAY, HttpStatus.SC_SERVICE_UNAVAILABLE};
+    private final f amR;
+    private final com.baidu.tbadk.core.hybrid.c amS;
+    private final c amT;
+    private final HashMap<String, h> amU;
+    private int amV;
+    private final HashMap<String, m> amn;
     private String logId;
     private int status;
 
@@ -41,14 +41,14 @@ public class q extends l implements i {
         super(webView, bVar);
         this.logId = String.valueOf(System.currentTimeMillis());
         this.status = -1;
-        this.anu = -1;
-        this.anq = fVar;
-        this.anr = cVar;
-        this.anr.a(this);
-        this.anq.a(this);
-        this.ans = new c(this);
-        this.ant = new HashMap<>(16);
-        this.amN = new HashMap<>(8);
+        this.amV = -1;
+        this.amR = fVar;
+        this.amS = cVar;
+        this.amS.a(this);
+        this.amR.a(this);
+        this.amT = new c(this);
+        this.amU = new HashMap<>(16);
+        this.amn = new HashMap<>(8);
         init();
     }
 
@@ -57,8 +57,8 @@ public class q extends l implements i {
             return new a(webView);
         }
         q qVar = new q(webView, bVar);
-        qVar.anq.a(webViewClient);
-        qVar.anr.a(webChromeClient);
+        qVar.amR.a(webViewClient);
+        qVar.amS.a(webChromeClient);
         return qVar;
     }
 
@@ -69,14 +69,14 @@ public class q extends l implements i {
         WebViewClient webViewClient = bridgeWebView.webViewClient;
         WebChromeClient webChromeClient = bridgeWebView.chromeClient;
         q qVar = new q(bridgeWebView, bVar);
-        qVar.anq.a(webViewClient);
-        qVar.anr.a(webChromeClient);
+        qVar.amR.a(webViewClient);
+        qVar.amS.a(webChromeClient);
         return qVar;
     }
 
     @Override // com.baidu.tbadk.core.hybrid.l
     public void a(String str, d dVar) {
-        if (this.ant.put(str, dVar) != null) {
+        if (this.amU.put(str, dVar) != null) {
             throw new IllegalArgumentException("handler " + str + " exists.");
         }
     }
@@ -87,14 +87,14 @@ public class q extends l implements i {
     }
 
     @Override // com.baidu.tbadk.core.hybrid.i
-    public void xR() {
-        this.anu++;
-        final int i = this.anu;
+    public void xJ() {
+        this.amV++;
+        final int i = this.amV;
         HashMap hashMap = new HashMap();
         hashMap.put("platform", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("version", "1.0");
-        hashMap.put("logid", xW());
-        a(m.a(hashMap, anv[this.anu % anv.length], new k() { // from class: com.baidu.tbadk.core.hybrid.q.1
+        hashMap.put("logid", xO());
+        a(m.a(hashMap, amW[this.amV % amW.length], new k() { // from class: com.baidu.tbadk.core.hybrid.q.1
             @Override // com.baidu.tbadk.core.hybrid.k
             public void a(m mVar, JSONObject jSONObject) {
                 q.this.a(mVar, i);
@@ -103,67 +103,67 @@ public class q extends l implements i {
             @Override // com.baidu.tbadk.core.hybrid.k
             public void b(int i2, Throwable th) {
                 if (i2 == 1) {
-                    if (i < q.anx.length) {
-                        q.this.xX();
+                    if (i < q.amY.length) {
+                        q.this.xP();
                     }
-                    if (i >= 0 && i < q.anx.length) {
-                        q.this.W(String.valueOf(q.anx[i]), "");
+                    if (i >= 0 && i < q.amY.length) {
+                        q.this.V(String.valueOf(q.amY[i]), "");
                         return;
                     }
                     BdLog.e("pingIndex " + i + " out of bounds.");
-                    e.l(q.this.xW(), "103", "ping timeout for index " + i);
+                    e.m(q.this.xO(), "103", "ping timeout for index " + i);
                 }
             }
         }), true);
-        W("100", "");
+        V("100", "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(m mVar, int i) {
         this.status = 0;
         long currentTimeMillis = System.currentTimeMillis();
-        if (i >= 0 && i < anw.length) {
-            W(String.valueOf(anw[i]), String.valueOf(currentTimeMillis - mVar.start));
+        if (i >= 0 && i < amX.length) {
+            V(String.valueOf(amX[i]), String.valueOf(currentTimeMillis - mVar.amN));
         } else {
             BdLog.e("pingIndex " + i + " out of bounds.");
         }
     }
 
     @Override // com.baidu.tbadk.core.hybrid.i
-    public void dI(String str) {
+    public void dF(String str) {
         if (TextUtils.isEmpty(str)) {
-            e.dH("invalid callbackId.");
+            e.dE("invalid callbackId.");
             return;
         }
-        m remove = this.amN.remove(str);
+        m remove = this.amn.remove(str);
         if (remove != null) {
-            e.dH("(" + remove.cmd + ", " + remove.method + ", " + str + ") timeout.");
+            e.dE("(" + remove.cmd + ", " + remove.method + ", " + str + ") timeout.");
             remove.b(1, (Throwable) null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dL(String str) {
-        this.anu = -1;
+    public void dI(String str) {
+        this.amV = -1;
         if (this.status != 2 && this.status != 1) {
-            e.dH("current status " + this.status + ", broken because url changed to " + str);
+            e.dE("current status " + this.status + ", broken because url changed to " + str);
             this.status = 2;
         }
-        if (p.dJ(str) && p.dK(str)) {
-            e.dH("current status " + this.status + ", constructing bridge for " + str);
-            if (this.anh != null) {
-                this.anh.xJ();
+        if (p.dG(str) && p.dH(str)) {
+            e.dE("current status " + this.status + ", constructing bridge for " + str);
+            if (this.amH != null) {
+                this.amH.xB();
             }
-            b(this.ang);
-            if (this.anh != null) {
-                this.anh.xK();
+            b(this.amG);
+            if (this.amH != null) {
+                this.amH.xC();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String T(String str, String str2) {
-        e.dH("got js prompt in url:" + str + " with content:" + str2);
+    public String S(String str, String str2) {
+        e.dE("got js prompt in url:" + str + " with content:" + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
             String optString = jSONObject.optString("messageType");
@@ -174,11 +174,11 @@ public class q extends l implements i {
             } else if ("response".equals(optString)) {
                 e(jSONObject.optString(WBConstants.SHARE_CALLBACK_ID), jSONObject.optJSONObject("outputData"));
             } else {
-                e.l(xW(), "105", "invalid message type " + optString);
+                e.m(xO(), "105", "invalid message type " + optString);
             }
             return null;
         } catch (JSONException e) {
-            e.l(xW(), "109", e.getMessage());
+            e.m(xO(), "109", e.getMessage());
             return null;
         }
     }
@@ -188,51 +188,51 @@ public class q extends l implements i {
         if (this.status != -1) {
             throw new IllegalStateException("Can't init bridge more than once.");
         }
-        this.ang.getSettings().setJavaScriptEnabled(true);
-        this.ang.setWebViewClient(this.anq);
-        this.ang.setWebChromeClient(this.anr);
-        this.ang.removeJavascriptInterface("searchBoxJavaBridge_");
+        this.amG.getSettings().setJavaScriptEnabled(true);
+        this.amG.setWebViewClient(this.amR);
+        this.amG.setWebChromeClient(this.amS);
+        this.amG.removeJavascriptInterface("searchBoxJavaBridge_");
         this.status = 1;
     }
 
     private void a(m mVar, boolean z) {
         if (!z) {
             if (this.status != 0) {
-                e.l(xW(), "101", "(" + mVar.cmd + ", " + mVar.method + ") is called before bridge ready");
+                e.m(xO(), "101", "(" + mVar.cmd + ", " + mVar.method + ") is called before bridge ready");
             }
             if (TextUtils.isEmpty(mVar.cmd) || TextUtils.isEmpty(mVar.method)) {
-                e.l(xW(), "102", "the alias class or method is empty");
+                e.m(xO(), "102", "the alias class or method is empty");
                 mVar.b(3, new IllegalArgumentException("cmd or method is illegal."));
                 return;
             }
         }
-        if (!TextUtils.isEmpty(mVar.anl)) {
+        if (!TextUtils.isEmpty(mVar.amL)) {
             if (mVar.type != 3) {
-                this.amN.put(mVar.anl, mVar);
-                if (mVar.anm > 0) {
-                    this.ans.sendMessageDelayed(Message.obtain(this.ans, 2, mVar.anl), mVar.anm);
+                this.amn.put(mVar.amL, mVar);
+                if (mVar.amM > 0) {
+                    this.amT.sendMessageDelayed(Message.obtain(this.amT, 2, mVar.amL), mVar.amM);
                 } else if (mVar.cmd != null || mVar.method != null) {
-                    e.dH("ignore timeout check for method call (" + mVar.cmd + ", " + mVar.method + ").");
+                    e.dE("ignore timeout check for method call (" + mVar.cmd + ", " + mVar.method + ").");
                 }
             } else {
-                e.dH("ignore timeout check for response method, callbackId " + mVar.anl);
+                e.dE("ignore timeout check for response method, callbackId " + mVar.amL);
             }
         }
         try {
-            String xT = mVar.xT();
+            String xL = mVar.xL();
             if (Build.VERSION.SDK_INT >= 19) {
-                this.ang.evaluateJavascript(xT, null);
+                this.amG.evaluateJavascript(xL, null);
             } else {
-                this.ang.loadUrl(xT);
+                this.amG.loadUrl(xL);
             }
-            e.dH(xT);
+            e.dE(xL);
         } catch (NullPointerException e) {
-            W("500", e.getMessage());
+            V("500", e.getMessage());
         } catch (JSONException e2) {
             if (z) {
-                W("102", e2.getMessage());
+                V("102", e2.getMessage());
             } else {
-                e.dH(e2.getMessage());
+                e.dE(e2.getMessage());
             }
             mVar.b(2, e2);
         }
@@ -240,36 +240,36 @@ public class q extends l implements i {
 
     private void a(String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
         if (this.status != 0) {
-            e.l(xW(), "106", "bridge is not ready");
+            e.m(xO(), "106", "bridge is not ready");
         }
-        h hVar = this.ant.get(str);
+        h hVar = this.amU.get(str);
         if (hVar == null) {
             hVar = new b(this, str);
-            e.l(xW(), "107", "cmd " + str + " not found");
+            e.m(xO(), "107", "cmd " + str + " not found");
         }
         hVar.a(str2, jSONObject, jSONObject2);
     }
 
     private void e(String str, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str)) {
-            e.dH("invalid callbackId.");
+            e.dE("invalid callbackId.");
             return;
         }
-        this.ans.removeMessages(2, str);
-        m remove = this.amN.remove(str);
+        this.amT.removeMessages(2, str);
+        m remove = this.amn.remove(str);
         if (remove != null) {
-            remove.q(jSONObject);
+            remove.p(jSONObject);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String xW() {
+    public String xO() {
         return this.logId;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void W(String str, String str2) {
-        e.k(xW(), str, str2);
+    public void V(String str, String str2) {
+        e.l(xO(), str, str2);
     }
 
     private void b(WebView webView) {
@@ -279,28 +279,28 @@ public class q extends l implements i {
             byte[] bArr = new byte[open.available()];
             open.read(bArr);
             open.close();
-            StringBuilder xY = xY();
-            xY.append(new String(bArr));
-            webView.loadUrl("javascript:" + xY.toString());
-            this.ans.sendEmptyMessageDelayed(1, 0L);
+            StringBuilder xQ = xQ();
+            xQ.append(new String(bArr));
+            webView.loadUrl("javascript:" + xQ.toString());
+            this.amT.sendEmptyMessageDelayed(1, 0L);
         } catch (Throwable th) {
-            W("102", th.getMessage());
-            e.dH(th.toString());
+            V("102", th.getMessage());
+            e.dE(th.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xX() {
-        e.dH("reInject for pingIndex " + this.anu);
-        b(this.ang);
+    public void xP() {
+        e.dE("reInject for pingIndex " + this.amV);
+        b(this.amG);
     }
 
-    private StringBuilder xY() throws JSONException {
+    private StringBuilder xQ() throws JSONException {
         StringBuilder sb = new StringBuilder("window.HYBRID_INITIAL_DATA=");
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("platform", HttpConstants.OS_TYPE_VALUE);
         jSONObject.put("version", "1.0");
-        jSONObject.put("logid", xW());
+        jSONObject.put("logid", xO());
         sb.append(jSONObject.toString());
         sb.append(';');
         return sb;
@@ -309,25 +309,25 @@ public class q extends l implements i {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class c extends Handler {
-        private final WeakReference<i> anz;
+        private final WeakReference<i> ana;
 
         public c(i iVar) {
-            this.anz = new WeakReference<>(iVar);
+            this.ana = new WeakReference<>(iVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            i iVar = this.anz.get();
+            i iVar = this.ana.get();
             if (iVar == null) {
-                e.dH("TimeHandler got null bridge reference.");
+                e.dE("TimeHandler got null bridge reference.");
                 return;
             }
             switch (message.what) {
                 case 1:
-                    iVar.xR();
+                    iVar.xJ();
                     return;
                 case 2:
-                    iVar.dI((String) message.obj);
+                    iVar.dF((String) message.obj);
                     return;
                 default:
                     throw new IllegalArgumentException("Invalid message.");
@@ -338,11 +338,11 @@ public class q extends l implements i {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class b implements h {
-        private final l amM;
+        private final l amm;
         private final String cmd;
 
         protected b(l lVar, String str) {
-            this.amM = lVar;
+            this.amm = lVar;
             this.cmd = str;
         }
 
@@ -350,13 +350,13 @@ public class q extends l implements i {
         public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
             if (TextUtils.isEmpty(optString)) {
-                e.dH("scope " + this.cmd + " not found!");
+                e.dE("scope " + this.cmd + " not found!");
                 return;
             }
             HashMap hashMap = new HashMap(4);
             hashMap.put("errNo", "107");
             hashMap.put("errMsg", "cmd " + this.cmd + " not found");
-            this.amM.a(m.c(optString, hashMap));
+            this.amm.a(m.c(optString, hashMap));
         }
     }
 

@@ -8,48 +8,48 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int gPG = 6144000;
-    private static int gPH = 524288;
-    private h gOa;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b gPI;
+    private static int gQE = 6144000;
+    private static int gQF = 524288;
+    private h gOY;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b gQG;
 
     public a(h hVar) {
-        this.gOa = hVar;
+        this.gOY = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (d.hv().aw("is_video_batch") == 1) {
-                this.gPI = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gPH, this.gOa);
+            if (d.hv().ax("is_video_batch") == 1) {
+                this.gQG = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gQF, this.gOY);
             } else {
-                this.gPI = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gPG, this.gOa);
+                this.gQG = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gQE, this.gOY);
             }
-            this.gPI.a(eVar);
-            return this.gPI.aP(str2, i);
+            this.gQG.a(eVar);
+            return this.gQG.aL(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.gOa != null) {
-                this.gOa.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.m(e));
+            if (this.gOY != null) {
+                this.gOY.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.m(e));
             }
             return null;
         }
     }
 
-    public void byF() {
-        if (this.gPI != null) {
-            this.gPI.cancel();
+    public void bxi() {
+        if (this.gQG != null) {
+            this.gQG.cancel();
         }
     }
 
-    public static void tV(int i) {
+    public static void tT(int i) {
         if (i <= 0) {
-            gPH = 524288;
+            gQF = 524288;
         } else {
-            gPH = i;
+            gQF = i;
         }
     }
 
-    public static void tW(int i) {
+    public static void tU(int i) {
         if (i <= 0) {
             chunkLength = 524288;
         } else {
@@ -57,11 +57,11 @@ public class a {
         }
     }
 
-    public static void tX(int i) {
+    public static void tV(int i) {
         if (i <= 0) {
-            gPG = 6144000;
+            gQE = 6144000;
         } else {
-            gPG = i;
+            gQE = i;
         }
     }
 }

@@ -24,7 +24,7 @@ public class DownloadData implements Serializable, Cloneable {
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
     public static final int FILE_DOWNLOAD_TYPE_PENDANT = 18;
     private static final long serialVersionUID = 1402749061179345930L;
-    private transient d aLD;
+    private transient c aLJ;
     private String action;
     private String app_icon;
     private String check;
@@ -99,7 +99,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aLD = null;
+        this.aLJ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -115,7 +115,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aLD = null;
+        this.aLJ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -132,7 +132,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aLD = null;
+        this.aLJ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -142,7 +142,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.url = str2;
     }
 
-    public DownloadData(String str, String str2, String str3, d dVar) {
+    public DownloadData(String str, String str2, String str3, c cVar) {
         this.status = 5;
         this.type = 10;
         this.length = 0L;
@@ -150,7 +150,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aLD = null;
+        this.aLJ = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -159,7 +159,7 @@ public class DownloadData implements Serializable, Cloneable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.aLD = dVar;
+        this.aLJ = cVar;
         this.status = 5;
     }
 
@@ -259,12 +259,12 @@ public class DownloadData implements Serializable, Cloneable {
         this.check = str;
     }
 
-    public d getCallback() {
-        return this.aLD;
+    public c getCallback() {
+        return this.aLJ;
     }
 
-    public void setCallback(d dVar) {
-        this.aLD = dVar;
+    public void setCallback(c cVar) {
+        this.aLJ = cVar;
     }
 
     public String getStatusMsg() {

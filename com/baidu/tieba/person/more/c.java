@@ -12,25 +12,25 @@ import com.baidu.tieba.personCenter.data.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private a fTT;
+    private a fUg;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
-    private ad<e> rW;
+    private ad<e> rO;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
-    public void W(View view) {
+    public void Y(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_more_navigation_bar);
-        arI();
+        asl();
         this.mListView = (BdTypeListView) view.findViewById(d.g.person_more_listview);
-        this.fTT = new a(this.mPageContext, this.mListView, this.rW);
+        this.fUg = new a(this.mPageContext, this.mListView, this.rO);
     }
 
-    private void arI() {
-        this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.k.more));
+    private void asl() {
+        this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
             @Override // android.view.View.OnClickListener
@@ -46,11 +46,11 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.fTT.notifyDataSetChanged();
+        this.fUg.notifyDataSetChanged();
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void b(ad<e> adVar) {
-        this.rW = adVar;
+        this.rO = adVar;
     }
 }

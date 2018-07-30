@@ -15,15 +15,15 @@ public class ae {
         int i;
         int i2;
         int pbImageSize;
-        if (kVar != null && com.baidu.adp.lib.util.j.jE() && (adapter = kVar.getAdapter()) != null) {
+        if (kVar != null && com.baidu.adp.lib.util.j.jF() && (adapter = kVar.getAdapter()) != null) {
             int i3 = 0;
             int i4 = 0;
             int i5 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean zQ = ar.zQ();
+            boolean zH = ar.zH();
             int firstVisiblePosition = kVar.getFirstVisiblePosition();
             int lastVisiblePosition = kVar.getLastVisiblePosition();
-            com.baidu.adp.lib.f.c.ig().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
+            com.baidu.adp.lib.f.c.ih().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
             while (true) {
                 int i6 = firstVisiblePosition;
                 if (i6 < adapter.getCount()) {
@@ -34,16 +34,16 @@ public class ae {
                         int i8 = i4;
                         while (it.hasNext()) {
                             PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.f.c.ig().ai(next.procType)) {
+                            if (com.baidu.adp.lib.f.c.ih().aj(next.procType)) {
                                 if (12 == next.procType || 28 == next.procType) {
                                     int i9 = i7 + 1;
                                     if (i9 <= 30 && i6 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
                                         if (12 == next.procType) {
-                                            com.baidu.adp.lib.f.c.ig().a(next.imgUrl, 12, null, bdUniqueId);
+                                            com.baidu.adp.lib.f.c.ih().a(next.imgUrl, 12, null, bdUniqueId);
                                             i = i8;
                                             i2 = i9;
                                         } else if (28 == next.procType) {
-                                            com.baidu.adp.lib.f.c.ig().a(next.imgUrl, 28, null, bdUniqueId);
+                                            com.baidu.adp.lib.f.c.ih().a(next.imgUrl, 28, null, bdUniqueId);
                                             i = i8;
                                             i2 = i9;
                                         }
@@ -68,9 +68,9 @@ public class ae {
                                     if (i11 <= 13 && pbImageSize < bigImageMaxUsedMemory && i6 > lastVisiblePosition) {
                                         if (next.bigEmotion != null) {
                                             TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = zQ ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
+                                            String str = zH ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.ig().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(zQ), str);
+                                                com.baidu.adp.lib.f.c.ih().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(zH), str);
                                             }
                                             i2 = i7;
                                             i = pbImageSize;
@@ -78,7 +78,7 @@ public class ae {
                                         } else {
                                             String str2 = next.imgUrl;
                                             if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.c.ig().a(str2, next.procType, null, bdUniqueId);
+                                                com.baidu.adp.lib.f.c.ih().a(str2, next.procType, null, bdUniqueId);
                                             }
                                         }
                                     }

@@ -19,7 +19,7 @@ import tbclient.ForumArIno;
 /* loaded from: classes3.dex */
 public class FrsAREntryView extends View {
     private AnimationDrawable aSa;
-    private ForumArIno dpj;
+    private ForumArIno drW;
     private String forumName;
 
     public FrsAREntryView(Context context) {
@@ -53,12 +53,12 @@ public class FrsAREntryView extends View {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.view.FrsAREntryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FrsAREntryView.this.dpj != null) {
+                if (FrsAREntryView.this.drW != null) {
                     an anVar = new an("c12836");
-                    anVar.ah(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
-                    anVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.dpj.ar_id.intValue());
+                    anVar.af(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
+                    anVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.drW.ar_id.intValue());
                     TiebaStatic.log(anVar);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.dpj.ar_id), String.valueOf(FrsAREntryView.this.dpj.ar_type), FrsAREntryView.this.dpj.title)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.drW.ar_id), String.valueOf(FrsAREntryView.this.drW.ar_type), FrsAREntryView.this.drW.title)));
                 }
             }
         });
@@ -74,12 +74,12 @@ public class FrsAREntryView extends View {
         }
     }
 
-    public void avP() {
+    public void awu() {
         this.aSa.start();
     }
 
     public void setForumArIno(ForumArIno forumArIno) {
-        this.dpj = forumArIno;
+        this.drW = forumArIno;
     }
 
     public void setForumName(String str) {

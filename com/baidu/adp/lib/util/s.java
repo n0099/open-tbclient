@@ -4,27 +4,27 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class s {
-    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] DE = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String toMd5(byte[] bArr) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
-            return o(messageDigest.digest());
+            return m(messageDigest.digest());
         } catch (Exception e) {
             BdLog.e(e);
             return null;
         }
     }
 
-    public static String o(byte[] bArr) {
+    public static String m(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(HEX_DIGITS[(bArr[i] & 240) >>> 4]);
-            sb.append(HEX_DIGITS[bArr[i] & 15]);
+            sb.append(DE[(bArr[i] & 240) >>> 4]);
+            sb.append(DE[bArr[i] & 15]);
         }
         return sb.toString();
     }
@@ -42,7 +42,7 @@ public class s {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = o(messageDigest.digest());
+                str = m(messageDigest.digest());
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {
@@ -52,7 +52,7 @@ public class s {
         return str;
     }
 
-    public static String bl(String str) {
+    public static String bm(String str) {
         if (str == null) {
             return null;
         }

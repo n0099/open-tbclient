@@ -9,38 +9,38 @@ import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class k extends q.a {
-    public View bHc;
-    public ImageView dfr;
-    public TextView dfs;
-    public TextView dgA;
-    public TextView dgq;
-    public TextView dgr;
-    public TextView dgs;
-    public LinearLayout dgt;
-    public TextView dgu;
-    public NoPressedLinearLayout dgv;
-    public View dgw;
-    public View dgx;
-    public View dgy;
-    public TextView dgz;
+    public View bHR;
+    public ImageView dih;
+    public TextView dii;
+    public TextView djg;
+    public TextView djh;
+    public TextView dji;
+    public LinearLayout djj;
+    public TextView djk;
+    public NoPressedLinearLayout djl;
+    public View djm;
+    public View djn;
+    public View djo;
+    public TextView djp;
+    public TextView djq;
 
     public k(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.dgq = (TextView) view.findViewById(d.g.like_btn);
-        this.dgr = (TextView) view.findViewById(d.g.lever_tip_view);
-        this.dfr = (ImageView) view.findViewById(d.g.header_level_img);
-        this.dfs = (TextView) view.findViewById(d.g.user_level_name);
-        this.dgs = (TextView) view.findViewById(d.g.detail_tip_view);
-        this.bHc = view.findViewById(d.g.header_divider_line2);
-        this.dgt = (LinearLayout) view.findViewById(d.g.view_experience_score);
-        this.dgu = (TextView) view.findViewById(d.g.tip_experience_score);
-        this.dgv = (NoPressedLinearLayout) view.findViewById(d.g.root_forum_member_header);
-        this.dgw = view.findViewById(d.g.divider_top);
-        this.dgx = view.findViewById(d.g.header_divider_line1);
-        this.dgy = view.findViewById(d.g.header_divider_line3);
-        this.dgz = (TextView) view.findViewById(d.g.tip_in_forum);
-        this.dgA = (TextView) view.findViewById(d.g.tip_experience);
-        this.dgq.setOnClickListener(onClickListener);
-        this.dgs.setOnClickListener(onClickListener);
+        this.djg = (TextView) view.findViewById(d.g.like_btn);
+        this.djh = (TextView) view.findViewById(d.g.lever_tip_view);
+        this.dih = (ImageView) view.findViewById(d.g.header_level_img);
+        this.dii = (TextView) view.findViewById(d.g.user_level_name);
+        this.dji = (TextView) view.findViewById(d.g.detail_tip_view);
+        this.bHR = view.findViewById(d.g.header_divider_line2);
+        this.djj = (LinearLayout) view.findViewById(d.g.view_experience_score);
+        this.djk = (TextView) view.findViewById(d.g.tip_experience_score);
+        this.djl = (NoPressedLinearLayout) view.findViewById(d.g.root_forum_member_header);
+        this.djm = view.findViewById(d.g.divider_top);
+        this.djn = view.findViewById(d.g.header_divider_line1);
+        this.djo = view.findViewById(d.g.header_divider_line3);
+        this.djp = (TextView) view.findViewById(d.g.tip_in_forum);
+        this.djq = (TextView) view.findViewById(d.g.tip_experience);
+        this.djg.setOnClickListener(onClickListener);
+        this.dji.setOnClickListener(onClickListener);
     }
 }

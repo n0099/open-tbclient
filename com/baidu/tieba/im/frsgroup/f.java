@@ -11,59 +11,59 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes3.dex */
 public class f extends q.a {
-    public int azP;
-    public View bjR;
-    public GroupImageView eor;
-    public TextView eos;
-    public TextView eot;
-    public TextView eou;
-    public TextView eov;
-    public ImageView eow;
-    public ImageView eox;
-    public ImageView eoy;
-    public ImageView[] eoz;
+    public int azI;
+    public View bkw;
+    public GroupImageView esj;
+    public TextView esk;
+    public TextView esl;
+    public TextView esm;
+    public TextView esn;
+    public ImageView eso;
+    public ImageView esp;
+    public ImageView esq;
+    public ImageView[] esr;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.azP = 3;
+        this.azI = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.eor = (GroupImageView) view.findViewById(d.g.item_head);
-        this.eos = (TextView) view.findViewById(d.g.item_group_name);
-        this.eot = (TextView) view.findViewById(d.g.item_group_meizi);
-        this.eou = (TextView) view.findViewById(d.g.item_group_num);
-        this.eov = (TextView) view.findViewById(d.g.item_introduce);
-        this.eow = (ImageView) view.findViewById(d.g.item_grade1);
-        this.eox = (ImageView) view.findViewById(d.g.item_grade2);
-        this.eoy = (ImageView) view.findViewById(d.g.item_grade3);
-        this.bjR = view.findViewById(d.g.divider_line);
-        this.eoz = new ImageView[4];
-        this.eoz[1] = this.eow;
-        this.eoz[2] = this.eox;
-        this.eoz[3] = this.eoy;
+        this.esj = (GroupImageView) view.findViewById(d.g.item_head);
+        this.esk = (TextView) view.findViewById(d.g.item_group_name);
+        this.esl = (TextView) view.findViewById(d.g.item_group_meizi);
+        this.esm = (TextView) view.findViewById(d.g.item_group_num);
+        this.esn = (TextView) view.findViewById(d.g.item_introduce);
+        this.eso = (ImageView) view.findViewById(d.g.item_grade1);
+        this.esp = (ImageView) view.findViewById(d.g.item_grade2);
+        this.esq = (ImageView) view.findViewById(d.g.item_grade3);
+        this.bkw = view.findViewById(d.g.divider_line);
+        this.esr = new ImageView[4];
+        this.esr[1] = this.eso;
+        this.esr[2] = this.esp;
+        this.esr[3] = this.esq;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.eor.setTag(null);
-            this.eor.setDrawBorder(true);
-            this.eor.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.esj.setTag(null);
+            this.esj.setDrawBorder(true);
+            this.esj.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.eor.setTag(portrait);
-                this.eor.startLoad(portrait, 10, false);
+                this.esj.setTag(portrait);
+                this.esj.startLoad(portrait, 10, false);
             }
-            this.eos.setText(groupInfoData.getName());
-            this.eot.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.eou.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.eov.setText(groupInfoData.getIntro().trim());
-            a(this.eoz, groupInfoData.getGrade());
+            this.esk.setText(groupInfoData.getName());
+            this.esl.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.esm.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.esn.setText(groupInfoData.getIntro().trim());
+            a(this.esr, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                am.c(this.eos, d.C0142d.common_color_10009, 1);
-                am.c(this.eow, d.f.icon_vip_grade_big_small_s);
-                am.c(this.eox, d.f.icon_vip_grade_big_small_s);
-                am.c(this.eoy, d.f.icon_vip_grade_big_small_s);
+                am.c(this.esk, d.C0140d.common_color_10009, 1);
+                am.c(this.eso, d.f.icon_vip_grade_big_small_s);
+                am.c(this.esp, d.f.icon_vip_grade_big_small_s);
+                am.c(this.esq, d.f.icon_vip_grade_big_small_s);
             }
         }
     }

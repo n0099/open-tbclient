@@ -9,25 +9,25 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class a {
-    private long RL;
-    private StringBuilder RO = new StringBuilder();
-    public ArrayList<String> RP = new ArrayList<>();
+    private long RI;
+    private StringBuilder RJ = new StringBuilder();
+    public ArrayList<String> RK = new ArrayList<>();
     private long V;
     private long W;
     private long X;
     public static int T = 2000;
     public static int U = 1;
-    static a RQ = null;
+    static a RL = null;
 
     private a() {
     }
 
     private String f() {
-        Iterator<String> it = this.RP.iterator();
+        Iterator<String> it = this.RK.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            com.baidu.crabsdk.c.a.cf("===== stackEntry ===== \n" + next);
-            this.RO.append(next);
+            com.baidu.crabsdk.c.a.cg("===== stackEntry ===== \n" + next);
+            this.RJ.append(next);
             String[] split = next.split(SystemInfoUtil.LINE_END);
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -45,29 +45,29 @@ public final class a {
         return T * 0.6f;
     }
 
-    public static a oS() {
-        if (RQ == null) {
+    public static a oV() {
+        if (RL == null) {
             synchronized (a.class) {
-                if (RQ == null) {
-                    RQ = new a();
+                if (RL == null) {
+                    RL = new a();
                 }
             }
         }
-        return RQ;
+        return RL;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
         this.V = j2 - j;
         this.W = j4 - j3;
         this.X = j;
-        this.RL = j2;
+        this.RI = j2;
         return this;
     }
 
     public final Map<String, Object> g() {
         HashMap hashMap = new HashMap();
         long j = this.X;
-        long j2 = this.RL;
+        long j2 = this.RI;
         long j3 = this.V;
         long j4 = this.W;
         String f = f();
@@ -80,10 +80,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.RO.toString());
+        hashMap.put("errorTrace", this.RJ.toString());
         hashMap.put("errorLine", f);
         hashMap.put("errorOriLine", f);
-        this.RO.setLength(0);
+        this.RJ.setLength(0);
         return hashMap;
     }
 }

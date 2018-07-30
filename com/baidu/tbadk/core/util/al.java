@@ -14,22 +14,22 @@ import java.io.File;
 public class al {
     public static void b(TbPageContext<?> tbPageContext) {
         try {
-            if (!l.ge()) {
+            if (!l.gd()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.yq());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.yi());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.yq());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.yi());
                 }
             } else {
-                File ed = l.ed("camera.jpg");
-                if (ed != null) {
+                File ea = l.ea("camera.jpg");
+                if (ea != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(ed, intent, tbPageContext.getPageActivity()));
+                    intent.putExtra("output", UtilHelper.getUriFromFile(ea, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.j.error_sd_error));
                 }
             }
         } catch (Exception e) {
@@ -39,20 +39,20 @@ public class al {
 
     public static void a(TbPageContext<?> tbPageContext, String str) {
         try {
-            if (!l.ge()) {
+            if (!l.gd()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.yq());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.yi());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.yq());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.yi());
                     return;
                 } else {
                     return;
                 }
             }
-            String str2 = l.CH + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+            String str2 = l.CD + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
-            if (l.dU(str2)) {
+            if (l.dR(str2)) {
                 File file = new File(str2 + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();
@@ -67,9 +67,9 @@ public class al {
             }
             if (!z) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.k.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(d.j.error_sd_error));
                 }
             }
         } catch (Exception e) {

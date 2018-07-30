@@ -19,11 +19,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private View aBf;
-    private TextView aUX;
+    private View aAZ;
     private TextView aUY;
     private TextView aUZ;
-    private PluginStatus aVa;
+    private TextView aVa;
+    private PluginStatus aVb;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -42,41 +42,41 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.aVa = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.aVb = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.aVa = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.aVb = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.aVa == null) {
+        if (this.aVb == null) {
             finish();
             return;
         }
-        setContentView(d.i.plugin_error_tip_activity);
+        setContentView(d.h.plugin_error_tip_activity);
         initUI();
     }
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
-        this.aBf = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.aBf.setOnClickListener(this);
-        this.mNavigationBar.setTitleText(d.k.pluginstatus_tip_title);
-        this.aUX = (TextView) findViewById(d.g.plugin_error_tip_msg);
-        this.aUY = (TextView) findViewById(d.g.plugin_error_tip_resolve);
-        this.aUZ = (TextView) findViewById(d.g.plugin_error_btn);
-        this.aUZ.setOnClickListener(this);
-        this.aUX.setText(this.aVa.getErrorMsg());
-        this.aUY.setText(this.aVa.mt());
-        if (this.aVa.getErrorCode() == 5 || this.aVa.getErrorCode() == 1 || this.aVa.getErrorCode() == 100) {
-            this.aUZ.setText(d.k.pluginstatus_btn_restartapp);
-            this.aUZ.setVisibility(0);
+        this.aAZ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.aAZ.setOnClickListener(this);
+        this.mNavigationBar.setTitleText(d.j.pluginstatus_tip_title);
+        this.aUY = (TextView) findViewById(d.g.plugin_error_tip_msg);
+        this.aUZ = (TextView) findViewById(d.g.plugin_error_tip_resolve);
+        this.aVa = (TextView) findViewById(d.g.plugin_error_btn);
+        this.aVa.setOnClickListener(this);
+        this.aUY.setText(this.aVb.getErrorMsg());
+        this.aUZ.setText(this.aVb.mv());
+        if (this.aVb.getErrorCode() == 5 || this.aVb.getErrorCode() == 1 || this.aVb.getErrorCode() == 100) {
+            this.aVa.setText(d.j.pluginstatus_btn_restartapp);
+            this.aVa.setVisibility(0);
             return;
         }
-        this.aUZ.setVisibility(8);
+        this.aVa.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aVa);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.aVb);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -84,14 +84,14 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aBf) {
+        if (view == this.aAZ) {
             finish();
-        } else if (view == this.aUZ) {
-            if (this.aVa != null && this.aVa.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.ly().S(true);
+        } else if (view == this.aVa) {
+            if (this.aVb != null && this.aVb.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.lA().R(true);
             }
-            showLoadingDialog(getResources().getString(d.k.waiting));
-            e.im().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
+            showLoadingDialog(getResources().getString(d.j.waiting));
+            e.in().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
                     HashSet hashSet = new HashSet(10);

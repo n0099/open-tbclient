@@ -14,8 +14,8 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieba.channel.data.d> {
-    private TextView cDi;
-    private b cDj;
+    private TextView cFO;
+    private b cFP;
     private Context mContext;
     private boolean mIsHost;
 
@@ -34,17 +34,17 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, b bVar) {
         this.mIsHost = z;
-        this.cDj = bVar;
+        this.cFP = bVar;
         this.mContext = getContext();
-        LayoutInflater.from(this.mContext).inflate(d.i.channel_home_header_desc_view, (ViewGroup) this, true);
-        this.cDi = (TextView) findViewById(d.g.channel_home_header_desc_text);
+        LayoutInflater.from(this.mContext).inflate(d.h.channel_home_header_desc_view, (ViewGroup) this, true);
+        this.cFO = (TextView) findViewById(d.g.channel_home_header_desc_text);
     }
 
     public void d(ChannelInfo channelInfo) {
         if (channelInfo != null) {
             String description = channelInfo.getDescription();
             if (TextUtils.isEmpty(description)) {
-                description = this.mContext.getResources().getString(d.k.channel_home_default_desc);
+                description = this.mContext.getResources().getString(d.j.channel_home_default_desc);
             }
             SpannableString spannableString = new SpannableString(description + "^");
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(d.e.ds24);
@@ -52,12 +52,12 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
             Drawable drawable = this.mContext.getResources().getDrawable(d.f.icon_channel_edit);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             spannableString.setSpan(new com.baidu.tieba.channel.c.a(drawable, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2), spannableString.length() - 1, spannableString.length(), 17);
-            this.cDi.setText(spannableString);
-            this.cDi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
+            this.cFO.setText(spannableString);
+            this.cFO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (ChannelHomeDescView.this.cDj != null) {
-                        ChannelHomeDescView.this.cDj.a(11, view, null, -1);
+                    if (ChannelHomeDescView.this.cFP != null) {
+                        ChannelHomeDescView.this.cFP.a(11, view, null, -1);
                     }
                 }
             });
@@ -68,18 +68,18 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
     public void T(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.ajl() != null) {
-            ChannelInfo ajl = dVar.ajl();
+        if (dVar != null && dVar.ajJ() != null) {
+            ChannelInfo ajJ = dVar.ajJ();
             if (this.mIsHost) {
-                d(ajl);
+                d(ajJ);
                 return;
             }
-            if (TextUtils.isEmpty(ajl.getDescription())) {
-                this.cDi.setText(this.mContext.getResources().getString(d.k.channel_home_default_desc_guest));
+            if (TextUtils.isEmpty(ajJ.getDescription())) {
+                this.cFO.setText(this.mContext.getResources().getString(d.j.channel_home_default_desc_guest));
             } else {
-                this.cDi.setText(ajl.getDescription());
+                this.cFO.setText(ajJ.getDescription());
             }
-            this.cDi.setOnClickListener(null);
+            this.cFO.setOnClickListener(null);
         }
     }
 

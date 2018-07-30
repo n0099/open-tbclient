@@ -6,11 +6,11 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes2.dex */
 public final class c {
     private long e;
-    private int hBA;
-    private boolean hBw;
-    private long hBx;
-    private long hBy;
-    private boolean hBz;
+    private boolean hCb;
+    private long hCc;
+    private long hCd;
+    private boolean hCe;
+    private int hCf;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -19,20 +19,20 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.hBw = aVar.hBw;
-        this.e = aVar.hBB;
-        this.hBx = aVar.hBx;
-        this.hBz = aVar.hBz;
-        this.hBy = aVar.hBy;
-        this.hBA = aVar.hBA;
+        this.hCb = aVar.hCb;
+        this.e = aVar.hCg;
+        this.hCc = aVar.hCc;
+        this.hCe = aVar.hCe;
+        this.hCd = aVar.hCd;
+        this.hCf = aVar.hCf;
     }
 
-    public final Context qE() {
+    public final Context bIR() {
         return this.mContext;
     }
 
     public final boolean c() {
-        return this.hBw;
+        return this.hCb;
     }
 
     public final long d() {
@@ -40,70 +40,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.hBx;
+        return this.hCc;
     }
 
     public final long f() {
-        return this.hBy;
+        return this.hCd;
     }
 
     public final boolean g() {
-        return this.hBz;
+        return this.hCe;
     }
 
     public final int h() {
-        return this.hBA;
+        return this.hCf;
     }
 
     /* loaded from: classes2.dex */
     public static class a {
         private Context mContext;
-        private boolean hBw = true;
-        private long hBB = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long hBx = 60000;
-        private long hBy = 10000;
-        private boolean hBz = false;
-        private int hBA = 1000;
+        private boolean hCb = true;
+        private long hCg = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long hCc = 60000;
+        private long hCd = 10000;
+        private boolean hCe = false;
+        private int hCf = 1000;
 
-        public a cu(Context context) {
+        public a cv(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a nS(boolean z) {
-            this.hBw = z;
+        public a nG(boolean z) {
+            this.hCb = z;
             return this;
         }
 
-        public a df(long j) {
-            this.hBB = 1000 * j;
+        public a dc(long j) {
+            this.hCg = 1000 * j;
             return this;
         }
 
-        public a vP(int i) {
-            this.hBx = i * 60 * 1000;
+        public a vM(int i) {
+            this.hCc = i * 60 * 1000;
             return this;
         }
 
-        public a dg(long j) {
-            this.hBy = 1000 * j;
+        public a dd(long j) {
+            this.hCd = 1000 * j;
             return this;
         }
 
-        public a nT(boolean z) {
-            this.hBz = z;
+        public a nH(boolean z) {
+            this.hCe = z;
             return this;
         }
 
-        public a vQ(int i) {
+        public a vN(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.hBA = i2 < 1000 ? i2 : 1000;
+            this.hCf = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c bKo() {
+        public c bIS() {
             if (this.mContext == null) {
-                j.wd("Context must be not empty!");
+                j.we("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

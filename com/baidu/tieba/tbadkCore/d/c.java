@@ -9,7 +9,7 @@ import com.tencent.open.SocialConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, e> gOk;
+    private static HashMap<String, e> gPi;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.tbadkCore.d.c.1
@@ -17,62 +17,62 @@ public class c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    c.tM(1);
+                    c.tK(1);
                 }
             }
         });
-        gOk = new HashMap<>();
+        gPi = new HashMap<>();
     }
 
-    public static void k(String str, String str2, boolean z) {
+    public static void j(String str, String str2, boolean z) {
         if (str2 == null) {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!gOk.containsKey(str3)) {
-            gOk.put(str3, new e(str, str2, z));
+        if (!gPi.containsKey(str3)) {
+            gPi.put(str3, new e(str, str2, z));
         }
     }
 
-    public static e l(String str, String str2, boolean z) {
+    public static e k(String str, String str2, boolean z) {
         if (str2 == null) {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!gOk.containsKey(str3)) {
-            gOk.put(str3, new e(str, str2, z));
+        if (!gPi.containsKey(str3)) {
+            gPi.put(str3, new e(str, str2, z));
         }
-        return gOk.get(str3);
+        return gPi.get(str3);
     }
 
-    public static void bxX() {
+    public static void bwA() {
     }
 
-    public static void tM(int i) {
-        for (String str : gOk.keySet()) {
-            a(gOk.get(str), i);
+    public static void tK(int i) {
+        for (String str : gPi.keySet()) {
+            a(gPi.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.gOo;
-        d dVar2 = eVar.gOp;
-        d dVar3 = eVar.gOq;
+        d dVar = eVar.gPm;
+        d dVar2 = eVar.gPn;
+        d dVar3 = eVar.gPo;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
             aVar.append(SocialConstants.PARAM_ACT, eVar.type);
-            aVar.append("httpTimeCost", String.valueOf(dVar.gOl));
+            aVar.append("httpTimeCost", String.valueOf(dVar.gPj));
             aVar.append("httpNum", String.valueOf(dVar.num));
-            aVar.append("httpFailnum", String.valueOf(dVar.gOm));
+            aVar.append("httpFailnum", String.valueOf(dVar.gPk));
             aVar.append("httpSize", String.valueOf(dVar.size));
-            aVar.append("socketTimeCost", String.valueOf(dVar2.gOl));
+            aVar.append("socketTimeCost", String.valueOf(dVar2.gPj));
             aVar.append("socketNum", String.valueOf(dVar2.num));
-            aVar.append("socketFailnum", String.valueOf(dVar2.gOm));
+            aVar.append("socketFailnum", String.valueOf(dVar2.gPk));
             aVar.append("socketSize", String.valueOf(dVar2.size));
-            aVar.append("abortTimeCost", String.valueOf(dVar3.gOl));
+            aVar.append("abortTimeCost", String.valueOf(dVar3.gPj));
             aVar.append("abortNum", String.valueOf(dVar3.num));
             aVar.append("netType", eVar.netType);
-            aVar.append("isJson", eVar.gOn ? "1" : "0");
+            aVar.append("isJson", eVar.gPl ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.reset();
             dVar2.reset();

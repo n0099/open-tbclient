@@ -5,11 +5,11 @@ import com.baidu.adp.widget.ListView.q;
 /* loaded from: classes.dex */
 public abstract class e extends q.a {
     public View.OnClickListener aGU;
-    public int dXJ;
+    public int ebB;
 
     public abstract void a(c cVar);
 
-    public abstract e af(View view);
+    public abstract e ai(View view);
 
     public abstract void onChangeSkinType(int i);
 

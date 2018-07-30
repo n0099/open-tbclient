@@ -12,47 +12,47 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a {
-    private String afL;
-    private InterfaceC0253a huI;
-    private com.baidu.tieba.write.a.a huJ;
+    private String aff;
+    private InterfaceC0253a hvO;
+    private com.baidu.tieba.write.a.a hvP;
     private BdUniqueId mBdUniqueId;
-    private HttpMessageListener huK = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
+    private HttpMessageListener hvQ = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
-                e.im().removeCallbacks(a.this.bnd);
-                if (a.this.huI != null) {
+                e.in().removeCallbacks(a.this.bnJ);
+                if (a.this.hvO != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-                        aVar.huh = false;
-                        aVar.linkUrl = a.this.afL;
-                        aVar.hui = 1;
-                        a.this.huJ = aVar;
+                        aVar.hvn = false;
+                        aVar.linkUrl = a.this.aff;
+                        aVar.hvo = 1;
+                        a.this.hvP = aVar;
                     } else {
-                        a.this.huJ = addLinkResponseMessage.getAddLinkResponseData();
-                        if (!a.this.huJ.huh) {
-                            a.this.huJ.linkUrl = a.this.afL;
-                            a.this.huJ.hui = 1;
+                        a.this.hvP = addLinkResponseMessage.getAddLinkResponseData();
+                        if (!a.this.hvP.hvn) {
+                            a.this.hvP.linkUrl = a.this.aff;
+                            a.this.hvP.hvo = 1;
                         }
                     }
-                    a.this.huI.a(a.this.huJ);
+                    a.this.hvO.a(a.this.hvP);
                 }
             }
         }
     };
-    private Runnable bnd = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
+    private Runnable bnJ = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bHL();
+            a.this.bGw();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-            aVar.huh = false;
-            aVar.linkUrl = a.this.afL;
-            aVar.hui = 1;
-            a.this.huJ = aVar;
-            if (a.this.huI != null) {
-                a.this.huI.a(a.this.huJ);
+            aVar.hvn = false;
+            aVar.linkUrl = a.this.aff;
+            aVar.hvo = 1;
+            a.this.hvP = aVar;
+            if (a.this.hvO != null) {
+                a.this.hvO.a(a.this.hvP);
             }
         }
     };
@@ -65,12 +65,12 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.huK.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.huK);
+        this.hvQ.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.hvQ);
     }
 
-    public void vE(String str) {
-        this.afL = str;
+    public void vF(String str) {
+        this.aff = str;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         httpMessage.addParam("link_url", str);
         httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -79,25 +79,25 @@ public class a {
         tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.c.e(5000));
         tbHttpMessageTask.setRetry(3);
         MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
-        e.im().removeCallbacks(this.bnd);
-        e.im().postDelayed(this.bnd, 15000L);
+        e.in().removeCallbacks(this.bnJ);
+        e.in().postDelayed(this.bnJ, 15000L);
     }
 
-    public void bHL() {
+    public void bGw() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
-        e.im().removeCallbacks(this.bnd);
+        e.in().removeCallbacks(this.bnJ);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.huK);
-        e.im().removeCallbacks(this.bnd);
+        MessageManager.getInstance().unRegisterListener(this.hvQ);
+        e.in().removeCallbacks(this.bnJ);
     }
 
     public void a(InterfaceC0253a interfaceC0253a) {
-        this.huI = interfaceC0253a;
+        this.hvO = interfaceC0253a;
     }
 
-    public com.baidu.tieba.write.a.a bHM() {
-        return this.huJ;
+    public com.baidu.tieba.write.a.a bGx() {
+        return this.hvP;
     }
 }

@@ -1,10 +1,13 @@
 package com.baidu.tbadk.download;
-
-import java.io.File;
 /* loaded from: classes.dex */
-public class c {
-    public File aLE;
-    public String aLF;
-    public String aLG;
-    public int maxSize;
+public interface c {
+    void onFileDownloadFailed(DownloadData downloadData, int i, String str);
+
+    void onFileDownloadSucceed(DownloadData downloadData);
+
+    boolean onFileDownloaded(DownloadData downloadData);
+
+    void onFileUpdateProgress(DownloadData downloadData);
+
+    boolean onPreDownload(DownloadData downloadData);
 }

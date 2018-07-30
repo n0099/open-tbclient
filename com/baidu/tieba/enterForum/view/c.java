@@ -12,33 +12,33 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.enterForum.data.f;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.mvc.f.a<f, com.baidu.tbadk.mvc.d.b> {
-    private TextView ayD;
-    private ViewEventCenter cOZ;
-    private View cRZ;
-    private TextView cSa;
-    private ImageView cSb;
-    private View cSc;
-    private RelativeLayout.LayoutParams cSd;
+    private TextView ayq;
+    private ViewEventCenter cRI;
+    private View cUM;
+    private TextView cUN;
+    private ImageView cUO;
+    private View cUP;
+    private RelativeLayout.LayoutParams cUQ;
     private int ds44;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.ds44 = 0;
-        this.cRZ = view.findViewById(d.g.container_edit_forum);
-        this.cOZ = viewEventCenter;
-        this.ayD = (TextView) view.findViewById(d.g.forum_name_view);
-        this.cSb = (ImageView) view.findViewById(d.g.delete_forum_view);
-        this.cSc = view.findViewById(d.g.divider_left_name);
-        this.cSb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.c.1
+        this.cUM = view.findViewById(d.g.container_edit_forum);
+        this.cRI = viewEventCenter;
+        this.ayq = (TextView) view.findViewById(d.g.forum_name_view);
+        this.cUO = (ImageView) view.findViewById(d.g.delete_forum_view);
+        this.cUP = view.findViewById(d.g.divider_left_name);
+        this.cUO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (c.this.cOZ != null) {
-                    c.this.cOZ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, c.this.getData(), null, null));
+                if (c.this.cRI != null) {
+                    c.this.cRI.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(4, c.this.getData(), null, null));
                 }
             }
         });
-        this.cSa = (TextView) view.findViewById(d.g.brand_label);
-        this.ds44 = l.e(tbPageContext.getPageActivity(), d.e.tbds44);
+        this.cUN = (TextView) view.findViewById(d.g.brand_label);
+        this.ds44 = l.f(tbPageContext.getPageActivity(), d.e.tbds44);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -48,41 +48,41 @@ public class c extends com.baidu.tbadk.mvc.f.a<f, com.baidu.tbadk.mvc.d.b> {
         super.G(fVar);
         if (fVar != null) {
             if (fVar.getType() == 1) {
-                am.c(this.ayD, d.C0142d.cp_cont_d, 1);
-                this.ayD.setText(d.k.default_personalized_name);
-                am.i(this.cRZ, d.C0142d.cp_bg_line_d);
-                this.cSb.setVisibility(8);
+                am.c(this.ayq, d.C0140d.cp_cont_d, 1);
+                this.ayq.setText(d.j.default_personalized_name);
+                am.i(this.cUM, d.C0140d.cp_bg_line_d);
+                this.cUO.setVisibility(8);
             } else {
-                am.c(this.ayD, d.C0142d.cp_cont_b, 1);
-                this.ayD.setText(fVar.getName());
-                this.cSb.setVisibility(0);
-                am.i(this.cRZ, d.f.forum_item_bg);
+                am.c(this.ayq, d.C0140d.cp_cont_b, 1);
+                this.ayq.setText(fVar.getName());
+                this.cUO.setVisibility(0);
+                am.i(this.cUM, d.f.forum_item_bg);
             }
-            this.cSd = (RelativeLayout.LayoutParams) this.cSb.getLayoutParams();
+            this.cUQ = (RelativeLayout.LayoutParams) this.cUO.getLayoutParams();
             if (this.position % 2 == 0) {
-                this.cSc.setVisibility(8);
-                this.cSd.leftMargin = 0;
+                this.cUP.setVisibility(8);
+                this.cUQ.leftMargin = 0;
             } else {
-                this.cSc.setVisibility(0);
-                this.cSd.leftMargin = this.ds44;
+                this.cUP.setVisibility(0);
+                this.cUQ.leftMargin = this.ds44;
             }
-            if (this.cSb.getVisibility() == 0) {
-                this.cSb.setLayoutParams(this.cSd);
+            if (this.cUO.getVisibility() == 0) {
+                this.cUO.setLayoutParams(this.cUQ);
             }
-            if (fVar.anY() == 1) {
-                this.cSa.setVisibility(0);
+            if (fVar.aox() == 1) {
+                this.cUN.setVisibility(0);
             } else {
-                this.cSa.setVisibility(8);
+                this.cUN.setVisibility(8);
             }
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
     public boolean b(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.n.a.a(tbPageContext, getRootView());
-        am.i(this.cRZ, d.f.forum_item_bg);
-        am.i(this.cSa, d.f.enter_forum_brand_label_bg_shape);
-        am.h(this.cSa, d.C0142d.cp_cont_i);
+        com.baidu.tbadk.o.a.a(tbPageContext, getRootView());
+        am.i(this.cUM, d.f.forum_item_bg);
+        am.i(this.cUN, d.f.enter_forum_brand_label_bg_shape);
+        am.h(this.cUN, d.C0140d.cp_cont_i);
         return true;
     }
 }

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> Jn = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Jk = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        Jn.put(Boolean.class, Boolean.TYPE);
-        Jn.put(Byte.class, Byte.TYPE);
-        Jn.put(Character.class, Character.TYPE);
-        Jn.put(Short.class, Short.TYPE);
-        Jn.put(Integer.class, Integer.TYPE);
-        Jn.put(Float.class, Float.TYPE);
-        Jn.put(Long.class, Long.TYPE);
-        Jn.put(Double.class, Double.TYPE);
-        Jn.put(Boolean.TYPE, Boolean.TYPE);
-        Jn.put(Byte.TYPE, Byte.TYPE);
-        Jn.put(Character.TYPE, Character.TYPE);
-        Jn.put(Short.TYPE, Short.TYPE);
-        Jn.put(Integer.TYPE, Integer.TYPE);
-        Jn.put(Float.TYPE, Float.TYPE);
-        Jn.put(Long.TYPE, Long.TYPE);
-        Jn.put(Double.TYPE, Double.TYPE);
+        Jk.put(Boolean.class, Boolean.TYPE);
+        Jk.put(Byte.class, Byte.TYPE);
+        Jk.put(Character.class, Character.TYPE);
+        Jk.put(Short.class, Short.TYPE);
+        Jk.put(Integer.class, Integer.TYPE);
+        Jk.put(Float.class, Float.TYPE);
+        Jk.put(Long.class, Long.TYPE);
+        Jk.put(Double.class, Double.TYPE);
+        Jk.put(Boolean.TYPE, Boolean.TYPE);
+        Jk.put(Byte.TYPE, Byte.TYPE);
+        Jk.put(Character.TYPE, Character.TYPE);
+        Jk.put(Short.TYPE, Short.TYPE);
+        Jk.put(Integer.TYPE, Integer.TYPE);
+        Jk.put(Float.TYPE, Float.TYPE);
+        Jk.put(Long.TYPE, Long.TYPE);
+        Jk.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (Jn.containsKey(clsArr[i]) && Jn.get(clsArr[i]).equals(Jn.get(clsArr2[i]))) {
+                if (Jk.containsKey(clsArr[i]) && Jk.get(clsArr[i]).equals(Jk.get(clsArr2[i]))) {
                     return true;
                 }
             }

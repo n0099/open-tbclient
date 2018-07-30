@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class as {
-    private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] DE = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String d(PackageInfo packageInfo) throws NumberFormatException {
         long j = 0;
@@ -39,7 +39,7 @@ public class as {
         }
     }
 
-    public static String y(byte[] bArr) {
+    public static String w(byte[] bArr) {
         int i = 0;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -49,9 +49,9 @@ public class as {
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = HEX_DIGITS[(b >>> 4) & 15];
+                cArr[i] = DE[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = HEX_DIGITS[b & 15];
+                cArr[i3] = DE[b & 15];
             }
             return new String(cArr);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class as {
         return null;
     }
 
-    public static String eO(String str) {
-        return com.baidu.adp.lib.util.s.bl(str);
+    public static String eM(String str) {
+        return com.baidu.adp.lib.util.s.bm(str);
     }
 }

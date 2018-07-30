@@ -10,21 +10,21 @@ import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.j>> {
     private BdUniqueId aRF;
-    private com.baidu.tieba.card.j dUn;
+    private com.baidu.tieba.card.j dYf;
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.dVs);
+        super(tbPageContext.getPageActivity().getBaseContext(), com.baidu.tieba.homepage.personalize.data.d.dZk);
         this.mPageContext = tbPageContext;
-        this.dUn = new com.baidu.tieba.card.j(this.mPageContext);
-        this.dUn.k("c10714", "c10739", "c10712", "c10738");
-        this.dUn.setFrom("home");
+        this.dYf = new com.baidu.tieba.card.j(this.mPageContext);
+        this.dYf.k("c10714", "c10739", "c10712", "c10738");
+        this.dYf.setFrom("home");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.aRF = bdUniqueId;
-        if (this.dUn != null) {
-            this.dUn.h(this.aRF);
+        if (this.dYf != null) {
+            this.dYf.h(this.aRF);
         }
     }
 
@@ -33,30 +33,30 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.aja() == null) {
+        if (aVar.ajz() == null) {
             return null;
         }
-        aVar.aja().a(bVar);
-        v.aiz().a(new an("c10714").ah("obj_param3", o.aiq()));
+        aVar.ajz().a(bVar);
+        v.aiY().a(new an("c10714").af("obj_param3", o.aiP()));
         return aVar.getView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: Y */
     public com.baidu.tieba.card.a.a onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.dUn == null) {
-            this.dUn = new com.baidu.tieba.card.j(this.mPageContext);
-            this.dUn.h(this.aRF);
-            this.dUn.k("c10714", "c10739", "c10712", "c10738");
+        if (this.dYf == null) {
+            this.dYf = new com.baidu.tieba.card.j(this.mPageContext);
+            this.dYf.h(this.aRF);
+            this.dYf.k("c10714", "c10739", "c10712", "c10738");
         }
-        return new com.baidu.tieba.card.a.a(this.dUn);
+        return new com.baidu.tieba.card.a.a(this.dYf);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dUn != null) {
-            this.dUn.d(this.mPageContext, i);
+        if (this.dYf != null) {
+            this.dYf.d(this.mPageContext, i);
         }
     }
 }

@@ -5,29 +5,29 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class k extends i {
-    private int ayH;
-    private int ayI;
-    private int ayJ;
+    private int ayu;
+    private int ayv;
+    private int ayw;
 
     public k(Drawable drawable, int i, int i2, int i3) {
         super(drawable, i);
-        this.ayH = 0;
-        this.ayI = 0;
-        this.ayJ = 0;
-        this.ayH = i2;
-        this.ayI = i3;
+        this.ayu = 0;
+        this.ayv = 0;
+        this.ayw = 0;
+        this.ayu = i2;
+        this.ayv = i3;
     }
 
     @Override // com.baidu.tbadk.core.view.i, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        return (this.ayH == 0 && this.ayI == 0) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) : getDrawable().getBounds().width() + this.ayH + this.ayI;
+        return (this.ayu == 0 && this.ayv == 0) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) : getDrawable().getBounds().width() + this.ayu + this.ayv;
     }
 
     @Override // com.baidu.tbadk.core.view.i, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         canvas.save();
-        canvas.translate(0.0f, this.ayJ);
-        super.draw(canvas, charSequence, i, i2, f + this.ayH, i3, i4, i5, paint);
+        canvas.translate(0.0f, this.ayw);
+        super.draw(canvas, charSequence, i, i2, f + this.ayu, i3, i4, i5, paint);
         canvas.restore();
     }
 }

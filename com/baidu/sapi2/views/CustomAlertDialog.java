@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-import com.baidu.c.a.a;
+import com.baidu.d.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes2.dex */
 public class CustomAlertDialog extends Dialog {

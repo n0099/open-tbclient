@@ -13,7 +13,7 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     public static String JUMP_URL = "http://tieba.baidu.com/mo/q/resign/index";
 
     public SupplementSignActivityConfig(Context context, int i, int i2) {
-        super(context, context.getResources().getString(d.k.resign), JUMP_URL + "?forum_id=" + i + "&_client_version=" + TbConfig.getVersion(), true, true, true);
+        super(context, context.getResources().getString(d.j.resign), JUMP_URL + "?forum_id=" + i + "&_client_version=" + TbConfig.getVersion(), true, true, true);
         getIntent().putExtra(FORUM_ID, i);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

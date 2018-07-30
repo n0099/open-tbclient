@@ -6,24 +6,24 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TalkBallNetModelImpl<T> extends NetAutoModel<TalkBallRequestData, c, T> {
     public TalkBallNetModelImpl(TbPageContext<T> tbPageContext, TalkBallRequestData talkBallRequestData) {
         super(tbPageContext, talkBallRequestData);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JS() {
+    protected int JN() {
         return CmdConfigHttp.CMD_FRS_TALK_BALL;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String JU() {
+    protected String JP() {
         return TbConfig.FRS_TALK_BALL;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JT() {
+    protected int JO() {
         return 309605;
     }
 
@@ -33,12 +33,12 @@ public class TalkBallNetModelImpl<T> extends NetAutoModel<TalkBallRequestData, c
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> JQ() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> JL() {
         return TalkBallHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> JR() {
+    protected Class<? extends MvcSocketResponsedMessage> JM() {
         return TalkBallSocketResponseMessage.class;
     }
 }

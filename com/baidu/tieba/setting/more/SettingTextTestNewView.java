@@ -15,7 +15,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        g(0, 0, l.e(context, d.e.ds30), 0);
+        f(0, 0, l.f(context, d.e.ds30), 0);
     }
 
     public void refresh() {
@@ -27,13 +27,13 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         }
         if (z) {
             this.aIu.setText("new");
-            this.aIu.setTextAppearance(this.mContext, z2 ? d.l.setting_version_prompt_text_1 : d.l.setting_version_prompt_text);
+            this.aIu.setTextAppearance(this.mContext, z2 ? d.k.setting_version_prompt_text_1 : d.k.setting_version_prompt_text);
             am.i(this.aIu, d.f.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
         this.aIu.setText((TbConfig.getVersionType() != 1 || ap.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
         this.aIu.setBackgroundDrawable(null);
-        this.aIu.setTextAppearance(this.mContext, z2 ? d.l.setting_version_text_1 : d.l.setting_version_text);
+        this.aIu.setTextAppearance(this.mContext, z2 ? d.k.setting_version_text_1 : d.k.setting_version_text);
     }
 }

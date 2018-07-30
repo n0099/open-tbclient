@@ -13,14 +13,14 @@ import com.baidu.tieba.card.ad;
 import com.baidu.tieba.card.o;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private com.baidu.tieba.card.f dvM;
+    private com.baidu.tieba.card.f dyz;
     private String mForumId;
     private TbPageContext<?> mPageContext;
-    private ad rW;
+    private ad rO;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.cLO);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.cOx);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -28,10 +28,10 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: X */
+    /* renamed from: Y */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dvM = new com.baidu.tieba.card.f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.dvM);
+        this.dyz = new com.baidu.tieba.card.f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.dyz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,37 +39,37 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        if (aVar.aja() == null) {
+        if (aVar.ajz() == null) {
             return null;
         }
-        aVar.aja().a(bVar);
-        aVar.aja().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.aja().b(new ad<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
+        aVar.ajz().a(bVar);
+        aVar.ajz().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.ajz().b(new ad<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             /* renamed from: b */
             public void a(View view2, com.baidu.tieba.e.b bVar2) {
-                TiebaStatic.log(new an("c13047").r("obj_locate", 3).ah(ImageViewerConfig.FORUM_ID, c.this.mForumId));
+                TiebaStatic.log(new an("c13047").r("obj_locate", 3).af(ImageViewerConfig.FORUM_ID, c.this.mForumId));
                 c.this.a(view2, bVar2);
             }
         });
-        return aVar.aja().getView();
+        return aVar.ajz().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.b bVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.SV(), null, o.vk(), 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(bVar.SV().getFid()));
-        createFromThreadCfg.setForumName(bVar.SV().vB());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.Td(), null, o.uY(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.Td().getFid()));
+        createFromThreadCfg.setForumName(bVar.Td().vq());
         createFromThreadCfg.setStartFrom(0);
-        o.kY(bVar.SV().getTid());
+        o.kW(bVar.Td().getTid());
         this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-        if (this.rW != null) {
-            this.rW.a(view, bVar);
+        if (this.rO != null) {
+            this.rO.a(view, bVar);
         }
     }
 
     public void d(ad adVar) {
-        this.rW = adVar;
+        this.rO = adVar;
     }
 }

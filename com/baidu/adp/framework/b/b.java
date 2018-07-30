@@ -9,46 +9,46 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a.d, HttpResponsedMessage> {
-    private HttpClient ve;
+    private HttpClient uW;
 
     public b(MessageManager messageManager) {
         super(messageManager);
-        this.ve = null;
-        this.ve = new HttpClient(messageManager);
-        this.vi = com.baidu.adp.framework.c.b.fP();
+        this.uW = null;
+        this.uW = new HttpClient(messageManager);
+        this.va = com.baidu.adp.framework.c.b.fO();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask.getConnectTimeOut() == null) {
-            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.vi).fQ());
+            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.va).fP());
         }
-        this.ve.a(httpMessage, httpMessageTask);
+        this.uW.a(httpMessage, httpMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.c
     /* renamed from: c */
     public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        return this.sO.getController().b(httpMessage, httpMessageTask);
+        return this.sG.getController().b(httpMessage, httpMessageTask);
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.ve.removeMessage(bdUniqueId);
+        this.uW.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.ve.removeMessage(i, bdUniqueId);
+        this.uW.removeMessage(i, bdUniqueId);
     }
 
     public LinkedList<HttpMessage> a(BdUniqueId bdUniqueId) {
-        return this.ve.a(bdUniqueId);
+        return this.uW.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.b
     public LinkedList<HttpMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.ve.findMessage(i, bdUniqueId);
+        return this.uW.findMessage(i, bdUniqueId);
     }
 }

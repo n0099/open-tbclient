@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class q implements b, a.InterfaceC0006a {
-    private final List<a.InterfaceC0006a> ml = new ArrayList();
-    private final ShapeTrimPath.Type mm;
-    private final com.airbnb.lottie.a.b.a<?, Float> mn;
-    private final com.airbnb.lottie.a.b.a<?, Float> mo;
-    private final com.airbnb.lottie.a.b.a<?, Float> mp;
+    private final List<a.InterfaceC0006a> mb = new ArrayList();
+    private final ShapeTrimPath.Type mc;
+    private final com.airbnb.lottie.a.b.a<?, Float> md;
+    private final com.airbnb.lottie.a.b.a<?, Float> mf;
+    private final com.airbnb.lottie.a.b.a<?, Float> mg;
     private String name;
 
     public q(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.mm = shapeTrimPath.bQ();
-        this.mn = shapeTrimPath.dj().ck();
-        this.mo = shapeTrimPath.di().ck();
-        this.mp = shapeTrimPath.dc().ck();
-        aVar.a(this.mn);
-        aVar.a(this.mo);
-        aVar.a(this.mp);
-        this.mn.b(this);
-        this.mo.b(this);
-        this.mp.b(this);
+        this.mc = shapeTrimPath.bO();
+        this.md = shapeTrimPath.dh().ci();
+        this.mf = shapeTrimPath.dg().ci();
+        this.mg = shapeTrimPath.da().ci();
+        aVar.a(this.md);
+        aVar.a(this.mf);
+        aVar.a(this.mg);
+        this.md.b(this);
+        this.mf.b(this);
+        this.mg.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0006a
-    public void bH() {
+    public void bF() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.ml.size()) {
-                this.ml.get(i2).bH();
+            if (i2 < this.mb.size()) {
+                this.mb.get(i2).bF();
                 i = i2 + 1;
             } else {
                 return;
@@ -52,23 +52,23 @@ public class q implements b, a.InterfaceC0006a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(a.InterfaceC0006a interfaceC0006a) {
-        this.ml.add(interfaceC0006a);
+        this.mb.add(interfaceC0006a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type bQ() {
-        return this.mm;
+    public ShapeTrimPath.Type bO() {
+        return this.mc;
+    }
+
+    public com.airbnb.lottie.a.b.a<?, Float> bP() {
+        return this.md;
+    }
+
+    public com.airbnb.lottie.a.b.a<?, Float> bQ() {
+        return this.mf;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> bR() {
-        return this.mn;
-    }
-
-    public com.airbnb.lottie.a.b.a<?, Float> bS() {
-        return this.mo;
-    }
-
-    public com.airbnb.lottie.a.b.a<?, Float> bT() {
-        return this.mp;
+        return this.mg;
     }
 }

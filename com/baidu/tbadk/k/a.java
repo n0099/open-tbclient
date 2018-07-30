@@ -1,64 +1,48 @@
 package com.baidu.tbadk.k;
 
-import android.annotation.TargetApi;
-import android.view.Choreographer;
-@TargetApi(16)
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class a implements Choreographer.FrameCallback {
-    private long aae;
-    private long mStartTime;
-    private long aTw = 0;
-    private int aTx = 0;
-    private int mFps = -1;
-    private boolean isStop = false;
+public class a {
+    protected View aRh;
+    private boolean aRi;
 
-    public void start() {
-        this.mStartTime = System.currentTimeMillis();
-        this.aae = this.mStartTime + 1000;
-        this.aTw = 0L;
-        this.aTx = 0;
-        this.mFps = -1;
-        this.isStop = false;
-        Choreographer.getInstance().postFrameCallback(this);
+    public a(View view) {
+        this.aRh = view;
     }
 
-    public void stop() {
-        this.isStop = true;
-        Choreographer.getInstance().removeFrameCallback(this);
-        Z(System.currentTimeMillis());
-        this.aTx = 0;
-        this.mStartTime = 0L;
+    public boolean Jc() {
+        return this.aRi;
     }
 
-    @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j) {
-        if (this.aTw != 0) {
-            long j2 = (j - this.aTw) / 1000000;
-            if (j2 > 16 && j2 < 960) {
-                this.aTx = (int) ((j2 / 16) + this.aTx);
-            }
+    public void c(View view, boolean z) {
+        if (view != null && this.aRh != null && this.aRh.getParent() == null) {
+            this.aRi = true;
+            d.R(view).a(view, this.aRh, z);
+            Jd();
         }
-        this.aTw = j;
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis < this.aae && !this.isStop) {
-            Choreographer.getInstance().postFrameCallback(this);
-            return;
-        }
-        Z(currentTimeMillis);
-        this.aTx = 0;
-        this.mStartTime = 0L;
     }
 
-    private void Z(long j) {
-        if (this.mStartTime > 0) {
-            long j2 = j - this.mStartTime;
-            if (j2 > 0 && this.mFps <= 0) {
-                this.mFps = (int) (60 - ((this.aTx * 1000) / j2));
+    public void Q(View view) {
+        if (view != null && this.aRh != null && this.aRh.getParent() != null && (view instanceof ViewGroup)) {
+            try {
+                Je();
+                ((ViewGroup) view).removeView(this.aRh);
+                this.aRi = false;
+            } catch (Exception e) {
             }
         }
     }
 
-    public int getFps() {
-        return this.mFps;
+    public void attachView(View view) {
+        c(view, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Jd() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void Je() {
     }
 }

@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel fkp;
+    private MarkModel fkB;
 
     public b(BaseActivity baseActivity) {
-        this.fkp = null;
-        this.fkp = new MarkModel(baseActivity);
+        this.fkB = null;
+        this.fkB = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.fkp = null;
-        this.fkp = new MarkModel(baseFragmentActivity);
+        this.fkB = null;
+        this.fkB = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ah(boolean z) {
-        this.fkp.ah(z);
+    public void ad(boolean z) {
+        this.fkB.ad(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String sb() {
-        return this.fkp.sb();
+    public String rM() {
+        return this.fkB.rM();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0100a interfaceC0100a) {
-        this.fkp.a(interfaceC0100a);
+    public void a(a.InterfaceC0097a interfaceC0097a) {
+        this.fkB.a(interfaceC0097a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void sd() {
-        this.fkp.sd();
+    public void rO() {
+        this.fkB.rO();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void se() {
-        this.fkp.se();
+    public void rP() {
+        this.fkB.rP();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData sf() {
-        return this.fkp.sf();
+    public MarkData rQ() {
+        return this.fkB.rQ();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.fkp.a(markData);
+        this.fkB.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean sc() {
-        return this.fkp.sc();
+    public boolean rN() {
+        return this.fkB.rN();
     }
 }

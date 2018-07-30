@@ -11,6 +11,6 @@ public class c {
     public int aRN;
     public int aRO;
     public int aRS = aRP;
-    public int kc;
+    public int jT;
     public int type;
 }

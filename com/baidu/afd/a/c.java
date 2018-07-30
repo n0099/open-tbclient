@@ -16,7 +16,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: e */
+    /* renamed from: d */
     public d onCreateViewHolder(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);

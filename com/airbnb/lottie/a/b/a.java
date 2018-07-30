@@ -6,47 +6,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.airbnb.lottie.a.a<K>> mr;
+    private final List<? extends com.airbnb.lottie.a.a<K>> mi;
     @Nullable
-    private com.airbnb.lottie.a.a<K> mt;
-    final List<InterfaceC0006a> ml = new ArrayList();
-    private boolean mq = false;
+    private com.airbnb.lottie.a.a<K> mj;
+    final List<InterfaceC0006a> mb = new ArrayList();
+    private boolean mh = false;
     private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0006a {
-        void bH();
+        void bF();
     }
 
     abstract A a(com.airbnb.lottie.a.a<K> aVar, float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.airbnb.lottie.a.a<K>> list) {
-        this.mr = list;
+        this.mi = list;
     }
 
-    public void bU() {
-        this.mq = true;
+    public void bS() {
+        this.mh = true;
     }
 
     public void b(InterfaceC0006a interfaceC0006a) {
-        this.ml.add(interfaceC0006a);
+        this.mb.add(interfaceC0006a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f < bX()) {
-            f = bX();
-        } else if (f > bD()) {
-            f = bD();
+        if (f < bV()) {
+            f = bV();
+        } else if (f > bB()) {
+            f = bB();
         }
         if (f != this.progress) {
             this.progress = f;
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.ml.size()) {
-                    this.ml.get(i2).bH();
+                if (i2 < this.mb.size()) {
+                    this.mb.get(i2).bF();
                     i = i2 + 1;
                 } else {
                     return;
@@ -55,55 +55,55 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.airbnb.lottie.a.a<K> bV() {
-        if (this.mr.isEmpty()) {
+    private com.airbnb.lottie.a.a<K> bT() {
+        if (this.mi.isEmpty()) {
             throw new IllegalStateException("There are no keyframes");
         }
-        if (this.mt != null && this.mt.g(this.progress)) {
-            return this.mt;
+        if (this.mj != null && this.mj.g(this.progress)) {
+            return this.mj;
         }
-        com.airbnb.lottie.a.a<K> aVar = this.mr.get(this.mr.size() - 1);
-        if (this.progress < aVar.bC()) {
-            for (int size = this.mr.size() - 1; size >= 0; size--) {
-                aVar = this.mr.get(size);
+        com.airbnb.lottie.a.a<K> aVar = this.mi.get(this.mi.size() - 1);
+        if (this.progress < aVar.bA()) {
+            for (int size = this.mi.size() - 1; size >= 0; size--) {
+                aVar = this.mi.get(size);
                 if (aVar.g(this.progress)) {
                     break;
                 }
             }
         }
-        this.mt = aVar;
+        this.mj = aVar;
         return aVar;
     }
 
-    private float bW() {
-        if (this.mq) {
+    private float bU() {
+        if (this.mh) {
             return 0.0f;
         }
-        com.airbnb.lottie.a.a<K> bV = bV();
-        if (bV.bE()) {
+        com.airbnb.lottie.a.a<K> bT = bT();
+        if (bT.bC()) {
             return 0.0f;
         }
-        return bV.lh.getInterpolation((this.progress - bV.bC()) / (bV.bD() - bV.bC()));
+        return bT.kZ.getInterpolation((this.progress - bT.bA()) / (bT.bB() - bT.bA()));
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
-    private float bX() {
-        if (this.mr.isEmpty()) {
+    private float bV() {
+        if (this.mi.isEmpty()) {
             return 0.0f;
         }
-        return this.mr.get(0).bC();
+        return this.mi.get(0).bA();
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
-    private float bD() {
-        if (this.mr.isEmpty()) {
+    private float bB() {
+        if (this.mi.isEmpty()) {
             return 1.0f;
         }
-        return this.mr.get(this.mr.size() - 1).bD();
+        return this.mi.get(this.mi.size() - 1).bB();
     }
 
     public A getValue() {
-        return a(bV(), bW());
+        return a(bT(), bU());
     }
 
     public float getProgress() {

@@ -1,24 +1,21 @@
 package com.baidu.tbadk.k;
 
-import com.tencent.open.SocialConstants;
+import android.view.View;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class h extends g {
-    public String KP;
-    public long KQ;
-    public boolean aTJ;
-    public boolean isSuccess;
-
-    public void KF() {
-        o oVar;
-        if (m.KK().KL() && (oVar = (o) m.KK().fo(this.mSubType)) != null) {
-            oVar.a(this, "head");
+public class h implements c {
+    @Override // com.baidu.tbadk.k.c
+    public void a(View view, View view2, boolean z) {
+        RelativeLayout relativeLayout = (RelativeLayout) view;
+        if (z) {
+            relativeLayout.addView(view2, 0);
+        } else {
+            relativeLayout.addView(view2);
         }
-    }
-
-    public void KG() {
-        o oVar;
-        if (m.KK().KL() && (oVar = (o) m.KK().fo(this.mSubType)) != null) {
-            oVar.a(this, SocialConstants.PARAM_IMG_URL);
-        }
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
+        layoutParams.width = -1;
+        layoutParams.height = -1;
+        layoutParams.addRule(14);
+        view2.setLayoutParams(layoutParams);
     }
 }

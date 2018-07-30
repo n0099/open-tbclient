@@ -8,125 +8,125 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class y extends com.baidu.tbadk.core.dialog.b {
-    private View.OnClickListener dho;
-    private TextView fBL;
-    private TextView fBM;
-    private TextView fBN;
-    private TextView fBO;
-    private TextView fBP;
-    private TextView fBQ;
-    private boolean fBR;
-    private boolean fBS;
+    private View.OnClickListener dke;
+    private TextView fBY;
+    private TextView fBZ;
+    private TextView fCa;
+    private TextView fCb;
+    private TextView fCc;
+    private TextView fCd;
+    private boolean fCe;
+    private boolean fCf;
     private TbPageContext<?> mContext;
 
     public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.fBS = false;
+        this.fCf = false;
         this.mContext = tbPageContext;
-        this.dho = onClickListener;
-        beH();
+        this.dke = onClickListener;
+        bda();
     }
 
-    public TextView beB() {
-        return this.fBL;
+    public TextView bcU() {
+        return this.fBY;
     }
 
-    public TextView beC() {
-        return this.fBM;
+    public TextView bcV() {
+        return this.fBZ;
     }
 
-    public TextView beD() {
-        return this.fBN;
+    public TextView bcW() {
+        return this.fCa;
     }
 
-    public TextView beE() {
-        return this.fBO;
+    public TextView bcX() {
+        return this.fCb;
     }
 
-    public TextView beF() {
-        return this.fBQ;
+    public TextView bcY() {
+        return this.fCd;
     }
 
-    public TextView beG() {
-        return this.fBP;
+    public TextView bcZ() {
+        return this.fCc;
     }
 
-    private void beH() {
-        a(new CharSequence[]{this.mContext.getString(d.k.reply_current_floor), this.mContext.getString(d.k.no_interesting), this.mContext.getString(d.k.mark), this.mContext.getString(d.k.mute), this.mContext.getString(d.k.report_text), this.mContext.getString(d.k.delete)}, new b.InterfaceC0104b() { // from class: com.baidu.tieba.pb.pb.main.y.1
-            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0104b
+    private void bda() {
+        a(new CharSequence[]{this.mContext.getString(d.j.reply_current_floor), this.mContext.getString(d.j.no_interesting), this.mContext.getString(d.j.mark), this.mContext.getString(d.j.mute), this.mContext.getString(d.j.report_text), this.mContext.getString(d.j.delete)}, new b.InterfaceC0101b() { // from class: com.baidu.tieba.pb.pb.main.y.1
+            @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0101b
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar != null && view != null) {
                     bVar.dismiss();
-                    y.this.dho.onClick(view);
+                    y.this.dke.onClick(view);
                 }
             }
         });
         d(this.mContext);
-        this.fBP = bg(cl(0));
-        this.fBQ = bg(cl(1));
-        this.fBL = bg(cl(2));
-        this.fBM = bg(cl(3));
-        this.fBN = bg(cl(4));
-        this.fBO = bg(cl(5));
+        this.fCc = bj(cn(0));
+        this.fCd = bj(cn(1));
+        this.fBY = bj(cn(2));
+        this.fBZ = bj(cn(3));
+        this.fCa = bj(cn(4));
+        this.fCb = bj(cn(5));
     }
 
     public void showDialog() {
-        xq();
+        xi();
     }
 
-    private TextView bg(View view) {
+    private TextView bj(View view) {
         return (TextView) view.findViewById(d.g.dialog_item_btn);
     }
 
-    private View bh(View view) {
+    private View bk(View view) {
         if (view == null) {
             return null;
         }
         return view.findViewById(d.g.line);
     }
 
-    public void kh(boolean z) {
-        this.fBN.setVisibility(z ? 0 : 8);
+    public void jT(boolean z) {
+        this.fCa.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {
         return getRootView();
     }
 
-    public void ki(boolean z) {
-        this.fBR = z;
+    public void jU(boolean z) {
+        this.fCe = z;
     }
 
-    public boolean beI() {
-        return this.fBS;
+    public boolean bdb() {
+        return this.fCf;
     }
 
-    public void kj(boolean z) {
-        this.fBS = z;
+    public void jV(boolean z) {
+        this.fCf = z;
     }
 
     public void refreshUI() {
         View view;
-        TextView bg;
+        TextView bj;
         int itemCount = getItemCount();
         ArrayList arrayList = new ArrayList();
         boolean z = true;
         for (int i = itemCount - 1; i >= 0; i--) {
-            View cl = cl(i);
-            if (cl != null) {
-                TextView bg2 = bg(cl(i));
-                View bh = bh(cl(i));
-                if (bg2 != null) {
-                    if (bg2.getVisibility() == 8) {
-                        bh.setVisibility(8);
+            View cn = cn(i);
+            if (cn != null) {
+                TextView bj2 = bj(cn(i));
+                View bk = bk(cn(i));
+                if (bj2 != null) {
+                    if (bj2.getVisibility() == 8) {
+                        bk.setVisibility(8);
                     } else {
-                        arrayList.add(cl);
+                        arrayList.add(cn);
                         if (z) {
-                            bh.setVisibility(8);
-                            com.baidu.tbadk.core.util.am.i(cl, d.f.dialog_single_button_bg_selector);
+                            bk.setVisibility(8);
+                            com.baidu.tbadk.core.util.am.i(cn, d.f.dialog_single_button_bg_selector);
                             z = false;
                         } else {
-                            bh.setVisibility(0);
+                            bk.setVisibility(0);
                         }
                     }
                 }
@@ -137,15 +137,15 @@ public class y extends com.baidu.tbadk.core.dialog.b {
             if (i2 >= itemCount) {
                 break;
             }
-            View cl2 = cl(i2);
-            if (cl2 == null || (bg = bg(cl(i2))) == null || bg.getVisibility() != 0) {
+            View cn2 = cn(i2);
+            if (cn2 == null || (bj = bj(cn(i2))) == null || bj.getVisibility() != 0) {
                 i2++;
             } else {
-                com.baidu.tbadk.core.util.am.i(cl2, d.f.dialog_single_button_first_bg_selector);
+                com.baidu.tbadk.core.util.am.i(cn2, d.f.dialog_single_button_first_bg_selector);
                 break;
             }
         }
-        if (com.baidu.tbadk.core.util.w.z(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
+        if (com.baidu.tbadk.core.util.w.y(arrayList) == 1 && (view = (View) arrayList.get(0)) != null) {
             com.baidu.tbadk.core.util.am.i(view, d.f.dialog_single_button_only_one_bg_selector);
         }
     }

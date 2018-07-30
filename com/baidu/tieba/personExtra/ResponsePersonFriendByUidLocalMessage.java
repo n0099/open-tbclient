@@ -1,10 +1,10 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.aq;
+import com.baidu.tbadk.core.data.ap;
 /* loaded from: classes3.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
-    private aq mData;
+    private ap mData;
 
     public ResponsePersonFriendByUidLocalMessage() {
         super(2001182);
@@ -14,11 +14,11 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         super(i);
     }
 
-    public void setPersonFriendData(aq aqVar) {
-        this.mData = aqVar;
+    public void setPersonFriendData(ap apVar) {
+        this.mData = apVar;
     }
 
-    public aq getPersonFriendData() {
+    public ap getPersonFriendData() {
         return this.mData;
     }
 
@@ -26,7 +26,7 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, String str) throws Exception {
         if (str != null) {
-            this.mData = new aq();
+            this.mData = new ap();
             this.mData.parserJson(str);
         }
     }

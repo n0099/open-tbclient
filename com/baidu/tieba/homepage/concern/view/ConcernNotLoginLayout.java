@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes2.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private TextView dRA;
-    private TextView dRB;
-    private ImageView dRz;
+    private ImageView dUk;
+    private TextView dUl;
+    private TextView dUm;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -35,26 +35,26 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(d.i.concern_not_login_layout, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(d.h.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.dRz = (ImageView) inflate.findViewById(d.g.iv_concern_not_login_emotion_pic);
-        this.dRA = (TextView) inflate.findViewById(d.g.tv_concern_you_not_login);
-        this.dRB = (TextView) inflate.findViewById(d.g.tv_concern_login_and_see_more);
-        this.dRB.setOnClickListener(this);
+        this.dUk = (ImageView) inflate.findViewById(d.g.iv_concern_not_login_emotion_pic);
+        this.dUl = (TextView) inflate.findViewById(d.g.tv_concern_you_not_login);
+        this.dUm = (TextView) inflate.findViewById(d.g.tv_concern_login_and_see_more);
+        this.dUm.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == d.g.tv_concern_login_and_see_more) {
-            bb.aU(this.mContext);
-            HomePageStatic.dPJ = true;
+            ba.aV(this.mContext);
+            HomePageStatic.dSw = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        am.c(this.dRz, d.f.pic_jinba_login);
-        am.h(this.dRA, d.C0142d.cp_cont_b);
-        am.h(this.dRB, d.C0142d.cp_cont_i);
-        am.i(this.dRB, d.f.btn_all_blue);
+        am.c(this.dUk, d.f.pic_jinba_login);
+        am.h(this.dUl, d.C0140d.cp_cont_b);
+        am.h(this.dUm, d.C0140d.cp_cont_i);
+        am.i(this.dUm, d.f.btn_all_blue);
     }
 }

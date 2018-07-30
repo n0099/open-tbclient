@@ -10,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class i {
-    public static void dT(String str) {
+    public static void dQ(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -43,7 +43,7 @@ public class i {
         }
     }
 
-    public static void yp() {
+    public static void yh() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.i.1
             @Override // java.lang.Runnable
             public void run() {
@@ -52,7 +52,7 @@ public class i {
                 int i;
                 com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
                 try {
-                    cursor = mainDBDatabaseManager.eE().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    cursor = mainDBDatabaseManager.eD().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
                     i = 0;
                     while (cursor.moveToNext()) {
                         try {
@@ -63,7 +63,7 @@ public class i {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.e(cursor);
                                 an anVar = new an("c12232");
-                                anVar.ah("uid", TbadkCoreApplication.getCurrentAccount());
+                                anVar.af("uid", TbadkCoreApplication.getCurrentAccount());
                                 anVar.r("obj_param1", i);
                                 TiebaStatic.log(anVar);
                             } catch (Throwable th3) {
@@ -79,7 +79,7 @@ public class i {
                     i = 0;
                 }
                 an anVar2 = new an("c12232");
-                anVar2.ah("uid", TbadkCoreApplication.getCurrentAccount());
+                anVar2.af("uid", TbadkCoreApplication.getCurrentAccount());
                 anVar2.r("obj_param1", i);
                 TiebaStatic.log(anVar2);
             }

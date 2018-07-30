@@ -55,7 +55,7 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
     }
 
     public void setFragmentDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dK(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dj(j)));
         this.fragmentDuration = j;
     }
 }

@@ -22,6 +22,8 @@ public class MediaData extends OrmObject implements Serializable {
     private int during_time = 0;
     private boolean isLongPic = false;
     private boolean showOriginBtn = false;
+    private double smartCropCenterPointWidthRatio = 0.0d;
+    private double smartCropCenterPointHeightRatio = 0.0d;
 
     public MediaData() {
         this.postId = -1L;
@@ -116,6 +118,18 @@ public class MediaData extends OrmObject implements Serializable {
         return this.showOriginBtn;
     }
 
+    public boolean isSmartCrop() {
+        return this.smartCropCenterPointWidthRatio > 0.0d && this.smartCropCenterPointHeightRatio > 0.0d;
+    }
+
+    public double getSmartCropCenterPointWidthRatio() {
+        return this.smartCropCenterPointWidthRatio;
+    }
+
+    public double getSmartCropCenterPointHeightRatio() {
+        return this.smartCropCenterPointHeightRatio;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -135,6 +149,8 @@ public class MediaData extends OrmObject implements Serializable {
                 this.showOriginBtn = jSONObject.optInt("show_original_btn", 1) == 1;
                 this.small_pic_url = jSONObject.optString("small_pic");
                 this.origin_pic = jSONObject.optString("origin_pic");
+                this.smartCropCenterPointWidthRatio = jSONObject.optDouble("wth_mid_loc");
+                this.smartCropCenterPointHeightRatio = jSONObject.optDouble("hth_mid_loc");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -161,6 +177,8 @@ public class MediaData extends OrmObject implements Serializable {
             this.showOriginBtn = media.show_original_btn.intValue() == 1;
             this.small_pic_url = media.small_pic;
             this.origin_pic = media.origin_pic;
+            this.smartCropCenterPointWidthRatio = media.wth_mid_loc.doubleValue();
+            this.smartCropCenterPointHeightRatio = media.hth_mid_loc.doubleValue();
         }
     }
 }

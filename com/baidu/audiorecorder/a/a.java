@@ -11,7 +11,7 @@ import com.baidu.tieba.d;
 public class a extends k {
     public a(Context context) {
         super(context, (String) null, 6);
-        this.name = TbadkCoreApplication.getInst().getResources().getString(d.k.switch_to_voice);
+        this.name = TbadkCoreApplication.getInst().getResources().getString(d.j.switch_to_voice);
         this.aMS = d.f.btn_pb_voice;
         this.aMW = true;
         this.aMV = 5;

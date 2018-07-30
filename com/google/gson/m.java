@@ -5,11 +5,11 @@ import java.io.IOException;
 public abstract class m<T> {
     public abstract void a(com.google.gson.stream.a aVar, T t) throws IOException;
 
-    public final h aj(T t) {
+    public final h ai(T t) {
         try {
             com.google.gson.internal.a.d dVar = new com.google.gson.internal.a.d();
             a(dVar, t);
-            return dVar.bOz();
+            return dVar.bKs();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }

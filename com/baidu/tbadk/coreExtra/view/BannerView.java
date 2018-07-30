@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.w;
+import com.baidu.tbadk.core.data.v;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.s;
@@ -28,7 +28,7 @@ public class BannerView extends RelativeLayout {
     private boolean aGP;
     private float aGQ;
     private boolean aGR;
-    private w aGS;
+    private v aGS;
     private a aGT;
     View.OnClickListener aGU;
     private String link;
@@ -37,18 +37,18 @@ public class BannerView extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void FL();
+        void FH();
 
-        void FM();
+        void FI();
     }
 
     public void setBannerType(String str) {
         this.type = str;
     }
 
-    public void setBannerData(w wVar) {
-        this.aGS = wVar;
-        s.a(this.aGS.agf, this.aGN, this.aGS.agg, l.e(getContext(), d.e.ds26));
+    public void setBannerData(v vVar) {
+        this.aGS = vVar;
+        s.a(this.aGS.afy, this.aGN, this.aGS.afz, l.f(getContext(), d.e.ds26));
     }
 
     public void setMtjInfo(String str, String str2) {
@@ -75,7 +75,7 @@ public class BannerView extends RelativeLayout {
                     BannerView.this.aGP = true;
                     BannerView.this.setVisibility(8);
                     if (BannerView.this.aGT != null) {
-                        BannerView.this.aGT.FM();
+                        BannerView.this.aGT.FI();
                         return;
                     }
                     return;
@@ -85,7 +85,7 @@ public class BannerView extends RelativeLayout {
                 }
                 if (BannerView.this.aGT == null) {
                     if (!TextUtils.isEmpty(BannerView.this.link)) {
-                        az.zV().c(BannerView.this.mContext, new String[]{BannerView.this.link});
+                        ay.zK().c(BannerView.this.mContext, new String[]{BannerView.this.link});
                         if (!BannerView.this.link.startsWith("game:detail:") || !"frs_banner".equals(BannerView.this.type)) {
                             if (BannerView.this.link.startsWith("game:detail:") && "enterforum_banner".equals(BannerView.this.type)) {
                                 TiebaStatic.eventStat(BannerView.this.mContext.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", "4000401", "ref_type", "603");
@@ -98,7 +98,7 @@ public class BannerView extends RelativeLayout {
                     }
                     return;
                 }
-                BannerView.this.aGT.FL();
+                BannerView.this.aGT.FH();
             }
         };
         init(context);
@@ -109,7 +109,7 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.i.bannerview, this);
+        LayoutInflater.from(context).inflate(d.h.bannerview, this);
         this.aGL = (Button) findViewById(d.g.btn_close);
         this.aGL.setOnClickListener(this.aGU);
         this.aGM = (TbImageView) findViewById(d.g.banner_image);
@@ -117,7 +117,7 @@ public class BannerView extends RelativeLayout {
         this.aGM.setOnClickListener(this.aGU);
         this.aGN = (TbImageView) findViewById(d.g.tv_advert);
         this.aGO = findViewById(d.g.banner_mask);
-        am.j(this.aGO, d.C0142d.black_alpha0);
+        am.j(this.aGO, d.C0140d.black_alpha0);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
@@ -166,7 +166,7 @@ public class BannerView extends RelativeLayout {
         this.aGO.setBackgroundColor(i);
     }
 
-    public boolean FJ() {
+    public boolean FF() {
         return this.aGR;
     }
 
@@ -179,7 +179,7 @@ public class BannerView extends RelativeLayout {
         this.aGR = false;
     }
 
-    public void FK() {
+    public void FG() {
         this.aGM.postInvalidate();
     }
 }

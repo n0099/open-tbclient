@@ -16,6 +16,7 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final int FROM_BUBBLE_RECOMMEND_CLCK = 19;
     public static final int FROM_CLOSE_AD = 20;
     public static final int FROM_DRESSUP_CENTER = 8;
+    public static final int FROM_DUIBA_H5_PAGE = 25;
     public static final int FROM_EXP_SPEED = 2;
     public static final int FROM_MARGA_VIP = 23;
     public static final int FROM_MEMBERCENTER_BOTTOM = 16;

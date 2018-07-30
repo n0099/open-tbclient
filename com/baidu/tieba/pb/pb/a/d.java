@@ -14,25 +14,25 @@ import com.baidu.tieba.pb.pb.main.k;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class d extends k<PostData, a> {
-    private View.OnClickListener cFJ;
+    private View.OnClickListener cIq;
 
     public d(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cFJ = onClickListener;
+        this.cIq = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bj */
+    /* renamed from: bh */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.i.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(d.g.tv_pb_reply_more).setOnClickListener(this.cFJ);
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_load_more_item, viewGroup, false);
+        inflate.findViewById(d.g.tv_pb_reply_more).setOnClickListener(this.cIq);
         a aVar = new a(inflate);
-        aVar.FK();
+        aVar.FG();
         return aVar;
     }
 
@@ -47,29 +47,29 @@ public class d extends k<PostData, a> {
 
     /* loaded from: classes2.dex */
     public static class a extends q.a {
-        private TextView ftM;
+        private TextView ftX;
 
         public a(View view) {
             super(view);
-            this.ftM = (TextView) view.findViewById(d.g.tv_pb_reply_more);
+            this.ftX = (TextView) view.findViewById(d.g.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.gNu) {
+                if (postData.gOs) {
                     Drawable drawable = am.getDrawable(d.f.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.ftM.setCompoundDrawables(null, null, drawable, null);
+                    this.ftX.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = am.getDrawable(d.f.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.ftM.setCompoundDrawables(null, null, drawable2, null);
+                this.ftX.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void FK() {
-            am.h(this.ftM, d.C0142d.cp_cont_d);
+        public void FG() {
+            am.h(this.ftX, d.C0140d.cp_cont_d);
         }
     }
 }

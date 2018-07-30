@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 final class o {
-    private SQLiteDatabase hBF = f.bKs().getDatabase();
+    private SQLiteDatabase hCk = f.bIW().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(n nVar) {
-        this.hBF.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        this.hCk.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(n nVar) {
-        this.hBF.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+        this.hCk.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<n> bKr() {
-        Cursor rawQuery = this.hBF.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+    public final List<n> bIV() {
+        Cursor rawQuery = this.hCk.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             n nVar = new n();
@@ -35,13 +35,13 @@ final class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void vX(String str) {
-        this.hBF.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+    public final void vY(String str) {
+        this.hCk.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean vY(String str) {
-        Cursor rawQuery = this.hBF.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+    public final boolean vZ(String str) {
+        Cursor rawQuery = this.hCk.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
         int count = rawQuery.getCount();
         rawQuery.close();
         return count > 0;

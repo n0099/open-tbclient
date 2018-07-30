@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class c {
-    private boolean blE = false;
+    private boolean bmk = false;
     private int mChannel;
 
     public c() {
-        Qx();
+        QE();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -20,30 +20,30 @@ public class c {
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 int intValue = it.next().intValue();
-                bVar.put(intValue, gp(intValue));
+                bVar.put(intValue, gu(intValue));
             }
         }
     }
 
-    private int gp(int i) {
+    private int gu(int i) {
         if (i == 1) {
-            return gq(i);
+            return gv(i);
         }
         if (this.mChannel == 1) {
-            return gs(i);
+            return gx(i);
         }
         if (this.mChannel == 0) {
-            return gq(i);
+            return gv(i);
         }
         return 0;
     }
 
-    private int gq(int i) {
-        String gr = gr(i);
-        return (!ap.isEmpty(gr) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(gr, 0) == 1) ? 1 : 0;
+    private int gv(int i) {
+        String gw = gw(i);
+        return (!ap.isEmpty(gw) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(gw, 0) == 1) ? 1 : 0;
     }
 
-    private String gr(int i) {
+    private String gw(int i) {
         if (i == 1) {
             return "key_card_show_type";
         }
@@ -53,53 +53,53 @@ public class c {
         return null;
     }
 
-    private int gs(int i) {
-        String gt = gt(i);
-        if (ap.isEmpty(gt)) {
+    private int gx(int i) {
+        String gy = gy(i);
+        if (ap.isEmpty(gy)) {
             return 0;
         }
-        SampleResult vV = com.baidu.ubs.analytics.a.vV(gt);
-        return (vV == SampleResult.T1 || vV == SampleResult.T2 || vV == SampleResult.T3 || vV == SampleResult.T4 || vV == SampleResult.T5) ? 1 : 0;
+        SampleResult vW = com.baidu.ubs.analytics.a.vW(gy);
+        return (vW == SampleResult.T1 || vW == SampleResult.T2 || vW == SampleResult.T3 || vW == SampleResult.T4 || vW == SampleResult.T5) ? 1 : 0;
     }
 
-    private String gt(int i) {
+    private String gy(int i) {
         if (i == 2) {
             return "46";
         }
         return null;
     }
 
-    private void Qx() {
+    private void QE() {
         this.mChannel = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0);
-        Qy();
+        QF();
     }
 
-    public void gu(int i) {
+    public void gz(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.mChannel);
-            Qy();
+            QF();
         }
     }
 
-    private void Qy() {
-        if (!this.blE && this.mChannel == 1) {
-            this.blE = QA();
-            if (!this.blE) {
+    private void QF() {
+        if (!this.bmk && this.mChannel == 1) {
+            this.bmk = QH();
+            if (!this.bmk) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean Qz() {
-        return this.blE;
+    public boolean QG() {
+        return this.bmk;
     }
 
-    public boolean QA() {
+    public boolean QH() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().cu(TbadkCoreApplication.getInst()).nS(false).df(30L).vP(1).nT(false).dg(15L).vQ(1000).bKo());
+                com.baidu.ubs.analytics.a.a(new c.a().cv(TbadkCoreApplication.getInst()).nG(false).dc(30L).vM(1).nH(false).dd(15L).vN(1000).bIS());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

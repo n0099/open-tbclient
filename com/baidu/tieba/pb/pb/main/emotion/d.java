@@ -19,20 +19,20 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class d extends BaseAdapter {
-    private List<String> fHI;
-    private com.baidu.tieba.pb.pb.main.emotion.a fvY;
+    private List<String> fHX;
+    private com.baidu.tieba.pb.pb.main.emotion.a fwk;
     private List<EmotionImageData> mList;
     private Context mContext = BdBaseApplication.getInst().getApp();
-    private Set<String> fnd = new HashSet();
-    private int mItemWidth = l.e(this.mContext, d.e.ds116);
-    private int eBg = (int) (((l.ah(this.mContext) - l.e(this.mContext, d.e.ds88)) - (this.mItemWidth * 4)) * 0.333d);
+    private Set<String> fno = new HashSet();
+    private int aob = l.f(this.mContext, d.e.ds116);
+    private int eEZ = (int) (((l.ah(this.mContext) - l.f(this.mContext, d.e.ds88)) - (this.aob * 4)) * 0.333d);
 
     public d(List<EmotionImageData> list) {
         this.mList = list;
     }
 
     public void a(com.baidu.tieba.pb.pb.main.emotion.a aVar) {
-        this.fvY = aVar;
+        this.fwk = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -55,15 +55,15 @@ public class d extends BaseAdapter {
         a aVar;
         if (view == null) {
             aVar = new a();
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.i.list_search_emotion_item, (ViewGroup) null);
-            aVar.fHM = (EmotionView) view.findViewById(d.g.emotion_view1);
-            aVar.fHN = (EmotionView) view.findViewById(d.g.emotion_view2);
-            aVar.fHO = (EmotionView) view.findViewById(d.g.emotion_view3);
-            aVar.fHP = (EmotionView) view.findViewById(d.g.emotion_view4);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_search_emotion_item, (ViewGroup) null);
+            aVar.fIb = (EmotionView) view.findViewById(d.g.emotion_view1);
+            aVar.fIc = (EmotionView) view.findViewById(d.g.emotion_view2);
+            aVar.fId = (EmotionView) view.findViewById(d.g.emotion_view3);
+            aVar.fIe = (EmotionView) view.findViewById(d.g.emotion_view4);
             aVar.initView();
-            w(aVar.fHN, this.eBg);
-            w(aVar.fHO, this.eBg);
-            w(aVar.fHP, this.eBg);
+            w(aVar.fIc, this.eEZ);
+            w(aVar.fId, this.eEZ);
+            w(aVar.fIe, this.eEZ);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -75,16 +75,16 @@ public class d extends BaseAdapter {
                 EmotionImageData emotionImageData = this.mList.get(i3);
                 switch (i3 - i2) {
                     case 0:
-                        a(aVar.fHM, emotionImageData);
+                        a(aVar.fIb, emotionImageData);
                         continue;
                     case 1:
-                        a(aVar.fHN, emotionImageData);
+                        a(aVar.fIc, emotionImageData);
                         continue;
                     case 2:
-                        a(aVar.fHO, emotionImageData);
+                        a(aVar.fId, emotionImageData);
                         continue;
                     case 3:
-                        a(aVar.fHP, emotionImageData);
+                        a(aVar.fIe, emotionImageData);
                         continue;
                 }
             }
@@ -93,17 +93,17 @@ public class d extends BaseAdapter {
     }
 
     public void removeListener() {
-        this.fvY = null;
+        this.fwk = null;
     }
 
     private void a(EmotionView emotionView, EmotionImageData emotionImageData) {
         if (emotionView != null && emotionImageData != null) {
             emotionView.setTag(emotionView.getId(), emotionImageData);
-            emotionView.apb();
+            emotionView.apC();
             emotionView.a(emotionImageData);
-            if (this.fnd != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                if (w.A(this.fHI) || !this.fHI.contains(emotionImageData.getThumbUrl())) {
-                    this.fnd.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
+            if (this.fno != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                if (w.z(this.fHX) || !this.fHX.contains(emotionImageData.getThumbUrl())) {
+                    this.fno.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
                 }
             }
         }
@@ -117,8 +117,8 @@ public class d extends BaseAdapter {
                 public void onClick(View view) {
                     Object tag = view.getTag(view.getId());
                     if (tag != null && (tag instanceof EmotionImageData)) {
-                        if (d.this.fvY != null && (view instanceof EmotionView)) {
-                            d.this.fvY.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
+                        if (d.this.fwk != null && (view instanceof EmotionView)) {
+                            d.this.fwk.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
                         }
                         TiebaStatic.log("c12180");
                     }
@@ -127,16 +127,16 @@ public class d extends BaseAdapter {
         }
     }
 
-    public void aZq() {
+    public void aXM() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.d.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (d.this.fnd != null) {
-                    for (String str : d.this.fnd) {
+                if (d.this.fno != null) {
+                    for (String str : d.this.fno) {
                         if (!TextUtils.isEmpty(str)) {
-                            com.baidu.tbadk.imageManager.c.IV().hg(str);
+                            com.baidu.tbadk.imageManager.c.IQ().hc(str);
                         }
                     }
                     return true;
@@ -154,25 +154,25 @@ public class d extends BaseAdapter {
         }
     }
 
-    public void db(List<String> list) {
-        this.fHI = list;
+    public void cX(List<String> list) {
+        this.fHX = list;
     }
 
     /* loaded from: classes2.dex */
     class a {
-        public EmotionView fHM;
-        public EmotionView fHN;
-        public EmotionView fHO;
-        public EmotionView fHP;
+        public EmotionView fIb;
+        public EmotionView fIc;
+        public EmotionView fId;
+        public EmotionView fIe;
 
         a() {
         }
 
         public void initView() {
-            d.this.l(this.fHM);
-            d.this.l(this.fHN);
-            d.this.l(this.fHO);
-            d.this.l(this.fHP);
+            d.this.l(this.fIb);
+            d.this.l(this.fIc);
+            d.this.l(this.fId);
+            d.this.l(this.fIe);
         }
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class f {
-    private String gMB;
+    private String gNz;
     private int status;
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public String bxe() {
-        return this.gMB;
+    public String bvH() {
+        return this.gNz;
     }
 
-    public void tK(String str) {
-        this.gMB = str;
+    public void tI(String str) {
+        this.gNz = str;
     }
 }

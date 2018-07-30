@@ -1,0 +1,584 @@
+package com.baidu.location.b;
+
+import android.annotation.SuppressLint;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
+import android.os.Build;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.location.d.g;
+import com.baidu.tbadk.TbConfig;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
+import java.util.regex.Pattern;
+/* loaded from: classes2.dex */
+public class e {
+    public List<ScanResult> a;
+    private long b;
+    private long c;
+    private boolean d = false;
+    private boolean e;
+
+    public e(List<ScanResult> list, long j) {
+        this.a = null;
+        this.b = 0L;
+        this.c = 0L;
+        this.b = j;
+        this.a = list;
+        this.c = System.currentTimeMillis();
+        l();
+    }
+
+    private boolean a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return Pattern.compile("wpa|wep", 2).matcher(str).find();
+    }
+
+    private String b(String str) {
+        return str != null ? (str.contains("&") || str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) ? str.replace("&", "_").replace(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "_") : str : str;
+    }
+
+    private void l() {
+        boolean z;
+        if (a() < 1) {
+            return;
+        }
+        boolean z2 = true;
+        for (int size = this.a.size() - 1; size >= 1 && z2; size--) {
+            int i = 0;
+            z2 = false;
+            while (i < size) {
+                if (this.a.get(i).level < this.a.get(i + 1).level) {
+                    this.a.set(i + 1, this.a.get(i));
+                    this.a.set(i, this.a.get(i + 1));
+                    z = true;
+                } else {
+                    z = z2;
+                }
+                i++;
+                z2 = z;
+            }
+        }
+    }
+
+    public int a() {
+        if (this.a == null) {
+            return 0;
+        }
+        return this.a.size();
+    }
+
+    public String a(int i) {
+        return a(i, false, false);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:131:0x03ab A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:135:0x03b5  */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x03b9  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x006f  */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x008b A[Catch: Error -> 0x01f8, Exception -> 0x03ae, TRY_LEAVE, TryCatch #0 {Exception -> 0x03ae, blocks: (B:7:0x000a, B:9:0x002a, B:11:0x0030, B:14:0x0053, B:17:0x005e, B:27:0x0077, B:32:0x008b, B:41:0x00ca, B:45:0x00da, B:47:0x00e5, B:48:0x0105, B:50:0x0113, B:53:0x0131, B:55:0x0158, B:57:0x0160, B:92:0x0252, B:73:0x01d1, B:75:0x01db, B:95:0x0276, B:99:0x0296, B:102:0x02b7, B:104:0x02bd, B:106:0x02d0, B:107:0x02eb, B:109:0x02f1, B:111:0x02f9, B:112:0x0302, B:113:0x030a, B:115:0x0319, B:117:0x0332, B:118:0x033b, B:120:0x036e, B:123:0x0382, B:125:0x0389, B:127:0x039a, B:128:0x03a3), top: B:140:0x000a }] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x0276 A[Catch: Error -> 0x01f8, Exception -> 0x03ae, TryCatch #0 {Exception -> 0x03ae, blocks: (B:7:0x000a, B:9:0x002a, B:11:0x0030, B:14:0x0053, B:17:0x005e, B:27:0x0077, B:32:0x008b, B:41:0x00ca, B:45:0x00da, B:47:0x00e5, B:48:0x0105, B:50:0x0113, B:53:0x0131, B:55:0x0158, B:57:0x0160, B:92:0x0252, B:73:0x01d1, B:75:0x01db, B:95:0x0276, B:99:0x0296, B:102:0x02b7, B:104:0x02bd, B:106:0x02d0, B:107:0x02eb, B:109:0x02f1, B:111:0x02f9, B:112:0x0302, B:113:0x030a, B:115:0x0319, B:117:0x0332, B:118:0x033b, B:120:0x036e, B:123:0x0382, B:125:0x0389, B:127:0x039a, B:128:0x03a3), top: B:140:0x000a }] */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String a(int i, boolean z, boolean z2) {
+        int i2;
+        String str;
+        String str2;
+        long j;
+        int size;
+        boolean z3;
+        int i3;
+        boolean z4;
+        long j2;
+        StringBuffer stringBuffer;
+        int i4;
+        int i5;
+        long j3;
+        char c;
+        boolean z5;
+        char c2;
+        if (a() < 1) {
+            return null;
+        }
+        char c3 = 0;
+        try {
+            try {
+                Random random = new Random();
+                StringBuffer stringBuffer2 = new StringBuffer(512);
+                ArrayList<Long> arrayList = new ArrayList();
+                WifiInfo qM = f.qL().qM();
+                if (qM == null || qM.getBSSID() == null) {
+                    i2 = -1;
+                    str = null;
+                    str2 = null;
+                } else {
+                    String replace = qM.getBSSID().replace(SystemInfoUtil.COLON, "");
+                    int rssi = qM.getRssi();
+                    String m = f.qL().m();
+                    if (rssi < 0) {
+                        i2 = -rssi;
+                        str = m;
+                        str2 = replace;
+                    } else {
+                        i2 = rssi;
+                        str = m;
+                        str2 = replace;
+                    }
+                }
+                long j4 = 0;
+                long j5 = 0;
+                boolean z6 = false;
+                if (Build.VERSION.SDK_INT >= 17) {
+                    try {
+                        j4 = SystemClock.elapsedRealtimeNanos() / 1000;
+                    } catch (Error e) {
+                        j4 = 0;
+                    }
+                    if (j4 > 0) {
+                        z6 = true;
+                        j = j4;
+                        boolean z7 = z6 ? z6 : z6 && z;
+                        int i6 = 0;
+                        int i7 = 0;
+                        size = this.a.size();
+                        z3 = true;
+                        if (size <= i) {
+                            i = size;
+                        }
+                        StringBuffer stringBuffer3 = null;
+                        i3 = 0;
+                        while (i3 < i) {
+                            if (this.a.get(i3).level == 0) {
+                                stringBuffer = stringBuffer3;
+                                i4 = i7;
+                                boolean z8 = z3;
+                                i5 = i6;
+                                j3 = j5;
+                                c = c3;
+                                z5 = z8;
+                            } else {
+                                if (z7) {
+                                    try {
+                                        j2 = (j - this.a.get(i3).timestamp) / 1000000;
+                                    } catch (Exception e2) {
+                                        j2 = 0;
+                                    }
+                                    arrayList.add(Long.valueOf(j2));
+                                    if (j2 > j5) {
+                                        j5 = j2;
+                                    }
+                                }
+                                if (z3) {
+                                    z3 = false;
+                                    stringBuffer2.append("&wf=");
+                                    if (z2) {
+                                        stringBuffer3 = new StringBuffer();
+                                        stringBuffer3.append("&wf_ch=");
+                                        stringBuffer3.append(b(this.a.get(i3).frequency));
+                                    }
+                                } else {
+                                    stringBuffer2.append("|");
+                                    if (z2) {
+                                        stringBuffer3.append("|");
+                                        stringBuffer3.append(b(this.a.get(i3).frequency));
+                                    }
+                                }
+                                String str3 = this.a.get(i3).BSSID;
+                                if (str3 != null) {
+                                    String replace2 = str3.replace(SystemInfoUtil.COLON, "");
+                                    stringBuffer2.append(replace2);
+                                    int i8 = this.a.get(i3).level;
+                                    if (i8 < 0) {
+                                        i8 = -i8;
+                                    }
+                                    stringBuffer2.append(String.format(Locale.CHINA, ";%d;", Integer.valueOf(i8)));
+                                    i6++;
+                                    boolean z9 = false;
+                                    if (str2 != null && str2.equals(replace2)) {
+                                        this.e = a(this.a.get(i3).capabilities);
+                                        z9 = true;
+                                        i7 = i6;
+                                    }
+                                    if (z9) {
+                                        stringBuffer2.append(b(this.a.get(i3).SSID));
+                                    } else {
+                                        if (c3 == 0) {
+                                            try {
+                                                if (random.nextInt(10) == 2 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
+                                                    stringBuffer2.append(b(this.a.get(i3).SSID));
+                                                    c2 = 1;
+                                                }
+                                                c2 = c3;
+                                            } catch (Exception e3) {
+                                                stringBuffer = stringBuffer3;
+                                                i4 = i7;
+                                                boolean z10 = z3;
+                                                i5 = i6;
+                                                j3 = j5;
+                                                c = c3;
+                                                z5 = z10;
+                                            }
+                                        } else {
+                                            if (c3 == 1 && random.nextInt(20) == 1 && this.a.get(i3).SSID != null && this.a.get(i3).SSID.length() < 30) {
+                                                stringBuffer2.append(b(this.a.get(i3).SSID));
+                                                c2 = 2;
+                                            }
+                                            c2 = c3;
+                                        }
+                                        z5 = z3;
+                                        i5 = i6;
+                                        int i9 = i7;
+                                        j3 = j5;
+                                        c = c2;
+                                        stringBuffer = stringBuffer3;
+                                        i4 = i9;
+                                    }
+                                }
+                                stringBuffer = stringBuffer3;
+                                i4 = i7;
+                                boolean z11 = z3;
+                                i5 = i6;
+                                j3 = j5;
+                                c = c3;
+                                z5 = z11;
+                            }
+                            i3++;
+                            boolean z12 = z5;
+                            c3 = c;
+                            j5 = j3;
+                            i7 = i4;
+                            i6 = i5;
+                            stringBuffer3 = stringBuffer;
+                            z3 = z12;
+                        }
+                        if (z3) {
+                            stringBuffer2.append("&wf_n=" + i7);
+                            if (str2 != null && i2 != -1) {
+                                stringBuffer2.append("&wf_rs=" + i2);
+                            }
+                            if (j5 > 10 && arrayList.size() > 0 && ((Long) arrayList.get(0)).longValue() > 0) {
+                                StringBuffer stringBuffer4 = new StringBuffer(128);
+                                stringBuffer4.append("&wf_ut=");
+                                boolean z13 = true;
+                                Long l = (Long) arrayList.get(0);
+                                for (Long l2 : arrayList) {
+                                    if (z13) {
+                                        stringBuffer4.append(l2.longValue());
+                                        z4 = false;
+                                    } else {
+                                        long longValue = l2.longValue() - l.longValue();
+                                        if (longValue != 0) {
+                                            stringBuffer4.append("" + longValue);
+                                        }
+                                        z4 = z13;
+                                    }
+                                    stringBuffer4.append("|");
+                                    z13 = z4;
+                                }
+                                stringBuffer2.append(stringBuffer4.toString());
+                            }
+                            stringBuffer2.append("&wf_st=");
+                            stringBuffer2.append(this.b);
+                            stringBuffer2.append("&wf_et=");
+                            stringBuffer2.append(this.c);
+                            stringBuffer2.append("&wf_vt=");
+                            stringBuffer2.append(f.a);
+                            if (i7 > 0) {
+                                this.d = true;
+                                stringBuffer2.append("&wf_en=");
+                                stringBuffer2.append(this.e ? 1 : 0);
+                            }
+                            if (str != null) {
+                                stringBuffer2.append("&wf_gw=");
+                                stringBuffer2.append(str);
+                            }
+                            if (stringBuffer3 != null) {
+                                stringBuffer2.append(stringBuffer3.toString());
+                            }
+                            return stringBuffer2.toString();
+                        }
+                        return null;
+                    }
+                }
+                j = j4;
+                if (z6) {
+                }
+                int i62 = 0;
+                int i72 = 0;
+                size = this.a.size();
+                z3 = true;
+                if (size <= i) {
+                }
+                StringBuffer stringBuffer32 = null;
+                i3 = 0;
+                while (i3 < i) {
+                }
+                if (z3) {
+                }
+            } catch (Exception e4) {
+                return null;
+            }
+        } catch (Error e5) {
+            return null;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0045  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x004c  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0098  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean a(long j) {
+        boolean z;
+        long j2;
+        int i;
+        int i2;
+        long j3;
+        long j4 = 0;
+        long j5 = 0;
+        long j6 = 0;
+        if (Build.VERSION.SDK_INT >= 17) {
+            try {
+                j4 = SystemClock.elapsedRealtimeNanos() / 1000;
+            } catch (Error e) {
+                j4 = 0;
+            } catch (Exception e2) {
+                j4 = 0;
+            }
+            if (j4 > 0) {
+                z = true;
+                j2 = j4;
+                if (z || this.a == null || this.a.size() == 0) {
+                    return false;
+                }
+                int size = this.a.size();
+                i = size <= 16 ? 16 : size;
+                for (i2 = 0; i2 < i; i2++) {
+                    if (this.a.get(i2).level != 0 && z) {
+                        try {
+                            j3 = (j2 - this.a.get(i2).timestamp) / 1000000;
+                        } catch (Error e3) {
+                            j3 = 0;
+                        } catch (Exception e4) {
+                            j3 = 0;
+                        }
+                        j6 += j3;
+                        if (j3 > j5) {
+                            j5 = j3;
+                        }
+                    }
+                }
+                return 1000 * j5 <= j || (j6 / ((long) i)) * 1000 > j;
+            }
+        }
+        z = false;
+        j2 = j4;
+        if (z) {
+            return false;
+        }
+        int size2 = this.a.size();
+        if (size2 <= 16) {
+        }
+        while (i2 < i) {
+        }
+        return 1000 * j5 <= j || (j6 / ((long) i)) * 1000 > j;
+    }
+
+    public boolean a(e eVar) {
+        if (this.a == null || eVar == null || eVar.a == null) {
+            return false;
+        }
+        int size = this.a.size() < eVar.a.size() ? this.a.size() : eVar.a.size();
+        for (int i = 0; i < size; i++) {
+            if (!this.a.get(i).BSSID.equals(eVar.a.get(i).BSSID)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public int b(int i) {
+        if (i <= 2400 || i >= 2500) {
+            return (i <= 4900 || i >= 5900) ? 0 : 5;
+        }
+        return 2;
+    }
+
+    public String b() {
+        try {
+            return a(g.O, true, true);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public boolean b(e eVar) {
+        if (this.a == null || eVar == null || eVar.a == null) {
+            return false;
+        }
+        int size = this.a.size() < eVar.a.size() ? this.a.size() : eVar.a.size();
+        for (int i = 0; i < size; i++) {
+            String str = this.a.get(i).BSSID;
+            int i2 = this.a.get(i).level;
+            String str2 = eVar.a.get(i).BSSID;
+            int i3 = eVar.a.get(i).level;
+            if (!str.equals(str2) || i2 != i3) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public String c() {
+        try {
+            return a(g.O, true, false);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String c(int i) {
+        int i2;
+        int i3 = 0;
+        if (i == 0 || a() < 1) {
+            return null;
+        }
+        StringBuffer stringBuffer = new StringBuffer(256);
+        int size = this.a.size();
+        int i4 = size > g.O ? g.O : size;
+        int i5 = 1;
+        int i6 = 0;
+        while (i6 < i4) {
+            if ((i5 & i) == 0 || this.a.get(i6).BSSID == null) {
+                i2 = i3;
+            } else {
+                if (i3 == 0) {
+                    stringBuffer.append("&ssid=");
+                } else {
+                    stringBuffer.append("|");
+                }
+                stringBuffer.append(this.a.get(i6).BSSID.replace(SystemInfoUtil.COLON, ""));
+                stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                stringBuffer.append(b(this.a.get(i6).SSID));
+                i2 = i3 + 1;
+            }
+            i5 <<= 1;
+            i6++;
+            i3 = i2;
+        }
+        return stringBuffer.toString();
+    }
+
+    public boolean c(e eVar) {
+        return f.a(eVar, this);
+    }
+
+    public String d() {
+        try {
+            return a(15);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public boolean e() {
+        return a(g.af);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x003d  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0044  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0096  */
+    /* JADX WARN: Removed duplicated region for block: B:49:? A[RETURN, SYNTHETIC] */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public long f() {
+        boolean z;
+        int i;
+        int i2;
+        long j;
+        if (this.a == null || this.a.size() == 0) {
+            return 0L;
+        }
+        long j2 = 0;
+        long j3 = 0;
+        long j4 = 0;
+        long j5 = 0;
+        if (Build.VERSION.SDK_INT >= 17) {
+            try {
+                j2 = SystemClock.elapsedRealtimeNanos() / 1000;
+            } catch (Error e) {
+                j2 = 0;
+            } catch (Exception e2) {
+                j2 = 0;
+            }
+            if (j2 > 0) {
+                z = true;
+                int size = this.a.size();
+                i = size <= 16 ? 16 : size;
+                for (i2 = 0; i2 < i; i2++) {
+                    if (this.a.get(i2).level != 0 && z) {
+                        try {
+                            j = (j2 - this.a.get(i2).timestamp) / 1000000;
+                        } catch (Error e3) {
+                            j = 0;
+                        } catch (Exception e4) {
+                            j = 0;
+                        }
+                        j4 += j;
+                        j5++;
+                        if (j > j3) {
+                            j3 = j;
+                        }
+                    }
+                }
+                return j5 <= 1 ? (j4 - j3) / (j5 - 1) : j3;
+            }
+        }
+        z = false;
+        int size2 = this.a.size();
+        if (size2 <= 16) {
+        }
+        while (i2 < i) {
+        }
+        if (j5 <= 1) {
+        }
+    }
+
+    public int g() {
+        for (int i = 0; i < a(); i++) {
+            int i2 = -this.a.get(i).level;
+            if (i2 > 0) {
+                return i2;
+            }
+        }
+        return 0;
+    }
+
+    public boolean h() {
+        return this.d;
+    }
+
+    public boolean i() {
+        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
+    }
+
+    public boolean j() {
+        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
+    }
+
+    public boolean k() {
+        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.b < TbConfig.NOTIFY_SOUND_INTERVAL;
+    }
+}

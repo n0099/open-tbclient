@@ -10,19 +10,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class Auth {
-    private static Throwable Pu;
-    private String Pw;
-    private String Px;
+    private static Throwable Pr;
+    private String Pt;
+    private String Pu;
     private long mExpiresTime;
-    private int Pv = 1;
+    private int Ps = 1;
     private String mToken = null;
 
     static {
         try {
             System.loadLibrary("aip-native-auth");
-            Pu = null;
+            Pr = null;
         } catch (Throwable th) {
-            Pu = new AuthException(283506, AuthException.a);
+            Pr = new AuthException(283506, AuthException.a);
         }
     }
 
@@ -40,14 +40,14 @@ public class Auth {
 
     private static String md5(String str) {
         try {
-            return w(MessageDigest.getInstance("MD5").digest(str.getBytes()));
+            return u(MessageDigest.getInstance("MD5").digest(str.getBytes()));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    private boolean os() {
+    private boolean ou() {
         return System.currentTimeMillis() > this.mExpiresTime;
     }
 
@@ -72,7 +72,7 @@ public class Auth {
         }
     }
 
-    private static String w(byte[] bArr) {
+    private static String u(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] cArr2 = new char[bArr.length * 2];
         int i = 0;
@@ -88,14 +88,14 @@ public class Auth {
     public String an(Context context) {
         String str;
         String str2 = null;
-        if (os() || this.mToken == null) {
-            if (this.Pv == 0) {
+        if (ou() || this.mToken == null) {
+            if (this.Ps == 0) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/sk?channel=ar";
-                str = f(context, this.Pw, this.Px);
+                str = f(context, this.Pt, this.Pu);
             } else {
                 str = null;
             }
-            if (this.Pv == 1) {
+            if (this.Ps == 1) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/bin?channel=ar";
                 str = ao(context);
             }

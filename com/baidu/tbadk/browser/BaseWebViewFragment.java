@@ -30,22 +30,22 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return N(this.mUrl, "nonavigationbar");
+        return M(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return N(this.mUrl, "noshare");
+        return M(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return N(this.mUrl, "nomenu");
+        return M(this.mUrl, "nomenu");
     }
 
-    public boolean cM(String str) {
-        return N(str, "blank");
+    public boolean cJ(String str) {
+        return M(str, "blank");
     }
 
-    public boolean N(String str, String str2) {
+    public boolean M(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
@@ -76,7 +76,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
         com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
-            dVar.title = getResources().getString(d.k.share_from_tieba);
+            dVar.title = getResources().getString(d.j.share_from_tieba);
         } else {
             dVar.title = this.mUrlTitle;
         }

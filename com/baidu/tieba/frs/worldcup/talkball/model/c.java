@@ -12,14 +12,14 @@ import tbclient.TalkBall.AdidasAdvert;
 import tbclient.TalkBall.CardInfo;
 import tbclient.TalkBall.DataRes;
 import tbclient.TalkBall.TalkBallResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements com.baidu.tbadk.mvc.b.c {
-    private int cCk;
-    private long dJt;
-    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> dJw;
-    private AdidasAdvert dJx;
-    private e dJy;
-    private m dJz;
+    private int cEP;
+    private long dMj;
+    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> dMm;
+    private AdidasAdvert dMn;
+    private e dMo;
+    private m dMp;
     private List<com.baidu.tieba.frs.worldcup.talkball.b.b> mThreadList;
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -37,29 +37,29 @@ public class c implements com.baidu.tbadk.mvc.b.c {
                 for (CardInfo cardInfo : list) {
                     com.baidu.tieba.frs.worldcup.talkball.b.b bVar = new com.baidu.tieba.frs.worldcup.talkball.b.b();
                     bVar.a(cardInfo);
-                    if (!bVar.aAS() || bVar.aAR() == null || bVar.aAR().aBb() == null || !bVar.aAR().aBb().isEmpty()) {
+                    if (!bVar.aBB() || bVar.aBA() == null || bVar.aBA().aBK() == null || !bVar.aBA().aBK().isEmpty()) {
                         this.mThreadList.add(bVar);
                     }
                 }
             }
-            this.dJw = new ArrayList();
+            this.dMm = new ArrayList();
             List<BannerImage> list2 = dataRes.banner_images;
             if (list2 != null) {
                 for (BannerImage bannerImage : list2) {
                     if (bannerImage != null && !TextUtils.isEmpty(bannerImage.img_url)) {
                         com.baidu.tieba.frs.worldcup.talkball.b.a aVar = new com.baidu.tieba.frs.worldcup.talkball.b.a();
                         aVar.a(bannerImage);
-                        this.dJw.add(aVar);
+                        this.dMm.add(aVar);
                     }
                 }
             }
-            this.dJx = dataRes.adidas_advert;
-            this.cCk = dataRes.has_more.intValue();
-            this.dJt = dataRes.last_thread_id.longValue();
-            this.dJy = new e();
-            this.dJy.a(dataRes.guessing_competition);
-            this.dJz = new m();
-            this.dJz.a(dataRes.redpacketrain);
+            this.dMn = dataRes.adidas_advert;
+            this.cEP = dataRes.has_more.intValue();
+            this.dMj = dataRes.last_thread_id.longValue();
+            this.dMo = new e();
+            this.dMo.a(dataRes.guessing_competition);
+            this.dMp = new m();
+            this.dMp.a(dataRes.redpacketrain);
         }
     }
 
@@ -67,28 +67,28 @@ public class c implements com.baidu.tbadk.mvc.b.c {
         return this.mThreadList;
     }
 
-    public List<com.baidu.tieba.frs.worldcup.talkball.b.a> aBg() {
-        return this.dJw;
+    public List<com.baidu.tieba.frs.worldcup.talkball.b.a> aBP() {
+        return this.dMm;
     }
 
-    public int aoZ() {
-        return this.cCk;
+    public int apA() {
+        return this.cEP;
     }
 
-    public long aBh() {
-        return this.dJt;
+    public long aBQ() {
+        return this.dMj;
     }
 
-    public e aBi() {
-        return this.dJy;
+    public e aBR() {
+        return this.dMo;
     }
 
-    public AdidasAdvert aBj() {
-        return this.dJx;
+    public AdidasAdvert aBS() {
+        return this.dMn;
     }
 
-    public m aBk() {
-        return this.dJz;
+    public m aBT() {
+        return this.dMp;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -97,16 +97,16 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Jx() {
+    public byte[] Js() {
         return new byte[0];
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void v(JSONObject jSONObject) {
+    public void u(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean A(byte[] bArr) {
+    public boolean y(byte[] bArr) {
         return false;
     }
 }

@@ -15,50 +15,50 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView.a {
-    private EditorTools Qj;
-    private int Qk;
-    private a aOU;
-    private int aOZ;
-    private CommonTabContentView aPh;
-    private CommonTabWidgetView aPi;
-    private ArrayList<com.baidu.tbadk.editortools.view.a> alT;
-    private int azP;
-    private boolean isInited;
-    private int mBgColor;
+    private EditorTools Qg;
+    private int Qh;
+    private int aLX;
+    private a aOT;
+    private int aOY;
+    private CommonTabContentView aPg;
+    private CommonTabWidgetView aPh;
+    private boolean aPi;
+    private ArrayList<com.baidu.tbadk.editortools.view.a> alt;
+    private int azI;
     private Context mContext;
     private ProgressBar mProgressBar;
 
     /* loaded from: classes.dex */
     public interface a {
-        void IF();
+        void IA();
 
-        void IG();
+        void IB();
 
         void c(com.baidu.tbadk.editortools.view.a aVar);
     }
 
     public CommonTabHost(Context context) {
         super(context);
-        this.alT = new ArrayList<>();
-        this.aOZ = -1;
-        this.azP = -1;
-        this.Qk = 0;
-        this.mBgColor = d.C0142d.common_color_10255;
-        this.aOU = new a() { // from class: com.baidu.tbadk.editortools.view.CommonTabHost.1
+        this.alt = new ArrayList<>();
+        this.aOY = -1;
+        this.azI = -1;
+        this.Qh = 0;
+        this.aLX = d.C0140d.common_color_10255;
+        this.aOT = new a() { // from class: com.baidu.tbadk.editortools.view.CommonTabHost.1
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
             public void c(com.baidu.tbadk.editortools.view.a aVar) {
                 boolean z;
                 CommonTabHost.this.hideProgressBar();
-                CommonTabHost.this.aPi.reset();
-                CommonTabHost.this.aPi.setDatas(CommonTabHost.this.alT);
-                int size = CommonTabHost.this.alT.size();
+                CommonTabHost.this.aPh.reset();
+                CommonTabHost.this.aPh.setDatas(CommonTabHost.this.alt);
+                int size = CommonTabHost.this.alt.size();
                 int i = 0;
                 boolean z2 = false;
                 while (i < size) {
-                    a.b Iz = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.alT.get(i)).Iz();
-                    if (Iz != null) {
+                    a.b Iu = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.alt.get(i)).Iu();
+                    if (Iu != null) {
                         z = true;
-                        CommonTabHost.this.c(Iz);
+                        CommonTabHost.this.c(Iu);
                     } else {
                         z = z2;
                     }
@@ -66,51 +66,51 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                     z2 = z;
                 }
                 if (!z2) {
-                    CommonTabHost.this.aPi.setVisibility(8);
+                    CommonTabHost.this.aPh.setVisibility(8);
                 }
-                if (CommonTabHost.this.aOZ >= 0) {
-                    CommonTabHost.this.setCurrentTab(CommonTabHost.this.aOZ);
+                if (CommonTabHost.this.aOY >= 0) {
+                    CommonTabHost.this.setCurrentTab(CommonTabHost.this.aOY);
                 } else {
                     CommonTabHost.this.setCurrentTab(0);
                 }
             }
 
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
-            public void IF() {
+            public void IA() {
                 CommonTabHost.this.showProgressBar();
             }
 
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
-            public void IG() {
+            public void IB() {
                 CommonTabHost.this.hideProgressBar();
             }
         };
-        this.isInited = false;
+        this.aPi = false;
         init(context);
     }
 
     public CommonTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alT = new ArrayList<>();
-        this.aOZ = -1;
-        this.azP = -1;
-        this.Qk = 0;
-        this.mBgColor = d.C0142d.common_color_10255;
-        this.aOU = new a() { // from class: com.baidu.tbadk.editortools.view.CommonTabHost.1
+        this.alt = new ArrayList<>();
+        this.aOY = -1;
+        this.azI = -1;
+        this.Qh = 0;
+        this.aLX = d.C0140d.common_color_10255;
+        this.aOT = new a() { // from class: com.baidu.tbadk.editortools.view.CommonTabHost.1
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
             public void c(com.baidu.tbadk.editortools.view.a aVar) {
                 boolean z;
                 CommonTabHost.this.hideProgressBar();
-                CommonTabHost.this.aPi.reset();
-                CommonTabHost.this.aPi.setDatas(CommonTabHost.this.alT);
-                int size = CommonTabHost.this.alT.size();
+                CommonTabHost.this.aPh.reset();
+                CommonTabHost.this.aPh.setDatas(CommonTabHost.this.alt);
+                int size = CommonTabHost.this.alt.size();
                 int i = 0;
                 boolean z2 = false;
                 while (i < size) {
-                    a.b Iz = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.alT.get(i)).Iz();
-                    if (Iz != null) {
+                    a.b Iu = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.alt.get(i)).Iu();
+                    if (Iu != null) {
                         z = true;
-                        CommonTabHost.this.c(Iz);
+                        CommonTabHost.this.c(Iu);
                     } else {
                         z = z2;
                     }
@@ -118,60 +118,60 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                     z2 = z;
                 }
                 if (!z2) {
-                    CommonTabHost.this.aPi.setVisibility(8);
+                    CommonTabHost.this.aPh.setVisibility(8);
                 }
-                if (CommonTabHost.this.aOZ >= 0) {
-                    CommonTabHost.this.setCurrentTab(CommonTabHost.this.aOZ);
+                if (CommonTabHost.this.aOY >= 0) {
+                    CommonTabHost.this.setCurrentTab(CommonTabHost.this.aOY);
                 } else {
                     CommonTabHost.this.setCurrentTab(0);
                 }
             }
 
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
-            public void IF() {
+            public void IA() {
                 CommonTabHost.this.showProgressBar();
             }
 
             @Override // com.baidu.tbadk.editortools.view.CommonTabHost.a
-            public void IG() {
+            public void IB() {
                 CommonTabHost.this.hideProgressBar();
             }
         };
-        this.isInited = false;
+        this.aPi = false;
         init(context);
     }
 
     public void b(com.baidu.tbadk.editortools.view.a aVar) {
-        aVar.a(this.aOU);
-        aVar.setEditorTools(this.Qj);
-        this.alT.add(aVar);
+        aVar.a(this.aOT);
+        aVar.setEditorTools(this.Qg);
+        this.alt.add(aVar);
     }
 
     private void init(Context context) {
         this.mContext = context;
         removeAllViews();
-        LayoutInflater.from(context).inflate(d.i.common_tab_host, (ViewGroup) this, true);
-        this.aPh = (CommonTabContentView) findViewById(d.g.common_tab_content);
-        this.aPi = (CommonTabWidgetView) findViewById(d.g.common_tab_widget);
+        LayoutInflater.from(context).inflate(d.h.common_tab_host, (ViewGroup) this, true);
+        this.aPg = (CommonTabContentView) findViewById(d.g.common_tab_content);
+        this.aPh = (CommonTabWidgetView) findViewById(d.g.common_tab_widget);
         this.mProgressBar = (ProgressBar) findViewById(d.g.common_progress);
-        this.aPi.setOnTabSelectedListener(this);
-        this.aPi.setEditorTools(this.Qj);
+        this.aPh.setOnTabSelectedListener(this);
+        this.aPh.setEditorTools(this.Qg);
         setOrientation(1);
-        this.azP = TbadkCoreApplication.getInst().getSkinType();
-        setBackgroundColorId(d.C0142d.cp_bg_line_d);
+        this.azI = TbadkCoreApplication.getInst().getSkinType();
+        setBackgroundColorId(d.C0140d.cp_bg_line_d);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.azP) {
-            this.azP = skinType;
-            onChangeSkinType(this.azP);
+        if (skinType != this.azI) {
+            this.azI = skinType;
+            onChangeSkinType(this.azI);
         }
-        if (i != 8 && i != 4 && !this.isInited) {
-            this.isInited = true;
-            Iterator<com.baidu.tbadk.editortools.view.a> it = this.alT.iterator();
+        if (i != 8 && i != 4 && !this.aPi) {
+            this.aPi = true;
+            Iterator<com.baidu.tbadk.editortools.view.a> it = this.alt.iterator();
             while (it.hasNext()) {
                 it.next().init(this.mContext);
             }
@@ -180,23 +180,23 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(a.b bVar) {
-        this.aPi.c(bVar);
+        this.aPh.c(bVar);
     }
 
     public void setShowDelete(boolean z) {
-        this.aPi.setShowDelete(z);
+        this.aPh.setShowDelete(z);
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.alT.size()) {
-            this.aPh.a(this.alT.get(i));
-            this.aPi.setCurrentTab(i);
-            this.aOZ = i;
+        if (i >= 0 && i < this.alt.size()) {
+            this.aPg.a(this.alt.get(i));
+            this.aPh.setCurrentTab(i);
+            this.aOY = i;
         }
     }
 
     @Override // com.baidu.tbadk.editortools.view.CommonTabWidgetView.a
-    public void eY(int i) {
+    public void eZ(int i) {
         setCurrentTab(i);
     }
 
@@ -212,15 +212,15 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        am.e(this, this.mBgColor, i);
-        this.aPi.onChangeSkinType(i);
+        am.e(this, this.aLX, i);
         this.aPh.onChangeSkinType(i);
+        this.aPg.onChangeSkinType(i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Iterator<com.baidu.tbadk.editortools.view.a> it = this.alT.iterator();
+        Iterator<com.baidu.tbadk.editortools.view.a> it = this.alt.iterator();
         while (it.hasNext()) {
             it.next().exit();
         }
@@ -228,39 +228,39 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.Qj = editorTools;
-        if (this.alT != null && this.alT.size() != 0) {
-            Iterator<com.baidu.tbadk.editortools.view.a> it = this.alT.iterator();
+        this.Qg = editorTools;
+        if (this.alt != null && this.alt.size() != 0) {
+            Iterator<com.baidu.tbadk.editortools.view.a> it = this.alt.iterator();
             while (it.hasNext()) {
-                it.next().setEditorTools(this.Qj);
+                it.next().setEditorTools(this.Qg);
             }
         }
-        if (this.aPi != null) {
-            this.aPi.setEditorTools(this.Qj);
+        if (this.aPh != null) {
+            this.aPh.setEditorTools(this.Qg);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Qj != null) {
-            this.Qj.b(aVar);
+        if (this.Qg != null) {
+            this.Qg.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.Qk = i;
+        this.Qh = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.Qk;
+        return this.Qh;
     }
 
     public void init() {
     }
 
-    public void oD() {
+    public void oF() {
         setVisibility(0);
     }
 
@@ -270,7 +270,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     }
 
     public void a(com.baidu.tbadk.editortools.a aVar) {
-        Iterator<com.baidu.tbadk.editortools.view.a> it = this.alT.iterator();
+        Iterator<com.baidu.tbadk.editortools.view.a> it = this.alt.iterator();
         while (it.hasNext()) {
             it.next().a(aVar);
         }
@@ -278,6 +278,6 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
 
     public void setBackgroundColorId(int i) {
         super.setBackgroundColor(getContext().getResources().getColor(i));
-        this.mBgColor = i;
+        this.aLX = i;
     }
 }

@@ -72,7 +72,7 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
+        /* renamed from: A */
         public c doInBackground(String... strArr) {
             c cVar;
             Exception e;
@@ -87,7 +87,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.o("scr_w", String.valueOf(l.ah(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_h", String.valueOf(l.aj(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_dip", String.valueOf(l.ak(TbadkCoreApplication.getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.DW().DZ() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.DS().DV() > 0) {
                     this.mNetWork.o("_msg_status", "0");
                 } else {
                     this.mNetWork.o("_msg_status", "1");
@@ -108,11 +108,11 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.o("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
                 this.mNetWork.o("signmd5", as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.o(ARResourceKey.HTTP_AR_MD5, g.getTiebaApkMd5());
-                String yz = this.mNetWork.yz();
-                if (this.mNetWork.yX().zY().isRequestSuccess()) {
+                String yq = this.mNetWork.yq();
+                if (this.mNetWork.yO().zN().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(yz);
+                        cVar.parserJson(yq);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

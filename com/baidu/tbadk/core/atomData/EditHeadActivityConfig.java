@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -14,6 +15,7 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final String CUT_IMAGE_HEIGHT_SCALE = "cut_image_height_scale";
     public static final String EDITTYPE = "edit_type";
     public static final String FROMCODE = "request";
+    public static final String FROM_ALA_LIVE_COVER_CUT = "fom_ala_live_cover";
     public static final String FROM_MISSON_SET_COVER = "from_misson_set_cover";
     public static final String FROM_PHOTO_LIVE = "from_photo_live";
     public static final String FROM_WHERE = "from_where";
@@ -53,6 +55,13 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public EditHeadActivityConfig setFromWhere(String str) {
+        if (!StringUtils.isNull(str)) {
+            getIntent().putExtra(FROM_WHERE, str);
+        }
+        return this;
     }
 
     public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f) {

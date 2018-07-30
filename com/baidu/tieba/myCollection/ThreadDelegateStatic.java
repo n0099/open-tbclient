@@ -18,17 +18,17 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Js() {
+    public com.baidu.tbadk.mainTab.c Jn() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aRL = ThreadFragment.aYx();
+        cVar.aRL = ThreadFragment.aWT();
         cVar.type = 1;
-        cVar.aRM = d.k.collect_thread;
+        cVar.aRM = d.j.collect_thread;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bd(Context context) {
-        this.aRx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.i.fragmenttabindicator, (ViewGroup) null);
+    public TbFragmentTabIndicator be(Context context) {
+        this.aRx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
         return this.aRx;
     }
 
@@ -37,13 +37,13 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.tbadk.mainTab.c Jt;
+                com.baidu.tbadk.mainTab.c Jo;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.collectTab.a)) {
                     com.baidu.tbadk.collectTab.a aVar = (com.baidu.tbadk.collectTab.a) customResponsedMessage.getData();
                     ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                     aVar.a(threadDelegateStatic);
-                    if (aVar.getContext() != null && (Jt = threadDelegateStatic.Jt()) != null) {
-                        Jt.aRL.setArguments(new Bundle());
+                    if (aVar.getContext() != null && (Jo = threadDelegateStatic.Jo()) != null) {
+                        Jo.aRL.setArguments(new Bundle());
                     }
                 }
             }

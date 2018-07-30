@@ -12,66 +12,66 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup eIC;
-    private TextView eID;
-    private TextView eIE;
-    private ImageView eIF;
-    private TextView eIG;
-    private ImageView eIH;
-    private TextView eII;
-    private int eIJ;
-    private int eIK;
-    private int eIL;
+    private TextView eMA;
+    private ImageView eMB;
+    private TextView eMC;
+    private int eMD;
+    private int eME;
+    private int eMF;
+    private ViewGroup eMw;
+    private TextView eMx;
+    private TextView eMy;
+    private ImageView eMz;
 
     public a(Context context) {
-        this.eIC = (ViewGroup) LayoutInflater.from(context).inflate(d.i.label_recommend_header, (ViewGroup) null);
-        this.eID = (TextView) this.eIC.findViewById(d.g.choose_like_label);
-        this.eIE = (TextView) this.eIC.findViewById(d.g.recommend_interest_thread);
-        this.eIF = (ImageView) this.eIC.findViewById(d.g.male_icon);
-        this.eIG = (TextView) this.eIC.findViewById(d.g.male_text);
-        this.eIH = (ImageView) this.eIC.findViewById(d.g.female_icon);
-        this.eII = (TextView) this.eIC.findViewById(d.g.female_text);
-        this.eIF.setOnClickListener(this);
-        this.eIH.setOnClickListener(this);
+        this.eMw = (ViewGroup) LayoutInflater.from(context).inflate(d.h.label_recommend_header, (ViewGroup) null);
+        this.eMx = (TextView) this.eMw.findViewById(d.g.choose_like_label);
+        this.eMy = (TextView) this.eMw.findViewById(d.g.recommend_interest_thread);
+        this.eMz = (ImageView) this.eMw.findViewById(d.g.male_icon);
+        this.eMA = (TextView) this.eMw.findViewById(d.g.male_text);
+        this.eMB = (ImageView) this.eMw.findViewById(d.g.female_icon);
+        this.eMC = (TextView) this.eMw.findViewById(d.g.female_text);
+        this.eMz.setOnClickListener(this);
+        this.eMB.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        am.h(this.eID, d.C0142d.cp_cont_b);
-        am.h(this.eIE, d.C0142d.cp_cont_d);
-        am.c(this.eIF, d.f.img_lable_boy_n);
-        am.h(this.eIG, d.C0142d.cp_cont_d);
-        am.c(this.eIH, d.f.img_lable_girl_n);
-        am.h(this.eII, d.C0142d.cp_cont_d);
+        am.h(this.eMx, d.C0140d.cp_cont_b);
+        am.h(this.eMy, d.C0140d.cp_cont_d);
+        am.c(this.eMz, d.f.img_lable_boy_n);
+        am.h(this.eMA, d.C0140d.cp_cont_d);
+        am.c(this.eMB, d.f.img_lable_girl_n);
+        am.h(this.eMC, d.C0140d.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (w.z(list) == 2) {
-            this.eIJ = list.get(0).labelId;
-            this.eIK = list.get(1).labelId;
+        if (w.y(list) == 2) {
+            this.eMD = list.get(0).labelId;
+            this.eME = list.get(1).labelId;
         }
     }
 
-    public ViewGroup aPu() {
-        return this.eIC;
+    public ViewGroup aQu() {
+        return this.eMw;
     }
 
-    public int aPv() {
-        return this.eIL;
+    public int aQv() {
+        return this.eMF;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.eIF) {
+        if (view == this.eMz) {
             z = true;
         } else {
-            z = view == this.eIH ? false : false;
+            z = view == this.eMB ? false : false;
         }
-        this.eIL = z ? this.eIJ : this.eIK;
-        am.c(this.eIF, z ? d.f.img_lable_boy_s : d.f.img_lable_boy_n);
-        am.h(this.eIG, z ? d.C0142d.cp_link_tip_a : d.C0142d.cp_cont_d);
-        am.c(this.eIH, z ? d.f.img_lable_girl_n : d.f.img_lable_girl_s);
-        am.h(this.eII, z ? d.C0142d.cp_cont_d : d.C0142d.cp_cont_h);
+        this.eMF = z ? this.eMD : this.eME;
+        am.c(this.eMz, z ? d.f.img_lable_boy_s : d.f.img_lable_boy_n);
+        am.h(this.eMA, z ? d.C0140d.cp_link_tip_a : d.C0140d.cp_cont_d);
+        am.c(this.eMB, z ? d.f.img_lable_girl_n : d.f.img_lable_girl_s);
+        am.h(this.eMC, z ? d.C0140d.cp_cont_d : d.C0140d.cp_cont_h);
     }
 }

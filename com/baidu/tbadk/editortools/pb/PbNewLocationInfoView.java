@@ -20,7 +20,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, l.e(context, d.e.ds24));
+        setTextSize(0, l.f(context, d.e.ds24));
         setState(0, null);
     }
 
@@ -28,17 +28,17 @@ public class PbNewLocationInfoView extends TextView {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(d.k.location_loading);
+                str = getResources().getString(d.j.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(d.k.location_default);
+                str = getResources().getString(d.j.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(d.k.location_default);
+                str = getResources().getString(d.j.location_default);
             }
             setText(str);
         }
@@ -49,6 +49,6 @@ public class PbNewLocationInfoView extends TextView {
     }
 
     public void onChangeSkinType() {
-        setTextColor(am.getColor(d.C0142d.cp_cont_f));
+        setTextColor(am.getColor(d.C0140d.cp_cont_f));
     }
 }

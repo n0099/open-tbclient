@@ -24,9 +24,9 @@ public class h {
     }
 
     public static void a(j jVar, BdUniqueId bdUniqueId) {
-        if (jVar != null && !StringUtils.isNull(jVar.He()) && w.A(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+        if (jVar != null && !StringUtils.isNull(jVar.Ha()) && w.z(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", jVar.He());
+            httpMessage.addParam("pic_url", jVar.Ha());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -34,13 +34,13 @@ public class h {
 
     public static void a(j jVar, List<com.baidu.adp.widget.ListView.h> list) {
         j jVar2;
-        if (jVar != null && !w.A(list) && !StringUtils.isNull(jVar.He())) {
+        if (jVar != null && !w.z(list) && !StringUtils.isNull(jVar.Ha())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.h hVar = list.get(i);
                 if ((hVar instanceof j) && (jVar2 = (j) hVar) != jVar && !jVar2.isPortrait()) {
-                    jSONArray.put(jVar2.He());
+                    jSONArray.put(jVar2.Ha());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -54,7 +54,7 @@ public class h {
         }
     }
 
-    public static void p(String str, List<com.baidu.adp.widget.ListView.h> list) {
+    public static void o(String str, List<com.baidu.adp.widget.ListView.h> list) {
         if (!StringUtils.isNull(str)) {
             if (list == null) {
                 list = new ArrayList<>();
@@ -66,7 +66,7 @@ public class h {
                 if (hVar instanceof j) {
                     j jVar = (j) hVar;
                     if (!jVar.isPortrait()) {
-                        jSONArray.put(jVar.He());
+                        jSONArray.put(jVar.Ha());
                     }
                 }
             }

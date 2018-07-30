@@ -41,7 +41,7 @@ public class f {
         this.from = str;
     }
 
-    public void h(int i, int i2, int i3, int i4) {
+    public void g(int i, int i2, int i3, int i4) {
         this.bigWidth = i;
         this.bigHeight = i2;
         this.smallWidth = i3;
@@ -77,7 +77,7 @@ public class f {
         ErrorData errorData = new ErrorData();
         if (writeImagesInfo == null || writeImagesInfo.size() == 0) {
             errorData.setError_code(-53);
-            errorData.setError_msg(TbadkCoreApplication.getInst().getString(d.k.upload_error));
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(d.j.upload_error));
             return errorData;
         }
         LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
@@ -101,7 +101,7 @@ public class f {
                     imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                 } else {
                     errorData.setError_code(-53);
-                    errorData.setError_msg(TbadkCoreApplication.getInst().getString(d.k.upload_error));
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getString(d.j.upload_error));
                     return errorData;
                 }
             }
@@ -145,7 +145,7 @@ public class f {
         return a(imageFileInfo, false, z);
     }
 
-    public ImageUploadResult m(String str, boolean z) {
+    public ImageUploadResult l(String str, boolean z) {
         return c(str, false, z);
     }
 
@@ -272,7 +272,7 @@ public class f {
                     if (length > 5242880) {
                         ImageUploadResult imageUploadResult4 = new ImageUploadResult();
                         imageUploadResult4.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                        imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.k.file_size_over);
+                        imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.file_size_over);
                         com.baidu.adp.lib.g.a.b((Closeable) null);
                         this.mNetwork = null;
                         return imageUploadResult4;
@@ -287,7 +287,7 @@ public class f {
                     if (length == 0 || g == null) {
                         ImageUploadResult imageUploadResult5 = new ImageUploadResult();
                         imageUploadResult5.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                        imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.k.file_not_exist);
+                        imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.file_not_exist);
                         TiebaStatic.imgError(TbErrInfo.ERR_IMG_FILE, "file error: " + imageUploadResult5.error_msg, sb.toString());
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
@@ -365,22 +365,22 @@ public class f {
                                                 this.mNetwork.o("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int tx = i.tt().tx();
-                                                if (tx != 0) {
-                                                    this.mNetwork.o("pic_water_type", String.valueOf(tx));
+                                                int ti = i.te().ti();
+                                                if (ti != 0) {
+                                                    this.mNetwork.o("pic_water_type", String.valueOf(ti));
                                                 }
                                                 String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                                if (!StringUtils.isNull(currentAccountName) && tx == 1) {
+                                                if (!StringUtils.isNull(currentAccountName) && ti == 1) {
                                                     this.mNetwork.o("user_name", currentAccountName);
                                                 }
-                                                String ty = i.tt().ty();
-                                                if (!StringUtils.isNull(ty) && tx == 2) {
-                                                    this.mNetwork.o("forum_name", ty);
+                                                String tj = i.te().tj();
+                                                if (!StringUtils.isNull(tj) && ti == 2) {
+                                                    this.mNetwork.o("forum_name", tj);
                                                 }
                                             }
-                                            String yC = this.mNetwork.yC();
-                                            imageUploadResult3 = ImageUploadResult.parser(yC);
-                                            if (yC == null || imageUploadResult3 == null) {
+                                            String yt = this.mNetwork.yt();
+                                            imageUploadResult3 = ImageUploadResult.parser(yt);
+                                            if (yt == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {

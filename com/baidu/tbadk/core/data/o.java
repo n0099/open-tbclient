@@ -1,35 +1,50 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
-import tbclient.FrsPage.ColorEgg;
-/* loaded from: classes.dex */
+import java.util.List;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
+/* loaded from: classes2.dex */
 public class o {
-    private ArrayList<String> afs = new ArrayList<>();
-    private int aft;
+    private String aeO;
+    private int aeP;
+    private ArrayList<q> aeQ = new ArrayList<>();
+    private int height;
+    private String obj_id;
+    private int width;
 
-    public ArrayList<String> tY() {
-        return this.afs;
+    public ArrayList<q> tM() {
+        return this.aeQ;
     }
 
-    public int tZ() {
-        return this.aft;
+    public void j(ArrayList<q> arrayList) {
+        this.aeQ = arrayList;
     }
 
-    public boolean a(ColorEgg colorEgg) {
-        this.aft = 0;
-        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
-            return false;
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null) {
+            this.aeP = activityHead.activity_type.intValue();
+            this.aeO = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            this.obj_id = activityHead.obj_id;
+            s(activityHead.head_imgs);
         }
-        for (String str : colorEgg.holiday_words) {
-            if (!StringUtils.isNull(str)) {
-                this.afs.add(str);
+    }
+
+    public void s(List<HeadImgs> list) {
+        if (!com.baidu.tbadk.core.util.w.z(list)) {
+            for (HeadImgs headImgs : list) {
+                a(headImgs);
             }
         }
-        if (this.afs.size() <= 0) {
-            return false;
+    }
+
+    public void a(HeadImgs headImgs) {
+        if (headImgs != null) {
+            q qVar = new q();
+            qVar.b(headImgs);
+            this.aeQ.add(qVar);
         }
-        this.aft = colorEgg.style_flag.intValue();
-        return true;
     }
 }

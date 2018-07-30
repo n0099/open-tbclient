@@ -56,7 +56,7 @@ public abstract class b {
         return d;
     }
 
-    public static boolean d(String str, boolean z) {
+    public static boolean c(String str, boolean z) {
         if (str != null) {
             try {
                 return Boolean.parseBoolean(str);

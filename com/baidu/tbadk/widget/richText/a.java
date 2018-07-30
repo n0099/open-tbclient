@@ -9,33 +9,34 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    public static final float ber = l.ak(TbadkCoreApplication.getInst());
-    protected boolean beH;
+    public static final float beB = l.ak(TbadkCoreApplication.getInst());
+    protected boolean beQ;
     protected boolean mIsFromCDN;
     protected TbImageView.b mOnDrawListener;
-    protected float bes = 0.0f;
-    protected float beu = 0.0f;
-    protected int atV = 0;
-    protected int bev = 0;
-    protected float bew = 15.0f;
-    protected int bex = -1;
-    protected int bey = -1;
+    protected float beC = 0.0f;
+    protected float beD = 0.0f;
+    protected int atz = 0;
+    protected int beE = 0;
+    protected float beF = 15.0f;
+    protected int beG = -1;
+    protected int beH = -1;
     protected int mTextColor = ViewCompat.MEASURED_STATE_MASK;
-    protected int bez = 200;
-    protected int beA = 200;
-    protected int beB = 0;
-    protected int beC = 0;
-    protected boolean beD = false;
-    protected int beE = -9989158;
-    protected ImageView.ScaleType beF = ImageView.ScaleType.CENTER_CROP;
-    protected boolean beG = false;
-    protected int beI = l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds16);
-    protected int beJ = l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
-    protected int beK = l.e(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
+    protected int beI = 200;
+    protected int beJ = 200;
+    protected int beK = 0;
     protected int beL = 0;
-    protected int beM = -1;
-    protected int beN = -1;
-    protected int beO = -1;
+    protected boolean beM = false;
+    protected int beN = -9989158;
+    protected ImageView.ScaleType beO = ImageView.ScaleType.CENTER_CROP;
+    protected boolean beP = false;
+    protected int beR = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds16);
+    protected int beS = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
+    protected int beT = l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
+    protected int beU = 0;
+    protected int beV = -1;
+    protected int beW = -1;
+    protected int beX = -1;
+    protected boolean beY = false;
 
     public a() {
     }
@@ -47,99 +48,115 @@ public class a {
     }
 
     public void b(TypedArray typedArray) {
-        this.bev = typedArray.getDimensionPixelSize(d.m.TbRichTextView_segmentMargin, 0);
-        this.atV = typedArray.getDimensionPixelSize(d.m.TbRichTextView_textPadding, 0);
-        this.bes = typedArray.getFloat(d.m.TbRichTextView_lineSpacing, 1.12f);
-        this.bew = typedArray.getDimensionPixelSize(d.m.TbRichTextView_textSize, (int) this.bew);
-        this.mTextColor = typedArray.getColor(d.m.TbRichTextView_textColor, this.mTextColor);
-        this.bez = typedArray.getDimensionPixelSize(d.m.TbRichTextView_maxImageWidth, this.bez);
-        this.beA = typedArray.getDimensionPixelSize(d.m.TbRichTextView_maxImageHeight, this.beA);
-        this.beB = typedArray.getResourceId(d.m.TbRichTextView_defaultImage, 0);
-        this.bex = typedArray.getDimensionPixelSize(d.m.TbRichTextView_faceWidth, this.bex);
-        this.bey = typedArray.getDimensionPixelSize(d.m.TbRichTextView_faceHeight, this.bey);
-        this.beC = typedArray.getResourceId(d.m.TbRichTextView_videoImage, 0);
-        this.beD = typedArray.getBoolean(d.m.TbRichTextView_singleLine, false);
-        this.beN = this.bev;
+        this.beE = typedArray.getDimensionPixelSize(d.l.TbRichTextView_segmentMargin, 0);
+        this.atz = typedArray.getDimensionPixelSize(d.l.TbRichTextView_textPadding, 0);
+        this.beC = typedArray.getFloat(d.l.TbRichTextView_lineSpacing, 1.12f);
+        this.beF = typedArray.getDimensionPixelSize(d.l.TbRichTextView_textSize, (int) this.beF);
+        this.mTextColor = typedArray.getColor(d.l.TbRichTextView_textColor, this.mTextColor);
+        this.beI = typedArray.getDimensionPixelSize(d.l.TbRichTextView_maxImageWidth, this.beI);
+        this.beJ = typedArray.getDimensionPixelSize(d.l.TbRichTextView_maxImageHeight, this.beJ);
+        this.beK = typedArray.getResourceId(d.l.TbRichTextView_defaultImage, 0);
+        this.beG = typedArray.getDimensionPixelSize(d.l.TbRichTextView_faceWidth, this.beG);
+        this.beH = typedArray.getDimensionPixelSize(d.l.TbRichTextView_faceHeight, this.beH);
+        this.beL = typedArray.getResourceId(d.l.TbRichTextView_videoImage, 0);
+        this.beM = typedArray.getBoolean(d.l.TbRichTextView_singleLine, false);
+        this.beW = this.beE;
     }
 
     public void release() {
     }
 
-    public void O(int i, int i2) {
-        this.bex = i;
-        this.bey = i2;
-    }
-
-    public void fN(int i) {
-        this.beC = i;
+    public void P(int i, int i2) {
+        this.beG = i;
+        this.beH = i2;
     }
 
     public void fO(int i) {
-        this.bez = i;
+        this.beL = i;
     }
 
     public void fP(int i) {
-        this.beA = i;
+        this.beI = i;
     }
 
     public void fQ(int i) {
-        this.beB = i;
-    }
-
-    public void setSupportNoImage() {
-        this.beG = true;
-    }
-
-    public void setLineSpacing(float f, float f2) {
-        this.bes = f2;
-        this.beu = f;
-    }
-
-    public void P(int i, int i2) {
-        this.beI = i;
-        this.beJ = i2;
+        this.beJ = i;
     }
 
     public void fR(int i) {
         this.beK = i;
     }
 
+    public void setSupportNoImage() {
+        this.beP = true;
+    }
+
+    public void setLineSpacing(float f, float f2) {
+        this.beC = f2;
+        this.beD = f;
+    }
+
+    public void Q(int i, int i2) {
+        this.beR = i;
+        this.beS = i2;
+    }
+
     public void fS(int i) {
-        this.beL = i;
+        this.beT = i;
     }
 
     public void fT(int i) {
-        this.beM = i;
+        this.beE = i;
     }
 
     public void fU(int i) {
-        this.beN = i;
+        this.beU = i;
     }
 
     public void fV(int i) {
-        this.beO = i;
+        this.beV = i;
+    }
+
+    public void fW(int i) {
+        this.beW = i;
+    }
+
+    public void fX(int i) {
+        this.beX = i;
+    }
+
+    public void setTextSize(int i) {
+        this.beF = i;
+    }
+
+    public boolean Nw() {
+        return this.beY;
+    }
+
+    public void cl(boolean z) {
+        this.beY = z;
     }
 
     public void cm(boolean z) {
-        this.beH = z;
+        this.beQ = z;
     }
 
-    public int[] k(int i, int i2, int i3, int i4) {
-        int[] c = l.c(i, i2, i3, i4);
-        if (c == null) {
+    public int[] j(int i, int i2, int i3, int i4) {
+        int[] b = l.b(i, i2, i3, i4);
+        if (b == null) {
             return null;
         }
-        int[] iArr = {c[0], c[1]};
+        int[] iArr = {b[0], b[1]};
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.beH || i3 <= i5 || ber <= 1.0f) {
+        if (!this.beQ || i3 <= i5 || beB <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * ber <= i3) {
-                if (i5 * ber > i3 * 0.68f) {
+            if (i5 * beB <= i3) {
+                if (i5 * beB > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * ber);
+                    i3 = (int) (i5 * beB);
                 }
             }
             if (iArr[0] > 0) {
@@ -150,29 +167,30 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.bes = aVar.bes;
-        this.beu = aVar.beu;
-        this.atV = aVar.atV;
-        this.bev = aVar.bev;
-        this.bew = aVar.bew;
-        this.bex = aVar.bex;
-        this.bey = aVar.bey;
-        this.mTextColor = aVar.mTextColor;
-        this.bez = aVar.bez;
-        this.beA = aVar.beA;
-        this.beB = aVar.beB;
         this.beC = aVar.beC;
         this.beD = aVar.beD;
-        this.mIsFromCDN = aVar.mIsFromCDN;
+        this.atz = aVar.atz;
         this.beE = aVar.beE;
+        this.beF = aVar.beF;
         this.beG = aVar.beG;
         this.beH = aVar.beH;
+        this.mTextColor = aVar.mTextColor;
         this.beI = aVar.beI;
         this.beJ = aVar.beJ;
         this.beK = aVar.beK;
         this.beL = aVar.beL;
         this.beM = aVar.beM;
-        this.beN = aVar.bev;
-        this.beO = aVar.beO;
+        this.mIsFromCDN = aVar.mIsFromCDN;
+        this.beN = aVar.beN;
+        this.beP = aVar.beP;
+        this.beQ = aVar.beQ;
+        this.beR = aVar.beR;
+        this.beS = aVar.beS;
+        this.beT = aVar.beT;
+        this.beU = aVar.beU;
+        this.beV = aVar.beV;
+        this.beW = aVar.beE;
+        this.beX = aVar.beX;
+        this.beY = aVar.beY;
     }
 }

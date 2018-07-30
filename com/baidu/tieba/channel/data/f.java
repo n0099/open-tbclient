@@ -4,7 +4,7 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private String cCj;
+    private String cEO;
     private String channel_avatar;
     private String channel_name;
     private String create_time;
@@ -12,11 +12,11 @@ public class f {
     private String follow_time;
     private String user_id;
 
-    public String ajo() {
-        return this.cCj;
+    public String ajM() {
+        return this.cEO;
     }
 
-    public String ajp() {
+    public String ajN() {
         return this.channel_name;
     }
 
@@ -24,12 +24,12 @@ public class f {
         return this.description;
     }
 
-    public String ajq() {
+    public String ajO() {
         return this.channel_avatar;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.cCj = jSONObject.optString("channel_id");
+        this.cEO = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
         this.description = jSONObject.optString(SocialConstants.PARAM_COMMENT);
         this.channel_avatar = jSONObject.optString("channel_avatar");

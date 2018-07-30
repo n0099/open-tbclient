@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener deT = null;
-    private View.OnClickListener cmC = null;
+    private View.OnClickListener dhJ = null;
+    private View.OnClickListener coq = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -26,33 +26,33 @@ public class b extends RecyclerView.Adapter<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: l */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new a(LayoutInflater.from(this.mContext).inflate(d.i.forbidden_fans_item, (ViewGroup) null));
+        return new a(LayoutInflater.from(this.mContext).inflate(d.h.forbidden_fans_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a jT;
-        if (aVar != null && (jT = jT(i)) != null) {
-            aVar.deV.startLoad(jT.portrait, 12, false);
-            aVar.deW.setText(jT.nameShow);
-            aVar.deX.setOnClickListener(this.deT);
-            aVar.deX.setTag(jT);
-            aVar.deU.setOnClickListener(this.cmC);
-            aVar.deU.setTag(jT);
+        com.baidu.tieba.forbidden.fans.a ke;
+        if (aVar != null && (ke = ke(i)) != null) {
+            aVar.dhL.startLoad(ke.portrait, 12, false);
+            aVar.dhM.setText(ke.nameShow);
+            aVar.dhN.setOnClickListener(this.dhJ);
+            aVar.dhN.setTag(ke);
+            aVar.dhK.setOnClickListener(this.coq);
+            aVar.dhK.setTag(ke);
             a(aVar);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return w.z(this.fansList);
+        return w.y(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a jT(int i) {
+    private com.baidu.tieba.forbidden.fans.a ke(int i) {
         return (com.baidu.tieba.forbidden.fans.a) w.d(this.fansList, i);
     }
 
@@ -64,8 +64,8 @@ public class b extends RecyclerView.Adapter<a> {
         return this.fansList;
     }
 
-    public boolean by(long j) {
-        if (j == 0 || w.A(this.fansList)) {
+    public boolean bC(long j) {
+        if (j == 0 || w.z(this.fansList)) {
             return false;
         }
         Iterator<com.baidu.tieba.forbidden.fans.a> it = this.fansList.iterator();
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean asj() {
-        return w.A(this.fansList);
+    public boolean asN() {
+        return w.z(this.fansList);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends RecyclerView.ViewHolder {
-        public View bjR;
-        public View deU;
-        public ClickableHeaderImageView deV;
-        public TextView deW;
-        public TextView deX;
+        public View bkw;
+        public View dhK;
+        public ClickableHeaderImageView dhL;
+        public TextView dhM;
+        public TextView dhN;
 
         public a(View view) {
             super(view);
-            this.deU = view.findViewById(d.g.container_forbidden_item);
-            this.deV = (ClickableHeaderImageView) view.findViewById(d.g.view_fans_photo);
-            this.deV.setRadius(l.e(view.getContext(), d.e.ds90));
-            this.deV.setAutoChangeStyle(true);
-            this.deV.setClickable(false);
-            this.deW = (TextView) view.findViewById(d.g.view_fans_name);
-            this.deX = (TextView) view.findViewById(d.g.view_fans_remove);
-            this.bjR = view.findViewById(d.g.line_divider);
+            this.dhK = view.findViewById(d.g.container_forbidden_item);
+            this.dhL = (ClickableHeaderImageView) view.findViewById(d.g.view_fans_photo);
+            this.dhL.setRadius(l.f(view.getContext(), d.e.ds90));
+            this.dhL.setAutoChangeStyle(true);
+            this.dhL.setClickable(false);
+            this.dhM = (TextView) view.findViewById(d.g.view_fans_name);
+            this.dhN = (TextView) view.findViewById(d.g.view_fans_remove);
+            this.bkw = view.findViewById(d.g.line_divider);
         }
     }
 
     private void a(a aVar) {
-        am.h(aVar.deW, d.C0142d.cp_cont_b);
-        am.j(aVar.bjR, d.C0142d.cp_bg_line_b);
-        am.h(aVar.deX, d.C0142d.btn_color_remove);
-        am.i(aVar.deX, d.f.btn_transparent_focus_border_bg);
+        am.h(aVar.dhM, d.C0140d.cp_cont_b);
+        am.j(aVar.bkw, d.C0140d.cp_bg_line_b);
+        am.h(aVar.dhN, d.C0140d.btn_color_remove);
+        am.i(aVar.dhN, d.f.btn_transparent_focus_border_bg);
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.deT = onClickListener;
+        this.dhJ = onClickListener;
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.cmC = onClickListener;
+        this.coq = onClickListener;
     }
 }

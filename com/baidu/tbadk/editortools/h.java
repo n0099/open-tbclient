@@ -21,7 +21,7 @@ public class h extends com.baidu.tbadk.editortools.view.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DLauncher eO(int i) {
+    public DLauncher eP(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
@@ -38,24 +38,24 @@ public class h extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void init(Context context) {
-        eW(4);
-        eX(2);
-        a(new a.InterfaceC0114a() { // from class: com.baidu.tbadk.editortools.h.1
-            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0114a
+        eX(4);
+        eY(2);
+        a(new a.InterfaceC0111a() { // from class: com.baidu.tbadk.editortools.h.1
+            @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0111a
             public View getView(int i, View view, ViewGroup viewGroup) {
-                DLauncher eO = h.this.eO(i);
-                if (eO.getLayoutParams() == null) {
-                    eO.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                DLauncher eP = h.this.eP(i);
+                if (eP.getLayoutParams() == null) {
+                    eP.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
-                return eO;
+                return eP;
             }
         });
-        ID().c(this);
+        Iy().c(this);
         a(new CommonTabContentView.b() { // from class: com.baidu.tbadk.editortools.h.2
             @Override // com.baidu.tbadk.editortools.view.CommonTabContentView.b
-            public void d(View view, int i, long j) {
-                if ((view instanceof DLauncher) && h.this.Qj != null) {
-                    h.this.Qj.N(view);
+            public void a(View view, int i, long j) {
+                if ((view instanceof DLauncher) && h.this.Qg != null) {
+                    h.this.Qg.N(view);
                 }
             }
         });

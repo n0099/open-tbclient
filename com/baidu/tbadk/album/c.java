@@ -5,5 +5,5 @@ import java.util.List;
 public interface c {
     void onPreLoad();
 
-    void s(List<a> list);
+    void r(List<a> list);
 }

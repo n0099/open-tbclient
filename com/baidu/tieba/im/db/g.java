@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class g {
-    private static String so = null;
-    private static volatile SQLiteDatabase sj = null;
-    public static HashMap<String, SQLiteDatabase> emC = new HashMap<>();
+    private static String sf = null;
+    private static volatile SQLiteDatabase sb = null;
+    public static HashMap<String, SQLiteDatabase> eqv = new HashMap<>();
 
-    public static synchronized SQLiteDatabase aID() {
+    public static synchronized SQLiteDatabase aJE() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (g.class) {
             try {
@@ -26,34 +26,34 @@ public class g {
                 sQLiteDatabase = null;
             } else {
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (emC.containsKey(str)) {
-                    sQLiteDatabase = emC.get(str);
-                } else if (sj != null && str.equals(so) && sj.isOpen()) {
-                    sQLiteDatabase = sj;
+                if (eqv.containsKey(str)) {
+                    sQLiteDatabase = eqv.get(str);
+                } else if (sb != null && str.equals(sf) && sb.isOpen()) {
+                    sQLiteDatabase = sb;
                 } else {
-                    if (sj != null) {
-                        com.baidu.adp.lib.util.n.l(sj);
+                    if (sb != null) {
+                        com.baidu.adp.lib.util.n.i(sb);
                     }
                     f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
-                    so = str;
-                    sj = fVar.getWritableDatabase();
-                    sQLiteDatabase = sj;
+                    sf = str;
+                    sb = fVar.getWritableDatabase();
+                    sQLiteDatabase = sb;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> aIE() {
+    public static LinkedList<String> aJF() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase aID = aID();
+        SQLiteDatabase aJE = aJE();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (aID != null) {
+        if (aJE != null) {
             try {
-                cursor2 = aID.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = aJE.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -92,20 +92,20 @@ public class g {
         return linkedList;
     }
 
-    public static void oj(String str) {
+    public static void ol(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                h.aIF().aIG();
-                Iterator<String> it = aIE().iterator();
+                h.aJG().aJH();
+                Iterator<String> it = aJF().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            h.aIF().update("tb_message_center", contentValues, null, null);
+                            h.aJG().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            h.aIF().b(next, null, null);
+                            h.aJG().a(next, null, null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class g {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            h.aIF().endTransaction();
+            h.aJG().endTransaction();
         }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
 public class as {
-    public static Intent ac(Context context, String str) {
+    public static Intent ae(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -28,13 +28,13 @@ public class as {
     }
 
     public static boolean j(PostData postData) {
-        if (postData == null || postData.bxL() == null) {
+        if (postData == null || postData.bwo() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bxL = postData.bxL();
-        if (bxL.gMD) {
-            int bxj = bxL.bxj();
-            return bxj == 2 || bxj == 1 || bxj == 3;
+        com.baidu.tieba.tbadkCore.data.h bwo = postData.bwo();
+        if (bwo.gNB) {
+            int bvM = bwo.bvM();
+            return bvM == 2 || bvM == 1 || bvM == 3;
         }
         return false;
     }
@@ -42,10 +42,10 @@ public class as {
     public static void v(TbPageContext tbPageContext) {
         if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.i.user_like_success_dialog, (ViewGroup) null);
-            com.baidu.tbadk.core.util.am.h((TextView) inflate.findViewById(d.g.dialog_title), d.C0142d.cp_cont_b);
-            com.baidu.tbadk.core.util.am.h((TextView) inflate.findViewById(d.g.dialog_message), d.C0142d.cp_cont_j);
-            aVar.a(d.k.know, new a.b() { // from class: com.baidu.tieba.pb.pb.main.as.1
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.user_like_success_dialog, (ViewGroup) null);
+            com.baidu.tbadk.core.util.am.h((TextView) inflate.findViewById(d.g.dialog_title), d.C0140d.cp_cont_b);
+            com.baidu.tbadk.core.util.am.h((TextView) inflate.findViewById(d.g.dialog_message), d.C0140d.cp_cont_j);
+            aVar.a(d.j.know, new a.b() { // from class: com.baidu.tieba.pb.pb.main.as.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     if (aVar2 != null) {
@@ -62,8 +62,8 @@ public class as {
                 }
             });
             aVar.w(inflate);
-            aVar.aw(false);
-            aVar.b(tbPageContext).xn();
+            aVar.au(false);
+            aVar.b(tbPageContext).xf();
         }
     }
 }

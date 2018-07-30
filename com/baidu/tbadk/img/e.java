@@ -29,7 +29,7 @@ public class e {
                     }
                     str = e.this.b(b, 85);
                 } else {
-                    str = e.this.b(a.mZ(), 85);
+                    str = e.this.b(a.nb(), 85);
                 }
                 imageFileInfo.setPageActionsList(pageActionsList);
             }
@@ -42,7 +42,7 @@ public class e {
             if (imageFileInfo == null) {
                 return null;
             }
-            return e.this.hk(imageFileInfo.getFilePath());
+            return e.this.hg(imageFileInfo.getFilePath());
         }
     };
     private d aQU = this.aQT;
@@ -52,7 +52,7 @@ public class e {
             if (imageFileInfo == null) {
                 return null;
             }
-            return e.this.b(e.this.hl(imageFileInfo.getFilePath()), 85);
+            return e.this.b(e.this.hh(imageFileInfo.getFilePath()), 85);
         }
     };
 
@@ -61,14 +61,16 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        boolean ei = l.ei(imageFileInfo.getFilePath());
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize())) {
-            if (ei) {
+        String filePath = imageFileInfo.getFilePath();
+        boolean ef = l.ef(filePath);
+        boolean eg = l.eg(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !eg)) {
+            if (ef) {
                 dVar = this.aQU;
             } else {
                 dVar = this.aQT;
             }
-        } else if (ei) {
+        } else if (ef) {
             dVar = this.aQV;
         } else {
             dVar = this.aQS;
@@ -77,26 +79,26 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String hk(String str) {
+    public String hg(String str) {
         int i;
-        long ep = l.ep(str);
-        if (ep >= 20971520) {
+        long en = l.en(str);
+        if (en >= 20971520) {
             i = 60;
-        } else if (ep >= 10485760 && ep < 20971520) {
+        } else if (en >= 10485760 && en < 20971520) {
             i = 75;
-        } else if (ep >= 7340032 && ep < 10485760) {
+        } else if (en >= 7340032 && en < 10485760) {
             i = 85;
         } else {
-            i = (ep < 5242880 || ep >= 7340032) ? 100 : 95;
+            i = (en < 5242880 || en >= 7340032) ? 100 : 95;
         }
         try {
             int readPictureDegree = BitmapHelper.readPictureDegree(str);
             if (readPictureDegree != 0 || i != 100) {
-                Bitmap hl = hl(str);
-                if (readPictureDegree != 0 && hl != null) {
-                    return b(BitmapHelper.rotateBitmapBydegree(hl, readPictureDegree), i);
+                Bitmap hh = hh(str);
+                if (readPictureDegree != 0 && hh != null) {
+                    return b(BitmapHelper.rotateBitmapBydegree(hh, readPictureDegree), i);
                 }
-                return b(hl, i);
+                return b(hh, i);
             }
             return str;
         } catch (Throwable th) {
@@ -105,10 +107,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap hl(String str) {
-        BitmapFactory.Options hm = hm(str);
-        int i = hm.outWidth;
-        int i2 = hm.outHeight;
+    public Bitmap hh(String str) {
+        BitmapFactory.Options hi = hi(str);
+        int i = hi.outWidth;
+        int i2 = hi.outHeight;
         if (i == 0 || i2 == 0) {
             return null;
         }
@@ -121,8 +123,8 @@ public class e {
                 if (i5 >= 3) {
                     return null;
                 }
-                hm.inSampleSize = i4 * 2;
-                Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, hm);
+                hi.inSampleSize = i4 * 2;
+                Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, hi);
                 if (loadBitmap2 == null || loadBitmap2.isRecycled()) {
                     i4++;
                     i3 = i5 + 1;
@@ -135,7 +137,7 @@ public class e {
         }
     }
 
-    private BitmapFactory.Options hm(String str) {
+    private BitmapFactory.Options hi(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);

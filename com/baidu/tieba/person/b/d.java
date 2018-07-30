@@ -17,35 +17,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends q.a {
-    public TextView abu;
-    public int azP;
-    public View cEZ;
-    public HTypeListView fTC;
-    public e fTD;
+    public TextView aaW;
+    public int azI;
+    public View cHG;
+    public HTypeListView fTP;
+    public e fTQ;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.azP = 3;
+        this.azI = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.cEZ = view.findViewById(d.g.divider_view_under_photo_album);
-        this.abu = (TextView) view.findViewById(d.g.text_view_photo_album);
-        this.fTC = (HTypeListView) view.findViewById(d.g.listview_photo_album);
-        this.fTD = new e(this.mPageContext, this.fTC);
+        this.cHG = view.findViewById(d.g.divider_view_under_photo_album);
+        this.aaW = (TextView) view.findViewById(d.g.text_view_photo_album);
+        this.fTP = (HTypeListView) view.findViewById(d.g.listview_photo_album);
+        this.fTQ = new e(this.mPageContext, this.fTP);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.fTD.setDatas(de(fVar.getPhotoAlbum()));
+            this.fTQ.setDatas(da(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<h> de(List<h> list) {
-        if (w.z(list) > 0) {
+    private List<h> da(List<h> list) {
+        if (w.y(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
-            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.e(this.mPageContext.getPageActivity(), d.e.ds32), l.e(this.mPageContext.getPageActivity(), d.e.ds120));
+            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.f(this.mPageContext.getPageActivity(), d.e.ds32), l.f(this.mPageContext.getPageActivity(), d.e.ds120));
             w.a(arrayList, 0, dVar);
             w.b(arrayList, dVar);
             return arrayList;
@@ -53,13 +53,13 @@ public class d extends q.a {
         return list;
     }
 
-    public void IT() {
-        if (this.azP != TbadkCoreApplication.getInst().getSkinType()) {
-            this.azP = TbadkCoreApplication.getInst().getSkinType();
-            am.j(this.rootView, d.C0142d.cp_bg_line_d);
-            am.j(this.cEZ, d.C0142d.cp_bg_line_c);
-            am.c(this.abu, d.C0142d.cp_cont_d, 1);
-            this.fTD.notifyDataSetChanged();
+    public void IO() {
+        if (this.azI != TbadkCoreApplication.getInst().getSkinType()) {
+            this.azI = TbadkCoreApplication.getInst().getSkinType();
+            am.j(this.rootView, d.C0140d.cp_bg_line_d);
+            am.j(this.cHG, d.C0140d.cp_bg_line_c);
+            am.c(this.aaW, d.C0140d.cp_cont_d, 1);
+            this.fTQ.notifyDataSetChanged();
         }
     }
 }

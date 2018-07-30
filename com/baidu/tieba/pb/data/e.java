@@ -19,11 +19,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class e {
     public static PostData a(d dVar, boolean z, int i) {
         if (z) {
-            if (dVar == null || dVar.baX() == null || dVar.baX().size() <= 0) {
+            if (dVar == null || dVar.aZp() == null || dVar.aZp().size() <= 0) {
                 return null;
             }
-            PostData postData = dVar.baX().get(0);
-            if (postData.bxC() != 1) {
+            PostData postData = dVar.aZp().get(0);
+            if (postData.bwf() != 1) {
                 return a(dVar);
             }
             return postData;
@@ -33,20 +33,20 @@ public class e {
 
     public static PostData a(d dVar) {
         MetaData metaData;
-        if (dVar == null || dVar.baV() == null || dVar.baV().vw() == null) {
+        if (dVar == null || dVar.aZn() == null || dVar.aZn().vk() == null) {
             return null;
         }
         PostData postData = new PostData();
-        MetaData vw = dVar.baV().vw();
-        String userId = vw.getUserId();
-        HashMap<String, MetaData> userMap = dVar.baV().getUserMap();
+        MetaData vk = dVar.aZn().vk();
+        String userId = vk.getUserId();
+        HashMap<String, MetaData> userMap = dVar.aZn().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
-            metaData = vw;
+            metaData = vk;
         }
-        postData.tL(1);
-        postData.setId(dVar.baV().vM());
-        postData.setTitle(dVar.baV().getTitle());
-        postData.setTime(dVar.baV().getCreateTime());
+        postData.tJ(1);
+        postData.setId(dVar.aZn().vB());
+        postData.setTitle(dVar.aZn().getTitle());
+        postData.setTime(dVar.aZn().getCreateTime());
         postData.a(metaData);
         return postData;
     }
@@ -56,19 +56,19 @@ public class e {
             return null;
         }
         StringBuilder sb = new StringBuilder((int) BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
-        TbRichTextImageInfo NF = tbRichTextData.NF();
-        if (NF != null) {
-            if (!StringUtils.isNull(NF.NQ())) {
-                return NF.NQ();
+        TbRichTextImageInfo ND = tbRichTextData.ND();
+        if (ND != null) {
+            if (!StringUtils.isNull(ND.NO())) {
+                return ND.NO();
             }
-            if (NF.getHeight() * NF.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (NF.getHeight() * NF.getWidth()));
+            if (ND.getHeight() * ND.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (ND.getHeight() * ND.getWidth()));
                 sb.append("width=");
-                sb.append(String.valueOf((int) (NF.getWidth() * sqrt)));
+                sb.append(String.valueOf((int) (ND.getWidth() * sqrt)));
                 sb.append("&height=");
-                sb.append(String.valueOf((int) (sqrt * NF.getHeight())));
+                sb.append(String.valueOf((int) (sqrt * ND.getHeight())));
             } else {
-                float width = NF.getWidth() / NF.getHeight();
+                float width = ND.getWidth() / ND.getHeight();
                 double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
                 sb.append("width=");
                 sb.append(String.valueOf((int) (width * sqrt2)));
@@ -76,31 +76,31 @@ public class e {
                 sb.append(String.valueOf((int) sqrt2));
             }
             sb.append("&src=");
-            sb.append(ap.bg(NF.getSrc()));
+            sb.append(ap.bh(ND.NQ()));
             return sb.toString();
         }
         return null;
     }
 
     public static void a(PostData postData, PbActivity.c cVar) {
-        if (postData != null && postData.bxE() != null && postData.bxE().Nz() != null && cVar != null && cVar.fxb != null && cVar.fxc != null && postData.bxE().Nz().size() != 0) {
-            String str = (String) w.d(cVar.fxb, cVar.index);
+        if (postData != null && postData.bwh() != null && postData.bwh().Nx() != null && cVar != null && cVar.fxn != null && cVar.fxo != null && postData.bwh().Nx().size() != 0) {
+            String str = (String) w.d(cVar.fxn, cVar.index);
             if (!StringUtils.isNull(str)) {
-                cVar.fxb = new ArrayList<>();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.fxc;
-                cVar.fxc = new ConcurrentHashMap<>();
-                Iterator<TbRichTextData> it = postData.bxE().Nz().iterator();
+                cVar.fxn = new ArrayList<>();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.fxo;
+                cVar.fxo = new ConcurrentHashMap<>();
+                Iterator<TbRichTextData> it = postData.bwh().Nx().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {
                         String b = b(next);
                         if (!StringUtils.isNull(b) && concurrentHashMap.get(b) != null) {
-                            cVar.fxb.add(b);
-                            cVar.fxc.put(b, concurrentHashMap.get(b));
+                            cVar.fxn.add(b);
+                            cVar.fxo.put(b, concurrentHashMap.get(b));
                         }
                     }
                 }
-                cVar.index = w.a(cVar.fxb, str);
+                cVar.index = w.a(cVar.fxn, str);
             }
         }
     }

@@ -10,7 +10,7 @@ public class au extends com.baidu.adp.base.a.c {
     }
 
     @Override // com.baidu.adp.base.a.c
-    public void g(SQLiteDatabase sQLiteDatabase) {
+    public void d(SQLiteDatabase sQLiteDatabase) {
         try {
             b(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
             b(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255))");
@@ -22,19 +22,19 @@ public class au extends com.baidu.adp.base.a.c {
             b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
             b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
             b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
-            m(sQLiteDatabase);
-            n(sQLiteDatabase);
+            j(sQLiteDatabase);
+            k(sQLiteDatabase);
+            l(sQLiteDatabase);
             o(sQLiteDatabase);
-            r(sQLiteDatabase);
-            s(sQLiteDatabase);
-            t(sQLiteDatabase);
+            p(sQLiteDatabase);
+            q(sQLiteDatabase);
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
         }
     }
 
     @Override // com.baidu.adp.base.a.c
-    public void h(SQLiteDatabase sQLiteDatabase) {
+    public void e(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "DROP TABLE IF EXISTS cash_data;");
         b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='cash_data';");
         b(sQLiteDatabase, "DROP TABLE IF EXISTS account_data;");
@@ -85,7 +85,7 @@ public class au extends com.baidu.adp.base.a.c {
             b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
         }
         if (i < 7) {
-            m(sQLiteDatabase);
+            j(sQLiteDatabase);
         }
         if (i < 8) {
             b(sQLiteDatabase, "ALTER TABLE setting ADD msg_chat_switch DEFAULT 1");
@@ -100,40 +100,40 @@ public class au extends com.baidu.adp.base.a.c {
             b(sQLiteDatabase, "ALTER TABLE account_data ADD personal_gid int");
         }
         if (i < 11) {
-            n(sQLiteDatabase);
+            k(sQLiteDatabase);
         }
         if (i < 12) {
-            o(sQLiteDatabase);
+            l(sQLiteDatabase);
         }
         if (i < 13) {
             b(sQLiteDatabase, "ALTER TABLE setting ADD stranger_chat_switch int");
-            p(sQLiteDatabase);
+            m(sQLiteDatabase);
         }
         if (i < 14) {
-            q(sQLiteDatabase);
+            n(sQLiteDatabase);
         }
         if (i < 15) {
             b(sQLiteDatabase, "ALTER TABLE account_data ADD stoken varchar(255)");
         }
         if (i < 16) {
-            r(sQLiteDatabase);
+            o(sQLiteDatabase);
         }
         if (i < 17) {
-            s(sQLiteDatabase);
+            p(sQLiteDatabase);
         }
         if (i < 18) {
-            t(sQLiteDatabase);
+            q(sQLiteDatabase);
         }
     }
 
-    protected void m(SQLiteDatabase sQLiteDatabase) {
+    protected void j(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
         b(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
     }
 
-    protected void n(SQLiteDatabase sQLiteDatabase) {
+    protected void k(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, " CREATE TABLE if not exists user_emotions(id INTEGER primary key autoincrement, uid varchar(128), groupId varchar(64), updateTime bigint(21) default 0)");
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_ue_uid ON user_emotions(uid)");
         b(sQLiteDatabase, "CREATE TABLE if not exists emotion_group(groupId varchar(64) primary key, groupName varchar(128), groupDesc text, emotionsCount int(11) default 0, width  int(11) default 0, height  int(11) default 0, status  int(11) default 0, bytesLength int(11) default 0, bytesReceived int(11) default 0, downloadUrl varchar(512), downloadTime bigint(21) default 0)");
@@ -142,29 +142,29 @@ public class au extends com.baidu.adp.base.a.c {
         b(sQLiteDatabase, "CREATE INDEX if not exists idx_e_gido ON emotions(groupId, orderId)");
     }
 
-    protected void o(SQLiteDatabase sQLiteDatabase) {
+    protected void l(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists local_game(gameId varchar(64) primary key, gameName varchar(128), gameType int default 0, iconUrl varchar(128), gameLink  varchar(2),packageName varchar(64), launcherActivity  varchar(64),downloadTime varchar(64),installTime varchar(64))");
         b(sQLiteDatabase, "ALTER TABLE setting ADD remind_light int(11) default 1");
     }
 
-    protected void p(SQLiteDatabase sQLiteDatabase) {
+    protected void m(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "ALTER TABLE account_data ADD gender int");
         b(sQLiteDatabase, "ALTER TABLE account_data ADD member_iconurl varchar(255)");
     }
 
-    protected void q(SQLiteDatabase sQLiteDatabase) {
+    protected void n(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
     }
 
-    protected void r(SQLiteDatabase sQLiteDatabase) {
+    protected void o(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "CREATE TABLE if not exists user_collect_emotion(pid varchar(30), uid varchar(30), sharp_text varchar(256), order_id int, width int, height int, pic_url varchar(512), thumbnail varchar(512), backup TEXT, primary key(pid, uid))");
     }
 
-    protected void s(SQLiteDatabase sQLiteDatabase) {
+    protected void p(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "ALTER TABLE setting ADD zan_me_switch int");
     }
 
-    protected void t(SQLiteDatabase sQLiteDatabase) {
+    protected void q(SQLiteDatabase sQLiteDatabase) {
         b(sQLiteDatabase, "ALTER TABLE account_data ADD name_show varchar(255)");
     }
 }

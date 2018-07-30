@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.worldcup.videotopic.data;
 
 import com.baidu.adp.widget.ListView.h;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 import com.squareup.wire.Message;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.VideoTopicList.DataRes;
 import tbclient.VideoTopicList.VideoTopicListResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements com.baidu.tbadk.mvc.b.c {
-    public List<h> bha = new ArrayList();
-    public int cCk;
+    public List<h> bhF = new ArrayList();
+    public int cEP;
 
     @Override // com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -26,23 +26,23 @@ public class c implements com.baidu.tbadk.mvc.b.c {
             List<ThreadInfo> list = dataRes.thread_list;
             if (list != null) {
                 for (ThreadInfo threadInfo : list) {
-                    bc bcVar = new bc();
-                    bcVar.a(threadInfo);
-                    if (bcVar.getType() == bc.aiq) {
-                        this.bha.add(bcVar);
+                    bb bbVar = new bb();
+                    bbVar.a(threadInfo);
+                    if (bbVar.getType() == bb.ahM) {
+                        this.bhF.add(bbVar);
                     }
                 }
             }
-            this.cCk = dataRes.has_more.intValue();
+            this.cEP = dataRes.has_more.intValue();
         }
     }
 
-    public List<h> aBo() {
-        return this.bha;
+    public List<h> aBX() {
+        return this.bhF;
     }
 
-    public Integer aBp() {
-        return Integer.valueOf(this.cCk);
+    public Integer aBY() {
+        return Integer.valueOf(this.cEP);
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -51,16 +51,16 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Jx() {
+    public byte[] Js() {
         return new byte[0];
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void v(JSONObject jSONObject) {
+    public void u(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean A(byte[] bArr) {
+    public boolean y(byte[] bArr) {
         return false;
     }
 }

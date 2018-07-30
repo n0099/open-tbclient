@@ -1,53 +1,25 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class an {
-    private int ahj;
-    private ArrayList<a> ahk;
+    public String agF;
+    public int agG;
+    public String agH;
+    public String buttonText;
+    public int position = 0;
+    public String subtitle;
+    public String summary;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public int giftId;
-        public String giftName;
-        public int num;
-        public String thumbnailUrl;
-    }
-
-    public void a(PbPresent pbPresent) {
-        if (pbPresent != null) {
-            this.ahj = pbPresent.total.intValue();
-            if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.ahk = new ArrayList<>();
-                for (PbPresentList pbPresentList : pbPresent.list) {
-                    if (pbPresentList != null) {
-                        a aVar = new a();
-                        aVar.giftId = pbPresentList.gift_id.intValue();
-                        aVar.giftName = pbPresentList.gift_name;
-                        aVar.thumbnailUrl = pbPresentList.thumbnail_url;
-                        aVar.num = pbPresentList.num.intValue();
-                        this.ahk.add(aVar);
-                    }
-                }
-            }
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.agF = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+            this.agG = newsInfo.news_type.intValue();
+            this.agH = newsInfo.news_icon;
+            this.subtitle = newsInfo.subtitle;
+            this.buttonText = newsInfo.button_text;
         }
-    }
-
-    public int uH() {
-        return this.ahj;
-    }
-
-    public void bN(int i) {
-        this.ahj = i;
-    }
-
-    public ArrayList<a> uI() {
-        return this.ahk;
-    }
-
-    public void k(ArrayList<a> arrayList) {
-        this.ahk = arrayList;
     }
 }

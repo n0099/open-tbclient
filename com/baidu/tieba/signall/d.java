@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements af {
     private String avatar;
-    private int bxt;
-    private int cIq;
+    private int bxY;
+    private int cKY;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int gDk;
-    private int gDl;
-    private int gDm;
-    private boolean gDn;
-    private boolean gDo;
-    private boolean gDp;
-    private boolean gDq;
-    private int gDr;
+    private int gEs;
+    private int gEt;
+    private int gEu;
+    private boolean gEv;
+    private boolean gEw;
+    private boolean gEx;
+    private boolean gEy;
+    private int gEz;
 
     public int getForumId() {
         return this.forumId;
@@ -33,86 +33,82 @@ public class d implements af {
         return this.avatar;
     }
 
-    public int btV() {
-        return this.gDk;
+    public int bsy() {
+        return this.gEs;
     }
 
-    public int btW() {
-        return this.bxt;
+    public int bsz() {
+        return this.bxY;
     }
 
-    public int btX() {
-        return this.cIq;
+    public int bsA() {
+        return this.cKY;
     }
 
-    public int btY() {
-        return this.gDl;
+    public int bsB() {
+        return this.gEt;
     }
 
-    public int btZ() {
-        return this.gDm;
+    public int bsC() {
+        return this.gEu;
+    }
+
+    public void ti(int i) {
+        this.gEs = i;
+    }
+
+    public void tj(int i) {
+        this.bxY = i;
     }
 
     public void tk(int i) {
-        this.gDk = i;
+        this.cKY = i;
+    }
+
+    public boolean TX() {
+        return this.gEv;
+    }
+
+    public void md(boolean z) {
+        this.gEv = z;
+        this.gEs = 1;
+    }
+
+    public boolean bsD() {
+        return this.gEx;
+    }
+
+    public void me(boolean z) {
+        this.gEx = z;
+        this.gEs = 0;
+    }
+
+    public boolean bsE() {
+        return this.gEy;
+    }
+
+    public void mf(boolean z) {
+        this.gEy = z;
+    }
+
+    public int bsF() {
+        return this.gEz;
     }
 
     public void tl(int i) {
-        this.bxt = i;
-    }
-
-    public void tm(int i) {
-        this.cIq = i;
-    }
-
-    public boolean TP() {
-        return this.gDn;
-    }
-
-    public void ms(boolean z) {
-        this.gDn = z;
-        this.gDk = 1;
-    }
-
-    public boolean bua() {
-        return this.gDp;
-    }
-
-    public void mt(boolean z) {
-        this.gDp = z;
-        this.gDk = 0;
-    }
-
-    public boolean bub() {
-        return this.gDq;
-    }
-
-    public void mu(boolean z) {
-        this.gDq = z;
-    }
-
-    public int buc() {
-        return this.gDr;
-    }
-
-    public void tn(int i) {
-        this.gDr = i;
-    }
-
-    public String getErrorMsg() {
-        return this.errorMsg;
+        this.gEz = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean bud() {
-        return this.gDo;
+    public boolean bsG() {
+        return this.gEw;
     }
 
-    public void mv(boolean z) {
-        this.gDo = z;
+    public void mg(boolean z) {
+        this.gEw = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -120,14 +116,14 @@ public class d implements af {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.gDk = jSONObject.optInt("is_sign_in");
-            this.bxt = jSONObject.optInt("cont_sign_num");
-            this.cIq = jSONObject.optInt("user_level");
-            this.gDl = jSONObject.optInt("user_exp");
-            this.gDm = jSONObject.optInt("need_exp");
-            if (this.gDk != 0) {
-                this.gDn = true;
-                this.gDp = false;
+            this.gEs = jSONObject.optInt("is_sign_in");
+            this.bxY = jSONObject.optInt("cont_sign_num");
+            this.cKY = jSONObject.optInt("user_level");
+            this.gEt = jSONObject.optInt("user_exp");
+            this.gEu = jSONObject.optInt("need_exp");
+            if (this.gEs != 0) {
+                this.gEv = true;
+                this.gEx = false;
             }
         }
     }

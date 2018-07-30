@@ -10,62 +10,62 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: aDw */
-    public T aja() {
-        return (T) this.cAD;
+    /* renamed from: aEw */
+    public T ajz() {
+        return (T) this.cDi;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.cAD == 0) {
+        if (this.cDi == 0) {
             return false;
         }
-        return ((n) this.cAD).isPlayStarted();
+        return ((n) this.cDi).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.cAD == 0) {
+        if (this.cDi == 0) {
             return false;
         }
-        return ((n) this.cAD).isPlaying();
+        return ((n) this.cDi).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.cAD != 0) {
-            ((n) this.cAD).startPlay();
+        if (this.cDi != 0) {
+            ((n) this.cDi).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.cAD != 0) {
-            ((n) this.cAD).stopPlay();
+        if (this.cDi != 0) {
+            ((n) this.cDi).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.cAD == 0) {
+        if (this.cDi == 0) {
             return null;
         }
-        return ((n) this.cAD).getVideoContainer();
+        return ((n) this.cDi).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.cAD == 0) {
+        if (this.cDi == 0) {
             return null;
         }
-        return ((n) this.cAD).getPlayUrl();
+        return ((n) this.cDi).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.cAD == 0) {
+        if (this.cDi == 0) {
             return 0;
         }
-        return ((n) this.cAD).getCurrentPosition();
+        return ((n) this.cDi).getCurrentPosition();
     }
 }

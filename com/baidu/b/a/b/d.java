@@ -5,45 +5,45 @@ import android.text.TextUtils;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class d implements c {
-    private static volatile d TK = null;
-    private c TL;
+    private static volatile d TG = null;
+    private c TH;
 
-    public static d ps() {
-        if (TK == null) {
+    public static d pw() {
+        if (TG == null) {
             synchronized (d.class) {
-                if (TK == null) {
-                    TK = new d();
+                if (TG == null) {
+                    TG = new d();
                 }
             }
         }
-        return TK;
+        return TG;
     }
 
     public void b(c cVar) {
-        this.TL = cVar;
+        this.TH = cVar;
     }
 
     @Override // com.baidu.b.a.b.c
-    public View K(Context context, String str) {
-        if (this.TL == null || context == null || TextUtils.isEmpty(str)) {
+    public View L(Context context, String str) {
+        if (this.TH == null || context == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.TL.K(context, str);
+        return this.TH.L(context, str);
     }
 
     @Override // com.baidu.b.a.b.c
     public boolean a(String str, View view, com.baidu.b.a.a.a aVar) {
-        if (this.TL == null || view == null || aVar == null) {
+        if (this.TH == null || view == null || aVar == null) {
             return false;
         }
-        return this.TL.a(str, view, aVar);
+        return this.TH.a(str, view, aVar);
     }
 
     @Override // com.baidu.b.a.b.c
     public boolean a(String str, View view, String str2, String str3) {
-        if (this.TL == null || view == null || TextUtils.isEmpty(str2)) {
+        if (this.TH == null || view == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.TL.a(str, view, str2, str3);
+        return this.TH.a(str, view, str2, str3);
     }
 }

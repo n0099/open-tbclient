@@ -10,50 +10,50 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 /* loaded from: classes3.dex */
 public class b implements QRCodeView.a {
-    private final com.baidu.tieba.qrcode.activity.a gkk;
-    private a gkl;
+    private final com.baidu.tieba.qrcode.activity.a glu;
+    private a glv;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
-        this.gkk = aVar;
+        this.glu = aVar;
         this.mTbPageContext = tbPageContext;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void sA(String str) {
-        this.gkk.bnS();
+    public void sv(String str) {
+        this.glu.bmw();
         if (StringUtils.isNull(str)) {
-            this.gkk.bnQ();
+            this.glu.bmu();
             return;
         }
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921339, null, str);
         if (runTask == null || !(runTask.getData() instanceof Boolean)) {
-            this.gkk.bnT();
+            this.glu.bmx();
         } else {
             this.mTbPageContext.getPageActivity().finish();
         }
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void bnU() {
-        l.showToast(this.mTbPageContext.getPageActivity(), d.k.disallow_camera_permission);
+    public void bmy() {
+        l.showToast(this.mTbPageContext.getPageActivity(), d.j.disallow_camera_permission);
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    public void sB(String str) {
+    public void sw(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.gkl != null) {
-                this.gkl.cancel();
+            if (this.glv != null) {
+                this.glv.cancel();
             }
-            this.gkl = new a();
-            this.gkl.execute(str);
+            this.glv = new a();
+            this.glv.execute(str);
         }
     }
 
     public void onDestroy() {
-        if (this.gkl != null) {
-            this.gkl.cancel();
-            this.gkl = null;
+        if (this.glv != null) {
+            this.glv.cancel();
+            this.glv = null;
         }
     }
 
@@ -66,7 +66,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.gkk.bnR();
+            b.this.glu.bmv();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -77,7 +77,7 @@ public class b implements QRCodeView.a {
             if (strArr == null || strArr.length <= 0) {
                 return null;
             }
-            return com.baidu.tieba.qrcode.lib.zxing.a.sC(strArr[0]);
+            return com.baidu.tieba.qrcode.lib.zxing.a.sx(strArr[0]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,8 +85,8 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.gkk.bnS();
-            b.this.sA(str);
+            b.this.glu.bmw();
+            b.this.sv(str);
         }
     }
 }

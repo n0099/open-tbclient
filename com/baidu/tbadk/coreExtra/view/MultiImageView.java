@@ -21,9 +21,9 @@ import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MultiImageView extends RelativeLayout {
-    private DragImageView.f aHm;
+    private DragImageView.g aHm;
     private DragImageView.e aHn;
     private boolean aHw;
     private Button aIi;
@@ -119,10 +119,10 @@ public class MultiImageView extends RelativeLayout {
                 if (view == MultiImageView.this.aIi) {
                     DragImageView currentImageView2 = MultiImageView.this.getCurrentImageView();
                     if (currentImageView2 != null) {
-                        currentImageView2.LT();
+                        currentImageView2.LP();
                     }
                 } else if (view == MultiImageView.this.aIj && (currentImageView = MultiImageView.this.getCurrentImageView()) != null) {
-                    currentImageView.LU();
+                    currentImageView.LQ();
                 }
             }
         };
@@ -147,7 +147,7 @@ public class MultiImageView extends RelativeLayout {
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = MultiImageView.this.aIl.getChildAt(i2);
                     if (childAt != null && (childAt instanceof UrlDragImageView)) {
-                        ((UrlDragImageView) childAt).Gi();
+                        ((UrlDragImageView) childAt).Ge();
                     }
                 }
                 if (MultiImageView.this.aIm != null) {
@@ -155,8 +155,8 @@ public class MultiImageView extends RelativeLayout {
                 }
             }
         };
-        this.aHm = new DragImageView.f() { // from class: com.baidu.tbadk.coreExtra.view.MultiImageView.3
-            @Override // com.baidu.tbadk.widget.DragImageView.f
+        this.aHm = new DragImageView.g() { // from class: com.baidu.tbadk.coreExtra.view.MultiImageView.3
+            @Override // com.baidu.tbadk.widget.DragImageView.g
             public void a(DragImageView dragImageView, boolean z, boolean z2) {
                 if (MultiImageView.this.aIl.getCurrentView() == dragImageView) {
                     MultiImageView.this.setZoomButton(dragImageView);
@@ -182,7 +182,7 @@ public class MultiImageView extends RelativeLayout {
         };
     }
 
-    public void dl(int i) {
+    public void dn(int i) {
         if (this.mSkinType != i && this.aIl != null) {
             int childCount = this.aIl.getChildCount();
             for (int i2 = 0; i2 < childCount; i2++) {
@@ -232,7 +232,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void eu(int i) {
+    public void ex(int i) {
         View findViewWithTag = this.aIl.findViewWithTag(String.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof UrlDragImageView)) {
             ((UrlDragImageView) findViewWithTag).i(this.aHw, true);
@@ -309,25 +309,25 @@ public class MultiImageView extends RelativeLayout {
         this.aIi.setEnabled(false);
     }
 
-    public void FS() {
+    public void FO() {
         if (!this.aIq) {
             this.aIk.setVisibility(0);
         }
     }
 
-    public void bt(boolean z) {
+    public void br(boolean z) {
         if (this.aIl != null) {
             int childCount = this.aIl.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.aIl.getChildAt(i);
                 if (childAt != null && (childAt instanceof UrlDragImageView)) {
-                    ((UrlDragImageView) childAt).bt(z);
+                    ((UrlDragImageView) childAt).br(z);
                 }
             }
         }
     }
 
-    public void FT() {
+    public void FP() {
         if (!this.aIq) {
             this.aIk.setVisibility(8);
         }

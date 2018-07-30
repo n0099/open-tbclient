@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class c extends q.a {
-    public int azP;
-    public View bjR;
-    public TextView cwI;
+    public int azI;
+    public View bkw;
+    public TextView czl;
 
     public c(View view) {
         super(view);
-        this.azP = 3;
-        this.cwI = (TextView) view.findViewById(d.g.look_more_view);
-        this.bjR = view.findViewById(d.g.divider_line_above_more_god_replays);
-        am.h(this.cwI, d.C0142d.cp_cont_f);
-        am.i(this.cwI, d.f.more_all);
-        am.i(this.bjR, d.C0142d.cp_bg_line_c);
+        this.azI = 3;
+        this.czl = (TextView) view.findViewById(d.g.look_more_view);
+        this.bkw = view.findViewById(d.g.divider_line_above_more_god_replays);
+        am.h(this.czl, d.C0140d.cp_cont_f);
+        am.i(this.czl, d.f.more_all);
+        am.i(this.bkw, d.C0140d.cp_bg_line_c);
     }
 }

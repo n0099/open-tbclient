@@ -6,8 +6,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.aj;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.ai;
+import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.d;
@@ -27,14 +27,14 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class d extends h {
-    private final com.baidu.adp.framework.listener.a cGd;
-    private final CustomMessageListener dBp;
-    private final CustomMessageListener dBq;
-    private final CustomMessageListener dBr;
+    private final com.baidu.adp.framework.listener.a cIK;
+    private final CustomMessageListener dEb;
+    private final CustomMessageListener dEc;
+    private final CustomMessageListener dEd;
 
     public d(FrsFragment frsFragment) {
         super(frsFragment);
-        this.dBp = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.frs.mc.d.1
+        this.dEb = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.frs.mc.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,53 +43,53 @@ public class d extends h {
                 }
             }
         };
-        this.dBq = new CustomMessageListener(2921031) { // from class: com.baidu.tieba.frs.mc.d.2
+        this.dEc = new CustomMessageListener(2921031) { // from class: com.baidu.tieba.frs.mc.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                     String str = (String) customResponsedMessage.getData();
-                    if (!StringUtils.isNull(str) && d.this.dAK.atZ() != null) {
-                        l atZ = d.this.dAK.atZ();
-                        atZ.Y(atZ.mD(str));
-                        d.this.djA.a(atZ.getThreadList(), atZ);
-                        if (com.baidu.tieba.tbadkCore.c.bvo() != null) {
-                            com.baidu.tieba.tbadkCore.c.bvo().U(d.this.dAK.getForumName(), false);
+                    if (!StringUtils.isNull(str) && d.this.dDw.auD() != null) {
+                        l auD = d.this.dDw.auD();
+                        auD.aa(auD.mC(str));
+                        d.this.dmq.a(auD.getThreadList(), auD);
+                        if (com.baidu.tieba.tbadkCore.c.btR() != null) {
+                            com.baidu.tieba.tbadkCore.c.btR().T(d.this.dDw.getForumName(), false);
                         }
                     }
                 }
             }
         };
-        this.dBr = new CustomMessageListener(2921316) { // from class: com.baidu.tieba.frs.mc.d.3
+        this.dEd = new CustomMessageListener(2921316) { // from class: com.baidu.tieba.frs.mc.d.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Multi-variable type inference failed */
             /* JADX WARN: Type inference failed for: r0v19, types: [java.util.List] */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 ForumManageModel.e eVar;
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.dAK != null && d.this.djA != null && d.this.djM != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.dAK.atZ() != null) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e) && d.this.dDw != null && d.this.dmq != null && d.this.dmC != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.threadId) && d.this.dDw.auD() != null) {
                     String str = eVar.threadId;
                     String str2 = eVar.forumId;
                     String str3 = eVar.forumName;
-                    if (eVar.gPu == 4) {
-                        l atZ = d.this.dAK.atZ();
-                        bc mD = atZ.mD(str);
-                        atZ.Y(mD);
-                        List<com.baidu.adp.widget.ListView.h> bwJ = atZ.bwJ();
-                        if (bwJ == null) {
-                            bwJ = new ArrayList<>();
+                    if (eVar.gQs == 4) {
+                        l auD = d.this.dDw.auD();
+                        bb mC = auD.mC(str);
+                        auD.aa(mC);
+                        List<com.baidu.adp.widget.ListView.h> bvn = auD.bvn();
+                        if (bvn == null) {
+                            bvn = new ArrayList<>();
                         }
-                        bwJ.add(0, mD);
-                        d.this.djA.a(atZ.getThreadList(), atZ);
-                        d.this.djM.h(atZ);
+                        bvn.add(0, mC);
+                        d.this.dmq.a(auD.getThreadList(), auD);
+                        d.this.dmC.h(auD);
                     }
-                    if (TextUtils.equals(d.this.dAK.getForumName(), str3)) {
-                        com.baidu.tieba.tbadkCore.c.bvo().U(d.this.dAK.getForumName(), false);
+                    if (TextUtils.equals(d.this.dDw.getForumName(), str3)) {
+                        com.baidu.tieba.tbadkCore.c.btR().T(d.this.dDw.getForumName(), false);
                     }
                 }
             }
         };
-        this.cGd = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.frs.mc.d.4
+        this.cIK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.frs.mc.d.4
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 String errorString;
@@ -97,7 +97,7 @@ public class d extends h {
                 if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                     GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                        errorString2 = d.this.dAK.getResources().getString(d.k.neterror);
+                        errorString2 = d.this.dDw.getResources().getString(d.j.neterror);
                     } else {
                         errorString2 = getMyPostHttpResponseMessage.getErrorString();
                     }
@@ -105,7 +105,7 @@ public class d extends h {
                 } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                     GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                     if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                        errorString = d.this.dAK.getResources().getString(d.k.neterror);
+                        errorString = d.this.dDw.getResources().getString(d.j.neterror);
                     } else {
                         errorString = getMyPostSocketResponseMessage.getErrorString();
                     }
@@ -113,47 +113,47 @@ public class d extends h {
                 }
             }
         };
-        this.cGd.getSocketMessageListener().setSelfListener(true);
-        this.cGd.getHttpMessageListener().setSelfListener(true);
-        this.dBq.setSelfListener(false);
-        this.dAK.registerListener(this.dBq);
-        this.dAK.registerListener(this.cGd);
-        this.dAK.registerListener(this.dBp);
-        this.dAK.registerListener(this.dBr);
+        this.cIK.getSocketMessageListener().setSelfListener(true);
+        this.cIK.getHttpMessageListener().setSelfListener(true);
+        this.dEc.setSelfListener(false);
+        this.dDw.registerListener(this.dEc);
+        this.dDw.registerListener(this.cIK);
+        this.dDw.registerListener(this.dEb);
+        this.dDw.registerListener(this.dEd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, GetMyPostResIdl getMyPostResIdl) {
         ArrayList<com.baidu.adp.widget.ListView.h> a;
         if (i != 0) {
-            this.dAK.showToast(str);
+            this.dDw.showToast(str);
             return;
         }
-        l atZ = this.dAK.atZ();
-        if (atZ != null && atZ.baT() != null && getMyPostResIdl != null && this.djA != null && this.djL != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
-            aj ajVar = new aj();
+        l auD = this.dDw.auD();
+        if (auD != null && auD.aZl() != null && getMyPostResIdl != null && this.dmq != null && this.dmB != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+            ai aiVar = new ai();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
             builder.author = builder2.build(true);
             builder.cheak_repeat = 1;
-            builder.fname = atZ.baT().getName();
-            builder.fid = Long.valueOf(com.baidu.adp.lib.g.b.c(atZ.baT().getId(), 0L));
-            ajVar.a(builder.build(true));
-            ajVar.bY(3);
-            this.djL.a(ajVar);
-            if (this.djL.azj()) {
+            builder.fname = auD.aZl().getName();
+            builder.fid = Long.valueOf(com.baidu.adp.lib.g.b.c(auD.aZl().getId(), 0L));
+            aiVar.a(builder.build(true));
+            aiVar.ca(3);
+            this.dmB.a(aiVar);
+            if (this.dmB.azP()) {
                 ArrayList<com.baidu.adp.widget.ListView.h> arrayList = new ArrayList<>();
-                arrayList.add(ajVar);
-                a = this.dBJ.a(false, true, arrayList, null, true);
+                arrayList.add(aiVar);
+                a = this.dEv.a(false, true, arrayList, null, true);
             } else {
-                a = this.dBJ.a(false, true, atZ.getThreadList(), null, true);
+                a = this.dEv.a(false, true, auD.getThreadList(), null, true);
             }
             if (a != null) {
-                atZ.az(a);
-                atZ.bwu();
-                this.djA.a(a, atZ);
-                this.djA.ks(0);
+                auD.ax(a);
+                auD.buY();
+                this.dmq.a(a, auD);
+                this.dmq.kD(0);
             }
         }
     }
@@ -175,30 +175,27 @@ public class d extends h {
     }
 
     public void e(PostWriteCallBackData postWriteCallBackData) {
-        if (this.djL != null) {
-            if (this.djL.azf() == 2 || this.djL.azf() == 3 || this.djL.azf() == 7) {
-                int ayX = this.djL.ayX();
-                if (y.avd().ku(1) == null) {
-                    ayX = 0;
-                }
-                if (ayX == 0 && postWriteCallBackData != null) {
+        if (this.dmB != null) {
+            boolean z = (this.dmB == null || this.dmB.azf() == null || !this.dmB.azf().isBrandForum) ? false : true;
+            if (this.dmB.azL() == 2 || this.dmB.azL() == 3 || this.dmB.azL() == 7 || z) {
+                if ((y.avI().kF(1) != null ? this.dmB.azD() : 0) == 0 && postWriteCallBackData != null) {
                     final long c = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getPostId(), 0L);
                     final long c2 = com.baidu.adp.lib.g.b.c(postWriteCallBackData.getThreadId(), 0L);
-                    final long c3 = com.baidu.adp.lib.g.b.c(this.dAK.getForumId(), 0L);
+                    final long c3 = com.baidu.adp.lib.g.b.c(this.dDw.getForumId(), 0L);
                     if (c != 0 && c2 != 0 && c3 != 0) {
-                        com.baidu.adp.lib.g.e.im().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.mc.d.5
+                        com.baidu.adp.lib.g.e.in().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.mc.d.5
                             @Override // java.lang.Runnable
                             public void run() {
                                 int ah = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst());
                                 int aj = com.baidu.adp.lib.util.l.aj(TbadkCoreApplication.getInst());
                                 float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                                 int i = 1;
-                                if (ar.zF().zH()) {
+                                if (ar.zw().zy()) {
                                     i = 2;
                                 }
                                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                                 requestGetMyPostNetMessage.setParams(c2, c, c3, ah, aj, f, i);
-                                d.this.dAK.sendMessage(requestGetMyPostNetMessage);
+                                d.this.dDw.sendMessage(requestGetMyPostNetMessage);
                             }
                         }, 1000L);
                     }

@@ -1,36 +1,33 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
-public class ab {
-    private String class_name = null;
-    private int agI = 0;
+public class ab extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId TYPE = BdUniqueId.gen();
+    private ICardInfo Pj;
+    private boolean agc;
+    private String card;
 
-    public String ul() {
-        return this.class_name;
+    public void dg(String str) {
+        this.card = str;
     }
 
-    public int um() {
-        return this.agI;
+    public void ua() {
+        this.Pj = com.baidu.tieba.lego.card.b.pn(this.card);
+        this.agc = this.Pj != null;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.agI = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString("class_name");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    public ICardInfo ub() {
+        return this.Pj;
     }
 
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.agI = classify.class_id.intValue();
-            this.class_name = classify.class_name;
-        }
+    public boolean isValid() {
+        return this.agc;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.h
+    public BdUniqueId getType() {
+        return TYPE;
     }
 }

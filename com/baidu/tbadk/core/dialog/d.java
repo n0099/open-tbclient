@@ -11,9 +11,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends AlertDialog {
-    private TextView alE;
-    private CircleView1080 alH;
-    private int alI;
+    private TextView ald;
+    private CircleView1080 alg;
+    private int alh;
     private String mMessage;
     private TextView mTextView;
 
@@ -26,43 +26,43 @@ public class d extends AlertDialog {
         super.show();
         Window window = getWindow();
         if (window != null) {
-            window.setContentView(d.i.progress_dialog_1080);
+            window.setContentView(d.h.progress_dialog_1080);
             View findViewById = findViewById(d.g.frame_progress_dialog);
             if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
-                layoutParams.topMargin = l.e(getContext(), d.e.tbds50);
+                layoutParams.topMargin = l.f(getContext(), d.e.tbds50);
                 findViewById.setLayoutParams(layoutParams);
             }
-            this.alE = (TextView) window.findViewById(d.g.text_progress_dialog_message);
-            if (this.alE.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.alE.getLayoutParams();
-                layoutParams2.topMargin = l.e(getContext(), d.e.tbds35);
-                this.alE.setLayoutParams(layoutParams2);
+            this.ald = (TextView) window.findViewById(d.g.text_progress_dialog_message);
+            if (this.ald.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ald.getLayoutParams();
+                layoutParams2.topMargin = l.f(getContext(), d.e.tbds35);
+                this.ald.setLayoutParams(layoutParams2);
             }
             if (!StringUtils.isNull(this.mMessage)) {
-                this.alE.setText(this.mMessage);
+                this.ald.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(d.g.text_progress_dialog_percent);
-            this.alH = (CircleView1080) window.findViewById(d.g.circle_progress_dialog);
+            this.alg = (CircleView1080) window.findViewById(d.g.circle_progress_dialog);
         }
     }
 
     public void setPercent(int i) {
-        if (i != this.alI) {
-            this.alI = i;
+        if (i != this.alh) {
+            this.alh = i;
             if (this.mTextView != null) {
                 this.mTextView.setText(i + "%");
             }
-            if (this.alH != null) {
-                this.alH.setProgress(i);
+            if (this.alg != null) {
+                this.alg.setProgress(i);
             }
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.alE != null) {
-            this.alE.setText(this.mMessage);
+        if (this.ald != null) {
+            this.ald.setText(this.mMessage);
         }
     }
 }

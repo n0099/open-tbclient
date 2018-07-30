@@ -15,7 +15,7 @@ public class ChatStatusManager {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String aWi;
+        public String aWk;
         public boolean isOpen;
     }
 
@@ -43,7 +43,7 @@ public class ChatStatusManager {
         if (aVar == null) {
             return "";
         }
-        return aVar.aWi;
+        return aVar.aWk;
     }
 
     public void setIsOpen(int i, boolean z) {
@@ -60,11 +60,11 @@ public class ChatStatusManager {
     public void setCurId(int i, String str) {
         a aVar = this.mStatus.get(i);
         if (aVar != null) {
-            aVar.aWi = str;
+            aVar.aWk = str;
             return;
         }
         a aVar2 = new a();
-        aVar2.aWi = str;
+        aVar2.aWk = str;
         this.mStatus.put(i, aVar2);
     }
 

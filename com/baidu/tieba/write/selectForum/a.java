@@ -15,14 +15,14 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity huR;
+    private HotTopicChangeFourmActivity hvX;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.huR = hotTopicChangeFourmActivity;
-        this.mContext = this.huR.getPageContext().getContext();
+        this.hvX = hotTopicChangeFourmActivity;
+        this.mContext = this.hvX.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -31,7 +31,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (w.A(this.mData)) {
+        if (w.z(this.mData)) {
             return 0;
         }
         return this.mData.size();
@@ -39,7 +39,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vy */
+    /* renamed from: vx */
     public HotTopicBussinessData getItem(int i) {
         if (this.mData != null && i < this.mData.size()) {
             return this.mData.get(i);
@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String vF(String str) {
+    private String vG(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -83,29 +83,29 @@ public class a extends BaseAdapter {
     private C0254a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0254a c0254a;
         if (obj == null) {
-            c0254a = bHP();
+            c0254a = bGA();
         } else {
             c0254a = (C0254a) obj;
         }
-        c0254a.huT.setText(vF(hotTopicBussinessData.mForumName));
-        c0254a.huS.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0254a.hvZ.setText(vG(hotTopicBussinessData.mForumName));
+        c0254a.hvY.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         am.i(c0254a.mRootView, d.f.select_forum_item_bg);
-        am.h(c0254a.huT, d.C0142d.cp_cont_b);
-        am.j(c0254a.dsv, d.C0142d.cp_bg_line_e);
+        am.h(c0254a.hvZ, d.C0140d.cp_cont_b);
+        am.j(c0254a.dvj, d.C0140d.cp_bg_line_e);
         return c0254a;
     }
 
-    private C0254a bHP() {
+    private C0254a bGA() {
         C0254a c0254a = new C0254a();
-        c0254a.mRootView = LayoutInflater.from(this.mContext).inflate(d.i.hot_topic_change_item, (ViewGroup) null);
+        c0254a.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.hot_topic_change_item, (ViewGroup) null);
         am.i(c0254a.mRootView, d.f.select_forum_item_bg);
-        am.h(c0254a.huT, d.C0142d.cp_cont_b);
-        c0254a.huT = (TextView) c0254a.mRootView.findViewById(d.g.fourm_tv);
-        c0254a.dsv = c0254a.mRootView.findViewById(d.g.line_view);
-        c0254a.huS = (TbImageView) c0254a.mRootView.findViewById(d.g.icon_img);
-        c0254a.huS.setDefaultBgResource(d.C0142d.cp_bg_line_e);
-        c0254a.huS.setDefaultResource(d.f.transparent_bg);
-        c0254a.huS.setDefaultErrorResource(d.f.icon_default_ba_120);
+        am.h(c0254a.hvZ, d.C0140d.cp_cont_b);
+        c0254a.hvZ = (TextView) c0254a.mRootView.findViewById(d.g.fourm_tv);
+        c0254a.dvj = c0254a.mRootView.findViewById(d.g.line_view);
+        c0254a.hvY = (TbImageView) c0254a.mRootView.findViewById(d.g.icon_img);
+        c0254a.hvY.setDefaultBgResource(d.C0140d.cp_bg_line_e);
+        c0254a.hvY.setDefaultResource(d.f.transparent_bg);
+        c0254a.hvY.setDefaultErrorResource(d.f.icon_default_ba_120);
         c0254a.mRootView.setTag(c0254a);
         return c0254a;
     }
@@ -114,9 +114,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0254a {
-        public View dsv;
-        public TbImageView huS;
-        public TextView huT;
+        public View dvj;
+        public TbImageView hvY;
+        public TextView hvZ;
         public View mRootView;
 
         private C0254a() {

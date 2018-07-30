@@ -19,10 +19,10 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a blq;
+    private static a blW;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
-    private boolean blr = false;
+    private boolean blX = false;
     private byte[] mBuffer = new byte[1024];
     private Runnable aRn = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         @Override // java.lang.Runnable
@@ -34,7 +34,7 @@ public class a {
             int i;
             long j;
             String readLine;
-            while (!a.this.blr) {
+            while (!a.this.blX) {
                 synchronized (a.this.mLock) {
                     try {
                         a.this.mLock.wait();
@@ -42,14 +42,14 @@ public class a {
                         e2.printStackTrace();
                     }
                 }
-                if (!a.this.blr) {
-                    String Ql = a.this.Ql();
-                    if (Ql != null && !Ql.isEmpty()) {
-                        File file = new File(c.blf + b.is(Ql) + "/header_downloaded");
+                if (!a.this.blX) {
+                    String Qs = a.this.Qs();
+                    if (Qs != null && !Qs.isEmpty()) {
+                        File file = new File(c.blL + b.ip(Qs) + "/header_downloaded");
                         if (file.exists()) {
-                            d.aB(a.TAG, "header exists " + Ql);
+                            d.ax(a.TAG, "header exists " + Qs);
                         } else {
-                            d.aB(a.TAG, "client preload start: " + Ql);
+                            d.ax(a.TAG, "client preload start: " + Qs);
                             long j2 = 0;
                             int i2 = 0;
                             int i3 = 0;
@@ -68,8 +68,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 InputStream inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Ql);
-                                    int port = b.Qn().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Qs);
+                                    int port = b.Qu().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -127,7 +127,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.aB(a.TAG, "client preload check1: " + Ql);
+                                            d.ax(a.TAG, "client preload check1: " + Qs);
                                             int i4 = i2;
                                             while (true) {
                                                 try {
@@ -146,7 +146,7 @@ public class a {
                                                 }
                                             }
                                             try {
-                                                d.aB(a.TAG, "client preload check2: " + Ql);
+                                                d.ax(a.TAG, "client preload check2: " + Qs);
                                                 if (!file.exists()) {
                                                     if (file.getParentFile() != null && !file.getParentFile().exists()) {
                                                         file.getParentFile().mkdirs();
@@ -175,7 +175,7 @@ public class a {
                                                 }
                                             } catch (Exception e13) {
                                                 e = e13;
-                                                TiebaStatic.log(new an("c12027").ah("errormsg", "预加载文件失败").ah("error", e.getMessage()).ah("url", Ql));
+                                                TiebaStatic.log(new an("c12027").af("errormsg", "预加载文件失败").af("error", e.getMessage()).af("url", Qs));
                                                 e.printStackTrace();
                                                 try {
                                                     outputStreamWriter.close();
@@ -235,7 +235,7 @@ public class a {
                                 i2 = i;
                                 j2 = j;
                             }
-                            d.aB(a.TAG, "client preload end: " + Ql);
+                            d.ax(a.TAG, "client preload end: " + Qs);
                         }
                     }
                 } else {
@@ -250,23 +250,23 @@ public class a {
         this.mThread.start();
     }
 
-    public static a Qk() {
-        if (blq == null) {
+    public static a Qr() {
+        if (blW == null) {
             synchronized (a.class) {
-                if (blq == null) {
-                    blq = new a();
+                if (blW == null) {
+                    blW = new a();
                 }
             }
         }
-        return blq;
+        return blW;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String Ql() {
+    public synchronized String Qs() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void it(String str) {
+    public synchronized void iq(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

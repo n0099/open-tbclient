@@ -18,9 +18,9 @@ public class AdUploadHttpRequest extends HttpMessage {
     private static final String KEY_OS_TYPE = "_os_type";
     private static final String KEY_OS_VERSION = "_os_version";
     private static final String KEY_PRODUCT_ID = "productId";
-    private ArrayList<a> dataArray;
+    private ArrayList<b> dataArray;
 
-    public AdUploadHttpRequest(ArrayList<a> arrayList) {
+    public AdUploadHttpRequest(ArrayList<b> arrayList) {
         super(CmdConfigHttp.CMD_AD_UPLOAD);
         this.dataArray = new ArrayList<>();
         this.dataArray.addAll(arrayList);
@@ -28,33 +28,33 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
-        addParam(KEY_NET_TYPE, j.jJ());
+        addParam(KEY_NET_TYPE, j.jK());
         addParam(KEY_OS_TYPE, 2);
     }
 
-    public AdUploadHttpRequest(a aVar) {
+    public AdUploadHttpRequest(b bVar) {
         super(CmdConfigHttp.CMD_AD_UPLOAD);
         this.dataArray = new ArrayList<>();
-        this.dataArray.add(aVar);
+        this.dataArray.add(bVar);
         addParam(KEY_AD, toJSONString(this.dataArray));
         addParam(KEY_BRAND, Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
     }
 
-    public ArrayList<a> getDataArray() {
+    public ArrayList<b> getDataArray() {
         return this.dataArray;
     }
 
-    private String toJSONString(ArrayList<a> arrayList) {
-        if (w.z(arrayList) <= 0) {
+    private String toJSONString(ArrayList<b> arrayList) {
+        if (w.y(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        Iterator<a> it = arrayList.iterator();
+        Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
-            a next = it.next();
+            b next = it.next();
             if (next != null) {
-                jSONArray.put(next.bpC());
+                jSONArray.put(next.boh());
             }
         }
         return jSONArray.toString();

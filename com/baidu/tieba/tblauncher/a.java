@@ -20,75 +20,75 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes2.dex */
 public class a {
-    private l dEs;
-    private Runnable fJJ = new Runnable() { // from class: com.baidu.tieba.tblauncher.a.1
+    private l dHe;
+    private Runnable fJX = new Runnable() { // from class: com.baidu.tieba.tblauncher.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.mActivity != null && a.this.mAnchorView != null && a.this.gRE != null && a.this.gRE.getContentView() != null) {
-                int e = com.baidu.adp.lib.util.l.e(a.this.mActivity, d.e.ds252);
-                a.this.gRE.getContentView().measure(0, 0);
-                g.showPopupWindowAsDropDown(a.this.gRE, a.this.mAnchorView, (-(com.baidu.adp.lib.util.l.e(a.this.mActivity, d.e.ds430) - a.this.mAnchorView.getMeasuredWidth())) / 2, -e);
-                com.baidu.adp.lib.g.e.im().postDelayed(a.this.fJK, TbConfig.NOTIFY_SOUND_INTERVAL);
+            if (a.this.mActivity != null && a.this.mAnchorView != null && a.this.gSC != null && a.this.gSC.getContentView() != null) {
+                int f = com.baidu.adp.lib.util.l.f(a.this.mActivity, d.e.ds252);
+                a.this.gSC.getContentView().measure(0, 0);
+                g.showPopupWindowAsDropDown(a.this.gSC, a.this.mAnchorView, (-(com.baidu.adp.lib.util.l.f(a.this.mActivity, d.e.ds430) - a.this.mAnchorView.getMeasuredWidth())) / 2, -f);
+                com.baidu.adp.lib.g.e.in().postDelayed(a.this.fJY, TbConfig.NOTIFY_SOUND_INTERVAL);
                 TiebaStatic.log(new an("c13016").r("obj_locate", 2));
             }
         }
     };
-    private Runnable fJK = new Runnable() { // from class: com.baidu.tieba.tblauncher.a.2
+    private Runnable fJY = new Runnable() { // from class: com.baidu.tieba.tblauncher.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.bgU();
+            a.this.bfn();
         }
     };
-    private View.OnClickListener fJL = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.a.3
+    private View.OnClickListener fJZ = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.a.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.bzq();
-            if (a.this.dEs != null && a.this.dEs.gKH != null && a.this.dEs.baT() != null) {
-                if (a.this.gRF == null || a.this.gRF.awM()) {
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(a.this.mActivity, 9, a.this.dEs.baT().getId(), a.this.dEs.baT().getName(), null, null, 0, a.this.dEs.uu(), 13003, false, false, null, false, false, null, null, a.this.dEs.baT().getPrefixData(), 0);
-                    if (!StringUtils.isNull(a.this.dEs.gKH.recom_topic)) {
-                        writeActivityConfig.setTitle(a.this.dEs.gKH.recom_topic, true);
+            a.this.bxT();
+            if (a.this.dHe != null && a.this.dHe.gLE != null && a.this.dHe.aZl() != null) {
+                if (a.this.gSD == null || a.this.gSD.axr()) {
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(a.this.mActivity, 9, a.this.dHe.aZl().getId(), a.this.dHe.aZl().getName(), null, null, 0, a.this.dHe.uh(), 13003, false, false, null, false, false, null, null, a.this.dHe.aZl().getPrefixData(), 0);
+                    if (!StringUtils.isNull(a.this.dHe.gLE.recom_topic)) {
+                        writeActivityConfig.setTitle(a.this.dHe.gLE.recom_topic, true);
                     }
-                    ForumData baT = a.this.dEs.baT();
-                    writeActivityConfig.setForumDir(baT.getFirst_class(), baT.getSecond_class());
+                    ForumData aZl = a.this.dHe.aZl();
+                    writeActivityConfig.setForumDir(aZl.getFirst_class(), aZl.getSecond_class());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
                     TiebaStatic.log(new an("c13017").r("obj_locate", 2));
                 }
             }
         }
     };
-    private PopupWindow gRE;
-    private com.baidu.tieba.frs.entelechy.b.d gRF;
+    private PopupWindow gSC;
+    private com.baidu.tieba.frs.entelechy.b.d gSD;
     private Activity mActivity;
     private View mAnchorView;
 
     public a(Activity activity, com.baidu.tieba.frs.entelechy.b.d dVar) {
         this.mActivity = activity;
-        this.gRF = dVar;
+        this.gSD = dVar;
     }
 
     public void b(View view, l lVar) {
-        if (view != null && lVar != null && lVar.gKH != null && this.mActivity != null) {
-            this.dEs = lVar;
+        if (view != null && lVar != null && lVar.gLE != null && this.mActivity != null) {
+            this.dHe = lVar;
             this.mAnchorView = view;
-            View inflate = LayoutInflater.from(this.mActivity).inflate(d.i.tips_blue_twice_line_down, (ViewGroup) null);
-            ((TextView) inflate.findViewById(d.g.tips)).setText(ap.g(lVar.gKH.recom_title, 24, "..."));
-            ((TextView) inflate.findViewById(d.g.tips_content)).setText(d.k.topic_join);
-            inflate.setOnClickListener(this.fJL);
-            this.gRE = new PopupWindow(inflate, -2, -2);
-            com.baidu.adp.lib.g.e.im().removeCallbacks(this.fJJ);
-            com.baidu.adp.lib.g.e.im().postDelayed(this.fJJ, 100L);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.tips_blue_twice_line_down, (ViewGroup) null);
+            ((TextView) inflate.findViewById(d.g.tips)).setText(ap.g(lVar.gLE.recom_title, 24, "..."));
+            ((TextView) inflate.findViewById(d.g.tips_content)).setText(d.j.topic_join);
+            inflate.setOnClickListener(this.fJZ);
+            this.gSC = new PopupWindow(inflate, -2, -2);
+            com.baidu.adp.lib.g.e.in().removeCallbacks(this.fJX);
+            com.baidu.adp.lib.g.e.in().postDelayed(this.fJX, 100L);
         }
     }
 
-    public void bzq() {
-        com.baidu.adp.lib.g.e.im().removeCallbacks(this.fJJ);
-        com.baidu.adp.lib.g.e.im().removeCallbacks(this.fJK);
-        bgU();
+    public void bxT() {
+        com.baidu.adp.lib.g.e.in().removeCallbacks(this.fJX);
+        com.baidu.adp.lib.g.e.in().removeCallbacks(this.fJY);
+        bfn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgU() {
-        g.a(this.gRE);
+    public void bfn() {
+        g.a(this.gSC);
     }
 }

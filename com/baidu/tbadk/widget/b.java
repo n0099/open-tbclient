@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    protected final Paint aYm = new Paint();
-    protected final Paint aYn = new Paint();
-    private int aYo;
-    private int aYp;
-    private int aYq;
-    private int aYr;
-    private int aYs;
-    private int aYt;
+    private int aYA;
+    protected final Paint aYs = new Paint();
+    protected final Paint aYt = new Paint();
     private int aYu;
+    private int aYv;
+    private int aYw;
+    private int aYx;
+    private int aYy;
+    private int aYz;
     protected final View view;
 
     private Context getContext() {
@@ -27,26 +27,26 @@ public class b {
     }
 
     public b(View view) {
-        this.aYo = 16;
-        this.aYp = 16;
-        this.aYq = -1;
-        this.aYr = 1711276032;
-        this.aYs = 20;
-        this.aYt = 16;
-        this.aYu = 32;
+        this.aYu = 16;
+        this.aYv = 16;
+        this.aYw = -1;
+        this.aYx = 1711276032;
+        this.aYy = 20;
+        this.aYz = 16;
+        this.aYA = 32;
         this.view = view;
-        this.aYr = getContext().getResources().getColor(d.C0142d.black_alpha40);
-        this.aYn.setColor(this.aYr);
-        this.aYn.setAntiAlias(true);
-        this.aYs = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
-        this.aYq = getContext().getResources().getColor(d.C0142d.cp_cont_i);
-        this.aYm.setColor(this.aYq);
-        this.aYm.setTextSize(this.aYs);
-        this.aYm.setAntiAlias(true);
-        this.aYo = l.e(getContext(), d.e.tbds20);
-        this.aYp = l.e(getContext(), d.e.tbds20);
-        this.aYt = l.e(getContext(), d.e.ds16);
-        this.aYu = l.e(getContext(), d.e.tbds40);
+        this.aYx = getContext().getResources().getColor(d.C0140d.black_alpha40);
+        this.aYt.setColor(this.aYx);
+        this.aYt.setAntiAlias(true);
+        this.aYy = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
+        this.aYw = getContext().getResources().getColor(d.C0140d.cp_cont_i);
+        this.aYs.setColor(this.aYw);
+        this.aYs.setTextSize(this.aYy);
+        this.aYs.setAntiAlias(true);
+        this.aYu = l.f(getContext(), d.e.tbds20);
+        this.aYv = l.f(getContext(), d.e.tbds20);
+        this.aYz = l.f(getContext(), d.e.ds16);
+        this.aYA = l.f(getContext(), d.e.tbds40);
     }
 
     public void c(Canvas canvas, String str) {
@@ -60,14 +60,14 @@ public class b {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.aYm.measureText(str);
-            float f = this.aYu + measureText;
-            float f2 = this.aYs + this.aYt;
-            canvas.translate((((right - left) - paddingRight) - f) - this.aYp, (((bottom - top) - paddingBottom) - f2) - this.aYo);
+            float measureText = this.aYs.measureText(str);
+            float f = this.aYA + measureText;
+            float f2 = this.aYy + this.aYz;
+            canvas.translate((((right - left) - paddingRight) - f) - this.aYv, (((bottom - top) - paddingBottom) - f2) - this.aYu);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aYn);
-            Paint.FontMetrics fontMetrics = this.aYm.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aYm);
+            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aYt);
+            Paint.FontMetrics fontMetrics = this.aYs.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aYs);
             canvas.restoreToCount(save);
         }
     }
@@ -79,33 +79,33 @@ public class b {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.aYp = i;
-        this.aYo = i2;
+        this.aYv = i;
+        this.aYu = i2;
         invalidate();
     }
 
-    public void fu(int i) {
-        this.aYq = i;
-        this.aYm.setColor(i);
+    public void fv(int i) {
+        this.aYw = i;
+        this.aYs.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.aYs = i;
-        this.aYm.setTextSize(i);
+        this.aYy = i;
+        this.aYs.setTextSize(i);
         invalidate();
     }
 
-    public float hR(String str) {
-        return l.b(this.aYm, str).height() + this.aYt;
+    public float hO(String str) {
+        return l.b(this.aYs, str).height() + this.aYz;
     }
 
-    public float hS(String str) {
-        return l.a(this.aYm, str) + this.aYu;
+    public float hP(String str) {
+        return l.a(this.aYs, str) + this.aYA;
     }
 
-    public void K(int i, int i2) {
-        this.aYu = i;
-        this.aYt = i2;
+    public void L(int i, int i2) {
+        this.aYA = i;
+        this.aYz = i2;
     }
 }

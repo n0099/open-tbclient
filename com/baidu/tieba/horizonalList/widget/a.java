@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> dWY = new ArrayList<>(5);
-    public int dXc;
-    public int dXd;
-    int dXe;
+    private static ArrayList<a> eaQ = new ArrayList<>(5);
+    public int eaU;
+    public int eaV;
+    int eaW;
     public int type;
 
-    private void Pr() {
-        this.dXc = 0;
-        this.dXd = 0;
-        this.dXe = 0;
+    private void Px() {
+        this.eaU = 0;
+        this.eaV = 0;
+        this.eaW = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aDU() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.dXc, this.dXd) : ExpandableListView.getPackedPositionForGroup(this.dXc);
+    public long aEU() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eaU, this.eaV) : ExpandableListView.getPackedPositionForGroup(this.eaU);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a mR(int i) {
-        return s(2, i, 0, 0);
+    public static a nf(int i) {
+        return r(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a s(int i, int i2, int i3, int i4) {
-        a aDV = aDV();
-        aDV.type = i;
-        aDV.dXc = i2;
-        aDV.dXd = i3;
-        aDV.dXe = i4;
-        return aDV;
+    public static a r(int i, int i2, int i3, int i4) {
+        a aEV = aEV();
+        aEV.type = i;
+        aEV.eaU = i2;
+        aEV.eaV = i3;
+        aEV.eaW = i4;
+        return aEV;
     }
 
-    private static a aDV() {
+    private static a aEV() {
         a aVar;
-        synchronized (dWY) {
-            if (dWY.size() > 0) {
-                aVar = dWY.remove(0);
-                aVar.Pr();
+        synchronized (eaQ) {
+            if (eaQ.size() > 0) {
+                aVar = eaQ.remove(0);
+                aVar.Px();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (dWY) {
-            if (dWY.size() < 5) {
-                dWY.add(this);
+        synchronized (eaQ) {
+            if (eaQ.size() < 5) {
+                eaQ.add(this);
             }
         }
     }

@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c fTP;
-    private d fUc;
-    private com.baidu.tieba.personCenter.a.a fUd;
-    private com.baidu.tieba.personCenter.a.b fUe;
+    private com.baidu.tieba.personCenter.a.c fUc;
+    private d fUp;
+    private com.baidu.tieba.personCenter.a.a fUq;
+    private com.baidu.tieba.personCenter.a.b fUr;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -23,14 +23,14 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.fUc = new d(tbPageContext, f.fUG);
-        this.fUd = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.fUr);
-        this.fUe = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.fUs);
-        this.fTP = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fUF);
+        this.fUp = new d(tbPageContext, f.fUT);
+        this.fUq = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.b.fUE);
+        this.fUr = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.c.fUF);
+        this.fUc = new com.baidu.tieba.personCenter.a.c(tbPageContext, e.fUS);
+        this.mAdapters.add(this.fUp);
+        this.mAdapters.add(this.fUq);
+        this.mAdapters.add(this.fUr);
         this.mAdapters.add(this.fUc);
-        this.mAdapters.add(this.fUd);
-        this.mAdapters.add(this.fUe);
-        this.mAdapters.add(this.fTP);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -40,11 +40,11 @@ public class a {
         }
     }
 
-    public void bjn() {
-        this.fUd.bjn();
+    public void bhG() {
+        this.fUq.bhG();
     }
 
-    public void bjo() {
-        this.fUd.destroy();
+    public void bhH() {
+        this.fUq.destroy();
     }
 }

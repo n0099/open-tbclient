@@ -12,13 +12,13 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.d;
-import com.baidu.tieba.frs.worldcup.ForbidParentSwipeBackLinearLayout;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a dpL;
+    private a dsy;
     private RecyclerView mRecyclerView;
     private int mSkinType;
     private TextView mTitleView;
@@ -42,35 +42,35 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.i.frs_brand_relation_bar_layout, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(d.h.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mTitleView = (TextView) findViewById(d.g.frs_brand_bar_title);
         this.mRecyclerView = (RecyclerView) findViewById(d.g.frs_brand_bar_list);
-        this.dpL = new a(context);
-        this.mRecyclerView.setAdapter(this.dpL);
+        this.dsy = new a(context);
+        this.mRecyclerView.setAdapter(this.dsy);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        this.mRecyclerView.addItemDecoration(new c(l.e(context, d.e.tbds44), l.e(context, d.e.tbds22), l.e(context, d.e.tbds44)));
+        this.mRecyclerView.addItemDecoration(new c(l.f(context, d.e.tbds44), l.f(context, d.e.tbds22), l.f(context, d.e.tbds44)));
         onChangeSkinType();
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (w.A(list)) {
+        if (w.z(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.dpL.setData(list);
-        this.dpL.notifyDataSetChanged();
+        this.dsy.setData(list);
+        this.dsy.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            am.j(this, d.C0142d.cp_bg_line_e);
-            am.h(this.mTitleView, d.C0142d.cp_cont_f);
-            this.dpL.notifyDataSetChanged();
+            am.j(this, d.C0140d.cp_bg_line_e);
+            am.h(this.mTitleView, d.C0140d.cp_cont_f);
+            this.dsy.notifyDataSetChanged();
         }
     }
 }

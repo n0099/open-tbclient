@@ -15,7 +15,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.e(this.mTbPageContext.getPageActivity(), d.e.ds160)), NoDataViewFactory.d.ds(d.k.search_forum_no_result), null);
+        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.f(this.mTbPageContext.getPageActivity(), d.e.ds160)), NoDataViewFactory.d.du(d.j.search_forum_no_result), null);
         this.mNoDataView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -32,7 +32,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.i.forum_search_no_result;
+        return d.h.forum_search_no_result;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

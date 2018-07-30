@@ -7,45 +7,45 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d blF;
-    private ArrayList<Integer> blB = new ArrayList<>();
-    private c blC;
-    private a blG;
+    private static volatile d bml;
+    private ArrayList<Integer> bmh = new ArrayList<>();
+    private c bmi;
+    private a bmm;
 
-    public static d QB() {
-        if (blF == null) {
+    public static d QI() {
+        if (bml == null) {
             synchronized (c.class) {
-                if (blF == null) {
-                    blF = new d();
+                if (bml == null) {
+                    bml = new d();
                 }
             }
         }
-        return blF;
+        return bml;
     }
 
     private d() {
-        this.blB.add(1);
-        this.blB.add(2);
-        this.blC = new c();
-        this.blG = new a(this.blC, this.blB);
-        gu(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
+        this.bmh.add(1);
+        this.bmh.add(2);
+        this.bmi = new c();
+        this.bmm = new a(this.bmi, this.bmh);
+        gz(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
     }
 
-    public int L(String str, int i) {
-        if (this.blG == null) {
+    public int G(String str, int i) {
+        if (this.bmm == null) {
             return 0;
         }
-        return this.blG.L(str, i);
+        return this.bmm.G(str, i);
     }
 
-    public void iC(String str) {
-        if (this.blG != null) {
-            this.blG.iB(str);
+    public void iz(String str) {
+        if (this.bmm != null) {
+            this.bmm.iy(str);
         }
     }
 
     public void a(String str, String str2, an anVar) {
-        if (anVar != null && this.blC != null && this.blC.Qz()) {
+        if (anVar != null && this.bmi != null && this.bmi.QG()) {
             HashMap hashMap = new HashMap();
             List<Object> params = anVar.getParams();
             if (params != null) {
@@ -69,20 +69,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (ap.isEmpty(str) || this.blC == null || !this.blC.Qz()) {
-            com.baidu.ubs.analytics.a.vT(str);
-        }
-    }
-
-    public void onPageEnd(String str) {
-        if (ap.isEmpty(str) || this.blC == null || !this.blC.Qz()) {
+        if (ap.isEmpty(str) || this.bmi == null || !this.bmi.QG()) {
             com.baidu.ubs.analytics.a.vU(str);
         }
     }
 
-    public void gu(int i) {
-        if (this.blC != null) {
-            this.blC.gu(i);
+    public void onPageEnd(String str) {
+        if (ap.isEmpty(str) || this.bmi == null || !this.bmi.QG()) {
+            com.baidu.ubs.analytics.a.vV(str);
+        }
+    }
+
+    public void gz(int i) {
+        if (this.bmi != null) {
+            this.bmi.gz(i);
         }
     }
 }

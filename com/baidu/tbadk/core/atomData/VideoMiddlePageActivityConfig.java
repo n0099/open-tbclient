@@ -6,7 +6,9 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 /* loaded from: classes.dex */
 public class VideoMiddlePageActivityConfig extends IntentConfig {
     public static final String FROM_CONCERN_TAB = "concern_tab";
+    public static final String FROM_DAILY_TAB = "daily_tab";
     public static final String FROM_FRS = "frs";
+    public static final String FROM_HOTTOPIC = "hottopic";
     public static final String FROM_INDEX = "index";
     public static final String PARAM_FROM = "PARAM_FROM";
     public static final String PARAM_ID = "PARAM_FID";

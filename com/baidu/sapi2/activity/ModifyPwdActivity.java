@@ -2,7 +2,7 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.c.a.a;
+import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.WebModifyPwdCallback;

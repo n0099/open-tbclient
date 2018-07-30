@@ -6,24 +6,24 @@ import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private boolean aVp;
-    private com.baidu.tieba.setting.im.more.a bmp;
-    private String bmq;
-    private String bmr;
-    private String bms;
+    private boolean aVq;
+    private com.baidu.tieba.setting.im.more.a bmV;
+    private String bmW;
+    private String bmX;
+    private String bmY;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a QO() {
-        return this.bmp;
+    public com.baidu.tieba.setting.im.more.a QV() {
+        return this.bmV;
     }
 
-    public String QP() {
-        return this.bmq;
+    public String QW() {
+        return this.bmW;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.aVp = false;
+        this.aVq = false;
         this.mFinished = false;
     }
 
@@ -34,52 +34,52 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.aVp = false;
+        this.aVq = false;
         this.mFinished = false;
         return false;
     }
 
-    private PrivateInfoNetMessage QQ() {
+    private PrivateInfoNetMessage QX() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean QR() {
-        if (this.aVp) {
+    public boolean QY() {
+        if (this.aVq) {
             return false;
         }
-        this.aVp = true;
+        this.aVq = true;
         this.mFinished = false;
-        sendMessage(QQ());
+        sendMessage(QX());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.bmp = aVar;
-        QS();
+        this.bmV = aVar;
+        QZ();
     }
 
-    private void QS() {
-        SimpleUser QT = QT();
-        if (QT != null) {
-            this.bmr = QT.secureemail;
-            this.bms = QT.securemobil;
-            this.bmq = QT.ahead_url;
+    private void QZ() {
+        SimpleUser Ra = Ra();
+        if (Ra != null) {
+            this.bmX = Ra.secureemail;
+            this.bmY = Ra.securemobil;
+            this.bmW = Ra.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser QT() {
-        if (this.bmp == null || this.bmp.QT() == null) {
+    private SimpleUser Ra() {
+        if (this.bmV == null || this.bmV.Ra() == null) {
             return null;
         }
-        return this.bmp.QT();
+        return this.bmV.Ra();
     }
 
-    public boolean AO() {
-        return this.aVp;
+    public boolean AE() {
+        return this.aVq;
     }
 
     public void setLoading(boolean z) {
-        this.aVp = z;
+        this.aVq = z;
     }
 }

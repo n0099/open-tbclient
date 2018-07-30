@@ -5,23 +5,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class r extends a {
-    private boolean atn;
-    private boolean ato;
-    private boolean atp;
+    private boolean asR;
+    private boolean asS;
+    private boolean asT;
     private int height;
     private int procType;
     private int width;
 
     public r(boolean z, boolean z2, boolean z3, int i) {
-        this.atn = true;
-        this.ato = false;
-        this.atp = false;
+        this.asR = true;
+        this.asS = false;
+        this.asT = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
-        this.atn = z;
-        this.ato = z2;
-        this.atp = z3;
+        this.asR = z;
+        this.asS = z2;
+        this.asT = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
         this.height = (int) (this.width * 1.6f);
@@ -39,31 +39,31 @@ public class r extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.atn;
+        return this.asR;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ak() {
-        return this.atp;
+    public boolean Aa() {
+        return this.asT;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Al() {
-        return this.ato;
+    public boolean Ab() {
+        return this.asS;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Am() {
+    public int Ac() {
         return this.procType;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    protected Bitmap a(Bitmap bitmap, int i, int i2) {
+    protected Bitmap b(Bitmap bitmap, int i, int i2) {
         if (bitmap == null) {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.IV().fd(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.IQ().fe(BitmapHelper.getBitmapSize(bitmap) * 2);
             return bitmap;
         }
         return bitmap;

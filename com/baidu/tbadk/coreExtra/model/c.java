@@ -35,19 +35,19 @@ public class c {
         }
     }
 
-    public int Es() {
+    public int Eo() {
         return this.aEz;
     }
 
-    public int Et() {
+    public int Ep() {
         return this.continuousFailCount;
     }
 
-    public int Eu() {
+    public int Eq() {
         return this.restartTimeInterval;
     }
 
-    public int[] Ev() {
+    public int[] Er() {
         return this.aEA;
     }
 }

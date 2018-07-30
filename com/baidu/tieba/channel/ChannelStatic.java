@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.ChannelListActivityConfig;
 import com.baidu.tbadk.core.b.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.channel.activity.ChannelAddVideoActivity;
 import com.baidu.tieba.channel.activity.ChannelEditActivity;
 import com.baidu.tieba.channel.activity.ChannelFansActivity;
@@ -32,35 +32,35 @@ import com.baidu.tieba.channel.model.ChannelHomeModel;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class ChannelStatic {
-    private static HttpMessageListener cAE = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_FOLLOW) { // from class: com.baidu.tieba.channel.ChannelStatic.1
+    private static HttpMessageListener cDj = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_FOLLOW) { // from class: com.baidu.tieba.channel.ChannelStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelFollowHttpResponseMessage)) {
-                a.C0102a c0102a = (a.C0102a) httpResponsedMessage.getOrginalMessage().getExtra();
-                c0102a.adr = httpResponsedMessage;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016513, c0102a));
+                a.C0099a c0099a = (a.C0099a) httpResponsedMessage.getOrginalMessage().getExtra();
+                c0099a.acU = httpResponsedMessage;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016513, c0099a));
             }
         }
     };
-    private static HttpMessageListener cAF = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UNFOLLOW) { // from class: com.baidu.tieba.channel.ChannelStatic.2
+    private static HttpMessageListener cDk = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UNFOLLOW) { // from class: com.baidu.tieba.channel.ChannelStatic.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelUnFollowHttpResponseMessage)) {
                 a.c cVar = (a.c) httpResponsedMessage.getOrginalMessage().getExtra();
-                cVar.adr = httpResponsedMessage;
+                cVar.acU = httpResponsedMessage;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016513, cVar));
             }
         }
     };
-    private static HttpMessageListener cAG = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UPDATE_PUSH) { // from class: com.baidu.tieba.channel.ChannelStatic.3
+    private static HttpMessageListener cDl = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UPDATE_PUSH) { // from class: com.baidu.tieba.channel.ChannelStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelUpdatePushHttpResponseMessage)) {
                 a.b bVar = (a.b) httpResponsedMessage.getOrginalMessage().getExtra();
-                bVar.adr = httpResponsedMessage;
+                bVar.acU = httpResponsedMessage;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016513, bVar));
             }
         }
@@ -77,8 +77,8 @@ public class ChannelStatic {
             public CustomResponsedMessage<a> run(CustomMessage<a> customMessage) {
                 a data;
                 if (customMessage != null && customMessage.getData() != null && (data = customMessage.getData()) != null) {
-                    if (data instanceof a.C0102a) {
-                        ChannelHomeModel.a(((a.C0102a) data).channelId, data);
+                    if (data instanceof a.C0099a) {
+                        ChannelHomeModel.a(((a.C0099a) data).channelId, data);
                     } else if (data instanceof a.c) {
                         ChannelHomeModel.b(((a.c) data).channelId, data);
                     } else if (data instanceof a.b) {
@@ -91,10 +91,10 @@ public class ChannelStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        agK();
-        ajb();
-        az.zV().a("vchannel://", new az.b() { // from class: com.baidu.tieba.channel.ChannelStatic.5
-            @Override // com.baidu.tbadk.core.util.az.b
+        ahf();
+        ajA();
+        ay.zK().a("vchannel://", new ay.b() { // from class: com.baidu.tieba.channel.ChannelStatic.5
+            @Override // com.baidu.tbadk.core.util.ay.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null && map != null && map.size() > 0) {
                     String str = map.get("cid");
@@ -110,15 +110,15 @@ public class ChannelStatic {
         });
     }
 
-    private static void agK() {
+    private static void ahf() {
         c.a(CmdConfigHttp.CMD_CHANNEL_FOLLOW, TbConfig.CMD_CHANNEL_FOLLOW, ChannelFollowHttpResponseMessage.class);
         c.a(CmdConfigHttp.CMD_CHANNEL_UNFOLLOW, TbConfig.CMD_CHANNEL_UNFOLLOW, ChannelUnFollowHttpResponseMessage.class);
         c.a(CmdConfigHttp.CMD_CHANNEL_UPDATE_PUSH, TbConfig.CMD_CHANNEL_UPDATE_PUSH, ChannelUpdatePushHttpResponseMessage.class);
     }
 
-    private static void ajb() {
-        MessageManager.getInstance().registerListener(cAE);
-        MessageManager.getInstance().registerListener(cAF);
-        MessageManager.getInstance().registerListener(cAG);
+    private static void ajA() {
+        MessageManager.getInstance().registerListener(cDj);
+        MessageManager.getInstance().registerListener(cDk);
+        MessageManager.getInstance().registerListener(cDl);
     }
 }

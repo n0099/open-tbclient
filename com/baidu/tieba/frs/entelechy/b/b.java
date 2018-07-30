@@ -13,7 +13,7 @@ public interface b {
 
     void a(f fVar, l lVar);
 
-    void at(View view);
+    void aw(View view);
 
-    boolean kG(int i);
+    boolean kR(int i);
 }

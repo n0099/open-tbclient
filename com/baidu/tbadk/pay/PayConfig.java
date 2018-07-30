@@ -4,6 +4,7 @@ import com.baidu.tbadk.util.PageDialogHelper;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PayConfig implements Serializable {
+    public static final String PAYMENT_POS_KEY_DUIBA = "1634";
     public static final String PAYMENT_POS_KEY_MANGA = "37";
     public static final int PAYTYPE_MEMBER = 1;
     public static final int PAYTYPE_PAY_DIRECT = 3;

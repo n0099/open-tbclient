@@ -27,12 +27,12 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static final class d<E> {
-        d<E> DA;
-        E DE;
-        d<E> DF;
+        E DA;
+        d<E> DB;
+        d<E> Dw;
 
         d(E e) {
-            this.DE = e;
+            this.DA = e;
         }
     }
 
@@ -73,12 +73,12 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
             return false;
         }
         d<E> dVar2 = this.first;
-        dVar.DA = dVar2;
+        dVar.Dw = dVar2;
         this.first = dVar;
         if (this.last == null) {
             this.last = dVar;
         } else {
-            dVar2.DF = dVar;
+            dVar2.DB = dVar;
         }
         this.count++;
         this.notEmpty.signal();
@@ -90,52 +90,52 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
             return false;
         }
         d<E> dVar2 = this.last;
-        dVar.DF = dVar2;
+        dVar.DB = dVar2;
         this.last = dVar;
         if (this.first == null) {
             this.first = dVar;
         } else {
-            dVar2.DA = dVar;
+            dVar2.Dw = dVar;
         }
         this.count++;
         this.notEmpty.signal();
         return true;
     }
 
-    private E kb() {
+    private E kc() {
         d<E> dVar = this.first;
         if (dVar == null) {
             return null;
         }
-        d<E> dVar2 = dVar.DA;
-        E e = dVar.DE;
-        dVar.DE = null;
-        dVar.DA = dVar;
+        d<E> dVar2 = dVar.Dw;
+        E e = dVar.DA;
+        dVar.DA = null;
+        dVar.Dw = dVar;
         this.first = dVar2;
         if (dVar2 == null) {
             this.last = null;
         } else {
-            dVar2.DF = null;
+            dVar2.DB = null;
         }
         this.count--;
         this.notFull.signal();
         return e;
     }
 
-    private E kc() {
+    private E kd() {
         d<E> dVar = this.last;
         if (dVar == null) {
             return null;
         }
-        d<E> dVar2 = dVar.DF;
-        E e = dVar.DE;
-        dVar.DE = null;
-        dVar.DF = dVar;
+        d<E> dVar2 = dVar.DB;
+        E e = dVar.DA;
+        dVar.DA = null;
+        dVar.DB = dVar;
         this.last = dVar2;
         if (dVar2 == null) {
             this.first = null;
         } else {
-            dVar2.DA = null;
+            dVar2.Dw = null;
         }
         this.count--;
         this.notFull.signal();
@@ -143,16 +143,16 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
     }
 
     void unlink(d<E> dVar) {
-        d<E> dVar2 = dVar.DF;
-        d<E> dVar3 = dVar.DA;
+        d<E> dVar2 = dVar.DB;
+        d<E> dVar3 = dVar.Dw;
         if (dVar2 == null) {
-            kb();
-        } else if (dVar3 == null) {
             kc();
+        } else if (dVar3 == null) {
+            kd();
         } else {
-            dVar2.DA = dVar3;
-            dVar3.DF = dVar2;
-            dVar.DE = null;
+            dVar2.Dw = dVar3;
+            dVar3.DB = dVar2;
+            dVar.DA = null;
             this.count--;
             this.notFull.signal();
         }
@@ -294,7 +294,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            return kb();
+            return kc();
         } finally {
             reentrantLock.unlock();
         }
@@ -304,29 +304,13 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            return kc();
+            return kd();
         } finally {
             reentrantLock.unlock();
         }
     }
 
     public E takeFirst() throws InterruptedException {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        while (true) {
-            try {
-                E kb = kb();
-                if (kb != null) {
-                    return kb;
-                }
-                this.notEmpty.await();
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    public E takeLast() throws InterruptedException {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         while (true) {
@@ -342,6 +326,22 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         }
     }
 
+    public E takeLast() throws InterruptedException {
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        while (true) {
+            try {
+                E kd = kd();
+                if (kd != null) {
+                    return kd;
+                }
+                this.notEmpty.await();
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
     public E pollFirst(long j, TimeUnit timeUnit) throws InterruptedException {
         long nanos = timeUnit.toNanos(j);
         ReentrantLock reentrantLock = this.lock;
@@ -349,9 +349,9 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         while (true) {
             try {
                 long j2 = nanos;
-                E kb = kb();
-                if (kb != null) {
-                    return kb;
+                E kc = kc();
+                if (kc != null) {
+                    return kc;
                 }
                 if (j2 > 0) {
                     nanos = this.notEmpty.awaitNanos(j2);
@@ -371,9 +371,9 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         while (true) {
             try {
                 long j2 = nanos;
-                E kc = kc();
-                if (kc != null) {
-                    return kc;
+                E kd = kd();
+                if (kd != null) {
+                    return kd;
                 }
                 if (j2 > 0) {
                     nanos = this.notEmpty.awaitNanos(j2);
@@ -406,7 +406,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            return this.first == null ? null : this.first.DE;
+            return this.first == null ? null : this.first.DA;
         } finally {
             reentrantLock.unlock();
         }
@@ -416,7 +416,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            return this.last == null ? null : this.last.DE;
+            return this.last == null ? null : this.last.DA;
         } finally {
             reentrantLock.unlock();
         }
@@ -429,8 +429,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            for (d<E> dVar = this.first; dVar != null; dVar = dVar.DA) {
-                if (obj.equals(dVar.DE)) {
+            for (d<E> dVar = this.first; dVar != null; dVar = dVar.Dw) {
+                if (obj.equals(dVar.DA)) {
                     unlink(dVar);
                     return true;
                 }
@@ -448,8 +448,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            for (d<E> dVar = this.last; dVar != null; dVar = dVar.DF) {
-                if (obj.equals(dVar.DE)) {
+            for (d<E> dVar = this.last; dVar != null; dVar = dVar.DB) {
+                if (obj.equals(dVar.DA)) {
                     unlink(dVar);
                     return true;
                 }
@@ -541,8 +541,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         try {
             int min = Math.min(i, this.count);
             for (int i2 = 0; i2 < min; i2++) {
-                collection.add((E) this.first.DE);
-                kb();
+                collection.add((E) this.first.DA);
+                kc();
             }
             return min;
         } finally {
@@ -582,8 +582,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            for (d<E> dVar = this.first; dVar != null; dVar = dVar.DA) {
-                if (obj.equals(dVar.DE)) {
+            for (d<E> dVar = this.first; dVar != null; dVar = dVar.Dw) {
+                if (obj.equals(dVar.DA)) {
                     return true;
                 }
             }
@@ -603,8 +603,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
             d<E> dVar = this.first;
             while (dVar != null) {
                 int i2 = i + 1;
-                objArr[i] = dVar.DE;
-                dVar = dVar.DA;
+                objArr[i] = dVar.DA;
+                dVar = dVar.Dw;
                 i = i2;
             }
             return objArr;
@@ -627,8 +627,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
             int i = 0;
             d<E> dVar = this.first;
             while (dVar != null) {
-                tArr[i] = dVar.DE;
-                dVar = dVar.DA;
+                tArr[i] = dVar.DA;
+                dVar = dVar.Dw;
                 i++;
             }
             if (tArr.length > i) {
@@ -654,12 +654,12 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
                 sb2.append('[');
                 while (true) {
                     d<E> dVar2 = dVar;
-                    Object obj = dVar2.DE;
+                    Object obj = dVar2.DA;
                     if (obj == this) {
                         obj = "(this Collection)";
                     }
                     sb2.append(obj);
-                    dVar = dVar2.DA;
+                    dVar = dVar2.Dw;
                     if (dVar == null) {
                         break;
                     }
@@ -680,10 +680,10 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         try {
             d<E> dVar = this.first;
             while (dVar != null) {
-                dVar.DE = null;
-                d<E> dVar2 = dVar.DA;
-                dVar.DF = null;
                 dVar.DA = null;
+                d<E> dVar2 = dVar.Dw;
+                dVar.DB = null;
+                dVar.Dw = null;
                 dVar = dVar2;
             }
             this.last = null;
@@ -706,20 +706,20 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
 
     /* loaded from: classes.dex */
     private abstract class a implements Iterator<E> {
-        d<E> DA;
-        E DB;
-        private d<E> DC;
+        d<E> Dw;
+        E Dx;
+        private d<E> Dy;
 
         abstract d<E> c(d<E> dVar);
 
-        abstract d<E> kd();
+        abstract d<E> ke();
 
         a() {
             ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
             reentrantLock.lock();
             try {
-                this.DA = kd();
-                this.DB = this.DA == null ? null : this.DA.DE;
+                this.Dw = ke();
+                this.Dx = this.Dw == null ? null : this.Dw.DA;
             } finally {
                 reentrantLock.unlock();
             }
@@ -731,9 +731,9 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
                 if (c == null) {
                     return null;
                 }
-                if (c.DE == null) {
+                if (c.DA == null) {
                     if (c == dVar) {
-                        return kd();
+                        return ke();
                     }
                     dVar = c;
                 } else {
@@ -746,8 +746,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
             ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
             reentrantLock.lock();
             try {
-                this.DA = d(this.DA);
-                this.DB = this.DA == null ? null : this.DA.DE;
+                this.Dw = d(this.Dw);
+                this.Dx = this.Dw == null ? null : this.Dw.DA;
             } finally {
                 reentrantLock.unlock();
             }
@@ -755,31 +755,31 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.DA != null;
+            return this.Dw != null;
         }
 
         @Override // java.util.Iterator
         public E next() {
-            if (this.DA == null) {
+            if (this.Dw == null) {
                 throw new NoSuchElementException();
             }
-            this.DC = this.DA;
-            E e = this.DB;
+            this.Dy = this.Dw;
+            E e = this.Dx;
             advance();
             return e;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            d<E> dVar = this.DC;
+            d<E> dVar = this.Dy;
             if (dVar == null) {
                 throw new IllegalStateException();
             }
-            this.DC = null;
+            this.Dy = null;
             ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
             reentrantLock.lock();
             try {
-                if (dVar.DE != null) {
+                if (dVar.DA != null) {
                     BlockingLinkedDeque.this.unlink(dVar);
                 }
             } finally {
@@ -795,13 +795,13 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> kd() {
+        d<E> ke() {
             return BlockingLinkedDeque.this.first;
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
         d<E> c(d<E> dVar) {
-            return dVar.DA;
+            return dVar.Dw;
         }
     }
 
@@ -812,13 +812,13 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> kd() {
+        d<E> ke() {
             return BlockingLinkedDeque.this.last;
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
         d<E> c(d<E> dVar) {
-            return dVar.DF;
+            return dVar.DB;
         }
     }
 
@@ -827,8 +827,8 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         reentrantLock.lock();
         try {
             objectOutputStream.defaultWriteObject();
-            for (d<E> dVar = this.first; dVar != null; dVar = dVar.DA) {
-                objectOutputStream.writeObject(dVar.DE);
+            for (d<E> dVar = this.first; dVar != null; dVar = dVar.Dw) {
+                objectOutputStream.writeObject(dVar.DA);
             }
             objectOutputStream.writeObject(null);
         } finally {

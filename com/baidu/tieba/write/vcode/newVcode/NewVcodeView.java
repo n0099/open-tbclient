@@ -20,7 +20,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.write.vcode.newVcode.a.b;
 /* loaded from: classes3.dex */
 public class NewVcodeView {
-    private b hvr;
+    private b hwx;
     private BaseActivity mContext;
     private float mRatio;
     private BaseWebView mWebView = null;
@@ -47,7 +47,7 @@ public class NewVcodeView {
     }
 
     public void setPresenter(b bVar) {
-        this.hvr = bVar;
+        this.hwx = bVar;
         this.onPageFinishHasBeenCalled = false;
     }
 
@@ -60,20 +60,20 @@ public class NewVcodeView {
     private boolean initUI(NewVcodeActivity newVcodeActivity) {
         newVcodeActivity.setActivityBgTransparent();
         newVcodeActivity.setSwipeBackEnabled(false);
-        newVcodeActivity.setContentView(d.i.new_vcode_activity);
+        newVcodeActivity.setContentView(d.h.new_vcode_activity);
         this.mBlackBackLayout = newVcodeActivity.findViewById(d.g.new_vcode_black_layout);
         this.mBlackBackLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeView.this.hvr.onPostThreadCancle();
+                NewVcodeView.this.hwx.onPostThreadCancle();
                 NewVcodeView.this.mContext.finish();
             }
         });
         this.mPostThreadLoadingView = newVcodeActivity.findViewById(d.g.post_thread_loading_view);
         this.mPostThreadLoadingText = (TextView) this.mPostThreadLoadingView.findViewById(d.g.custom_loading_text);
-        this.mPostThreadLoadingText.setText(newVcodeActivity.getResources().getString(d.k.sending));
+        this.mPostThreadLoadingText.setText(newVcodeActivity.getResources().getString(d.j.sending));
         this.mVcodeToast = new com.baidu.tbadk.core.view.d();
-        this.mVcodeToast.avm = 1000L;
+        this.mVcodeToast.auS = 1000L;
         if (this.mWebView == null) {
             try {
                 this.mWebView = (BaseWebView) newVcodeActivity.findViewById(d.g.new_vcode_webview);
@@ -90,13 +90,13 @@ public class NewVcodeView {
                         }
                         if (!NewVcodeView.this.onPageFinishHasBeenCalled) {
                             NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                            e.im().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
-                            if (NewVcodeView.this.hvr != null) {
-                                NewVcodeView.this.hvr.onPageFinished(webView, str);
+                            e.in().postDelayed(NewVcodeView.this.mShowWebViewRunnable, 500L);
+                            if (NewVcodeView.this.hwx != null) {
+                                NewVcodeView.this.hwx.onPageFinished(webView, str);
                             }
                         }
-                        if (NewVcodeView.this.hvr != null) {
-                            return NewVcodeView.this.hvr.onUrlLoad(webView, str);
+                        if (NewVcodeView.this.hwx != null) {
+                            return NewVcodeView.this.hwx.onUrlLoad(webView, str);
                         }
                         return false;
                     }
@@ -105,8 +105,8 @@ public class NewVcodeView {
                     public void onPageFinished(WebView webView, String str) {
                         super.onPageFinished(webView, str);
                         NewVcodeView.this.onPageFinishHasBeenCalled = true;
-                        if (NewVcodeView.this.hvr != null) {
-                            NewVcodeView.this.hvr.onPageFinished(webView, str);
+                        if (NewVcodeView.this.hwx != null) {
+                            NewVcodeView.this.hwx.onPageFinished(webView, str);
                         }
                     }
 
@@ -114,7 +114,7 @@ public class NewVcodeView {
                     public void onReceivedError(WebView webView, int i, String str, String str2) {
                         super.onReceivedError(webView, i, str, str2);
                         NewVcodeView.this.showWebLoadingView(false);
-                        NewVcodeView.this.mContext.showToast(d.k.neterror);
+                        NewVcodeView.this.mContext.showToast(d.j.neterror);
                         NewVcodeView.this.mContext.finish();
                     }
                 });
@@ -140,9 +140,9 @@ public class NewVcodeView {
 
     public void showToast(boolean z, String str) {
         if (z) {
-            this.mVcodeToast.i(str);
+            this.mVcodeToast.e(str);
         } else {
-            this.mVcodeToast.j(str);
+            this.mVcodeToast.f(str);
         }
     }
 
@@ -157,7 +157,7 @@ public class NewVcodeView {
     }
 
     public void onDestory() {
-        e.im().removeCallbacks(this.mShowWebViewRunnable);
+        e.in().removeCallbacks(this.mShowWebViewRunnable);
     }
 
     public BaseActivity getContext() {
@@ -177,7 +177,7 @@ public class NewVcodeView {
     }
 
     public void showWebViewDelay(int i) {
-        e.im().postDelayed(this.mShowWebViewRunnable, i);
+        e.in().postDelayed(this.mShowWebViewRunnable, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -191,6 +191,6 @@ public class NewVcodeView {
                 }
             });
         }
-        this.mWebLoadingDialog.aO(z);
+        this.mWebLoadingDialog.aM(z);
     }
 }

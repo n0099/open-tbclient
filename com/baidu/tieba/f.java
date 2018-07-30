@@ -15,23 +15,23 @@ import java.security.PublicKey;
 public class f {
     public static boolean c(String str, File file) {
         if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
-            TiebaStatic.log(new an("c10836").ah("obj_type", "checkRSA input args is null"));
+            TiebaStatic.log(new an("c10836").af("obj_type", "checkRSA input args is null"));
             return false;
         }
         try {
-            PublicKey p = u.p(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-            if (p == null) {
-                TiebaStatic.log(new an("c10836").ah("obj_type", "publicKeyCode is null").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+            PublicKey n = u.n(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            if (n == null) {
+                TiebaStatic.log(new an("c10836").af("obj_type", "publicKeyCode is null").af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
             byte[] decodeHex = decodeHex(str);
             if (decodeHex == null || decodeHex.length <= 0) {
-                TiebaStatic.log(new an("c10836").ah("obj_type", "server_data is null").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new an("c10836").af("obj_type", "server_data is null").af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
-            byte[] b = u.b((Key) p, decodeHex);
+            byte[] b = u.b((Key) n, decodeHex);
             if (b == null || b.length <= 0) {
-                TiebaStatic.log(new an("c10836").ah("obj_type", "des is null").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new an("c10836").af("obj_type", "des is null").af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             }
             String trim = new String(b, "UTF-8").trim();
@@ -40,17 +40,17 @@ public class f {
                 g = g.trim();
             }
             if (TextUtils.isEmpty(g) || TextUtils.isEmpty(trim)) {
-                TiebaStatic.log(new an("c10836").ah("obj_type", "apkMd5 or serverMD5 is null").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new an("c10836").af("obj_type", "apkMd5 or serverMD5 is null").af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 return false;
             } else if (g.equalsIgnoreCase(trim)) {
                 return true;
             } else {
-                TiebaStatic.log(new an("c10836").ah("obj_type", "apkMd5 != serverMD5").ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+                TiebaStatic.log(new an("c10836").af("obj_type", "apkMd5 != serverMD5").af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
                 BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
                 return false;
             }
         } catch (Exception e) {
-            TiebaStatic.log(new an("c10836").ah("obj_type", "exception:" + e.getMessage()).ah(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
+            TiebaStatic.log(new an("c10836").af("obj_type", "exception:" + e.getMessage()).af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, file.getName()));
             BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
             return false;
         }

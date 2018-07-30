@@ -9,7 +9,7 @@ import com.baidu.tbadk.data.j;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener cFJ;
+    private View.OnClickListener cIq;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -20,9 +20,9 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bx */
+    /* renamed from: bv */
     public com.baidu.tieba.person.b.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(d.i.user_pic_nomal_item, (ViewGroup) null));
+        return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(d.h.user_pic_nomal_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,12 +33,12 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.person
         if (cVar == null || jVar == null) {
             return null;
         }
-        cVar.w(this.cFJ);
+        cVar.u(this.cIq);
         cVar.g(jVar);
         return cVar.getView();
     }
 
-    public void w(View.OnClickListener onClickListener) {
-        this.cFJ = onClickListener;
+    public void u(View.OnClickListener onClickListener) {
+        this.cIq = onClickListener;
     }
 }

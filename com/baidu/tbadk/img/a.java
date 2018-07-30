@@ -10,16 +10,16 @@ import com.baidu.tieba.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0117a<T>> aQv = null;
+    private WeakReference<InterfaceC0114a<T>> aQv = null;
     private c aQw = null;
     private a<T>.b aQx = null;
     public T aQy;
     private final f aQz;
-    private String mPath;
+    private String wf;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0117a<T> {
+    public interface InterfaceC0114a<T> {
         void b(int i, T t);
     }
 
@@ -29,19 +29,19 @@ public class a<T> {
     }
 
     public a(String str, String str2) {
-        this.mPath = null;
-        this.mPath = str;
+        this.wf = null;
+        this.wf = str;
         this.aQz = new f(str2);
     }
 
-    public void h(int i, int i2, int i3, int i4) {
-        this.aQz.h(i, i2, i3, i4);
+    public void g(int i, int i2, int i3, int i4) {
+        this.aQz.g(i, i2, i3, i4);
     }
 
-    public void bO(boolean z) {
+    public void bM(boolean z) {
         if (this.aQx == null) {
             this.aQx = new b();
-            this.aQx.bP(z);
+            this.aQx.bN(z);
             this.aQx.execute(new String[0]);
         }
     }
@@ -54,23 +54,23 @@ public class a<T> {
             this.aQA = false;
         }
 
-        protected void bP(boolean z) {
+        protected void bN(boolean z) {
             this.aQA = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: p */
+        /* renamed from: o */
         public ImageUploadResult doInBackground(String... strArr) {
-            return Jd();
+            return IY();
         }
 
-        private ImageUploadResult Jd() {
+        private ImageUploadResult IY() {
             a.this.aQz.a(this, null);
-            ImageUploadResult m = a.this.aQz.m(a.this.mPath, this.aQA);
+            ImageUploadResult l = a.this.aQz.l(a.this.wf, this.aQA);
             publishProgress(100);
-            return m;
+            return l;
         }
 
         @Override // com.baidu.tbadk.img.f.a
@@ -93,7 +93,7 @@ public class a<T> {
         /* renamed from: b */
         public void onProgressUpdate(Integer... numArr) {
             if (numArr != null && numArr.length != 0 && a.this.aQv != null && a.this.aQv.get() != null) {
-                ((InterfaceC0117a) a.this.aQv.get()).b(numArr[0].intValue(), a.this.aQy);
+                ((InterfaceC0114a) a.this.aQv.get()).b(numArr[0].intValue(), a.this.aQy);
             }
         }
 
@@ -104,8 +104,8 @@ public class a<T> {
             if (a.this.aQw != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.k.send_error);
-                a.this.aQw.a(a.this.mPath, imageUploadResult);
+                imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.send_error);
+                a.this.aQw.a(a.this.wf, imageUploadResult);
             }
         }
 
@@ -127,16 +127,16 @@ public class a<T> {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.k.send_error);
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.send_error);
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
-                a.this.aQw.a(a.this.mPath, imageUploadResult);
+                a.this.aQw.a(a.this.wf, imageUploadResult);
             }
         }
     }
 
-    public void a(InterfaceC0117a<T> interfaceC0117a) {
-        this.aQv = new WeakReference<>(interfaceC0117a);
+    public void a(InterfaceC0114a<T> interfaceC0114a) {
+        this.aQv = new WeakReference<>(interfaceC0114a);
     }
 
     public void a(c cVar) {
@@ -147,7 +147,7 @@ public class a<T> {
         this.aQz.setGroupId(str);
     }
 
-    public T Jb() {
+    public T IW() {
         return this.aQy;
     }
 
@@ -155,9 +155,9 @@ public class a<T> {
         this.aQy = t;
     }
 
-    public void Jc() {
-        LocalViewSize.ImageSize yS = LocalViewSize.yQ().yS();
-        LocalViewSize.ImageSize yT = LocalViewSize.yQ().yT();
-        h(yT.width, yT.height, yS.width, yS.height);
+    public void IX() {
+        LocalViewSize.ImageSize yJ = LocalViewSize.yH().yJ();
+        LocalViewSize.ImageSize yK = LocalViewSize.yH().yK();
+        g(yK.width, yK.height, yJ.width, yJ.height);
     }
 }

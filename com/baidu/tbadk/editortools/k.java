@@ -38,10 +38,10 @@ public class k {
         return this.context;
     }
 
-    public boolean oR() {
+    public boolean oU() {
         return true;
     }
 
-    public void bH(boolean z) {
+    public void bF(boolean z) {
     }
 }

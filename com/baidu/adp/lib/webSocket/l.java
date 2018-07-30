@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String Eq;
-    private int Fd;
+    private String En;
+    private int Fa;
+    private int Fb;
+    private boolean Fc;
+    private boolean Fd;
     private int Fe;
-    private boolean Ff;
+    private int Ff;
     private boolean Fg;
-    private int Fh;
-    private int Fi;
-    private boolean Fj;
-    private boolean Fk;
+    private boolean Fh;
 
     public l() {
-        this.Eq = null;
-        this.Fd = 32768;
-        this.Fe = 131072;
-        this.Ff = false;
+        this.En = null;
+        this.Fa = 32768;
+        this.Fb = 131072;
+        this.Fc = false;
+        this.Fd = true;
+        this.Fe = 30000;
+        this.Ff = 30000;
         this.Fg = true;
-        this.Fh = 30000;
-        this.Fi = 30000;
-        this.Fj = true;
-        this.Fk = true;
-        this.Eq = null;
+        this.Fh = true;
+        this.En = null;
     }
 
     public l(l lVar) {
-        this.Eq = null;
+        this.En = null;
+        this.Fa = lVar.Fa;
+        this.Fb = lVar.Fb;
+        this.Fc = lVar.Fc;
         this.Fd = lVar.Fd;
         this.Fe = lVar.Fe;
         this.Ff = lVar.Ff;
         this.Fg = lVar.Fg;
         this.Fh = lVar.Fh;
-        this.Fi = lVar.Fi;
-        this.Fj = lVar.Fj;
-        this.Fk = lVar.Fk;
-        this.Eq = lVar.Eq;
+        this.En = lVar.En;
     }
 
-    public boolean kD() {
-        return this.Ff;
-    }
-
-    public int kE() {
-        return this.Fd;
-    }
-
-    public int kF() {
-        return this.Fe;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.Fg;
+    public boolean kF() {
+        return this.Fc;
     }
 
     public int kG() {
-        return this.Fh;
+        return this.Fa;
     }
 
     public int kH() {
-        return this.Fi;
+        return this.Fb;
     }
 
-    public boolean kI() {
-        return this.Fj;
+    public boolean getTcpNoDelay() {
+        return this.Fd;
     }
 
-    public boolean kJ() {
-        return this.Fk;
+    public int kI() {
+        return this.Fe;
     }
 
-    public String kK() {
-        return this.Eq;
+    public int kJ() {
+        return this.Ff;
     }
 
-    public void bo(String str) {
-        this.Eq = str;
+    public boolean kK() {
+        return this.Fg;
+    }
+
+    public boolean kL() {
+        return this.Fh;
+    }
+
+    public String kM() {
+        return this.En;
+    }
+
+    public void bp(String str) {
+        this.En = str;
     }
 }

@@ -1,31 +1,23 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.MemberShowIcon;
+import tbclient.MultiForumPerm;
 /* loaded from: classes.dex */
 public class t {
-    private String mIcon;
-    private String mName;
-    private String mUrl;
+    public boolean afp;
+    public boolean isDeleted;
+    public int type;
 
-    public void a(MemberShowIcon memberShowIcon) {
-        if (memberShowIcon != null) {
-            this.mIcon = memberShowIcon.icon;
-            this.mName = memberShowIcon.name;
-            this.mUrl = memberShowIcon.url;
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.mIcon = jSONObject.optString("icon");
-                this.mName = jSONObject.optString("name");
-                this.mUrl = jSONObject.optString("url");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public void a(MultiForumPerm multiForumPerm) {
+        int i;
+        if (multiForumPerm != null) {
+            this.afp = multiForumPerm.is_bawu.intValue() == 1;
+            if ("manager".equals(multiForumPerm.bawu_type)) {
+                i = 1;
+            } else {
+                i = "assist".equals(multiForumPerm.bawu_type) ? 2 : 0;
             }
+            this.type = i;
+            this.isDeleted = multiForumPerm.is_deleted.intValue() == 1;
         }
     }
 }

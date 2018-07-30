@@ -342,7 +342,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(int[] iArr) {
-        a.C0084a g2 = this.aL.g();
+        a.C0081a g2 = this.aL.g();
         Bitmap createBitmap = Bitmap.createBitmap(iArr, g2.b, g2.a, Bitmap.Config.ARGB_8888);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         createBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -935,10 +935,10 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private void a(a.C0084a c0084a) {
+    private void a(a.C0081a c0081a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.V.getLayoutParams());
-        a.C0084a b2 = b(c0084a);
-        if (b2 == null || (b2.a == c0084a.a && b2.b == c0084a.b)) {
+        a.C0081a b2 = b(c0081a);
+        if (b2 == null || (b2.a == c0081a.a && b2.b == c0081a.b)) {
             layoutParams.width = -2;
             layoutParams.height = -1;
         } else {
@@ -1010,30 +1010,30 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.aL.b();
     }
 
-    private a.C0084a b(a.C0084a c0084a) {
-        if (c0084a == null) {
+    private a.C0081a b(a.C0081a c0081a) {
+        if (c0081a == null) {
             return null;
         }
-        a.C0084a s2 = s();
-        a.C0084a c0084a2 = new a.C0084a(c0084a.a, c0084a.b);
-        float f2 = c0084a.a / c0084a.b;
+        a.C0081a s2 = s();
+        a.C0081a c0081a2 = new a.C0081a(c0081a.a, c0081a.b);
+        float f2 = c0081a.a / c0081a.b;
         float f3 = s2.b / s2.a;
         if (Math.abs(f2 - f3) > 0.02d) {
             if (f2 < f3) {
-                c0084a2.a = (s2.b * c0084a.b) / c0084a.a;
-                c0084a2.b = s2.b;
-                return c0084a2;
+                c0081a2.a = (s2.b * c0081a.b) / c0081a.a;
+                c0081a2.b = s2.b;
+                return c0081a2;
             }
-            c0084a2.a = s2.a;
-            c0084a2.b = (s2.a * c0084a.a) / c0084a.b;
-            return c0084a2;
+            c0081a2.a = s2.a;
+            c0081a2.b = (s2.a * c0081a.a) / c0081a.b;
+            return c0081a2;
         }
-        return c0084a2;
+        return c0081a2;
     }
 
-    private a.C0084a s() {
+    private a.C0081a s() {
         Display defaultDisplay = ((WindowManager) getSystemService("window")).getDefaultDisplay();
-        return new a.C0084a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + com.baidu.fsg.biometrics.base.d.d.a(this));
+        return new a.C0081a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + com.baidu.fsg.biometrics.base.d.d.a(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2822,7 +2822,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         int ab;
         long ac;
         int ai;
-        a.C0084a aq;
+        a.C0081a aq;
         boolean M = false;
         int ad = 1;
         int ae = 0;

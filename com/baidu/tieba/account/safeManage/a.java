@@ -7,32 +7,32 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.d;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    private final BaseActivity bmt;
-    private b bmu;
-    private AccountSafeModel bmv;
-    private com.baidu.adp.framework.listener.a bmw = new com.baidu.adp.framework.listener.a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016) { // from class: com.baidu.tieba.account.safeManage.a.1
+    private final BaseActivity bmZ;
+    private b bna;
+    private AccountSafeModel bnb;
+    private com.baidu.adp.framework.listener.a bnc = new com.baidu.adp.framework.listener.a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.bmv != null) {
-                a.this.bmv.setLoading(false);
+            if (a.this.bnb != null) {
+                a.this.bnb.setLoading(false);
             }
-            a.this.bmt.closeLoadingDialog();
+            a.this.bmZ.closeLoadingDialog();
             if (responsedMessage != null) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = a.this.bmt.getString(d.k.neterror);
+                        errorString = a.this.bmZ.getString(d.j.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    a.this.bmt.showToast(errorString);
+                    a.this.bmZ.showToast(errorString);
                     return;
                 }
                 com.baidu.tieba.setting.im.more.a aVar = null;
@@ -42,51 +42,51 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.bmv != null) {
-                    a.this.bmv.a(aVar);
+                if (a.this.bnb != null) {
+                    a.this.bnb.a(aVar);
                 }
-                if (a.this.bmu != null && a.this.bmv != null && a.this.bmv.QO() != null) {
-                    a.this.bmu.a(a.this.bmv.QO().QT());
+                if (a.this.bna != null && a.this.bnb != null && a.this.bnb.QV() != null) {
+                    a.this.bna.a(a.this.bnb.QV().Ra());
                 }
             }
         }
     };
 
     public a(BaseActivity baseActivity) {
-        this.bmt = baseActivity;
-        this.bmt.registerListener(this.bmw);
-        this.bmu = new b(this.bmt, this);
-        this.bmv = new AccountSafeModel(this.bmt);
-        if (j.jD()) {
-            QU();
+        this.bmZ = baseActivity;
+        this.bmZ.registerListener(this.bnc);
+        this.bna = new b(this.bmZ, this);
+        this.bnb = new AccountSafeModel(this.bmZ);
+        if (j.jE()) {
+            Rb();
         } else {
-            this.bmt.showToast(d.k.neterror);
+            this.bmZ.showToast(d.j.neterror);
         }
     }
 
     public View getRootView() {
-        return this.bmu.getView();
+        return this.bna.getView();
     }
 
-    private void QU() {
-        if (this.bmv != null && !this.bmv.AO()) {
-            this.bmv.QR();
+    private void Rb() {
+        if (this.bnb != null && !this.bnb.AE()) {
+            this.bnb.QY();
         }
     }
 
     public void onDestroy() {
-        this.bmt.closeLoadingDialog();
-        if (this.bmv != null) {
-            this.bmv.cancelLoadData();
+        this.bmZ.closeLoadingDialog();
+        if (this.bnb != null) {
+            this.bnb.cancelLoadData();
         }
-        if (this.bmu != null) {
-            this.bmu.release();
+        if (this.bna != null) {
+            this.bna.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bmu != null) {
-            this.bmu.ev(i);
+        if (this.bna != null) {
+            this.bna.ey(i);
         }
     }
 
@@ -94,13 +94,13 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         if (view.getId() == d.g.bar_record) {
             TiebaStatic.log("c10013");
-            if (!j.jD()) {
-                this.bmt.showToast(d.k.neterror);
+            if (!j.jE()) {
+                this.bmZ.showToast(d.j.neterror);
             } else {
-                az.zV().c(this.bmt.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                ay.zK().c(this.bmZ.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == d.g.account_status) {
-            AntiHelper.ap(this.bmt, this.bmv != null ? this.bmv.QP() : "");
+            AntiHelper.ar(this.bmZ, this.bnb != null ? this.bnb.QW() : "");
         }
     }
 }

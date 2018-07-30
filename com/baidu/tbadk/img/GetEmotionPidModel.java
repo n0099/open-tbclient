@@ -59,7 +59,7 @@ public class GetEmotionPidModel extends BdBaseModel {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
-        httpMessage.addParam("pic_url", com.baidu.tbadk.browser.d.cT(str));
+        httpMessage.addParam("pic_url", com.baidu.tbadk.browser.d.cQ(str));
         sendMessage(httpMessage);
     }
 

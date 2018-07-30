@@ -56,12 +56,12 @@ public class a {
     private ProgressBar aHQ = null;
     private TextView aHR = null;
     private AccountData aHS = null;
-    private InterfaceC0110a aHT = null;
-    private InterfaceC0110a aHU = null;
+    private InterfaceC0107a aHT = null;
+    private InterfaceC0107a aHU = null;
 
     /* renamed from: com.baidu.tbadk.coreExtra.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0110a {
+    public interface InterfaceC0107a {
         void g(AccountData accountData);
     }
 
@@ -82,40 +82,40 @@ public class a {
         this.aHS = accountData;
     }
 
-    public void a(InterfaceC0110a interfaceC0110a) {
-        this.aHT = interfaceC0110a;
+    public void a(InterfaceC0107a interfaceC0107a) {
+        this.aHT = interfaceC0107a;
     }
 
-    public void b(InterfaceC0110a interfaceC0110a) {
-        this.aHU = interfaceC0110a;
+    public void b(InterfaceC0107a interfaceC0107a) {
+        this.aHU = interfaceC0107a;
     }
 
-    public void FN() {
-        es(0);
+    public void FJ() {
+        ev(0);
     }
 
-    public void es(int i) {
+    public void ev(int i) {
         if (this.aHC == null) {
-            this.aHB = LayoutInflater.from(this.aHL).inflate(d.i.main_input_username, (ViewGroup) null);
+            this.aHB = LayoutInflater.from(this.aHL).inflate(d.h.main_input_username, (ViewGroup) null);
             this.aHX = (TextView) this.aHB.findViewById(d.g.tip_info);
             this.aHY = this.aHB.findViewById(d.g.divider_under_account);
             this.aHZ = this.aHB.findViewById(d.g.divider_under_radiongroup);
             this.aIa = this.aHB.findViewById(d.g.divider_with_yes_no_button);
             this.aHD = (EditText) this.aHB.findViewById(d.g.account);
-            this.aHD.setHint(this.aHL.getString(d.k.hint_tip_input_name));
+            this.aHD.setHint(this.aHL.getString(d.j.hint_tip_input_name));
             this.aHK = (TextView) this.aHB.findViewById(d.g.back);
             this.aHK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.FR();
-                    a.this.FP();
+                    a.this.FN();
+                    a.this.FL();
                 }
             });
             this.aHP = (TextView) this.aHB.findViewById(d.g.confirm);
             this.aHP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.FO();
+                    a.this.FK();
                 }
             });
             this.aHQ = (ProgressBar) this.aHB.findViewById(d.g.confirm_progress);
@@ -162,22 +162,22 @@ public class a {
             this.aHI.setOnCheckedChangeListener(this.aHG);
             this.aHJ.setOnCheckedChangeListener(this.aHG);
             this.aHR = (TextView) this.aHB.findViewById(d.g.phone_info);
-            FQ();
-            this.aHC = new Dialog(this.aHL, d.l.input_username_dialog);
+            FM();
+            this.aHC = new Dialog(this.aHL, d.k.input_username_dialog);
             this.aHC.setCanceledOnTouchOutside(false);
             this.aHC.setCancelable(false);
             this.aHC.setCanceledOnTouchOutside(false);
-            FK();
+            FG();
         }
         if (i == 1) {
-            this.aHR.setText(d.k.tip_init_user_name);
+            this.aHR.setText(d.j.tip_init_user_name);
         } else {
-            this.aHR.setText(d.k.bar_friend);
+            this.aHR.setText(d.j.bar_friend);
         }
         if (!this.aHC.isShowing()) {
             this.aHD.setText((CharSequence) null);
-            FQ();
-            ge(null);
+            FM();
+            gc(null);
             if (!this.aHL.isFinishing()) {
                 this.aHC.setContentView(this.aHB);
                 g.a(this.aHC, this.aHL);
@@ -215,12 +215,12 @@ public class a {
         }
     }
 
-    public void FO() {
+    public void FK() {
         String obj = this.aHD.getText().toString();
         if (obj == null || obj.length() <= 0) {
-            ge(this.aHL.getString(d.k.error_tip_name_cannot_empty));
+            gc(this.aHL.getString(d.j.error_tip_name_cannot_empty));
         } else if (UtilHelper.getFixedTextSize(obj) > 14) {
-            ge(this.aHL.getString(d.k.input_alias_limit_length_tip));
+            gc(this.aHL.getString(d.j.input_alias_limit_length_tip));
         } else {
             if (this.aHN != null) {
                 this.aHN.cancel();
@@ -234,7 +234,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FP() {
+    public void FL() {
         if (this.aHU != null) {
             this.aHU.g(null);
         }
@@ -242,10 +242,10 @@ public class a {
 
     public void r(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            ge(this.aHL.getString(d.k.suggest_no_name));
+            gc(this.aHL.getString(d.j.suggest_no_name));
             return;
         }
-        ge(this.aHL.getString(d.k.suggest_some_names));
+        gc(this.aHL.getString(d.j.suggest_some_names));
         int size = arrayList.size();
         this.aHE.clearCheck();
         this.aHF.clearCheck();
@@ -281,10 +281,10 @@ public class a {
             this.aHN.cancel();
             this.aHN = null;
         }
-        FR();
+        FN();
     }
 
-    public void FQ() {
+    public void FM() {
         this.aHE.setVisibility(8);
         this.aHE.clearCheck();
         this.aHF.setVisibility(8);
@@ -297,14 +297,14 @@ public class a {
         this.aHJ.setChecked(false);
     }
 
-    public void FR() {
+    public void FN() {
         if (this.aHC != null && this.aHC.isShowing()) {
             g.b(this.aHC, this.aHL);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ge(String str) {
+    public void gc(String str) {
         if (str == null) {
             this.aHO.setVisibility(4);
             this.aHO.setText((CharSequence) null);
@@ -314,23 +314,23 @@ public class a {
         this.aHO.setText(str);
     }
 
-    private void FK() {
+    private void FG() {
         am.i(this.aHB, d.f.dialog_background);
-        am.h(this.aHR, d.C0142d.cp_cont_b);
-        am.h(this.aHX, d.C0142d.cp_cont_f);
-        am.h(this.aHD, d.C0142d.cp_cont_b);
+        am.h(this.aHR, d.C0140d.cp_cont_b);
+        am.h(this.aHX, d.C0140d.cp_cont_f);
+        am.h(this.aHD, d.C0140d.cp_cont_b);
         am.i(this.aHY, d.f.bg_search_input);
-        am.h(this.aHO, d.C0142d.cp_cont_h);
-        am.h(this.aHH, d.C0142d.cp_cont_b);
-        am.h(this.aHI, d.C0142d.cp_cont_b);
-        am.h(this.aHJ, d.C0142d.cp_cont_b);
-        am.j(this.aHZ, d.C0142d.cp_bg_line_a);
+        am.h(this.aHO, d.C0140d.cp_cont_h);
+        am.h(this.aHH, d.C0140d.cp_cont_b);
+        am.h(this.aHI, d.C0140d.cp_cont_b);
+        am.h(this.aHJ, d.C0140d.cp_cont_b);
+        am.j(this.aHZ, d.C0140d.cp_bg_line_a);
         am.i(this.aHK, d.f.dialog_left_button_selector);
-        am.h(this.aHK, d.C0142d.cp_link_tip_a);
-        am.j(this.aIa, d.C0142d.cp_bg_line_a);
+        am.h(this.aHK, d.C0140d.cp_link_tip_a);
+        am.j(this.aIa, d.C0140d.cp_bg_line_a);
         am.i(this.aHP, d.f.dialog_right_button_selector);
-        am.h(this.aHP, d.C0142d.cp_link_tip_a);
-        this.aHD.setHintTextColor(am.getColor(d.C0142d.cp_cont_e));
+        am.h(this.aHP, d.C0140d.cp_link_tip_a);
+        this.aHD.setHintTextColor(am.getColor(d.C0140d.cp_cont_e));
         this.aHH.setCompoundDrawables(this.aHW, null, null, null);
         this.aHI.setCompoundDrawables(this.aHW, null, null, null);
         this.aHJ.setCompoundDrawables(this.aHW, null, null, null);
@@ -367,9 +367,9 @@ public class a {
             a.this.aHQ.setVisibility(8);
             a.this.aHP.setEnabled(true);
             if (hVar != null) {
-                if (this.mNetwork.zb() == 0 && hVar.getUser().getUserName() != null) {
-                    a.this.FR();
-                    l.showToast(a.this.aHL, d.k.reset_success);
+                if (this.mNetwork.yS() == 0 && hVar.getUser().getUserName() != null) {
+                    a.this.FN();
+                    l.showToast(a.this.aHL, d.j.reset_success);
                     TbadkCoreApplication.setCurrentAccount(a.this.aHS, a.this.aHL);
                     if (a.this.aHT != null) {
                         a.this.aHT.g(a.this.aHS);
@@ -377,13 +377,13 @@ public class a {
                     }
                     return;
                 }
-                a.this.r(hVar.Cl());
+                a.this.r(hVar.Cd());
             } else if (!StringUtils.isNull(this.mNetwork.getErrorString())) {
-                a.this.ge(this.mNetwork.getErrorString());
-            } else if (!l.jU()) {
-                l.showToast(a.this.aHL, d.k.neterror);
+                a.this.gc(this.mNetwork.getErrorString());
+            } else if (!l.jV()) {
+                l.showToast(a.this.aHL, d.j.neterror);
             } else {
-                l.showToast(a.this.aHL, d.k.tip_init_name_failed);
+                l.showToast(a.this.aHL, d.j.tip_init_name_failed);
             }
         }
 
@@ -392,8 +392,8 @@ public class a {
         public void onPreExecute() {
             a.this.aHQ.setVisibility(0);
             a.this.aHP.setEnabled(false);
-            a.this.ge(null);
-            a.this.FQ();
+            a.this.gc(null);
+            a.this.FM();
             super.onPreExecute();
         }
 
@@ -405,7 +405,7 @@ public class a {
         /* JADX WARN: Type inference failed for: r0v1 */
         /* JADX WARN: Type inference failed for: r0v15, types: [int] */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: o */
+        /* renamed from: n */
         public h doInBackground(String... strArr) {
             h hVar;
             Exception e;
@@ -417,14 +417,14 @@ public class a {
                 if (a.this.aHS != null) {
                     this.mNetwork.o("BDUSS", a.this.aHS.getBDUSS());
                 }
-                this.mNetwork.yX().zX().aso = false;
-                String yz = this.mNetwork.yz();
-                if (this.mNetwork.za()) {
-                    hVar = this.mNetwork.zb();
+                this.mNetwork.yO().zM().arR = false;
+                String yq = this.mNetwork.yq();
+                if (this.mNetwork.yR()) {
+                    hVar = this.mNetwork.yS();
                     try {
                         if (hVar == 0) {
                             h hVar2 = new h();
-                            hVar2.parserJson(yz);
+                            hVar2.parserJson(yq);
                             if (hVar2.getUser() != null) {
                                 str2 = hVar2.getUser().getUserName();
                                 str = hVar2.getUser().getBDUSS();
@@ -432,7 +432,7 @@ public class a {
                                 str = null;
                                 str2 = null;
                             }
-                            String tbs = hVar2.Cm() != null ? hVar2.Cm().getTbs() : null;
+                            String tbs = hVar2.Ce() != null ? hVar2.Ce().getTbs() : null;
                             if (a.this.aHS != null) {
                                 if (!StringUtils.isNull(str2)) {
                                     a.this.aHS.setAccount(str2);
@@ -448,12 +448,12 @@ public class a {
                                 return hVar2;
                             }
                             return hVar2;
-                        } else if (this.mNetwork.zb() == 36) {
+                        } else if (this.mNetwork.yS() == 36) {
                             h hVar3 = new h();
-                            hVar3.parserJson(yz);
+                            hVar3.parserJson(yq);
                             return hVar3;
-                        } else if (this.mNetwork.zb() == 1) {
-                            a.this.FR();
+                        } else if (this.mNetwork.yS() == 1) {
+                            a.this.FN();
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -486,16 +486,16 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: o */
+        /* renamed from: n */
         public h doInBackground(String... strArr) {
             this.mNetwork = new y(this.mUrl);
             this.mNetwork.o("un", this.mAccount);
-            String yz = this.mNetwork.yz();
-            if (!this.mNetwork.za() || this.mNetwork.zb() != 36) {
+            String yq = this.mNetwork.yq();
+            if (!this.mNetwork.yR() || this.mNetwork.yS() != 36) {
                 return null;
             }
             h hVar = new h();
-            hVar.parserJson(yz);
+            hVar.parserJson(yq);
             return hVar;
         }
 
@@ -506,25 +506,25 @@ public class a {
         public void onPostExecute(h hVar) {
             super.onPostExecute(hVar);
             this.aIb.aHN = null;
-            if (!this.mNetwork.za()) {
-                this.aIb.ge(this.mNetwork.getErrorString());
-            } else if (this.mNetwork.zb() == 0) {
-                this.aIb.ge(this.aIb.aHL.getString(d.k.name_not_use));
-            } else if (this.mNetwork.zb() == 36) {
-                this.aIb.ge(this.mNetwork.getErrorString());
+            if (!this.mNetwork.yR()) {
+                this.aIb.gc(this.mNetwork.getErrorString());
+            } else if (this.mNetwork.yS() == 0) {
+                this.aIb.gc(this.aIb.aHL.getString(d.j.name_not_use));
+            } else if (this.mNetwork.yS() == 36) {
+                this.aIb.gc(this.mNetwork.getErrorString());
                 if (hVar != null) {
-                    this.aIb.r(hVar.Cl());
+                    this.aIb.r(hVar.Cd());
                 }
             } else {
-                this.aIb.ge(this.mNetwork.getErrorString());
+                this.aIb.gc(this.mNetwork.getErrorString());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.aIb.ge(null);
-            this.aIb.FQ();
+            this.aIb.gc(null);
+            this.aIb.FM();
             super.onPreExecute();
         }
     }

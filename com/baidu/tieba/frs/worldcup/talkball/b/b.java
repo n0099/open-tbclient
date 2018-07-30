@@ -1,37 +1,37 @@
 package com.baidu.tieba.frs.worldcup.talkball.b;
 
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 import tbclient.TalkBall.CardInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private bc btP;
-    private f dJe;
-    private boolean dJf = false;
+    private bb buw;
+    private f dLT;
+    private boolean dLU = false;
 
     public void a(CardInfo cardInfo) {
         if (cardInfo != null) {
             if (cardInfo.thread_info != null) {
-                this.btP = new bc();
-                this.btP.a(cardInfo.thread_info);
-                this.dJf = false;
+                this.buw = new bb();
+                this.buw.a(cardInfo.thread_info);
+                this.dLU = false;
             }
             if (cardInfo.insert_floor != null) {
-                this.dJe = new f();
-                this.dJe.a(cardInfo.insert_floor);
-                this.dJf = true;
+                this.dLT = new f();
+                this.dLT.a(cardInfo.insert_floor);
+                this.dLU = true;
             }
         }
     }
 
-    public bc SV() {
-        return this.btP;
+    public bb Td() {
+        return this.buw;
     }
 
-    public f aAR() {
-        return this.dJe;
+    public f aBA() {
+        return this.dLT;
     }
 
-    public boolean aAS() {
-        return this.dJf;
+    public boolean aBB() {
+        return this.dLU;
     }
 }

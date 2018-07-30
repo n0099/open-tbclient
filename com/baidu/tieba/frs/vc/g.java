@@ -9,8 +9,8 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ai;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.ah;
+import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
@@ -18,21 +18,21 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class g {
-    private NEGFeedBackView bHl;
-    private ViewGroup bHm;
-    private NEGFeedBackView.a bHn = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.g.1
+    private NEGFeedBackView bIa;
+    private ViewGroup bIb;
+    private NEGFeedBackView.a bIc = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.g.1
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-        public void a(ai aiVar) {
-            TiebaStatic.log(new an("c11973").ah(ImageViewerConfig.FORUM_ID, aiVar.getFid()).ah("tid", aiVar.getTid()).ah("uid", TbadkCoreApplication.getCurrentAccount()));
+        public void a(ah ahVar) {
+            TiebaStatic.log(new an("c11973").af(ImageViewerConfig.FORUM_ID, ahVar.getFid()).af("tid", ahVar.getTid()).af("uid", TbadkCoreApplication.getCurrentAccount()));
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-        public void a(ai aiVar, CompoundButton compoundButton, boolean z) {
+        public void a(ah ahVar, CompoundButton compoundButton, boolean z) {
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-        public void a(ArrayList<Integer> arrayList, ai aiVar) {
-            if (arrayList != null && aiVar != null) {
+        public void a(ArrayList<Integer> arrayList, ah ahVar) {
+            if (arrayList != null && ahVar != null) {
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < arrayList.size(); i++) {
                     sb.append(arrayList.get(i) + ",");
@@ -40,7 +40,7 @@ public class g {
                 if (sb.length() > 0) {
                     sb.deleteCharAt(sb.length() - 1);
                 }
-                TiebaStatic.log(new an("c11974").ah("obj_locate", sb.toString()).ah(ImageViewerConfig.FORUM_ID, aiVar.getFid()).ah("tid", aiVar.getTid()).ah("uid", TbadkCoreApplication.getCurrentAccount()));
+                TiebaStatic.log(new an("c11974").af("obj_locate", sb.toString()).af(ImageViewerConfig.FORUM_ID, ahVar.getFid()).af("tid", ahVar.getTid()).af("uid", TbadkCoreApplication.getCurrentAccount()));
             }
         }
     };
@@ -49,64 +49,64 @@ public class g {
 
     public g(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.bHm = viewGroup;
+        this.bIb = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean aAf() {
-        return this.bHl != null && this.bHl.getVisibility() == 0;
+    public boolean aAM() {
+        return this.bIa != null && this.bIa.getVisibility() == 0;
     }
 
-    public void ac(bc bcVar) {
+    public void ae(bb bbVar) {
         int i = 0;
-        if (bcVar != null && this.mPageContext != null && this.bHm != null) {
-            boolean z = (bcVar.vw() == null || bcVar.vw().getUserId() == null || !bcVar.vw().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (bcVar.wv() && bcVar.uv() != null && !z) {
-                if (this.bHl == null) {
-                    this.bHl = new NEGFeedBackView(this.mPageContext);
-                    this.bHl.setUniqueId(this.mBdUniqueId);
-                    this.bHl.setId(d.g.negative_feedback_view);
-                    this.bHl.setDefaultReasonArray(new String[]{this.mPageContext.getString(d.k.bad_quality), "", ""});
-                    this.bHl.setEventCallback(this.bHn);
-                    this.bHl.a(this.bHm, l.e(this.mPageContext.getPageActivity(), d.e.tbds120), 0);
-                    this.bHl.onChangeSkinType();
+        if (bbVar != null && this.mPageContext != null && this.bIb != null) {
+            boolean z = (bbVar.vk() == null || bbVar.vk().getUserId() == null || !bbVar.vk().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (bbVar.wk() && bbVar.ui() != null && !z) {
+                if (this.bIa == null) {
+                    this.bIa = new NEGFeedBackView(this.mPageContext);
+                    this.bIa.setUniqueId(this.mBdUniqueId);
+                    this.bIa.setId(d.g.negative_feedback_view);
+                    this.bIa.setDefaultReasonArray(new String[]{this.mPageContext.getString(d.j.bad_quality), "", ""});
+                    this.bIa.setEventCallback(this.bIc);
+                    this.bIa.a(this.bIb, l.f(this.mPageContext.getPageActivity(), d.e.tbds120), 0);
+                    this.bIa.onChangeSkinType();
                 }
-                if (this.bHl.getVisibility() != 0) {
-                    this.bHl.setVisibility(0);
+                if (this.bIa.getVisibility() != 0) {
+                    this.bIa.setVisibility(0);
                 }
-                ai aiVar = new ai();
-                aiVar.dk(bcVar.getTid());
-                aiVar.setFid(bcVar.getFid());
-                aiVar.a(bcVar.uv());
-                this.bHl.setData(aiVar);
+                ah ahVar = new ah();
+                ahVar.dh(bbVar.getTid());
+                ahVar.setFid(bbVar.getFid());
+                ahVar.a(bbVar.ui());
+                this.bIa.setData(ahVar);
             } else {
-                if (this.bHl != null && this.bHl.getVisibility() != 8) {
-                    this.bHl.setVisibility(8);
+                if (this.bIa != null && this.bIa.getVisibility() != 8) {
+                    this.bIa.setVisibility(8);
                 }
-                i = l.e(this.mPageContext.getPageActivity(), d.e.ds32);
+                i = l.f(this.mPageContext.getPageActivity(), d.e.ds32);
             }
-            if (this.bHm.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bHm.getLayoutParams();
+            if (this.bIb.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bIb.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.bHm.setLayoutParams(layoutParams);
+                this.bIb.setLayoutParams(layoutParams);
             }
-            if (this.bHm.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bHm.getLayoutParams();
+            if (this.bIb.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bIb.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.bHm.setLayoutParams(layoutParams2);
+                this.bIb.setLayoutParams(layoutParams2);
             }
-            if (this.bHl != null) {
-                this.bHl.Pp();
+            if (this.bIa != null) {
+                this.bIa.Pv();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.bHl != null) {
-            this.bHl.onChangeSkinType();
+        if (this.bIa != null) {
+            this.bIa.onChangeSkinType();
         }
     }
 }

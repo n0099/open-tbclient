@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.util.aa;
-import com.baidu.tbadk.util.h;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.util.g;
+import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
-import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.z;
 import com.baidu.tieba.im.db.l;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
@@ -26,16 +26,16 @@ public class OfficialBarChatActivityStatic {
                 if (customMessage != null && customMessage.getData() != null && (userData = customMessage.getData().getUserData()) != null) {
                     final LinkedList linkedList = new LinkedList();
                     linkedList.add(String.valueOf(userData.getUserId()));
-                    w.b(new v<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.1
+                    v.b(new u<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.1
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.v
-                        /* renamed from: Rl */
+                        @Override // com.baidu.tbadk.util.u
+                        /* renamed from: Rs */
                         public Void doInBackground() {
-                            return l.aIO().o(linkedList);
+                            return l.aJP().o(linkedList);
                         }
-                    }, new h<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.2
+                    }, new g<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.2
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.h
+                        @Override // com.baidu.tbadk.util.g
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r5) {
                             if (((OfficalBarChatActivityConfig) customMessage.getData()).getUserData().getUserIdLong() != 0) {
@@ -49,19 +49,19 @@ public class OfficialBarChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        az.zV().a(new az.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
-            @Override // com.baidu.tbadk.core.util.az.a
+        ay.zK().a(new ay.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
+            @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_official_chat=1")) {
-                    String ax = aa.ax(str, "barid=");
-                    String ax2 = aa.ax(str, "barname=");
-                    String ax3 = aa.ax(str, "portrait=");
-                    if (ax != null && ax.length() > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.c(ax, 0L), ax2, ax3, 0)));
+                    String at = z.at(str, "barid=");
+                    String at2 = z.at(str, "barname=");
+                    String at3 = z.at(str, "portrait=");
+                    if (at != null && at.length() > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.c(at, 0L), at2, at3, 0)));
                     }
                     return 1;
                 }

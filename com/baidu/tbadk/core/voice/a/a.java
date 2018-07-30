@@ -9,24 +9,24 @@ public class a {
     public int error_code = 0;
     public String error_msg = null;
 
-    public static String dN(int i) {
+    public static String dQ(int i) {
         switch (i) {
             case 0:
                 return "";
             case 1:
-                return h.getString(d.k.voice_cache_error_internal);
+                return h.getString(d.j.voice_cache_error_internal);
             case 2:
-                return h.getString(d.k.voice_cache_error_no_space);
+                return h.getString(d.j.voice_cache_error_no_space);
             case 3:
-                return h.getString(d.k.neterror);
+                return h.getString(d.j.neterror);
             case 4:
-                return h.getString(d.k.voice_cache_error_no_file);
+                return h.getString(d.j.voice_cache_error_no_file);
             case 5:
-                return h.getString(d.k.voice_cache_error_md5);
+                return h.getString(d.j.voice_cache_error_md5);
             case 6:
-                return h.getString(d.k.voice_cache_error_no_input);
+                return h.getString(d.j.voice_cache_error_no_input);
             case 7:
-                return h.getString(d.k.voice_cache_error_no_dir);
+                return h.getString(d.j.voice_cache_error_no_dir);
             default:
                 return "";
         }

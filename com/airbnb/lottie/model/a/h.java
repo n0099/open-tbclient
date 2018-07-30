@@ -7,16 +7,16 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h extends o<com.airbnb.lottie.model.content.h, Path> {
-    private final Path nB;
+    private final Path nr;
 
     private h(List<com.airbnb.lottie.a.a<com.airbnb.lottie.model.content.h>> list, com.airbnb.lottie.model.content.h hVar) {
         super(list, hVar);
-        this.nB = new Path();
+        this.nr = new Path();
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.h, Path> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(g((com.airbnb.lottie.model.content.h) this.mJ)) : new com.airbnb.lottie.a.b.l(this.mr);
+    public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.h, Path> ci() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(g((com.airbnb.lottie.model.content.h) this.my)) : new com.airbnb.lottie.a.b.l(this.mi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,16 @@ public class h extends o<com.airbnb.lottie.model.content.h, Path> {
     @Override // com.airbnb.lottie.model.a.o
     /* renamed from: a */
     public Path g(com.airbnb.lottie.model.content.h hVar) {
-        this.nB.reset();
-        com.airbnb.lottie.c.e.a(hVar, this.nB);
-        return this.nB;
+        this.nr.reset();
+        com.airbnb.lottie.c.e.a(hVar, this.nr);
+        return this.nr;
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static h k(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            n.a cE = n.a(jSONObject, eVar.bp(), eVar, h.a.oy).cE();
-            return new h(cE.mr, (com.airbnb.lottie.model.content.h) cE.mJ);
+            n.a cC = n.a(jSONObject, eVar.bn(), eVar, h.a.om).cC();
+            return new h(cC.mi, (com.airbnb.lottie.model.content.h) cC.my);
         }
     }
 }

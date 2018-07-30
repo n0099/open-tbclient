@@ -11,13 +11,13 @@ public interface a {
 
     void b(BaseFragment baseFragment);
 
-    f bkC();
+    f biW();
 
-    void bkD();
+    void biX();
 
-    void fy(boolean z);
+    void fA(boolean z);
 
-    void lt(boolean z);
+    void lf(boolean z);
 
     void onChangeSkinType(int i);
 

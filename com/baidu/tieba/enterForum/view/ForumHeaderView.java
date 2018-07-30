@@ -15,10 +15,10 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class ForumHeaderView extends LinearLayout {
-    private ViewEventCenter cOZ;
-    private TextView cRV;
-    private ImageView cRW;
-    private LinearLayout cSf;
+    private ViewEventCenter cRI;
+    private TextView cUI;
+    private ImageView cUJ;
+    private LinearLayout cUS;
 
     public ForumHeaderView(Context context) {
         this(context, null);
@@ -30,42 +30,42 @@ public class ForumHeaderView extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.cOZ = viewEventCenter;
+        this.cRI = viewEventCenter;
     }
 
     public void init() {
-        LayoutInflater.from(getContext()).inflate(d.i.layout_enterforum_search, this);
+        LayoutInflater.from(getContext()).inflate(d.h.layout_enterforum_search, this);
         setOrientation(1);
         setDescendantFocusability(262144);
-        this.cSf = (LinearLayout) findViewById(d.g.search_container);
-        this.cSf.setVisibility(0);
-        this.cSf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.ForumHeaderView.1
+        this.cUS = (LinearLayout) findViewById(d.g.search_container);
+        this.cUS.setVisibility(0);
+        this.cUS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.ForumHeaderView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ForumHeaderView.this.cOZ != null) {
+                if (ForumHeaderView.this.cRI != null) {
                     TiebaStatic.log("c10362");
-                    ForumHeaderView.this.cOZ.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(7, null, null, null));
+                    ForumHeaderView.this.cRI.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(7, null, null, null));
                 }
             }
         });
-        this.cRV = (TextView) findViewById(d.g.search_text);
-        this.cRW = (ImageView) findViewById(d.g.search_icon);
+        this.cUI = (TextView) findViewById(d.g.search_text);
+        this.cUJ = (ImageView) findViewById(d.g.search_icon);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.n.a.a(tbPageContext, this);
-        am.c(this.cRW, d.f.icon_input_search);
-        am.h(this.cRV, d.C0142d.cp_cont_d);
-        am.j(this.cSf, d.C0142d.cp_bg_line_e);
+        com.baidu.tbadk.o.a.a(tbPageContext, this);
+        am.c(this.cUJ, d.f.icon_input_search);
+        am.h(this.cUI, d.C0140d.cp_cont_d);
+        am.j(this.cUS, d.C0140d.cp_bg_line_e);
     }
 
-    public void jB(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cSf.getLayoutParams();
+    public void jN(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cUS.getLayoutParams();
         layoutParams.topMargin = i;
-        this.cSf.setLayoutParams(layoutParams);
+        this.cUS.setLayoutParams(layoutParams);
     }
 
     public void setSearchHint(String str) {
-        this.cRV.setText(UtilHelper.getFixedText(str, 20));
+        this.cUI.setText(UtilHelper.getFixedText(str, 20));
     }
 }

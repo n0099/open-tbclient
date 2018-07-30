@@ -5,31 +5,31 @@ import org.json.JSONObject;
 public class f {
     private final float ascent;
     private final String name;
-    private final String nn;
+    private final String nd;
     private final String style;
 
     f(String str, String str2, String str3, float f) {
-        this.nn = str;
+        this.nd = str;
         this.name = str2;
         this.style = str3;
         this.ascent = f;
     }
 
     public String getFamily() {
-        return this.nn;
+        return this.nd;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public String ci() {
+    public String cg() {
         return this.style;
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static f e(JSONObject jSONObject) {
+        public static f d(JSONObject jSONObject) {
             return new f(jSONObject.optString("fFamily"), jSONObject.optString("fName"), jSONObject.optString("fStyle"), (float) jSONObject.optDouble("ascent"));
         }
     }

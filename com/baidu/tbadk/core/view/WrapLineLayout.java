@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> azx;
-    private List<Integer> azy;
+    private List<List<View>> azj;
+    private List<Integer> azk;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.azx = new ArrayList();
-        this.azy = new ArrayList();
+        this.azj = new ArrayList();
+        this.azk = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.azx = new ArrayList();
-        this.azy = new ArrayList();
+        this.azj = new ArrayList();
+        this.azk = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.azx.clear();
-        this.azy.clear();
+        this.azj.clear();
+        this.azk.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.azy.add(Integer.valueOf(i5));
-                this.azx.add(arrayList);
+                this.azk.add(Integer.valueOf(i5));
+                this.azj.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.azy.add(Integer.valueOf(i5));
-        this.azx.add(arrayList);
+        this.azk.add(Integer.valueOf(i5));
+        this.azj.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.azx.size();
+        int size = this.azj.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.azx.get(i9);
-            int intValue = this.azy.get(i9).intValue();
+            List<View> list = this.azj.get(i9);
+            int intValue = this.azk.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

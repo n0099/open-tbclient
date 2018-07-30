@@ -1,5 +1,5 @@
 package com.baidu.tieba.lego.card.view;
 /* loaded from: classes.dex */
 public interface f {
-    void a(i iVar);
+    void a(j jVar);
 }

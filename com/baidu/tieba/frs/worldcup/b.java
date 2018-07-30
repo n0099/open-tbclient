@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    public static int ng(String str) {
+    public static int nf(String str) {
         try {
             return Color.parseColor(str);
         } catch (Exception e) {
@@ -53,10 +53,10 @@ public class b {
                 return tabSkin;
             }
         }
-        return lT(i);
+        return mf(i);
     }
 
-    public static TabSkin lT(int i) {
+    public static TabSkin mf(int i) {
         TabSkin.Builder builder = new TabSkin.Builder();
         builder.tab_id = Integer.valueOf(i);
         builder.icon = "";

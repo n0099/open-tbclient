@@ -24,15 +24,15 @@ public interface e {
 
     com.baidu.adp.lib.e.b<RelativeLayout> Ok();
 
-    void V(Context context, String str);
-
-    void W(Context context, String str);
-
     void X(Context context, String str);
 
     void Y(Context context, String str);
 
     void Z(Context context, String str);
+
+    void aa(Context context, String str);
+
+    void ab(Context context, String str);
 
     void f(Context context, String str, boolean z);
 

@@ -15,25 +15,25 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
 /* loaded from: classes3.dex */
 public class CardFrsGameCompetitionItemView extends LinearLayout {
-    private ClickableHeaderImageView cuA;
-    private TextView cuB;
-    private TextView cuC;
-    private RelativeLayout cuq;
-    private TbImageView cus;
-    private LinearLayout cut;
-    private ClickableHeaderImageView cuu;
-    private TextView cuv;
-    private RelativeLayout cuw;
-    private TextView cux;
-    private ClickableHeaderImageView cuy;
-    private TextView cuz;
+    private RelativeLayout cwT;
+    private TbImageView cwU;
+    private LinearLayout cwV;
+    private ClickableHeaderImageView cwW;
+    private TextView cwX;
+    private RelativeLayout cwY;
+    private TextView cwZ;
+    private ClickableHeaderImageView cxa;
+    private TextView cxb;
+    private ClickableHeaderImageView cxc;
+    private TextView cxd;
+    private TextView cxe;
     private String mForumId;
     public int mSkinType;
 
@@ -56,57 +56,57 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.i.card_frs_game_competition_view_item, (ViewGroup) this, true);
-        this.cuq = (RelativeLayout) findViewById(d.g.card_competition_layout);
-        this.cus = (TbImageView) findViewById(d.g.card_competition_bg);
-        this.cut = (LinearLayout) findViewById(d.g.card_competition_title_layout);
-        this.cuu = (ClickableHeaderImageView) findViewById(d.g.card_competition_title_header);
-        this.cuv = (TextView) findViewById(d.g.card_competition_title);
-        this.cuw = (RelativeLayout) findViewById(d.g.card_competition_content_layout);
-        this.cux = (TextView) findViewById(d.g.card_competition_vs);
-        this.cuy = (ClickableHeaderImageView) findViewById(d.g.card_competition_left_img);
-        this.cuz = (TextView) findViewById(d.g.card_competition_left_name);
-        this.cuA = (ClickableHeaderImageView) findViewById(d.g.card_competition_right_img);
-        this.cuB = (TextView) findViewById(d.g.card_competition_right_name);
-        this.cuC = (TextView) findViewById(d.g.card_competition_btn_discuss);
+        LayoutInflater.from(context).inflate(d.h.card_frs_game_competition_view_item, (ViewGroup) this, true);
+        this.cwT = (RelativeLayout) findViewById(d.g.card_competition_layout);
+        this.cwU = (TbImageView) findViewById(d.g.card_competition_bg);
+        this.cwV = (LinearLayout) findViewById(d.g.card_competition_title_layout);
+        this.cwW = (ClickableHeaderImageView) findViewById(d.g.card_competition_title_header);
+        this.cwX = (TextView) findViewById(d.g.card_competition_title);
+        this.cwY = (RelativeLayout) findViewById(d.g.card_competition_content_layout);
+        this.cwZ = (TextView) findViewById(d.g.card_competition_vs);
+        this.cxa = (ClickableHeaderImageView) findViewById(d.g.card_competition_left_img);
+        this.cxb = (TextView) findViewById(d.g.card_competition_left_name);
+        this.cxc = (ClickableHeaderImageView) findViewById(d.g.card_competition_right_img);
+        this.cxd = (TextView) findViewById(d.g.card_competition_right_name);
+        this.cxe = (TextView) findViewById(d.g.card_competition_btn_discuss);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(d.e.tbds170) * 2;
         int i = (dimensionPixelSize * 21) / 9;
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cus.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cwU.getLayoutParams();
         layoutParams.height = dimensionPixelSize;
         layoutParams.width = i;
-        this.cus.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.cuq.getLayoutParams();
+        this.cwU.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.cwT.getLayoutParams();
         layoutParams2.height = dimensionPixelSize;
         layoutParams2.width = i;
-        this.cuq.setLayoutParams(layoutParams2);
-        this.cus.setDefaultBgResource(d.f.icon_morenpic);
-        this.cus.setDefaultErrorResource(d.f.icon_morenpic);
-        this.cuu.setDrawBorder(true);
-        this.cuu.setDrawerType(1);
-        this.cuu.setRadius(context.getResources().getDimensionPixelSize(d.e.tbds5));
-        this.cuu.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cuu.setBorderColor(am.getColor(d.C0142d.common_color_10043));
-        this.cuu.setBorderWidth(context.getResources().getDimensionPixelSize(d.e.tbds1));
-        this.cuy.setDefaultResource(17170445);
-        this.cuy.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.cuy.setDefaultBgResource(d.C0142d.cp_bg_line_e);
-        this.cuy.setIsRound(true);
-        this.cuy.setDrawBorder(true);
-        this.cuy.setBorderColor(am.getColor(d.C0142d.common_color_10043));
-        this.cuy.setBorderWidth(context.getResources().getDimensionPixelSize(d.e.tbds1));
-        this.cuA.setDefaultResource(17170445);
-        this.cuA.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.cuA.setDefaultBgResource(d.C0142d.cp_bg_line_e);
-        this.cuA.setIsRound(true);
-        this.cuA.setDrawBorder(true);
-        this.cuA.setBorderColor(am.getColor(d.C0142d.common_color_10043));
-        this.cuA.setBorderWidth(context.getResources().getDimensionPixelSize(d.e.tbds1));
+        this.cwT.setLayoutParams(layoutParams2);
+        this.cwU.setDefaultBgResource(d.f.icon_morenpic);
+        this.cwU.setDefaultErrorResource(d.f.icon_morenpic);
+        this.cwW.setDrawBorder(true);
+        this.cwW.setDrawerType(1);
+        this.cwW.setRadius(context.getResources().getDimensionPixelSize(d.e.tbds5));
+        this.cwW.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.cwW.setBorderColor(am.getColor(d.C0140d.common_color_10043));
+        this.cwW.setBorderWidth(context.getResources().getDimensionPixelSize(d.e.tbds1));
+        this.cxa.setDefaultResource(17170445);
+        this.cxa.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.cxa.setDefaultBgResource(d.C0140d.cp_bg_line_e);
+        this.cxa.setIsRound(true);
+        this.cxa.setDrawBorder(true);
+        this.cxa.setBorderColor(am.getColor(d.C0140d.common_color_10043));
+        this.cxa.setBorderWidth(context.getResources().getDimensionPixelSize(d.e.tbds1));
+        this.cxc.setDefaultResource(17170445);
+        this.cxc.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.cxc.setDefaultBgResource(d.C0140d.cp_bg_line_e);
+        this.cxc.setIsRound(true);
+        this.cxc.setDrawBorder(true);
+        this.cxc.setBorderColor(am.getColor(d.C0140d.common_color_10043));
+        this.cxc.setBorderWidth(context.getResources().getDimensionPixelSize(d.e.tbds1));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.CardFrsGameCompetitionItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new an("c13047").r("obj_locate", 7).ah(ImageViewerConfig.FORUM_ID, CardFrsGameCompetitionItemView.this.mForumId));
-                    az.zV().a((TbPageContext) com.baidu.adp.base.i.ad(CardFrsGameCompetitionItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    TiebaStatic.log(new an("c13047").r("obj_locate", 7).af(ImageViewerConfig.FORUM_ID, CardFrsGameCompetitionItemView.this.mForumId));
+                    ay.zK().a((TbPageContext) com.baidu.adp.base.i.ad(CardFrsGameCompetitionItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -117,22 +117,22 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     }
 
     public void a(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
-        this.cuu.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
-        this.cus.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
-        this.cuv.setText(featureCardCompetitionSubNode.title);
-        this.cuy.startLoad(featureCardCompetitionSubNode.team1_image, 10, false);
-        this.cuz.setText(featureCardCompetitionSubNode.team1_name);
-        this.cuA.startLoad(featureCardCompetitionSubNode.team2_image, 10, false);
-        this.cuB.setText(featureCardCompetitionSubNode.team2_name);
+        this.cwW.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
+        this.cwU.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
+        this.cwX.setText(featureCardCompetitionSubNode.title);
+        this.cxa.startLoad(featureCardCompetitionSubNode.team1_image, 10, false);
+        this.cxb.setText(featureCardCompetitionSubNode.team1_name);
+        this.cxc.startLoad(featureCardCompetitionSubNode.team2_image, 10, false);
+        this.cxd.setText(featureCardCompetitionSubNode.team2_name);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.c(this.cuv, d.C0142d.cp_cont_i, 1);
-            am.c(this.cux, d.C0142d.cp_cont_i, 1);
-            am.c(this.cuz, d.C0142d.cp_cont_i, 1);
-            am.c(this.cuB, d.C0142d.cp_cont_i, 1);
-            am.c(this.cuC, d.C0142d.cp_cont_i, 1);
+            am.c(this.cwX, d.C0140d.cp_cont_i, 1);
+            am.c(this.cwZ, d.C0140d.cp_cont_i, 1);
+            am.c(this.cxb, d.C0140d.cp_cont_i, 1);
+            am.c(this.cxd, d.C0140d.cp_cont_i, 1);
+            am.c(this.cxe, d.C0140d.cp_cont_i, 1);
         }
         this.mSkinType = i;
     }

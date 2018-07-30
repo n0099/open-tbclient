@@ -24,8 +24,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String gKj;
-    private String gKk;
+    private String gLg;
+    private String gLh;
     private int isGood;
     private String kw;
     private String lastId;
@@ -44,11 +44,11 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int gKi = 30;
-    private String axS = "";
+    private int gLf = 30;
+    private String axy = "";
     private int mSortType = -1;
     private int mLoadType = 1;
-    private int gKl = 0;
+    private int gLi = 0;
     private int callFrom = 0;
 
     public void setLastClickTid(long j) {
@@ -59,7 +59,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.mSortType = i;
     }
 
-    public int Vb() {
+    public int Vk() {
         return this.mSortType;
     }
 
@@ -156,7 +156,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void setYuelaouLocate(String str) {
-        this.axS = str;
+        this.axy = str;
     }
 
     public void setLastId(String str) {
@@ -183,16 +183,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void tA(String str) {
-        this.gKj = str;
+    public void ty(String str) {
+        this.gLg = str;
     }
 
     public void setObjSource(String str) {
-        this.gKk = str;
+        this.gLh = str;
     }
 
-    public void tw(int i) {
-        this.gKl = i;
+    public void tu(int i) {
+        this.gLi = i;
     }
 
     public void setCallFrom(int i) {
@@ -200,17 +200,17 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> JB() {
+    public HashMap<String, Object> Jw() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bR(boolean z) {
+    public Object bP(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.gKi);
+        builder.rn_need = Integer.valueOf(this.gLf);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -225,33 +225,33 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.axS;
+        builder.yuelaou_locate = this.axy;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bpy().bpB();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bod().bog();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.gKj;
-        builder.obj_source = this.gKk;
-        builder.is_selection = Integer.valueOf(this.gKl);
+        builder.obj_locate = this.gLg;
+        builder.obj_source = this.gLh;
+        builder.is_selection = Integer.valueOf(this.gLi);
         builder.call_from = Integer.valueOf(this.callFrom);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.yoga_lib_version = TbConfig.getCriusLibVersion();
         builder.ad_param = builder2.build(false);
-        com.baidu.tbadk.util.p.bindCommonParamsToProtobufData(builder, true, false, true);
+        com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
         builder3.data = builder.build(false);
         return builder3.build(false);
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Jy() {
+    public String Jt() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Jz() {
+    public boolean Ju() {
         return false;
     }
 
@@ -265,7 +265,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         return null;
     }
 
-    public void tx(int i) {
-        this.gKi = i;
+    public void tv(int i) {
+        this.gLf = i;
     }
 }

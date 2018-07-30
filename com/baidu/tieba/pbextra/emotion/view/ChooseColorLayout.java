@@ -9,18 +9,18 @@ import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ChooseColorLayout extends LinearLayout {
     public View.OnClickListener aGU;
-    private int[] fRK;
-    private int fRL;
-    private int fRM;
-    private int fRN;
-    private int fRO;
-    private a fRP;
+    private int[] fRV;
+    private int fRW;
+    private int fRX;
+    private int fRY;
+    private int fRZ;
+    private a fSa;
     private int mPadding;
     private int mWidth;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void rk(int i);
+        void rh(int i);
     }
 
     public ChooseColorLayout(Context context) {
@@ -37,16 +37,16 @@ public class ChooseColorLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int intValue;
-                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.fRO) {
-                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.fRO);
+                if ((view instanceof ChooseColorView) && (intValue = ((Integer) view.getTag()).intValue()) != ChooseColorLayout.this.fRZ) {
+                    View childAt = ChooseColorLayout.this.getChildAt(ChooseColorLayout.this.fRZ);
                     if (childAt instanceof ChooseColorView) {
                         ((ChooseColorView) childAt).setIsChooseView(false);
                     }
-                    ChooseColorLayout.this.fRO = intValue;
-                    ChooseColorLayout.this.fRN = ((ChooseColorView) view).getChooseColor();
+                    ChooseColorLayout.this.fRZ = intValue;
+                    ChooseColorLayout.this.fRY = ((ChooseColorView) view).getChooseColor();
                     ((ChooseColorView) view).setIsChooseView(true);
-                    if (ChooseColorLayout.this.fRP != null) {
-                        ChooseColorLayout.this.fRP.rk(ChooseColorLayout.this.fRN);
+                    if (ChooseColorLayout.this.fSa != null) {
+                        ChooseColorLayout.this.fSa.rh(ChooseColorLayout.this.fRY);
                     }
                 }
             }
@@ -56,21 +56,21 @@ public class ChooseColorLayout extends LinearLayout {
 
     private void init() {
         this.mWidth = l.ah(getContext());
-        this.fRK = getResources().getIntArray(d.b.choose_colors);
+        this.fRV = getResources().getIntArray(d.b.choose_colors);
         this.mPadding = getResources().getDimensionPixelSize(d.e.ds24);
-        this.fRL = (this.mWidth - (this.mPadding * 2)) / 8;
-        this.fRM = (this.fRL - (getResources().getDimensionPixelSize(d.e.ds16) * 2)) / 2;
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fRL, this.fRL);
+        this.fRW = (this.mWidth - (this.mPadding * 2)) / 8;
+        this.fRX = (this.fRW - (getResources().getDimensionPixelSize(d.e.ds16) * 2)) / 2;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.fRW, this.fRW);
         layoutParams.gravity = 17;
-        for (int i = 0; i < this.fRK.length; i++) {
+        for (int i = 0; i < this.fRV.length; i++) {
             ChooseColorView chooseColorView = new ChooseColorView(getContext());
-            chooseColorView.setChooseColor(this.fRK[i]);
+            chooseColorView.setChooseColor(this.fRV[i]);
             chooseColorView.setTag(Integer.valueOf(i));
-            chooseColorView.setRadius(this.fRM);
+            chooseColorView.setRadius(this.fRX);
             if (i == 0) {
                 chooseColorView.setIsChooseView(true);
-                this.fRN = this.fRK[i];
-                this.fRO = i;
+                this.fRY = this.fRV[i];
+                this.fRZ = i;
             }
             chooseColorView.setOnClickListener(this.aGU);
             addView(chooseColorView, layoutParams);
@@ -79,10 +79,10 @@ public class ChooseColorLayout extends LinearLayout {
     }
 
     public int getCurrentChooseColor() {
-        return this.fRN;
+        return this.fRY;
     }
 
     public void setOnChooseColorChangeListener(a aVar) {
-        this.fRP = aVar;
+        this.fSa = aVar;
     }
 }

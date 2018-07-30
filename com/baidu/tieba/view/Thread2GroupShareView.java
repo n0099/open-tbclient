@@ -13,58 +13,58 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
-    private LinearLayout aya;
-    private EditText dHC;
-    private TextView dHU;
-    private TbImageView edX;
-    private ShareFromPBMsgData ezy;
+    private LinearLayout axG;
+    private TextView dKJ;
+    private EditText dKr;
+    private ShareFromPBMsgData eDp;
+    private TbImageView ehN;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.dHC;
+        return this.dKr;
     }
 
-    public void E(String str, boolean z) {
-        if (this.edX != null) {
-            this.edX.startLoad(str, z ? 17 : 18, false);
+    public void D(String str, boolean z) {
+        if (this.ehN != null) {
+            this.ehN.startLoad(str, z ? 17 : 18, false);
         }
     }
 
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        bx(context);
+        by(context);
     }
 
     public Thread2GroupShareView(Context context) {
         super(context);
-        bx(context);
+        by(context);
     }
 
-    private void bx(Context context) {
-        LayoutInflater.from(context).inflate(d.i.thread_to_group_share_view, this);
+    private void by(Context context) {
+        LayoutInflater.from(context).inflate(d.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.aya = (LinearLayout) findViewById(d.g.share_content);
+        this.axG = (LinearLayout) findViewById(d.g.share_content);
         this.title = (TextView) findViewById(d.g.share_title_view);
-        this.dHC = (EditText) findViewById(d.g.chat_msg);
-        this.edX = (TbImageView) findViewById(d.g.chat_group_img);
-        this.dHU = (TextView) findViewById(d.g.chat_group_desc);
-        am.c(this.title, d.C0142d.cp_cont_b, 1);
-        am.c(this.dHC, d.C0142d.cp_cont_b, 2);
-        am.c(this.dHU, d.C0142d.cp_cont_f, 1);
-        this.dHC.setHintTextColor(am.getColor(d.C0142d.cp_cont_e));
-        this.dHC.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        aAF();
+        this.dKr = (EditText) findViewById(d.g.chat_msg);
+        this.ehN = (TbImageView) findViewById(d.g.chat_group_img);
+        this.dKJ = (TextView) findViewById(d.g.chat_group_desc);
+        am.c(this.title, d.C0140d.cp_cont_b, 1);
+        am.c(this.dKr, d.C0140d.cp_cont_b, 2);
+        am.c(this.dKJ, d.C0140d.cp_cont_f, 1);
+        this.dKr.setHintTextColor(am.getColor(d.C0140d.cp_cont_e));
+        this.dKr.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        aBo();
     }
 
-    public void aAF() {
-        this.aya.setFocusable(true);
-        this.aya.setFocusableInTouchMode(true);
-        this.aya.requestFocus();
+    public void aBo() {
+        this.axG.setFocusable(true);
+        this.axG.setFocusableInTouchMode(true);
+        this.axG.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.dHC != null) {
-            return com.baidu.adp.lib.util.k.a(this.dHC.getText(), null);
+        if (this.dKr != null) {
+            return com.baidu.adp.lib.util.k.a(this.dKr.getText(), null);
         }
         return null;
     }
@@ -77,15 +77,15 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.ezy = shareFromPBMsgData;
-        AB();
+        this.eDp = shareFromPBMsgData;
+        Ar();
     }
 
-    private void AB() {
-        this.title.setText(this.ezy.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.ezy.getImageUrl());
-        this.edX.setTag(this.ezy.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.ezy.getContent());
-        this.dHU.setText(this.ezy.getContent());
+    private void Ar() {
+        this.title.setText(this.eDp.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.eDp.getImageUrl());
+        this.ehN.setTag(this.eDp.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.eDp.getContent());
+        this.dKJ.setText(this.eDp.getContent());
     }
 }

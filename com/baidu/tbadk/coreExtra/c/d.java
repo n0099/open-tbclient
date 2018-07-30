@@ -15,16 +15,15 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String aGq = l.CH + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public static final String aGq = l.CD + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     public String aGb;
     public String aGf;
     public String aGg;
     public int aGj;
     private Bundle aGm;
-    public int aky;
+    public int ajX;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
-    public String price;
     public String tid;
     public String uid;
     public boolean aFS = false;
@@ -52,7 +51,7 @@ public class d {
     public String aGe = null;
     public String extData = null;
 
-    public Bundle FD() {
+    public Bundle Fz() {
         return this.aGm;
     }
 
@@ -60,7 +59,7 @@ public class d {
         this.aGm = bundle;
     }
 
-    public Bitmap FE() {
+    public Bitmap FA() {
         Bitmap bitmap;
         if (this.aGl == null || (bitmap = this.aGl.get()) == null || bitmap.isRecycled()) {
             return null;
@@ -72,7 +71,7 @@ public class d {
         this.aGl = new WeakReference<>(bitmap);
     }
 
-    public byte[] FF() {
+    public byte[] FB() {
         Bitmap bitmap;
         byte[] bArr;
         if (this.aGl == null || (bitmap = this.aGl.get()) == null || bitmap.isRecycled()) {
@@ -92,8 +91,8 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [205=4, 206=4, 208=4, 209=4] */
-    public void FG() {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=4, 199=4, 201=4, 202=4] */
+    public void FC() {
         FileOutputStream fileOutputStream = null;
         if (this.aGl == null) {
             return;
@@ -101,7 +100,7 @@ public class d {
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                if (l.ge()) {
+                if (l.gd()) {
                     File file = new File(aGq);
                     if (file.exists()) {
                         file.delete();
@@ -110,11 +109,11 @@ public class d {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] FF = FF();
-                    if (FF != null) {
+                    byte[] FB = FB();
+                    if (FB != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(FF);
+                            fileOutputStream3.write(FB);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
                             this.aGl = null;

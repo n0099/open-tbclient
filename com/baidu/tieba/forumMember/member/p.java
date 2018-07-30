@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dgV = BdUniqueId.gen();
-    private String dgY;
-    private String dgZ;
-    private int dgW = -1;
-    private int dgX = -1;
-    private int dha = -1;
+    public static final BdUniqueId djL = BdUniqueId.gen();
+    private String djO;
+    private String djP;
+    private int djM = -1;
+    private int djN = -1;
+    private int djQ = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dgV;
+        return djL;
     }
 
-    public int asA() {
-        return this.dgW;
+    public int ate() {
+        return this.djM;
     }
 
-    public void jX(int i) {
-        this.dgW = i;
+    public void ki(int i) {
+        this.djM = i;
     }
 
-    public int asB() {
-        return this.dha;
+    public int atf() {
+        return this.djQ;
     }
 
-    public void jY(int i) {
-        this.dha = i;
+    public void kj(int i) {
+        this.djQ = i;
     }
 
-    public int asC() {
-        return this.dgX;
+    public int atg() {
+        return this.djN;
     }
 
-    public void jZ(int i) {
-        this.dgX = i;
+    public void kk(int i) {
+        this.djN = i;
     }
 
-    public String asD() {
-        return this.dgY;
+    public String ath() {
+        return this.djO;
+    }
+
+    public void ml(String str) {
+        this.djO = str;
+    }
+
+    public String ati() {
+        return this.djP;
     }
 
     public void mm(String str) {
-        this.dgY = str;
-    }
-
-    public String asE() {
-        return this.dgZ;
-    }
-
-    public void mn(String str) {
-        this.dgZ = str;
+        this.djP = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.dgY) || StringUtils.isNull(this.dgZ) || this.dgW < 0 || this.dgX < 0;
+        return StringUtils.isNull(this.djO) || StringUtils.isNull(this.djP) || this.djM < 0 || this.djN < 0;
     }
 }

@@ -66,7 +66,7 @@ public class d {
                 if (optJSONObject != null) {
                     TbadkCoreApplication.getInst().setLcsSwitchStratgy(optJSONObject.toString());
                 }
-                new b().t(jSONObject.optJSONObject("dis_adv_config"));
+                new b().s(jSONObject.optJSONObject("dis_adv_config"));
                 new WhiteListData().saveJson(jSONObject.optJSONArray("whitelist"));
                 this.aEJ.parserJson(jSONObject.optJSONObject("app_entrance"));
                 this.mAdAdSense.parserJson(jSONObject.optJSONObject("ad_adsense"));
@@ -79,31 +79,31 @@ public class d {
         }
     }
 
-    public l Ex() {
+    public l Et() {
         return this.aEF;
     }
 
-    public String Ey() {
+    public String Eu() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload Ez() {
+    public CombineDownload Ev() {
         return this.aEG;
     }
 
-    public VersionData EA() {
+    public VersionData Ew() {
         return this.aED;
     }
 
-    public k EB() {
+    public k Ex() {
         return this.aEE;
     }
 
-    public v EC() {
+    public v Ey() {
         return this.aEI;
     }
 
-    public com.baidu.tbadk.coreExtra.data.d ED() {
+    public com.baidu.tbadk.coreExtra.data.d Ez() {
         return this.aEJ;
     }
 
@@ -111,11 +111,11 @@ public class d {
         return this.mAdAdSense;
     }
 
-    public int EE() {
+    public int EA() {
         return this.aEL;
     }
 
-    public boolean EF() {
+    public boolean EB() {
         return this.aEM == 1;
     }
 

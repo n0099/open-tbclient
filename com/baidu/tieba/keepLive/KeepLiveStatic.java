@@ -18,7 +18,7 @@ public class KeepLiveStatic {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Boolean) {
                     if (((Boolean) data).booleanValue()) {
-                        a.ex().ey();
+                        a.ew().ex();
                     } else {
                         KeepLiveUtil.startForKeeplive(TbadkCoreApplication.getInst().getApplicationContext());
                     }
@@ -30,21 +30,12 @@ public class KeepLiveStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!RomTypeUtil.isEmui()) {
-                KeepLiveUtil.startKeepLiveForBackGroungActivity();
-            }
         }
     };
     public static final CustomMessageListener mKeepLiveActivityFromFlagListener = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.keepLive.KeepLiveStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!RomTypeUtil.isEmui()) {
-                Object data = customResponsedMessage.getData();
-                if (data instanceof Boolean) {
-                    KeepLiveUtil.startOrStopActivityForKeepLive(((Boolean) data).booleanValue());
-                }
-            }
         }
     };
     private static final CustomMessageListener mAppEnterBackgroundListener = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.keepLive.KeepLiveStatic.4
@@ -68,7 +59,5 @@ public class KeepLiveStatic {
 
     static {
         MessageManager.getInstance().registerListener(mKeepLiveServiceListener);
-        MessageManager.getInstance().registerListener(mKeepLiveActivityListener);
-        MessageManager.getInstance().registerListener(mKeepLiveActivityFromFlagListener);
     }
 }

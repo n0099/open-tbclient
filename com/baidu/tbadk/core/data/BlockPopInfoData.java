@@ -11,7 +11,11 @@ public class BlockPopInfoData implements Serializable {
     public String ahead_info;
     public Integer ahead_type;
     public String ahead_url;
+    public String appeal_msg;
+    public int appeal_status;
+    public String block_id_code;
     public String block_info;
     public Integer can_post;
     public String ok_info;
+    public int win_type;
 }

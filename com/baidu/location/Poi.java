@@ -4,7 +4,21 @@ import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes2.dex */
 public final class Poi implements Parcelable {
-    public static final Parcelable.Creator<Poi> CREATOR = new c();
+    public static final Parcelable.Creator<Poi> CREATOR = new Parcelable.Creator<Poi>() { // from class: com.baidu.location.Poi.1
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public Poi createFromParcel(Parcel parcel) {
+            return new Poi(parcel.readString(), parcel.readString(), parcel.readDouble());
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // android.os.Parcelable.Creator
+        public Poi[] newArray(int i) {
+            return new Poi[i];
+        }
+    };
     private final String mId;
     private final String mName;
     private final double mRank;

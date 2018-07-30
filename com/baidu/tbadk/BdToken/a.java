@@ -10,13 +10,13 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private c ZS;
+    private c Zw;
     private TbPageContext mPageContext;
-    private b.a ZU = new b.a() { // from class: com.baidu.tbadk.BdToken.a.1
+    private b.a Zy = new b.a() { // from class: com.baidu.tbadk.BdToken.a.1
         @Override // com.baidu.tbadk.BdToken.b.a
         public void a(boolean z, f fVar) {
             if (z && fVar != null && !ap.isEmpty(fVar.getUrl())) {
@@ -34,32 +34,32 @@ public class a {
             }
         }
     };
-    private b ZT = new b();
+    private b Zx = new b();
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.ZT.a(this.ZU);
-        this.ZS = new c(tbPageContext);
+        this.Zx.a(this.Zy);
+        this.Zw = new c(tbPageContext);
         MessageManager.getInstance().registerListener(this.mAppEnterBackgroundListener);
     }
 
     public void check() {
-        String rB = rB();
+        String rl = rl();
         String clipBoardContent = getClipBoardContent();
-        if (!ap.isEmpty(rB) && !ap.isEmpty(clipBoardContent) && Pattern.compile(rB).matcher(clipBoardContent).find()) {
-            cH(clipBoardContent);
-        } else if (this.ZS != null && rA()) {
-            this.ZS.check();
+        if (!ap.isEmpty(rl) && !ap.isEmpty(clipBoardContent) && Pattern.compile(rl).matcher(clipBoardContent).find()) {
+            cE(clipBoardContent);
+        } else if (this.Zw != null && rk()) {
+            this.Zw.check();
         }
     }
 
-    private boolean rA() {
+    private boolean rk() {
         String topActivityClassName = UtilHelper.getTopActivityClassName();
         return !ap.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
     }
 
-    private void cH(String str) {
-        this.ZT.load(str);
+    private void cE(String str) {
+        this.Zx.load(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,23 +71,23 @@ public class a {
         return UtilHelper.getClipBoardContent();
     }
 
-    private String rB() {
+    private String rl() {
         return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_baidu_password_re", "XF5bIyRhLXpBLVowLTldezEwfVxe"), 0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(f fVar) {
         if (fVar != null) {
-            az.zV().a(this.mPageContext, fVar.getTitle(), new String[]{fVar.getUrl()});
+            ay.zK().a(this.mPageContext, fVar.getTitle(), new String[]{fVar.getUrl()});
         }
     }
 
     public void onDestroy() {
-        if (this.ZT != null) {
-            this.ZT.onDestroy();
+        if (this.Zx != null) {
+            this.Zx.onDestroy();
         }
-        if (this.ZS != null) {
-            this.ZS.onDestroy();
+        if (this.Zw != null) {
+            this.Zw.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.mAppEnterBackgroundListener);
     }

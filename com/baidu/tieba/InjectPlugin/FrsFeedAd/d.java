@@ -6,9 +6,9 @@ import com.baidu.adp.widget.ListView.q;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.InjectPlugin.a.c> {
-    List<Integer> OE();
+    List<Integer> OK();
 
-    void R(List<Object> list);
+    void Q(List<Object> list);
 
     void a(List<c> list, String str, String str2, String str3, String str4, boolean z, int i);
 

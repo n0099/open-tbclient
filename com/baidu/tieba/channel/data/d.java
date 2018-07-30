@@ -3,61 +3,61 @@ package com.baidu.tieba.channel.data;
 import tbclient.GetChannelInfo.DataRes;
 /* loaded from: classes3.dex */
 public class d {
-    private int cCf = 1;
-    private g cCg;
-    private ChannelInfo cCh;
-    private ChannelHomeVideoList<h> cCi;
+    private int cEK = 1;
+    private g cEL;
+    private ChannelInfo cEM;
+    private ChannelHomeVideoList<h> cEN;
 
-    public g ajj() {
-        return this.cCg;
+    public g ajH() {
+        return this.cEL;
     }
 
-    public boolean ajk() {
-        return this.cCi == null || this.cCi.size() == 0;
+    public boolean ajI() {
+        return this.cEN == null || this.cEN.size() == 0;
     }
 
     public void a(g gVar) {
-        this.cCg = gVar;
+        this.cEL = gVar;
     }
 
-    public ChannelInfo ajl() {
-        return this.cCh;
+    public ChannelInfo ajJ() {
+        return this.cEM;
     }
 
     public void a(ChannelInfo channelInfo) {
-        this.cCh = channelInfo;
+        this.cEM = channelInfo;
     }
 
-    public ChannelHomeVideoList<h> ajm() {
-        return this.cCi;
+    public ChannelHomeVideoList<h> ajK() {
+        return this.cEN;
     }
 
     public void a(ChannelHomeVideoList<h> channelHomeVideoList) {
-        this.cCi = channelHomeVideoList;
+        this.cEN = channelHomeVideoList;
     }
 
     public boolean isHost() {
-        return this.cCf == 0;
+        return this.cEK == 0;
     }
 
-    public void iR(int i) {
-        this.cCf = i;
+    public void jd(int i) {
+        this.cEK = i;
     }
 
-    public boolean ajn() {
-        return this.cCg != null && this.cCg.isHasMore();
+    public boolean ajL() {
+        return this.cEL != null && this.cEL.isHasMore();
     }
 
     public void b(ChannelHomeVideoList<h> channelHomeVideoList) {
-        if (this.cCi != null && channelHomeVideoList != null) {
-            this.cCi.addAll(channelHomeVideoList);
+        if (this.cEN != null && channelHomeVideoList != null) {
+            this.cEN.addAll(channelHomeVideoList);
             checkBigVideoType();
         }
     }
 
     public void checkBigVideoType() {
-        if (this.cCi != null) {
-            this.cCi.checkBigVideoType();
+        if (this.cEN != null) {
+            this.cEN.checkBigVideoType();
         }
     }
 
@@ -65,11 +65,11 @@ public class d {
         d dVar = null;
         if (dataRes != null) {
             dVar = new d();
-            dVar.iR(dataRes.is_guest.intValue());
+            dVar.jd(dataRes.is_guest.intValue());
             dVar.a(ChannelInfo.parse(dataRes.channel));
             if (dataRes.video != null) {
                 dVar.a(g.a(dataRes.video.page));
-                dVar.a(h.aL(dataRes.video.list));
+                dVar.a(h.aK(dataRes.video.list));
             }
         }
         return dVar;

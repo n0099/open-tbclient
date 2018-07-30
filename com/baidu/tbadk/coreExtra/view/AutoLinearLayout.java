@@ -27,9 +27,9 @@ public class AutoLinearLayout extends LinearLayout {
         this.aGB = 0;
         this.mContext = context;
         setOrientation(0);
-        this.aGw = l.e(context, d.e.ds24);
-        this.aGx = l.e(context, d.e.ds20);
-        this.aGA = l.e(context, d.e.ds32);
+        this.aGw = l.f(context, d.e.ds24);
+        this.aGx = l.f(context, d.e.ds20);
+        this.aGA = l.f(context, d.e.ds32);
         this.aGy = l.ah(this.mContext) - (this.aGA * 2);
         this.aGB = (int) this.mContext.getResources().getDimension(d.e.ds60);
     }
@@ -44,9 +44,9 @@ public class AutoLinearLayout extends LinearLayout {
         this.aGB = 0;
         this.mContext = context;
         setOrientation(0);
-        this.aGw = l.e(context, d.e.ds24);
-        this.aGx = l.e(context, d.e.ds20);
-        this.aGA = l.e(context, d.e.ds32);
+        this.aGw = l.f(context, d.e.ds24);
+        this.aGx = l.f(context, d.e.ds20);
+        this.aGA = l.f(context, d.e.ds32);
         this.aGy = l.ah(this.mContext) - (this.aGA * 2);
         this.aGB = (int) this.mContext.getResources().getDimension(d.e.ds60);
     }
@@ -84,7 +84,7 @@ public class AutoLinearLayout extends LinearLayout {
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
         if (this.aGv != 0 && this.aGz != 0) {
-            eq(childCount);
+            et(childCount);
         }
         if (this.aGv != 0) {
             for (int i3 = 0; i3 < this.aGz; i3++) {
@@ -109,7 +109,7 @@ public class AutoLinearLayout extends LinearLayout {
         }
     }
 
-    private void eq(int i) {
+    private void et(int i) {
         if (this.aGz <= i) {
             removeViews(this.aGz, i - this.aGz);
         }

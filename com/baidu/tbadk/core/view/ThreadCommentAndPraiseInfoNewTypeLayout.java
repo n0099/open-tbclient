@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bb;
 /* loaded from: classes2.dex */
 public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPraiseInfoLayout {
     public ThreadCommentAndPraiseInfoNewTypeLayout(Context context) {
@@ -27,63 +27,63 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void updatePraiseNum(bc bcVar) {
-        super.updatePraiseNum(bcVar);
-        if (this.axm != null && this.axF) {
-            if (this.axm.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axm.getLayoutParams();
+    public void updatePraiseNum(bb bbVar) {
+        super.updatePraiseNum(bbVar);
+        if (this.awS != null && this.axl) {
+            if (this.awS.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.awS.getLayoutParams();
                 layoutParams.width = -2;
                 layoutParams.leftMargin = 0;
                 layoutParams.weight = 0.0f;
-                this.axm.setLayoutParams(layoutParams);
+                this.awS.setLayoutParams(layoutParams);
             }
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.axl.getLayoutParams();
-            layoutParams2.leftMargin = this.axh;
-            this.axl.setLayoutParams(layoutParams2);
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.awR.getLayoutParams();
+            layoutParams2.leftMargin = this.awN;
+            this.awR.setLayoutParams(layoutParams2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void f(bc bcVar) {
-        super.f(bcVar);
-        if (this.axp != null && this.axL) {
-            this.axp.setVisibility(0);
-            if (this.axp.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axp.getLayoutParams();
+    public void f(bb bbVar) {
+        super.f(bbVar);
+        if (this.awV != null && this.axr) {
+            this.awV.setVisibility(0);
+            if (this.awV.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.awV.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.axh;
+                layoutParams.leftMargin = this.awN;
                 layoutParams.weight = 0.0f;
-                this.axp.setLayoutParams(layoutParams);
+                this.awV.setLayoutParams(layoutParams);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void g(bc bcVar) {
-        super.g(bcVar);
-        if (this.axs != null && this.axN && this.axs.getLayoutParams() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axs.getLayoutParams();
+    public void g(bb bbVar) {
+        super.g(bbVar);
+        if (this.awY != null && this.axt && this.awY.getLayoutParams() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.awY.getLayoutParams();
             layoutParams.width = -2;
-            layoutParams.leftMargin = this.axh;
+            layoutParams.leftMargin = this.awN;
             layoutParams.weight = 0.0f;
-            this.axs.setLayoutParams(layoutParams);
+            this.awY.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void h(bc bcVar) {
-        super.h(bcVar);
-        if (this.axz != null && this.axO) {
-            this.axz.setVisibility(0);
-            if (this.axz.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axz.getLayoutParams();
+    public void h(bb bbVar) {
+        super.h(bbVar);
+        if (this.axf != null && this.axu) {
+            this.axf.setVisibility(0);
+            if (this.axf.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.axf.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.axh;
+                layoutParams.leftMargin = this.awN;
                 layoutParams.weight = 0.0f;
-                this.axz.setLayoutParams(layoutParams);
+                this.axf.setLayoutParams(layoutParams);
             }
         }
     }

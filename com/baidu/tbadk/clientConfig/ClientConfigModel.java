@@ -10,38 +10,38 @@ import com.baidu.tieba.d;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class ClientConfigModel extends BdBaseModel {
-    private a abY;
-    private final com.baidu.adp.framework.listener.a abZ;
+    private a abC;
+    private final com.baidu.adp.framework.listener.a abD;
 
     public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, a aVar) {
         super(bdBaseFragmentActivity.getPageContext());
-        this.abZ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.clientConfig.ClientConfigModel.1
+        this.abD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.clientConfig.ClientConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!ClientConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
-                    if (ClientConfigModel.this.abY != null) {
-                        ClientConfigModel.this.abY.onError("");
+                    if (ClientConfigModel.this.abC != null) {
+                        ClientConfigModel.this.abC.onError("");
                     }
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(d.k.neterror);
+                    String string = TbadkCoreApplication.getInst().getString(d.j.neterror);
                     if (!StringUtils.isNull(errorString)) {
                         string = errorString;
                     }
-                    if (ClientConfigModel.this.abY != null) {
-                        ClientConfigModel.this.abY.onError(string);
+                    if (ClientConfigModel.this.abC != null) {
+                        ClientConfigModel.this.abC.onError(string);
                     }
                 } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                     ClientConfigModel.this.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                 } else if (responsedMessage instanceof ClientConfigSocketResponse) {
                     ClientConfigModel.this.a(((ClientConfigSocketResponse) responsedMessage).getData());
-                } else if (ClientConfigModel.this.abY != null) {
-                    ClientConfigModel.this.abY.onError("");
+                } else if (ClientConfigModel.this.abC != null) {
+                    ClientConfigModel.this.abC.onError("");
                 }
             }
         };
-        this.abY = aVar;
-        registerListener(this.abZ);
+        this.abC = aVar;
+        registerListener(this.abD);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,7 +54,7 @@ public class ClientConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void cZ(String str) {
+    public void cW(String str) {
         ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
         clientConfigNetMessage.setType(str);
         sendMessage(clientConfigNetMessage);
@@ -68,11 +68,11 @@ public class ClientConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.abY != null) {
-                this.abY.onError(TbadkCoreApplication.getInst().getString(d.k.data_load_error));
+            if (this.abC != null) {
+                this.abC.onError(TbadkCoreApplication.getInst().getString(d.j.data_load_error));
             }
-        } else if (this.abY != null) {
-            this.abY.B(dataRes);
+        } else if (this.abC != null) {
+            this.abC.B(dataRes);
         }
     }
 }

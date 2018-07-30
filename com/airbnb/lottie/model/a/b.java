@@ -15,22 +15,22 @@ public class b extends o<Float, Float> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Float, Float> ck() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mJ) : new com.airbnb.lottie.a.b.c(this.mr);
+    public com.airbnb.lottie.a.b.a<Float, Float> ci() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.my) : new com.airbnb.lottie.a.b.c(this.mi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: cl */
-    public Float cm() {
-        return (Float) this.mJ;
+    /* renamed from: cj */
+    public Float ck() {
+        return (Float) this.my;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0008b implements m.a<Float> {
-        static final C0008b nw = new C0008b();
+        static final C0008b nl = new C0008b();
 
         private C0008b() {
         }
@@ -46,7 +46,7 @@ public class b extends o<Float, Float> {
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static b cn() {
+        public static b cl() {
             return new b();
         }
 
@@ -55,12 +55,12 @@ public class b extends o<Float, Float> {
         }
 
         public static b a(JSONObject jSONObject, com.airbnb.lottie.e eVar, boolean z) {
-            float bp = z ? eVar.bp() : 1.0f;
+            float bn = z ? eVar.bn() : 1.0f;
             if (jSONObject != null && jSONObject.has("x")) {
                 eVar.E("Lottie doesn't support expressions.");
             }
-            n.a cE = n.a(jSONObject, bp, eVar, C0008b.nw).cE();
-            return new b(cE.mr, (Float) cE.mJ);
+            n.a cC = n.a(jSONObject, bn, eVar, C0008b.nl).cC();
+            return new b(cC.mi, (Float) cC.my);
         }
     }
 }
