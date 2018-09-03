@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.widget.PopupWindow;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class k extends PopupWindow {
     private View mContentView;
@@ -23,8 +23,8 @@ public class k extends PopupWindow {
         setHeight(-1);
         setWidth(-1);
         setSoftInputMode(16);
-        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0140d.common_color_10022)));
-        setAnimationStyle(d.k.channel_more_pop_anim);
+        setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(f.d.common_color_10022)));
+        setAnimationStyle(f.k.channel_more_pop_anim);
     }
 
     @Override // android.widget.PopupWindow

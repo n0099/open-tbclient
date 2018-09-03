@@ -40,7 +40,7 @@ public final class o {
         }
     }
 
-    public static int pf() {
+    public static int pc() {
         if (SY == null) {
             return 0;
         }

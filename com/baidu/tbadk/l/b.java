@@ -7,8 +7,8 @@ public class b extends g {
     private boolean aTB;
     private a aTz;
 
-    public void Kv() {
-        if (!this.aTA && m.KF().KG()) {
+    public void Kz() {
+        if (!this.aTA && m.KJ().KK()) {
             this.aTA = true;
             if (Build.VERSION.SDK_INT >= 16) {
                 if (this.aTz == null) {
@@ -19,15 +19,15 @@ public class b extends g {
         }
     }
 
-    public void Kw() {
+    public void KA() {
         if (Build.VERSION.SDK_INT >= 16 && this.aTz != null) {
             this.aTz.stop();
         }
     }
 
-    public void Kx() {
+    public void KB() {
         o oVar;
-        if (!this.aTB && this.aTz != null && this.aTz.getFps() >= 0 && (oVar = (o) m.KF().fp(this.mSubType)) != null) {
+        if (!this.aTB && this.aTz != null && this.aTz.getFps() >= 0 && (oVar = (o) m.KJ().fo(this.mSubType)) != null) {
             oVar.a(this);
             this.aTB = true;
         }

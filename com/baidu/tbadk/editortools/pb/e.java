@@ -5,48 +5,48 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.editortools.k;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class e extends k {
-    private EditText aOf;
+    private EditText aOc;
 
     public e(Context context) {
         super(context, (String) null, 27);
-        this.aMW = false;
-        this.aMV = 3;
-        this.aMf = new PbNewInputContainer(context);
-        this.aOf = ((PbNewInputContainer) this.aMf).getInputView();
-        ((PbNewInputContainer) this.aMf).setHint(context.getString(d.j.say_your_point));
-        this.aMX = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
+        this.aMT = false;
+        this.aMS = 3;
+        this.aMc = new PbNewInputContainer(context);
+        this.aOc = ((PbNewInputContainer) this.aMc).getInputView();
+        ((PbNewInputContainer) this.aMc).setHint(context.getString(f.j.say_your_point));
+        this.aMU = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39};
     }
 
     public void b(TextWatcher textWatcher) {
-        this.aOf.addTextChangedListener(textWatcher);
+        this.aOc.addTextChangedListener(textWatcher);
     }
 
     public void c(TextWatcher textWatcher) {
-        this.aOf.removeTextChangedListener(textWatcher);
+        this.aOc.removeTextChangedListener(textWatcher);
     }
 
     public void setHint(String str) {
-        if (this.aMf != null && !StringUtils.isNull(str)) {
-            ((PbNewInputContainer) this.aMf).setHint(str);
+        if (this.aMc != null && !StringUtils.isNull(str)) {
+            ((PbNewInputContainer) this.aMc).setHint(str);
         }
     }
 
     public EditText getInputView() {
-        return this.aOf;
+        return this.aOc;
     }
 
     public void setType(int i) {
-        if (this.aMf != null) {
-            ((PbNewInputContainer) this.aMf).setType(i);
+        if (this.aMc != null) {
+            ((PbNewInputContainer) this.aMc).setType(i);
         }
     }
 
-    public void eW(int i) {
-        if (this.aMf != null) {
-            ((PbNewInputContainer) this.aMf).eW(i);
+    public void eV(int i) {
+        if (this.aMc != null) {
+            ((PbNewInputContainer) this.aMc).eV(i);
         }
     }
 }

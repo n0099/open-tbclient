@@ -43,7 +43,7 @@ public class i {
         }
     }
 
-    public static void yh() {
+    public static void yg() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.i.1
             @Override // java.lang.Runnable
             public void run() {
@@ -63,7 +63,7 @@ public class i {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.e(cursor);
                                 an anVar = new an("c12232");
-                                anVar.af("uid", TbadkCoreApplication.getCurrentAccount());
+                                anVar.ae("uid", TbadkCoreApplication.getCurrentAccount());
                                 anVar.r("obj_param1", i);
                                 TiebaStatic.log(anVar);
                             } catch (Throwable th3) {
@@ -79,7 +79,7 @@ public class i {
                     i = 0;
                 }
                 an anVar2 = new an("c12232");
-                anVar2.af("uid", TbadkCoreApplication.getCurrentAccount());
+                anVar2.ae("uid", TbadkCoreApplication.getCurrentAccount());
                 anVar2.r("obj_param1", i);
                 TiebaStatic.log(anVar2);
             }

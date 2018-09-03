@@ -4,7 +4,7 @@ import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigInteger;
 /* loaded from: classes2.dex */
 public final class k extends h {
-    private static final Class<?>[] hFL = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] hFs = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public k(Boolean bool) {
@@ -28,40 +28,40 @@ public final class k extends h {
         this.value = obj;
     }
 
-    public boolean bKf() {
+    public boolean bJW() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.google.gson.h
-    Boolean bKe() {
+    Boolean bJV() {
         return (Boolean) this.value;
     }
 
     @Override // com.google.gson.h
     public boolean getAsBoolean() {
-        return bKf() ? bKe().booleanValue() : Boolean.parseBoolean(bJW());
+        return bJW() ? bJV().booleanValue() : Boolean.parseBoolean(bJN());
     }
 
-    public boolean bKg() {
+    public boolean bJX() {
         return this.value instanceof Number;
     }
 
     @Override // com.google.gson.h
-    public Number bJV() {
+    public Number bJM() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean bKh() {
+    public boolean bJY() {
         return this.value instanceof String;
     }
 
     @Override // com.google.gson.h
-    public String bJW() {
-        if (bKg()) {
-            return bJV().toString();
+    public String bJN() {
+        if (bJX()) {
+            return bJM().toString();
         }
-        if (bKf()) {
-            return bKe().toString();
+        if (bJW()) {
+            return bJV().toString();
         }
         return (String) this.value;
     }
@@ -71,7 +71,7 @@ public final class k extends h {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class<?> cls2 : hFL) {
+        for (Class<?> cls2 : hFs) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }
@@ -84,10 +84,10 @@ public final class k extends h {
             return 31;
         }
         if (a(this)) {
-            long longValue = bJV().longValue();
+            long longValue = bJM().longValue();
             return (int) (longValue ^ (longValue >>> 32));
         } else if (this.value instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(bJV().doubleValue());
+            long doubleToLongBits = Double.doubleToLongBits(bJM().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
             return this.value.hashCode();
@@ -106,10 +106,10 @@ public final class k extends h {
         if (this.value == null) {
             return kVar.value == null;
         } else if (a(this) && a(kVar)) {
-            return bJV().longValue() == kVar.bJV().longValue();
+            return bJM().longValue() == kVar.bJM().longValue();
         } else if ((this.value instanceof Number) && (kVar.value instanceof Number)) {
-            double doubleValue = bJV().doubleValue();
-            double doubleValue2 = kVar.bJV().doubleValue();
+            double doubleValue = bJM().doubleValue();
+            double doubleValue2 = kVar.bJM().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
                 z = true;
             }

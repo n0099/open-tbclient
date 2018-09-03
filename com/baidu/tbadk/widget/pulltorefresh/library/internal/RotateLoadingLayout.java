@@ -8,76 +8,76 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import com.baidu.tbadk.widget.pulltorefresh.library.PullToRefreshBase;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class RotateLoadingLayout extends LoadingLayout {
-    private final boolean beA;
-    private final Animation bej;
-    private final Matrix bex;
-    private float bey;
+    private float beA;
+    private final boolean beB;
+    private final Animation bem;
+    private final Matrix bey;
     private float bez;
 
     public RotateLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
-        this.beA = typedArray.getBoolean(d.l.PullToRefresh_tb_ptrRotateDrawableWhilePulling, true);
-        this.ben.setScaleType(ImageView.ScaleType.MATRIX);
-        this.bex = new Matrix();
-        this.ben.setImageMatrix(this.bex);
-        this.bej = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
-        this.bej.setInterpolator(bel);
-        this.bej.setDuration(1200L);
-        this.bej.setRepeatCount(-1);
-        this.bej.setRepeatMode(1);
+        this.beB = typedArray.getBoolean(f.l.PullToRefresh_tb_ptrRotateDrawableWhilePulling, true);
+        this.mHeaderImage.setScaleType(ImageView.ScaleType.MATRIX);
+        this.bey = new Matrix();
+        this.mHeaderImage.setImageMatrix(this.bey);
+        this.bem = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
+        this.bem.setInterpolator(beo);
+        this.bem.setDuration(1200L);
+        this.bem.setRepeatCount(-1);
+        this.bem.setRepeatMode(1);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void f(Drawable drawable) {
+    public void onLoadingDrawableSet(Drawable drawable) {
         if (drawable != null) {
-            this.bey = Math.round(drawable.getIntrinsicWidth() / 2.0f);
-            this.bez = Math.round(drawable.getIntrinsicHeight() / 2.0f);
+            this.bez = Math.round(drawable.getIntrinsicWidth() / 2.0f);
+            this.beA = Math.round(drawable.getIntrinsicHeight() / 2.0f);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void ad(float f) {
+    protected void onPullImpl(float f) {
         float max;
-        if (this.beA) {
+        if (this.beB) {
             max = 90.0f * f;
         } else {
             max = Math.max(0.0f, Math.min(180.0f, (360.0f * f) - 180.0f));
         }
-        this.bex.setRotate(max, this.bey, this.bez);
-        this.ben.setImageMatrix(this.bex);
+        this.bey.setRotate(max, this.bez, this.beA);
+        this.mHeaderImage.setImageMatrix(this.bey);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Ns() {
-        this.ben.startAnimation(this.bej);
+    protected void refreshingImpl() {
+        this.mHeaderImage.startAnimation(this.bem);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Nu() {
-        this.ben.clearAnimation();
-        Nv();
+    protected void resetImpl() {
+        this.mHeaderImage.clearAnimation();
+        Nu();
     }
 
-    private void Nv() {
-        if (this.bex != null) {
-            this.bex.reset();
-            this.ben.setImageMatrix(this.bex);
+    private void Nu() {
+        if (this.bey != null) {
+            this.bey.reset();
+            this.mHeaderImage.setImageMatrix(this.bey);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Nr() {
+    protected void pullToRefreshImpl() {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    protected void Nt() {
+    protected void releaseToRefreshImpl() {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected int getDefaultDrawableResId() {
-        return d.f.default_ptr_rotate;
+        return f.C0146f.default_ptr_rotate;
     }
 }

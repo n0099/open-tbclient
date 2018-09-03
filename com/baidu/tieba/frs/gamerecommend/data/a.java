@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public int dyW;
-    public ScoreCardInfo dyY;
+    public int dyT;
+    public ScoreCardInfo dyV;
     public boolean hasMore;
-    public List<bb> dyX = new ArrayList();
-    public List<FeatureCardHot> dyZ = new ArrayList();
-    public List<FeatureCardTopic> dza = new ArrayList();
-    public List<b> dzb = new ArrayList();
-    public List<FeatureCardCompetition> dzc = new ArrayList();
-    public List<FeatureCardGod> dzd = new ArrayList();
-    public List<FeatureCardGame> dze = new ArrayList();
+    public List<bb> dyU = new ArrayList();
+    public List<FeatureCardHot> dyW = new ArrayList();
+    public List<FeatureCardTopic> dyX = new ArrayList();
+    public List<b> dyY = new ArrayList();
+    public List<FeatureCardCompetition> dyZ = new ArrayList();
+    public List<FeatureCardGod> dza = new ArrayList();
+    public List<FeatureCardGame> dzb = new ArrayList();
 }

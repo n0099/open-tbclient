@@ -10,42 +10,42 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.screenlocknotify.d;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    TextView gxd;
-    View gxe;
-    View gxf;
     TextView gxg;
-    TextView gxh;
-    TextView gxi;
-    private d gxj;
-    private TextView gxk;
-    private RelativeLayout gxl;
+    View gxh;
+    View gxi;
+    TextView gxj;
+    TextView gxk;
+    TextView gxl;
+    private d gxm;
+    private TextView gxn;
+    private RelativeLayout gxo;
     private EditText mEditText;
     View mLine;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
-        LayoutInflater.from(getContext()).inflate(d.h.screenlock_show_item_header, (ViewGroup) this, true);
-        this.gxd = (TextView) findViewById(d.g.friend_name_show1);
-        this.gxe = findViewById(d.g.friend_name_layout);
-        this.gxf = findViewById(d.g.msg_content_layout);
-        this.gxg = (TextView) findViewById(d.g.last_msg_time_show1);
-        this.gxh = (TextView) findViewById(d.g.one_msg_content_show1);
-        this.gxi = (TextView) findViewById(d.g.unread_msg_count_show1);
-        this.mLine = findViewById(d.g.line);
+        LayoutInflater.from(getContext()).inflate(f.h.screenlock_show_item_header, (ViewGroup) this, true);
+        this.gxg = (TextView) findViewById(f.g.friend_name_show1);
+        this.gxh = findViewById(f.g.friend_name_layout);
+        this.gxi = findViewById(f.g.msg_content_layout);
+        this.gxj = (TextView) findViewById(f.g.last_msg_time_show1);
+        this.gxk = (TextView) findViewById(f.g.one_msg_content_show1);
+        this.gxl = (TextView) findViewById(f.g.unread_msg_count_show1);
+        this.mLine = findViewById(f.g.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setBackgroundResource(d.f.screen_notify_item_background);
+        setBackgroundResource(f.C0146f.screen_notify_item_background);
         setOrientation(1);
-        this.gxl = (RelativeLayout) findViewById(d.g.screenlock_input_layout);
-        this.gxk = (TextView) findViewById(d.g.screenlock_send_button);
-        this.mEditText = (EditText) findViewById(d.g.screenlock_edit_view);
-        this.gxl.setVisibility(8);
+        this.gxo = (RelativeLayout) findViewById(f.g.screenlock_input_layout);
+        this.gxn = (TextView) findViewById(f.g.screenlock_send_button);
+        this.mEditText = (EditText) findViewById(f.g.screenlock_edit_view);
+        this.gxo.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -56,21 +56,21 @@ public class ScreenLockHeaderView extends LinearLayout {
         super(context, attributeSet, i);
     }
 
-    public void f(com.baidu.tieba.screenlocknotify.d dVar) {
-        this.gxj = dVar;
-        this.gxd.setText(dVar.groupName);
-        this.gxg.setText(cP(dVar.lastTime));
-        this.gxh.setText(dVar.content);
-        this.gxi.setText(sA(dVar.gwZ));
+    public void f(d dVar) {
+        this.gxm = dVar;
+        this.gxg.setText(dVar.groupName);
+        this.gxj.setText(cP(dVar.lastTime));
+        this.gxk.setText(dVar.content);
+        this.gxl.setText(sA(dVar.gxc));
     }
 
     public void lM(boolean z) {
         if (z) {
-            this.gxl.setVisibility(0);
+            this.gxo.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.gxl.setVisibility(8);
+        this.gxo.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
@@ -93,13 +93,13 @@ public class ScreenLockHeaderView extends LinearLayout {
         return this.mEditText;
     }
 
-    public com.baidu.tieba.screenlocknotify.d getData() {
-        return this.gxj;
+    public d getData() {
+        return this.gxm;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.gxk.setOnClickListener(onClickListener);
-        this.gxe.setOnClickListener(onClickListener2);
-        this.gxf.setOnClickListener(onClickListener2);
+        this.gxn.setOnClickListener(onClickListener);
+        this.gxh.setOnClickListener(onClickListener2);
+        this.gxi.setOnClickListener(onClickListener2);
     }
 }

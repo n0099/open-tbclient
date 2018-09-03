@@ -19,7 +19,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<d> cn(Context context) {
+    public static List<d> cm(Context context) {
         Cursor cursor;
         Cursor cursor2;
         String videoPath;
@@ -51,7 +51,7 @@ public class e {
                             try {
                                 try {
                                     if (cursor2.moveToFirst() && (string = cursor2.getString(cursor2.getColumnIndex("_data"))) != null) {
-                                        dVar.uT(string.replace("/storage/emulated/0", "/sdcard"));
+                                        dVar.uX(string.replace("/storage/emulated/0", "/sdcard"));
                                     }
                                 } catch (Throwable th) {
                                     th = th;
@@ -87,7 +87,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && uW(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && va(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -130,11 +130,11 @@ public class e {
         return arrayList;
     }
 
-    public static int uB(String str) {
-        return VideoConvertUtil.uB(str);
+    public static int uF(String str) {
+        return VideoConvertUtil.uF(str);
     }
 
-    public static d uU(String str) {
+    public static d uY(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -179,7 +179,7 @@ public class e {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static d uV(String str) {
+    public static d uZ(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -213,13 +213,13 @@ public class e {
         return dVar;
     }
 
-    public static String uA(String str) {
-        return VideoConvertUtil.uA(str);
+    public static String uE(String str) {
+        return VideoConvertUtil.uE(str);
     }
 
     public static void b(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d uU;
+        d uY;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -229,8 +229,8 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (uU = uU(file.getPath())) != null && file.length() > 102400 && uU.getDuration() >= 1000 && uW(uU.getMimeType())) {
-                            list.add(uU);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (uY = uY(file.getPath())) != null && file.length() > 102400 && uY.getDuration() >= 1000 && va(uY.getMimeType())) {
+                            list.add(uY);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         b(path, list, z);
@@ -261,7 +261,7 @@ public class e {
         }
     }
 
-    public static boolean uW(String str) {
+    public static boolean va(String str) {
         return "video/mp4".equals(str) || "video/ext-mp4".equals(str);
     }
 }

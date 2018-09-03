@@ -34,7 +34,7 @@ public class b {
         return this.bbz;
     }
 
-    public Rect MA() {
+    public Rect ME() {
         return this.bbK;
     }
 
@@ -42,28 +42,28 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        return aVar.My();
+        return aVar.MC();
     }
 
-    public Point[] MB() {
-        MD();
-        int Mz = Mz();
-        int i = (this.bbD.top / Mz) / this.bbz;
-        int i2 = (this.bbD.left / Mz) / this.bbz;
+    public Point[] MF() {
+        MH();
+        int MD = MD();
+        int i = (this.bbD.top / MD) / this.bbz;
+        int i2 = (this.bbD.left / MD) / this.bbz;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.bbD.bottom / Mz) / this.bbz) * Mz) + 1;
-        point2.x = (Mz * ((this.bbD.right / Mz) / this.bbz)) + 1;
+        point2.y = (((this.bbD.bottom / MD) / this.bbz) * MD) + 1;
+        point2.x = (MD * ((this.bbD.right / MD) / this.bbz)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a MC() {
+    public a MG() {
         return new a(this.bbz);
     }
 
-    public Rect MD() {
+    public Rect MH() {
         this.mMatrix.mapRect(this.bbC, this.bbE);
         a(this.bbD, this.bbC);
         return this.bbD;
@@ -77,11 +77,11 @@ public class b {
         return this.bbF;
     }
 
-    public int ME() {
+    public int MI() {
         return this.bbG;
     }
 
-    public List<a> MF() {
+    public List<a> MJ() {
         return this.bbI;
     }
 
@@ -89,11 +89,11 @@ public class b {
         this.bbH = f;
     }
 
-    public float MG() {
+    public float MK() {
         return this.bbH;
     }
 
-    public int Mz() {
+    public int MD() {
         int i = 1;
         while (i < Math.round(this.bbH)) {
             i *= 2;
@@ -108,7 +108,7 @@ public class b {
         }
     }
 
-    public a MH() {
+    public a ML() {
         return this.bbJ;
     }
 
@@ -125,7 +125,7 @@ public class b {
     }
 
     public boolean p(int i, int i2, int i3) {
-        if (i3 == Mz()) {
+        if (i3 == MD()) {
             return q(i, i2, i3).intersect(this.bbD);
         }
         return false;

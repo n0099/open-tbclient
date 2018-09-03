@@ -53,33 +53,33 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.gpK = new PostAdBaseData.a.C0228a();
-                this.extraData.gpK.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.gpK.downloadUrl = optJSONObject3.optString(DownloadConstants.DOWNLOAD_URL);
+                this.extraData.gpN = new PostAdBaseData.a.C0228a();
+                this.extraData.gpN.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.gpN.downloadUrl = optJSONObject3.optString(DownloadConstants.DOWNLOAD_URL);
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.gpK == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.gpN == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.gpK == null) {
+        if (this.extraData == null || this.extraData.gpN == null) {
             return null;
         }
-        return this.extraData.gpK.downloadUrl;
+        return this.extraData.gpN.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.gpK == null) {
+        if (this.extraData == null || this.extraData.gpN == null) {
             return null;
         }
-        return this.extraData.gpK.packageName;
+        return this.extraData.gpN.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.gpK == null) {
+        if (this.extraData == null || this.extraData.gpN == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();

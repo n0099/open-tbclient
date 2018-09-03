@@ -7,9 +7,9 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class MusicPlayer {
-    private static MusicPlayer hcG = null;
-    private MediaPlayer hcF;
-    private MusicPlayerState hcH = MusicPlayerState.WAIT;
+    private static MusicPlayer hcH = null;
+    private MediaPlayer hcG;
+    private MusicPlayerState hcI = MusicPlayerState.WAIT;
 
     /* loaded from: classes2.dex */
     public enum MusicPlayerState {
@@ -23,76 +23,76 @@ public class MusicPlayer {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bAs();
+        void bAu();
     }
 
     private MusicPlayer() {
     }
 
-    public static synchronized MusicPlayer bAu() {
+    public static synchronized MusicPlayer bAw() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (hcG == null) {
-                hcG = new MusicPlayer();
+            if (hcH == null) {
+                hcH = new MusicPlayer();
             }
-            musicPlayer = hcG;
+            musicPlayer = hcH;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.hcH != MusicPlayerState.PAUSE) {
-            if (this.hcF == null) {
-                this.hcF = new MediaPlayer();
-                this.hcF.setAudioStreamType(3);
+        if (this.hcI != MusicPlayerState.PAUSE) {
+            if (this.hcG == null) {
+                this.hcG = new MediaPlayer();
+                this.hcG.setAudioStreamType(3);
             }
             try {
-                this.hcF.reset();
-                this.hcF.setDataSource(str);
-                this.hcF.prepare();
-                this.hcH = MusicPlayerState.WAIT;
-                this.hcF.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.hcG.reset();
+                this.hcG.setDataSource(str);
+                this.hcG.prepare();
+                this.hcI = MusicPlayerState.WAIT;
+                this.hcG.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
-                        com.baidu.tieba.video.cloudmusic.data.a.bAx().a(musicList);
+                        com.baidu.tieba.video.cloudmusic.data.a.bAz().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                        MusicPlayer.this.hcF.setLooping(true);
-                        MusicPlayer.this.hcF.start();
-                        MusicPlayer.this.hcH = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.hcG.setLooping(true);
+                        MusicPlayer.this.hcG.start();
+                        MusicPlayer.this.hcI = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.hcH = MusicPlayerState.ERROR;
+                this.hcI = MusicPlayerState.ERROR;
                 if (aVar != null) {
-                    aVar.bAs();
+                    aVar.bAu();
                 }
             }
         }
     }
 
-    public void bAv() {
-        if (this.hcF != null && this.hcF.isPlaying()) {
-            this.hcF.pause();
+    public void bAx() {
+        if (this.hcG != null && this.hcG.isPlaying()) {
+            this.hcG.pause();
         }
-        this.hcH = MusicPlayerState.PAUSE;
+        this.hcI = MusicPlayerState.PAUSE;
     }
 
-    public void bAw() {
-        if (this.hcF != null) {
-            this.hcF.start();
-            this.hcF.seekTo(0);
+    public void bAy() {
+        if (this.hcG != null) {
+            this.hcG.start();
+            this.hcG.seekTo(0);
         }
-        this.hcH = MusicPlayerState.RESUME;
+        this.hcI = MusicPlayerState.RESUME;
     }
 
-    public void bkr() {
-        if (this.hcF != null) {
-            if (this.hcF.isPlaying()) {
-                this.hcF.stop();
+    public void bko() {
+        if (this.hcG != null) {
+            if (this.hcG.isPlaying()) {
+                this.hcG.stop();
             }
-            this.hcF.release();
-            this.hcF = null;
+            this.hcG.release();
+            this.hcG = null;
         }
     }
 }

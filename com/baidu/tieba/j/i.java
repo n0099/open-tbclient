@@ -7,23 +7,23 @@ public interface i {
 
     void a(b bVar);
 
+    void aVF();
+
+    void aVG();
+
+    void aVH();
+
+    void aVI();
+
     void aVJ();
 
     void aVK();
 
     void aVL();
 
-    void aVM();
+    String aVM();
 
-    void aVN();
-
-    void aVO();
-
-    void aVP();
-
-    String aVQ();
-
-    String aVR();
+    String aVN();
 
     void f(int i, int i2, String str);
 
@@ -33,13 +33,13 @@ public interface i {
 
     void pT(int i);
 
-    void qs(String str);
+    void qu(String str);
 
-    void qt(String str);
+    void qv(String str);
 
-    String qu(String str);
+    String qw(String str);
 
-    boolean qv(String str);
+    boolean qx(String str);
 
-    void qw(String str);
+    void qy(String str);
 }

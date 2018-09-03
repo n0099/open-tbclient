@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        f(0, 0, l.f(context, d.e.ds30), 0);
+        f(0, 0, l.f(context, f.e.ds30), 0);
     }
 
     public void refresh() {
@@ -26,14 +26,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.aIu.setText("new");
-            this.aIu.setTextAppearance(this.mContext, z2 ? d.k.setting_version_prompt_text_1 : d.k.setting_version_prompt_text);
-            am.i(this.aIu, d.f.icon_news_text_prompt);
+            this.aIs.setText("new");
+            this.aIs.setTextAppearance(this.mContext, z2 ? f.k.setting_version_prompt_text_1 : f.k.setting_version_prompt_text);
+            am.i(this.aIs, f.C0146f.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.aIu.setText((TbConfig.getVersionType() != 1 || ap.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.aIu.setBackgroundDrawable(null);
-        this.aIu.setTextAppearance(this.mContext, z2 ? d.k.setting_version_text_1 : d.k.setting_version_text);
+        this.aIs.setText((TbConfig.getVersionType() != 1 || ap.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
+        this.aIs.setBackgroundDrawable(null);
+        this.aIs.setTextAppearance(this.mContext, z2 ? f.k.setting_version_text_1 : f.k.setting_version_text);
     }
 }

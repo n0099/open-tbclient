@@ -18,7 +18,7 @@ public class a {
     /* loaded from: classes.dex */
     public static class b {
         public String aWq;
-        public int cBL;
+        public int cBI;
         public String mPid;
     }
 
@@ -50,7 +50,7 @@ public class a {
         if (!ap.isEmpty(str)) {
             an anVar = new an(str);
             if (str2 != null) {
-                anVar = anVar.af("obj_type", str2);
+                anVar = anVar.ae("obj_type", str2);
             }
             TiebaStatic.log(anVar);
         }
@@ -59,37 +59,37 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0236a {
-        private final String adi;
         private final boolean agc;
-        private final an eNZ;
-        private final String gPb;
-        private final String gPc;
+        private final an eNU;
         private final String gPd;
+        private final String gPe;
         private final String key;
+        private final String line;
+        private final String page;
 
         private C0236a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.gPb = str2;
-            this.adi = str3;
-            this.gPc = str4;
-            this.gPd = str5;
+            this.line = str2;
+            this.page = str3;
+            this.gPd = str4;
+            this.gPe = str5;
             this.agc = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.eNZ = bwy();
+            this.eNU = bwz();
         }
 
-        private an bwy() {
+        private an bwz() {
             an anVar = new an(this.key);
-            if (!StringUtils.isNull(this.gPb)) {
-                anVar = anVar.af("line", this.gPb);
+            if (!StringUtils.isNull(this.line)) {
+                anVar = anVar.ae("line", this.line);
             }
-            if (!StringUtils.isNull(this.adi)) {
-                anVar = anVar.af("page", this.adi);
-            }
-            if (!StringUtils.isNull(this.gPc)) {
-                anVar = anVar.af("locate", this.gPc);
+            if (!StringUtils.isNull(this.page)) {
+                anVar = anVar.ae("page", this.page);
             }
             if (!StringUtils.isNull(this.gPd)) {
-                return anVar.af("task", this.gPd);
+                anVar = anVar.ae("locate", this.gPd);
+            }
+            if (!StringUtils.isNull(this.gPe)) {
+                return anVar.ae("task", this.gPe);
             }
             return anVar;
         }
@@ -97,33 +97,33 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public an e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.eNZ.af(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.eNU.ae(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.eNZ.af(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.eNU.ae(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.eNZ.af(ImageViewerConfig.FORUM_ID, str3);
+                this.eNU.ae(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.eNZ.af(ImageViewerConfig.FORUM_NAME, str4);
+                this.eNU.ae(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.eNZ.af("tid", str5);
+                this.eNU.ae("tid", str5);
             }
-            this.eNZ.r("obj_cpid", 0).r("obj_good_id", 0).af("obj_throw_type", "BY_POST").af("client_type", "MOBILE_APP").af("user_timestamp", String.valueOf(System.currentTimeMillis())).af("os", HttpConstants.OS_TYPE_VALUE).af(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).af("log_ver", "1.1");
-            return this.eNZ;
+            this.eNU.r("obj_cpid", 0).r("obj_good_id", 0).ae("obj_throw_type", "BY_POST").ae("client_type", "MOBILE_APP").ae("user_timestamp", String.valueOf(System.currentTimeMillis())).ae("os", HttpConstants.OS_TYPE_VALUE).ae(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ae("log_ver", "1.1");
+            return this.eNU;
         }
 
         public C0236a cm(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.eNZ.af(str, str2);
+                this.eNU.ae(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.eNZ);
+            TiebaStatic.log(this.eNU);
             if (!this.agc) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
@@ -133,7 +133,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.eNZ.delete(str);
+            this.eNU.delete(str);
         }
     }
 }

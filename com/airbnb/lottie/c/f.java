@@ -12,11 +12,11 @@ import com.airbnb.lottie.a.a.q;
 import java.io.Closeable;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final PathMeasure mr = new PathMeasure();
-    private static final Path mu = new Path();
-    private static final Path pF = new Path();
+    private static final PathMeasure mt = new PathMeasure();
+    private static final Path mw = new Path();
+    private static final Path pG = new Path();
     private static final float[] points = new float[4];
-    private static final float pG = (float) Math.sqrt(2.0d);
+    private static final float pH = (float) Math.sqrt(2.0d);
 
     public static Path b(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -43,8 +43,8 @@ public final class f {
     public static float c(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = pG;
-        points[3] = pG;
+        points[2] = pH;
+        points[3] = pH;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
@@ -57,8 +57,8 @@ public final class f {
 
     public static void a(Path path, float f, float f2, float f3) {
         com.airbnb.lottie.d.beginSection("applyTrimPathIfNeeded");
-        mr.setPath(path, false);
-        float length = mr.getLength();
+        mt.setPath(path, false);
+        float length = mt.getLength();
         if (f == 1.0f && f2 == 0.0f) {
             com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
@@ -89,18 +89,18 @@ public final class f {
             if (f7 >= f8) {
                 f7 -= length;
             }
-            mu.reset();
-            mr.getSegment(f7, f8, mu, true);
+            mw.reset();
+            mt.getSegment(f7, f8, mw, true);
             if (f8 > length) {
-                pF.reset();
-                mr.getSegment(0.0f, f8 % length, pF, true);
-                mu.addPath(pF);
+                pG.reset();
+                mt.getSegment(0.0f, f8 % length, pG, true);
+                mw.addPath(pG);
             } else if (f7 < 0.0f) {
-                pF.reset();
-                mr.getSegment(f7 + length, length, pF, true);
-                mu.addPath(pF);
+                pG.reset();
+                mt.getSegment(f7 + length, length, pG, true);
+                mw.addPath(pG);
             }
-            path.set(mu);
+            path.set(mw);
             com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
         }
     }

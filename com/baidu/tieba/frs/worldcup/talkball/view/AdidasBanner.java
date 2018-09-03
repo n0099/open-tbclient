@@ -12,31 +12,31 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.view.BannerGifView;
 import com.baidu.tbadk.f.b;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class AdidasBanner extends LinearLayout {
-    private final com.baidu.tbadk.f.a aGF;
-    private final b aGG;
-    private View cUP;
-    private BannerGifView dMs;
+    private final com.baidu.tbadk.f.a aGE;
+    private final b aGF;
+    private View cUL;
+    private BannerGifView dMo;
     private String mForumId;
 
     public AdidasBanner(Context context) {
         super(context);
-        this.aGG = new b() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AdidasBanner.1
+        this.aGF = new b() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AdidasBanner.1
             @Override // com.baidu.tbadk.f.b
             public boolean v(View view) {
-                if (!TextUtils.isEmpty(AdidasBanner.this.mForumId) && view == AdidasBanner.this.dMs.getGifView()) {
-                    TiebaStatic.log(new an("c13092").af(ImageViewerConfig.FORUM_ID, AdidasBanner.this.mForumId).af("obj_param1", AdidasBanner.this.dMs.getUrl()));
+                if (!TextUtils.isEmpty(AdidasBanner.this.mForumId) && view == AdidasBanner.this.dMo.getGifView()) {
+                    TiebaStatic.log(new an("c13092").ae(ImageViewerConfig.FORUM_ID, AdidasBanner.this.mForumId).ae("obj_param1", AdidasBanner.this.dMo.getUrl()));
                 }
                 return false;
             }
         };
-        this.aGF = new com.baidu.tbadk.f.a() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AdidasBanner.2
+        this.aGE = new com.baidu.tbadk.f.a() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AdidasBanner.2
             @Override // com.baidu.tbadk.f.a
             public void a(View view, boolean z, Object obj) {
-                if (z && !TextUtils.isEmpty(AdidasBanner.this.mForumId) && view == AdidasBanner.this.dMs) {
-                    TiebaStatic.log(new an("c13091").af(ImageViewerConfig.FORUM_ID, AdidasBanner.this.mForumId).af("obj_param1", AdidasBanner.this.dMs.getUrl()));
+                if (z && !TextUtils.isEmpty(AdidasBanner.this.mForumId) && view == AdidasBanner.this.dMo) {
+                    TiebaStatic.log(new an("c13091").ae(ImageViewerConfig.FORUM_ID, AdidasBanner.this.mForumId).ae("obj_param1", AdidasBanner.this.dMo.getUrl()));
                 }
             }
         };
@@ -45,17 +45,17 @@ public class AdidasBanner extends LinearLayout {
 
     private void initUI() {
         setOrientation(1);
-        this.dMs = new BannerGifView(getContext(), 5.744f);
-        this.dMs.setDefaultResid(d.f.banner_default);
-        this.dMs.setErrorResid(d.f.banner_default);
-        this.dMs.setNeedNightMask(true);
-        this.dMs.setCloseVisibility(false);
-        this.dMs.setIWindowChangedListener(this.aGF);
-        this.dMs.setOnClickEventListener(this.aGG);
-        addView(this.dMs);
-        this.cUP = new View(getContext());
-        addView(this.cUP);
-        this.cUP.setLayoutParams(new LinearLayout.LayoutParams(-1, l.f(getContext(), d.e.tbds12)));
+        this.dMo = new BannerGifView(getContext(), 5.744f);
+        this.dMo.setDefaultResid(f.C0146f.banner_default);
+        this.dMo.setErrorResid(f.C0146f.banner_default);
+        this.dMo.setNeedNightMask(true);
+        this.dMo.setCloseVisibility(false);
+        this.dMo.setIWindowChangedListener(this.aGE);
+        this.dMo.setOnClickEventListener(this.aGF);
+        addView(this.dMo);
+        this.cUL = new View(getContext());
+        addView(this.cUL);
+        this.cUL.setLayoutParams(new LinearLayout.LayoutParams(-1, l.f(getContext(), f.e.tbds12)));
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -63,14 +63,14 @@ public class AdidasBanner extends LinearLayout {
         this.mForumId = str;
     }
 
-    public void an(String str, String str2) {
-        this.dMs.an(str, str2);
+    public void am(String str, String str2) {
+        this.dMo.am(str, str2);
     }
 
     public void onChangeSkinType(int i) {
-        am.e(this.cUP, d.C0140d.cp_bg_line_e, i);
-        if (this.dMs != null) {
-            this.dMs.onChangeSkinType(i);
+        am.e(this.cUL, f.d.cp_bg_line_e, i);
+        if (this.dMo != null) {
+            this.dMo.onChangeSkinType(i);
         }
     }
 }

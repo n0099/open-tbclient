@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class QuickPlayerStatic {
-    private static CustomMessageListener bjS = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
+    private static CustomMessageListener bjY = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -19,22 +19,22 @@ public class QuickPlayerStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.PB();
+                        d.PH();
                     }
                 }).start();
             }
         }
     };
-    private static final CustomMessageListener bjT = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
+    private static final CustomMessageListener bjZ = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                QuickPlayerStatic.PL();
+                QuickPlayerStatic.PR();
             }
         }
     };
-    private static final CustomMessageListener bjU = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
+    private static final CustomMessageListener bka = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -47,7 +47,7 @@ public class QuickPlayerStatic {
                         strArr[i] = (String) list.get(i);
                     }
                 }
-                QuickPlayerStatic.p(strArr);
+                QuickPlayerStatic.o(strArr);
             }
         }
     };
@@ -56,16 +56,16 @@ public class QuickPlayerStatic {
         new Thread(new Runnable() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.5
             @Override // java.lang.Runnable
             public void run() {
-                d.PB();
+                d.PH();
             }
         }).start();
-        PK();
-        MessageManager.getInstance().registerListener(bjT);
-        MessageManager.getInstance().registerListener(bjS);
-        MessageManager.getInstance().registerListener(bjU);
+        PQ();
+        MessageManager.getInstance().registerListener(bjZ);
+        MessageManager.getInstance().registerListener(bjY);
+        MessageManager.getInstance().registerListener(bka);
     }
 
-    private static void PK() {
+    private static void PQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016490, new CustomMessageTask.CustomRunnable<com.baidu.tieba.play.h>() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -78,14 +78,14 @@ public class QuickPlayerStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void PL() {
+    public static void PR() {
         Intent intent = new Intent(TbadkCoreApplication.getInst(), QuickMediaPlayerService.class);
         intent.putExtra(QuickMediaPlayerService.KEY_RELEASE_ALL_PLAYERS, true);
         TbadkCoreApplication.getInst().startService(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void p(String[] strArr) {
+    public static void o(String[] strArr) {
         if (strArr != null && strArr.length != 0) {
             Intent intent = new Intent(TbadkCoreApplication.getInst(), QuickMediaPlayerService.class);
             intent.putExtra(QuickMediaPlayerService.KEY_RELEASE_SOME_PLAYERS, true);

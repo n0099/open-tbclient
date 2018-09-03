@@ -5,18 +5,18 @@ import android.widget.EditText;
 import com.baidu.tbadk.editortools.k;
 /* loaded from: classes2.dex */
 public class c extends k {
-    private EditText aOf;
+    private EditText aOc;
 
     public c(Context context) {
         super(context, (String) null, 28);
-        this.aMW = false;
-        this.aMV = 3;
-        this.aMf = new VideoPlayInputContainer(context);
-        this.aOf = ((VideoPlayInputContainer) this.aMf).getInputView();
-        this.aMX = new int[]{4, 24, 3, 9, 6};
+        this.aMT = false;
+        this.aMS = 3;
+        this.aMc = new VideoPlayInputContainer(context);
+        this.aOc = ((VideoPlayInputContainer) this.aMc).getInputView();
+        this.aMU = new int[]{4, 24, 3, 9, 6};
     }
 
     public EditText getInputView() {
-        return this.aOf;
+        return this.aOc;
     }
 }

@@ -18,7 +18,7 @@ import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -1130,41 +1130,41 @@ public class BitmapHelper {
     public static int getGradeResourceIdInEnterForum(int i) {
         switch (i) {
             case 1:
-                return d.f.icon_level_01;
+                return f.C0146f.icon_level_01;
             case 2:
-                return d.f.icon_level_02;
+                return f.C0146f.icon_level_02;
             case 3:
-                return d.f.icon_level_03;
+                return f.C0146f.icon_level_03;
             case 4:
-                return d.f.icon_level_04;
+                return f.C0146f.icon_level_04;
             case 5:
-                return d.f.icon_level_05;
+                return f.C0146f.icon_level_05;
             case 6:
-                return d.f.icon_level_06;
+                return f.C0146f.icon_level_06;
             case 7:
-                return d.f.icon_level_07;
+                return f.C0146f.icon_level_07;
             case 8:
-                return d.f.icon_level_08;
+                return f.C0146f.icon_level_08;
             case 9:
-                return d.f.icon_level_09;
+                return f.C0146f.icon_level_09;
             case 10:
-                return d.f.icon_level_10;
+                return f.C0146f.icon_level_10;
             case 11:
-                return d.f.icon_level_11;
+                return f.C0146f.icon_level_11;
             case 12:
-                return d.f.icon_level_12;
+                return f.C0146f.icon_level_12;
             case 13:
-                return d.f.icon_level_13;
+                return f.C0146f.icon_level_13;
             case 14:
-                return d.f.icon_level_14;
+                return f.C0146f.icon_level_14;
             case 15:
-                return d.f.icon_level_15;
+                return f.C0146f.icon_level_15;
             case 16:
-                return d.f.icon_level_16;
+                return f.C0146f.icon_level_16;
             case 17:
-                return d.f.icon_level_17;
+                return f.C0146f.icon_level_17;
             case 18:
-                return d.f.icon_level_18;
+                return f.C0146f.icon_level_18;
             default:
                 return 0;
         }

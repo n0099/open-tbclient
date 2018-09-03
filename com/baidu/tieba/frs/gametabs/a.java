@@ -13,26 +13,26 @@ import com.baidu.tbadk.core.hybrid.o;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends n {
-    private l anb;
-    private String cBU;
+    private l anc;
+    private String cBR;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.anb = lVar;
-        this.cBU = str;
+        this.anc = lVar;
+        this.cBR = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String sn() {
+    public String sm() {
         return "TBHY_COMMON_DOWNLOAD_GAME";
     }
 
-    @o(value = "downloadGame", xN = false)
+    @o(value = "downloadGame", xM = false)
     private void downloadGame(JSONObject jSONObject) {
         if (jSONObject != null) {
             String optString = jSONObject.optString("packageName");
@@ -40,22 +40,22 @@ public class a extends n {
             String optString3 = jSONObject.optString("imageUrl");
             if (!StringUtils.isNull(optString)) {
                 if (!j.jE()) {
-                    UtilHelper.showToast(getContext(), d.j.neterror);
+                    UtilHelper.showToast(getContext(), f.j.neterror);
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    mL(optString);
+                    mN(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.bnu().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.sH(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.bnv().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.sL(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new an("c12775").af(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cBU) ? "" : this.cBU));
+                TiebaStatic.log(new an("c12775").ae(ImageViewerConfig.FORUM_ID, StringUtils.isNull(this.cBR) ? "" : this.cBR));
             }
         }
     }
 
-    private void mL(String str) {
+    private void mN(String str) {
         try {
-            this.anb.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str)));
+            this.anc.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str)));
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

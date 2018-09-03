@@ -1,34 +1,34 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class r {
-    private int fok = 0;
-    private int ggT = 0;
-    private boolean ggU = false;
-    private boolean ggV = true;
+    private int fod = 0;
+    private int ggS = 0;
+    private boolean ggT = false;
+    private boolean ggU = true;
 
-    public int bkI() {
-        return this.fok;
+    public int bkF() {
+        return this.fod;
     }
 
-    public int bkJ() {
+    public int bkG() {
+        return this.ggS;
+    }
+
+    public boolean bkH() {
         return this.ggT;
     }
 
-    public boolean bkK() {
+    public boolean bkI() {
         return this.ggU;
     }
 
-    public boolean bkL() {
-        return this.ggV;
-    }
-
     public void h(int i, int i2, boolean z) {
-        this.fok = i;
-        this.ggT = i2;
-        this.ggU = z;
+        this.fod = i;
+        this.ggS = i2;
+        this.ggT = z;
     }
 
     public void iu(boolean z) {
-        this.ggV = z;
+        this.ggU = z;
     }
 }

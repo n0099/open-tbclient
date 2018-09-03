@@ -8,16 +8,16 @@ import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f implements b {
-    private final m<PointF, PointF> nA;
-    private final com.airbnb.lottie.model.a.f nI;
+    private final m<PointF, PointF> nB;
+    private final com.airbnb.lottie.model.a.f nJ;
     private final String name;
-    private final com.airbnb.lottie.model.a.b og;
+    private final com.airbnb.lottie.model.a.b oh;
 
     private f(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.b bVar) {
         this.name = str;
-        this.nA = mVar;
-        this.nI = fVar;
-        this.og = bVar;
+        this.nB = mVar;
+        this.nJ = fVar;
+        this.oh = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,15 +34,15 @@ public class f implements b {
     }
 
     public com.airbnb.lottie.model.a.b cY() {
-        return this.og;
+        return this.oh;
     }
 
     public com.airbnb.lottie.model.a.f cE() {
-        return this.nI;
+        return this.nJ;
     }
 
     public m<PointF, PointF> cu() {
-        return this.nA;
+        return this.nB;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -51,6 +51,6 @@ public class f implements b {
     }
 
     public String toString() {
-        return "RectangleShape{cornerRadius=" + this.og.ck() + ", position=" + this.nA + ", size=" + this.nI + '}';
+        return "RectangleShape{cornerRadius=" + this.oh.ck() + ", position=" + this.nB + ", size=" + this.nJ + '}';
     }
 }

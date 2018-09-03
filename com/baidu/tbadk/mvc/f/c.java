@@ -93,7 +93,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         return this.agd.size();
     }
 
-    public int Kc() {
+    public int Kg() {
         if (this.agd == null) {
             return 0;
         }
@@ -178,7 +178,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Kd() {
+    public void Kh() {
         if (this.aSX != null && this.aSW != null) {
             this.aSX.removeView(this.aSW);
             this.aSW = null;
@@ -186,7 +186,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View Ke() {
+    public View Ki() {
         if (this.aSX == null) {
             this.aSX = new FrameLayout(this.aST.getPageActivity());
         }
@@ -217,12 +217,12 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         }
     }
 
-    public void bU(boolean z) {
+    public void bV(boolean z) {
         this.aSV = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Kf() {
+    public boolean Kj() {
         return this.agd != null && this.agd.size() == 0;
     }
 }

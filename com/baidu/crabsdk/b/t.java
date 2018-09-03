@@ -23,7 +23,7 @@ public final class t {
         return SZ.size() > 0 ? new JSONArray((Collection) SZ).toString() : "";
     }
 
-    public static boolean pi() {
+    public static boolean pf() {
         return P().length() > 0;
     }
 

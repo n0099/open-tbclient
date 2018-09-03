@@ -6,63 +6,63 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g hch;
-    private VideoHolyCardModel.a fgS = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g hci;
+    private VideoHolyCardModel.a fgM = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
-        public void al(boolean z) {
-            g.this.hcj = z;
+        public void am(boolean z) {
+            g.this.hck = z;
         }
     };
-    private VideoHolyCardModel hci;
-    private boolean hcj;
+    private VideoHolyCardModel hcj;
     private boolean hck;
+    private boolean hcl;
 
-    public static g bAi() {
-        if (hch == null) {
+    public static g bAk() {
+        if (hci == null) {
             synchronized (g.class) {
-                if (hch == null) {
-                    hch = new g();
+                if (hci == null) {
+                    hci = new g();
                 }
             }
         }
-        return hch;
+        return hci;
     }
 
-    public boolean bAj() {
-        return this.hcj;
+    public boolean bAl() {
+        return this.hck;
     }
 
-    public void bAk() {
+    public void bAm() {
         if (j.jG()) {
-            if (this.hci == null) {
-                this.hci = new VideoHolyCardModel();
-                this.hci.a(this.fgS);
+            if (this.hcj == null) {
+                this.hcj = new VideoHolyCardModel();
+                this.hcj.a(this.fgM);
             }
-            this.hci.aVB();
+            this.hcj.aVx();
         }
     }
 
-    public void cl(Context context) {
-        if (this.hcj && !this.hck) {
-            l.showToast(context, d.j.free_data_tips);
-            this.hck = true;
+    public void ck(Context context) {
+        if (this.hck && !this.hcl) {
+            l.showToast(context, f.j.free_data_tips);
+            this.hcl = true;
         }
     }
 
     private g() {
-        bAl();
+        bAn();
     }
 
-    private void bAl() {
+    private void bAn() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2000994) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                g.this.bAk();
+                g.this.bAm();
             }
         });
     }

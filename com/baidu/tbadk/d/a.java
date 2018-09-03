@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static b aaC = null;
-    private static a aaD = null;
-    private static boolean aaE = false;
-    private static String aaF = "";
-    private static transient List<String> aaG = new ArrayList(5);
+    private static b aaD = null;
+    private static a aaE = null;
+    private static boolean aaF = false;
+    private static String aaG = "";
+    private static transient List<String> aaH = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (aaD == null) {
+        if (aaE == null) {
             synchronized (a.class) {
-                if (aaD == null) {
-                    aaD = new a();
-                    aaC = b.c(baseFragmentActivity);
+                if (aaE == null) {
+                    aaE = new a();
+                    aaD = b.c(baseFragmentActivity);
                 }
             }
-        } else if (aaC != null) {
-            aaC.setContext(baseFragmentActivity.getPageContext());
+        } else if (aaD != null) {
+            aaD.setContext(baseFragmentActivity.getPageContext());
         }
-        if (aaE && aaC != null) {
-            aaC.sb();
-            aaC.sc();
-            aaE = false;
+        if (aaF && aaD != null) {
+            aaD.rZ();
+            aaD.sa();
+            aaF = false;
         }
-        return aaD;
+        return aaE;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        rW();
+        rU();
         if (z) {
-            rR();
+            rP();
         }
         if (z2) {
-            rS();
+            rQ();
         }
-        ae(z3);
+        af(z3);
         a(aVar);
     }
 
-    public void rR() {
-        rW();
-        if (aaC != null) {
-            aaC.sb();
-            aaE = false;
+    public void rP() {
+        rU();
+        if (aaD != null) {
+            aaD.rZ();
+            aaF = false;
         }
     }
 
-    public void rS() {
-        rW();
-        if (aaC != null) {
-            aaC.sc();
-            aaE = false;
+    public void rQ() {
+        rU();
+        if (aaD != null) {
+            aaD.sa();
+            aaF = false;
         }
     }
 
-    public void ae(boolean z) {
-        rW();
-        if (aaC != null) {
-            aaC.ae(z);
+    public void af(boolean z) {
+        rU();
+        if (aaD != null) {
+            aaD.af(z);
         }
     }
 
     public void a(b.a aVar) {
-        rW();
-        if (aaC != null) {
-            aaC.c(aVar);
+        rU();
+        if (aaD != null) {
+            aaD.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        rW();
-        if (aaC != null) {
-            if (aaC.rY()) {
-                aaC.c(aVar);
+        rU();
+        if (aaD != null) {
+            if (aaD.rW()) {
+                aaD.c(aVar);
             }
-            aaC.sa();
+            aaD.rY();
         }
     }
 
     public void a(int i, b.a aVar) {
-        rW();
-        if (aaC != null) {
-            if (aaC.rY()) {
-                aaC.c(aVar);
+        rU();
+        if (aaD != null) {
+            if (aaD.rW()) {
+                aaD.c(aVar);
             }
-            aaC.bc(i);
+            aaD.bc(i);
+        }
+    }
+
+    public void rR() {
+        rU();
+        if (aaD != null) {
+            aaD.rR();
+            aaF = true;
+        }
+    }
+
+    public void rS() {
+        rU();
+        if (aaD != null) {
+            aaD.rS();
         }
     }
 
     public void rT() {
-        rW();
-        if (aaC != null) {
-            aaC.rT();
-            aaE = true;
-        }
-    }
-
-    public void rU() {
-        rW();
-        if (aaC != null) {
-            aaC.rU();
-        }
-    }
-
-    public void rV() {
-        rW();
         rU();
-        rT();
+        rS();
+        rR();
     }
 
-    private void rW() {
-        if (aaC == null) {
+    private void rU() {
+        if (aaD == null) {
         }
     }
 
-    public static void rX() {
+    public static void rV() {
         try {
-            if (aaC != null) {
-                if (aaD != null) {
-                    aaD.rV();
-                }
-                aaC.rZ();
-                aaC.sd();
-                aaC = null;
-            }
             if (aaD != null) {
+                if (aaE != null) {
+                    aaE.rT();
+                }
+                aaD.rX();
+                aaD.sb();
                 aaD = null;
+            }
+            if (aaE != null) {
+                aaE = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

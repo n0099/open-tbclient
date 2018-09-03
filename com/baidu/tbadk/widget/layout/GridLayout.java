@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class GridLayout extends ViewGroup {
     private int bdj;
@@ -38,13 +38,13 @@ public class GridLayout extends ViewGroup {
     }
 
     private void b(Context context, AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.GridLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, f.l.GridLayout);
         try {
-            this.bdl = obtainStyledAttributes.getDimensionPixelSize(d.l.GridLayout_gridHorizontalSpacing, 0);
-            this.bdm = obtainStyledAttributes.getDimensionPixelSize(d.l.GridLayout_gridVerticalSpacing, 0);
-            this.bdj = obtainStyledAttributes.getInteger(d.l.GridLayout_gridHorizontalNum, -1);
-            this.bdk = obtainStyledAttributes.getInteger(d.l.GridLayout_gridVerticalNum, -1);
-            this.bdn = obtainStyledAttributes.getInteger(d.l.GridLayout_gridMainOrientation, 0) == 0;
+            this.bdl = obtainStyledAttributes.getDimensionPixelSize(f.l.GridLayout_gridHorizontalSpacing, 0);
+            this.bdm = obtainStyledAttributes.getDimensionPixelSize(f.l.GridLayout_gridVerticalSpacing, 0);
+            this.bdj = obtainStyledAttributes.getInteger(f.l.GridLayout_gridHorizontalNum, -1);
+            this.bdk = obtainStyledAttributes.getInteger(f.l.GridLayout_gridVerticalNum, -1);
+            this.bdn = obtainStyledAttributes.getInteger(f.l.GridLayout_gridMainOrientation, 0) == 0;
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -226,7 +226,7 @@ public class GridLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: Nd */
+    /* renamed from: Nh */
     public a generateDefaultLayoutParams() {
         return new a(-1, -1);
     }

@@ -12,22 +12,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class m {
-    private BitmapFactory.Options aoA;
-    private int[] aou;
-    private SoftReference<ImageView> aow;
-    private int aox;
-    private a aoy;
-    private int aoz;
+    private int aoA;
+    private BitmapFactory.Options aoB;
+    private int[] aov;
+    private SoftReference<ImageView> aox;
+    private int aoy;
+    private a aoz;
     private Bitmap mBitmap;
     private int times = 1;
     private Handler mHandler = new Handler();
     private int mIndex = -1;
-    private boolean aov = false;
-    private boolean Bl = false;
+    private boolean aow = false;
+    private boolean Bm = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        void yo();
+        void ym();
     }
 
     public static m a(ImageView imageView, int i, int i2, int i3) {
@@ -36,19 +36,19 @@ public class m {
 
     public m(ImageView imageView, int i, int i2, int i3) {
         this.mBitmap = null;
-        this.aou = cF(i);
-        this.aow = new SoftReference<>(imageView);
-        this.aox = 1000 / i2;
-        this.aoz = i3;
-        imageView.setImageResource(this.aou[0]);
+        this.aov = cF(i);
+        this.aox = new SoftReference<>(imageView);
+        this.aoy = 1000 / i2;
+        this.aoA = i3;
+        imageView.setImageResource(this.aov[0]);
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
                 this.mBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-                this.aoA = new BitmapFactory.Options();
-                this.aoA.inBitmap = this.mBitmap;
-                this.aoA.inMutable = true;
-                this.aoA.inSampleSize = 1;
+                this.aoB = new BitmapFactory.Options();
+                this.aoB.inBitmap = this.mBitmap;
+                this.aoB.inMutable = true;
+                this.aoB.inSampleSize = 1;
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -56,32 +56,32 @@ public class m {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int yn() {
+    public int yl() {
         this.mIndex++;
-        if (this.mIndex + 1 >= this.aou.length) {
+        if (this.mIndex + 1 >= this.aov.length) {
             this.times++;
         }
-        if (this.mIndex >= this.aou.length) {
+        if (this.mIndex >= this.aov.length) {
             this.mIndex = 0;
         }
-        return this.aou[this.mIndex];
+        return this.aov[this.mIndex];
     }
 
     public synchronized void b(ImageView imageView) {
-        this.aov = true;
-        if (!this.Bl) {
-            if (this.aow.get() == null) {
-                this.aow = new SoftReference<>(imageView);
+        this.aow = true;
+        if (!this.Bm) {
+            if (this.aox.get() == null) {
+                this.aox = new SoftReference<>(imageView);
             }
             this.mHandler.post(new Runnable() { // from class: com.baidu.tbadk.core.util.m.1
                 @Override // java.lang.Runnable
                 public void run() {
                     Bitmap bitmap;
-                    ImageView imageView2 = (ImageView) m.this.aow.get();
-                    if (!m.this.aov || imageView2 == null || m.this.times > m.this.aoz) {
-                        m.this.Bl = false;
-                        if (m.this.aoy != null) {
-                            m.this.aoy.yo();
+                    ImageView imageView2 = (ImageView) m.this.aox.get();
+                    if (!m.this.aow || imageView2 == null || m.this.times > m.this.aoA) {
+                        m.this.Bm = false;
+                        if (m.this.aoz != null) {
+                            m.this.aoz.ym();
                         }
                         if (m.this.mBitmap != null && !m.this.mBitmap.isRecycled()) {
                             m.this.mBitmap.recycle();
@@ -90,13 +90,13 @@ public class m {
                         }
                         return;
                     }
-                    m.this.Bl = true;
-                    m.this.mHandler.postDelayed(this, m.this.aox);
+                    m.this.Bm = true;
+                    m.this.mHandler.postDelayed(this, m.this.aoy);
                     if (imageView2.isShown()) {
-                        int yn = m.this.yn();
+                        int yl = m.this.yl();
                         if (m.this.mBitmap != null && !m.this.mBitmap.isRecycled()) {
                             try {
-                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), yn, m.this.aoA);
+                                bitmap = BitmapFactory.decodeResource(imageView2.getResources(), yl, m.this.aoB);
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 bitmap = null;
@@ -105,12 +105,12 @@ public class m {
                                 imageView2.setImageBitmap(bitmap);
                                 return;
                             }
-                            imageView2.setImageResource(yn);
+                            imageView2.setImageResource(yl);
                             m.this.mBitmap.recycle();
                             m.this.mBitmap = null;
                             return;
                         }
-                        imageView2.setImageResource(yn);
+                        imageView2.setImageResource(yl);
                     }
                 }
             });
@@ -118,15 +118,15 @@ public class m {
     }
 
     public synchronized void stop() {
-        this.aov = false;
-        this.aow.clear();
-        this.Bl = false;
+        this.aow = false;
+        this.aox.clear();
+        this.Bm = false;
         this.mIndex = -1;
         this.times = 1;
     }
 
     public void a(a aVar) {
-        this.aoy = aVar;
+        this.aoz = aVar;
     }
 
     private int[] cF(int i) {

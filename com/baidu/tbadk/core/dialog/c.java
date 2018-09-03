@@ -7,12 +7,12 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
     private TextView ald;
     private CircleView ale;
-    private FrameLayout alf;
+    private FrameLayout mFrameLayout;
     private String mMessage;
     private TextView mTextView;
 
@@ -25,17 +25,17 @@ public class c extends AlertDialog {
         super.show();
         Window window = getWindow();
         if (window != null) {
-            window.setContentView(d.h.progress_dialog);
-            this.alf = (FrameLayout) window.findViewById(d.g.frame_progress_dialog);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.alf.getLayoutParams();
-            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(d.e.ds32);
-            this.alf.setLayoutParams(layoutParams);
+            window.setContentView(f.h.progress_dialog);
+            this.mFrameLayout = (FrameLayout) window.findViewById(f.g.frame_progress_dialog);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mFrameLayout.getLayoutParams();
+            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(f.e.ds32);
+            this.mFrameLayout.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.ald = (TextView) window.findViewById(d.g.text_progress_dialog_message);
+                this.ald = (TextView) window.findViewById(f.g.text_progress_dialog_message);
                 this.ald.setText(this.mMessage);
             }
-            this.mTextView = (TextView) window.findViewById(d.g.text_progress_dialog_percent);
-            this.ale = (CircleView) window.findViewById(d.g.circle_progress_dialog);
+            this.mTextView = (TextView) window.findViewById(f.g.text_progress_dialog_percent);
+            this.ale = (CircleView) window.findViewById(f.g.circle_progress_dialog);
         }
     }
 

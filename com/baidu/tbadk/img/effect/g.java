@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class g extends b {
-    public String aRg = "";
+    public String aRd = "";
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -22,8 +22,8 @@ public class g extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.IQ().fe(BitmapHelper.getBitmapSize(bitmap) * 2);
-        return BitmapHelper.loadResizedBitmap(this.aRg, l.ah(TbadkCoreApplication.getInst()), l.aj(TbadkCoreApplication.getInst()));
+        com.baidu.tbadk.imageManager.c.IQ().fd(BitmapHelper.getBitmapSize(bitmap) * 2);
+        return BitmapHelper.loadResizedBitmap(this.aRd, l.ah(TbadkCoreApplication.getInst()), l.aj(TbadkCoreApplication.getInst()));
     }
 
     @Override // com.baidu.tbadk.img.effect.b
@@ -32,6 +32,6 @@ public class g extends b {
     }
 
     public void setPath(String str) {
-        this.aRg = str;
+        this.aRd = str;
     }
 }

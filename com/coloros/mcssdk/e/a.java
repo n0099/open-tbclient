@@ -5,21 +5,21 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long hDO;
-    long hDP;
-    int hDQ;
-    String hDS;
+    long hDQ;
+    long hDR;
+    int hDS;
+    String hDU;
     String title;
-    String hDR = "08:00-22:00";
-    int hDT = 0;
-    int hDU = 0;
+    String hDT = "08:00-22:00";
+    int hDV = 0;
+    int hDW = 0;
 
     public void de(long j) {
-        this.hDO = j;
+        this.hDQ = j;
     }
 
     public void df(long j) {
-        this.hDP = j;
+        this.hDR = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -37,42 +37,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hEa);
-        sb.append(",taskID:" + this.hEb);
+        sb.append("messageID:" + this.hEc);
+        sb.append(",taskID:" + this.hEd);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hDS);
+        sb.append(",rule:" + this.hDU);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hDQ);
-        sb.append(",startTime:" + this.hDO);
-        sb.append(",endTime:" + this.hDP);
-        sb.append(",balanceTime:" + this.hDQ);
-        sb.append(",timeRanges:" + this.hDR);
-        sb.append(",forcedDelivery:" + this.hDT);
-        sb.append(",distinctBycontent:" + this.hDU);
+        sb.append(",balanceTime:" + this.hDS);
+        sb.append(",startTime:" + this.hDQ);
+        sb.append(",endTime:" + this.hDR);
+        sb.append(",balanceTime:" + this.hDS);
+        sb.append(",timeRanges:" + this.hDT);
+        sb.append(",forcedDelivery:" + this.hDV);
+        sb.append(",distinctBycontent:" + this.hDW);
         return sb.toString();
     }
 
     public void vP(int i) {
-        this.hDQ = i;
+        this.hDS = i;
     }
 
     public void vQ(int i) {
-        this.hDT = i;
+        this.hDV = i;
     }
 
     public void vR(int i) {
-        this.hDU = i;
+        this.hDW = i;
     }
 
-    public void ws(String str) {
+    public void ww(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hDR = str;
+        this.hDT = str;
     }
 
-    public void wt(String str) {
-        this.hDS = str;
+    public void wx(String str) {
+        this.hDU = str;
     }
 }

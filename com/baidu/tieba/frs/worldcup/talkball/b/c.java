@@ -7,34 +7,34 @@ import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.Country;
 /* loaded from: classes3.dex */
 public class c {
-    private List<d> dLV;
-    private String dLW;
+    private List<d> dLR;
+    private String dLS;
     private long mTime;
     private String mType;
 
     public void a(Competition competition) {
         if (competition != null) {
-            this.dLV = new ArrayList();
+            this.dLR = new ArrayList();
             List<Country> list = competition.country;
             if (list != null) {
                 for (Country country : list) {
                     d dVar = new d();
                     dVar.a(country);
-                    this.dLV.add(dVar);
+                    this.dLR.add(dVar);
                 }
             }
             this.mTime = competition.time.longValue() * 1000;
             this.mType = competition.type;
-            this.dLW = competition.btn_title;
+            this.dLS = competition.btn_title;
         }
     }
 
-    public boolean aBC() {
-        return this.dLV.size() == 2 && this.dLV.get(0).aBC() && this.dLV.get(1).aBC() && !ap.isEmpty(this.mType) && this.mTime > 0 && !ap.isEmpty(this.dLW);
+    public boolean aBz() {
+        return this.dLR.size() == 2 && this.dLR.get(0).aBz() && this.dLR.get(1).aBz() && !ap.isEmpty(this.mType) && this.mTime > 0 && !ap.isEmpty(this.dLS);
     }
 
-    public List<d> aBD() {
-        return this.dLV;
+    public List<d> aBA() {
+        return this.dLR;
     }
 
     public long getTime() {
@@ -45,7 +45,7 @@ public class c {
         return this.mType;
     }
 
-    public String aBE() {
-        return this.dLW;
+    public String aBB() {
+        return this.dLS;
     }
 }

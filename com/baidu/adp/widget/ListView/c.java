@@ -23,9 +23,9 @@ public abstract class c implements BdSwipeRefreshLayout.b {
 
     public abstract void nq();
 
-    public abstract void nr();
+    public abstract void refreshing();
 
-    public abstract void ns();
+    public abstract void releaseToRefresh();
 
     public c(Context context) {
         this.mContext = null;
@@ -59,7 +59,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         }
     }
 
-    public boolean nt() {
+    public boolean nr() {
         return this.LD;
     }
 
@@ -83,7 +83,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int nu() {
+    public int ns() {
         return this.LE;
     }
 
@@ -94,18 +94,18 @@ public abstract class c implements BdSwipeRefreshLayout.b {
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onReleaseToRefresh() {
-        nq();
+        releaseToRefresh();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onRefreshing() {
-        nr();
+        refreshing();
         aa(true);
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void nv() {
-        ns();
+    public void nt() {
+        nq();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -118,7 +118,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public long nw() {
+    public long nu() {
         return 0L;
     }
 }

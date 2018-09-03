@@ -44,7 +44,7 @@ public final class a {
         if (Sw) {
             Sw = false;
             Sx = System.currentTimeMillis();
-            if (com.baidu.crabsdk.c.c.pj() >= 14) {
+            if (com.baidu.crabsdk.c.c.pg() >= 14) {
                 application.registerActivityLifecycleCallbacks(new b());
             }
         }
@@ -70,36 +70,22 @@ public final class a {
     }
 
     public static void doActivityStart(Activity activity) {
-        if (com.baidu.crabsdk.c.c.pj() < 14) {
+        if (com.baidu.crabsdk.c.c.pg() < 14) {
             a(activity);
         }
     }
 
     public static void doActivityStop(Activity activity) {
-        if (com.baidu.crabsdk.c.c.pj() < 14) {
+        if (com.baidu.crabsdk.c.c.pg() < 14) {
             b(activity);
         }
     }
 
-    public static String p() {
-        StringBuilder sb = new StringBuilder();
-        int size = Su.size();
-        for (int i = 0; i < size; i++) {
-            List list = Su.get((size - i) - 1);
-            if (list.size() == 3) {
-                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.e((Date) list.get(2))).append("\n");
-            } else if (list.size() == 2) {
-                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ...\n");
-            }
-        }
-        return sb.toString();
-    }
-
-    public static long pb() {
+    public static long oY() {
         return Sx;
     }
 
-    public static byte[] pc() {
+    public static byte[] oZ() {
         if (St == null) {
             return new byte[0];
         }
@@ -118,6 +104,20 @@ public final class a {
             com.baidu.crabsdk.c.a.b("getScreenshot failed, curActivity " + St.getClass().getName(), e);
         }
         return byteArrayOutputStream.toByteArray();
+    }
+
+    public static String p() {
+        StringBuilder sb = new StringBuilder();
+        int size = Su.size();
+        for (int i = 0; i < size; i++) {
+            List list = Su.get((size - i) - 1);
+            if (list.size() == 3) {
+                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.e((Date) list.get(2))).append("\n");
+            } else if (list.size() == 2) {
+                sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ...\n");
+            }
+        }
+        return sb.toString();
     }
 
     public static String q() {

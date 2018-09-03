@@ -12,54 +12,54 @@ import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final m<PointF, PointF> nA;
-    private final g nB;
-    private final b nC;
-    private final d nD;
-    @Nullable
-    private final b nE;
+    private final e nA;
+    private final m<PointF, PointF> nB;
+    private final g nC;
+    private final b nD;
+    private final d nE;
     @Nullable
     private final b nF;
-    private final e nz;
+    @Nullable
+    private final b nG;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nz = eVar;
-        this.nA = mVar;
-        this.nB = gVar;
-        this.nC = bVar;
-        this.nD = dVar;
-        this.nE = bVar2;
-        this.nF = bVar3;
+        this.nA = eVar;
+        this.nB = mVar;
+        this.nC = gVar;
+        this.nD = bVar;
+        this.nE = dVar;
+        this.nF = bVar2;
+        this.nG = bVar3;
     }
 
     public e ct() {
-        return this.nz;
-    }
-
-    public m<PointF, PointF> cu() {
         return this.nA;
     }
 
-    public g cv() {
+    public m<PointF, PointF> cu() {
         return this.nB;
     }
 
-    public b cw() {
+    public g cv() {
         return this.nC;
     }
 
-    public d cx() {
+    public b cw() {
         return this.nD;
     }
 
-    @Nullable
-    public b cy() {
+    public d cx() {
         return this.nE;
     }
 
     @Nullable
-    public b cz() {
+    public b cy() {
         return this.nF;
+    }
+
+    @Nullable
+    public b cz() {
+        return this.nG;
     }
 
     public p cA() {

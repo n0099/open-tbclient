@@ -5,32 +5,32 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private boolean eKg;
+    private boolean eKb;
     private boolean isBlockedPic;
     private boolean isLongPic;
-    private String eKd = null;
+    private String eJY = null;
     private String imageUrl = null;
-    private String bfC = null;
+    private String bfD = null;
     private int width = 0;
     private int height = 0;
-    private String eKe = null;
+    private String eJZ = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
     private int index = -1;
     private long overAllIndex = 0;
-    private String eKf = null;
+    private String eKa = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String aPM() {
-        return this.eKd;
+    public String aPJ() {
+        return this.eJY;
     }
 
-    public String aPN() {
-        return this.eKf;
+    public String aPK() {
+        return this.eKa;
     }
 
     public int getWidth() {
@@ -45,12 +45,12 @@ public class f {
         return this.index;
     }
 
-    public String NO() {
-        return this.bfC;
+    public String NN() {
+        return this.bfD;
     }
 
-    public String NV() {
-        return this.eKe;
+    public String NU() {
+        return this.eJZ;
     }
 
     public long getOriginalSize() {
@@ -65,11 +65,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean aPO() {
-        return this.eKg;
+    public boolean aPL() {
+        return this.eKb;
     }
 
-    public boolean aPP() {
+    public boolean aPM() {
         return this.isBlockedPic;
     }
 
@@ -77,7 +77,7 @@ public class f {
         return this.isLongPic;
     }
 
-    public long aPQ() {
+    public long aPN() {
         return this.overAllIndex;
     }
 
@@ -85,19 +85,19 @@ public class f {
         JSONObject optJSONObject;
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
-            this.eKf = jSONObject.optString("post_id");
-            this.eKg = jSONObject.optInt("show_original_btn") == 1;
+            this.eKa = jSONObject.optString("post_id");
+            this.eKb = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
             JSONObject optJSONObject2 = jSONObject.optJSONObject(SocialConstants.PARAM_IMG_URL);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.eKd = optJSONObject.optString("id");
+                this.eJY = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.bfC = optJSONObject.optString("big_cdn_src", null);
-                this.eKe = optJSONObject.optString("original_src");
+                this.bfD = optJSONObject.optString("big_cdn_src", null);
+                this.eJZ = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt("size");
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("pic_tagname");

@@ -8,17 +8,17 @@ import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.HorizontalListView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private HorizontalListView hge;
-    private d hxD;
+    private HorizontalListView hgf;
+    private d hxF;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.hxD.b(cVar);
+        this.hxF.b(cVar);
     }
 
     public c(e eVar) {
@@ -27,10 +27,10 @@ public class c extends a {
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(d.h.pic_sticker_view, (ViewGroup) null);
-        this.hge = (HorizontalListView) this.mRootView.findViewById(d.g.horizontal_list);
-        this.hxD = new com.baidu.tieba.write.write.d();
-        this.hge.setAdapter((ListAdapter) this.hxD);
+        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(f.h.pic_sticker_view, (ViewGroup) null);
+        this.hgf = (HorizontalListView) this.mRootView.findViewById(f.g.horizontal_list);
+        this.hxF = new d();
+        this.hgf.setAdapter((ListAdapter) this.hxF);
     }
 
     public View getRootView() {
@@ -38,17 +38,17 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        am.j(this.mRootView, d.C0140d.cp_bg_line_d);
+        am.j(this.mRootView, f.d.cp_bg_line_d);
     }
 
     public void dS(List<String> list) {
         if (!w.z(list)) {
-            this.hxD.setData(list);
-            this.hxD.notifyDataSetChanged();
+            this.hxF.setData(list);
+            this.hxF.notifyDataSetChanged();
         }
     }
 
-    public void bHa() {
-        this.hxD.notifyDataSetChanged();
+    public void bHe() {
+        this.hxF.notifyDataSetChanged();
     }
 }

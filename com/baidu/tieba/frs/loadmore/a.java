@@ -6,7 +6,7 @@ import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes2.dex */
 public interface a extends FrsLoadMoreModel.a {
-    l auD();
+    l auC();
 
     String getForumName();
 

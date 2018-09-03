@@ -35,7 +35,7 @@ public class am {
         }
     }
 
-    public int uu() {
+    public int ut() {
         return this.agD;
     }
 
@@ -43,7 +43,7 @@ public class am {
         this.agD = i;
     }
 
-    public ArrayList<a> uv() {
+    public ArrayList<a> uu() {
         return this.agE;
     }
 

@@ -8,13 +8,13 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 public interface e<T extends ICardInfo> {
     void T(Object obj);
 
+    void aRA();
+
+    void aRB();
+
+    void aRC();
+
     void aRD();
-
-    void aRE();
-
-    void aRF();
-
-    void aRG();
 
     void h(BdUniqueId bdUniqueId);
 

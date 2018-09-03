@@ -61,10 +61,10 @@ public class x implements Thread.UncaughtExceptionHandler {
         ByteArrayOutputStream byteArrayOutputStream;
         ByteArrayOutputStream byteArrayOutputStream2 = null;
         if (TbConfig.getDebugSwitch() && k(th)) {
-            LA();
+            LE();
         }
-        int LB = LB();
-        if (LD()) {
+        int LF = LF();
+        if (LH()) {
             return;
         }
         try {
@@ -81,7 +81,7 @@ public class x implements Thread.UncaughtExceptionHandler {
                         this.aWK.info = new String(byteArray);
                         this.aWK.mExcep = th;
                     }
-                    Lz();
+                    LD();
                     if (!z) {
                         a(thread, th);
                     }
@@ -89,8 +89,8 @@ public class x implements Thread.UncaughtExceptionHandler {
                     if (!TextUtils.isEmpty(this.aWK.info)) {
                         BdLog.e(this.aWK.info);
                     }
-                    BdLog.e("hourCrash = " + LB);
-                    if (LB >= LC()) {
+                    BdLog.e("hourCrash = " + LF);
+                    if (LF >= LG()) {
                         b(thread, th);
                     }
                     com.baidu.adp.lib.util.n.b((OutputStream) printStream);
@@ -171,7 +171,7 @@ public class x implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void Lz() {
+    private void LD() {
         if (this.aWK != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016301, this.aWK));
             if (this.aWK.appendInfo != null) {
@@ -202,7 +202,7 @@ public class x implements Thread.UncaughtExceptionHandler {
                     if (ed != null && ed.length() < TbConfig.FATAL_ERROR_FILE_MAX_SIZE) {
                         fileWriter = new FileWriter(ed, true);
                         try {
-                            a(fileWriter, ap.zt(), (String) null);
+                            a(fileWriter, ap.zr(), (String) null);
                             a(fileWriter, "tieba_crash_new_info", (String) null);
                             a(fileWriter, "version", TbConfig.getVersion());
                             a(fileWriter, "model", Build.MODEL);
@@ -217,7 +217,7 @@ public class x implements Thread.UncaughtExceptionHandler {
                             }
                             a(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
                             a(fileWriter, "uname", TbadkCoreApplication.getCurrentAccountName());
-                            a(fileWriter, PushConstants.INTENT_ACTIVITY_NAME, ax.zJ());
+                            a(fileWriter, PushConstants.INTENT_ACTIVITY_NAME, ax.zH());
                             a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
                             a(fileWriter, "crash_type", th.getClass().getName());
                             StringBuilder sb = new StringBuilder();
@@ -351,7 +351,7 @@ public class x implements Thread.UncaughtExceptionHandler {
         return false;
     }
 
-    private void LA() {
+    private void LE() {
         try {
             File file = new File(aWL);
             if (!file.exists()) {
@@ -363,7 +363,7 @@ public class x implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private int LB() {
+    private int LF() {
         int i;
         long j = 0;
         String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log";
@@ -389,11 +389,11 @@ public class x implements Thread.UncaughtExceptionHandler {
         return i2;
     }
 
-    private int LC() {
+    private int LG() {
         return com.baidu.adp.lib.stats.switchs.a.iW().getMaxAlertCount("alert_crash", 5);
     }
 
-    private boolean LD() {
+    private boolean LH() {
         int i;
         int i2;
         int i3 = 10;
@@ -405,7 +405,7 @@ public class x implements Thread.UncaughtExceptionHandler {
         } catch (Throwable th) {
             i3 = 100;
         }
-        int zu = ap.zu();
+        int zs = ap.zs();
         String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_upload_info.log";
         byte[] ej = com.baidu.tbadk.core.util.l.ej(str);
         String str2 = null;
@@ -413,27 +413,27 @@ public class x implements Thread.UncaughtExceptionHandler {
             str2 = new String(ej);
         }
         if (TextUtils.isEmpty(str2)) {
-            i = zu;
+            i = zs;
             i2 = 0;
         } else {
             String[] split = str2.split(SystemInfoUtil.COLON);
             if (split == null || split.length != 2) {
-                i = zu;
+                i = zs;
                 i2 = 0;
             } else {
                 int g = com.baidu.adp.lib.g.b.g(split[0], 0);
-                int g2 = com.baidu.adp.lib.g.b.g(split[1], zu);
+                int g2 = com.baidu.adp.lib.g.b.g(split[1], zs);
                 i2 = g;
                 i = g2;
             }
         }
-        if (i != zu) {
+        if (i != zs) {
             i2 = 0;
         }
         if (i2 > i3) {
             return true;
         }
-        com.baidu.tbadk.core.util.l.h(str, ((i2 + 1) + SystemInfoUtil.COLON + zu).getBytes());
+        com.baidu.tbadk.core.util.l.h(str, ((i2 + 1) + SystemInfoUtil.COLON + zs).getBytes());
         return false;
     }
 

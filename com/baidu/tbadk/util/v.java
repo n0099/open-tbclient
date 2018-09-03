@@ -68,7 +68,7 @@ public class v {
         }
     }
 
-    public static void Ly() {
+    public static void LC() {
         BdAsyncTask.removeAllTask(aWG);
     }
 }

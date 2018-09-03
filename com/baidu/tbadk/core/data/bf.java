@@ -9,7 +9,7 @@ public class bf {
     private int akg = 0;
     private String link = "";
 
-    public int wT() {
+    public int wS() {
         return this.akf;
     }
 

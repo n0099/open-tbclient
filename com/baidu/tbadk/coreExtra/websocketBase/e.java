@@ -8,8 +8,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class e {
-    private boolean aKj = false;
-    private int aKk = 0;
+    private boolean aKg = false;
+    private int aKh = 0;
 
     public void gl(String str) {
         int lastIndexOf;
@@ -17,8 +17,8 @@ public class e {
         Exception e;
         int i;
         int i2;
-        this.aKj = false;
-        this.aKk = 0;
+        this.aKg = false;
+        this.aKh = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(SystemInfoUtil.COLON)) >= 5) {
             String str3 = null;
             try {
@@ -49,7 +49,7 @@ public class e {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.aKj = true;
+                                this.aKg = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -80,19 +80,19 @@ public class e {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.aKj && i4 > 0) {
-                    this.aKk = i3 / i4;
+                if (this.aKg && i4 > 0) {
+                    this.aKh = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.aKj;
+        return this.aKg;
     }
 
     public int GE() {
-        return this.aKk;
+        return this.aKh;
     }
 
     private int getTimeout() {

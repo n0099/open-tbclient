@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    private HTypeListView bnZ;
-    private c fTq;
-    private b fTr;
-    private a fTs;
+    private HTypeListView bob;
+    private c fTi;
+    private b fTj;
+    private a fTk;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.bnZ = hTypeListView;
+        this.bob = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.fTq = new c(this.mTbPageContext, j.aqv);
-        this.fTr = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.fTA);
-        this.fTs = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.fTa);
-        this.mAdapters.add(this.fTq);
-        this.mAdapters.add(this.fTr);
-        this.mAdapters.add(this.fTs);
-        this.bnZ.addAdapters(this.mAdapters);
+        this.fTi = new c(this.mTbPageContext, j.aqw);
+        this.fTj = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.fTs);
+        this.fTk = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.fSS);
+        this.mAdapters.add(this.fTi);
+        this.mAdapters.add(this.fTj);
+        this.mAdapters.add(this.fTk);
+        this.bob.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<h> list) {
-        if (this.bnZ != null) {
-            this.bnZ.setData(list);
+        if (this.bob != null) {
+            this.bob.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.bnZ != null && (this.bnZ.getAdapter() instanceof q)) {
-            ((q) this.bnZ.getAdapter()).notifyDataSetChanged();
+        if (this.bob != null && (this.bob.getAdapter() instanceof q)) {
+            ((q) this.bob.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.fTq.u(onClickListener);
-        this.fTr.u(onClickListener);
+        this.fTi.u(onClickListener);
+        this.fTj.u(onClickListener);
     }
 }

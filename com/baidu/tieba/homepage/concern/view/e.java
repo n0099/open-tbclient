@@ -5,10 +5,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.view.ThreadLinkView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class e extends d {
-    private ThreadLinkView czD;
+    private ThreadLinkView czA;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -17,36 +17,36 @@ public class e extends d {
     @Override // com.baidu.tieba.homepage.concern.view.d
     protected void ah(View view) {
         if (view != null) {
-            this.czD = (ThreadLinkView) view.findViewById(d.g.card_recommend_god_link_therad);
-            this.czD.setTag(getTag());
+            this.czA = (ThreadLinkView) view.findViewById(f.g.card_recommend_god_link_therad);
+            this.czA.setTag(getTag());
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.card_recgod_link;
+        return f.h.card_recgod_link;
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
     protected void af(bb bbVar) {
         if (bbVar != null && !StringUtils.isNull(bbVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.dUe);
+                getView().setOnClickListener(this.dTZ);
             }
-            this.czD.setData(bbVar);
+            this.czA.setData(bbVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void aiE() {
-        super.aiE();
-        this.czD.fq(this.buw.getId());
+    public void aiH() {
+        super.aiH();
+        this.czA.fq(this.buy.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.czD.onChangeSkinType();
+        this.czA.onChangeSkinType();
     }
 }

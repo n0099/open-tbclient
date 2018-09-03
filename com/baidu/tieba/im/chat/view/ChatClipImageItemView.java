@@ -15,20 +15,20 @@ import com.baidu.adp.newwidget.ImageView.m;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
     private final Path Gh;
-    public j enZ;
-    private boolean eoa;
-    private a eob;
+    public j enV;
+    private boolean enW;
+    private a enX;
     private boolean isLeft;
     public int position;
 
     /* loaded from: classes.dex */
     public interface a {
-        void z(Canvas canvas);
+        void y(Canvas canvas);
     }
 
     public ChatClipImageItemView(Context context) {
@@ -44,8 +44,8 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = true;
         this.position = 0;
         this.Gh = new Path();
-        this.eoa = true;
-        this.eob = null;
+        this.enW = true;
+        this.enX = null;
         b(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             }
         }
         if (z) {
-            this.enZ = new g();
+            this.enV = new g();
         } else {
-            this.enZ = new m();
+            this.enV = new m();
         }
         this.mArgs.Gb = true;
-        this.enZ.a(this);
-        this.mDrawer = this.enZ;
+        this.enV.a(this);
+        this.mDrawer = this.enV;
         this.mDrawer.a(this.mArgs);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.enZ.kZ();
+        this.enV.kZ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.enZ.kZ();
-        } else if (!this.eoa) {
-            this.enZ.kY();
+            this.enV.kZ();
+        } else if (!this.enW) {
+            this.enV.kY();
             invalidate();
         } else {
-            this.eoa = false;
+            this.enW = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = z;
     }
 
-    public void aHW() {
-        this.enZ.kY();
-        this.enZ.P(true);
+    public void aHT() {
+        this.enV.kY();
+        this.enV.P(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -127,7 +127,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
         boolean z3 = bdImage != null && bdImage.nc();
-        j jVar = this.enZ;
+        j jVar = this.enV;
         if (z3 || z2) {
             z = true;
         }
@@ -138,7 +138,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.enZ.P(false);
+        this.enV.P(false);
         return super.getDefaultBdImage();
     }
 
@@ -197,21 +197,21 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.j.a
-    public void f(Canvas canvas) {
+    public void e(Canvas canvas) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.eob == null) {
-            am.e(this, d.C0140d.cp_bg_line_c, 0);
+        if (this.enX == null) {
+            am.e(this, f.d.cp_bg_line_c, 0);
         } else {
-            this.eob.z(canvas);
+            this.enX.y(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.eob = aVar;
+        this.enX = aVar;
     }
 }

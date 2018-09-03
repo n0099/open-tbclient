@@ -10,9 +10,9 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class b implements e {
-    private boolean fhW = false;
-    private boolean fhX = false;
-    private e.a fhY;
+    private boolean fhQ = false;
+    private boolean fhR = false;
+    private e.a fhS;
     private String mLocalPath;
 
     public b(String str) {
@@ -21,15 +21,15 @@ public class b implements e {
 
     @Override // com.baidu.tieba.j.e
     public void a(e.a aVar) {
-        this.fhY = aVar;
+        this.fhS = aVar;
     }
 
     @Override // com.baidu.tieba.j.e
-    public void aVC() {
+    public void aVy() {
         if (f.Fg()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.fY(this.mLocalPath)) {
-                if (this.fhY != null) {
-                    this.fhY.pR(2);
+                if (this.fhS != null) {
+                    this.fhS.pR(2);
                     return;
                 }
                 return;
@@ -38,11 +38,11 @@ public class b implements e {
                 @Override // com.baidu.tieba.k.a.b
                 public void pV(int i) {
                     if (i == 1) {
-                        b.this.fhW = true;
-                        b.this.aWg();
+                        b.this.fhQ = true;
+                        b.this.aWc();
                     }
-                    if (b.this.fhY != null) {
-                        b.this.fhY.pR(i);
+                    if (b.this.fhS != null) {
+                        b.this.fhS.pR(i);
                     }
                 }
             });
@@ -50,11 +50,11 @@ public class b implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWg() {
+    public void aWc() {
         if (f.Fg()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.fY(this.mLocalPath)) {
-                if (this.fhY != null) {
-                    this.fhY.onChange(false);
+                if (this.fhS != null) {
+                    this.fhS.onChange(false);
                     return;
                 }
                 return;
@@ -62,11 +62,11 @@ public class b implements e {
             a.a(this.mLocalPath, this.mLocalPath + "_moov_head_suffix", new a.InterfaceC0188a() { // from class: com.baidu.tieba.k.b.2
                 @Override // com.baidu.tieba.k.a.InterfaceC0188a
                 public void iN(boolean z) {
-                    if (b.this.fhW && z) {
-                        b.this.fhX = true;
+                    if (b.this.fhQ && z) {
+                        b.this.fhR = true;
                     }
-                    if (b.this.fhY != null) {
-                        b.this.fhY.onChange(z);
+                    if (b.this.fhS != null) {
+                        b.this.fhS.onChange(z);
                     }
                 }
             });
@@ -74,11 +74,11 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.j.e
-    public void aVD() {
+    public void aVz() {
         if (f.Fg()) {
-            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.fhW || !this.fhX) {
-                if (this.fhY != null) {
-                    this.fhY.iL(false);
+            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.fhQ || !this.fhR) {
+                if (this.fhS != null) {
+                    this.fhS.iL(false);
                     return;
                 }
                 return;
@@ -99,8 +99,8 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (b.this.fhY != null) {
-                        b.this.fhY.iL(bool.booleanValue());
+                    if (b.this.fhS != null) {
+                        b.this.fhS.iL(bool.booleanValue());
                     }
                 }
             }.execute(this.mLocalPath);
@@ -108,10 +108,10 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.j.e
-    public void aVE() {
+    public void aVA() {
         if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.fY(this.mLocalPath)) {
-            if (this.fhY != null) {
-                this.fhY.pR(2);
+            if (this.fhS != null) {
+                this.fhS.pR(2);
                 return;
             }
             return;
@@ -123,9 +123,9 @@ public class b implements e {
             public Void doInBackground(String... strArr) {
                 if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
                     String str = strArr[0];
-                    int qz = a.qz(str);
-                    publishProgress(new c(1, qz));
-                    if (qz == 1) {
+                    int qC = a.qC(str);
+                    publishProgress(new c(1, qC));
+                    if (qC == 1) {
                         boolean bJ = a.bJ(str, str + "_moov_head_suffix");
                         c[] cVarArr = new c[1];
                         cVarArr[0] = new c(2, bJ ? 1 : 0);
@@ -150,15 +150,15 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.fhY != null) {
-                            b.this.fhY.pR(cVar.value);
+                        if (b.this.fhS != null) {
+                            b.this.fhS.pR(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.fhY != null) {
-                            b.this.fhY.onChange(cVar.value == 1);
+                        if (b.this.fhS != null) {
+                            b.this.fhS.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.fhY != null) {
-                        b.this.fhY.iL(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.fhS != null) {
+                        b.this.fhS.iL(cVar.value == 1);
                     }
                 }
             }

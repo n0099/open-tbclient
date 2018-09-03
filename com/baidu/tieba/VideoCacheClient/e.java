@@ -18,28 +18,28 @@ import java.net.URLEncoder;
 /* loaded from: classes2.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e bmb;
+    private static e bmf;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean bjv = false;
+    private boolean bjB = false;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
                 if (message.obj instanceof String) {
-                    e.this.ia((String) message.obj);
+                    e.this.ib((String) message.obj);
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    e.this.ih((String) message.obj);
+                    e.this.ii((String) message.obj);
                 }
             } else if (message.what == 3) {
                 d.ax(e.TAG, "got MSG_CHECK");
-                e.this.Qx();
+                e.this.QC();
                 e.this.mHandler.sendMessageDelayed(e.this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
             } else if (message.what == 4) {
-                e.this.Qy();
+                e.this.QD();
             } else if (message.what == 5 && (message.obj instanceof String)) {
                 int i = message.arg1;
                 e.this.F((String) message.obj, i);
@@ -50,27 +50,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.bjv = true;
-            com.baidu.adp.lib.g.e.in().removeCallbacks(e.this.bjD);
+            e.this.bjB = true;
+            com.baidu.adp.lib.g.e.in().removeCallbacks(e.this.bjJ);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.blM);
+            File file = new File(c.blR);
             if (file.exists()) {
                 file.delete();
             }
-            b.Qu().Qw();
-            e.this.bjv = false;
-            com.baidu.adp.lib.g.e.in().postDelayed(e.this.bjD, 1000L);
+            b.Qz().QB();
+            e.this.bjB = false;
+            com.baidu.adp.lib.g.e.in().postDelayed(e.this.bjJ, 1000L);
         }
     };
-    private Runnable bjD = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable bjJ = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.bjv) {
-                e.this.PC();
-                com.baidu.adp.lib.g.e.in().postDelayed(e.this.bjD, 1000L);
+            if (!e.this.bjB) {
+                e.this.PI();
+                com.baidu.adp.lib.g.e.in().postDelayed(e.this.bjJ, 1000L);
             }
         }
     };
@@ -85,15 +85,15 @@ public class e {
         this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
-    public static e bl(Context context) {
-        if (bmb == null) {
+    public static e bk(Context context) {
+        if (bmf == null) {
             synchronized (e.class) {
-                if (bmb == null) {
-                    bmb = new e(context);
+                if (bmf == null) {
+                    bmf = new e(context);
                 }
             }
         }
-        return bmb;
+        return bmf;
     }
 
     public void E(String str, int i) {
@@ -103,13 +103,13 @@ public class e {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void iu(String str) {
+    public void iv(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void iv(String str) {
+    public void iw(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
@@ -117,7 +117,7 @@ public class e {
 
     private void ay(String str, String str2) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.Qu().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.Qz().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             inputStream.read();
             inputStream.close();
@@ -133,17 +133,17 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ia(String str) {
+    public void ib(String str) {
         ay(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ih(String str) {
+    public void ii(String str) {
         ay(str, "?stop_cache=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qx() {
+    public void QC() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.mLastCheckTime >= 86400000) {
             ay("", "delete_expired_files");
@@ -156,11 +156,11 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qy() {
+    public void QD() {
         ay("", "clear_cache");
     }
 
-    public void PC() {
+    public void PI() {
         try {
             this.mContext.bindService(new Intent(this.mContext, VideoCacheService.class), this.mServiceConnection, 1);
         } catch (Exception e) {

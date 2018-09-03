@@ -17,11 +17,11 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     public i fYW;
-    public j gjI;
-    private b gjJ;
+    public j gjH;
+    private b gjI;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<h> bUa = new ArrayList<>();
+    private ArrayList<h> bTZ = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -30,19 +30,19 @@ public class a {
 
     private void p(TbPageContext<?> tbPageContext) {
         this.fYW = new i(tbPageContext);
-        this.gjI = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gbg);
-        this.gjJ = new d(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gjI.a(this.gjJ);
+        this.gjH = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gbg);
+        this.gjI = new d(tbPageContext, this, tbPageContext.getUniqueId());
+        this.gjH.a(this.gjI);
         this.mAdapters.add(this.fYW);
-        this.mAdapters.add(this.gjI);
+        this.mAdapters.add(this.gjH);
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void C(ArrayList<h> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.bUa.clear();
-            this.bUa.addAll(arrayList);
-            this.mListView.setData(this.bUa);
+            this.bTZ.clear();
+            this.bTZ.addAll(arrayList);
+            this.mListView.setData(this.bTZ);
         }
     }
 
@@ -58,15 +58,15 @@ public class a {
         }
     }
 
-    public boolean sn(String str) {
+    public boolean sq(String str) {
         boolean z;
         if (ap.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.bUa == null) {
+        if (this.mListView == null || this.bTZ == null) {
             return false;
         }
-        Iterator<h> it = this.bUa.iterator();
+        Iterator<h> it = this.bTZ.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -80,8 +80,8 @@ public class a {
             }
         }
         if (z) {
-            this.bUa = PersonPostModel.mergeDynamicThreadByTime(this.bUa);
-            this.mListView.setData(this.bUa);
+            this.bTZ = PersonPostModel.mergeDynamicThreadByTime(this.bTZ);
+            this.mListView.setData(this.bTZ);
             notifyDataSetChanged();
             return z;
         }

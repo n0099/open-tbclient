@@ -3,7 +3,7 @@ package com.baidu.tbadk.p;
 public class al extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
-        com.baidu.tbadk.l.m.KF().bY(1 == i);
+        com.baidu.tbadk.l.m.KJ().bZ(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a

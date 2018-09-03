@@ -66,23 +66,23 @@ public class ad {
         return this.linkUrl;
     }
 
-    public String uc() {
+    public String ub() {
         return this.agg;
     }
 
-    public String ud() {
+    public String uc() {
         return this.agh;
     }
 
-    public String ue() {
+    public String ud() {
         return this.agi;
     }
 
-    public int uf() {
+    public int ue() {
         return this.agj;
     }
 
-    public boolean ug() {
+    public boolean uf() {
         return this.agk;
     }
 }

@@ -25,13 +25,13 @@ public class r {
             this.afo = new o();
             ArrayList<q> arrayList = new ArrayList<>();
             q qVar = new q(this.imgUrl == null ? "" : this.imgUrl, this.afn == null ? "" : this.afn, null);
-            qVar.an(true);
+            qVar.ao(true);
             arrayList.add(qVar);
             this.afo.j(arrayList);
         }
     }
 
-    public String tU() {
+    public String tT() {
         return this.imgUrl;
     }
 }

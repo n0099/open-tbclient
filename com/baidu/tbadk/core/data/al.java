@@ -14,7 +14,7 @@ public class al {
     private int total_count = 0;
     private int agA = 0;
 
-    public int un() {
+    public int um() {
         return this.agz;
     }
 
@@ -22,7 +22,7 @@ public class al {
         this.agz = i;
     }
 
-    public int tD() {
+    public int tC() {
         return this.total_num;
     }
 
@@ -30,11 +30,11 @@ public class al {
         this.total_num = i;
     }
 
-    public int uo() {
+    public int un() {
         return this.total_count;
     }
 
-    public int up() {
+    public int uo() {
         return this.agA;
     }
 
@@ -42,7 +42,7 @@ public class al {
         this.agA = i;
     }
 
-    public int uq() {
+    public int up() {
         return this.current_page;
     }
 
@@ -50,7 +50,7 @@ public class al {
         this.current_page = i;
     }
 
-    public int ur() {
+    public int uq() {
         return this.agB;
     }
 
@@ -62,7 +62,7 @@ public class al {
         this.has_more = i;
     }
 
-    public int us() {
+    public int ur() {
         return this.has_more;
     }
 
@@ -70,7 +70,7 @@ public class al {
         this.agC = i;
     }
 
-    public int ut() {
+    public int us() {
         return this.agC;
     }
 

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class PushDialogUserLikeButton extends CommonUserLikeButton {
     public PushDialogUserLikeButton(Context context) {
@@ -25,18 +25,18 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.azn) {
+        if (this.azk) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            am.b(this, d.C0140d.cp_cont_d, 1, i);
+            am.b(this, f.d.cp_cont_d, 1, i);
             setBackgroundDrawable(null);
             return;
         }
-        int f = l.f(getContext(), d.e.tbds32);
-        Drawable drawable = ContextCompat.getDrawable(getContext(), d.f.icon_add_follow_blue_s);
+        int f = l.f(getContext(), f.e.tbds32);
+        Drawable drawable = ContextCompat.getDrawable(getContext(), f.C0146f.icon_add_follow_blue_s);
         drawable.setBounds(0, 0, f, f);
         setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-        setTextSize(0, l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds34));
-        setTextColor(ContextCompat.getColor(getContext(), d.C0140d.cp_cont_g));
-        setBackgroundResource(d.f.selector_like_btn);
+        setTextSize(0, l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds34));
+        setTextColor(ContextCompat.getColor(getContext(), f.d.cp_cont_g));
+        setBackgroundResource(f.C0146f.selector_like_btn);
     }
 }

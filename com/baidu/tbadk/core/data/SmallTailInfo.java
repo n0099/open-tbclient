@@ -6,7 +6,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -34,11 +34,11 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     }
 
     public void updateShowInfo() {
+        uI();
         uJ();
-        uK();
     }
 
-    private void uJ() {
+    private void uI() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -57,11 +57,11 @@ public class SmallTailInfo extends OrmObject implements Serializable {
         }
     }
 
-    private void uK() {
+    private void uJ() {
         try {
             this.showColorId = Color.parseColor(di(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(di(TbadkCoreApplication.getInst().getString(d.j.tail_color_default)));
+            this.showColorId = Color.parseColor(di(TbadkCoreApplication.getInst().getString(f.j.tail_color_default)));
         }
     }
 
@@ -70,8 +70,8 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             return null;
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            return TbadkCoreApplication.getInst().getString(d.j.color_prefix) + TbadkCoreApplication.getInst().getString(d.j.tail_color_night) + str;
+            return TbadkCoreApplication.getInst().getString(f.j.color_prefix) + TbadkCoreApplication.getInst().getString(f.j.tail_color_night) + str;
         }
-        return TbadkCoreApplication.getInst().getString(d.j.color_prefix) + str;
+        return TbadkCoreApplication.getInst().getString(f.j.color_prefix) + str;
     }
 }

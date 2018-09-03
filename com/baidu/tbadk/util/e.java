@@ -13,13 +13,13 @@ public class e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void al(boolean z);
+        void am(boolean z);
     }
 
     private e() {
     }
 
-    public static e Lf() {
+    public static e Lj() {
         return aWl;
     }
 
@@ -34,7 +34,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Lg() {
+    public boolean Lk() {
         int i;
         long j = 0;
         byte[] ej = com.baidu.tbadk.core.util.l.ej(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
@@ -70,7 +70,7 @@ public class e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(e.this.Lg());
+            return Boolean.valueOf(e.this.Lk());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             if (e.this.aWn != null && bool != null) {
-                e.this.aWn.al(bool.booleanValue());
+                e.this.aWn.am(bool.booleanValue());
             }
         }
     }

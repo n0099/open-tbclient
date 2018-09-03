@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.Anti;
+import tbclient.BannerImage;
 import tbclient.DealWindow;
 import tbclient.DynamicInfo;
 import tbclient.Feedback;
@@ -30,6 +31,7 @@ import tbclient.UserManChannelInfo;
 public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implements c {
     private static final String PROFILE_CACHE_KEY = "profile_cache_key";
     private Anti anti_stat;
+    private List<BannerImage> banner;
     public TbBookrack bookrack;
     private List<ForumDynamic> concernedForumList;
     private List<DynamicInfo> dynamicInfoList;
@@ -163,44 +165,47 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
             if (personCenterData != null) {
                 personCenterData.a(profileResIdl);
             }
-            this.userGodInfo = profileResIdl.data.user_god_info;
-            this.userManChannelInfo = profileResIdl.data.video_channel_info;
-            this.user = profileResIdl.data.user;
-            this.anti_stat = profileResIdl.data.anti_stat;
-            this.tainfo = profileResIdl.data.tainfo;
-            this.post_list = profileResIdl.data.post_list;
-            if (profileResIdl.data.uc_card != null) {
-                this.ucCardData = new g();
-                this.ucCardData.a(profileResIdl.data.uc_card);
-            }
-            this.bookrack = profileResIdl.data.tbbookrack;
-            this.highlist = profileResIdl.data.highs;
-            this.window = profileResIdl.data.window;
-            this.feedback = profileResIdl.data.feedback;
-            this.concernedForumList = profileResIdl.data.concerned_forum_list;
-            this.dynamicInfoList = profileResIdl.data.dynamic_list;
-            this.moduleInfo = profileResIdl.data.module_info;
-            if (profileResIdl.data.ala_live_info != null) {
-                this.liveInfoData = new AlaLiveInfoCoreData();
-                this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
-            }
-            if (!w.z(profileResIdl.data.ala_live_record)) {
-                this.liveReplayData = new ArrayList();
-                for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
-                    AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                    alaLiveInfoCoreData.parserProtoBuf(alaLiveInfo);
-                    this.liveReplayData.add(alaLiveInfoCoreData);
+            if (profileResIdl != null && profileResIdl.data != null) {
+                this.userGodInfo = profileResIdl.data.user_god_info;
+                this.userManChannelInfo = profileResIdl.data.video_channel_info;
+                this.user = profileResIdl.data.user;
+                this.anti_stat = profileResIdl.data.anti_stat;
+                this.tainfo = profileResIdl.data.tainfo;
+                this.post_list = profileResIdl.data.post_list;
+                if (profileResIdl.data.uc_card != null) {
+                    this.ucCardData = new g();
+                    this.ucCardData.a(profileResIdl.data.uc_card);
                 }
+                this.bookrack = profileResIdl.data.tbbookrack;
+                this.highlist = profileResIdl.data.highs;
+                this.window = profileResIdl.data.window;
+                this.feedback = profileResIdl.data.feedback;
+                this.concernedForumList = profileResIdl.data.concerned_forum_list;
+                this.dynamicInfoList = profileResIdl.data.dynamic_list;
+                this.moduleInfo = profileResIdl.data.module_info;
+                if (profileResIdl.data.ala_live_info != null) {
+                    this.liveInfoData = new AlaLiveInfoCoreData();
+                    this.liveInfoData.parserProtoBuf(profileResIdl.data.ala_live_info);
+                }
+                if (!w.z(profileResIdl.data.ala_live_record)) {
+                    this.liveReplayData = new ArrayList();
+                    for (AlaLiveInfo alaLiveInfo : profileResIdl.data.ala_live_record) {
+                        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                        alaLiveInfoCoreData.parserProtoBuf(alaLiveInfo);
+                        this.liveReplayData.add(alaLiveInfoCoreData);
+                    }
+                }
+                this.userAgreeInfo = profileResIdl.data.user_agree_info;
+                this.nicknameInfo = profileResIdl.data.nickname_info;
+                this.banner = profileResIdl.data.banner;
             }
-            this.userAgreeInfo = profileResIdl.data.user_agree_info;
-            this.nicknameInfo = profileResIdl.data.nickname_info;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> P = com.baidu.tbadk.core.c.a.xb().P("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        l<byte[]> P = com.baidu.tbadk.core.c.a.xa().P("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
             P.e(PROFILE_CACHE_KEY, bArr);
         }
@@ -211,15 +216,15 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         l<String> Q;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.ucCardData != null && (Q = com.baidu.tbadk.core.c.a.xb().Q("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
-            List<g.a> list = this.ucCardData.fTn;
+        if (this.ucCardData != null && (Q = com.baidu.tbadk.core.c.a.xa().Q("tb.person_wallet_new", TbadkCoreApplication.getCurrentAccount())) != null && this.isSelf) {
+            List<g.a> list = this.ucCardData.fTf;
             if (w.y(list) > 4) {
                 list.get(4).timeStamp = 8L;
                 for (g.a aVar : list) {
                     if (aVar.timeStamp > com.baidu.adp.lib.g.b.c(Q.get(aVar.title), 0L)) {
-                        aVar.fTo = true;
+                        aVar.fTg = true;
                     } else {
-                        aVar.fTo = false;
+                        aVar.fTg = false;
                     }
                 }
             }
@@ -257,5 +262,9 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage implement
     @Override // com.baidu.tieba.person.c
     public List<AlaLiveInfoCoreData> getLiveReplayInfo() {
         return this.liveReplayData;
+    }
+
+    public List<BannerImage> getBannerList() {
+        return this.banner;
     }
 }

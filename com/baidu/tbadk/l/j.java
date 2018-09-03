@@ -7,13 +7,13 @@ public class j extends l {
     public static int aUf = 100;
     public static int aUg = 10;
 
-    public static void KD() {
-        if (m.KF().KG()) {
+    public static void KH() {
+        if (m.KJ().KK()) {
             if (b.aUk > aUg) {
-                b.Kz();
+                b.KD();
             }
             if (a.aUh > aUg) {
-                a.Kz();
+                a.KD();
             }
         }
     }
@@ -26,14 +26,14 @@ public class j extends l {
             a.aUj++;
         }
         if (a.aUh > aUf) {
-            a.Kz();
+            a.KD();
         }
     }
 
     public void c(f fVar) {
-        if (m.KF().KG()) {
+        if (m.KJ().KK()) {
             if (b.aUk < aUf) {
-                b.aUl += fVar.zp;
+                b.aUl += fVar.zq;
                 b.aUm += fVar.aTD;
                 b.aUn += fVar.aTE;
                 b.aUo += fVar.aTF;
@@ -42,7 +42,7 @@ public class j extends l {
                 b.aUk++;
                 return;
             }
-            b.Kz();
+            b.KD();
         }
     }
 
@@ -53,7 +53,7 @@ public class j extends l {
         public static int aUi;
         public static int aUj;
 
-        public static void Kz() {
+        public static void KD() {
             com.baidu.adp.lib.stats.a ii = l.ii();
             ii.append(AuthActivity.ACTION_KEY, "imbusy");
             ii.append("totalNum", String.valueOf(aUh));
@@ -81,7 +81,7 @@ public class j extends l {
         public static int aUp;
         public static long aUq;
 
-        public static void Kz() {
+        public static void KD() {
             com.baidu.adp.lib.stats.a ii = l.ii();
             ii.append(AuthActivity.ACTION_KEY, "imcost");
             ii.append("dect", String.valueOf(aUl));
@@ -92,10 +92,10 @@ public class j extends l {
             ii.append(com.baidu.fsg.biometrics.base.b.c.i, String.valueOf(aUp));
             ii.append("totalNum", String.valueOf(aUk));
             BdStatisticsManager.getInstance().performance("im", ii);
-            KE();
+            KI();
         }
 
-        public static void KE() {
+        public static void KI() {
             aUk = 0;
             aUl = 0L;
             aUm = 0L;

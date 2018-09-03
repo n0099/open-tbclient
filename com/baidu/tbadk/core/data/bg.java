@@ -12,7 +12,7 @@ public class bg extends PostData {
     private int position = 0;
     private String summary;
 
-    public String wU() {
+    public String wT() {
         return this.agF;
     }
 

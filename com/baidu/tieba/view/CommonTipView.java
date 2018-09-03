@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
     private int mDuration;
@@ -23,8 +23,8 @@ public class CommonTipView extends TextView {
     public CommonTipView(Context context) {
         super(context);
         this.mDuration = 4000;
-        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), f.a.fade_out);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(f.e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -46,8 +46,8 @@ public class CommonTipView extends TextView {
     public CommonTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mDuration = 4000;
-        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), f.a.fade_out);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(f.e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -69,8 +69,8 @@ public class CommonTipView extends TextView {
     public CommonTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mDuration = 4000;
-        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), d.a.fade_out);
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mTipOutAnimation = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), f.a.fade_out);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(f.e.ds56), 0.0f);
         this.mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
             @Override // java.lang.Runnable
             public void run() {
@@ -90,7 +90,7 @@ public class CommonTipView extends TextView {
     }
 
     private void init() {
-        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds24));
+        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds24));
         setGravity(17);
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
             @Override // android.view.animation.Animation.AnimationListener
@@ -135,7 +135,7 @@ public class CommonTipView extends TextView {
 
     public void show(LinearLayout linearLayout, int i) {
         if (linearLayout != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds56));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds56));
             layoutParams.gravity = 48;
             linearLayout.addView(this, layoutParams);
             onChangeSkinType(i);
@@ -145,7 +145,7 @@ public class CommonTipView extends TextView {
 
     public void show(FrameLayout frameLayout, int i) {
         if (frameLayout != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds56));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds56));
             layoutParams.setMargins(0, 0, 0, 0);
             frameLayout.addView(this, layoutParams);
             onChangeSkinType(i);
@@ -167,8 +167,8 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        am.d(this, d.C0140d.common_color_10260, i);
-        am.b(this, d.C0140d.cp_cont_g, 1, i);
+        am.d(this, f.d.common_color_10260, i);
+        am.b(this, f.d.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {

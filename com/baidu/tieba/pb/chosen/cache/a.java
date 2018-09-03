@@ -7,13 +7,13 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.pb.chosen.net.a {
-    private UserInfo frF;
+    private UserInfo fry;
     private List<Post> postList;
     private ExcellentPbThreadInfo threadInfo;
     private List<User> userList;
 
     public a(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
-        this.frF = userInfo;
+        this.fry = userInfo;
         this.threadInfo = excellentPbThreadInfo;
         this.postList = list;
         this.userList = list2;
@@ -21,7 +21,7 @@ public class a implements com.baidu.tieba.pb.chosen.net.a {
 
     @Override // com.baidu.tieba.pb.chosen.net.a
     public UserInfo getUserInfo() {
-        return this.frF;
+        return this.fry;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a

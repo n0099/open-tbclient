@@ -7,7 +7,7 @@ import java.io.Writer;
 /* loaded from: classes2.dex */
 public final class f {
     public static void b(h hVar, com.google.gson.stream.a aVar) throws IOException {
-        k.hHW.a(aVar, hVar);
+        k.hHD.a(aVar, hVar);
     }
 
     public static Writer a(Appendable appendable) {
@@ -16,23 +16,23 @@ public final class f {
 
     /* loaded from: classes2.dex */
     private static final class a extends Writer {
-        private final Appendable hGv;
-        private final C0267a hGw;
+        private final Appendable hGc;
+        private final C0267a hGd;
 
         private a(Appendable appendable) {
-            this.hGw = new C0267a();
-            this.hGv = appendable;
+            this.hGd = new C0267a();
+            this.hGc = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.hGw.hGx = cArr;
-            this.hGv.append(this.hGw, i, i + i2);
+            this.hGd.hGe = cArr;
+            this.hGc.append(this.hGd, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.hGv.append((char) i);
+            this.hGc.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -46,24 +46,24 @@ public final class f {
         /* renamed from: com.google.gson.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         static class C0267a implements CharSequence {
-            char[] hGx;
+            char[] hGe;
 
             C0267a() {
             }
 
             @Override // java.lang.CharSequence
             public int length() {
-                return this.hGx.length;
+                return this.hGe.length;
             }
 
             @Override // java.lang.CharSequence
             public char charAt(int i) {
-                return this.hGx[i];
+                return this.hGe[i];
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i, int i2) {
-                return new String(this.hGx, i, i2 - i);
+                return new String(this.hGe, i, i2 - i);
             }
         }
     }

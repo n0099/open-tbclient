@@ -3,39 +3,39 @@ package com.baidu.tieba.enterForum.model;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.d;
 import com.baidu.tieba.enterForum.data.f;
 import com.baidu.tieba.enterForum.view.ForumEditView;
+import com.baidu.tieba.f;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private ViewEventCenter cRI;
-    private SoftReference<ForumEditView> cTF;
-    private com.baidu.tieba.enterForum.a.b cTG;
+    private ViewEventCenter cRF;
+    private SoftReference<ForumEditView> cTB;
+    private com.baidu.tieba.enterForum.a.b cTC;
     private TbPageContext<?> mContext;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.mContext = tbPageContext;
-        this.cRI = viewEventCenter;
+        this.cRF = viewEventCenter;
     }
 
     public ForumEditView apk() {
-        if (this.cTF == null) {
+        if (this.cTB == null) {
             return null;
         }
-        return this.cTF.get();
+        return this.cTB.get();
     }
 
     public void createView() {
         ForumEditView forumEditView = new ForumEditView(this.mContext.getPageActivity());
-        forumEditView.setEventCenter(this.cRI);
-        this.cTF = new SoftReference<>(forumEditView);
+        forumEditView.setEventCenter(this.cRF);
+        this.cTB = new SoftReference<>(forumEditView);
     }
 
     public List<f> getDataList() {
-        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.cTG.getDataList(), false) : this.cTG.getDataList();
+        return TbadkCoreApplication.getInst().getSkinType() != 2 ? f(this.cTC.getDataList(), false) : this.cTC.getDataList();
     }
 
     public void b(f fVar) {
@@ -43,16 +43,16 @@ public class c {
         if (dataList != null) {
             dataList.remove(fVar);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.cTG.I(f(dataList, true));
+                this.cTC.I(f(dataList, true));
             } else {
-                this.cTG.I(dataList);
+                this.cTC.I(dataList);
             }
         }
     }
 
     public void aS(List<f> list) {
         ForumEditView forumEditView;
-        if (this.cTF != null && list != null && (forumEditView = this.cTF.get()) != null) {
+        if (this.cTB != null && list != null && (forumEditView = this.cTB.get()) != null) {
             forumEditView.setColumnTypeAndRefeshView();
             aT(list);
         }
@@ -80,33 +80,33 @@ public class c {
     }
 
     public void aT(List<f> list) {
-        ForumEditView forumEditView = this.cTF.get();
+        ForumEditView forumEditView = this.cTB.get();
         if (forumEditView != null) {
-            if (this.cTG == null) {
+            if (this.cTC == null) {
                 apl();
             }
-            forumEditView.setGridAdapterIfNeeded(this.cTG);
+            forumEditView.setGridAdapterIfNeeded(this.cTC);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.cTG.I(f(list, true));
+                this.cTC.I(f(list, true));
             } else {
-                this.cTG.I(list);
+                this.cTC.I(list);
             }
-            this.cTG.b(this.mContext, TbadkCoreApplication.getInst().getSkinType());
+            this.cTC.b(this.mContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void apl() {
-        this.cTG = new com.baidu.tieba.enterForum.a.b(this.mContext, com.baidu.tieba.enterForum.view.c.class, d.h.home_like_item_in_edit_grid, this.cRI);
-        this.cTG.bU(false);
+        this.cTC = new com.baidu.tieba.enterForum.a.b(this.mContext, com.baidu.tieba.enterForum.view.c.class, f.h.home_like_item_in_edit_grid, this.cRF);
+        this.cTC.bV(false);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.cTF.get() != null) {
-                this.cTF.get().onChangeSkinType(tbPageContext);
+            if (this.cTB.get() != null) {
+                this.cTB.get().onChangeSkinType(tbPageContext);
             }
-            if (this.cTG != null) {
-                this.cTG.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.cTC != null) {
+                this.cTC.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

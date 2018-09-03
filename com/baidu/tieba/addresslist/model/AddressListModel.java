@@ -9,53 +9,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a bpZ;
+    private a bqb;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.bpZ = a.Rp();
+        this.bqb = a.Ru();
     }
 
     public void a(a.InterfaceC0130a interfaceC0130a) {
-        this.bpZ.a(interfaceC0130a);
+        this.bqb.a(interfaceC0130a);
     }
 
     public void b(a.InterfaceC0130a interfaceC0130a) {
-        this.bpZ.b(interfaceC0130a);
+        this.bqb.b(interfaceC0130a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> RG() {
-        return this.bpZ.Rq();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> RL() {
+        return this.bqb.Rv();
     }
 
-    public void RH() {
+    public void RM() {
         sendMessage(new CustomMessage(2001178));
     }
 
-    public void RC() {
+    public void RH() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
     public void Z(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.bpZ.W(list);
+        this.bqb.W(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.bpZ.a(aVar);
+        this.bqb.a(aVar);
     }
 
     public void aH(long j) {
-        this.bpZ.aH(j);
+        this.bqb.aH(j);
     }
 
-    public int iW(String str) {
+    public int iX(String str) {
         int i;
         if (c.fX(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> Rq = this.bpZ.Rq();
-            if (Rq != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : Rq) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> Rv = this.bqb.Rv();
+            if (Rv != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : Rv) {
                     if (str.equals(aVar.Fv())) {
-                        i = Rq.indexOf(aVar);
+                        i = Rv.indexOf(aVar);
                         break;
                     }
                 }

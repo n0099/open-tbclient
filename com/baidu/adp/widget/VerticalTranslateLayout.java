@@ -64,7 +64,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     public interface c {
         void mU();
 
-        void nQ();
+        void nO();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -80,7 +80,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     public interface e {
         void mQ();
 
-        void nR();
+        void nP();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -117,13 +117,13 @@ public class VerticalTranslateLayout extends FrameLayout {
         this.Nj = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomHeight, -1.0f);
         String string = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_transTrack);
         if (string != null && string.length() > 0) {
-            if (nK() && nL() && "vertical".equals(string)) {
+            if (nI() && nJ() && "vertical".equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack vertical");
                 this.Nn = TrackDirection.vertical;
-            } else if (nL() && "bottom".equals(string)) {
+            } else if (nJ() && "bottom".equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack bottom");
                 this.Nn = TrackDirection.bottom;
-            } else if (nK() && "top".equals(string)) {
+            } else if (nI() && "top".equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack top");
                 this.Nn = TrackDirection.top;
             } else {
@@ -208,11 +208,11 @@ public class VerticalTranslateLayout extends FrameLayout {
         this.Nx = fVar;
     }
 
-    private boolean nK() {
+    private boolean nI() {
         return (this.Ng == -1.0f && this.Nj == -1.0f) ? false : true;
     }
 
-    private boolean nL() {
+    private boolean nJ() {
         return (this.Ni == -1.0f && this.Nh == -1.0f) ? false : true;
     }
 
@@ -407,20 +407,20 @@ public class VerticalTranslateLayout extends FrameLayout {
             if (VerticalTranslateLayout.this.Nt.Kt) {
                 switch (message.what) {
                     case -105:
-                        VerticalTranslateLayout.this.Nt.nP();
+                        VerticalTranslateLayout.this.Nt.nN();
                         return;
                     case SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED /* -104 */:
-                        VerticalTranslateLayout.this.Nt.nO();
+                        VerticalTranslateLayout.this.Nt.nM();
                         return;
                     case -103:
                     case FastRegResult.ERROR_CODE_SEND_SMS_FAILED /* -102 */:
                     default:
                         return;
                     case -101:
-                        VerticalTranslateLayout.this.Nt.nN();
+                        VerticalTranslateLayout.this.Nt.nL();
                         return;
                     case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
-                        VerticalTranslateLayout.this.Nt.nM();
+                        VerticalTranslateLayout.this.Nt.nK();
                         return;
                 }
             }
@@ -589,12 +589,12 @@ public class VerticalTranslateLayout extends FrameLayout {
             this.Ks += 16;
         }
 
-        void nM() {
+        void nK() {
             compute();
             if (this.Kn <= this.Kp) {
                 e eVar = VerticalTranslateLayout.this.Nv;
                 if (eVar != null) {
-                    eVar.nR();
+                    eVar.nP();
                 }
                 this.Kt = false;
                 VerticalTranslateLayout.this.JV = 10000;
@@ -606,12 +606,12 @@ public class VerticalTranslateLayout extends FrameLayout {
             VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-100, this.Ks);
         }
 
-        void nN() {
+        void nL() {
             compute();
             if (this.Kn >= this.Kp) {
                 c cVar = VerticalTranslateLayout.this.Nw;
                 if (cVar != null) {
-                    cVar.nQ();
+                    cVar.nO();
                 }
                 this.Kt = false;
                 VerticalTranslateLayout.this.JV = 10001;
@@ -623,7 +623,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-101, this.Ks);
         }
 
-        void nO() {
+        void nM() {
             compute();
             if (this.Kn >= this.Kp) {
                 for (d dVar : VerticalTranslateLayout.this.Ki) {
@@ -641,7 +641,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.Ks);
         }
 
-        void nP() {
+        void nN() {
             compute();
             if (this.Kn <= this.Kp) {
                 for (d dVar : VerticalTranslateLayout.this.Ki) {

@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.face.b;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -33,8 +33,8 @@ public class PbFullScreenEditorInputView extends EditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.n nVar) {
-        if (com.baidu.tieba.face.a.lA(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.ye().showToast(d.j.too_many_face);
+        if (com.baidu.tieba.face.a.lC(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.yd().showToast(f.j.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), nVar, this);
         }

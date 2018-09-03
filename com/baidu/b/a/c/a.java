@@ -312,66 +312,66 @@ public class a {
 
     private void g(JSONObject jSONObject) {
         this.Ui = b.e(jSONObject, LivenessRecogActivity.f.a);
-        pT();
-        this.Uj = b.e(jSONObject, "flex-direction");
-        qa();
-        this.Uk = b.e(jSONObject, "justify-content");
-        pZ();
-        this.Ul = b.e(jSONObject, "align-items");
-        pY();
-        this.Um = b.e(jSONObject, "align-self");
-        pX();
-        this.Un = b.e(jSONObject, "align-content");
-        pW();
-        this.Uo = b.f(jSONObject, "flex");
-        pS();
-        this.Up = b.f(jSONObject, "flex-grow");
-        pR();
-        this.Uq = b.f(jSONObject, "flex-shrink");
         pQ();
-        this.Ur = b.f(jSONObject, "flex-basis");
-        pP();
-        this.position = b.e(jSONObject, "position");
+        this.Uj = b.e(jSONObject, "flex-direction");
+        pX();
+        this.Uk = b.e(jSONObject, "justify-content");
+        pW();
+        this.Ul = b.e(jSONObject, "align-items");
         pV();
+        this.Um = b.e(jSONObject, "align-self");
+        pU();
+        this.Un = b.e(jSONObject, "align-content");
+        pT();
+        this.Uo = b.f(jSONObject, "flex");
+        pP();
+        this.Up = b.f(jSONObject, "flex-grow");
+        pO();
+        this.Uq = b.f(jSONObject, "flex-shrink");
+        pN();
+        this.Ur = b.f(jSONObject, "flex-basis");
+        pM();
+        this.position = b.e(jSONObject, "position");
+        pS();
         this.Us = b.f(jSONObject, CustomDialogData.POS_LEFT);
         this.Ut = b.f(jSONObject, "top");
         this.Uu = b.f(jSONObject, "right");
         this.Uv = b.f(jSONObject, "bottom");
-        pU();
+        pR();
         this.Uw = b.f(jSONObject, "margin");
-        pO();
-        this.Ux = b.f(jSONObject, "margin-left");
-        pK();
-        this.Uy = b.f(jSONObject, "margin-top");
-        pN();
-        this.Uz = b.f(jSONObject, "margin-right");
-        pM();
-        this.UB = b.f(jSONObject, "margin-bottom");
         pL();
+        this.Ux = b.f(jSONObject, "margin-left");
+        pH();
+        this.Uy = b.f(jSONObject, "margin-top");
+        pK();
+        this.Uz = b.f(jSONObject, "margin-right");
+        pJ();
+        this.UB = b.f(jSONObject, "margin-bottom");
+        pI();
         this.UC = b.f(jSONObject, "padding");
         initPadding();
         this.UD = b.f(jSONObject, "padding-left");
-        pG();
-        this.UE = b.f(jSONObject, "padding-top");
-        pJ();
-        this.UF = b.f(jSONObject, "padding-right");
-        pI();
-        this.UG = b.f(jSONObject, "padding-bottom");
-        pH();
-        this.width = b.f(jSONObject, "width");
-        pF();
-        this.height = b.f(jSONObject, "height");
-        pE();
-        this.UH = b.f(jSONObject, "min-width");
         pD();
-        this.UI = b.f(jSONObject, "min-height");
+        this.UE = b.f(jSONObject, "padding-top");
+        pG();
+        this.UF = b.f(jSONObject, "padding-right");
+        pF();
+        this.UG = b.f(jSONObject, "padding-bottom");
+        pE();
+        this.width = b.f(jSONObject, "width");
         pC();
-        this.UJ = b.f(jSONObject, "max-width");
-        pz();
-        this.UK = b.f(jSONObject, "max-height");
+        this.height = b.f(jSONObject, "height");
         pB();
-        this.UL = b.f(jSONObject, "aspect-ratio");
+        this.UH = b.f(jSONObject, "min-width");
         pA();
+        this.UI = b.f(jSONObject, "min-height");
+        pz();
+        this.UJ = b.f(jSONObject, "max-width");
+        pw();
+        this.UK = b.f(jSONObject, "max-height");
+        py();
+        this.UL = b.f(jSONObject, "aspect-ratio");
+        px();
     }
 
     private void h(JSONObject jSONObject) {
@@ -412,11 +412,11 @@ public class a {
         this.UR = b.f(jSONObject, "border-radius");
         this.UT = b.e(jSONObject, "font-style");
         this.UU = b.e(jSONObject, "font-weight");
-        this.UV = Typeface.create(Typeface.DEFAULT, px());
+        this.UV = Typeface.create(Typeface.DEFAULT, pu());
         this.UW = jSONObject.optDouble("font-size", 12.0d);
         this.UX = b.e(jSONObject, "text-align");
         this.UY = b.e(jSONObject, "vertical-align");
-        this.gravity = py();
+        this.gravity = pv();
     }
 
     public a(Context context, JSONObject jSONObject, InterfaceC0053a interfaceC0053a, boolean z) {
@@ -458,11 +458,11 @@ public class a {
         }
     }
 
-    private int px() {
+    private int pu() {
         return "italic".equalsIgnoreCase(this.UT) ? (TextUtils.isEmpty(this.UU) || "normal".equalsIgnoreCase(this.UU) || !"bold".equalsIgnoreCase(this.UU)) ? 2 : 3 : (TextUtils.isEmpty(this.UU) || "normal".equalsIgnoreCase(this.UU) || !"bold".equalsIgnoreCase(this.UU)) ? 0 : 1;
     }
 
-    private int py() {
+    private int pv() {
         int i;
         if (CustomDialogData.POS_LEFT.equalsIgnoreCase(this.UX)) {
             i = 3;
@@ -485,7 +485,7 @@ public class a {
         return i | 0;
     }
 
-    private void pz() {
+    private void pw() {
         if (this.UJ >= 0.0d) {
             this.TJ.setMaxWidth(e(this.UJ));
         } else if (this.UJ > -10000.0d) {
@@ -493,13 +493,13 @@ public class a {
         }
     }
 
-    private void pA() {
+    private void px() {
         if (this.UL > 0.0d) {
             this.TJ.setAspectRatio((float) this.UL);
         }
     }
 
-    private void pB() {
+    private void py() {
         if (this.UK >= 0.0d) {
             this.TJ.setMaxHeight(e(this.UK));
         } else if (this.UK > -10000.0d) {
@@ -507,7 +507,7 @@ public class a {
         }
     }
 
-    private void pC() {
+    private void pz() {
         if (this.UI >= 0.0d) {
             this.TJ.setMinHeight(e(this.UI));
         } else if (this.UI > -10000.0d) {
@@ -515,7 +515,7 @@ public class a {
         }
     }
 
-    private void pD() {
+    private void pA() {
         if (this.UH >= 0.0d) {
             this.TJ.setMinWidth(e(this.UH));
         } else if (this.UH > -10000.0d) {
@@ -523,7 +523,7 @@ public class a {
         }
     }
 
-    private void pE() {
+    private void pB() {
         if (this.height >= 0.0d) {
             this.TJ.setHeight(e(this.height));
         } else if (this.height > -10000.0d) {
@@ -531,7 +531,7 @@ public class a {
         }
     }
 
-    private void pF() {
+    private void pC() {
         if (this.width >= 0.0d) {
             this.TJ.setWidth(e(this.width));
         } else if (this.width > -10000.0d) {
@@ -539,25 +539,25 @@ public class a {
         }
     }
 
-    private void pG() {
+    private void pD() {
         if (this.UD >= -1.0d) {
             this.TJ.setPadding(CriusEdge.LEFT, e(this.UD));
         }
     }
 
-    private void pH() {
+    private void pE() {
         if (this.UG >= -1.0d) {
             this.TJ.setPadding(CriusEdge.BOTTOM, e(this.UG));
         }
     }
 
-    private void pI() {
+    private void pF() {
         if (this.UF >= -1.0d) {
             this.TJ.setPadding(CriusEdge.RIGHT, e(this.UF));
         }
     }
 
-    private void pJ() {
+    private void pG() {
         if (this.UE >= -1.0d) {
             this.TJ.setPadding(CriusEdge.TOP, e(this.UE));
         }
@@ -569,61 +569,61 @@ public class a {
         }
     }
 
-    private void pK() {
+    private void pH() {
         if (this.Ux >= -1.0d) {
             this.TJ.setMargin(CriusEdge.LEFT, e(this.Ux));
         }
     }
 
-    private void pL() {
+    private void pI() {
         if (this.UB >= -1.0d) {
             this.TJ.setMargin(CriusEdge.BOTTOM, e(this.UB));
         }
     }
 
-    private void pM() {
+    private void pJ() {
         if (this.Uz >= -1.0d) {
             this.TJ.setMargin(CriusEdge.RIGHT, e(this.Uz));
         }
     }
 
-    private void pN() {
+    private void pK() {
         if (this.Uy >= -1.0d) {
             this.TJ.setMargin(CriusEdge.TOP, e(this.Uy));
         }
     }
 
-    private void pO() {
+    private void pL() {
         if (this.Uw >= -1.0d) {
             this.TJ.setMargin(CriusEdge.ALL, e(this.Uw));
         }
     }
 
-    private void pP() {
+    private void pM() {
         if (this.Ur >= -1.0d) {
             this.TJ.setFlexBasis(e(this.Ur));
         }
     }
 
-    private void pQ() {
+    private void pN() {
         if (this.Uq >= -1.0d) {
             this.TJ.setFlexShrink((float) this.Uq);
         }
     }
 
-    private void pR() {
+    private void pO() {
         if (this.Up >= -1.0d) {
             this.TJ.setFlexGrow((float) this.Up);
         }
     }
 
-    private void pS() {
+    private void pP() {
         if (this.Uo >= -1.0d) {
             this.TJ.setFlex((float) this.Uo);
         }
     }
 
-    private void pT() {
+    private void pQ() {
         if (!TextUtils.isEmpty(this.Ui)) {
             if ("flex".equalsIgnoreCase(this.Ui)) {
                 this.TJ.setDisplay(CriusDisplay.FLEX);
@@ -635,7 +635,7 @@ public class a {
         }
     }
 
-    private void pU() {
+    private void pR() {
         if (!b.b(this.Us, -10000.0d)) {
             this.TJ.setPosition(CriusEdge.LEFT, e(this.Us));
         }
@@ -650,7 +650,7 @@ public class a {
         }
     }
 
-    private void pV() {
+    private void pS() {
         if (!TextUtils.isEmpty(this.position)) {
             if ("relative".equalsIgnoreCase(this.position)) {
                 this.TJ.setPositionType(CriusPositionType.RELATIVE);
@@ -660,7 +660,7 @@ public class a {
         }
     }
 
-    private void pW() {
+    private void pT() {
         if (!TextUtils.isEmpty(this.Un)) {
             if ("flex-start".equalsIgnoreCase(this.Un)) {
                 this.TJ.setAlignSelf(CriusAlign.FLEX_START);
@@ -680,7 +680,7 @@ public class a {
         }
     }
 
-    private void pX() {
+    private void pU() {
         if (!TextUtils.isEmpty(this.Um)) {
             if ("auto".equalsIgnoreCase(this.Um)) {
                 this.TJ.setAlignSelf(CriusAlign.AUTO);
@@ -698,7 +698,7 @@ public class a {
         }
     }
 
-    private void pY() {
+    private void pV() {
         if (!TextUtils.isEmpty(this.Ul)) {
             if ("flex-start".equalsIgnoreCase(this.Ul)) {
                 this.TJ.setAlignItems(CriusAlign.FLEX_START);
@@ -714,7 +714,7 @@ public class a {
         }
     }
 
-    private void pZ() {
+    private void pW() {
         if (!TextUtils.isEmpty(this.Uk)) {
             if ("flex-start".equalsIgnoreCase(this.Uk)) {
                 this.TJ.setJustifyContent(CriusJustify.FLEX_START);
@@ -732,7 +732,7 @@ public class a {
         }
     }
 
-    private void qa() {
+    private void pX() {
         if (!TextUtils.isEmpty(this.Uj)) {
             if ("column".equalsIgnoreCase(this.Uj)) {
                 this.TJ.setFlexDirection(CriusFlexDirection.COLUMN);

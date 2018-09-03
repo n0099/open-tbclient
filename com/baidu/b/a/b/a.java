@@ -8,7 +8,7 @@ public class a implements b {
     private static volatile a TE = null;
     private b TF;
 
-    public static a pv() {
+    public static a ps() {
         if (TE == null) {
             synchronized (a.class) {
                 if (TE == null) {

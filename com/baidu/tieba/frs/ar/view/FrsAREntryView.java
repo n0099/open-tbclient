@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import tbclient.ForumArIno;
 /* loaded from: classes3.dex */
 public class FrsAREntryView extends View {
-    private AnimationDrawable aSa;
-    private ForumArIno drW;
+    private AnimationDrawable aRZ;
+    private ForumArIno drT;
     private String forumName;
 
     public FrsAREntryView(Context context) {
@@ -39,26 +39,26 @@ public class FrsAREntryView extends View {
 
     private void init() {
         AnimationDrawable animationDrawable = new AnimationDrawable();
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_1), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_2), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_3), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_4), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_5), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_6), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_7), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_8), 100);
-        animationDrawable.addFrame(getResources().getDrawable(d.f.frs_ar_entrance_anim_9), 100);
-        this.aSa = animationDrawable;
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_1), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_2), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_3), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_4), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_5), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_6), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_7), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_8), 100);
+        animationDrawable.addFrame(getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_9), 100);
+        this.aRZ = animationDrawable;
         setBackgroundDrawable(animationDrawable);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.view.FrsAREntryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FrsAREntryView.this.drW != null) {
+                if (FrsAREntryView.this.drT != null) {
                     an anVar = new an("c12836");
-                    anVar.af(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
-                    anVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.drW.ar_id.intValue());
+                    anVar.ae(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
+                    anVar.r(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.drT.ar_id.intValue());
                     TiebaStatic.log(anVar);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.drW.ar_id), String.valueOf(FrsAREntryView.this.drW.ar_type), FrsAREntryView.this.drW.title)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.drT.ar_id), String.valueOf(FrsAREntryView.this.drT.ar_type), FrsAREntryView.this.drT.title)));
                 }
             }
         });
@@ -67,19 +67,19 @@ public class FrsAREntryView extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        Drawable drawable = getResources().getDrawable(d.f.frs_ar_entrance_anim_1);
+        Drawable drawable = getResources().getDrawable(f.C0146f.frs_ar_entrance_anim_1);
         if (drawable instanceof BitmapDrawable) {
             Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
             setMeasuredDimension(bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
-    public void awu() {
-        this.aSa.start();
+    public void awt() {
+        this.aRZ.start();
     }
 
     public void setForumArIno(ForumArIno forumArIno) {
-        this.drW = forumArIno;
+        this.drT = forumArIno;
     }
 
     public void setForumName(String str) {

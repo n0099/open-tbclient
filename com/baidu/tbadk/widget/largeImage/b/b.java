@@ -11,13 +11,13 @@ public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.largeImag
         return this.bbz;
     }
 
-    public void fH(int i) {
+    public void fG(int i) {
         this.bbz = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: MV */
+    /* renamed from: MZ */
     public com.baidu.tbadk.widget.largeImage.a.a ig() {
         return new com.baidu.tbadk.widget.largeImage.a.a(this.bbz);
     }

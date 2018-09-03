@@ -169,7 +169,7 @@ public final class l {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
             SR.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.threshold)).append("\n");
-            if (com.baidu.crabsdk.c.c.pj() >= 5 && (memoryInfo = SR.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (com.baidu.crabsdk.c.c.pg() >= 5 && (memoryInfo = SR.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {

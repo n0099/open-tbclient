@@ -6,17 +6,17 @@ public class s {
     private r aWE;
     private View.OnTouchListener aWF;
 
-    public r Lu() {
+    public r Ly() {
         return this.aWE;
     }
 
-    public View.OnTouchListener Lv() {
+    public View.OnTouchListener Lz() {
         return this.aWF;
     }
 
     public void onDestroy() {
         if (this.aWE != null) {
-            this.aWE.Lt();
+            this.aWE.Lx();
         }
     }
 }

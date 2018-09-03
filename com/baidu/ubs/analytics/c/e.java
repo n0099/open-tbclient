@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes2.dex */
 public final class e {
-    private static final e hCA = new e();
-    private l hCB = new l();
+    private static final e hCC = new e();
+    private l hCD = new l();
 
-    public static e bJc() {
-        return hCA;
+    public static e bJg() {
+        return hCC;
     }
 
-    public final void vU(String str) {
-        this.hCB.vU(str);
+    public final void vY(String str) {
+        this.hCD.vY(str);
     }
 
-    public final void vV(String str) {
-        this.hCB.vV(str);
+    public final void vZ(String str) {
+        this.hCD.vZ(str);
     }
 }

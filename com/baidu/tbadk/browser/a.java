@@ -48,7 +48,7 @@ public class a {
         a(context, "", str, true, true, true, true, z);
     }
 
-    public static void a(Context context, boolean z, String str, String str2) {
+    public static void b(Context context, boolean z, String str, String str2) {
         a(context, str2, str, true, true, true, true, z);
     }
 
@@ -69,7 +69,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        si();
+        sg();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -84,7 +84,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        si();
+        sg();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -97,7 +97,7 @@ public class a {
     }
 
     public static void R(Context context, String str) {
-        si();
+        sg();
         try {
             if (!StringUtils.isNull(str)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, true, false);
@@ -176,7 +176,7 @@ public class a {
         return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void aC(Context context) {
+    public static void aB(Context context) {
         CookieManager cookieManager;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -187,7 +187,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.tl().da(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.tk().db(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -201,7 +201,10 @@ public class a {
                     BdLog.e(e);
                 }
             }
-            cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            cookieManager.setCookie(".baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            cookieManager.setCookie(".baidu.com", " BAIDUCUID=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            cookieManager.setCookie(".baidu.com", " cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             try {
                 CookieSyncManager.getInstance().sync();
                 SapiAccountManager.getInstance().getAccountService().webLogin(context);
@@ -215,7 +218,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void si() {
+    private static void sg() {
         new ah("open_webview", true).start();
     }
 }

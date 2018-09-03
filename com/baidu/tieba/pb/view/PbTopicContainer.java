@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int fPn;
+    private int fPf;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -29,7 +29,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fPn = 3;
+        this.fPf = 3;
         setOrientation(0);
     }
 
@@ -38,10 +38,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.fPn) {
+        if (childCount > this.fPf) {
             while (true) {
                 childCount--;
-                if (childCount <= this.fPn) {
+                if (childCount <= this.fPf) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -90,18 +90,18 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if (aVar != null) {
             Context context = getContext();
             TextView textView = new TextView(context);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.f(context, d.e.tbds72));
-            int f = l.f(context, d.e.tbds22);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.f(context, f.e.tbds72));
+            int f = l.f(context, f.e.tbds22);
             layoutParams.rightMargin = f;
             textView.setTag(aVar);
             textView.setText(com.baidu.tbadk.plugins.b.hq(aVar.getTopicName()));
             addView(textView, layoutParams);
-            textView.setTextSize(0, l.f(context, d.e.tbds33));
+            textView.setTextSize(0, l.f(context, f.e.tbds33));
             textView.setGravity(17);
             textView.setOnClickListener(this);
             textView.setPadding(f, 0, f, 0);
-            am.i(textView, d.f.shape_corner_gray_tbds4);
-            am.h(textView, d.C0140d.cp_cont_b);
+            am.i(textView, f.C0146f.shape_corner_gray_tbds4);
+            am.h(textView, f.d.cp_cont_b);
         }
     }
 
@@ -110,19 +110,19 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.fPn = i;
+        this.fPf = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof au.a) {
-            TiebaStatic.log(new an("c11455").af("obj_locate", "pb_bottom"));
+            TiebaStatic.log(new an("c11455").ae("obj_locate", "pb_bottom"));
             au.a aVar = (au.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.uE() + "", aVar.getTopicName(), "2")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.uD() + "", aVar.getTopicName(), "2")));
                 return;
             }
-            com.baidu.tbadk.browser.a.Q(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.uE() + "&topic_name=" + aVar.getTopicName());
+            com.baidu.tbadk.browser.a.Q(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.uD() + "&topic_name=" + aVar.getTopicName());
         }
     }
 }

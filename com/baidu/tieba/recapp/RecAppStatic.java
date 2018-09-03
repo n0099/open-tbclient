@@ -22,9 +22,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.goh.set(new t());
+        r.gok.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.Rc().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.Rh().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -37,7 +37,7 @@ public class RecAppStatic {
                         if (queryParameter.startsWith("tel:")) {
                             if (context instanceof Activity) {
                                 com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                                aVar.zY();
+                                aVar.zW();
                                 aVar.c((Activity) context, "android.permission.CALL_PHONE");
                                 if (aVar.u((Activity) context)) {
                                     return 0;
@@ -73,8 +73,8 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.ON().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.ON().a(2, new d());
+        com.baidu.tieba.InjectPlugin.a.e.OM().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.OM().a(2, new d());
         bb.ahJ.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
@@ -88,8 +88,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.bmX().bna();
-        b.bmX().bmY();
+        b.bmY().bnb();
+        b.bmY().bmZ();
         com.baidu.b.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.b.a.a.a(new p());
         com.baidu.b.a.a.a(new q());

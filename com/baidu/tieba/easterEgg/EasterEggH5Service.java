@@ -50,7 +50,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.lu("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.lw("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -73,21 +73,21 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.lu(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.lw(gVar.mUrl);
                 } else {
                     str = null;
                 }
                 if (str != null) {
                     HashMap hashMap = new HashMap();
-                    if (!w.z(gVar.asq)) {
+                    if (!w.z(gVar.asr)) {
                         int i = 0;
                         while (true) {
                             int i2 = i;
-                            if (i2 >= gVar.asq.size()) {
+                            if (i2 >= gVar.asr.size()) {
                                 break;
                             }
-                            if (gVar.asq.get(i2) != null) {
-                                hashMap.put(gVar.asq.get(i2).getName(), gVar.asq.get(i2).getValue());
+                            if (gVar.asr.get(i2) != null) {
+                                hashMap.put(gVar.asr.get(i2).getName(), gVar.asr.get(i2).getValue());
                             }
                             i = i2 + 1;
                         }
@@ -138,7 +138,7 @@ public class EasterEggH5Service extends Service {
                 EasterEggH5Service.this.stopSelf();
             }
         });
-        this.model.MK();
+        this.model.MO();
     }
 
     private void initListenerAndRule() {
@@ -213,7 +213,7 @@ public class EasterEggH5Service extends Service {
             this.model.onDestroy();
         }
         if (this.eggBridge != null) {
-            this.eggBridge.anN();
+            this.eggBridge.anP();
         }
         MessageManager.getInstance().removeMessageRule(this.mHttpRule);
         MessageManager.getInstance().removeMessageRule(this.mSocketRule);

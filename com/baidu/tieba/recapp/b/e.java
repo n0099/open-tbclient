@@ -9,11 +9,11 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.n;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.frs.h<bb, f> implements m {
-    private n bhr;
+    private n bhs;
 
     public e(n nVar, BdUniqueId bdUniqueId) {
-        super(nVar.aiy(), bdUniqueId);
-        this.bhr = nVar;
+        super(nVar.aiB(), bdUniqueId);
+        this.bhs = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

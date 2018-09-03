@@ -3,21 +3,21 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class k {
+    public int aMP;
+    public int aMR;
     public int aMS;
-    public int aMU;
-    public int aMV;
-    public int[] aMX;
-    public l aMf;
+    public int[] aMU;
+    public l aMc;
     private Context context;
     public int id;
     public String name;
-    public boolean aMT = true;
-    public boolean aMW = false;
+    public boolean aMQ = true;
+    public boolean aMT = false;
 
     public k(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.aMU = i2;
+        this.aMR = i2;
     }
 
     public k(Context context, String str, int i) {
@@ -30,7 +30,7 @@ public class k {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.aMU = i2;
+        this.aMR = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,10 +38,10 @@ public class k {
         return this.context;
     }
 
-    public boolean oU() {
+    public boolean oR() {
         return true;
     }
 
-    public void bF(boolean z) {
+    public void bG(boolean z) {
     }
 }

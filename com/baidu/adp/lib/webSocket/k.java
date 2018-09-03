@@ -15,7 +15,7 @@ public class k {
     public static class b extends h {
         public String EL;
         public String mQuery;
-        public String wf = "/";
+        public String wg = "/";
         public String EM = null;
         public String[] EN = null;
         public List<BasicNameValuePair> EO = null;
@@ -109,14 +109,14 @@ public class k {
     /* loaded from: classes.dex */
     public static class a extends h {
         public byte[] EK;
-        public long th;
         public long ti;
+        public long tj;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a(byte[] bArr, long j, long j2) {
             this.EK = bArr;
-            this.th = j;
-            this.ti = j2;
+            this.ti = j;
+            this.tj = j2;
         }
     }
 

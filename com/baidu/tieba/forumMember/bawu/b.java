@@ -4,36 +4,36 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes3.dex */
 public class b implements i {
-    private ArrayList<BawuRoleInfoPub> dia = new ArrayList<>();
-    private boolean dib = false;
-    private String dic;
+    private ArrayList<BawuRoleInfoPub> dhY = new ArrayList<>();
+    private boolean dhZ = false;
+    private String dia;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int asR() {
+    public int asQ() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> asS() {
-        return this.dia;
+    public ArrayList<BawuRoleInfoPub> asR() {
+        return this.dhY;
     }
 
     public void M(ArrayList<BawuRoleInfoPub> arrayList) {
-        this.dia = arrayList;
+        this.dhY = arrayList;
     }
 
     public boolean isLast() {
-        return this.dib;
+        return this.dhZ;
     }
 
     public void fq(boolean z) {
-        this.dib = z;
+        this.dhZ = z;
     }
 
-    public String asT() {
-        return this.dic;
+    public String asS() {
+        return this.dia;
     }
 
-    public void mg(String str) {
-        this.dic = str;
+    public void mi(String str) {
+        this.dia = str;
     }
 }

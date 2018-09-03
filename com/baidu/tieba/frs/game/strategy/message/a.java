@@ -50,10 +50,10 @@ public class a {
             bVar.Z(bbVar);
             bbVar.a(list.get(i2));
             bbVar.ca(3);
-            bbVar.vS();
-            if (!TextUtils.isEmpty(bbVar.wc())) {
+            bbVar.vR();
+            if (!TextUtils.isEmpty(bbVar.wb())) {
                 ab abVar = new ab();
-                abVar.dg(bbVar.wc());
+                abVar.dh(bbVar.wb());
                 linkedList.add(abVar);
             } else {
                 linkedList.add(bVar);

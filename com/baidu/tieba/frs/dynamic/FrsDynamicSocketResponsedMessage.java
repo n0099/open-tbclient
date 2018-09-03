@@ -23,7 +23,7 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
         if (B != null && B.error != null) {
             if (B.error.errorno != null) {
                 setError(B.error.errorno.intValue());
-                this.responseData.dsU = B.error.errorno.intValue();
+                this.responseData.dsR = B.error.errorno.intValue();
             }
             setErrorString(B.error.usermsg);
         }

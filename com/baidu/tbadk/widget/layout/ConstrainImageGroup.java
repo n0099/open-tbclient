@@ -13,8 +13,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ConstrainImageGroup extends LinearLayout {
-    private BdUniqueId aRF;
-    private boolean asR;
+    private BdUniqueId aRC;
+    private boolean asS;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> bcr;
     private com.baidu.adp.lib.e.b<TbImageView> bcs;
     private b bct;
@@ -27,7 +27,7 @@ public class ConstrainImageGroup extends LinearLayout {
     public ConstrainImageGroup(Context context) {
         super(context);
         this.bct = new a();
-        this.asR = false;
+        this.asS = false;
         this.bcy = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
@@ -49,7 +49,7 @@ public class ConstrainImageGroup extends LinearLayout {
     public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.bct = new a();
-        this.asR = false;
+        this.asS = false;
         this.bcy = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
@@ -71,7 +71,7 @@ public class ConstrainImageGroup extends LinearLayout {
     public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.bct = new a();
-        this.asR = false;
+        this.asS = false;
         this.bcy = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewAdded(View view, View view2) {
@@ -91,7 +91,7 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     public void setFromCDN(boolean z) {
-        this.asR = z;
+        this.asS = z;
     }
 
     public void setSingleImageRatio(double d) {
@@ -148,7 +148,7 @@ public class ConstrainImageGroup extends LinearLayout {
     public void setImageMediaList(List<MediaData> list) {
         int i;
         if (!w.z(list) && this.bcr != null) {
-            fJ(w.y(list));
+            fI(w.y(list));
             int childCount = getChildCount();
             int i2 = 0;
             int i3 = 0;
@@ -157,7 +157,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 if (childAt instanceof ConstrainImageLayout) {
                     ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) childAt;
                     constrainImageLayout.setImageClickListener(this.bcw);
-                    constrainImageLayout.setFromCDN(this.asR);
+                    constrainImageLayout.setFromCDN(this.asS);
                     if (this.bcv > 0.0d) {
                         constrainImageLayout.setSingleImageRatio(this.bcv);
                     }
@@ -176,11 +176,11 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    private void fJ(int i) {
-        int fI = this.bct.fI(i);
-        int childCount = getChildCount() - fI;
+    private void fI(int i) {
+        int fH = this.bct.fH(i);
+        int childCount = getChildCount() - fH;
         if (childCount > 0) {
-            removeViews(fI, childCount);
+            removeViews(fH, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
@@ -196,7 +196,7 @@ public class ConstrainImageGroup extends LinearLayout {
         m9if.setImageMaxChildCount(-1);
         m9if.setExtraCenterText(null);
         m9if.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        m9if.setPageUniqueId(this.aRF);
+        m9if.setPageUniqueId(this.aRC);
         return m9if;
     }
 
@@ -217,7 +217,7 @@ public class ConstrainImageGroup extends LinearLayout {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.aRF = bdUniqueId;
+        this.aRC = bdUniqueId;
     }
 
     @Override // android.view.View

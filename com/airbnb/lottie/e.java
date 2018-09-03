@@ -29,40 +29,40 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private final Map<String, List<Layer>> kg;
-    private final Map<String, g> kh;
-    private final Map<String, com.airbnb.lottie.model.f> ki;
-    private final SparseArrayCompat<com.airbnb.lottie.model.g> kj;
-    private final LongSparseArray<Layer> kk;
-    private final List<Layer> kl;
-    private final HashSet<String> km;
-    private final i kn;
-    private final Rect ko;
-    private final long kp;
+    private final Map<String, List<Layer>> kh;
+    private final Map<String, g> ki;
+    private final Map<String, com.airbnb.lottie.model.f> kj;
+    private final SparseArrayCompat<com.airbnb.lottie.model.g> kk;
+    private final LongSparseArray<Layer> kl;
+    private final List<Layer> km;
+    private final HashSet<String> kn;
+    private final i ko;
+    private final Rect kp;
     private final long kq;
-    private final float kr;
+    private final long kr;
     private final float ks;
-    private final int kt;
+    private final float kt;
     private final int ku;
     private final int kv;
+    private final int kx;
 
     private e(Rect rect, long j, long j2, float f, float f2, int i, int i2, int i3) {
-        this.kg = new HashMap();
         this.kh = new HashMap();
         this.ki = new HashMap();
-        this.kj = new SparseArrayCompat<>();
-        this.kk = new LongSparseArray<>();
-        this.kl = new ArrayList();
-        this.km = new HashSet<>();
-        this.kn = new i();
-        this.ko = rect;
-        this.kp = j;
-        this.kq = j2;
-        this.kr = f;
-        this.ks = f2;
-        this.kt = i;
-        this.ku = i2;
-        this.kv = i3;
+        this.kj = new HashMap();
+        this.kk = new SparseArrayCompat<>();
+        this.kl = new LongSparseArray<>();
+        this.km = new ArrayList();
+        this.kn = new HashSet<>();
+        this.ko = new i();
+        this.kp = rect;
+        this.kq = j;
+        this.kr = j2;
+        this.ks = f;
+        this.kt = f2;
+        this.ku = i;
+        this.kv = i2;
+        this.kx = i3;
         if (!com.airbnb.lottie.c.f.a(this, 4, 5, 0)) {
             E("Lottie only supports bodymovin >= 4.5.0");
         }
@@ -71,88 +71,88 @@ public class e {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void E(String str) {
         Log.w("LOTTIE", str);
-        this.km.add(str);
+        this.kn.add(str);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.kn.setEnabled(z);
+        this.ko.setEnabled(z);
     }
 
     public i getPerformanceTracker() {
-        return this.kn;
+        return this.ko;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Layer g(long j) {
-        return this.kk.get(j);
+        return this.kl.get(j);
     }
 
     public Rect getBounds() {
-        return this.ko;
+        return this.kp;
     }
 
     public long getDuration() {
-        return (((float) (this.kq - this.kp)) / this.kr) * 1000.0f;
+        return (((float) (this.kr - this.kq)) / this.ks) * 1000.0f;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public int getMajorVersion() {
-        return this.kt;
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public int getMinorVersion() {
         return this.ku;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public int bf() {
+    public int getMinorVersion() {
         return this.kv;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public int bf() {
+        return this.kx;
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
     public long bg() {
-        return this.kp;
+        return this.kq;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public long bh() {
-        return this.kq;
+        return this.kr;
     }
 
     public List<Layer> bi() {
-        return this.kl;
+        return this.km;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public List<Layer> F(String str) {
-        return this.kg.get(str);
+        return this.kh.get(str);
     }
 
     public SparseArrayCompat<com.airbnb.lottie.model.g> bj() {
-        return this.kj;
+        return this.kk;
     }
 
     public Map<String, com.airbnb.lottie.model.f> bk() {
-        return this.ki;
+        return this.kj;
     }
 
     public Map<String, g> bl() {
-        return this.kh;
+        return this.ki;
     }
 
     public float bm() {
-        return (((float) getDuration()) * this.kr) / 1000.0f;
+        return (((float) getDuration()) * this.ks) / 1000.0f;
     }
 
     public float bn() {
-        return this.ks;
+        return this.kt;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
-        for (Layer layer : this.kl) {
+        for (Layer layer : this.km) {
             sb.append(layer.toString("\t"));
         }
         return sb.toString();
@@ -234,7 +234,7 @@ public class e {
                     if (C.dr() == Layer.LayerType.Image) {
                         i++;
                     }
-                    a(eVar.kl, eVar.kk, C);
+                    a(eVar.km, eVar.kl, C);
                 }
                 if (i > 4) {
                     eVar.E("You have " + i + " images. Lottie should primarily be used with shapes. If you are using Adobe Illustrator, convert the Illustrator layers to shape layers.");
@@ -256,7 +256,7 @@ public class e {
                             longSparseArray.put(C.getId(), C);
                             arrayList.add(C);
                         }
-                        eVar.kg.put(optJSONObject.optString("id"), arrayList);
+                        eVar.kh.put(optJSONObject.optString("id"), arrayList);
                     }
                 }
             }
@@ -269,7 +269,7 @@ public class e {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject.has("p")) {
                         g b = g.a.b(optJSONObject);
-                        eVar.kh.put(b.getId(), b);
+                        eVar.ki.put(b.getId(), b);
                     }
                 }
             }
@@ -281,7 +281,7 @@ public class e {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     com.airbnb.lottie.model.f d = f.a.d(optJSONArray.optJSONObject(i));
-                    eVar.ki.put(d.getName(), d);
+                    eVar.kj.put(d.getName(), d);
                 }
             }
         }
@@ -291,7 +291,7 @@ public class e {
                 int length = jSONArray.length();
                 for (int i = 0; i < length; i++) {
                     com.airbnb.lottie.model.g c = g.a.c(jSONArray.optJSONObject(i), eVar);
-                    eVar.kj.put(c.hashCode(), c);
+                    eVar.kk.put(c.hashCode(), c);
                 }
             }
         }

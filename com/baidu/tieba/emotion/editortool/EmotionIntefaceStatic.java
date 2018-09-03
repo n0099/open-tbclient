@@ -90,7 +90,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(e.aol().lv(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(e.aol().lx(customMessage.getData())));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

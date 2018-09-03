@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView cxD;
-    private TextView cxE;
-    private TextView cxF;
+    private TbImageView cxA;
+    private TextView cxB;
+    private TextView cxC;
     private String mForumId;
     public int mSkinType;
 
@@ -42,19 +42,19 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.h.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.cxD = (TbImageView) findViewById(d.g.card_frs_game_recommend_game_pic);
-        this.cxD.setAutoChangeStyle(true);
-        this.cxD.setDefaultResource(17170445);
-        this.cxD.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.cxD.setDefaultBgResource(d.C0140d.cp_bg_line_e);
-        this.cxD.setDrawerType(1);
-        this.cxD.setRadius(context.getResources().getDimensionPixelSize(d.e.tbds26));
-        this.cxD.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cxD.setBorderColor(am.getColor(d.C0140d.common_color_10043));
-        this.cxD.setBorderWidth(context.getResources().getDimensionPixelSize(d.e.tbds2));
-        this.cxE = (TextView) findViewById(d.g.card_frs_game_recommend_game_name);
-        this.cxF = (TextView) findViewById(d.g.card_frs_game_recommend_game_dec);
+        LayoutInflater.from(context).inflate(f.h.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
+        this.cxA = (TbImageView) findViewById(f.g.card_frs_game_recommend_game_pic);
+        this.cxA.setAutoChangeStyle(true);
+        this.cxA.setDefaultResource(17170445);
+        this.cxA.setDefaultErrorResource(f.C0146f.icon_default_avatar100);
+        this.cxA.setDefaultBgResource(f.d.cp_bg_line_e);
+        this.cxA.setDrawerType(1);
+        this.cxA.setRadius(context.getResources().getDimensionPixelSize(f.e.tbds26));
+        this.cxA.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.cxA.setBorderColor(am.getColor(f.d.common_color_10043));
+        this.cxA.setBorderWidth(context.getResources().getDimensionPixelSize(f.e.tbds2));
+        this.cxB = (TextView) findViewById(f.g.card_frs_game_recommend_game_name);
+        this.cxC = (TextView) findViewById(f.g.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -63,7 +63,7 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new an("c13047").r("obj_locate", 10).af(ImageViewerConfig.FORUM_ID, CardFrsGameRecommendGameItemView.this.mForumId));
+                    TiebaStatic.log(new an("c13047").r("obj_locate", 10).ae(ImageViewerConfig.FORUM_ID, CardFrsGameRecommendGameItemView.this.mForumId));
                     com.baidu.tbadk.browser.a.Q(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
                 }
             }
@@ -75,22 +75,22 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     public TbImageView getGamePicView() {
-        return this.cxD;
+        return this.cxA;
     }
 
     public TextView getGameNameView() {
-        return this.cxE;
+        return this.cxB;
     }
 
     public TextView getGameDscView() {
-        return this.cxF;
+        return this.cxC;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.c(this.cxE, d.C0140d.cp_cont_f, 1);
-            am.c(this.cxF, d.C0140d.cp_cont_d, 1);
+            am.c(this.cxB, f.d.cp_cont_f, 1);
+            am.c(this.cxC, f.d.cp_cont_d, 1);
         }
     }
 }

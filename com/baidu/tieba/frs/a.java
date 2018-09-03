@@ -7,38 +7,38 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData aBQ;
-    private final ArrayList<bb> dlw;
-    private boolean dlx;
-    private b dly;
+    private AntiData aBN;
+    private final ArrayList<bb> dlu;
+    private boolean dlv;
+    private b dlw;
     private String forumId;
 
     /* loaded from: classes.dex */
     public interface b {
-        void atI();
+        void atH();
 
-        void ko(int i);
+        void kn(int i);
 
         void t(boolean z, boolean z2);
     }
 
     private a() {
-        this.dlx = false;
-        this.dlw = new ArrayList<>();
+        this.dlv = false;
+        this.dlu = new ArrayList<>();
     }
 
-    public static a atD() {
-        return C0149a.dlz;
+    public static a atC() {
+        return C0149a.dlx;
     }
 
-    public boolean atE() {
-        return this.dlx;
+    public boolean atD() {
+        return this.dlv;
     }
 
     public void s(boolean z, boolean z2) {
-        this.dlx = z;
-        if (this.dly != null) {
-            this.dly.t(this.dlx, z2);
+        this.dlv = z;
+        if (this.dlw != null) {
+            this.dlw.t(this.dlv, z2);
         }
     }
 
@@ -46,42 +46,42 @@ public class a {
         if (bbVar == null) {
             return false;
         }
-        if (this.dlw.size() > 29) {
-            if (this.dly != null) {
-                this.dly.atI();
+        if (this.dlu.size() > 29) {
+            if (this.dlw != null) {
+                this.dlw.atH();
                 return false;
             }
             return false;
         }
-        this.dlw.add(bbVar);
-        if (this.dly != null) {
-            this.dly.ko(this.dlw.size());
+        this.dlu.add(bbVar);
+        if (this.dlw != null) {
+            this.dlw.kn(this.dlu.size());
         }
         return true;
     }
 
-    public List<bb> atF() {
-        return this.dlw;
+    public List<bb> atE() {
+        return this.dlu;
     }
 
     public void V(bb bbVar) {
-        this.dlw.remove(bbVar);
-        if (this.dly != null) {
-            this.dly.ko(this.dlw.size());
+        this.dlu.remove(bbVar);
+        if (this.dlw != null) {
+            this.dlw.kn(this.dlu.size());
         }
     }
 
     public void clearData() {
-        Iterator<bb> it = this.dlw.iterator();
+        Iterator<bb> it = this.dlu.iterator();
         while (it.hasNext()) {
             bb next = it.next();
             if (next != null) {
-                next.as(false);
+                next.at(false);
             }
         }
-        this.dlw.clear();
-        if (this.dly != null) {
-            this.dly.ko(0);
+        this.dlu.clear();
+        if (this.dlw != null) {
+            this.dlw.kn(0);
         }
     }
 
@@ -91,22 +91,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.dly = bVar;
+        this.dlw = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0149a {
-        private static a dlz = new a();
+        private static a dlx = new a();
     }
 
-    public AntiData Ce() {
-        return this.aBQ;
+    public AntiData Cb() {
+        return this.aBN;
     }
 
     public void b(AntiData antiData) {
-        this.aBQ = antiData;
+        this.aBN = antiData;
     }
 
     public String getForumId() {
@@ -118,8 +118,8 @@ public class a {
     }
 
     public void bk(List<String> list) {
-        if (!com.baidu.tbadk.core.util.w.z(list) && !com.baidu.tbadk.core.util.w.z(this.dlw)) {
-            Iterator<bb> it = this.dlw.iterator();
+        if (!com.baidu.tbadk.core.util.w.z(list) && !com.baidu.tbadk.core.util.w.z(this.dlu)) {
+            Iterator<bb> it = this.dlu.iterator();
             while (it.hasNext()) {
                 bb next = it.next();
                 int i = 0;
@@ -135,13 +135,13 @@ public class a {
                     }
                 }
             }
-            if (this.dly != null) {
-                this.dly.ko(this.dlw.size());
+            if (this.dlw != null) {
+                this.dlw.kn(this.dlu.size());
             }
         }
     }
 
-    public boolean atG() {
-        return this.aBQ != null && this.aBQ.isMultiDeleteEnable();
+    public boolean atF() {
+        return this.aBN != null && this.aBN.isMultiDeleteEnable();
     }
 }

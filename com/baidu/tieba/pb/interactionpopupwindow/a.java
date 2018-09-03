@@ -11,8 +11,8 @@ import android.widget.EditText;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.f;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.g;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -21,9 +21,9 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     private DialogInterface.OnCancelListener akC;
     private AlertDialog akE;
     private int aks = -1;
-    private boolean ftL = true;
-    protected V ftM;
-    protected D ftN;
+    private boolean ftE = true;
+    protected V ftF;
+    protected D ftG;
     protected Context mContext;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
@@ -31,8 +31,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.ftM = v;
-        this.ftN = d;
+        this.ftF = v;
+        this.ftG = d;
         a(d);
     }
 
@@ -43,8 +43,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             return;
         }
         this.akE = new AlertDialog.Builder(this.mContext).create();
-        this.akE.setCanceledOnTouchOutside(YO());
-        this.akE.setCancelable(YP());
+        this.akE.setCanceledOnTouchOutside(YR());
+        this.akE.setCancelable(YS());
         this.akE.setOnKeyListener(this.mOnKeyListener);
         if (this.akC != null) {
             this.akE.setOnCancelListener(this.akC);
@@ -56,25 +56,25 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
                 this.aks = 17;
             }
             window.setGravity(this.aks);
-            window.setBackgroundDrawableResource(d.f.transparent_bg);
+            window.setBackgroundDrawableResource(f.C0146f.transparent_bg);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics p = l.p(this.mPageContext.getPageActivity());
-            if (p != null) {
-                int xe = xe();
+            DisplayMetrics o = l.o(this.mPageContext.getPageActivity());
+            if (o != null) {
+                int xd = xd();
                 if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                    attributes.width = p.heightPixels - (xe * 2);
+                    attributes.width = o.heightPixels - (xd * 2);
                 } else {
-                    attributes.width = p.widthPixels - (xe * 2);
+                    attributes.width = o.widthPixels - (xd * 2);
                 }
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.ftM.getViewGroup());
+            window.setContentView(this.ftF.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ba.a(this.ftM.getViewGroup(), false, new ba.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
-                @Override // com.baidu.tbadk.core.util.ba.a
+            bb.a(this.ftF.getViewGroup(), false, new bb.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+                @Override // com.baidu.tbadk.core.util.bb.a
                 public boolean x(View view) {
                     if (view instanceof EditText) {
                         atomicBoolean.set(true);
@@ -110,8 +110,8 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     }
 
     public void a(D d) {
-        if (this.ftM != null) {
-            this.ftM.a(d);
+        if (this.ftF != null) {
+            this.ftF.a(d);
         }
     }
 }

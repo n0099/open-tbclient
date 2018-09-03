@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.worldcup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.ad;
 /* loaded from: classes3.dex */
 public class TalkBallFragmentStatic {
@@ -17,7 +17,7 @@ public class TalkBallFragmentStatic {
                     if (data instanceof ad) {
                         a aVar = new a();
                         aVar.Jo().type = 12;
-                        aVar.Jo().aRM = d.j.frs_tab_talkball;
+                        aVar.Jo().aRJ = f.j.frs_tab_talkball;
                         aVar.a((ad) data);
                     }
                 }

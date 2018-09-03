@@ -92,9 +92,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo pn = com.baidu.tieba.lego.card.b.pn(str);
-        if (pn != null) {
-            ICardInfo viewItem = pn.getViewItem(0, 4);
+        ICardInfo pp = com.baidu.tieba.lego.card.b.pp(str);
+        if (pp != null) {
+            ICardInfo viewItem = pp.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -113,7 +113,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo pn;
+        ICardInfo pp;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -165,8 +165,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (com.baidu.adp.lib.b.d.hv().ax("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (pn = com.baidu.tieba.lego.card.b.pn(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = pn.getViewItem(0, 1);
+                    if (com.baidu.adp.lib.b.d.hv().ax("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (pp = com.baidu.tieba.lego.card.b.pp(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = pp.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -181,7 +181,7 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int tF() {
+    public int tE() {
         if (this.goods == null) {
             return 25;
         }
@@ -198,7 +198,7 @@ public class AppData extends OrmObject {
             if (this.legoCard == null || !this.goods.c(this.legoCard)) {
                 return 32;
             }
-            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.te().tk() && !this.legoCard.isNoPicAd()) {
+            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.td().tj() && !this.legoCard.isNoPicAd()) {
                 return 34;
             }
             if (this.legoCard.getCardType() == 12) {
@@ -208,9 +208,9 @@ public class AppData extends OrmObject {
                 return 31;
             }
             if (this.url_type == 3) {
-                return !tG() ? 26 : 0;
+                return !tF() ? 26 : 0;
             } else if (this.url_type == 1) {
-                return !tH() ? 27 : 0;
+                return !tG() ? 27 : 0;
             } else {
                 return 21;
             }
@@ -218,11 +218,11 @@ public class AppData extends OrmObject {
         return 0;
     }
 
-    public boolean tG() {
+    public boolean tF() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean tH() {
+    public boolean tG() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {
@@ -312,7 +312,7 @@ public class AppData extends OrmObject {
             this.id = goodsInfo.id.intValue();
             this.user_name = goodsInfo.user_name;
             this.user_portrait = goodsInfo.user_portrait;
-            this.thread_title = ap.d(goodsInfo.thread_title, 29, "...");
+            this.thread_title = ap.c(goodsInfo.thread_title, 29, "...");
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
             this.goods_style = goodsInfo.goods_style.intValue();

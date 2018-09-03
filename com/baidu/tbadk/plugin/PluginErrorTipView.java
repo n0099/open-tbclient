@@ -14,7 +14,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
     private LinkedList<PluginStatus> aVd;
     private HashSet<Integer> aVe;
     MessageListener<?> aVf;
-    private TextView avP;
+    private TextView avN;
     private Context mContext;
 
     public PluginErrorTipView(Context context) {
@@ -53,9 +53,9 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(d.h.plugin_error_tip_view, this);
-        this.avP = (TextView) findViewById(d.g.plugin_error_guide);
-        findViewById(d.g.plugin_error_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.plugin.PluginErrorTipView.2
+        LayoutInflater.from(context).inflate(f.h.plugin_error_tip_view, this);
+        this.avN = (TextView) findViewById(f.g.plugin_error_guide);
+        findViewById(f.g.plugin_error_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.plugin.PluginErrorTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (PluginErrorTipView.this.aVd.size() > 0) {
@@ -97,7 +97,7 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
                 } else {
                     com.baidu.adp.plugin.b.a.lA().B("plugin_install_tip", last.mu());
                 }
-                this.avP.setText(last.getErrorMsg() + getResources().getString(d.j.pluginstatus_click_detail));
+                this.avN.setText(last.getErrorMsg() + getResources().getString(f.j.pluginstatus_click_detail));
                 setVisibility(0);
                 return;
             }
@@ -126,6 +126,6 @@ public class PluginErrorTipView extends RelativeLayout implements View.OnClickLi
             ((TbPageContext) eVar).getLayoutMode().setNightMode(i == 1);
             ((TbPageContext) eVar).getLayoutMode().onModeChanged(this);
         }
-        am.d(this, d.f.nonetworkview_bg_selector, i);
+        am.d(this, f.C0146f.nonetworkview_bg_selector, i);
     }
 }

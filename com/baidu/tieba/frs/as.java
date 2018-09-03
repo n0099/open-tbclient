@@ -7,41 +7,41 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class as {
     private TranslateAnimation mTipInAnimation;
-    private View dpR = null;
-    private int dpS = 2000;
+    private View dpP = null;
+    private int dpQ = 2000;
     private Runnable mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.frs.as.1
         @Override // java.lang.Runnable
         public void run() {
             as.this.hideTip();
         }
     };
-    private ValueAnimator dpT = new ValueAnimator();
+    private ValueAnimator dpR = new ValueAnimator();
 
     public as() {
-        this.dpT.setFloatValues(1.0f, 0.0f);
-        this.dpT.setDuration(400L);
-        this.dpT.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
+        this.dpR.setFloatValues(1.0f, 0.0f);
+        this.dpR.setDuration(400L);
+        this.dpR.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (as.this.dpR != null && valueAnimator != null) {
-                    as.this.dpR.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (as.this.dpP != null && valueAnimator != null) {
+                    as.this.dpP.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.dpT.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
+        this.dpR.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (as.this.dpR != null) {
-                    as.this.avS();
-                    as.this.dpR.setAlpha(1.0f);
+                if (as.this.dpP != null) {
+                    as.this.avR();
+                    as.this.dpP.setAlpha(1.0f);
                 }
             }
 
@@ -53,7 +53,7 @@ public class as {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds56), 0.0f);
+        this.mTipInAnimation = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(f.e.ds56), 0.0f);
         this.mTipInAnimation.setDuration(400L);
         this.mTipInAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.frs.as.4
             @Override // android.view.animation.Animation.AnimationListener
@@ -62,7 +62,7 @@ public class as {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.in().postDelayed(as.this.mHideTipRunnable, as.this.dpS);
+                com.baidu.adp.lib.g.e.in().postDelayed(as.this.mHideTipRunnable, as.this.dpQ);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,47 +73,47 @@ public class as {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.dpR = view;
-            avS();
-            viewGroup.addView(this.dpR, layoutParams);
-            this.dpR.setVisibility(0);
-            this.dpS = i;
+            this.dpP = view;
+            avR();
+            viewGroup.addView(this.dpP, layoutParams);
+            this.dpP.setVisibility(0);
+            this.dpQ = i;
             com.baidu.adp.lib.g.e.in().removeCallbacks(this.mHideTipRunnable);
-            com.baidu.adp.lib.g.e.in().postDelayed(this.mHideTipRunnable, this.dpS);
+            com.baidu.adp.lib.g.e.in().postDelayed(this.mHideTipRunnable, this.dpQ);
         }
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
-            this.dpR = view;
-            avS();
-            viewGroup.addView(this.dpR, layoutParams);
-            this.dpR.setVisibility(0);
+            this.dpP = view;
+            avR();
+            viewGroup.addView(this.dpP, layoutParams);
+            this.dpP.setVisibility(0);
         }
     }
 
     public void hideTip() {
         com.baidu.adp.lib.g.e.in().removeCallbacks(this.mHideTipRunnable);
-        if (this.dpR != null && this.dpR.getParent() != null && this.dpR.getVisibility() == 0 && !this.dpT.isRunning()) {
-            this.dpT.start();
+        if (this.dpP != null && this.dpP.getParent() != null && this.dpP.getVisibility() == 0 && !this.dpR.isRunning()) {
+            this.dpR.start();
         }
     }
 
-    public void avS() {
+    public void avR() {
         com.baidu.adp.lib.g.e.in().removeCallbacks(this.mHideTipRunnable);
-        if (this.dpR != null) {
-            if (this.dpT != null && this.dpT.isRunning()) {
-                this.dpT.cancel();
+        if (this.dpP != null) {
+            if (this.dpR != null && this.dpR.isRunning()) {
+                this.dpR.cancel();
             }
-            this.dpR.clearAnimation();
-            if (this.dpR.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.dpR.getParent()).removeView(this.dpR);
+            this.dpP.clearAnimation();
+            if (this.dpP.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.dpP.getParent()).removeView(this.dpP);
             }
-            this.dpR.setVisibility(8);
+            this.dpP.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        avS();
+        avR();
     }
 }

@@ -22,7 +22,7 @@ public class b {
         this.num = i;
     }
 
-    public void fs(int i) {
+    public void fr(int i) {
         this.myItem = i;
     }
 }

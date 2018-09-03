@@ -5,18 +5,18 @@ import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
 public class o extends l {
     public void a(i iVar) {
-        if (m.KF().KG()) {
+        if (m.KJ().KK()) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append(AuthActivity.ACTION_KEY, "time");
             ii.append("ishttp", iVar.aTX ? "1" : "0");
             ii.append("issuccess", iVar.isSuccess ? "1" : "0");
-            ii.append("nettype", m.KF().getNetType());
+            ii.append("nettype", m.KJ().getNetType());
             ii.append("wt", String.valueOf(iVar.aTU));
             ii.append("qt", String.valueOf(iVar.aTN));
             ii.append("connt", String.valueOf(iVar.aTO));
             ii.append("rwt", String.valueOf(iVar.aTP));
-            ii.append("fbt", String.valueOf(iVar.th));
-            ii.append("abt", String.valueOf(iVar.ti));
+            ii.append("fbt", String.valueOf(iVar.ti));
+            ii.append("abt", String.valueOf(iVar.tj));
             ii.append("dect", String.valueOf(iVar.aTQ));
             ii.append("parset", String.valueOf(iVar.aTR));
             ii.append("tqt", String.valueOf(iVar.aTS));
@@ -55,7 +55,7 @@ public class o extends l {
     }
 
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.KF().KG()) {
+        if (hVar != null && str != null && m.KJ().KK()) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append(AuthActivity.ACTION_KEY, "resource");
             ii.append("actype", str);
@@ -68,20 +68,20 @@ public class o extends l {
     }
 
     public void a(b bVar) {
-        if (bVar != null && m.KF().KG()) {
+        if (bVar != null && m.KJ().KK()) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append(AuthActivity.ACTION_KEY, "fluency");
             ii.append("fps", String.valueOf(bVar.getFps()));
             BdStatisticsManager.getInstance().performance(this.subType, ii);
             com.baidu.adp.lib.stats.a ii2 = ii();
             ii2.append(AuthActivity.ACTION_KEY, "mem");
-            ii2.append("memp", String.valueOf(m.KF().KH()));
+            ii2.append("memp", String.valueOf(m.KJ().KL()));
             BdStatisticsManager.getInstance().performance(this.subType, ii2);
         }
     }
 
     public void a(i iVar, boolean z) {
-        if (m.KF().KG()) {
+        if (m.KJ().KK()) {
             if (!z || iVar.aUc > 0) {
                 if (z || iVar.aUd > 0) {
                     com.baidu.adp.lib.stats.a ii = ii();
@@ -93,7 +93,7 @@ public class o extends l {
                     }
                     ii.append("ishttp", iVar.aTX ? "1" : "0");
                     ii.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    ii.append("nettype", m.KF().getNetType());
+                    ii.append("nettype", m.KJ().getNetType());
                     ii.append("qt", String.valueOf(iVar.aTN));
                     ii.append("connt", String.valueOf(iVar.aTO));
                     ii.append("rwt", String.valueOf(iVar.aTP));
@@ -118,7 +118,7 @@ public class o extends l {
     }
 
     public void a(i iVar, int i) {
-        if (m.KF().KG() && iVar.aUe > 0) {
+        if (m.KJ().KK() && iVar.aUe > 0) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append(AuthActivity.ACTION_KEY, "time");
             ii.append("pct", String.valueOf(iVar.aUe));

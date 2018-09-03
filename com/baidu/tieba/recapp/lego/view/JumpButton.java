@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class JumpButton extends TextView {
     public JumpButton(Context context) {
@@ -24,13 +24,13 @@ public class JumpButton extends TextView {
     }
 
     private void init() {
-        am.i(this, d.f.btn_focus_border_bg);
-        am.c(this, d.C0140d.btn_forum_focus_color, 1);
-        int f = l.f(getContext(), d.e.ds144);
-        int f2 = l.f(getContext(), d.e.ds50);
+        am.i(this, f.C0146f.btn_focus_border_bg);
+        am.c(this, f.d.btn_forum_focus_color, 1);
+        int f = l.f(getContext(), f.e.ds144);
+        int f2 = l.f(getContext(), f.e.ds50);
         setWidth(f);
         setHeight(f2);
         setGravity(17);
-        setTextSize(0, l.f(getContext(), d.e.fontsize24));
+        setTextSize(0, l.f(getContext(), f.e.fontsize24));
     }
 }

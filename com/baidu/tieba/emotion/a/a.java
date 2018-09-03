@@ -22,7 +22,7 @@ import java.util.Iterator;
 public class a implements e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.f.e
     public boolean ik() {
-        return i.te().tk();
+        return i.td().tj();
     }
 
     private String y(String str, boolean z) {
@@ -59,13 +59,13 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
             return null;
         }
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aon = com.baidu.tieba.emotion.editortool.e.aol().aon();
-        if (com.baidu.tieba.emotion.editortool.e.aol().lw(valueOf2) && valueOf3.booleanValue() && !new File(com.baidu.tieba.emotion.editortool.e.aol().z(valueOf2, true)).exists()) {
+        if (com.baidu.tieba.emotion.editortool.e.aol().ly(valueOf2) && valueOf3.booleanValue() && !new File(com.baidu.tieba.emotion.editortool.e.aol().z(valueOf2, true)).exists()) {
             valueOf3 = false;
         }
         boolean booleanValue = valueOf3.booleanValue();
-        if (com.baidu.tieba.emotion.editortool.e.aol().ly(valueOf2) && valueOf3.booleanValue()) {
+        if (com.baidu.tieba.emotion.editortool.e.aol().lA(valueOf2) && valueOf3.booleanValue()) {
             String z = com.baidu.tieba.emotion.editortool.e.aol().z(valueOf2, true);
-            valueOf = com.baidu.tieba.emotion.editortool.e.aol().lx(valueOf2);
+            valueOf = com.baidu.tieba.emotion.editortool.e.aol().lz(valueOf2);
             if (!new File(l.CD + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + z).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
@@ -91,7 +91,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                     }
                 } else {
                     String z3 = com.baidu.tieba.emotion.editortool.e.aol().z(valueOf2, false);
-                    if (booleanValue && com.baidu.tieba.emotion.editortool.e.aol().ly(valueOf2)) {
+                    if (booleanValue && com.baidu.tieba.emotion.editortool.e.aol().lA(valueOf2)) {
                         z3.replaceFirst("s_", "d_");
                     }
                     Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = aon.iterator();
@@ -142,7 +142,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
         String valueOf2 = objArr[1] == null ? "" : String.valueOf(objArr[1]);
         Boolean valueOf3 = Boolean.valueOf(String.valueOf(objArr[2]));
         String valueOf4 = objArr[3] == null ? "" : String.valueOf(objArr[3]);
-        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (i3 = (iVar = new com.baidu.tbadk.core.util.a.i()).i(valueOf4, false)) == null || !iVar.zU()) {
+        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (i3 = (iVar = new com.baidu.tbadk.core.util.a.i()).i(valueOf4, false)) == null || !iVar.zS()) {
             return null;
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
@@ -159,7 +159,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
                     eVar.f(aVar3);
-                    aVar.An = eVar;
+                    aVar.Ao = eVar;
                 }
                 Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = com.baidu.tieba.emotion.editortool.e.aol().aon().iterator();
                 while (true) {
@@ -180,7 +180,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                     return null;
                 }
             } else {
-                c.IQ().fe(80000);
+                c.IQ().fd(80000);
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(i3);
                 if (Bytes2Bitmap == null) {
                     return null;
@@ -197,7 +197,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.d.e eVar2 = new com.baidu.tbadk.core.util.d.e();
                     eVar2.f(cVar);
-                    aVar.An = eVar2;
+                    aVar.Ao = eVar2;
                 }
             }
             return aVar2;
@@ -231,7 +231,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
         if (aVar != null) {
             com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
             eVar.f(aVar2);
-            aVar.An = eVar;
+            aVar.Ao = eVar;
         }
         if (d.ge().c(aVar2)) {
             int i = 2000;
@@ -271,7 +271,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
         if (aVar != null) {
             com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
             eVar.f(hVar);
-            aVar.An = eVar;
+            aVar.Ao = eVar;
         }
         if (d.ge().c(hVar)) {
             int i = 2000;

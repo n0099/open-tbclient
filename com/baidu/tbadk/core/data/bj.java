@@ -8,11 +8,11 @@ public class bj {
     private int akl = 0;
     private bi akm = new bi();
 
-    public boolean wX() {
+    public boolean wW() {
         return this.akl != 0;
     }
 
-    public bi wY() {
+    public bi wX() {
         return this.akm;
     }
 

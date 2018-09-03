@@ -5,23 +5,23 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId aKC = BdUniqueId.gen();
-    public AlaLiveInfoCoreData aKD;
-    public String aKF;
-    public int aKE = 0;
-    public int aKG = -1;
+    public static final BdUniqueId aKz = BdUniqueId.gen();
+    public AlaLiveInfoCoreData aKA;
+    public String aKC;
+    public int aKB = 0;
+    public int aKD = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return aKC;
+        return aKz;
     }
 
     public void parserProtoBuf(AlaLiveInfo alaLiveInfo) {
         if (alaLiveInfo != null) {
-            if (this.aKD == null) {
-                this.aKD = new AlaLiveInfoCoreData();
+            if (this.aKA == null) {
+                this.aKA = new AlaLiveInfoCoreData();
             }
-            this.aKD.parserProtoBuf(alaLiveInfo);
+            this.aKA.parserProtoBuf(alaLiveInfo);
         }
     }
 }

@@ -10,18 +10,18 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> asK = new ArrayList<>();
-    private b asL;
-    private InterfaceC0103a asM;
+    private ArrayList<String> asL = new ArrayList<>();
+    private b asM;
+    private InterfaceC0103a asN;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0103a {
-        void zZ();
+        void zX();
     }
 
     /* loaded from: classes.dex */
@@ -32,27 +32,27 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.asL = bVar;
+        this.asM = bVar;
     }
 
-    public void zY() {
-        if (this.asK != null) {
-            this.asK.clear();
+    public void zW() {
+        if (this.asL != null) {
+            this.asL.clear();
         }
     }
 
     public void c(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !d(activity, str)) {
-            this.asK.add(str);
+            this.asL.add(str);
         }
     }
 
     public boolean u(Activity activity) {
-        if (!com.baidu.e.a.rj()) {
-            zZ();
+        if (!com.baidu.e.a.rg()) {
+            zX();
             return false;
-        } else if (w.z(this.asK)) {
-            zZ();
+        } else if (w.z(this.asL)) {
+            zX();
             return false;
         } else {
             if (activity instanceof BaseFragmentActivity) {
@@ -77,10 +77,10 @@ public class a {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.av(false);
-        aVar.ce(d.j.request_permission_default_title);
+        aVar.aw(false);
+        aVar.ce(f.j.request_permission_default_title);
         aVar.cf(eZ(str));
-        aVar.a(d.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
+        aVar.a(f.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
@@ -89,27 +89,27 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.asL != null) {
-                    a.this.asL.fb(str);
+                if (a.this.asM != null) {
+                    a.this.asM.fb(str);
                 }
             }
-        }).b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
+        }).b(f.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.asL != null) {
-                    a.this.asL.fa(str);
+                if (a.this.asM != null) {
+                    a.this.asM.fa(str);
                 }
             }
         }).b(i.ad(activity));
-        aVar.xf();
+        aVar.xe();
         return false;
     }
 
     private void v(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.asK.toArray(new String[this.asK.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.asL.toArray(new String[this.asL.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -118,39 +118,39 @@ public class a {
 
     private int eZ(String str) {
         if (TextUtils.isEmpty(str)) {
-            return d.j.request_permission_default_text;
+            return f.j.request_permission_default_text;
         }
         if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
-            return d.j.request_permission_default_text;
+            return f.j.request_permission_default_text;
         }
         if ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) {
-            return d.j.request_permission_location;
+            return f.j.request_permission_location;
         }
         if ("android.permission.CAMERA".equals(str)) {
-            return d.j.request_permission_camera;
+            return f.j.request_permission_camera;
         }
         if ("android.permission.RECORD_AUDIO".equals(str)) {
-            return d.j.request_permission_microphone;
+            return f.j.request_permission_microphone;
         }
         if ("android.permission.READ_PHONE_STATE".equals(str)) {
-            return d.j.request_permission_contacts;
+            return f.j.request_permission_contacts;
         }
         if ("android.permission.SEND_SMS".equals(str)) {
-            return d.j.request_permission_sms;
+            return f.j.request_permission_sms;
         }
         if ("android.permission.CALL_PHONE".equals(str)) {
-            return d.j.request_permission_cellphone;
+            return f.j.request_permission_cellphone;
         }
-        return d.j.request_permission_default_text;
+        return f.j.request_permission_default_text;
     }
 
     public void a(InterfaceC0103a interfaceC0103a) {
-        this.asM = interfaceC0103a;
+        this.asN = interfaceC0103a;
     }
 
-    public void zZ() {
-        if (this.asM != null) {
-            this.asM.zZ();
+    public void zX() {
+        if (this.asN != null) {
+            this.asN.zX();
         }
     }
 }

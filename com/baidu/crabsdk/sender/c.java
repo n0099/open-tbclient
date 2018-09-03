@@ -31,7 +31,7 @@ public final class c implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static c po() {
+    public static c pl() {
         return Tp;
     }
 
@@ -93,7 +93,7 @@ public final class c implements Thread.UncaughtExceptionHandler {
                     com.baidu.crabsdk.c.a.ch("oom save fail" + th3.getMessage());
                 }
             }
-            if (e.pq() && e.ps() && e.h(th)) {
+            if (e.pn() && e.pp() && e.h(th)) {
                 Tn = false;
                 if (this.Tr != null && thread != null && th != null) {
                     f.c(this.Tr, f.j(d.a(this.Tr, th, false)));

@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.TalkBall.AdidasAdvert;
 /* loaded from: classes3.dex */
 public interface a {
-    void Tv();
+    void Ty();
 
     void W(ArrayList<h> arrayList);
 

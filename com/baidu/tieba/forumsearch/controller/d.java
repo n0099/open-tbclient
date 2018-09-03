@@ -7,19 +7,19 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes3.dex */
 public class d {
-    private a dkR;
-    private com.baidu.adp.framework.listener.a dkW = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a dkP;
+    private com.baidu.adp.framework.listener.a dkU = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.dkR != null) {
-                    d.this.dkR.a(false, null);
+                if (d.this.dkP != null) {
+                    d.this.dkP.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.dkR != null) {
-                d.this.dkR.a(searchData != null, searchData);
+            if (d.this.dkP != null) {
+                d.this.dkP.a(searchData != null, searchData);
             }
         }
     };
@@ -44,18 +44,18 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.dkW.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.dkW);
+        this.dkU.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.dkU);
     }
 
     public void a(a aVar) {
-        this.dkR = aVar;
+        this.dkP = aVar;
     }
 
-    public void mp(String str) {
+    public void mr(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.jV()) {
-                this.mPageContext.showToast(d.j.neterror);
+                this.mPageContext.showToast(f.j.neterror);
                 return;
             }
             cancelMessage();

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class AddressListActivity extends BaseFragmentActivity {
     private NavigationBar mNavigationBar;
@@ -13,16 +13,16 @@ public class AddressListActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.addresslist_activity);
-        this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
+        setContentView(f.h.addresslist_activity);
+        this.mNavigationBar = (NavigationBar) findViewById(f.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.AddressListActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AddressListActivity.this.finish();
             }
         });
-        this.mNavigationBar.setTitleText(getPageContext().getString(d.j.my_good_friends));
-        getSupportFragmentManager().beginTransaction().add(d.g.address_list_fragment_container, new AddressListFragment()).commit();
+        this.mNavigationBar.setTitleText(getPageContext().getString(f.j.my_good_friends));
+        getSupportFragmentManager().beginTransaction().add(f.g.address_list_fragment_container, new AddressListFragment()).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity

@@ -16,7 +16,7 @@ public class p {
     private static p aWx = null;
     private CustomMessageListener mNetworkChangedListener;
 
-    public static p Lo() {
+    public static p Ls() {
         if (aWx == null) {
             synchronized (aWw) {
                 if (aWx == null) {
@@ -31,10 +31,10 @@ public class p {
         com.baidu.adp.lib.util.j.init();
     }
 
-    public void rJ() {
+    public void rH() {
         try {
             if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = Lp();
+                this.mNetworkChangedListener = Lt();
                 MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
             }
         } catch (Exception e) {
@@ -43,28 +43,28 @@ public class p {
         }
     }
 
-    private CustomMessageListener Lp() {
+    private CustomMessageListener Lt() {
         return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.p.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    p.this.Lq();
+                    p.this.Lu();
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lq() {
+    public void Lu() {
         try {
             boolean jE = com.baidu.adp.lib.util.j.jE();
             if (jE) {
                 if (com.baidu.adp.lib.util.j.jF()) {
-                    ar.zw().aJ(true);
-                    com.baidu.tieba.recapp.d.a.bod().sR(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    ar.zu().aK(true);
+                    com.baidu.tieba.recapp.d.a.boe().sV(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.jG()) {
-                    ar.zw().aJ(false);
+                    ar.zu().aK(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(jE);

@@ -7,30 +7,30 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.card.ad;
-import com.baidu.tieba.d;
-import com.baidu.tieba.personCenter.data.e;
+import com.baidu.tieba.f;
+import com.baidu.tieba.personCenter.data.f;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private a fUg;
+    private a fTY;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
-    private ad<e> rO;
+    private ad<f> rP;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
     public void Y(View view) {
-        this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_more_navigation_bar);
+        this.mNavigationBar = (NavigationBar) view.findViewById(f.g.person_more_navigation_bar);
         asl();
-        this.mListView = (BdTypeListView) view.findViewById(d.g.person_more_listview);
-        this.fUg = new a(this.mPageContext, this.mListView, this.rO);
+        this.mListView = (BdTypeListView) view.findViewById(f.g.person_more_listview);
+        this.fTY = new a(this.mPageContext, this.mListView, this.rP);
     }
 
     private void asl() {
-        this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.more));
+        this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(f.j.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
             @Override // android.view.View.OnClickListener
@@ -46,11 +46,11 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.fUg.notifyDataSetChanged();
+        this.fTY.notifyDataSetChanged();
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void b(ad<e> adVar) {
-        this.rO = adVar;
+    public void b(ad<com.baidu.tieba.personCenter.data.f> adVar) {
+        this.rP = adVar;
     }
 }

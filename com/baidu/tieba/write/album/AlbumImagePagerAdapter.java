@@ -8,20 +8,20 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private AlbumActivity htN;
-    private Map<Integer, Boolean> htX = new HashMap();
+    private AlbumActivity htP;
+    private Map<Integer, Boolean> htZ = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.htN = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.htN.getPageContext().getPageActivity());
+        this.htP = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.htP.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -49,23 +49,23 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     }
 
     public boolean vq(int i) {
-        if (this.htX.get(Integer.valueOf(i)) == null) {
+        if (this.htZ.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.htX.get(Integer.valueOf(i)).booleanValue();
+        return this.htZ.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = this.mLayoutInflater.inflate(d.h.album_big_image_item, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(d.g.big_image);
+        View inflate = this.mLayoutInflater.inflate(f.h.album_big_image_item, (ViewGroup) null);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(f.g.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultBgResource(0);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setGifIconSupport(false);
         tbImageView.setLongIconSupport(false);
-        TbImageView tbImageView2 = (TbImageView) inflate.findViewById(d.g.thumbnail_iamge);
+        TbImageView tbImageView2 = (TbImageView) inflate.findViewById(f.g.thumbnail_iamge);
         tbImageView2.setTag(null);
         tbImageView2.setDefaultBgResource(0);
         tbImageView2.setDefaultResource(0);
@@ -76,10 +76,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         if (qc != null) {
             tbImageView2.startLoad(qc.getFilePath(), 35, false, true);
             tbImageView.startLoad(qc.getFilePath(), 36, false);
-            this.htX.put(Integer.valueOf(i), true);
+            this.htZ.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        am.j(inflate, d.C0140d.cp_bg_line_d);
+        am.j(inflate, f.d.cp_bg_line_d);
         return inflate;
     }
 }

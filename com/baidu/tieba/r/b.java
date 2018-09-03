@@ -24,15 +24,13 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
-    private List<TransmitForumData> gih;
-    private LinearLayout haw;
-    private com.baidu.tieba.r.a hax;
-    private CustomMessageListener hay = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.r.b.1
+    private List<TransmitForumData> gig;
+    private CustomMessageListener haA = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.r.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,12 +38,14 @@ public class b implements View.OnClickListener {
                 b.this.mForumList = (ArrayList) customResponsedMessage.getData();
                 int y = w.y(b.this.mForumList);
                 if (y > 0) {
-                    b.this.gih = b.this.mForumList.subList(0, Math.min(6, y));
+                    b.this.gig = b.this.mForumList.subList(0, Math.min(6, y));
                 }
                 b.this.updateView();
             }
         }
     };
+    private LinearLayout hay;
+    private com.baidu.tieba.r.a haz;
     private Context mContext;
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
@@ -53,7 +53,7 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.mContext = context;
-        MessageManager.getInstance().registerListener(this.hay);
+        MessageManager.getInstance().registerListener(this.haA);
     }
 
     public void a(com.baidu.tbadk.coreExtra.c.d dVar, ArrayList<TransmitForumData> arrayList, int i) {
@@ -62,89 +62,89 @@ public class b implements View.OnClickListener {
         this.mPrivateThread = i;
         int y = w.y(arrayList);
         if (y > 0) {
-            this.gih = arrayList.subList(0, Math.min(6, y));
+            this.gig = arrayList.subList(0, Math.min(6, y));
         }
     }
 
     public void a(com.baidu.tieba.r.a aVar) {
-        this.hax = aVar;
+        this.haz = aVar;
     }
 
     public View getView() {
-        if (this.haw == null) {
-            this.haw = new LinearLayout(this.mContext);
-            this.haw.setOrientation(0);
-            int f = l.f(this.mContext, d.e.ds18);
-            this.haw.setPadding(f, l.f(this.mContext, d.e.ds32), f, l.f(this.mContext, d.e.ds26));
-            bzC();
-            bzD();
+        if (this.hay == null) {
+            this.hay = new LinearLayout(this.mContext);
+            this.hay.setOrientation(0);
+            int f = l.f(this.mContext, f.e.ds18);
+            this.hay.setPadding(f, l.f(this.mContext, f.e.ds32), f, l.f(this.mContext, f.e.ds26));
             bzE();
+            bzF();
+            bzG();
         }
-        return this.haw;
+        return this.hay;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateView() {
-        if (this.haw != null) {
-            this.haw.removeAllViews();
-            bzC();
-            bzD();
+        if (this.hay != null) {
+            this.hay.removeAllViews();
             bzE();
-        }
-    }
-
-    private void bzC() {
-        a bzF = bzF();
-        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        bzF.aWe.startLoad(currentAccountInfo != null ? currentAccountInfo.getPortrait() : null, 12, false);
-        bzF.bwj.setText(d.j.my_homepage);
-        bzF.haA.setTag(100);
-        bzF.haA.setOnClickListener(this);
-        this.haw.addView(bzF.haA);
-    }
-
-    private void bzD() {
-        int y = w.y(this.gih);
-        for (int i = 0; i < y; i++) {
-            TransmitForumData transmitForumData = this.gih.get(i);
-            if (transmitForumData != null) {
-                a bzF = bzF();
-                bzF.aWe.startLoad(transmitForumData.avatar, 10, false);
-                bzF.bwj.setText(transmitForumData.forumName);
-                bzF.haA.setTag(transmitForumData);
-                bzF.haA.setOnClickListener(this);
-                this.haw.addView(bzF.haA);
-            }
+            bzF();
+            bzG();
         }
     }
 
     private void bzE() {
-        a bzF = bzF();
-        am.c(bzF.aWe, d.f.icon_share_more_ba);
-        am.j(bzF.aWe, d.C0140d.cp_bg_line_d);
-        bzF.bwj.setText(d.j.more_forums);
-        bzF.haA.setTag(200);
-        bzF.haA.setOnClickListener(this);
-        this.haw.addView(bzF.haA);
+        a bzH = bzH();
+        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+        bzH.aWe.startLoad(currentAccountInfo != null ? currentAccountInfo.getPortrait() : null, 12, false);
+        bzH.bwl.setText(f.j.my_homepage);
+        bzH.haC.setTag(100);
+        bzH.haC.setOnClickListener(this);
+        this.hay.addView(bzH.haC);
     }
 
-    private a bzF() {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(d.h.share_dialog_forum_item, (ViewGroup) this.haw, false);
+    private void bzF() {
+        int y = w.y(this.gig);
+        for (int i = 0; i < y; i++) {
+            TransmitForumData transmitForumData = this.gig.get(i);
+            if (transmitForumData != null) {
+                a bzH = bzH();
+                bzH.aWe.startLoad(transmitForumData.avatar, 10, false);
+                bzH.bwl.setText(transmitForumData.forumName);
+                bzH.haC.setTag(transmitForumData);
+                bzH.haC.setOnClickListener(this);
+                this.hay.addView(bzH.haC);
+            }
+        }
+    }
+
+    private void bzG() {
+        a bzH = bzH();
+        am.c(bzH.aWe, f.C0146f.icon_share_more_ba);
+        am.j(bzH.aWe, f.d.cp_bg_line_d);
+        bzH.bwl.setText(f.j.more_forums);
+        bzH.haC.setTag(200);
+        bzH.haC.setOnClickListener(this);
+        this.hay.addView(bzH.haC);
+    }
+
+    private a bzH() {
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(f.h.share_dialog_forum_item, (ViewGroup) this.hay, false);
         a aVar = new a();
-        aVar.haA = viewGroup;
-        aVar.aWe = (TbImageView) viewGroup.findViewById(d.g.photo);
-        aVar.bwj = (TextView) viewGroup.findViewById(d.g.name);
-        am.h(aVar.bwj, d.C0140d.cp_cont_f);
+        aVar.haC = viewGroup;
+        aVar.aWe = (TbImageView) viewGroup.findViewById(f.g.photo);
+        aVar.bwl = (TextView) viewGroup.findViewById(f.g.name);
+        am.h(aVar.bwl, f.d.cp_cont_f);
         return aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hax != null) {
-            this.hax.bE(view);
+        if (this.haz != null) {
+            this.haz.bE(view);
         }
         if (!j.jE()) {
-            l.showToast(TbadkCoreApplication.getInst().getContext(), d.j.share_on_no_network);
+            l.showToast(TbadkCoreApplication.getInst().getContext(), f.j.share_on_no_network);
             return;
         }
         Object tag = view.getTag();
@@ -154,7 +154,7 @@ public class b implements View.OnClickListener {
                 a("1", (TransmitForumData) null, this.mPrivateThread);
                 ut(11);
             } else if (num.intValue() == 200) {
-                bzG();
+                bzI();
                 ut(13);
             }
         } else if (tag instanceof TransmitForumData) {
@@ -165,11 +165,11 @@ public class b implements View.OnClickListener {
 
     private void ut(int i) {
         if (this.mShareItem != null) {
-            TiebaStatic.log(new an("c10125").af(ImageViewerConfig.FORUM_ID, this.mShareItem.fid).af("tid", this.mShareItem.tid).r("obj_type", i).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mShareItem.aGh).r("obj_param1", this.mShareItem.aGi));
+            TiebaStatic.log(new an("c10125").ae(ImageViewerConfig.FORUM_ID, this.mShareItem.fid).ae("tid", this.mShareItem.tid).r("obj_type", i).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mShareItem.aGg).r("obj_param1", this.mShareItem.aGh));
         }
     }
 
-    private void bzG() {
+    private void bzI() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, 25018);
         selectForumActivityConfig.setForumList(this.mForumList);
         selectForumActivityConfig.setFrom(2);
@@ -195,15 +195,15 @@ public class b implements View.OnClickListener {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.hay);
+        MessageManager.getInstance().unRegisterListener(this.haA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
         public TbImageView aWe;
-        public TextView bwj;
-        public ViewGroup haA;
+        public TextView bwl;
+        public ViewGroup haC;
 
         private a() {
         }

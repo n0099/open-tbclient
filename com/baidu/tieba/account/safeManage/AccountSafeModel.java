@@ -7,18 +7,18 @@ import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class AccountSafeModel extends BdBaseModel {
     private boolean aVq;
-    private com.baidu.tieba.setting.im.more.a bmV;
-    private String bmW;
-    private String bmX;
-    private String bmY;
+    private com.baidu.tieba.setting.im.more.a bmY;
+    private String bmZ;
+    private String bna;
+    private String bnb;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a QV() {
-        return this.bmV;
+    public com.baidu.tieba.setting.im.more.a Ra() {
+        return this.bmY;
     }
 
-    public String QW() {
-        return this.bmW;
+    public String Rb() {
+        return this.bmZ;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -39,43 +39,43 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage QX() {
+    private PrivateInfoNetMessage Rc() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean QY() {
+    public boolean Rd() {
         if (this.aVq) {
             return false;
         }
         this.aVq = true;
         this.mFinished = false;
-        sendMessage(QX());
+        sendMessage(Rc());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.bmV = aVar;
-        QZ();
+        this.bmY = aVar;
+        Re();
     }
 
-    private void QZ() {
-        SimpleUser Ra = Ra();
-        if (Ra != null) {
-            this.bmX = Ra.secureemail;
-            this.bmY = Ra.securemobil;
-            this.bmW = Ra.ahead_url;
+    private void Re() {
+        SimpleUser Rf = Rf();
+        if (Rf != null) {
+            this.bna = Rf.secureemail;
+            this.bnb = Rf.securemobil;
+            this.bmZ = Rf.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser Ra() {
-        if (this.bmV == null || this.bmV.Ra() == null) {
+    private SimpleUser Rf() {
+        if (this.bmY == null || this.bmY.Rf() == null) {
             return null;
         }
-        return this.bmV.Ra();
+        return this.bmY.Rf();
     }
 
-    public boolean AE() {
+    public boolean AB() {
         return this.aVq;
     }
 

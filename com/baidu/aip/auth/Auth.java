@@ -47,7 +47,7 @@ public class Auth {
         }
     }
 
-    private boolean ou() {
+    private boolean or() {
         return System.currentTimeMillis() > this.mExpiresTime;
     }
 
@@ -88,7 +88,7 @@ public class Auth {
     public String an(Context context) {
         String str;
         String str2 = null;
-        if (ou() || this.mToken == null) {
+        if (or() || this.mToken == null) {
             if (this.Ps == 0) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/sk?channel=ar";
                 str = f(context, this.Pt, this.Pu);

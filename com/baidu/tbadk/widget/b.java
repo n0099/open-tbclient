@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class b {
     private int aYA;
@@ -35,18 +35,18 @@ public class b {
         this.aYz = 16;
         this.aYA = 32;
         this.view = view;
-        this.aYx = getContext().getResources().getColor(d.C0140d.black_alpha40);
+        this.aYx = getContext().getResources().getColor(f.d.black_alpha40);
         this.aYt.setColor(this.aYx);
         this.aYt.setAntiAlias(true);
-        this.aYy = (int) getContext().getResources().getDimension(d.e.tbfontsize26);
-        this.aYw = getContext().getResources().getColor(d.C0140d.cp_cont_i);
+        this.aYy = (int) getContext().getResources().getDimension(f.e.tbfontsize26);
+        this.aYw = getContext().getResources().getColor(f.d.cp_cont_i);
         this.aYs.setColor(this.aYw);
         this.aYs.setTextSize(this.aYy);
         this.aYs.setAntiAlias(true);
-        this.aYu = l.f(getContext(), d.e.tbds20);
-        this.aYv = l.f(getContext(), d.e.tbds20);
-        this.aYz = l.f(getContext(), d.e.ds16);
-        this.aYA = l.f(getContext(), d.e.tbds40);
+        this.aYu = l.f(getContext(), f.e.tbds20);
+        this.aYv = l.f(getContext(), f.e.tbds20);
+        this.aYz = l.f(getContext(), f.e.ds16);
+        this.aYA = l.f(getContext(), f.e.tbds40);
     }
 
     public void c(Canvas canvas, String str) {
@@ -84,7 +84,7 @@ public class b {
         invalidate();
     }
 
-    public void fv(int i) {
+    public void fu(int i) {
         this.aYw = i;
         this.aYs.setColor(i);
         invalidate();

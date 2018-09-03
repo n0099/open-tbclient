@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private int cEP;
+    private int cEM;
     private int fWU = 0;
     private int fWV = 0;
     private ArrayList<ForumData> fWN = new ArrayList<>();
@@ -18,7 +18,7 @@ public class a {
     private ArrayList<ForumData> fWQ = new ArrayList<>();
     private ArrayList<ForumData> fWS = new ArrayList<>();
     private ArrayList<ForumData> fWR = new ArrayList<>();
-    private al eHH = new al();
+    private al eHC = new al();
     private Date fWT = null;
     private boolean Gp = true;
 
@@ -26,7 +26,7 @@ public class a {
         setHasMore(false);
     }
 
-    public int bil() {
+    public int bii() {
         return this.fWU;
     }
 
@@ -38,7 +38,7 @@ public class a {
         this.fWU += i;
     }
 
-    public int bim() {
+    public int bij() {
         return this.fWV;
     }
 
@@ -50,23 +50,23 @@ public class a {
         this.fWV += i;
     }
 
-    public ArrayList<ForumData> bin() {
+    public ArrayList<ForumData> bik() {
         return this.fWO;
     }
 
-    public ArrayList<ForumData> bio() {
+    public ArrayList<ForumData> bil() {
         return this.fWP;
     }
 
-    public ArrayList<ForumData> bip() {
+    public ArrayList<ForumData> bim() {
         return this.fWR;
     }
 
-    public ArrayList<ForumData> biq() {
+    public ArrayList<ForumData> bin() {
         return this.fWS;
     }
 
-    public ArrayList<ForumData> bir() {
+    public ArrayList<ForumData> bio() {
         return this.fWN;
     }
 
@@ -114,7 +114,7 @@ public class a {
         }
     }
 
-    public ArrayList<ForumData> bis() {
+    public ArrayList<ForumData> bip() {
         return this.fWQ;
     }
 
@@ -175,8 +175,8 @@ public class a {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.eHH.parserJson(jSONObject.optJSONObject("page"));
-            this.cEP = jSONObject.optInt("has_more", 1);
+            this.eHC.parserJson(jSONObject.optJSONObject("page"));
+            this.cEM = jSONObject.optInt("has_more", 1);
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
                 this.fWT = new Date(optLong);
@@ -230,10 +230,10 @@ public class a {
     }
 
     public boolean isHasMore() {
-        return this.cEP == 1;
+        return this.cEM == 1;
     }
 
     public void setHasMore(boolean z) {
-        this.cEP = z ? 1 : 0;
+        this.cEM = z ? 1 : 0;
     }
 }

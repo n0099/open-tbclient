@@ -28,7 +28,7 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String tP() {
+    public String tO() {
         return this.aff;
     }
 
@@ -52,16 +52,16 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
         return this.mTitle;
     }
 
-    public String tQ() {
+    public String tP() {
         return this.tagNameUrl;
     }
 
-    public float tR() {
+    public float tQ() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: tS */
+    /* renamed from: tR */
     public q clone() {
         q qVar = new q();
         qVar.afe = this.afe;
@@ -104,11 +104,11 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
         }
     }
 
-    public boolean tT() {
+    public boolean tS() {
         return this.afi;
     }
 
-    public void an(boolean z) {
+    public void ao(boolean z) {
         this.afi = z;
     }
 }

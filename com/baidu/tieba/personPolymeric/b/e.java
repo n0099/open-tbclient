@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VideoEasterEggActivityConfig;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.im.model.BlackListModel;
 import com.baidu.tieba.personPolymeric.b.d;
 import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
@@ -23,8 +23,8 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class e implements com.baidu.tieba.personPolymeric.mode.b {
-    private final BaseFragmentActivity bsO;
-    private com.baidu.tieba.c.f dDn;
+    private final BaseFragmentActivity bsQ;
+    private com.baidu.tieba.c.f dDk;
     private BaseFragment fZA;
     private final boolean fZB;
     private d fZC;
@@ -44,60 +44,60 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
     private final d.b fZK = new d.b() { // from class: com.baidu.tieba.personPolymeric.b.e.1
         @Override // com.baidu.tieba.personPolymeric.b.d.b
         public void bt(View view) {
-            e.this.SS();
+            e.this.loadData();
         }
     };
 
     public e(BaseFragment baseFragment, View view, BdUniqueId bdUniqueId, long j, boolean z, boolean z2, boolean z3) {
         this.fZA = baseFragment;
-        this.bsO = this.fZA.getBaseFragmentActivity();
+        this.bsQ = this.fZA.getBaseFragmentActivity();
         this.mRootView = view;
         this.mPageId = bdUniqueId;
         this.mUserId = j;
         this.fZJ = z3;
         this.isHost = z;
         this.fZB = z2;
-        this.mContext = this.bsO.getPageContext();
+        this.mContext = this.bsQ.getPageContext();
         this.fZE = new c(this.fZA.getPageContext(), bdUniqueId);
         this.fZC = new d(this.fZA.getPageContext(), view);
         this.fZC.a(this.fZK);
-        this.fZD = new PersonPolymericModel(this.bsO, bdUniqueId, z);
+        this.fZD = new PersonPolymericModel(this.bsQ, bdUniqueId, z);
         this.fZD.a(this);
         this.fZD.a(this.fZE);
-        this.fZF = new BlackListModel(this.bsO.getPageContext(), bdUniqueId);
-        this.fZH = new g(this.bsO.getPageContext(), bdUniqueId, z);
+        this.fZF = new BlackListModel(this.bsQ.getPageContext(), bdUniqueId);
+        this.fZH = new g(this.bsQ.getPageContext(), bdUniqueId, z);
         this.fZH.a(this.fZD);
-        bjh();
-        SS();
+        bje();
+        loadData();
     }
 
-    public a bjb() {
+    public a biY() {
         return this.fZG;
     }
 
-    public g bjc() {
+    public g biZ() {
         return this.fZH;
     }
 
-    public PersonPolymericModel bjd() {
+    public PersonPolymericModel bja() {
         return this.fZD;
     }
 
-    public BlackListModel bje() {
+    public BlackListModel bjb() {
         return this.fZF;
     }
 
-    public c bjf() {
+    public c bjc() {
         return this.fZE;
     }
 
-    public d bjg() {
+    public d bjd() {
         return this.fZC;
     }
 
-    public void SS() {
+    public void loadData() {
         if (!TbadkCoreApplication.isLogin() && this.isHost) {
-            this.fZC.aDk();
+            this.fZC.aDh();
         } else if (j.js()) {
             this.fZC.g(false, -1);
             this.fZC.lh(true);
@@ -106,25 +106,25 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
         } else {
             this.fZC.hideLoadingView();
             this.fZC.ry(8);
-            this.fZC.E(this.fZA.getString(d.j.neterror), true);
+            this.fZC.E(this.fZA.getString(f.j.neterror), true);
         }
     }
 
     public void refreshData() {
         if (!TbadkCoreApplication.isLogin() && this.isHost) {
-            this.fZC.aDk();
+            this.fZC.aDh();
         } else if (j.js()) {
             this.fZD.cJ(this.mUserId);
         } else {
             this.fZC.hideLoadingView();
-            l.showToast(this.mContext.getContext(), this.mContext.getString(d.j.data_load_error));
+            l.showToast(this.mContext.getContext(), this.mContext.getString(f.j.data_load_error));
             ArrayList arrayList = new ArrayList();
             com.baidu.tieba.personPolymeric.c.i iVar = new com.baidu.tieba.personPolymeric.c.i();
             iVar.isHost = this.isHost;
             arrayList.add(iVar);
-            this.fZC.Un();
+            this.fZC.Uq();
             this.fZC.dc(arrayList);
-            this.fZC.bja();
+            this.fZC.biX();
         }
     }
 
@@ -154,9 +154,9 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
         }
     }
 
-    private void bjh() {
+    private void bje() {
         this.fZG = new i();
-        this.fZG.a(this.bsO, this, this.mPageId, this.mUserId, this.isHost, this.fZB);
+        this.fZG.a(this.bsQ, this, this.mPageId, this.mUserId, this.isHost, this.fZB);
         this.fZG.lf(this.fZJ);
         this.fZG.b(this.fZA);
         this.fZG.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -167,17 +167,17 @@ public class e implements com.baidu.tieba.personPolymeric.mode.b {
             return false;
         }
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.bsO).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.bsQ).createNormalConfig("from_person", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }
         return false;
     }
 
     public void b(PostWriteCallBackData postWriteCallBackData) {
-        if (this.dDn == null) {
-            this.dDn = new com.baidu.tieba.c.f(this.bsO.getPageContext(), (NavigationBarCoverTip) this.bsO.findViewById(d.g.navigation_cover_tip));
+        if (this.dDk == null) {
+            this.dDk = new com.baidu.tieba.c.f(this.bsQ.getPageContext(), (NavigationBarCoverTip) this.bsQ.findViewById(f.g.navigation_cover_tip));
         }
-        this.dDn.b(postWriteCallBackData);
+        this.dDk.b(postWriteCallBackData);
     }
 
     public void onChangeSkinType(int i) {

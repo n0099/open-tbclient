@@ -3,8 +3,8 @@ package com.baidu.tbadk.p;
 public class ab extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void hq() {
-        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.yg, this.yj);
-        bVar.a(this.yi, this.yf, this.yh);
+        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.yh, this.yk);
+        bVar.a(this.yj, this.yg, this.yi);
         bVar.g(hp());
         bVar.A(true);
         com.baidu.adp.lib.b.d.hv().a(bVar);

@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a ftJ;
-    private View ftK;
+    private a ftC;
+    private View ftD;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.ftJ = aVar;
+        this.ftC = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.ftK = view;
+        this.ftD = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.ftJ != null) {
-            return this.ftJ.a(this.ftK, motionEvent);
+        if (this.ftC != null) {
+            return this.ftC.a(this.ftD, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.ftJ != null) {
-            return this.ftJ.b(this.ftK, motionEvent);
+        if (this.ftC != null) {
+            return this.ftC.b(this.ftD, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.ftJ != null) {
-            return this.ftJ.c(this.ftK, motionEvent);
+        if (this.ftC != null) {
+            return this.ftC.c(this.ftD, motionEvent);
         }
         return false;
     }
 
     public void ba(View view) {
-        this.ftK = view;
+        this.ftD = view;
     }
 }

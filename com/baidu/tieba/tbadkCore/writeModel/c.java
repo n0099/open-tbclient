@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class c {
     public static void d(Context context, View view) {
@@ -22,13 +22,13 @@ public class c {
     }
 
     public static void e(Context context, String str, String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(d.h.post_write_or_reply_lay, (ViewGroup) null);
-        View findViewById = inflate.findViewById(d.g.experience_score);
-        TextView textView = (TextView) inflate.findViewById(d.g.success_text);
-        TextView textView2 = (TextView) inflate.findViewById(d.g.pre_msg);
-        TextView textView3 = (TextView) inflate.findViewById(d.g.color_msg);
+        View inflate = LayoutInflater.from(context).inflate(f.h.post_write_or_reply_lay, (ViewGroup) null);
+        View findViewById = inflate.findViewById(f.g.experience_score);
+        TextView textView = (TextView) inflate.findViewById(f.g.success_text);
+        TextView textView2 = (TextView) inflate.findViewById(f.g.pre_msg);
+        TextView textView3 = (TextView) inflate.findViewById(f.g.color_msg);
         if (StringUtils.isNull(str)) {
-            str = context.getString(d.j.send_success);
+            str = context.getString(f.j.send_success);
         }
         textView.setText(str);
         if (str2 != null || str3 != null) {
@@ -47,10 +47,10 @@ public class c {
                 yVar.o("lat", String.valueOf(H.getLatitude()));
                 yVar.o("lng", String.valueOf(H.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bwN().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bwO().getLocationData();
             if (locationData != null) {
-                yVar.o("name", locationData.bwJ());
-                yVar.o("sn", locationData.bwL());
+                yVar.o("name", locationData.bwK());
+                yVar.o("sn", locationData.bwM());
             }
         }
     }

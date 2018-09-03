@@ -9,40 +9,40 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.ad;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.play.y;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy.view.b>> implements ab, com.baidu.tieba.frs.e.c {
-    public static int duc = 5;
-    public static int dud = 10;
-    public static int due = 15;
+    public static int dtZ = 5;
+    public static int dua = 10;
+    public static int dub = 15;
     private ad<bb> bHC;
-    private int dtX;
-    private com.baidu.tieba.frs.e.a dtY;
+    private int dtU;
+    private com.baidu.tieba.frs.e.a dtV;
     private String forumName;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(bb bbVar, String str) {
         if (bbVar != null) {
-            int wi = bbVar.wi();
+            int wh = bbVar.wh();
             an anVar = new an(str);
-            anVar.af("obj_locate", kS(wi));
-            anVar.af("tid", bbVar.getTid());
+            anVar.ae("obj_locate", kR(wh));
+            anVar.ae("tid", bbVar.getTid());
             anVar.r("obj_type", 2);
             TiebaStatic.log(anVar);
         }
     }
 
-    private String kS(int i) {
-        if (i == duc) {
+    private String kR(int i) {
+        if (i == dtZ) {
             return "3";
         }
-        if (i == dud) {
+        if (i == dua) {
             return Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
         }
-        if (i != due) {
+        if (i != dub) {
             return "";
         }
         return Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE;
@@ -51,21 +51,21 @@ public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.dtX = 3;
-        this.dtY = new com.baidu.tieba.frs.e.a();
+        this.dtU = 3;
+        this.dtV = new com.baidu.tieba.frs.e.a();
         this.bHC = new ad<bb>() { // from class: com.baidu.tieba.frs.entelechy.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bb bbVar) {
                 if (view != null && bbVar != null) {
-                    if (view.getId() == d.g.frame_video) {
+                    if (view.getId() == f.g.frame_video) {
                         f.this.e(bbVar, "c11718");
-                    } else if (view.getId() == d.g.layout_root) {
+                    } else if (view.getId() == f.g.layout_root) {
                         f.this.e(bbVar, "c10242");
-                    } else if (view.getId() == d.g.image_user || view.getId() == d.g.pendant_image_user) {
+                    } else if (view.getId() == f.g.image_user || view.getId() == f.g.pendant_image_user) {
                         f.this.e(bbVar, "c10241");
-                    } else if (view.getId() == d.g.card_divider_tv) {
-                        com.baidu.tieba.frs.f.h.a(f.this.dtY, bbVar.vI());
+                    } else if (view.getId() == f.g.card_divider_tv) {
+                        com.baidu.tieba.frs.f.h.a(f.this.dtV, bbVar.vH());
                     }
                 }
             }
@@ -88,14 +88,14 @@ public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
         y yVar = null;
         if (bbVar != null) {
             yVar = new y();
-            yVar.mLocate = kS(bbVar.wi());
-            yVar.cBU = this.dtY.dEF;
+            yVar.mLocate = kR(bbVar.wh());
+            yVar.cBR = this.dtV.dEC;
             yVar.aWq = bbVar.getTid();
-            yVar.ghF = bbVar.mRecomAbTag;
-            if (bbVar.vC() != null) {
-                yVar.ghG = bbVar.vC().video_md5;
+            yVar.ghE = bbVar.mRecomAbTag;
+            if (bbVar.vB() != null) {
+                yVar.ghF = bbVar.vB().video_md5;
             }
-            bbVar.wf();
+            bbVar.we();
         }
         return yVar;
     }
@@ -105,12 +105,12 @@ public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, a aVar) {
-        if (aVar == null || aVar.ajz() == null) {
+        if (aVar == null || aVar.ajC() == null) {
             return null;
         }
-        aVar.ajz().setVideoStatsData(W(bbVar));
-        aVar.ajz().a(bbVar);
-        aVar.ajz().b(this.bHC);
+        aVar.ajC().setVideoStatsData(W(bbVar));
+        aVar.ajC().a(bbVar);
+        aVar.ajC().b(this.bHC);
         return aVar.getView();
     }
 
@@ -120,12 +120,12 @@ public class f extends com.baidu.tieba.frs.h<bb, a<com.baidu.tieba.frs.entelechy
     }
 
     @Override // com.baidu.tieba.card.ab
-    public void hl(int i) {
-        this.dtX = i;
+    public void hk(int i) {
+        this.dtU = i;
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a axh() {
-        return this.dtY;
+    public com.baidu.tieba.frs.e.a axg() {
+        return this.dtV;
     }
 }

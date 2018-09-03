@@ -10,13 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class WritePrefixItemLayout extends LinearLayout {
-    private TextView ceW;
-    private TextView hti;
-    private ImageView htj;
-    private View htk;
+    private TextView ceT;
+    private TextView htk;
+    private ImageView htl;
+    private View htm;
     private Context mContext;
 
     public WritePrefixItemLayout(Context context) {
@@ -30,43 +30,43 @@ public class WritePrefixItemLayout extends LinearLayout {
     }
 
     private void init() {
-        LayoutInflater.from(this.mContext).inflate(d.h.prefix_item, this);
+        LayoutInflater.from(this.mContext).inflate(f.h.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.ceW = (TextView) findViewById(d.g.prefix_text);
-        this.hti = (TextView) findViewById(d.g.prefix_no_tip);
-        this.htj = (ImageView) findViewById(d.g.prefix_checked);
-        this.htk = findViewById(d.g.prefix_item_divider);
-        this.ceW.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        am.h(this.hti, d.C0140d.cp_cont_d);
-        this.htj.setBackgroundDrawable(am.getDrawable(d.f.icon_set_list_ok_s));
-        am.j(this.htk, d.C0140d.cp_bg_line_c);
-        am.i(this, d.f.addresslist_item_bg);
+        this.ceT = (TextView) findViewById(f.g.prefix_text);
+        this.htk = (TextView) findViewById(f.g.prefix_no_tip);
+        this.htl = (ImageView) findViewById(f.g.prefix_checked);
+        this.htm = findViewById(f.g.prefix_item_divider);
+        this.ceT.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        am.h(this.htk, f.d.cp_cont_d);
+        this.htl.setBackgroundDrawable(am.getDrawable(f.C0146f.icon_set_list_ok_s));
+        am.j(this.htm, f.d.cp_bg_line_c);
+        am.i(this, f.C0146f.addresslist_item_bg);
     }
 
     public void setPrefixText(String str) {
-        this.ceW.setText(str);
+        this.ceT.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.ceW.setTextColor(i);
+        this.ceT.setTextColor(i);
     }
 
     public void nq(boolean z) {
-        this.hti.setVisibility(z ? 0 : 8);
+        this.htk.setVisibility(z ? 0 : 8);
     }
 
     public void nr(boolean z) {
         if (z) {
-            this.htj.setVisibility(0);
+            this.htl.setVisibility(0);
         } else {
-            this.htj.setVisibility(8);
+            this.htl.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.htk.getLayoutParams()).setMargins(l.f(this.mContext, d.e.ds30), 0, l.f(this.mContext, d.e.ds30), 0);
+            ((LinearLayout.LayoutParams) this.htm.getLayoutParams()).setMargins(l.f(this.mContext, f.e.ds30), 0, l.f(this.mContext, f.e.ds30), 0);
         }
     }
 }

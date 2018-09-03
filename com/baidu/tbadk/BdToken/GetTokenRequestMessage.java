@@ -7,6 +7,7 @@ import tbclient.GetToken.DataReq;
 import tbclient.GetToken.GetTokenReqIdl;
 /* loaded from: classes.dex */
 public class GetTokenRequestMessage extends NetMessage {
+    private String mBaiduCuid;
     private String mToken;
 
     public GetTokenRequestMessage() {
@@ -17,6 +18,7 @@ public class GetTokenRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.token = this.mToken;
+        builder.shoubaicuid = this.mBaiduCuid;
         if (z) {
             o.bindCommonParamsToProtobufData(builder, true);
         }
@@ -27,5 +29,9 @@ public class GetTokenRequestMessage extends NetMessage {
 
     public void setToken(String str) {
         this.mToken = str;
+    }
+
+    public void setBaiduCuid(String str) {
+        this.mBaiduCuid = str;
     }
 }

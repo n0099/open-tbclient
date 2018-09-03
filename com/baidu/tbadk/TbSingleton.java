@@ -1,6 +1,7 @@
 package com.baidu.tbadk;
 
 import com.baidu.tbadk.c.a;
+import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.ap;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -8,7 +9,12 @@ public class TbSingleton {
     private static TbSingleton mInstance = null;
     private boolean isRecommendPage;
     private LinkedList<a> mVideoWatchTimeRecord;
-    private long pushDialogLoopTime = ap.aqR;
+    private long pushDialogLoopTime = ap.aqS;
+    private long pushDialogShowTime = 5 * ap.aqR;
+    private long lastResumeTime = 0;
+    private boolean canShowPermDlg = false;
+    private boolean hasShowPermDlg = false;
+    private boolean isNewUser = false;
 
     private TbSingleton() {
     }
@@ -91,5 +97,44 @@ public class TbSingleton {
 
     public void setPushDialogLoopTime(long j) {
         this.pushDialogLoopTime = j;
+    }
+
+    public long getPushDialogShowTime() {
+        return this.pushDialogShowTime;
+    }
+
+    public void setPushDialogShowTime(long j) {
+        this.pushDialogShowTime = j;
+    }
+
+    public boolean canShowPermDialog() {
+        return this.canShowPermDlg && !this.hasShowPermDlg;
+    }
+
+    public void setHasShowPermDlg(boolean z) {
+        this.hasShowPermDlg = z;
+    }
+
+    public void setCanShowPermDlg(boolean z) {
+        this.canShowPermDlg = z;
+    }
+
+    public long getLastResumeTime() {
+        if (this.lastResumeTime == 0) {
+            this.lastResumeTime = b.getInstance().getLong("last_resume_time", 0L);
+        }
+        return this.lastResumeTime;
+    }
+
+    public void setLastResumeTime(long j) {
+        this.lastResumeTime = j;
+    }
+
+    public boolean isNewUser() {
+        return this.isNewUser;
+    }
+
+    public void setNewUser(boolean z) {
+        this.isNewUser = z;
     }
 }

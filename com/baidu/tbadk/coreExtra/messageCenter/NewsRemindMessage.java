@@ -8,14 +8,14 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     /* loaded from: classes.dex */
     public class a {
         private int msgCount = 0;
-        private boolean aDS = false;
+        private boolean aDR = false;
+        private int aEm = 0;
         private int aEn = 0;
         private int aEo = 0;
         private int aEp = 0;
+        private boolean aDT = false;
         private int aEq = 0;
-        private boolean aDU = false;
-        private int aEr = 0;
-        private boolean aEs = false;
+        private boolean aEr = false;
 
         public a() {
         }
@@ -35,66 +35,66 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public boolean hasMsgRemind() {
-        return this.mData.aDS;
+        return this.mData.aDR;
     }
 
     public void setHasMsgRemind(boolean z) {
-        this.mData.aDS = z;
+        this.mData.aDR = z;
     }
 
     public int getMsgAgreeCount() {
-        return this.mData.aEn;
+        return this.mData.aEm;
     }
 
     public void setMsgAgreeCount(int i) {
-        this.mData.aEn = i;
+        this.mData.aEm = i;
     }
 
     public int getMsgReplyCount() {
-        return this.mData.aEo;
+        return this.mData.aEn;
     }
 
     public void setMsgReplyCount(int i) {
-        this.mData.aEo = i;
+        this.mData.aEn = i;
     }
 
     public int getMsgAtCount() {
-        return this.mData.aEp;
+        return this.mData.aEo;
     }
 
     public void setMsgAtCount(int i) {
-        this.mData.aEp = i;
+        this.mData.aEo = i;
     }
 
     public int getChatCount() {
-        return this.mData.aEq;
+        return this.mData.aEp;
     }
 
     public void setChatCount(int i) {
-        this.mData.aEq = i;
+        this.mData.aEp = i;
     }
 
     public boolean hasChatRemind() {
-        return this.mData.aDU;
+        return this.mData.aDT;
     }
 
     public void setHasChatRemind(boolean z) {
-        this.mData.aDU = z;
+        this.mData.aDT = z;
     }
 
     public int getNotificationCount() {
-        return this.mData.aEr;
+        return this.mData.aEq;
     }
 
     public void setNotificationCount(int i) {
-        this.mData.aEr = i;
+        this.mData.aEq = i;
     }
 
     public boolean hasNotificationRemind() {
-        return this.mData.aEs;
+        return this.mData.aEr;
     }
 
     public void setHasNotificationRemind(boolean z) {
-        this.mData.aEs = z;
+        this.mData.aEr = z;
     }
 }

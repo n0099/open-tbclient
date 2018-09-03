@@ -34,7 +34,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.ew().i(getPageContext().getPageActivity());
+        a.ew().h(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -144,7 +144,7 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
         com.baidu.adp.lib.f.c.ih().d(this.mId);
-        a.ew().j(getPageContext().getPageActivity());
+        a.ew().i(getPageContext().getPageActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 

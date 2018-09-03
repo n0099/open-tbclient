@@ -10,62 +10,62 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
-    private static volatile a hef;
-    private HashMap<String, String> heg;
-    private DownloadData heh;
+    private static volatile a heg;
+    private HashMap<String, String> heh;
+    private DownloadData hei;
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0242a {
-        void bAr();
+        void bAt();
 
         void cr(String str, String str2);
 
-        void uC(String str);
+        void uG(String str);
     }
 
     private a() {
     }
 
-    public static a bBd() {
-        if (hef == null) {
+    public static a bBf() {
+        if (heg == null) {
             synchronized (a.class) {
-                if (hef == null) {
-                    hef = new a();
+                if (heg == null) {
+                    heg = new a();
                 }
             }
         }
-        return hef;
+        return heg;
     }
 
-    public String uL(String str) {
+    public String uP(String str) {
         String eM = as.eM(str);
         if (eM == null) {
             return null;
         }
-        if (this.heg == null) {
-            this.heg = new HashMap<>();
-            bBe();
-            if (this.heg.size() > 0) {
-                return this.heg.get(eM);
+        if (this.heh == null) {
+            this.heh = new HashMap<>();
+            bBg();
+            if (this.heh.size() > 0) {
+                return this.heh.get(eM);
             }
             return null;
         }
-        return this.heg.get(eM);
+        return this.heh.get(eM);
     }
 
-    public void bBe() {
-        if (this.heg == null) {
-            this.heg = new HashMap<>();
+    public void bBg() {
+        if (this.heh == null) {
+            this.heh = new HashMap<>();
         } else {
-            this.heg.clear();
+            this.heh.clear();
         }
-        File file = new File(c.hbB);
+        File file = new File(c.hbC);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.heg.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.heh.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -74,14 +74,14 @@ public class a {
     public void a(String str, final String str2, final InterfaceC0242a interfaceC0242a) {
         String eM;
         if (!TextUtils.isEmpty(str2) && (eM = as.eM(str2)) != null) {
-            if (this.heh != null) {
-                if (!str2.equals(this.heh.getUrl())) {
-                    d.Hn().k(this.heh.getUrl(), true);
+            if (this.hei != null) {
+                if (!str2.equals(this.hei.getUrl())) {
+                    d.Hn().k(this.hei.getUrl(), true);
                 } else {
                     return;
                 }
             }
-            File file = new File(c.hbB);
+            File file = new File(c.hbC);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -89,7 +89,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.hbB + eM + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.hbC + eM + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -98,11 +98,11 @@ public class a {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (a.this.heh != null && downloadData2.getUrl().equals(a.this.heh.getUrl())) {
-                            a.this.heh = null;
+                        if (a.this.hei != null && downloadData2.getUrl().equals(a.this.hei.getUrl())) {
+                            a.this.hei = null;
                         }
                         if (interfaceC0242a != null) {
-                            interfaceC0242a.bAr();
+                            interfaceC0242a.bAt();
                         }
                     }
                 }
@@ -120,11 +120,11 @@ public class a {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (a.this.heh != null && downloadData2.getUrl().equals(a.this.heh.getUrl())) {
-                            a.this.heh = null;
+                        if (a.this.hei != null && downloadData2.getUrl().equals(a.this.hei.getUrl())) {
+                            a.this.hei = null;
                         }
                         if (interfaceC0242a != null) {
-                            a.this.heg.put(downloadData2.getPath().substring(c.hbB.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            a.this.heh.put(downloadData2.getPath().substring(c.hbC.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             interfaceC0242a.cr(str2, downloadData2.getPath());
                         }
                     }
@@ -136,22 +136,22 @@ public class a {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (a.this.heh != null && downloadData2.getUrl().equals(a.this.heh.getUrl())) {
-                        a.this.heh = null;
+                    if (a.this.hei != null && downloadData2.getUrl().equals(a.this.hei.getUrl())) {
+                        a.this.hei = null;
                     }
                     if (interfaceC0242a != null) {
-                        interfaceC0242a.uC(str3);
+                        interfaceC0242a.uG(str3);
                     }
                 }
             });
-            this.heh = downloadData;
+            this.hei = downloadData;
             d.Hn().f(downloadData);
         }
     }
 
-    public void bBf() {
-        if (this.heh != null) {
-            d.Hn().k(this.heh.getUrl(), true);
+    public void bBh() {
+        if (this.hei != null) {
+            d.Hn().k(this.hei.getUrl(), true);
         }
     }
 }

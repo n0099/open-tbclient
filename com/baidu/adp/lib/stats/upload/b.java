@@ -34,9 +34,9 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b BR = null;
-    private com.baidu.adp.lib.stats.c BS;
-    private a BT;
+    private static b BS = null;
+    private com.baidu.adp.lib.stats.c BT;
+    private a BU;
     private CustomMessageListener mNetworkChangedListener = new CustomMessageListener(2000994) { // from class: com.baidu.adp.lib.stats.upload.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -49,52 +49,52 @@ public class b {
     private String mUploadUrl;
 
     public static b jc() {
-        if (BR == null) {
+        if (BS == null) {
             synchronized (b.class) {
-                if (BR == null) {
-                    BR = new b();
+                if (BS == null) {
+                    BS = new b();
                 }
             }
         }
-        return BR;
+        return BS;
     }
 
     public void a(com.baidu.adp.lib.stats.c cVar, String str) {
         this.mUploadUrl = str;
-        this.BS = cVar;
-        if (this.BS != null) {
-            this.BS.Bb = Build.MODEL;
-            this.BS.Bf = Build.VERSION.RELEASE;
-            this.BS.mNetType = d.getNetType(BdBaseApplication.getInst());
-            this.BS.Be = String.valueOf(j.jK());
+        this.BT = cVar;
+        if (this.BT != null) {
+            this.BT.Bc = Build.MODEL;
+            this.BT.Bg = Build.VERSION.RELEASE;
+            this.BT.mNetType = d.getNetType(BdBaseApplication.getInst());
+            this.BT.Bf = String.valueOf(j.jK());
         }
         try {
             MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (this.BT == null) {
-            this.BT = new a();
+        if (this.BU == null) {
+            this.BU = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.BT, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.BU, intentFilter);
         }
     }
 
     public void setUser(String str, String str2, String str3) {
-        if (this.BS.mUid != null || str != null) {
-            if (this.BS.mUid == null || !this.BS.mUid.equals(str)) {
-                this.BS.mUid = str;
-                this.BS.Bc = str2;
-                this.BS.Bd = str3;
+        if (this.BT.mUid != null || str != null) {
+            if (this.BT.mUid == null || !this.BT.mUid.equals(str)) {
+                this.BT.mUid = str;
+                this.BT.Bd = str2;
+                this.BT.Be = str3;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void jd() {
-        this.BS.mNetType = d.getNetType(BdBaseApplication.getInst());
-        this.BS.Be = String.valueOf(j.jK());
+        this.BT.mNetType = d.getNetType(BdBaseApplication.getInst());
+        this.BT.Bf = String.valueOf(j.jK());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -119,26 +119,26 @@ public class b {
     /* renamed from: com.baidu.adp.lib.stats.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0017b extends BdAsyncTask<Object, Integer, Void> {
-        private com.baidu.adp.lib.stats.base.a BU;
-        private String BV;
+        private com.baidu.adp.lib.stats.base.a BV;
+        private String BW;
 
         public C0017b(com.baidu.adp.lib.stats.base.a aVar, String str) {
-            this.BU = aVar;
-            this.BV = str;
+            this.BV = aVar;
+            this.BW = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            String a = com.baidu.adp.lib.stats.upload.c.a(this.BU, b.this.BS);
-            String str = this.BV;
+            String a = com.baidu.adp.lib.stats.upload.c.a(this.BV, b.this.BT);
+            String str = this.BW;
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             BdLog.i("commonHeader = " + a);
             BdLog.i("cache = " + str);
-            this.BU.iL();
-            b.this.a(this.BU, a, arrayList, null, true);
+            this.BV.iL();
+            b.this.a(this.BV, a, arrayList, null, true);
             return null;
         }
     }
@@ -163,14 +163,14 @@ public class b {
                         while (it.hasNext()) {
                             String next = it.next();
                             if (!com.baidu.adp.lib.stats.switchs.a.iW().isUpload(aVar.iN(), next)) {
-                                b(arrayList3, next);
+                                a(arrayList3, next);
                             } else if (!com.baidu.adp.lib.stats.switchs.a.iW().smallFlowUpload(aVar.iN(), next)) {
-                                b(arrayList3, next);
+                                a(arrayList3, next);
                             } else {
                                 boolean onlyWifiUpload2 = com.baidu.adp.lib.stats.switchs.a.iW().onlyWifiUpload(aVar.iN(), next);
                                 boolean jF2 = j.jF();
                                 if (onlyWifiUpload2 && !jF2) {
-                                    b(arrayList3, next);
+                                    a(arrayList3, next);
                                 }
                             }
                         }
@@ -206,7 +206,7 @@ public class b {
         }
     }
 
-    private void b(ArrayList<String> arrayList, String str) {
+    private void a(ArrayList<String> arrayList, String str) {
         if (!TextUtils.isEmpty(str)) {
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
@@ -220,30 +220,30 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Object, Integer, Void> {
-        private com.baidu.adp.lib.stats.base.a BW;
-        private ArrayList<String> BX;
-        private boolean BY;
+        private com.baidu.adp.lib.stats.base.a BX;
+        private ArrayList<String> BY;
         private boolean BZ;
         private boolean Ca;
+        private boolean Cb;
 
         public c(com.baidu.adp.lib.stats.base.a aVar, ArrayList<String> arrayList, boolean z, boolean z2, boolean z3) {
-            this.BW = null;
             this.BX = null;
-            this.BY = false;
+            this.BY = null;
             this.BZ = false;
             this.Ca = false;
-            this.BW = aVar;
-            this.BX = arrayList;
-            this.BY = z;
-            this.BZ = z2;
-            this.Ca = z3;
+            this.Cb = false;
+            this.BX = aVar;
+            this.BY = arrayList;
+            this.BZ = z;
+            this.Ca = z2;
+            this.Cb = z3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Object... objArr) {
-            b(this.BW, this.BY, this.BZ, this.Ca);
+            b(this.BX, this.BZ, this.Ca, this.Cb);
             return null;
         }
 
@@ -251,19 +251,19 @@ public class b {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r3) {
-            this.BW.M(false);
+            this.BX.M(false);
         }
 
         private void b(com.baidu.adp.lib.stats.base.a aVar, boolean z, boolean z2, boolean z3) {
             int i;
             try {
-                String a = com.baidu.adp.lib.stats.upload.c.a(aVar, b.this.BS);
+                String a = com.baidu.adp.lib.stats.upload.c.a(aVar, b.this.BT);
                 BdUploadingLogInfo a2 = com.baidu.adp.lib.stats.upload.a.a(aVar, z2);
                 int size = a2.size();
                 if (a2 != null && size > 0) {
                     if (!z) {
                         for (int i2 = 0; i2 < size; i2++) {
-                            ArrayList<String> logStringByIndex = a2.getLogStringByIndex(i2, this.BX);
+                            ArrayList<String> logStringByIndex = a2.getLogStringByIndex(i2, this.BY);
                             if (logStringByIndex != null && logStringByIndex.size() != 0) {
                                 if (!z2) {
                                     b.this.a(aVar, a, logStringByIndex, a2.get(i2), z3);
@@ -282,7 +282,7 @@ public class b {
                     }
                     int i4 = 0;
                     for (int i5 = size - 1; i5 >= 0; i5--) {
-                        ArrayList<String> logStringByIndex2 = a2.getLogStringByIndex(i5, this.BX);
+                        ArrayList<String> logStringByIndex2 = a2.getLogStringByIndex(i5, this.BY);
                         if (logStringByIndex2 != null && logStringByIndex2.size() != 0) {
                             if (j.jF()) {
                                 i = i4;
@@ -434,14 +434,14 @@ public class b {
                             }
                             eVar.hW().setUrl(str3);
                             eVar.hW().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                            a2 = com.baidu.adp.lib.stats.upload.c.a(this.BS, z);
+                            a2 = com.baidu.adp.lib.stats.upload.c.a(this.BT, z);
                             if (a2 != null) {
                                 eVar.hW().j(new ArrayList(a2.entrySet()));
                             }
                             eVar.hW().j(arrayList3);
                             new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
                             int i2 = eVar.hX().responseCode;
-                            bArr = eVar.hX().zW;
+                            bArr = eVar.hX().zX;
                             if (bArr != null && i2 == 200) {
                                 try {
                                     if (new JSONObject(new String(bArr, IoUtils.UTF_8)).optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, -1) == 0) {
@@ -481,11 +481,11 @@ public class b {
                                 sb = new StringBuilder();
                                 for (i = 0; i < hY.size(); i++) {
                                     com.baidu.adp.lib.network.http.d dVar = hY.get(i);
-                                    if (dVar != null && !TextUtils.isEmpty(dVar.zD)) {
+                                    if (dVar != null && !TextUtils.isEmpty(dVar.zE)) {
                                         if (sb.length() > 0) {
                                             sb.append(",");
                                         }
-                                        sb.append(dVar.zD);
+                                        sb.append(dVar.zE);
                                     }
                                 }
                                 if (sb.length() > 0) {
@@ -500,7 +500,7 @@ public class b {
                 }
                 new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
                 int i22 = eVar.hX().responseCode;
-                bArr = eVar.hX().zW;
+                bArr = eVar.hX().zX;
                 if (bArr != null) {
                     if (new JSONObject(new String(bArr, IoUtils.UTF_8)).optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, -1) == 0) {
                     }
@@ -525,7 +525,7 @@ public class b {
             }
             eVar.hW().setUrl(str3);
             eVar.hW().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-            a2 = com.baidu.adp.lib.stats.upload.c.a(this.BS, z);
+            a2 = com.baidu.adp.lib.stats.upload.c.a(this.BT, z);
             if (a2 != null) {
             }
             eVar.hW().j(arrayList3);

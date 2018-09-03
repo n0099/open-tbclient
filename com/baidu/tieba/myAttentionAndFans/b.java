@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.data.aq;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<UserData> alt = null;
-    boolean fiD = false;
+    protected ArrayList<UserData> als = null;
+    boolean fiw = false;
     private boolean mHasMore = false;
 
     public abstract void a(aq aqVar);
@@ -15,13 +15,13 @@ public abstract class b extends BaseAdapter {
     public abstract boolean cA(long j);
 
     public void resetData() {
-        this.alt.clear();
+        this.als.clear();
     }
 
-    public void aWp() {
-        this.fiD = false;
-        if (this.alt != null && this.alt.size() == 0) {
-            this.fiD = true;
+    public void aWl() {
+        this.fiw = false;
+        if (this.als != null && this.als.size() == 0) {
+            this.fiw = true;
         }
     }
 

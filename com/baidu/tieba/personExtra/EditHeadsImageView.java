@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class EditHeadsImageView extends DragImageView {
     private int fWE;
@@ -48,7 +48,7 @@ public class EditHeadsImageView extends DragImageView {
     }
 
     private void init() {
-        this.fWI = getResources().getColor(d.C0140d.common_color_10226);
+        this.fWI = getResources().getColor(f.d.common_color_10226);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);

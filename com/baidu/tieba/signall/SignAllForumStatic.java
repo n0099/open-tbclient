@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 /* loaded from: classes3.dex */
 public class SignAllForumStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        bsY();
+        bsZ();
     }
 
-    private static void bsY() {
-        ay.zK().a(new ay.a() { // from class: com.baidu.tieba.signall.SignAllForumStatic.1
-            @Override // com.baidu.tbadk.core.util.ay.a
+    private static void bsZ() {
+        az.zI().a(new az.a() { // from class: com.baidu.tieba.signall.SignAllForumStatic.1
+            @Override // com.baidu.tbadk.core.util.az.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;

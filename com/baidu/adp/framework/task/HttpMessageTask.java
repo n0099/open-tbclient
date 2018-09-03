@@ -98,7 +98,7 @@ public class HttpMessageTask extends MessageTask {
     public static class a {
         private int mCmd;
         private String mDownloadPath;
-        private boolean vy;
+        private boolean vz;
 
         public int getCmd() {
             return this.mCmd;
@@ -109,7 +109,7 @@ public class HttpMessageTask extends MessageTask {
         }
 
         public boolean fU() {
-            return this.vy;
+            return this.vz;
         }
     }
 }

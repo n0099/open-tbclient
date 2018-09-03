@@ -64,7 +64,7 @@ public final class s {
         return SS != null ? SS.getString("userName", "") : "";
     }
 
-    public static HashMap<String, String> ph() {
+    public static HashMap<String, String> pe() {
         HashMap<String, String> hashMap = new HashMap<>();
         if (SS != null) {
             String string = SS.getString("users_custom", "");

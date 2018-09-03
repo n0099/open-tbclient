@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public class c {
-    public String AT;
     public String AU;
     public String AV;
     public String AW;
@@ -14,6 +13,7 @@ public class c {
     public String Bd;
     public String Be;
     public String Bf;
+    public String Bg;
     public String mAppVersion;
     public String mChannel;
     public String mCuid;

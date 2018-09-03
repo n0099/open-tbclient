@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class m extends BaseAdapter {
-    private GroupAddressLocateActivity epI;
-    private String[] epw;
+    private GroupAddressLocateActivity epE;
+    private String[] eps;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.epw = null;
-        this.epI = null;
-        this.epI = groupAddressLocateActivity;
-        this.epw = strArr;
+        this.eps = null;
+        this.epE = null;
+        this.epE = groupAddressLocateActivity;
+        this.eps = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.epw != null) {
-            return this.epw.length;
+        if (this.eps != null) {
+            return this.eps.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.epw == null || i <= -1 || i >= this.epw.length) ? "" : this.epw[i];
+        return (this.eps == null || i <= -1 || i >= this.eps.length) ? "" : this.eps[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,20 +38,20 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.epI);
-            view = aVar.ahb();
+            aVar = new a(this.epE);
+            view = aVar.ahd();
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.aHX() != null) {
+        if (aVar.aHU() != null) {
             if (i + 1 == getCount()) {
-                aVar.aHX().setVisibility(8);
+                aVar.aHU().setVisibility(8);
             } else {
-                aVar.aHX().setVisibility(0);
+                aVar.aHU().setVisibility(0);
             }
         }
-        aVar.nP(getItem(i).toString());
-        if (this.epI.getSelectedPosition() == i) {
+        aVar.nR(getItem(i).toString());
+        if (this.epE.getSelectedPosition() == i) {
             aVar.hk(true);
         } else {
             aVar.hk(false);
@@ -61,7 +61,7 @@ public class m extends BaseAdapter {
     }
 
     private void aI(View view) {
-        this.epI.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.epI.getLayoutMode().onModeChanged(view);
+        this.epE.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.epE.getLayoutMode().onModeChanged(view);
     }
 }

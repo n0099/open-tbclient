@@ -5,30 +5,30 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g {
-    protected h gpq = new h();
-    protected i gpr = new i();
-    private LinkedList<e> zN = new LinkedList<>();
-    private e gps = null;
+    protected h gpt = new h();
+    protected i gpu = new i();
+    private LinkedList<e> zO = new LinkedList<>();
+    private e gpv = null;
 
-    public h bnD() {
-        return this.gpq;
+    public h bnE() {
+        return this.gpt;
     }
 
-    public i bnE() {
-        return this.gpr;
+    public i bnF() {
+        return this.gpu;
     }
 
     public List<e> hY() {
-        return Collections.unmodifiableList(this.zN);
+        return Collections.unmodifiableList(this.zO);
     }
 
     public void a(e eVar) {
         if (eVar != null) {
-            this.zN.add(eVar);
+            this.zO.add(eVar);
         }
     }
 
     public void b(e eVar) {
-        this.gps = eVar;
+        this.gpv = eVar;
     }
 }

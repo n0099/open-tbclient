@@ -13,7 +13,7 @@ import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.db.m;
 /* loaded from: classes.dex */
 public class b {
-    public static void aNP() {
+    public static void aNM() {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tieba.im.widget.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -24,13 +24,13 @@ public class b {
                         com.baidu.tbadk.coreExtra.messageCenter.a.Dl().c(new e());
                         com.baidu.tbadk.coreExtra.messageCenter.a.Dl().setMsgChat(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.Dl().setMsgAtme(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.Dl().dZ(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.Dl().dY(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.Dl().setMsgFans(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.Dl().setMsgGiftNum(0);
                         com.baidu.tbadk.coreExtra.messageCenter.a.Dl().DD();
-                        v.Ly();
-                        m.aJR().aJw();
-                        l.aJP().aJw();
+                        v.LC();
+                        m.aJO().aJt();
+                        l.aJM().aJt();
                     }
                     v.b(new u<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.1
                         /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class b {
                         @Override // com.baidu.tbadk.util.u
                         public Integer doInBackground() {
                             if (!isNull) {
-                                com.baidu.tieba.im.db.b.aJx().aJy();
+                                com.baidu.tieba.im.db.b.aJu().aJv();
                             }
                             return 0;
                         }

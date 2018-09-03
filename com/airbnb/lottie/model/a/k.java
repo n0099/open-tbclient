@@ -9,19 +9,19 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
     @Nullable
-    public final com.airbnb.lottie.model.a.a nv;
-    @Nullable
     public final com.airbnb.lottie.model.a.a nw;
     @Nullable
-    public final b nx;
+    public final com.airbnb.lottie.model.a.a nx;
     @Nullable
     public final b ny;
+    @Nullable
+    public final b nz;
 
     k(@Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.a aVar2, @Nullable b bVar, @Nullable b bVar2) {
-        this.nv = aVar;
-        this.nw = aVar2;
-        this.nx = bVar;
-        this.ny = bVar2;
+        this.nw = aVar;
+        this.nx = aVar2;
+        this.ny = bVar;
+        this.nz = bVar2;
     }
 
     /* loaded from: classes2.dex */

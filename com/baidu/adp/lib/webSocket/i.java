@@ -61,7 +61,7 @@ public class i implements g {
                         i.this.kA();
                         i.this.kz();
                         k.b bVar = new k.b(i.this.Ey + SystemInfoUtil.COLON + i.this.Ez);
-                        bVar.wf = i.this.EA;
+                        bVar.wg = i.this.EA;
                         bVar.mQuery = i.this.EB;
                         bVar.EN = i.this.Em;
                         bVar.EO = i.this.El;

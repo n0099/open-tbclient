@@ -14,16 +14,16 @@ import com.tencent.tauth.AuthActivity;
 public class PraiseModel extends BdBaseModel {
     public static final int LIKE = 1;
     public static final int UN_LIKE = 0;
-    private static final String bpG = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, bpG);
-    private final HttpMessageListener bpH;
-    private a gMX;
+    private static final String bpI = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, bpI);
+    private final HttpMessageListener bpJ;
+    private a gMZ;
 
     /* loaded from: classes.dex */
     public interface a {
         void Q(int i, String str);
 
-        void iS(String str);
+        void iT(String str);
     }
 
     static {
@@ -33,36 +33,36 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gMX = null;
-        this.bpH = new HttpMessageListener(CmdConfigHttp.COMMON_PRAISE_Y_OR_N) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
+        this.gMZ = null;
+        this.bpJ = new HttpMessageListener(CmdConfigHttp.COMMON_PRAISE_Y_OR_N) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.gMX != null) {
-                            PraiseModel.this.gMX.Q(statusCode, null);
+                        if (PraiseModel.this.gMZ != null) {
+                            PraiseModel.this.gMZ.Q(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.gMX.iS(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.gMX != null) {
-                        PraiseModel.this.gMX.Q(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.gMZ.iT(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.gMZ != null) {
+                        PraiseModel.this.gMZ.Q(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.gMX = aVar;
+        this.gMZ = aVar;
     }
 
     public void registerListener() {
-        this.bpH.setSelfListener(true);
-        this.bpH.setTag(getUniqueId());
-        registerListener(this.bpH);
+        this.bpJ.setSelfListener(true);
+        this.bpJ.setTag(getUniqueId());
+        registerListener(this.bpJ);
     }
 
     public void a(String str, String str2, int i, String str3) {

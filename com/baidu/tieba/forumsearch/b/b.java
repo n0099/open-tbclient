@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dlg = BdUniqueId.gen();
-    private String cSi;
-    private String dkL;
+    public static final BdUniqueId dle = BdUniqueId.gen();
+    private String cSf;
+    private String dkJ;
+    private String dla;
+    private String dlb;
     private String dlc;
-    private String dld;
-    private String dle;
-    private boolean dlf;
+    private boolean dld;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.dkL = str;
+        this.dkJ = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dlg;
+        return dle;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.cSi = searchForum.avatar;
-            this.dlc = searchForum.post_num;
-            this.dld = searchForum.concern_num;
-            this.dle = searchForum.slogan;
+            this.cSf = searchForum.avatar;
+            this.dla = searchForum.post_num;
+            this.dlb = searchForum.concern_num;
+            this.dlc = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.dlf = searchForum.has_concerned.intValue() != 0;
+            this.dld = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.cSi;
+        return this.cSf;
+    }
+
+    public String atx() {
+        return this.dlb;
     }
 
     public String aty() {
-        return this.dld;
-    }
-
-    public String atz() {
-        return this.dlc;
+        return this.dla;
     }
 
     public String getForumName() {
@@ -57,7 +57,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String atA() {
-        return this.dkL;
+    public String atz() {
+        return this.dkJ;
     }
 }

@@ -12,22 +12,22 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c extends BaseAdapter {
-    private boolean dPN;
+    private boolean dPJ;
     private PersonFriendActivity fYx;
-    private View.OnClickListener fiF;
-    private View.OnClickListener fji;
+    private View.OnClickListener fiz;
+    private View.OnClickListener fjc;
     private int mPageType;
-    private ArrayList<UserData> alt = null;
+    private ArrayList<UserData> als = null;
     private boolean mHasMore = false;
     private boolean fYy = false;
-    private boolean fiD = false;
+    private boolean fiw = false;
     private ArrayList<ProgressBar> fYz = new ArrayList<>();
 
-    public void biL() {
+    public void biI() {
         if (this.fYz != null) {
             int i = 0;
             while (true) {
@@ -47,10 +47,10 @@ public class c extends BaseAdapter {
         }
     }
 
-    public void aWp() {
-        this.fiD = false;
-        if (this.alt != null && this.alt.size() == 0) {
-            this.fiD = true;
+    public void aWl() {
+        this.fiw = false;
+        if (this.als != null && this.als.size() == 0) {
+            this.fiw = true;
         }
     }
 
@@ -64,29 +64,29 @@ public class c extends BaseAdapter {
 
     public c(PersonFriendActivity personFriendActivity, boolean z, int i, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         this.fYx = null;
-        this.dPN = true;
+        this.dPJ = true;
         this.mPageType = 0;
-        this.fji = null;
-        this.fiF = null;
+        this.fjc = null;
+        this.fiz = null;
         this.fYx = personFriendActivity;
-        this.dPN = z;
+        this.dPJ = z;
         this.mPageType = i;
-        this.fji = onClickListener;
-        this.fiF = onClickListener2;
+        this.fjc = onClickListener;
+        this.fiz = onClickListener2;
     }
 
     public void setData(ArrayList<UserData> arrayList) {
-        this.alt = arrayList;
+        this.als = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fiD) {
+        if (this.fiw) {
             return 1;
         }
         int i = 0;
-        if (this.alt != null) {
-            i = this.alt.size();
+        if (this.als != null) {
+            i = this.als.size();
         }
         if (this.mHasMore) {
             return i + 1;
@@ -96,15 +96,15 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.alt == null || i >= this.alt.size()) {
+        if (this.als == null || i >= this.als.size()) {
             return null;
         }
-        return this.alt.get(i);
+        return this.als.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.alt == null || i >= this.alt.size()) {
+        if (this.als == null || i >= this.als.size()) {
             return -1L;
         }
         return i;
@@ -114,27 +114,27 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         View view2;
-        if (this.alt != null) {
+        if (this.als != null) {
             if (view == null) {
                 a aVar2 = new a();
                 if (getItemViewType(i) == 0) {
-                    View inflate = LayoutInflater.from(this.fYx.getPageContext().getPageActivity()).inflate(d.h.person_list_item_friend, (ViewGroup) null);
-                    aVar2.doZ = (HeadImageView) inflate.findViewById(d.g.photo);
-                    aVar2.doZ.setIsRound(false);
-                    aVar2.doZ.setAutoChangeStyle(true);
-                    aVar2.bDc = (LinearLayout) inflate.findViewById(d.g.info);
-                    aVar2.mName = (TextView) inflate.findViewById(d.g.name);
-                    aVar2.fiK = (TextView) inflate.findViewById(d.g.at_list_nodata);
-                    aVar2.bDb = (TextView) inflate.findViewById(d.g.intro);
-                    aVar2.fYA = (ImageView) inflate.findViewById(d.g.chat);
-                    aVar2.eAi = (ImageView) inflate.findViewById(d.g.diver_buttom_px);
-                    aVar2.fYA.setOnClickListener(this.fji);
+                    View inflate = LayoutInflater.from(this.fYx.getPageContext().getPageActivity()).inflate(f.h.person_list_item_friend, (ViewGroup) null);
+                    aVar2.doX = (HeadImageView) inflate.findViewById(f.g.photo);
+                    aVar2.doX.setIsRound(false);
+                    aVar2.doX.setAutoChangeStyle(true);
+                    aVar2.bDd = (LinearLayout) inflate.findViewById(f.g.info);
+                    aVar2.mName = (TextView) inflate.findViewById(f.g.name);
+                    aVar2.fiE = (TextView) inflate.findViewById(f.g.at_list_nodata);
+                    aVar2.bDc = (TextView) inflate.findViewById(f.g.intro);
+                    aVar2.fYA = (ImageView) inflate.findViewById(f.g.chat);
+                    aVar2.eAe = (ImageView) inflate.findViewById(f.g.diver_buttom_px);
+                    aVar2.fYA.setOnClickListener(this.fjc);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.fYx.getPageContext().getPageActivity()).inflate(d.h.new_pb_list_more, (ViewGroup) null);
-                    aVar2.mName = (TextView) inflate2.findViewById(d.g.pb_more_text);
-                    inflate2.setOnClickListener(this.fiF);
-                    aVar2.mProgress = (ProgressBar) inflate2.findViewById(d.g.progress);
+                    View inflate2 = LayoutInflater.from(this.fYx.getPageContext().getPageActivity()).inflate(f.h.new_pb_list_more, (ViewGroup) null);
+                    aVar2.mName = (TextView) inflate2.findViewById(f.g.pb_more_text);
+                    inflate2.setOnClickListener(this.fiz);
+                    aVar2.mProgress = (ProgressBar) inflate2.findViewById(f.g.progress);
                     this.fYz.add(aVar2.mProgress);
                     view2 = inflate2;
                 }
@@ -145,30 +145,30 @@ public class c extends BaseAdapter {
                 aVar = (a) view.getTag();
             }
             if (getItemViewType(i) == 0) {
-                if (this.fiD) {
-                    aVar.bDc.setVisibility(8);
+                if (this.fiw) {
+                    aVar.bDd.setVisibility(8);
                     aVar.fYA.setVisibility(8);
-                    aVar.fiK.setVisibility(8);
-                    aVar.eAi.setVisibility(8);
+                    aVar.fiE.setVisibility(8);
+                    aVar.eAe.setVisibility(8);
                 } else {
-                    if (!this.dPN && this.mPageType == 0) {
+                    if (!this.dPJ && this.mPageType == 0) {
                         aVar.fYA.setVisibility(8);
                     } else {
                         aVar.fYA.setVisibility(0);
                     }
-                    aVar.bDc.setVisibility(0);
-                    aVar.bDc.setTag(Integer.valueOf(i));
-                    aVar.eAi.setVisibility(0);
-                    aVar.fiK.setVisibility(8);
-                    String portrait = this.alt.get(i).getPortrait();
-                    aVar.doZ.setImageDrawable(null);
-                    aVar.doZ.startLoad(portrait, 12, false);
-                    aVar.mName.setText(this.alt.get(i).getName_show());
-                    aVar.bDb.setText(this.alt.get(i).getIntro());
+                    aVar.bDd.setVisibility(0);
+                    aVar.bDd.setTag(Integer.valueOf(i));
+                    aVar.eAe.setVisibility(0);
+                    aVar.fiE.setVisibility(8);
+                    String portrait = this.als.get(i).getPortrait();
+                    aVar.doX.setImageDrawable(null);
+                    aVar.doX.startLoad(portrait, 12, false);
+                    aVar.mName.setText(this.als.get(i).getName_show());
+                    aVar.bDc.setText(this.als.get(i).getIntro());
                     aVar.fYA.setTag(Integer.valueOf(i));
                 }
             } else {
-                aVar.mName.setText(this.fYx.getPageContext().getString(d.j.loading));
+                aVar.mName.setText(this.fYx.getPageContext().getString(f.j.loading));
                 aVar.mProgress.setVisibility(0);
             }
             aI(view);
@@ -183,10 +183,10 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.fiD) {
+        if (this.fiw) {
             return 0;
         }
-        return (this.alt == null || i >= this.alt.size()) ? 1 : 0;
+        return (this.als == null || i >= this.als.size()) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -196,7 +196,7 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.fiD) {
+        if (this.fiw) {
             return false;
         }
         return super.isEnabled(i);
@@ -204,12 +204,12 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView bDb;
-        LinearLayout bDc;
-        HeadImageView doZ;
-        ImageView eAi;
+        TextView bDc;
+        LinearLayout bDd;
+        HeadImageView doX;
+        ImageView eAe;
         ImageView fYA;
-        TextView fiK;
+        TextView fiE;
         TextView mName;
         ProgressBar mProgress;
 

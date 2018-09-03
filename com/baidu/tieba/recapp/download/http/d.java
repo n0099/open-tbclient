@@ -9,13 +9,13 @@ import java.net.SocketException;
 import java.net.SocketTimeoutException;
 /* loaded from: classes3.dex */
 public class d {
-    private g gpl;
-    private b gpp;
-    private int zw = 0;
-    private long zm = 0;
+    private g gpo;
+    private b gps;
+    private int zx = 0;
+    private long zn = 0;
 
     public d(g gVar) {
-        this.gpl = gVar;
+        this.gpo = gVar;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF] complete} */
@@ -26,49 +26,49 @@ public class d {
             i = com.baidu.adp.framework.c.b.fO().getRetryCount();
         }
         int fS2 = i4 <= 0 ? com.baidu.adp.framework.c.b.fO().fP().fS() : i4;
-        this.gpp = new b(this.gpl);
+        this.gps = new b(this.gpo);
         for (int i5 = 0; i5 < i; i5++) {
             e eVar = new e();
             try {
-                eVar.zA = i5 + 1;
-                this.zw = i5;
-                boolean a = this.gpp.a(str, jVar, fS, fS2, z, eVar, z2);
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.a(eVar);
-                a bnB = a.bnB();
-                if (bnB != null) {
-                    bnB.a(this.gpl);
+                eVar.zB = i5 + 1;
+                this.zx = i5;
+                boolean a = this.gps.a(str, jVar, fS, fS2, z, eVar, z2);
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.a(eVar);
+                a bnC = a.bnC();
+                if (bnC != null) {
+                    bnC.a(this.gpo);
                 }
                 return a;
             } catch (FileNotFoundException e) {
                 try {
-                    this.gpl.bnE().responseCode = -100;
-                    eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
-                    this.gpl.a(eVar);
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB2 = a.bnB();
-                    if (bnB2 != null) {
-                        bnB2.a(this.gpl);
+                    this.gpo.bnF().responseCode = -100;
+                    eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
+                    this.gpo.a(eVar);
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC2 = a.bnC();
+                    if (bnC2 != null) {
+                        bnC2.a(this.gpo);
                     }
                 } catch (Throwable th) {
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB3 = a.bnB();
-                    if (bnB3 != null) {
-                        bnB3.a(this.gpl);
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC3 = a.bnC();
+                    if (bnC3 != null) {
+                        bnC3.a(this.gpo);
                     }
                     throw th;
                 }
             } catch (Exception e2) {
-                this.gpl.bnE().responseCode = -10;
-                eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
-                this.gpl.a(eVar);
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.a(eVar);
-                a bnB4 = a.bnB();
-                if (bnB4 != null) {
-                    bnB4.a(this.gpl);
+                this.gpo.bnF().responseCode = -10;
+                eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
+                this.gpo.a(eVar);
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.a(eVar);
+                a bnC4 = a.bnC();
+                if (bnC4 != null) {
+                    bnC4.a(this.gpo);
                 }
             }
         }
@@ -89,118 +89,118 @@ public class d {
         }
         boolean z = true;
         long currentTimeMillis = System.currentTimeMillis();
-        for (int i4 = 0; !this.gpl.bnE().zT && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.gpo.bnF().zU && z && i4 < i; i4++) {
             e eVar = new e();
-            this.gpl.a(eVar);
+            this.gpo.a(eVar);
             try {
                 try {
                     try {
                         try {
                             try {
-                                this.zw = i4;
-                                eVar.zA = i4 + 1;
-                                eVar.zK = 1;
-                                this.gpp = new b(this.gpl);
-                                this.gpp.a(i2, i3, eVar);
+                                this.zx = i4;
+                                eVar.zB = i4 + 1;
+                                eVar.zL = 1;
+                                this.gps = new b(this.gpo);
+                                this.gps.a(i2, i3, eVar);
                             } catch (IllegalStateException e) {
-                                this.gpl.bnE().zU = -19;
-                                eVar.zD = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
-                                if (this.zm <= 0 && this.gpp != null) {
-                                    this.zm = this.gpp.hJ();
+                                this.gpo.bnF().zV = -19;
+                                eVar.zE = "errorCode:" + String.valueOf(-19) + "|" + e.getClass() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                                if (this.zn <= 0 && this.gps != null) {
+                                    this.zn = this.gps.hJ();
                                 }
-                                eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                                this.gpl.b(eVar);
-                                a bnB = a.bnB();
-                                if (bnB != null) {
-                                    bnB.a(this.gpl);
+                                eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                                this.gpo.b(eVar);
+                                a bnC = a.bnC();
+                                if (bnC != null) {
+                                    bnC.a(this.gpo);
                                 }
                             }
                         } catch (Exception e2) {
-                            eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
-                            this.gpl.bnE().zU = -10;
+                            eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
+                            this.gpo.bnF().zV = -10;
                             BdLog.e(e2.getMessage());
-                            if (this.zm <= 0 && this.gpp != null) {
-                                this.zm = this.gpp.hJ();
+                            if (this.zn <= 0 && this.gps != null) {
+                                this.zn = this.gps.hJ();
                             }
-                            eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                            com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                            this.gpl.b(eVar);
-                            a bnB2 = a.bnB();
-                            if (bnB2 != null) {
-                                bnB2.a(this.gpl);
+                            eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                            com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                            this.gpo.b(eVar);
+                            a bnC2 = a.bnC();
+                            if (bnC2 != null) {
+                                bnC2.a(this.gpo);
                                 return;
                             }
                             return;
                         }
                     } catch (SocketTimeoutException e3) {
-                        eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
-                        this.gpl.bnE().zU = -13;
-                        if (this.zm <= 0 && this.gpp != null) {
-                            this.zm = this.gpp.hJ();
+                        eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
+                        this.gpo.bnF().zV = -13;
+                        if (this.zn <= 0 && this.gps != null) {
+                            this.zn = this.gps.hJ();
                         }
-                        eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                        this.gpl.b(eVar);
-                        a bnB3 = a.bnB();
-                        if (bnB3 != null) {
-                            bnB3.a(this.gpl);
+                        eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                        this.gpo.b(eVar);
+                        a bnC3 = a.bnC();
+                        if (bnC3 != null) {
+                            bnC3.a(this.gpo);
                         }
                         z = true;
                     }
                 } catch (SocketException e4) {
-                    eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
-                    this.gpl.bnE().zU = -12;
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                    eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i4 + "|" + e4.getClass() + "|" + e4.getMessage();
+                    this.gpo.bnF().zV = -12;
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.b(eVar);
-                    a bnB4 = a.bnB();
-                    if (bnB4 != null) {
-                        bnB4.a(this.gpl);
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.b(eVar);
+                    a bnC4 = a.bnC();
+                    if (bnC4 != null) {
+                        bnC4.a(this.gpo);
                     }
                     z = true;
                 }
-                if (this.gpl.bnE().responseCode == 200) {
-                    this.gpl.b(eVar);
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                if (this.gpo.bnF().responseCode == 200) {
+                    this.gpo.b(eVar);
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.b(eVar);
-                    a bnB5 = a.bnB();
-                    if (bnB5 != null) {
-                        bnB5.a(this.gpl);
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.b(eVar);
+                    a bnC5 = a.bnC();
+                    if (bnC5 != null) {
+                        bnC5.a(this.gpo);
                         return;
                     }
                     return;
                 }
-                eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i4;
-                boolean ab = ab(this.gpl.bnE().responseCode);
-                if (this.zm <= 0 && this.gpp != null) {
-                    this.zm = this.gpp.hJ();
+                eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i4;
+                boolean ab = ab(this.gpo.bnF().responseCode);
+                if (this.zn <= 0 && this.gps != null) {
+                    this.zn = this.gps.hJ();
                 }
-                eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.b(eVar);
-                a bnB6 = a.bnB();
-                if (bnB6 != null) {
-                    bnB6.a(this.gpl);
+                eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.b(eVar);
+                a bnC6 = a.bnC();
+                if (bnC6 != null) {
+                    bnC6.a(this.gpo);
                 }
                 z = ab;
             } catch (Throwable th) {
-                if (this.zm <= 0 && this.gpp != null) {
-                    this.zm = this.gpp.hJ();
+                if (this.zn <= 0 && this.gps != null) {
+                    this.zn = this.gps.hJ();
                 }
-                eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.b(eVar);
-                a bnB7 = a.bnB();
-                if (bnB7 != null) {
-                    bnB7.a(this.gpl);
+                eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.b(eVar);
+                a bnC7 = a.bnC();
+                if (bnC7 != null) {
+                    bnC7.a(this.gpo);
                 }
                 throw th;
             }
@@ -222,118 +222,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.gpl.bnE().zT && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.gpo.bnF().zU && z2 && i4 < i; i4++) {
             e eVar = new e();
-            eVar.zA = i4 + 1;
-            this.zw = i4;
+            eVar.zB = i4 + 1;
+            this.zx = i4;
             try {
                 try {
                     try {
-                        this.gpp = new b(this.gpl);
-                        this.gpp.b(i2, i3, eVar);
+                        this.gps = new b(this.gpo);
+                        this.gps.b(i2, i3, eVar);
                     } catch (UnsupportedOperationException e) {
                         z = false;
-                        this.gpl.bnE().zU = -14;
-                        eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                        this.gpl.a(eVar);
-                        if (this.zm <= 0 && this.gpp != null) {
-                            this.zm = this.gpp.hJ();
+                        this.gpo.bnF().zV = -14;
+                        eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        this.gpo.a(eVar);
+                        if (this.zn <= 0 && this.gps != null) {
+                            this.zn = this.gps.hJ();
                         }
-                        eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                        this.gpl.a(eVar);
-                        a bnB = a.bnB();
-                        if (bnB != null && this.gpp != null && this.gpp.hM()) {
-                            bnB.a(this.gpl);
+                        eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                        this.gpo.a(eVar);
+                        a bnC = a.bnC();
+                        if (bnC != null && this.gps != null && this.gps.hM()) {
+                            bnC.a(this.gpo);
                         }
                     } catch (SocketTimeoutException e2) {
-                        this.gpl.bnE().zU = -13;
+                        this.gpo.bnF().zV = -13;
                         z = true;
-                        eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e2.getMessage());
-                        this.gpl.a(eVar);
-                        if (this.zm <= 0 && this.gpp != null) {
-                            this.zm = this.gpp.hJ();
+                        this.gpo.a(eVar);
+                        if (this.zn <= 0 && this.gps != null) {
+                            this.zn = this.gps.hJ();
                         }
-                        eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                        this.gpl.a(eVar);
-                        a bnB2 = a.bnB();
-                        if (bnB2 != null && this.gpp != null && this.gpp.hM()) {
-                            bnB2.a(this.gpl);
+                        eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                        this.gpo.a(eVar);
+                        a bnC2 = a.bnC();
+                        if (bnC2 != null && this.gps != null && this.gps.hM()) {
+                            bnC2.a(this.gpo);
                         }
                     }
                 } catch (SocketException e3) {
-                    this.gpl.bnE().zU = -12;
+                    this.gpo.bnF().zV = -12;
                     z = true;
-                    eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.gpl.a(eVar);
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                    this.gpo.a(eVar);
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB3 = a.bnB();
-                    if (bnB3 != null && this.gpp != null && this.gpp.hM()) {
-                        bnB3.a(this.gpl);
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC3 = a.bnC();
+                    if (bnC3 != null && this.gps != null && this.gps.hM()) {
+                        bnC3.a(this.gpo);
                     }
                 } catch (Throwable th) {
-                    this.gpl.bnE().zU = -10;
+                    this.gpo.bnF().zV = -10;
                     z = false;
-                    eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    this.gpl.a(eVar);
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                    this.gpo.a(eVar);
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB4 = a.bnB();
-                    if (bnB4 != null && this.gpp != null && this.gpp.hM()) {
-                        bnB4.a(this.gpl);
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC4 = a.bnC();
+                    if (bnC4 != null && this.gps != null && this.gps.hM()) {
+                        bnC4.a(this.gpo);
                     }
                 }
-                if (this.gpl.bnE().responseCode == 200) {
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                if (this.gpo.bnF().responseCode == 200) {
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB5 = a.bnB();
-                    if (bnB5 == null || this.gpp == null || !this.gpp.hM()) {
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC5 = a.bnC();
+                    if (bnC5 == null || this.gps == null || !this.gps.hM()) {
                         return;
                     }
-                    bnB5.a(this.gpl);
+                    bnC5.a(this.gpo);
                     return;
                 }
-                eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i4;
-                z = ab(this.gpl.bnE().responseCode);
-                this.gpl.a(eVar);
-                if (this.zm <= 0 && this.gpp != null) {
-                    this.zm = this.gpp.hJ();
+                eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i4;
+                z = ab(this.gpo.bnF().responseCode);
+                this.gpo.a(eVar);
+                if (this.zn <= 0 && this.gps != null) {
+                    this.zn = this.gps.hJ();
                 }
-                eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.a(eVar);
-                a bnB6 = a.bnB();
-                if (bnB6 != null && this.gpp != null && this.gpp.hM()) {
-                    bnB6.a(this.gpl);
+                eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.a(eVar);
+                a bnC6 = a.bnC();
+                if (bnC6 != null && this.gps != null && this.gps.hM()) {
+                    bnC6.a(this.gpo);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.zm <= 0 && this.gpp != null) {
-                    this.zm = this.gpp.hJ();
+                if (this.zn <= 0 && this.gps != null) {
+                    this.zn = this.gps.hJ();
                 }
-                eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.a(eVar);
-                a bnB7 = a.bnB();
-                if (bnB7 != null && this.gpp != null && this.gpp.hM()) {
-                    bnB7.a(this.gpl);
+                eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.a(eVar);
+                a bnC7 = a.bnC();
+                if (bnC7 != null && this.gps != null && this.gps.hM()) {
+                    bnC7.a(this.gpo);
                 }
                 throw th2;
             }
@@ -348,7 +348,7 @@ public class d {
     }
 
     public void f(int i, int i2, int i3) {
-        if (this.gpl.bnD().ia()) {
+        if (this.gpo.bnE().ia()) {
             e(i, i2, i3);
         } else {
             g(i, i2, i3);
@@ -370,118 +370,118 @@ public class d {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z2 = true;
-        for (int i4 = 0; !this.gpl.bnE().zT && z2 && i4 < i; i4++) {
+        for (int i4 = 0; !this.gpo.bnF().zU && z2 && i4 < i; i4++) {
             e eVar = new e();
-            this.zw = i4;
-            eVar.zA = i4 + 1;
+            this.zx = i4;
+            eVar.zB = i4 + 1;
             try {
                 try {
                     try {
-                        this.gpp = new b(this.gpl);
-                        this.gpp.c(i2, i3, eVar);
+                        this.gps = new b(this.gpo);
+                        this.gps.c(i2, i3, eVar);
                     } catch (SocketTimeoutException e) {
-                        this.gpl.bnE().zU = -13;
+                        this.gpo.bnF().zV = -13;
                         z = true;
-                        eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(e.getMessage());
-                        this.gpl.a(eVar);
-                        if (this.zm <= 0 && this.gpp != null) {
-                            this.zm = this.gpp.hJ();
+                        this.gpo.a(eVar);
+                        if (this.zn <= 0 && this.gps != null) {
+                            this.zn = this.gps.hJ();
                         }
-                        eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                        this.gpl.a(eVar);
-                        a bnB = a.bnB();
-                        if (bnB != null) {
-                            bnB.a(this.gpl);
+                        eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                        this.gpo.a(eVar);
+                        a bnC = a.bnC();
+                        if (bnC != null) {
+                            bnC.a(this.gpo);
                         }
                     } catch (Throwable th) {
-                        this.gpl.bnE().zU = -10;
+                        this.gpo.bnF().zV = -10;
                         z = false;
-                        eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         BdLog.e(th.getMessage());
-                        this.gpl.a(eVar);
-                        if (this.zm <= 0 && this.gpp != null) {
-                            this.zm = this.gpp.hJ();
+                        this.gpo.a(eVar);
+                        if (this.zn <= 0 && this.gps != null) {
+                            this.zn = this.gps.hJ();
                         }
-                        eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                        com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                        this.gpl.a(eVar);
-                        a bnB2 = a.bnB();
-                        if (bnB2 != null) {
-                            bnB2.a(this.gpl);
+                        eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                        com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                        this.gpo.a(eVar);
+                        a bnC2 = a.bnC();
+                        if (bnC2 != null) {
+                            bnC2.a(this.gpo);
                         }
                     }
                 } catch (UnsupportedOperationException e2) {
                     z = false;
-                    this.gpl.bnE().zU = -14;
-                    eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                    this.gpl.a(eVar);
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                    this.gpo.bnF().zV = -14;
+                    eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    this.gpo.a(eVar);
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB3 = a.bnB();
-                    if (bnB3 != null) {
-                        bnB3.a(this.gpl);
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC3 = a.bnC();
+                    if (bnC3 != null) {
+                        bnC3.a(this.gpo);
                     }
                 } catch (SocketException e3) {
-                    this.gpl.bnE().zU = -12;
+                    this.gpo.bnF().zV = -12;
                     z = true;
-                    eVar.zD = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    eVar.zE = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.gpl.a(eVar);
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                    this.gpo.a(eVar);
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB4 = a.bnB();
-                    if (bnB4 != null) {
-                        bnB4.a(this.gpl);
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC4 = a.bnC();
+                    if (bnC4 != null) {
+                        bnC4.a(this.gpo);
                     }
                 }
-                if (this.gpl.bnE().responseCode == 200) {
-                    if (this.zm <= 0 && this.gpp != null) {
-                        this.zm = this.gpp.hJ();
+                if (this.gpo.bnF().responseCode == 200) {
+                    if (this.zn <= 0 && this.gps != null) {
+                        this.zn = this.gps.hJ();
                     }
-                    eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                    com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                    this.gpl.a(eVar);
-                    a bnB5 = a.bnB();
-                    if (bnB5 != null) {
-                        bnB5.a(this.gpl);
+                    eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                    com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                    this.gpo.a(eVar);
+                    a bnC5 = a.bnC();
+                    if (bnC5 != null) {
+                        bnC5.a(this.gpo);
                         return;
                     }
                     return;
                 }
-                eVar.zD = String.valueOf(this.gpl.bnE().responseCode) + "|retryCount:" + i4;
-                z = ab(this.gpl.bnE().responseCode);
-                this.gpl.a(eVar);
-                if (this.zm <= 0 && this.gpp != null) {
-                    this.zm = this.gpp.hJ();
+                eVar.zE = String.valueOf(this.gpo.bnF().responseCode) + "|retryCount:" + i4;
+                z = ab(this.gpo.bnF().responseCode);
+                this.gpo.a(eVar);
+                if (this.zn <= 0 && this.gps != null) {
+                    this.zn = this.gps.hJ();
                 }
-                eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.a(eVar);
-                a bnB6 = a.bnB();
-                if (bnB6 != null) {
-                    bnB6.a(this.gpl);
+                eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.a(eVar);
+                a bnC6 = a.bnC();
+                if (bnC6 != null) {
+                    bnC6.a(this.gpo);
                 }
                 z2 = z;
             } catch (Throwable th2) {
-                if (this.zm <= 0 && this.gpp != null) {
-                    this.zm = this.gpp.hJ();
+                if (this.zn <= 0 && this.gps != null) {
+                    this.zn = this.gps.hJ();
                 }
-                eVar.zB = System.currentTimeMillis() - currentTimeMillis;
-                com.baidu.adp.lib.a.a.hk().a(this.gpl.bnD().getUrl(), this.gpl.bnD().az("Host"), TextUtils.isEmpty(eVar.zD), eVar.zH != null);
-                this.gpl.a(eVar);
-                a bnB7 = a.bnB();
-                if (bnB7 != null) {
-                    bnB7.a(this.gpl);
+                eVar.zC = System.currentTimeMillis() - currentTimeMillis;
+                com.baidu.adp.lib.a.a.hk().a(this.gpo.bnE().getUrl(), this.gpo.bnE().az("Host"), TextUtils.isEmpty(eVar.zE), eVar.zI != null);
+                this.gpo.a(eVar);
+                a bnC7 = a.bnC();
+                if (bnC7 != null) {
+                    bnC7.a(this.gpo);
                 }
                 throw th2;
             }
@@ -489,21 +489,21 @@ public class d {
     }
 
     public void cancel() {
-        if (this.gpp != null) {
-            this.gpp.hN();
+        if (this.gps != null) {
+            this.gps.hN();
         }
     }
 
     public boolean hP() {
-        if (this.gpl == null) {
+        if (this.gpo == null) {
             return false;
         }
-        return this.gpl.bnE().zT;
+        return this.gpo.bnF().zU;
     }
 
     public void hQ() {
-        if (this.gpl != null) {
-            this.gpl.bnE().zT = true;
+        if (this.gpo != null) {
+            this.gpo.bnF().zU = true;
         }
     }
 }

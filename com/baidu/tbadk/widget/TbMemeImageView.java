@@ -13,11 +13,11 @@ import android.widget.ImageView;
 import com.baidu.adp.gif.NSGif;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class TbMemeImageView extends ImageView implements View.OnClickListener {
     private com.baidu.adp.gif.b KE;
-    private final Rect aPJ;
+    private final Rect aPG;
     private com.baidu.adp.widget.ImageView.a aYk;
     private Drawable aYl;
     private Drawable aYm;
@@ -34,10 +34,10 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context) {
         super(context);
         this.mSupportNoImage = true;
-        this.aYl = am.getDrawable(d.C0140d.common_color_10220);
-        this.aYm = am.getDrawable(d.f.icon_click);
-        this.aYn = am.getDrawable(d.f.img_default_100);
-        this.aPJ = new Rect();
+        this.aYl = am.getDrawable(f.d.common_color_10220);
+        this.aYm = am.getDrawable(f.C0146f.icon_click);
+        this.aYn = am.getDrawable(f.C0146f.img_default_100);
+        this.aPG = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -77,10 +77,10 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSupportNoImage = true;
-        this.aYl = am.getDrawable(d.C0140d.common_color_10220);
-        this.aYm = am.getDrawable(d.f.icon_click);
-        this.aYn = am.getDrawable(d.f.img_default_100);
-        this.aPJ = new Rect();
+        this.aYl = am.getDrawable(f.d.common_color_10220);
+        this.aYm = am.getDrawable(f.C0146f.icon_click);
+        this.aYn = am.getDrawable(f.C0146f.img_default_100);
+        this.aPG = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -120,10 +120,10 @@ public class TbMemeImageView extends ImageView implements View.OnClickListener {
     public TbMemeImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSupportNoImage = true;
-        this.aYl = am.getDrawable(d.C0140d.common_color_10220);
-        this.aYm = am.getDrawable(d.f.icon_click);
-        this.aYn = am.getDrawable(d.f.img_default_100);
-        this.aPJ = new Rect();
+        this.aYl = am.getDrawable(f.d.common_color_10220);
+        this.aYm = am.getDrawable(f.C0146f.icon_click);
+        this.aYn = am.getDrawable(f.C0146f.img_default_100);
+        this.aPG = new Rect();
         this.mHandler = new Handler() { // from class: com.baidu.tbadk.widget.TbMemeImageView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {

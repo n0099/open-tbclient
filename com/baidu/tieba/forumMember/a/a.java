@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class a extends h<b, c> {
@@ -19,7 +19,7 @@ public class a extends h<b, c> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: af */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(d.h.manito_item_header, (ViewGroup) null));
+        return new c(LayoutInflater.from(this.mContext).inflate(f.h.manito_item_header, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,12 +29,12 @@ public class a extends h<b, c> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
         if (cVar.mSkinType != this.mSkinType) {
-            am.j(cVar.getView(), d.C0140d.cp_bg_line_d);
-            am.j(cVar.bkw, d.C0140d.cp_bg_line_b);
-            am.c(cVar.title, d.C0140d.cp_cont_c, 1);
-            am.j(cVar.cTL, d.C0140d.cp_bg_line_c);
+            am.j(cVar.getView(), f.d.cp_bg_line_d);
+            am.j(cVar.dividerLine, f.d.cp_bg_line_b);
+            am.c(cVar.title, f.d.cp_cont_c, 1);
+            am.j(cVar.cTH, f.d.cp_bg_line_c);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(d.j.forum_manito_num), Integer.valueOf(bVar.asY())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(f.j.forum_manito_num), Integer.valueOf(bVar.asX())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

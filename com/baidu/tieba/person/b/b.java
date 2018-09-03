@@ -7,12 +7,12 @@ import com.baidu.adp.widget.ListView.h;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class b extends q.a {
-    public ImageView fTL;
-    public TextView fTM;
-    private h fTN;
+    public ImageView fTD;
+    public TextView fTE;
+    private h fTF;
     private View.OnClickListener mClickListener;
     private int mSkinType;
     public View rootView;
@@ -20,18 +20,18 @@ public class b extends q.a {
     public b(View view) {
         super(view);
         this.mSkinType = 3;
-        this.rootView = view.findViewById(d.g.add_pic_root);
-        this.fTL = (ImageView) view.findViewById(d.g.add_image_view);
-        this.fTM = (TextView) view.findViewById(d.g.tip_left_count_view);
+        this.rootView = view.findViewById(f.g.add_pic_root);
+        this.fTD = (ImageView) view.findViewById(f.g.add_image_view);
+        this.fTE = (TextView) view.findViewById(f.g.tip_left_count_view);
     }
 
     public void g(h hVar) {
         if (hVar instanceof com.baidu.tieba.person.data.c) {
-            this.fTN = hVar;
+            this.fTF = hVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) hVar;
-            am.c(this.fTL, d.f.icon_mine_pic_add);
-            if (cVar.bhB() > 0) {
-                this.fTM.setText(String.format(TbadkCoreApplication.getInst().getString(d.j.have_left_some_picture_upload), Integer.valueOf(cVar.bhB())));
+            am.c(this.fTD, f.C0146f.icon_mine_pic_add);
+            if (cVar.bhw() > 0) {
+                this.fTE.setText(String.format(TbadkCoreApplication.getInst().getString(f.j.have_left_some_picture_upload), Integer.valueOf(cVar.bhw())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -40,14 +40,14 @@ public class b extends q.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            am.c(this.fTM, d.C0140d.cp_cont_e, 1);
-            am.j(getView(), d.C0140d.cp_bg_line_e);
+            am.c(this.fTE, f.d.cp_cont_e, 1);
+            am.j(getView(), f.d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
-    public h AZ() {
-        return this.fTN;
+    public h AW() {
+        return this.fTF;
     }
 
     public void u(View.OnClickListener onClickListener) {

@@ -1,24 +1,29 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import java.util.ArrayList;
-/* loaded from: classes2.dex */
+import org.json.JSONObject;
+/* loaded from: classes.dex */
 public class r {
-    private String aCw;
-    private ArrayList<Object> aCx;
+    private long end_time;
+    private String link_url;
+    private long start_time;
 
-    public r() {
-        q(new ArrayList<>());
+    public String Cn() {
+        return this.link_url;
     }
 
-    public String Cq() {
-        return this.aCw;
+    public long getStartTime() {
+        return this.start_time;
     }
 
-    public ArrayList<Object> Cr() {
-        return this.aCx;
+    public long getEndTime() {
+        return this.end_time;
     }
 
-    public void q(ArrayList<Object> arrayList) {
-        this.aCx = arrayList;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.link_url = jSONObject.optString("link_url", "");
+            this.start_time = jSONObject.optLong("start_time", 0L);
+            this.end_time = jSONObject.optLong("end_time", 0L);
+        }
     }
 }

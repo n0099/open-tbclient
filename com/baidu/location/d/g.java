@@ -36,14 +36,14 @@ public class g {
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String XY = "http://loc.map.baidu.com/sdk.php";
+    private static String XZ = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String XZ = "http://loc.map.baidu.com/user_err.php";
-    private static String Ya = "http://loc.map.baidu.com/oqur.php";
-    private static String Yb = "http://loc.map.baidu.com/tcu.php";
-    private static String Yc = "http://loc.map.baidu.com/rtbu.php";
-    private static String Yd = "http://loc.map.baidu.com/iofd.php";
-    private static String Ye = "http://loc.map.baidu.com/wloc";
+    private static String Ya = "http://loc.map.baidu.com/user_err.php";
+    private static String Yb = "http://loc.map.baidu.com/oqur.php";
+    private static String Yc = "http://loc.map.baidu.com/tcu.php";
+    private static String Yd = "http://loc.map.baidu.com/rtbu.php";
+    private static String Ye = "http://loc.map.baidu.com/iofd.php";
+    private static String Yf = "http://loc.map.baidu.com/wloc";
     public static String f = "https://loc.map.baidu.com/sdk.php";
     public static String g = "no";
     public static boolean h = false;
@@ -61,12 +61,12 @@ public class g {
     public static double Wb = 0.0d;
     public static double u = 0.0d;
     public static int v = 0;
-    public static byte[] Yf = null;
+    public static byte[] Yg = null;
     public static boolean x = false;
     public static int y = 0;
     public static float z = 1.1f;
-    public static float Yg = 2.2f;
-    public static float Yh = 2.3f;
+    public static float Yh = 2.2f;
+    public static float Yi = 2.3f;
     public static float C = 3.8f;
     public static int D = 3;
     public static int E = 10;
@@ -76,40 +76,40 @@ public class g {
     public static int I = 70;
     public static int J = 120;
     public static float K = 2.0f;
-    public static float Yi = 10.0f;
-    public static float Yj = 50.0f;
-    public static float Yk = 200.0f;
+    public static float Yj = 10.0f;
+    public static float Yk = 50.0f;
+    public static float Yl = 200.0f;
     public static int O = 16;
-    public static float Yl = 0.9f;
+    public static float Ym = 0.9f;
     public static int Q = 10000;
-    public static float Ym = 0.5f;
-    public static float Yn = 0.0f;
-    public static float Yo = 0.1f;
+    public static float Yn = 0.5f;
+    public static float Yo = 0.0f;
+    public static float Yp = 0.1f;
     public static int U = 30;
     public static int V = 100;
     public static int W = 0;
     public static int X = 0;
     public static int Y = 0;
-    public static int Yp = 420000;
+    public static int Yq = 420000;
     public static boolean aa = true;
-    public static boolean Yq = true;
+    public static boolean Yr = true;
     public static int ac = 20;
     public static int ad = 300;
     public static int ae = 1000;
     public static int af = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public static long Yr = 900000;
-    public static long Ys = 420000;
+    public static long Ys = 900000;
+    public static long Yt = 420000;
     public static long ai = 180000;
-    public static long Yt = 0;
-    public static long Yu = 15;
-    public static long Yv = ReportUserInfoModel.TIME_INTERVAL;
+    public static long Yu = 0;
+    public static long Yv = 15;
+    public static long Yw = ReportUserInfoModel.TIME_INTERVAL;
     public static int am = 1000;
     public static int an = 0;
     public static int ao = 30000;
     public static int ap = 30000;
-    public static float Yw = 10.0f;
-    public static float Yx = 6.0f;
-    public static float Yy = 10.0f;
+    public static float Yx = 10.0f;
+    public static float Yy = 6.0f;
+    public static float Yz = 10.0f;
     public static int at = 60;
     public static int au = 70;
     public static int av = 6;
@@ -164,7 +164,7 @@ public class g {
         String e2;
         String f2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (f2 = com.baidu.location.b.b.qE().f(aVar)) != null) {
+        if (aVar != null && (f2 = com.baidu.location.b.b.qB().f(aVar)) != null) {
             stringBuffer.append(f2);
         }
         if (eVar != null) {
@@ -179,14 +179,14 @@ public class g {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = b.qQ().a(i2 == 0);
-        if (a2 != null) {
-            stringBuffer.append(a2);
+        String ad2 = b.qN().ad(i2 == 0);
+        if (ad2 != null) {
+            stringBuffer.append(ad2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        if (aVar != null && (e2 = com.baidu.location.b.b.qE().e(aVar)) != null && e2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (e2 = com.baidu.location.b.b.qB().e(aVar)) != null && e2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(e2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -197,11 +197,11 @@ public class g {
                 float speed = location.getSpeed();
                 int i3 = d;
                 int g2 = eVar.g();
-                int a3 = eVar.a();
+                int a2 = eVar.a();
                 boolean h3 = eVar.h();
-                if (speed < Yx && ((i3 == 1 || i3 == 0) && (g2 < at || h3))) {
+                if (speed < Yy && ((i3 == 1 || i3 == 0) && (g2 < at || h3))) {
                     q = 1;
-                } else if (speed >= Yy || (!(i3 == 1 || i3 == 0 || i3 == 3) || (g2 >= au && a3 <= av))) {
+                } else if (speed >= Yz || (!(i3 == 1 || i3 == 0 || i3 == 3) || (g2 >= au && a2 <= av))) {
                     q = 3;
                 } else {
                     q = 2;
@@ -293,7 +293,7 @@ public class g {
     }
 
     public static String c() {
-        return XY;
+        return XZ;
     }
 
     public static String c(Context context) {
@@ -303,7 +303,7 @@ public class g {
     }
 
     public static String d() {
-        return Yb;
+        return Yc;
     }
 
     public static String d(Context context) {

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.EditNickNameActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonMoreActivityConfig;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.im.message.ResponseGetLivableForumList;
 import com.baidu.tieba.person.data.PersonFriendActivityConfig;
 import com.baidu.tieba.person.data.PersonImageActivityConfig;
@@ -30,12 +30,12 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(bVar);
         TbadkCoreApplication.getInst().RegisterIntent(PersonChangeActivityConfig.class, PersonChangeActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(EditNickNameActivityConfig.class, EditNickNameActivity.class);
-        SP();
+        ST();
     }
 
-    private static void SP() {
-        ay.zK().a(new ay.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
-            @Override // com.baidu.tbadk.core.util.ay.a
+    private static void ST() {
+        az.zI().a(new az.a() { // from class: com.baidu.tieba.personExtra.PersonExtraStatic.1
+            @Override // com.baidu.tbadk.core.util.az.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {
                     return 3;

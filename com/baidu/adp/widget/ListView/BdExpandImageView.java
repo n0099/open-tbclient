@@ -22,15 +22,15 @@ public class BdExpandImageView extends ImageView {
     private boolean Lo;
     private float Lp;
     private final DisplayMetrics Lq;
-    private final Rect oS;
     private final Rect oT;
+    private final Rect oU;
     private final Paint paint;
 
     public BdExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.Lj = 0.0f;
-        this.oS = new Rect();
         this.oT = new Rect();
+        this.oU = new Rect();
         setScaleType(ImageView.ScaleType.MATRIX);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
         this.Lj = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0) / 2.0f;
@@ -87,13 +87,13 @@ public class BdExpandImageView extends ImageView {
         if (drawable != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
             int scaledWidth = bitmap.getScaledWidth(this.Lq);
             int scaledHeight = (bitmap.getScaledHeight(this.Lq) - this.Ln) / 2;
-            this.oS.set(0, scaledHeight, scaledWidth, this.Ln + scaledHeight);
+            this.oT.set(0, scaledHeight, scaledWidth, this.Ln + scaledHeight);
             int width = getWidth();
             float max = Math.max(width / scaledWidth, getHeight() / this.Ln);
             int i = (int) (scaledWidth * max);
             int i2 = (i - width) / 2;
-            this.oT.set(-i2, 0, i - (i2 * 2), (int) (max * this.Ln));
-            canvas.drawBitmap(bitmap, this.oS, this.oT, this.paint);
+            this.oU.set(-i2, 0, i - (i2 * 2), (int) (max * this.Ln));
+            canvas.drawBitmap(bitmap, this.oT, this.oU, this.paint);
         }
     }
 

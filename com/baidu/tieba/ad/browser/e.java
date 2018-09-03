@@ -36,12 +36,12 @@ public class e {
         return str.concat(str3);
     }
 
-    public static void a(Context context, boolean z, String str, String str2) {
+    public static void b(Context context, boolean z, String str, String str2) {
         a(context, str2, str, true, true, true, true, z);
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        si();
+        sg();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -93,9 +93,9 @@ public class e {
         return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void aC(Context context) {
+    public static void aB(Context context) {
         CookieManager cookieManager;
-        a.b da = com.baidu.tbadk.core.a.a.tl().da(TbadkCoreApplication.getCurrentBduss());
+        a.b db = com.baidu.tbadk.core.a.a.tk().db(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -104,7 +104,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (da != null) {
+            if (db != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -128,7 +128,7 @@ public class e {
         }
     }
 
-    private static void si() {
+    private static void sg() {
         new ah("open_webview", true).start();
     }
 }

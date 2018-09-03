@@ -87,20 +87,20 @@ public class TbListTextView extends TextView {
                 arrayList2.add(obj);
             }
             try {
-                b((CharSequence) spannableStringBuilder, i, i2);
+                a((CharSequence) spannableStringBuilder, i, i2);
                 return a.d(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.Mc();
+        return a.Mg();
     }
 
     private boolean a(CharSequence charSequence, int i) {
         return charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ';
     }
 
-    private void b(CharSequence charSequence, int i, int i2) {
+    private void a(CharSequence charSequence, int i, int i2) {
         setText(charSequence);
         super.onMeasure(i, i2);
     }
@@ -110,7 +110,7 @@ public class TbListTextView extends TextView {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
-                b((CharSequence) spannableStringBuilder, i, i2);
+                a((CharSequence) spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
                 spannableStringBuilder.insert(spanEnd, " ");
             }
@@ -120,7 +120,7 @@ public class TbListTextView extends TextView {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
-                b((CharSequence) spannableStringBuilder, i, i2);
+                a((CharSequence) spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
                 spannableStringBuilder.insert(spanStart - 1, " ");
@@ -134,7 +134,7 @@ public class TbListTextView extends TextView {
     }
 
     private void K(int i, int i2) {
-        b(getText().toString(), i, i2);
+        a(getText().toString(), i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -148,7 +148,7 @@ public class TbListTextView extends TextView {
             return new a(true, list, list2);
         }
 
-        public static a Mc() {
+        public static a Mg() {
             return new a(false, null, null);
         }
 

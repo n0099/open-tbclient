@@ -7,21 +7,21 @@ public interface f {
 
     void e(String str, int i, int i2, String str2);
 
+    void h(String str, int i, String str2);
+
     void i(String str, int i, String str2);
 
     void j(String str, int i, String str2);
 
     void k(String str, int i, String str2);
 
-    void l(String str, int i, String str2);
-
-    void ql(String str);
-
-    void qm(String str);
-
     void qn(String str);
 
-    boolean qo(String str);
+    void qo(String str);
 
-    boolean qp(String str);
+    void qp(String str);
+
+    boolean qq(String str);
+
+    boolean qr(String str);
 }

@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
@@ -32,13 +32,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.elT.setTag(null);
-        aVar.elT.setDrawBorder(true);
-        aVar.elT.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        aVar.elT.setDefaultResource(d.f.icon_default_ba_120);
+        aVar.elP.setTag(null);
+        aVar.elP.setDrawBorder(true);
+        aVar.elP.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.elP.setDefaultResource(f.C0146f.icon_default_ba_120);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.elT.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.elT.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.elP.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.elP.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -54,14 +54,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.elU.setText(this.mContext.getString(d.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.elQ.setText(this.mContext.getString(f.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(d.f.icon_v);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(f.C0146f.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.elU.setCompoundDrawables(null, null, bitmapDrawable, null);
-            aVar.elU.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(d.e.ds8)));
+            aVar.elQ.setCompoundDrawables(null, null, bitmapDrawable, null);
+            aVar.elQ.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(f.e.ds8)));
             return;
         }
-        aVar.elU.setCompoundDrawables(null, null, null, null);
+        aVar.elQ.setCompoundDrawables(null, null, null, null);
     }
 }

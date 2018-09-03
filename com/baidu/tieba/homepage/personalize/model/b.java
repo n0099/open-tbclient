@@ -29,7 +29,7 @@ public class b {
                 if ((hVar instanceof p) && (hVar2 instanceof p)) {
                     p pVar = (p) hVar;
                     p pVar2 = (p) hVar2;
-                    if (pVar.ajp()) {
+                    if (pVar.ajs()) {
                         pVar2.eB(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.eC(false);
@@ -49,7 +49,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<h> list) {
         com.baidu.tieba.card.data.c cVar;
-        bb Td;
+        bb Tg;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -61,12 +61,12 @@ public class b {
             int y = w.y(list);
             for (int i = 0; i < y; i++) {
                 h hVar = (h) w.d(list, i);
-                if ((hVar instanceof com.baidu.tieba.card.data.c) && (Td = (cVar = (com.baidu.tieba.card.data.c) hVar).Td()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(Td.getTid(), 0L))) != null) {
+                if ((hVar instanceof com.baidu.tieba.card.data.c) && (Tg = (cVar = (com.baidu.tieba.card.data.c) hVar).Tg()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(Tg.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.kZ(threadPersonalized.abtest_tag);
-                    if (Td.vC() != null) {
-                        cVar.c(Td.vC().is_vertical);
+                    cVar.lb(threadPersonalized.abtest_tag);
+                    if (Tg.vB() != null) {
+                        cVar.c(Tg.vB().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
@@ -75,7 +75,7 @@ public class b {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason);
                         }
                         cVar.agt = sparseArray;
-                        cVar.lb(threadPersonalized.extra);
+                        cVar.ld(threadPersonalized.extra);
                     }
                 }
             }

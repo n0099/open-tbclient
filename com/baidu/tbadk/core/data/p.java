@@ -19,11 +19,11 @@ public class p {
     private long afd;
     private String author;
 
-    public String tN() {
+    public String tM() {
         return this.aeR;
     }
 
-    public int tO() {
+    public int tN() {
         return this.aeF;
     }
 

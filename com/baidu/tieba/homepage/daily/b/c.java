@@ -3,19 +3,19 @@ package com.baidu.tieba.homepage.daily.b;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dUL = BdUniqueId.gen();
-    private String dUM;
+    public static final BdUniqueId dUG = BdUniqueId.gen();
+    private String dUH;
 
-    public String aDz() {
-        return this.dUM;
+    public String aDw() {
+        return this.dUH;
     }
 
-    public void nv(String str) {
-        this.dUM = str;
+    public void nx(String str) {
+        this.dUH = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dUL;
+        return dUG;
     }
 }

@@ -9,7 +9,7 @@ public abstract class m<T> {
         try {
             com.google.gson.internal.a.d dVar = new com.google.gson.internal.a.d();
             a(dVar, t);
-            return dVar.bKs();
+            return dVar.bKj();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }

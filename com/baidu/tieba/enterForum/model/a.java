@@ -10,52 +10,52 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes2.dex */
 public class a {
-    private static a cTs;
-    private WindowManager.LayoutParams cTp;
-    private ImageView cTq;
-    private boolean cTr;
-    private int cTt;
-    private boolean cTu;
+    private static a cTp;
+    private WindowManager.LayoutParams cTm;
+    private ImageView cTn;
+    private boolean cTo;
+    private boolean cTq;
     private int mHeight;
+    private int mStatusBarHeight;
     private int mWidth;
     private WindowManager mWindowManager;
 
     public static a aoY() {
-        if (cTs == null) {
+        if (cTp == null) {
             synchronized (a.class) {
-                if (cTs == null) {
-                    cTs = new a();
+                if (cTp == null) {
+                    cTp = new a();
                 }
             }
         }
-        return cTs;
+        return cTp;
     }
 
     private a() {
     }
 
     public void l(Context context, int i) {
-        this.cTu = true;
+        this.cTq = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.mWindowManager = (WindowManager) context.getSystemService("window");
-        this.cTt = i;
+        this.mStatusBarHeight = i;
     }
 
     public void destroy() {
-        this.cTu = false;
-        cTs = null;
+        this.cTq = false;
+        cTp = null;
     }
 
     public boolean isDragging() {
-        return this.cTr;
+        return this.cTo;
     }
 
     public void a(Context context, View view, int i, int i2) {
         Bitmap createBitmap;
         if (view != null) {
-            this.cTr = true;
+            this.cTo = true;
             view.setPressed(true);
             view.setDrawingCacheEnabled(true);
             Bitmap drawingCache = view.getDrawingCache();
@@ -73,12 +73,12 @@ public class a {
         aoZ();
         ay(i, i2);
         if (this.mWindowManager != null) {
-            this.mWindowManager.updateViewLayout(this.cTq, this.cTp);
+            this.mWindowManager.updateViewLayout(this.cTn, this.cTm);
         }
     }
 
     private void aoZ() {
-        if (!this.cTu) {
+        if (!this.cTq) {
             BdLog.e("should do init first!");
         }
     }
@@ -87,14 +87,14 @@ public class a {
         aoZ();
         if (bitmap != null) {
             ay(i, i2);
-            this.cTq = new ImageView(context);
-            this.cTq.setImageBitmap(bitmap);
+            this.cTn = new ImageView(context);
+            this.cTn.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && p(activity.getWindow().getDecorView())) {
                     try {
                         if (this.mWindowManager != null) {
-                            this.mWindowManager.addView(this.cTq, this.cTp);
+                            this.mWindowManager.addView(this.cTn, this.cTm);
                         }
                     } catch (Exception e) {
                     }
@@ -119,30 +119,30 @@ public class a {
     }
 
     private void apa() {
-        this.cTp = new WindowManager.LayoutParams();
-        this.cTp.format = -3;
-        this.cTp.gravity = 51;
-        this.cTp.alpha = 1.0f;
-        this.cTp.width = -2;
-        this.cTp.height = -2;
-        this.cTp.flags = 24;
+        this.cTm = new WindowManager.LayoutParams();
+        this.cTm.format = -3;
+        this.cTm.gravity = 51;
+        this.cTm.alpha = 1.0f;
+        this.cTm.width = -2;
+        this.cTm.height = -2;
+        this.cTm.flags = 24;
     }
 
     private void ay(int i, int i2) {
-        if (this.cTp == null) {
+        if (this.cTm == null) {
             apa();
         }
-        this.cTp.x = i - (this.mWidth / 2);
-        this.cTp.y = (i2 - (this.mHeight / 2)) - this.cTt;
+        this.cTm.x = i - (this.mWidth / 2);
+        this.cTm.y = (i2 - (this.mHeight / 2)) - this.mStatusBarHeight;
     }
 
     public void apb() {
-        if (this.cTq != null) {
+        if (this.cTn != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.cTq);
+                this.mWindowManager.removeView(this.cTn);
             }
-            this.cTq = null;
+            this.cTn = null;
         }
-        this.cTr = false;
+        this.cTo = false;
     }
 }

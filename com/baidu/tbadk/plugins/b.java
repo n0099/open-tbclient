@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.data.h;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class b {
         return aVv.equals(str);
     }
 
-    public static boolean cb(boolean z) {
+    public static boolean cc(boolean z) {
         boolean appResponseToIntentClass;
         if (PluginPackageManager.lN().bC("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
@@ -45,29 +45,29 @@ public class b {
         return false;
     }
 
-    public static boolean KS() {
+    public static boolean KW() {
         return PluginPackageManager.lN().bI("com.baidu.tieba.pluginHotTopic");
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
         if (PluginPackageManager.lN().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
-            String string = tbPageContext.getResources().getString(d.j.plugin_hottopic_not_install);
+            String string = tbPageContext.getResources().getString(f.j.plugin_hottopic_not_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string, null);
                 return true;
             }
             return true;
-        } else if (!cb(z2)) {
-            String string2 = tbPageContext.getResources().getString(d.j.plugin_hottopic_install_tips);
-            String string3 = tbPageContext.getResources().getString(d.j.plugin_go_install);
+        } else if (!cc(z2)) {
+            String string2 = tbPageContext.getResources().getString(f.j.plugin_hottopic_install_tips);
+            String string3 = tbPageContext.getResources().getString(f.j.plugin_go_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string2, string3);
                 return true;
             }
             return true;
-        } else if (KS()) {
-            String string4 = tbPageContext.getResources().getString(d.j.plugin_hottopic_not_active);
-            String string5 = tbPageContext.getResources().getString(d.j.setup);
+        } else if (KW()) {
+            String string4 = tbPageContext.getResources().getString(f.j.plugin_hottopic_not_active);
+            String string5 = tbPageContext.getResources().getString(f.j.setup);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string4, string5);
                 return true;
@@ -88,7 +88,7 @@ public class b {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
             aVar.dB(str);
             if (TextUtils.isEmpty(str2)) {
-                aVar.b(d.j.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
+                aVar.b(f.j.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
@@ -102,14 +102,14 @@ public class b {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.b.3
+                aVar.b(f.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.b.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
                     }
                 });
             }
-            aVar.b(tbPageContext).xf();
+            aVar.b(tbPageContext).xe();
         }
     }
 
@@ -123,7 +123,7 @@ public class b {
             int start = matcher.start();
             int end = matcher.end();
             if (!hr(str.substring(start, end))) {
-                spannableString.setSpan(new ForegroundColorSpan(am.getColor(d.C0140d.cp_link_tip_c)), start, end, 18);
+                spannableString.setSpan(new ForegroundColorSpan(am.getColor(f.d.cp_link_tip_c)), start, end, 18);
             }
         }
         return spannableString;
@@ -139,7 +139,7 @@ public class b {
                     int start = matcher.start();
                     int end = matcher.end();
                     if (!hr(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
-                        spannable.setSpan(new ForegroundColorSpan(am.getColor(d.C0140d.cp_link_tip_c)), start, end, 18);
+                        spannable.setSpan(new ForegroundColorSpan(am.getColor(f.d.cp_link_tip_c)), start, end, 18);
                     }
                 }
             }
@@ -182,6 +182,6 @@ public class b {
                 str = "1";
                 break;
         }
-        TiebaStatic.log(new an("c11455").af("obj_locate", str));
+        TiebaStatic.log(new an("c11455").ae("obj_locate", str));
     }
 }

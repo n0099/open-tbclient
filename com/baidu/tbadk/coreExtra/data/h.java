@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private AntiData aBQ = new AntiData();
+    private AntiData aBN = new AntiData();
     private ArrayList<String> agn;
     private UserData mUser;
 
@@ -24,12 +24,12 @@ public class h {
         return this.mUser;
     }
 
-    public ArrayList<String> Cd() {
+    public ArrayList<String> Ca() {
         return this.agn;
     }
 
-    public AntiData Ce() {
-        return this.aBQ;
+    public AntiData Cb() {
+        return this.aBN;
     }
 
     public void parserJson(String str) {
@@ -49,7 +49,7 @@ public class h {
                     this.agn.add(optJSONArray.optString(i, null));
                 }
             }
-            this.aBQ.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+            this.aBN.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

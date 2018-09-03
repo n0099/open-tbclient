@@ -20,7 +20,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     private Integer scr_w;
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bP(boolean z) {
+    public Object bQ(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.scr_w = this.scr_w;
         builder.scr_h = this.scr_h;
@@ -77,7 +77,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ju() {
+    public boolean Jy() {
         return false;
     }
 
@@ -92,12 +92,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Jt() {
+    public String Jx() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Jw() {
+    public HashMap<String, Object> JA() {
         return null;
     }
 }

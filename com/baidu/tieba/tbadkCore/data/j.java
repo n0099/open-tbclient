@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.flow.a.a {
-    private String gNH;
-    private String gNI;
     private String gNJ;
     private String gNK;
+    private String gNL;
+    private String gNM;
     private int height;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public j(Timgs timgs) {
-        this.gNH = null;
-        this.urlFlag = 0;
-        this.gNI = null;
         this.gNJ = null;
+        this.urlFlag = 0;
         this.gNK = null;
+        this.gNL = null;
+        this.gNM = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.gNH = timgs.img_url;
+            this.gNJ = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.gNI = timgs.url;
-            this.gNJ = timgs.big_cdn_url;
-            this.gNK = timgs.des_main;
+            this.gNK = timgs.url;
+            this.gNL = timgs.big_cdn_url;
+            this.gNM = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -50,19 +50,19 @@ public class j implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.gNH;
+        return this.gNJ;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String tP() {
-        return this.gNI;
-    }
-
-    public String bvN() {
-        return this.gNH;
+    public String tO() {
+        return this.gNK;
     }
 
     public String bvO() {
         return this.gNJ;
+    }
+
+    public String bvP() {
+        return this.gNL;
     }
 }

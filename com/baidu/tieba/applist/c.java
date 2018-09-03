@@ -23,11 +23,11 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c cwg = null;
-    private AlarmManager cwh;
-    private final int cwe = 7;
-    private int cwf = PersonListModel.CACHETIME;
-    private HttpMessageListener bvP = new HttpMessageListener(CmdConfigHttp.REPORT_APPLIST) { // from class: com.baidu.tieba.applist.c.1
+    private static volatile c cwd = null;
+    private AlarmManager cwe;
+    private final int cwb = 7;
+    private int cwc = PersonListModel.CACHETIME;
+    private HttpMessageListener bvR = new HttpMessageListener(CmdConfigHttp.REPORT_APPLIST) { // from class: com.baidu.tieba.applist.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -48,29 +48,29 @@ public class c {
     private c() {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.registerTask(Hi());
-        messageManager.registerListener(this.bvP);
-        aix();
+        messageManager.registerListener(this.bvR);
+        aiA();
     }
 
-    public static c aiw() {
-        if (cwg == null) {
+    public static c aiz() {
+        if (cwd == null) {
             synchronized (c.class) {
-                if (cwg == null) {
-                    cwg = new c();
+                if (cwd == null) {
+                    cwd = new c();
                 }
             }
         }
-        return cwg;
+        return cwd;
     }
 
-    public void aix() {
-        if (this.cwh == null) {
+    public void aiA() {
+        if (this.cwe == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             calendar.add(6, 7);
             PendingIntent broadcast = PendingIntent.getBroadcast(BdBaseApplication.getInst().getApp(), 0, new Intent("com.baidu.tieba.report.applist"), 134217728);
-            this.cwh = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
-            this.cwh.setRepeating(0, calendar.getTimeInMillis(), this.cwf, broadcast);
+            this.cwe = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+            this.cwe.setRepeating(0, calendar.getTimeInMillis(), this.cwc, broadcast);
         }
     }
 
@@ -78,7 +78,7 @@ public class c {
         if (d.hv().ax("applist_switch") != 0) {
             long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("applist_report_time", 0L);
             long currentTimeMillis = System.currentTimeMillis() - j;
-            if (j == 0 || z || currentTimeMillis >= this.cwf) {
+            if (j == 0 || z || currentTimeMillis >= this.cwc) {
                 v.a(new u<Object>() { // from class: com.baidu.tieba.applist.c.2
                     @Override // com.baidu.tbadk.util.u
                     public Object doInBackground() {
@@ -106,7 +106,7 @@ public class c {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("com.baidu.tieba.report.applist")) {
-                c.aiw().eq(true);
+                c.aiz().eq(true);
             }
         }
     }

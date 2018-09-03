@@ -31,24 +31,24 @@ import java.util.Map;
 import protobuf.NewpushRepair;
 /* loaded from: classes.dex */
 public class b {
-    private static b ezr;
-    private boolean ezF;
-    private List<GroupUpdateMessage> ezz;
-    private int ezs = 900000;
-    private int ezt = 360000;
-    private int ezu = this.ezt;
-    private final int ezv = 0;
-    private final int ezw = 1;
-    private final int ezx = 2;
+    private static b ezn;
+    private boolean ezB;
+    private List<GroupUpdateMessage> ezv;
+    private int ezo = 900000;
+    private int ezp = 360000;
+    private int ezq = this.ezp;
+    private final int ezr = 0;
+    private final int ezs = 1;
+    private final int ezt = 2;
+    private int ezu = 0;
+    private int ezw = 0;
+    private long ezx = 0;
     private int ezy = 0;
-    private int ezA = 0;
-    private long ezB = 0;
-    private int ezC = 0;
     private final BdUniqueId mTag = BdUniqueId.gen();
     private final Handler mHandler = new a();
-    private LongSparseArray<Long> ezD = null;
-    private LongSparseArray<Long> ezE = null;
-    private final com.baidu.adp.framework.client.socket.link.a tr = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tieba.im.a.b.3
+    private LongSparseArray<Long> ezz = null;
+    private LongSparseArray<Long> ezA = null;
+    private final com.baidu.adp.framework.client.socket.link.a ts = new com.baidu.adp.framework.client.socket.link.a() { // from class: com.baidu.tieba.im.a.b.3
         @Override // com.baidu.adp.framework.client.socket.link.a
         public boolean e(int i, String str) {
             b.this.stop();
@@ -73,21 +73,21 @@ public class b {
         public void S(String str) {
         }
     };
-    private final com.baidu.adp.framework.listener.c ejL = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.a.b.4
+    private final com.baidu.adp.framework.listener.c ejH = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null) {
                 if (socketResponsedMessage.getCmd() == 1003) {
                     if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() == 0) {
-                        b.this.aMF();
+                        b.this.aMC();
                     }
                 } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
                     ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
                     if (responseOnlineMessage.getError() == 0) {
-                        b.this.ezz = responseOnlineMessage.getGroupInfos();
-                        if (com.baidu.tieba.im.memorycache.b.aLY().aLX()) {
-                            b.this.aMy();
+                        b.this.ezv = responseOnlineMessage.getGroupInfos();
+                        if (com.baidu.tieba.im.memorycache.b.aLV().aLU()) {
+                            b.this.aMv();
                         }
                     }
                 }
@@ -100,25 +100,25 @@ public class b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                 if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    b.this.aME();
+                    b.this.aMB();
                 } else {
-                    b.this.aMD();
+                    b.this.aMA();
                 }
             }
         }
     };
-    private final CustomMessageListener ezG = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.a.b.6
+    private final CustomMessageListener ezC = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.a.b.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (b.this.ezD != null) {
-                    b.this.ezD.clear();
+                if (b.this.ezz != null) {
+                    b.this.ezz.clear();
                 }
-                if (b.this.ezE != null) {
-                    b.this.ezE.clear();
+                if (b.this.ezA != null) {
+                    b.this.ezA.clear();
                 }
-                b.this.ezz = null;
+                b.this.ezv = null;
             }
         }
     };
@@ -130,7 +130,7 @@ public class b {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
                     PingManager.GB().GC();
-                    b.aMB().aMC();
+                    b.aMy().aMz();
                 }
             }
         });
@@ -139,11 +139,11 @@ public class b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002) {
-                    b.aMB().aMy();
+                    b.aMy().aMv();
                 }
             }
         });
-        ezr = null;
+        ezn = null;
     }
 
     /* loaded from: classes.dex */
@@ -156,17 +156,17 @@ public class b {
             super.handleMessage(message);
             switch (message.what) {
                 case 2:
-                    b.aMB().mHandler.removeMessages(2);
-                    b.aMB().aMG();
+                    b.aMy().mHandler.removeMessages(2);
+                    b.aMy().aMD();
                     return;
                 case 3:
-                    b.aMB().mHandler.removeMessages(3);
-                    if (b.aMB().ezC == 3) {
-                        b.aMB().aMH();
+                    b.aMy().mHandler.removeMessages(3);
+                    if (b.aMy().ezy == 3) {
+                        b.aMy().aME();
                     } else {
-                        b.aMB().aMG();
+                        b.aMy().aMD();
                     }
-                    b.aMB().mHandler.sendMessageDelayed(b.aMB().mHandler.obtainMessage(3), b.aMB().ezu);
+                    b.aMy().mHandler.sendMessageDelayed(b.aMy().mHandler.obtainMessage(3), b.aMy().ezq);
                     return;
                 default:
                     return;
@@ -187,7 +187,7 @@ public class b {
             oz(i);
             return;
         }
-        aMJ();
+        aMG();
         LongSparseArray<Long> longSparseArray2 = null;
         if (longSparseArray != null && longSparseArray.size() > 0) {
             LongSparseArray<Long> longSparseArray3 = new LongSparseArray<>();
@@ -199,74 +199,74 @@ public class b {
         }
         MessageSyncMessage b = b(longSparseArray2, i);
         if (i == 3 || i == 2) {
-            b.setNewpushRepire(com.baidu.tieba.im.memorycache.b.aLY().aMk());
+            b.setNewpushRepire(com.baidu.tieba.im.memorycache.b.aLV().aMh());
         }
         MessageManager.getInstance().sendMessage(b);
         j.d(true, false, false);
         if (i == 3 || i == 1 || i == 2) {
-            if (this.ezD != null) {
-                this.ezD.clear();
+            if (this.ezz != null) {
+                this.ezz.clear();
             }
-            if (this.ezE != null) {
-                this.ezE.clear();
+            if (this.ezA != null) {
+                this.ezA.clear();
             }
         }
     }
 
-    public void aMy() {
+    public void aMv() {
         boolean z;
-        if (this.ezz != null) {
-            LongSparseArray<Long> aMj = com.baidu.tieba.im.memorycache.b.aLY().aMj();
-            if (aMj == null) {
-                this.ezz = null;
+        if (this.ezv != null) {
+            LongSparseArray<Long> aMg = com.baidu.tieba.im.memorycache.b.aLV().aMg();
+            if (aMg == null) {
+                this.ezv = null;
                 return;
             }
-            Iterator<GroupUpdateMessage> it = this.ezz.iterator();
+            Iterator<GroupUpdateMessage> it = this.ezv.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
                 }
                 GroupUpdateMessage next = it.next();
-                if (next != null && aMj.get(next.getGroupId()) != null) {
-                    if (aMj.get(next.getGroupId()).longValue() < next.getLastMsgId()) {
+                if (next != null && aMg.get(next.getGroupId()) != null) {
+                    if (aMg.get(next.getGroupId()).longValue() < next.getLastMsgId()) {
                         z = true;
                         break;
                     }
                 }
             }
-            this.ezC = 3;
+            this.ezy = 3;
             if (z) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
             } else {
-                aMB().mHandler.sendMessageDelayed(aMB().mHandler.obtainMessage(3), aMB().ezu);
+                aMy().mHandler.sendMessageDelayed(aMy().mHandler.obtainMessage(3), aMy().ezq);
             }
-            this.ezz = null;
+            this.ezv = null;
         }
     }
 
-    private void aMz() {
-        if (this.ezy != 0) {
-            if (this.ezy == 1) {
+    private void aMw() {
+        if (this.ezu != 0) {
+            if (this.ezu == 1) {
                 d(0L, 0L, 0L);
             } else {
-                aMG();
+                aMD();
             }
         }
     }
 
-    private void aMA() {
+    private void aMx() {
         this.mHandler.removeMessages(3);
         this.mHandler.removeMessages(2);
     }
 
-    public static synchronized b aMB() {
+    public static synchronized b aMy() {
         b bVar;
         synchronized (b.class) {
-            if (ezr == null) {
-                ezr = new b();
+            if (ezn == null) {
+                ezn = new b();
             }
-            bVar = ezr;
+            bVar = ezn;
         }
         return bVar;
     }
@@ -276,15 +276,15 @@ public class b {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
         MessageManager.getInstance().registerListener(this.mCustomListener);
-        MessageManager.getInstance().registerListener(this.ezG);
-        g.GJ().a(this.tr);
-        MessageManager.getInstance().registerListener(1003, this.ejL);
-        MessageManager.getInstance().registerListener(1001, this.ejL);
-        MessageManager.getInstance().registerListener(202101, this.ejL);
-        aMC();
+        MessageManager.getInstance().registerListener(this.ezC);
+        g.GJ().a(this.ts);
+        MessageManager.getInstance().registerListener(1003, this.ejH);
+        MessageManager.getInstance().registerListener(1001, this.ejH);
+        MessageManager.getInstance().registerListener(202101, this.ejH);
+        aMz();
     }
 
-    public void aMC() {
+    public void aMz() {
         int[] socketGetMsgStratgy = TbadkCoreApplication.getInst().getSocketGetMsgStratgy();
         if (socketGetMsgStratgy.length == 2) {
             ow(socketGetMsgStratgy[0] * 1000);
@@ -293,45 +293,45 @@ public class b {
     }
 
     public void start() {
-        aMJ();
+        aMG();
     }
 
     public void stop() {
-        aMJ();
-        aMA();
+        aMG();
+        aMx();
     }
 
-    public void aMD() {
-        this.ezu = this.ezt;
+    public void aMA() {
+        this.ezq = this.ezp;
     }
 
-    public void aME() {
-        aMB().ezu = aMB().ezs;
+    public void aMB() {
+        aMy().ezq = aMy().ezo;
     }
 
     public void ow(int i) {
         if (i > 0) {
-            this.ezt = i;
+            this.ezp = i;
         }
     }
 
     public void ox(int i) {
         if (i > 0) {
-            this.ezs = i;
+            this.ezo = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void aMF() {
-        if (System.currentTimeMillis() - this.ezB >= 180000) {
+    public synchronized void aMC() {
+        if (System.currentTimeMillis() - this.ezx >= 180000) {
             PushCountMessage pushCountMessage = new PushCountMessage();
-            pushCountMessage.setPusherCount(this.ezA);
+            pushCountMessage.setPusherCount(this.ezw);
             pushCountMessage.setUpFlowSize(h.kq().getUpFlowSize());
             pushCountMessage.setDownFlowSize(h.kq().getDownFlowSize());
             pushCountMessage.setEnterForeCount(TbadkCoreApplication.getInst().getEnterForeCount());
             MessageManager.getInstance().sendMessage(pushCountMessage);
-            this.ezB = System.currentTimeMillis();
-            this.ezA = 0;
+            this.ezx = System.currentTimeMillis();
+            this.ezw = 0;
             h.kq().kw();
             h.kq().kv();
             TbadkCoreApplication.getInst().clearEnterForeCount();
@@ -348,18 +348,18 @@ public class b {
                 messageSyncMessage.setNewpushRepire(makeNewpushRepair);
             }
         } else {
-            messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.aLY().aMj());
+            messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.aLV().aMg());
         }
-        messageSyncMessage.setForTimer(this.ezF);
-        LocalViewSize.ImageSize yK = LocalViewSize.yH().yK();
-        if (yK != null) {
-            messageSyncMessage.setWidth(yK.width);
-            messageSyncMessage.setHeight(yK.height);
+        messageSyncMessage.setForTimer(this.ezB);
+        LocalViewSize.ImageSize yI = LocalViewSize.yF().yI();
+        if (yI != null) {
+            messageSyncMessage.setWidth(yI.width);
+            messageSyncMessage.setHeight(yI.height);
         }
-        LocalViewSize.ImageSize yJ = LocalViewSize.yH().yJ();
-        if (yJ != null) {
-            messageSyncMessage.setSmallHeight(yJ.height);
-            messageSyncMessage.setSmallWidth(yJ.width);
+        LocalViewSize.ImageSize yH = LocalViewSize.yF().yH();
+        if (yH != null) {
+            messageSyncMessage.setSmallHeight(yH.height);
+            messageSyncMessage.setSmallWidth(yH.width);
         }
         messageSyncMessage.setSyncTypeString(String.valueOf(i));
         return messageSyncMessage;
@@ -371,22 +371,22 @@ public class b {
 
     public synchronized void a(long j, long j2, long j3, boolean z) {
         long longValue;
-        this.ezA++;
-        this.ezF = false;
-        this.ezC = 1;
+        this.ezw++;
+        this.ezB = false;
+        this.ezy = 1;
         this.mHandler.removeMessages(3);
-        aMB().mHandler.sendMessageDelayed(aMB().mHandler.obtainMessage(3), aMB().ezu);
-        if (this.ezD == null) {
-            this.ezD = new LongSparseArray<>();
-            this.ezD.clear();
+        aMy().mHandler.sendMessageDelayed(aMy().mHandler.obtainMessage(3), aMy().ezq);
+        if (this.ezz == null) {
+            this.ezz = new LongSparseArray<>();
+            this.ezz.clear();
         }
-        if (this.ezE == null) {
-            this.ezE = new LongSparseArray<>();
+        if (this.ezA == null) {
+            this.ezA = new LongSparseArray<>();
         }
-        LongSparseArray<Long> aMj = com.baidu.tieba.im.memorycache.b.aLY().aMj();
+        LongSparseArray<Long> aMg = com.baidu.tieba.im.memorycache.b.aLV().aMg();
         if (0 != j) {
-            Long l = aMj.get(j);
-            Long l2 = this.ezD.get(j);
+            Long l = aMg.get(j);
+            Long l2 = this.ezz.get(j);
             if (l == null) {
                 if (l2 == null) {
                     longValue = j2;
@@ -397,38 +397,38 @@ public class b {
                 longValue = l.longValue();
             }
             if (longValue > 0) {
-                this.ezD.put(j, Long.valueOf(longValue));
+                this.ezz.put(j, Long.valueOf(longValue));
             }
         }
-        if (this.ezD != null && this.ezD.size() > 0) {
-            for (int i = 0; i < this.ezD.size(); i++) {
-                long keyAt = this.ezD.keyAt(i);
-                Long l3 = aMj.get(keyAt);
+        if (this.ezz != null && this.ezz.size() > 0) {
+            for (int i = 0; i < this.ezz.size(); i++) {
+                long keyAt = this.ezz.keyAt(i);
+                Long l3 = aMg.get(keyAt);
                 if (l3 != null && l3.longValue() > 0) {
-                    this.ezD.put(keyAt, l3);
+                    this.ezz.put(keyAt, l3);
                 }
             }
         }
         if (!z) {
             if (j > 0 && j2 > 0) {
-                if (this.ezE.get(j) == null) {
-                    this.ezE.put(j, Long.valueOf(j2));
+                if (this.ezA.get(j) == null) {
+                    this.ezA.put(j, Long.valueOf(j2));
                 } else {
-                    long longValue2 = this.ezE.get(j).longValue();
+                    long longValue2 = this.ezA.get(j).longValue();
                     if (longValue2 > j2) {
                         j2 = longValue2;
                     }
-                    this.ezE.put(j, Long.valueOf(j2));
+                    this.ezA.put(j, Long.valueOf(j2));
                 }
             }
-            int size = this.ezD.size();
+            int size = this.ezz.size();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < size; i2++) {
-                long keyAt2 = this.ezD.keyAt(i2);
-                long longValue3 = this.ezD.valueAt(i2).longValue();
+                long keyAt2 = this.ezz.keyAt(i2);
+                long longValue3 = this.ezz.valueAt(i2).longValue();
                 long j4 = 0;
-                if (this.ezE.get(keyAt2) != null) {
-                    j4 = this.ezE.get(keyAt2).longValue();
+                if (this.ezA.get(keyAt2) != null) {
+                    j4 = this.ezA.get(keyAt2).longValue();
                 }
                 if (longValue3 >= j4) {
                     arrayList.add(Long.valueOf(j));
@@ -436,58 +436,58 @@ public class b {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.ezD.remove(((Long) it.next()).longValue());
+                this.ezz.remove(((Long) it.next()).longValue());
             }
         }
-        if (this.ezD.size() == 0) {
-            aMJ();
-            this.ezE.clear();
+        if (this.ezz.size() == 0) {
+            aMG();
+            this.ezA.clear();
         } else {
-            a(this.ezD, 1);
+            a(this.ezz, 1);
         }
     }
 
-    public synchronized void aMG() {
+    public synchronized void aMD() {
         oy(2);
     }
 
-    public synchronized void aMH() {
+    public synchronized void aME() {
         oy(3);
     }
 
-    public void aMI() {
-        aMz();
+    public void aMF() {
+        aMw();
     }
 
     public synchronized void a(LongSparseArray<Long> longSparseArray) {
         if (longSparseArray != null) {
             if (longSparseArray.size() != 0) {
-                this.ezF = false;
-                this.ezC = 4;
+                this.ezB = false;
+                this.ezy = 4;
                 this.mHandler.removeMessages(3);
-                aMB().mHandler.sendMessageDelayed(aMB().mHandler.obtainMessage(3), aMB().ezu);
+                aMy().mHandler.sendMessageDelayed(aMy().mHandler.obtainMessage(3), aMy().ezq);
                 a(longSparseArray, 4);
             }
         }
     }
 
     private synchronized void oy(int i) {
-        this.ezF = true;
-        this.ezC = i;
+        this.ezB = true;
+        this.ezy = i;
         a((LongSparseArray<Long>) null, i);
     }
 
     private void oz(int i) {
         if (i == 1) {
-            if (this.ezy != 2) {
-                this.ezy = 1;
+            if (this.ezu != 2) {
+                this.ezu = 1;
             }
         } else if (i == 3 || i == 2) {
-            this.ezy = 2;
+            this.ezu = 2;
         }
     }
 
-    private void aMJ() {
-        this.ezy = 0;
+    private void aMG() {
+        this.ezu = 0;
     }
 }

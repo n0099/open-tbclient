@@ -6,44 +6,44 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<BaseActivity> {
-    private ImageView aIy;
+    private ImageView aIv;
     private View divider;
-    private TextView eog;
+    private TextView eob;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.eog = null;
-        this.aIy = null;
+        this.eob = null;
+        this.aIv = null;
         this.divider = null;
         initUI();
     }
 
-    public View ahb() {
+    public View ahd() {
         return this.layoutView;
     }
 
-    public void nP(String str) {
-        this.eog.setText(str);
+    public void nR(String str) {
+        this.eob.setText(str);
     }
 
     public void hk(boolean z) {
-        this.aIy.setVisibility(z ? 0 : 8);
+        this.aIv.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
-        this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(d.h.address_lbs_item, (ViewGroup) null);
-        this.eog = (TextView) this.layoutView.findViewById(d.g.text);
-        this.aIy = (ImageView) this.layoutView.findViewById(d.g.group_address_list_item_selected);
-        this.divider = this.layoutView.findViewById(d.g.group_address_list_item_divider);
+        this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(f.h.address_lbs_item, (ViewGroup) null);
+        this.eob = (TextView) this.layoutView.findViewById(f.g.text);
+        this.aIv = (ImageView) this.layoutView.findViewById(f.g.group_address_list_item_selected);
+        this.divider = this.layoutView.findViewById(f.g.group_address_list_item_divider);
         this.layoutView.setTag(this);
     }
 
-    public View aHX() {
+    public View aHU() {
         return this.divider;
     }
 }

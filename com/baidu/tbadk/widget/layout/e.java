@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.layout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e implements b {
@@ -28,7 +28,7 @@ public class e implements b {
     }
 
     @Override // com.baidu.tbadk.widget.layout.b
-    public int fI(int i) {
+    public int fH(int i) {
         return 1;
     }
 
@@ -54,7 +54,7 @@ public class e implements b {
         if (i3 > 0) {
             int i4 = this.bdt + i;
             List<MediaData> a = w.a(list, i, i4);
-            String string = TbadkCoreApplication.getInst().getString(d.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
+            String string = TbadkCoreApplication.getInst().getString(f.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
             if (!this.bdv) {
                 string = null;
             }
@@ -66,11 +66,11 @@ public class e implements b {
             constrainImageLayout.setExtraCenterText(null);
             i2 = y;
         }
-        constrainImageLayout.setSingleImageRatio(fM(y));
+        constrainImageLayout.setSingleImageRatio(fL(y));
         return i2;
     }
 
-    private double fM(int i) {
+    private double fL(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;
@@ -81,11 +81,11 @@ public class e implements b {
         return 0.6666666666666666d;
     }
 
-    public void h(double d) {
+    public void g(double d) {
         this.bdu = d;
     }
 
-    public void cj(boolean z) {
+    public void ck(boolean z) {
         this.bdv = z;
     }
 }

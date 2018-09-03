@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.tieba.personPolymeric.b.b {
     private com.baidu.tieba.post.a.a fYE;
@@ -33,7 +33,7 @@ public class d implements com.baidu.tieba.personPolymeric.b.b {
                     return;
                 }
                 if (d.this.mTbPageContext != null) {
-                    d.this.mTbPageContext.showToast(d.j.privacy_setting_toast);
+                    d.this.mTbPageContext.showToast(f.j.privacy_setting_toast);
                 }
                 d.this.mStatus = 1;
                 d.this.fYE.startPullRefresh();
@@ -70,10 +70,10 @@ public class d implements com.baidu.tieba.personPolymeric.b.b {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.b
-    public void biN() {
+    public void biK() {
         if (!j.jE()) {
             if (this.mTbPageContext != null) {
-                this.mTbPageContext.showToast(d.j.neterror);
+                this.mTbPageContext.showToast(f.j.neterror);
                 return;
             }
             return;

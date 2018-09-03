@@ -176,7 +176,7 @@ public class b implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         private String b(l<String> lVar, String str) {
             this.mNetWork = new y(b.ADDRESS);
             this.mNetWork.o("plugin_upload_config", str);
-            return this.mNetWork.yq();
+            return this.mNetWork.yo();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

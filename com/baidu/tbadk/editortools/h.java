@@ -9,11 +9,11 @@ import com.baidu.tbadk.editortools.view.a;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<g> aMg;
+    LinkedList<g> aMd;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void j(LinkedList<g> linkedList) {
-        this.aMg = linkedList;
+        this.aMd = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -21,33 +21,33 @@ public class h extends com.baidu.tbadk.editortools.view.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DLauncher eP(int i) {
+    public DLauncher eO(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (DLauncher) this.aMg.get(i);
+        return (DLauncher) this.aMd.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.aMg != null) {
-            return this.aMg.size();
+        if (this.aMd != null) {
+            return this.aMd.size();
         }
         return 0;
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void init(Context context) {
-        eX(4);
-        eY(2);
+        eW(4);
+        eX(2);
         a(new a.InterfaceC0111a() { // from class: com.baidu.tbadk.editortools.h.1
             @Override // com.baidu.tbadk.editortools.view.a.InterfaceC0111a
             public View getView(int i, View view, ViewGroup viewGroup) {
-                DLauncher eP = h.this.eP(i);
-                if (eP.getLayoutParams() == null) {
-                    eP.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                DLauncher eO = h.this.eO(i);
+                if (eO.getLayoutParams() == null) {
+                    eO.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
-                return eP;
+                return eO;
             }
         });
         Iy().c(this);
@@ -63,9 +63,9 @@ public class h extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.aMg != null) {
-            this.aMg.clear();
+        if (this.aMd != null) {
+            this.aMd.clear();
         }
-        this.aMg = null;
+        this.aMd = null;
     }
 }

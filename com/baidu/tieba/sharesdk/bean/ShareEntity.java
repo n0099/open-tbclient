@@ -35,22 +35,22 @@ public class ShareEntity implements Parcelable {
             return new ShareEntity[i];
         }
     };
-    private Location aGd;
-    private boolean aGk;
-    private Bundle aGm;
+    private Location aGc;
+    private boolean aGj;
+    private Bundle aGl;
     private String content;
-    private int gCd;
+    private int gCg;
     private Uri imageUri;
     private String linkUrl;
     private String title;
     private String videoUrl;
 
     public void f(Bundle bundle) {
-        this.aGm = bundle;
+        this.aGl = bundle;
     }
 
     public Bundle Fz() {
-        return this.aGm;
+        return this.aGl;
     }
 
     public String getVideoUrl() {
@@ -85,7 +85,7 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public String tU() {
+    public String tT() {
         return this.imageUri == null ? "" : this.imageUri.toString();
     }
 
@@ -98,23 +98,23 @@ public class ShareEntity implements Parcelable {
     }
 
     public void setLocation(Location location) {
-        this.aGd = location;
+        this.aGc = location;
     }
 
-    public int brs() {
-        return this.gCd;
+    public int brt() {
+        return this.gCg;
     }
 
     public void sR(int i) {
-        this.gCd = i;
+        this.gCg = i;
     }
 
-    public boolean brt() {
-        return this.aGk;
+    public boolean bru() {
+        return this.aGj;
     }
 
     public void lZ(boolean z) {
-        this.aGk = z;
+        this.aGj = z;
     }
 
     @Override // android.os.Parcelable
@@ -127,11 +127,11 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gCd);
+        parcel.writeInt(this.gCg);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
-        parcel.writeParcelable(this.aGd, i);
-        parcel.writeBundle(this.aGm);
-        parcel.writeInt(this.aGk ? 1 : 0);
+        parcel.writeParcelable(this.aGc, i);
+        parcel.writeBundle(this.aGl);
+        parcel.writeInt(this.aGj ? 1 : 0);
     }
 }

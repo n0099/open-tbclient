@@ -18,11 +18,11 @@ public class b {
         this.aSk = aVar2;
     }
 
-    public int Jy() {
+    public int JC() {
         return this.aSg;
     }
 
-    public com.baidu.tbadk.mvc.b.a Jz() {
+    public com.baidu.tbadk.mvc.b.a JD() {
         return this.aSi;
     }
 
@@ -34,7 +34,7 @@ public class b {
         this.extra = obj;
     }
 
-    public boolean JA() {
+    public boolean JE() {
         return this.aSh;
     }
 

@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.d;
 import com.baidu.tieba.f;
+import com.baidu.tieba.h;
 import java.io.File;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends BdBaseService {
@@ -75,7 +75,7 @@ public class TiebaUpdateService extends BdBaseService {
                 this.mVersionData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
                 if (URLUtil.isNetworkUrl(this.mMainApkUrl) && !TextUtils.isEmpty(this.mMainApkMd5RSA)) {
                     this.mHasTieba = true;
-                    this.mMainApkFileName = getString(d.j.app_name) + TbadkCoreApplication.getInst().getVersionName() + ".apk";
+                    this.mMainApkFileName = getString(f.j.app_name) + TbadkCoreApplication.getInst().getVersionName() + ".apk";
                 } else {
                     this.mMainApkMd5RSA = intent.getStringExtra("MD5_RSA_as_apk");
                     this.mMainApkUrl = intent.getStringExtra(UpdateDialogConfig.KEY_AS_APK_URL);
@@ -96,16 +96,16 @@ public class TiebaUpdateService extends BdBaseService {
                     stopSelf(i);
                 } else if (this.mHasTieba || this.mHasAs) {
                     if (this.mHasTieba) {
-                        string = getString(d.j.tieba_downloading);
+                        string = getString(f.j.tieba_downloading);
                     } else {
-                        string = getString(d.j.as_downloading);
+                        string = getString(f.j.as_downloading);
                     }
                     downloadMainApk(string);
                     if (this.mHasOther) {
                         downloadOtherApk();
                     }
                 } else {
-                    this.info = getString(d.j.downloading);
+                    this.info = getString(f.j.downloading);
                     downloadOtherApk();
                 }
             }
@@ -138,7 +138,7 @@ public class TiebaUpdateService extends BdBaseService {
                     this.mMainApkHandler.sendMessageDelayed(this.mMainApkHandler.obtainMessage(1, null), 300L);
                     return;
                 }
-                com.baidu.adp.lib.util.l.showToast(this, d.j.download_begin_tip);
+                com.baidu.adp.lib.util.l.showToast(this, f.j.download_begin_tip);
                 if (dU != null) {
                     dU.delete();
                 }
@@ -232,15 +232,15 @@ public class TiebaUpdateService extends BdBaseService {
                         if (valueOf.booleanValue()) {
                             bool = valueOf;
                             break;
-                        } else if (this.mNetWork.yS() != -2) {
-                            if (!this.mNetWork.yO().zN().hO()) {
+                        } else if (this.mNetWork.yQ() != -2) {
+                            if (!this.mNetWork.yM().zL().hO()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception e2) {
                                 }
                             }
                             if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - TiebaUpdateService.this.mMainTaskWaitingTimestamp > TiebaUpdateService.MAX_WAIT_MILLS) {
-                                TiebaStatic.log(new an("c10662").af("obj_param1", this.mNetWork.getErrorString()));
+                                TiebaStatic.log(new an("c10662").ae("obj_param1", this.mNetWork.getErrorString()));
                                 TiebaUpdateService.this.downloadError();
                                 bool = valueOf;
                                 break;
@@ -263,7 +263,7 @@ public class TiebaUpdateService extends BdBaseService {
             }
             try {
                 if (bool.booleanValue()) {
-                    if (!f.c(TiebaUpdateService.this.mMainApkMd5RSA, l.dU(TiebaUpdateService.this.mMainApkFileName + ".tmp"))) {
+                    if (!h.c(TiebaUpdateService.this.mMainApkMd5RSA, l.dU(TiebaUpdateService.this.mMainApkFileName + ".tmp"))) {
                         l.em(TiebaUpdateService.this.mMainApkFileName + ".tmp");
                         l.em(TiebaUpdateService.this.mMainApkFileName);
                         bool = false;
@@ -340,11 +340,11 @@ public class TiebaUpdateService extends BdBaseService {
                     bool2 = Boolean.valueOf(this.mNetWork.a(TiebaUpdateService.this.mOtherApkFileName + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
                     if (bool2.booleanValue()) {
                         break;
-                    } else if (this.mNetWork.yS() == -2) {
+                    } else if (this.mNetWork.yQ() == -2) {
                         bool = bool2;
                         break;
                     } else {
-                        if (!this.mNetWork.yO().zN().hO()) {
+                        if (!this.mNetWork.yM().zL().hO()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception e2) {
@@ -364,7 +364,7 @@ public class TiebaUpdateService extends BdBaseService {
             }
             try {
                 if (bool.booleanValue()) {
-                    if (!f.c(TiebaUpdateService.this.mOtherApkMd5RSA, l.dU(TiebaUpdateService.this.mOtherApkFileName + ".tmp"))) {
+                    if (!h.c(TiebaUpdateService.this.mOtherApkMd5RSA, l.dU(TiebaUpdateService.this.mOtherApkFileName + ".tmp"))) {
                         l.em(TiebaUpdateService.this.mOtherApkFileName + ".tmp");
                         l.em(TiebaUpdateService.this.mOtherApkFileName);
                         bool = false;
@@ -481,7 +481,7 @@ public class TiebaUpdateService extends BdBaseService {
                 }
                 TiebaUpdateService.this.mMainApkInstallEnable = true;
             } else if (message.what == 3) {
-                com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), d.j.update_app_error);
+                com.baidu.adp.lib.util.l.showToast(TbadkCoreApplication.getInst(), f.j.update_app_error);
             }
         }
     }

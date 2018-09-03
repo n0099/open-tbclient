@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bx */
     public com.baidu.tieba.personPolymeric.d.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.personPolymeric.d.a(LayoutInflater.from(this.mContext.getPageActivity()).inflate(d.h.person_polymeric_item_reply, viewGroup, false), this.mContext, this.isHost);
+        return new com.baidu.tieba.personPolymeric.d.a(LayoutInflater.from(this.mContext.getPageActivity()).inflate(f.h.person_polymeric_item_reply, viewGroup, false), this.mContext, this.isHost);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,15 +68,15 @@ public class p extends com.baidu.adp.widget.ListView.a<PersonPostModel.PostInfoL
             }
             aVar.gbo.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
             if (postInfoList.thread_type == 33) {
-                aVar.gbo.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                aVar.gbo.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(f.C0146f.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
                 aVar.gbo.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            am.i(aVar.gbo, d.f.person_post_line);
-            am.c(aVar.gbo, d.C0140d.common_color_10039, 1);
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds20);
+            am.i(aVar.gbo, f.C0146f.person_post_line);
+            am.c(aVar.gbo, f.d.common_color_10039, 1);
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds20);
             aVar.gbo.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-            aVar.dC(TbadkCoreApplication.getInst().getSkinType());
+            aVar.dB(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;
     }

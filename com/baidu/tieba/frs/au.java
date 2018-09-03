@@ -3,6 +3,6 @@ package com.baidu.tieba.frs;
 import java.util.List;
 /* loaded from: classes.dex */
 public class au {
-    public int dpx;
-    public List<at> dpy;
+    public int dpv;
+    public List<at> dpw;
 }

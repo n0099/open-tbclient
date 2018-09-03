@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.tieba.tbadkCore.d.a;
 import java.io.File;
@@ -51,17 +51,17 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bnu().a(advertAppInfo.adJ, advertAppInfo.adI, str2, i, com.baidu.tieba.recapp.download.d.sH(advertAppInfo.adJ).intValue(), null, true, false, true, advertAppInfo.adQ.userPortrait, downloadStaticsData, advertAppInfo.adQ.userName);
+        com.baidu.tieba.recapp.download.d.bnv().a(advertAppInfo.adJ, advertAppInfo.adI, str2, i, com.baidu.tieba.recapp.download.d.sL(advertAppInfo.adJ).intValue(), null, true, false, true, advertAppInfo.adQ.userPortrait, downloadStaticsData, advertAppInfo.adQ.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bnu().i(advertAppInfo.adI, advertAppInfo.adJ, true);
+        com.baidu.tieba.recapp.download.d.bnv().i(advertAppInfo.adI, advertAppInfo.adJ, true);
     }
 
     public static final void an(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, f.j.download_error);
             return;
         }
         File dU = com.baidu.tbadk.core.util.l.dU(str.replace(".", "_") + ".apk");
@@ -103,14 +103,14 @@ public class s {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aR = ac.aR(activity);
+        boolean aQ = ac.aQ(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aR;
+        return aQ;
     }
 
-    public static List<String> ce(Context context) {
+    public static List<String> cd(Context context) {
         ArrayList arrayList = new ArrayList();
         if (context == null) {
             return arrayList;
@@ -132,7 +132,7 @@ public class s {
                 tbImageView.setVisibility(8);
                 return;
             }
-            tbImageView.setDefaultErrorResource(d.f.icon_advert);
+            tbImageView.setDefaultErrorResource(f.C0146f.icon_advert);
             tbImageView.setDefaultResource(0);
             tbImageView.setDefaultBgResource(0);
             tbImageView.startLoad(str, 10, false);
@@ -158,7 +158,7 @@ public class s {
                 tbImageView.setVisibility(8);
                 return;
             }
-            tbImageView.setDefaultErrorResource(d.f.icon_advert);
+            tbImageView.setDefaultErrorResource(f.C0146f.icon_advert);
             tbImageView.setDefaultResource(0);
             tbImageView.setDefaultBgResource(0);
             tbImageView.startLoad(str, 10, false);
@@ -184,11 +184,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bnn().sendFRS(z, str, str2, str3, list, str4);
+        r.bno().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bnn().a(z, str, str2, str3, str4, list, str5);
+        r.bno().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -207,15 +207,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bnk = r.bnn().bnk();
-        if (bnk == null) {
+        h bnl = r.bno().bnl();
+        if (bnl == null) {
             return false;
         }
-        if (bnk.iE(str)) {
-            bnk.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bnl.iF(str)) {
+            bnl.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bnk.c(tbPageContext.getPageActivity(), strArr);
+        return bnl.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int ao(Context context, String str) {
@@ -234,14 +234,14 @@ public class s {
 
     private static boolean ap(Context context, String str) {
         String[] strArr = {str};
-        h bnk = r.bnn().bnk();
-        if (bnk == null) {
+        h bnl = r.bno().bnl();
+        if (bnl == null) {
             return false;
         }
-        if (bnk.iE(str)) {
-            bnk.a(context, strArr, true);
+        if (bnl.iF(str)) {
+            bnl.a(context, strArr, true);
             return true;
         }
-        return bnk.c(context, strArr);
+        return bnl.c(context, strArr);
     }
 }

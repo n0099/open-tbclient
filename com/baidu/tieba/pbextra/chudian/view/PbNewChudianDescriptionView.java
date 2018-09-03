@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.pb.a;
 /* loaded from: classes3.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private String fQA;
-    private int fQB;
-    private a.InterfaceC0203a fQy;
+    private a.InterfaceC0203a fQq;
+    private String fQs;
+    private int fQt;
     private Context mContext;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!ap.isEmpty(this.fQA)) {
-            com.baidu.tbadk.browser.a.Q(this.mContext, this.fQA);
-            if (this.fQy != null) {
-                switch (this.fQB) {
+        if (!ap.isEmpty(this.fQs)) {
+            com.baidu.tbadk.browser.a.Q(this.mContext, this.fQs);
+            if (this.fQq != null) {
+                switch (this.fQt) {
                     case 0:
-                        this.fQy.d(this.fQA, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.fQq.d(this.fQs, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 1:
-                        this.fQy.d(this.fQA, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.fQq.d(this.fQs, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 2:
-                        this.fQy.d(this.fQA, "IMAGE2", "LINK_IMAGE", null, null);
+                        this.fQq.d(this.fQs, "IMAGE2", "LINK_IMAGE", null, null);
                         return;
                     case 3:
-                        this.fQy.d(this.fQA, "IMAGE3", "LINK_IMAGE", null, null);
+                        this.fQq.d(this.fQs, "IMAGE3", "LINK_IMAGE", null, null);
                         return;
                     default:
                         return;
@@ -38,7 +38,7 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
     }
 
     public void setClickUrl(String str, int i) {
-        this.fQA = str;
-        this.fQB = i;
+        this.fQs = str;
+        this.fQt = i;
     }
 }

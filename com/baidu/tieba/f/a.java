@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0145a bKc;
+    private InterfaceC0144a bKb;
+    private float cPP;
+    private float cPQ;
+    private float cPR;
     private float cPS;
-    private float cPT;
-    private float cPU;
-    private float cPV;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,13 +17,13 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.bKc.Y(i, i2);
+                    a.this.bKb.Y(i, i2);
                     return true;
                 case 1:
-                    a.this.bKc.Z(i, i2);
+                    a.this.bKb.Z(i, i2);
                     return true;
                 case 2:
-                    a.this.bKc.aa(i, i2);
+                    a.this.bKb.aa(i, i2);
                     return true;
                 default:
                     return false;
@@ -34,7 +34,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0145a {
+    public interface InterfaceC0144a {
         void Y(int i, int i2);
 
         void Z(int i, int i2);
@@ -42,43 +42,43 @@ public class a {
         void aa(int i, int i2);
     }
 
-    public void a(InterfaceC0145a interfaceC0145a) {
-        this.bKc = interfaceC0145a;
+    public void a(InterfaceC0144a interfaceC0144a) {
+        this.bKb = interfaceC0144a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.cPU = motionEvent.getRawX();
-                this.cPV = motionEvent.getRawY();
-                this.cPS = this.cPU;
-                this.cPT = this.cPV;
+                this.cPR = motionEvent.getRawX();
+                this.cPS = motionEvent.getRawY();
+                this.cPP = this.cPR;
+                this.cPQ = this.cPS;
                 return true;
             case 1:
             case 3:
-                if (this.bKc != null) {
-                    int i = (int) (this.cPS - this.cPU);
-                    if (Math.abs(i) >= Math.abs((int) (this.cPT - this.cPV))) {
-                        au(i, (int) this.cPU);
+                if (this.bKb != null) {
+                    int i = (int) (this.cPP - this.cPR);
+                    if (Math.abs(i) >= Math.abs((int) (this.cPQ - this.cPS))) {
+                        au(i, (int) this.cPR);
                     }
                 }
-                this.cPU = 0.0f;
-                this.cPV = 0.0f;
+                this.cPR = 0.0f;
+                this.cPS = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                int i2 = (int) (rawX - this.cPS);
-                int i3 = (int) (rawY - this.cPT);
-                if (this.bKc != null) {
+                int i2 = (int) (rawX - this.cPP);
+                int i3 = (int) (rawY - this.cPQ);
+                if (this.bKb != null) {
                     if (i3 > 0) {
                         as(i2, i3);
                     } else {
                         at(i2, i3);
                     }
                 }
-                this.cPS = rawX;
-                this.cPT = rawY;
+                this.cPP = rawX;
+                this.cPQ = rawY;
                 return true;
             default:
                 return true;

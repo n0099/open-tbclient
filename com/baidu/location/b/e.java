@@ -114,15 +114,15 @@ public class e {
                 Random random = new Random();
                 StringBuffer stringBuffer2 = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo qM = f.qL().qM();
-                if (qM == null || qM.getBSSID() == null) {
+                WifiInfo qJ = f.qI().qJ();
+                if (qJ == null || qJ.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                     str2 = null;
                 } else {
-                    String replace = qM.getBSSID().replace(SystemInfoUtil.COLON, "");
-                    int rssi = qM.getRssi();
-                    String m = f.qL().m();
+                    String replace = qJ.getBSSID().replace(SystemInfoUtil.COLON, "");
+                    int rssi = qJ.getRssi();
+                    String m = f.qI().m();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = m;

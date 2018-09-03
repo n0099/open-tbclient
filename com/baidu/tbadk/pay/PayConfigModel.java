@@ -11,7 +11,7 @@ import com.baidu.tbadk.clientConfig.ClientConfigNetMessage;
 import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes2.dex */
 public class PayConfigModel extends BdBaseModel {
@@ -26,7 +26,7 @@ public class PayConfigModel extends BdBaseModel {
                 if (PayConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
                     if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                         String errorString = responsedMessage.getErrorString();
-                        String string = TbadkCoreApplication.getInst().getString(d.j.neterror);
+                        String string = TbadkCoreApplication.getInst().getString(f.j.neterror);
                         if (!StringUtils.isNull(errorString)) {
                             string = errorString;
                         }
@@ -53,7 +53,7 @@ public class PayConfigModel extends BdBaseModel {
                 if (PayConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
                     if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                         String errorString = responsedMessage.getErrorString();
-                        String string = TbadkCoreApplication.getInst().getString(d.j.neterror);
+                        String string = TbadkCoreApplication.getInst().getString(f.j.neterror);
                         if (!StringUtils.isNull(errorString)) {
                             string = errorString;
                         }
@@ -82,10 +82,10 @@ public class PayConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void Kr() {
-        if (!c.Ks().Kt()) {
+    public void Kv() {
+        if (!c.Kw().Kx()) {
             if (this.aTr != null) {
-                this.aTr.Kp();
+                this.aTr.Kt();
                 return;
             }
             return;
@@ -108,15 +108,15 @@ public class PayConfigModel extends BdBaseModel {
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
             if (this.aTr != null) {
-                this.aTr.onError(TbadkCoreApplication.getInst().getString(d.j.data_load_error));
+                this.aTr.onError(TbadkCoreApplication.getInst().getString(f.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
             if (this.aTr != null) {
-                this.aTr.Kq();
+                this.aTr.Ku();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
             if (this.aTr != null) {
-                this.aTr.Kp();
+                this.aTr.Kt();
             }
         } else if (this.aTr != null) {
             this.aTr.onError("");

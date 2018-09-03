@@ -12,30 +12,30 @@ import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class g extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
-    private SystemHelpSettingActivity gBr;
-    private TbSettingTextTipView gBs;
-    private TbSettingTextTipView gBt;
-    private BdSwitchView gBu;
-    private BdSwitchView gBv;
-    private TbSettingTextNewDotView gBw;
-    private final CustomMessageListener gBx;
+    private final CustomMessageListener gBA;
+    private SystemHelpSettingActivity gBu;
+    private TbSettingTextTipView gBv;
+    private TbSettingTextTipView gBw;
+    private BdSwitchView gBx;
+    private BdSwitchView gBy;
+    private TbSettingTextNewDotView gBz;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public g(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.gBr = null;
-        this.mParent = null;
-        this.gBs = null;
-        this.gBt = null;
         this.gBu = null;
+        this.mParent = null;
         this.gBv = null;
         this.gBw = null;
-        this.gBx = new CustomMessageListener(2001303) { // from class: com.baidu.tieba.setting.more.g.1
+        this.gBx = null;
+        this.gBy = null;
+        this.gBz = null;
+        this.gBA = new CustomMessageListener(2001303) { // from class: com.baidu.tieba.setting.more.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,70 +43,70 @@ public class g extends com.baidu.adp.base.c<SystemHelpSettingActivity> {
                 }
             }
         };
-        this.gBr = systemHelpSettingActivity;
-        this.gBr.setContentView(d.h.system_help_activity);
-        this.mNavigationBar = (NavigationBar) this.gBr.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.gBr.getPageContext().getString(d.j.systemhelpsetting));
+        this.gBu = systemHelpSettingActivity;
+        this.gBu.setContentView(f.h.system_help_activity);
+        this.mNavigationBar = (NavigationBar) this.gBu.findViewById(f.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.gBu.getPageContext().getString(f.j.systemhelpsetting));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gBs = (TbSettingTextTipView) this.gBr.findViewById(d.g.clear_cache);
-        this.gBs.hideArrow();
-        this.gBs.setOnClickListener(this.gBr);
-        this.gBs.setBottomLineVisibility(true);
-        this.gBt = (TbSettingTextTipView) this.gBr.findViewById(d.g.clear_im);
-        this.gBt.hideArrow();
-        this.gBt.setBottomLineVisibility(true);
-        this.gBt.setOnClickListener(this.gBr);
-        this.gBu = (BdSwitchView) this.gBr.findViewById(d.g.item_switch);
-        l.a(this.gBr.getPageContext().getPageActivity(), this.gBu, 10, 10, 10, 10);
-        this.gBu.setOnSwitchStateChangeListener(this.gBr);
-        this.gBv = (BdSwitchView) this.gBr.findViewById(d.g.setting_save_video_switch);
-        l.a(this.gBr.getPageContext().getPageActivity(), this.gBv, 10, 10, 10, 10);
-        this.gBv.setOnSwitchStateChangeListener(this.gBr);
-        this.mParent = this.gBr.findViewById(d.g.parent);
+        this.gBv = (TbSettingTextTipView) this.gBu.findViewById(f.g.clear_cache);
+        this.gBv.hideArrow();
+        this.gBv.setOnClickListener(this.gBu);
+        this.gBv.setBottomLineVisibility(true);
+        this.gBw = (TbSettingTextTipView) this.gBu.findViewById(f.g.clear_im);
+        this.gBw.hideArrow();
+        this.gBw.setBottomLineVisibility(true);
+        this.gBw.setOnClickListener(this.gBu);
+        this.gBx = (BdSwitchView) this.gBu.findViewById(f.g.item_switch);
+        l.a(this.gBu.getPageContext().getPageActivity(), this.gBx, 10, 10, 10, 10);
+        this.gBx.setOnSwitchStateChangeListener(this.gBu);
+        this.gBy = (BdSwitchView) this.gBu.findViewById(f.g.setting_save_video_switch);
+        l.a(this.gBu.getPageContext().getPageActivity(), this.gBy, 10, 10, 10, 10);
+        this.gBy.setOnSwitchStateChangeListener(this.gBu);
+        this.mParent = this.gBu.findViewById(f.g.parent);
         if (TbadkCoreApplication.isLogin()) {
-            this.gBt.setVisibility(0);
-        } else {
-            this.gBt.setVisibility(8);
-        }
-        this.gBw = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(d.g.sv_plugin_center);
-        this.gBw.setOnClickListener(this.gBr);
-        if (this.gBr != null) {
-            this.gBx.setTag(this.gBr.getUniqueId());
-            MessageManager.getInstance().registerListener(this.gBx);
-        }
-        if (TbadkCoreApplication.getInst().appResponseToIntentClass(PluginCenterActivityConfig.class)) {
             this.gBw.setVisibility(0);
         } else {
             this.gBw.setVisibility(8);
         }
-    }
-
-    public BdSwitchView brj() {
-        return this.gBv;
+        this.gBz = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(f.g.sv_plugin_center);
+        this.gBz.setOnClickListener(this.gBu);
+        if (this.gBu != null) {
+            this.gBA.setTag(this.gBu.getUniqueId());
+            MessageManager.getInstance().registerListener(this.gBA);
+        }
+        if (TbadkCoreApplication.getInst().appResponseToIntentClass(PluginCenterActivityConfig.class)) {
+            this.gBz.setVisibility(0);
+        } else {
+            this.gBz.setVisibility(8);
+        }
     }
 
     public BdSwitchView brk() {
-        return this.gBu;
+        return this.gBy;
     }
 
-    public TbSettingTextTipView brl() {
-        return this.gBs;
+    public BdSwitchView brl() {
+        return this.gBx;
     }
 
     public TbSettingTextTipView brm() {
-        return this.gBt;
+        return this.gBv;
+    }
+
+    public TbSettingTextTipView brn() {
+        return this.gBw;
     }
 
     public void onChangeSkinType(int i) {
-        this.gBr.getLayoutMode().setNightMode(i == 1);
-        this.gBr.getLayoutMode().onModeChanged(this.mParent);
+        this.gBu.getLayoutMode().setNightMode(i == 1);
+        this.gBu.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gBu.setBackgroundRes(am.cT(d.f.bg_switch_open), am.cT(d.f.bg_switch_close), am.cT(d.f.btn_handle));
-        this.gBv.setBackgroundRes(am.cT(d.f.bg_switch_open), am.cT(d.f.bg_switch_close), am.cT(d.f.btn_handle));
-        am.i(this.gBs, d.f.more_all);
+        this.gBx.setBackgroundRes(am.cT(f.C0146f.bg_switch_open), am.cT(f.C0146f.bg_switch_close), am.cT(f.C0146f.btn_handle));
+        this.gBy.setBackgroundRes(am.cT(f.C0146f.bg_switch_open), am.cT(f.C0146f.bg_switch_close), am.cT(f.C0146f.btn_handle));
+        am.i(this.gBv, f.C0146f.more_all);
     }
 
-    public TbSettingTextNewDotView brn() {
-        return this.gBw;
+    public TbSettingTextNewDotView bro() {
+        return this.gBz;
     }
 }

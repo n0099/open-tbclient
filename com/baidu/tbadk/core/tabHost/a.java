@@ -14,10 +14,10 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.CustomViewPager;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class a {
-    private int anQ;
+    private int anR;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -25,7 +25,7 @@ public class a {
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.nc()) {
-                a.this.yb();
+                a.this.ya();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -33,11 +33,11 @@ public class a {
             ViewGroup tabWrapper = a.this.mTabHost.getTabWrapper();
             if (fragmentTabWidget != null && fragmentViewPager != null) {
                 a.this.mTabHost.setNeedShowThemeStyle(false);
-                fragmentTabWidget.setBackGroundDrawableResId(d.C0140d.black_alpha0);
-                am.j(tabWrapper, d.C0140d.black_alpha0);
-                am.j(fragmentTabWidget, d.C0140d.black_alpha0);
+                fragmentTabWidget.setBackGroundDrawableResId(f.d.black_alpha0);
+                am.j(tabWrapper, f.d.black_alpha0);
+                am.j(fragmentTabWidget, f.d.black_alpha0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                layoutParams.bottomMargin = l.f(a.this.mTabHost.getContext(), d.e.tbds100);
+                layoutParams.bottomMargin = l.f(a.this.mTabHost.getContext(), f.e.tbds100);
                 fragmentViewPager.setLayoutParams(layoutParams);
                 fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.nb()));
             }
@@ -46,9 +46,9 @@ public class a {
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.anQ = 0;
+        this.anR = 0;
         this.mTabHost = fragmentTabHost;
-        this.anQ = i;
+        this.anR = i;
     }
 
     public void a(Pair<String, String> pair) {
@@ -60,7 +60,7 @@ public class a {
             } else if (!TextUtils.isEmpty(str)) {
                 dL(str);
             } else {
-                yb();
+                ya();
             }
         }
     }
@@ -78,11 +78,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yb() {
+    public void ya() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.anQ);
-            am.j(this.mTabHost.getFragmentTabWidget(), this.anQ);
-            am.j(this.mTabHost.getTabWrapper(), this.anQ);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.anR);
+            am.j(this.mTabHost.getFragmentTabWidget(), this.anR);
+            am.j(this.mTabHost.getTabWrapper(), this.anR);
         }
     }
 }

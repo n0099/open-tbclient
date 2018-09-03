@@ -14,11 +14,11 @@ import com.baidu.tieba.card.q;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class a extends h<n, C0150a> {
-    private boolean dvW;
+    private boolean dvT;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.dvW = z;
+        this.dvT = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,12 +38,12 @@ public class a extends h<n, C0150a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, n nVar, C0150a c0150a) {
         TiebaStatic.log(new an("c10835"));
         if (nVar != null) {
-            nVar.btR = i + 1;
-            c0150a.dvX.iT(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
-            c0150a.dvX.showBottomLine(this.dvW);
-            c0150a.dvX.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+            nVar.btT = i + 1;
+            c0150a.dvU.iS(l.dip2px(this.mPageContext.getPageActivity(), 7.0f));
+            c0150a.dvU.showBottomLine(this.dvT);
+            c0150a.dvU.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
-        c0150a.dvX.a(nVar);
+        c0150a.dvU.a(nVar);
         return c0150a.getView();
     }
 
@@ -51,11 +51,11 @@ public class a extends h<n, C0150a> {
     /* renamed from: com.baidu.tieba.frs.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0150a extends q.a {
-        public com.baidu.tieba.card.q dvX;
+        public com.baidu.tieba.card.q dvU;
 
         public C0150a(com.baidu.tieba.card.q qVar) {
             super(qVar.getView());
-            this.dvX = qVar;
+            this.dvU = qVar;
         }
     }
 }

@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TabMenuPopView extends LinearLayout implements View.OnClickListener {
-    private com.baidu.adp.lib.e.b<TextView> bfV;
+    private com.baidu.adp.lib.e.b<TextView> bfW;
+    private int dpT;
+    private int dpU;
     private int dpV;
     private int dpW;
-    private int dpX;
-    private int dpY;
-    private a dpZ;
-    private at dqa;
+    private a dpX;
+    private at dpY;
     private Context mContext;
     private List<at> mDataList;
 
@@ -30,22 +30,22 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
 
     public TabMenuPopView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dpV = 2;
-        this.dpW = 2;
-        this.dpX = 4;
-        this.dpY = 5;
+        this.dpT = 2;
+        this.dpU = 2;
+        this.dpV = 4;
+        this.dpW = 5;
         setOrientation(1);
         this.mContext = context;
-        this.dpW = com.baidu.adp.lib.util.l.f(context, d.e.ds20);
-        this.bfV = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TextView>() { // from class: com.baidu.tieba.frs.TabMenuPopView.1
+        this.dpU = com.baidu.adp.lib.util.l.f(context, f.e.ds20);
+        this.bfW = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TextView>() { // from class: com.baidu.tieba.frs.TabMenuPopView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: Or */
+            /* renamed from: Oq */
             public TextView ig() {
                 TextView textView = new TextView(TabMenuPopView.this.mContext);
-                textView.setTextSize(0, com.baidu.adp.lib.util.l.f(TabMenuPopView.this.mContext, d.e.fontsize28));
-                com.baidu.tbadk.core.util.am.i(textView, d.f.bg_tab_meun);
-                com.baidu.tbadk.core.util.am.c(textView, d.C0140d.cp_cont_f, 1);
+                textView.setTextSize(0, com.baidu.adp.lib.util.l.f(TabMenuPopView.this.mContext, f.e.fontsize28));
+                com.baidu.tbadk.core.util.am.i(textView, f.C0146f.bg_tab_meun);
+                com.baidu.tbadk.core.util.am.c(textView, f.d.cp_cont_f, 1);
                 textView.setGravity(17);
                 textView.setOnClickListener(TabMenuPopView.this);
                 return textView;
@@ -53,7 +53,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: c */
+            /* renamed from: b */
             public void q(TextView textView) {
                 if (textView != null) {
                     textView.setText("");
@@ -64,18 +64,18 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: d */
+            /* renamed from: c */
             public TextView r(TextView textView) {
                 if (textView != null) {
-                    com.baidu.tbadk.core.util.am.i(textView, d.f.bg_tab_meun);
-                    com.baidu.tbadk.core.util.am.c(textView, d.C0140d.cp_cont_f, 1);
+                    com.baidu.tbadk.core.util.am.i(textView, f.C0146f.bg_tab_meun);
+                    com.baidu.tbadk.core.util.am.c(textView, f.d.cp_cont_f, 1);
                 }
                 return textView;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: e */
+            /* renamed from: d */
             public TextView s(TextView textView) {
                 if (textView != null) {
                     textView.setText("");
@@ -89,7 +89,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
                 if (view2 instanceof TextView) {
-                    TabMenuPopView.this.bfV.p((TextView) view2);
+                    TabMenuPopView.this.bfW.p((TextView) view2);
                 }
             }
 
@@ -103,7 +103,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         if (getChildCount() > 0) {
-            setMeasuredDimension(getMeasuredWidth(), aD((getChildAt(0).getMeasuredHeight() * this.dpY) + (this.dpW * (this.dpY - 1)) + (this.dpW * 2), i2));
+            setMeasuredDimension(getMeasuredWidth(), aD((getChildAt(0).getMeasuredHeight() * this.dpW) + (this.dpU * (this.dpW - 1)) + (this.dpU * 2), i2));
         }
     }
 
@@ -131,10 +131,10 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         if (childCount > 0) {
             int measuredWidth = getMeasuredWidth();
             int measuredWidth2 = getChildAt(0).getMeasuredWidth();
-            if (this.dpX > 1) {
-                this.dpV = (measuredWidth - (measuredWidth2 * this.dpX)) / (this.dpX - 1);
+            if (this.dpV > 1) {
+                this.dpT = (measuredWidth - (measuredWidth2 * this.dpV)) / (this.dpV - 1);
             }
-            int[] iArr = new int[this.dpY + 1];
+            int[] iArr = new int[this.dpW + 1];
             int i9 = 1;
             int i10 = 0;
             int i11 = 0;
@@ -145,9 +145,9 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                 int measuredHeight = childAt.getMeasuredHeight();
                 int i13 = i11 + measuredWidth3;
                 int i14 = i10 + measuredHeight;
-                if (this.dqa != null && i12 == 0) {
+                if (this.dpY != null && i12 == 0) {
                     i5 = 0;
-                    i6 = (this.dpW * 2) + i14;
+                    i6 = (this.dpU * 2) + i14;
                     if (measuredHeight > iArr[i9]) {
                         iArr[i9] = measuredHeight;
                     }
@@ -159,9 +159,9 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                         iArr[i9] = measuredHeight;
                     }
                     i11 = 0;
-                    i10 = iArr[i9] + i10 + this.dpW;
+                    i10 = iArr[i9] + i10 + this.dpU;
                     int i15 = 0 + measuredWidth3;
-                    i5 = this.dpV + i15;
+                    i5 = this.dpT + i15;
                     i9++;
                     i6 = i10;
                     i7 = i10 + measuredHeight;
@@ -170,7 +170,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                     if (measuredHeight > iArr[i9]) {
                         iArr[i9] = measuredHeight;
                     }
-                    i5 = this.dpV + i13;
+                    i5 = this.dpT + i13;
                     i6 = i10;
                     i7 = i14;
                     i8 = i13;
@@ -190,17 +190,17 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         int i = 0;
         if (list != null) {
             removeAllViews();
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds150), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds60));
-            if (this.dqa != null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds150), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds60));
+            if (this.dpY != null) {
                 if (bm(list)) {
-                    this.dqa.isSelected = false;
+                    this.dpY.isSelected = false;
                 } else {
-                    this.dqa.isSelected = true;
+                    this.dpY.isSelected = true;
                 }
-                this.dpY = ((int) Math.ceil(list.size() / this.dpX)) + 1;
-                a(this.dqa, layoutParams);
+                this.dpW = ((int) Math.ceil(list.size() / this.dpV)) + 1;
+                a(this.dpY, layoutParams);
             } else {
-                this.dpY = (int) Math.ceil(list.size() / this.dpX);
+                this.dpW = (int) Math.ceil(list.size() / this.dpV);
             }
             this.mDataList = list;
             while (true) {
@@ -226,7 +226,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
 
     private void a(at atVar, LinearLayout.LayoutParams layoutParams) {
         if (atVar != null && layoutParams != null) {
-            TextView m9if = this.bfV.m9if();
+            TextView m9if = this.bfW.m9if();
             m9if.setText(atVar.name);
             m9if.setSelected(atVar.isSelected);
             m9if.setTag(atVar);
@@ -245,9 +245,9 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
                 }
                 if (list.get(i3) != null) {
                     at atVar = new at();
-                    atVar.dpu = list.get(i3).dpu;
+                    atVar.dps = list.get(i3).dps;
                     atVar.name = list.get(i3).name;
-                    if (i == list.get(i3).dpu) {
+                    if (i == list.get(i3).dps) {
                         atVar.isSelected = true;
                     }
                     arrayList.add(atVar);
@@ -257,9 +257,9 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
             at atVar2 = null;
             if (xVar != null) {
                 atVar2 = new at();
-                atVar2.dpu = xVar.dpu;
+                atVar2.dps = xVar.dps;
                 atVar2.name = xVar.name;
-                if (i == xVar.dpu) {
+                if (i == xVar.dps) {
                     atVar2.isSelected = true;
                 }
             }
@@ -268,41 +268,41 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
     }
 
     public void setData(List<at> list, at atVar) {
-        this.dqa = atVar;
+        this.dpY = atVar;
         setData(list);
     }
 
     public void setViewVerticalMargin(int i) {
-        this.dpW = i;
+        this.dpU = i;
     }
 
     public void setPerLineViewNum(int i) {
         if (i > 0) {
-            this.dpX = i;
+            this.dpV = i;
         }
     }
 
     public void setOnItemClickCallBack(a aVar) {
-        this.dpZ = aVar;
+        this.dpX = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof at) {
-            avT();
+            avS();
             at atVar = (at) view.getTag();
             setItemSelectState(atVar, true);
             view.setSelected(true);
-            if (this.dpZ != null) {
-                this.dpZ.a(view, atVar);
+            if (this.dpX != null) {
+                this.dpX.a(view, atVar);
             }
         }
     }
 
-    public void avT() {
+    public void avS() {
         if (this.mDataList != null && getChildCount() > 0) {
-            if (this.dqa != null) {
-                this.dqa.isSelected = false;
+            if (this.dpY != null) {
+                this.dpY.isSelected = false;
             }
             for (at atVar : this.mDataList) {
                 atVar.isSelected = false;
@@ -315,12 +315,12 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
 
     public void setItemSelectState(at atVar, boolean z) {
         if (atVar != null && this.mDataList != null) {
-            if (this.dqa != null && this.dqa.dpu == atVar.dpu) {
-                this.dqa.isSelected = z;
+            if (this.dpY != null && this.dpY.dps == atVar.dps) {
+                this.dpY.isSelected = z;
                 return;
             }
             for (at atVar2 : this.mDataList) {
-                if (atVar.dpu == atVar2.dpu) {
+                if (atVar.dps == atVar2.dps) {
                     atVar.isSelected = z;
                     return;
                 }
@@ -333,16 +333,16 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void AG() {
-        com.baidu.tbadk.core.util.am.j(this, d.C0140d.cp_bg_line_d);
+    public void AD() {
+        com.baidu.tbadk.core.util.am.j(this, f.d.cp_bg_line_d);
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < getChildCount()) {
                 if (getChildAt(i2) instanceof TextView) {
                     TextView textView = (TextView) getChildAt(i2);
-                    com.baidu.tbadk.core.util.am.i(textView, d.f.bg_tab_meun);
-                    com.baidu.tbadk.core.util.am.c(textView, d.C0140d.cp_cont_f, 1);
+                    com.baidu.tbadk.core.util.am.i(textView, f.C0146f.bg_tab_meun);
+                    com.baidu.tbadk.core.util.am.c(textView, f.d.cp_cont_f, 1);
                 }
                 i = i2 + 1;
             } else {

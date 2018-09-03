@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public interface a {
-    LinearLayout azm();
+    LinearLayout azk();
 
     View getHeaderView();
 
-    void hU(String str);
+    void hV(String str);
 
     void hideTitle();
 

@@ -19,9 +19,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class LikeModel extends BdBaseModel {
     private String from;
-    private String gMI;
-    private String gMJ;
-    private a gMK;
+    private String gMK;
+    private String gML;
+    private a gMM;
     private BlockPopInfoData mBlockPopInfoData;
     private String mForumId;
     private String mForumName;
@@ -31,8 +31,8 @@ public class LikeModel extends BdBaseModel {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.gMI = null;
         this.gMK = null;
+        this.gMM = null;
         this.mPageContext = tbPageContext;
     }
 
@@ -54,30 +54,30 @@ public class LikeModel extends BdBaseModel {
         return this.mBlockPopInfoData;
     }
 
-    public void bvu() {
-        if (this.gMK != null) {
-            this.gMK.cancel();
-            this.gMK = null;
+    public void bvv() {
+        if (this.gMM != null) {
+            this.gMM.cancel();
+            this.gMM = null;
         }
     }
 
     public void I(String str, String str2, String str3) {
         ck(str, str2);
-        this.gMI = str3;
+        this.gMK = str3;
     }
 
     public void ck(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gMK == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gMM == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.gMK = new a();
-            this.gMK.setPriority(2);
-            this.gMK.execute(new Object[0]);
+            this.gMM = new a();
+            this.gMM.setPriority(2);
+            this.gMM.execute(new Object[0]);
         }
     }
 
-    public boolean bvv() {
-        return this.gMK != null;
+    public boolean bvw() {
+        return this.gMM != null;
     }
 
     public Context getContext() {
@@ -106,25 +106,25 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.o("kw", LikeModel.this.mForumName);
                 this.mNetwork.o(ImageViewerConfig.FORUM_ID, LikeModel.this.mForumId);
                 this.mNetwork.o("st_type", LikeModel.this.from);
-                if (!StringUtils.isNull(LikeModel.this.gMJ)) {
-                    this.mNetwork.o("dev_id", LikeModel.this.gMJ);
+                if (!StringUtils.isNull(LikeModel.this.gML)) {
+                    this.mNetwork.o("dev_id", LikeModel.this.gML);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.gMI)) {
-                    this.mNetwork.o("pagefrom", LikeModel.this.gMI);
+                if (!TextUtils.isEmpty(LikeModel.this.gMK)) {
+                    this.mNetwork.o("pagefrom", LikeModel.this.gMK);
                 }
                 this.mNetwork.o("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.o("user_id", TbadkCoreApplication.getCurrentAccount());
                 this.mNetwork.o("forum_name", LikeModel.this.mForumName);
-                this.mNetwork.yO().zM().mIsNeedTbs = true;
-                String yq = this.mNetwork.yq();
-                int yS = this.mNetwork.yS();
+                this.mNetwork.yM().zK().mIsNeedTbs = true;
+                String yo = this.mNetwork.yo();
+                int yQ = this.mNetwork.yQ();
                 String errorString = this.mNetwork.getErrorString();
-                LikeModel.this.setErrorCode(yS);
+                LikeModel.this.setErrorCode(yQ);
                 LikeModel.this.setErrorString(errorString);
-                if (yq != null) {
+                if (yo != null) {
                     r rVar = new r();
-                    rVar.parserJson(yq);
-                    if (this.mNetwork.yO().zN().isRequestSuccess()) {
+                    rVar.parserJson(yo);
+                    if (this.mNetwork.yM().zL().isRequestSuccess()) {
                         rVar.setBlockPopInfoData(null);
                     }
                     LikeModel.this.mBlockPopInfoData = rVar.getBlockPopInfoData();
@@ -145,13 +145,13 @@ public class LikeModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
         public void onPostExecute(r rVar) {
-            LikeModel.this.gMK = null;
-            if (this.mNetwork != null && rVar != null && !AntiHelper.e(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), rVar.bvw())) {
+            LikeModel.this.gMM = null;
+            if (this.mNetwork != null && rVar != null && !AntiHelper.e(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), rVar.bvx())) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = com.baidu.adp.lib.g.b.c(rVar.getFid(), 0L);
-                if (rVar != null && this.mNetwork.yO().zN().isRequestSuccess()) {
+                if (rVar != null && this.mNetwork.yM().zL().isRequestSuccess()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(com.baidu.adp.lib.g.b.c(rVar.getFid(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new c.a(LikeModel.this.mForumName, rVar.bsA())));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new c.a(LikeModel.this.mForumName, rVar.bsB())));
                     TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.mForumName);
                     aVar.isSuccess = true;
                     aVar.errorMessage = LikeModel.this.getErrorString();
@@ -172,7 +172,7 @@ public class LikeModel extends BdBaseModel {
                 this.mNetwork.hN();
                 this.mNetwork = null;
             }
-            LikeModel.this.gMK = null;
+            LikeModel.this.gMM = null;
             super.cancel(true);
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.i(null);

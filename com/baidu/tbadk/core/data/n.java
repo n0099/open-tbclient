@@ -8,11 +8,11 @@ public class n {
     private ArrayList<String> aeM = new ArrayList<>();
     private int aeN;
 
-    public ArrayList<String> tK() {
+    public ArrayList<String> tJ() {
         return this.aeM;
     }
 
-    public int tL() {
+    public int tK() {
         return this.aeN;
     }
 

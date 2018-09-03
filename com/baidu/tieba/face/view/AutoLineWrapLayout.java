@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class AutoLineWrapLayout extends ViewGroup {
-    private int bsb;
+    private int bsd;
 
     public AutoLineWrapLayout(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     }
 
     private void init() {
-        this.bsb = l.f(getContext(), d.e.ds20);
+        this.bsd = l.f(getContext(), f.e.ds20);
     }
 
     @Override // android.view.View
@@ -51,13 +51,13 @@ public class AutoLineWrapLayout extends ViewGroup {
             if (i9 == 0) {
                 i5 = i7 + measuredWidth;
             } else {
-                i5 = this.bsb + measuredWidth + i7;
+                i5 = this.bsd + measuredWidth + i7;
             }
-            int i10 = ((this.bsb + measuredHeight) * i8) + this.bsb + measuredHeight + i2;
+            int i10 = ((this.bsd + measuredHeight) * i8) + this.bsd + measuredHeight + i2;
             if (i5 > i3) {
                 i7 = measuredWidth + i;
                 i8++;
-                i6 = ((this.bsb + measuredHeight) * i8) + this.bsb + measuredHeight + i2;
+                i6 = ((this.bsd + measuredHeight) * i8) + this.bsd + measuredHeight + i2;
             } else {
                 i7 = i5;
                 i6 = i10;

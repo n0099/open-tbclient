@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.tieba.c.a {
-    private EnterForumModel cSI;
-    private a.InterfaceC0136a cTb;
-    private final EnterForumModel.b cSV = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.1
+    private EnterForumModel cSF;
+    private a.InterfaceC0136a cSY;
+    private final EnterForumModel.b cSS = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (b.this.cTb != null) {
-                if (aVar == null || !aVar.cTD || aVar.cTE == null || aVar.cTE.aos() == null) {
-                    b.this.cTb.a(null, false, 1, 0);
+            if (b.this.cSY != null) {
+                if (aVar == null || !aVar.cTz || aVar.cTA == null || aVar.cTA.aos() == null) {
+                    b.this.cSY.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> aoy = aVar.cTE.aos().aoy();
+                ArrayList<f> aoy = aVar.cTA.aos().aoy();
                 if (w.y(aoy) > 0) {
                     Iterator<f> it = aoy.iterator();
                     while (it.hasNext()) {
@@ -34,40 +34,40 @@ public class b implements com.baidu.tieba.c.a {
                         }
                     }
                 }
-                b.this.cTb.a(arrayList, true, 1, 0);
+                b.this.cSY.a(arrayList, true, 1, 0);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a cTc = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.2
+    private com.baidu.adp.framework.listener.a cSZ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.cSI.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.cSF.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    b.this.cSI.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    b.this.cSF.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    b.this.cSI.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    b.this.cSF.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
 
     public b() {
-        this.cSI = null;
-        this.cSI = new EnterForumModel(null);
-        this.cSI.a(this.cSV);
-        MessageManager.getInstance().registerListener(this.cTc);
+        this.cSF = null;
+        this.cSF = new EnterForumModel(null);
+        this.cSF.a(this.cSS);
+        MessageManager.getInstance().registerListener(this.cSZ);
     }
 
     @Override // com.baidu.tieba.c.a
-    public void akD() {
-        if (this.cTb != null && this.cSI != null) {
-            this.cSI.fh(true);
+    public void akF() {
+        if (this.cSY != null && this.cSF != null) {
+            this.cSF.fh(true);
         }
     }
 
     @Override // com.baidu.tieba.c.a
     public void a(a.InterfaceC0136a interfaceC0136a) {
-        this.cTb = interfaceC0136a;
+        this.cSY = interfaceC0136a;
     }
 }

@@ -14,15 +14,15 @@ import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.imageManager.c;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AdConstrainImageLayout extends ConstrainImageLayout {
-    private TbImageView.b gvM;
+    private TbImageView.b gvP;
 
     public AdConstrainImageLayout(Context context) {
         super(context);
-        this.gvM = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.gvP = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -84,7 +84,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gvM = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.gvP = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -146,7 +146,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gvM = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.gvP = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i2;
@@ -241,7 +241,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                     }
                     tbImageView.setScaleType(ImageView.ScaleType.MATRIX);
                     tbImageView.setForegroundColor(0);
-                    tbImageView.setOnDrawListener(this.gvM);
+                    tbImageView.setOnDrawListener(this.gvP);
                     tbImageView.startLoad(thumbnails_url, 17, false);
                 }
                 i2++;
@@ -257,10 +257,10 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
                 TbImageView m9if = this.bcA.m9if();
-                m9if.setContentDescription(getResources().getString(d.j.editor_image));
+                m9if.setContentDescription(getResources().getString(f.j.editor_image));
                 m9if.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                m9if.setDefaultBg(am.getDrawable(d.C0140d.common_color_10220));
-                m9if.setPageId(this.aRF);
+                m9if.setDefaultBg(am.getDrawable(f.d.common_color_10220));
+                m9if.setPageId(this.aRC);
                 addView(m9if);
             }
         }

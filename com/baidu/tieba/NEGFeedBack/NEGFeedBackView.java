@@ -11,15 +11,15 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NEGFeedBackView extends ImageView {
-    private int aOR;
-    private int aOS;
-    private long biM;
-    c biN;
-    private View.OnClickListener biO;
+    private int aOO;
+    private int aOP;
+    private long biS;
+    c biT;
+    private View.OnClickListener biU;
     private Context mContext;
 
     /* loaded from: classes2.dex */
@@ -34,16 +34,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.biM = 0L;
-        this.biO = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.biS = 0L;
+        this.biU = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.Pv();
+                NEGFeedBackView.this.PB();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.biM > 500) {
-                    NEGFeedBackView.this.Pu();
+                if (currentTimeMillis - NEGFeedBackView.this.biS > 500) {
+                    NEGFeedBackView.this.PA();
                 }
-                NEGFeedBackView.this.biM = currentTimeMillis;
+                NEGFeedBackView.this.biS = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,14 +51,14 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void f(TbPageContext tbPageContext) {
-        this.biN = new c(tbPageContext, this);
-        setOnClickListener(this.biO);
-        am.c(this, d.f.icon_home_feedback_selector);
+        this.biT = new c(tbPageContext, this);
+        setOnClickListener(this.biU);
+        am.c(this, f.C0146f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.biN.setUniqueId(bdUniqueId);
+        this.biT.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -66,43 +66,43 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.aOR = i;
-        setPadding(i, 0, this.aOS, 0);
+        this.aOO = i;
+        setPadding(i, 0, this.aOP, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pu() {
-        this.biN.Pu();
+    public void PA() {
+        this.biT.PA();
     }
 
-    public void Pv() {
-        this.biN.Pv();
+    public void PB() {
+        this.biT.PB();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.biN.onDetachedFromWindow();
+        this.biT.onDetachedFromWindow();
     }
 
     public void setData(ah ahVar) {
-        this.biN.setData(ahVar);
+        this.biT.setData(ahVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.biN.setFirstRowSingleColumn(z);
+        this.biT.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        am.c(this, d.f.icon_home_feedback_selector);
+        am.c(this, f.C0146f.icon_home_feedback_selector);
     }
 
     public void setEventCallback(a aVar) {
-        this.biN.setEventCallback(aVar);
+        this.biT.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.biN.setDefaultReasonArray(strArr);
+        this.biT.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

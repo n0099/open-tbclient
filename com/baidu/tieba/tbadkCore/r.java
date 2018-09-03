@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private String aDt;
+    private String aDs;
     private int cur_score;
     private int errorCode;
     private String errorMsg;
@@ -21,9 +21,9 @@ public class r {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> gMO = new ArrayList();
-    private int gMM = 0;
-    private int gMN = 0;
+    private List<FeedForumData> gMQ = new ArrayList();
+    private int gMO = 0;
+    private int gMP = 0;
     private int user_level = 0;
 
     public r() {
@@ -41,7 +41,7 @@ public class r {
         this.fid = str;
     }
 
-    public int bsA() {
+    public int bsB() {
         return this.user_level;
     }
 
@@ -66,8 +66,8 @@ public class r {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.gMM = jSONObject.optInt("is_black", 0);
-                this.gMN = jSONObject.optInt("like_num", 0);
+                this.gMO = jSONObject.optInt("is_black", 0);
+                this.gMP = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
                 setLevelName(jSONObject.optString("level_name", ""));
@@ -82,12 +82,12 @@ public class r {
 
     private void q(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aDt = jSONObject.optString("block_dealurl");
+            this.aDs = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             if (!StringUtils.isNull(optString)) {
                 this.mBlockPopInfoData = new BlockPopInfoData();
                 this.mBlockPopInfoData.block_info = optString;
-                this.mBlockPopInfoData.ahead_url = this.aDt;
+                this.mBlockPopInfoData.ahead_url = this.aDs;
                 this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
                 this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
             }
@@ -110,7 +110,7 @@ public class r {
                     feedForumData.setReason(jSONObject.optString("reason"));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.gMO.add(feedForumData);
+                    this.gMQ.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -154,8 +154,8 @@ public class r {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> btY() {
-        return this.gMO;
+    public List<FeedForumData> btZ() {
+        return this.gMQ;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -166,8 +166,8 @@ public class r {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String bvw() {
-        return this.aDt;
+    public String bvx() {
+        return this.aDs;
     }
 
     public int getErrorCode() {

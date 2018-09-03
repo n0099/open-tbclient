@@ -5,12 +5,12 @@ import com.airbnb.lottie.e;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public final class e extends b<InputStream> {
-    private final com.airbnb.lottie.h jP;
-    private final Resources nc;
+    private final com.airbnb.lottie.h jQ;
+    private final Resources nd;
 
     public e(Resources resources, com.airbnb.lottie.h hVar) {
-        this.nc = resources;
-        this.jP = hVar;
+        this.nd = resources;
+        this.jQ = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,7 +18,7 @@ public final class e extends b<InputStream> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public com.airbnb.lottie.e doInBackground(InputStream... inputStreamArr) {
-        return e.a.a(this.nc, inputStreamArr[0]);
+        return e.a.a(this.nd, inputStreamArr[0]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,6 @@ public final class e extends b<InputStream> {
     @Override // android.os.AsyncTask
     /* renamed from: j */
     public void onPostExecute(com.airbnb.lottie.e eVar) {
-        this.jP.a(eVar);
+        this.jQ.a(eVar);
     }
 }

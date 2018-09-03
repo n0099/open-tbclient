@@ -10,13 +10,13 @@ import com.baidu.adp.widget.ListView.b;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.tbadkCore.o;
 /* loaded from: classes.dex */
 public class a extends b implements o {
     private TbPageContextSupport<?> aTe;
     private View aTf;
-    private View aaV;
+    private View aaW;
     private int mHeight;
     private View.OnClickListener mOnClickListener;
     private ViewGroup mParentView;
@@ -29,9 +29,9 @@ public class a extends b implements o {
         this.mTextView = null;
         this.mProgressBar = null;
         this.mOnClickListener = null;
-        this.aaV = null;
+        this.aaW = null;
         this.aTe = tbPageContextSupport;
-        this.padding = this.aTe.getPageContext().getResources().getDimensionPixelSize(d.e.ds16);
+        this.padding = this.aTe.getPageContext().getResources().getDimensionPixelSize(f.e.ds16);
     }
 
     public a(TbPageContextSupport<?> tbPageContextSupport, ViewGroup viewGroup) {
@@ -42,23 +42,23 @@ public class a extends b implements o {
     @Override // com.baidu.adp.widget.ListView.b
     public View np() {
         if (this.mParentView == null) {
-            this.aaV = LayoutInflater.from(this.aTe.getPageContext().getPageActivity()).inflate(d.h.new_pb_list_more, (ViewGroup) null);
+            this.aaW = LayoutInflater.from(this.aTe.getPageContext().getPageActivity()).inflate(f.h.new_pb_list_more, (ViewGroup) null);
         } else {
-            this.aaV = LayoutInflater.from(this.aTe.getPageContext().getPageActivity()).inflate(d.h.new_pb_list_more, this.mParentView, false);
+            this.aaW = LayoutInflater.from(this.aTe.getPageContext().getPageActivity()).inflate(f.h.new_pb_list_more, this.mParentView, false);
         }
-        this.aaV.setPadding(0, this.padding, 0, this.padding);
+        this.aaW.setPadding(0, this.padding, 0, this.padding);
         if (this.mHeight != 0) {
-            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(this.aaV.getLayoutParams());
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(this.aaW.getLayoutParams());
             layoutParams.height = this.mHeight;
-            this.aaV.setLayoutParams(layoutParams);
+            this.aaW.setLayoutParams(layoutParams);
         }
-        this.mTextView = (TextView) this.aaV.findViewById(d.g.pb_more_text);
-        this.aTf = this.aaV.findViewById(d.g.pb_more_view);
+        this.mTextView = (TextView) this.aaW.findViewById(f.g.pb_more_text);
+        this.aTf = this.aaW.findViewById(f.g.pb_more_view);
         this.aTf.setVisibility(8);
-        this.mProgressBar = (ProgressBar) this.aaV.findViewById(d.g.progress);
+        this.mProgressBar = (ProgressBar) this.aaW.findViewById(f.g.progress);
         b(this.aTe.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.aTf.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        return this.aaV;
+        return this.aaW;
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
@@ -69,21 +69,21 @@ public class a extends b implements o {
 
     public void hide() {
         this.aTf.setVisibility(8);
-        this.aaV.setPadding(0, 0, 0, 0);
+        this.aaW.setPadding(0, 0, 0, 0);
     }
 
-    public void oF() {
+    public void oC() {
         this.aTf.setVisibility(0);
-        this.aaV.setPadding(0, this.padding, 0, this.padding);
+        this.aaW.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void fj(int i) {
+    public void fi(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
         this.aTf.setVisibility(0);
     }
 
-    public void fk(int i) {
+    public void fj(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }
@@ -91,7 +91,7 @@ public class a extends b implements o {
     @Override // com.baidu.adp.widget.ListView.b
     public void onClick() {
         if (this.mOnClickListener != null) {
-            this.mOnClickListener.onClick(this.aaV);
+            this.mOnClickListener.onClick(this.aaW);
         }
     }
 

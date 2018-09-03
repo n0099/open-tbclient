@@ -14,10 +14,10 @@ public interface IRefreshable {
     public interface a {
         void a(State state);
 
-        void oa();
+        void nX();
 
-        void ob();
+        void nY();
 
-        void oc();
+        void nZ();
     }
 }

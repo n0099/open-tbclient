@@ -2,7 +2,7 @@ package com.baidu.tieba.video;
 /* loaded from: classes2.dex */
 public class a {
     public float hbA;
-    public float hbw;
+    public float hbB;
     public float hbx;
     public float hby;
     public float hbz;
@@ -30,11 +30,11 @@ public class a {
     private static a a(int i, float f, float f2, float f3, float f4, float f5) {
         a aVar = new a();
         aVar.level = i;
-        aVar.hbw = f;
-        aVar.hbx = f2;
-        aVar.hby = f3;
-        aVar.hbz = f4;
-        aVar.hbA = f5;
+        aVar.hbx = f;
+        aVar.hby = f2;
+        aVar.hbz = f3;
+        aVar.hbA = f4;
+        aVar.hbB = f5;
         return aVar;
     }
 }

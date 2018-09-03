@@ -332,11 +332,11 @@ public class p {
                 }
             }
         } else if (eVar != null && eVar.k() && a(location, eVar)) {
-            if (!f(location) && !com.baidu.location.b.b.qE().d()) {
+            if (!f(location) && !com.baidu.location.b.b.qB().d()) {
                 str = "&cfr=1" + str;
-            } else if (!f(location) && com.baidu.location.b.b.qE().d()) {
+            } else if (!f(location) && com.baidu.location.b.b.qB().d()) {
                 str = "&cfr=3" + str;
-            } else if (com.baidu.location.b.b.qE().d()) {
+            } else if (com.baidu.location.b.b.qB().d()) {
                 str = "&cfr=2" + str;
             }
             String a4 = com.baidu.location.d.g.a(aVar, eVar, location, str, 2);
@@ -349,11 +349,11 @@ public class p {
                 }
             }
         } else {
-            if (!f(location) && !com.baidu.location.b.b.qE().d()) {
+            if (!f(location) && !com.baidu.location.b.b.qB().d()) {
                 str = "&cfr=1" + str;
-            } else if (!f(location) && com.baidu.location.b.b.qE().d()) {
+            } else if (!f(location) && com.baidu.location.b.b.qB().d()) {
                 str = "&cfr=3" + str;
-            } else if (com.baidu.location.b.b.qE().d()) {
+            } else if (com.baidu.location.b.b.qB().d()) {
                 str = "&cfr=2" + str;
             }
             com.baidu.location.b.e eVar2 = a(location, eVar) ? eVar : null;
@@ -673,10 +673,10 @@ public class p {
             return true;
         }
         double distanceTo = location.distanceTo(Xe);
-        return ((double) location.distanceTo(Xd)) > ((distanceTo * ((double) com.baidu.location.d.g.Yo)) + ((((double) com.baidu.location.d.g.Yn) * distanceTo) * distanceTo)) + ((double) com.baidu.location.d.g.U);
+        return ((double) location.distanceTo(Xd)) > ((distanceTo * ((double) com.baidu.location.d.g.Yp)) + ((((double) com.baidu.location.d.g.Yo) * distanceTo) * distanceTo)) + ((double) com.baidu.location.d.g.U);
     }
 
-    public static synchronized p qD() {
+    public static synchronized p qA() {
         p pVar;
         synchronized (p.class) {
             if (Xi == null) {

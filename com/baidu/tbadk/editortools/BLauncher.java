@@ -7,10 +7,10 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean aLP;
+    private boolean aLM;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.aLP = false;
+        this.aLM = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -42,7 +42,7 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void oF() {
+    public void oC() {
         setVisibility(0);
     }
 
@@ -67,17 +67,17 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            am.b(this.mTip, d.C0140d.cp_cont_g, 1, this.mSkinType);
+            am.b(this.mTip, f.d.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                am.d(this.mTip, d.f.icon_news_head_prompt_one, this.mSkinType);
+                am.d(this.mTip, f.C0146f.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                am.d(this.mTip, d.f.icon_news_down_bar_one, this.mSkinType);
+                am.d(this.mTip, f.C0146f.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
@@ -110,21 +110,21 @@ public class BLauncher extends ImageView implements g {
         this.mSkinType = i;
         am.b((ImageView) this, this.mIcon, i);
         if (this.mTip != null) {
-            am.b(this.mTip, d.C0140d.cp_cont_g, 1, i);
+            am.b(this.mTip, f.d.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                am.d(this.mTip, d.f.icon_news_head_prompt_one, i);
+                am.d(this.mTip, f.C0146f.icon_news_head_prompt_one, i);
             } else {
-                am.d(this.mTip, d.f.icon_news_down_bar_one, i);
+                am.d(this.mTip, f.C0146f.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.aLP;
+        return this.aLM;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.aLP = z;
+        this.aLM = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

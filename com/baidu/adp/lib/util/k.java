@@ -134,7 +134,7 @@ public class k {
         return str;
     }
 
-    public static String j(String... strArr) {
+    public static String i(String... strArr) {
         if (strArr == null || strArr.length == 0) {
             return "";
         }

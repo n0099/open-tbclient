@@ -15,7 +15,7 @@ public class PersonChangeModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData biI() {
+    public PersonChangeData biF() {
         return this.fYn;
     }
 

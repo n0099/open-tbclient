@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.VideoTopicActivityConfig;
 import com.baidu.tieba.frs.worldcup.videotopic.activity.VideoTopicActivity;
 /* loaded from: classes3.dex */
 public class FRSWorldCupStatic {
-    public static void atK() {
+    public static void atJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2003021, new CustomMessageTask.CustomRunnable<VideoTopicActivityConfig>() { // from class: com.baidu.tieba.frs.FRSWorldCupStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<VideoTopicActivityConfig> customMessage) {
@@ -23,6 +23,6 @@ public class FRSWorldCupStatic {
     }
 
     static {
-        atK();
+        atJ();
     }
 }

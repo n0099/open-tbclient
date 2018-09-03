@@ -3,9 +3,9 @@ package com.baidu.tieba.j.a;
 import com.baidu.tieba.play.b.b;
 /* loaded from: classes2.dex */
 public interface c<T extends com.baidu.tieba.play.b.b> {
-    e aWd();
+    e aVZ();
 
-    void aWf();
+    void aWb();
 
     String getKey();
 }

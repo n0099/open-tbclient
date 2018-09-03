@@ -7,18 +7,18 @@ public interface g {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void q(boolean z, String str);
+        void p(boolean z, String str);
     }
 
     void a(a aVar);
 
+    void e(Camera camera);
+
+    void f(Camera camera);
+
     void g(Camera camera);
 
     void h(Camera camera);
-
-    void i(Camera camera);
-
-    void j(Camera camera);
 
     void setOnEncoderStatusUpdateListener(d.c cVar);
 

@@ -14,7 +14,7 @@ public class d {
         }
     }
 
-    public boolean aBC() {
+    public boolean aBz() {
         return (ap.isEmpty(this.mIcon) || ap.isEmpty(this.mName)) ? false : true;
     }
 

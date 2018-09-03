@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.report;
 public interface d {
     void b(b bVar);
 
-    void bok();
+    void bol();
 
     void c(b bVar);
 }

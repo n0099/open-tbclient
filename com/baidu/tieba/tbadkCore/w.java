@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private a gNe;
+    private a gNg;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -30,11 +30,11 @@ public class w {
     }
 
     public void a(a aVar) {
-        this.gNe = aVar;
+        this.gNg = aVar;
     }
 
     public void t(String str, long j) {
-        new b(str, j, this.mFrom, this.gNe).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.gNg).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -42,7 +42,7 @@ public class w {
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> gNf;
+        private WeakReference<a> gNh;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -51,10 +51,10 @@ public class w {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.gNf = null;
+            this.gNh = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.gNf = new WeakReference<>(aVar);
+            this.gNh = new WeakReference<>(aVar);
             this.mFrom = str2;
             setPriority(3);
         }
@@ -72,13 +72,13 @@ public class w {
                     this.mNetwork.o("kw", this.mForumName);
                     this.mNetwork.o("favo_type", "1");
                     this.mNetwork.o("st_type", this.mFrom);
-                    this.mNetwork.yO().zM().mIsNeedTbs = true;
-                    String yq = this.mNetwork.yq();
-                    if (!ap.isEmpty(yq) && (jSONObject = new JSONObject(yq)) != null) {
+                    this.mNetwork.yM().zK().mIsNeedTbs = true;
+                    String yo = this.mNetwork.yo();
+                    if (!ap.isEmpty(yo) && (jSONObject = new JSONObject(yo)) != null) {
                         this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
                         this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                     }
-                    if (this.mNetwork.yO().zN().isRequestSuccess()) {
+                    if (this.mNetwork.yM().zL().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -94,12 +94,12 @@ public class w {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.gNf != null) {
+            if (this.gNh != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.gNf.get();
+                a aVar2 = this.gNh.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.yO().zN().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.yM().zL().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar2.m(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.mForumId)));
@@ -108,7 +108,7 @@ public class w {
                     } else {
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            String errorString = this.mNetwork.yR() ? this.mNetwork.getErrorString() : this.mNetwork.yU();
+                            String errorString = this.mNetwork.yP() ? this.mNetwork.getErrorString() : this.mNetwork.yS();
                             aVar.errorMessage = errorString;
                             aVar2.n(errorString, this.errorCode);
                         }

@@ -6,49 +6,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class g {
-    private f dvA;
-    private h dvB;
+    private f dvx;
+    private h dvy;
     private TbPageContext<?> pageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dvA = new f(tbPageContext, bdUniqueId);
-        this.dvB = new h(tbPageContext, bdUniqueId);
+        this.dvx = new f(tbPageContext, bdUniqueId);
+        this.dvy = new h(tbPageContext, bdUniqueId);
         this.pageContext = tbPageContext;
         show(-1);
     }
 
-    public View axx() {
-        if (this.dvA == null || this.dvB == null) {
+    public View axw() {
+        if (this.dvx == null || this.dvy == null) {
             return null;
         }
         FrameLayout frameLayout = new FrameLayout(this.pageContext.getPageActivity());
-        frameLayout.addView(this.dvA.getView());
-        frameLayout.addView(this.dvB.getView());
+        frameLayout.addView(this.dvx.getView());
+        frameLayout.addView(this.dvy.getView());
         return frameLayout;
     }
 
-    public f axy() {
-        return this.dvA;
+    public f axx() {
+        return this.dvx;
     }
 
-    public h axz() {
-        return this.dvB;
+    public h axy() {
+        return this.dvy;
     }
 
     public void show(int i) {
-        if (this.dvA != null && this.dvB != null) {
+        if (this.dvx != null && this.dvy != null) {
             switch (i) {
                 case 1:
-                    this.dvA.setVisibility(0);
-                    this.dvB.setVisibility(8);
+                    this.dvx.setVisibility(0);
+                    this.dvy.setVisibility(8);
                     return;
                 case 2:
-                    this.dvA.setVisibility(8);
-                    this.dvB.setVisibility(0);
+                    this.dvx.setVisibility(8);
+                    this.dvy.setVisibility(0);
                     return;
                 default:
-                    this.dvA.setVisibility(8);
-                    this.dvB.setVisibility(8);
+                    this.dvx.setVisibility(8);
+                    this.dvy.setVisibility(8);
                     return;
             }
         }

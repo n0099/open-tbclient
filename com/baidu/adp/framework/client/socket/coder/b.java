@@ -15,17 +15,17 @@ import java.nio.ByteBuffer;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b uB = null;
+    private static b uC = null;
 
     public static b fF() {
-        if (uB == null) {
+        if (uC == null) {
             synchronized (b.class) {
-                if (uB == null) {
-                    uB = new b();
+                if (uC == null) {
+                    uC = new b();
                 }
             }
         }
-        return uB;
+        return uC;
     }
 
     private b() {
@@ -40,9 +40,9 @@ public class b {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
             if (encodeExtraDataInBackGround != null) {
-                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.uq);
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + a.ur);
                 if (encodeExtraDataInBackGround.length > Integer.MAX_VALUE) {
-                    throw new CoderException(h.tG);
+                    throw new CoderException(h.tH);
                 }
                 allocate.putInt(encodeExtraDataInBackGround.length);
                 allocate.put(encodeExtraDataInBackGround);
@@ -58,34 +58,34 @@ public class b {
             }
             return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         } catch (Throwable th) {
-            throw new CoderException(h.tM);
+            throw new CoderException(h.tN);
         }
     }
 
     public c a(c cVar) throws CoderException {
-        if (cVar == null || cVar.uC == null || cVar.uD == null) {
-            throw new CoderException(h.tA);
+        if (cVar == null || cVar.uD == null || cVar.uE == null) {
+            throw new CoderException(h.tB);
         }
-        a aVar = cVar.uC;
-        if (aVar.fB() && cVar.uF > 0) {
+        a aVar = cVar.uD;
+        if (aVar.fB() && cVar.uG > 0) {
             if (d.fG().getSecretKey() == null) {
-                throw new CoderException(h.tJ);
+                throw new CoderException(h.tK);
             }
             try {
-                cVar.uD = u.a(d.fG().getSecretKey(), cVar.uD, cVar.uE, cVar.uF);
-                cVar.uE = 0;
-                cVar.uF = cVar.uD.length;
+                cVar.uE = u.a(d.fG().getSecretKey(), cVar.uE, cVar.uF, cVar.uG);
+                cVar.uF = 0;
+                cVar.uG = cVar.uE.length;
             } catch (Exception e) {
-                throw new CoderException(h.tL);
+                throw new CoderException(h.tM);
             }
         }
-        if (aVar.fz() && cVar.uF > 0) {
+        if (aVar.fz() && cVar.uG > 0) {
             try {
-                cVar.uD = e(cVar.uD, cVar.uE, cVar.uF);
-                cVar.uE = 0;
-                cVar.uF = cVar.uD.length;
+                cVar.uE = e(cVar.uE, cVar.uF, cVar.uG);
+                cVar.uF = 0;
+                cVar.uG = cVar.uE.length;
             } catch (Exception e2) {
-                throw new CoderException(h.tI);
+                throw new CoderException(h.tJ);
             }
         }
         return cVar;
@@ -94,17 +94,17 @@ public class b {
     public c g(byte[] bArr) throws CoderException {
         int fy = a.fy();
         if (bArr == null || bArr.length < fy) {
-            throw new CoderException(h.tA);
+            throw new CoderException(h.tB);
         }
         a f = a.f(bArr);
         if (f == null) {
-            throw new CoderException(h.tA);
+            throw new CoderException(h.tB);
         }
         c cVar = new c();
-        cVar.uC = f;
-        cVar.uD = bArr;
-        cVar.uE = fy;
-        cVar.uF = bArr.length - fy;
+        cVar.uD = f;
+        cVar.uE = bArr;
+        cVar.uF = fy;
+        cVar.uG = bArr.length - fy;
         return cVar;
     }
 
@@ -122,7 +122,7 @@ public class b {
             newInstance.setOrginalMessage(socketMessage);
             if (z) {
                 try {
-                    newInstance.onDecodeFailedInBackGround(i, bArr, h.tD);
+                    newInstance.onDecodeFailedInBackGround(i, bArr, h.tE);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -146,7 +146,7 @@ public class b {
                 str = th.getMessage();
             }
             BdStatisticsManager.getInstance().error("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(i2), ClientCookie.COMMENT_ATTR, str);
-            throw new CoderException(h.tD);
+            throw new CoderException(h.tE);
         }
     }
 

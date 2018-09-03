@@ -16,7 +16,7 @@ import java.net.URLDecoder;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class z {
-    public static String at(String str, String str2) {
+    public static String as(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -34,7 +34,7 @@ public class z {
         return "";
     }
 
-    public static String au(String str, String str2) {
+    public static String at(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {

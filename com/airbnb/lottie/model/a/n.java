@@ -10,17 +10,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n<T> {
-    private final com.airbnb.lottie.e jX;
+    private final com.airbnb.lottie.e jY;
     @Nullable
-    private final JSONObject nG;
-    private final m.a<T> nH;
+    private final JSONObject nH;
+    private final m.a<T> nI;
     private final float scale;
 
     private n(@Nullable JSONObject jSONObject, float f, com.airbnb.lottie.e eVar, m.a<T> aVar) {
-        this.nG = jSONObject;
+        this.nH = jSONObject;
         this.scale = f;
-        this.jX = eVar;
-        this.nH = aVar;
+        this.jY = eVar;
+        this.nI = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,10 +35,10 @@ public class n<T> {
     }
 
     private List<com.airbnb.lottie.a.a<T>> cD() {
-        if (this.nG != null) {
-            Object opt = this.nG.opt("k");
+        if (this.nH != null) {
+            Object opt = this.nH.opt("k");
             if (f(opt)) {
-                return a.C0004a.a((JSONArray) opt, this.jX, this.scale, this.nH);
+                return a.C0004a.a((JSONArray) opt, this.jY, this.scale, this.nI);
             }
             return Collections.emptyList();
         }
@@ -47,11 +47,11 @@ public class n<T> {
 
     @Nullable
     private T h(List<com.airbnb.lottie.a.a<T>> list) {
-        if (this.nG != null) {
+        if (this.nH != null) {
             if (!list.isEmpty()) {
-                return list.get(0).kX;
+                return list.get(0).kY;
             }
-            return this.nH.b(this.nG.opt("k"), this.scale);
+            return this.nI.b(this.nH.opt("k"), this.scale);
         }
         return null;
     }
@@ -67,13 +67,13 @@ public class n<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a<T> {
-        final List<com.airbnb.lottie.a.a<T>> mi;
+        final List<com.airbnb.lottie.a.a<T>> mj;
         @Nullable
-        final T my;
+        final T mz;
 
         a(List<com.airbnb.lottie.a.a<T>> list, @Nullable T t) {
-            this.mi = list;
-            this.my = t;
+            this.mj = list;
+            this.mz = t;
         }
     }
 }

@@ -22,7 +22,7 @@ class aq implements af {
 
     @Override // com.baidu.tieba.frs.af
     public com.baidu.adp.widget.ListView.a<? extends bb, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        if (bdUniqueId == com.baidu.tieba.tbadkCore.s.gMP) {
+        if (bdUniqueId == com.baidu.tieba.tbadkCore.s.gMR) {
             return new com.baidu.tieba.frs.entelechy.a.c(tbPageContext, bdUniqueId, z);
         }
         if (bdUniqueId == bb.aiT) {

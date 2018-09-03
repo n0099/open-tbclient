@@ -6,7 +6,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.f;
 import com.baidu.adp.lib.util.s;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 import com.baidu.tbadk.TbConfig;
@@ -14,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,7 +28,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     private static List<BdFileDownloadData> mTaskList = new LinkedList();
     private C0116a aVk = null;
     @SuppressLint({"HandlerLeak"})
-    private Handler aLN = new Handler() { // from class: com.baidu.tbadk.m.a.1
+    private Handler aLK = new Handler() { // from class: com.baidu.tbadk.m.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
@@ -46,7 +45,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     private a() {
     }
 
-    public static a KP() {
+    public static a KT() {
         return aVi;
     }
 
@@ -54,7 +53,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     public void a(BdFileDownloadData bdFileDownloadData, int i) {
         if (bdFileDownloadData != null) {
             if (!l.gd() && i == 2) {
-                bdFileDownloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail_no_sd));
+                bdFileDownloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail_no_sd));
                 bdFileDownloadData.setStatus(2);
             }
             if (bdFileDownloadData.getStatus() == 2) {
@@ -88,7 +87,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     public void b(BdFileDownloadData bdFileDownloadData, int i) {
         if (bdFileDownloadData != null) {
             if (!l.gd() && i == 2) {
-                bdFileDownloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail_no_sd));
+                bdFileDownloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail_no_sd));
                 bdFileDownloadData.setStatus(2);
             }
             if (bdFileDownloadData.getStatus() == 2) {
@@ -225,7 +224,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     BdLog.i(append.append((String) id).toString());
                     try {
                         if (ap.isEmpty(bdFileDownloadDataArr[0].getCheck())) {
-                            f.i(file);
+                            com.baidu.adp.lib.util.f.i(file);
                         } else {
                             try {
                                 fileInputStream2 = new FileInputStream(file);
@@ -242,7 +241,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                                         }
                                         return 0;
                                     }
-                                    f.i(file);
+                                    com.baidu.adp.lib.util.f.i(file);
                                     if (fileInputStream2 != null) {
                                         try {
                                             fileInputStream2.close();
@@ -291,7 +290,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 }
                 if (!file.exists()) {
                     this.mNetWork.setUrl(bdFileDownloadDataArr[0].getUrl());
-                    Boolean valueOf = Boolean.valueOf(this.mNetWork.a(a.this.i(bdFileDownloadDataArr[0]), a.this.aLN, TbConfig.NET_MSG_GETLENTH, 3, 3000, true));
+                    Boolean valueOf = Boolean.valueOf(this.mNetWork.a(a.this.i(bdFileDownloadDataArr[0]), a.this.aLK, TbConfig.NET_MSG_GETLENTH, 3, 3000, true));
                     BdLog.i("pluginFileDownloader download complete " + bdFileDownloadDataArr[0].getId());
                     if (!valueOf.booleanValue()) {
                         return 3;
@@ -299,16 +298,16 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     File file2 = new File(a.this.i(bdFileDownloadDataArr[0]));
                     if (!file2.exists() || file2.length() <= 0) {
                         if (file2.exists()) {
-                            f.i(file2);
+                            com.baidu.adp.lib.util.f.i(file2);
                         }
                         return 1;
                     }
                     try {
-                        f.b(file2, file);
-                        f.i(file2);
+                        com.baidu.adp.lib.util.f.b(file2, file);
+                        com.baidu.adp.lib.util.f.i(file2);
                     } catch (IOException e7) {
                         try {
-                            f.i(file);
+                            com.baidu.adp.lib.util.f.i(file);
                         } catch (Exception e8) {
                             e8.printStackTrace();
                         }
@@ -324,7 +323,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                                 File file3 = new File(bdFileDownloadDataArr[0].getPath());
                                 this.aVm = file3.length();
                                 this.aVn = g;
-                                f.i(file3);
+                                com.baidu.adp.lib.util.f.i(file3);
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
@@ -411,26 +410,26 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             } else {
                 switch (num.intValue()) {
                     case 1:
-                        string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail);
                         break;
                     case 2:
-                        string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail);
                         break;
                     case 3:
-                        string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail_net);
+                        string = TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail_net);
                         break;
                     case 4:
-                        string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail);
                         break;
                     case 5:
                     default:
-                        string = TbadkCoreApplication.getInst().getApp().getString(d.j.tb_err_unknown);
+                        string = TbadkCoreApplication.getInst().getApp().getString(f.j.tb_err_unknown);
                         break;
                     case 6:
-                        string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail);
                         break;
                     case 7:
-                        string = TbadkCoreApplication.getInst().getApp().getString(d.j.download_fail);
+                        string = TbadkCoreApplication.getInst().getApp().getString(f.j.download_fail);
                         break;
                 }
                 if (num.intValue() == 4) {

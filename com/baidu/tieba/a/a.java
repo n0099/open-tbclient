@@ -5,40 +5,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
-    private HashMap<String, b> bmg = new HashMap<>();
-    private ArrayList<Integer> bmh;
-    private c bmi;
+    private HashMap<String, b> bmk = new HashMap<>();
+    private ArrayList<Integer> bml;
+    private c bmm;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.bmh = arrayList;
-        this.bmi = cVar;
+        this.bml = arrayList;
+        this.bmm = cVar;
     }
 
     public int G(String str, int i) {
-        if (this.bmg == null || ap.isEmpty(str) || this.bmh == null || !this.bmh.contains(Integer.valueOf(i))) {
+        if (this.bmk == null || ap.isEmpty(str) || this.bml == null || !this.bml.contains(Integer.valueOf(i))) {
             return 0;
         }
-        if (!this.bmg.containsKey(str)) {
-            iy(str);
+        if (!this.bmk.containsKey(str)) {
+            iz(str);
         }
-        b bVar = this.bmg.get(str);
+        b bVar = this.bmk.get(str);
         if (bVar == null) {
             return 0;
         }
-        return bVar.gu(i);
+        return bVar.gt(i);
     }
 
-    public void iy(String str) {
-        if (this.bmg != null && !ap.isEmpty(str) && this.bmi != null) {
-            if (this.bmg.containsKey(str)) {
-                b bVar = this.bmg.get(str);
-                this.bmi.a(this.bmh, bVar);
-                this.bmg.put(str, bVar);
+    public void iz(String str) {
+        if (this.bmk != null && !ap.isEmpty(str) && this.bmm != null) {
+            if (this.bmk.containsKey(str)) {
+                b bVar = this.bmk.get(str);
+                this.bmm.a(this.bml, bVar);
+                this.bmk.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.bmi.a(this.bmh, bVar2);
-            this.bmg.put(str, bVar2);
+            this.bmm.a(this.bml, bVar2);
+            this.bmk.put(str, bVar2);
         }
     }
 }

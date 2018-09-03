@@ -8,14 +8,14 @@ import org.json.JSONObject;
 import tbclient.ChannelVideoInfo;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    private int bfR;
+    private int bfS;
+    private int cEO;
+    private long cEP;
+    private int cEQ;
     private int cER;
-    private long cES;
-    private int cET;
+    private int cES;
+    private String cET;
     private int cEU;
-    private int cEV;
-    private String cEW;
-    private int cEX;
     private long createTime;
     private int forumId;
     private String forumName;
@@ -56,12 +56,12 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.title = str;
     }
 
-    public int ajP() {
-        return this.bfR;
+    public int ajS() {
+        return this.bfS;
     }
 
-    public void jf(int i) {
-        this.bfR = i;
+    public void je(int i) {
+        this.bfS = i;
     }
 
     public void setVideoUrl(String str) {
@@ -84,12 +84,12 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.videoHeight = i;
     }
 
-    public void jg(int i) {
-        this.cER = i;
+    public void jf(int i) {
+        this.cEO = i;
     }
 
     public void bk(long j) {
-        this.cES = j;
+        this.cEP = j;
     }
 
     public String getThumbnailUrl() {
@@ -100,20 +100,20 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.thumbnailUrl = str;
     }
 
+    public void jg(int i) {
+        this.cEQ = i;
+    }
+
     public void jh(int i) {
-        this.cET = i;
+        this.cER = i;
+    }
+
+    public boolean vJ() {
+        return this.cES == 1;
     }
 
     public void ji(int i) {
-        this.cEU = i;
-    }
-
-    public boolean vK() {
-        return this.cEV == 1;
-    }
-
-    public void jj(int i) {
-        this.cEV = i;
+        this.cES = i;
     }
 
     public long getCreateTime() {
@@ -124,8 +124,8 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.createTime = j;
     }
 
-    public int ajQ() {
-        return this.cEX;
+    public int ajT() {
+        return this.cEU;
     }
 
     public void setType(BdUniqueId bdUniqueId) {
@@ -134,7 +134,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return this.mType == null ? a.C0139a.cEE : this.mType;
+        return this.mType == null ? a.C0139a.cEB : this.mType;
     }
 
     public static ChannelHomeVideoList<h> aK(List<ChannelVideoInfo> list) {
@@ -160,17 +160,17 @@ public class h implements com.baidu.adp.widget.ListView.h {
         hVar.setForumId(channelVideoInfo.forum_id.intValue());
         hVar.setForumName(channelVideoInfo.forum_name);
         hVar.setTitle(channelVideoInfo.title);
-        hVar.jf(channelVideoInfo.play_count.intValue());
+        hVar.je(channelVideoInfo.play_count.intValue());
         hVar.setVideoUrl(channelVideoInfo.video_url);
         hVar.setVideoDuration(channelVideoInfo.video_duration.intValue());
         hVar.setVideoWidth(channelVideoInfo.video_width.intValue());
         hVar.setVideoHeight(channelVideoInfo.video_height.intValue());
-        hVar.jg(channelVideoInfo.video_length.intValue());
+        hVar.jf(channelVideoInfo.video_length.intValue());
         hVar.bk(channelVideoInfo.video_type.longValue());
         hVar.setThumbnailUrl(channelVideoInfo.thumbnail_url);
-        hVar.jh(channelVideoInfo.thumbnail_width.intValue());
-        hVar.ji(channelVideoInfo.thumbnail_height.intValue());
-        hVar.jj(channelVideoInfo.is_top.intValue());
+        hVar.jg(channelVideoInfo.thumbnail_width.intValue());
+        hVar.jh(channelVideoInfo.thumbnail_height.intValue());
+        hVar.ji(channelVideoInfo.is_top.intValue());
         hVar.setCreateTime(channelVideoInfo.create_time.intValue());
         return hVar;
     }
@@ -181,17 +181,17 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.forumName = jSONObject.optString("forum_name");
         this.createTime = jSONObject.optLong("create_time");
         this.title = jSONObject.optString("title");
-        this.cEW = jSONObject.optString("play_time");
-        this.bfR = jSONObject.optInt("play_count");
+        this.cET = jSONObject.optString("play_time");
+        this.bfS = jSONObject.optInt("play_count");
         this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
         this.videoDuration = jSONObject.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
         this.videoWidth = jSONObject.optInt("video_width");
         this.videoHeight = jSONObject.optInt("video_height");
-        this.cER = jSONObject.optInt("video_length");
-        this.cES = jSONObject.optInt("video_type");
+        this.cEO = jSONObject.optInt("video_length");
+        this.cEP = jSONObject.optInt("video_type");
         this.thumbnailUrl = jSONObject.optString("thumbnail_url");
-        this.cET = jSONObject.optInt("thumbnail_width");
-        this.cEU = jSONObject.optInt("thumbnail_height");
-        this.cEX = jSONObject.optInt("already_add");
+        this.cEQ = jSONObject.optInt("thumbnail_width");
+        this.cER = jSONObject.optInt("thumbnail_height");
+        this.cEU = jSONObject.optInt("already_add");
     }
 }

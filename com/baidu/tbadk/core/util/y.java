@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.ab;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,131 +16,131 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class y {
-    private com.baidu.tbadk.core.util.a.a aps = null;
-    private r apt = null;
-    private y apu = null;
-    private ab.a apv = null;
-    private int apw = 0;
+    private com.baidu.tbadk.core.util.a.a apt = null;
+    private r apu = null;
+    private y apv = null;
+    private ab.a apw = null;
+    private int apx = 0;
 
-    private void yN() {
-        this.aps = new com.baidu.tbadk.core.util.a.a();
-        this.apt = aa.yY().a(this.aps);
-        this.apu = null;
-        this.aps.zM().zP().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+    private void yL() {
+        this.apt = new com.baidu.tbadk.core.util.a.a();
+        this.apu = aa.yW().a(this.apt);
+        this.apv = null;
+        this.apt.zK().zN().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.aB(TbadkCoreApplication.getInst().getCuid());
         com.baidu.adp.lib.network.a.a.aC(TbadkCoreApplication.getInst().getCuidGalaxy2());
         com.baidu.adp.lib.network.a.a.aD(TbadkCoreApplication.getInst().getCuidGid());
     }
 
-    public com.baidu.tbadk.core.util.a.a yO() {
-        return this.aps;
+    public com.baidu.tbadk.core.util.a.a yM() {
+        return this.apt;
     }
 
     public y() {
-        yN();
+        yL();
     }
 
     public y(String str) {
-        yN();
-        this.aps.zM().zP().mUrl = str;
+        yL();
+        this.apt.zK().zN().mUrl = str;
     }
 
     public void setUrl(String str) {
-        this.aps.zM().zP().mUrl = str;
+        this.apt.zK().zN().mUrl = str;
     }
 
     public void p(ArrayList<BasicNameValuePair> arrayList) {
-        this.apt.p(arrayList);
+        this.apu.p(arrayList);
     }
 
     public void o(String str, String str2) {
-        this.apt.o(str, str2);
+        this.apu.o(str, str2);
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.apt.a(basicNameValuePair);
+        this.apu.a(basicNameValuePair);
     }
 
     public void d(String str, byte[] bArr) {
-        this.apt.d(str, bArr);
+        this.apu.d(str, bArr);
     }
 
-    private void yP() {
+    private void yN() {
         String currentBduss = TbadkCoreApplication.getCurrentBduss();
         BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
         BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TbadkCoreApplication.getInst().getTbs());
         if (currentBduss != null) {
-            ArrayList<BasicNameValuePair> yp = this.apt.yp();
-            int size = yp.size();
+            ArrayList<BasicNameValuePair> yn = this.apu.yn();
+            int size = yn.size();
             for (int i = 0; i < size; i++) {
-                BasicNameValuePair basicNameValuePair3 = yp.get(i);
+                BasicNameValuePair basicNameValuePair3 = yn.get(i);
                 if (basicNameValuePair3.getName().equals("BDUSS")) {
-                    yp.set(i, basicNameValuePair);
+                    yn.set(i, basicNameValuePair);
                 } else if (basicNameValuePair3.getName().equals("tbs")) {
-                    yp.set(i, basicNameValuePair2);
+                    yn.set(i, basicNameValuePair2);
                 }
             }
         }
     }
 
-    private void yQ() {
-        if (this.apv == null) {
-            this.apv = ab.yZ();
+    private void yO() {
+        if (this.apw == null) {
+            this.apw = ab.yX();
         }
-        if (this.apv != null) {
-            this.apt.o("stTime", String.valueOf(this.apv.mTime));
-            this.apt.o("stSize", String.valueOf(this.apv.apN));
-            this.apt.o("stTimesNum", String.valueOf(this.apv.apO));
-            this.apt.o("stMode", String.valueOf(this.apv.mMode));
-            this.apt.o("stMethod", String.valueOf(this.apv.apM));
+        if (this.apw != null) {
+            this.apu.o("stTime", String.valueOf(this.apw.mTime));
+            this.apu.o("stSize", String.valueOf(this.apw.apO));
+            this.apu.o("stTimesNum", String.valueOf(this.apw.apP));
+            this.apu.o("stMode", String.valueOf(this.apw.mMode));
+            this.apu.o("stMethod", String.valueOf(this.apw.apN));
         }
-        this.apw = ab.cJ(0);
-        if (this.apw == 0 && this.apv != null) {
-            this.apw = this.apv.apO;
+        this.apx = ab.cJ(0);
+        if (this.apx == 0 && this.apw != null) {
+            this.apx = this.apw.apP;
         }
-        this.apt.o("stErrorNums", String.valueOf(this.apw));
+        this.apu.o("stErrorNums", String.valueOf(this.apx));
     }
 
-    public boolean yR() {
-        return this.aps.zN().yR();
+    public boolean yP() {
+        return this.apt.zL().yP();
     }
 
-    public int yS() {
-        return this.aps.zN().arU;
+    public int yQ() {
+        return this.apt.zL().arV;
     }
 
-    public int yT() {
-        return this.aps.zN().zU;
+    public int yR() {
+        return this.apt.zL().zV;
     }
 
-    public String yU() {
-        return this.aps.zN().arV;
+    public String yS() {
+        return this.apt.zL().arW;
     }
 
     public String getErrorString() {
-        return this.aps.zN().mErrorString;
+        return this.apt.zL().mErrorString;
     }
 
     public void hN() {
-        if (this.apt != null) {
-            this.apt.hN();
-        }
         if (this.apu != null) {
             this.apu.hN();
+        }
+        if (this.apv != null) {
+            this.apv.hN();
         }
     }
 
     public void hQ() {
-        if (this.apt != null) {
-            this.apt.hQ();
-        }
         if (this.apu != null) {
             this.apu.hQ();
+        }
+        if (this.apv != null) {
+            this.apv.hQ();
         }
     }
 
     private com.baidu.tbadk.core.data.ae e(String str, String str2, boolean z) {
-        String yq;
+        String yo;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -148,30 +148,30 @@ public class y {
             TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            if (this.apu == null) {
-                this.apu = new y(sb.toString());
+            if (this.apv == null) {
+                this.apv = new y(sb.toString());
             } else {
-                this.apu.hN();
+                this.apv.hN();
             }
-            this.apu.yO().zM().mIsNeedAddCommenParam = false;
-            this.apu.yO().zM().mIsUseCurrentBDUSS = false;
-            this.apu.yO().zM().arR = false;
-            this.apu.o("un", str);
-            this.apu.o("passwd", str2);
-            this.apu.o("isphone", "0");
-            this.apu.o("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
-            this.apu.o("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.apu.yO().zM().zP().ass = true;
-            yq = this.apu.yq();
+            this.apv.yM().zK().mIsNeedAddCommenParam = false;
+            this.apv.yM().zK().mIsUseCurrentBDUSS = false;
+            this.apv.yM().zK().arS = false;
+            this.apv.o("un", str);
+            this.apv.o("passwd", str2);
+            this.apv.o("isphone", "0");
+            this.apv.o("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+            this.apv.o("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+            this.apv.yM().zK().zN().ast = true;
+            yo = this.apv.yo();
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        if (this.apu.yO().zN().isRequestSuccess() && yq != null) {
+        if (this.apv.yM().zL().isRequestSuccess() && yo != null) {
             com.baidu.tbadk.core.data.ae aeVar = new com.baidu.tbadk.core.data.ae();
-            aeVar.parserJson(yq);
+            aeVar.parserJson(yo);
             String userId = aeVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
-                this.aps.zN().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(d.j.neterror);
+                this.apt.zL().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(f.j.neterror);
                 return null;
             }
             AccountData accountData = new AccountData();
@@ -185,16 +185,16 @@ public class y {
             accountData.setBDUSS(aeVar.getUser().getBDUSS());
             accountData.setPortrait(aeVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (aeVar.uh() != null) {
-                accountData.setTbs(aeVar.uh().getTbs());
+            if (aeVar.ug() != null) {
+                accountData.setTbs(aeVar.ug().getTbs());
             }
             com.baidu.tbadk.core.a.b.b(accountData);
             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             return aeVar;
         }
-        if (this.apu.yR()) {
-            switch (this.apu.yS()) {
+        if (this.apv.yP()) {
+            switch (this.apv.yQ()) {
                 case 1:
                 case 2:
                 case 5:
@@ -209,18 +209,18 @@ public class y {
         return null;
     }
 
-    public byte[] yr() {
-        if (!this.aps.zM().mIsFromCDN) {
-            this.aps.zM().b(this.apt);
+    public byte[] yp() {
+        if (!this.apt.zK().mIsFromCDN) {
+            this.apt.zK().b(this.apu);
         }
-        return this.apt.yr();
+        return this.apu.yp();
     }
 
-    private void yV() {
+    private void yT() {
         StringBuffer stringBuffer = new StringBuffer(1024);
-        ArrayList<BasicNameValuePair> yp = this.apt.yp();
-        for (int i = 0; yp != null && i < yp.size(); i++) {
-            BasicNameValuePair basicNameValuePair = yp.get(i);
+        ArrayList<BasicNameValuePair> yn = this.apu.yn();
+        for (int i = 0; yn != null && i < yn.size(); i++) {
+            BasicNameValuePair basicNameValuePair = yn.get(i);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -229,137 +229,137 @@ public class y {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        this.apt.o("sign", com.baidu.adp.lib.util.s.bm(stringBuffer.toString()));
+        this.apu.o("sign", com.baidu.adp.lib.util.s.bm(stringBuffer.toString()));
     }
 
     private String cG(int i) {
-        String yt;
+        String yr;
         switch (i) {
             case 1:
-                if (yO().zM().mIsNeedAddCommenParam) {
-                    this.aps.zM().b(this.apt);
+                if (yM().zK().mIsNeedAddCommenParam) {
+                    this.apt.zK().b(this.apu);
                 }
-                yQ();
-                yt = this.apt.ys();
+                yO();
+                yr = this.apu.yq();
                 break;
             case 2:
-                if (yO().zM().mIsUseCurrentBDUSS) {
-                    yO().zM().a(this.apt);
+                if (yM().zK().mIsUseCurrentBDUSS) {
+                    yM().zK().a(this.apu);
                 }
-                if (yO().zM().mIsNeedAddCommenParam) {
-                    this.aps.zM().b(this.apt);
+                if (yM().zK().mIsNeedAddCommenParam) {
+                    this.apt.zK().b(this.apu);
                 }
-                yQ();
-                yt = this.apt.yq();
+                yO();
+                yr = this.apu.yo();
                 break;
             case 3:
-                if (yO().zM().mIsUseCurrentBDUSS) {
-                    yO().zM().a(this.apt);
+                if (yM().zK().mIsUseCurrentBDUSS) {
+                    yM().zK().a(this.apu);
                 }
-                if (yO().zM().mIsNeedAddCommenParam) {
-                    this.aps.zM().b(this.apt);
+                if (yM().zK().mIsNeedAddCommenParam) {
+                    this.apt.zK().b(this.apu);
                 }
-                yV();
-                yt = this.apt.yt();
+                yT();
+                yr = this.apu.yr();
                 break;
             default:
                 return null;
         }
-        if (!this.aps.zN().yR()) {
-            ab.a(this.apv);
-            ab.cK(this.apw);
-            return yt;
-        } else if (!this.aps.zN().isRequestSuccess()) {
-            if (this.aps.zN().arU == 1 && this.aps.zM().arR) {
-                String str = this.aps.zN().mErrorString;
-                this.aps.zN().mErrorString = "";
+        if (!this.apt.zL().yP()) {
+            ab.a(this.apw);
+            ab.cK(this.apx);
+            return yr;
+        } else if (!this.apt.zL().isRequestSuccess()) {
+            if (this.apt.zL().arV == 1 && this.apt.zK().arS) {
+                String str = this.apt.zL().mErrorString;
+                this.apt.zL().mErrorString = "";
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj == null) {
-                    currentAccountObj = com.baidu.tbadk.core.a.b.tq();
+                    currentAccountObj = com.baidu.tbadk.core.a.b.tp();
                 }
                 if (currentAccountObj == null || (TextUtils.isEmpty(currentAccountObj.getAccount()) && TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                    yW();
+                    yU();
                     return null;
                 }
-                com.baidu.tbadk.core.a.b.dc(currentAccountObj.getID());
-                if (ReloginManager.xU().xX()) {
+                com.baidu.tbadk.core.a.b.dd(currentAccountObj.getID());
+                if (ReloginManager.xT().xW()) {
                     f(currentAccountObj);
-                    ReloginManager.xU().e(null);
+                    ReloginManager.xT().e(null);
                     return null;
                 }
                 com.baidu.tbadk.core.data.ae e = e(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
                 f(currentAccountObj);
                 if (e == null) {
-                    if (this.apu != null) {
-                        this.aps.zN().mErrorString = this.apu.getErrorString();
+                    if (this.apv != null) {
+                        this.apt.zL().mErrorString = this.apv.getErrorString();
                         return null;
                     }
-                    this.aps.zN().mErrorString = str;
-                    return yt;
+                    this.apt.zL().mErrorString = str;
+                    return yr;
                 }
-                yt = cH(i);
+                yr = cH(i);
             }
             com.baidu.tieba.i.a.a(this);
-            return yt;
+            return yr;
         } else {
-            return yt;
+            return yr;
         }
     }
 
     private void f(AccountData accountData) {
-        com.baidu.tbadk.coreExtra.a.c Bx;
-        if (!TextUtils.isEmpty(accountData.getID()) && (Bx = com.baidu.tbadk.coreExtra.a.a.Bx()) != null) {
-            Bx.f(accountData);
+        com.baidu.tbadk.coreExtra.a.c Bu;
+        if (!TextUtils.isEmpty(accountData.getID()) && (Bu = com.baidu.tbadk.coreExtra.a.a.Bu()) != null) {
+            Bu.f(accountData);
         }
     }
 
     private String cH(int i) {
-        String yt;
-        yP();
+        String yr;
+        yN();
         switch (i) {
             case 1:
-                yt = this.apt.ys();
+                yr = this.apu.yq();
                 break;
             case 2:
-                yt = this.apt.yq();
+                yr = this.apu.yo();
                 break;
             case 3:
-                yt = this.apt.yt();
+                yr = this.apu.yr();
                 break;
             default:
                 return null;
         }
-        if (this.aps.zN().yR()) {
-            switch (this.aps.zN().arU) {
+        if (this.apt.zL().yP()) {
+            switch (this.apt.zL().arV) {
                 case 1:
                 case 2:
                 case 5:
-                    yW();
-                    this.aps.zN().mErrorString = "";
+                    yU();
+                    this.apt.zL().mErrorString = "";
                     return null;
                 case 3:
                 case 4:
                 default:
-                    return yt;
+                    return yr;
             }
         }
-        return yt;
+        return yr;
     }
 
-    private void yW() {
+    private void yU() {
         Handler handler = TbadkCoreApplication.getInst().handler;
         handler.sendMessage(handler.obtainMessage(1));
     }
 
-    public String yq() {
+    public String yo() {
         return cG(2);
     }
 
-    public String ys() {
+    public String yq() {
         return cG(1);
     }
 
-    public String yt() {
+    public String yr() {
         return cG(3);
     }
 
@@ -384,7 +384,7 @@ public class y {
             return null;
         }
         d("pic", bArr);
-        return yt();
+        return yr();
     }
 
     public boolean a(String str, Handler handler, int i) {
@@ -396,7 +396,7 @@ public class y {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        yO().zM().a(this.apt);
-        return this.apt.a(str, handler, i, i2, i3, z);
+        yM().zK().a(this.apu);
+        return this.apu.a(str, handler, i, i2, i3, z);
     }
 }

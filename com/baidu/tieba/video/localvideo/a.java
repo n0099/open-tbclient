@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> hgS = new ArrayList<>();
-    private boolean hgT = false;
+    private ArrayList<d> hgT = new ArrayList<>();
+    private boolean hgU = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.hgT = true;
-        this.hgS.clear();
+        this.hgU = true;
+        this.hgT.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.hgS.addAll(list);
+            this.hgT.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void uR(String str) {
-        if (this.hgS != null && !TextUtils.isEmpty(str)) {
+    public void uV(String str) {
+        if (this.hgT != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.hgS.size()) {
-                    d dVar = this.hgS.get(i2);
+                if (i2 < this.hgT.size()) {
+                    d dVar = this.hgT.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.hgS.remove(i2);
+                        this.hgT.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (w.z(this.hgS)) {
+        if (w.z(this.hgT)) {
             return 0;
         }
-        return this.hgS.size();
+        return this.hgT.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: uJ */
     public d getItem(int i) {
-        if (this.hgS == null || this.hgS.isEmpty() || i < 0 || i >= this.hgS.size()) {
+        if (this.hgT == null || this.hgT.isEmpty() || i < 0 || i >= this.hgT.size()) {
             return null;
         }
-        return this.hgS.get(i);
+        return this.hgT.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -78,8 +78,8 @@ public class a extends BaseAdapter {
         LocalVideoInfoView localVideoInfoView;
         View view2;
         if (view == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(d.h.local_video_item_layout, (ViewGroup) null);
-            LocalVideoInfoView localVideoInfoView2 = (LocalVideoInfoView) inflate.findViewById(d.g.local_video_info_view);
+            View inflate = LayoutInflater.from(this.mContext).inflate(f.h.local_video_item_layout, (ViewGroup) null);
+            LocalVideoInfoView localVideoInfoView2 = (LocalVideoInfoView) inflate.findViewById(f.g.local_video_info_view);
             inflate.setTag(localVideoInfoView2);
             localVideoInfoView = localVideoInfoView2;
             view2 = inflate;
@@ -93,9 +93,9 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.hgS != null && this.hgS.size() > i) {
-            localVideoInfoView.a(this.hgS.get(i));
-        } else if (i == 0 && this.hgT) {
+        if (this.hgT != null && this.hgT.size() > i) {
+            localVideoInfoView.a(this.hgT.get(i));
+        } else if (i == 0 && this.hgU) {
             localVideoInfoView.mV(true);
         } else {
             localVideoInfoView.mV(false);

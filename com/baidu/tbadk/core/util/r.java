@@ -19,13 +19,13 @@ public interface r {
 
     void p(ArrayList<BasicNameValuePair> arrayList);
 
-    ArrayList<BasicNameValuePair> yp();
+    ArrayList<BasicNameValuePair> yn();
+
+    String yo();
+
+    byte[] yp();
 
     String yq();
 
-    byte[] yr();
-
-    String ys();
-
-    String yt();
+    String yr();
 }

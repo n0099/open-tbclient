@@ -8,14 +8,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class an {
-    private com.baidu.tieba.c.d fEi;
-    private PbActivity fxt;
+    private com.baidu.tieba.c.d fEb;
+    private PbActivity fxm;
 
     public an(PbActivity pbActivity) {
-        this.fxt = pbActivity;
+        this.fxm = pbActivity;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -24,24 +24,24 @@ public class an {
 
     public void a(View view, String str, String str2, String str3) {
         if (view != null && !StringUtils.isNull(str) && view.getVisibility() == 0 && view.getAlpha() >= 0.4d) {
-            if (this.fEi == null) {
-                this.fEi = new com.baidu.tieba.c.d(this.fxt.getPageContext(), view);
-                this.fEi.jp(d.f.bg_tip_blue_up_left);
-                this.fEi.jo(16);
-                this.fEi.eL(true);
-                this.fEi.js(57);
-                this.fEi.jt(-10);
+            if (this.fEb == null) {
+                this.fEb = new com.baidu.tieba.c.d(this.fxm.getPageContext(), view);
+                this.fEb.jo(f.C0146f.bg_tip_blue_up_left);
+                this.fEb.jn(16);
+                this.fEb.eL(true);
+                this.fEb.jr(57);
+                this.fEb.js(-10);
             }
-            this.fEi.jq(5000);
-            this.fEi.ll(str);
+            this.fEb.jp(5000);
+            this.fEb.ln(str);
             bP(str2, str3);
             TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12504"));
         }
     }
 
     public void destroy() {
-        if (this.fEi != null) {
-            this.fEi.akM();
+        if (this.fEb != null) {
+            this.fEb.akO();
         }
     }
 
@@ -50,7 +50,7 @@ public class an {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP);
             httpMessage.addParam("thread_user_id", str);
             httpMessage.addParam("thread_id", str2);
-            this.fxt.sendMessage(httpMessage);
+            this.fxm.sendMessage(httpMessage);
         }
     }
 }

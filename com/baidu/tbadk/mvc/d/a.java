@@ -14,31 +14,31 @@ public class a implements b {
         return this.aSG;
     }
 
-    public void bQ(boolean z) {
+    public void bR(boolean z) {
         this.aSG = z;
     }
 
-    public boolean JY() {
+    public boolean Kc() {
         return this.aSI;
     }
 
-    public void bR(boolean z) {
+    public void bS(boolean z) {
         this.aSI = z;
     }
 
-    public boolean JZ() {
+    public boolean Kd() {
         return this.aSJ;
     }
 
-    public void bS(boolean z) {
+    public void bT(boolean z) {
         this.aSJ = z;
     }
 
-    public boolean Ka() {
+    public boolean Ke() {
         return this.aSK;
     }
 
-    public void bT(boolean z) {
+    public void bU(boolean z) {
         this.aSK = z;
     }
 }

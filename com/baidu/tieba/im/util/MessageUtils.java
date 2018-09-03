@@ -39,7 +39,7 @@ import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3, String str4) {
-        createPersonalChatMessage(com.baidu.tieba.im.memorycache.b.aLY().ar(String.valueOf(j), 2), i, str, j, str2, str3, str4);
+        createPersonalChatMessage(com.baidu.tieba.im.memorycache.b.aLV().ar(String.valueOf(j), 2), i, str, j, str2, str3, str4);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3, String str4) {
@@ -77,12 +77,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            com.baidu.tieba.im.sendmessage.a.aNq().r(personalChatMessage);
+            com.baidu.tieba.im.sendmessage.a.aNn().r(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(com.baidu.tieba.im.memorycache.b.aLY().ar(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(com.baidu.tieba.im.memorycache.b.aLV().ar(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -114,13 +114,13 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            com.baidu.tieba.im.sendmessage.a.aNq().r(groupChatMessage);
+            com.baidu.tieba.im.sendmessage.a.aNn().r(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo an;
-        if (!StringUtils.isNull(str) && i == 2 && (an = com.baidu.tieba.im.memorycache.b.aLY().an(str, 2)) != null) {
+        if (!StringUtils.isNull(str) && i == 2 && (an = com.baidu.tieba.im.memorycache.b.aLV().an(str, 2)) != null) {
             long pulled_msgId = an.getPulled_msgId();
             if (pulled_msgId > an.getSent_msgId()) {
                 RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(d.cq(pulled_msgId), Long.parseLong(str));
@@ -302,14 +302,14 @@ public class MessageUtils {
                     if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                         groupMsgData.getGroupInfo().setGroupId(l.longValue());
                     }
-                    if (!com.baidu.tieba.im.push.c.aMU().ck(chatMessage.getMsgId())) {
-                        long gid = com.baidu.tieba.im.push.c.aMU().getGid();
+                    if (!com.baidu.tieba.im.push.c.aMR().ck(chatMessage.getMsgId())) {
+                        long gid = com.baidu.tieba.im.push.c.aMR().getGid();
                         if (msgInfo.groupId != null) {
-                            if (gid == 0 || msgInfo.groupId.longValue() == com.baidu.tieba.im.push.c.aMU().getGid()) {
-                                Long aMV = com.baidu.tieba.im.push.c.aMU().aMV();
-                                if (aMV == null || msgInfo.msgId == null || aMV.longValue() < msgInfo.msgId.longValue()) {
+                            if (gid == 0 || msgInfo.groupId.longValue() == com.baidu.tieba.im.push.c.aMR().getGid()) {
+                                Long aMS = com.baidu.tieba.im.push.c.aMR().aMS();
+                                if (aMS == null || msgInfo.msgId == null || aMS.longValue() < msgInfo.msgId.longValue()) {
                                     chatMessage.setIsPushForOperateAccount(true);
-                                    com.baidu.tieba.im.push.c.aMU().k(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                                    com.baidu.tieba.im.push.c.aMR().l(msgInfo.groupId.longValue(), chatMessage.getMsgId());
                                 } else {
                                     return;
                                 }
@@ -442,7 +442,7 @@ public class MessageUtils {
         }
         NewpushRepair.Builder builder = new NewpushRepair.Builder();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            NewpushGroupRepair ci = com.baidu.tieba.im.push.a.aMS().ci(longSparseArray.keyAt(i));
+            NewpushGroupRepair ci = com.baidu.tieba.im.push.a.aMP().ci(longSparseArray.keyAt(i));
             if (ci != null) {
                 if (builder.groups == null) {
                     builder.groups = new ArrayList();

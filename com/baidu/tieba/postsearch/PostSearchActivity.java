@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String dkL;
-    private g gjO;
-    private d gjP;
+    public String dkJ;
+    private g gjN;
+    private d gjO;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gjO = new g(this);
-        this.gjO.initView();
-        this.gjO.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gjP = new d(this);
+        this.gjN = new g(this);
+        this.gjN.initView();
+        this.gjN.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.gjO = new d(this);
         initData();
     }
 
-    public void sp(String str) {
-        this.dkL = str;
-        this.gjO.rT(1);
-        this.gjP.bme();
-        this.gjO.showLoadingView();
+    public void st(String str) {
+        this.dkJ = str;
+        this.gjN.rT(1);
+        this.gjO.bmb();
+        this.gjN.showLoadingView();
     }
 
-    public void so(String str) {
-        this.gjO.so(str);
+    public void ss(String str) {
+        this.gjN.ss(str);
     }
 
-    public void blO() {
-        this.gjO.au(this.gjP.gkm);
+    public void blL() {
+        this.gjN.au(this.gjO.gkl);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aNh())) {
-            this.gjO.hideLoadingView();
-            this.gjO.bmi();
+        if (i == 1 && (bVar == null || !bVar.aNe())) {
+            this.gjN.hideLoadingView();
+            this.gjN.bmf();
             return;
         }
-        this.gjO.hideLoadingView();
-        this.gjO.blW();
-        this.gjO.a(i, bVar, z);
+        this.gjN.hideLoadingView();
+        this.gjN.blT();
+        this.gjN.a(i, bVar, z);
     }
 
-    public boolean blP() {
-        return this.gjO.blP();
+    public boolean blM() {
+        return this.gjN.blM();
     }
 
-    public void blK() {
-        this.gjO.blK();
+    public void blH() {
+        this.gjN.blH();
     }
 
-    public d blQ() {
-        return this.gjP;
-    }
-
-    public g blR() {
+    public d blN() {
         return this.gjO;
+    }
+
+    public g blO() {
+        return this.gjN;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.gjO.onChangeSkinType(i);
+        this.gjN.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,14 +95,14 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.gjP.bmb();
+        this.gjO.blY();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gjO != null) {
-            this.gjO.onDestroy();
+        if (this.gjN != null) {
+            this.gjN.onDestroy();
         }
         super.onDestroy();
     }
@@ -121,10 +121,10 @@ public class PostSearchActivity extends BaseFragmentActivity {
                 i2 = 3;
                 break;
         }
-        an af = new an("c12404").af(ImageViewerConfig.FORUM_ID, this.mForumId).af(ImageViewerConfig.FORUM_NAME, this.mForumName).af("uid", TbadkCoreApplication.getCurrentAccount());
+        an ae = new an("c12404").ae(ImageViewerConfig.FORUM_ID, this.mForumId).ae(ImageViewerConfig.FORUM_NAME, this.mForumName).ae("uid", TbadkCoreApplication.getCurrentAccount());
         if (i2 != 0) {
-            af.r(MyBookrackActivityConfig.TAB_ID, i2);
+            ae.r(MyBookrackActivityConfig.TAB_ID, i2);
         }
-        TiebaStatic.log(af);
+        TiebaStatic.log(ae);
     }
 }

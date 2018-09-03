@@ -15,7 +15,7 @@ public class BdSoundGate {
         System.loadLibrary("sound_gate");
     }
 
-    public static BdSoundGate oz() {
+    public static BdSoundGate ow() {
         if (PR == null) {
             PR = new BdSoundGate();
         }
@@ -26,7 +26,7 @@ public class BdSoundGate {
     }
 
     public void init(int i, int i2) {
-        oz().a(i, 0.0f, d.aY(i2), 0.0f);
+        ow().a(i, 0.0f, d.aY(i2), 0.0f);
     }
 
     public void a(int i, float f, float f2, float f3) {

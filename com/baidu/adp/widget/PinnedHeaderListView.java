@@ -79,8 +79,8 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         }
         super.setAdapter(listAdapter);
         this.MD = (a) listAdapter;
-        this.Mu = this.MD.nC();
-        this.Mt = this.MD.nD();
+        this.Mu = this.MD.nA();
+        this.Mt = this.MD.nB();
         if (this.Mt != null) {
             if (this.Mt.getLayoutParams() == null) {
                 this.Mt.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
@@ -130,7 +130,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        nA();
+        ny();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -146,7 +146,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         }
     }
 
-    private void nA() {
+    private void ny() {
         if (this.Mt != null) {
             a aVar = this.MD;
             int firstVisiblePosition = getFirstVisiblePosition();
@@ -223,7 +223,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        nA();
+        ny();
         if (this.Ms != null) {
             this.Ms.onScroll(absListView, i, i2, i3);
         }
@@ -232,7 +232,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.AbsListView, android.view.ViewGroup
-    /* renamed from: nB */
+    /* renamed from: nz */
     public AbsListView.LayoutParams generateDefaultLayoutParams() {
         return new AbsListView.LayoutParams(-1, -2);
     }
@@ -243,9 +243,9 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
         public abstract void a(View view, AdapterView<?> adapterView, int i);
 
-        public abstract int nC();
+        public abstract int nA();
 
-        public abstract View nD();
+        public abstract View nB();
 
         @Override // android.widget.Adapter
         public void registerDataSetObserver(DataSetObserver dataSetObserver) {

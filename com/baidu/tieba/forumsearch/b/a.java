@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId dkW = BdUniqueId.gen();
+    public static final BdUniqueId dkX = BdUniqueId.gen();
     public static final BdUniqueId dkY = BdUniqueId.gen();
-    public static final BdUniqueId dkZ = BdUniqueId.gen();
-    public static final BdUniqueId dla = BdUniqueId.gen();
-    private ArrayList<String> dlb;
+    private ArrayList<String> dkZ;
     private BdUniqueId mType;
 
     @Override // com.baidu.adp.widget.ListView.h
@@ -20,17 +20,17 @@ public class a extends com.baidu.tieba.card.data.b {
     }
 
     public a() {
-        this.mType = dkZ;
-        this.mType = dkZ;
+        this.mType = dkX;
+        this.mType = dkX;
     }
 
     public a(ArrayList<String> arrayList) {
-        this.mType = dkZ;
-        this.dlb = arrayList;
-        this.mType = dkY;
+        this.mType = dkX;
+        this.dkZ = arrayList;
+        this.mType = dkW;
     }
 
-    public ArrayList<String> atx() {
-        return this.dlb;
+    public ArrayList<String> atw() {
+        return this.dkZ;
     }
 }

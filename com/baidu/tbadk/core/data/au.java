@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecomTopicInfo;
@@ -12,24 +12,24 @@ public class au {
     private String aha;
     private List<a> ahb = new ArrayList();
 
-    public String uC() {
-        return StringUtils.isNull(this.aha) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.aha;
+    public String uB() {
+        return StringUtils.isNull(this.aha) ? TbadkCoreApplication.getInst().getString(f.j.hot_topic_card_title) : this.aha;
     }
 
-    public com.baidu.tieba.card.data.n uD() {
+    public com.baidu.tieba.card.data.n uC() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.cCz = uC();
+        nVar.cCw = uB();
         if (this.ahb != null) {
             ArrayList arrayList2 = new ArrayList();
             for (a aVar : this.ahb) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.uF());
+                    arrayList2.add(aVar.uE());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.cCA = arrayList;
+        nVar.cCx = arrayList;
         return nVar;
     }
 
@@ -51,7 +51,7 @@ public class au {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.uE() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.uD() <= 0;
     }
 
     /* loaded from: classes2.dex */
@@ -64,7 +64,7 @@ public class au {
         private int tag;
         private int type;
 
-        public long uE() {
+        public long uD() {
             return this.ahc;
         }
 
@@ -84,7 +84,7 @@ public class au {
             }
         }
 
-        public com.baidu.tieba.card.data.m uF() {
+        public com.baidu.tieba.card.data.m uE() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
             mVar.desc = this.ahf;

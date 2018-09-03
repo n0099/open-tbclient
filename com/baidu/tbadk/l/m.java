@@ -16,7 +16,7 @@ public class m {
     private long aUu = 86400;
     private long aUs = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aUt, 0);
 
-    public static m KF() {
+    public static m KJ() {
         if (aUw == null) {
             synchronized (m.class) {
                 if (aUw == null) {
@@ -32,14 +32,14 @@ public class m {
         this.aUv = this.aUu;
     }
 
-    public boolean KG() {
+    public boolean KK() {
         if (!this.aUr || (System.currentTimeMillis() - this.aUs) / 1000 <= this.aUv) {
             return this.aUr;
         }
         return false;
     }
 
-    public void bY(boolean z) {
+    public void bZ(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
             if (0 == this.aUs || currentTimeMillis - this.aUs >= this.aUv) {
@@ -52,7 +52,7 @@ public class m {
         }
         this.aUr = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.KK().KL();
+            n.KO().KP();
         }
     }
 
@@ -75,7 +75,7 @@ public class m {
         return "2G";
     }
 
-    public static String fo(int i) {
+    public static String fn(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -88,7 +88,7 @@ public class m {
         return "WIFI";
     }
 
-    public long KH() {
+    public long KL() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
@@ -98,8 +98,8 @@ public class m {
         }
     }
 
-    public l fp(int i) {
-        if (KG()) {
+    public l fo(int i) {
+        if (KK()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -144,7 +144,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int KI() {
+    public int KM() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

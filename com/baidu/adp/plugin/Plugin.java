@@ -897,7 +897,7 @@ public class Plugin {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: k */
+        /* renamed from: j */
         public b doInBackground(String... strArr) {
             return Plugin.this.createPlugin(this.packageName);
         }

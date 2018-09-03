@@ -11,25 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends a {
-    private final List<a> kl;
+    private final List<a> km;
     @Nullable
-    private final com.airbnb.lottie.a.b.a<Float, Float> oP;
-    private final RectF oQ;
+    private final com.airbnb.lottie.a.b.a<Float, Float> oQ;
+    private final RectF oR;
     private final RectF rect;
 
     public b(com.airbnb.lottie.f fVar, Layer layer, List<Layer> list, com.airbnb.lottie.e eVar) {
         super(fVar, layer);
         a aVar;
-        this.kl = new ArrayList();
+        this.km = new ArrayList();
         this.rect = new RectF();
-        this.oQ = new RectF();
+        this.oR = new RectF();
         com.airbnb.lottie.model.a.b dy = layer.dy();
         if (dy != null) {
-            this.oP = dy.ci();
-            a(this.oP);
-            this.oP.b(this);
+            this.oQ = dy.ci();
+            a(this.oQ);
+            this.oQ.b(this);
         } else {
-            this.oP = null;
+            this.oQ = null;
         }
         LongSparseArray longSparseArray = new LongSparseArray(eVar.bi().size());
         int size = list.size() - 1;
@@ -44,7 +44,7 @@ public class b extends a {
                     aVar2.b(a);
                     aVar = null;
                 } else {
-                    this.kl.add(0, a);
+                    this.km.add(0, a);
                     switch (r0.ds()) {
                         case Add:
                         case Invert:
@@ -72,15 +72,15 @@ public class b extends a {
     void b(Canvas canvas, Matrix matrix, int i) {
         com.airbnb.lottie.d.beginSection("CompositionLayer#draw");
         canvas.save();
-        this.oQ.set(0.0f, 0.0f, this.oF.dp(), this.oF.dq());
-        matrix.mapRect(this.oQ);
-        for (int size = this.kl.size() - 1; size >= 0; size--) {
+        this.oR.set(0.0f, 0.0f, this.oG.dp(), this.oG.dq());
+        matrix.mapRect(this.oR);
+        for (int size = this.km.size() - 1; size >= 0; size--) {
             boolean z = true;
-            if (!this.oQ.isEmpty()) {
-                z = canvas.clipRect(this.oQ);
+            if (!this.oR.isEmpty()) {
+                z = canvas.clipRect(this.oR);
             }
             if (z) {
-                this.kl.get(size).a(canvas, matrix, i);
+                this.km.get(size).a(canvas, matrix, i);
             }
         }
         canvas.restore();
@@ -91,8 +91,8 @@ public class b extends a {
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.kl.size() - 1; size >= 0; size--) {
-            this.kl.get(size).a(this.rect, this.oE);
+        for (int size = this.km.size() - 1; size >= 0; size--) {
+            this.km.get(size).a(this.rect, this.oF);
             if (rectF.isEmpty()) {
                 rectF.set(this.rect);
             } else {
@@ -104,15 +104,15 @@ public class b extends a {
     @Override // com.airbnb.lottie.model.layer.a
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.setProgress(f);
-        if (this.oP != null) {
-            f = (this.oP.getValue().floatValue() * 1000.0f) / ((float) this.jQ.bv().getDuration());
+        if (this.oQ != null) {
+            f = (this.oQ.getValue().floatValue() * 1000.0f) / ((float) this.jR.bv().getDuration());
         }
-        if (this.oF.dn() != 0.0f) {
-            f /= this.oF.dn();
+        if (this.oG.dn() != 0.0f) {
+            f /= this.oG.dn();
         }
-        float bA = f - this.oF.bA();
-        for (int size = this.kl.size() - 1; size >= 0; size--) {
-            this.kl.get(size).setProgress(bA);
+        float bA = f - this.oG.bA();
+        for (int size = this.km.size() - 1; size >= 0; size--) {
+            this.km.get(size).setProgress(bA);
         }
     }
 
@@ -121,8 +121,8 @@ public class b extends a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.kl.size()) {
-                a aVar = this.kl.get(i2);
+            if (i2 < this.km.size()) {
+                a aVar = this.km.get(i2);
                 String name = aVar.di().getName();
                 if (str == null) {
                     aVar.b((String) null, (String) null, colorFilter);

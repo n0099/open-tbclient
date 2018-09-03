@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     private NoDataView mNoDataView;
@@ -15,7 +15,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.f(this.mTbPageContext.getPageActivity(), d.e.ds160)), NoDataViewFactory.d.du(d.j.search_forum_no_result), null);
+        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.f(this.mTbPageContext.getPageActivity(), f.e.ds160)), NoDataViewFactory.d.dt(f.j.search_forum_no_result), null);
         this.mNoDataView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -32,7 +32,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.forum_search_no_result;
+        return f.h.forum_search_no_result;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

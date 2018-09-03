@@ -10,7 +10,7 @@ import android.view.View;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class RecordingAnimView extends View {
@@ -38,15 +38,15 @@ public class RecordingAnimView extends View {
         this.Qx = false;
         this.Qy = true;
         this.QC = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.QD = l.f(TbadkCoreApplication.getInst(), d.e.ds4);
+        this.QD = l.f(TbadkCoreApplication.getInst(), f.e.ds4);
         this.QF = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.oJ();
+                RecordingAnimView.this.oG();
             }
         };
-        oK();
-        oJ();
+        oH();
+        oG();
     }
 
     public RecordingAnimView(Context context, AttributeSet attributeSet) {
@@ -58,19 +58,19 @@ public class RecordingAnimView extends View {
         this.Qx = false;
         this.Qy = true;
         this.QC = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.QD = l.f(TbadkCoreApplication.getInst(), d.e.ds4);
+        this.QD = l.f(TbadkCoreApplication.getInst(), f.e.ds4);
         this.QF = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.RecordingAnimView.1
             @Override // java.lang.Runnable
             public void run() {
-                RecordingAnimView.this.oJ();
+                RecordingAnimView.this.oG();
             }
         };
-        oK();
-        oJ();
+        oH();
+        oG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void oJ() {
+    public void oG() {
         if (this.Qx) {
             invalidate();
         }
@@ -102,7 +102,7 @@ public class RecordingAnimView extends View {
         super.onDraw(canvas);
         if (this.Qx) {
             for (int i = 0; i < this.Qw; i++) {
-                oL();
+                oI();
                 if (i < this.QB.length) {
                     canvas.drawRoundRect(this.QB[i], 10.0f, 10.0f, this.mPaint);
                 }
@@ -110,7 +110,7 @@ public class RecordingAnimView extends View {
         }
     }
 
-    private void oK() {
+    private void oH() {
         this.QE = aZ(TbadkCoreApplication.getInst().getSkinType());
         this.mPaint = new Paint();
         this.mPaint.setDither(true);
@@ -129,10 +129,10 @@ public class RecordingAnimView extends View {
     }
 
     public int aZ(int i) {
-        return i == 0 ? d.C0140d.white_alpha100 : d.C0140d.white_alpha70;
+        return i == 0 ? f.d.white_alpha100 : f.d.white_alpha70;
     }
 
-    private void oL() {
+    private void oI() {
         int nextInt;
         if (this.QB == null || this.QB.length != this.Qw) {
             this.QB = new RectF[this.Qw];
@@ -170,7 +170,7 @@ public class RecordingAnimView extends View {
     public void start() {
         this.Qx = true;
         this.Qy = false;
-        oJ();
+        oG();
     }
 
     public void setCertainColumnCount(int i) {
@@ -179,10 +179,10 @@ public class RecordingAnimView extends View {
         }
     }
 
-    public void oM() {
+    public void oJ() {
         this.Qx = true;
         this.Qy = true;
-        oJ();
+        oG();
     }
 
     @Override // android.view.View

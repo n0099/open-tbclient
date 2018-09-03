@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class o {
-    private com.baidu.tieba.person.a.a fTs;
+    private com.baidu.tieba.person.a.a fTk;
     private f fZg;
     private l fZh;
     private g fZi;
@@ -17,11 +17,11 @@ public class o {
         this.fZg = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.gbl);
         this.fZh = new l(tbPageContext);
         this.fZi = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.gbe);
-        this.fTs = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.fTa);
+        this.fTk = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.fSS);
         this.mAdapters.add(this.fZg);
         this.mAdapters.add(this.fZh);
         this.mAdapters.add(this.fZi);
-        this.mAdapters.add(this.fTs);
+        this.mAdapters.add(this.fTk);
         hTypeListView.addAdapters(this.mAdapters);
     }
 

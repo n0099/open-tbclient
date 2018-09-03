@@ -6,34 +6,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v {
-    private static v cAH;
-    private List<an> bry;
+    private static v cAE;
+    private List<an> brA;
 
-    public static v aiY() {
-        if (cAH == null) {
+    public static v ajb() {
+        if (cAE == null) {
             synchronized (v.class) {
-                if (cAH == null) {
-                    cAH = new v();
+                if (cAE == null) {
+                    cAE = new v();
                 }
             }
         }
-        return cAH;
+        return cAE;
     }
 
     public void a(an anVar) {
         if (anVar != null) {
-            if (this.bry == null) {
-                this.bry = new ArrayList();
+            if (this.brA == null) {
+                this.brA = new ArrayList();
             }
-            if (this.bry != null) {
-                this.bry.add(anVar);
+            if (this.brA != null) {
+                this.brA.add(anVar);
             }
         }
     }
 
-    public void cK(boolean z) {
-        if (com.baidu.tbadk.core.util.w.y(this.bry) != 0) {
-            for (an anVar : this.bry) {
+    public void cL(boolean z) {
+        if (com.baidu.tbadk.core.util.w.y(this.brA) != 0) {
+            for (an anVar : this.brA) {
                 if (anVar != null) {
                     int i = 0;
                     if (z) {
@@ -43,13 +43,13 @@ public class v {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.bry.clear();
+            this.brA.clear();
         }
     }
 
     public void ey(boolean z) {
-        if (com.baidu.tbadk.core.util.w.y(this.bry) != 0) {
-            for (an anVar : this.bry) {
+        if (com.baidu.tbadk.core.util.w.y(this.brA) != 0) {
+            for (an anVar : this.brA) {
                 if (anVar != null) {
                     int i = 0;
                     if (z) {
@@ -59,18 +59,18 @@ public class v {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.bry.clear();
+            this.brA.clear();
         }
     }
 
-    public void Sy() {
-        if (com.baidu.tbadk.core.util.w.y(this.bry) != 0) {
-            for (an anVar : this.bry) {
+    public void SC() {
+        if (com.baidu.tbadk.core.util.w.y(this.brA) != 0) {
+            for (an anVar : this.brA) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.bry.clear();
+            this.brA.clear();
         }
     }
 }

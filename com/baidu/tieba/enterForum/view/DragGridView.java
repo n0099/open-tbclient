@@ -12,11 +12,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes2.dex */
 public class DragGridView extends GridView implements AdapterView.OnItemLongClickListener {
+    private int cTT;
+    private int cTU;
+    private int cTV;
+    private com.baidu.tieba.enterForum.a.c cTW;
     private int cTX;
-    private int cTY;
-    private int cTZ;
-    private com.baidu.tieba.enterForum.a.c cUa;
-    private int cUb;
     private int mOffset;
     private Runnable mScrollRunnable;
 
@@ -30,7 +30,7 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
             @Override // java.lang.Runnable
             public void run() {
                 if (DragGridView.this.mOffset != 0) {
-                    DragGridView.this.smoothScrollBy(DragGridView.this.mOffset > 0 ? DragGridView.this.cUb : -DragGridView.this.cUb, 200);
+                    DragGridView.this.smoothScrollBy(DragGridView.this.mOffset > 0 ? DragGridView.this.cTX : -DragGridView.this.cTX, 200);
                 }
                 e.in().postDelayed(this, 200L);
             }
@@ -43,7 +43,7 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter(listAdapter);
         if (listAdapter instanceof com.baidu.tieba.enterForum.a.c) {
-            this.cUa = (com.baidu.tieba.enterForum.a.c) listAdapter;
+            this.cTW = (com.baidu.tieba.enterForum.a.c) listAdapter;
         } else {
             BdLog.e("the adapter must be implements IDragAdapter");
         }
@@ -51,29 +51,29 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
 
     private void az(int i, int i2) {
         int pointToPosition = pointToPosition(i, i2);
-        if (pointToPosition != this.cTX && pointToPosition != -1) {
-            this.cUa.jH(pointToPosition);
-            this.cUa.av(this.cTX, pointToPosition);
-            this.cTX = pointToPosition;
+        if (pointToPosition != this.cTT && pointToPosition != -1) {
+            this.cTW.jG(pointToPosition);
+            this.cTW.av(this.cTT, pointToPosition);
+            this.cTT = pointToPosition;
         }
     }
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.cTY = (int) motionEvent.getRawX();
-        this.cTZ = (int) motionEvent.getRawY();
+        this.cTU = (int) motionEvent.getRawX();
+        this.cTV = (int) motionEvent.getRawY();
         if (com.baidu.tieba.enterForum.model.a.aoY().isDragging()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
                     e.in().removeCallbacks(this.mScrollRunnable);
                     com.baidu.tieba.enterForum.model.a.aoY().apb();
-                    this.cUa.jH(-1);
-                    this.cUa.akd();
+                    this.cTW.jG(-1);
+                    this.cTW.akf();
                     break;
                 case 2:
-                    this.mOffset = com.baidu.tieba.enterForum.model.b.b(motionEvent.getY(), this.cUb, getHeight());
-                    com.baidu.tieba.enterForum.model.a.aoY().ax(this.cTY, this.cTZ - this.mOffset);
+                    this.mOffset = com.baidu.tieba.enterForum.model.b.b(motionEvent.getY(), this.cTX, getHeight());
+                    com.baidu.tieba.enterForum.model.a.aoY().ax(this.cTU, this.cTV - this.mOffset);
                     az((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
                     break;
             }
@@ -85,11 +85,11 @@ public class DragGridView extends GridView implements AdapterView.OnItemLongClic
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         TiebaStatic.eventStat(getContext(), "list_drag_order", null);
-        this.cTX = i;
-        com.baidu.tieba.enterForum.model.a.aoY().a(getContext(), view, this.cTY, this.cTZ);
-        this.cUa.jH(i);
-        this.cUa.akd();
-        this.cUb = view.getHeight();
+        this.cTT = i;
+        com.baidu.tieba.enterForum.model.a.aoY().a(getContext(), view, this.cTU, this.cTV);
+        this.cTW.jG(i);
+        this.cTW.akf();
+        this.cTX = view.getHeight();
         e.in().postDelayed(this.mScrollRunnable, 200L);
         return true;
     }

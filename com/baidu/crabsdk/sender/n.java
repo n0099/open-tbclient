@@ -256,15 +256,15 @@ public final class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void pu() {
+    public static void pr() {
         DataOutputStream dataOutputStream;
         HttpURLConnection httpURLConnection;
         HttpURLConnection httpURLConnection2 = null;
         r2 = null;
         DataOutputStream dataOutputStream2 = null;
         try {
-            String pp = d.pp();
-            com.baidu.crabsdk.c.a.cg("sync json is " + pp);
+            String pm = d.pm();
+            com.baidu.crabsdk.c.a.cg("sync json is " + pm);
             HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(com.baidu.crabsdk.a.c()).openConnection();
             try {
                 httpURLConnection3.setRequestMethod("POST");
@@ -285,7 +285,7 @@ public final class n {
                 th = th;
             }
             try {
-                dataOutputStream.writeBytes(pp);
+                dataOutputStream.writeBytes(pm);
                 dataOutputStream.flush();
                 dataOutputStream.close();
                 if (httpURLConnection3.getResponseCode() == 200) {

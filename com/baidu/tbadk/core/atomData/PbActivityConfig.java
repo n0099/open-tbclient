@@ -41,6 +41,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_INTENT_TYPE = "type";
     public static final String KEY_IS_AD = "is_ad";
     public static final String KEY_IS_FROM_INTERVIEW_LIVE_CONFIG = "is_from_interview_live_config";
+    public static final String KEY_IS_FROM_LOCAL_PUSH = "key_is_from_local_push";
     public static final String KEY_IS_FROM_MY_GOD = "is_from_my_god_config";
     public static final String KEY_IS_FROM_THREAD_CONFIG = "is_from_thread_config";
     public static final String KEY_IS_GOOD = "is_good";
@@ -278,12 +279,12 @@ public class PbActivityConfig extends IntentConfig {
         if (bbVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bbVar.getTid());
-            if (bbVar.wx() != null && !StringUtils.isNull(bbVar.wx().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bbVar.wx().getId());
+            if (bbVar.ww() != null && !StringUtils.isNull(bbVar.ww().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bbVar.ww().getId());
             }
-            intent.putExtra("is_good", bbVar.vg());
-            intent.putExtra("is_top", bbVar.vf());
-            intent.putExtra("thread_time", bbVar.vd());
+            intent.putExtra("is_good", bbVar.vf());
+            intent.putExtra("is_top", bbVar.ve());
+            intent.putExtra("thread_time", bbVar.vc());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -293,21 +294,21 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bbVar.uX() == null ? 0L : bbVar.uX().getNum()));
-            if (bbVar.vk() != null && bbVar.vk().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bbVar.vk().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bbVar.vk().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bbVar.uW() == null ? 0L : bbVar.uW().getNum()));
+            if (bbVar.vj() != null && bbVar.vj().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bbVar.vj().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bbVar.vj().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(bbVar.getFid());
-            String vq = bbVar.vq();
+            String vp = bbVar.vp();
             if (bbVar.ajQ != null) {
                 setFromForumId(valueOf);
                 valueOf = bbVar.ajQ.id;
-                vq = bbVar.ajQ.ori_fname;
+                vp = bbVar.ajQ.ori_fname;
             }
             setForumId(String.valueOf(valueOf));
-            setForumName(vq);
+            setForumName(vp);
             addMoreIntentExtraParam();
         }
         return this;

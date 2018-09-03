@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d cRy = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cRz;
+    private static d cRv = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cRw;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
@@ -18,22 +18,22 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     public static synchronized d aok() {
         d dVar;
         synchronized (d.class) {
-            dVar = cRy;
+            dVar = cRv;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.cRz;
+        return this.cRw;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0110a interfaceC0110a) {
-        if (this.cRz == null || this.cRz.isEmpty()) {
-            this.cRz = new LinkedList<>();
+        if (this.cRw == null || this.cRw.isEmpty()) {
+            this.cRw = new LinkedList<>();
             if (TbFaceManager.IP().HG() > 0) {
                 c cVar = new c();
-                this.cRz.add(cVar);
+                this.cRw.add(cVar);
                 if (interfaceC0110a != null) {
                     interfaceC0110a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cRz.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cRw.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0110a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.cRz == null || this.cRz.size() == 0;
+        return this.cRw == null || this.cRw.size() == 0;
     }
 }

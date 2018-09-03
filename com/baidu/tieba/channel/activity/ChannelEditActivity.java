@@ -23,31 +23,31 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.channel.message.ChannelUpdateInfoHttpResponsedMessage;
 import com.baidu.tieba.channel.model.ChannelEditModel;
 import com.baidu.tieba.channel.view.c;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
     public static boolean isChanged = false;
-    private c cDs;
-    private ChannelEditModel cDt;
-    private ChannelInfo cDu;
+    private c cDp;
+    private ChannelEditModel cDq;
+    private ChannelInfo cDr;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo(1);
-    private HttpMessageListener cDv = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UPDATE_INFO) { // from class: com.baidu.tieba.channel.activity.ChannelEditActivity.1
+    private HttpMessageListener cDs = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_UPDATE_INFO) { // from class: com.baidu.tieba.channel.activity.ChannelEditActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelUpdateInfoHttpResponsedMessage)) {
                 if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                     String errorString = httpResponsedMessage.getErrorString();
-                    String string = ChannelEditActivity.this.getResources().getString(d.j.neterror);
+                    String string = ChannelEditActivity.this.getResources().getString(f.j.neterror);
                     if (!StringUtils.isNull(errorString)) {
                         string = errorString;
                     }
                     ChannelEditActivity.this.getPageContext().showToast(string);
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016512, ChannelEditActivity.this.cDu));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016512, ChannelEditActivity.this.cDr));
                 ChannelEditActivity.isChanged = false;
-                ChannelEditActivity.this.getPageContext().showToast(ChannelEditActivity.this.getPageContext().getString(d.j.success));
+                ChannelEditActivity.this.getPageContext().showToast(ChannelEditActivity.this.getPageContext().getString(f.j.success));
                 ChannelEditActivity.this.finish();
             }
         }
@@ -57,44 +57,44 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cDu = (ChannelInfo) getIntent().getSerializableExtra(ChannelEditActivityConfig.CHANNEL_INFO);
+        this.cDr = (ChannelInfo) getIntent().getSerializableExtra(ChannelEditActivityConfig.CHANNEL_INFO);
         isChanged = false;
-        this.cDs = new c(this);
-        this.cDt = new ChannelEditModel(this);
-        ajB();
-        this.cDs.c(this.cDu);
+        this.cDp = new c(this);
+        this.cDq = new ChannelEditModel(this);
+        ajE();
+        this.cDp.c(this.cDr);
     }
 
-    private void ajB() {
-        registerListener(this.cDv);
+    private void ajE() {
+        registerListener(this.cDs);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cDs.onResume();
+        this.cDp.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.cDs.onPause();
+        this.cDp.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.cDs.onDestroy();
+        this.cDp.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cDs.onChangeSkinType(i);
+        this.cDp.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -129,15 +129,15 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
                 case 25009:
                     isChanged = true;
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra("pic_info");
-                    this.cDu.setChannelCover(photoUrlData.getBigurl());
-                    this.cDu.setChannelSmallCover(photoUrlData.getBigurl());
-                    this.cDs.c(this.cDu);
+                    this.cDr.setChannelCover(photoUrlData.getBigurl());
+                    this.cDr.setChannelSmallCover(photoUrlData.getBigurl());
+                    this.cDp.c(this.cDr);
                     return;
                 case 25010:
                 case 25011:
                     isChanged = true;
-                    this.cDu.setChannelAvatar(((PhotoUrlData) intent.getSerializableExtra("pic_info")).getBigurl());
-                    this.cDs.c(this.cDu);
+                    this.cDr.setChannelAvatar(((PhotoUrlData) intent.getSerializableExtra("pic_info")).getBigurl());
+                    this.cDp.c(this.cDr);
                     return;
                 default:
                     return;
@@ -161,16 +161,16 @@ public class ChannelEditActivity extends BaseActivity<ChannelEditActivity> {
         }
     }
 
-    public void ajC() {
+    public void ajF() {
         if (!j.jE()) {
-            showToast(d.j.neterror);
+            showToast(f.j.neterror);
             return;
         }
-        this.cDu.setDescription(this.cDs.getDescription());
-        this.cDt.b(this.cDu);
+        this.cDr.setDescription(this.cDp.getDescription());
+        this.cDq.b(this.cDr);
     }
 
-    public ChannelInfo ajD() {
-        return this.cDu;
+    public ChannelInfo ajG() {
+        return this.cDr;
     }
 }

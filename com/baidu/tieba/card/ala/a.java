@@ -4,23 +4,23 @@ import android.view.View;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.play.f;
 import com.baidu.tieba.play.j;
 import com.baidu.tieba.play.n;
 /* loaded from: classes2.dex */
 public class a implements f {
     private AlaVideoContainer bHQ;
-    private bb buw;
-    private j bvq;
-    private n bvr;
-    private AlaInfoData cBH;
-    private String cBI;
-    private boolean cyJ = false;
-    private j.a cyT = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
+    private bb buy;
+    private j bvs;
+    private n bvt;
+    private AlaInfoData cBE;
+    private String cBF;
+    private boolean cyG = false;
+    private j.a cyQ = new j.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.j.a
-        public void aiO() {
-            a.this.aiI();
+        public void aiR() {
+            a.this.aiL();
         }
     };
     private String mForumName;
@@ -28,40 +28,40 @@ public class a implements f {
     public a(AlaVideoContainer alaVideoContainer) {
         this.bHQ = alaVideoContainer;
         if (this.bHQ != null) {
-            this.bvq = new j();
-            this.bvq.setPlayer(this.bHQ.getVideoView());
-            this.bvq.a(this.cyT);
+            this.bvs = new j();
+            this.bvs.setPlayer(this.bHQ.getVideoView());
+            this.bvs.a(this.cyQ);
             if (this.bHQ.getVideoView() != null) {
-                this.bvr = new n(this.bHQ.getVideoView().getContext());
-                this.bHQ.getVideoView().setBusiness(this.bvr);
+                this.bvt = new n(this.bHQ.getVideoView().getContext());
+                this.bHQ.getVideoView().setBusiness(this.bvt);
             }
         }
     }
 
     public void a(bb bbVar, String str, String str2, boolean z) {
-        this.cBI = str2;
+        this.cBF = str2;
         this.mForumName = str;
         if (bbVar != null) {
-            this.buw = bbVar;
-            if (this.bHQ != null && this.buw.vD() != null) {
-                this.cBH = this.buw.vD();
-                this.bHQ.setVideoThumbnail(this.cBH.cover);
-                if (this.bvr != null && this.bvr.bkA() != null) {
-                    this.bvr.bkA().b(this.cBH);
+            this.buy = bbVar;
+            if (this.bHQ != null && this.buy.vC() != null) {
+                this.cBE = this.buy.vC();
+                this.bHQ.setVideoThumbnail(this.cBE.cover);
+                if (this.bvt != null && this.bvt.bkx() != null) {
+                    this.bvt.bkx().b(this.cBE);
                 }
                 if (z) {
-                    this.bHQ.setTitle(this.buw.getTitle());
+                    this.bHQ.setTitle(this.buy.getTitle());
                 } else {
                     this.bHQ.setTitle("");
                 }
-                this.bHQ.setPlayCount(String.format(this.bHQ.getVideoView().getContext().getResources().getString(d.j.ala_audience_count_prefix), ap.H(this.buw.vD().audience_count)));
+                this.bHQ.setPlayCount(String.format(this.bHQ.getVideoView().getContext().getResources().getString(f.j.ala_audience_count_prefix), ap.H(this.buy.vC().audience_count)));
             }
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        return this.cyJ;
+        return this.cyG;
     }
 
     @Override // com.baidu.tieba.play.f
@@ -77,12 +77,12 @@ public class a implements f {
     public void stopPlay() {
         if (this.bHQ != null && this.bHQ.getVideoView() != null) {
             this.bHQ.getVideoView().stopPlayback();
-            this.bHQ.Tv();
-            if (this.bvq != null) {
-                this.bvq.stop();
+            this.bHQ.Ty();
+            if (this.bvs != null) {
+                this.bvs.stop();
             }
         }
-        this.cyJ = false;
+        this.cyG = false;
     }
 
     @Override // com.baidu.tieba.play.f
@@ -95,10 +95,10 @@ public class a implements f {
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.buw == null || this.buw.vC() == null) {
+        if (this.buy == null || this.buy.vB() == null) {
             return null;
         }
-        return this.buw.vC().video_url;
+        return this.buy.vB().video_url;
     }
 
     @Override // com.baidu.tieba.play.f
@@ -110,8 +110,8 @@ public class a implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiI() {
-        if (this.buw == null || this.buw.vC() == null) {
+    public void aiL() {
+        if (this.buy == null || this.buy.vB() == null) {
         }
     }
 

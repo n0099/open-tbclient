@@ -8,8 +8,8 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dUR = BdUniqueId.gen();
-    public List<a> dUS;
+    public static final BdUniqueId dUM = BdUniqueId.gen();
+    public List<a> dUN;
 
     public static e bQ(List<DailyTopic> list) {
         if (w.z(list)) {
@@ -17,7 +17,7 @@ public class e extends com.baidu.tieba.card.data.b {
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.dUS = arrayList;
+        eVar.dUN = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dUR;
+        return dUM;
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private String dMe;
-        private String dUT;
-        private String dUU;
-        private String dUV;
-        private String dUW;
+        private String dMa;
+        private String dUO;
+        private String dUP;
+        private String dUQ;
+        private String dUR;
 
         public void a(DailyTopic dailyTopic) {
-            this.dUT = dailyTopic.topic_pic;
-            this.dMe = dailyTopic.topic_title;
-            this.dUU = dailyTopic.topic_abstract;
-            this.dUV = dailyTopic.topic_url;
-            this.dUW = dailyTopic.topic_rank_url;
+            this.dUO = dailyTopic.topic_pic;
+            this.dMa = dailyTopic.topic_title;
+            this.dUP = dailyTopic.topic_abstract;
+            this.dUQ = dailyTopic.topic_url;
+            this.dUR = dailyTopic.topic_rank_url;
         }
 
-        public String aDD() {
-            return this.dUT;
+        public String aDA() {
+            return this.dUO;
         }
 
-        public String uC() {
-            return this.dMe;
+        public String uB() {
+            return this.dMa;
         }
 
-        public String aDE() {
-            return this.dUU;
+        public String aDB() {
+            return this.dUP;
         }
 
-        public String wG() {
-            return this.dUV;
+        public String wF() {
+            return this.dUQ;
         }
 
-        public String aDF() {
-            return this.dUW;
+        public String aDC() {
+            return this.dUR;
         }
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchSuggestList.SearchListSocketResMessage;
@@ -21,8 +21,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class SquareSearchActivityStatic {
     static {
-        aTn();
-        aTo();
+        aTk();
+        aTl();
         CustomMessageTask customMessageTask = new CustomMessageTask(2015003, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
@@ -36,14 +36,14 @@ public class SquareSearchActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
         com.baidu.tieba.tbadkCore.a.a.b(2001190, f.class);
         com.baidu.tieba.tbadkCore.a.a.b(2001191, e.class);
-        aTp();
-        com.baidu.tieba.tbadkCore.a.a.c(303116, HotForumSocketResponseMessage.class, false);
         aTm();
-        aTq();
-        aTr();
+        com.baidu.tieba.tbadkCore.a.a.c(303116, HotForumSocketResponseMessage.class, false);
+        aTj();
+        aTn();
+        aTo();
     }
 
-    private static void aTm() {
+    private static void aTj() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309438);
         bVar.setResponsedClass(SearchListSocketResMessage.class);
         bVar.n(true);
@@ -55,43 +55,43 @@ public class SquareSearchActivityStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aTn() {
+    private static void aTk() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2009002, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ArrayList<String>> run(CustomMessage customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009002, com.baidu.tieba.tbadkCore.util.a.bwX());
+                return new CustomResponsedMessage<>(2009002, com.baidu.tieba.tbadkCore.util.a.bwY());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aTo() {
+    private static void aTl() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2009001, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<ArrayList<String>> run(CustomMessage customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009001, com.baidu.tieba.tbadkCore.util.a.bwY());
+                return new CustomResponsedMessage<>(2009001, com.baidu.tieba.tbadkCore.util.a.bwZ());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aTp() {
+    private static void aTm() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, com.baidu.tieba.tbadkCore.a.a.aK(TbConfig.GET_HOT_FORUM_URL, 303116));
         tbHttpMessageTask.setResponsedClass(HotForumHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void aTq() {
-        ay.zK().a(new ay.a() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivityStatic.4
-            @Override // com.baidu.tbadk.core.util.ay.a
+    private static void aTn() {
+        az.zI().a(new az.a() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivityStatic.4
+            @Override // com.baidu.tbadk.core.util.az.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
@@ -106,9 +106,9 @@ public class SquareSearchActivityStatic {
         });
     }
 
-    private static void aTr() {
-        ay.zK().a(new ay.a() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivityStatic.5
-            @Override // com.baidu.tbadk.core.util.ay.a
+    private static void aTo() {
+        az.zI().a(new az.a() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivityStatic.5
+            @Override // com.baidu.tbadk.core.util.az.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;

@@ -16,23 +16,23 @@ public class ap {
         this.agR = alVar;
     }
 
-    public al uw() {
+    public al uv() {
         return this.agR;
     }
 
-    public ArrayList<UserData> ux() {
+    public ArrayList<UserData> uw() {
         return this.agP;
     }
 
-    public ArrayList<UserData> uy() {
+    public ArrayList<UserData> ux() {
         return this.agQ;
     }
 
-    public int uz() {
+    public int uy() {
         return this.agS;
     }
 
-    public int uA() {
+    public int uz() {
         return this.agT;
     }
 

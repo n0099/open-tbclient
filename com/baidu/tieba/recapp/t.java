@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class t implements o {
-    private List<AppData> gom;
+    private List<AppData> gop;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
@@ -58,35 +58,35 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j bnh() {
-        return b.bmX();
+    public j bni() {
+        return b.bmY();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l bni() {
-        return b.bmX();
+    public l bnj() {
+        return b.bmY();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.p.a bnj() {
-        return com.baidu.tieba.ad.statis.a.Rj();
+    public com.baidu.tieba.p.a bnk() {
+        return com.baidu.tieba.ad.statis.a.Ro();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h bnk() {
-        return com.baidu.tieba.ad.a.Rc();
+    public h bnl() {
+        return com.baidu.tieba.ad.a.Rh();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> bnl() {
-        if (this.gom == null) {
-            this.gom = new ArrayList();
+    public List<AppData> bnm() {
+        if (this.gop == null) {
+            this.gop = new ArrayList();
         }
-        return this.gom;
+        return this.gop;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void bnm() {
-        AdDebugService.updateFloatView(this.gom != null ? StringUtils.string(Integer.valueOf(this.gom.size())) : "0");
+    public void bnn() {
+        AdDebugService.updateFloatView(this.gop != null ? StringUtils.string(Integer.valueOf(this.gop.size())) : "0");
     }
 }

@@ -25,6 +25,7 @@ public class ImMessageCenterPojo implements Serializable {
     private boolean isSelf;
     int is_delete;
     int is_hidden;
+    private String lastTaskId;
     String last_content;
     String last_content_raw_data;
     long last_content_time;
@@ -66,6 +67,14 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setTaskId(String str) {
         this.taskId = str;
+    }
+
+    public void setLastTaskId(String str) {
+        this.lastTaskId = str;
+    }
+
+    public String getLastTaskId() {
+        return this.lastTaskId;
     }
 
     public boolean isSelf() {

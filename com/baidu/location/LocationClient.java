@@ -623,7 +623,7 @@ public final class LocationClient implements c.a {
     }
 
     public void disableAssistantLocation() {
-        i.qu().b();
+        i.qr().b();
     }
 
     public void disableLocInForeground(boolean z) {
@@ -635,7 +635,7 @@ public final class LocationClient implements c.a {
     }
 
     public void enableAssistantLocation(WebView webView) {
-        i.qu().a(this.f, webView, this);
+        i.qr().a(this.f, webView, this);
     }
 
     public void enableLocInForeground(int i, Notification notification) {

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class CardUserLikeButton extends EntelechyUserLikeButton {
     public CardUserLikeButton(Context context) {
@@ -25,35 +25,35 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void init() {
         super.init();
-        setTextSize(0, l.f(getContext(), d.e.fontsize26));
+        setTextSize(0, l.f(getContext(), f.e.fontsize26));
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void d(boolean z, int i) {
-        this.azn = z;
+        this.azk = z;
         setVisibility(0);
         if (z) {
             setClickable(false);
-            setText(this.azl);
+            setText(this.azi);
             setPadding(0, 0, 0, 0);
         } else {
             setClickable(true);
-            setText(this.azm);
-            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds8), 0);
+            setText(this.azj);
+            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds8), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.azn) {
+        if (this.azk) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            am.b(this, d.C0140d.cp_cont_e, 1, i);
+            am.b(this, f.d.cp_cont_e, 1, i);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(am.v(i, d.f.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        am.b(this, d.C0140d.pb_like_user_select_color, 1, i);
-        am.d(this, d.f.btn_focus_border_bg, i);
+        setCompoundDrawablesWithIntrinsicBounds(am.v(i, f.C0146f.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.b(this, f.d.pb_like_user_select_color, 1, i);
+        am.d(this, f.C0146f.btn_focus_border_bg, i);
     }
 }

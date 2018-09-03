@@ -412,20 +412,20 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
         CellLocation cellLocation;
-        CellLocation qG;
-        com.baidu.location.b.a qI = qI();
-        if (qI != null) {
-            c(qI);
+        CellLocation qD;
+        com.baidu.location.b.a qF = qF();
+        if (qF != null) {
+            c(qF);
         }
-        if (qI == null || !qI.b()) {
+        if (qF == null || !qF.b()) {
             try {
                 cellLocation = this.Xm.getCellLocation();
             } catch (Throwable th) {
                 cellLocation = null;
             }
             com.baidu.location.b.a b2 = cellLocation != null ? b(cellLocation) : null;
-            if ((b2 == null || !b2.b()) && (qG = qG()) != null) {
-                a(qG, true);
+            if ((b2 == null || !b2.b()) && (qD = qD()) != null) {
+                a(qD, true);
             }
         }
     }
@@ -543,7 +543,7 @@ public class b {
         return i;
     }
 
-    public static synchronized b qE() {
+    public static synchronized b qB() {
         b bVar;
         synchronized (b.class) {
             if (Xl == null) {
@@ -554,7 +554,7 @@ public class b {
         return bVar;
     }
 
-    private CellLocation qG() {
+    private CellLocation qD() {
         CellLocation cellLocation;
         Object obj;
         List<?> list;
@@ -563,9 +563,9 @@ public class b {
             return null;
         }
         try {
-            Class<?> qH = qH();
-            if (qH.isInstance(obj2)) {
-                Object cast = qH.cast(obj2);
+            Class<?> qE = qE();
+            if (qE.isInstance(obj2)) {
+                Object cast = qE.cast(obj2);
                 try {
                     obj = g.a(cast, "getCellLocation", new Object[0]);
                 } catch (NoSuchMethodException e) {
@@ -609,7 +609,7 @@ public class b {
         return cellLocation;
     }
 
-    private Class<?> qH() {
+    private Class<?> qE() {
         String str;
         ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
         switch (o()) {
@@ -640,7 +640,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private com.baidu.location.b.a qI() {
+    private com.baidu.location.b.a qF() {
         com.baidu.location.b.a aVar;
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;
@@ -852,7 +852,7 @@ public class b {
         return 0;
     }
 
-    public com.baidu.location.b.a qF() {
+    public com.baidu.location.b.a qC() {
         if ((this.VQ == null || !this.VQ.a() || !this.VQ.b()) && this.Xm != null) {
             try {
                 k();

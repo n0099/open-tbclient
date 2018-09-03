@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.lego.view;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.recapp.i;
 import com.baidu.tieba.recapp.k;
@@ -11,7 +11,7 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 /* loaded from: classes3.dex */
 public class AdCardVideoView extends AdCardBaseView implements k {
-    public DistributeVideoView goq;
+    public DistributeVideoView got;
     private TbPageContext mTbPageContext;
 
     public AdCardVideoView(TbPageContext<?> tbPageContext) {
@@ -21,36 +21,36 @@ public class AdCardVideoView extends AdCardBaseView implements k {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getCustomLayout() {
-        return d.h.ad_card_video_view;
+        return f.h.ad_card_video_view;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void by(View view) {
         if (view != null) {
-            this.goq = (DistributeVideoView) view.findViewById(d.g.advert_video);
-            this.goq.setHolderView(view);
+            this.got = (DistributeVideoView) view.findViewById(f.g.advert_video);
+            this.got.setHolderView(view);
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard != null && adCard.videoInfo != null) {
-            this.goq.setPageContext(this.mTbPageContext);
-            this.goq.setVideoTailFrameData(adCard.tailFrame);
-            this.goq.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
-            this.goq.setChargeInfo(adCard.chargeInfo);
-            this.goq.setScheme(adCard.getScheme());
-            this.goq.setParallelChargeInfo(adCard);
+            this.got.setPageContext(this.mTbPageContext);
+            this.got.setVideoTailFrameData(adCard.tailFrame);
+            this.got.setData(adCard.videoInfo, this.mMaxWidth, this.mImageHeight, this.mImageWidth);
+            this.got.setChargeInfo(adCard.chargeInfo);
+            this.got.setScheme(adCard.getScheme());
+            this.got.setParallelChargeInfo(adCard);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            this.goq.updateTailFrameView(advertAppInfo);
+            this.got.updateTailFrameView(advertAppInfo);
             if (advertAppInfo != null) {
                 int i = -1;
                 String pageTypeByBusiness = getPageTypeByBusiness();
                 if (advertAppInfo.advertAppContext != null) {
                     i = advertAppInfo.advertAppContext.pn;
-                    pageTypeByBusiness = advertAppInfo.advertAppContext.adi;
+                    pageTypeByBusiness = advertAppInfo.advertAppContext.page;
                 }
-                this.goq.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+                this.got.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
             }
         }
     }
@@ -72,16 +72,16 @@ public class AdCardVideoView extends AdCardBaseView implements k {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
     public void setDownloadAppCallback(c cVar) {
         super.setDownloadAppCallback(cVar);
-        this.goq.setDownloadCallback(cVar);
+        this.got.setDownloadCallback(cVar);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getLayout() {
-        return d.h.card_ad;
+        return f.h.card_ad;
     }
 
     @Override // com.baidu.tieba.recapp.k
     public i getVideoOrVrView() {
-        return this.goq;
+        return this.got;
     }
 }

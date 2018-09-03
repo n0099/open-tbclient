@@ -11,15 +11,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes2.dex */
 public class f extends h implements p {
-    private CardGod dZq;
+    private CardGod dZn;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.dZq = cardGod;
-            this.mGroupTitle = this.dZq.card_title;
-            if (!w.z(this.dZq.gods)) {
+            this.dZn = cardGod;
+            this.mGroupTitle = this.dZn.card_title;
+            if (!w.z(this.dZn.gods)) {
                 int i = 0;
-                Iterator<User> it = this.dZq.gods.iterator();
+                Iterator<User> it = this.dZn.gods.iterator();
                 while (true) {
                     int i2 = i;
                     if (it.hasNext()) {
@@ -46,20 +46,20 @@ public class f extends h implements p {
         }
     }
 
-    public boolean RR() {
+    public boolean RW() {
         return w.y(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.dZq == null || this.dZq.position == null) {
+        if (this.dZn == null || this.dZn.position == null) {
             return 0;
         }
-        return this.dZq.position.intValue();
+        return this.dZn.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean ajp() {
+    public boolean ajs() {
         return true;
     }
 

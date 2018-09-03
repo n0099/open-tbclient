@@ -6,9 +6,9 @@ public interface c {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void aws();
+        void awr();
 
-        void bAt();
+        void bAv();
     }
 
     /* loaded from: classes2.dex */

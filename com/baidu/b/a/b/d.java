@@ -8,7 +8,7 @@ public class d implements c {
     private static volatile d TG = null;
     private c TH;
 
-    public static d pw() {
+    public static d pt() {
         if (TG == null) {
             synchronized (d.class) {
                 if (TG == null) {

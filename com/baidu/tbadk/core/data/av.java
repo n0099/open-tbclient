@@ -24,7 +24,7 @@ public class av {
         return this.uid;
     }
 
-    public String uG() {
+    public String uF() {
         return this.uname;
     }
 
@@ -32,7 +32,7 @@ public class av {
         return this.portrait;
     }
 
-    public String uH() {
+    public String uG() {
         return this.institute;
     }
 

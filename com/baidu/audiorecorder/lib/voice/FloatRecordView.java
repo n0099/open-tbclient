@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class FloatRecordView implements com.baidu.tieba.im.chat.c {
     private ImageView PT = null;
@@ -22,10 +22,10 @@ public class FloatRecordView implements com.baidu.tieba.im.chat.c {
     }
 
     private void c(Context context, ViewGroup viewGroup) {
-        this.PU = (LinearLayout) LayoutInflater.from(context).inflate(d.h.float_chat_recording_view, (ViewGroup) null);
-        this.PT = (ImageView) this.PU.findViewById(d.g.img_msgsend_recording);
-        this.PV = (LinearLayout) LayoutInflater.from(context).inflate(d.h.floating_chat_too_short_view, (ViewGroup) null);
-        this.PW = (LinearLayout) LayoutInflater.from(context).inflate(d.h.floating_chat_cancel_view, (ViewGroup) null);
+        this.PU = (LinearLayout) LayoutInflater.from(context).inflate(f.h.float_chat_recording_view, (ViewGroup) null);
+        this.PT = (ImageView) this.PU.findViewById(f.g.img_msgsend_recording);
+        this.PV = (LinearLayout) LayoutInflater.from(context).inflate(f.h.floating_chat_too_short_view, (ViewGroup) null);
+        this.PW = (LinearLayout) LayoutInflater.from(context).inflate(f.h.floating_chat_cancel_view, (ViewGroup) null);
     }
 
     @Override // com.baidu.adp.lib.voice.f
@@ -52,15 +52,15 @@ public class FloatRecordView implements com.baidu.tieba.im.chat.c {
     public void onShowRecordTime(int i) {
     }
 
-    public LinearLayout oA() {
+    public LinearLayout ox() {
         return this.PU;
     }
 
-    public LinearLayout oB() {
+    public LinearLayout oy() {
         return this.PV;
     }
 
-    public LinearLayout oC() {
+    public LinearLayout oz() {
         return this.PW;
     }
 
@@ -76,19 +76,19 @@ public class FloatRecordView implements com.baidu.tieba.im.chat.c {
         if (this.Qa % 5 == 0) {
             this.Qa = 0;
             if (this.PY < 2) {
-                this.PT.setImageResource(d.f.icon_chat_talk_sound_up_zero);
+                this.PT.setImageResource(f.C0146f.icon_chat_talk_sound_up_zero);
             } else if (this.PY < 10) {
-                this.PT.setImageResource(d.f.icon_chat_talk_sound_up_one);
+                this.PT.setImageResource(f.C0146f.icon_chat_talk_sound_up_one);
             } else if (this.PY < 20) {
-                this.PT.setImageResource(d.f.icon_chat_talk_sound_up_two);
+                this.PT.setImageResource(f.C0146f.icon_chat_talk_sound_up_two);
             } else if (this.PY < 30) {
-                this.PT.setImageResource(d.f.icon_chat_talk_sound_up_three);
+                this.PT.setImageResource(f.C0146f.icon_chat_talk_sound_up_three);
             } else if (this.PY < 40) {
-                this.PT.setImageResource(d.f.icon_chat_talk_sound_up_four);
+                this.PT.setImageResource(f.C0146f.icon_chat_talk_sound_up_four);
             } else if (this.PY < 50) {
-                this.PT.setImageResource(d.f.icon_chat_talk_sound_up_five);
+                this.PT.setImageResource(f.C0146f.icon_chat_talk_sound_up_five);
             } else {
-                this.PT.setImageResource(d.f.icon_chat_talk_sound_up_three);
+                this.PT.setImageResource(f.C0146f.icon_chat_talk_sound_up_three);
             }
         }
     }
@@ -103,7 +103,7 @@ public class FloatRecordView implements com.baidu.tieba.im.chat.c {
         this.PU.setVisibility(8);
     }
 
-    public void oD() {
+    public void oA() {
         this.PV.setVisibility(0);
     }
 

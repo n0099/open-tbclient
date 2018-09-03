@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
-public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.c> {
+public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.d> {
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
@@ -17,19 +17,19 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.j(getView(), d.C0140d.cp_bg_line_e);
+            am.j(getView(), f.d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.person_center_blank_layout;
+        return f.h.person_center_blank_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personCenter.data.c cVar) {
+    public void a(com.baidu.tieba.personCenter.data.d dVar) {
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String cBU = "";
+    public String cBR = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo cBT = null;
+    public AdvertAppInfo cBQ = null;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (this.cBT != null && this.cBT.getType() == AdvertAppInfo.adn) {
+        if (this.cBQ != null && this.cBQ.getType() == AdvertAppInfo.adn) {
             return AdvertAppInfo.adt;
         }
-        if (this.cBT != null && this.cBT.legoCard != null) {
+        if (this.cBQ != null && this.cBQ.legoCard != null) {
             BdUniqueId bdUniqueId = AdvertAppInfo.adw;
-            switch (this.cBT.legoCard.getGoodsStyle()) {
+            switch (this.cBQ.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
                     return AdvertAppInfo.adx;
@@ -40,11 +40,11 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.g(this.cBT != null ? this.cBT.adPosition : "-1", -1);
+        return com.baidu.adp.lib.g.b.g(this.cBQ != null ? this.cBQ.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean ajp() {
+    public boolean ajs() {
         return false;
     }
 
@@ -56,7 +56,7 @@ public class d extends b implements p {
     public void eC(boolean z) {
     }
 
-    public AdvertAppInfo ajq() {
-        return this.cBT;
+    public AdvertAppInfo ajt() {
+        return this.cBQ;
     }
 }

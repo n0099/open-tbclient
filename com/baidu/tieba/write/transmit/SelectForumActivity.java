@@ -28,19 +28,19 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     private BdListView LO;
     private View bHR;
-    private OriginalThreadInfo dkM;
-    private View eMP;
-    private b hwb;
-    private LinearLayout hwc;
-    private ImageView hwd;
-    private TextView hwe;
+    private OriginalThreadInfo dkK;
+    private View eMK;
+    private b hwd;
+    private LinearLayout hwe;
+    private ImageView hwf;
+    private TextView hwg;
     private NavigationBar mNavigationBar;
     private int mPrivateThread;
     private View mRootView;
@@ -48,15 +48,15 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     private List<TransmitForumData> mDataList = new ArrayList();
     private int mFrom = 0;
     private long mLiveId = -1;
-    private CustomMessageListener hay = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.1
+    private CustomMessageListener haA = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.write.transmit.SelectForumActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
                 SelectForumActivity.this.mDataList.clear();
                 SelectForumActivity.this.mDataList.addAll((ArrayList) customResponsedMessage.getData());
-                if (SelectForumActivity.this.hwb != null) {
-                    SelectForumActivity.this.hwb.cD(SelectForumActivity.this.mDataList);
+                if (SelectForumActivity.this.hwd != null) {
+                    SelectForumActivity.this.hwd.cD(SelectForumActivity.this.mDataList);
                 }
             }
         }
@@ -65,12 +65,12 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null) {
-                if (view.getId() != SelectForumActivity.this.eMP.getId()) {
-                    if (view.getId() == SelectForumActivity.this.hwd.getId() || view.getId() == SelectForumActivity.this.hwe.getId()) {
+                if (view.getId() != SelectForumActivity.this.eMK.getId()) {
+                    if (view.getId() == SelectForumActivity.this.hwf.getId() || view.getId() == SelectForumActivity.this.hwg.getId()) {
                         ForumSearchActivityConfig forumSearchActivityConfig = new ForumSearchActivityConfig(SelectForumActivity.this.getPageContext().getPageActivity());
                         forumSearchActivityConfig.setFrom(SelectForumActivity.this.mFrom);
                         forumSearchActivityConfig.setLiveId(SelectForumActivity.this.mLiveId);
-                        forumSearchActivityConfig.setOriginalThread(SelectForumActivity.this.dkM);
+                        forumSearchActivityConfig.setOriginalThread(SelectForumActivity.this.dkK);
                         forumSearchActivityConfig.setRequestCode(25019);
                         forumSearchActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                         SelectForumActivity.this.sendMessage(new CustomMessage(2002001, forumSearchActivityConfig));
@@ -114,10 +114,10 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.select_forum_activity);
+        setContentView(f.h.select_forum_activity);
         initData();
         initView();
-        MessageManager.getInstance().registerListener(this.hay);
+        MessageManager.getInstance().registerListener(this.haA);
     }
 
     private void initData() {
@@ -129,32 +129,32 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             this.mFrom = getIntent().getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0);
             this.mLiveId = getIntent().getLongExtra("extra_key_live_id", -1L);
             this.mPrivateThread = getIntent().getIntExtra(SelectForumActivityConfig.EXTRA_KEY_PRIVATE_THREAD, 0);
-            this.dkM = (OriginalThreadInfo) getIntent().getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD);
+            this.dkK = (OriginalThreadInfo) getIntent().getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD);
         }
     }
 
     private void initView() {
-        this.mRootView = findViewById(d.g.root_view);
-        this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
-        this.eMP = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(d.j.cancel));
-        if (this.eMP.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eMP.getLayoutParams();
-            layoutParams.leftMargin = l.f(getActivity(), d.e.ds10);
-            this.eMP.setLayoutParams(layoutParams);
+        this.mRootView = findViewById(f.g.root_view);
+        this.mNavigationBar = (NavigationBar) findViewById(f.g.view_navigation_bar);
+        this.eMK = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(f.j.cancel));
+        if (this.eMK.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eMK.getLayoutParams();
+            layoutParams.leftMargin = l.f(getActivity(), f.e.ds10);
+            this.eMK.setLayoutParams(layoutParams);
         }
-        this.mTitleView = this.mNavigationBar.setCenterTextTitle(getResources().getString(d.j.select_share_forum_bar));
-        this.eMP.setOnClickListener(this.mOnClickListener);
-        this.hwc = (LinearLayout) findViewById(d.g.layout_search);
-        this.hwd = (ImageView) findViewById(d.g.icon_search);
-        this.hwd.setOnClickListener(this.mOnClickListener);
-        this.hwe = (TextView) findViewById(d.g.textview_search);
-        this.hwe.setOnClickListener(this.mOnClickListener);
-        this.bHR = findViewById(d.g.view_divider);
-        this.LO = (BdListView) findViewById(d.g.trasmit_grid_view);
+        this.mTitleView = this.mNavigationBar.setCenterTextTitle(getResources().getString(f.j.select_share_forum_bar));
+        this.eMK.setOnClickListener(this.mOnClickListener);
+        this.hwe = (LinearLayout) findViewById(f.g.layout_search);
+        this.hwf = (ImageView) findViewById(f.g.icon_search);
+        this.hwf.setOnClickListener(this.mOnClickListener);
+        this.hwg = (TextView) findViewById(f.g.textview_search);
+        this.hwg.setOnClickListener(this.mOnClickListener);
+        this.bHR = findViewById(f.g.view_divider);
+        this.LO = (BdListView) findViewById(f.g.trasmit_grid_view);
         this.LO.setOnItemClickListener(this.mOnItemClickListener);
-        this.hwb = new b(getActivity());
-        this.LO.setAdapter((ListAdapter) this.hwb);
-        this.hwb.cD(this.mDataList);
+        this.hwd = new b(getActivity());
+        this.LO.setAdapter((ListAdapter) this.hwd);
+        this.hwd.cD(this.mDataList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -176,7 +176,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             str = null;
             str2 = null;
         }
-        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(getPageContext().getPageActivity(), 9, str2, str, null, null, 13011, null, null, null, this.dkM);
+        TransmitPostEditActivityConfig transmitPostEditActivityConfig = new TransmitPostEditActivityConfig(getPageContext().getPageActivity(), 9, str2, str, null, null, 13011, null, null, null, this.dkK);
         transmitPostEditActivityConfig.setCallFrom("2");
         transmitPostEditActivityConfig.setPrivateThread(i);
         sendMessage(new CustomMessage(2002001, transmitPostEditActivityConfig));
@@ -187,15 +187,15 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.h(this.eMP, d.C0140d.cp_cont_f);
-        am.h(this.mTitleView, d.C0140d.cp_cont_b);
-        am.j(this.hwc, d.C0140d.cp_bg_line_e);
-        am.h(this.hwe, d.C0140d.cp_cont_d);
-        am.c(this.hwd, d.f.icon_post_search_n);
-        am.j(this.mRootView, d.C0140d.cp_bg_line_d);
-        am.j(this.bHR, d.C0140d.cp_bg_line_c);
-        this.hwb.onChangeSkinType(i);
-        this.LO.setSelector(am.getDrawable(d.f.selector_select_forum_item));
+        am.h(this.eMK, f.d.cp_cont_f);
+        am.h(this.mTitleView, f.d.cp_cont_b);
+        am.j(this.hwe, f.d.cp_bg_line_e);
+        am.h(this.hwg, f.d.cp_cont_d);
+        am.c(this.hwf, f.C0146f.icon_post_search_n);
+        am.j(this.mRootView, f.d.cp_bg_line_d);
+        am.j(this.bHR, f.d.cp_bg_line_c);
+        this.hwd.onChangeSkinType(i);
+        this.LO.setSelector(am.getDrawable(f.C0146f.selector_select_forum_item));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -218,6 +218,6 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.hay);
+        MessageManager.getInstance().unRegisterListener(this.haA);
     }
 }

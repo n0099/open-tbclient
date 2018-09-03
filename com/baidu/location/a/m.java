@@ -85,7 +85,7 @@ public class m extends com.baidu.location.d.e {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                String a = com.baidu.location.b.c.a(com.baidu.location.b.b.qE().e());
+                String a = com.baidu.location.b.c.a(com.baidu.location.b.b.qB().e());
                 if (!a.equals("3G")) {
                     if (a.equals("4G")) {
                     }
@@ -225,7 +225,7 @@ public class m extends com.baidu.location.d.e {
         }
     }
 
-    public static m qz() {
+    public static m qw() {
         if (WZ == null) {
             WZ = new m();
         }
@@ -244,12 +244,12 @@ public class m extends com.baidu.location.d.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.d.b.qQ().b == null) {
+        if (com.baidu.location.d.b.qN().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.d.b.qQ().a);
+            stringBuffer.append(com.baidu.location.d.b.qN().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.d.b.qQ().b);
+            stringBuffer.append(com.baidu.location.d.b.qN().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -314,11 +314,11 @@ public class m extends com.baidu.location.d.e {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.d.c.qR().a(System.currentTimeMillis());
+        com.baidu.location.d.c.qO().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.d.c.qR().b() > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.location.d.c.qO().b() > 86400000) {
             f().postDelayed(new Runnable() { // from class: com.baidu.location.a.m.1
                 @Override // java.lang.Runnable
                 public void run() {

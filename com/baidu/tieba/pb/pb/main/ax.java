@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class ax {
     private TbPageContext mPageContext;
@@ -30,16 +30,15 @@ public class ax {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: i */
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.l.a(this.mUrl, this.mData, ax.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.l.yi();
+                    return com.baidu.tbadk.core.util.l.yh();
                 case -1:
                 default:
-                    return ax.this.mPageContext.getString(d.j.save_fail);
+                    return ax.this.mPageContext.getString(f.j.save_fail);
                 case 0:
-                    return ax.this.mPageContext.getString(d.j.save_image_to_album);
+                    return ax.this.mPageContext.getString(f.j.save_image_to_album);
             }
         }
 

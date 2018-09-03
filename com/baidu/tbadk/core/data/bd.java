@@ -16,7 +16,7 @@ public class bd {
     private String subTitle;
     private String summary;
 
-    public String tU() {
+    public String tT() {
         return this.imgUrl;
     }
 
@@ -24,19 +24,19 @@ public class bd {
         return this.summary;
     }
 
-    public String wN() {
+    public String wM() {
         return this.aka;
     }
 
-    public int wO() {
+    public int wN() {
         return this.akb;
     }
 
-    public String wP() {
+    public String wO() {
         return this.akc;
     }
 
-    public long wQ() {
+    public long wP() {
         return this.akd;
     }
 
@@ -76,7 +76,7 @@ public class bd {
         }
     }
 
-    public String wR() {
+    public String wQ() {
         return this.ake;
     }
 

@@ -23,11 +23,11 @@ public class ay implements com.baidu.tbadk.core.view.commonLike.forum.b {
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public void ao(boolean z) {
+    public void ap(boolean z) {
         this.ahq = z;
     }
 
-    public boolean uI() {
+    public boolean uH() {
         return this.ahq;
     }
 

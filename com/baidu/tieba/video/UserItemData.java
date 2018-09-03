@@ -22,10 +22,10 @@ public class UserItemData implements Parcelable {
     };
     public String agree_num;
     public String fans_num;
-    public String hbR;
     public String hbS;
     public String hbT;
     public String hbU;
+    public String hbV;
     public String intro;
     public String is_follow;
     public String name_show;
@@ -34,7 +34,7 @@ public class UserItemData implements Parcelable {
     public String user_name;
     public String video_num;
 
-    public String bAe() {
+    public String bAg() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 
@@ -49,14 +49,14 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);
         parcel.writeString(this.portrait);
-        parcel.writeString(this.hbR);
         parcel.writeString(this.hbS);
+        parcel.writeString(this.hbT);
         parcel.writeString(this.fans_num);
         parcel.writeString(this.video_num);
         parcel.writeString(this.agree_num);
         parcel.writeString(this.intro);
-        parcel.writeString(this.hbT);
         parcel.writeString(this.hbU);
+        parcel.writeString(this.hbV);
         parcel.writeString(this.is_follow);
     }
 
@@ -68,14 +68,14 @@ public class UserItemData implements Parcelable {
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();
         this.portrait = parcel.readString();
-        this.hbR = parcel.readString();
         this.hbS = parcel.readString();
+        this.hbT = parcel.readString();
         this.fans_num = parcel.readString();
         this.video_num = parcel.readString();
         this.agree_num = parcel.readString();
         this.intro = parcel.readString();
-        this.hbT = parcel.readString();
         this.hbU = parcel.readString();
+        this.hbV = parcel.readString();
         this.is_follow = parcel.readString();
     }
 }

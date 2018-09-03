@@ -14,7 +14,7 @@ public final class m implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            n.pu();
+            n.pr();
         } catch (Exception e) {
             e.printStackTrace();
         }

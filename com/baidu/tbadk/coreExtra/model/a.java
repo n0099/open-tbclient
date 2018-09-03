@@ -15,7 +15,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0106a aEv;
+    private C0106a aEu;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -32,18 +32,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aEv == null) {
-            this.aEv = new C0106a();
-            this.aEv.setPriority(2);
-            this.aEv.bp(z);
-            this.aEv.setPortrait(str);
-            this.aEv.setToUid(str2);
-            this.aEv.setIsGod(z2);
-            this.aEv.setFrom(str3);
-            this.aEv.setPageId(bdUniqueId);
-            this.aEv.setForumId(str4);
-            this.aEv.setInLive(str5);
-            this.aEv.execute(new Integer[0]);
+        if (this.aEu == null) {
+            this.aEu = new C0106a();
+            this.aEu.setPriority(2);
+            this.aEu.bq(z);
+            this.aEu.setPortrait(str);
+            this.aEu.setToUid(str2);
+            this.aEu.setIsGod(z2);
+            this.aEu.setFrom(str3);
+            this.aEu.setPageId(bdUniqueId);
+            this.aEu.setForumId(str4);
+            this.aEu.setInLive(str5);
+            this.aEu.execute(new Integer[0]);
         }
     }
 
@@ -79,7 +79,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bp(boolean z) {
+        public void bq(boolean z) {
             this.isAttention = z;
         }
 
@@ -126,8 +126,8 @@ public class a {
                         this.mNetwork.o("forum_id", this.forumId);
                     }
                     this.mNetwork.o("in_live", this.inLive);
-                    this.mNetwork.yO().zM().mIsNeedTbs = true;
-                    return this.mNetwork.yq();
+                    this.mNetwork.yM().zK().mIsNeedTbs = true;
+                    return this.mNetwork.yo();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -140,19 +140,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0106a) str);
-            a.this.aEv = null;
+            a.this.aEu = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Gp = this.mNetwork.yO().zN().isRequestSuccess();
+                aVar.Gp = this.mNetwork.yM().zL().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.j(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.yO().zN().isRequestSuccess()) {
-                    aVar.aDu = null;
+                if (this.mNetwork.yM().zL().isRequestSuccess()) {
+                    aVar.aDt = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.yS(), aVar.aDt)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.yQ(), aVar.aDs)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -167,9 +167,9 @@ public class a {
                 this.mNetwork.hN();
                 this.mNetwork = null;
             }
-            if (a.this.aEv != null) {
-                a.this.aEv.cancel();
-                a.this.aEv = null;
+            if (a.this.aEu != null) {
+                a.this.aEu.cancel();
+                a.this.aEu = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.i(false);
@@ -185,8 +185,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aEv != null) {
-            this.aEv.cancel();
+        if (this.aEu != null) {
+            this.aEu.cancel();
         }
     }
 }

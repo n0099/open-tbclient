@@ -7,10 +7,10 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ac {
-    public static boolean aM(Context context) {
+    public static boolean aL(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.e.a.rj()) {
+        if (com.baidu.e.a.rg()) {
             if (context == null) {
                 return false;
             }
@@ -21,7 +21,7 @@ public class ac {
                 z = false;
             }
             try {
-                z2 = aN(context);
+                z2 = aM(context);
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
@@ -34,8 +34,8 @@ public class ac {
         return true;
     }
 
-    public static boolean aN(Context context) {
-        if (com.baidu.e.a.rj()) {
+    public static boolean aM(Context context) {
+        if (com.baidu.e.a.rg()) {
             if (context != null) {
                 try {
                     if (!com.baidu.e.a.a.P(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -54,8 +54,8 @@ public class ac {
         return true;
     }
 
-    public static boolean aO(Context context) {
-        if (!com.baidu.e.a.rj()) {
+    public static boolean aN(Context context) {
+        if (!com.baidu.e.a.rg()) {
             return true;
         }
         if (context != null) {
@@ -69,8 +69,8 @@ public class ac {
         return false;
     }
 
-    public static boolean aP(Context context) {
-        if (!com.baidu.e.a.rj()) {
+    public static boolean aO(Context context) {
+        if (!com.baidu.e.a.rg()) {
             return true;
         }
         if (context != null) {
@@ -84,8 +84,8 @@ public class ac {
         return false;
     }
 
-    public static boolean aQ(Context context) {
-        if (!com.baidu.e.a.rj()) {
+    public static boolean aP(Context context) {
+        if (!com.baidu.e.a.rg()) {
             return true;
         }
         if (context != null) {
@@ -99,8 +99,8 @@ public class ac {
         return false;
     }
 
-    public static boolean aR(Context context) {
-        if (!com.baidu.e.a.rj()) {
+    public static boolean aQ(Context context) {
+        if (!com.baidu.e.a.rg()) {
             return true;
         }
         if (context != null) {
@@ -135,10 +135,10 @@ public class ac {
 
     public static boolean e(Activity activity, int i) {
         ArrayList arrayList = new ArrayList(2);
-        if (!aR(activity.getApplicationContext())) {
+        if (!aQ(activity.getApplicationContext())) {
             arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        if (!aO(activity.getApplicationContext())) {
+        if (!aN(activity.getApplicationContext())) {
             arrayList.add("android.permission.CAMERA");
         }
         if (arrayList.size() == 0) {

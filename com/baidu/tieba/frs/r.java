@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.av;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class r extends h<com.baidu.tbadk.core.data.at, a> {
-    private com.baidu.tieba.frs.view.c dph;
+    private com.baidu.tieba.frs.view.c dpf;
 
     public r(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
@@ -20,8 +20,8 @@ public class r extends h<com.baidu.tbadk.core.data.at, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: an */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        this.dph = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
-        return new a(this.dph);
+        this.dpf = new com.baidu.tieba.frs.view.c(this.mPageContext, this.mPageId);
+        return new a(this.dpf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,38 +30,38 @@ public class r extends h<com.baidu.tbadk.core.data.at, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.at atVar, a aVar) {
         super.onFillViewHolder(i, view, viewGroup, atVar, aVar);
-        this.dph = aVar.dpi;
-        ArrayList<av> uB = atVar.uB();
-        if (uB.size() <= 0) {
+        this.dpf = aVar.dpg;
+        ArrayList<av> uA = atVar.uA();
+        if (uA.size() <= 0) {
             return null;
         }
         s sVar = new s();
         sVar.showTopDivider = true;
         sVar.mGroupTitle = atVar.getTitle();
-        for (int i2 = 0; i2 != uB.size(); i2++) {
-            av avVar = uB.get(i2);
+        for (int i2 = 0; i2 != uA.size(); i2++) {
+            av avVar = uA.get(i2);
             if (avVar != null) {
                 ap apVar = new ap();
                 apVar.metaData.setUserId(avVar.getUid());
-                apVar.metaData.setUserName(avVar.uG());
+                apVar.metaData.setUserName(avVar.uF());
                 apVar.metaData.setPortrait(avVar.getPortrait());
                 apVar.metaData.getGodUserData().setIsLike(avVar.getIsLike() == 1);
-                apVar.metaData.getGodUserData().setIntro(avVar.uH());
+                apVar.metaData.getGodUserData().setIntro(avVar.uG());
                 sVar.a(apVar);
             }
         }
-        this.dph.d(this.mPageContext, this.mSkinType);
-        aVar.dpi.a(sVar);
+        this.dpf.d(this.mPageContext, this.mSkinType);
+        aVar.dpg.a(sVar);
         return aVar.getView();
     }
 
     /* loaded from: classes3.dex */
     public class a extends q.a {
-        public com.baidu.tieba.frs.view.c dpi;
+        public com.baidu.tieba.frs.view.c dpg;
 
         public a(com.baidu.tieba.frs.view.c cVar) {
             super(cVar.getView());
-            this.dpi = cVar;
+            this.dpg = cVar;
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.tieba.tbadkCore.videoupload.a;
 /* loaded from: classes.dex */
 public interface e {
-    void aD(float f);
+    void aC(float f);
 }

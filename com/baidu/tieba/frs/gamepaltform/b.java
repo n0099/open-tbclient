@@ -3,15 +3,15 @@ package com.baidu.tieba.frs.gamepaltform;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class b extends q.a {
-    public GameRankHorizontalLayout dyi;
-    public TextView dyj;
+    public GameRankHorizontalLayout dyf;
+    public TextView dyg;
 
     public b(View view) {
         super(view);
-        this.dyi = (GameRankHorizontalLayout) view.findViewById(d.g.game_rank_list_viewpager);
-        this.dyj = (TextView) view.findViewById(d.g.close_game_rank_btn);
+        this.dyf = (GameRankHorizontalLayout) view.findViewById(f.g.game_rank_list_viewpager);
+        this.dyg = (TextView) view.findViewById(f.g.close_game_rank_btn);
     }
 }

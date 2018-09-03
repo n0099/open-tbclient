@@ -3,37 +3,37 @@ package com.baidu.tieba.homepage.daily.b;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dUN = BdUniqueId.gen();
-    private String dUO;
-    private String dUP;
-    private boolean dUQ;
+    public static final BdUniqueId dUI = BdUniqueId.gen();
+    private String dUJ;
+    private String dUK;
+    private boolean dUL;
 
-    public String aDA() {
-        return this.dUO;
+    public String aDx() {
+        return this.dUJ;
     }
 
-    public void nw(String str) {
-        this.dUO = str;
+    public void ny(String str) {
+        this.dUJ = str;
     }
 
-    public String aDB() {
-        return this.dUP;
+    public String aDy() {
+        return this.dUK;
     }
 
-    public void nx(String str) {
-        this.dUP = str;
+    public void nz(String str) {
+        this.dUK = str;
     }
 
-    public boolean aDC() {
-        return this.dUQ;
+    public boolean aDz() {
+        return this.dUL;
     }
 
     public void gK(boolean z) {
-        this.dUQ = z;
+        this.dUL = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dUN;
+        return dUI;
     }
 }

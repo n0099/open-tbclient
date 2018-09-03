@@ -17,14 +17,14 @@ public class y {
         return audioManager.abandonAudioFocus(null) == 1;
     }
 
-    public static boolean ft(int i) {
+    public static boolean fs(int i) {
         boolean z = true;
         switch (i) {
             case 3:
             case 4:
                 return com.baidu.adp.lib.util.j.jF();
             case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.p.t.KX() && com.baidu.adp.lib.util.j.jF() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
+                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.p.t.Lb() && com.baidu.adp.lib.util.j.jF() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
             default:
                 if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
                     return (com.baidu.adp.lib.util.j.jG() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.jF() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
@@ -37,12 +37,12 @@ public class y {
     }
 
     public static boolean q(int i, String str) {
-        return ft(i);
+        return fs(i);
     }
 
-    public static boolean LE() {
+    public static boolean LI() {
         if (!com.baidu.adp.lib.util.j.jF() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
-            return com.baidu.adp.lib.util.j.jG() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2;
+            return com.baidu.adp.lib.util.j.jG() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }
         return true;
     }

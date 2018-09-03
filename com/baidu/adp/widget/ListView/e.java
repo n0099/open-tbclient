@@ -322,7 +322,7 @@ public class e extends BaseAdapter implements i {
         if (i < headersCount) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return nx();
+                return nv();
             }
             return view4;
         }
@@ -343,7 +343,7 @@ public class e extends BaseAdapter implements i {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return nx();
+                return nv();
             }
             return view3;
         }
@@ -354,12 +354,12 @@ public class e extends BaseAdapter implements i {
             view2 = null;
         }
         if (view2 == null) {
-            return nx();
+            return nv();
         }
         return view2;
     }
 
-    private View nx() {
+    private View nv() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(this.mContext, 15.0f);

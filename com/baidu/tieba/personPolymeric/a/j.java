@@ -28,10 +28,10 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.h> aVar) {
-        com.baidu.tieba.personPolymeric.view.h ajz = aVar.ajz();
-        ajz.a(jVar);
-        ajz.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        ajz.b(this.fYT);
+        com.baidu.tieba.personPolymeric.view.h ajC = aVar.ajC();
+        ajC.a(jVar);
+        ajC.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        ajC.b(this.fYT);
         return aVar.getView();
     }
 

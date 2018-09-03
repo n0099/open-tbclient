@@ -32,11 +32,11 @@ public class n {
         Wy = aVar;
     }
 
-    public static com.baidu.location.b.a qA() {
+    public static com.baidu.location.b.a qx() {
         return Wy;
     }
 
-    public static Location qB() {
+    public static Location qy() {
         return Wg;
     }
 }

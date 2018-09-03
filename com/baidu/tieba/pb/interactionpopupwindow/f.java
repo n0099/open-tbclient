@@ -4,9 +4,9 @@ import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.g;
 /* loaded from: classes.dex */
 public interface f<V extends g, D extends IBaseDialogData> {
-    boolean YO();
+    boolean YR();
 
-    boolean YP();
+    boolean YS();
 
     void dismiss();
 
@@ -14,5 +14,5 @@ public interface f<V extends g, D extends IBaseDialogData> {
 
     void show();
 
-    int xe();
+    int xd();
 }
