@@ -14,9 +14,10 @@ import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.data.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.view.g;
 /* loaded from: classes3.dex */
 public class a implements g {
@@ -33,21 +34,21 @@ public class a implements g {
     public void a(View view, com.baidu.tieba.g.a aVar) {
         if (aVar != null) {
             UserData userData = null;
-            if (aVar.cVh != null && (userData = (UserData) aVar.cVh.getSerializable(UserData.TYPE_USER)) != null) {
+            if (aVar.cVd != null && (userData = (UserData) aVar.cVd.getSerializable(UserData.TYPE_USER)) != null) {
                 this.gbm = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
                 this.isHost = this.gbm == 1;
             }
-            switch (aVar.cVg) {
+            switch (aVar.cVc) {
                 case 2:
-                    if (ba.aV(this.mPageContext.getPageActivity())) {
-                        ay.zK().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                    if (bb.aU(this.mPageContext.getPageActivity())) {
+                        az.zI().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                         return;
                     }
                     return;
                 case 3:
                     if (userData != null) {
-                        com.baidu.tbadk.browser.a.a(this.mPageContext.getPageActivity(), this.mPageContext.getString(d.j.user_icon_web_view_title), com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId(), true, true, true);
+                        com.baidu.tbadk.browser.a.a(this.mPageContext.getPageActivity(), this.mPageContext.getString(f.j.user_icon_web_view_title), d.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId(), true, true, true);
                         return;
                     }
                     return;
@@ -63,7 +64,7 @@ public class a implements g {
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.o.a.box().c(2, false, this.isHost);
+                    com.baidu.tieba.o.a.boy().c(2, false, this.isHost);
                     if (userData != null) {
                         TiebaStatic.log(new an("c11597").r("obj_locate", 3).r("obj_type", this.gbm).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));

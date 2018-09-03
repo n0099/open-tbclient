@@ -21,13 +21,13 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
         return dVar;
     }
 
-    public ICardInfo ol() {
+    public ICardInfo oi() {
         return this.OW;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ol() != null ? b.OP : b.OO;
+        return oi() != null ? b.OP : b.OO;
     }
 
     public BdUniqueId getTag() {
@@ -36,15 +36,15 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     @Override // com.baidu.tieba.lego.card.view.h
     public void setAutoPlay(boolean z) {
-        if (ol() instanceof com.baidu.tieba.lego.card.view.h) {
-            ((com.baidu.tieba.lego.card.view.h) ol()).setAutoPlay(z);
+        if (oi() instanceof com.baidu.tieba.lego.card.view.h) {
+            ((com.baidu.tieba.lego.card.view.h) oi()).setAutoPlay(z);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.h
     public void setWaitConfirm(boolean z) {
-        if (ol() instanceof com.baidu.tieba.lego.card.view.h) {
-            ((com.baidu.tieba.lego.card.view.h) ol()).setWaitConfirm(z);
+        if (oi() instanceof com.baidu.tieba.lego.card.view.h) {
+            ((com.baidu.tieba.lego.card.view.h) oi()).setWaitConfirm(z);
         }
     }
 
@@ -57,35 +57,35 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
         this.OZ = true;
     }
 
-    public AdvertAppInfo om() {
+    public AdvertAppInfo oj() {
         if (this.Pa == null) {
             this.Pa = new AdvertAppInfo();
             if (this.OX != null) {
-                Map<String, String> ok = this.OX.ok();
-                this.Pa.adPosition = String.valueOf(this.OX.oj());
-                this.Pa.tid = ok != null ? ok.get("thread_id") : "";
-                this.Pa.setFid(ok != null ? Long.valueOf(ok.get("forum_id")).longValue() : 0L);
+                Map<String, String> oh = this.OX.oh();
+                this.Pa.adPosition = String.valueOf(this.OX.og());
+                this.Pa.tid = oh != null ? oh.get("thread_id") : "";
+                this.Pa.setFid(oh != null ? Long.valueOf(oh.get("forum_id")).longValue() : 0L);
             }
             this.Pa.extensionInfo = this.adModel != null ? this.adModel.ext : "";
-            this.Pa.adi = "VIDEO_LIST";
+            this.Pa.page = "VIDEO_LIST";
         }
         return this.Pa;
     }
 
     public int getPageNum() {
         if (this.OX != null) {
-            return this.OX.oi();
+            return this.OX.of();
         }
         return 0;
     }
 
-    public e on() {
+    public e ok() {
         return this.adModel;
     }
 
-    public void oo() {
+    public void ol() {
         if (!this.OZ) {
-            com.baidu.tieba.recapp.report.c.boi().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+            com.baidu.tieba.recapp.report.c.boj().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
         com.baidu.tbadk.core.data.b.a(this);

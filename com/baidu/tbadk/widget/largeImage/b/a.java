@@ -22,7 +22,7 @@ public class a {
         return newInstance;
     }
 
-    public int[] MU() {
+    public int[] MY() {
         return this.bcj;
     }
 }

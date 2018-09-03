@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public interface i {
-    void op();
+    void om();
 
     /* loaded from: classes.dex */
     public static class a implements i {
@@ -20,7 +20,7 @@ public interface i {
                     e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
                     a.this.Pe.a(eVar);
                     if (eVar.Pb && eVar.Pd != null) {
-                        com.baidu.tieba.recapp.report.c.boi().a(com.baidu.tieba.recapp.report.f.a(a.this.Pe, eVar.Pd));
+                        com.baidu.tieba.recapp.report.c.boj().a(com.baidu.tieba.recapp.report.f.a(a.this.Pe, eVar.Pd));
                     }
                 }
             }
@@ -34,7 +34,7 @@ public interface i {
         }
 
         @Override // com.baidu.afd.i
-        public void op() {
+        public void om() {
             if (!this.Pf) {
                 this.Pf = true;
                 AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.Pe.OX);

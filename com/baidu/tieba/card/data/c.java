@@ -14,64 +14,64 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class c extends b implements af {
+    private String cBH;
+    private int cBI;
+    private String cBJ;
     private String cBK;
-    private int cBL;
-    private String cBM;
     private String cBN;
-    private String cBQ;
-    public int cBS;
+    public int cBP;
     private String mSource;
     public String tid;
-    public int cBO = 1;
-    public int cBP = 0;
+    public int cBL = 1;
+    public int cBM = 0;
     public SparseArray<String> agt = null;
-    private Integer cBR = 0;
+    private Integer cBO = 0;
 
     public void setWeight(String str) {
-        this.cBK = str;
+        this.cBH = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void iX(int i) {
-        this.cBL = i;
+    public void iW(int i) {
+        this.cBI = i;
     }
 
-    public void kZ(String str) {
-        this.cBM = str;
+    public void lb(String str) {
+        this.cBJ = str;
     }
 
-    public int aji() {
-        return this.cBL;
+    public int ajl() {
+        return this.cBI;
     }
 
-    public String ajj() {
-        return this.mSource + "#" + this.cBL + "#" + this.cBM;
+    public String ajm() {
+        return this.mSource + "#" + this.cBI + "#" + this.cBJ;
     }
 
     public String getWeight() {
-        return this.cBK;
+        return this.cBH;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String ajk() {
-        return this.cBM;
+    public String ajn() {
+        return this.cBJ;
     }
 
-    public String ajl() {
-        return this.cBN;
+    public String ajo() {
+        return this.cBK;
     }
 
-    public void la(String str) {
-        this.cBN = str;
+    public void lc(String str) {
+        this.cBK = str;
     }
 
-    public bb Td() {
+    public bb Tg() {
         return null;
     }
 
@@ -79,76 +79,76 @@ public abstract class c extends b implements af {
         return true;
     }
 
-    public void lb(String str) {
-        this.cBQ = str;
+    public void ld(String str) {
+        this.cBN = str;
     }
 
     public String getExtra() {
-        return this.cBQ;
+        return this.cBN;
     }
 
-    public Integer ajm() {
-        return this.cBR;
+    public Integer ajp() {
+        return this.cBO;
     }
 
     public void c(Integer num) {
-        this.cBR = num;
+        this.cBO = num;
     }
 
-    public an lc(String str) {
+    public an le(String str) {
         return o(str, false);
     }
 
     public an o(String str, boolean z) {
-        bb Td = Td();
-        if (Td == null) {
+        bb Tg = Tg();
+        if (Tg == null) {
             return null;
         }
-        an af = new an(str).af(ImageViewerConfig.FORUM_ID, String.valueOf(Td.getFid())).af("tid", String.valueOf(Td.getTid())).af(VideoPlayActivityConfig.OBJ_ID, getExtra()).af("obj_param1", getWeight()).r("obj_param2", 1).af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", aji()).af("uid", TbadkCoreApplication.getCurrentAccount()).af("obj_param3", com.baidu.tieba.card.o.aiP());
+        an ae = new an(str).ae(ImageViewerConfig.FORUM_ID, String.valueOf(Tg.getFid())).ae("tid", String.valueOf(Tg.getTid())).ae(VideoPlayActivityConfig.OBJ_ID, getExtra()).ae("obj_param1", getWeight()).r("obj_param2", 1).ae(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", ajl()).ae("uid", TbadkCoreApplication.getCurrentAccount()).ae("obj_param3", com.baidu.tieba.card.o.aiS());
         if (!z) {
-            af.r("obj_type", ajn());
+            ae.r("obj_type", ajq());
         } else {
-            if (Td.ajF > 0) {
-                af.r("midpageflag", 1);
+            if (Tg.ajF > 0) {
+                ae.r("midpageflag", 1);
             } else {
-                af.r("midpageflag", 0);
+                ae.r("midpageflag", 0);
             }
-            af.af("ab_tag", ajk());
-            af.r("is_vertical", ajm().intValue());
+            ae.ae("ab_tag", ajn());
+            ae.r("is_vertical", ajp().intValue());
         }
-        if (Td.wx() != null && Td.wx().bwh() != null && Td.wx().bwh().Nx() != null && Td.wx().bwh().Nx().size() > 0) {
-            af.r("obj_to", Td.wx().gOz ? 2 : 1);
+        if (Tg.ww() != null && Tg.ww().bwi() != null && Tg.ww().bwi().Nw() != null && Tg.ww().bwi().Nw().size() > 0) {
+            ae.r("obj_to", Tg.ww().gOB ? 2 : 1);
         }
-        return af;
+        return ae;
     }
 
     public an Q(String str, int i) {
-        bb Td = Td();
-        if (Td == null) {
+        bb Tg = Tg();
+        if (Tg == null) {
             return null;
         }
-        an af = new an(str).af(ImageViewerConfig.FORUM_ID, String.valueOf(Td.getFid())).af("tid", String.valueOf(Td.getTid())).r(VideoPlayActivityConfig.OBJ_ID, Q(Td)).r("obj_param2", 1).af("obj_param1", getWeight()).af(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", aji()).af("obj_name", ajk()).af("uid", TbadkCoreApplication.getCurrentAccount()).af("obj_param3", com.baidu.tieba.card.o.aiP());
+        an ae = new an(str).ae(ImageViewerConfig.FORUM_ID, String.valueOf(Tg.getFid())).ae("tid", String.valueOf(Tg.getTid())).r(VideoPlayActivityConfig.OBJ_ID, Q(Tg)).r("obj_param2", 1).ae("obj_param1", getWeight()).ae(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).r("obj_locate", ajl()).ae("obj_name", ajn()).ae("uid", TbadkCoreApplication.getCurrentAccount()).ae("obj_param3", com.baidu.tieba.card.o.aiS());
         if (i == 0) {
-            af.r("obj_type", ajn());
+            ae.r("obj_type", ajq());
         } else {
-            af.r("obj_type", i);
+            ae.r("obj_type", i);
         }
-        af.af(VideoPlayActivityConfig.OBJ_ID, getExtra());
-        return af;
+        ae.ae(VideoPlayActivityConfig.OBJ_ID, getExtra());
+        return ae;
     }
 
-    private int ajn() {
+    private int ajq() {
         int i;
         int i2 = 0;
-        bb Td = Td();
-        if (Td == null) {
+        bb Tg = Tg();
+        if (Tg == null) {
             return 0;
         }
-        ArrayList<MediaData> vv = Td.vv();
-        if (vv == null) {
+        ArrayList<MediaData> vu = Tg.vu();
+        if (vu == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = vv.iterator();
+            Iterator<MediaData> it = vu.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -166,25 +166,25 @@ public abstract class c extends b implements af {
 
     @Override // com.baidu.tbadk.core.util.af
     public ArrayList<PreLoadImageInfo> getImages() {
-        bb Td = Td();
-        if (Td != null) {
-            return Td.getImages();
+        bb Tg = Tg();
+        if (Tg != null) {
+            return Tg.getImages();
         }
         return null;
     }
 
     private int Q(bb bbVar) {
-        if (bbVar.wl() == null || bbVar.wl().channelId <= 0) {
+        if (bbVar.wk() == null || bbVar.wk().channelId <= 0) {
             return 0;
         }
-        return (int) bbVar.wl().channelId;
+        return (int) bbVar.wk().channelId;
     }
 
-    public void iY(int i) {
-        this.cBS = i;
+    public void iX(int i) {
+        this.cBP = i;
     }
 
-    public boolean ajo() {
-        return this.cBS == 1;
+    public boolean ajr() {
+        return this.cBP == 1;
     }
 }

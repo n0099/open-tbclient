@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.messageCenter.a;
 import com.baidu.tbadk.coreExtra.messageCenter.c;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -27,9 +27,9 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(d.j.sign_notification_content);
-                String string2 = context.getString(d.j.app_name);
-                a.Dl().a(a.Dl().ea(12), 12);
+                String string = context.getString(f.j.sign_notification_content);
+                String string2 = context.getString(f.j.app_name);
+                a.Dl().a(a.Dl().dZ(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
             } catch (Throwable th) {
                 try {

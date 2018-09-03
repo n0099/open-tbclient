@@ -14,7 +14,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     public m() {
         this.width = 0;
         this.height = 0;
-        Ag();
+        Ae();
     }
 
     public m(int i, int i2) {
@@ -25,10 +25,10 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             this.height = i2;
             return;
         }
-        Ag();
+        Ae();
     }
 
-    private void Ag() {
+    private void Ae() {
         this.width = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.aj(TbadkCoreApplication.getInst());
     }

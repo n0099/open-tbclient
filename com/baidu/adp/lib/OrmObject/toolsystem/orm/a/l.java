@@ -8,19 +8,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l implements h {
-    private Map<String, Object> wB;
+    private Map<String, Object> wC;
 
     public l(Map<String, Object> map) {
-        this.wB = map;
+        this.wC = map;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Type[] gE = cVar.gE();
-        Set<String> keySet = this.wB.keySet();
+        Set<String> keySet = this.wC.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.wB.get(str);
+            Object obj = this.wC.get(str);
             if (gE != null && gE.length >= 2) {
                 try {
                     jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.n(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(gE[1])));
@@ -54,7 +54,7 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wB;
+        return this.wC;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -74,6 +74,6 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wB;
+        return this.wC;
     }
 }

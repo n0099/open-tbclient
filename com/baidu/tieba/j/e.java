@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void aVC();
+    void aVA();
 
-    void aVD();
+    void aVy();
 
-    void aVE();
+    void aVz();
 }

@@ -40,7 +40,7 @@ import com.baidu.tbadk.k.f;
 import com.baidu.tbadk.k.g;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.compatible.menukey.MenuKeyUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -93,7 +93,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     protected void onCreate(Bundle bundle) {
         this.mSwipeBackLayout = new SwipeBackLayout(getActivity());
-        this.mSwipeBackLayout.q(getActivity());
+        this.mSwipeBackLayout.p(getActivity());
         this.mSwipeBackLayout.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if (!TbadkCoreApplication.IS_SUPPORT_SWIPEBACK) {
             this.mSwipeBackLayout.setSwipeBackEnabled(false);
@@ -103,7 +103,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.ye();
+        this.customToast = e.yd();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -240,7 +240,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     protected void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.Ai();
+            this.mGuidPage.Ag();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -278,7 +278,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     public void showProgressBar(boolean z, int i, int i2) {
         if (this.mProgressBar == null) {
             this.mProgressBar = new ProgressBar(getActivity());
-            this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(d.f.progressbar));
+            this.mProgressBar.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(f.C0146f.progressbar));
             FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
             frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
         }
@@ -327,8 +327,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (!isFinishing() && com.baidu.adp.lib.g.g.n(getActivity())) {
-            String string = str != null ? str : TbadkCoreApplication.getInst().getResources().getString(d.j.Waiting);
+        if (!isFinishing() && com.baidu.adp.lib.g.g.m(getActivity())) {
+            String string = str != null ? str : TbadkCoreApplication.getInst().getResources().getString(f.j.Waiting);
             if (onCancelListener != null) {
                 this.mWaitingDialog = ProgressDialog.show(getActivity(), "", string, true, true, onCancelListener);
             } else {
@@ -355,19 +355,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).xn();
+        BdToast.b(getActivity(), str, i).xm();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).xn();
+        BdToast.a(getActivity(), str, i, i2).xm();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).xn();
+        BdToast.a(getActivity(), str, defaultIcon).xm();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).xn();
+        BdToast.a(getActivity(), str, defaultIcon, i).xm();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -438,7 +438,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
 
     protected AlertDialog newListMenu(String[] strArr, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(d.j.operation));
+        builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(f.j.operation));
         builder.setItems(strArr, onClickListener);
         this.mListMenu = builder.create();
         this.mListMenu.setCanceledOnTouchOutside(true);
@@ -768,9 +768,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity {
         this.loadingRootView = view;
         if (this.loadingView == null) {
             if (i < 0) {
-                this.loadingView = new f(getPageContext().getContext());
+                this.loadingView = new com.baidu.tbadk.k.f(getPageContext().getContext());
             } else {
-                this.loadingView = new f(getPageContext().getContext(), i);
+                this.loadingView = new com.baidu.tbadk.k.f(getPageContext().getContext(), i);
             }
         }
         this.loadingView.c(view, z);

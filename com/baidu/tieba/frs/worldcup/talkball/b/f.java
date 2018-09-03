@@ -8,27 +8,27 @@ import tbclient.TalkBall.InsertFloor;
 import tbclient.TalkBall.VideoCard;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dLZ = BdUniqueId.gen();
-    private Integer dMa;
-    private List<g> dMb;
+    public static final BdUniqueId dLV = BdUniqueId.gen();
+    private Integer dLW;
+    private List<g> dLX;
     private String mTopicName;
 
     public void a(InsertFloor insertFloor) {
         if (insertFloor != null) {
-            this.dMa = insertFloor.topic_id;
+            this.dLW = insertFloor.topic_id;
             this.mTopicName = insertFloor.topic_name;
-            this.dMb = new ArrayList();
+            this.dLX = new ArrayList();
             List<VideoCard> list = insertFloor.wander_list;
             if (list != null) {
                 for (VideoCard videoCard : list) {
                     if (a(videoCard)) {
                         g gVar = new g();
                         gVar.b(videoCard);
-                        this.dMb.add(gVar);
+                        this.dLX.add(gVar);
                     }
                 }
             }
-            aBI();
+            aBF();
         }
     }
 
@@ -36,13 +36,13 @@ public class f extends com.baidu.tieba.card.data.b {
         return (videoCard == null || ap.isEmpty(videoCard.title) || ap.isEmpty(videoCard.thread_id)) ? false : true;
     }
 
-    private void aBI() {
-        if (this.dMb != null) {
-            if (this.dMb.size() < 3) {
-                this.dMb.clear();
-            } else if (this.dMb.size() > 5) {
-                for (int i = 5; i < this.dMb.size(); i++) {
-                    this.dMb.remove(i);
+    private void aBF() {
+        if (this.dLX != null) {
+            if (this.dLX.size() < 3) {
+                this.dLX.clear();
+            } else if (this.dLX.size() > 5) {
+                for (int i = 5; i < this.dLX.size(); i++) {
+                    this.dLX.remove(i);
                 }
             }
         }
@@ -50,18 +50,18 @@ public class f extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dLZ;
+        return dLV;
     }
 
-    public Integer aBJ() {
-        return this.dMa;
+    public Integer aBG() {
+        return this.dLW;
     }
 
     public String getTopicName() {
         return this.mTopicName;
     }
 
-    public List<g> aBK() {
-        return this.dMb;
+    public List<g> aBH() {
+        return this.dLX;
     }
 }

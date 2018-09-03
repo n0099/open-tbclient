@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0122a bgX;
-    private float bgY;
-    private long bgZ;
+    private InterfaceC0122a bgY;
+    private float bgZ;
     private long bha;
-    private boolean bhb;
+    private long bhb;
     private boolean bhc;
+    private boolean bhd;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -22,7 +22,7 @@ public class a {
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0122a {
-        void OA();
+        void Oy();
 
         void Oz();
 
@@ -47,41 +47,41 @@ public class a {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.bgY = motionEvent.getY();
-                this.bgZ = System.currentTimeMillis();
-                this.bhb = true;
+                this.bgZ = motionEvent.getY();
+                this.bha = System.currentTimeMillis();
+                this.bhc = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.bgZ < 100 && currentTimeMillis - this.bha < 500) {
-                    this.bhc = true;
+                if (currentTimeMillis - this.bha < 100 && currentTimeMillis - this.bhb < 500) {
+                    this.bhd = true;
                 } else {
-                    this.bhc = false;
+                    this.bhd = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.bgY - motionEvent.getY()) > 50.0f) {
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.bgZ - motionEvent.getY()) > 50.0f) {
+                    this.bhd = false;
                     this.bhc = false;
-                    this.bhb = false;
                 }
-                if (this.bhc) {
-                    if (this.bgX != null) {
-                        this.bgX.q(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.bhd) {
+                    if (this.bgY != null) {
+                        this.bgY.q(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.bgY - motionEvent.getY()) && this.bgX != null) {
-                    this.bgX.OA();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.bgZ - motionEvent.getY()) && this.bgY != null) {
+                    this.bgY.Oz();
                 }
-                if (!this.bhc && this.bhb && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.bgY - motionEvent.getY()) < 30.0f) {
+                if (!this.bhd && this.bhc && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.bgZ - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.bhc && a.this.bhb && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.bgY - motionEvent.getY()) < 30.0f && a.this.bgX != null) {
-                                a.this.bgX.Oz();
+                            if (!a.this.bhd && a.this.bhc && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.bgZ - motionEvent.getY()) < 30.0f && a.this.bgY != null) {
+                                a.this.bgY.Oy();
                             }
                         }
                     }, 300L);
                 }
-                this.bha = currentTimeMillis;
+                this.bhb = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void setEventListener(InterfaceC0122a interfaceC0122a) {
-        this.bgX = interfaceC0122a;
+        this.bgY = interfaceC0122a;
     }
 
     private void releaseVelocityTracker() {

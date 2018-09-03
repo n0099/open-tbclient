@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.data.MetaData;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
@@ -65,14 +65,14 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         C0161a c0161a;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(d.h.god_recommend_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(f.h.god_recommend_list_item, (ViewGroup) null);
             C0161a c0161a2 = new C0161a();
-            c0161a2.cmA = (ClickableHeaderImageView) view.findViewById(d.g.photo);
-            c0161a2.bSR = (TextView) view.findViewById(d.g.user_name);
-            c0161a2.dQE = (TextView) view.findViewById(d.g.god_info);
-            c0161a2.dQF = (TextView) view.findViewById(d.g.fans_and_thread_count);
-            c0161a2.dhu = (TextView) view.findViewById(d.g.attention_btn);
-            c0161a2.cli = view.findViewById(d.g.bottom_line);
+            c0161a2.cmx = (ClickableHeaderImageView) view.findViewById(f.g.photo);
+            c0161a2.bSQ = (TextView) view.findViewById(f.g.user_name);
+            c0161a2.dQz = (TextView) view.findViewById(f.g.god_info);
+            c0161a2.dQA = (TextView) view.findViewById(f.g.fans_and_thread_count);
+            c0161a2.dhs = (TextView) view.findViewById(f.g.attention_btn);
+            c0161a2.clf = view.findViewById(f.g.bottom_line);
             view.setTag(c0161a2);
             c0161a = c0161a2;
         } else {
@@ -82,34 +82,34 @@ public class a extends BaseAdapter {
         MetaData item = getItem(i);
         if (item != null) {
             String portrait = item.getPortrait();
-            d(c0161a.dhu, item.getGodUserData().getIsLike());
-            c0161a.cmA.setGodIconMargin(0);
-            c0161a.cmA.setClickable(false);
-            c0161a.cmA.startLoad(portrait, 28, false);
-            c0161a.cmA.setIsBigV(true);
-            c0161a.cmA.setShowV(true);
-            c0161a.bSR.setText(item.getName_show());
+            d(c0161a.dhs, item.getGodUserData().getIsLike());
+            c0161a.cmx.setGodIconMargin(0);
+            c0161a.cmx.setClickable(false);
+            c0161a.cmx.startLoad(portrait, 28, false);
+            c0161a.cmx.setIsBigV(true);
+            c0161a.cmx.setShowV(true);
+            c0161a.bSQ.setText(item.getName_show());
             switch (item.getGodUserData().getType()) {
                 case 1:
-                    c0161a.dQE.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
+                    c0161a.dQz.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
                     break;
                 case 2:
-                    c0161a.dQE.setText(UtilHelper.getFixedBarText(this.mContext.getString(d.j.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
+                    c0161a.dQz.setText(UtilHelper.getFixedBarText(this.mContext.getString(f.j.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
                     break;
                 default:
-                    c0161a.dQE.setVisibility(8);
+                    c0161a.dQz.setVisibility(8);
                     break;
             }
-            c0161a.dQF.setText(ap.H(item.getFansNum()) + this.mContext.getString(d.j.fans_default_name) + " " + ap.H(item.getLikeNum()) + this.mContext.getString(d.j.zan));
+            c0161a.dQA.setText(ap.H(item.getFansNum()) + this.mContext.getString(f.j.fans_default_name) + " " + ap.H(item.getLikeNum()) + this.mContext.getString(f.j.zan));
         }
         if (i == getCount() - 1) {
-            c0161a.cli.setVisibility(8);
+            c0161a.clf.setVisibility(8);
         } else {
-            c0161a.cli.setVisibility(0);
+            c0161a.clf.setVisibility(0);
         }
         if (this.mOnClickListener != null && item != null) {
-            c0161a.dhu.setTag(item);
-            c0161a.dhu.setOnClickListener(this.mOnClickListener);
+            c0161a.dhs.setTag(item);
+            c0161a.dhs.setOnClickListener(this.mOnClickListener);
         }
         return view;
     }
@@ -118,10 +118,10 @@ public class a extends BaseAdapter {
         if (c0161a != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (c0161a.mSkinType != skinType) {
-                am.h(c0161a.bSR, d.C0140d.cp_cont_h);
-                am.h(c0161a.dQE, d.C0140d.cp_cont_d);
-                am.h(c0161a.dQF, d.C0140d.cp_cont_d);
-                am.j(c0161a.cli, d.C0140d.cp_bg_line_b);
+                am.h(c0161a.bSQ, f.d.cp_cont_h);
+                am.h(c0161a.dQz, f.d.cp_cont_d);
+                am.h(c0161a.dQA, f.d.cp_cont_d);
+                am.j(c0161a.clf, f.d.cp_bg_line_b);
             }
             c0161a.mSkinType = skinType;
         }
@@ -130,31 +130,31 @@ public class a extends BaseAdapter {
     private void d(TextView textView, boolean z) {
         if (z) {
             textView.setClickable(false);
-            am.c(textView, d.C0140d.cp_cont_d, 1);
-            textView.setText(TbadkCoreApplication.getInst().getString(d.j.relate_forum_is_followed));
+            am.c(textView, f.d.cp_cont_d, 1);
+            textView.setText(TbadkCoreApplication.getInst().getString(f.j.relate_forum_is_followed));
             textView.setBackgroundDrawable(null);
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             textView.setPadding(0, 0, 0, 0);
             return;
         }
-        am.c(textView, d.C0140d.btn_forum_focus_color, 1);
-        textView.setText(TbadkCoreApplication.getInst().getString(d.j.attention));
-        am.i(textView, d.f.btn_transparent_focus_border_bg);
-        textView.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(d.f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.c(textView, f.d.btn_forum_focus_color, 1);
+        textView.setText(TbadkCoreApplication.getInst().getString(f.j.attention));
+        am.i(textView, f.C0146f.btn_transparent_focus_border_bg);
+        textView.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(f.C0146f.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
         textView.setClickable(true);
-        textView.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds10), 0);
+        textView.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds18), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds10), 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.godRecommends.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0161a {
-        public TextView bSR;
-        public View cli;
-        public ClickableHeaderImageView cmA;
-        public TextView dQE;
-        public TextView dQF;
-        public TextView dhu;
+        public TextView bSQ;
+        public View clf;
+        public ClickableHeaderImageView cmx;
+        public TextView dQA;
+        public TextView dQz;
+        public TextView dhs;
         public int mSkinType;
 
         private C0161a() {

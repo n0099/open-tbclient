@@ -38,7 +38,7 @@ public class a {
         this.bbA = new Canvas();
     }
 
-    public void Mu() {
+    public void My() {
         if (this.mBitmap != null && !this.mBitmap.isRecycled() && this.mBitmap.isMutable()) {
             this.bbA.setBitmap(this.mBitmap);
             this.bbA.drawColor(-1, PorterDuff.Mode.CLEAR);
@@ -57,11 +57,11 @@ public class a {
         return this.mBitmap;
     }
 
-    public Rect Mv() {
+    public Rect Mz() {
         return this.bbw;
     }
 
-    public Rect Mw() {
+    public Rect MA() {
         return this.bbx;
     }
 
@@ -79,11 +79,11 @@ public class a {
         this.bbv.bbB = i3;
     }
 
-    public C0120a Mx() {
+    public C0120a MB() {
         return this.bbv;
     }
 
-    public Rect My() {
+    public Rect MC() {
         int i = this.bbz * this.bbv.column * this.bbv.bbB;
         int i2 = this.bbz * this.bbv.row * this.bbv.bbB;
         this.bby.set(i, i2, (this.bbz * this.bbv.bbB) + i, (this.bbz * this.bbv.bbB) + i2);
@@ -113,7 +113,7 @@ public class a {
         public boolean equals(Object obj) {
             if (obj instanceof C0120a) {
                 C0120a c0120a = (C0120a) obj;
-                return this.row == c0120a.getRow() && this.column == c0120a.Iw() && this.bbB == c0120a.Mz();
+                return this.row == c0120a.getRow() && this.column == c0120a.Iw() && this.bbB == c0120a.MD();
             }
             return false;
         }
@@ -130,7 +130,7 @@ public class a {
             return this.column;
         }
 
-        public int Mz() {
+        public int MD() {
             return this.bbB;
         }
     }

@@ -176,7 +176,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         private a() {
         }
 
-        void od() {
+        void oa() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.OG = (int) (((((float) (uptimeMillis - this.Lb)) / 1000.0f) * this.Ld) + this.OG);
             if (this.OG >= this.OH) {
@@ -188,7 +188,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     aVar.a(IRefreshable.State.idle);
                 }
                 if (RefresherView.this.Oz == 0 && aVar != null) {
-                    aVar.oc();
+                    aVar.nZ();
                     RefresherView.this.mRefreshing = false;
                 }
             } else {
@@ -201,7 +201,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             RefresherView.this.invalidate();
         }
 
-        void oe() {
+        void ob() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.OG = (int) (((((float) (uptimeMillis - this.Lb)) / 1000.0f) * this.Ld) + this.OG);
             if (this.OG >= this.OH) {
@@ -311,9 +311,9 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 1000) {
-                RefresherView.this.OA.od();
+                RefresherView.this.OA.oa();
             } else if (message.what == 1001) {
-                RefresherView.this.OA.oe();
+                RefresherView.this.OA.ob();
             }
         }
     }
@@ -332,7 +332,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public void onPreExecute() {
             if (this.OJ != null) {
                 RefresherView.this.Oz = RefresherView.this.Oq;
-                this.OJ.oa();
+                this.OJ.nX();
             }
         }
 
@@ -342,7 +342,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public Void doInBackground(Void... voidArr) {
             RefresherView.this.mRefreshing = true;
             if (this.OJ != null) {
-                this.OJ.ob();
+                this.OJ.nY();
                 return null;
             }
             return null;
@@ -519,10 +519,10 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 1000:
-                    od();
+                    oa();
                     return;
                 case 1001:
-                    oe();
+                    ob();
                     return;
                 default:
                     return;
@@ -667,17 +667,17 @@ public class RefresherView extends ViewGroup implements IRefreshable {
         public void aI(int i) {
             switch (i) {
                 case 1000:
-                    og();
+                    od();
                     return;
                 case 1001:
-                    of();
+                    oc();
                     return;
                 default:
                     return;
             }
         }
 
-        private void of() {
+        private void oc() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Lb = uptimeMillis;
             this.Lc = uptimeMillis + 16;
@@ -689,7 +689,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             sendEmptyMessageAtTime(1001, this.Lc);
         }
 
-        private void og() {
+        private void od() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Lb = uptimeMillis;
             this.Lc = uptimeMillis + 16;
@@ -701,7 +701,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             sendEmptyMessageAtTime(1000, this.Lc);
         }
 
-        private void oe() {
+        private void ob() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Le = ((((float) (uptimeMillis - this.Lb)) / 1000.0f) * this.Ld) + this.Le;
             if (this.Le >= this.OM) {
@@ -723,7 +723,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
             RefresherView.this.invalidate();
         }
 
-        private void od() {
+        private void oa() {
             long uptimeMillis = SystemClock.uptimeMillis();
             this.Le = ((((float) (uptimeMillis - this.Lb)) / 1000.0f) * this.Ld) + this.Le;
             if (this.Le >= this.OM) {
@@ -735,7 +735,7 @@ public class RefresherView extends ViewGroup implements IRefreshable {
                     aVar.a(IRefreshable.State.idle);
                 }
                 if (RefresherView.this.Oz == 0 && aVar != null) {
-                    aVar.oc();
+                    aVar.nZ();
                     RefresherView.this.mRefreshing = false;
                 }
             } else {

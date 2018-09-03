@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String Bk() {
+    public static String Bh() {
         return q.kf();
     }
 

@@ -27,6 +27,6 @@ public class q extends Thread {
         if (this.type != null) {
             yVar.o("img_type", this.type);
         }
-        yVar.yq();
+        yVar.yo();
     }
 }

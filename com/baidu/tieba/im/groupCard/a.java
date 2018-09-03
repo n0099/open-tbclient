@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.c.e;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class a extends c<GroupCardActivity> {
     private ImageView baU;
-    private GroupCardActivity evi;
-    private LinearLayout evn;
-    private LinearLayout evo;
-    private LinearLayout evp;
-    private View evq;
+    private GroupCardActivity eve;
+    private LinearLayout evj;
+    private LinearLayout evk;
+    private LinearLayout evl;
+    private View evm;
     private NavigationBar mNavigationBar;
     private View mParent;
     private ProgressBar progressBar;
@@ -26,36 +26,36 @@ public class a extends c<GroupCardActivity> {
     public a(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity.getPageContext());
         this.mParent = null;
-        this.evn = null;
-        this.evo = null;
-        this.evp = null;
-        this.evq = null;
+        this.evj = null;
+        this.evk = null;
+        this.evl = null;
+        this.evm = null;
         this.progressBar = null;
         this.mNavigationBar = null;
         this.baU = null;
-        this.evi = groupCardActivity;
+        this.eve = groupCardActivity;
         initUI();
     }
 
     private void initUI() {
-        this.evi.setContentView(d.h.group_card_activity);
-        this.mParent = this.evi.findViewById(d.g.parent);
-        this.evn = (LinearLayout) this.evi.findViewById(d.g.groud_card_save);
-        this.evn.setOnClickListener(this.evi);
-        this.evo = (LinearLayout) this.evi.findViewById(d.g.group_card_share);
-        if (e.aY(this.evi.getPageContext().getContext())) {
-            this.evo.setOnClickListener(this.evi);
+        this.eve.setContentView(f.h.group_card_activity);
+        this.mParent = this.eve.findViewById(f.g.parent);
+        this.evj = (LinearLayout) this.eve.findViewById(f.g.groud_card_save);
+        this.evj.setOnClickListener(this.eve);
+        this.evk = (LinearLayout) this.eve.findViewById(f.g.group_card_share);
+        if (e.aX(this.eve.getPageContext().getContext())) {
+            this.evk.setOnClickListener(this.eve);
         } else {
-            this.evo.setVisibility(8);
+            this.evk.setVisibility(8);
         }
-        this.evp = (LinearLayout) this.evi.findViewById(d.g.group_card_setting);
-        this.progressBar = (ProgressBar) this.evi.findViewById(d.g.progress);
-        this.baU = (ImageView) this.evi.findViewById(d.g.group_card_inner_image);
-        this.mNavigationBar = (NavigationBar) this.evi.findViewById(d.g.group_card_topbar);
+        this.evl = (LinearLayout) this.eve.findViewById(f.g.group_card_setting);
+        this.progressBar = (ProgressBar) this.eve.findViewById(f.g.progress);
+        this.baU = (ImageView) this.eve.findViewById(f.g.group_card_inner_image);
+        this.mNavigationBar = (NavigationBar) this.eve.findViewById(f.g.group_card_topbar);
         this.mNavigationBar.setSystemClickable(false);
-        this.mNavigationBar.setTitleText(this.evi.getResources().getString(d.j.group_card_name));
-        this.evq = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.evq.setOnClickListener(this.evi);
+        this.mNavigationBar.setTitleText(this.eve.getResources().getString(f.j.group_card_name));
+        this.evm = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.evm.setOnClickListener(this.eve);
     }
 
     public void g(com.baidu.adp.widget.ImageView.a aVar) {
@@ -66,12 +66,12 @@ public class a extends c<GroupCardActivity> {
 
     public void V(int i, String str) {
         if (str != null) {
-            l.showToast(this.evi.getPageContext().getContext(), str);
+            l.showToast(this.eve.getPageContext().getContext(), str);
             return;
         }
         String errMsg = TbErrInfo.getErrMsg(i);
         if (errMsg != null && errMsg.length() > 0) {
-            l.showToast(this.evi.getPageContext().getContext(), errMsg);
+            l.showToast(this.eve.getPageContext().getContext(), errMsg);
         }
     }
 
@@ -79,38 +79,38 @@ public class a extends c<GroupCardActivity> {
         this.progressBar.setVisibility(0);
     }
 
-    public void aAh() {
+    public void aAe() {
         this.progressBar.setVisibility(8);
     }
 
-    public void aLi() {
+    public void aLf() {
         this.baU.setVisibility(0);
     }
 
+    public View aLg() {
+        return this.evj;
+    }
+
+    public View aLh() {
+        return this.evk;
+    }
+
+    public View aLi() {
+        return this.evm;
+    }
+
     public View aLj() {
-        return this.evn;
-    }
-
-    public View aLk() {
-        return this.evo;
-    }
-
-    public View aLl() {
-        return this.evq;
-    }
-
-    public View aLm() {
         return this.mNavigationBar;
     }
 
-    public LinearLayout aLn() {
-        return this.evp;
+    public LinearLayout aLk() {
+        return this.evl;
     }
 
     public void onChangeSkinType(int i) {
-        this.evi.getLayoutMode().setNightMode(i == 1);
-        this.evi.getLayoutMode().onModeChanged(this.mParent);
+        this.eve.getLayoutMode().setNightMode(i == 1);
+        this.eve.getLayoutMode().onModeChanged(this.mParent);
         am.e(this.mParent, i);
-        this.mNavigationBar.onChangeSkinType(this.evi.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.eve.getPageContext(), i);
     }
 }

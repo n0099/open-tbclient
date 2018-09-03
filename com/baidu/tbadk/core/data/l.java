@@ -27,7 +27,7 @@ public class l {
         return this.text;
     }
 
-    public String tI() {
+    public String tH() {
         return this.headline_cover;
     }
 
@@ -35,7 +35,7 @@ public class l {
         return this.url;
     }
 
-    public String tJ() {
+    public String tI() {
         return this.obj_id;
     }
 }

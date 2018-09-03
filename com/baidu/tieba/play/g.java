@@ -54,9 +54,9 @@ public interface g {
         void onSubError(int i, int i2, String str);
     }
 
-    void Lt();
+    void Lx();
 
-    int PI();
+    int PO();
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i2);
 

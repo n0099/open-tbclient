@@ -5,9 +5,9 @@ import com.baidu.adp.BdUniqueId;
 public class b extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId gaR = BdUniqueId.gen();
     public String avatar;
-    public String cCI;
-    public String cCJ;
-    public boolean cCP;
+    public String cCF;
+    public String cCG;
+    public boolean cCM;
     public long forumId;
     public String gaS;
     public int gaT;

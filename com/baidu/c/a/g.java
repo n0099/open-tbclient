@@ -378,7 +378,7 @@ public class g {
         return hashMap2;
     }
 
-    private HttpsURLConnection qk() {
+    private HttpsURLConnection qh() {
         try {
             URL url = new URL(this.b);
             b.a("https URL: " + this.b);
@@ -417,12 +417,12 @@ public class g {
     public String a(HashMap<String, String> hashMap) {
         this.c = k(hashMap);
         this.b = this.c.get("url");
-        HttpsURLConnection qk = qk();
-        if (qk == null) {
+        HttpsURLConnection qh = qh();
+        if (qh == null) {
             b.c("syncConnect failed,httpsURLConnection is null");
             return this.d;
         }
-        a(qk);
+        a(qh);
         return this.d;
     }
 

@@ -16,7 +16,7 @@ public abstract class j extends b {
     public interface a {
         Path a(RectF rectF);
 
-        void f(Canvas canvas);
+        void e(Canvas canvas);
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
@@ -43,7 +43,7 @@ public abstract class j extends b {
         if (this.Gk) {
             canvas.drawPath(this.Gh, this.Gi);
             if (this.Gj != null) {
-                this.Gj.f(canvas);
+                this.Gj.e(canvas);
             }
         }
     }

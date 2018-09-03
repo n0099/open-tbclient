@@ -14,12 +14,12 @@ import android.view.Display;
 import android.view.WindowManager;
 /* loaded from: classes3.dex */
 public class a {
-    public static final int cb(Context context) {
-        Point cc = cc(context);
-        return cc.x > cc.y ? 1 : 0;
+    public static final int ca(Context context) {
+        Point cb = cb(context);
+        return cb.x > cb.y ? 1 : 0;
     }
 
-    public static Point cc(Context context) {
+    public static Point cb(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 13) {
@@ -38,7 +38,7 @@ public class a {
         return (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics());
     }
 
-    public static Bitmap c(Bitmap bitmap, int i) {
+    public static Bitmap adjustPhotoRotation(Bitmap bitmap, int i) {
         float height;
         float width;
         if (bitmap == null) {
@@ -61,7 +61,7 @@ public class a {
         return createBitmap;
     }
 
-    public static Bitmap d(Bitmap bitmap, int i) {
+    public static Bitmap c(Bitmap bitmap, int i) {
         if (bitmap == null) {
             return null;
         }

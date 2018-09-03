@@ -5,7 +5,7 @@ import com.baidu.adp.base.BdBaseApplication;
 public class b {
     private static b aWh;
 
-    public static b Ld() {
+    public static b Lh() {
         if (aWh == null) {
             aWh = new b();
         }

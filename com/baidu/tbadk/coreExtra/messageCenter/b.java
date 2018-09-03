@@ -24,18 +24,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b aDP;
+    private static volatile b aDO;
     private final LinkedList<ImMessageCenterPojo> mList = new LinkedList<>();
     private int ajx = 0;
-    private int aDQ = 0;
+    private int aDP = 0;
     private int mReplyNum = 0;
-    private int aDR = 0;
-    private boolean aDS = false;
-    private int aDT = 0;
-    private boolean aDU = false;
-    private int aDV = 0;
-    private boolean aDW = false;
-    private final CustomMessageListener aDX = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.b.1
+    private int aDQ = 0;
+    private boolean aDR = false;
+    private int aDS = 0;
+    private boolean aDT = false;
+    private int aDU = 0;
+    private boolean aDV = false;
+    private final CustomMessageListener aDW = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -63,39 +63,39 @@ public class b {
     }
 
     public static b DO() {
-        if (aDP == null) {
+        if (aDO == null) {
             synchronized (b.class) {
-                if (aDP == null) {
-                    aDP = new b();
+                if (aDO == null) {
+                    aDO = new b();
                 }
             }
         }
-        return aDP;
+        return aDO;
     }
 
     public void init() {
         reset();
         MessageManager.getInstance().registerStickyMode(2921002);
-        MessageManager.getInstance().registerListener(2001120, this.aDX);
-        MessageManager.getInstance().registerListener(2016002, this.aDX);
-        MessageManager.getInstance().registerListener(2016004, this.aDX);
-        MessageManager.getInstance().registerListener(2016001, this.aDX);
-        MessageManager.getInstance().registerListener(2016007, this.aDX);
-        MessageManager.getInstance().registerListener(2016011, this.aDX);
-        MessageManager.getInstance().registerListener(2016010, this.aDX);
+        MessageManager.getInstance().registerListener(2001120, this.aDW);
+        MessageManager.getInstance().registerListener(2016002, this.aDW);
+        MessageManager.getInstance().registerListener(2016004, this.aDW);
+        MessageManager.getInstance().registerListener(2016001, this.aDW);
+        MessageManager.getInstance().registerListener(2016007, this.aDW);
+        MessageManager.getInstance().registerListener(2016011, this.aDW);
+        MessageManager.getInstance().registerListener(2016010, this.aDW);
     }
 
     private void reset() {
         this.mList.clear();
         this.ajx = 0;
-        this.aDQ = 0;
+        this.aDP = 0;
         this.mReplyNum = 0;
-        this.aDR = 0;
-        this.aDS = false;
-        this.aDT = 0;
-        this.aDU = false;
-        this.aDT = 0;
-        this.aDU = false;
+        this.aDQ = 0;
+        this.aDR = false;
+        this.aDS = 0;
+        this.aDT = false;
+        this.aDS = 0;
+        this.aDT = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -113,7 +113,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void DP() {
-        m(this.ajx, this.aDQ, this.mReplyNum);
+        m(this.ajx, this.aDP, this.mReplyNum);
         B(this.mList);
         C(this.mList);
         DR();
@@ -121,7 +121,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void DQ() {
-        m(this.ajx, this.aDQ, this.mReplyNum);
+        m(this.ajx, this.aDP, this.mReplyNum);
         B(this.mList);
         C(this.mList);
         DR();
@@ -202,10 +202,10 @@ public class b {
             i4 += i3;
         }
         int i5 = c.DS().DV() == 0 ? 0 : i4;
-        this.aDS = i5 <= 0 ? false : z;
-        this.aDR = i5;
+        this.aDR = i5 <= 0 ? false : z;
+        this.aDQ = i5;
         this.ajx = i;
-        this.aDQ = i2;
+        this.aDP = i2;
         this.mReplyNum = i3;
     }
 
@@ -224,7 +224,7 @@ public class b {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
                         if (c.DS().Eh()) {
-                            GroupSettingItemData bs = com.baidu.tieba.im.settingcache.b.aNt().bs(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            GroupSettingItemData bs = com.baidu.tieba.im.settingcache.b.aNq().bs(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (bs != null) {
                                 if (bs.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
@@ -237,7 +237,7 @@ public class b {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
                         if (c.DS().Ea()) {
-                            PersonalSettingItemData bs2 = e.aNw().bs(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            PersonalSettingItemData bs2 = e.aNt().bs(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (bs2 != null) {
                                 if (bs2.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
@@ -265,8 +265,8 @@ public class b {
                 i = 0;
             }
             boolean z2 = i > 0 ? z : false;
-            this.aDT = i;
-            this.aDU = z2;
+            this.aDS = i;
+            this.aDT = z2;
         }
     }
 
@@ -286,8 +286,8 @@ public class b {
                 i2 = i2;
             }
             boolean z2 = i2 > 0 ? z : false;
-            this.aDV = i2;
-            this.aDW = z2;
+            this.aDU = i2;
+            this.aDV = z2;
         }
     }
 
@@ -340,14 +340,14 @@ public class b {
     private void DR() {
         NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
         newsRemindMessage.setMsgAgreeCount(this.ajx);
-        newsRemindMessage.setMsgAtCount(this.aDQ);
+        newsRemindMessage.setMsgAtCount(this.aDP);
         newsRemindMessage.setMsgReplyCount(this.mReplyNum);
-        newsRemindMessage.setMsgCount(this.aDR);
-        newsRemindMessage.setHasMsgRemind(this.aDS);
-        newsRemindMessage.setChatCount(this.aDT);
-        newsRemindMessage.setHasChatRemind(this.aDU);
-        newsRemindMessage.setNotificationCount(this.aDV);
-        newsRemindMessage.setHasNotificationRemind(this.aDW);
+        newsRemindMessage.setMsgCount(this.aDQ);
+        newsRemindMessage.setHasMsgRemind(this.aDR);
+        newsRemindMessage.setChatCount(this.aDS);
+        newsRemindMessage.setHasChatRemind(this.aDT);
+        newsRemindMessage.setNotificationCount(this.aDU);
+        newsRemindMessage.setHasNotificationRemind(this.aDV);
         MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
     }
 }

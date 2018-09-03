@@ -3,14 +3,14 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.BannerFollowLive;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId aKH = BdUniqueId.gen();
+    public static final BdUniqueId aKE = BdUniqueId.gen();
     private List<com.baidu.adp.widget.ListView.h> mList;
 
     public List<com.baidu.adp.widget.ListView.h> getList() {
@@ -40,14 +40,14 @@ public class b implements com.baidu.adp.widget.ListView.h {
 
     private void GO() {
         a aVar = new a();
-        aVar.aKE = -100;
-        aVar.aKF = TbadkCoreApplication.getInst().getResources().getString(d.j.ala_follow_live_enter_live_square_txt);
-        aVar.aKG = d.f.icon_follow_live_recommend;
+        aVar.aKB = -100;
+        aVar.aKC = TbadkCoreApplication.getInst().getResources().getString(f.j.ala_follow_live_enter_live_square_txt);
+        aVar.aKD = f.C0146f.icon_follow_live_recommend;
         this.mList.add(aVar);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return aKH;
+        return aKE;
     }
 }

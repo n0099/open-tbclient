@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.ab;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.io.File;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
@@ -22,15 +22,15 @@ import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class z implements r {
-    private static int apx = 2097152;
-    private final com.baidu.tbadk.core.util.a.a aps;
-    private com.baidu.adp.lib.network.a.a apy = new com.baidu.adp.lib.network.a.a();
+    private static int apy = 2097152;
+    private final com.baidu.tbadk.core.util.a.a apt;
+    private com.baidu.adp.lib.network.a.a apz = new com.baidu.adp.lib.network.a.a();
     private Context mContext;
 
     public z(com.baidu.tbadk.core.util.a.a aVar) {
-        yN();
+        yL();
         this.mContext = TbadkCoreApplication.getInst().getApp();
-        this.aps = aVar;
+        this.apt = aVar;
         com.baidu.adp.lib.network.a.a.setUserAgent("bdtb for Android " + TbConfig.getVersion());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
@@ -49,20 +49,20 @@ public class z implements r {
         }
     }
 
-    private void yN() {
+    private void yL() {
         this.mContext = null;
     }
 
     @Override // com.baidu.tbadk.core.util.r
     public void hQ() {
-        if (this.apy != null) {
-            this.apy.hQ();
+        if (this.apz != null) {
+            this.apz.hQ();
         }
     }
 
     @Override // com.baidu.tbadk.core.util.r
     public void hN() {
-        this.apy.cancel();
+        this.apz.cancel();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:119:0x05d1  */
@@ -72,7 +72,7 @@ public class z implements r {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] yr() {
+    public byte[] yp() {
         com.baidu.adp.lib.network.http.g gVar;
         BdHttpCancelException bdHttpCancelException;
         com.baidu.adp.lib.network.http.g gVar2;
@@ -83,29 +83,29 @@ public class z implements r {
         boolean z = true;
         com.baidu.adp.lib.network.a.a.setUid(TbadkCoreApplication.getCurrentAccount());
         try {
-            if (this.aps.zM().zP().asq != null && this.aps.zM().zP().asq.size() > 0 && !this.aps.zM().mIsFromCDN) {
+            if (this.apt.zK().zN().asr != null && this.apt.zK().zN().asr.size() > 0 && !this.apt.zK().mIsFromCDN) {
                 StringBuilder sb = new StringBuilder(30);
-                sb.append(this.aps.zM().zP().mUrl);
-                if (this.aps.zM().zP().mUrl.indexOf("?") < 0) {
+                sb.append(this.apt.zK().zN().mUrl);
+                if (this.apt.zK().zN().mUrl.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.aps.zM().zP().mUrl.endsWith("?") && !this.aps.zM().zP().mUrl.endsWith("&")) {
+                } else if (!this.apt.zK().zN().mUrl.endsWith("?") && !this.apt.zK().zN().mUrl.endsWith("&")) {
                     sb.append("&");
                 }
-                for (int i = 0; i < this.aps.zM().zP().asq.size(); i++) {
+                for (int i = 0; i < this.apt.zK().zN().asr.size(); i++) {
                     if (i != 0) {
                         sb.append("&");
                     }
-                    sb.append(this.aps.zM().zP().asq.get(i).getName());
+                    sb.append(this.apt.zK().zN().asr.get(i).getName());
                     sb.append("=");
-                    sb.append(ap.bh(this.aps.zM().zP().asq.get(i).getValue()));
+                    sb.append(ap.bh(this.apt.zK().zN().asr.get(i).getValue()));
                 }
                 str = sb.toString();
             } else {
-                str = this.aps.zM().zP().mUrl;
+                str = this.apt.zK().zN().mUrl;
             }
             if (TbConfig.getDebugSwitch()) {
             }
-            if ((!this.aps.zM().zP().ass || this.aps.zM().zP().mIsBDImage) && !this.aps.zM().mIsFromCDN) {
+            if ((!this.apt.zK().zN().ast || this.apt.zK().zN().mIsBDImage) && !this.apt.zK().mIsFromCDN) {
                 z = false;
             }
         } catch (BdHttpCancelException e) {
@@ -124,12 +124,12 @@ public class z implements r {
             e = e5;
             gVar = null;
         }
-        if (this.apy.isCanceled()) {
+        if (this.apz.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.apy.a(str, z, 5, 100, -1, -1, yX());
-        com.baidu.adp.lib.network.http.e ie = this.apy.ie();
+        this.apz.a(str, z, 5, 100, -1, -1, yV());
+        com.baidu.adp.lib.network.http.e ie = this.apz.ie();
         if (ie == null) {
             return null;
         }
@@ -137,53 +137,53 @@ public class z implements r {
         if (ie != null) {
             try {
                 if (ie.hY() != null && (size = ie.hY().size()) > 0) {
-                    this.aps.zO().arW = ie.hY().get(size - 1);
+                    this.apt.zM().arX = ie.hY().get(size - 1);
                 }
             } catch (BdHttpCancelException e6) {
                 gVar2 = gVar;
                 bdHttpCancelException = e6;
-                this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-                this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW == null ? -1 : this.aps.zO().arW.zA) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                this.aps.zN().zU = -14;
+                this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+                this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX == null ? -1 : this.apt.zM().arX.zB) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                this.apt.zL().zV = -14;
                 gVar = gVar2;
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (OutOfMemoryError e7) {
                 e = e7;
-                this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.memoryerror);
-                this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW != null ? this.aps.zO().arW.zA : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.aps.zN().zU = -15;
+                this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.memoryerror);
+                this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX != null ? this.apt.zM().arX.zB : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.apt.zL().zV = -15;
                 BdLog.e(e.getMessage());
-                TiebaStatic.net(this.aps);
+                TiebaStatic.net(this.apt);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (SocketException e8) {
                 e = e8;
-                this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-                this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW != null ? this.aps.zO().arW.zA : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.aps.zN().zU = -12;
-                TiebaStatic.net(this.aps);
+                this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+                this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX != null ? this.apt.zM().arX.zB : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.apt.zL().zV = -12;
+                TiebaStatic.net(this.apt);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (SocketTimeoutException e9) {
                 e = e9;
-                this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-                this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW != null ? this.aps.zO().arW.zA : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.aps.zN().zU = -13;
-                TiebaStatic.net(this.aps);
+                this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+                this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX != null ? this.apt.zM().arX.zB : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.apt.zL().zV = -13;
+                TiebaStatic.net(this.apt);
                 if (gVar == null) {
                 }
                 return bArr;
             } catch (Exception e10) {
                 e = e10;
-                this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror) + " detailException:" + e.getMessage();
-                this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW != null ? this.aps.zO().arW.zA : -1) + "|" + e.getClass() + "|" + e.getMessage();
-                this.aps.zN().zU = -10;
+                this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror) + " detailException:" + e.getMessage();
+                this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX != null ? this.apt.zM().arX.zB : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.apt.zL().zV = -10;
                 BdLog.e(e.getMessage());
-                TiebaStatic.net(this.aps);
+                TiebaStatic.net(this.apt);
                 if (gVar == null) {
                 }
                 return bArr;
@@ -192,33 +192,33 @@ public class z implements r {
         if (gVar == null) {
             return null;
         }
-        this.aps.zN().zU = gVar.responseCode;
-        if (this.aps.zN().zU != 200) {
-            this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-            if (this.aps.zO().arW != null && !TextUtils.isEmpty(this.aps.zO().arW.zD)) {
-                this.aps.zN().arV = this.aps.zO().arW.zD;
+        this.apt.zL().zV = gVar.responseCode;
+        if (this.apt.zL().zV != 200) {
+            this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+            if (this.apt.zM().arX != null && !TextUtils.isEmpty(this.apt.zM().arX.zE)) {
+                this.apt.zL().arW = this.apt.zM().arX.zE;
             } else {
-                this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW == null ? -1 : this.aps.zO().arW.zA);
+                this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX == null ? -1 : this.apt.zM().arX.zB);
             }
-            TiebaStatic.net(this.aps);
+            TiebaStatic.net(this.apt);
             return null;
         }
         if (TbadkCoreApplication.getInst().isMainProcess(true) && (str2 = gVar.contentLength) != null) {
             try {
                 int parseInt = Integer.parseInt(str2);
-                if (parseInt > apx) {
-                    this.aps.zN().zU = -11;
-                    TiebaStatic.net(this.aps);
+                if (parseInt > apy) {
+                    this.apt.zL().zV = -11;
+                    TiebaStatic.net(this.apt);
                     bArr = null;
                 } else {
                     int i2 = parseInt * 10;
                     if (i2 > 0) {
                         if (BdLog.isDebugMode()) {
                         }
-                        if (!com.baidu.tbadk.imageManager.c.IQ().fe(i2)) {
-                            BdLog.d("Image download cacelled. out of memory. url:[" + this.aps.zM().zP().mUrl + "], size:" + i2);
-                            this.aps.zN().zU = -16;
-                            TiebaStatic.net(this.aps);
+                        if (!com.baidu.tbadk.imageManager.c.IQ().fd(i2)) {
+                            BdLog.d("Image download cacelled. out of memory. url:[" + this.apt.zK().zN().mUrl + "], size:" + i2);
+                            this.apt.zL().zV = -16;
+                            TiebaStatic.net(this.apt);
                             bArr = null;
                         }
                     }
@@ -229,48 +229,48 @@ public class z implements r {
         }
         ab.a aVar = new ab.a();
         aVar.mMode = getMode(com.baidu.adp.lib.util.j.jK());
-        aVar.apN = this.aps.zO().arW.zy;
+        aVar.apO = this.apt.zM().arX.zz;
         aVar.mTime = new Date().getTime() - j;
-        aVar.apO = this.aps.zO().arW.zA;
-        aVar.apM = 2;
+        aVar.apP = this.apt.zM().arX.zB;
+        aVar.apN = 2;
         ab.a(aVar);
-        ab.apL.set(this.aps.zO().arW.zA);
-        TiebaStatic.net(this.aps);
-        bArr = gVar == null ? gVar.zW : null;
+        ab.apM.set(this.apt.zM().arX.zB);
+        TiebaStatic.net(this.apt);
+        bArr = gVar == null ? gVar.zX : null;
         return bArr;
     }
 
     public void eC(String str) {
-        this.aps.zN().arU = -1;
+        this.apt.zL().arV = -1;
         if (str != null) {
             try {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(str);
-                this.aps.zN().arU = errorData.getError_code();
-                if (this.aps.zN().arU == -1) {
-                    this.aps.zN().mErrorString = this.mContext.getString(d.j.error_unkown_try_again);
-                } else if (this.aps.zN().arU != 0) {
-                    this.aps.zN().mErrorString = errorData.getError_msg();
+                this.apt.zL().arV = errorData.getError_code();
+                if (this.apt.zL().arV == -1) {
+                    this.apt.zL().mErrorString = this.mContext.getString(f.j.error_unkown_try_again);
+                } else if (this.apt.zL().arV != 0) {
+                    this.apt.zL().mErrorString = errorData.getError_msg();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                this.aps.zN().mErrorString = this.mContext.getString(d.j.error_unkown_try_again);
+                this.apt.zL().mErrorString = this.mContext.getString(f.j.error_unkown_try_again);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.util.r
-    public String ys() {
+    public String yq() {
         String str;
         OutOfMemoryError e;
         Exception e2;
-        byte[] yr = yr();
-        if (yr == null || this.aps.zN().zU != 200) {
+        byte[] yp = yp();
+        if (yp == null || this.apt.zL().zV != 200) {
             return null;
         }
         try {
-            this.aps.zM().zP().asu = TextUtils.isEmpty(this.aps.zM().zP().asu) ? "UTF-8" : this.aps.zM().zP().asu;
-            str = new String(yr, 0, yr.length, this.aps.zM().zP().asu);
+            this.apt.zK().zN().asv = TextUtils.isEmpty(this.apt.zK().zN().asv) ? "UTF-8" : this.apt.zK().zN().asv;
+            str = new String(yp, 0, yp.length, this.apt.zK().zN().asv);
         } catch (Exception e3) {
             str = null;
             e2 = e3;
@@ -293,7 +293,7 @@ public class z implements r {
     }
 
     @Override // com.baidu.tbadk.core.util.r
-    public String yq() {
+    public String yo() {
         Throwable th;
         String str;
         Exception e;
@@ -307,10 +307,10 @@ public class z implements r {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (this.aps.zM().zP().asq == null || i2 >= this.aps.zM().zP().asq.size()) {
+            if (this.apt.zK().zN().asr == null || i2 >= this.apt.zK().zN().asr.size()) {
                 break;
             }
-            BasicNameValuePair basicNameValuePair = this.aps.zM().zP().asq.get(i2);
+            BasicNameValuePair basicNameValuePair = this.apt.zK().zN().asr.get(i2);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -320,96 +320,96 @@ public class z implements r {
             }
             i = i2 + 1;
         }
-        if (this.aps.zM().zP().mIsBaiduServer) {
+        if (this.apt.zK().zN().mIsBaiduServer) {
             sb.append("tiebaclient!!!");
             o("sign", com.baidu.adp.lib.util.s.bm(sb.toString()));
         }
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.apy.isCanceled()) {
+            if (this.apz.isCanceled()) {
                 return null;
             }
-            if (this.apy.a(this.aps.zM().zP().mUrl, this.aps.zM().zP().asq, this.aps.zM().zP().ass, 5, -1, yX()) == null) {
+            if (this.apz.a(this.apt.zK().zN().mUrl, this.apt.zK().zN().asr, this.apt.zK().zN().ast, 5, -1, yV()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.adp.lib.network.http.e ie = this.apy.ie();
+            com.baidu.adp.lib.network.http.e ie = this.apz.ie();
             if (ie == null) {
                 return null;
             }
             com.baidu.adp.lib.network.http.g hX = ie.hX();
             if (ie != null && ie.hY() != null && (size = ie.hY().size()) > 0) {
-                this.aps.zO().arW = ie.hY().get(size - 1);
+                this.apt.zM().arX = ie.hY().get(size - 1);
             }
-            this.aps.zN().zU = hX.responseCode;
-            this.aps.zN().mHeader = hX.zV;
-            if (this.aps.zN().zU != 200) {
-                if (this.aps.zO().arW != null && !TextUtils.isEmpty(this.aps.zO().arW.zD)) {
-                    this.aps.zN().arV = this.aps.zO().arW.zD;
+            this.apt.zL().zV = hX.responseCode;
+            this.apt.zL().mHeader = hX.zW;
+            if (this.apt.zL().zV != 200) {
+                if (this.apt.zM().arX != null && !TextUtils.isEmpty(this.apt.zM().arX.zE)) {
+                    this.apt.zL().arW = this.apt.zM().arX.zE;
                 } else {
-                    this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW == null ? -1 : this.aps.zO().arW.zA);
+                    this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX == null ? -1 : this.apt.zM().arX.zB);
                 }
-                TiebaStatic.net(this.aps);
+                TiebaStatic.net(this.apt);
                 return null;
-            } else if (this.apy.isCanceled()) {
+            } else if (this.apz.isCanceled()) {
                 return null;
             } else {
-                str = new String(hX.zW, IoUtils.UTF_8);
+                str = new String(hX.zX, IoUtils.UTF_8);
                 try {
-                    if (this.aps.zM().zP().mIsBaiduServer && this.aps.zM().zP().ast) {
+                    if (this.apt.zK().zN().mIsBaiduServer && this.apt.zK().zN().asu) {
                         eC(str);
                     }
                     ab.a aVar = new ab.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.jK());
-                    aVar.apN = this.aps.zO().arW.zy;
-                    aVar.mTime = this.aps.zO().arW.zB;
-                    aVar.apO = this.aps.zO().arW.zA;
-                    aVar.apM = 1;
+                    aVar.apO = this.apt.zM().arX.zz;
+                    aVar.mTime = this.apt.zM().arX.zC;
+                    aVar.apP = this.apt.zM().arX.zB;
+                    aVar.apN = 1;
                     ab.a(aVar);
-                    ab.apL.set(this.aps.zO().arW.zA);
-                    TiebaStatic.net(this.aps);
+                    ab.apM.set(this.apt.zM().arX.zB);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (BdHttpCancelException e5) {
                     bdHttpCancelException = e5;
                     str2 = str;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-                    this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW == null ? -1 : this.aps.zO().arW.zA) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
-                    this.aps.zN().zU = -14;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+                    this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX == null ? -1 : this.apt.zM().arX.zB) + "|" + bdHttpCancelException.getClass() + "|" + bdHttpCancelException.getMessage();
+                    this.apt.zL().zV = -14;
                     return str2;
                 } catch (OutOfMemoryError e6) {
                     e4 = e6;
-                    this.aps.zN().zU = -15;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.memoryerror);
+                    this.apt.zL().zV = -15;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.memoryerror);
                     BdLog.e(e4.getMessage());
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (SocketException e7) {
                     e3 = e7;
-                    this.aps.zN().zU = -12;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
+                    this.apt.zL().zV = -12;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
                     BdLog.e(e3.getMessage());
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (SocketTimeoutException e8) {
                     e2 = e8;
-                    this.aps.zN().zU = -13;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
+                    this.apt.zL().zV = -13;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
                     BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (Exception e9) {
                     e = e9;
-                    this.aps.zN().zU = -10;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror) + " detailException:" + e.getMessage();
+                    this.apt.zL().zV = -10;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (Throwable th2) {
                     th = th2;
-                    this.aps.zN().zU = -10;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
+                    this.apt.zL().zV = -10;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
                     BdLog.e(th.getMessage());
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 }
             }
@@ -435,7 +435,7 @@ public class z implements r {
     }
 
     @Override // com.baidu.tbadk.core.util.r
-    public String yt() {
+    public String yr() {
         Exception e;
         String str;
         OutOfMemoryError e2;
@@ -443,14 +443,14 @@ public class z implements r {
         String str2;
         com.baidu.adp.lib.network.http.d dVar;
         try {
-            if (this.apy.isCanceled()) {
+            if (this.apz.isCanceled()) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.adp.lib.network.http.g a = this.apy.a(this.aps.zM().zP().mUrl, this.aps.zM().zP().ass, this.aps.zM().zP().asq, this.aps.zM().zP().asr, 5, -1, yX());
-            this.aps.zN().zU = a.responseCode;
-            this.aps.zN().mHeader = a.zV;
-            if (this.aps.zN().zU != 200) {
-                com.baidu.adp.lib.network.http.e ie = this.apy.ie();
+            com.baidu.adp.lib.network.http.g a = this.apz.a(this.apt.zK().zN().mUrl, this.apt.zK().zN().ast, this.apt.zK().zN().asr, this.apt.zK().zN().ass, 5, -1, yV());
+            this.apt.zL().zV = a.responseCode;
+            this.apt.zL().mHeader = a.zW;
+            if (this.apt.zL().zV != 200) {
+                com.baidu.adp.lib.network.http.e ie = this.apz.ie();
                 int i = 0;
                 if (ie != null && ie.hY() != null) {
                     i = ie.hY().size();
@@ -458,52 +458,52 @@ public class z implements r {
                 if (i <= 0 || (dVar = ie.hY().get(i - 1)) == null) {
                     str2 = "";
                 } else {
-                    str2 = dVar.zD;
+                    str2 = dVar.zE;
                 }
                 if (!TextUtils.isEmpty(str2)) {
-                    this.aps.zN().arV = str2;
+                    this.apt.zL().arW = str2;
                 } else {
-                    this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW == null ? -1 : this.aps.zO().arW.zA);
+                    this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX == null ? -1 : this.apt.zM().arX.zB);
                 }
-                TiebaStatic.net(this.aps);
+                TiebaStatic.net(this.apt);
                 return null;
-            } else if (this.apy.isCanceled()) {
+            } else if (this.apz.isCanceled()) {
                 throw new BdHttpCancelException();
             } else {
-                str = new String(a.zW, "UTF-8");
+                str = new String(a.zX, "UTF-8");
                 try {
                     eC(str);
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (BdHttpCancelException e4) {
                     e3 = e4;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-                    this.aps.zN().arV = String.valueOf(this.aps.zN().zU) + "|retryCount:" + (this.aps.zO().arW == null ? -1 : this.aps.zO().arW.zA) + "|" + e3.getClass() + "|" + e3.getMessage();
-                    this.aps.zN().zU = -14;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+                    this.apt.zL().arW = String.valueOf(this.apt.zL().zV) + "|retryCount:" + (this.apt.zM().arX == null ? -1 : this.apt.zM().arX.zB) + "|" + e3.getClass() + "|" + e3.getMessage();
+                    this.apt.zL().zV = -14;
                     return str;
                 } catch (SocketException e5) {
-                    this.aps.zN().zU = -12;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-                    TiebaStatic.net(this.aps);
+                    this.apt.zL().zV = -12;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (SocketTimeoutException e6) {
-                    this.aps.zN().zU = -13;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror);
-                    TiebaStatic.net(this.aps);
+                    this.apt.zL().zV = -13;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (Exception e7) {
                     e = e7;
-                    this.aps.zN().zU = -10;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror) + " detailException:" + e.getMessage();
+                    this.apt.zL().zV = -10;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror) + " detailException:" + e.getMessage();
                     BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 } catch (OutOfMemoryError e8) {
                     e2 = e8;
-                    this.aps.zN().zU = -15;
-                    this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.memoryerror);
+                    this.apt.zL().zV = -15;
+                    this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.memoryerror);
                     BdLog.e(e2.getMessage());
-                    TiebaStatic.net(this.aps);
+                    TiebaStatic.net(this.apt);
                     return str;
                 }
             }
@@ -527,53 +527,53 @@ public class z implements r {
     @Override // com.baidu.tbadk.core.util.r
     public boolean a(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.apy.isCanceled()) {
+            if (this.apz.isCanceled()) {
                 return false;
             }
-            return this.apy.a(this.aps.zM().zP().mUrl, (z ? new File(str) : l.ec(str)).getAbsolutePath(), false, i2, i3, -1, -1, yX(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.z.1
-                int apz = 0;
+            return this.apz.a(this.apt.zK().zN().mUrl, (z ? new File(str) : l.ec(str)).getAbsolutePath(), false, i2, i3, -1, -1, yV(), new com.baidu.adp.lib.network.http.h() { // from class: com.baidu.tbadk.core.util.z.1
                 int apA = 0;
                 int apB = 0;
+                int apC = 0;
 
                 @Override // com.baidu.adp.lib.network.http.h
                 public void m(int i4, int i5) {
                     if (i5 > 0) {
-                        this.apz = i5 / 50;
+                        this.apA = i5 / 50;
                     }
-                    this.apA += i4 - this.apB;
-                    this.apB = i4;
+                    this.apB += i4 - this.apC;
+                    this.apC = i4;
                     if (handler != null) {
-                        if (this.apA > this.apz || i4 == i5) {
-                            this.apA = 0;
+                        if (this.apB > this.apA || i4 == i5) {
+                            this.apB = 0;
                             handler.sendMessage(handler.obtainMessage(i, i4, i5));
                         }
                     }
                 }
             }, true);
         } catch (Exception e) {
-            this.aps.zN().zU = -10;
-            this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.neterror) + " detailException:" + e.getMessage();
+            this.apt.zL().zV = -10;
+            this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.neterror) + " detailException:" + e.getMessage();
             BdLog.e(e.getMessage());
             return false;
         } catch (OutOfMemoryError e2) {
-            this.aps.zN().zU = -15;
-            this.aps.zN().mErrorString = this.mContext.getResources().getString(d.j.memoryerror);
+            this.apt.zL().zV = -15;
+            this.apt.zL().mErrorString = this.mContext.getResources().getString(f.j.memoryerror);
             BdLog.e(e2.getMessage());
             return false;
         } finally {
-            TiebaStatic.net(this.aps);
+            TiebaStatic.net(this.apt);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.r
-    public ArrayList<BasicNameValuePair> yp() {
-        return this.aps.zM().zP().asq;
+    public ArrayList<BasicNameValuePair> yn() {
+        return this.apt.zK().zN().asr;
     }
 
     @Override // com.baidu.tbadk.core.util.r
     public void p(ArrayList<BasicNameValuePair> arrayList) {
-        if (this.aps.zM().zP().asq != null) {
-            this.aps.zM().zP().asq.clear();
+        if (this.apt.zK().zN().asr != null) {
+            this.apt.zK().zN().asr.clear();
         }
         int i = 0;
         while (true) {
@@ -594,33 +594,33 @@ public class z implements r {
 
     @Override // com.baidu.tbadk.core.util.r
     public void d(String str, byte[] bArr) {
-        if (this.aps.zM().zP().asr == null) {
-            this.aps.zM().zP().asr = new HashMap<>();
+        if (this.apt.zK().zN().ass == null) {
+            this.apt.zK().zN().ass = new HashMap<>();
         }
-        this.aps.zM().zP().asr.put(str, bArr);
+        this.apt.zK().zN().ass.put(str, bArr);
     }
 
     @Override // com.baidu.tbadk.core.util.r
     public void a(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
-            if (this.aps.zM().zP().asq == null) {
-                this.aps.zM().zP().asq = new ArrayList<>();
+            if (this.apt.zK().zN().asr == null) {
+                this.apt.zK().zN().asr = new ArrayList<>();
             }
-            int c = c(this.aps.zM().zP().asq, basicNameValuePair.getName());
-            int size = this.aps.zM().zP().asq.size();
-            if (c >= 0 && c < size) {
-                if (basicNameValuePair.getName().equals(this.aps.zM().zP().asq.get(c).getName())) {
-                    this.aps.zM().zP().asq.set(c, basicNameValuePair);
+            int b = b(this.apt.zK().zN().asr, basicNameValuePair.getName());
+            int size = this.apt.zK().zN().asr.size();
+            if (b >= 0 && b < size) {
+                if (basicNameValuePair.getName().equals(this.apt.zK().zN().asr.get(b).getName())) {
+                    this.apt.zK().zN().asr.set(b, basicNameValuePair);
                 } else {
-                    this.aps.zM().zP().asq.add(c, basicNameValuePair);
+                    this.apt.zK().zN().asr.add(b, basicNameValuePair);
                 }
-            } else if (c == size) {
-                this.aps.zM().zP().asq.add(c, basicNameValuePair);
+            } else if (b == size) {
+                this.apt.zK().zN().asr.add(b, basicNameValuePair);
             }
         }
     }
 
-    private int c(ArrayList<BasicNameValuePair> arrayList, String str) {
+    private int b(ArrayList<BasicNameValuePair> arrayList, String str) {
         int i = 0;
         if (arrayList == null || str == null) {
             return -1;
@@ -645,14 +645,14 @@ public class z implements r {
         return i >= size ? size : i2;
     }
 
-    private LinkedList<BasicNameValuePair> yX() {
-        if (this.aps != null) {
+    private LinkedList<BasicNameValuePair> yV() {
+        if (this.apt != null) {
             LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
-            if (!TextUtils.isEmpty(this.aps.zM().zP().asv)) {
-                linkedList.add(new BasicNameValuePair("sid", this.aps.zM().zP().asv));
+            if (!TextUtils.isEmpty(this.apt.zK().zN().asw)) {
+                linkedList.add(new BasicNameValuePair("sid", this.apt.zK().zN().asw));
             }
-            if (!com.baidu.tbadk.p.ah.iq() && !TextUtils.isEmpty(this.aps.zM().zP().mNetType)) {
-                linkedList.add(new BasicNameValuePair("net", this.aps.zM().zP().mNetType));
+            if (!com.baidu.tbadk.p.ah.iq() && !TextUtils.isEmpty(this.apt.zK().zN().mNetType)) {
+                linkedList.add(new BasicNameValuePair("net", this.apt.zK().zN().mNetType));
                 return linkedList;
             }
             return linkedList;

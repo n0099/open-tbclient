@@ -12,77 +12,77 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class b {
-    private TbImageView cYA;
-    private RelativeLayout eJI;
-    public TbImageView eJJ;
-    public LinearLayout eJK;
-    public TextView eJL;
-    public boolean eJM = false;
-    private TextView esA;
+    private TbImageView cYw;
+    private RelativeLayout eJD;
+    public TbImageView eJE;
+    public LinearLayout eJF;
+    public TextView eJG;
+    public boolean eJH = false;
+    private TextView esw;
     private Context mContext;
     private ProgressBar mProgressBar;
 
     public b(ViewGroup viewGroup) {
-        this.eJI = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(d.h.big_image_ad, (ViewGroup) null);
-        this.cYA = (TbImageView) this.eJI.findViewById(d.g.big_image_ad_image);
-        this.esA = (TextView) this.eJI.findViewById(d.g.big_image_ad_button);
-        this.eJJ = (TbImageView) this.eJI.findViewById(d.g.big_image_ad_label);
-        this.eJK = (LinearLayout) this.eJI.findViewById(d.g.big_image_ad_source_container);
-        this.eJL = (TextView) this.eJI.findViewById(d.g.big_image_ad_source);
+        this.eJD = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(f.h.big_image_ad, (ViewGroup) null);
+        this.cYw = (TbImageView) this.eJD.findViewById(f.g.big_image_ad_image);
+        this.esw = (TextView) this.eJD.findViewById(f.g.big_image_ad_button);
+        this.eJE = (TbImageView) this.eJD.findViewById(f.g.big_image_ad_label);
+        this.eJF = (LinearLayout) this.eJD.findViewById(f.g.big_image_ad_source_container);
+        this.eJG = (TextView) this.eJD.findViewById(f.g.big_image_ad_source);
         this.mContext = viewGroup.getContext();
-        aPz();
+        aPw();
     }
 
     public View getView() {
-        return this.eJI;
+        return this.eJD;
     }
 
-    public void aPz() {
+    public void aPw() {
         this.mProgressBar = new ProgressBar(this.mContext, null, 16843399);
-        this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(d.f.progressbar));
+        this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(f.C0146f.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
         this.mProgressBar.setLayoutParams(layoutParams);
         this.mProgressBar.setIndeterminate(true);
-        this.eJI.addView(this.mProgressBar);
+        this.eJD.addView(this.mProgressBar);
     }
 
-    public TbImageView aPA() {
-        return this.cYA;
+    public TbImageView aPx() {
+        return this.cYw;
     }
 
-    public TextView aPB() {
-        return this.esA;
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void aPC() {
-        this.esA.setText(d.j.pause_load);
-        this.esA.setBackgroundResource(d.f.button_fenfa_xiazaizhong);
-        am.b(this.esA, d.C0140d.common_color_10049, 1, 0);
+    public TextView aPy() {
+        return this.esw;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void oZ(String str) {
-        this.esA.setText(str);
-        this.esA.setBackgroundResource(d.f.button_fenfa_download_selector);
-        am.b(this.esA, d.f.button_fenfa_download_text_selector, 1, 0);
+    public void aPz() {
+        this.esw.setText(f.j.pause_load);
+        this.esw.setBackgroundResource(f.C0146f.button_fenfa_xiazaizhong);
+        am.b(this.esw, f.d.common_color_10049, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void aPD() {
-        this.esA.setText(d.j.setup_text);
-        this.esA.setBackgroundResource(d.f.button_fenfa_download_selector);
-        am.b(this.esA, d.f.button_fenfa_download_text_selector, 1, 0);
+    public void pb(String str) {
+        this.esw.setText(str);
+        this.esw.setBackgroundResource(f.C0146f.button_fenfa_download_selector);
+        am.b(this.esw, f.C0146f.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void aPE() {
+    @SuppressLint({"ResourceAsColor"})
+    public void aPA() {
+        this.esw.setText(f.j.setup_text);
+        this.esw.setBackgroundResource(f.C0146f.button_fenfa_download_selector);
+        am.b(this.esw, f.C0146f.button_fenfa_download_text_selector, 1, 0);
+    }
+
+    public void aPB() {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.cYA.getLayoutParams();
-        double loadedHeight = this.cYA.getLoadedHeight() / this.cYA.getLoadedWidth();
+        ViewGroup.LayoutParams layoutParams = this.cYw.getLayoutParams();
+        double loadedHeight = this.cYw.getLoadedHeight() / this.cYw.getLoadedWidth();
         if (loadedHeight > 1.0d) {
             layoutParams.height = width;
             layoutParams.width = (int) (width / loadedHeight);
@@ -90,15 +90,15 @@ public class b {
             layoutParams.height = (int) (loadedHeight * width);
             layoutParams.width = width;
         }
-        this.cYA.setLayoutParams(layoutParams);
+        this.cYw.setLayoutParams(layoutParams);
     }
 
     public void t(View.OnClickListener onClickListener) {
-        this.esA.setOnClickListener(onClickListener);
-        this.cYA.setOnClickListener(onClickListener);
+        this.esw.setOnClickListener(onClickListener);
+        this.cYw.setOnClickListener(onClickListener);
     }
 
-    public void aPF() {
+    public void aPC() {
         this.mProgressBar.setVisibility(8);
     }
 }

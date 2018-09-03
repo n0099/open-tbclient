@@ -3,7 +3,7 @@ package com.baidu.tbadk.p;
 public class s extends j {
     private static final s aVI = new s();
 
-    public static boolean KX() {
+    public static boolean Lb() {
         return aVI.iq();
     }
 

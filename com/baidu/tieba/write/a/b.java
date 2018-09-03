@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private final ArrayList<MetaData> hvx = new ArrayList<>();
-    private HashMap<String, String> hvy = null;
+    private final ArrayList<MetaData> hvz = new ArrayList<>();
+    private HashMap<String, String> hvA = null;
 
-    public void d(JSONObject jSONObject, boolean z) {
+    public void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.hvy == null) {
-                        this.hvy = new HashMap<>();
+                    if (this.hvA == null) {
+                        this.hvA = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.hvx.add(metaData);
+                        this.hvz.add(metaData);
                         if (z) {
-                            this.hvy.put(metaData.getName_show(), metaData.getPortrait());
+                            this.hvA.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,19 +40,19 @@ public class b {
         }
     }
 
-    public void vE(String str) {
+    public void vI(String str) {
         try {
-            d(new JSONObject(str), true);
+            c(new JSONObject(str), true);
         } catch (Exception e) {
             BdLog.detailException(e);
         }
     }
 
-    public ArrayList<MetaData> bGp() {
-        return this.hvx;
+    public ArrayList<MetaData> bGt() {
+        return this.hvz;
     }
 
-    public HashMap<String, String> bGq() {
-        return this.hvy;
+    public HashMap<String, String> bGu() {
+        return this.hvA;
     }
 }

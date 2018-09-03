@@ -3,91 +3,91 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar ari = null;
-    private boolean arj = false;
+    private static ar arj = null;
     private boolean ark = false;
-    private int arl = TbConfig.POST_IMAGE_SMALL;
-    private String arm = String.valueOf(45);
+    private boolean arl = false;
+    private int arm = TbConfig.POST_IMAGE_SMALL;
+    private String arn = String.valueOf(45);
 
-    public static ar zw() {
-        if (ari == null) {
+    public static ar zu() {
+        if (arj == null) {
             synchronized (ar.class) {
-                ari = new ar();
+                arj = new ar();
             }
         }
-        return ari;
+        return arj;
     }
 
     public ar() {
-        zz();
         zx();
+        zv();
+    }
+
+    private void zv() {
+        zC();
+        zD();
+        zE();
+    }
+
+    public void aJ(boolean z) {
+        this.arl = z;
+    }
+
+    public boolean zw() {
+        return this.arl;
+    }
+
+    public void aK(boolean z) {
+        this.ark = z;
+        zv();
     }
 
     private void zx() {
-        zE();
-        zF();
-        zG();
-    }
-
-    public void aI(boolean z) {
-        this.ark = z;
+        this.ark = com.baidu.adp.lib.util.j.jF();
     }
 
     public boolean zy() {
         return this.ark;
     }
 
-    public void aJ(boolean z) {
-        this.arj = z;
-        zx();
+    public String zz() {
+        return this.arn;
     }
 
-    private void zz() {
-        this.arj = com.baidu.adp.lib.util.j.jF();
-    }
-
-    public boolean zA() {
-        return this.arj;
-    }
-
-    public String zB() {
+    public int zA() {
+        zE();
         return this.arm;
     }
 
-    public int zC() {
-        zG();
-        return this.arl;
-    }
-
-    public int zD() {
+    public int zB() {
         return TbConfig.POST_IMAGE_HIGHT_LIMIT;
     }
 
-    public void zE() {
+    public void zC() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.te().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.te().getViewImageQuality() != 1 : !this.arj) {
+        if (com.baidu.tbadk.core.i.td().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.td().getViewImageQuality() != 1 : !this.ark) {
             z = false;
         }
-        aI(z);
+        aJ(z);
     }
 
-    public void zF() {
+    public void zD() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.i.te().getViewImageQuality() == 0) {
-            if (zA()) {
+        if (com.baidu.tbadk.core.i.td().getViewImageQuality() == 0) {
+            if (zy()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.i.te().getViewImageQuality() == 1) {
+        } else if (com.baidu.tbadk.core.i.td().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.arm = valueOf;
+        this.arn = valueOf;
     }
 
-    public void zG() {
+    public void zE() {
         int i = 2000;
-        switch (com.baidu.tbadk.core.i.te().th()) {
+        switch (com.baidu.tbadk.core.i.td().tg()) {
             case 0:
-                if (!zA()) {
+                if (!zy()) {
                     i = 1500;
                     break;
                 }
@@ -104,10 +104,10 @@ public class ar {
                 i = 1800;
                 break;
         }
-        this.arl = i;
+        this.arm = i;
     }
 
-    public static boolean zH() {
+    public static boolean zF() {
         return l.gd() && com.baidu.adp.gif.c.gb();
     }
 }

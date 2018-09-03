@@ -27,7 +27,7 @@ public final class b {
         return RO;
     }
 
-    public static b oW() {
+    public static b oT() {
         return RO;
     }
 

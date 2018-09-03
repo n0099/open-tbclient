@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g extends a {
-    public static final BdUniqueId cBX = BdUniqueId.gen();
-    private String cyk;
+    public static final BdUniqueId cBU = BdUniqueId.gen();
+    private String cyh;
     private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();
     private String stType;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return cBX;
+        return cBU;
     }
 
     public void b(com.baidu.tieba.horizonalList.widget.c cVar) {
@@ -31,11 +31,11 @@ public class g extends a {
         this.stType = str;
     }
 
-    public String ajr() {
-        return this.cyk;
+    public String aju() {
+        return this.cyh;
     }
 
     public void setYuelaouLocate(String str) {
-        this.cyk = str;
+        this.cyh = str;
     }
 }

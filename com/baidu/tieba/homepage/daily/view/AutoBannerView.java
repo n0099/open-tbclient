@@ -10,35 +10,35 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.flow.a.e;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.f.a aGF;
-    private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> alU;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> dMu;
-    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> dbi;
+    private com.baidu.tbadk.f.a aGE;
+    private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> alV;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> dMq;
+    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> dbe;
     private List<com.baidu.tieba.homepage.daily.b.a> mData;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.alU = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
+        this.alV = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void h(int i, String str) {
-                if (AutoBannerView.this.dMu != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.dMu.h(i, str);
+                if (AutoBannerView.this.dMq != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.dMq.h(i, str);
                 }
-                AutoBannerView.this.ng(str);
+                AutoBannerView.this.ni(str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.homepage.daily.b.a aVar) {
-                if (AutoBannerView.this.dMu != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.dMu.a(i, aVar);
+                if (AutoBannerView.this.dMq != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.dMq.a(i, aVar);
                 }
                 if (aVar == null) {
                 }
@@ -48,46 +48,46 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     private void initUI() {
-        this.dbi = new CoverFlowView<>(getContext());
+        this.dbe = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public e xr() {
+            public e xq() {
                 e eVar = new e();
                 eVar.setHeight((int) (l.ah(AutoBannerView.this.getContext()) / 2.5f));
                 return eVar;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public com.baidu.tbadk.core.flow.a.c xq() {
+            public com.baidu.tbadk.core.flow.a.c xp() {
                 com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-                cVar.cw(d.f.icon_banner_gray_n);
-                cVar.cx(d.f.icon_banner_s);
+                cVar.cw(f.C0146f.icon_banner_gray_n);
+                cVar.cx(f.C0146f.icon_banner_s);
                 cVar.setGravity(81);
-                cVar.cy(d.e.tbds26);
-                cVar.setSpacing(d.e.tbds10);
+                cVar.cy(f.e.tbds26);
+                cVar.setSpacing(f.e.tbds10);
                 return cVar;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public TbImageView aD(Context context) {
+            public TbImageView aC(Context context) {
                 TbImageView tbImageView = new TbImageView(context);
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.setDefaultResource(d.f.img_default_100);
+                tbImageView.setDefaultResource(f.C0146f.img_default_100);
                 tbImageView.setLongIconSupport(false);
                 tbImageView.setGifIconSupport(false);
                 return tbImageView;
             }
 
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
-            public View xs() {
+            public View xr() {
                 return null;
             }
         };
-        this.dbi.setIndicatorNoOffet(true);
-        this.dbi.setDisableParentEvent(false);
-        this.dbi.setCoverFlowFactory(bVar);
-        this.dbi.setCallback(this.alU);
-        addView(this.dbi);
+        this.dbe.setIndicatorNoOffet(true);
+        this.dbe.setDisableParentEvent(false);
+        this.dbe.setCoverFlowFactory(bVar);
+        this.dbe.setCallback(this.alV);
+        addView(this.dbe);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -96,48 +96,48 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ng(String str) {
+    public void ni(String str) {
         if (!TextUtils.isEmpty(str)) {
-            ay.zK().c((TbPageContext) i.ad(getContext()), new String[]{str});
+            az.zI().c((TbPageContext) i.ad(getContext()), new String[]{str});
         }
     }
 
-    public void Bc() {
-        if (this.dbi != null) {
-            this.dbi.xu();
+    public void AZ() {
+        if (this.dbe != null) {
+            this.dbe.xt();
         }
     }
 
-    public void Bb() {
-        if (this.dbi != null) {
-            this.dbi.xt();
+    public void AY() {
+        if (this.dbe != null) {
+            this.dbe.xs();
         }
     }
 
     public void bE(List<com.baidu.tieba.homepage.daily.b.a> list) {
         this.mData = list;
-        this.dbi.setData(list);
+        this.dbe.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.f.a aVar) {
-        this.aGF = aVar;
+        this.aGE = aVar;
     }
 
     public void setOutOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> dVar) {
-        this.dMu = dVar;
+        this.dMq = dVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dbi != null) {
-            this.dbi.onChangeSkinType();
+        if (this.dbe != null) {
+            this.dbe.onChangeSkinType();
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aGF != null) {
-            this.aGF.a(this, i == 0, null);
+        if (this.aGE != null) {
+            this.aGE.a(this, i == 0, null);
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.adp.framework.client.socket;
 public interface b {
     void R(String str);
 
-    boolean c(boolean z, String str);
+    boolean b(boolean z, String str);
 
     void eO();
 

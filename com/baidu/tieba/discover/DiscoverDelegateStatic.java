@@ -13,10 +13,10 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class DiscoverDelegateStatic extends b {
-    private static boolean bsP = false;
+    private static boolean bsR = false;
 
     static {
         new CustomMessageListener(2007002) { // from class: com.baidu.tieba.discover.DiscoverDelegateStatic.1
@@ -28,12 +28,12 @@ public class DiscoverDelegateStatic extends b {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
                     if (((d) customResponsedMessage.getData()).getContext() != null && (Jo = discoverDelegateStatic.Jo()) != null) {
-                        Jo.aRL.setArguments(new Bundle());
+                        Jo.aRI.setArguments(new Bundle());
                     }
                 }
             }
         };
-        if (!bsP) {
+        if (!bsR) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007013));
         }
     }
@@ -46,27 +46,27 @@ public class DiscoverDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c Jn() {
         c cVar = new c();
-        cVar.aRL = new DiscoverFragment();
+        cVar.aRI = new DiscoverFragment();
         cVar.type = 10;
-        cVar.aRM = d.j.home_discover;
-        cVar.aRN = d.f.s_icon_tabbar_discover;
+        cVar.aRJ = f.j.home_discover;
+        cVar.aRK = f.C0146f.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator be(Context context) {
-        this.aRx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
+    public TbFragmentTabIndicator bd(Context context) {
+        this.aRu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(f.h.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.aSf = this.aRx;
-        aVar.yW = l.dip2px(context, 3.0f);
-        aVar.aSd = d.f.icon_news_down_bar_one;
-        this.aRx.a("emotion", aVar);
-        return this.aRx;
+        aVar.aSf = this.aRu;
+        aVar.yX = l.dip2px(context, 3.0f);
+        aVar.aSd = f.C0146f.icon_news_down_bar_one;
+        this.aRu.a("emotion", aVar);
+        return this.aRu;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void Jm() {
-        bsP = true;
+        bsR = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b

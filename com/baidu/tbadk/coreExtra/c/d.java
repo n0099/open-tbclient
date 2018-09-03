@@ -15,17 +15,18 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String aGq = l.CD + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public String aGb;
+    public static final String aGp = l.CD + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public String aGa;
+    public String aGe;
     public String aGf;
-    public String aGg;
-    public int aGj;
-    private Bundle aGm;
+    public int aGi;
+    private Bundle aGl;
     public int ajX;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String uid;
+    public boolean aFR = false;
     public boolean aFS = false;
     public boolean aFT = false;
     public boolean aFU = false;
@@ -33,48 +34,47 @@ public class d {
     public boolean aFW = false;
     public boolean aFX = false;
     public boolean aFY = false;
-    public boolean aFZ = false;
-    public String aGa = "";
-    public int aGh = 0;
-    public int aGi = 3;
-    public boolean aGk = false;
+    public String aFZ = "";
+    public int aGg = 0;
+    public int aGh = 3;
+    public boolean aGj = false;
+    public boolean aGm = true;
     public boolean aGn = true;
     public boolean aGo = true;
-    public boolean aGp = true;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String aGc = null;
+    public String aGb = null;
     public Uri imageUri = null;
-    public Location aGd = null;
-    private WeakReference<Bitmap> aGl = null;
-    public String aGe = null;
+    public Location aGc = null;
+    private WeakReference<Bitmap> aGk = null;
+    public String aGd = null;
     public String extData = null;
 
     public Bundle Fz() {
-        return this.aGm;
+        return this.aGl;
     }
 
     public void f(Bundle bundle) {
-        this.aGm = bundle;
+        this.aGl = bundle;
     }
 
     public Bitmap FA() {
         Bitmap bitmap;
-        if (this.aGl == null || (bitmap = this.aGl.get()) == null || bitmap.isRecycled()) {
+        if (this.aGk == null || (bitmap = this.aGk.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void f(Bitmap bitmap) {
-        this.aGl = new WeakReference<>(bitmap);
+        this.aGk = new WeakReference<>(bitmap);
     }
 
     public byte[] FB() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.aGl == null || (bitmap = this.aGl.get()) == null || bitmap.isRecycled()) {
+        if (this.aGk == null || (bitmap = this.aGk.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -94,14 +94,14 @@ public class d {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=4, 199=4, 201=4, 202=4] */
     public void FC() {
         FileOutputStream fileOutputStream = null;
-        if (this.aGl == null) {
+        if (this.aGk == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (l.gd()) {
-                    File file = new File(aGq);
+                    File file = new File(aGp);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -116,7 +116,7 @@ public class d {
                             fileOutputStream3.write(FB);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.aGl = null;
+                            this.aGk = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

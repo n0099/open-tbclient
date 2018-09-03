@@ -8,20 +8,20 @@ import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class e implements af, d {
-    private ArrayList<PreLoadImageInfo> fMl;
-    public String fMm;
+    private ArrayList<PreLoadImageInfo> fMe;
+    public String fMf;
     private int height;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.fMl = new ArrayList<>(1);
+            this.fMe = new ArrayList<>(1);
             this.src = excContent.src;
-            this.fMm = excContent.bsize;
-            if (this.fMm != null) {
+            this.fMf = excContent.bsize;
+            if (this.fMf != null) {
                 try {
-                    String[] split = this.fMm.split(",");
+                    String[] split = this.fMf.split(",");
                     this.width = com.baidu.adp.lib.g.b.g(split[0], 0);
                     this.height = com.baidu.adp.lib.g.b.g(split[1], 0);
                 } catch (Exception e) {
@@ -44,11 +44,11 @@ public class e implements af, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.fMl.add(preLoadImageInfo);
+            this.fMe.add(preLoadImageInfo);
         }
     }
 
-    public String NQ() {
+    public String NP() {
         return this.src;
     }
 
@@ -66,6 +66,6 @@ public class e implements af, d {
 
     @Override // com.baidu.tbadk.core.util.af
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.fMl;
+        return this.fMe;
     }
 }

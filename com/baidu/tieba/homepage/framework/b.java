@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.framework;
 public interface b {
     void B(int i, int i2, int i3);
 
-    void aDL();
+    void aDI();
 
     void aQ(int i, int i2);
 }

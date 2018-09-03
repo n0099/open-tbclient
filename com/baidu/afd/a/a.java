@@ -12,7 +12,7 @@ public class a<T extends e> extends q.a {
         this.Pi = t;
     }
 
-    public T oq() {
+    public T on() {
         return this.Pi;
     }
 }

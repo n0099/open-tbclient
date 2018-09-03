@@ -6,59 +6,59 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class g extends a {
-    private boolean asR;
     private boolean asS;
     private boolean asT;
-    private int asX;
+    private boolean asU;
+    private int asY;
     private int procType;
 
     public g(boolean z, boolean z2, boolean z3, int i) {
-        this.asR = true;
-        this.asS = false;
+        this.asS = true;
         this.asT = false;
+        this.asU = false;
         this.procType = 0;
-        this.asX = 0;
-        this.asR = z;
-        this.asS = z2;
-        this.asT = z3;
+        this.asY = 0;
+        this.asS = z;
+        this.asT = z2;
+        this.asU = z3;
         this.procType = i;
         int ah = com.baidu.adp.lib.util.l.ah(TbadkCoreApplication.getInst());
-        this.asX = ah <= 0 ? 200 : ah;
-        if (this.asX > 480) {
-            this.asX = com.baidu.sapi2.biometrics.liveness.camera.a.d;
+        this.asY = ah <= 0 ? 200 : ah;
+        if (this.asY > 480) {
+            this.asY = com.baidu.sapi2.biometrics.liveness.camera.a.d;
         }
-        if (this.asX > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-            this.asX = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+        if (this.asY > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+            this.asY = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
-        return this.asX;
+        return this.asY;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
-        return this.asX;
+        return this.asY;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.asR;
-    }
-
-    @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Aa() {
-        return this.asT;
-    }
-
-    @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ab() {
         return this.asS;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Ac() {
+    public boolean zY() {
+        return this.asU;
+    }
+
+    @Override // com.baidu.tbadk.core.util.d.a
+    public boolean zZ() {
+        return this.asT;
+    }
+
+    @Override // com.baidu.tbadk.core.util.d.a
+    public int Aa() {
         return this.procType;
     }
 
@@ -68,7 +68,7 @@ public class g extends a {
             return null;
         }
         if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-            com.baidu.tbadk.imageManager.c.IQ().fe(BitmapHelper.getBitmapSize(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.IQ().fd(BitmapHelper.getBitmapSize(bitmap) * 2);
             return bitmap;
         }
         return bitmap;

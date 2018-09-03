@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes3.dex */
 public class b {
-    private Bitmap hBF;
+    private Bitmap hBH;
     private Context mContext;
     private Rect mRect = new Rect();
 
@@ -18,16 +18,16 @@ public class b {
     }
 
     public void vL(int i) {
-        this.hBF = BitmapHelper.getResBitmap(this.mContext, i);
+        this.hBH = BitmapHelper.getResBitmap(this.mContext, i);
     }
 
     public void draw(Canvas canvas, float f, float f2) {
-        if (this.hBF != null) {
-            this.mRect.left = (int) (f - (this.hBF.getWidth() / 2));
-            this.mRect.right = (int) ((this.hBF.getWidth() / 2) + f);
-            this.mRect.top = (int) (f2 - (this.hBF.getHeight() / 2));
-            this.mRect.bottom = (int) ((this.hBF.getHeight() / 2) + f2);
-            canvas.drawBitmap(this.hBF, (Rect) null, this.mRect, (Paint) null);
+        if (this.hBH != null) {
+            this.mRect.left = (int) (f - (this.hBH.getWidth() / 2));
+            this.mRect.right = (int) ((this.hBH.getWidth() / 2) + f);
+            this.mRect.top = (int) (f2 - (this.hBH.getHeight() / 2));
+            this.mRect.bottom = (int) ((this.hBH.getHeight() / 2) + f2);
+            canvas.drawBitmap(this.hBH, (Rect) null, this.mRect, (Paint) null);
         }
     }
 

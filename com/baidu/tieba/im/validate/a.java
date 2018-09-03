@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    List<ValidateItemData> bCg = new ArrayList();
-    ValidateActivity eCF;
+    List<ValidateItemData> bCi = new ArrayList();
+    ValidateActivity eCB;
 
     public a(ValidateActivity validateActivity) {
-        this.eCF = validateActivity;
+        this.eCB = validateActivity;
     }
 
     public void destroy() {
-        this.eCF = null;
+        this.eCB = null;
     }
 
     public void setData(List<ValidateItemData> list) {
         if (list != null) {
-            this.bCg.addAll(list);
+            this.bCi.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bCg == null) {
+        if (this.bCi == null) {
             return 0;
         }
-        return this.bCg.size();
+        return this.bCi.size();
     }
 
     @Override // android.widget.Adapter
@@ -40,14 +40,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.eCF) : bVar;
-        bVar2.f(this.bCg.get(i));
+        b bVar2 = bVar == null ? new b(this.eCB) : bVar;
+        bVar2.f(this.bCi.get(i));
         return bVar2.eB();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bCg.get(i);
+        return this.bCi.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,6 +56,6 @@ public class a extends BaseAdapter {
     }
 
     public List<ValidateItemData> getDatas() {
-        return this.bCg;
+        return this.bCi;
     }
 }

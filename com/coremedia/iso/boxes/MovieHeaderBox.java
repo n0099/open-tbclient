@@ -250,12 +250,12 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setTimescale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.dj(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.di(j)));
         this.timescale = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.dj(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_12, this, this, org.aspectj.a.a.a.di(j)));
         this.duration = j;
         if (j >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
             setVersion(1);
@@ -263,12 +263,12 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setRate(double d) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.r(d)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_13, this, this, org.aspectj.a.a.a.q(d)));
         this.rate = d;
     }
 
     public void setVolume(float f) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.aJ(f)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.aI(f)));
         this.volume = f;
     }
 
@@ -278,7 +278,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setNextTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.dj(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.di(j)));
         this.nextTrackId = j;
     }
 
@@ -288,7 +288,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.wb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.wa(i)));
         this.previewTime = i;
     }
 
@@ -298,7 +298,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPreviewDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.wb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_20, this, this, org.aspectj.a.a.a.wa(i)));
         this.previewDuration = i;
     }
 
@@ -308,7 +308,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setPosterTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.wb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_22, this, this, org.aspectj.a.a.a.wa(i)));
         this.posterTime = i;
     }
 
@@ -318,7 +318,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.wb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_24, this, this, org.aspectj.a.a.a.wa(i)));
         this.selectionTime = i;
     }
 
@@ -328,7 +328,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setSelectionDuration(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.wb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.wa(i)));
         this.selectionDuration = i;
     }
 
@@ -338,7 +338,7 @@ public class MovieHeaderBox extends AbstractFullBox {
     }
 
     public void setCurrentTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.wb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.wa(i)));
         this.currentTime = i;
     }
 }

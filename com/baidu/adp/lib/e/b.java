@@ -5,31 +5,31 @@ import java.security.InvalidParameterException;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class b<T> {
-    private int Aj;
     private int Ak;
-    private LinkedList<T> Al;
-    private c<T> Am;
+    private int Al;
+    private LinkedList<T> Am;
+    private c<T> An;
 
     public b(c<T> cVar, int i, int i2) {
-        this.Aj = 10;
-        this.Ak = 0;
-        this.Al = null;
+        this.Ak = 10;
+        this.Al = 0;
         this.Am = null;
+        this.An = null;
         if (cVar == null || i <= 0 || i2 > i) {
             throw new InvalidParameterException("invalid params");
         }
-        this.Am = cVar;
-        this.Aj = i;
-        this.Ak = i2;
-        this.Al = new LinkedList<>();
-        ag(this.Ak);
+        this.An = cVar;
+        this.Ak = i;
+        this.Al = i2;
+        this.Am = new LinkedList<>();
+        ag(this.Al);
     }
 
     private void af(int i) {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    this.Am.q(this.Al.poll());
+                    this.An.q(this.Am.poll());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -42,13 +42,13 @@ public class b<T> {
         synchronized (this) {
             for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    t = this.Am.r(this.Am.ig());
+                    t = this.An.r(this.An.ig());
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t = null;
                 }
                 if (t != null) {
-                    this.Al.offer(t);
+                    this.Am.offer(t);
                 }
             }
         }
@@ -56,22 +56,22 @@ public class b<T> {
 
     public void ah(int i) {
         synchronized (this) {
-            int i2 = i < this.Ak ? this.Ak : i;
+            int i2 = i < this.Al ? this.Al : i;
             if (i2 <= 0) {
                 i2 = 1;
             }
-            this.Aj = i2;
-            af(this.Al.size() - this.Aj);
+            this.Ak = i2;
+            af(this.Am.size() - this.Ak);
         }
     }
 
     public void ai(int i) {
         synchronized (this) {
-            if (i > this.Aj) {
-                i = this.Aj;
+            if (i > this.Ak) {
+                i = this.Ak;
             }
-            this.Ak = i;
-            ag(this.Ak - this.Al.size());
+            this.Al = i;
+            ag(this.Al - this.Am.size());
         }
     }
 
@@ -80,12 +80,12 @@ public class b<T> {
         T t = null;
         synchronized (this) {
             try {
-                if (this.Al.size() > 0) {
-                    t = this.Am.r(this.Al.poll());
+                if (this.Am.size() > 0) {
+                    t = this.An.r(this.Am.poll());
                 } else {
-                    t = this.Am.r(this.Am.ig());
+                    t = this.An.r(this.An.ig());
                 }
-                ag(this.Ak - this.Al.size());
+                ag(this.Al - this.Am.size());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -96,25 +96,25 @@ public class b<T> {
     public void p(T t) {
         T t2;
         synchronized (this) {
-            if (this.Al.size() < this.Aj) {
+            if (this.Am.size() < this.Ak) {
                 try {
-                    t2 = this.Am.s(t);
+                    t2 = this.An.s(t);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     t2 = null;
                 }
                 if (t2 != null) {
-                    this.Al.offer(t2);
+                    this.Am.offer(t2);
                 }
             } else {
-                this.Am.q(t);
+                this.An.q(t);
             }
         }
     }
 
     public void clear() {
         synchronized (this) {
-            this.Al.clear();
+            this.Am.clear();
         }
     }
 }

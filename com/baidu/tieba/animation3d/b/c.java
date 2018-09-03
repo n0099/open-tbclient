@@ -6,8 +6,8 @@ import android.os.Message;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.animation3d.b.a {
     private float FT;
-    private int cuH;
-    private a cuI;
+    private int cuE;
+    private a cuF;
     private Handler mHandler;
 
     /* loaded from: classes.dex */
@@ -18,8 +18,8 @@ public class c extends com.baidu.tieba.animation3d.b.a {
     public c(Context context) {
         super(context);
         this.FT = 0.0f;
-        this.cuH = 1;
-        this.cuI = null;
+        this.cuE = 1;
+        this.cuF = null;
         hC();
     }
 
@@ -29,14 +29,14 @@ public class c extends com.baidu.tieba.animation3d.b.a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (c.this.cuI != null) {
-                            c.this.cuI.en(true);
+                        if (c.this.cuF != null) {
+                            c.this.cuF.en(true);
                             return true;
                         }
                         return true;
                     case 2:
-                        if (c.this.cuI != null) {
-                            c.this.cuI.en(false);
+                        if (c.this.cuF != null) {
+                            c.this.cuF.en(false);
                             return true;
                         }
                         return true;
@@ -49,30 +49,30 @@ public class c extends com.baidu.tieba.animation3d.b.a {
 
     public void setRotateRadius(float f) {
         this.FT = f;
-        this.cux = this.FT;
-        this.cuw = this.FT;
+        this.cuu = this.FT;
+        this.cut = this.FT;
     }
 
-    private void ahY() {
+    private void aib() {
         this.mHandler.removeMessages(1);
         this.mHandler.removeMessages(2);
     }
 
     public int getViewStatus() {
-        return this.cuH;
+        return this.cuE;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
-    public void zV() {
-        super.zV();
-        this.cux = this.FT;
-        this.cuw = this.FT;
-        this.cuH = 1;
-        ahY();
+    public void zT() {
+        super.zT();
+        this.cuu = this.FT;
+        this.cut = this.FT;
+        this.cuE = 1;
+        aib();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.cuI = aVar;
+        this.cuF = aVar;
     }
 }

@@ -35,7 +35,7 @@ public class aj {
         return this.stat;
     }
 
-    public long ul() {
+    public long uk() {
         return this.agx;
     }
 

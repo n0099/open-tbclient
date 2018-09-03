@@ -26,22 +26,22 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
-    public int oh() {
+    public int oe() {
         return this.OQ;
     }
 
     @Override // com.baidu.afd.g
-    public int oi() {
+    public int of() {
         return this.OR;
     }
 
     @Override // com.baidu.afd.g
-    public int oj() {
+    public int og() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> ok() {
+    public Map<String, String> oh() {
         return this.OV;
     }
 

@@ -11,12 +11,12 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes3.dex */
 public class RoundAngleRelativeLayout extends RelativeLayout {
+    private float dyh;
+    private float dyi;
+    private float dyj;
     private float dyk;
-    private float dyl;
-    private float dym;
-    private float dyn;
-    private Paint dyo;
-    private Paint dyp;
+    private Paint dyl;
+    private Paint dym;
 
     public RoundAngleRelativeLayout(Context context) {
         this(context, null);
@@ -28,99 +28,99 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
 
     public RoundAngleRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dyo = new Paint();
-        this.dyo.setColor(-1);
-        this.dyo.setAntiAlias(true);
-        this.dyo.setStyle(Paint.Style.FILL);
-        this.dyo.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.dyp = new Paint();
-        this.dyp.setXfermode(null);
+        this.dyl = new Paint();
+        this.dyl.setColor(-1);
+        this.dyl.setAntiAlias(true);
+        this.dyl.setStyle(Paint.Style.FILL);
+        this.dyl.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.dym = new Paint();
+        this.dym.setXfermode(null);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.dyp, 31);
+        canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.dym, 31);
         super.dispatchDraw(canvas);
+        q(canvas);
         r(canvas);
         s(canvas);
         t(canvas);
-        u(canvas);
         canvas.restore();
     }
 
-    private void r(Canvas canvas) {
-        if (this.dyk > 0.0f) {
+    private void q(Canvas canvas) {
+        if (this.dyh > 0.0f) {
             Path path = new Path();
-            path.moveTo(0.0f, this.dyk);
+            path.moveTo(0.0f, this.dyh);
             path.lineTo(0.0f, 0.0f);
-            path.lineTo(this.dyk, 0.0f);
-            path.arcTo(new RectF(0.0f, 0.0f, this.dyk * 2.0f, this.dyk * 2.0f), -90.0f, -90.0f);
+            path.lineTo(this.dyh, 0.0f);
+            path.arcTo(new RectF(0.0f, 0.0f, this.dyh * 2.0f, this.dyh * 2.0f), -90.0f, -90.0f);
             path.close();
-            canvas.drawPath(path, this.dyo);
+            canvas.drawPath(path, this.dyl);
+        }
+    }
+
+    private void r(Canvas canvas) {
+        if (this.dyi > 0.0f) {
+            int width = getWidth();
+            Path path = new Path();
+            path.moveTo(width - this.dyi, 0.0f);
+            path.lineTo(width, 0.0f);
+            path.lineTo(width, this.dyi);
+            path.arcTo(new RectF(width - (this.dyi * 2.0f), 0.0f, width, this.dyi * 2.0f), 0.0f, -90.0f);
+            path.close();
+            canvas.drawPath(path, this.dyl);
         }
     }
 
     private void s(Canvas canvas) {
-        if (this.dyl > 0.0f) {
-            int width = getWidth();
+        if (this.dyj > 0.0f) {
+            int height = getHeight();
             Path path = new Path();
-            path.moveTo(width - this.dyl, 0.0f);
-            path.lineTo(width, 0.0f);
-            path.lineTo(width, this.dyl);
-            path.arcTo(new RectF(width - (this.dyl * 2.0f), 0.0f, width, this.dyl * 2.0f), 0.0f, -90.0f);
+            path.moveTo(0.0f, height - this.dyj);
+            path.lineTo(0.0f, height);
+            path.lineTo(this.dyj, height);
+            path.arcTo(new RectF(0.0f, height - (this.dyj * 2.0f), this.dyj * 2.0f, height), 90.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.dyo);
+            canvas.drawPath(path, this.dyl);
         }
     }
 
     private void t(Canvas canvas) {
-        if (this.dym > 0.0f) {
-            int height = getHeight();
-            Path path = new Path();
-            path.moveTo(0.0f, height - this.dym);
-            path.lineTo(0.0f, height);
-            path.lineTo(this.dym, height);
-            path.arcTo(new RectF(0.0f, height - (this.dym * 2.0f), this.dym * 2.0f, height), 90.0f, 90.0f);
-            path.close();
-            canvas.drawPath(path, this.dyo);
-        }
-    }
-
-    private void u(Canvas canvas) {
-        if (this.dyn > 0.0f) {
+        if (this.dyk > 0.0f) {
             int height = getHeight();
             int width = getWidth();
             Path path = new Path();
-            path.moveTo(width - this.dyn, height);
+            path.moveTo(width - this.dyk, height);
             path.lineTo(width, height);
-            path.lineTo(width, height - this.dyn);
-            path.arcTo(new RectF(width - (this.dyn * 2.0f), height - (this.dyn * 2.0f), width, height), 0.0f, 90.0f);
+            path.lineTo(width, height - this.dyk);
+            path.arcTo(new RectF(width - (this.dyk * 2.0f), height - (this.dyk * 2.0f), width, height), 0.0f, 90.0f);
             path.close();
-            canvas.drawPath(path, this.dyo);
+            canvas.drawPath(path, this.dyl);
         }
     }
 
     public void setTopLeftRadius(float f) {
-        this.dyk = f;
+        this.dyh = f;
     }
 
     public void setTopRightRadius(float f) {
-        this.dyl = f;
+        this.dyi = f;
     }
 
     public void setBottomLeftRadius(float f) {
-        this.dym = f;
+        this.dyj = f;
     }
 
     public void setBottomRightRadius(float f) {
-        this.dyn = f;
+        this.dyk = f;
     }
 
     public void setRadius(float f) {
+        this.dyh = f;
+        this.dyj = f;
+        this.dyi = f;
         this.dyk = f;
-        this.dym = f;
-        this.dyl = f;
-        this.dyn = f;
         invalidate();
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.model.IUpdatesModel;
@@ -15,7 +15,7 @@ public class UpdatesStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001286, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.groupUpdates.UpdatesStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                return new CustomResponsedMessage<>(2001286, Integer.valueOf(d.f.icon_new_trends));
+                return new CustomResponsedMessage<>(2001286, Integer.valueOf(f.C0146f.icon_new_trends));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

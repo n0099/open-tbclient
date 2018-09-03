@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.XiaoyingPlayerConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class XiaoyingUtil {
     public static final String PKG_NAME_VIDEO = "cn.jingling.motu.photowonder.plugin.mv";
@@ -63,9 +63,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str, int i, int i2, String str2, boolean z) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.a(context, context.getString(d.j.plugin_xiaoying_install_fail)).xn();
+                BdToast.a(context, context.getString(f.j.plugin_xiaoying_install_fail)).xm();
             } else if (z && !j.jE()) {
-                BdToast.a(context, context.getString(d.j.neterror)).xn();
+                BdToast.a(context, context.getString(f.j.neterror)).xm();
             } else if (z) {
                 if (j.jF()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
@@ -82,21 +82,21 @@ public class XiaoyingUtil {
         e<?> ad = i.ad(context);
         if (ad != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(ad.getPageActivity());
-            aVar.dB(TbadkCoreApplication.getInst().getString(d.j.play_video_mobile_tip));
-            aVar.a(d.j.confirm, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.1
+            aVar.dB(TbadkCoreApplication.getInst().getString(f.j.play_video_mobile_tip));
+            aVar.a(f.j.confirm, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new XiaoyingPlayerConfig(context, str, i, i2, str2)));
                     aVar2.dismiss();
                 }
             });
-            aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.2
+            aVar.b(f.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(ad).xf();
+            aVar.b(ad).xe();
         }
     }
 
@@ -117,13 +117,13 @@ public class XiaoyingUtil {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.4
+            aVar.b(f.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.XiaoyingUtil.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(tbPageContext).xf();
+            aVar.b(tbPageContext).xe();
         }
     }
 }

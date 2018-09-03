@@ -11,7 +11,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.ad;
 /* loaded from: classes3.dex */
 public class WriteThreadFrsDeleagteStatic extends b {
@@ -23,10 +23,10 @@ public class WriteThreadFrsDeleagteStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c Jn() {
         c cVar = new c();
-        cVar.aRL = new WriteThreadFragment();
+        cVar.aRI = new WriteThreadFragment();
         cVar.type = 99;
-        cVar.aRM = d.j.send;
-        cVar.aRS = c.aRP;
+        cVar.aRJ = f.j.send;
+        cVar.aRQ = c.aRM;
         return cVar;
     }
 
@@ -36,11 +36,11 @@ public class WriteThreadFrsDeleagteStatic extends b {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 c Jo;
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).kJ(99)) {
+                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null && ((ad) customResponsedMessage.getData()).kI(99)) {
                     WriteThreadFrsDeleagteStatic writeThreadFrsDeleagteStatic = new WriteThreadFrsDeleagteStatic();
                     ((ad) customResponsedMessage.getData()).b(writeThreadFrsDeleagteStatic);
                     if (((ad) customResponsedMessage.getData()).getContext() != null && (Jo = writeThreadFrsDeleagteStatic.Jo()) != null) {
-                        Jo.aRL.setArguments(new Bundle());
+                        Jo.aRI.setArguments(new Bundle());
                     }
                 }
             }
@@ -48,9 +48,9 @@ public class WriteThreadFrsDeleagteStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator be(Context context) {
-        this.aRx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.aRx.setTextSize(2.0f);
-        return this.aRx;
+    public TbFragmentTabIndicator bd(Context context) {
+        this.aRu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(f.h.fragmenttabindicator, (ViewGroup) null);
+        this.aRu.setTextSize(2.0f);
+        return this.aRu;
     }
 }

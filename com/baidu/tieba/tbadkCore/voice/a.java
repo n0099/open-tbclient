@@ -10,9 +10,9 @@ public interface a {
 
     void cd(String str);
 
-    void oH();
+    void oE();
 
-    boolean oI();
+    boolean oF();
 
     void release();
 

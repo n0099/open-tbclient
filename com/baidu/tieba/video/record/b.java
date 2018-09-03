@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes2.dex */
 class b {
-    private float hib;
-    private int hic;
-    private i hie;
+    private float hic;
+    private int hie;
+    private i hif;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.hie = iVar;
+        this.hif = iVar;
     }
 
     public boolean j(MotionEvent motionEvent) {
-        if (this.hie == null || !this.hie.isRecording()) {
+        if (this.hif == null || !this.hif.isRecording()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float t = t(motionEvent);
-                        int i = (int) ((t - this.hib) / 10.0f);
+                        int i = (int) ((t - this.hic) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.hic;
+                            int i2 = i + this.hie;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.hib = t;
+                            this.hic = t;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.hib = t(motionEvent);
+                    this.hic = t(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.hic = i;
+                this.hie = i;
             }
         }
     }

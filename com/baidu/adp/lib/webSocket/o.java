@@ -52,9 +52,9 @@ public class o extends Handler {
     private void a(k.b bVar) throws IOException {
         String str;
         if (bVar.mQuery != null) {
-            str = bVar.wf + "?" + bVar.mQuery;
+            str = bVar.wg + "?" + bVar.mQuery;
         } else {
-            str = bVar.wf;
+            str = bVar.wg;
         }
         this.FD.write("GET " + str + " HTTP/1.1");
         this.FD.kk();

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.model.IValidateModel;
@@ -17,7 +17,7 @@ public class ValidateStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001287, new CustomMessageTask.CustomRunnable<Void>() { // from class: com.baidu.tieba.im.validate.ValidateStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
-                return new CustomResponsedMessage<>(2001287, Integer.valueOf(d.f.icon_new_test));
+                return new CustomResponsedMessage<>(2001287, Integer.valueOf(f.C0146f.icon_new_test));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

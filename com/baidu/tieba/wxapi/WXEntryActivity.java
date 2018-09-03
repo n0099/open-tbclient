@@ -10,7 +10,7 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.passaccount.a;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
@@ -20,22 +20,22 @@ import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 /* loaded from: classes2.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
-    private IWXAPI hBV;
-    private Intent hBW;
+    private IWXAPI hBX;
+    private Intent hBY;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(2921332, (Class) null);
-        setContentView(d.h.layout_sapi_webview_login);
-        this.mNavigationBar = (NavigationBar) findViewById(d.g.sapi_login_navi);
+        setContentView(f.h.layout_sapi_webview_login);
+        this.mNavigationBar = (NavigationBar) findViewById(f.g.sapi_login_navi);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getResources().getString(d.j.login));
-        this.hBV = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
-        this.hBW = getIntent();
-        if (this.hBW != null) {
-            this.hBV.handleIntent(getIntent(), this);
+        this.mNavigationBar.setTitleText(getResources().getString(f.j.login));
+        this.hBX = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
+        this.hBY = getIntent();
+        if (this.hBY != null) {
+            this.hBX.handleIntent(getIntent(), this);
         }
     }
 
@@ -43,9 +43,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.hBW = intent;
-        if (this.hBW != null) {
-            this.hBV.handleIntent(intent, this);
+        this.hBY = intent;
+        if (this.hBY != null) {
+            this.hBX.handleIntent(intent, this);
         }
     }
 
@@ -65,8 +65,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
-        if (this.hBW != null && this.hBV != null) {
-            this.hBV.handleIntent(this.hBW, this);
+        if (this.hBY != null && this.hBX != null) {
+            this.hBX.handleIntent(this.hBY, this);
         }
         closeActivity();
     }
@@ -76,8 +76,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (baseResp != null) {
             if (1 == baseResp.getType()) {
                 a aVar = new a();
-                aVar.fpl = this;
-                aVar.fpm = baseResp;
+                aVar.fpe = this;
+                aVar.fpf = baseResp;
                 MessageManager.getInstance().runTask(2921351, null, aVar);
                 closeActivity();
             } else if (2 == baseResp.getType() && (baseResp instanceof SendMessageToWX.Resp)) {

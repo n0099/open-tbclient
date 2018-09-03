@@ -13,8 +13,8 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, com.baidu.tbadk.j.a> {
     private TbPageContext mPageContext;
@@ -30,7 +30,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: i */
     public com.baidu.tbadk.j.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.j.a(LayoutInflater.from(this.mContext).inflate(d.h.ala_follow_live_common_item_view, viewGroup, false), this.mPageContext);
+        return new com.baidu.tbadk.j.a(LayoutInflater.from(this.mContext).inflate(f.h.ala_follow_live_common_item_view, viewGroup, false), this.mPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,18 +49,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
         aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aVar2.aKE == -100) {
+                if (aVar2.aKB == -100) {
                     TiebaStatic.log("c12679");
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
                     if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
                         com.baidu.tbadk.core.e.b.b(c.this.mPageContext.getPageActivity(), 15, true);
                         return;
                     } else {
-                        ay.zK().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
+                        az.zI().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
                         return;
                     }
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.aKD;
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.aKA;
                 if (alaLiveInfoCoreData != null) {
                     TiebaStatic.log("c12677");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));

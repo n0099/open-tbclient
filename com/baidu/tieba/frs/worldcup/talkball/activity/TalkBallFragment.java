@@ -44,7 +44,7 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 import com.baidu.tieba.c.c;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.ak;
 import com.baidu.tieba.frs.worldcup.talkball.a.b;
 import com.baidu.tieba.frs.worldcup.talkball.b.e;
@@ -61,49 +61,49 @@ import tbclient.TalkBall.AdidasAdvert;
 /* loaded from: classes3.dex */
 public class TalkBallFragment extends BaseFragment implements NavigationBar.a, VoiceManager.c, ak, com.baidu.tieba.frs.worldcup.talkball.activity.a {
     private AppBarLayout NV;
-    private ImageView bOq;
-    private PbListView bvA;
-    private BdTypeRecyclerView bym;
-    private NoNetworkView cSy;
-    private ImageView dBW;
-    private View dLr;
-    private BdSwipeRefreshLayout dLs;
-    private b dLt;
-    private ViewGroup dLu;
-    private com.baidu.tieba.frs.worldcup.talkball.view.a dLv;
-    private AutoBannerView dLw;
-    private AdidasBanner dLx;
-    private com.baidu.tieba.frs.worldcup.talkball.c.a dLy;
-    private boolean dLz;
-    private VoiceManager dmp;
-    private com.baidu.tieba.c.b dnX;
-    private c dog;
-    private ObservedChangeLinearLayout doz;
+    private ImageView bOp;
+    private PbListView bvC;
+    private BdTypeRecyclerView byo;
+    private NoNetworkView cSv;
+    private ImageView dBT;
+    private View dLn;
+    private BdSwipeRefreshLayout dLo;
+    private b dLp;
+    private ViewGroup dLq;
+    private com.baidu.tieba.frs.worldcup.talkball.view.a dLr;
+    private AutoBannerView dLs;
+    private AdidasBanner dLt;
+    private com.baidu.tieba.frs.worldcup.talkball.c.a dLu;
+    private boolean dLv;
+    private VoiceManager dmn;
+    private com.baidu.tieba.c.b dnV;
+    private c doe;
+    private ObservedChangeLinearLayout dox;
     private NavigationBar mNavigationBar;
     private h mPullView;
-    private Pair<Integer, Integer> dmv = null;
-    private g.b bCC = new g.b() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.1
+    private Pair<Integer, Integer> dmt = null;
+    private g.b bCE = new g.b() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.1
         @Override // com.baidu.tbadk.core.view.g.b
-        public void aS(boolean z) {
+        public void aT(boolean z) {
             TalkBallFragment.this.fn(true);
         }
     };
-    private BdListView.e dLA = new BdListView.e() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.2
+    private BdListView.e dLw = new BdListView.e() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.2
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            TalkBallFragment.this.Tn();
+            TalkBallFragment.this.Tq();
         }
     };
-    private NoNetworkView.a cDq = new NoNetworkView.a() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.3
+    private NoNetworkView.a cDn = new NoNetworkView.a() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.3
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void aQ(boolean z) {
+        public void aR(boolean z) {
             if (z) {
-                TalkBallFragment.this.Tv();
+                TalkBallFragment.this.Ty();
                 TalkBallFragment.this.fn(true);
             }
         }
     };
-    private CustomMessageListener dnw = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.4
+    private CustomMessageListener dnu = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -111,13 +111,13 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
                 NewsRemindMessage newsRemindMessage = (NewsRemindMessage) customResponsedMessage;
                 int notificationCount = newsRemindMessage.getNotificationCount() + newsRemindMessage.getMsgCount() + newsRemindMessage.getChatCount();
                 boolean z = newsRemindMessage.hasMsgRemind() || newsRemindMessage.hasChatRemind() || newsRemindMessage.hasNotificationRemind();
-                if (TalkBallFragment.this.dnX != null) {
-                    TalkBallFragment.this.dnX.f(z, notificationCount);
+                if (TalkBallFragment.this.dnV != null) {
+                    TalkBallFragment.this.dnV.f(z, notificationCount);
                 }
             }
         }
     };
-    private CustomMessageListener bxx = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.5
+    private CustomMessageListener bxz = new CustomMessageListener(0) { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -127,19 +127,19 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
                     String str = split[0];
                     int g = com.baidu.adp.lib.g.b.g(split[1], -1);
                     if ("FrsTalkBallTab".equals(str) || 12 == g) {
-                        TalkBallFragment.this.Tv();
+                        TalkBallFragment.this.Ty();
                         TalkBallFragment.this.fn(true);
                     }
                 }
             }
         }
     };
-    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> dLB = new d<com.baidu.tieba.frs.worldcup.talkball.b.a>() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.8
+    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> dLx = new d<com.baidu.tieba.frs.worldcup.talkball.b.a>() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.8
         @Override // com.baidu.tbadk.core.flow.a.d
         public void h(int i, String str) {
             com.baidu.tieba.frs.worldcup.talkball.b.a mj;
-            if (!TextUtils.isEmpty(TalkBallFragment.this.getForumId()) && TalkBallFragment.this.dLw != null && (mj = TalkBallFragment.this.dLw.mj(i - 1)) != null) {
-                TiebaStatic.log(new an("c13085").af(ImageViewerConfig.FORUM_ID, TalkBallFragment.this.getForumId()).r("obj_locate", i).af("obj_param1", mj.tU()));
+            if (!TextUtils.isEmpty(TalkBallFragment.this.getForumId()) && TalkBallFragment.this.dLs != null && (mj = TalkBallFragment.this.dLs.mj(i - 1)) != null) {
+                TiebaStatic.log(new an("c13085").ae(ImageViewerConfig.FORUM_ID, TalkBallFragment.this.getForumId()).r("obj_locate", i).ae("obj_param1", mj.tT()));
             }
         }
 
@@ -147,7 +147,7 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
         @Override // com.baidu.tbadk.core.flow.a.d
         public void a(int i, com.baidu.tieba.frs.worldcup.talkball.b.a aVar) {
             if (!TextUtils.isEmpty(TalkBallFragment.this.getForumId()) && aVar != null) {
-                TiebaStatic.log(new an("c13084").af(ImageViewerConfig.FORUM_ID, TalkBallFragment.this.getForumId()).r("obj_locate", i).af("obj_param1", aVar.tU()));
+                TiebaStatic.log(new an("c13084").ae(ImageViewerConfig.FORUM_ID, TalkBallFragment.this.getForumId()).r("obj_locate", i).ae("obj_param1", aVar.tT()));
             }
         }
     };
@@ -155,19 +155,19 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dmp = getVoiceManager();
-        this.dmp.onCreate(getPageContext());
+        this.dmn = getVoiceManager();
+        this.dmn.onCreate(getPageContext());
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View inflate = layoutInflater.inflate(d.h.talk_ball_layout, viewGroup, false);
+        View inflate = layoutInflater.inflate(f.h.talk_ball_layout, viewGroup, false);
         aF(inflate);
         aq(inflate);
         aG(inflate);
-        aBv();
-        aBt();
+        aBs();
+        aBq();
         aH(inflate);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return inflate;
@@ -179,62 +179,62 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
     }
 
     private void init() {
-        this.dLz = true;
-        this.dLy = new com.baidu.tieba.frs.worldcup.talkball.c.b(getPageContext(), this, getArguments());
-        registerListener(this.dnw);
-        registerListener(2001446, this.bxx, getUniqueId());
-        aBs();
+        this.dLv = true;
+        this.dLu = new com.baidu.tieba.frs.worldcup.talkball.c.b(getPageContext(), this, getArguments());
+        registerListener(this.dnu);
+        registerListener(2001446, this.bxz, getUniqueId());
+        aBp();
     }
 
-    private void aBs() {
-        aBx();
-        if (aBu()) {
-            showLoadingView(this.dLu, true);
+    private void aBp() {
+        aBu();
+        if (aBr()) {
+            showLoadingView(this.dLq, true);
             fn(false);
             return;
         }
-        Un();
+        Uq();
         d((d.a) null);
     }
 
     private void aF(View view) {
-        this.dLr = view.findViewById(d.g.statebar_view);
-        if (UtilHelper.canUseStyleImmersiveSticky() && (this.dLr.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dLr.getLayoutParams();
+        this.dLn = view.findViewById(f.g.statebar_view);
+        if (UtilHelper.canUseStyleImmersiveSticky() && (this.dLn.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dLn.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
-            this.dLr.setLayoutParams(layoutParams);
+            this.dLn.setLayoutParams(layoutParams);
         }
     }
 
     private void aq(View view) {
-        this.doz = (ObservedChangeLinearLayout) view.findViewById(d.g.navigationbar_wrapper);
-        this.NV = (AppBarLayout) view.findViewById(d.g.app_bar_layout);
-        this.mNavigationBar = (NavigationBar) view.findViewById(d.g.view_navigation_bar);
+        this.dox = (ObservedChangeLinearLayout) view.findViewById(f.g.navigationbar_wrapper);
+        this.NV = (AppBarLayout) view.findViewById(f.g.app_bar_layout);
+        this.mNavigationBar = (NavigationBar) view.findViewById(f.g.view_navigation_bar);
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.getBarBgView().setAlpha(1.0f);
         if (getArguments() != null) {
             this.mNavigationBar.setCenterTextTitle(getArguments().getString(ImageViewerConfig.FORUM_NAME, ""));
         }
-        this.bOq = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(d.g.widget_navi_back_button);
-        this.dBW = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.widget_nb_item_search, (View.OnClickListener) null);
-        this.dBW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.6
+        this.bOp = (ImageView) this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).findViewById(f.g.widget_navi_back_button);
+        this.dBT = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, f.h.widget_nb_item_search, (View.OnClickListener) null);
+        this.dBT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (TalkBallFragment.this.dLy != null) {
-                    TalkBallFragment.this.dLy.aBV();
+                if (TalkBallFragment.this.dLu != null) {
+                    TalkBallFragment.this.dLu.aBS();
                 }
             }
         });
-        this.dnX = new com.baidu.tieba.c.b(getActivity());
-        this.dnX.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.7
+        this.dnV = new com.baidu.tieba.c.b(getActivity());
+        this.dnV.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (TalkBallFragment.this.dLy != null) {
-                    TalkBallFragment.this.dLy.aBW();
+                if (TalkBallFragment.this.dLu != null) {
+                    TalkBallFragment.this.dLu.aBT();
                 }
             }
         });
-        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.dnX.getView(), (View.OnClickListener) null);
+        this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.dnV.getView(), (View.OnClickListener) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -247,11 +247,11 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
         public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
             View view = viewHolder.itemView;
             if (view != null) {
-                PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(d.g.abstract_voice);
+                PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(f.g.abstract_voice);
                 if (playVoiceBnt != null) {
                     playVoiceBnt.reset();
                 }
-                FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(d.g.abstract_img_layout);
+                FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(f.g.abstract_img_layout);
                 if (frsCommonImageLayout != null) {
                     frsCommonImageLayout.reset();
                 }
@@ -263,149 +263,149 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
     }
 
     private void aG(View view) {
-        this.dLu = (ViewGroup) view.findViewById(d.g.content_container);
+        this.dLq = (ViewGroup) view.findViewById(f.g.content_container);
         this.mPullView = new h(getPageContext());
         this.mPullView.setTag(getUniqueId());
-        this.mPullView.a(this.bCC);
-        this.dLs = (BdSwipeRefreshLayout) view.findViewById(d.g.pull_refresh_layout);
-        this.dLs.setProgressView(this.mPullView);
-        this.bym = (BdTypeRecyclerView) view.findViewById(d.g.recycler_view);
-        ((DefaultItemAnimator) this.bym.getItemAnimator()).setSupportsChangeAnimations(false);
-        this.bym.setLayoutManager(new LinearLayoutManager(getActivity()));
-        this.bym.setScrollable(this);
-        this.bym.setFadingEdgeLength(0);
-        this.bym.setOverScrollMode(2);
-        this.bym.setOnSrollToBottomListener(this.dLA);
-        this.bym.setRecyclerListener(new a());
-        this.dLt = new b(this, this.bym);
+        this.mPullView.a(this.bCE);
+        this.dLo = (BdSwipeRefreshLayout) view.findViewById(f.g.pull_refresh_layout);
+        this.dLo.setProgressView(this.mPullView);
+        this.byo = (BdTypeRecyclerView) view.findViewById(f.g.recycler_view);
+        ((DefaultItemAnimator) this.byo.getItemAnimator()).setSupportsChangeAnimations(false);
+        this.byo.setLayoutManager(new LinearLayoutManager(getActivity()));
+        this.byo.setScrollable(this);
+        this.byo.setFadingEdgeLength(0);
+        this.byo.setOverScrollMode(2);
+        this.byo.setOnSrollToBottomListener(this.dLw);
+        this.byo.setRecyclerListener(new a());
+        this.dLp = new b(this, this.byo);
     }
 
     private void aH(View view) {
         if (view != null) {
-            FloatingAnimationView floatingAnimationView = (FloatingAnimationView) view.findViewById(d.g.redpacket_view);
+            FloatingAnimationView floatingAnimationView = (FloatingAnimationView) view.findViewById(f.g.redpacket_view);
             floatingAnimationView.setPageId(getUniqueId());
-            this.dog = new c(getPageContext(), floatingAnimationView, 2);
+            this.doe = new c(getPageContext(), floatingAnimationView, 2);
         }
     }
 
-    private void aBt() {
-        this.cSy = new NoNetworkView(getActivity());
-        this.cSy.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.cSy.a(this.cDq);
-        this.doz.addView(this.cSy);
-        aBu();
+    private void aBq() {
+        this.cSv = new NoNetworkView(getActivity());
+        this.cSv.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.cSv.a(this.cDn);
+        this.dox.addView(this.cSv);
+        aBr();
     }
 
-    private boolean aBu() {
+    private boolean aBr() {
         if (j.js()) {
-            this.cSy.setVisibility(8);
+            this.cSv.setVisibility(8);
             return true;
         }
-        this.cSy.setVisibility(0);
+        this.cSv.setVisibility(0);
         return false;
     }
 
-    private void aBv() {
-        this.bvA = new PbListView(getActivity());
-        this.bvA.getView();
-        this.bvA.dB(d.C0140d.cp_bg_line_e);
-        this.bvA.setHeight(l.f(getActivity(), d.e.tbds182));
-        this.bvA.Au();
-        this.bvA.setTextSize(d.e.tbfontsize33);
-        this.bvA.setTextColor(am.getColor(d.C0140d.cp_cont_d));
-        this.bvA.dA(d.C0140d.cp_cont_e);
+    private void aBs() {
+        this.bvC = new PbListView(getActivity());
+        this.bvC.getView();
+        this.bvC.dA(f.d.cp_bg_line_e);
+        this.bvC.setHeight(l.f(getActivity(), f.e.tbds182));
+        this.bvC.As();
+        this.bvC.setTextSize(f.e.tbfontsize33);
+        this.bvC.setTextColor(am.getColor(f.d.cp_cont_d));
+        this.bvC.dz(f.d.cp_cont_e);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fn(boolean z) {
-        if (aBu() && this.dLy != null) {
+        if (aBr() && this.dLu != null) {
             gz(z);
-            this.bym.setSelection(0);
-            this.dLy.onRefresh();
+            this.byo.setSelection(0);
+            this.dLu.onRefresh();
             return;
         }
         gz(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tn() {
-        if (aBu() && this.dLy != null) {
-            aBy();
-            this.bym.stopScroll();
-            this.dLy.aBU();
+    public void Tq() {
+        if (aBr() && this.dLu != null) {
+            aBv();
+            this.byo.stopScroll();
+            this.dLu.aBR();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.activity.a
     public void W(ArrayList<com.baidu.adp.widget.ListView.h> arrayList) {
-        if (this.dLt != null) {
-            this.dLt.setData(arrayList);
-            this.dLt.notifyDataSetChanged();
+        if (this.dLp != null) {
+            this.dLp.setData(arrayList);
+            this.dLp.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.activity.a
     public void a(e eVar) {
-        if (eVar == null || w.y(eVar.aBF()) == 0) {
-            if (this.dLv != null) {
-                this.bym.removeHeaderView(this.dLv.getView());
-                this.dLv = null;
+        if (eVar == null || w.y(eVar.aBC()) == 0) {
+            if (this.dLr != null) {
+                this.byo.removeHeaderView(this.dLr.getView());
+                this.dLr = null;
                 return;
             }
             return;
         }
-        if (this.dLv == null) {
-            this.dLv = new com.baidu.tieba.frs.worldcup.talkball.view.a(getPageContext(), this.bym);
-            this.bym.addHeaderView(this.dLv.getView(), this.bym.getHeaderViewsCount());
+        if (this.dLr == null) {
+            this.dLr = new com.baidu.tieba.frs.worldcup.talkball.view.a(getPageContext(), this.byo);
+            this.byo.addHeaderView(this.dLr.getView(), this.byo.getHeaderViewsCount());
         }
-        this.dLv.b(eVar);
+        this.dLr.b(eVar);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.activity.a
     public void a(AdidasAdvert adidasAdvert) {
-        if (this.bym != null) {
+        if (this.byo != null) {
             if (adidasAdvert == null || TextUtils.isEmpty(adidasAdvert.img_url)) {
-                if (this.dLx != null) {
-                    this.bym.removeHeaderView(this.dLx);
-                    this.dLx = null;
+                if (this.dLt != null) {
+                    this.byo.removeHeaderView(this.dLt);
+                    this.dLt = null;
                     return;
                 }
                 return;
             }
-            if (this.dLx == null) {
-                this.dLx = new AdidasBanner(getContext());
-                this.bym.addHeaderView(this.dLx, this.bym.getHeaderViewsCount() < 1 ? 0 : 1);
+            if (this.dLt == null) {
+                this.dLt = new AdidasBanner(getContext());
+                this.byo.addHeaderView(this.dLt, this.byo.getHeaderViewsCount() < 1 ? 0 : 1);
             }
-            this.dLx.setForumId(getForumId());
-            this.dLx.an(adidasAdvert.img_url, adidasAdvert.ahead_url);
+            this.dLt.setForumId(getForumId());
+            this.dLt.am(adidasAdvert.img_url, adidasAdvert.ahead_url);
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.activity.a
     public void bD(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list) {
-        if (this.bym != null) {
+        if (this.byo != null) {
             if (w.z(list)) {
-                if (this.dLw != null) {
-                    this.bym.removeHeaderView(this.dLw);
-                    this.dLw = null;
+                if (this.dLs != null) {
+                    this.byo.removeHeaderView(this.dLs);
+                    this.dLs = null;
                     return;
                 }
                 return;
             }
-            if (this.dLw == null) {
-                this.dLw = new AutoBannerView(getContext());
-                this.dLw.setOutOnCoverViewCallback(this.dLB);
-                this.bym.addHeaderView(this.dLw, 0);
+            if (this.dLs == null) {
+                this.dLs = new AutoBannerView(getContext());
+                this.dLs.setOutOnCoverViewCallback(this.dLx);
+                this.byo.addHeaderView(this.dLs, 0);
             }
-            this.dLw.bE(list);
-            this.dLw.Bb();
+            this.dLs.bE(list);
+            this.dLs.AY();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.activity.a
     public void c(m mVar) {
-        if (this.dog != null) {
-            this.dog.a(mVar);
+        if (this.doe != null) {
+            this.doe.a(mVar);
         }
     }
 
@@ -413,15 +413,15 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
     public void onPrimary() {
         super.onPrimary();
         if (isAdded()) {
-            if (this.dLv != null) {
-                this.dLv.fA(isPrimary());
+            if (this.dLr != null) {
+                this.dLr.fA(isPrimary());
             }
             if (isPrimary()) {
-                if (!this.dLz) {
+                if (!this.dLv) {
                     init();
                 }
-                if (this.dog != null) {
-                    this.dog.akH();
+                if (this.doe != null) {
+                    this.doe.akJ();
                 }
             }
         }
@@ -430,49 +430,49 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
     @Override // com.baidu.tieba.frs.worldcup.talkball.activity.a
     public boolean d(d.a aVar) {
         if (aVar != null && aVar.isSuccess) {
-            hideNetRefreshView(this.dLu);
-            aBw();
+            hideNetRefreshView(this.dLq);
+            aBt();
             return true;
         }
-        String string = TbadkCoreApplication.getInst().getString(d.j.error_unkown_try_again);
+        String string = TbadkCoreApplication.getInst().getString(f.j.error_unkown_try_again);
         if (aVar != null) {
-            if (aVar.gKB) {
-                string = TbadkCoreApplication.getInst().getString(d.j.net_error_text, new Object[]{aVar.errorMsg, Integer.valueOf(aVar.errorCode)});
+            if (aVar.gKD) {
+                string = TbadkCoreApplication.getInst().getString(f.j.net_error_text, new Object[]{aVar.errorMsg, Integer.valueOf(aVar.errorCode)});
             } else {
                 string = aVar.errorMsg;
             }
         }
-        aBx();
-        showNetRefreshView(this.dLu, string, true);
+        aBu();
+        showNetRefreshView(this.dLq, string, true);
         setNetRefreshViewEmotionDefMarginTop();
         return false;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
-        Tv();
-        aBs();
+        Ty();
+        aBp();
     }
 
-    private void aBw() {
-        this.dLs.setVisibility(0);
+    private void aBt() {
+        this.dLo.setVisibility(0);
     }
 
-    private void aBx() {
-        this.dLs.setVisibility(8);
+    private void aBu() {
+        this.dLo.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.activity.a
-    public void Tv() {
+    public void Ty() {
         gz(false);
-        hideLoadingView(this.dLu);
-        hideNetRefreshView(this.dLu);
-        aBw();
+        hideLoadingView(this.dLq);
+        hideNetRefreshView(this.dLq);
+        aBt();
     }
 
     private void gz(boolean z) {
-        if (this.dLs != null) {
-            this.dLs.setRefreshing(z);
+        if (this.dLo != null) {
+            this.dLo.setRefreshing(z);
         }
     }
 
@@ -482,158 +482,158 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
         super.onUserChanged(z);
         if (z) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921346, null));
-            Tv();
+            Ty();
             fn(true);
         }
     }
 
-    private void aBy() {
-        if (this.dLy == null || !l.jV()) {
-            Un();
-        } else if (this.dLy.hasMore()) {
-            if (this.bym.getCount() > 3) {
-                Ul();
+    private void aBv() {
+        if (this.dLu == null || !l.jV()) {
+            Uq();
+        } else if (this.dLu.hasMore()) {
+            if (this.byo.getCount() > 3) {
+                Uo();
             } else {
-                avx();
+                avw();
             }
-        } else if (this.bym.getCount() == 0) {
-            Un();
+        } else if (this.byo.getCount() == 0) {
+            Uq();
         } else {
-            Um();
+            Up();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dmp != null) {
-            this.dmp.onDestory(getPageContext());
+        if (this.dmn != null) {
+            this.dmn.onDestory(getPageContext());
         }
-        if (this.dLt != null) {
-            this.dLt.onDestory();
+        if (this.dLp != null) {
+            this.dLp.onDestory();
         }
-        if (this.bym != null) {
-            this.bym.setOnSrollToBottomListener(null);
-            this.bym.setScrollable(null);
+        if (this.byo != null) {
+            this.byo.setOnSrollToBottomListener(null);
+            this.byo.setScrollable(null);
         }
-        if (this.dLy != null) {
-            this.dLy.onDestroy();
+        if (this.dLu != null) {
+            this.dLu.onDestroy();
         }
-        if (this.dLv != null) {
-            this.dLv.onDestroy();
+        if (this.dLr != null) {
+            this.dLr.onDestroy();
         }
-        if (this.dLw != null) {
-            this.dLw.Bc();
+        if (this.dLs != null) {
+            this.dLs.AZ();
         }
-        if (this.dog != null) {
-            this.dog.onDestroy();
+        if (this.doe != null) {
+            this.doe.onDestroy();
         }
     }
 
-    public void Ul() {
-        this.bym.setNextPage(this.bvA);
-        this.bvA.dD(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.bvA.setOnClickListener(null);
-        this.bvA.Ax();
+    public void Uo() {
+        this.byo.setNextPage(this.bvC);
+        this.bvC.dC(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.bvC.setOnClickListener(null);
+        this.bvC.Av();
     }
 
-    public void Um() {
-        this.bym.setNextPage(this.bvA);
-        this.bvA.dD(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.bvA.setOnClickListener(null);
-        this.bvA.Ay();
-        this.bvA.setText(getResources().getString(d.j.list_no_more));
+    public void Up() {
+        this.byo.setNextPage(this.bvC);
+        this.bvC.dC(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.bvC.setOnClickListener(null);
+        this.bvC.Aw();
+        this.bvC.setText(getResources().getString(f.j.list_no_more));
     }
 
-    public void avx() {
-        this.bym.setNextPage(this.bvA);
-        this.bvA.dD(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.bvA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.9
+    public void avw() {
+        this.byo.setNextPage(this.bvC);
+        this.bvC.dC(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.bvC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment.9
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TalkBallFragment.this.Tn();
+                TalkBallFragment.this.Tq();
             }
         });
-        this.bvA.Ay();
-        this.bvA.setText(getResources().getString(d.j.list_click_load_more));
+        this.bvC.Aw();
+        this.bvC.setText(getResources().getString(f.j.list_click_load_more));
     }
 
-    public void Un() {
-        this.bym.setNextPage(null);
+    public void Uq() {
+        this.byo.setNextPage(null);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        kw(i);
-        if (this.cSy != null) {
-            this.cSy.onChangeSkinType(getPageContext(), i);
+        kv(i);
+        if (this.cSv != null) {
+            this.cSv.onChangeSkinType(getPageContext(), i);
         }
-        if (this.bvA != null) {
-            this.bvA.setTextColor(am.getColor(d.C0140d.cp_cont_d));
-            this.bvA.dC(i);
+        if (this.bvC != null) {
+            this.bvC.setTextColor(am.getColor(f.d.cp_cont_d));
+            this.bvC.dB(i);
         }
         if (this.mPullView != null) {
-            this.mPullView.dC(i);
+            this.mPullView.dB(i);
         }
-        if (this.dLv != null) {
-            this.dLv.onChangeSkinType(i);
+        if (this.dLr != null) {
+            this.dLr.onChangeSkinType(i);
         }
-        if (this.dLw != null) {
-            this.dLw.onChangeSkinType(i);
-        }
-        if (this.dLx != null) {
-            this.dLx.onChangeSkinType(i);
+        if (this.dLs != null) {
+            this.dLs.onChangeSkinType(i);
         }
         if (this.dLt != null) {
-            this.dLt.notifyDataSetChanged();
+            this.dLt.onChangeSkinType(i);
         }
-        am.j(this.NV, d.C0140d.cp_bg_line_d);
-        am.j(this.dLs, d.C0140d.cp_bg_line_e);
+        if (this.dLp != null) {
+            this.dLp.notifyDataSetChanged();
+        }
+        am.j(this.NV, f.d.cp_bg_line_d);
+        am.j(this.dLo, f.d.cp_bg_line_e);
+    }
+
+    private void kv(int i) {
+        if (this.dmt != null) {
+            mg(i);
+        } else {
+            kw(i);
+        }
     }
 
     private void kw(int i) {
-        if (this.dmv != null) {
-            mg(i);
-        } else {
-            kx(i);
-        }
-    }
-
-    private void kx(int i) {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(am.cU(d.f.s_navbar_bg));
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(am.cU(f.C0146f.s_navbar_bg));
             this.mNavigationBar.getBackground().mutate().setAlpha(0);
             this.mNavigationBar.getBarBgView().setBackgroundDrawable(bitmapDrawable.mutate());
-            am.j(this.mNavigationBar.getBottomLine(), d.C0140d.cp_bg_line_b);
+            am.j(this.mNavigationBar.getBottomLine(), f.d.cp_bg_line_b);
         }
-        int i2 = d.C0140d.select_topbar_icon_color_tint;
-        aq.zv().c(this.bOq, d.f.icon_topbar_return_n_svg, i2);
-        aq.zv().c(this.dBW, d.f.icon_topbar_search_n_svg, i2);
-        if (this.dnX != null) {
-            this.dnX.jm(i2);
-            this.dnX.onChangeSkinType(i);
+        int i2 = f.d.select_topbar_icon_color_tint;
+        aq.zt().c(this.bOp, f.C0146f.icon_topbar_return_n_svg, i2);
+        aq.zt().c(this.dBT, f.C0146f.icon_topbar_search_n_svg, i2);
+        if (this.dnV != null) {
+            this.dnV.jl(i2);
+            this.dnV.onChangeSkinType(i);
         }
-        if (this.dLr != null) {
-            this.dLr.setBackgroundDrawable(new BitmapDrawable(am.cU(d.f.s_navbar_bg)).mutate());
+        if (this.dLn != null) {
+            this.dLn.setBackgroundDrawable(new BitmapDrawable(am.cU(f.C0146f.s_navbar_bg)).mutate());
         }
     }
 
     private void mg(int i) {
-        if (this.dmv != null) {
+        if (this.dmt != null) {
             if (this.mNavigationBar != null) {
                 this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-                am.c(this.mNavigationBar.mCenterText, d.C0140d.cp_cont_i, 1);
-                com.baidu.tieba.frs.worldcup.b.a(this.mNavigationBar.getBottomLine(), this.dmv);
+                am.c(this.mNavigationBar.mCenterText, f.d.cp_cont_i, 1);
+                com.baidu.tieba.frs.worldcup.b.a(this.mNavigationBar.getBottomLine(), this.dmt);
             }
-            com.baidu.tieba.frs.worldcup.b.a(this.mNavigationBar, this.dmv);
-            com.baidu.tieba.frs.worldcup.b.a(this.dLr, this.dmv);
-            int i2 = d.C0140d.select_topbar_icon_white_color_tint;
-            aq.zv().c(this.bOq, d.f.icon_topbar_return_n_svg, i2);
-            aq.zv().c(this.dBW, d.f.icon_topbar_search_n_svg, i2);
-            if (this.dnX != null) {
-                this.dnX.jm(i2);
-                this.dnX.onChangeSkinType(i);
+            com.baidu.tieba.frs.worldcup.b.a(this.mNavigationBar, this.dmt);
+            com.baidu.tieba.frs.worldcup.b.a(this.dLn, this.dmt);
+            int i2 = f.d.select_topbar_icon_white_color_tint;
+            aq.zt().c(this.bOp, f.C0146f.icon_topbar_return_n_svg, i2);
+            aq.zt().c(this.dBT, f.C0146f.icon_topbar_search_n_svg, i2);
+            if (this.dnV != null) {
+                this.dnV.jl(i2);
+                this.dnV.onChangeSkinType(i);
             }
         }
     }
@@ -653,25 +653,25 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
     }
 
     @Override // com.baidu.tieba.frs.ak
-    public NavigationBar Vf() {
+    public NavigationBar Vj() {
         return this.mNavigationBar;
     }
 
     @Override // com.baidu.tbadk.core.view.NavigationBar.a
     public void b(Pair<Integer, Integer> pair) {
-        this.dmv = pair;
+        this.dmt = pair;
     }
 
     public String getForumId() {
-        return this.dLy != null ? this.dLy.getForumId() : "";
+        return this.dLu != null ? this.dLu.getForumId() : "";
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.dmp == null) {
-            this.dmp = VoiceManager.instance();
+        if (this.dmn == null) {
+            this.dmn = VoiceManager.instance();
         }
-        return this.dmp;
+        return this.dmn;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -682,37 +682,37 @@ public class TalkBallFragment extends BaseFragment implements NavigationBar.a, V
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        kw(TbadkCoreApplication.getInst().getSkinType());
-        this.dmp = getVoiceManager();
-        if (this.dmp != null) {
-            this.dmp.onResume(getPageContext());
+        kv(TbadkCoreApplication.getInst().getSkinType());
+        this.dmn = getVoiceManager();
+        if (this.dmn != null) {
+            this.dmn.onResume(getPageContext());
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.dmp = getVoiceManager();
-        if (this.dmp != null) {
-            this.dmp.onStart(getPageContext());
+        this.dmn = getVoiceManager();
+        if (this.dmn != null) {
+            this.dmn.onStart(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.dmp = getVoiceManager();
-        if (this.dmp != null) {
-            this.dmp.onPause(getPageContext());
+        this.dmn = getVoiceManager();
+        if (this.dmn != null) {
+            this.dmn.onPause(getPageContext());
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.dmp = getVoiceManager();
-        if (this.dmp != null) {
-            this.dmp.onStop(getPageContext());
+        this.dmn = getVoiceManager();
+        if (this.dmn != null) {
+            this.dmn.onStop(getPageContext());
         }
     }
 }

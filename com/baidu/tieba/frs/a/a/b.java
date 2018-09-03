@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.h;
 import com.baidu.tieba.tbadkCore.v;
 /* loaded from: classes3.dex */
@@ -22,7 +22,7 @@ public class b extends h<v, c> {
     /* renamed from: ax */
     public c onCreateViewHolder(ViewGroup viewGroup) {
         Log.e("Adapter", "Frs U9 Context:" + this.mContext + "   Resource:" + this.mContext.getResources() + "  Asset:" + this.mContext.getResources().getAssets());
-        return new c(this.mPageContext, LayoutInflater.from(this.mContext).inflate(d.h.u9_info_layout, (ViewGroup) null, true), this.mPageId);
+        return new c(this.mPageContext, LayoutInflater.from(this.mContext).inflate(f.h.u9_info_layout, (ViewGroup) null, true), this.mPageId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

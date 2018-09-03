@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class b {
-    private final g arQ = new g();
+    private final g arR = new g();
     public boolean mIsNeedTbs = false;
-    public boolean arR = true;
+    public boolean arS = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean arS = false;
-    public int arT = 0;
+    public boolean arT = false;
+    public int arU = 0;
 
-    public g zP() {
-        return this.arQ;
+    public g zN() {
+        return this.arR;
     }
 
     public void a(r rVar) {
@@ -63,20 +63,20 @@ public class b {
         }
         int jK = j.jK();
         rVar.o("net_type", String.valueOf(jK));
-        String BC = com.baidu.tbadk.coreExtra.b.a.Bz().BC();
+        String Bz = com.baidu.tbadk.coreExtra.b.a.Bw().Bz();
         if (1 == jK) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = BC + "ka=open";
+                str = Bz + "ka=open";
                 z = true;
             }
-            str = BC;
+            str = Bz;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = BC + "ka=open";
+                str = Bz + "ka=open";
                 z = true;
             }
-            str = BC;
+            str = Bz;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
@@ -94,18 +94,18 @@ public class b {
         }
     }
 
-    public String zQ() {
-        if (this.arQ.mUrl == null) {
+    public String zO() {
+        if (this.arR.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.arQ.mUrl.startsWith(str)) {
-            int indexOf = this.arQ.mUrl.indexOf(63);
+        if (this.arR.mUrl.startsWith(str)) {
+            int indexOf = this.arR.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.arQ.mUrl.length();
+                indexOf = this.arR.mUrl.length();
             }
-            return this.arQ.mUrl.substring(str.length(), indexOf);
+            return this.arR.mUrl.substring(str.length(), indexOf);
         }
-        return this.arQ.mUrl;
+        return this.arR.mUrl;
     }
 }

@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    public int dwM;
-    public List<h> dwN;
+    public int dwJ;
+    public List<h> dwK;
     public boolean hasMore;
     public String key;
     public int labelId;
@@ -19,9 +19,9 @@ public class c {
         if (w.z(list)) {
             return 0;
         }
-        if (w.z(this.dwN)) {
-            this.dwN = new LinkedList();
-            this.dwN.addAll(list);
+        if (w.z(this.dwK)) {
+            this.dwK = new LinkedList();
+            this.dwK.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             h hVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.dwN.size()) {
+                if (i2 >= this.dwK.size()) {
                     z = false;
                     break;
                 }
-                h hVar2 = this.dwN.get(i2);
+                h hVar2 = this.dwK.get(i2);
                 if (hVar != null && (hVar instanceof b) && hVar2 != null && (hVar2 instanceof b)) {
-                    bb Td = ((b) hVar).Td();
-                    bb Td2 = ((b) hVar2).Td();
-                    if (Td != null && Td2 != null && Td.getTid() != null && Td2.getTid() != null && Td.getTid().equals(Td2.getTid())) {
+                    bb Tg = ((b) hVar).Tg();
+                    bb Tg2 = ((b) hVar2).Tg();
+                    if (Tg != null && Tg2 != null && Tg.getTid() != null && Tg2.getTid() != null && Tg.getTid().equals(Tg2.getTid())) {
                         z = true;
                         break;
                     }
@@ -49,7 +49,7 @@ public class c {
             }
         }
         if (linkedList.size() != 0) {
-            w.a((List) this.dwN, 0, (List) linkedList);
+            w.a((List) this.dwK, 0, (List) linkedList);
         }
         return linkedList.size();
     }

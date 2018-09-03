@@ -41,7 +41,7 @@ public final class a extends Thread {
         com.baidu.crabsdk.sender.e.ab();
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x00a7, code lost:
-        if (com.baidu.crabsdk.sender.e.pq() == false) goto L27;
+        if (com.baidu.crabsdk.sender.e.pn() == false) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x00a9, code lost:
         com.baidu.crabsdk.c.a.cg("===uploadAnr===");
@@ -62,7 +62,7 @@ public final class a extends Thread {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void pn() {
+    private void pk() {
         String readLine;
         com.baidu.crabsdk.c.a.cg("===readLog()===");
         if (this.Tk) {
@@ -124,7 +124,7 @@ public final class a extends Thread {
         } while (this.Tj != i);
         com.baidu.crabsdk.c.a.ce("onAppNotResponding!");
         if (this.RU != null && !com.baidu.crabsdk.a.J) {
-            pn();
+            pk();
         }
         Tg = false;
         Tg = false;

@@ -3,12 +3,12 @@ package com.baidu.tbadk.widget.layout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements b {
     @Override // com.baidu.tbadk.widget.layout.b
-    public int fI(int i) {
+    public int fH(int i) {
         if (i < 4) {
             return 1;
         }
@@ -79,7 +79,7 @@ public class a implements b {
         if (i2 > 0) {
             int i3 = i + 3;
             List<MediaData> a = w.a(list, i, i3);
-            constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(d.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+            constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(f.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
             constrainImageLayout.setUrls(a, i, true);
             return i3;
         }

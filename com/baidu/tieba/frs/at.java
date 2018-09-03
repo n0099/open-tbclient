@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public class at {
-    public int dpu;
+    public int dps;
     public boolean isSelected;
     public String name;
 }

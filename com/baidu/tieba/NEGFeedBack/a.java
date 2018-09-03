@@ -15,21 +15,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONArray biv;
-    private HttpMessageListener biw;
-    private String mFrom;
-    private BdUniqueId bix = BdUniqueId.gen();
-    private BdUniqueId biy = BdUniqueId.gen();
-    private CustomMessageListener biz = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
+    private JSONArray biB;
+    private HttpMessageListener biC;
+    private BdUniqueId biD = BdUniqueId.gen();
+    private BdUniqueId biE = BdUniqueId.gen();
+    private CustomMessageListener biF = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.js() && a.this.biv != null) {
-                a.this.a(a.this.biv, a.this.biy);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.js() && a.this.biB != null) {
+                a.this.a(a.this.biB, a.this.biE);
             }
         }
     };
-    private CustomMessageListener biA = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.NEGFeedBack.a.3
+    private CustomMessageListener biG = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.NEGFeedBack.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,33 +37,34 @@ public class a {
             }
         }
     };
+    private String mFrom;
 
     public a(TbPageContext tbPageContext, String str) {
         this.mFrom = str;
-        if (this.biw == null) {
-            this.biw = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
+        if (this.biC == null) {
+            this.biC = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.biv = null;
+                        a.this.biB = null;
                     }
                 }
             };
         }
-        this.biw.setTag(this.biy);
-        MessageManager.getInstance().registerListener(this.biw);
-        MessageManager.getInstance().registerListener(this.biz);
-        this.biA.setTag(tbPageContext.getUniqueId());
-        this.biA.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.biA);
+        this.biC.setTag(this.biE);
+        MessageManager.getInstance().registerListener(this.biC);
+        MessageManager.getInstance().registerListener(this.biF);
+        this.biG.setTag(tbPageContext.getUniqueId());
+        this.biG.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.biG);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.biw);
-        MessageManager.getInstance().unRegisterListener(this.biz);
-        MessageManager.getInstance().unRegisterListener(this.biA);
-        this.biv = null;
+        MessageManager.getInstance().unRegisterListener(this.biC);
+        MessageManager.getInstance().unRegisterListener(this.biF);
+        MessageManager.getInstance().unRegisterListener(this.biG);
+        this.biB = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,14 +73,14 @@ public class a {
             if (j.js()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.bix);
+                a(jSONArray, this.biD);
                 return;
             }
-            if (this.biv == null) {
-                this.biv = new JSONArray();
+            if (this.biB == null) {
+                this.biB = new JSONArray();
             }
-            if (this.biv.length() <= 100) {
-                this.biv.put(jSONObject);
+            if (this.biB.length() <= 100) {
+                this.biB.put(jSONObject);
             }
         }
     }

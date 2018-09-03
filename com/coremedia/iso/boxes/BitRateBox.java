@@ -63,7 +63,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setBufferSizeDb(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.dj(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.di(j)));
         this.bufferSizeDb = j;
     }
 
@@ -73,7 +73,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setMaxBitrate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.dj(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.di(j)));
         this.maxBitrate = j;
     }
 
@@ -83,7 +83,7 @@ public final class BitRateBox extends AbstractBox {
     }
 
     public void setAvgBitrate(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.dj(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.di(j)));
         this.avgBitrate = j;
     }
 }

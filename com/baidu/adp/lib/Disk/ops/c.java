@@ -9,31 +9,31 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options wr;
-    protected a ws;
+    protected BitmapFactory.Options ws;
+    protected a wt;
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.wr = null;
         this.ws = null;
-        this.ws = new a();
+        this.wt = null;
+        this.wt = new a();
     }
 
     public boolean isGif() {
-        return this.ws.mIsGif;
+        return this.wt.mIsGif;
     }
 
     public void y(boolean z) {
-        this.ws.mIsGif = z;
+        this.wt.mIsGif = z;
     }
 
     public boolean gB() {
-        return this.ws.ww;
+        return this.wt.wx;
     }
 
     public void z(boolean z) {
-        this.ws.ww = z;
+        this.wt.wx = z;
     }
 
     public Bitmap getBitmap() {
@@ -53,20 +53,20 @@ public class c extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.ws.toByteArray();
+        return this.wt.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean i(byte[] bArr) {
-        if (bArr != null && this.ws.j(bArr)) {
-            if (this.ws.wv == 0 || this.ws.wv >= System.currentTimeMillis()) {
-                if (this.wr == null) {
-                    this.wr = new BitmapFactory.Options();
-                    this.wr.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (bArr != null && this.wt.j(bArr)) {
+            if (this.wt.ww == 0 || this.wt.ww >= System.currentTimeMillis()) {
+                if (this.ws == null) {
+                    this.ws = new BitmapFactory.Options();
+                    this.ws.inPreferredConfig = Bitmap.Config.RGB_565;
                 }
                 int headerSize = a.getHeaderSize();
                 try {
-                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.wr);
+                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, headerSize, bArr.length - headerSize, this.ws);
                 } catch (Error e) {
                     BdLog.e(e.getMessage());
                 }
@@ -87,11 +87,11 @@ public class c extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte wt = Byte.MIN_VALUE;
         private static byte wu = Byte.MIN_VALUE;
+        private static byte wv = Byte.MIN_VALUE;
         boolean mIsGif = false;
-        long wv = 0;
-        boolean ww = true;
+        long ww = 0;
+        boolean wx = true;
 
         a() {
         }
@@ -103,9 +103,9 @@ public class c extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(getHeaderSize());
             allocate.putInt(1786600511);
-            allocate.put(this.mIsGif ? (byte) (wt | 0) : (byte) 0);
-            allocate.putLong(this.wv);
-            allocate.put(this.ww ? (byte) 0 : (byte) (wu | 0));
+            allocate.put(this.mIsGif ? (byte) (wu | 0) : (byte) 0);
+            allocate.putLong(this.ww);
+            allocate.put(this.wx ? (byte) 0 : (byte) (wv | 0));
             allocate.flip();
             return allocate.array();
         }
@@ -116,12 +116,12 @@ public class c extends DiskFileOperate {
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderSize());
             if (wrap.getInt() == 1786600511) {
-                if ((wrap.get() & wt) != 0) {
+                if ((wrap.get() & wu) != 0) {
                     this.mIsGif = true;
                 }
-                this.wv = wrap.getLong();
-                if ((wrap.get() & wu) != 0) {
-                    this.ww = false;
+                this.ww = wrap.getLong();
+                if ((wrap.get() & wv) != 0) {
+                    this.wx = false;
                 }
                 return true;
             }

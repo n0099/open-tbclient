@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private n dZF;
+    private n dZC;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dZF = new n() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.dZC = new n() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             @Override // com.baidu.adp.widget.ListView.n
             public void a(View view, h hVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 TiebaStatic.log(new an("c11273"));
@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
             }
         };
         this.mPageContext = tbPageContext;
-        setOnAdapterItemClickListener(this.dZF);
+        setOnAdapterItemClickListener(this.dZC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,18 +43,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        v.aiY().a(new an("c11272"));
-        aVar.dZH.a(cVar);
+        v.ajb().a(new an("c11272"));
+        aVar.dZE.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends q.a {
-        public com.baidu.tieba.homepage.personalize.b.a dZH;
+        public com.baidu.tieba.homepage.personalize.b.a dZE;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.dZH = aVar;
+            this.dZE = aVar;
         }
     }
 }

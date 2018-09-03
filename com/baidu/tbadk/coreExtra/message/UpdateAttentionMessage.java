@@ -13,11 +13,11 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public boolean Gp;
-        public JSONObject aDr;
-        public boolean aDs;
-        public String aDt;
-        public BlockPopInfoData aDu;
-        public c arO;
+        public JSONObject aDq;
+        public boolean aDr;
+        public String aDs;
+        public BlockPopInfoData aDt;
+        public c arP;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -31,7 +31,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.aDr = jSONObject;
+                    this.aDq = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
@@ -51,16 +51,16 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
         private void q(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aDt = jSONObject.optString("block_dealurl");
+                this.aDs = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!ap.isEmpty(optString) && !ap.isEmpty(this.aDt) && !ap.isEmpty(optString2) && !ap.isEmpty(optString3)) {
-                    this.aDu = new BlockPopInfoData();
-                    this.aDu.block_info = optString;
-                    this.aDu.ahead_url = this.aDt;
-                    this.aDu.ahead_info = optString2;
-                    this.aDu.ok_info = optString3;
+                if (!ap.isEmpty(optString) && !ap.isEmpty(this.aDs) && !ap.isEmpty(optString2) && !ap.isEmpty(optString3)) {
+                    this.aDt = new BlockPopInfoData();
+                    this.aDt.block_info = optString;
+                    this.aDt.ahead_url = this.aDs;
+                    this.aDt.ahead_info = optString2;
+                    this.aDt.ok_info = optString3;
                 }
             }
         }

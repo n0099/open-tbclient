@@ -13,9 +13,10 @@ public class d {
     private long fid;
     public String objParam1;
     private long pid;
+    public String task_id;
     private long tid;
 
-    public List<String> Kj() {
+    public List<String> Kn() {
         return this.aTi;
     }
 
@@ -51,7 +52,7 @@ public class d {
         return this.pid;
     }
 
-    public long Kk() {
+    public long Ko() {
         return this.aTk;
     }
 
@@ -59,7 +60,15 @@ public class d {
         this.aTk = j;
     }
 
-    public boolean Kl() {
+    public void setTaskId(String str) {
+        this.task_id = str;
+    }
+
+    public String getTaskId() {
+        return this.task_id;
+    }
+
+    public boolean Kp() {
         return StringUtils.isNull(this.aTj);
     }
 }

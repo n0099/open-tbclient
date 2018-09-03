@@ -9,49 +9,49 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView eMi;
-    private List<com.baidu.tieba.interestlabel.b.a> eMk;
-    private List<Integer> eMl = new ArrayList();
+    private LabelSettingView eMd;
+    private List<com.baidu.tieba.interestlabel.b.a> eMf;
+    private List<Integer> eMg = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.eMi = labelSettingView;
+        this.eMd = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !w.z(bVar.aQo())) {
+        if (bVar != null && !w.z(bVar.aQl())) {
             this.mLabelDataSet = bVar;
-            this.eMk = bVar.aQo();
-            if (!w.z(bVar.aQp())) {
-                this.eMl = new ArrayList(bVar.aQp());
+            this.eMf = bVar.aQl();
+            if (!w.z(bVar.aQm())) {
+                this.eMg = new ArrayList(bVar.aQm());
             }
         }
     }
 
-    public List<Integer> aQl() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aQp();
+    public List<Integer> aQi() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aQm();
     }
 
-    public List<Integer> aQm() {
-        return this.eMl;
+    public List<Integer> aQj() {
+        return this.eMg;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return w.y(this.eMk);
+        return w.y(this.eMf);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: oU */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) w.d(this.eMk, i);
+        return (com.baidu.tieba.interestlabel.b.a) w.d(this.eMf, i);
     }
 
     @Override // android.widget.Adapter
@@ -68,17 +68,17 @@ public class b extends BaseAdapter {
         C0187b c0187b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.eMi.getContext()).inflate(d.h.item_label_layout, (ViewGroup) null);
+            view2 = LayoutInflater.from(this.eMd.getContext()).inflate(f.h.item_label_layout, (ViewGroup) null);
             C0187b c0187b2 = new C0187b();
-            c0187b2.eMn = (TextView) view2;
+            c0187b2.eMi = (TextView) view2;
             view2.setTag(c0187b2);
             c0187b = c0187b2;
         } else {
             c0187b = (C0187b) view.getTag();
             view2 = view;
         }
-        c0187b.eMn.setOnClickListener(new a(i));
-        a(c0187b.eMn, getItem(i));
+        c0187b.eMi.setOnClickListener(new a(i));
+        a(c0187b.eMi, getItem(i));
         return view2;
     }
 
@@ -92,11 +92,11 @@ public class b extends BaseAdapter {
             }
             textView.setText(str);
             if (aVar.isFollow) {
-                am.h(textView, d.C0140d.cp_link_tip_a);
-                drawable = am.getDrawable(d.f.icon_lable_confirm_s);
+                am.h(textView, f.d.cp_link_tip_a);
+                drawable = am.getDrawable(f.C0146f.icon_lable_confirm_s);
             } else {
-                am.h(textView, d.C0140d.cp_cont_b);
-                drawable = am.getDrawable(d.f.icon_lable_confirm_n);
+                am.h(textView, f.d.cp_cont_b);
+                drawable = am.getDrawable(f.C0146f.icon_lable_confirm_n);
             }
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
         }
@@ -105,7 +105,7 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     class C0187b {
-        TextView eMn;
+        TextView eMi;
 
         C0187b() {
         }
@@ -128,12 +128,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.eMl.add(Integer.valueOf(item.labelId));
+                    b.this.eMg.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.eMl.remove(Integer.valueOf(item.labelId));
+                    b.this.eMg.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.eMi != null) {
-                    b.this.eMi.il(w.y(b.this.eMl) > 0);
+                if (b.this.eMd != null) {
+                    b.this.eMd.il(w.y(b.this.eMg) > 0);
                 }
             }
         }

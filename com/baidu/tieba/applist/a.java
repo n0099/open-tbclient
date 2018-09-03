@@ -6,8 +6,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private String cwc;
-    private boolean cwd;
+    private String cvZ;
+    private boolean cwa;
     private Drawable icon;
     private String name;
     private String version;
@@ -24,24 +24,24 @@ public class a {
         this.version = str;
     }
 
-    public void kU(String str) {
-        this.cwc = str;
+    public void kW(String str) {
+        this.cvZ = str;
     }
 
     public void ep(boolean z) {
-        this.cwd = z;
+        this.cwa = z;
     }
 
-    public JSONObject aiv() {
+    public JSONObject aiy() {
         JSONObject jSONObject;
         JSONException e;
         try {
             jSONObject = new JSONObject();
             try {
                 jSONObject.put("name", this.name);
-                jSONObject.put("packagename", this.cwc);
+                jSONObject.put("packagename", this.cvZ);
                 jSONObject.put("version", this.version);
-                jSONObject.put("isUserApp", this.cwd ? "0" : "1");
+                jSONObject.put("isUserApp", this.cwa ? "0" : "1");
             } catch (JSONException e2) {
                 e = e2;
                 e.printStackTrace();
@@ -57,9 +57,9 @@ public class a {
     public String toString() {
         HashMap hashMap = new HashMap();
         hashMap.put("name", this.name);
-        hashMap.put("packagename", this.cwc);
+        hashMap.put("packagename", this.cvZ);
         hashMap.put("version", this.version);
-        hashMap.put("isUserApp", this.cwd ? "0" : "1");
+        hashMap.put("isUserApp", this.cwa ? "0" : "1");
         return new JSONObject(hashMap).toString();
     }
 }

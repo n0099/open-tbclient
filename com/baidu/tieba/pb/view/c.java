@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class c extends PopupWindow {
     private KeyEventDealContainerView mContainer;
@@ -30,8 +30,8 @@ public class c extends PopupWindow {
             setWidth(-1);
             setSoftInputMode(16);
             setFocusable(false);
-            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(d.C0140d.common_color_10022)));
-            setAnimationStyle(d.k.pb_more_pop_anim);
+            setBackgroundDrawable(new ColorDrawable(activity.getResources().getColor(f.d.common_color_10022)));
+            setAnimationStyle(f.k.pb_more_pop_anim);
         }
     }
 

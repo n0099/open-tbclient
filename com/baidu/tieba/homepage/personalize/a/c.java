@@ -10,62 +10,62 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: aEw */
-    public T ajz() {
-        return (T) this.cDi;
+    /* renamed from: aEt */
+    public T ajC() {
+        return (T) this.cDf;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.cDi == 0) {
+        if (this.cDf == 0) {
             return false;
         }
-        return ((n) this.cDi).isPlayStarted();
+        return ((n) this.cDf).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.cDi == 0) {
+        if (this.cDf == 0) {
             return false;
         }
-        return ((n) this.cDi).isPlaying();
+        return ((n) this.cDf).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.cDi != 0) {
-            ((n) this.cDi).startPlay();
+        if (this.cDf != 0) {
+            ((n) this.cDf).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.cDi != 0) {
-            ((n) this.cDi).stopPlay();
+        if (this.cDf != 0) {
+            ((n) this.cDf).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.cDi == 0) {
+        if (this.cDf == 0) {
             return null;
         }
-        return ((n) this.cDi).getVideoContainer();
+        return ((n) this.cDf).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.cDi == 0) {
+        if (this.cDf == 0) {
             return null;
         }
-        return ((n) this.cDi).getPlayUrl();
+        return ((n) this.cDf).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.cDi == 0) {
+        if (this.cDf == 0) {
             return 0;
         }
-        return ((n) this.cDi).getCurrentPosition();
+        return ((n) this.cDf).getCurrentPosition();
     }
 }

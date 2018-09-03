@@ -17,7 +17,7 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
             return new CustomResponsedMessage<>(2001306, null);
         }
         long longValue = ((Long) customMessage.getData()).longValue();
-        l<byte[]> dx = com.baidu.tbadk.core.c.a.xb().dx("tb.im_recommend_detail");
+        l<byte[]> dx = com.baidu.tbadk.core.c.a.xa().dx("tb.im_recommend_detail");
         if (dx == null) {
             return new CustomResponsedMessage<>(2001306, null);
         }

@@ -11,7 +11,7 @@ public class aw implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] K = g.bbR().K(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        byte[] K = g.bbM().K(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
         PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
         pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
         pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());

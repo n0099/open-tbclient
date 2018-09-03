@@ -11,7 +11,8 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.mainTab.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
@@ -22,12 +23,12 @@ public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c Jn() {
         c cVar = new c();
-        cVar.aRL = new WriteThreadFragment();
+        cVar.aRI = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.aRM = d.j.send;
-        cVar.aRN = d.f.icon_tabbar_add_n;
-        cVar.aRO = d.f.icon_tabbar_chaticon_n;
-        cVar.aRS = c.aRP;
+        cVar.aRJ = f.j.send;
+        cVar.aRK = f.C0146f.icon_tabbar_add_n;
+        cVar.aRL = f.C0146f.icon_tabbar_chaticon_n;
+        cVar.aRQ = c.aRM;
         return cVar;
     }
 
@@ -39,9 +40,9 @@ public class WriteThreadDelegateStatic extends b {
                 c Jo;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
-                    ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (Jo = writeThreadDelegateStatic.Jo()) != null) {
-                        Jo.aRL.setArguments(new Bundle());
+                    ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (Jo = writeThreadDelegateStatic.Jo()) != null) {
+                        Jo.aRI.setArguments(new Bundle());
                     }
                 }
             }
@@ -51,8 +52,8 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator be(Context context) {
-        this.aRx = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
-        return this.aRx;
+    public TbFragmentTabIndicator bd(Context context) {
+        this.aRu = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(f.h.maintab_bottom_indicator, (ViewGroup) null);
+        return this.aRu;
     }
 }

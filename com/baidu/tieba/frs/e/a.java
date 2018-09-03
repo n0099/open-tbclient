@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes2.dex */
 public class a {
-    public boolean dED = false;
-    public int dEE = 0;
-    public String dEF = null;
-    public int dEG = -1;
-    public int dEH = -1;
+    public boolean dEA = false;
+    public int dEB = 0;
+    public String dEC = null;
+    public int dED = -1;
+    public int dEE = -1;
 }

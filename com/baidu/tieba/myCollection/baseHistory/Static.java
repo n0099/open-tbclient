@@ -18,8 +18,8 @@ public class Static {
                         a aVar = new a();
                         aVar.setThreadId(historyMessage.threadId);
                         aVar.setForumName(historyMessage.forumName);
-                        aVar.qE(historyMessage.threadName);
-                        aVar.qF(historyMessage.postID);
+                        aVar.qH(historyMessage.threadName);
+                        aVar.qI(historyMessage.postID);
                         aVar.iZ(historyMessage.isHostOnly);
                         aVar.ja(historyMessage.isSquence);
                         aVar.setThreadType(historyMessage.threadType);
@@ -27,7 +27,7 @@ public class Static {
                         aVar.setChapterId(historyMessage.chapterId);
                         aVar.setIsShareThread(historyMessage.isShareThread);
                         aVar.setManga(historyMessage.isManga);
-                        aVar.qG(historyMessage.liveId);
+                        aVar.qJ(historyMessage.liveId);
                         aVar.setUserName(historyMessage.userName);
                         aVar.setDescription(historyMessage.description);
                         pbHistoryCacheModel.a((PbHistoryCacheModel) aVar);

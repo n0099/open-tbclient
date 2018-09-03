@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
-    private View.OnClickListener fTp;
+    private View.OnClickListener fTh;
     private TbPageContext mPageContext;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -21,8 +21,8 @@ public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bw */
     public com.baidu.tieba.person.b.d onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.person.b.d dVar = new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(d.h.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
-        dVar.fTQ.setItemOnclickListener(this.fTp);
+        com.baidu.tieba.person.b.d dVar = new com.baidu.tieba.person.b.d(LayoutInflater.from(this.mContext).inflate(f.h.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
+        dVar.fTI.setItemOnclickListener(this.fTh);
         return dVar;
     }
 
@@ -39,6 +39,6 @@ public class d extends com.baidu.tieba.b.d<f, com.baidu.tieba.person.b.d> {
     }
 
     public void N(View.OnClickListener onClickListener) {
-        this.fTp = onClickListener;
+        this.fTh = onClickListener;
     }
 }

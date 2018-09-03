@@ -11,7 +11,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.ad;
 /* loaded from: classes3.dex */
 public class FrsGameStrategyFragmentDelegateStatic extends b {
@@ -31,7 +31,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
                         bundle.putString("from", "game_frs");
                         bundle.putBoolean("back_special", false);
                         bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
-                        Jo.aRL.setArguments(bundle);
+                        Jo.aRI.setArguments(bundle);
                     }
                 }
             }
@@ -46,16 +46,16 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c Jn() {
         c cVar = new c();
-        cVar.aRL = new FrsGameStrategyMainFragment();
+        cVar.aRI = new FrsGameStrategyMainFragment();
         cVar.type = 3;
-        cVar.aRS = c.aRQ;
+        cVar.aRQ = c.aRN;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator be(Context context) {
-        this.aRx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        this.aRx.setTextSize(2.0f);
-        return this.aRx;
+    public TbFragmentTabIndicator bd(Context context) {
+        this.aRu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(f.h.fragmenttabindicator, (ViewGroup) null);
+        this.aRu.setTextSize(2.0f);
+        return this.aRu;
     }
 }

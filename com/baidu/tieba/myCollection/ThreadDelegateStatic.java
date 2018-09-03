@@ -9,7 +9,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
@@ -20,16 +20,16 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c Jn() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aRL = ThreadFragment.aWT();
+        cVar.aRI = ThreadFragment.aWP();
         cVar.type = 1;
-        cVar.aRM = d.j.collect_thread;
+        cVar.aRJ = f.j.collect_thread;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator be(Context context) {
-        this.aRx = (FragmentTabIndicator) LayoutInflater.from(context).inflate(d.h.fragmenttabindicator, (ViewGroup) null);
-        return this.aRx;
+    public TbFragmentTabIndicator bd(Context context) {
+        this.aRu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(f.h.fragmenttabindicator, (ViewGroup) null);
+        return this.aRu;
     }
 
     static {
@@ -43,7 +43,7 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
                     ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                     aVar.a(threadDelegateStatic);
                     if (aVar.getContext() != null && (Jo = threadDelegateStatic.Jo()) != null) {
-                        Jo.aRL.setArguments(new Bundle());
+                        Jo.aRI.setArguments(new Bundle());
                     }
                 }
             }

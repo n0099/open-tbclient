@@ -6,14 +6,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class c {
-    private static BlockPopInfo hba;
-    private static BlockPopInfo hbb;
-    private CustomMessageListener bxy = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
+    private static BlockPopInfo hbc;
+    private static BlockPopInfo hbd;
+    private CustomMessageListener bxA = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,19 +27,19 @@ public class c {
 
     public c(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.mContext.registerListener(this.bxy);
+        this.mContext.registerListener(this.bxA);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null && blockPopInfo.appeal_status != null && blockPopInfo.appeal_status.intValue() == 1) {
-            BdToast.a(this.mContext.getPageActivity(), blockPopInfo.appeal_msg, d.f.icon_toast_game_error, 3000).xn();
+            BdToast.a(this.mContext.getPageActivity(), blockPopInfo.appeal_msg, f.C0146f.icon_toast_game_error, 3000).xm();
             return true;
         } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0 && ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1)) {
             if (blockPopInfo.ahead_type.intValue() == 1) {
                 String str = blockPopInfo.block_info;
                 String str2 = blockPopInfo.ok_info;
                 if (ap.isEmpty(str) || ap.isEmpty(str2)) {
-                    BdToast.a(this.mContext.getPageActivity(), this.mContext.getString(d.j.hanpen_error), d.f.icon_toast_game_error, 3000).xn();
+                    BdToast.a(this.mContext.getPageActivity(), this.mContext.getString(f.j.hanpen_error), f.C0146f.icon_toast_game_error, 3000).xm();
                     return true;
                 }
                 b(blockPopInfo);
@@ -55,12 +55,12 @@ public class c {
         }
     }
 
-    public boolean bzJ() {
-        return a(hba);
+    public boolean bzL() {
+        return a(hbc);
     }
 
-    public boolean bzK() {
-        return a(hbb);
+    public boolean bzM() {
+        return a(hbd);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
@@ -79,7 +79,7 @@ public class c {
                     c.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.mContext).xf();
+            aVar.b(this.mContext).xe();
         }
     }
 
@@ -91,10 +91,10 @@ public class c {
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        hba = blockPopInfo;
+        hbc = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        hbb = blockPopInfo;
+        hbd = blockPopInfo;
     }
 }

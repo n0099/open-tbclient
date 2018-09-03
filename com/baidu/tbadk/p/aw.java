@@ -1,7 +1,7 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class aw {
-    public static void KY() {
+    public static void Lc() {
         com.baidu.adp.lib.b.d.hv().f(v.class);
         com.baidu.adp.lib.b.d.hv().f(a.class);
         com.baidu.adp.lib.b.d.hv().f(b.class);

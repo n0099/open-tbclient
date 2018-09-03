@@ -21,7 +21,7 @@ public class ReportFragment extends Fragment {
         void onStart();
     }
 
-    public static void d(Activity activity) {
+    public static void c(Activity activity) {
         FragmentManager fragmentManager = activity.getFragmentManager();
         if (fragmentManager.findFragmentByTag("android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag") == null) {
             fragmentManager.beginTransaction().add(new ReportFragment(), "android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag").commit();

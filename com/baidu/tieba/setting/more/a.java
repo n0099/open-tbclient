@@ -10,72 +10,72 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<AboutActivity> {
-    private AboutActivity gyI;
-    private RelativeLayout gyJ;
-    private TextView gyK;
-    private SettingTextTestNewView gyL;
-    private ImageView gyM;
-    private TbSettingTextTipView gyN;
-    private TbSettingTextTipView gyO;
-    private TbSettingTextTipView gyP;
+    private AboutActivity gyL;
+    private RelativeLayout gyM;
+    private TextView gyN;
+    private SettingTextTestNewView gyO;
+    private ImageView gyP;
     private TbSettingTextTipView gyQ;
-    protected TextView gyR;
-    private ProgressBar gyS;
+    private TbSettingTextTipView gyR;
+    private TbSettingTextTipView gyS;
+    private TbSettingTextTipView gyT;
+    protected TextView gyU;
+    private ProgressBar gyV;
     private NavigationBar mNavigationBar;
 
     public a(AboutActivity aboutActivity, c cVar) {
         super(aboutActivity.getPageContext());
-        this.gyI = aboutActivity;
+        this.gyL = aboutActivity;
         FQ();
         a(cVar);
     }
 
-    public void bpr() {
-        if (this.gyS != null) {
-            this.gyS.setVisibility(0);
+    public void bps() {
+        if (this.gyV != null) {
+            this.gyV.setVisibility(0);
         }
     }
 
-    public void aAh() {
-        if (this.gyS != null) {
-            this.gyS.setVisibility(8);
+    public void aAe() {
+        if (this.gyV != null) {
+            this.gyV.setVisibility(8);
         }
     }
 
     private void FQ() {
-        this.gyI.setContentView(d.h.about_activity);
-        this.gyJ = (RelativeLayout) this.gyI.findViewById(d.g.parent);
-        this.gyM = (ImageView) this.gyI.findViewById(d.g.image_logo);
-        this.mNavigationBar = (NavigationBar) this.gyI.findViewById(d.g.view_navigation_bar);
+        this.gyL.setContentView(f.h.about_activity);
+        this.gyM = (RelativeLayout) this.gyL.findViewById(f.g.parent);
+        this.gyP = (ImageView) this.gyL.findViewById(f.g.image_logo);
+        this.mNavigationBar = (NavigationBar) this.gyL.findViewById(f.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.gyI.getPageContext().getString(d.j.version_info));
-        this.gyK = (TextView) this.gyI.findViewById(d.g.text_versioninfo);
-        this.gyL = (SettingTextTestNewView) this.gyI.findViewById(d.g.about_version_update);
-        this.gyN = (TbSettingTextTipView) this.gyI.findViewById(d.g.about_guide);
-        this.gyN.hideArrow();
-        this.gyO = (TbSettingTextTipView) this.gyI.findViewById(d.g.tieba_protocol_text);
-        this.gyO.hideArrow();
-        this.gyP = (TbSettingTextTipView) this.gyI.findViewById(d.g.tieba_privacy_text);
-        this.gyP.hideArrow();
-        this.gyQ = (TbSettingTextTipView) this.gyI.findViewById(d.g.tieba_tdou_use_introduce);
+        this.mNavigationBar.setTitleText(this.gyL.getPageContext().getString(f.j.version_info));
+        this.gyN = (TextView) this.gyL.findViewById(f.g.text_versioninfo);
+        this.gyO = (SettingTextTestNewView) this.gyL.findViewById(f.g.about_version_update);
+        this.gyQ = (TbSettingTextTipView) this.gyL.findViewById(f.g.about_guide);
         this.gyQ.hideArrow();
-        this.gyS = (ProgressBar) this.gyI.findViewById(d.g.about_progress);
+        this.gyR = (TbSettingTextTipView) this.gyL.findViewById(f.g.tieba_protocol_text);
+        this.gyR.hideArrow();
+        this.gyS = (TbSettingTextTipView) this.gyL.findViewById(f.g.tieba_privacy_text);
+        this.gyS.hideArrow();
+        this.gyT = (TbSettingTextTipView) this.gyL.findViewById(f.g.tieba_tdou_use_introduce);
+        this.gyT.hideArrow();
+        this.gyV = (ProgressBar) this.gyL.findViewById(f.g.about_progress);
         String version = TbConfig.getVersion();
         if (TbConfig.getVersionType() == 1 && !ap.isEmpty(TbConfig.getSubVersion())) {
             version = version + "." + TbConfig.getSubVersion();
         }
-        this.gyK.setText(this.gyI.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.gyI.getPageContext().getString(d.j.setting_version_text) + " " + version);
-        this.gyR = (TextView) this.gyI.findViewById(d.g.text_version_protoco);
-        ey(TbadkCoreApplication.getInst().getSkinType());
+        this.gyN.setText(this.gyL.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.gyL.getPageContext().getString(f.j.setting_version_text) + " " + version);
+        this.gyU = (TextView) this.gyL.findViewById(f.g.text_version_protoco);
+        ex(TbadkCoreApplication.getInst().getSkinType());
         if (MessageManager.getInstance().findTask(2015001) == null) {
-            this.gyN.setVisibility(8);
-            this.gyI.findViewById(d.g.line_about_guide).setVisibility(8);
+            this.gyQ.setVisibility(8);
+            this.gyL.findViewById(f.g.line_about_guide).setVisibility(8);
         }
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("debug_plugin_switcher", false)) {
             sM(0);
@@ -90,15 +90,15 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.gyO) {
-                    ay.zK().c(a.this.gyI.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
-                } else if (view == a.this.gyP) {
-                    ay.zK().a(a.this.gyI.getPageContext(), new String[]{"http://www.baidu.com/duty/wise/wise_secretright.html"}, true);
-                } else if (view == a.this.gyQ) {
-                    ay.zK().c(a.this.gyI.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-                } else if (view != a.this.gyL) {
-                    if (view != a.this.gyN) {
-                        if (view == a.this.gyM) {
+                if (view == a.this.gyR) {
+                    az.zI().c(a.this.gyL.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
+                } else if (view == a.this.gyS) {
+                    az.zI().a(a.this.gyL.getPageContext(), new String[]{"http://www.baidu.com/duty/wise/wise_secretright.html"}, true);
+                } else if (view == a.this.gyT) {
+                    az.zI().c(a.this.gyL.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+                } else if (view != a.this.gyO) {
+                    if (view != a.this.gyQ) {
+                        if (view == a.this.gyP) {
                             cVar.sL(4);
                             return;
                         }
@@ -110,29 +110,29 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
                 }
             }
         };
-        this.gyL.setOnClickListener(onClickListener);
-        this.gyN.setOnClickListener(onClickListener);
         this.gyO.setOnClickListener(onClickListener);
-        this.gyP.setOnClickListener(onClickListener);
         this.gyQ.setOnClickListener(onClickListener);
-        this.gyM.setOnClickListener(onClickListener);
+        this.gyR.setOnClickListener(onClickListener);
+        this.gyS.setOnClickListener(onClickListener);
+        this.gyT.setOnClickListener(onClickListener);
+        this.gyP.setOnClickListener(onClickListener);
     }
 
     private void sM(int i) {
-        this.gyI.findViewById(d.g.line0).setVisibility(i);
+        this.gyL.findViewById(f.g.line0).setVisibility(i);
     }
 
-    public void bps() {
-        if (this.gyL != null) {
-            this.gyL.refresh();
+    public void bpt() {
+        if (this.gyO != null) {
+            this.gyO.refresh();
         }
     }
 
-    public void ey(int i) {
-        am.j(this.gyJ, d.C0140d.cp_bg_line_d);
+    public void ex(int i) {
+        am.j(this.gyM, f.d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gyI.getLayoutMode().setNightMode(i == 1);
-        this.gyI.getLayoutMode().onModeChanged(this.gyJ);
-        bps();
+        this.gyL.getLayoutMode().setNightMode(i == 1);
+        this.gyL.getLayoutMode().onModeChanged(this.gyM);
+        bpt();
     }
 }

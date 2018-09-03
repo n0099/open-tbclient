@@ -17,24 +17,24 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
 
     @Override // com.airbnb.lottie.model.a.m
     public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> ci() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.my) : new com.airbnb.lottie.a.b.d(this.mi);
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mz) : new com.airbnb.lottie.a.b.d(this.mj);
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static c f(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             n.a cC = n.a(jSONObject, 1.0f, eVar, new b(jSONObject.optInt("p", jSONObject.optJSONArray("k").length() / 4))).cC();
-            return new c(cC.mi, (com.airbnb.lottie.model.content.c) cC.my);
+            return new c(cC.mj, (com.airbnb.lottie.model.content.c) cC.mz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b implements m.a<com.airbnb.lottie.model.content.c> {
-        private final int nm;
+        private final int nn;
 
         private b(int i) {
-            this.nm = i;
+            this.nn = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,15 +42,15 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
         /* renamed from: f */
         public com.airbnb.lottie.model.content.c b(Object obj, float f) {
             JSONArray jSONArray = (JSONArray) obj;
-            float[] fArr = new float[this.nm];
-            int[] iArr = new int[this.nm];
+            float[] fArr = new float[this.nn];
+            int[] iArr = new int[this.nn];
             com.airbnb.lottie.model.content.c cVar = new com.airbnb.lottie.model.content.c(fArr, iArr);
-            if (jSONArray.length() != this.nm * 4) {
-                Log.w("LOTTIE", "Unexpected gradient length: " + jSONArray.length() + ". Expected " + (this.nm * 4) + ". This may affect the appearance of the gradient. Make sure to save your After Effects file before exporting an animation with gradients.");
+            if (jSONArray.length() != this.nn * 4) {
+                Log.w("LOTTIE", "Unexpected gradient length: " + jSONArray.length() + ". Expected " + (this.nn * 4) + ". This may affect the appearance of the gradient. Make sure to save your After Effects file before exporting an animation with gradients.");
             }
             int i = 0;
             int i2 = 0;
-            for (int i3 = 0; i3 < this.nm * 4; i3++) {
+            for (int i3 = 0; i3 < this.nn * 4; i3++) {
                 int i4 = i3 / 4;
                 double optDouble = jSONArray.optDouble(i3);
                 switch (i3 % 4) {
@@ -73,7 +73,7 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
         }
 
         private void a(com.airbnb.lottie.model.content.c cVar, JSONArray jSONArray) {
-            int i = this.nm * 4;
+            int i = this.nn * 4;
             if (jSONArray.length() > i) {
                 int length = (jSONArray.length() - i) / 2;
                 double[] dArr = new double[length];

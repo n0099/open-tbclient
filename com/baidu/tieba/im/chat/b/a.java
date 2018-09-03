@@ -36,7 +36,7 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean nM(String str);
+        boolean nO(String str);
     }
 
     public static boolean a(ChatMessage chatMessage, int i) {
@@ -50,7 +50,7 @@ public abstract class a {
         }
     }
 
-    public static void nL(String str) {
+    public static void nN(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -142,7 +142,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.nM(valueOf)) {
+            if (cVar != null && cVar.nO(valueOf)) {
                 i3 = 0;
             }
             imMessageCenterPojo.setUnread_count(i3);
@@ -180,6 +180,7 @@ public abstract class a {
                 imMessageCenterPojo.setLastContentRawData(commonMsgPojo.getContent());
                 imMessageCenterPojo.setLast_rid(commonMsgPojo.getRid());
                 imMessageCenterPojo.setSid(commonMsgPojo.getSid());
+                imMessageCenterPojo.setLastTaskId(commonMsgPojo.getTaskId());
                 MessageUtils.makeNewTaskId(imMessageCenterPojo, linkedList);
                 imMessageCenterPojo.setLast_content(W);
                 imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);

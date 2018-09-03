@@ -4,34 +4,34 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes2.dex */
 public final class f {
     private static long RY;
-    private static long hCD;
+    private static long hCF;
     private static boolean ak = true;
     private static boolean al = false;
-    private static long hCC = StatisticConfig.MIN_UPLOAD_INTERVAL;
+    private static long hCE = StatisticConfig.MIN_UPLOAD_INTERVAL;
     private static boolean ap = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
-        hCC = j;
+        hCE = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long bJd() {
-        return hCC;
+    public static long bJh() {
+        return hCE;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long bJe() {
-        return hCD;
+    public static long bJi() {
+        return hCF;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        hCD = j;
+        hCF = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean bJf() {
+    public static boolean bJj() {
         return ak;
     }
 
@@ -49,7 +49,7 @@ public final class f {
         RY = j;
     }
 
-    public static long bJg() {
+    public static long bJk() {
         return RY;
     }
 }

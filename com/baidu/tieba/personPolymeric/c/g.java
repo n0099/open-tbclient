@@ -10,7 +10,7 @@ import tbclient.User;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId gba = BdUniqueId.gen();
-    public String Bc;
+    public String Bd;
     public boolean gbb;
     public String gbc;
     public List<com.baidu.adp.widget.ListView.h> gbd;
@@ -22,7 +22,7 @@ public class g extends com.baidu.tieba.card.data.b {
     public void parserProtoBuf(User user) {
         if (user != null && !w.z(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
-            this.Bc = user.name;
+            this.Bd = user.name;
             this.gbc = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {

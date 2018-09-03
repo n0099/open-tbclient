@@ -20,19 +20,19 @@ import android.widget.PopupWindow;
 import com.baidu.adp.lib.g.g;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.write.album.AlbumActivity;
 import com.baidu.tieba.write.album.b;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends PopupWindow {
-    private View cFr;
-    private ViewGroup cZS;
-    private int cZU;
-    private AlbumActivity hxp;
-    private b hxq;
-    private InterfaceC0259a hxr;
+    private View cFo;
+    private ViewGroup cZO;
+    private int cZQ;
+    private AlbumActivity hxr;
+    private b hxs;
+    private InterfaceC0259a hxt;
     private ListView mListView;
     private final View.OnClickListener mOnClickListener;
     private final AdapterView.OnItemClickListener mOnItemClickListener;
@@ -44,7 +44,7 @@ public class a extends PopupWindow {
     }
 
     public void a(InterfaceC0259a interfaceC0259a) {
-        this.hxr = interfaceC0259a;
+        this.hxt = interfaceC0259a;
     }
 
     public a(AlbumActivity albumActivity) {
@@ -52,9 +52,9 @@ public class a extends PopupWindow {
         this.mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.write.view.a.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tbadk.album.a item = a.this.hxq.getItem(i);
-                if (a.this.hxr != null) {
-                    a.this.hxr.a(i, item);
+                com.baidu.tbadk.album.a item = a.this.hxs.getItem(i);
+                if (a.this.hxt != null) {
+                    a.this.hxt.a(i, item);
                 }
                 a.this.ara();
             }
@@ -65,10 +65,10 @@ public class a extends PopupWindow {
                 a.this.ara();
             }
         };
-        this.hxp = albumActivity;
+        this.hxr = albumActivity;
         setWidth(-1);
         setHeight(-1);
-        setContentView(e(new ArrayList(), com.baidu.tbadk.album.a.ZW));
+        setContentView(e(new ArrayList(), com.baidu.tbadk.album.a.ZX));
         setFocusable(true);
         setTouchable(true);
         setOutsideTouchable(true);
@@ -78,36 +78,36 @@ public class a extends PopupWindow {
 
     @SuppressLint({"ResourceAsColor"})
     private View e(List<com.baidu.tbadk.album.a> list, String str) {
-        BdListView bdListView = new BdListView(this.hxp.getPageContext().getPageActivity());
+        BdListView bdListView = new BdListView(this.hxr.getPageContext().getPageActivity());
         this.mListView = bdListView;
-        bdListView.setCacheColorHint(this.hxp.getResources().getColor(17170445));
+        bdListView.setCacheColorHint(this.hxr.getResources().getColor(17170445));
         bdListView.setDivider(null);
         bdListView.setDividerHeight(0);
         bdListView.setFadingEdgeLength(0);
-        this.hxq = new b(this.hxp);
-        this.hxq.f(list, str);
-        bdListView.setAdapter((ListAdapter) this.hxq);
-        FrameLayout frameLayout = new FrameLayout(this.hxp.getPageContext().getPageActivity());
-        FrameLayout frameLayout2 = new FrameLayout(this.hxp.getPageContext().getPageActivity());
-        this.cZS = frameLayout2;
+        this.hxs = new b(this.hxr);
+        this.hxs.f(list, str);
+        bdListView.setAdapter((ListAdapter) this.hxs);
+        FrameLayout frameLayout = new FrameLayout(this.hxr.getPageContext().getPageActivity());
+        FrameLayout frameLayout2 = new FrameLayout(this.hxr.getPageContext().getPageActivity());
+        this.cZO = frameLayout2;
         frameLayout.addView(frameLayout2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(bdListView, new FrameLayout.LayoutParams(-1, -2));
         this.mListView.setOnItemClickListener(this.mOnItemClickListener);
-        this.cZS.setOnClickListener(this.mOnClickListener);
-        am.j(this.cFr, d.C0140d.cp_bg_line_d);
-        am.j(this.mListView, d.C0140d.cp_bg_line_d);
-        am.j(this.cZS, d.C0140d.black_alpha70);
+        this.cZO.setOnClickListener(this.mOnClickListener);
+        am.j(this.cFo, f.d.cp_bg_line_d);
+        am.j(this.mListView, f.d.cp_bg_line_d);
+        am.j(this.cZO, f.d.black_alpha70);
         return frameLayout;
     }
 
     public void f(List<com.baidu.tbadk.album.a> list, String str) {
         int i;
         if (list != null) {
-            this.cZU = g(list, str);
+            this.cZQ = g(list, str);
             if (list.size() <= 5) {
                 i = -2;
             } else {
-                i = this.hxp.getResources().getDimensionPixelSize(d.e.ds618);
+                i = this.hxr.getResources().getDimensionPixelSize(f.e.ds618);
             }
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mListView.getLayoutParams();
             if (layoutParams == null) {
@@ -116,8 +116,8 @@ public class a extends PopupWindow {
                 layoutParams.height = i;
             }
             this.mListView.setLayoutParams(layoutParams);
-            this.hxq.f(list, str);
-            this.hxq.notifyDataSetChanged();
+            this.hxs.f(list, str);
+            this.hxs.notifyDataSetChanged();
         }
     }
 
@@ -136,7 +136,7 @@ public class a extends PopupWindow {
     }
 
     public void au(View view) {
-        this.mListView.setSelection(this.cZU);
+        this.mListView.setSelection(this.cZQ);
         if (Build.VERSION.SDK_INT < 24) {
             if (g.showPopupWindowAsDropDown(this, view)) {
                 arc();
@@ -144,7 +144,7 @@ public class a extends PopupWindow {
             }
             return;
         }
-        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.hxp.auQ() == null || this.hxp.auQ().getVisibility() != 0) ? 0 : this.hxp.auQ().getHeight()) + view.getHeight())) {
+        if (g.showPopupWindowAtLocation(this, view, 0, 0, ((this.hxr.auP() == null || this.hxr.auP().getVisibility() != 0) ? 0 : this.hxr.auP().getHeight()) + view.getHeight())) {
             arc();
         }
     }
@@ -171,7 +171,7 @@ public class a extends PopupWindow {
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
         this.mListView.startAnimation(translateAnimation);
-        this.cZS.startAnimation(alphaAnimation);
+        this.cZO.startAnimation(alphaAnimation);
     }
 
     private void ard() {
@@ -197,15 +197,15 @@ public class a extends PopupWindow {
             }
         });
         this.mListView.startAnimation(translateAnimation);
-        this.cZS.startAnimation(alphaAnimation);
+        this.cZO.startAnimation(alphaAnimation);
     }
 
     public void clearAnimation() {
         if (this.mListView != null) {
             this.mListView.clearAnimation();
         }
-        if (this.cZS != null) {
-            this.cZS.clearAnimation();
+        if (this.cZO != null) {
+            this.cZO.clearAnimation();
         }
     }
 }

@@ -10,20 +10,20 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern gNO = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern gNQ = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String gNM = null;
-    private SpannableStringBuilder gNN = null;
-    private boolean gNL = false;
+    private String gNO = null;
+    private SpannableStringBuilder gNP = null;
+    private boolean gNN = false;
 
     public static boolean bK(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -41,23 +41,23 @@ public class k {
         return this.text;
     }
 
-    public String bvP() {
+    public String bvQ() {
         return this.c;
     }
 
-    public SpannableStringBuilder bvQ() {
-        return this.gNN;
+    public SpannableStringBuilder bvR() {
+        return this.gNP;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.gNN == null) {
-            this.gNN = new SpannableStringBuilder();
+        if (this.gNP == null) {
+            this.gNP = new SpannableStringBuilder();
         }
-        this.gNN.append((CharSequence) spannableString);
-        return this.gNN;
+        this.gNP.append((CharSequence) spannableString);
+        return this.gNP;
     }
 
-    public SpannableString cg(Context context) {
+    public SpannableString cf(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -80,7 +80,7 @@ public class k {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.gNO.matcher(k.this.link);
+                        Matcher matcher2 = k.gNQ.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
@@ -132,7 +132,7 @@ public class k {
                 if (!this.text.endsWith(" ")) {
                     this.text += " ";
                 }
-                String string = context.getString(d.j.video);
+                String string = context.getString(f.j.video);
                 SpannableString spannableString4 = new SpannableString(string + this.text);
                 spannableString4.setSpan(new com.baidu.tbadk.util.j(context) { // from class: com.baidu.tieba.tbadkCore.data.k.1
                     @Override // com.baidu.tbadk.util.j, android.text.style.ClickableSpan

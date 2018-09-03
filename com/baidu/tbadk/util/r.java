@@ -12,36 +12,36 @@ public class r {
     private boolean aWD;
     private final Handler mHandler;
 
-    public void Lr() {
+    public void Lv() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void Ls() {
+    public void Lw() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void Lt() {
+    public void Lx() {
         this.mHandler.removeCallbacksAndMessages(null);
-    }
-
-    public void cd(boolean z) {
-        if (this.aWB != null) {
-            if (z || this.aWB.getVisibility() != 8) {
-                Ls();
-            }
-        }
     }
 
     public void ce(boolean z) {
         if (this.aWB != null) {
+            if (z || this.aWB.getVisibility() != 8) {
+                Lw();
+            }
+        }
+    }
+
+    public void cf(boolean z) {
+        if (this.aWB != null) {
             if (z || this.aWB.getVisibility() != 0) {
-                Lr();
+                Lv();
             }
         }
     }
@@ -49,9 +49,9 @@ public class r {
     public void onScroll(int i, int i2) {
         if (this.aWB != null) {
             if (i != 0 && i2 > i && this.aWB.getVisibility() != 8) {
-                cd(false);
-            } else if ((i == 0 || i2 < i) && this.aWB.getVisibility() != 0) {
                 ce(false);
+            } else if ((i == 0 || i2 < i) && this.aWB.getVisibility() != 0) {
+                cf(false);
             }
             this.aWC = i;
         }
@@ -68,14 +68,14 @@ public class r {
                 return;
             }
             if (firstVisiblePosition > this.aWC) {
-                cd(true);
-            } else if (firstVisiblePosition < this.aWC) {
                 ce(true);
+            } else if (firstVisiblePosition < this.aWC) {
+                cf(true);
             } else if (firstVisiblePosition == this.aWC) {
                 if (firstVisiblePosition == 0 || !this.aWD) {
-                    ce(true);
+                    cf(true);
                 } else {
-                    cd(true);
+                    ce(true);
                 }
             }
         }

@@ -157,7 +157,7 @@ public class a {
         return i < i2 ? i2 : i;
     }
 
-    public static boolean c(PackageManager packageManager) {
+    public static boolean b(PackageManager packageManager) {
         FeatureInfo[] systemAvailableFeatures;
         if (packageManager == null || (systemAvailableFeatures = packageManager.getSystemAvailableFeatures()) == null) {
             return false;

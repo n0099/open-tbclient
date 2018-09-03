@@ -14,33 +14,33 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
-    private static final String gED = TbConfig.SERVER_ADDRESS + "c/f/forum/getforumlist";
-    private c gEA;
-    private a gEB;
-    private HttpMessage gEC;
-    private boolean gEE;
-    private final HttpMessageListener gEF;
+    private static final String gEG = TbConfig.SERVER_ADDRESS + "c/f/forum/getforumlist";
+    private c gED;
+    private a gEE;
+    private HttpMessage gEF;
+    private boolean gEH;
+    private final HttpMessageListener gEI;
     private final BdUniqueId mBdUniqueId;
 
     /* loaded from: classes3.dex */
     public interface a {
         void a(c cVar);
 
-        void op(String str);
+        void or(String str);
     }
 
     public GetForumListModel(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.gEA = null;
-        this.gEB = null;
+        this.gED = null;
+        this.gEE = null;
         this.mBdUniqueId = BdUniqueId.gen();
-        this.gEF = new HttpMessageListener(CmdConfigHttp.SIGNALL_GET_FOURMS) { // from class: com.baidu.tieba.signall.GetForumListModel.1
+        this.gEI = new HttpMessageListener(CmdConfigHttp.SIGNALL_GET_FOURMS) { // from class: com.baidu.tieba.signall.GetForumListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -50,58 +50,58 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
                         if (error == 110001) {
                             GetForumListModel.this.d(httpResponsedMessage);
                         }
-                        GetForumListModel.this.gEB.op(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.gEE.or(httpResponsedMessage.getErrorString());
                     } else if (error == 0) {
-                        GetForumListModel.this.gEA = ((GetForumResponsed) httpResponsedMessage).listData;
-                        if (GetForumListModel.this.gEB != null && GetForumListModel.this.gEA != null) {
-                            GetForumListModel.this.gEB.a(GetForumListModel.this.gEA);
+                        GetForumListModel.this.gED = ((GetForumResponsed) httpResponsedMessage).listData;
+                        if (GetForumListModel.this.gEE != null && GetForumListModel.this.gED != null) {
+                            GetForumListModel.this.gEE.a(GetForumListModel.this.gED);
                         } else {
                             String errorString = httpResponsedMessage.getErrorString();
                             if (StringUtils.isNull(errorString)) {
-                                errorString = TbadkCoreApplication.getInst().getContext().getString(d.j.neterror);
+                                errorString = TbadkCoreApplication.getInst().getContext().getString(f.j.neterror);
                             }
-                            GetForumListModel.this.gEB.op(errorString);
+                            GetForumListModel.this.gEE.or(errorString);
                         }
                     } else {
-                        GetForumListModel.this.gEB.op(httpResponsedMessage.getErrorString());
+                        GetForumListModel.this.gEE.or(httpResponsedMessage.getErrorString());
                     }
-                    GetForumListModel.this.gEC = null;
+                    GetForumListModel.this.gEF = null;
                 }
             }
         };
-        this.gEE = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        this.gEH = signAllForumActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
         MessageManager messageManager = MessageManager.getInstance();
-        this.gEA = new c();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, gED);
+        this.gED = new c();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, gEG);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.gEF);
+        registerListener(this.gEI);
     }
 
-    public boolean bsH() {
-        return this.gEE;
+    public boolean bsI() {
+        return this.gEH;
     }
 
     public void a(a aVar) {
-        this.gEB = aVar;
+        this.gEE = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.gEC != null) {
+        if (this.gEF != null) {
             return false;
         }
-        this.gEC = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
+        this.gEF = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str = null;
         if (currentAccountObj != null) {
             str = currentAccountObj.getID();
         }
-        this.gEC.addParam("user_id", str);
-        this.gEC.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().sendMessage(this.gEC);
+        this.gEF.addParam("user_id", str);
+        this.gEF.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().sendMessage(this.gEF);
         return true;
     }
 
@@ -130,9 +130,9 @@ public class GetForumListModel extends BdBaseModel<SignAllForumActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.gEC != null) {
+        if (this.gEF != null) {
             MessageManager.getInstance().removeHttpMessage(this.mBdUniqueId);
-            this.gEC = null;
+            this.gEF = null;
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.SIGNALL_GET_FOURMS);
         return true;

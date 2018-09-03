@@ -8,48 +8,48 @@ import com.baidu.tbadk.a.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> eOq;
+    private final HashMap<String, f> eOl;
 
     private b() {
-        this.eOq = new HashMap<>();
+        this.eOl = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0225b {
-        private static b goo = new b();
+        private static b gor = new b();
     }
 
-    public static b bno() {
-        return C0225b.goo;
+    public static b bnp() {
+        return C0225b.gor;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
-            a sF = a.sF(str);
-            f fVar = this.eOq.get(sF.getKey());
-            if (fVar != null && sF.isValid()) {
+            a sJ = a.sJ(str);
+            f fVar = this.eOl.get(sJ.getKey());
+            if (fVar != null && sJ.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    sF.getParams().putAll(hashMap);
+                    sJ.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, sF.getParams(), str, dVar);
+                fVar.a(obj, sJ.getParams(), str, dVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.eOq.put(str, fVar);
+        this.eOl.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.a.a aVar) {
-        a(aVar.rs(), aVar);
+        a(aVar.rq(), aVar);
     }
 
     /* loaded from: classes3.dex */
     public static class a {
         private boolean agc;
-        HashMap<String, String> eOr;
+        HashMap<String, String> eOm;
         String key;
 
         public boolean isValid() {
@@ -61,7 +61,7 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.eOr;
+            return this.eOm;
         }
 
         private a(String str) {
@@ -70,17 +70,17 @@ public class b implements e {
             this.agc = TextUtils.isEmpty(parse.getScheme()) ? false : true;
             if (this.agc) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.eOr = new HashMap<>();
+                this.eOm = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.eOr.put(str2, parse.getQueryParameter(str2));
+                    this.eOm.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.eOr = new HashMap<>();
+            this.eOm = new HashMap<>();
         }
 
-        public static a sF(String str) {
+        public static a sJ(String str) {
             return new a(str);
         }
     }

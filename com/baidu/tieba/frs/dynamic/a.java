@@ -20,16 +20,16 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private BdTypeRecyclerView dqh;
-    private l dqj;
-    private FrsDynamicFragment dsB;
-    private i dsC;
-    private i dsD;
-    private com.baidu.tieba.frs.entelechy.a.l dsE;
-    private p dsF;
-    private d dsG;
+    private BdTypeRecyclerView dqf;
+    private l dqh;
+    private i dsA;
+    private com.baidu.tieba.frs.entelechy.a.l dsB;
+    private p dsC;
+    private d dsD;
+    private FrsDynamicFragment dsy;
+    private i dsz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
-    private CustomMessageListener dsH = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.dynamic.a.1
+    private CustomMessageListener dsE = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.dynamic.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,8 +37,8 @@ public class a {
                 Iterator it = ((AbsDelegateAdapterList) customResponsedMessage.getData()).iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                    if ((aVar instanceof aa) && "FrsHottopicDelegateAdapter".equals(((aa) aVar).aja()) && a.this.mAdapters != null) {
-                        ((aa) aVar).a(a.this.dsB.getPageContext(), a.this.dsB.getUniqueId());
+                    if ((aVar instanceof aa) && "FrsHottopicDelegateAdapter".equals(((aa) aVar).ajd()) && a.this.mAdapters != null) {
+                        ((aa) aVar).a(a.this.dsy.getPageContext(), a.this.dsy.getUniqueId());
                         ((aa) aVar).setFrom("c13010");
                         a.this.mAdapters.add(aVar);
                     }
@@ -49,43 +49,43 @@ public class a {
 
     public a(FrsDynamicFragment frsDynamicFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         a(frsDynamicFragment, bdTypeRecyclerView);
-        this.dqh = bdTypeRecyclerView;
+        this.dqf = bdTypeRecyclerView;
     }
 
     public void a(FrsDynamicFragment frsDynamicFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.dsB = frsDynamicFragment;
-        this.dsH.setPriority(1);
-        this.dsH.setSelfListener(true);
-        this.dsB.registerListener(this.dsH);
-        this.dsC = new i(frsDynamicFragment.getPageContext(), bb.ahx, this.dsB.getUniqueId());
-        this.dsC.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dsy = frsDynamicFragment;
+        this.dsE.setPriority(1);
+        this.dsE.setSelfListener(true);
+        this.dsy.registerListener(this.dsE);
+        this.dsz = new i(frsDynamicFragment.getPageContext(), bb.ahx, this.dsy.getUniqueId());
+        this.dsz.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dsz.setFrom("c13010");
+        this.dsA = new i(frsDynamicFragment.getPageContext(), bb.ahz, this.dsy.getUniqueId());
+        this.dsA.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dsA.setFrom("c13010");
+        this.dsB = new com.baidu.tieba.frs.entelechy.a.l(frsDynamicFragment.getPageContext(), bb.ahE, this.dsy.getUniqueId());
+        this.dsB.setFrom("c13010");
+        this.dsC = new p(frsDynamicFragment.getPageContext(), bb.ahA, this.dsy.getUniqueId());
         this.dsC.setFrom("c13010");
-        this.dsD = new i(frsDynamicFragment.getPageContext(), bb.ahz, this.dsB.getUniqueId());
-        this.dsD.setVoiceManager(frsDynamicFragment.getVoiceManager());
+        this.dsD = new d(frsDynamicFragment.getPageContext(), bb.ahF, this.dsy.getUniqueId());
         this.dsD.setFrom("c13010");
-        this.dsE = new com.baidu.tieba.frs.entelechy.a.l(frsDynamicFragment.getPageContext(), bb.ahE, this.dsB.getUniqueId());
-        this.dsE.setFrom("c13010");
-        this.dsF = new p(frsDynamicFragment.getPageContext(), bb.ahA, this.dsB.getUniqueId());
-        this.dsF.setFrom("c13010");
-        this.dsG = new d(frsDynamicFragment.getPageContext(), bb.ahF, this.dsB.getUniqueId());
-        this.dsG.setFrom("c13010");
-        this.dqj = new l(frsDynamicFragment.getPageContext(), m.doV);
+        this.dqh = new l(frsDynamicFragment.getPageContext(), m.doT);
+        this.mAdapters.add(this.dsz);
+        this.mAdapters.add(this.dsA);
+        this.mAdapters.add(this.dsB);
         this.mAdapters.add(this.dsC);
         this.mAdapters.add(this.dsD);
-        this.mAdapters.add(this.dsE);
-        this.mAdapters.add(this.dsF);
-        this.mAdapters.add(this.dsG);
-        this.mAdapters.add(this.dqj);
+        this.mAdapters.add(this.dqh);
         bdTypeRecyclerView.addAdapters(this.mAdapters);
-        iA("page_frs_dynamic");
+        iB("page_frs_dynamic");
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.dqh.setData(arrayList);
+        this.dqf.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        this.dqh.getAdapter().notifyDataSetChanged();
+        this.dqf.getAdapter().notifyDataSetChanged();
     }
 
     public void setFromCDN(boolean z) {
@@ -108,11 +108,11 @@ public class a {
         }
     }
 
-    private void iA(String str) {
+    private void iB(String str) {
         if (this.mAdapters != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
                 if (aVar instanceof f) {
-                    ((f) aVar).iA(str);
+                    ((f) aVar).iB(str);
                 }
             }
         }

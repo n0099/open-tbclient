@@ -1,37 +1,31 @@
 package com.baidu.tieba.personCenter.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbclient.BannerImage;
 /* loaded from: classes2.dex */
-public class a {
-    private int errorCode = -1;
-    private String errorMsg = "";
-    private int fUz = 0;
+public class a implements com.baidu.tbadk.core.flow.a.a {
+    private String dLO;
+    private String mImgUrl;
+    private String mTitle;
 
-    public int getErrorCode() {
-        return this.errorCode;
-    }
-
-    public int Kc() {
-        return this.fUz;
-    }
-
-    public void rM(String str) {
-        if (!StringUtils.isNull(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, -1);
-                this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null) {
-                    this.fUz = optJSONObject.optInt("msg_count");
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    public void a(BannerImage bannerImage) {
+        if (bannerImage != null) {
+            this.mImgUrl = bannerImage.img_url;
+            this.dLO = bannerImage.ahead_url;
+            this.mTitle = bannerImage.title;
         }
+    }
+
+    public String aBD() {
+        return this.dLO;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.mImgUrl;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String tO() {
+        return this.dLO;
     }
 }

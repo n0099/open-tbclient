@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> eaQ = new ArrayList<>(5);
-    public int eaU;
-    public int eaV;
-    int eaW;
+    private static ArrayList<a> eaN = new ArrayList<>(5);
+    public int eaR;
+    public int eaS;
+    int eaT;
     public int type;
 
-    private void Px() {
-        this.eaU = 0;
-        this.eaV = 0;
-        this.eaW = 0;
+    private void PD() {
+        this.eaR = 0;
+        this.eaS = 0;
+        this.eaT = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aEU() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eaU, this.eaV) : ExpandableListView.getPackedPositionForGroup(this.eaU);
+    public long aER() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eaR, this.eaS) : ExpandableListView.getPackedPositionForGroup(this.eaR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,20 +32,20 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a r(int i, int i2, int i3, int i4) {
-        a aEV = aEV();
-        aEV.type = i;
-        aEV.eaU = i2;
-        aEV.eaV = i3;
-        aEV.eaW = i4;
-        return aEV;
+        a aES = aES();
+        aES.type = i;
+        aES.eaR = i2;
+        aES.eaS = i3;
+        aES.eaT = i4;
+        return aES;
     }
 
-    private static a aEV() {
+    private static a aES() {
         a aVar;
-        synchronized (eaQ) {
-            if (eaQ.size() > 0) {
-                aVar = eaQ.remove(0);
-                aVar.Px();
+        synchronized (eaN) {
+            if (eaN.size() > 0) {
+                aVar = eaN.remove(0);
+                aVar.PD();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (eaQ) {
-            if (eaQ.size() < 5) {
-                eaQ.add(this);
+        synchronized (eaN) {
+            if (eaN.size() < 5) {
+                eaN.add(this);
             }
         }
     }

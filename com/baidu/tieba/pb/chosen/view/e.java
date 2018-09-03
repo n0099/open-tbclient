@@ -10,22 +10,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.f;
 import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes3.dex */
 public class e {
     private Context context;
-    private View frZ;
-    private TextView fsa;
-    private ImageView fsb;
-    private TextView fsc;
-    private TextView fsd;
-    private a fse;
-    public boolean fsf;
-    private Animation fsh;
-    private long fsg = 0;
-    private boolean fsi = false;
+    private View frS;
+    private TextView frT;
+    private ImageView frU;
+    private TextView frV;
+    private TextView frW;
+    private a frX;
+    public boolean frY;
+    private Animation fsa;
+    private long frZ = 0;
+    private boolean fsb = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,59 +36,59 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.frZ = LayoutInflater.from(context).inflate(d.h.chosen_pb_post_info, (ViewGroup) null);
-        this.fsa = (TextView) this.frZ.findViewById(d.g.chosen_post_info_copyright);
-        this.fsb = (ImageView) this.frZ.findViewById(d.g.chosen_post_info_praise_icon);
-        this.fsc = (TextView) this.frZ.findViewById(d.g.chosen_post_info_praise_num);
-        this.fsd = (TextView) this.frZ.findViewById(d.g.chosen_post_info_original_post);
+        this.frS = LayoutInflater.from(context).inflate(f.h.chosen_pb_post_info, (ViewGroup) null);
+        this.frT = (TextView) this.frS.findViewById(f.g.chosen_post_info_copyright);
+        this.frU = (ImageView) this.frS.findViewById(f.g.chosen_post_info_praise_icon);
+        this.frV = (TextView) this.frS.findViewById(f.g.chosen_post_info_praise_num);
+        this.frW = (TextView) this.frS.findViewById(f.g.chosen_post_info_original_post);
     }
 
-    public View aZd() {
-        return this.frZ;
+    public View aYY() {
+        return this.frS;
     }
 
     public void a(a aVar) {
-        this.fse = aVar;
+        this.frX = aVar;
     }
 
     public void qi(int i) {
-        if (this.fsa != null) {
-            this.fsa.setText(i);
+        if (this.frT != null) {
+            this.frT.setText(i);
         }
     }
 
     public void D(View.OnClickListener onClickListener) {
-        if (this.fsd != null) {
-            this.fsd.setOnClickListener(onClickListener);
+        if (this.frW != null) {
+            this.frW.setOnClickListener(onClickListener);
         }
     }
 
     public void cF(long j) {
         if (j >= 0) {
-            this.fsg = j;
-            if (this.fsc != null) {
-                this.fsc.setVisibility(0);
-                this.fsc.setText(this.context.getString(d.j.chosen_pb_praise_num, ap.F(j)));
+            this.frZ = j;
+            if (this.frV != null) {
+                this.frV.setVisibility(0);
+                this.frV.setText(this.context.getString(f.j.chosen_pb_praise_num, ap.F(j)));
             }
-            if (this.fsc != null && this.fsc.getVisibility() == 8) {
-                this.fsc.setVisibility(0);
+            if (this.frV != null && this.frV.getVisibility() == 8) {
+                this.frV.setVisibility(0);
             }
         }
     }
 
     public void a(final ExcellentPbThreadInfo excellentPbThreadInfo) {
         if (excellentPbThreadInfo != null) {
-            qi(d.j.chosen_pb_copyright);
+            qi(f.j.chosen_pb_copyright);
             cF(excellentPbThreadInfo.zan.zansum.longValue());
             jp(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.fsb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.frU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.fsi && ba.aV(e.this.context)) {
-                        e.this.fsi = true;
-                        e.this.fsb.startAnimation(e.this.aZf());
-                        if (e.this.fse != null) {
-                            e.this.fse.jl(e.this.fsf);
+                    if (!e.this.fsb && bb.aU(e.this.context)) {
+                        e.this.fsb = true;
+                        e.this.frU.startAnimation(e.this.aZa());
+                        if (e.this.frX != null) {
+                            e.this.frX.jl(e.this.frY);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             D(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.fse != null) {
-                        e.this.fse.n(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.frX != null) {
+                        e.this.frX.n(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void aZe() {
-        this.fsi = false;
+    public void aYZ() {
+        this.fsb = false;
     }
 
     public void jo(boolean z) {
         jp(z);
         if (z) {
-            this.fsg++;
+            this.frZ++;
         } else {
-            this.fsg--;
+            this.frZ--;
         }
-        cF(this.fsg);
+        cF(this.frZ);
     }
 
     private void jp(boolean z) {
-        this.fsf = z;
+        this.frY = z;
         if (z) {
-            am.c(this.fsb, d.f.btn_zambia_big_s);
+            am.c(this.frU, f.C0146f.btn_zambia_big_s);
         } else {
-            am.c(this.fsb, d.f.btn_zambia_big_n);
+            am.c(this.frU, f.C0146f.btn_zambia_big_n);
         }
-        this.fsb.setVisibility(0);
+        this.frU.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation aZf() {
-        if (this.fsh == null) {
-            this.fsh = AnimationUtils.loadAnimation(this.context, d.a.praise_animation_scale3);
+    public Animation aZa() {
+        if (this.fsa == null) {
+            this.fsa = AnimationUtils.loadAnimation(this.context, f.a.praise_animation_scale3);
         }
-        return this.fsh;
+        return this.fsa;
     }
 }

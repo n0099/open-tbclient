@@ -32,7 +32,7 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.j;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.person.ChangePortraitResponse;
 import com.baidu.tieba.person.SetUserPicsResponse;
 import com.baidu.tieba.person.a;
@@ -42,7 +42,7 @@ import java.util.List;
 import org.apache.http.HttpHost;
 /* loaded from: classes3.dex */
 public class g implements View.OnClickListener {
-    private com.baidu.tbadk.core.util.b.a bkU;
+    private com.baidu.tbadk.core.util.b.a bkZ;
     private PersonPolymericModel fZD;
     private com.baidu.tieba.personPolymeric.c.a fZZ;
     protected boolean isHost;
@@ -55,7 +55,7 @@ public class g implements View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChangePortraitResponse) && ((ChangePortraitResponse) httpResponsedMessage).getErrCode() == 0) {
-                g.this.bjo();
+                g.this.bjl();
             }
         }
     };
@@ -70,7 +70,7 @@ public class g implements View.OnClickListener {
                     g.this.lk(false);
                     return;
                 }
-                g.this.bjo();
+                g.this.bjl();
             }
         }
     };
@@ -84,7 +84,7 @@ public class g implements View.OnClickListener {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001442));
         }
     };
-    private CustomMessageListener fVc = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personPolymeric.b.g.7
+    private CustomMessageListener fUY = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personPolymeric.b.g.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -97,10 +97,10 @@ public class g implements View.OnClickListener {
     public g(TbPageContext tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         this.mPageContext = tbPageContext;
         this.isHost = z;
-        this.fVc.setTag(bdUniqueId);
+        this.fUY.setTag(bdUniqueId);
         this.gab.setTag(bdUniqueId);
         this.gaa.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.fVc);
+        this.mPageContext.registerListener(this.fUY);
         this.mPageContext.registerListener(this.gab);
         this.mPageContext.registerListener(this.gaa);
     }
@@ -113,25 +113,25 @@ public class g implements View.OnClickListener {
         this.fZD = personPolymericModel;
     }
 
-    public List<com.baidu.adp.widget.ListView.h> bjl() {
+    public List<com.baidu.adp.widget.ListView.h> bji() {
         if (this.fZZ == null) {
             return null;
         }
-        return this.fZZ.bjl();
+        return this.fZZ.bji();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && bjl() != null) {
+        if (view != null && bji() != null) {
             com.baidu.adp.widget.ListView.h hVar = null;
             if (view.getTag() instanceof com.baidu.tieba.person.b.c) {
-                hVar = ((com.baidu.tieba.person.b.c) view.getTag()).AZ();
+                hVar = ((com.baidu.tieba.person.b.c) view.getTag()).AW();
             } else if (view.getTag() instanceof com.baidu.tieba.person.b.b) {
-                hVar = ((com.baidu.tieba.person.b.b) view.getTag()).AZ();
+                hVar = ((com.baidu.tieba.person.b.b) view.getTag()).AW();
             }
-            int a = w.a(bjl(), hVar);
+            int a = w.a(bji(), hVar);
             if (a >= 0) {
-                a(hVar, bjl(), a);
+                a(hVar, bji(), a);
             }
         }
     }
@@ -142,13 +142,13 @@ public class g implements View.OnClickListener {
                 this.isHost = this.fZZ.isHost();
             }
             if (!l.jV()) {
-                this.mPageContext.showToast(d.j.neterror);
+                this.mPageContext.showToast(f.j.neterror);
             } else if (!this.isHost) {
                 if (hVar instanceof j) {
                     c((j) hVar, list, i);
                 }
             } else if (hVar instanceof com.baidu.tieba.person.data.c) {
-                bjm();
+                bjj();
             } else if (hVar instanceof j) {
                 j jVar = (j) hVar;
                 if (jVar.isPortrait()) {
@@ -160,36 +160,36 @@ public class g implements View.OnClickListener {
         }
     }
 
-    private void bjm() {
+    private void bjj() {
         if (this.mPageContext != null) {
-            String[] strArr = {this.mPageContext.getString(d.j.choose_local_photo), this.mPageContext.getString(d.j.change_system_photo)};
+            String[] strArr = {this.mPageContext.getString(f.j.choose_local_photo), this.mPageContext.getString(f.j.change_system_photo)};
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.ci(d.j.operation);
+            bVar.ci(f.j.operation);
             bVar.a(strArr, new b.InterfaceC0101b() { // from class: com.baidu.tieba.personPolymeric.b.g.1
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0101b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
                     g.this.fZY = false;
                     switch (i) {
                         case 0:
-                            g.this.ahL();
+                            g.this.ahN();
                             break;
                         case 1:
-                            g.this.bjq();
+                            g.this.bjn();
                             break;
                     }
                     bVar2.dismiss();
                 }
             });
             bVar.d(this.mPageContext);
-            bVar.xi();
+            bVar.xh();
         }
     }
 
     private void a(final j jVar, final List<com.baidu.adp.widget.ListView.h> list, final int i) {
         if (this.mPageContext != null) {
-            String[] strArr = {this.mPageContext.getString(d.j.hd_photo), this.mPageContext.getString(d.j.change_photo), this.mPageContext.getString(d.j.change_system_photo), this.mPageContext.getString(d.j.check_headpendant)};
+            String[] strArr = {this.mPageContext.getString(f.j.hd_photo), this.mPageContext.getString(f.j.change_photo), this.mPageContext.getString(f.j.change_system_photo), this.mPageContext.getString(f.j.check_headpendant)};
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-            bVar.ci(d.j.operation);
+            bVar.ci(f.j.operation);
             bVar.a(strArr, new b.InterfaceC0101b() { // from class: com.baidu.tieba.personPolymeric.b.g.2
                 @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0101b
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i2, View view) {
@@ -199,28 +199,28 @@ public class g implements View.OnClickListener {
                             g.this.c(jVar, list, i);
                             break;
                         case 1:
-                            g.this.ahL();
+                            g.this.ahN();
                             break;
                         case 2:
-                            g.this.bjq();
+                            g.this.bjn();
                             break;
                         case 3:
                             TiebaStatic.log(new an("c11616").r("obj_type", 1));
-                            g.this.bjr();
+                            g.this.bjo();
                             break;
                     }
                     bVar2.dismiss();
                 }
             });
             bVar.d(this.mPageContext);
-            bVar.xi();
+            bVar.xh();
         }
     }
 
     private void b(final j jVar, final List<com.baidu.adp.widget.ListView.h> list, final int i) {
-        String[] strArr = {this.mPageContext.getString(d.j.look_big_photo), this.mPageContext.getString(d.j.set_as_portrait_photo), this.mPageContext.getString(d.j.delete)};
+        String[] strArr = {this.mPageContext.getString(f.j.look_big_photo), this.mPageContext.getString(f.j.set_as_portrait_photo), this.mPageContext.getString(f.j.delete)};
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.mPageContext.getPageActivity());
-        bVar.ci(d.j.operation);
+        bVar.ci(f.j.operation);
         bVar.a(strArr, new b.InterfaceC0101b() { // from class: com.baidu.tieba.personPolymeric.b.g.3
             @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0101b
             public void a(com.baidu.tbadk.core.dialog.b bVar2, int i2, View view) {
@@ -239,7 +239,7 @@ public class g implements View.OnClickListener {
             }
         });
         bVar.d(this.mPageContext);
-        bVar.xi();
+        bVar.xh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -277,7 +277,7 @@ public class g implements View.OnClickListener {
         }
     }
 
-    public void bjn() {
+    public void bjk() {
         if (this.fZZ != null && this.fZZ.getUserData() != null) {
             com.baidu.tbadk.imageManager.c.IQ().hb(this.fZZ.getUserData().getPortrait());
         }
@@ -286,7 +286,7 @@ public class g implements View.OnClickListener {
     public void lk(boolean z) {
     }
 
-    public void bjo() {
+    public void bjl() {
         com.baidu.adp.lib.g.e.in().postDelayed(this.gac, 300L);
     }
 
@@ -297,11 +297,11 @@ public class g implements View.OnClickListener {
                 this.mPersonChangeData = new PersonChangeData();
             }
             this.mPersonChangeData.setPhotoChanged(true);
-            bjn();
+            bjk();
         }
     }
 
-    public void bjp() {
+    public void bjm() {
         new com.baidu.tieba.person.a().a(TbConfig.PERSON_USER_PIC_TEMP_FILE, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.g.8
             @Override // com.baidu.tieba.person.a.b
             public void a(int i, String str, ImageUploadResult imageUploadResult) {
@@ -310,22 +310,22 @@ public class g implements View.OnClickListener {
                     if (imageUploadResult.picInfo != null && imageUploadResult.picInfo.bigPic != null) {
                         str2 = imageUploadResult.picInfo.bigPic.picUrl;
                     }
-                    h.o(str2, g.this.bjl());
+                    h.o(str2, g.this.bji());
                     g.this.lk(true);
                 }
             }
         });
     }
 
-    public void ahL() {
+    public void ahN() {
         if (this.mPageContext != null) {
             Activity pageActivity = this.mPageContext.getPageActivity();
-            if (this.bkU == null) {
-                this.bkU = new com.baidu.tbadk.core.util.b.a();
+            if (this.bkZ == null) {
+                this.bkZ = new com.baidu.tbadk.core.util.b.a();
             }
-            this.bkU.zY();
-            this.bkU.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.bkU.u(pageActivity)) {
+            this.bkZ.zW();
+            this.bkZ.c(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (!this.bkZ.u(pageActivity)) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.mPageContext.getPageActivity(), this.writeImagesInfo.toJsonString(), true);
                 albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
                 albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
@@ -335,13 +335,13 @@ public class g implements View.OnClickListener {
         }
     }
 
-    public void bjq() {
+    public void bjn() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.mPageContext.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_USERINFO, this.fZY)));
         }
     }
 
-    public void bjr() {
+    public void bjo() {
         if (this.mPageContext != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.mPageContext.getPageActivity())));
         }

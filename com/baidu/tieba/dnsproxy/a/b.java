@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
     String address;
-    float cPx;
+    float cPu;
     private List<Integer> data = new ArrayList();
-    boolean cPy = false;
-    boolean cPz = false;
+    boolean cPv = false;
+    boolean cPw = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -38,7 +38,7 @@ public class b {
         return builder.build(true);
     }
 
-    public void jy(int i) {
+    public void jx(int i) {
         this.data.add(0, Integer.valueOf(i));
         while (this.data.size() > 49) {
             this.data.remove(this.data.size() - 1);
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.cPx = 0.0f;
+            this.cPu = 0.0f;
         } else if (size == 1) {
-            this.cPx = this.data.get(0).intValue();
+            this.cPu = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.cPx = ((i * f3) / size) + f;
-            if (this.cPx < 0.05d) {
-                if (!this.cPy) {
-                    com.baidu.tieba.dnsproxy.d.anw().y("ip_weight_lower", this.address, String.valueOf(this.cPx));
-                    this.cPy = true;
+            this.cPu = ((i * f3) / size) + f;
+            if (this.cPu < 0.05d) {
+                if (!this.cPv) {
+                    com.baidu.tieba.dnsproxy.d.any().y("ip_weight_lower", this.address, String.valueOf(this.cPu));
+                    this.cPv = true;
                 }
-            } else if (this.cPy && this.cPx > 0.5d && !this.cPz) {
-                com.baidu.tieba.dnsproxy.d.anw().y("ip_weight_lower_recover", this.address, String.valueOf(this.cPx));
-                this.cPz = true;
+            } else if (this.cPv && this.cPu > 0.5d && !this.cPw) {
+                com.baidu.tieba.dnsproxy.d.any().y("ip_weight_lower_recover", this.address, String.valueOf(this.cPu));
+                this.cPw = true;
             }
         }
     }

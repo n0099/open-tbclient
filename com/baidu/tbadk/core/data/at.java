@@ -28,7 +28,7 @@ public class at extends bb {
         return this.title;
     }
 
-    public ArrayList<av> uB() {
+    public ArrayList<av> uA() {
         return this.agZ;
     }
 

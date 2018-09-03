@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.l;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class MenuKeyboardView extends LinearLayout implements l {
     private EditorTools Qg;
@@ -15,8 +15,8 @@ public class MenuKeyboardView extends LinearLayout implements l {
     public MenuKeyboardView(Context context) {
         super(context);
         this.Qh = 0;
-        inflate(context, d.h.official_bar_menu_toggle, this);
-        setLayoutParams(new RawLayout.a(context.getResources().getDimensionPixelSize(d.e.ds100), -2));
+        inflate(context, f.h.official_bar_menu_toggle, this);
+        setLayoutParams(new RawLayout.a(context.getResources().getDimensionPixelSize(f.e.ds100), -2));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MenuKeyboardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -56,7 +56,7 @@ public class MenuKeyboardView extends LinearLayout implements l {
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void oF() {
+    public void oC() {
         setVisibility(0);
     }
 

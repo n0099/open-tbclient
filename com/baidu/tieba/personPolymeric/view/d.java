@@ -5,7 +5,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.e> {
     private TextView gbO;
@@ -17,27 +17,27 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.gcd = (TbImageView) this.mRootView.findViewById(d.g.card_person_auth_icon);
-        this.gbQ = (TextView) this.mRootView.findViewById(d.g.card_person_auth_bar_name);
-        this.gbO = (TextView) this.mRootView.findViewById(d.g.card_person_auth_des);
+        this.gcd = (TbImageView) this.mRootView.findViewById(f.g.card_person_auth_icon);
+        this.gbQ = (TextView) this.mRootView.findViewById(f.g.card_person_auth_bar_name);
+        this.gbO = (TextView) this.mRootView.findViewById(f.g.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.i(this.mRootView, d.C0140d.cp_bg_line_d);
-            am.c(this.gbQ, d.C0140d.cp_cont_b, 1);
-            am.c(this.gbO, d.C0140d.cp_cont_d, 1);
+            am.i(this.mRootView, f.d.cp_bg_line_d);
+            am.c(this.gbQ, f.d.cp_cont_b, 1);
+            am.c(this.gbO, f.d.cp_cont_d, 1);
             if (this.gce.iconUrl == null) {
-                am.c(this.gcd, d.f.icon_shen_mine);
+                am.c(this.gcd, f.C0146f.icon_shen_mine);
             }
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.card_person_auth_layout;
+        return f.h.card_person_auth_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

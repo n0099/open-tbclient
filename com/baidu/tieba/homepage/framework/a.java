@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes2.dex */
 public class a {
-    private static a dVr = new a();
-    private long dVs = 0;
-    private SparseArray<Long> dVt = new SparseArray<>();
-    private SparseArray<Long> dVu = new SparseArray<>();
-    private SparseArray<Long> dVv = new SparseArray<>();
-    private SparseArray<Long> dVw = new SparseArray<>();
+    private static a dVm = new a();
+    private long dVn = 0;
+    private SparseArray<Long> dVo = new SparseArray<>();
+    private SparseArray<Long> dVp = new SparseArray<>();
+    private SparseArray<Long> dVq = new SparseArray<>();
+    private SparseArray<Long> dVr = new SparseArray<>();
 
     private a() {
     }
 
-    public static a aDK() {
-        return dVr;
+    public static a aDH() {
+        return dVm;
     }
 
     public long getCreateTime() {
-        return this.dVs;
+        return this.dVn;
     }
 
     public void setCreateTime(long j) {
-        this.dVs = j;
+        this.dVn = j;
     }
 
     public long mB(int i) {
-        Long l = this.dVu.get(i);
+        Long l = this.dVp.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void e(long j, int i) {
-        this.dVu.put(i, Long.valueOf(j));
+        this.dVp.put(i, Long.valueOf(j));
     }
 
     public long mC(int i) {
-        Long l = this.dVt.get(i);
+        Long l = this.dVo.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void f(long j, int i) {
-        this.dVt.put(i, Long.valueOf(j));
+        this.dVo.put(i, Long.valueOf(j));
     }
 
     public long mD(int i) {
-        Long l = this.dVv.get(i);
+        Long l = this.dVq.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void g(long j, int i) {
-        this.dVv.put(i, Long.valueOf(j));
+        this.dVq.put(i, Long.valueOf(j));
     }
 
     public long mE(int i) {
-        Long l = this.dVw.get(i);
+        Long l = this.dVr.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.dVw.put(i, Long.valueOf(j));
+        this.dVr.put(i, Long.valueOf(j));
     }
 }

@@ -28,12 +28,12 @@ public class i extends g {
     public long sequenceID;
     public long socketCostTime;
     public int socketErrNo;
-    public long th;
     public long ti;
+    public long tj;
 
     public i() {
-        this.th = 0L;
         this.ti = 0L;
+        this.tj = 0L;
         this.aTS = 0L;
         this.aTU = 0L;
         this.aTV = 0L;
@@ -44,8 +44,8 @@ public class i extends g {
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
-        this.th = 0L;
         this.ti = 0L;
+        this.tj = 0L;
         this.aTS = 0L;
         this.aTU = 0L;
         this.aTV = 0L;
@@ -60,10 +60,10 @@ public class i extends g {
                 this.aTW = responsedMessage.getDownSize();
                 this.aUb = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.aTY = responsedMessage.performanceData.vq;
-                this.aTZ = responsedMessage.performanceData.vr;
-                this.socketErrNo = responsedMessage.performanceData.vo;
-                this.socketCostTime = responsedMessage.performanceData.vp;
+                this.aTY = responsedMessage.performanceData.vr;
+                this.aTZ = responsedMessage.performanceData.vs;
+                this.socketErrNo = responsedMessage.performanceData.vp;
+                this.socketCostTime = responsedMessage.performanceData.vq;
             } else {
                 this.aTV = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
@@ -72,14 +72,14 @@ public class i extends g {
             this.aTM = j2;
             this.aTT = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.aTN = responsedMessage.performanceData.vg;
-            this.aTO = responsedMessage.performanceData.vh;
-            this.aTP = responsedMessage.performanceData.vi;
-            this.th = responsedMessage.performanceData.vj;
+            this.aTN = responsedMessage.performanceData.vh;
+            this.aTO = responsedMessage.performanceData.vi;
+            this.aTP = responsedMessage.performanceData.vj;
             this.ti = responsedMessage.performanceData.vk;
-            this.aTQ = responsedMessage.performanceData.vl;
-            this.aTR = responsedMessage.performanceData.vm;
-            this.aTS = responsedMessage.performanceData.vn;
+            this.tj = responsedMessage.performanceData.vl;
+            this.aTQ = responsedMessage.performanceData.vm;
+            this.aTR = responsedMessage.performanceData.vn;
+            this.aTS = responsedMessage.performanceData.vo;
             this.aTS += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
             this.aUa = z2;
@@ -87,22 +87,22 @@ public class i extends g {
         }
     }
 
-    public void KC() {
-        o oVar = (o) m.KF().fp(this.mSubType);
+    public void KG() {
+        o oVar = (o) m.KJ().fo(this.mSubType);
         if (oVar != null) {
             oVar.a(this);
         }
     }
 
-    public void bX(boolean z) {
-        o oVar = (o) m.KF().fp(this.mSubType);
+    public void bY(boolean z) {
+        o oVar = (o) m.KJ().fo(this.mSubType);
         if (oVar != null) {
             oVar.a(this, z);
         }
     }
 
-    public void fn(int i) {
-        o oVar = (o) m.KF().fp(this.mSubType);
+    public void fm(int i) {
+        o oVar = (o) m.KJ().fo(this.mSubType);
         if (oVar != null) {
             oVar.a(this, i);
         }

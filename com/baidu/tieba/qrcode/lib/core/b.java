@@ -12,55 +12,55 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern glx = Pattern.compile(",");
-    private Point glA;
-    private Point gly;
-    private Point glz;
+    private static final Pattern glA = Pattern.compile(",");
+    private Point glB;
+    private Point glC;
+    private Point glD;
     private final Context mContext;
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public void d(Camera camera) {
+    public void b(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        if (e(camera)) {
+        if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.gly = a.cc(this.mContext);
+        this.glB = a.cb(this.mContext);
         Point point = new Point();
-        point.x = this.gly.x;
-        point.y = this.gly.y;
-        int cb = a.cb(this.mContext);
-        if (cb == 0) {
-            point.x = this.gly.y;
-            point.y = this.gly.x;
+        point.x = this.glB.x;
+        point.y = this.glB.y;
+        int ca = a.ca(this.mContext);
+        if (ca == 0) {
+            point.x = this.glB.y;
+            point.y = this.glB.x;
         }
-        this.glA = b(parameters, point);
-        if (cb == 0) {
-            this.glz = new Point(this.glA.y, this.glA.x);
+        this.glD = a(parameters, point);
+        if (ca == 0) {
+            this.glC = new Point(this.glD.y, this.glD.x);
         } else {
-            this.glz = this.glA;
+            this.glC = this.glD;
         }
     }
 
-    public static boolean e(Camera camera) {
-        return b(camera.getParameters().getSupportedFocusModes(), "auto") != null;
+    public static boolean c(Camera camera) {
+        return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point getCameraResolution() {
-        return this.glz;
+    public Point bmz() {
+        return this.glC;
     }
 
-    public void f(Camera camera) {
+    public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.glA.x, this.glA.y);
+        parameters.setPreviewSize(this.glD.x, this.glD.y);
         a(parameters);
-        camera.setDisplayOrientation(bmz());
+        camera.setDisplayOrientation(bmA());
         camera.setParameters(parameters);
     }
 
-    private static String b(Collection<String> collection, String... strArr) {
+    private static String a(Collection<String> collection, String... strArr) {
         if (collection != null) {
             for (String str : strArr) {
                 if (collection.contains(str)) {
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int bmz() {
+    public int bmA() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -98,7 +98,7 @@ final class b {
         return ((cameraInfo.orientation - i) + 360) % 360;
     }
 
-    private static Point b(Camera.Parameters parameters, Point point) {
+    private static Point a(Camera.Parameters parameters, Point point) {
         Point a = a(parameters.getSupportedPreviewSizes(), point);
         if (a == null) {
             return new Point((point.x >> 3) << 3, (point.y >> 3) << 3);
@@ -147,7 +147,7 @@ final class b {
     }
 
     private static int b(CharSequence charSequence, int i) {
-        String[] split = glx.split(charSequence);
+        String[] split = glA.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

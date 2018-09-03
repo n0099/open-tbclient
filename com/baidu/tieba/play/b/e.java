@@ -42,8 +42,8 @@ public class e {
         TiebaStatic.log(new an("c12029").r("obj_type", i2).r("obj_param1", j.jF() ? 0 : 1).r("obj_param2", i3));
     }
 
-    public static void sj(String str) {
-        TiebaStatic.log(new an("c12026").af("tid", str));
+    public static void sm(String str) {
+        TiebaStatic.log(new an("c12026").ae("tid", str));
     }
 
     public static void rL(int i) {
@@ -57,7 +57,7 @@ public class e {
     }
 
     public static void a(Uri uri, String str) {
-        TiebaStatic.log(new an("c12199").af("obj_param1", uri == null ? "null" : uri.toString()).af("obj_param2", str).af("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
+        TiebaStatic.log(new an("c12199").ae("obj_param1", uri == null ? "null" : uri.toString()).ae("obj_param2", str).ae("obj_param3", com.baidu.tbadk.core.util.d.getIp()));
         BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
         Object[] objArr = new Object[6];
         objArr[0] = "url";

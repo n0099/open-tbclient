@@ -16,9 +16,9 @@ public class e {
             }
         }
     };
-    private boolean aon;
+    private boolean aoo;
 
-    public static e ye() {
+    public static e yd() {
         return new e();
     }
 
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void i(String str, int i, int i2) {
-        if (!this.aon && str != null) {
+        if (!this.aoo && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -69,12 +69,12 @@ public class e {
     }
 
     public void onPause() {
-        this.aon = true;
+        this.aoo = true;
         cancel();
     }
 
     public void onResume() {
-        this.aon = false;
+        this.aoo = false;
     }
 
     public static void cancel() {

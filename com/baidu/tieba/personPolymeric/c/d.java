@@ -6,9 +6,9 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId gaW = BdUniqueId.gen();
-    public String cCI;
-    public String cCJ;
-    public boolean cCP;
+    public String cCF;
+    public String cCG;
+    public boolean cCM;
     public boolean isHost;
     public int sex;
     public List<UserData> users;

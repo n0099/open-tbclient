@@ -1,13 +1,13 @@
 package com.baidu.tieba.video.editvideo.data;
 /* loaded from: classes2.dex */
 public class a {
-    public int hee;
+    public int hef;
     public String name;
     public String value;
 
     public a(String str, int i, String str2) {
         this.name = str;
-        this.hee = i;
+        this.hef = i;
         this.value = str2;
     }
 }

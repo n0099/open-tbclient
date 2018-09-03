@@ -10,7 +10,7 @@ public class bg extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void initData() {
         this.mName = "voice";
-        this.yf = aVN;
+        this.yg = aVN;
     }
 
     @Override // com.baidu.adp.lib.b.a

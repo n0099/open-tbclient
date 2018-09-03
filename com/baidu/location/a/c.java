@@ -607,11 +607,11 @@ public class c {
         String str;
         String str2;
         try {
-            com.baidu.location.b.a qp = qp();
-            if (qp == null || !qp.b()) {
+            com.baidu.location.b.a qm = qm();
+            if (qm == null || !qm.b()) {
                 a(this.VP.getCellLocation());
             } else {
-                this.VQ = qp;
+                this.VQ = qm;
             }
             str = (this.VQ == null || !this.VQ.b()) ? null : this.VQ.g();
             try {
@@ -654,7 +654,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private com.baidu.location.b.a qp() {
+    private com.baidu.location.b.a qm() {
         com.baidu.location.b.a aVar;
         if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() < 17) {
             return null;

@@ -8,21 +8,21 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes3.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int acY;
-    private RequestGetGroupActivityMessage euG;
-    private RequestGetGroupActivityLocalMessage euH;
-    private RequestDelGroupActivityMessage euI;
-    private GroupActivityActivity euJ;
-    private GroupActivityData euK;
+    private int acZ;
+    private RequestGetGroupActivityMessage euC;
+    private RequestGetGroupActivityLocalMessage euD;
+    private RequestDelGroupActivityMessage euE;
+    private GroupActivityActivity euF;
+    private GroupActivityData euG;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.euJ = groupActivityActivity;
+        this.euF = groupActivityActivity;
     }
 
-    public int aKW() {
+    public int aKT() {
         return this.mFrom;
     }
 
@@ -30,15 +30,15 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.mFrom = i;
     }
 
-    public int aKX() {
-        return this.acY;
+    public int aKU() {
+        return this.acZ;
     }
 
     public void oj(int i) {
-        this.acY = i;
+        this.acZ = i;
     }
 
-    public long aKY() {
+    public long aKV() {
         return this.mGroupId;
     }
 
@@ -71,8 +71,8 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.euG = ok(i);
-        this.euJ.sendMessage(this.euG);
+        this.euC = ok(i);
+        this.euF.sendMessage(this.euC);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -80,36 +80,36 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void om(int i) {
-        this.euH = ol(i);
-        this.euJ.sendMessage(this.euH);
+        this.euD = ol(i);
+        this.euF.sendMessage(this.euD);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.euH;
+        return this.euD;
     }
 
     public Message<?> getSendMsg() {
-        return this.euG;
+        return this.euC;
     }
 
-    public Message<?> aKZ() {
-        return this.euI;
+    public Message<?> aKW() {
+        return this.euE;
     }
 
     public void j(long j, int i) {
-        this.euI = new RequestDelGroupActivityMessage();
-        this.euI.setActivityId(i);
-        this.euI.setGroupId(j);
-        this.euJ.sendMessage(this.euI);
+        this.euE = new RequestDelGroupActivityMessage();
+        this.euE.setActivityId(i);
+        this.euE.setGroupId(j);
+        this.euF.sendMessage(this.euE);
     }
 
-    public GroupActivityData aLa() {
-        return this.euK;
+    public GroupActivityData aKX() {
+        return this.euG;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.euK = groupActivityData;
+            this.euG = groupActivityData;
         }
     }
 }

@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes2.dex */
 public class g implements com.baidu.adp.widget.ListView.h {
-    private int fte;
-    private String gKX;
-    private int gKY;
+    private int fsX;
+    private String gKZ;
+    private int gLa;
     private String icon;
     private String obj_id;
     private int time;
@@ -15,20 +15,20 @@ public class g implements com.baidu.adp.widget.ListView.h {
     private String url;
     private int weight;
 
-    public int btU() {
-        return this.gKY;
+    public int btV() {
+        return this.gLa;
     }
 
     public void tq(int i) {
-        this.gKY = i;
+        this.gLa = i;
     }
 
-    public int btV() {
-        return this.fte;
+    public int btW() {
+        return this.fsX;
     }
 
     public void tr(int i) {
-        this.fte = i;
+        this.fsX = i;
     }
 
     public String getIcon() {
@@ -67,12 +67,12 @@ public class g implements com.baidu.adp.widget.ListView.h {
         this.time = i;
     }
 
-    public String btW() {
+    public String btX() {
         return this.obj_id;
     }
 
-    public String btX() {
-        return this.gKX;
+    public String btY() {
+        return this.gKZ;
     }
 
     public void a(StarEnter starEnter) {
@@ -85,7 +85,7 @@ public class g implements com.baidu.adp.widget.ListView.h {
         tr(starEnter.rank_num.intValue());
         tq(starEnter.bazhu_mark.intValue());
         this.obj_id = starEnter.obj_id;
-        this.gKX = starEnter.text;
+        this.gKZ = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.h

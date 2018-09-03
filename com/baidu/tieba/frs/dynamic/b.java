@@ -22,7 +22,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
     public boolean hasMore;
     public ArrayList<h> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dsU = 0;
+    public int dsR = 0;
 
     public StarTrendsResIdl B(byte[] bArr) {
         if (bArr == null) {
@@ -62,7 +62,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
                         bbVar.ca(3);
-                        bbVar.vS();
+                        bbVar.vR();
                         if (bbVar.getType() == bb.ahx || bbVar.getType() == bb.ahz || bbVar.getType() == bb.ahE || bbVar.getType() == bb.ahA || bbVar.getType() == bb.ahF || bbVar.getType() == bb.ahG) {
                             this.threadList.add(bbVar);
                         }
@@ -73,7 +73,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
         }
     }
 
-    public bb mC(String str) {
+    public bb mE(String str) {
         if (this.threadList == null) {
             return null;
         }
@@ -88,7 +88,7 @@ public class b implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Js() {
+    public byte[] Jw() {
         return null;
     }
 

@@ -82,7 +82,7 @@ public class b {
     public void fJ(String str) {
         String En = En();
         if (!TextUtils.equals(En, str) || !isFileExist(En)) {
-            aj(str, En);
+            ai(str, En);
         }
     }
 
@@ -91,7 +91,7 @@ public class b {
         return dU != null && dU.exists() && dU.isFile();
     }
 
-    private void aj(String str, String str2) {
+    private void ai(String str, String str2) {
         if (j.jF()) {
             new a(str, as.eM(str), str2).execute(new String[0]);
         }
@@ -100,15 +100,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
+        private final String aEw;
         private final String aEx;
-        private final String aEy;
         private final String mFile;
         private y mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.aEx = str;
+            this.aEw = str;
             this.mFile = str2;
-            this.aEy = str3;
+            this.aEx = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,11 +117,11 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new y(this.aEx);
+                this.mNetWork = new y(this.aEw);
                 bool = Boolean.valueOf(this.mNetWork.a(this.mFile + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aEx) && !this.aEx.equals(this.aEy)) {
-                        l.em(as.eM(this.aEy));
+                    if (!StringUtils.isNull(l.i(null, this.mFile + ".tmp", null, this.mFile)) && !TextUtils.isEmpty(this.aEw) && !this.aEw.equals(this.aEx)) {
+                        l.em(as.eM(this.aEx));
                     }
                 } else {
                     l.em(this.mFile + ".tmp");

@@ -15,6 +15,7 @@ import com.baidu.tbadk.core.e.b;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
 public class DealIntentService extends BdBaseService {
     private static String ACTION_ON_POST_EXSIT = "TaskExsits";
@@ -104,7 +105,6 @@ public class DealIntentService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: i */
         public String doInBackground(String... strArr) {
             int i;
             if (this.intent == null || this.intent.getExtras() == null) {
@@ -113,14 +113,21 @@ public class DealIntentService extends BdBaseService {
             int i2 = this.intent.getExtras().getInt("class", -1);
             String stringExtra = this.intent.getStringExtra("link");
             long j = this.intent.getExtras().getLong("task_id");
-            an af = new an("c11703").af("obj_to", stringExtra).f("task_id", j).af("app_version", TbConfig.getVersion());
+            String stringExtra2 = this.intent.getStringExtra("task_id");
+            if (!ap.isEmpty(stringExtra2) && j == 0) {
+                j = Long.parseLong(stringExtra2);
+            }
+            if (j > 0) {
+                TbadkCoreApplication.getInst().setTaskId(String.valueOf(j));
+            }
+            an ae = new an("c11703").ae("obj_to", stringExtra).f("task_id", j).ae("app_version", TbConfig.getVersion());
             int i3 = this.intent.getExtras().getInt("is_live", -1);
             int i4 = this.intent.getExtras().getInt("is_live_lcs", -1);
             if (i3 >= 0) {
-                af.r("is_live", i3);
+                ae.r("is_live", i3);
             }
             if (i4 >= 0) {
-                af.r("is_live_lcs", i4);
+                ae.r("is_live_lcs", i4);
             }
             switch (this.intent.getExtras().getInt("KeyOfNotiId", -1)) {
                 case 16:
@@ -147,10 +154,10 @@ public class DealIntentService extends BdBaseService {
                     i = 1;
                     break;
             }
-            af.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
-            TiebaStatic.log(af);
+            ae.r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
+            TiebaStatic.log(ae);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                es(i2);
+                er(i2);
             }
             String string = this.intent.getExtras().getString("stat");
             if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
@@ -158,7 +165,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.ew().ex() != null) {
                 if (5 == this.intent.getIntExtra("class", -1)) {
-                    if (com.baidu.adp.base.a.ew().ex().getClass().getName().equalsIgnoreCase(b.xT())) {
+                    if (com.baidu.adp.base.a.ew().ex().getClass().getName().equalsIgnoreCase(b.xS())) {
                         this.intent.putExtra("class", 5);
                     } else {
                         this.intent.putExtra("class", 21);
@@ -172,7 +179,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                er(i2);
+                eq(i2);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -196,7 +203,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void er(int i) {
+        private void eq(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -212,7 +219,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void es(int i) {
+        private void er(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

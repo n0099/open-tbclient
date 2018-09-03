@@ -15,7 +15,7 @@ public class SpecialFrsWebManagerStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
                     ad adVar = (ad) customResponsedMessage.getData();
-                    for (FrsTabInfo frsTabInfo : adVar.avL()) {
+                    for (FrsTabInfo frsTabInfo : adVar.avK()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
                             c cVar = new c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                             adVar.b(cVar);
@@ -24,7 +24,7 @@ public class SpecialFrsWebManagerStatic {
                             } else {
                                 com.baidu.tbadk.mainTab.c Jo = cVar.Jo();
                                 if (Jo != null) {
-                                    Jo.aRL.setArguments(new Bundle());
+                                    Jo.aRI.setArguments(new Bundle());
                                 } else {
                                     return;
                                 }

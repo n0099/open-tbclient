@@ -28,13 +28,13 @@ public class ApplistRequest extends HttpMessage {
     }
 
     private String listToString() {
-        JSONObject aiv;
+        JSONObject aiy;
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             for (a aVar : getAppInfos()) {
-                if (aVar != null && (aiv = aVar.aiv()) != null) {
-                    jSONArray.put(aiv);
+                if (aVar != null && (aiy = aVar.aiy()) != null) {
+                    jSONArray.put(aiy);
                 }
             }
             jSONObject.put("applist", jSONArray);
@@ -52,7 +52,7 @@ public class ApplistRequest extends HttpMessage {
             aVar.setIcon(applicationInfo.loadIcon(packageManager));
             aVar.setName(applicationInfo.loadLabel(packageManager).toString());
             String str = applicationInfo.packageName;
-            aVar.kU(str);
+            aVar.kW(str);
             try {
                 aVar.setVersion(packageManager.getPackageInfo(str, 0).versionName);
             } catch (PackageManager.NameNotFoundException e) {

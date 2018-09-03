@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class b extends c<UserMuteListActivity> {
     private BdListView LO;
-    private View aaV;
-    private BaseActivity<UserMuteListActivity> bmZ;
-    private NoNetworkView cSy;
-    private a gBA;
+    private View aaW;
+    private BaseActivity<UserMuteListActivity> bnc;
+    private NoNetworkView cSv;
+    private a gBD;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
 
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.bmZ = baseActivity;
-        this.gBA = aVar;
+        this.bnc = baseActivity;
+        this.gBD = aVar;
         initUI();
     }
 
@@ -33,35 +33,35 @@ public class b extends c<UserMuteListActivity> {
     }
 
     private void initUI() {
-        this.bmZ.setContentView(d.h.user_mute_list_activity);
-        this.aaV = this.bmZ.findViewById(d.g.root_view);
-        this.cSy = (NoNetworkView) this.aaV.findViewById(d.g.view_no_network);
-        this.mNavigationBar = (NavigationBar) this.aaV.findViewById(d.g.view_navigation_bar);
+        this.bnc.setContentView(f.h.user_mute_list_activity);
+        this.aaW = this.bnc.findViewById(f.g.root_view);
+        this.cSv = (NoNetworkView) this.aaW.findViewById(f.g.view_no_network);
+        this.mNavigationBar = (NavigationBar) this.aaW.findViewById(f.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(d.j.user_mute_list_text);
-        this.LO = (BdListView) this.aaV.findViewById(d.g.mute_user_list);
-        this.mNoDataView = NoDataViewFactory.a(this.bmZ.getPageContext().getContext(), this.aaV, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aWi), NoDataViewFactory.d.du(d.j.user_mute_list_no_data_text), null);
-        AG();
+        this.mNavigationBar.setTitleText(f.j.user_mute_list_text);
+        this.LO = (BdListView) this.aaW.findViewById(f.g.mute_user_list);
+        this.mNoDataView = NoDataViewFactory.a(this.bnc.getPageContext().getContext(), this.aaW, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.aWi), NoDataViewFactory.d.dt(f.j.user_mute_list_no_data_text), null);
+        AD();
     }
 
-    private void AG() {
+    private void AD() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.bmZ.getLayoutMode().setNightMode(skinType == 1);
-        this.bmZ.getLayoutMode().onModeChanged(this.aaV);
-        this.mNavigationBar.onChangeSkinType(this.bmZ.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.bmZ.getPageContext(), skinType);
-        this.cSy.onChangeSkinType(this.bmZ.getPageContext(), skinType);
+        this.bnc.getLayoutMode().setNightMode(skinType == 1);
+        this.bnc.getLayoutMode().onModeChanged(this.aaW);
+        this.mNavigationBar.onChangeSkinType(this.bnc.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.bnc.getPageContext(), skinType);
+        this.cSv.onChangeSkinType(this.bnc.getPageContext(), skinType);
     }
 
-    public void azj() {
+    public void azh() {
         this.LO.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.du(d.j.user_mute_list_no_data_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dt(f.j.user_mute_list_no_data_text));
     }
 
-    public void bro() {
+    public void brp() {
         this.LO.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.du(d.j.refresh_view_title_text));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.dt(f.j.refresh_view_title_text));
     }
 }

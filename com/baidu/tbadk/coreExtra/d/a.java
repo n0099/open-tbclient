@@ -7,17 +7,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.dialog.b;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class a {
     public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, a.b bVar, a.b bVar2, String str) {
         if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return null;
         }
-        String format = String.format(TbadkCoreApplication.getInst().getContext().getString(d.j.url_notify), str);
-        String string = TbadkCoreApplication.getInst().getContext().getString(d.j.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).dA(string).dB(format).a(TbadkCoreApplication.getInst().getContext().getString(d.j.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(d.j.cancel), bVar2).b(tbPageContext);
-        b.xf();
+        String format = String.format(TbadkCoreApplication.getInst().getContext().getString(f.j.url_notify), str);
+        String string = TbadkCoreApplication.getInst().getContext().getString(f.j.confirm_title);
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).dA(string).dB(format).a(TbadkCoreApplication.getInst().getContext().getString(f.j.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(f.j.cancel), bVar2).b(tbPageContext);
+        b.xe();
         return b;
     }
 
@@ -25,18 +25,18 @@ public class a {
         if (tbPageContext == null) {
             return null;
         }
-        String string = TbadkCoreApplication.getInst().getContext().getString(d.j.setup);
-        String string2 = TbadkCoreApplication.getInst().getContext().getString(d.j.cancel);
+        String string = TbadkCoreApplication.getInst().getContext().getString(f.j.setup);
+        String string2 = TbadkCoreApplication.getInst().getContext().getString(f.j.cancel);
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
         aVar.dB(TbadkCoreApplication.getInst().getContext().getString(i));
         aVar.a(string, bVar);
         aVar.b(string2, bVar2);
         aVar.b(tbPageContext);
         if (z) {
-            aVar.xd();
+            aVar.xc();
             return aVar;
         }
-        aVar.xf();
+        aVar.xe();
         return aVar;
     }
 
@@ -49,11 +49,11 @@ public class a {
             return null;
         }
         b bVar = new b(i.ad(context).getPageActivity());
-        bVar.dC(TbadkCoreApplication.getInst().getString(d.j.operation));
-        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(d.j.delete_user_chat)}, interfaceC0101b);
+        bVar.dC(TbadkCoreApplication.getInst().getString(f.j.operation));
+        bVar.a(new String[]{TbadkCoreApplication.getInst().getString(f.j.delete_user_chat)}, interfaceC0101b);
         bVar.d(i.ad(context));
         if (context instanceof Activity) {
-            bVar.xi();
+            bVar.xh();
             return bVar;
         }
         return bVar;

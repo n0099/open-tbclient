@@ -89,6 +89,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_HOT_THREAD = 1003005;
     public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
     public static final int CMD_GET_LEVLE_INFO = 1001710;
+    public static final int CMD_GET_LOCAL_PUSH_DATA = 1003416;
     public static final int CMD_GET_MANGA_COVER = 1003097;
     public static final int CMD_GET_MY_FORBIDDEN_FANS = 1003406;
     public static final int CMD_GET_MY_POST = 1003010;

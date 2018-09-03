@@ -16,10 +16,10 @@ public class a {
     }
 
     public static void a(b bVar) {
-        com.baidu.b.a.b.a.pv().b(bVar);
+        com.baidu.b.a.b.a.ps().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.pw().b(cVar);
+        d.pt().b(cVar);
     }
 }

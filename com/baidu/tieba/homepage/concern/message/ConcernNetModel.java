@@ -14,9 +14,9 @@ import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipReqMessage;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
-    private b dTK;
-    private a dTL;
-    private com.baidu.adp.framework.listener.a dTM;
+    private b dTF;
+    private a dTG;
+    private com.baidu.adp.framework.listener.a dTH;
     private com.baidu.adp.framework.listener.a mNetMessageListener;
 
     /* loaded from: classes2.dex */
@@ -42,13 +42,13 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             */
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 boolean z;
-                if (responsedMessage != null && ConcernNetModel.this.dTK != null) {
+                if (responsedMessage != null && ConcernNetModel.this.dTF != null) {
                     if (responsedMessage.getOrginalMessage() != null) {
                         Object extra = responsedMessage.getOrginalMessage().getExtra();
                         if (extra instanceof ConcernPageRequestMessage) {
                             z = ap.isEmpty(((ConcernPageRequestMessage) extra).getPageTag());
                             if (responsedMessage.getError() == 0) {
-                                ConcernNetModel.this.dTK.s(responsedMessage.getError(), responsedMessage.getErrorString());
+                                ConcernNetModel.this.dTF.s(responsedMessage.getError(), responsedMessage.getErrorString());
                                 return;
                             }
                             DataRes dataRes = null;
@@ -57,7 +57,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                             } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
                                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
                             }
-                            ConcernNetModel.this.dTK.b(dataRes, z);
+                            ConcernNetModel.this.dTF.b(dataRes, z);
                             return;
                         }
                     }
@@ -67,12 +67,12 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         };
-        this.dTM = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.2
+        this.dTH = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476) { // from class: com.baidu.tieba.homepage.concern.message.ConcernNetModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 CheckRedNotifySocketResMessage checkRedNotifySocketResMessage;
                 boolean z;
-                if (responsedMessage != null && ConcernNetModel.this.dTL != null && responsedMessage.getError() == 0) {
+                if (responsedMessage != null && ConcernNetModel.this.dTG != null && responsedMessage.getError() == 0) {
                     boolean z2 = false;
                     if (responsedMessage instanceof CheckRedNotifyHttpResMessage) {
                         CheckRedNotifyHttpResMessage checkRedNotifyHttpResMessage = (CheckRedNotifyHttpResMessage) responsedMessage;
@@ -85,7 +85,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                     } else if ((responsedMessage instanceof CheckRedNotifySocketResMessage) && (checkRedNotifySocketResMessage = (CheckRedNotifySocketResMessage) responsedMessage) != null) {
                         z2 = checkRedNotifySocketResMessage.isShowRedNotify();
                     }
-                    ConcernNetModel.this.dTL.gJ(z2);
+                    ConcernNetModel.this.dTG.gJ(z2);
                     if (z2 && (responsedMessage.getmOrginalMessage().getExtra() instanceof CheckRedNotifyReqMessage) && ((CheckRedNotifyReqMessage) responsedMessage.getmOrginalMessage().getExtra()).reqUnreadTipAfterFinish) {
                         ConcernNetModel.this.sendMessage(new ConcernUnreadTipReqMessage());
                     }
@@ -93,21 +93,21 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             }
         };
         setUniqueId(bdUniqueId);
-        ahf();
-        akk();
+        ahh();
+        akm();
         registerListener(this.mNetMessageListener);
-        registerListener(this.dTM);
+        registerListener(this.dTH);
     }
 
     public void a(b bVar) {
-        this.dTK = bVar;
+        this.dTF = bVar;
     }
 
     public void a(a aVar) {
-        this.dTL = aVar;
+        this.dTG = aVar;
     }
 
-    public void nt(String str) {
+    public void nv(String str) {
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
@@ -133,7 +133,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void akk() {
+    private void akm() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309474);
         bVar.setResponsedClass(ConcernPageSocketResMessage.class);
         bVar.n(true);
@@ -144,7 +144,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(bVar2);
     }
 
-    private void ahf() {
+    private void ahh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, com.baidu.tieba.tbadkCore.a.a.aK(TbConfig.URL_CONCERN_PAGE, 309474));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);

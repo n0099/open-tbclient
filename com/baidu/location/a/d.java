@@ -381,7 +381,7 @@ public class d {
             } catch (Exception e) {
             }
         }
-        this.Wk = a(com.baidu.location.d.b.d + SystemInfoUtil.COLON + com.baidu.location.d.b.qQ().b);
+        this.Wk = a(com.baidu.location.d.b.d + SystemInfoUtil.COLON + com.baidu.location.d.b.qN().b);
     }
 
     private void d(Location location) {
@@ -757,8 +757,8 @@ public class d {
                 this.Wc = new a();
             }
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(com.baidu.location.d.b.qQ().a(false));
-            stringBuffer.append(com.baidu.location.a.a.qn().c());
+            stringBuffer.append(com.baidu.location.d.b.qN().ad(false));
+            stringBuffer.append(com.baidu.location.a.a.qk().c());
             this.Wc.a(stringBuffer.toString());
         }
         k();
@@ -767,7 +767,7 @@ public class d {
     private void k() {
     }
 
-    public static d qq() {
+    public static d qn() {
         if (VY == null) {
             VY = new d();
         }
@@ -778,7 +778,7 @@ public class d {
         if (!this.N) {
             c();
         }
-        if (this.k == 1 && this.m.contains(com.baidu.location.b.c.a(com.baidu.location.b.b.qE().e()))) {
+        if (this.k == 1 && this.m.contains(com.baidu.location.b.c.a(com.baidu.location.b.b.qB().e()))) {
             if (this.n != 1 || this.y <= this.o) {
                 this.Wi.post(new Runnable() { // from class: com.baidu.location.a.d.1
                     @Override // java.lang.Runnable

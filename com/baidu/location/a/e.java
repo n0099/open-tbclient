@@ -165,7 +165,7 @@ public class e {
                     d();
                     return false;
                 }
-                if (com.baidu.location.d.g.Yq) {
+                if (com.baidu.location.d.g.Yr) {
                     if (readInt == com.baidu.location.d.g.ae) {
                         if (str.equals(a(readInt3 == 1 ? com.baidu.location.d.g.ae : readInt3 - 1))) {
                             randomAccessFile.close();
@@ -307,9 +307,9 @@ public class e {
         }
     }
 
-    public static e qr() {
+    public static e qo() {
         if (Wq == null) {
-            Wq = new e(com.baidu.location.d.b.qQ().c());
+            Wq = new e(com.baidu.location.d.b.qN().c());
         }
         return Wq;
     }

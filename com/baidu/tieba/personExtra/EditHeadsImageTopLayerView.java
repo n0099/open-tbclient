@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private int alo;
+    private int aln;
     private Paint fWC;
     private Paint fWD;
     private int fWE;
@@ -24,7 +24,7 @@ public class EditHeadsImageTopLayerView extends View {
         this.fWF = 0;
         this.fWG = 0.42857143f;
         this.fWH = 1.0f;
-        this.alo = 1;
+        this.aln = 1;
         init();
     }
 
@@ -36,7 +36,7 @@ public class EditHeadsImageTopLayerView extends View {
         this.fWF = 0;
         this.fWG = 0.42857143f;
         this.fWH = 1.0f;
-        this.alo = 1;
+        this.aln = 1;
         init();
     }
 
@@ -48,7 +48,7 @@ public class EditHeadsImageTopLayerView extends View {
         this.fWF = 0;
         this.fWG = 0.42857143f;
         this.fWH = 1.0f;
-        this.alo = 1;
+        this.aln = 1;
         init();
     }
 
@@ -69,7 +69,7 @@ public class EditHeadsImageTopLayerView extends View {
     }
 
     public void setLineWidth(int i) {
-        this.alo = i;
+        this.aln = i;
         if (this.fWD != null) {
             this.fWD.setStrokeWidth(i);
         }

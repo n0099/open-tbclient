@@ -15,7 +15,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
-    private HttpMessageListener aEB = new HttpMessageListener(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
+    private HttpMessageListener aEA = new HttpMessageListener(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -40,9 +40,9 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.aEB.setTag(getUniqueId());
-        this.aEB.setSelfListener(true);
-        registerListener(this.aEB);
+        this.aEA.setTag(getUniqueId());
+        this.aEA.setSelfListener(true);
+        registerListener(this.aEA);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -110,7 +110,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aEB);
+        MessageManager.getInstance().unRegisterListener(this.aEA);
         return false;
     }
 }

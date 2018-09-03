@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.k;
 import com.baidu.tbadk.core.voice.service.MediaService;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -199,7 +199,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                         }
                         b playView4 = VoiceManager.this.getPlayView();
                         if (playView4 != null) {
-                            playView4.oS();
+                            playView4.oP();
                         }
                         MediaService.startPlay(context);
                         return;
@@ -207,9 +207,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     b playView5 = VoiceManager.this.getPlayView();
                     if (playView5 != null) {
                         if (intExtra2 == 2) {
-                            string = h.getString(d.j.voice_err_io);
+                            string = h.getString(f.j.voice_err_io);
                         } else {
-                            string = h.getString(d.j.voice_err_play);
+                            string = h.getString(f.j.voice_err_play);
                         }
                         playView5.onShowErr(5, string);
                     }
@@ -241,7 +241,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
         VoiceData.VoiceModel getVoiceModel();
 
-        void oS();
+        void oP();
 
         void onShowErr(int i, String str);
     }
@@ -375,9 +375,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                                 }
                                 return;
                             }
-                            TiebaStatic.voiceError(1, VoiceManager.this.context.getString(d.j.voice_cache_error_internal), str2);
+                            TiebaStatic.voiceError(1, VoiceManager.this.context.getString(f.j.voice_cache_error_internal), str2);
                             if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                                VoiceManager.this.sPlayView.onShowErr(5, h.getString(d.j.voice_err_load_fail));
+                                VoiceManager.this.sPlayView.onShowErr(5, h.getString(f.j.voice_err_load_fail));
                             } else {
                                 VoiceManager.this.sPlayView.onShowErr(5, str4);
                             }
@@ -397,7 +397,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new d();
                 }
-                this.mPlayCall.error(5, h.getString(d.j.voice_err_no_file));
+                this.mPlayCall.error(5, h.getString(f.j.voice_err_no_file));
                 k kVar = new k();
                 if (voiceModel != null) {
                     kVar.h("id", voiceModel.getId());
@@ -450,7 +450,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
             }
-            this.mPermissionJudgePolicy.zY();
+            this.mPermissionJudgePolicy.zW();
             this.mPermissionJudgePolicy.c(this.context.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             this.mPermissionJudgePolicy.c(this.context.getPageActivity(), "android.permission.RECORD_AUDIO");
             if (!this.mPermissionJudgePolicy.u(this.context.getPageActivity())) {
@@ -579,7 +579,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 this.mPlayCall = new d();
             }
             if (!new File(str).exists()) {
-                this.mPlayCall.error(5, h.getString(d.j.voice_err_no_file));
+                this.mPlayCall.error(5, h.getString(f.j.voice_err_no_file));
                 return;
             }
             registSensor();

@@ -11,9 +11,9 @@ public interface a {
 
     void b(BaseFragment baseFragment);
 
-    f biW();
+    f biT();
 
-    void biX();
+    void biU();
 
     void fA(boolean z);
 

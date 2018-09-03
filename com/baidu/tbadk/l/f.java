@@ -21,15 +21,15 @@ public class f extends g {
             f.this.aTH.execute(new String[0]);
         }
     };
-    public long zp;
+    public long zq;
 
-    public void Ky() {
+    public void KC() {
         this.aTI.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kz() {
-        j jVar = (j) m.KF().fp(this.mSubType);
+    public void KD() {
+        j jVar = (j) m.KJ().fo(this.mSubType);
         if (jVar != null) {
             jVar.c(this);
         }
@@ -44,8 +44,8 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.aTG = m.KF().KI();
-            f.this.Kz();
+            f.this.aTG = m.KJ().KM();
+            f.this.KD();
             return Boolean.TRUE;
         }
 

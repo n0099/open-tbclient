@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class LocalVideoSelectNoDataView extends LinearLayout {
     public LocalVideoSelectNoDataView(Context context) {
@@ -24,6 +24,6 @@ public class LocalVideoSelectNoDataView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(d.h.local_video_no_data_layout, this);
+        LayoutInflater.from(context).inflate(f.h.local_video_no_data_layout, this);
     }
 }

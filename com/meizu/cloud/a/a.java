@@ -8,24 +8,24 @@ import com.meizu.cloud.pushsdk.common.util.Logger;
 import com.meizu.cloud.pushsdk.common.util.g;
 /* loaded from: classes3.dex */
 public class a {
-    private static c hJB;
-    public static boolean hJA = false;
+    private static c hJi;
+    public static boolean hJh = false;
     public static boolean debug = false;
 
-    public static void cA(Context context) {
-        if (hJB == null) {
-            hJB = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
-            Logger.a(hJB);
+    public static void cx(Context context) {
+        if (hJi == null) {
+            hJi = new c(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
+            Logger.a(hJi);
             debug = g.b(context);
-            Log.e("DebugLogger", "isOnDebug " + hJA + " debugConfig " + debug + " isDebuggable " + bKV());
-            if (!bKV()) {
+            Log.e("DebugLogger", "isOnDebug " + hJh + " debugConfig " + debug + " isDebuggable " + bKM());
+            if (!bKM()) {
                 Logger.a(Logger.Out.CONSOLE, Logger.Callback.Level.NULL);
             }
         }
     }
 
-    public static boolean bKV() {
-        return hJA || debug;
+    public static boolean bKM() {
+        return hJh || debug;
     }
 
     public static void i(String str, String str2) {

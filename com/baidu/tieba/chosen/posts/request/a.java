@@ -8,21 +8,21 @@ import tbclient.HotThread.DataReq;
 import tbclient.HotThread.HotThreadReqIdl;
 /* loaded from: classes3.dex */
 public class a implements e, h {
-    private int cHm;
+    private int cHj;
 
-    public void akq() {
-        this.cHm++;
+    public void aks() {
+        this.cHj++;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Jw() {
+    public HashMap<String, Object> JA() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bP(boolean z) {
+    public Object bQ(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.pn = Integer.valueOf(this.cHm);
+        builder.pn = Integer.valueOf(this.cHj);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
         builder2.data = builder.build(false);
         o.bindCommonParamsToProtobufData(builder2.data, true);
@@ -35,12 +35,12 @@ public class a implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Jt() {
+    public String Jx() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ju() {
+    public boolean Jy() {
         return true;
     }
 

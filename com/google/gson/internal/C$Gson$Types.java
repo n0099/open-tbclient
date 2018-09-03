@@ -15,7 +15,7 @@ import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
 /* loaded from: classes2.dex */
 public final class C$Gson$Types {
-    static final Type[] hFM = new Type[0];
+    static final Type[] hFt = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
         return new ParameterizedTypeImpl(type, type2, typeArr);
@@ -26,7 +26,7 @@ public final class C$Gson$Types {
     }
 
     public static WildcardType c(Type type) {
-        return new WildcardTypeImpl(new Type[]{type}, hFM);
+        return new WildcardTypeImpl(new Type[]{type}, hFt);
     }
 
     public static WildcardType d(Type type) {
@@ -412,7 +412,7 @@ public final class C$Gson$Types {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.hFM;
+            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.hFt;
         }
 
         public boolean equals(Object obj) {

@@ -10,19 +10,19 @@ public class a {
     private static BroadcastReceiver aVF;
     private static ContentProvider aVu;
 
-    public static Service KT() {
+    public static Service KX() {
         return aVD;
     }
 
-    public static ContentProvider KR() {
+    public static ContentProvider KV() {
         return aVu;
     }
 
-    public static BroadcastReceiver KU() {
+    public static BroadcastReceiver KY() {
         return aVE;
     }
 
-    public static BroadcastReceiver KV() {
+    public static BroadcastReceiver KZ() {
         return aVF;
     }
 }

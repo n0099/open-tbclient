@@ -7,17 +7,17 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.data.bh;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class h {
-    private BaseActivity bmZ;
-    private d fMS;
-    private e fMT;
-    private com.baidu.tieba.c.d fMU;
+    private BaseActivity bnc;
+    private d fML;
+    private e fMM;
+    private com.baidu.tieba.c.d fMN;
     private int mSkinType = 3;
 
     public h(BaseActivity baseActivity) {
-        this.bmZ = baseActivity;
+        this.bnc = baseActivity;
     }
 
     public void a(bh bhVar, bb bbVar, int i) {
@@ -27,82 +27,82 @@ public class h {
 
     private void ap(bb bbVar) {
         if (bbVar != null) {
-            if (this.fMS == null) {
-                this.fMS = new d(LayoutInflater.from(this.bmZ.getPageContext().getPageActivity()).inflate(d.h.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.fML == null) {
+                this.fML = new d(LayoutInflater.from(this.bnc.getPageContext().getPageActivity()).inflate(f.h.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.fMS.am(bbVar);
+            this.fML.am(bbVar);
         }
     }
 
-    public View bgm() {
-        if (this.fMS == null) {
+    public View bgh() {
+        if (this.fML == null) {
             return null;
         }
-        return this.fMS.mRootView;
+        return this.fML.mRootView;
     }
 
     private void b(bh bhVar, bb bbVar, int i) {
         if (bhVar != null && bbVar != null) {
-            if (this.fMT == null) {
-                this.fMT = new e(this.bmZ, LayoutInflater.from(this.bmZ.getPageContext().getPageActivity()).inflate(d.h.video_pb_video_channel_info_layout, (ViewGroup) null));
+            if (this.fMM == null) {
+                this.fMM = new e(this.bnc, LayoutInflater.from(this.bnc.getPageContext().getPageActivity()).inflate(f.h.video_pb_video_channel_info_layout, (ViewGroup) null));
             }
             bhVar.akk = i;
-            this.fMT.an(bbVar);
+            this.fMM.an(bbVar);
             bbVar.a(bhVar);
         }
     }
 
-    public View bgn() {
-        if (this.fMT == null) {
+    public View bgi() {
+        if (this.fMM == null) {
             return null;
         }
-        return this.fMT.getRootView();
+        return this.fMM.getRootView();
     }
 
     public void aq(bb bbVar) {
-        if (this.fMT != null && bbVar != null && bbVar.wl() != null && bbVar.wl().akk == 2) {
-            if (this.fMU == null) {
-                this.fMU = new com.baidu.tieba.c.d(this.bmZ.getPageContext(), this.fMT.bgj());
-                this.fMU.jq(5000);
+        if (this.fMM != null && bbVar != null && bbVar.wk() != null && bbVar.wk().akk == 2) {
+            if (this.fMN == null) {
+                this.fMN = new com.baidu.tieba.c.d(this.bnc.getPageContext(), this.fMM.bge());
+                this.fMN.jp(5000);
             }
-            this.fMU.g(this.bmZ.getResources().getString(d.j.pb_order_channel_tip), "pb_show_order_channel_tip", true);
+            this.fMN.g(this.bnc.getResources().getString(f.j.pb_order_channel_tip), "pb_show_order_channel_tip", true);
         }
     }
 
     public void k(long j, int i) {
-        if (this.fMT != null && j > 0) {
-            this.fMT.l(i, j);
+        if (this.fMM != null && j > 0) {
+            this.fMM.l(i, j);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.fMS != null) {
-                this.fMS.FG();
+            if (this.fML != null) {
+                this.fML.FG();
             }
-            if (this.fMT != null) {
-                this.fMT.FG();
+            if (this.fMM != null) {
+                this.fMM.FG();
             }
             this.mSkinType = i;
         }
     }
 
     public void b(BdTypeListView bdTypeListView) {
-        if (this.fMS != null) {
-            bdTypeListView.removeHeaderView(this.fMS.mRootView);
+        if (this.fML != null) {
+            bdTypeListView.removeHeaderView(this.fML.mRootView);
         }
-        if (this.fMT != null) {
-            bdTypeListView.removeHeaderView(this.fMT.getRootView());
+        if (this.fMM != null) {
+            bdTypeListView.removeHeaderView(this.fMM.getRootView());
         }
     }
 
     public void onDestroy() {
-        bgo();
+        bgj();
     }
 
-    public void bgo() {
-        if (this.fMU != null) {
-            this.fMU.akM();
+    public void bgj() {
+        if (this.fMN != null) {
+            this.fMN.akO();
         }
     }
 }

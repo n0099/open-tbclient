@@ -7,12 +7,12 @@ import android.widget.AbsListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements g {
-    private TextView aLQ;
-    private int aLR;
-    private String aoo;
+    private TextView aLN;
+    private int aLO;
+    private String aop;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -22,22 +22,22 @@ public class DLauncher extends RelativeLayout implements g {
         super(context);
         this.mSkinType = 0;
         if (i > 0 && i2 > 0) {
-            setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(d.e.ds230)));
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(d.e.ds144));
-            this.aLQ = new TextView(context);
+            setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(f.e.ds230)));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(f.e.ds144));
+            this.aLN = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.aLQ.setGravity(17);
-            this.aLQ.setTextSize(0, context.getResources().getDimensionPixelSize(d.e.fontsize24));
-            this.aLR = context.getResources().getDimensionPixelSize(d.e.ds12);
-            addView(this.aLQ, layoutParams);
+            this.aLN.setGravity(17);
+            this.aLN.setTextSize(0, context.getResources().getDimensionPixelSize(f.e.fontsize24));
+            this.aLO = context.getResources().getDimensionPixelSize(f.e.ds12);
+            addView(this.aLN, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.aLQ.setText(str);
+        this.aLN.setText(str);
     }
 
     public void setIcon(int i) {
@@ -45,7 +45,7 @@ public class DLauncher extends RelativeLayout implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void oF() {
+    public void oC() {
         setVisibility(0);
     }
 
@@ -59,8 +59,8 @@ public class DLauncher extends RelativeLayout implements g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.aLQ.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.aLQ.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.aLN.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.aLN.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -75,28 +75,28 @@ public class DLauncher extends RelativeLayout implements g {
 
     private void gz(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.aoo = str;
+            this.aop = str;
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
                 addView(this.mTip, new RelativeLayout.LayoutParams(-2, -2));
             }
-            am.b(this.mTip, d.C0140d.common_color_10225, 1, this.mSkinType);
+            am.b(this.mTip, f.d.common_color_10225, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(1, 10.0f);
                 this.mTip.setText(str);
-                am.d(this.mTip, d.f.icon_news_head_prompt_one, this.mSkinType);
+                am.d(this.mTip, f.C0146f.icon_news_head_prompt_one, this.mSkinType);
                 return;
             }
             this.mTip.setWidth(0);
             this.mTip.setHeight(0);
             this.mTip.setText("");
-            am.d(this.mTip, d.f.icon_news_down_bar_one, this.mSkinType);
+            am.d(this.mTip, f.C0146f.icon_news_down_bar_one, this.mSkinType);
         }
     }
 
     public void Hs() {
-        this.aoo = null;
+        this.aop = null;
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -125,29 +125,29 @@ public class DLauncher extends RelativeLayout implements g {
     @Override // com.baidu.tbadk.editortools.g
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        am.d(this, d.f.btn_editor_selector, i);
-        am.b(this.aLQ, d.C0140d.cp_cont_f, 1, i);
-        if (TextUtils.isEmpty(this.aLQ.getText())) {
-            am.d(this.aLQ, this.mIcon, i);
+        am.d(this, f.C0146f.btn_editor_selector, i);
+        am.b(this.aLN, f.d.cp_cont_f, 1, i);
+        if (TextUtils.isEmpty(this.aLN.getText())) {
+            am.d(this.aLN, this.mIcon, i);
         } else {
             Drawable v = am.v(i, this.mIcon);
             if (v != null) {
-                v.setBounds(0, 0, getResources().getDimensionPixelSize(d.e.ds70), getResources().getDimensionPixelSize(d.e.ds72));
-                this.aLQ.setCompoundDrawables(null, v, null, null);
+                v.setBounds(0, 0, getResources().getDimensionPixelSize(f.e.ds70), getResources().getDimensionPixelSize(f.e.ds72));
+                this.aLN.setCompoundDrawables(null, v, null, null);
             }
         }
         if (this.mTip != null) {
-            am.b(this.mTip, d.C0140d.common_color_10225, 1, i);
+            am.b(this.mTip, f.d.common_color_10225, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText())) {
-                am.d(this.mTip, d.f.icon_news_head_prompt_one, i);
+                am.d(this.mTip, f.C0146f.icon_news_head_prompt_one, i);
             } else {
-                am.d(this.mTip, d.f.icon_news_down_bar_one, i);
+                am.d(this.mTip, f.C0146f.icon_news_down_bar_one, i);
             }
             this.mTip.setPadding(0, 0, 0, 0);
         }
     }
 
     public String getText() {
-        return this.aoo;
+        return this.aop;
     }
 }

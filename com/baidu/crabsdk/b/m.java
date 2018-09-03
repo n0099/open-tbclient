@@ -42,13 +42,13 @@ public final class m {
         }
         com.baidu.crabsdk.c.a.ce("MobclickAgent init success!");
         if (System.currentTimeMillis() - SS.getLong("used_last_time", 0L) > SU) {
-            ST.putInt("used_count", pe() + 1);
+            ST.putInt("used_count", pb() + 1);
             com.baidu.crabsdk.c.c.a(ST, false);
             com.baidu.crabsdk.sender.h.n(context);
         }
     }
 
-    public static int pe() {
+    public static int pb() {
         return SS.getInt("used_count", 0);
     }
 }

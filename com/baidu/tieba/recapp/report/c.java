@@ -13,43 +13,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private static c gtT;
-    private CustomMessageListener gtV = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c gtW;
+    private CustomMessageListener gtY = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jE() && c.this.gtU != null) {
-                c.this.gtU.bok();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jE() && c.this.gtX != null) {
+                c.this.gtX.bol();
             }
         }
     };
-    private d gtU = new g();
+    private d gtX = new g();
 
-    public static c boi() {
-        if (gtT == null) {
+    public static c boj() {
+        if (gtW == null) {
             synchronized (c.class) {
-                if (gtT == null) {
-                    gtT = new c();
+                if (gtW == null) {
+                    gtW = new c();
                 }
             }
         }
-        return gtT;
+        return gtW;
     }
 
-    private boolean boj() {
+    private boolean bok() {
         return com.baidu.adp.lib.b.d.hv().ax("ad_log_open") != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.gtV);
+        MessageManager.getInstance().registerListener(this.gtY);
     }
 
     public void a(b bVar) {
-        if (boj() && bVar != null && this.gtU != null) {
+        if (bok() && bVar != null && this.gtX != null) {
             if (j.jE()) {
-                this.gtU.b(bVar);
+                this.gtX.b(bVar);
             } else {
-                this.gtU.c(bVar);
+                this.gtX.c(bVar);
             }
         }
     }

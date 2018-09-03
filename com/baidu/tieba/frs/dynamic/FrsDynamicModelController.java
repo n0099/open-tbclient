@@ -14,53 +14,53 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.tbadkCore.d;
 /* loaded from: classes2.dex */
 public class FrsDynamicModelController extends BdBaseModel implements NetModel.b<FrsDynamicRequestData, b> {
-    private b dsM;
-    private FrsDynamicFragment dsQ;
-    private FrsDynamicRequestData dsR;
-    private FrsDynamicModel<FrsDynamicFragment> dsS;
-    private d.a dsT;
+    private b dsJ;
+    private FrsDynamicFragment dsN;
+    private FrsDynamicRequestData dsO;
+    private FrsDynamicModel<FrsDynamicFragment> dsP;
+    private d.a dsQ;
     private long mForumId;
     private int mType;
 
     public FrsDynamicModelController(FrsDynamicFragment frsDynamicFragment) {
         super(frsDynamicFragment.getPageContext());
         this.mType = 3;
-        this.dsQ = frsDynamicFragment;
-        this.dsR = new FrsDynamicRequestData();
-        this.dsM = new b();
-        this.dsS = new FrsDynamicModel<>(this.dsQ.getPageContext(), this.dsR);
-        this.dsS.a(this);
-        this.dsS.setUniqueId(getUniqueId());
+        this.dsN = frsDynamicFragment;
+        this.dsO = new FrsDynamicRequestData();
+        this.dsJ = new b();
+        this.dsP = new FrsDynamicModel<>(this.dsN.getPageContext(), this.dsO);
+        this.dsP.a(this);
+        this.dsP.setUniqueId(getUniqueId());
     }
 
     public void setForumId(long j) {
         this.mForumId = j;
     }
 
-    public boolean aww() {
-        this.dsM = new b();
-        this.dsR.lastThreadId = 0L;
-        a(this.dsR, 3);
+    public boolean awv() {
+        this.dsJ = new b();
+        this.dsO.lastThreadId = 0L;
+        a(this.dsO, 3);
         return true;
     }
 
     public void bI(long j) {
-        if (!this.dsS.AE()) {
-            this.dsR.lastThreadId = j;
-            a(this.dsR, 4);
+        if (!this.dsP.AB()) {
+            this.dsO.lastThreadId = j;
+            a(this.dsO, 4);
         }
     }
 
     private void a(FrsDynamicRequestData frsDynamicRequestData, int i) {
-        if (this.dsQ != null && this.dsQ.isAdded() && this.dsQ.getPageContext() != null) {
-            this.dsQ.dnx.ku(i);
-            this.dsS.a(frsDynamicRequestData);
+        if (this.dsN != null && this.dsN.isAdded() && this.dsN.getPageContext() != null) {
+            this.dsN.dnv.kt(i);
+            this.dsP.a(frsDynamicRequestData);
             this.mType = i;
-            int ah = l.ah(this.dsQ.getPageContext().getPageActivity());
-            int aj = l.aj(this.dsQ.getPageContext().getPageActivity());
+            int ah = l.ah(this.dsN.getPageContext().getPageActivity());
+            int aj = l.aj(this.dsN.getPageContext().getPageActivity());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = 1;
-            if (ar.zw().zy()) {
+            if (ar.zu().zw()) {
                 i2 = 2;
             }
             frsDynamicRequestData.scrW = ah;
@@ -68,12 +68,12 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
             frsDynamicRequestData.scrDip = f;
             frsDynamicRequestData.qType = i2;
             frsDynamicRequestData.forumId = this.mForumId;
-            this.dsS.JR();
+            this.dsP.JV();
         }
     }
 
-    public boolean AE() {
-        return this.dsS.AE();
+    public boolean AB() {
+        return this.dsP.AB();
     }
 
     private boolean a(b bVar) {
@@ -81,13 +81,13 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
             return false;
         }
         if (!bVar.userMap.isEmpty()) {
-            this.dsM.userMap.putAll(bVar.userMap);
+            this.dsJ.userMap.putAll(bVar.userMap);
         }
         if (!w.z(bVar.threadList)) {
-            this.dsM.threadList.addAll(bVar.threadList);
+            this.dsJ.threadList.addAll(bVar.threadList);
         }
-        this.dsM.hasMore = bVar.hasMore;
-        this.dsQ.dnx.a(this.mType, false, this.dsT);
+        this.dsJ.hasMore = bVar.hasMore;
+        this.dsN.dnv.a(this.mType, false, this.dsQ);
         return true;
     }
 
@@ -104,14 +104,14 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<b> mvcHttpResponsedMessage, MvcHttpMessage<FrsDynamicRequestData, b> mvcHttpMessage, MvcNetMessage<FrsDynamicRequestData, b> mvcNetMessage) {
         if (mvcHttpResponsedMessage != null) {
-            if (this.dsT == null) {
-                this.dsT = new d.a();
+            if (this.dsQ == null) {
+                this.dsQ = new d.a();
             }
-            this.dsT.gKB = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
-            this.dsT.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
-            this.dsT.errorCode = mvcHttpResponsedMessage.getError();
-            this.dsT.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            this.dsT.gKC = mvcHttpResponsedMessage.getDownSize();
+            this.dsQ.gKD = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+            this.dsQ.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
+            this.dsQ.errorCode = mvcHttpResponsedMessage.getError();
+            this.dsQ.errorMsg = mvcHttpResponsedMessage.getErrorString();
+            this.dsQ.gKE = mvcHttpResponsedMessage.getDownSize();
             a(mvcHttpResponsedMessage.getData());
             this.mErrorCode = mvcHttpResponsedMessage.getError();
             this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -121,14 +121,14 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<b, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsDynamicRequestData, b> mvcSocketMessage, MvcNetMessage<FrsDynamicRequestData, b> mvcNetMessage) {
         if (mvcSocketResponsedMessage != null) {
-            if (this.dsT == null) {
-                this.dsT = new d.a();
+            if (this.dsQ == null) {
+                this.dsQ = new d.a();
             }
-            this.dsT.gKB = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
-            this.dsT.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
-            this.dsT.errorCode = mvcSocketResponsedMessage.getError();
-            this.dsT.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            this.dsT.gKC = mvcSocketResponsedMessage.getDownSize();
+            this.dsQ.gKD = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+            this.dsQ.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
+            this.dsQ.errorCode = mvcSocketResponsedMessage.getError();
+            this.dsQ.errorMsg = mvcSocketResponsedMessage.getErrorString();
+            this.dsQ.gKE = mvcSocketResponsedMessage.getDownSize();
             a(mvcSocketResponsedMessage.getData());
             this.mErrorCode = mvcSocketResponsedMessage.getError();
             this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -139,12 +139,12 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
         return this.mType;
     }
 
-    public b awx() {
-        return this.dsM;
+    public b aww() {
+        return this.dsJ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onActivityDestroy() {
-        this.dsS.cancelLoadData();
+        this.dsP.cancelLoadData();
     }
 }

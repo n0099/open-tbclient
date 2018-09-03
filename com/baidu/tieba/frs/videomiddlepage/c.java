@@ -8,41 +8,41 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.aggregation.g;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.play.n;
 /* loaded from: classes3.dex */
 public class c {
-    private n bvr;
-    private g dHK;
-    private com.baidu.tieba.frs.aggregation.g dHL;
-    private e dHM;
-    private ValueAnimator dHN;
-    private a dHO;
-    private FrameLayout dqJ;
-    private FrameLayout dqK;
-    private com.baidu.tieba.play.c dqX;
+    private n bvt;
+    private g dHG;
+    private com.baidu.tieba.frs.aggregation.g dHH;
+    private e dHI;
+    private ValueAnimator dHJ;
+    private a dHK;
+    private FrameLayout dqH;
+    private FrameLayout dqI;
+    private com.baidu.tieba.play.c dqV;
     private int mWidth;
     private View rootView;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void aAZ();
+        void aAW();
 
-        void aBa();
+        void aAX();
     }
 
     public void a(g gVar) {
-        this.dHK = gVar;
+        this.dHG = gVar;
     }
 
-    public com.baidu.tieba.frs.aggregation.g aAX() {
-        if (this.dHL == null) {
-            this.dHL = new com.baidu.tieba.frs.aggregation.g();
+    public com.baidu.tieba.frs.aggregation.g aAU() {
+        if (this.dHH == null) {
+            this.dHH = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.dHL, this.dHK.aBe());
-        return this.dHL;
+        a(this.dHH, this.dHG.aBb());
+        return this.dHH;
     }
 
     private void a(com.baidu.tieba.frs.aggregation.g gVar, VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
@@ -57,7 +57,7 @@ public class c {
                 aVar.portrait = videoSerializeVideoThreadInfo.getAuthor().portrait;
                 aVar.hasFocus = videoSerializeVideoThreadInfo.getAuthor().hasFocus;
             }
-            gVar.drx = aVar;
+            gVar.dru = aVar;
             g.b bVar = new g.b();
             if (videoSerializeVideoThreadInfo.getThreadVideoInfo() != null) {
                 bVar.thumbnailWidth = videoSerializeVideoThreadInfo.getThreadVideoInfo().thumbnailWidth;
@@ -72,7 +72,7 @@ public class c {
                 bVar.originVideoUrl = videoSerializeVideoThreadInfo.getThreadVideoInfo().videoUrl;
                 gVar.playCount = videoSerializeVideoThreadInfo.playCount;
             }
-            gVar.dry = bVar;
+            gVar.drv = bVar;
             gVar.forumId = videoSerializeVideoThreadInfo.forumId;
             gVar.threadId = videoSerializeVideoThreadInfo.threadId;
             gVar.firstPostId = videoSerializeVideoThreadInfo.firstPostId;
@@ -87,75 +87,75 @@ public class c {
     }
 
     public void a(TbPageContext tbPageContext, RelativeLayout relativeLayout, int i, e eVar, a aVar) {
-        if (this.dHL != null && this.dHK != null && this.dHK.aBe() != null && this.dHK.aBe().mVideoCardViewInfo != null) {
-            this.dHO = aVar;
-            this.dHM = eVar;
-            this.dHM.gq(false);
-            this.rootView = View.inflate(tbPageContext.getPageActivity(), d.h.card_video_middle_page_layout, null);
+        if (this.dHH != null && this.dHG != null && this.dHG.aBb() != null && this.dHG.aBb().mVideoCardViewInfo != null) {
+            this.dHK = aVar;
+            this.dHI = eVar;
+            this.dHI.gq(false);
+            this.rootView = View.inflate(tbPageContext.getPageActivity(), f.h.card_video_middle_page_layout, null);
             this.mWidth = l.ah(tbPageContext.getPageActivity());
-            this.rootView.findViewById(d.g.user_container).setVisibility(4);
-            this.rootView.findViewById(d.g.comment_and_priase_layout).setVisibility(4);
-            this.rootView.findViewById(d.g.comment_and_priase_layout_foreground).setVisibility(4);
-            this.rootView.findViewById(d.g.title_foreground).setVisibility(4);
-            this.rootView.findViewById(d.g.title).setVisibility(4);
-            this.rootView.findViewById(d.g.video_agg_container_foreground).setVisibility(4);
-            this.dqJ = (FrameLayout) this.rootView.findViewById(d.g.video_agg_container);
-            this.dqK = (FrameLayout) this.rootView.findViewById(d.g.video_container);
-            this.dqX = new com.baidu.tieba.play.c(tbPageContext, this.dqK, false);
-            this.bvr = new n(tbPageContext.getPageActivity());
-            b(this.dHL, 0, eVar);
+            this.rootView.findViewById(f.g.user_container).setVisibility(4);
+            this.rootView.findViewById(f.g.comment_and_priase_layout).setVisibility(4);
+            this.rootView.findViewById(f.g.comment_and_priase_layout_foreground).setVisibility(4);
+            this.rootView.findViewById(f.g.title_foreground).setVisibility(4);
+            this.rootView.findViewById(f.g.title).setVisibility(4);
+            this.rootView.findViewById(f.g.video_agg_container_foreground).setVisibility(4);
+            this.dqH = (FrameLayout) this.rootView.findViewById(f.g.video_agg_container);
+            this.dqI = (FrameLayout) this.rootView.findViewById(f.g.video_container);
+            this.dqV = new com.baidu.tieba.play.c(tbPageContext, this.dqI, false);
+            this.bvt = new n(tbPageContext.getPageActivity());
+            b(this.dHH, 0, eVar);
             if (this.rootView.getParent() != null) {
                 ((ViewGroup) this.rootView.getParent()).removeView(this.rootView);
             }
-            int i2 = this.dHK.aBe().mVideoCardViewInfo.cardViewX;
-            int i3 = this.dHK.aBe().mVideoCardViewInfo.cardViewY;
-            int i4 = this.dHK.aBe().mVideoCardViewInfo.cardViewWidth;
-            int i5 = this.dHK.aBe().mVideoCardViewInfo.cardViewHeight;
-            this.dqJ.setX(i2);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dqJ.getLayoutParams();
+            int i2 = this.dHG.aBb().mVideoCardViewInfo.cardViewX;
+            int i3 = this.dHG.aBb().mVideoCardViewInfo.cardViewY;
+            int i4 = this.dHG.aBb().mVideoCardViewInfo.cardViewWidth;
+            int i5 = this.dHG.aBb().mVideoCardViewInfo.cardViewHeight;
+            this.dqH.setX(i2);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dqH.getLayoutParams();
             layoutParams.width = i4;
             layoutParams.height = i5;
-            this.dqJ.setLayoutParams(layoutParams);
-            this.rootView.setY(i3 - l.f(tbPageContext.getPageActivity(), d.e.tbds154));
+            this.dqH.setLayoutParams(layoutParams);
+            this.rootView.setY(i3 - l.f(tbPageContext.getPageActivity(), f.e.tbds154));
             relativeLayout.addView(this.rootView);
             int i6 = this.mWidth;
-            int aAY = aAY();
+            int aAV = aAV();
             if (i4 == i6) {
-                i4 = i6 - l.f(tbPageContext.getPageActivity(), d.e.ds72);
+                i4 = i6 - l.f(tbPageContext.getPageActivity(), f.e.ds72);
             }
-            a(this.rootView, this.dqJ, i2, 0, i3, i, i4, i6, i5, aAY);
+            a(this.rootView, this.dqH, i2, 0, i3, i, i4, i6, i5, aAV);
         }
     }
 
-    private int aAY() {
-        return !aAS() ? (int) (0.875f * this.mWidth) : (int) (0.5625f * this.mWidth);
+    private int aAV() {
+        return !aAP() ? (int) (0.875f * this.mWidth) : (int) (0.5625f * this.mWidth);
     }
 
-    private boolean aAS() {
+    private boolean aAP() {
         try {
-            int parseInt = Integer.parseInt(this.dHL.dry.videoWidth);
-            return parseInt <= 0 || ((float) Integer.parseInt(this.dHL.dry.videoHeight)) / ((float) parseInt) < 1.0f;
+            int parseInt = Integer.parseInt(this.dHH.drv.videoWidth);
+            return parseInt <= 0 || ((float) Integer.parseInt(this.dHH.drv.videoHeight)) / ((float) parseInt) < 1.0f;
         } catch (NumberFormatException e) {
             return true;
         }
     }
 
     private void b(com.baidu.tieba.frs.aggregation.g gVar, int i, com.baidu.tieba.frs.aggregation.a aVar) {
-        if (gVar != null && gVar.dry != null) {
-            this.dqX.stopPlay();
-            this.dqX.setIsNeedRecoveryVideoPlayer(true);
-            this.dqX.ls(true);
-            this.dqX.lq(false);
-            this.dqX.N(false, true);
-            this.dqX.lt(true);
-            this.dqX.rF(i);
-            this.dqX.lo(false);
-            this.dqX.getVideoView().setBusiness(this.bvr);
-            this.dqX.aSc();
-            this.dqX.setThumbnail(gVar.dry.thumbnailUrl);
-            this.dqX.setVideoUrl(gVar.dry.videoUrl, gVar.threadId);
-            this.dqX.aFd();
-            this.dqX.show();
+        if (gVar != null && gVar.drv != null) {
+            this.dqV.stopPlay();
+            this.dqV.setIsNeedRecoveryVideoPlayer(true);
+            this.dqV.ls(true);
+            this.dqV.lq(false);
+            this.dqV.N(false, true);
+            this.dqV.lt(true);
+            this.dqV.rF(i);
+            this.dqV.lo(false);
+            this.dqV.getVideoView().setBusiness(this.bvt);
+            this.dqV.aRZ();
+            this.dqV.setThumbnail(gVar.drv.thumbnailUrl);
+            this.dqV.setVideoUrl(gVar.drv.videoUrl, gVar.threadId);
+            this.dqV.aFa();
+            this.dqV.show();
         }
     }
 
@@ -166,9 +166,9 @@ public class c {
         final int i12 = i11 - ((i3 + i4) - i11);
         int i13 = i8 > i7 ? i8 : i7;
         final int i14 = i13 - ((i8 + i7) - i13);
-        this.dHN = ValueAnimator.ofInt(i5, i6);
-        this.dHN.setDuration(400L);
-        this.dHN.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.videomiddlepage.c.1
+        this.dHJ = ValueAnimator.ofInt(i5, i6);
+        this.dHJ.setDuration(400L);
+        this.dHJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.videomiddlepage.c.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int i15;
@@ -200,32 +200,32 @@ public class c {
                 view2.setLayoutParams(layoutParams);
             }
         });
-        this.dHN.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.videomiddlepage.c.2
+        this.dHJ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.videomiddlepage.c.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                if (c.this.dHO != null) {
-                    c.this.dHO.aAZ();
+                if (c.this.dHK != null) {
+                    c.this.dHK.aAW();
                 }
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (c.this.dHM != null) {
-                    c.this.dHM.gq(true);
+                if (c.this.dHI != null) {
+                    c.this.dHI.gq(true);
                 }
-                if (c.this.dHO != null) {
-                    c.this.dHO.aBa();
+                if (c.this.dHK != null) {
+                    c.this.dHK.aAX();
                 }
                 if (view2.getParent() != null) {
                     ((ViewGroup) view2.getParent()).removeView(view2);
                 }
-                c.this.awg();
+                c.this.awf();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                if (c.this.dHO != null) {
-                    c.this.dHO.aBa();
+                if (c.this.dHK != null) {
+                    c.this.dHK.aAX();
                 }
             }
 
@@ -233,25 +233,25 @@ public class c {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.dHN.setTarget(view2);
-        this.dHN.start();
+        this.dHJ.setTarget(view2);
+        this.dHJ.start();
     }
 
-    public void awg() {
-        if (this.dqX != null) {
-            this.dqX.destroy();
-            this.dqX = null;
+    public void awf() {
+        if (this.dqV != null) {
+            this.dqV.destroy();
+            this.dqV = null;
         }
     }
 
     public void onDestroy() {
-        if (this.dHN != null) {
-            this.dHN.cancel();
-            this.dHN = null;
+        if (this.dHJ != null) {
+            this.dHJ.cancel();
+            this.dHJ = null;
         }
         if (this.rootView != null) {
             this.rootView.clearAnimation();
         }
-        awg();
+        awf();
     }
 }

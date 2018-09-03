@@ -3,26 +3,26 @@ package com.baidu.tieba.video.editvideo.scale;
 import android.graphics.Matrix;
 /* loaded from: classes2.dex */
 public class a {
-    private b heA;
     private b heB;
+    private b heC;
 
     public a(b bVar, b bVar2) {
-        this.heA = bVar;
-        this.heB = bVar2;
+        this.heB = bVar;
+        this.heC = bVar2;
     }
 
     public Matrix a(ScalableType scalableType) {
         switch (scalableType) {
             case NONE:
-                return Sq();
+                return Su();
             case FIT_XY:
-                return Sj();
+                return Sn();
             case FIT_CENTER:
-                return Sl();
+                return Sp();
             case FIT_START:
-                return Sk();
+                return So();
             case FIT_END:
-                return Sm();
+                return Sq();
             case LEFT_TOP:
                 return b(PivotPoint.LEFT_TOP);
             case LEFT_CENTER:
@@ -60,11 +60,11 @@ public class a {
             case RIGHT_BOTTOM_CROP:
                 return c(PivotPoint.RIGHT_BOTTOM);
             case START_INSIDE:
-                return Sn();
+                return Sr();
             case CENTER_INSIDE:
-                return So();
+                return Ss();
             case END_INSIDE:
-                return Sp();
+                return St();
             default:
                 return null;
         }
@@ -81,73 +81,73 @@ public class a {
             case LEFT_TOP:
                 return h(f, f2, 0.0f, 0.0f);
             case LEFT_CENTER:
-                return h(f, f2, 0.0f, this.heA.getHeight() / 2.0f);
+                return h(f, f2, 0.0f, this.heB.getHeight() / 2.0f);
             case LEFT_BOTTOM:
-                return h(f, f2, 0.0f, this.heA.getHeight());
+                return h(f, f2, 0.0f, this.heB.getHeight());
             case CENTER_TOP:
-                return h(f, f2, this.heA.getWidth() / 2.0f, 0.0f);
+                return h(f, f2, this.heB.getWidth() / 2.0f, 0.0f);
             case CENTER:
-                return h(f, f2, this.heA.getWidth() / 2.0f, this.heA.getHeight() / 2.0f);
+                return h(f, f2, this.heB.getWidth() / 2.0f, this.heB.getHeight() / 2.0f);
             case CENTER_BOTTOM:
-                return h(f, f2, this.heA.getWidth() / 2.0f, this.heA.getHeight());
+                return h(f, f2, this.heB.getWidth() / 2.0f, this.heB.getHeight());
             case RIGHT_TOP:
-                return h(f, f2, this.heA.getWidth(), 0.0f);
+                return h(f, f2, this.heB.getWidth(), 0.0f);
             case RIGHT_CENTER:
-                return h(f, f2, this.heA.getWidth(), this.heA.getHeight() / 2.0f);
+                return h(f, f2, this.heB.getWidth(), this.heB.getHeight() / 2.0f);
             case RIGHT_BOTTOM:
-                return h(f, f2, this.heA.getWidth(), this.heA.getHeight());
+                return h(f, f2, this.heB.getWidth(), this.heB.getHeight());
             default:
                 return null;
         }
     }
 
-    private Matrix Sq() {
-        return a(this.heB.getWidth() / this.heA.getWidth(), this.heB.getHeight() / this.heA.getHeight(), PivotPoint.LEFT_TOP);
+    private Matrix Su() {
+        return a(this.heC.getWidth() / this.heB.getWidth(), this.heC.getHeight() / this.heB.getHeight(), PivotPoint.LEFT_TOP);
     }
 
     private Matrix a(PivotPoint pivotPoint) {
-        float width = this.heA.getWidth() / this.heB.getWidth();
-        float height = this.heA.getHeight() / this.heB.getHeight();
+        float width = this.heB.getWidth() / this.heC.getWidth();
+        float height = this.heB.getHeight() / this.heC.getHeight();
         float min = Math.min(width, height);
         return a(min / width, min / height, pivotPoint);
     }
 
-    private Matrix Sj() {
+    private Matrix Sn() {
         return a(1.0f, 1.0f, PivotPoint.LEFT_TOP);
     }
 
-    private Matrix Sk() {
+    private Matrix So() {
         return a(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix Sl() {
+    private Matrix Sp() {
         return a(PivotPoint.CENTER);
     }
 
-    private Matrix Sm() {
+    private Matrix Sq() {
         return a(PivotPoint.RIGHT_BOTTOM);
     }
 
     private Matrix b(PivotPoint pivotPoint) {
-        return a(this.heB.getWidth() / this.heA.getWidth(), this.heB.getHeight() / this.heA.getHeight(), pivotPoint);
+        return a(this.heC.getWidth() / this.heB.getWidth(), this.heC.getHeight() / this.heB.getHeight(), pivotPoint);
     }
 
     private Matrix c(PivotPoint pivotPoint) {
-        float width = this.heA.getWidth() / this.heB.getWidth();
-        float height = this.heA.getHeight() / this.heB.getHeight();
+        float width = this.heB.getWidth() / this.heC.getWidth();
+        float height = this.heB.getHeight() / this.heC.getHeight();
         float max = Math.max(width, height);
         return a(max / width, max / height, pivotPoint);
     }
 
-    private Matrix Sn() {
-        return (this.heB.getHeight() > this.heA.getWidth() || this.heB.getHeight() > this.heA.getHeight()) ? Sk() : b(PivotPoint.LEFT_TOP);
+    private Matrix Sr() {
+        return (this.heC.getHeight() > this.heB.getWidth() || this.heC.getHeight() > this.heB.getHeight()) ? So() : b(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix So() {
-        return (this.heB.getHeight() > this.heA.getWidth() || this.heB.getHeight() > this.heA.getHeight()) ? Sl() : b(PivotPoint.CENTER);
+    private Matrix Ss() {
+        return (this.heC.getHeight() > this.heB.getWidth() || this.heC.getHeight() > this.heB.getHeight()) ? Sp() : b(PivotPoint.CENTER);
     }
 
-    private Matrix Sp() {
-        return (this.heB.getHeight() > this.heA.getWidth() || this.heB.getHeight() > this.heA.getHeight()) ? Sm() : b(PivotPoint.RIGHT_BOTTOM);
+    private Matrix St() {
+        return (this.heC.getHeight() > this.heB.getWidth() || this.heC.getHeight() > this.heB.getHeight()) ? Sq() : b(PivotPoint.RIGHT_BOTTOM);
     }
 }

@@ -25,11 +25,11 @@ public class ba {
         return this.forumId + "";
     }
 
-    public long uM() {
+    public long uL() {
         return this.aht;
     }
 
-    public long uN() {
+    public long uM() {
         return this.endTime;
     }
 
@@ -45,15 +45,15 @@ public class ba {
         return this.ahv;
     }
 
-    public int uO() {
+    public int uN() {
         return this.mWidth;
     }
 
-    public int uP() {
+    public int uO() {
         return this.mHeight;
     }
 
-    public String tJ() {
+    public String tI() {
         return this.obj_id;
     }
 

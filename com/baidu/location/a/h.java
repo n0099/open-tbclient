@@ -32,7 +32,7 @@ public class h implements com.baidu.c.a.a {
         }
     }
 
-    public static h qt() {
+    public static h qq() {
         h hVar;
         synchronized (a) {
             if (WB == null) {

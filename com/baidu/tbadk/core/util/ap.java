@@ -7,7 +7,7 @@ import android.text.style.ForegroundColorSpan;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -20,22 +20,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes.dex */
 public class ap extends com.baidu.adp.lib.util.k {
-    private static long aqP = 1000;
-    public static long aqQ = aqP * 60;
+    private static long aqQ = 1000;
     public static long aqR = aqQ * 60;
-    private static long aqS = aqR * 24;
-    private static float aqT = 1048576.0f;
-    private static float aqU = 1024.0f;
-    private static String aqV = TbadkCoreApplication.getInst().getApp().getString(d.j.time_hour_before);
-    private static String aqW = TbadkCoreApplication.getInst().getApp().getString(d.j.time_min_before);
-    private static String aqX = TbadkCoreApplication.getInst().getApp().getString(d.j.time_sec_before);
-    private static String aqY = TbadkCoreApplication.getInst().getApp().getString(d.j.day);
-    private static String aqZ = TbadkCoreApplication.getInst().getApp().getString(d.j.time_hour);
-    private static String ara = TbadkCoreApplication.getInst().getApp().getString(d.j.time_minute);
-    private static String arb = TbadkCoreApplication.getInst().getApp().getString(d.j.time_second);
-    private static final SimpleDateFormat arc = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private static final SimpleDateFormat ard = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static SimpleDateFormat are = new SimpleDateFormat("dd日HH:mm");
+    public static long aqS = aqR * 60;
+    public static long aqT = aqS * 24;
+    private static float aqU = 1048576.0f;
+    private static float aqV = 1024.0f;
+    private static String aqW = TbadkCoreApplication.getInst().getApp().getString(f.j.time_hour_before);
+    private static String aqX = TbadkCoreApplication.getInst().getApp().getString(f.j.time_min_before);
+    private static String aqY = TbadkCoreApplication.getInst().getApp().getString(f.j.time_sec_before);
+    private static String aqZ = TbadkCoreApplication.getInst().getApp().getString(f.j.day);
+    private static String ara = TbadkCoreApplication.getInst().getApp().getString(f.j.time_hour);
+    private static String arb = TbadkCoreApplication.getInst().getApp().getString(f.j.time_minute);
+    private static String arc = TbadkCoreApplication.getInst().getApp().getString(f.j.time_second);
+    private static final SimpleDateFormat ard = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private static final SimpleDateFormat are = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
+    private static SimpleDateFormat arf = new SimpleDateFormat("dd日HH:mm");
     private static Date date = new Date();
 
     static {
@@ -56,8 +56,8 @@ public class ap extends com.baidu.adp.lib.util.k {
 
     public static String f(Date date2) {
         String format;
-        synchronized (are) {
-            format = are.format(date2);
+        synchronized (arf) {
+            format = arf.format(date2);
         }
         return format;
     }
@@ -83,7 +83,7 @@ public class ap extends com.baidu.adp.lib.util.k {
         return j4 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)).toString() : formatter.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)).toString();
     }
 
-    public static String zt() {
+    public static String zr() {
         String format;
         Date date2 = new Date();
         synchronized (Di) {
@@ -117,7 +117,7 @@ public class ap extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static int zu() {
+    public static int zs() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
     }
@@ -229,15 +229,15 @@ public class ap extends com.baidu.adp.lib.util.k {
         if (abs >= Long.MAX_VALUE) {
             return "一个月前";
         }
-        if (abs / aqS != 0) {
-            if (abs / aqS > 30) {
+        if (abs / aqT != 0) {
+            if (abs / aqT > 30) {
                 return "一个月前";
             }
-            return (abs / aqS) + "天前";
-        } else if (abs / aqR != 0) {
-            return (abs / aqR) + "小时前";
+            return (abs / aqT) + "天前";
+        } else if (abs / aqS != 0) {
+            return (abs / aqS) + "小时前";
         } else {
-            return (abs / aqQ) + "分钟前";
+            return (abs / aqR) + "分钟前";
         }
     }
 
@@ -246,16 +246,16 @@ public class ap extends com.baidu.adp.lib.util.k {
         if (abs <= 120000) {
             return "刚刚";
         }
-        if (abs >= Long.MAX_VALUE || abs / aqS != 0) {
+        if (abs >= Long.MAX_VALUE || abs / aqT != 0) {
             return "";
         }
-        if (abs / aqR != 0) {
-            return (abs / aqR) + "小时前";
+        if (abs / aqS != 0) {
+            return (abs / aqS) + "小时前";
         }
-        return (abs / aqQ) + "分钟前";
+        return (abs / aqR) + "分钟前";
     }
 
-    public static String ag(String str, String str2) {
+    public static String af(String str, String str2) {
         String str3;
         Exception exc;
         if (StringUtils.isNull(str)) {
@@ -312,18 +312,18 @@ public class ap extends com.baidu.adp.lib.util.k {
             return "";
         }
         long time = new Date().getTime() - date2.getTime();
-        if (time < aqS && time > 0) {
-            if (time < aqR) {
-                if (time < aqQ) {
-                    long j = time / aqP;
+        if (time < aqT && time > 0) {
+            if (time < aqS) {
+                if (time < aqR) {
+                    long j = time / aqQ;
                     if (j == 0) {
                         j = 1;
                     }
-                    return String.valueOf(j) + aqX;
+                    return String.valueOf(j) + aqY;
                 }
-                return String.valueOf(time / aqQ) + aqW;
+                return String.valueOf(time / aqR) + aqX;
             }
-            return String.valueOf(time / aqR) + aqV;
+            return String.valueOf(time / aqS) + aqW;
         } else if (z) {
             return i(date2);
         } else {
@@ -336,14 +336,14 @@ public class ap extends com.baidu.adp.lib.util.k {
             return "";
         }
         long time = new Date().getTime() - date2.getTime();
-        if (time < aqS && time > 0) {
-            if (time < aqR) {
-                if (time < aqQ) {
+        if (time < aqT && time > 0) {
+            if (time < aqS) {
+                if (time < aqR) {
                     return "刚刚";
                 }
-                return String.valueOf(time / aqQ) + aqW;
+                return String.valueOf(time / aqR) + aqX;
             }
-            return String.valueOf(time / aqR) + aqV;
+            return String.valueOf(time / aqS) + aqW;
         } else if (z) {
             return i(date2);
         } else {
@@ -363,20 +363,20 @@ public class ap extends com.baidu.adp.lib.util.k {
         if (j <= 0) {
             return "1秒";
         }
-        if (j < aqS) {
-            if (j < aqR) {
-                if (j < aqQ) {
-                    long j2 = j / aqP;
+        if (j < aqT) {
+            if (j < aqS) {
+                if (j < aqR) {
+                    long j2 = j / aqQ;
                     if (j2 == 0) {
                         j2 = 1;
                     }
-                    return String.valueOf(j2) + arb;
+                    return String.valueOf(j2) + arc;
                 }
-                return String.valueOf(j / aqQ) + ara;
+                return String.valueOf(j / aqR) + arb;
             }
-            return String.valueOf(j / aqR) + aqZ;
+            return String.valueOf(j / aqS) + ara;
         }
-        return String.valueOf(j / aqS) + aqY;
+        return String.valueOf(j / aqT) + aqZ;
     }
 
     @Deprecated
@@ -569,15 +569,15 @@ public class ap extends com.baidu.adp.lib.util.k {
         String valueOf = String.valueOf(j);
         if (j >= 100000000) {
             if (j % 100000000 != 0) {
-                return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+                return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
         } else if (j >= 1000000) {
             long j2 = j / 10000;
             if (((float) j) / 10000.0f > ((float) j2)) {
-                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_wan);
+                return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_wan);
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_wan);
         } else {
             return valueOf;
         }
@@ -641,7 +641,7 @@ public class ap extends com.baidu.adp.lib.util.k {
         return isEmpty(str) ? "" : "\u202d" + str + "\u202c";
     }
 
-    public static String d(String str, int i, String str2) {
+    public static String c(String str, int i, String str2) {
         if (str != null && i >= 0 && str.length() > i) {
             StringBuilder sb = new StringBuilder();
             sb.append(str.substring(0, i));
@@ -675,10 +675,10 @@ public class ap extends com.baidu.adp.lib.util.k {
 
     @Deprecated
     public static String t(String str, int i) {
-        return (str == null || i < 0 || str.length() == i) ? str : d(str, i - 1, "...");
+        return (str == null || i < 0 || str.length() == i) ? str : c(str, i - 1, "...");
     }
 
-    public static String e(String str, int i, String str2) {
+    public static String d(String str, int i, String str2) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
@@ -742,7 +742,7 @@ public class ap extends com.baidu.adp.lib.util.k {
         return i;
     }
 
-    public static String f(String str, int i, String str2) {
+    public static String e(String str, int i, String str2) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
@@ -773,7 +773,7 @@ public class ap extends com.baidu.adp.lib.util.k {
     }
 
     public static String M(long j) {
-        return ((float) j) >= aqT ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / aqT)) : ((float) j) >= aqU / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / aqU)) : TbadkCoreApplication.getInst().getString(d.j.less_than_zero_dot_one_k);
+        return ((float) j) >= aqU ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / aqU)) : ((float) j) >= aqV / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / aqV)) : TbadkCoreApplication.getInst().getString(f.j.less_than_zero_dot_one_k);
     }
 
     public static int eK(String str) {
@@ -801,18 +801,18 @@ public class ap extends com.baidu.adp.lib.util.k {
                 double d = ((float) j) / 1.0E8f;
                 double d2 = j / 100000000;
                 if (j % 100000000 > 999999.0d) {
-                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
                 }
-                return d2 + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+                return d2 + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
         } else if (j >= 1000000) {
             float f = ((float) j) / 10000.0f;
             long j2 = j / 10000;
             if (j % 1000000 > 999) {
-                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_wan);
+                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_wan);
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_wan);
         } else {
             return valueOf;
         }
@@ -828,18 +828,18 @@ public class ap extends com.baidu.adp.lib.util.k {
                 double d = ((float) j) / 1.0E8f;
                 double d2 = j / 100000000;
                 if (j % 100000000 > 999999.0d) {
-                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+                    return String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
                 }
-                return d2 + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+                return d2 + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_yi);
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_yi);
         } else if (j >= 10000000) {
             float f = ((float) j) / 10000.0f;
             long j2 = j / 10000;
             if (j % 10000000 > 999) {
-                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_wan);
+                return String.format("%.2f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(d.j.unit_wan);
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(f.j.unit_wan);
         } else {
             return valueOf;
         }
@@ -875,8 +875,8 @@ public class ap extends com.baidu.adp.lib.util.k {
     public static String P(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (ard) {
-            format = ard.format(date2);
+        synchronized (are) {
+            format = are.format(date2);
         }
         return format;
     }
@@ -947,11 +947,11 @@ public class ap extends com.baidu.adp.lib.util.k {
     public static String cZ(int i) {
         switch (i) {
             case 1:
-                return TbadkCoreApplication.getInst().getContext().getString(d.j.he);
+                return TbadkCoreApplication.getInst().getContext().getString(f.j.he);
             case 2:
-                return TbadkCoreApplication.getInst().getContext().getString(d.j.she);
+                return TbadkCoreApplication.getInst().getContext().getString(f.j.she);
             default:
-                return TbadkCoreApplication.getInst().getContext().getString(d.j.he);
+                return TbadkCoreApplication.getInst().getContext().getString(f.j.he);
         }
     }
 
@@ -973,13 +973,13 @@ public class ap extends com.baidu.adp.lib.util.k {
         return i5 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
     }
 
-    public static String g(String str, int i, String str2) {
+    public static String f(String str, int i, String str2) {
         if (str == null || i <= 0) {
             return String.valueOf("");
         }
         int length = str.length();
         if (str.indexOf("#") != 0 || str.lastIndexOf("#") != length - 1) {
-            return e(str, i, str2);
+            return d(str, i, str2);
         }
         String replaceAll = str.replaceAll("#", "");
         int i2 = 0;

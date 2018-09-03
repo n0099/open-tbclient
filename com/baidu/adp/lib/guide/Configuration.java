@@ -13,11 +13,11 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.yv = parcel.readInt();
             configuration.yw = parcel.readInt();
             configuration.yx = parcel.readInt();
-            configuration.yy = parcel.readByte() == 1;
+            configuration.yy = parcel.readInt();
             configuration.yz = parcel.readByte() == 1;
+            configuration.yA = parcel.readByte() == 1;
             return configuration;
         }
 
@@ -28,17 +28,17 @@ public class Configuration implements Parcelable {
             return new Configuration[i];
         }
     };
-    boolean yu;
+    boolean yv;
     View mTargetView = null;
     int mAlpha = 255;
-    int yv = -1;
     int yw = -1;
-    int yx = 17170444;
-    boolean yy = true;
-    boolean yz = false;
+    int yx = -1;
+    int yy = 17170444;
+    boolean yz = true;
     boolean yA = false;
-    int yB = -1;
+    boolean yB = false;
     int yC = -1;
+    int yD = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -48,10 +48,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.yv);
         parcel.writeInt(this.yw);
         parcel.writeInt(this.yx);
-        parcel.writeByte((byte) (this.yy ? 1 : 0));
+        parcel.writeInt(this.yy);
         parcel.writeByte((byte) (this.yz ? 1 : 0));
+        parcel.writeByte((byte) (this.yA ? 1 : 0));
     }
 }

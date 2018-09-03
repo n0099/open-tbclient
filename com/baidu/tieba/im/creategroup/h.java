@@ -6,38 +6,38 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class h implements o {
-    private CreateGroupStepActivity eoi;
-    private TbImageView eou;
-    private Button eov;
+    private CreateGroupStepActivity eod;
+    private TbImageView eoq;
+    private Button eor;
     private int mIndex;
     private View mView;
 
     public h(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
-        this.eoi = createGroupStepActivity;
-        this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(d.h.create_group_normal_tips, (ViewGroup) null);
-        this.eov = (Button) this.mView.findViewById(d.g.create_group_tips_btn);
-        this.eou = (TbImageView) this.mView.findViewById(d.g.create_group_tips_image);
+        this.eod = createGroupStepActivity;
+        this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(f.h.create_group_normal_tips, (ViewGroup) null);
+        this.eor = (Button) this.mView.findViewById(f.g.create_group_tips_btn);
+        this.eoq = (TbImageView) this.mView.findViewById(f.g.create_group_tips_image);
         this.mIndex = i;
-        this.eov.setText(String.format(createGroupStepActivity.getPageContext().getString(d.j.group_create_can_create_num), Integer.valueOf(i2)));
-        c.b(this.eoi.getPageContext().getPageActivity(), c.eon, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.eoi.getPageContext().getPageActivity(), c.eoq, TbadkApplication.getInst().getSkinType() == 1);
-        c.b(this.eoi.getPageContext().getPageActivity(), c.eoo, TbadkApplication.getInst().getSkinType() == 1);
+        this.eor.setText(String.format(createGroupStepActivity.getPageContext().getString(f.j.group_create_can_create_num), Integer.valueOf(i2)));
+        c.b(this.eod.getPageContext().getPageActivity(), c.eoj, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.eod.getPageContext().getPageActivity(), c.eom, TbadkApplication.getInst().getSkinType() == 1);
+        c.b(this.eod.getPageContext().getPageActivity(), c.eok, TbadkApplication.getInst().getSkinType() == 1);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aIe() {
-        this.eou.setBackgroundDrawable(null);
+    public void aIb() {
+        this.eoq.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aIf() {
+    public void aIc() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.eoi.getLayoutMode().setNightMode(z);
-        this.eoi.getLayoutMode().onModeChanged(this.mView);
-        this.eou.startLoad(c.a(this.eoi.getPageContext().getPageActivity(), c.eor, z), 29, false);
+        this.eod.getLayoutMode().setNightMode(z);
+        this.eod.getLayoutMode().onModeChanged(this.mView);
+        this.eoq.startLoad(c.a(this.eod.getPageContext().getPageActivity(), c.eon, z), 29, false);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -46,22 +46,22 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int aHY() {
+    public int aHV() {
         return this.mIndex;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return this.eoi.getPageContext().getString(d.j.group_create_tips_normal);
+        return this.eod.getPageContext().getString(f.j.group_create_tips_normal);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String aIh() {
+    public String aIe() {
         return "";
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aIi() {
+    public boolean aIf() {
         return false;
     }
 
@@ -71,11 +71,11 @@ public class h implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aIj() {
+    public boolean aIg() {
         return false;
     }
 
-    public Button aIn() {
-        return this.eov;
+    public Button aIk() {
+        return this.eor;
     }
 }

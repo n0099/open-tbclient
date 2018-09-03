@@ -99,7 +99,7 @@ public class ForeDrawableImageView extends TbImageView {
     }
 
     private void a(Canvas canvas, int i, int i2) {
-        if (!StringUtils.isNull(this.aXQ) && !i.te().tk()) {
+        if (!StringUtils.isNull(this.aXQ) && !i.td().tj()) {
             canvas.drawText(this.aXQ, (int) (i - (this.aXS.measureText(this.aXQ) / 2.0f)), this.aXR + i2, this.aXS);
         }
     }

@@ -14,17 +14,17 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends View {
     private Drawable KV;
-    private Paint atC;
-    private Drawable avl;
-    private int avm;
-    private boolean avn;
-    private String avo;
-    private int avp;
-    private Rect avq;
+    private Paint atD;
+    private Drawable avj;
+    private int avk;
+    private boolean avl;
+    private String avm;
+    private int avn;
+    private Rect avo;
     private int mType;
 
     public MessageRedDotView(@NonNull Context context) {
@@ -67,85 +67,85 @@ public class MessageRedDotView extends View {
         if (this.KV != null) {
             this.KV.setBounds(0, 0, this.KV.getIntrinsicWidth(), this.KV.getIntrinsicHeight());
             this.KV.draw(canvas);
-            if (!ap.isEmpty(this.avo)) {
-                if (this.avo.equals("...")) {
-                    i(canvas);
+            if (!ap.isEmpty(this.avm)) {
+                if (this.avm.equals("...")) {
+                    h(canvas);
                 } else {
-                    j(canvas);
+                    i(canvas);
                 }
             }
         }
     }
 
-    private void i(Canvas canvas) {
-        if (this.avl != null && this.KV != null) {
+    private void h(Canvas canvas) {
+        if (this.avj != null && this.KV != null) {
             int intrinsicWidth = this.KV.getIntrinsicWidth() / 2;
             int intrinsicHeight = this.KV.getIntrinsicHeight() / 2;
-            int f = com.baidu.adp.lib.util.l.f(getContext(), d.e.tbds6);
-            int f2 = com.baidu.adp.lib.util.l.f(getContext(), d.e.tbds7);
+            int f = com.baidu.adp.lib.util.l.f(getContext(), f.e.tbds6);
+            int f2 = com.baidu.adp.lib.util.l.f(getContext(), f.e.tbds7);
             int i = intrinsicWidth - (f / 2);
             int i2 = intrinsicHeight - (f / 2);
             int i3 = intrinsicWidth + (f / 2);
             int i4 = intrinsicHeight + (f / 2);
-            this.avl.setBounds(i, i2, i3, i4);
-            this.avl.draw(canvas);
-            this.avl.setBounds((i - f2) - f, i2, i - f2, i4);
-            this.avl.draw(canvas);
-            this.avl.setBounds(i3 + f2, i2, i3 + f2 + f, i4);
-            this.avl.draw(canvas);
+            this.avj.setBounds(i, i2, i3, i4);
+            this.avj.draw(canvas);
+            this.avj.setBounds((i - f2) - f, i2, i - f2, i4);
+            this.avj.draw(canvas);
+            this.avj.setBounds(i3 + f2, i2, i3 + f2 + f, i4);
+            this.avj.draw(canvas);
         }
     }
 
-    private void j(Canvas canvas) {
-        if (!ap.isEmpty(this.avo) && this.KV != null) {
-            this.atC.getTextBounds(this.avo, 0, this.avo.length(), this.avq);
-            canvas.drawText(this.avo, this.KV.getIntrinsicWidth() / 2, ((this.KV.getIntrinsicHeight() + this.avq.height()) / 2) - this.avp, this.atC);
+    private void i(Canvas canvas) {
+        if (!ap.isEmpty(this.avm) && this.KV != null) {
+            this.atD.getTextBounds(this.avm, 0, this.avm.length(), this.avo);
+            canvas.drawText(this.avm, this.KV.getIntrinsicWidth() / 2, ((this.KV.getIntrinsicHeight() + this.avo.height()) / 2) - this.avn, this.atD);
         }
     }
 
     private void initView() {
-        An();
-        this.atC = new Paint(1);
-        this.atC.setColor(am.getColor(d.C0140d.cp_cont_i));
-        this.atC.setTextSize(com.baidu.adp.lib.util.l.f(getContext(), d.e.tbfontsize26));
-        this.atC.setTextAlign(Paint.Align.CENTER);
-        this.atC.setTypeface(Typeface.MONOSPACE);
-        this.avq = new Rect();
+        Al();
+        this.atD = new Paint(1);
+        this.atD.setColor(am.getColor(f.d.cp_cont_i));
+        this.atD.setTextSize(com.baidu.adp.lib.util.l.f(getContext(), f.e.tbfontsize26));
+        this.atD.setTextAlign(Paint.Align.CENTER);
+        this.atD.setTypeface(Typeface.MONOSPACE);
+        this.avo = new Rect();
     }
 
-    private void An() {
+    private void Al() {
         String str = Build.MODEL;
         if (str.contains("vivo") && str.contains("X20")) {
-            this.avp = com.baidu.adp.lib.util.l.f(getContext(), d.e.tbds2);
+            this.avn = com.baidu.adp.lib.util.l.f(getContext(), f.e.tbds2);
         }
     }
 
     public void refresh(int i) {
         int i2;
         if (i <= 0) {
-            i2 = d.f.icon_news_red_dot;
-            this.avo = null;
+            i2 = f.C0146f.icon_news_red_dot;
+            this.avm = null;
         } else if (i < 10) {
-            this.avo = String.valueOf(i);
-            i2 = d.f.icon_news_red_dot_one_number;
+            this.avm = String.valueOf(i);
+            i2 = f.C0146f.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.avo = String.valueOf(i);
-            i2 = d.f.icon_news_red_dot_two_number;
+            this.avm = String.valueOf(i);
+            i2 = f.C0146f.icon_news_red_dot_two_number;
         } else if (this.mType == 1) {
-            this.avo = "...";
-            i2 = d.f.icon_news_red_dot_two_number;
+            this.avm = "...";
+            i2 = f.C0146f.icon_news_red_dot_two_number;
         } else if (this.mType == 2) {
-            this.avo = "99+";
-            i2 = d.f.icon_news_red_dot_three_number;
+            this.avm = "99+";
+            i2 = f.C0146f.icon_news_red_dot_three_number;
         } else {
             i2 = 0;
         }
-        if (i2 != this.avm) {
-            this.avn = true;
+        if (i2 != this.avk) {
+            this.avl = true;
         } else {
-            this.avn = false;
+            this.avl = false;
         }
-        this.avm = i2;
+        this.avk = i2;
         onChangeSkinType();
     }
 
@@ -154,13 +154,13 @@ public class MessageRedDotView extends View {
     }
 
     public void onChangeSkinType() {
-        this.KV = am.getDrawable(this.avm);
-        this.avl = am.getDrawable(d.f.icon_news_white_dot);
-        if (this.atC != null) {
-            this.atC.setColor(am.getColor(d.C0140d.cp_cont_i));
+        this.KV = am.getDrawable(this.avk);
+        this.avj = am.getDrawable(f.C0146f.icon_news_white_dot);
+        if (this.atD != null) {
+            this.atD.setColor(am.getColor(f.d.cp_cont_i));
         }
-        if (this.avn) {
-            this.avn = false;
+        if (this.avl) {
+            this.avl = false;
             requestLayout();
             return;
         }

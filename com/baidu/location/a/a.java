@@ -54,7 +54,7 @@ public class a {
             this.b = message.replyTo;
             this.a = message.getData().getString("packName");
             this.c.prodName = message.getData().getString("prodName");
-            com.baidu.location.d.b.qQ().a(this.c.prodName, this.a);
+            com.baidu.location.d.b.qN().a(this.c.prodName, this.a);
             this.c.coorType = message.getData().getString("coorType");
             this.c.addrType = message.getData().getString("addrType");
             this.c.enableSimulateGps = message.getData().getBoolean("enableSimulateGps", false);
@@ -74,7 +74,7 @@ public class a {
                 z = false;
             }
             com.baidu.location.d.g.i = z;
-            com.baidu.location.d.g.Ym = message.getData().getFloat("autoNotifyLocSensitivity", 0.5f);
+            com.baidu.location.d.g.Yn = message.getData().getFloat("autoNotifyLocSensitivity", 0.5f);
             int i = message.getData().getInt("wifitimeout", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             if (i < com.baidu.location.d.g.af) {
                 com.baidu.location.d.g.af = i;
@@ -94,8 +94,8 @@ public class a {
             if (this.c.scanSpan >= 1000) {
             }
             if (this.c.mIsNeedDeviceDirect || this.c.isNeedAltitude) {
-                l.qy().a(this.c.mIsNeedDeviceDirect);
-                l.qy().b();
+                l.qv().a(this.c.mIsNeedDeviceDirect);
+                l.qv().b();
             }
             aVar.b |= this.c.isNeedAltitude;
         }
@@ -265,11 +265,11 @@ public class a {
         com.baidu.location.d.g.a = z;
         if (this.g != z2) {
             this.g = z2;
-            com.baidu.location.b.d.qJ().a(this.g);
+            com.baidu.location.b.d.qG().a(this.g);
         }
     }
 
-    public static a qn() {
+    public static a qk() {
         if (VI == null) {
             VI = new a();
         }
@@ -297,7 +297,7 @@ public class a {
         }
         c = System.currentTimeMillis();
         this.a = true;
-        com.baidu.location.b.f.qL().b();
+        com.baidu.location.b.f.qI().b();
         a(new C0065a(this, message));
         e();
         if (this.k) {
@@ -325,7 +325,7 @@ public class a {
         if (a != null) {
             this.f.remove(a);
         }
-        l.qy().c();
+        l.qv().c();
         e();
         if (this.k) {
             b(IntentConfig.STOP);
@@ -334,7 +334,7 @@ public class a {
     }
 
     public void b(BDLocation bDLocation) {
-        if (bDLocation == null || bDLocation.getLocType() != 161 || h.qt().b()) {
+        if (bDLocation == null || bDLocation.getLocType() != 161 || h.qq().b()) {
             Iterator<C0065a> it = this.f.iterator();
             while (it.hasNext()) {
                 try {
@@ -405,9 +405,9 @@ public class a {
     }
 
     public void c(BDLocation bDLocation) {
-        Address e = j.qv().e(bDLocation);
-        String f = j.qv().f();
-        List<Poi> g = j.qv().g();
+        Address e = j.qs().e(bDLocation);
+        String f = j.qs().f();
+        List<Poi> g = j.qs().g();
         if (e != null) {
             bDLocation.setAddr(e);
         }
@@ -418,7 +418,7 @@ public class a {
             bDLocation.setPoiList(g);
         }
         a(bDLocation);
-        j.qv().c(bDLocation);
+        j.qs().c(bDLocation);
     }
 
     public void d() {
@@ -437,7 +437,7 @@ public class a {
         int i = a.c.scanSpan;
         a.c.scanSpan = message.getData().getInt("scanSpan", a.c.scanSpan);
         if (a.c.scanSpan < 1000) {
-            l.qy().c();
+            l.qv().c();
             this.a = false;
         } else {
             this.a = true;
@@ -446,8 +446,8 @@ public class a {
             z = false;
         } else {
             if (a.c.mIsNeedDeviceDirect || a.c.isNeedAltitude) {
-                l.qy().a(a.c.mIsNeedDeviceDirect);
-                l.qy().b();
+                l.qv().a(a.c.mIsNeedDeviceDirect);
+                l.qv().b();
             }
             this.b |= a.c.isNeedAltitude;
         }
@@ -465,7 +465,7 @@ public class a {
         }
         locationClientOption2.addrType = string2;
         if (!com.baidu.location.d.g.g.equals(a.c.addrType)) {
-            j.qv().i();
+            j.qs().i();
         }
         a.c.timeOut = message.getData().getInt("timeOut", a.c.timeOut);
         a.c.location_change_notify = message.getData().getBoolean("location_change_notify", a.c.location_change_notify);

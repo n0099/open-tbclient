@@ -9,109 +9,109 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class g implements o {
     private int LQ;
-    EditText eoF;
-    private ImageButton eoG;
-    private int eoH;
-    CreateGroupStepActivity eoi;
-    TbImageView eoj;
+    EditText eoB;
+    private ImageButton eoC;
+    private int eoD;
+    CreateGroupStepActivity eod;
+    TbImageView eoe;
     private int mIndex;
     View mView;
 
-    public EditText aIq() {
-        return this.eoF;
+    public EditText aIn() {
+        return this.eoB;
     }
 
-    public View aIr() {
-        return this.eoG;
+    public View aIo() {
+        return this.eoC;
     }
 
-    public void aIs() {
-        this.eoF.setText("");
+    public void aIp() {
+        this.eoB.setText("");
     }
 
     public int getLength() {
-        return com.baidu.tieba.im.util.f.e(this.eoF);
+        return com.baidu.tieba.im.util.f.e(this.eoB);
     }
 
     public void hl(boolean z) {
         if (z) {
-            this.eoG.setVisibility(0);
+            this.eoC.setVisibility(0);
         } else {
-            this.eoG.setVisibility(8);
+            this.eoC.setVisibility(8);
         }
     }
 
     public g(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.eoi = null;
+        this.eod = null;
         this.mView = null;
-        this.eoj = null;
-        this.eoF = null;
-        this.eoG = null;
-        this.eoi = createGroupStepActivity;
-        this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(d.h.create_group_step1_view, (ViewGroup) null);
-        this.eoF = (EditText) this.mView.findViewById(d.g.step1_group_name);
-        this.eoj = (TbImageView) this.mView.findViewById(d.g.step1_img_bg);
-        this.eoG = (ImageButton) this.mView.findViewById(d.g.button_del);
-        this.eoG.setOnClickListener(createGroupStepActivity);
+        this.eoe = null;
+        this.eoB = null;
+        this.eoC = null;
+        this.eod = createGroupStepActivity;
+        this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(f.h.create_group_step1_view, (ViewGroup) null);
+        this.eoB = (EditText) this.mView.findViewById(f.g.step1_group_name);
+        this.eoe = (TbImageView) this.mView.findViewById(f.g.step1_img_bg);
+        this.eoC = (ImageButton) this.mView.findViewById(f.g.button_del);
+        this.eoC.setOnClickListener(createGroupStepActivity);
         this.mIndex = i;
         this.LQ = i2;
-        this.eoH = i3;
+        this.eoD = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int aHY() {
+    public int aHV() {
         return this.mIndex;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public View getView() {
-        TiebaStatic.eventStat(this.eoi.getPageContext().getPageActivity(), "create_g_name", "pv", 1, new Object[0]);
+        TiebaStatic.eventStat(this.eod.getPageContext().getPageActivity(), "create_g_name", "pv", 1, new Object[0]);
         return this.mView;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aIe() {
-        this.eoj.setBackgroundDrawable(null);
+    public void aIb() {
+        this.eoe.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public void aIf() {
+    public void aIc() {
         boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.eoi.getLayoutMode().setNightMode(z);
-        this.eoi.getLayoutMode().onModeChanged(this.mView);
-        this.eoj.startLoad(c.a(this.eoi.getPageContext().getPageActivity(), c.eoq, z), 29, false);
-        this.eoF.setHintTextColor(am.getColor(d.C0140d.common_color_10005));
+        this.eod.getLayoutMode().setNightMode(z);
+        this.eod.getLayoutMode().onModeChanged(this.mView);
+        this.eoe.startLoad(c.a(this.eod.getPageContext().getPageActivity(), c.eom, z), 29, false);
+        this.eoB.setHintTextColor(am.getColor(f.d.common_color_10005));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.eoi.getPageContext().getString(d.j.group_create_step_name), Integer.valueOf(this.LQ));
+        return String.format(this.eod.getPageContext().getString(f.j.group_create_step_name), Integer.valueOf(this.LQ));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String aIh() {
-        if (this.mIndex != this.eoH) {
-            return this.eoi.getPageContext().getString(d.j.next_step);
+    public String aIe() {
+        if (this.mIndex != this.eoD) {
+            return this.eod.getPageContext().getString(f.j.next_step);
         }
-        return this.eoi.getPageContext().getString(d.j.group_create_step_done_tip);
+        return this.eod.getPageContext().getString(f.j.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aIi() {
+    public boolean aIf() {
         return false;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getErrMsg() {
-        return this.eoi.getPageContext().getString(d.j.group_step_name_error);
+        return this.eod.getPageContext().getString(f.j.group_step_name_error);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean aIj() {
+    public boolean aIg() {
         return true;
     }
 }

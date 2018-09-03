@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String IS_SHOW_RIGHT_ICON = "is_show_right_icon";
@@ -68,7 +68,7 @@ public class WebViewActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            l.showToast(getContext(), getContext().getString(d.j.web_view_corrupted));
+            l.showToast(getContext(), getContext().getString(f.j.web_view_corrupted));
             return false;
         }
         return true;

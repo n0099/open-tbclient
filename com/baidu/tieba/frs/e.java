@@ -8,31 +8,31 @@ import tbclient.FrsTabInfo;
 public class e {
     private String ahR;
     private String ahS;
-    private List<FrsTabInfo> dlK;
-    private final List<com.baidu.tbadk.mainTab.b> dlL = new LinkedList();
+    private List<FrsTabInfo> dlI;
+    private final List<com.baidu.tbadk.mainTab.b> dlJ = new LinkedList();
     private String forumGameLabel;
     private String forumId;
     private String forumName;
     private Context mContext;
 
     public e(Context context, List<FrsTabInfo> list) {
-        this.dlK = list;
+        this.dlI = list;
         this.mContext = context;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
         if (bVar != null && bVar.Jo() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.dlL) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.dlJ) {
                 if (bVar2 != null && bVar2.Jo() != null && bVar2.Jo().type == bVar.Jo().type) {
                     return;
                 }
             }
-            this.dlL.add(bVar);
+            this.dlJ.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> atX() {
-        return this.dlL;
+    public List<com.baidu.tbadk.mainTab.b> atW() {
+        return this.dlJ;
     }
 
     public void setForumName(String str) {

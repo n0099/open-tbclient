@@ -10,19 +10,19 @@ public class DiskFileOperate {
     protected volatile Object mLock;
     protected String mName;
     private OutputStream mOutputStream;
-    private OperateType wc;
-    protected boolean wd;
-    protected Action we;
-    protected String wf;
-    private volatile boolean wg;
-    private boolean wh;
-    private File wi;
-    private boolean wj;
+    private OperateType wd;
+    protected boolean we;
+    protected Action wf;
+    protected String wg;
+    private volatile boolean wh;
+    private boolean wi;
+    private File wj;
     private boolean wk;
-    private int wl;
-    private String wn;
+    private boolean wl;
+    private int wn;
     private String wo;
-    private e.a wp;
+    private String wp;
+    private e.a wq;
 
     /* loaded from: classes.dex */
     public enum Action {
@@ -45,51 +45,51 @@ public class DiskFileOperate {
     }
 
     public DiskFileOperate(String str, String str2, Action action) {
-        this.wc = OperateType.MUST_SUCCESS;
-        this.wd = false;
-        this.we = Action.READ;
+        this.wd = OperateType.MUST_SUCCESS;
+        this.we = false;
+        this.wf = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
-        this.wf = null;
-        this.wg = false;
-        this.wh = true;
+        this.wg = null;
+        this.wh = false;
+        this.wi = true;
         this.mOutputStream = null;
-        this.wi = null;
-        this.wj = true;
-        this.wk = false;
-        this.wl = 0;
-        this.wn = null;
+        this.wj = null;
+        this.wk = true;
+        this.wl = false;
+        this.wn = 0;
         this.wo = null;
         this.wp = null;
-        this.wf = str;
+        this.wq = null;
+        this.wg = str;
         this.mName = str2;
-        this.we = action;
+        this.wf = action;
     }
 
     public DiskFileOperate(String str, String str2, String str3, String str4, Action action) {
-        this.wc = OperateType.MUST_SUCCESS;
-        this.wd = false;
-        this.we = Action.READ;
+        this.wd = OperateType.MUST_SUCCESS;
+        this.we = false;
+        this.wf = Action.READ;
         this.mData = null;
         this.mLock = null;
         this.mName = null;
-        this.wf = null;
-        this.wg = false;
-        this.wh = true;
+        this.wg = null;
+        this.wh = false;
+        this.wi = true;
         this.mOutputStream = null;
-        this.wi = null;
-        this.wj = true;
-        this.wk = false;
-        this.wl = 0;
-        this.wn = null;
+        this.wj = null;
+        this.wk = true;
+        this.wl = false;
+        this.wn = 0;
         this.wo = null;
         this.wp = null;
-        this.wf = str;
+        this.wq = null;
+        this.wg = str;
         this.mName = str2;
-        this.wn = str3;
-        this.wo = str4;
-        this.we = action;
+        this.wo = str3;
+        this.wp = str4;
+        this.wf = action;
     }
 
     public void m(Object obj) {
@@ -121,11 +121,11 @@ public class DiskFileOperate {
     }
 
     public String getPath() {
-        return this.wf;
+        return this.wg;
     }
 
     public Action gm() {
-        return this.we;
+        return this.wf;
     }
 
     public boolean i(byte[] bArr) {
@@ -137,64 +137,64 @@ public class DiskFileOperate {
     }
 
     public boolean isSuccess() {
-        return this.wg;
+        return this.wh;
     }
 
     public void setSuccess(boolean z) {
-        this.wg = z;
+        this.wh = z;
     }
 
     public void u(boolean z) {
-        this.wd = z;
+        this.we = z;
     }
 
     public String go() {
-        if (this.wd && this.mName != null) {
+        if (this.we && this.mName != null) {
             int hashCode = this.mName.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
             }
             int i = (hashCode % 100) + 1;
-            if (this.wf == null) {
+            if (this.wg == null) {
                 return String.valueOf(i);
             }
-            return this.wf + "/" + i;
+            return this.wg + "/" + i;
         }
-        return this.wf;
+        return this.wg;
     }
 
     public String gp() {
-        if (this.wd && this.wo != null) {
-            int hashCode = this.wo.hashCode();
+        if (this.we && this.wp != null) {
+            int hashCode = this.wp.hashCode();
             if (hashCode < 0) {
                 hashCode *= -1;
             }
             int i = (hashCode % 100) + 1;
-            if (this.wn == null) {
+            if (this.wo == null) {
                 return String.valueOf(i);
             }
-            return this.wn + "/" + i;
+            return this.wo + "/" + i;
         }
-        return this.wn;
+        return this.wo;
     }
 
     public OperateType gq() {
-        return this.wc;
+        return this.wd;
     }
 
     public void a(OperateType operateType) {
-        this.wc = operateType;
+        this.wd = operateType;
     }
 
     public void q(boolean z) {
     }
 
     public boolean gr() {
-        return this.wh;
+        return this.wi;
     }
 
     public void v(boolean z) {
-        this.wh = z;
+        this.wi = z;
     }
 
     protected void finalize() throws Throwable {
@@ -229,27 +229,27 @@ public class DiskFileOperate {
     }
 
     public File gs() {
-        return this.wi;
-    }
-
-    public void f(File file) {
-        this.wi = file;
-    }
-
-    public boolean gt() {
         return this.wj;
     }
 
-    public void w(boolean z) {
-        this.wj = z;
+    public void f(File file) {
+        this.wj = file;
     }
 
-    public void x(boolean z) {
+    public boolean gt() {
+        return this.wk;
+    }
+
+    public void w(boolean z) {
         this.wk = z;
     }
 
+    public void x(boolean z) {
+        this.wl = z;
+    }
+
     public boolean gu() {
-        return this.wk;
+        return this.wl;
     }
 
     public boolean gf() {
@@ -257,22 +257,22 @@ public class DiskFileOperate {
     }
 
     public int gv() {
-        return this.wl;
-    }
-
-    public void Q(int i) {
-        this.wl = i;
-    }
-
-    public String gw() {
         return this.wn;
     }
 
-    public String gx() {
+    public void Q(int i) {
+        this.wn = i;
+    }
+
+    public String gw() {
         return this.wo;
     }
 
-    public e.a gy() {
+    public String gx() {
         return this.wp;
+    }
+
+    public e.a gy() {
+        return this.wq;
     }
 }

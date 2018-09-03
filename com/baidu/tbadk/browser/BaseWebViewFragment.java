@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes.dex */
@@ -76,7 +76,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
         com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
-            dVar.title = getResources().getString(d.j.share_from_tieba);
+            dVar.title = getResources().getString(f.j.share_from_tieba);
         } else {
             dVar.title = this.mUrlTitle;
         }

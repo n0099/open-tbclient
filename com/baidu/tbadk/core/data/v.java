@@ -21,11 +21,11 @@ public class v {
     private int mType;
     private String mValue;
 
-    public int tV() {
+    public int tU() {
         return this.aft;
     }
 
-    public String tW() {
+    public String tV() {
         return this.afu;
     }
 
@@ -37,7 +37,7 @@ public class v {
         return this.mType;
     }
 
-    public String tX() {
+    public String tW() {
         return this.afx;
     }
 
@@ -53,7 +53,7 @@ public class v {
                 this.afx = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
                 this.mTagName = jSONObject.optString("tag_name");
                 this.afy = jSONObject.optString("tag_name_url");
-                df(jSONObject.optString("tag_name_wh"));
+                dg(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -71,11 +71,11 @@ public class v {
             this.afx = banner.obj_id;
             this.mTagName = banner.tag_name;
             this.afy = banner.tag_name_url;
-            df(banner.tag_name_wh);
+            dg(banner.tag_name_wh);
         }
     }
 
-    private void df(String str) {
+    private void dg(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 String[] split = str.split(",");

@@ -7,15 +7,15 @@ public interface i {
 
     void ad(Context context, String str);
 
-    void bk(Context context);
+    void bj(Context context);
 
     void f(Context context, String str, int i);
 
-    String ir(String str);
-
     String is(String str);
 
-    void it(String str);
+    String it(String str);
+
+    void iu(String str);
 
     String n(String str, boolean z);
 }

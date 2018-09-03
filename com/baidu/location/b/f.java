@@ -23,11 +23,11 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class f {
-    private static f XG = null;
+    private static f XH = null;
     public static long a = 0;
-    private WifiManager XH = null;
-    private a XI = null;
-    private e XJ = null;
+    private WifiManager XI = null;
+    private a XJ = null;
+    private e XK = null;
     private long f = 0;
     private long g = 0;
     private boolean h = false;
@@ -58,9 +58,9 @@ public class f {
                     @Override // java.lang.Runnable
                     public void run() {
                         f.this.r();
-                        j.qv().h();
+                        j.qs().h();
                         if (System.currentTimeMillis() - n.b() <= TbConfig.NOTIFY_SOUND_INTERVAL) {
-                            p.a(n.qA(), f.this.qN(), n.qB(), n.a());
+                            p.a(n.qx(), f.this.qK(), n.qy(), n.a());
                         }
                     }
                 });
@@ -159,28 +159,28 @@ public class f {
         }
     }
 
-    public static synchronized f qL() {
+    public static synchronized f qI() {
         f fVar;
         synchronized (f.class) {
-            if (XG == null) {
-                XG = new f();
+            if (XH == null) {
+                XH = new f();
             }
-            fVar = XG;
+            fVar = XH;
         }
         return fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        if (this.XH == null) {
+        if (this.XI == null) {
             return;
         }
         try {
-            List<ScanResult> scanResults = this.XH.getScanResults();
+            List<ScanResult> scanResults = this.XI.getScanResults();
             if (scanResults != null) {
                 e eVar = new e(scanResults, System.currentTimeMillis());
-                if (this.XJ == null || !eVar.a(this.XJ)) {
-                    this.XJ = eVar;
+                if (this.XK == null || !eVar.a(this.XK)) {
+                    this.XK = eVar;
                 }
             }
         } catch (Exception e) {
@@ -193,10 +193,10 @@ public class f {
 
     public synchronized void c() {
         if (!this.h && com.baidu.location.f.isServing) {
-            this.XH = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
-            this.XI = new a();
+            this.XI = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
+            this.XJ = new a();
             try {
-                com.baidu.location.f.getServiceContext().registerReceiver(this.XI, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
+                com.baidu.location.f.getServiceContext().registerReceiver(this.XJ, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
             } catch (Exception e) {
             }
             this.h = true;
@@ -206,12 +206,12 @@ public class f {
     public synchronized void d() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.XI);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.XJ);
                 a = 0L;
             } catch (Exception e) {
             }
+            this.XJ = null;
             this.XI = null;
-            this.XH = null;
             this.h = false;
         }
     }
@@ -227,7 +227,7 @@ public class f {
     }
 
     public boolean f() {
-        if (this.XH == null) {
+        if (this.XI == null) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -244,13 +244,13 @@ public class f {
 
     @SuppressLint({"NewApi"})
     public String g() {
-        if (this.XH != null) {
+        if (this.XI != null) {
             try {
-                if (!this.XH.isWifiEnabled()) {
+                if (!this.XI.isWifiEnabled()) {
                     if (Build.VERSION.SDK_INT <= 17) {
                         return "";
                     }
-                    if (!this.XH.isScanAlwaysAvailable()) {
+                    if (!this.XI.isScanAlwaysAvailable()) {
                         return "";
                     }
                 }
@@ -270,8 +270,8 @@ public class f {
         if (currentTimeMillis < 0 || currentTimeMillis > 2000) {
             this.k = System.currentTimeMillis();
             try {
-                if (this.XH.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.XH.isScanAlwaysAvailable())) {
-                    this.XH.startScan();
+                if (this.XI.isWifiEnabled() || (Build.VERSION.SDK_INT > 17 && this.XI.isScanAlwaysAvailable())) {
+                    this.XI.startScan();
                     this.f = System.currentTimeMillis();
                     return true;
                 }
@@ -289,7 +289,7 @@ public class f {
     public boolean j() {
         e eVar;
         try {
-            if ((!this.XH.isWifiEnabled() && (Build.VERSION.SDK_INT <= 17 || !this.XH.isScanAlwaysAvailable())) || i() || (eVar = new e(this.XH.getScanResults(), 0L)) == null) {
+            if ((!this.XI.isWifiEnabled() && (Build.VERSION.SDK_INT <= 17 || !this.XI.isScanAlwaysAvailable())) || i() || (eVar = new e(this.XI.getScanResults(), 0L)) == null) {
                 return false;
             }
             return eVar.e();
@@ -302,13 +302,13 @@ public class f {
 
     public String l() {
         StringBuffer stringBuffer = new StringBuffer();
-        WifiInfo qM = qL().qM();
-        if (qM == null || qM.getBSSID() == null) {
+        WifiInfo qJ = qI().qJ();
+        if (qJ == null || qJ.getBSSID() == null) {
             return null;
         }
-        String replace = qM.getBSSID().replace(SystemInfoUtil.COLON, "");
-        int rssi = qM.getRssi();
-        String m = qL().m();
+        String replace = qJ.getBSSID().replace(SystemInfoUtil.COLON, "");
+        int rssi = qJ.getRssi();
+        String m = qI().m();
         if (rssi < 0) {
             rssi = -rssi;
         }
@@ -319,7 +319,7 @@ public class f {
         stringBuffer.append(replace);
         stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         stringBuffer.append("" + rssi + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        String ssid = qM.getSSID();
+        String ssid = qJ.getSSID();
         if (ssid != null && (ssid.contains("&") || ssid.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR))) {
             ssid = ssid.replace("&", "_");
         }
@@ -334,7 +334,7 @@ public class f {
 
     public String m() {
         DhcpInfo dhcpInfo;
-        if (this.XH == null || (dhcpInfo = this.XH.getDhcpInfo()) == null) {
+        if (this.XI == null || (dhcpInfo = this.XI.getDhcpInfo()) == null) {
             return null;
         }
         return a(dhcpInfo.gateway);
@@ -342,7 +342,7 @@ public class f {
 
     public String q() {
         try {
-            WifiInfo connectionInfo = this.XH.getConnectionInfo();
+            WifiInfo connectionInfo = this.XI.getConnectionInfo();
             if (connectionInfo != null) {
                 return connectionInfo.getMacAddress();
             }
@@ -354,12 +354,12 @@ public class f {
         }
     }
 
-    public WifiInfo qM() {
-        if (this.XH == null) {
+    public WifiInfo qJ() {
+        if (this.XI == null) {
             return null;
         }
         try {
-            WifiInfo connectionInfo = this.XH.getConnectionInfo();
+            WifiInfo connectionInfo = this.XI.getConnectionInfo();
             if (connectionInfo == null || connectionInfo.getBSSID() == null || connectionInfo.getRssi() <= -100) {
                 return null;
             }
@@ -381,18 +381,18 @@ public class f {
         }
     }
 
-    public e qN() {
-        return (this.XJ == null || !this.XJ.i()) ? qP() : this.XJ;
+    public e qK() {
+        return (this.XK == null || !this.XK.i()) ? qM() : this.XK;
     }
 
-    public e qO() {
-        return (this.XJ == null || !this.XJ.j()) ? qP() : this.XJ;
+    public e qL() {
+        return (this.XK == null || !this.XK.j()) ? qM() : this.XK;
     }
 
-    public e qP() {
-        if (this.XH != null) {
+    public e qM() {
+        if (this.XI != null) {
             try {
-                return new e(this.XH.getScanResults(), this.f);
+                return new e(this.XI.getScanResults(), this.f);
             } catch (Exception e) {
             }
         }

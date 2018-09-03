@@ -40,7 +40,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(cVar);
-            aVar.An = eVar;
+            aVar.Ao = eVar;
         }
         boolean jF = com.baidu.adp.lib.util.j.jF();
         if (com.baidu.adp.lib.Disk.d.ge().c(cVar)) {
@@ -75,10 +75,10 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (!StringUtils.isNull(str)) {
             com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
             if (aVar != null) {
-                aVar.An = iVar;
+                aVar.Ao = iVar;
             }
             byte[] i3 = iVar.i(str, false);
-            if ((i3 != null || iVar.hX().zT) && !iVar.asH) {
+            if ((i3 != null || iVar.hX().zU) && !iVar.asI) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.eM(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(i3);
@@ -89,7 +89,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 if (aVar != null) {
                     e eVar = new e();
                     eVar.f(cVar);
-                    aVar.An = eVar;
+                    aVar.Ao = eVar;
                 }
             }
         }
@@ -105,7 +105,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
 
     @Override // com.baidu.adp.lib.f.e
     public BdAsyncTaskParallel il() {
-        return j.Ae().il();
+        return j.Ac().il();
     }
 
     @Override // com.baidu.adp.lib.f.e

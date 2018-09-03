@@ -30,7 +30,7 @@ public class PendantData extends OrmObject {
         this.pendantType = i;
     }
 
-    public void bBc() {
+    public void bBe() {
         if (!TextUtils.isEmpty(this.size)) {
             String[] split = this.size.split(",");
             if (split.length == 4) {

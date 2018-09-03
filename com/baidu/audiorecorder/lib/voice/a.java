@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.adp.lib.voice.g;
 import com.baidu.adp.lib.voice.h;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class a {
     private static b Pw;
@@ -27,9 +27,9 @@ public class a {
                 case 3:
                     if (a.Py != null) {
                         if (com.baidu.adp.lib.util.f.jo()) {
-                            a.Py.error(message.what, h.getString(d.j.voice_err_create_file_fail));
+                            a.Py.error(message.what, h.getString(f.j.voice_err_create_file_fail));
                         } else {
-                            a.Py.error(message.what, h.getString(d.j.voice_err_sdcard_nospace));
+                            a.Py.error(message.what, h.getString(f.j.voice_err_sdcard_nospace));
                         }
                         g unused2 = a.Py = null;
                         break;
@@ -37,7 +37,7 @@ public class a {
                     break;
                 case 2:
                     if (a.Py != null) {
-                        a.Py.error(message.what, h.getString(d.j.voice_err_file_fail));
+                        a.Py.error(message.what, h.getString(f.j.voice_err_file_fail));
                         g unused3 = a.Py = null;
                         break;
                     }
@@ -50,28 +50,28 @@ public class a {
                     break;
                 case 5:
                     if (a.Py != null) {
-                        a.Py.error(message.what, h.getString(d.j.voice_err_load_lib_fail));
+                        a.Py.error(message.what, h.getString(f.j.voice_err_load_lib_fail));
                         g unused4 = a.Py = null;
                         break;
                     }
                     break;
                 case 6:
                     if (a.Py != null) {
-                        a.Py.error(message.what, h.getString(d.j.voice_err_init_fail));
+                        a.Py.error(message.what, h.getString(f.j.voice_err_init_fail));
                         g unused5 = a.Py = null;
                         break;
                     }
                     break;
                 case 7:
                     if (a.Py != null) {
-                        a.Py.error(message.what, h.getString(d.j.voice_record_timeout_tip));
+                        a.Py.error(message.what, h.getString(f.j.voice_record_timeout_tip));
                         g unused6 = a.Py = null;
                         break;
                     }
                     break;
                 case 8:
                     if (a.Py != null) {
-                        a.Py.error(message.what, h.getString(d.j.voice_record_short_tip));
+                        a.Py.error(message.what, h.getString(f.j.voice_record_short_tip));
                         g unused7 = a.Py = null;
                         break;
                     }
@@ -90,7 +90,7 @@ public class a {
                     break;
                 default:
                     if (a.Py != null) {
-                        a.Py.error(message.what, h.getString(d.j.voice_err_other));
+                        a.Py.error(message.what, h.getString(f.j.voice_err_other));
                         g unused8 = a.Py = null;
                         break;
                     }

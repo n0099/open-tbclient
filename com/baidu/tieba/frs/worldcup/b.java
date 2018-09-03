@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    public static int nf(String str) {
+    public static int nh(String str) {
         try {
             return Color.parseColor(str);
         } catch (Exception e) {

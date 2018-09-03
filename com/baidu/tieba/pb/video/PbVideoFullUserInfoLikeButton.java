@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
     public PbVideoFullUserInfoLikeButton(Context context) {
@@ -21,12 +21,12 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.azn) {
-            am.i(this, d.f.haslike_grey_bg);
-            am.h(this, d.C0140d.cp_cont_e);
+        if (this.azk) {
+            am.i(this, f.C0146f.haslike_grey_bg);
+            am.h(this, f.d.cp_cont_e);
             return;
         }
-        am.i(this, d.f.like_blue_bg);
-        am.h(this, d.C0140d.cp_cont_i);
+        am.i(this, f.C0146f.like_blue_bg);
+        am.h(this, f.d.cp_cont_i);
     }
 }

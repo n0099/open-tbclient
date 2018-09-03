@@ -351,7 +351,7 @@ public final class f {
         if (map == null) {
             return "";
         }
-        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.pj() > 7) {
+        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.pg() > 7) {
             map.put("screenshot", Base64.encodeToString((byte[]) map.get("screenshot"), 0));
         }
         JSONObject jSONObject = new JSONObject();

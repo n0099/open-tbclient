@@ -168,7 +168,7 @@ public class l {
         }
     }
 
-    public static int o(Activity activity) {
+    public static int n(Activity activity) {
         Rect rect = new Rect();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         int i = rect.top;
@@ -247,7 +247,7 @@ public class l {
         }
     }
 
-    public static DisplayMetrics p(Activity activity) {
+    public static DisplayMetrics o(Activity activity) {
         DisplayMetrics displayMetrics;
         Exception e;
         try {

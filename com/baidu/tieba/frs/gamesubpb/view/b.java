@@ -6,30 +6,31 @@ import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.frs.gamesubpb.a;
+import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes3.dex */
 public class b {
-    private SpannableTextView dAY;
-    private a.InterfaceC0155a dAh;
+    private SpannableTextView dAV;
+    private a.InterfaceC0155a dAe;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.game_sub_comment_view, (ViewGroup) null);
-        this.dAY = (SpannableTextView) this.mRootView.findViewById(d.g.sub_comment_tv);
-        am.h(this.dAY, d.C0140d.cp_cont_f);
+        this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(f.h.game_sub_comment_view, (ViewGroup) null);
+        this.dAV = (SpannableTextView) this.mRootView.findViewById(f.g.sub_comment_tv);
+        am.h(this.dAV, f.d.cp_cont_f);
     }
 
-    public void f(final com.baidu.tieba.frs.gamesubpb.model.d dVar) {
+    public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.dAY.f(dVar);
-            this.dAY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.dAV.f(dVar);
+            this.dAV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.dAh != null) {
-                        b.this.dAh.c(dVar);
+                    if (b.this.dAe != null) {
+                        b.this.dAe.c(dVar);
                     }
                 }
             });
@@ -41,21 +42,21 @@ public class b {
     }
 
     public void setClickListener(a.InterfaceC0155a interfaceC0155a) {
-        this.dAh = interfaceC0155a;
-        this.dAY.setClickListener(interfaceC0155a);
+        this.dAe = interfaceC0155a;
+        this.dAV.setClickListener(interfaceC0155a);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        private b dBa;
+        private b dAX;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.dBa = bVar;
+            this.dAX = bVar;
         }
 
-        public void f(com.baidu.tieba.frs.gamesubpb.model.d dVar) {
-            this.dBa.f(dVar);
+        public void f(d dVar) {
+            this.dAX.f(dVar);
         }
     }
 }

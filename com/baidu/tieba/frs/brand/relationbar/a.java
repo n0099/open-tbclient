@@ -8,7 +8,7 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private List<OriForumInfo> dss;
+    private List<OriForumInfo> dsp;
     private Context mContext;
 
     public a(Context context) {
@@ -24,7 +24,7 @@ public class a extends RecyclerView.Adapter<b> {
 
     public void setData(List<OriForumInfo> list) {
         if (!w.z(list)) {
-            this.dss = list;
+            this.dsp = list;
         }
     }
 
@@ -32,9 +32,9 @@ public class a extends RecyclerView.Adapter<b> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(b bVar, int i) {
-        OriForumInfo oriForumInfo = (OriForumInfo) w.d(this.dss, i);
+        OriForumInfo oriForumInfo = (OriForumInfo) w.d(this.dsp, i);
         if (oriForumInfo != null) {
-            RelationBarCellView relationBarCellView = (RelationBarCellView) bVar.awv();
+            RelationBarCellView relationBarCellView = (RelationBarCellView) bVar.awu();
             relationBarCellView.setData(oriForumInfo);
             relationBarCellView.onChangeSkinType();
         }
@@ -42,6 +42,6 @@ public class a extends RecyclerView.Adapter<b> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return w.y(this.dss);
+        return w.y(this.dsp);
     }
 }

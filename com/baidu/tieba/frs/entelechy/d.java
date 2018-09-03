@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.b {
-    private float aGQ = 0.16875f;
+    private float aGP = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, l lVar) {
@@ -35,16 +35,16 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean kR(int i) {
+    public boolean kQ(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, k kVar, l lVar) {
         if (fVar != null && kVar != null && lVar != null) {
-            fVar.aAA();
-            if (lVar != null && lVar.aZl() != null) {
-                kVar.a(lVar.aZl().getFrsBannerData());
+            fVar.aAx();
+            if (lVar != null && lVar.aZg() != null) {
+                kVar.a(lVar.aZg().getFrsBannerData());
             }
         }
     }

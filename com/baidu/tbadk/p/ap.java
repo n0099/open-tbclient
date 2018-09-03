@@ -3,7 +3,7 @@ package com.baidu.tbadk.p;
 public class ap extends j {
     private static ap aVM = new ap();
 
-    public static boolean KW() {
+    public static boolean La() {
         return aVM.iq();
     }
 

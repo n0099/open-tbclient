@@ -5,22 +5,22 @@ import android.graphics.Matrix;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.widget.richText.a {
-    private static double fuU = 0.5d;
+    private static double fuN = 0.5d;
 
     public b(com.baidu.tbadk.widget.richText.a aVar) {
         super(aVar);
-        cm(true);
+        cn(true);
         setSupportNoImage();
-        setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds15), 1.0f);
-        fU(0);
-        fV(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30));
-        fW(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds12));
-        P(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48));
-        Q(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds30), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds10));
-        fX(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), d.e.ds14));
+        setLineSpacing(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds15), 1.0f);
+        fT(0);
+        fU(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds30));
+        fV(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds12));
+        P(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds48), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds48));
+        Q(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds30), com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds10));
+        fW(com.baidu.adp.lib.util.l.f(TbadkCoreApplication.getInst().getContext(), f.e.ds14));
         this.mOnDrawListener = new TbImageView.b() { // from class: com.baidu.tieba.pb.pb.main.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
@@ -61,18 +61,18 @@ public class b extends com.baidu.tbadk.widget.richText.a {
         if (i2 <= 0 || i <= 0 || i3 <= 0 || i4 <= 0) {
             return null;
         }
-        if (!this.beQ || beB <= 1.0f) {
+        if (!this.beR || beC <= 1.0f) {
             i3 = i;
         } else {
-            if (i * beB <= i3 * fuU) {
-                i3 = (int) (i * beB);
+            if (i * beC <= i3 * fuN) {
+                i3 = (int) (i * beC);
             }
             i2 = (i3 * i2) / i;
             if (i2 > 4096) {
-                this.beO = ImageView.ScaleType.MATRIX;
+                this.beP = ImageView.ScaleType.MATRIX;
                 i2 = 4096;
             } else {
-                this.beO = ImageView.ScaleType.CENTER_CROP;
+                this.beP = ImageView.ScaleType.CENTER_CROP;
             }
         }
         return new int[]{i3, i2};

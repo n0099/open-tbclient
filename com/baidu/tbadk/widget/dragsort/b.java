@@ -118,27 +118,27 @@ public class b extends e implements GestureDetector.OnGestureListener, View.OnTo
         this.baH = i;
         this.baI = i4;
         this.baJ = i5;
-        fE(i3);
-        fD(i2);
+        fD(i3);
+        fC(i2);
     }
 
-    public GestureDetector Ms() {
+    public GestureDetector Mw() {
         return this.baw;
     }
 
-    public void fD(int i) {
+    public void fC(int i) {
         this.baq = i;
     }
 
-    public void ch(boolean z) {
+    public void ci(boolean z) {
         this.bas = z;
     }
 
-    public void fE(int i) {
+    public void fD(int i) {
         this.bat = i;
     }
 
-    public void ci(boolean z) {
+    public void cj(boolean z) {
         this.bau = z;
     }
 

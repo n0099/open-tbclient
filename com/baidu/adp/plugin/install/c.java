@@ -318,7 +318,7 @@ public class c {
                             com.baidu.adp.plugin.b.a.lA().f("plugin_install", "install_timeequals_error", substring, "exist-" + exists + "-isfile-" + isFile + "-length-" + length + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                             com.baidu.adp.lib.g.a.f(fileInputStream);
                             com.baidu.adp.lib.g.a.f(inputStream);
-                            e(context, "assets://" + str, false);
+                            c(context, "assets://" + str, false);
                             com.baidu.adp.plugin.b.a.lA().e("plugin_install", substring, bD);
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000993, com.baidu.adp.plugin.packageManager.status.a.mw().bY(substring)));
                             return true;
@@ -343,17 +343,17 @@ public class c {
                 com.baidu.adp.plugin.b.a.lA().f("plugin_install", "install_timeequals_jump", substring, "exist-" + exists + "-isfile-" + isFile + "-length-" + length);
             }
         }
-        e(context, "assets://" + str, false);
+        c(context, "assets://" + str, false);
         com.baidu.adp.plugin.b.a.lA().e("plugin_install", substring, bD);
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000993, com.baidu.adp.plugin.packageManager.status.a.mw().bY(substring)));
         return true;
     }
 
     public void H(Context context, String str) {
-        e(context, SkiaImageDecoder.FILE_PREFIX + str, false);
+        c(context, SkiaImageDecoder.FILE_PREFIX + str, false);
     }
 
-    private void e(Context context, String str, boolean z) {
+    private void c(Context context, String str, boolean z) {
         String str2;
         boolean z2;
         if (context != null && !TextUtils.isEmpty(str)) {
@@ -717,7 +717,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: l */
+        /* renamed from: k */
         public String[] doInBackground(String... strArr) {
             InputStream inputStream;
             String[] strArr2 = null;
@@ -814,7 +814,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
+        /* renamed from: l */
         public void onPostExecute(String[] strArr) {
             boolean z = false;
             super.onPostExecute(strArr);

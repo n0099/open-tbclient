@@ -12,23 +12,23 @@ import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.io.Closeable;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private a aQY;
-    private Object aQZ;
-    private e aRa;
+    private a aQV;
+    private Object aQW;
+    private e aQX;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int aQX = 512000;
+    private int aQU = 512000;
     private String groupId = "1";
     private y mNetwork = null;
 
@@ -49,10 +49,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.aQY = aVar;
-        this.aQZ = obj;
+        this.aQV = aVar;
+        this.aQW = obj;
         if (aVar != null) {
-            this.aQX = 10240;
+            this.aQU = 10240;
         }
     }
 
@@ -77,7 +77,7 @@ public class f {
         ErrorData errorData = new ErrorData();
         if (writeImagesInfo == null || writeImagesInfo.size() == 0) {
             errorData.setError_code(-53);
-            errorData.setError_msg(TbadkCoreApplication.getInst().getString(d.j.upload_error));
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(f.j.upload_error));
             return errorData;
         }
         LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
@@ -101,7 +101,7 @@ public class f {
                     imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                 } else {
                     errorData.setError_code(-53);
-                    errorData.setError_msg(TbadkCoreApplication.getInst().getString(d.j.upload_error));
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getString(f.j.upload_error));
                     return errorData;
                 }
             }
@@ -135,10 +135,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.aRa == null) {
-            this.aRa = new e();
+        if (this.aQX == null) {
+            this.aQX = new e();
         }
-        return c(this.aRa.c(imageFileInfo, z), z, z2);
+        return c(this.aQX.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -272,7 +272,7 @@ public class f {
                     if (length > 5242880) {
                         ImageUploadResult imageUploadResult4 = new ImageUploadResult();
                         imageUploadResult4.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                        imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.file_size_over);
+                        imageUploadResult4.error_msg = TbadkCoreApplication.getInst().getApp().getString(f.j.file_size_over);
                         com.baidu.adp.lib.g.a.b((Closeable) null);
                         this.mNetwork = null;
                         return imageUploadResult4;
@@ -287,13 +287,13 @@ public class f {
                     if (length == 0 || g == null) {
                         ImageUploadResult imageUploadResult5 = new ImageUploadResult();
                         imageUploadResult5.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                        imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(d.j.file_not_exist);
+                        imageUploadResult5.error_msg = TbadkCoreApplication.getInst().getApp().getString(f.j.file_not_exist);
                         TiebaStatic.imgError(TbErrInfo.ERR_IMG_FILE, "file error: " + imageUploadResult5.error_msg, sb.toString());
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = g + this.aQX;
-                        long j2 = length % ((long) this.aQX) == 0 ? length / this.aQX : (length / this.aQX) + 1;
+                        String str2 = g + this.aQU;
+                        long j2 = length % ((long) this.aQU) == 0 ? length / this.aQU : (length / this.aQU) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -327,14 +327,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i3 < j2) {
-                                                    i4 = this.aQX;
+                                                    i4 = this.aQU;
                                                 } else if (i3 == j2) {
-                                                    i4 = (int) (length - (this.aQX * (j2 - 1)));
+                                                    i4 = (int) (length - (this.aQU * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i4) {
                                                     bArr2 = new byte[i4];
                                                 }
-                                                randomAccessFile2.seek(this.aQX * (i3 - 1));
+                                                randomAccessFile2.seek(this.aQU * (i3 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i4);
                                                 bArr = bArr2;
                                             }
@@ -365,22 +365,22 @@ public class f {
                                                 this.mNetwork.o("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int ti = i.te().ti();
-                                                if (ti != 0) {
-                                                    this.mNetwork.o("pic_water_type", String.valueOf(ti));
+                                                int th = i.td().th();
+                                                if (th != 0) {
+                                                    this.mNetwork.o("pic_water_type", String.valueOf(th));
                                                 }
                                                 String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
-                                                if (!StringUtils.isNull(currentAccountName) && ti == 1) {
+                                                if (!StringUtils.isNull(currentAccountName) && th == 1) {
                                                     this.mNetwork.o("user_name", currentAccountName);
                                                 }
-                                                String tj = i.te().tj();
-                                                if (!StringUtils.isNull(tj) && ti == 2) {
-                                                    this.mNetwork.o("forum_name", tj);
+                                                String ti = i.td().ti();
+                                                if (!StringUtils.isNull(ti) && th == 2) {
+                                                    this.mNetwork.o("forum_name", ti);
                                                 }
                                             }
-                                            String yt = this.mNetwork.yt();
-                                            imageUploadResult3 = ImageUploadResult.parser(yt);
-                                            if (yt == null || imageUploadResult3 == null) {
+                                            String yr = this.mNetwork.yr();
+                                            imageUploadResult3 = ImageUploadResult.parser(yr);
+                                            if (yr == null || imageUploadResult3 == null) {
                                                 break;
                                             }
                                             try {
@@ -390,9 +390,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
-                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aQX) : j4;
-                                                    if (this.aQY != null) {
-                                                        this.aQY.a(str, this.aQZ, j5, length);
+                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.aQU) : j4;
+                                                    if (this.aQV != null) {
+                                                        this.aQV.a(str, this.aQW, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;
@@ -424,9 +424,9 @@ public class f {
                                         e = e3;
                                     }
                                 }
-                            } catch (Throwable th) {
+                            } catch (Throwable th2) {
                                 randomAccessFile3 = randomAccessFile2;
-                                th = th;
+                                th = th2;
                                 com.baidu.adp.lib.g.a.b(randomAccessFile3);
                                 this.mNetwork = null;
                                 throw th;
@@ -445,8 +445,8 @@ public class f {
                     e = e5;
                     imageUploadResult = file;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                th = th3;
             }
         } catch (Exception e6) {
             randomAccessFile = null;

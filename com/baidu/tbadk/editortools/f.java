@@ -6,9 +6,9 @@ public class f {
     public static g a(Context context, k kVar, int i) {
         switch (i) {
             case 1:
-                return new BLauncher(context, kVar.aMS, kVar.id);
+                return new BLauncher(context, kVar.aMP, kVar.id);
             default:
-                return new DLauncher(context, kVar.aMS, kVar.name, kVar.id);
+                return new DLauncher(context, kVar.aMP, kVar.name, kVar.id);
         }
     }
 }

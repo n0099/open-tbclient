@@ -10,9 +10,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean AP;
-    private ArrayList<BasicNameValuePair> AQ;
-    private StringBuilder AR;
+    boolean AQ;
+    private ArrayList<BasicNameValuePair> AR;
+    private StringBuilder AT;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -21,11 +21,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.AP = false;
+        this.AQ = false;
         this.mType = null;
-        this.AR = new StringBuilder(100);
+        this.AT = new StringBuilder(100);
         this.mType = str;
-        this.AP = false;
+        this.AQ = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -33,27 +33,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.AP = false;
+        this.AQ = false;
         this.mType = null;
-        this.AR = new StringBuilder(100);
+        this.AT = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.AQ == null) {
-                this.AQ = new ArrayList<>();
+            if (this.AR == null) {
+                this.AR = new ArrayList<>();
             }
-            this.AQ.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.AR.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.AR.length() > 0) {
-            sb.append((CharSequence) this.AR);
+        if (this.AT.length() > 0) {
+            sb.append((CharSequence) this.AT);
         }
-        if (this.AQ != null) {
-            Iterator<BasicNameValuePair> it = this.AQ.iterator();
+        if (this.AR != null) {
+            Iterator<BasicNameValuePair> it = this.AR.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -89,16 +89,16 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.AR.length() > 0) {
-                this.AR.append('&');
+            if (this.AT.length() > 0) {
+                this.AT.append('&');
             }
-            this.AR.append(str);
-            this.AR.append("=");
+            this.AT.append(str);
+            this.AT.append("=");
             try {
-                this.AR.append(URLEncoder.encode(aG(str2), IoUtils.UTF_8));
+                this.AT.append(URLEncoder.encode(aG(str2), IoUtils.UTF_8));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.AR.append(aG(str2));
+                this.AT.append(aG(str2));
             }
         }
     }

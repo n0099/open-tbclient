@@ -1,12 +1,14 @@
 package com.baidu.tbadk.BdToken;
 
+import android.util.Base64;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class b {
-    private a Zy;
+    private a Zz;
     private boolean isLoading = false;
     private com.baidu.adp.framework.listener.a mNetMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_TOKEN, 309608) { // from class: com.baidu.tbadk.BdToken.b.1
         @Override // com.baidu.adp.framework.listener.a
@@ -36,15 +38,16 @@ public class b {
         if (!this.isLoading) {
             this.isLoading = true;
             GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
-            getTokenRequestMessage.setToken(str);
+            getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
+            getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
             MessageManager.getInstance().sendMessage(getTokenRequestMessage);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, f fVar) {
-        if (this.Zy != null) {
-            this.Zy.a(z, fVar);
+        if (this.Zz != null) {
+            this.Zz.a(z, fVar);
         }
     }
 
@@ -58,7 +61,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.Zy = aVar;
+        this.Zz = aVar;
     }
 
     public void onDestroy() {

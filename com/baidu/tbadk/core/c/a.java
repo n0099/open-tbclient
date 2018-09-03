@@ -73,7 +73,7 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001012));
     }
 
-    public static a xb() {
+    public static a xa() {
         if (akn == null) {
             akn = new a();
         }

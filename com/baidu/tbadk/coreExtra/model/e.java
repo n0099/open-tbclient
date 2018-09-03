@@ -6,16 +6,17 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
+    private String aFf;
     private String aFg;
     private String aFh;
     private String aFi;
-    private String aFj;
+    private String aFl;
     private String aFm;
     private String aFn;
     private String aFo;
     private String aFp;
     private String aFq;
-    private String aFr;
+    private int aEN = 0;
     private int aEO = 0;
     private int aEP = 0;
     private int aEQ = 0;
@@ -31,19 +32,18 @@ public class e {
     private int aFa = 0;
     private int aFb = 0;
     private int aFc = 0;
-    private int aFd = 0;
+    private boolean aFd = true;
     private boolean aFe = true;
-    private boolean aFf = true;
+    private HashMap<String, String> aFj = new HashMap<>();
     private HashMap<String, String> aFk = new HashMap<>();
-    private HashMap<String, String> aFl = new HashMap<>();
-    private List<a> aFs = new ArrayList();
+    private List<a> aFr = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
+        public String aFs;
         public String aFt;
-        public String aFu;
-        public int aFv;
-        public String aFw;
+        public int aFu;
+        public String aFv;
         public String content;
         public String gid;
         public String title;
@@ -72,174 +72,182 @@ public class e {
     }
 
     public int EE() {
-        return this.aEO;
+        return this.aEN;
     }
 
-    public void ed(int i) {
-        this.aEO = i;
+    public void ec(int i) {
+        this.aEN = i;
     }
 
     public int EF() {
-        return this.aER;
-    }
-
-    public void ee(int i) {
-        this.aER = i;
-    }
-
-    public int EG() {
-        return this.aES;
-    }
-
-    public int EH() {
-        return this.aEU;
-    }
-
-    public void ef(int i) {
-        this.aEU = i;
-    }
-
-    public int EI() {
-        return this.aEY;
-    }
-
-    public void eg(int i) {
-        this.aEY = i;
-    }
-
-    public int EJ() {
-        return this.aEX;
-    }
-
-    public void eh(int i) {
-        this.aEX = i;
-    }
-
-    public int EK() {
-        return this.aEO;
-    }
-
-    public int EL() {
         return this.aEQ;
     }
 
-    public void ei(int i) {
+    public void ed(int i) {
         this.aEQ = i;
     }
 
-    public boolean EM() {
-        return this.aFe;
+    public int EG() {
+        return this.aER;
     }
 
-    public void bq(boolean z) {
-        this.aFe = z;
-    }
-
-    public String EN() {
-        return this.aFg;
-    }
-
-    public void fK(String str) {
-        this.aFg = str;
-    }
-
-    public String EO() {
-        return this.aFm;
-    }
-
-    public void fL(String str) {
-        this.aFm = str;
-    }
-
-    public void fM(String str) {
-        this.aFn = str;
-    }
-
-    public int EP() {
-        return this.aEP;
-    }
-
-    public void ej(int i) {
-        this.aEP = i;
-    }
-
-    public void fN(String str) {
-        this.aFo = str;
-    }
-
-    public String EQ() {
-        return this.aFq;
-    }
-
-    public String ER() {
-        return this.aFr;
-    }
-
-    public HashMap<String, String> ES() {
-        return this.aFk;
-    }
-
-    public int ET() {
+    public int EH() {
         return this.aET;
     }
 
-    public void ek(int i) {
+    public void ee(int i) {
         this.aET = i;
     }
 
-    public int EU() {
-        return this.aEV;
+    public int EI() {
+        return this.aEX;
     }
 
-    public void el(int i) {
-        this.aEV = i;
+    public void ef(int i) {
+        this.aEX = i;
     }
 
-    public int EV() {
-        return this.aEZ;
-    }
-
-    public void em(int i) {
-        this.aEZ = i;
-    }
-
-    public void fO(String str) {
-        this.aFh = str;
-    }
-
-    public void fP(String str) {
-        this.aFi = str;
-    }
-
-    public int EW() {
+    public int EJ() {
         return this.aEW;
     }
 
-    public void en(int i) {
+    public void eg(int i) {
         this.aEW = i;
     }
 
-    public String EX() {
-        return this.aFj;
+    public int EK() {
+        return this.aEN;
     }
 
-    public void fQ(String str) {
-        this.aFj = str;
+    public int EL() {
+        return this.aEP;
     }
 
-    public HashMap<String, String> EY() {
+    public void eh(int i) {
+        this.aEP = i;
+    }
+
+    public boolean EM() {
+        return this.aFd;
+    }
+
+    public void br(boolean z) {
+        this.aFd = z;
+    }
+
+    public String EN() {
+        return this.aFf;
+    }
+
+    public void fK(String str) {
+        this.aFf = str;
+    }
+
+    public String EO() {
         return this.aFl;
     }
 
-    public String EZ() {
+    public void fL(String str) {
+        this.aFl = str;
+    }
+
+    public void fM(String str) {
+        this.aFm = str;
+    }
+
+    public int EP() {
+        return this.aEO;
+    }
+
+    public void ei(int i) {
+        this.aEO = i;
+    }
+
+    public void fN(String str) {
+        this.aFn = str;
+    }
+
+    public String EQ() {
         return this.aFp;
     }
 
+    public String ER() {
+        return this.aFq;
+    }
+
+    public HashMap<String, String> ES() {
+        return this.aFj;
+    }
+
+    public int ET() {
+        return this.aES;
+    }
+
+    public void ej(int i) {
+        this.aES = i;
+    }
+
+    public int EU() {
+        return this.aEU;
+    }
+
+    public void ek(int i) {
+        this.aEU = i;
+    }
+
+    public int EV() {
+        return this.aEY;
+    }
+
+    public void el(int i) {
+        this.aEY = i;
+    }
+
+    public void fO(String str) {
+        this.aFg = str;
+    }
+
+    public void fP(String str) {
+        this.aFh = str;
+    }
+
+    public int EW() {
+        return this.aEV;
+    }
+
+    public void em(int i) {
+        this.aEV = i;
+    }
+
+    public String EX() {
+        return this.aFi;
+    }
+
+    public void fQ(String str) {
+        this.aFi = str;
+    }
+
+    public HashMap<String, String> EY() {
+        return this.aFk;
+    }
+
+    public String EZ() {
+        return this.aFo;
+    }
+
     public void fR(String str) {
-        this.aFp = str;
+        this.aFo = str;
     }
 
     public int Fa() {
+        return this.aFa;
+    }
+
+    public void en(int i) {
+        this.aFa = i;
+    }
+
+    public int Fb() {
         return this.aFb;
     }
 
@@ -247,23 +255,15 @@ public class e {
         this.aFb = i;
     }
 
-    public int Fb() {
+    public List<a> Fc() {
+        return this.aFr;
+    }
+
+    public int Fd() {
         return this.aFc;
     }
 
     public void ep(int i) {
         this.aFc = i;
-    }
-
-    public List<a> Fc() {
-        return this.aFs;
-    }
-
-    public int Fd() {
-        return this.aFd;
-    }
-
-    public void eq(int i) {
-        this.aFd = i;
     }
 }

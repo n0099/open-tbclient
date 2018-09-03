@@ -47,8 +47,8 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private ArrayList<IconData> mTShowIconInfoNew = new ArrayList<>();
     private int is_bawu = 0;
     private String bawu_type = null;
-    private int concernNum = -1;
-    private int fansNum = -1;
+    private int concernNum = 0;
+    private int fansNum = 0;
     private int threadNum = -1;
     private int likeNum = -1;
     private boolean mHadConcerned = false;

@@ -9,22 +9,22 @@ import tbclient.VideoTopicList.DataReq;
 import tbclient.VideoTopicList.VideoTopicListReqIdl;
 /* loaded from: classes3.dex */
 public class VideoTopicRequestData extends OrmObject implements e, h {
+    private Integer dML;
+    private Integer dMM;
+    private String dMN;
+    private String dMO;
     private Integer dMP;
     private Integer dMQ;
-    private String dMR;
-    private String dMS;
-    private Integer dMT;
-    private Integer dMU;
     private Long pn;
     private Integer rn = 10;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Jt() {
+    public String Jx() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Ju() {
+    public boolean Jy() {
         return false;
     }
 
@@ -39,20 +39,20 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Jw() {
+    public HashMap<String, Object> JA() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object bP(boolean z) {
+    public Object bQ(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.topic_id = this.dMT;
+        builder.topic_id = this.dMP;
         builder.pn = this.pn;
         builder.rn = this.rn;
-        builder.q_type = this.dMS;
-        builder.scr_dip = this.dMR;
-        builder.scr_h = this.dMQ;
-        builder.scr_w = this.dMP;
+        builder.q_type = this.dMO;
+        builder.scr_dip = this.dMN;
+        builder.scr_h = this.dMM;
+        builder.scr_w = this.dML;
         o.bindCommonParamsToProtobufData(builder, true, false, true);
         VideoTopicListReqIdl.Builder builder2 = new VideoTopicListReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -60,23 +60,23 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     public void setScrW(Integer num) {
-        this.dMP = num;
+        this.dML = num;
     }
 
     public void setScrH(Integer num) {
-        this.dMQ = num;
+        this.dMM = num;
     }
 
-    public void nh(String str) {
-        this.dMR = str;
+    public void nj(String str) {
+        this.dMN = str;
     }
 
-    public void ni(String str) {
-        this.dMS = str;
+    public void nk(String str) {
+        this.dMO = str;
     }
 
     public void l(Integer num) {
-        this.dMT = num;
+        this.dMP = num;
     }
 
     public void bM(long j) {
@@ -88,10 +88,10 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     public int getRequestType() {
-        return this.dMU.intValue();
+        return this.dMQ.intValue();
     }
 
     public void m(Integer num) {
-        this.dMU = num;
+        this.dMQ = num;
     }
 }

@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<bb> hyh;
+    private ArrayList<bb> hyj;
     private Context mContext;
     private TbPageContext<?> mPageContext;
     private int mSkinType;
@@ -32,7 +32,7 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.hyh = null;
+        this.hyj = null;
         this.mSkinType = 3;
         this.mContext = context;
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
@@ -48,14 +48,14 @@ public class FeedBackTopListView extends LinearLayout {
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.hyh = new ArrayList<>(arrayList.subList(0, 3));
+            this.hyj = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.hyh = arrayList;
+            this.hyj = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.hyh.size()) {
-                addView(b(this.hyh.get(i2), i2));
+            if (i2 < this.hyj.size()) {
+                addView(b(this.hyj.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -67,16 +67,16 @@ public class FeedBackTopListView extends LinearLayout {
         if (bbVar == null) {
             return null;
         }
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.frs_top_item, (ViewGroup) null);
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(d.g.frs_top_item);
-        TextView textView = (TextView) inflate.findViewById(d.g.frs_top_title);
-        inflate.findViewById(d.g.frs_top_divider);
+        View inflate = LayoutInflater.from(this.mContext).inflate(f.h.frs_top_item, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(f.g.frs_top_item);
+        TextView textView = (TextView) inflate.findViewById(f.g.frs_top_title);
+        inflate.findViewById(f.g.frs_top_divider);
         final String tid = bbVar.getTid();
         textView.setText(bbVar.getTitle());
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(inflate);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(d.f.icon_notice);
-        am.i(linearLayout, d.f.bg_frs_top_middle_selector);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(f.C0146f.icon_notice);
+        am.i(linearLayout, f.C0146f.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

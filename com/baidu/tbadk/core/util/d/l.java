@@ -27,12 +27,12 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Aa() {
+    public boolean zY() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ab() {
+    public boolean zZ() {
         return false;
     }
 
@@ -59,7 +59,7 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Ac() {
+    public int Aa() {
         return this.procType;
     }
 }

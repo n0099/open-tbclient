@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
     protected boolean aSb;
@@ -27,13 +27,13 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         this.aSb = false;
     }
 
-    public void dG(int i) {
+    public void dF(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bO(boolean z) {
+    public void bP(boolean z) {
     }
 
     public View getContentTv() {
@@ -86,7 +86,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void aq(String str, String str2) {
+    public void ap(String str, String str2) {
     }
 
     public void Jp() {
@@ -104,11 +104,11 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public int aSd;
         public TbFragmentTabIndicator aSf;
         public View view;
-        public int yW;
+        public int yX;
         public boolean aSc = true;
-        public int aSe = d.C0140d.common_color_10225;
+        public int aSe = f.d.common_color_10225;
 
-        public void dG(int i) {
+        public void dF(int i) {
             if (this.aSd != 0) {
                 am.i(this.view, this.aSd);
             }
@@ -116,13 +116,13 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (this.aSe != 0) {
                     am.c(this.view, this.aSe, 1);
                 }
-                int b = b((TextView) this.view);
-                if (b > 0 && b < 10) {
-                    am.i(this.view, d.f.icon_news_head_prompt_one);
-                } else if (b >= 10 && b < 100) {
-                    am.i(this.view, d.f.icon_news_head_prompt_two);
-                } else if (b >= 100) {
-                    am.i(this.view, d.f.icon_news_head_prompt_more);
+                int a = a((TextView) this.view);
+                if (a > 0 && a < 10) {
+                    am.i(this.view, f.C0146f.icon_news_head_prompt_one);
+                } else if (a >= 10 && a < 100) {
+                    am.i(this.view, f.C0146f.icon_news_head_prompt_two);
+                } else if (a >= 100) {
+                    am.i(this.view, f.C0146f.icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {
@@ -130,7 +130,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             }
         }
 
-        private int b(TextView textView) {
+        private int a(TextView textView) {
             if (textView == null) {
                 return -1;
             }

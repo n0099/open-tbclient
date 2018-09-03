@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 /* loaded from: classes2.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private ImageView dBW;
-    private PagerSlidingTabStrip dZR;
+    private ImageView dBT;
+    private PagerSlidingTabStrip dZO;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
@@ -45,11 +45,11 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.h.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.dBW = (ImageView) findViewById(d.g.home_page_search_icon);
-        this.dZR = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
-        this.dZR.d(l.f(context, d.e.ds34), l.f(context, d.e.ds4), false);
-        this.dBW.setOnClickListener(this);
+        LayoutInflater.from(context).inflate(f.h.home_tab_bar_view_layout, (ViewGroup) this, true);
+        this.dBT = (ImageView) findViewById(f.g.home_page_search_icon);
+        this.dZO = (PagerSlidingTabStrip) findViewById(f.g.home_page_tabstrip);
+        this.dZO.d(l.f(context, f.e.ds34), l.f(context, f.e.ds4), false);
+        this.dBT.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -59,60 +59,64 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dBW) {
+        if (view == this.dBT) {
             TiebaStatic.log(new an("c10378").r("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.dZR.setOnPageChangeListener(onPageChangeListener);
+        this.dZO.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.dZR != null) {
-            this.dZR.setShowConcernRedTip(z);
+        if (this.dZO != null) {
+            this.dZO.setShowConcernRedTip(z);
         }
     }
 
-    public boolean aDW() {
-        if (this.dZR != null) {
-            return this.dZR.aDW();
+    public boolean aDT() {
+        if (this.dZO != null) {
+            return this.dZO.aDT();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.dZR.setViewPager(viewPager);
+        this.dZO.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.dZR.setTabItemClicked(z);
+        this.dZO.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.dZR.notifyDataSetChanged();
+        this.dZO.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            am.j(this, d.C0140d.cp_bg_line_d);
-            aq.zv().c(this.dBW, d.f.icon_topbar_search_n_svg, d.C0140d.select_topbar_icon_color_tint);
-            this.dZR.onChangeSkinType();
+            am.j(this, f.d.cp_bg_line_d);
+            aq.zt().c(this.dBT, f.C0146f.icon_topbar_search_n_svg, f.d.select_topbar_icon_color_tint);
+            this.dZO.onChangeSkinType();
         }
     }
 
     public View mM(int i) {
-        return this.dZR.mM(i);
+        return this.dZO.mM(i);
     }
 
     public void onResume() {
-        aq.zv().c(this.dBW, d.f.icon_topbar_search_n_svg, d.C0140d.select_topbar_icon_color_tint);
+        aq.zt().c(this.dBT, f.C0146f.icon_topbar_search_n_svg, f.d.select_topbar_icon_color_tint);
     }
 
     public void setConcernTabIndex(int i) {
-        this.dZR.setConcernTabIndex(i);
+        this.dZO.setConcernTabIndex(i);
+    }
+
+    public void setOnTabItemClickListener(PagerSlidingTabStrip.a aVar) {
+        this.dZO.setOnTabItemClickListener(aVar);
     }
 }

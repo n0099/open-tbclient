@@ -2,7 +2,7 @@ package com.baidu.tieba.post;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class f {
     public static void a(com.baidu.tbadk.k.g gVar, View.OnClickListener onClickListener, Context context, View view, String str, boolean z) {
@@ -10,7 +10,7 @@ public class f {
             if (gVar == null) {
                 gVar = new com.baidu.tbadk.k.g(context, onClickListener);
             }
-            gVar.fh(context.getResources().getDimensionPixelSize(d.e.ds280));
+            gVar.fg(context.getResources().getDimensionPixelSize(f.e.ds280));
             gVar.hk(str);
             gVar.c(view, z);
             gVar.Jk();

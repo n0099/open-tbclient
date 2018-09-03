@@ -10,22 +10,22 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     private int[] bGF;
     private ArrayList<BaseFragment> fVN;
 
-    protected abstract BaseFragment bic();
+    protected abstract BaseFragment bhZ();
 
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
         this.fVN = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment bic = bic();
-        bic.setArguments(bundle);
-        this.fVN.add(bic);
+        BaseFragment bhZ = bhZ();
+        bhZ.setArguments(bundle);
+        this.fVN.add(bhZ);
         if (!z) {
             Bundle bundle2 = new Bundle();
             bundle2.putInt("page_type", 1);
-            BaseFragment bic2 = bic();
-            bic2.setArguments(bundle2);
-            this.fVN.add(bic2);
+            BaseFragment bhZ2 = bhZ();
+            bhZ2.setArguments(bundle2);
+            this.fVN.add(bhZ2);
             this.bGF = new int[]{0, 1};
             return;
         }

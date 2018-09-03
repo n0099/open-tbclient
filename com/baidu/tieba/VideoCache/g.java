@@ -22,7 +22,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Qg();
+        Qm();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -52,7 +52,7 @@ public class g implements Runnable {
         if (r10 == r14) goto L86;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x01a1, code lost:
-        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").af("errormsg", "准备合并文件时文件片段错误").af("url", r18.bdb));
+        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").ae("errormsg", "准备合并文件时文件片段错误").ae("url", r18.bdb));
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x01cd, code lost:
         if (a(r12.getAbsolutePath(), r13) == false) goto L89;
@@ -65,24 +65,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void Qg() {
+    private synchronized void Qm() {
         File file;
-        long ij;
+        long ik;
         File[] fileArr;
         int i;
         long j;
         long h;
         long j2;
         j.ax(TAG, "merge ...");
-        String ip = m.ip(this.bdb);
-        if (ip != null && !ip.isEmpty() && ((file = new File(i.blL + ip + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.blL + ip + "/completed.temp");
+        String iq = m.iq(this.bdb);
+        if (iq != null && !iq.isEmpty() && ((file = new File(i.blQ + iq + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.blQ + iq + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.blL + ip + "/segments");
+            File file3 = new File(i.blQ + iq + "/segments");
             if (file3 != null && file3.exists()) {
-                ij = ij(ip);
+                ik = ik(iq);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -129,7 +129,7 @@ public class g implements Runnable {
             }
             if (j + h == j2) {
             }
-        } else if (m.h(fileArr[i]) + j == ij) {
+        } else if (m.h(fileArr[i]) + j == ik) {
             i++;
         }
     }
@@ -181,7 +181,7 @@ public class g implements Runnable {
                 e = e3;
                 fileChannel = channel;
                 try {
-                    TiebaStatic.log(new an("c12027").af("errormsg", "合并文件出现异常").af("error", e.getMessage()).af("url", this.bdb));
+                    TiebaStatic.log(new an("c12027").ae("errormsg", "合并文件出现异常").ae("error", e.getMessage()).ae("url", this.bdb));
                     e.printStackTrace();
                     if (fileChannel != null) {
                         try {
@@ -243,12 +243,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long ij(String str) {
+    private long ik(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.blL + str + "/content_length");
+        File file = new File(i.blQ + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

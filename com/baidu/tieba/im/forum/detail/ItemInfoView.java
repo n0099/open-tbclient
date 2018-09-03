@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.editortools.emotiontool.b;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView erB;
+    private TextView erx;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -34,16 +34,16 @@ public class ItemInfoView extends LinearLayout {
 
     public void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(d.h.forum_detail_info, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(f.h.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.erB = (TextView) findViewById(d.g.info_brief_content);
+        this.erx = (TextView) findViewById(f.g.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !ap.isEmpty(recommendForumInfo.slogan))) {
-            this.erB.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.erx.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.erB.setText(getResources().getString(d.j.forum_detail_info_no_brief));
+            this.erx.setText(getResources().getString(f.j.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        am.c(this.erB, d.C0140d.common_color_10177, 1);
+        am.c(this.erx, f.d.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

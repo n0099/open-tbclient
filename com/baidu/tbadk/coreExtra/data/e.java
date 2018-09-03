@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private List<f> aBK = new ArrayList();
-    private String aBL;
+    private List<f> aBH = new ArrayList();
+    private String aBI;
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
@@ -20,24 +20,24 @@ public class e {
                 if (jSONObject2 != null) {
                     f fVar = new f();
                     fVar.parserJson(jSONObject2);
-                    this.aBK.add(fVar);
+                    this.aBH.add(fVar);
                 }
             }
         }
     }
 
-    public String BX() {
-        if (TextUtils.isEmpty(this.aBL)) {
+    public String BU() {
+        if (TextUtils.isEmpty(this.aBI)) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
-            Iterator<f> it = this.aBK.iterator();
+            Iterator<f> it = this.aBH.iterator();
             while (true) {
                 int i2 = i;
                 if (!it.hasNext()) {
                     break;
                 }
                 f next = it.next();
-                if (next.BZ()) {
+                if (next.BW()) {
                     if (i2 == 0) {
                         sb.append(next.getAppId());
                     } else {
@@ -49,12 +49,12 @@ public class e {
                     i = i2;
                 }
             }
-            this.aBL = sb.toString();
+            this.aBI = sb.toString();
         }
-        return this.aBL;
+        return this.aBI;
     }
 
-    public List<f> BY() {
-        return this.aBK;
+    public List<f> BV() {
+        return this.aBH;
     }
 }

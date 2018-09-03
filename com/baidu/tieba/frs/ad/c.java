@@ -8,67 +8,67 @@ import tbclient.AdInfo;
 import tbclient.Media;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dqv = BdUniqueId.gen();
+    public static final BdUniqueId dqt = BdUniqueId.gen();
     private String adF;
     private String adH;
-    public boolean dib = false;
-    private String dqw;
-    private String dqx;
-    private List<MediaData> dqy;
-    private int dqz;
+    public boolean dhZ = false;
+    private String dqu;
+    private String dqv;
+    private List<MediaData> dqw;
+    private int dqx;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.dqw = adInfo.portrait;
+            this.dqu = adInfo.portrait;
             this.adF = adInfo.ad_name;
-            this.dqx = adInfo.ad_desc;
+            this.dqv = adInfo.ad_desc;
             this.adH = adInfo.ad_url;
-            this.dqz = adInfo.show_rule.intValue();
+            this.dqx = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.dqy = new ArrayList();
+                this.dqw = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.dqy.add(mediaData);
+                    this.dqw.add(mediaData);
                 }
             }
         }
     }
 
-    public int avU() {
-        return this.dqz;
-    }
-
-    public String avV() {
-        return this.dqw;
-    }
-
-    public String avW() {
-        return this.adF;
-    }
-
-    public String avX() {
+    public int avT() {
         return this.dqx;
     }
 
-    public String Lc() {
+    public String avU() {
+        return this.dqu;
+    }
+
+    public String avV() {
+        return this.adF;
+    }
+
+    public String avW() {
+        return this.dqv;
+    }
+
+    public String Lg() {
         return this.adH;
     }
 
-    public List<MediaData> avY() {
-        return this.dqy;
+    public List<MediaData> avX() {
+        return this.dqw;
     }
 
     public void fQ(boolean z) {
-        this.dib = z;
+        this.dhZ = z;
     }
 
-    public boolean avZ() {
-        return this.dib;
+    public boolean avY() {
+        return this.dhZ;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dqv;
+        return dqt;
     }
 }

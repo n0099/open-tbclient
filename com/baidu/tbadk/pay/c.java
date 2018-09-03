@@ -9,8 +9,8 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class c {
     private static c aTv = null;
@@ -18,7 +18,7 @@ public class c {
     private c() {
     }
 
-    public static synchronized c Ks() {
+    public static synchronized c Kw() {
         c cVar;
         synchronized (c.class) {
             if (aTv == null) {
@@ -29,11 +29,11 @@ public class c {
         return cVar;
     }
 
-    public boolean Kt() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Ku();
+    public boolean Kx() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Ky();
     }
 
-    public boolean Ku() {
+    public boolean Ky() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -45,15 +45,15 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            ay.zK().c(tbPageContext, new String[]{str});
+            az.zI().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
-            showToast(d.j.plugin_pay_error);
-        } else if (!Kt()) {
-            showToast(d.j.plugin_pay_wallet_not_found);
+            showToast(f.j.plugin_pay_error);
+        } else if (!Kx()) {
+            showToast(f.j.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
         }

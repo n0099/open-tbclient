@@ -1,27 +1,27 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String bke();
+    String bkb();
+
+    boolean bkc();
+
+    boolean bkd();
+
+    boolean bke();
 
     boolean bkf();
 
-    boolean bkg();
+    int bkg();
 
-    boolean bkh();
+    void bkh();
 
-    boolean bki();
+    j bki();
 
-    int bkj();
-
-    void bkk();
-
-    j bkl();
-
-    void bkm();
+    void bkj();
 
     void cL(long j);
 
-    String ir(String str);
+    String is(String str);
 
     void onCompletion();
 

@@ -24,43 +24,43 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] aVz;
+        String[] aVv;
         if (bVar == null) {
             return null;
         }
         try {
-            aVz = aVz();
+            aVv = aVv();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aVz != null) {
+        if (aVv != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", aVz[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", aVv[0]));
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("bduss", bVar.Bd);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.acB);
+            jSONObject.put("bduss", bVar.Be);
+            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.acC);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aVz[1], jSONObject.toString())));
-            arrayList.add(new BasicNameValuePair("sig", d(arrayList, TbConfig.PassConfig.ENC_KEY)));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(aVv[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("sig", c(arrayList, TbConfig.PassConfig.ENC_KEY)));
             y yVar = new y(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            yVar.yO().zM().mIsNeedAddCommenParam = false;
-            yVar.yO().zM().mIsUseCurrentBDUSS = false;
+            yVar.yM().zK().mIsNeedAddCommenParam = false;
+            yVar.yM().zK().mIsUseCurrentBDUSS = false;
             yVar.p(arrayList);
-            yVar.yO().zM().zP().ass = true;
-            yVar.yO().zM().zP().mIsBaiduServer = false;
-            String yq = yVar.yq();
-            if (yVar.yO().zN().isRequestSuccess() && !ap.isEmpty(yq)) {
-                JSONObject jSONObject2 = new JSONObject(yq);
+            yVar.yM().zK().zN().ast = true;
+            yVar.yM().zK().zN().mIsBaiduServer = false;
+            String yo = yVar.yo();
+            if (yVar.yM().zL().isRequestSuccess() && !ap.isEmpty(yo)) {
+                JSONObject jSONObject2 = new JSONObject(yo);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
-                    bVar2.Bd = jSONObject2.optString("bduss");
-                    bVar2.acB = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
-                    bVar2.acC = jSONObject2.optString("uname");
+                    bVar2.Be = jSONObject2.optString("bduss");
+                    bVar2.acC = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
+                    bVar2.acD = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }
@@ -70,12 +70,12 @@ public class d {
         return null;
     }
 
-    private static String[] aVz() {
+    private static String[] aVv() {
         try {
             y yVar = new y(TbConfig.PassConfig.GET_CERT_URL);
-            yVar.yO().zM().mIsNeedAddCommenParam = false;
-            yVar.yO().zM().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(yVar.yr()));
+            yVar.yM().zK().mIsNeedAddCommenParam = false;
+            yVar.yM().zK().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(yVar.yp()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
@@ -89,7 +89,7 @@ public class d {
         return UtilHelper.getGprsIpAddress();
     }
 
-    private static String d(ArrayList<BasicNameValuePair> arrayList, String str) {
+    private static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
         ArrayList arrayList2 = new ArrayList();
         HashMap hashMap = new HashMap();
         int size = arrayList.size();

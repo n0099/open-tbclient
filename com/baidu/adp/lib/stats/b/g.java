@@ -20,12 +20,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g Cg;
+    private static volatile g Ch;
     private h Cj;
     private a Ck;
     private com.baidu.adp.lib.stats.b mBdLogSetting;
     private String uid;
-    private final SimpleDateFormat Ch = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
+    private final SimpleDateFormat mDateFormat = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
     private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Ci = new ConcurrentHashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.b.g.1
         @Override // android.os.Handler
@@ -47,7 +47,7 @@ public class g {
             }
         }
     };
-    private i BE = new i() { // from class: com.baidu.adp.lib.stats.b.g.5
+    private i BF = new i() { // from class: com.baidu.adp.lib.stats.b.g.5
         @Override // com.baidu.adp.lib.stats.b.i
         public void g(com.baidu.adp.lib.stats.base.a aVar) {
             if (g.this.b(aVar)) {
@@ -60,14 +60,14 @@ public class g {
     };
 
     public static g je() {
-        if (Cg == null) {
+        if (Ch == null) {
             synchronized (g.class) {
-                if (Cg == null) {
-                    Cg = new g();
+                if (Ch == null) {
+                    Ch = new g();
                 }
             }
         }
-        return Cg;
+        return Ch;
     }
 
     public void init() {
@@ -103,15 +103,15 @@ public class g {
                 if ("alert".equals(aK)) {
                     aVar = new com.baidu.adp.lib.stats.b.a(null);
                 } else if ("error".equals(aK)) {
-                    aVar = new c(this.BE);
+                    aVar = new c(this.BF);
                 } else if ("dbg".equals(aK)) {
-                    aVar = new b(this.BE);
+                    aVar = new b(this.BF);
                 } else if ("stat".equals(aK)) {
-                    aVar = new f(this.BE);
+                    aVar = new f(this.BF);
                 } else if ("pfmonitor".equals(aK)) {
-                    aVar = new e(this.BE);
+                    aVar = new e(this.BF);
                 } else {
-                    aVar = new c(this.BE);
+                    aVar = new c(this.BF);
                 }
                 if (aVar != null) {
                     aVar.aJ(aK);

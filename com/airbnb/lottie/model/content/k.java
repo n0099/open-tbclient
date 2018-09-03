@@ -7,12 +7,12 @@ import org.json.JSONObject;
 public class k implements b {
     private final int index;
     private final String name;
-    private final com.airbnb.lottie.model.a.h oo;
+    private final com.airbnb.lottie.model.a.h oq;
 
     private k(String str, int i, com.airbnb.lottie.model.a.h hVar) {
         this.name = str;
         this.index = i;
-        this.oo = hVar;
+        this.oq = hVar;
     }
 
     public String getName() {
@@ -20,7 +20,7 @@ public class k implements b {
     }
 
     public com.airbnb.lottie.model.a.h df() {
-        return this.oo;
+        return this.oq;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -29,7 +29,7 @@ public class k implements b {
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.oo.hasAnimation() + '}';
+        return "ShapePath{name=" + this.name + ", index=" + this.index + ", hasAnimation=" + this.oq.hasAnimation() + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

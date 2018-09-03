@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.recapp.lego.view.JumpButton;
 import com.baidu.tieba.recapp.view.AdCloseView;
 import com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout;
@@ -22,9 +22,9 @@ public class p implements com.baidu.b.a.b.b {
             HeadImageView headImageView = new HeadImageView(context);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.setDrawerType(1);
-            headImageView.setDefaultResource(d.f.icon_default_avatar100);
-            headImageView.setDefaultErrorResource(d.f.icon_default_avatar100);
-            headImageView.setDefaultBgResource(d.C0140d.cp_bg_line_e);
+            headImageView.setDefaultResource(f.C0146f.icon_default_avatar100);
+            headImageView.setDefaultErrorResource(f.C0146f.icon_default_avatar100);
+            headImageView.setDefaultBgResource(f.d.cp_bg_line_e);
             return headImageView;
         } else if ("time".equalsIgnoreCase(str)) {
             TextView textView = new TextView(context);

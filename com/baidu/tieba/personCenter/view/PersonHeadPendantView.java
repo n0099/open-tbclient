@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.view.HeadPendantView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes2.dex */
 public class PersonHeadPendantView extends HeadPendantView {
     private View fVA;
@@ -36,7 +36,7 @@ public class PersonHeadPendantView extends HeadPendantView {
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fVA.getLayoutParams();
-        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(d.e.ds4));
+        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(f.e.ds4));
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;

@@ -3,17 +3,17 @@ package com.baidu.tieba.recapp.e;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class c extends e {
-    private TextView ayY;
-    private HeadImageView dPG;
-    private TextView guh;
-    private CountDownTextView gul;
-    private boolean gum;
+    private TextView ayV;
+    private HeadImageView dPC;
+    private TextView guk;
+    private CountDownTextView guo;
+    private boolean gup;
 
     public c(View view, String str) {
         super(view, str);
@@ -21,50 +21,50 @@ public class c extends e {
     }
 
     private void init() {
-        this.dPG = (HeadImageView) sr(d.g.user_portrait);
-        this.dPG.setDefaultResource(d.f.icon_default_avatar100);
-        this.dPG.setDefaultErrorResource(d.f.icon_default_avatar100);
-        this.dPG.setDefaultBgResource(d.C0140d.cp_bg_line_e);
-        this.dPG.setIsRound(true);
-        this.ayY = (TextView) sr(d.g.user_name);
-        this.gul = (CountDownTextView) sr(d.g.count_down_text);
-        this.guh = (TextView) sr(d.g.action);
+        this.dPC = (HeadImageView) sr(f.g.user_portrait);
+        this.dPC.setDefaultResource(f.C0146f.icon_default_avatar100);
+        this.dPC.setDefaultErrorResource(f.C0146f.icon_default_avatar100);
+        this.dPC.setDefaultBgResource(f.d.cp_bg_line_e);
+        this.dPC.setIsRound(true);
+        this.ayV = (TextView) sr(f.g.user_name);
+        this.guo = (CountDownTextView) sr(f.g.count_down_text);
+        this.guk = (TextView) sr(f.g.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.dPG.startLoad(fVar.gpB, 10, false);
-        this.ayY.setText(fVar.userName);
-        this.guh.setText(fVar.buttonText);
+        this.dPC.startLoad(fVar.gpE, 10, false);
+        this.ayV.setText(fVar.userName);
+        this.guk.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.ao(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.guq != null) {
-                    c.this.guq.sl(302);
-                    com.baidu.tieba.recapp.report.c.boi().a(c.this.guq);
+                if (c.this.gut != null) {
+                    c.this.gut.sl(302);
+                    com.baidu.tieba.recapp.report.c.boj().a(c.this.gut);
                 }
-                if (c.this.gus != null) {
-                    com.baidu.tieba.lego.card.b.c.a(c.this.gus);
+                if (c.this.guv != null) {
+                    com.baidu.tieba.lego.card.b.c.a(c.this.guv);
                 }
                 c.this.lH(false);
             }
         });
-        this.gul.update(fVar.count);
+        this.guo.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void bom() {
-        super.bom();
-        this.gul.startCountDown();
+    public void bon() {
+        super.bon();
+        this.guo.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.gul.setTimeoutListener(bVar);
+        this.guo.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
@@ -73,9 +73,9 @@ public class c extends e {
 
     @Override // com.baidu.tieba.recapp.e.e
     public void lH(boolean z) {
-        this.gum = z;
-        if (this.gul != null) {
-            this.gul.setEnableTimeoutListener(this.gum);
+        this.gup = z;
+        if (this.guo != null) {
+            this.guo.setEnableTimeoutListener(this.gup);
         }
     }
 }

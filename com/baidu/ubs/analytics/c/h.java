@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a hCH;
+    private a hCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.hCH = aVar;
+        this.hCJ = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.hCH.bIY()) {
-            for (a.InterfaceC0263a interfaceC0263a : this.hCH.bIY()) {
+        synchronized (this.hCJ.bJc()) {
+            for (a.InterfaceC0263a interfaceC0263a : this.hCJ.bJc()) {
                 interfaceC0263a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.hCH.bIY()) {
-            for (a.InterfaceC0263a interfaceC0263a : this.hCH.bIY()) {
+        synchronized (this.hCJ.bJc()) {
+            for (a.InterfaceC0263a interfaceC0263a : this.hCJ.bJc()) {
                 interfaceC0263a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.hCH.bIY()) {
-            for (a.InterfaceC0263a interfaceC0263a : this.hCH.bIY()) {
+        synchronized (this.hCJ.bJc()) {
+            for (a.InterfaceC0263a interfaceC0263a : this.hCJ.bJc()) {
                 interfaceC0263a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.hCH.bIY()) {
-            Iterator<a.InterfaceC0263a> it = this.hCH.bIY().iterator();
+        synchronized (this.hCJ.bJc()) {
+            Iterator<a.InterfaceC0263a> it = this.hCJ.bJc().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.hCH.bIY()) {
-            Iterator<a.InterfaceC0263a> it = this.hCH.bIY().iterator();
+        synchronized (this.hCJ.bJc()) {
+            Iterator<a.InterfaceC0263a> it = this.hCJ.bJc().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.hCH.bIY()) {
-            Iterator<a.InterfaceC0263a> it = this.hCH.bIY().iterator();
+        synchronized (this.hCJ.bJc()) {
+            Iterator<a.InterfaceC0263a> it = this.hCJ.bJc().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.hCH.bIY()) {
-            for (a.InterfaceC0263a interfaceC0263a : this.hCH.bIY()) {
+        synchronized (this.hCJ.bJc()) {
+            for (a.InterfaceC0263a interfaceC0263a : this.hCJ.bJc()) {
                 interfaceC0263a.onActivityDestroyed(activity);
             }
         }

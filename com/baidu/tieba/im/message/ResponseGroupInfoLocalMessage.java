@@ -32,84 +32,84 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean deo;
-        private boolean ewS;
-        private GroupData ezg;
-        private List<MemberData> ezh;
-        private List<PhotoUrlData> ezi;
-        private int ezj;
-        private int ezk;
-        private boolean ezl;
-        private boolean ezm;
-        private GroupActivityData ezn;
+        private boolean dem;
+        private boolean ewO;
+        private GroupData ezc;
+        private List<MemberData> ezd;
+        private List<PhotoUrlData> eze;
+        private int ezf;
+        private int ezg;
+        private boolean ezh;
+        private boolean ezi;
+        private GroupActivityData ezj;
         private boolean isMemGroup;
 
-        public GroupActivityData aMn() {
-            return this.ezn;
-        }
-
-        public void a(GroupActivityData groupActivityData) {
-            this.ezn = groupActivityData;
-        }
-
-        public GroupData getGroup() {
-            return this.ezg;
-        }
-
-        public void setGroup(GroupData groupData) {
-            this.ezg = groupData;
-        }
-
-        public List<MemberData> aMo() {
-            return this.ezh;
-        }
-
-        public void cs(List<MemberData> list) {
-            this.ezh = list;
-        }
-
-        public List<PhotoUrlData> aMp() {
-            return this.ezi;
-        }
-
-        public void ct(List<PhotoUrlData> list) {
-            this.ezi = list;
-        }
-
-        public int aMq() {
+        public GroupActivityData aMk() {
             return this.ezj;
         }
 
-        public void ot(int i) {
-            this.ezj = i;
+        public void a(GroupActivityData groupActivityData) {
+            this.ezj = groupActivityData;
         }
 
-        public int aMr() {
-            return this.ezk;
+        public GroupData getGroup() {
+            return this.ezc;
+        }
+
+        public void setGroup(GroupData groupData) {
+            this.ezc = groupData;
+        }
+
+        public List<MemberData> aMl() {
+            return this.ezd;
+        }
+
+        public void cs(List<MemberData> list) {
+            this.ezd = list;
+        }
+
+        public List<PhotoUrlData> aMm() {
+            return this.eze;
+        }
+
+        public void ct(List<PhotoUrlData> list) {
+            this.eze = list;
+        }
+
+        public int aMn() {
+            return this.ezf;
+        }
+
+        public void ot(int i) {
+            this.ezf = i;
+        }
+
+        public int aMo() {
+            return this.ezg;
         }
 
         public void ou(int i) {
-            this.ezk = i;
+            this.ezg = i;
         }
 
-        public boolean aMs() {
-            return this.deo;
+        public boolean aMp() {
+            return this.dem;
         }
 
         public void hM(boolean z) {
-            this.deo = z;
+            this.dem = z;
         }
 
-        public boolean aMt() {
-            return this.ewS;
+        public boolean aMq() {
+            return this.ewO;
         }
 
         public void hN(boolean z) {
-            this.ewS = z;
+            this.ewO = z;
         }
 
         public void hO(boolean z) {
-            this.ezl = z;
+            this.ezh = z;
         }
 
         public boolean isMemGroup() {
@@ -120,12 +120,12 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
             this.isMemGroup = z;
         }
 
-        public boolean aMu() {
-            return this.ezm;
+        public boolean aMr() {
+            return this.ezi;
         }
 
         public void hP(boolean z) {
-            this.ezm = z;
+            this.ezi = z;
         }
     }
 

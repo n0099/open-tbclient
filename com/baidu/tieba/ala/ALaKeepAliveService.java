@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class ALaKeepAliveService extends BdBaseService {
     public static final String KEY_CONTENT_TEXT = "content_text";
@@ -44,7 +44,7 @@ public class ALaKeepAliveService extends BdBaseService {
             String stringExtra3 = intent.getStringExtra(KEY_TICKER);
             int intExtra = intent.getIntExtra(KEY_NOTIFICATION_ID, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
-            builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(d.f.icon_notify).setTicker(stringExtra3);
+            builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(f.C0146f.icon_notify).setTicker(stringExtra3);
             startForeground(intExtra, builder.build());
         }
         return super.onStartCommand(intent, i, i2);

@@ -4,7 +4,7 @@ import android.os.Environment;
 import android.os.StatFs;
 /* loaded from: classes2.dex */
 public final class q {
-    public static String pg() {
+    public static String pd() {
         StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
         long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
         StatFs statFs2 = new StatFs(Environment.getDataDirectory().getPath());

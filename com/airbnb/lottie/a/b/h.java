@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h extends com.airbnb.lottie.a.a<PointF> {
     @Nullable
-    private Path lg;
+    private Path lh;
 
     private h(com.airbnb.lottie.e eVar, @Nullable PointF pointF, @Nullable PointF pointF2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
         super(eVar, pointF, pointF2, interpolator, f, f2);
@@ -33,10 +33,10 @@ public class h extends com.airbnb.lottie.a.a<PointF> {
                 pointF = com.airbnb.lottie.c.b.a(optJSONArray, eVar.bn());
                 pointF2 = a2;
             }
-            h hVar = new h(eVar, (PointF) a.kX, (PointF) a.kY, a.kZ, a.la, a.lb);
-            boolean z = (a.kY == 0 || a.kX == 0 || !((PointF) a.kX).equals(((PointF) a.kY).x, ((PointF) a.kY).y)) ? false : true;
-            if (hVar.kY != 0 && !z) {
-                hVar.lg = com.airbnb.lottie.c.f.b((PointF) a.kX, (PointF) a.kY, pointF2, pointF);
+            h hVar = new h(eVar, (PointF) a.kY, (PointF) a.kZ, a.la, a.lb, a.lc);
+            boolean z = (a.kZ == 0 || a.kY == 0 || !((PointF) a.kY).equals(((PointF) a.kZ).x, ((PointF) a.kZ).y)) ? false : true;
+            if (hVar.kZ != 0 && !z) {
+                hVar.lh = com.airbnb.lottie.c.f.b((PointF) a.kY, (PointF) a.kZ, pointF2, pointF);
             }
             return hVar;
         }
@@ -45,6 +45,6 @@ public class h extends com.airbnb.lottie.a.a<PointF> {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public Path getPath() {
-        return this.lg;
+        return this.lh;
     }
 }

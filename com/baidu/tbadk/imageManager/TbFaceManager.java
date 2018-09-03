@@ -14,10 +14,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-    private static TbFaceManager aQf = null;
-    public static String aQh = "#[\\(][\\w?~！]+[\\)]";
+    private static TbFaceManager aQc = null;
+    public static String aQe = "#[\\(][\\w?~！]+[\\)]";
     private Context mContext = null;
-    private com.baidu.tbadk.imageManager.a aQg = null;
+    private com.baidu.tbadk.imageManager.a aQd = null;
 
     /* loaded from: classes.dex */
     public static class RichUnit extends OrmObject implements Serializable {
@@ -33,10 +33,10 @@ public class TbFaceManager {
     }
 
     public static TbFaceManager IP() {
-        if (aQf == null) {
-            aQf = new TbFaceManager();
+        if (aQc == null) {
+            aQc = new TbFaceManager();
         }
-        return aQf;
+        return aQc;
     }
 
     private TbFaceManager() {
@@ -47,7 +47,7 @@ public class TbFaceManager {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
         this.mContext = context;
-        this.aQg = aVar;
+        this.aQd = aVar;
     }
 
     public com.baidu.adp.widget.ImageView.a gY(String str) {
@@ -66,12 +66,12 @@ public class TbFaceManager {
     }
 
     public int gA(String str) {
-        return this.aQg.gA(str);
+        return this.aQd.gA(str);
     }
 
     public a.C0113a gZ(String str) {
         com.baidu.adp.widget.ImageView.a gY;
-        a.C0113a V = this.aQg.V(this.mContext, str);
+        a.C0113a V = this.aQd.V(this.mContext, str);
         if (V == null && (gY = gY(str)) != null) {
             return new a.C0113a(gY.getWidth(), gY.getHeight());
         }
@@ -79,15 +79,15 @@ public class TbFaceManager {
     }
 
     public int gB(String str) {
-        return this.aQg.gB(str);
+        return this.aQd.gB(str);
     }
 
     public int HG() {
-        return this.aQg.HG();
+        return this.aQd.HG();
     }
 
     public String gC(String str) {
-        return this.aQg.gC(str);
+        return this.aQd.gC(str);
     }
 
     public SpannableString W(Context context, String str) {
@@ -100,10 +100,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(aQh).matcher(str);
+        Matcher matcher = Pattern.compile(aQe).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int gB = this.aQg.gB(group);
+            int gB = this.aQd.gB(group);
             if (gB > 0 && (m = m(gB, String.valueOf(gB))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -122,10 +122,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(aQh).matcher(str);
+        Matcher matcher = Pattern.compile(aQe).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int gB = this.aQg.gB(group);
+            int gB = this.aQd.gB(group);
             if (gB > 0) {
                 com.baidu.adp.widget.ImageView.a m = m(gB, String.valueOf(gB));
                 if (m != null) {

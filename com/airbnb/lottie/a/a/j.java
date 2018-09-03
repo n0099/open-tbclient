@@ -10,19 +10,19 @@ import java.util.ListIterator;
 @TargetApi(19)
 /* loaded from: classes2.dex */
 public class j implements i, k {
-    private final MergePaths lK;
+    private final MergePaths lL;
     private final String name;
-    private final Path lI = new Path();
     private final Path lJ = new Path();
-    private final Path lg = new Path();
-    private final List<k> lr = new ArrayList();
+    private final Path lK = new Path();
+    private final Path lh = new Path();
+    private final List<k> lt = new ArrayList();
 
     public j(MergePaths mergePaths) {
         if (Build.VERSION.SDK_INT < 19) {
             throw new IllegalStateException("Merge paths are not supported pre-KitKat.");
         }
         this.name = mergePaths.getName();
-        this.lK = mergePaths;
+        this.lL = mergePaths;
     }
 
     @Override // com.airbnb.lottie.a.a.i
@@ -32,7 +32,7 @@ public class j implements i, k {
         while (listIterator.hasPrevious()) {
             b previous = listIterator.previous();
             if (previous instanceof k) {
-                this.lr.add((k) previous);
+                this.lt.add((k) previous);
                 listIterator.remove();
             }
         }
@@ -43,8 +43,8 @@ public class j implements i, k {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.lr.size()) {
-                this.lr.get(i2).b(list, list2);
+            if (i2 < this.lt.size()) {
+                this.lt.get(i2).b(list, list2);
                 i = i2 + 1;
             } else {
                 return;
@@ -54,8 +54,8 @@ public class j implements i, k {
 
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
-        this.lg.reset();
-        switch (this.lK.cR()) {
+        this.lh.reset();
+        switch (this.lL.cR()) {
             case Merge:
                 bL();
                 break;
@@ -72,7 +72,7 @@ public class j implements i, k {
                 a(Path.Op.XOR);
                 break;
         }
-        return this.lg;
+        return this.lh;
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -84,8 +84,8 @@ public class j implements i, k {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.lr.size()) {
-                this.lg.addPath(this.lr.get(i2).getPath());
+            if (i2 < this.lt.size()) {
+                this.lh.addPath(this.lt.get(i2).getPath());
                 i = i2 + 1;
             } else {
                 return;
@@ -95,38 +95,38 @@ public class j implements i, k {
 
     @TargetApi(19)
     private void a(Path.Op op) {
+        this.lK.reset();
         this.lJ.reset();
-        this.lI.reset();
-        int size = this.lr.size() - 1;
+        int size = this.lt.size() - 1;
         while (true) {
             int i = size;
             if (i < 1) {
                 break;
             }
-            k kVar = this.lr.get(i);
+            k kVar = this.lt.get(i);
             if (kVar instanceof c) {
                 List<k> bG = ((c) kVar).bG();
                 for (int size2 = bG.size() - 1; size2 >= 0; size2--) {
                     Path path = bG.get(size2).getPath();
                     path.transform(((c) kVar).bH());
-                    this.lJ.addPath(path);
+                    this.lK.addPath(path);
                 }
             } else {
-                this.lJ.addPath(kVar.getPath());
+                this.lK.addPath(kVar.getPath());
             }
             size = i - 1;
         }
-        k kVar2 = this.lr.get(0);
+        k kVar2 = this.lt.get(0);
         if (kVar2 instanceof c) {
             List<k> bG2 = ((c) kVar2).bG();
             for (int i2 = 0; i2 < bG2.size(); i2++) {
                 Path path2 = bG2.get(i2).getPath();
                 path2.transform(((c) kVar2).bH());
-                this.lI.addPath(path2);
+                this.lJ.addPath(path2);
             }
         } else {
-            this.lI.set(kVar2.getPath());
+            this.lJ.set(kVar2.getPath());
         }
-        this.lg.op(this.lI, this.lJ, op);
+        this.lh.op(this.lJ, this.lK, op);
     }
 }

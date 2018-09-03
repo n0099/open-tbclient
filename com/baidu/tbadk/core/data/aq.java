@@ -17,11 +17,11 @@ public class aq {
     public int pageNum;
     public int type;
 
-    public ArrayList<UserData> ux() {
+    public ArrayList<UserData> uw() {
         return this.agP;
     }
 
-    public ArrayList<UserData> uy() {
+    public ArrayList<UserData> ux() {
         return this.agQ;
     }
 
@@ -48,9 +48,9 @@ public class aq {
                     }
                     this.agR.parserJson(jSONObject.optJSONObject("page"));
                     if (this.agR != null) {
-                        this.pageNum = this.agR.uq();
-                        this.agU = this.agR.uo();
-                        this.hasMore = this.agR.us() == 1;
+                        this.pageNum = this.agR.up();
+                        this.agU = this.agR.un();
+                        this.hasMore = this.agR.ur() == 1;
                     }
                     this.agS = jSONObject.optInt("tafriendnum", 0);
                     this.agT = jSONObject.optInt("commonfriendnum", 0);

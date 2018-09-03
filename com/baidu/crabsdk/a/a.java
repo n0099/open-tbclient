@@ -45,7 +45,7 @@ public final class a {
         return T * 0.6f;
     }
 
-    public static a oV() {
+    public static a oS() {
         if (RL == null) {
             synchronized (a.class) {
                 if (RL == null) {

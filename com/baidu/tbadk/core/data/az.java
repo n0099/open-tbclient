@@ -5,7 +5,7 @@ public class az {
     protected String link = null;
     protected String ahs = null;
 
-    public String tU() {
+    public String tT() {
         return this.img_url;
     }
 
@@ -21,7 +21,7 @@ public class az {
         this.link = str;
     }
 
-    public String uL() {
+    public String uK() {
         return this.ahs;
     }
 

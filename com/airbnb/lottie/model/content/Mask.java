@@ -6,9 +6,9 @@ import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Mask {
-    private final com.airbnb.lottie.model.a.d nD;
-    private final MaskMode nY;
-    private final com.airbnb.lottie.model.a.h nZ;
+    private final com.airbnb.lottie.model.a.d nE;
+    private final MaskMode nZ;
+    private final com.airbnb.lottie.model.a.h oa;
 
     /* loaded from: classes2.dex */
     public enum MaskMode {
@@ -19,9 +19,9 @@ public class Mask {
     }
 
     private Mask(MaskMode maskMode, com.airbnb.lottie.model.a.h hVar, com.airbnb.lottie.model.a.d dVar) {
-        this.nY = maskMode;
-        this.nZ = hVar;
-        this.nD = dVar;
+        this.nZ = maskMode;
+        this.oa = hVar;
+        this.nE = dVar;
     }
 
     /* loaded from: classes2.dex */
@@ -69,14 +69,14 @@ public class Mask {
     }
 
     public MaskMode cP() {
-        return this.nY;
-    }
-
-    public com.airbnb.lottie.model.a.h cQ() {
         return this.nZ;
     }
 
+    public com.airbnb.lottie.model.a.h cQ() {
+        return this.oa;
+    }
+
     public com.airbnb.lottie.model.a.d cx() {
-        return this.nD;
+        return this.nE;
     }
 }

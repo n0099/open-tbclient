@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class a extends d<com.baidu.tbadk.data.b, com.baidu.tbadk.j.b> {
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -18,7 +18,7 @@ public class a extends d<com.baidu.tbadk.data.b, com.baidu.tbadk.j.b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: h */
     public com.baidu.tbadk.j.b onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.j.b(LayoutInflater.from(this.mContext).inflate(d.h.ala_follow_lives_layout, viewGroup, false), this.mPageContext);
+        return new com.baidu.tbadk.j.b(LayoutInflater.from(this.mContext).inflate(f.h.ala_follow_lives_layout, viewGroup, false), this.mPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

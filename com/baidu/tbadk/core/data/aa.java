@@ -8,11 +8,11 @@ public class aa {
     private String class_name = null;
     private int agb = 0;
 
-    public String tY() {
+    public String tX() {
         return this.class_name;
     }
 
-    public int tZ() {
+    public int tY() {
         return this.agb;
     }
 

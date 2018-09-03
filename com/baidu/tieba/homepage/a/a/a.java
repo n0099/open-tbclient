@@ -48,7 +48,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Js() {
+    public byte[] Jw() {
         return null;
     }
 

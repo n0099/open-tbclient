@@ -7,7 +7,7 @@ public class b {
     private static Object a = new Object();
     private static b VO = null;
 
-    public static b qo() {
+    public static b ql() {
         b bVar;
         synchronized (a) {
             if (VO == null) {
@@ -25,7 +25,7 @@ public class b {
             bundle.putInt("loctype", i);
             bundle.putInt("diagtype", i2);
             bundle.putByteArray("diagmessage", str.getBytes());
-            a.qn().a(bundle, 303);
+            a.qk().a(bundle, 303);
         }
     }
 }

@@ -11,28 +11,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d implements b {
-    private final com.airbnb.lottie.model.a.d nD;
-    private final GradientType nM;
-    private final Path.FillType nN;
-    private final com.airbnb.lottie.model.a.c nO;
-    private final com.airbnb.lottie.model.a.f nP;
+    private final com.airbnb.lottie.model.a.d nE;
+    private final GradientType nN;
+    private final Path.FillType nO;
+    private final com.airbnb.lottie.model.a.c nP;
     private final com.airbnb.lottie.model.a.f nQ;
-    @Nullable
-    private final com.airbnb.lottie.model.a.b nR;
+    private final com.airbnb.lottie.model.a.f nR;
     @Nullable
     private final com.airbnb.lottie.model.a.b nS;
+    @Nullable
+    private final com.airbnb.lottie.model.a.b nT;
     private final String name;
 
     private d(String str, GradientType gradientType, Path.FillType fillType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2) {
-        this.nM = gradientType;
-        this.nN = fillType;
-        this.nO = cVar;
-        this.nD = dVar;
-        this.nP = fVar;
-        this.nQ = fVar2;
+        this.nN = gradientType;
+        this.nO = fillType;
+        this.nP = cVar;
+        this.nE = dVar;
+        this.nQ = fVar;
+        this.nR = fVar2;
         this.name = str;
-        this.nR = bVar;
-        this.nS = bVar2;
+        this.nS = bVar;
+        this.nT = bVar2;
     }
 
     public String getName() {
@@ -40,27 +40,27 @@ public class d implements b {
     }
 
     public GradientType cG() {
-        return this.nM;
-    }
-
-    public Path.FillType getFillType() {
         return this.nN;
     }
 
-    public com.airbnb.lottie.model.a.c cH() {
+    public Path.FillType getFillType() {
         return this.nO;
     }
 
-    public com.airbnb.lottie.model.a.d cx() {
-        return this.nD;
-    }
-
-    public com.airbnb.lottie.model.a.f cI() {
+    public com.airbnb.lottie.model.a.c cH() {
         return this.nP;
     }
 
-    public com.airbnb.lottie.model.a.f cJ() {
+    public com.airbnb.lottie.model.a.d cx() {
+        return this.nE;
+    }
+
+    public com.airbnb.lottie.model.a.f cI() {
         return this.nQ;
+    }
+
+    public com.airbnb.lottie.model.a.f cJ() {
+        return this.nR;
     }
 
     @Override // com.airbnb.lottie.model.content.b

@@ -9,16 +9,16 @@ public class ab extends com.baidu.tieba.card.data.b {
     private boolean agc;
     private String card;
 
-    public void dg(String str) {
+    public void dh(String str) {
         this.card = str;
     }
 
-    public void ua() {
-        this.Pj = com.baidu.tieba.lego.card.b.pn(this.card);
+    public void tZ() {
+        this.Pj = com.baidu.tieba.lego.card.b.pp(this.card);
         this.agc = this.Pj != null;
     }
 
-    public ICardInfo ub() {
+    public ICardInfo ua() {
         return this.Pj;
     }
 

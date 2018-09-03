@@ -326,7 +326,7 @@ public class i {
         webView.addJavascriptInterface(new d(), "BaiduLocAssistant");
     }
 
-    public static i qu() {
+    public static i qr() {
         return c.WG;
     }
 

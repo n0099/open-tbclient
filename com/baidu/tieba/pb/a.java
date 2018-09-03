@@ -27,39 +27,39 @@ public class a {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            an af = new an("ad_tpoint").af(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).af("obj_name", str);
+            an ae = new an("ad_tpoint").ae(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).ae("obj_name", str);
             if (str3 != null) {
-                af = af.af("page", str3);
+                ae = ae.ae("page", str3);
             }
             if (str4 != null) {
-                af = af.af("loc_param", str4);
+                ae = ae.ae("loc_param", str4);
             }
             if (str5 != null) {
-                af = af.af(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str5);
+                ae = ae.ae(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str5);
             }
             if (str6 != null) {
-                af = af.af("task", str6);
+                ae = ae.ae("task", str6);
             }
             if (str7 != null) {
-                af = af.af("obj_param", str7);
+                ae = ae.ae("obj_param", str7);
             }
             if (str8 != null) {
-                af = af.af(LegoListActivityConfig.PARAMS, str8);
+                ae = ae.ae(LegoListActivityConfig.PARAMS, str8);
             }
             if (str9 != null) {
-                af = af.af(ImageViewerConfig.FORUM_ID, str9);
+                ae = ae.ae(ImageViewerConfig.FORUM_ID, str9);
             }
             if (str10 != null) {
-                af = af.af(ImageViewerConfig.FORUM_NAME, str10);
+                ae = ae.ae(ImageViewerConfig.FORUM_NAME, str10);
             }
             if (str11 != null) {
-                af = af.af("tid", str11);
+                ae = ae.ae("tid", str11);
             }
-            an af2 = af.af("line", "PT").af("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).af("obj_throw_type", "BY_POST").af("client_type", "MOBILE_APP").af("user_timestamp", String.valueOf(System.currentTimeMillis())).af("os", HttpConstants.OS_TYPE_VALUE).af(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).af("log_ver", "1.1");
+            an ae2 = ae.ae("line", "PT").ae("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).ae("obj_throw_type", "BY_POST").ae("client_type", "MOBILE_APP").ae("user_timestamp", String.valueOf(System.currentTimeMillis())).ae("os", HttpConstants.OS_TYPE_VALUE).ae(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ae("log_ver", "1.1");
             if (str2 != null) {
-                af2 = af2.af("link", str2);
+                ae2 = ae2.ae("link", str2);
             }
-            TiebaStatic.log(af2);
+            TiebaStatic.log(ae2);
         }
     }
 }

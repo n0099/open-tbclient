@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.f;
 import com.baidu.tieba.person.e;
 import com.baidu.tieba.view.j;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static a gnq;
-    private e fiL;
+    private static a gnt;
+    private e fiF;
     private int mScore = 0;
 
-    public static a bmV() {
-        if (gnq == null) {
+    public static a bmW() {
+        if (gnt == null) {
             synchronized (a.class) {
-                if (gnq == null) {
-                    gnq = new a();
+                if (gnt == null) {
+                    gnt = new a();
                 }
             }
         }
-        return gnq;
+        return gnt;
     }
 
     public void init() {
@@ -72,31 +72,31 @@ public class a {
     public void z(final TbPageContext tbPageContext) {
         if (tbPageContext != null) {
             j jVar = new j(tbPageContext.getContext());
-            jVar.setTitleText(tbPageContext.getContext().getString(d.j.is_tieba_pleased));
+            jVar.setTitleText(tbPageContext.getContext().getString(f.j.is_tieba_pleased));
             jVar.vc(8);
             jVar.vb(0);
-            int f = l.f(tbPageContext.getContext(), d.e.ds86);
-            int f2 = l.f(tbPageContext.getContext(), d.e.ds138);
-            int f3 = l.f(tbPageContext.getContext(), d.e.ds27);
-            jVar.setTitleSize(d.e.ds28);
+            int f = l.f(tbPageContext.getContext(), f.e.ds86);
+            int f2 = l.f(tbPageContext.getContext(), f.e.ds138);
+            int f3 = l.f(tbPageContext.getContext(), f.e.ds27);
+            jVar.setTitleSize(f.e.ds28);
             jVar.y(0, f, 0, f3);
             jVar.x(0, 0, 0, f2);
             jVar.nk(true);
             jVar.a(new j.e() { // from class: com.baidu.tieba.n.a.1
                 @Override // com.baidu.tieba.view.j.e
                 public void sd(int i) {
-                    if (a.this.fiL != null) {
-                        a.this.fiL.dismiss();
-                        a.this.fiL = null;
+                    if (a.this.fiF != null) {
+                        a.this.fiF.dismiss();
+                        a.this.fiF = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new an("c13072").r("obj_type", a.this.mScore));
                         a.this.A(tbPageContext);
                     }
                 }
             });
-            this.fiL = new e(tbPageContext.getContext(), jVar.bEq());
-            this.fiL.aB(0.7f);
-            g.a(this.fiL, tbPageContext);
+            this.fiF = new e(tbPageContext.getContext(), jVar.bEs());
+            this.fiF.aA(0.7f);
+            g.a(this.fiF, tbPageContext);
             TiebaStatic.log(new an("c13071"));
         }
     }
@@ -106,11 +106,11 @@ public class a {
         if (tbPageContext != null) {
             j jVar = new j(tbPageContext.getContext());
             if (this.mScore == 1 || this.mScore == 2) {
-                jVar.setTitleText(tbPageContext.getContext().getString(d.j.help_my_improving_experience));
-                aVar = new j.a(tbPageContext.getContext().getString(d.j.go_feedback), jVar);
+                jVar.setTitleText(tbPageContext.getContext().getString(f.j.help_my_improving_experience));
+                aVar = new j.a(tbPageContext.getContext().getString(f.j.go_feedback), jVar);
             } else {
-                jVar.setTitleText(tbPageContext.getContext().getString(d.j.go_shop_give_me_comment));
-                aVar = new j.a(tbPageContext.getContext().getString(d.j.go_score), jVar);
+                jVar.setTitleText(tbPageContext.getContext().getString(f.j.go_shop_give_me_comment));
+                aVar = new j.a(tbPageContext.getContext().getString(f.j.go_score), jVar);
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(aVar);
@@ -118,17 +118,17 @@ public class a {
             jVar.vb(0);
             jVar.vc(0);
             jVar.nk(false);
-            l.f(tbPageContext.getContext(), d.e.ds42);
-            int f = l.f(tbPageContext.getContext(), d.e.ds32);
-            l.f(tbPageContext.getContext(), d.e.ds51);
-            jVar.y(0, l.f(tbPageContext.getContext(), d.e.ds21), 0, 0);
+            l.f(tbPageContext.getContext(), f.e.ds42);
+            int f = l.f(tbPageContext.getContext(), f.e.ds32);
+            l.f(tbPageContext.getContext(), f.e.ds51);
+            jVar.y(0, l.f(tbPageContext.getContext(), f.e.ds21), 0, 0);
             jVar.x(0, f, 0, f);
             aVar.a(new j.c() { // from class: com.baidu.tieba.n.a.2
                 @Override // com.baidu.tieba.view.j.c
                 public void onClick() {
-                    if (a.this.fiL != null) {
-                        a.this.fiL.dismiss();
-                        a.this.fiL = null;
+                    if (a.this.fiF != null) {
+                        a.this.fiF.dismiss();
+                        a.this.fiF = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.C(tbPageContext);
                             TiebaStatic.log(new an("c13077"));
@@ -142,9 +142,9 @@ public class a {
             jVar.a(new j.b() { // from class: com.baidu.tieba.n.a.3
                 @Override // com.baidu.tieba.view.j.b
                 public void onClick() {
-                    if (a.this.fiL != null) {
-                        a.this.fiL.dismiss();
-                        a.this.fiL = null;
+                    if (a.this.fiF != null) {
+                        a.this.fiF.dismiss();
+                        a.this.fiF = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new an("c13078"));
                         } else {
@@ -154,9 +154,9 @@ public class a {
                 }
             });
             jVar.dM(arrayList);
-            this.fiL = new e(tbPageContext.getContext(), jVar.bEq());
-            this.fiL.aB(0.7f);
-            g.a(this.fiL, tbPageContext);
+            this.fiF = new e(tbPageContext.getContext(), jVar.bEs());
+            this.fiF.aA(0.7f);
+            g.a(this.fiF, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new an("c13076"));
             } else {
@@ -181,7 +181,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void C(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
-            ay.zK().a((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
+            az.zI().a((TbPageContext<?>) tbPageContext, new String[]{TbConfig.URL_FEED_BACK}, true);
         }
     }
 

@@ -13,7 +13,7 @@ public class o {
     private String obj_id;
     private int width;
 
-    public ArrayList<q> tM() {
+    public ArrayList<q> tL() {
         return this.aeQ;
     }
 

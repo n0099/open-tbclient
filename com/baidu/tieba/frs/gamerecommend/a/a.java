@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private ad dyv = new ad() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
+    private ad dys = new ad() { // from class: com.baidu.tieba.frs.gamerecommend.a.a.1
         @Override // com.baidu.tieba.card.ad
         public void a(View view, com.baidu.tieba.card.data.b bVar) {
             super.a(view, bVar);
@@ -33,21 +33,21 @@ public class a {
 
     private void initAdapters() {
         b bVar = new b(this.mPageContext, this.mForumId, this.mForumName);
-        bVar.d(this.dyv);
+        bVar.d(this.dys);
         this.mAdapters.add(bVar);
         c cVar = new c(this.mPageContext, this.mForumId);
-        cVar.d(this.dyv);
+        cVar.d(this.dys);
         this.mAdapters.add(cVar);
         this.mAdapters.add(new h(this.mPageContext, this.mForumId));
         this.mAdapters.add(new f(this.mPageContext, this.mForumId));
-        this.mAdapters.add(new i(this.mPageContext, com.baidu.tieba.e.h.cOK, this.mPageContext.getUniqueId(), this.mForumId));
+        this.mAdapters.add(new i(this.mPageContext, com.baidu.tieba.e.h.cOH, this.mPageContext.getUniqueId(), this.mForumId));
         e eVar = new e(this.mPageContext, this.mForumId);
-        eVar.d(this.dyv);
+        eVar.d(this.dys);
         this.mAdapters.add(eVar);
-        this.mAdapters.add(new d(this.mPageContext, com.baidu.tieba.e.c.cOy, this.mPageContext.getUniqueId(), this.mForumId));
-        this.mAdapters.add(new g(this.mPageContext, com.baidu.tieba.e.f.cOG, this.mPageContext.getUniqueId(), this.mForumId));
-        m mVar = new m(this.mPageContext, q.dpg, this.mPageContext.getUniqueId());
-        mVar.axi();
+        this.mAdapters.add(new d(this.mPageContext, com.baidu.tieba.e.c.cOv, this.mPageContext.getUniqueId(), this.mForumId));
+        this.mAdapters.add(new g(this.mPageContext, com.baidu.tieba.e.f.cOD, this.mPageContext.getUniqueId(), this.mForumId));
+        m mVar = new m(this.mPageContext, q.dpe, this.mPageContext.getUniqueId());
+        mVar.axh();
         mVar.setForumId(this.mForumId);
         this.mAdapters.add(mVar);
         this.mListView.addAdapters(this.mAdapters);

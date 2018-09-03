@@ -5,8 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private int[] aEA;
-    private int aEz;
+    private int aEy;
+    private int[] aEz;
     private int continuousFailCount;
     private int restartTimeInterval;
 
@@ -20,23 +20,23 @@ public class c {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.aEz = jSONObject.optInt("conn_conf");
+            this.aEy = jSONObject.optInt("conn_conf");
             this.continuousFailCount = jSONObject.optInt("continuous_fail_count");
             this.restartTimeInterval = jSONObject.optInt("restart_time_interval");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.aEA = new int[optJSONArray.length()];
+                this.aEz = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aEA[i] = optJSONArray.optInt(i);
+                    this.aEz[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.aEA = new int[0];
+            this.aEz = new int[0];
         }
     }
 
     public int Eo() {
-        return this.aEz;
+        return this.aEy;
     }
 
     public int Ep() {
@@ -48,6 +48,6 @@ public class c {
     }
 
     public int[] Er() {
-        return this.aEA;
+        return this.aEz;
     }
 }

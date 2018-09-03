@@ -14,7 +14,7 @@ import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
     private ad<bb> bHC;
-    private com.baidu.tieba.homepage.daily.view.c dUI;
+    private com.baidu.tieba.homepage.daily.view.c dUD;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,13 +25,13 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bb bbVar) {
                 int i = 2;
-                if (view != null && bbVar != null && f.this.dUI != null && f.this.dUI.getView() != null) {
-                    an anVar = new an("c13177");
+                if (view != null && bbVar != null && f.this.dUD != null && f.this.dUD.getView() != null) {
+                    an anVar = new an("c13175");
                     anVar.r("obj_type", 2);
-                    anVar.af("tid", bbVar.getTid());
+                    anVar.ae("tid", bbVar.getTid());
                     anVar.f(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-                    if (view.getId() != f.this.dUI.aDH() && view.getId() != f.this.dUI.aDI()) {
-                        if (view.getId() == f.this.dUI.aDJ()) {
+                    if (view.getId() != f.this.dUD.aDE() && view.getId() != f.this.dUD.aDF()) {
+                        if (view.getId() == f.this.dUD.aDG()) {
                             i = 3;
                         }
                     } else {
@@ -50,13 +50,13 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dUI = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
-        this.dUI.setTag(this.mPageId);
-        this.dUI.setShareReportFrom(7);
-        this.dUI.mz(11);
-        this.dUI.setStType(o.uY());
-        this.dUI.currentPageType = 16;
-        return new com.baidu.tieba.card.a.a<>(this.dUI);
+        this.dUD = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
+        this.dUD.setTag(this.mPageId);
+        this.dUD.setShareReportFrom(7);
+        this.dUD.mz(11);
+        this.dUD.setStType(o.uX());
+        this.dUD.currentPageType = 16;
+        return new com.baidu.tieba.card.a.a<>(this.dUD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,16 +64,16 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> aVar) {
-        if (bbVar == null || aVar == null || aVar.ajz() == null) {
+        if (bbVar == null || aVar == null || aVar.ajC() == null) {
             return null;
         }
-        an anVar = new an("c13177");
+        an anVar = new an("c13176");
         anVar.r("obj_type", 2);
-        anVar.af("tid", bbVar.getTid());
+        anVar.ae("tid", bbVar.getTid());
         anVar.f(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-        v.aiY().a(anVar);
-        aVar.ajz().b(this.bHC);
-        aVar.ajz().a(bbVar);
+        v.ajb().a(anVar);
+        aVar.ajC().b(this.bHC);
+        aVar.ajC().a(bbVar);
         return aVar.getView();
     }
 }

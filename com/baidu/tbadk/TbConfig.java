@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -161,6 +161,7 @@ public class TbConfig {
     public static final String GET_HOT_GAME = "c/u/game/getHotGameList";
     public static final String GET_IP_LIST = "c/s/getipinfo";
     public static final String GET_LEVEL_INFO_URL = "c/f/forum/getLevelInfo";
+    public static final String GET_LOCAL_PUSH_THREAD_INFO = "c/u/user/getRecThreadInfo";
     public static final String GET_MANGA_COVER = "c/e/cartoon/getBookCover";
     public static final String GET_MANGA_STORE_INFO = "c/e/cartoon/getBookStore";
     public static final String GET_MEMBER_INFO = "c/f/forum/getMemberInfo";
@@ -548,18 +549,18 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds42);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds52);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds48);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds38);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds72);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds68);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds64);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), d.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds52);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds48);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds42);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds52);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds48);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds38);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds72);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds68);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds64);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds56);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -696,7 +697,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.IQ().fb(i);
+            c.IQ().fa(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

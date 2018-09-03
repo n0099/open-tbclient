@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.lego.card.c;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 /* loaded from: classes3.dex */
@@ -17,7 +17,7 @@ public class AdOperateBarCreator {
 
     public AdOperateBarHolder obtainHolder(AdPost adPost, RelativeLayout relativeLayout, AdOperateBarHolder adOperateBarHolder, c cVar) {
         if (adPost != null && adPost.adData != null) {
-            if (adOperateBarHolder != null && aF(adPost.adData.style, adOperateBarHolder.guD)) {
+            if (adOperateBarHolder != null && aF(adPost.adData.style, adOperateBarHolder.guG)) {
                 adOperateBarHolder.setDownloadAppCallback(cVar);
                 return adOperateBarHolder;
             } else if (relativeLayout == null) {
@@ -25,9 +25,9 @@ public class AdOperateBarCreator {
             } else {
                 relativeLayout.removeAllViews();
                 if ("jump".equals(adPost.adData.style)) {
-                    return new AdOperateViewJumpHolder(this.mTbPageContext, 2, LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(d.h.ad_operate_view_layout, (ViewGroup) relativeLayout, true));
+                    return new AdOperateViewJumpHolder(this.mTbPageContext, 2, LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(f.h.ad_operate_view_layout, (ViewGroup) relativeLayout, true));
                 } else if ("apk_download".equals(adPost.adData.style)) {
-                    AdOperateViewDownloadHolder adOperateViewDownloadHolder = new AdOperateViewDownloadHolder(this.mTbPageContext, 1, LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(d.h.ad_operate_view_download_layout, (ViewGroup) relativeLayout, true));
+                    AdOperateViewDownloadHolder adOperateViewDownloadHolder = new AdOperateViewDownloadHolder(this.mTbPageContext, 1, LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(f.h.ad_operate_view_download_layout, (ViewGroup) relativeLayout, true));
                     adOperateViewDownloadHolder.setDownloadAppCallback(cVar);
                     return adOperateViewDownloadHolder;
                 } else {

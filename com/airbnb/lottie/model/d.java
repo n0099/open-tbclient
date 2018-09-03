@@ -12,10 +12,10 @@ public class d {
     @ColorInt
     public int color;
     public String fontName;
-    int mW;
-    double mZ;
-    public double na;
-    public boolean nb;
+    int mZ;
+    double na;
+    public double nb;
+    public boolean nc;
     public int size;
     @ColorInt
     public int strokeColor;
@@ -27,14 +27,14 @@ public class d {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.mW = i2;
+        this.mZ = i2;
         this.tracking = i3;
-        this.mZ = d;
-        this.na = d2;
+        this.na = d;
+        this.nb = d2;
         this.color = i4;
         this.strokeColor = i5;
         this.strokeWidth = i6;
-        this.nb = z;
+        this.nc = z;
     }
 
     /* loaded from: classes2.dex */
@@ -59,7 +59,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.mZ);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.mW) * 31) + this.tracking) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.na);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.mZ) * 31) + this.tracking) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

@@ -7,52 +7,52 @@ import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.card.ad;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.personCenter.data.PersonMoreData;
 import com.baidu.tieba.personCenter.data.PersonMoreItemData;
-import com.baidu.tieba.personCenter.data.e;
+import com.baidu.tieba.personCenter.data.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private c fUd;
-    private List<h> fUe;
-    private PersonMoreData fUf;
+    private c fTV;
+    private List<h> fTW;
+    private PersonMoreData fTX;
     private TbPageContext mPageContext;
 
-    public b(TbPageContext tbPageContext, Bundle bundle, ad<e> adVar) {
+    public b(TbPageContext tbPageContext, Bundle bundle, ad<f> adVar) {
         this.mPageContext = tbPageContext;
-        this.fUd = new c(tbPageContext);
-        this.fUd.b(adVar);
+        this.fTV = new c(tbPageContext);
+        this.fTV.b(adVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.fUf = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.fTX = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
-        this.mPageContext.getPageActivity().setContentView(d.h.person_center_more_layout);
-        this.fUd.Y(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
-        bhE();
-        this.fUd.setData(this.fUe);
+        this.mPageContext.getPageActivity().setContentView(f.h.person_center_more_layout);
+        this.fTV.Y(this.mPageContext.getPageActivity().findViewById(f.g.person_more_layout));
+        bhz();
+        this.fTV.setData(this.fTW);
     }
 
     public void onChangeSkinType() {
-        if (this.fUd != null) {
-            this.fUd.onChangeSkinType();
+        if (this.fTV != null) {
+            this.fTV.onChangeSkinType();
         }
     }
 
-    private void bhE() {
-        this.fUe = new ArrayList();
-        if (this.fUf != null && !w.z(this.fUf.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.fUf.mUrlMaps) {
+    private void bhz() {
+        this.fTW = new ArrayList();
+        if (this.fTX != null && !w.z(this.fTX.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.fTX.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                    e eVar = new e();
-                    eVar.title = personMoreItemData.mName;
-                    eVar.type = 36;
-                    eVar.acG = personMoreItemData.mUrl;
-                    eVar.itemId = personMoreItemData.mId;
-                    this.fUe.add(eVar);
+                    com.baidu.tieba.personCenter.data.f fVar = new com.baidu.tieba.personCenter.data.f();
+                    fVar.title = personMoreItemData.mName;
+                    fVar.type = 36;
+                    fVar.acH = personMoreItemData.mUrl;
+                    fVar.itemId = personMoreItemData.mId;
+                    this.fTW.add(fVar);
                 }
             }
         }

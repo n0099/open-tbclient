@@ -14,10 +14,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.a.e;
-import com.baidu.tbadk.core.util.a.f;
 import com.baidu.tbadk.core.util.t;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCdnIpListData;
 import com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel;
 import java.util.ArrayList;
@@ -26,15 +25,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ImageProblemAssistant {
     private StringBuilder CI;
-    private TbCdnIpListData eLy;
+    private TbCdnIpListData eLt;
     private final Context mContext;
     public ArrayList<TestTask> taskList = new ArrayList<>();
-    public boolean eLz = false;
+    public boolean eLu = false;
 
     public ImageProblemAssistant(Context context) {
         String[] strArr;
         this.mContext = context;
-        for (String str : new String[]{context.getString(d.j.img_assistant_title_1), context.getString(d.j.img_assistant_title_2), context.getString(d.j.img_assistant_title_3), context.getString(d.j.img_assistant_title_4), context.getString(d.j.img_assistant_title_5), context.getString(d.j.img_assistant_title_6)}) {
+        for (String str : new String[]{context.getString(f.j.img_assistant_title_1), context.getString(f.j.img_assistant_title_2), context.getString(f.j.img_assistant_title_3), context.getString(f.j.img_assistant_title_4), context.getString(f.j.img_assistant_title_5), context.getString(f.j.img_assistant_title_6)}) {
             TestTask testTask = new TestTask();
             testTask.title = str;
             this.taskList.add(testTask);
@@ -43,7 +42,7 @@ public class ImageProblemAssistant {
 
     /* loaded from: classes2.dex */
     public class TestTask {
-        public String eLA;
+        public String eLv;
         public int result;
         public String title;
 
@@ -52,7 +51,7 @@ public class ImageProblemAssistant {
     }
 
     public boolean hasImageProblem() {
-        if (!e.getInstance().arX) {
+        if (!e.getInstance().arY) {
             e.getInstance().init();
         }
         return e.getInstance().hasImageProblem();
@@ -62,7 +61,7 @@ public class ImageProblemAssistant {
         this.CI = new StringBuilder();
         Iterator<TestTask> it = this.taskList.iterator();
         while (it.hasNext()) {
-            it.next().eLA = "";
+            it.next().eLv = "";
         }
         TestTask testTask = null;
         try {
@@ -72,7 +71,7 @@ public class ImageProblemAssistant {
                     testTask2.result = 0;
                 } else {
                     testTask2.result = 2;
-                    testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_1);
+                    testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_1);
                     if (this.CI != null) {
                         this.CI.append("1:failed");
                     }
@@ -107,7 +106,7 @@ public class ImageProblemAssistant {
             for (String str : strArr) {
                 if (intToIp(dhcpInfo.dns1).equals(str) || intToIp(dhcpInfo.dns2).equals(str)) {
                     testTask.result = 1;
-                    testTask.eLA = this.mContext.getString(d.j.img_assistant_helptext_2_1) + intToIp(dhcpInfo.dns1) + "," + intToIp(dhcpInfo.dns2) + this.mContext.getString(d.j.img_assistant_helptext_2_2);
+                    testTask.eLv = this.mContext.getString(f.j.img_assistant_helptext_2_1) + intToIp(dhcpInfo.dns1) + "," + intToIp(dhcpInfo.dns2) + this.mContext.getString(f.j.img_assistant_helptext_2_2);
                     return;
                 }
             }
@@ -140,9 +139,9 @@ public class ImageProblemAssistant {
                 if (property != null && property2 != null && property.length() > 0) {
                     testTask2.result = 1;
                     if (j.jF()) {
-                        testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_3);
+                        testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_3);
                     } else {
-                        testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_3_mobile);
+                        testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_3_mobile);
                     }
                     if (this.CI != null) {
                         this.CI.append("_3:" + property + SystemInfoUtil.COLON + property2);
@@ -178,7 +177,7 @@ public class ImageProblemAssistant {
                 testTask.result = 0;
             } else {
                 testTask.result = 2;
-                testTask.eLA = this.mContext.getString(d.j.img_assistant_helptext_4);
+                testTask.eLv = this.mContext.getString(f.j.img_assistant_helptext_4);
                 if (this.CI != null) {
                     this.CI.append("_4:failed:" + String.valueOf(System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -202,7 +201,7 @@ public class ImageProblemAssistant {
                     testTask2.result = 0;
                 } else {
                     testTask2.result = 2;
-                    testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_5);
+                    testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_5);
                     if (this.CI != null) {
                         this.CI.append("_5:failed");
                     }
@@ -225,17 +224,17 @@ public class ImageProblemAssistant {
         try {
             TestTask testTask2 = this.taskList.get(5);
             try {
-                String yq = new y(TbCdnTachometerModel.IPLIST_ADDRESS).yq();
-                if (!TextUtils.isEmpty(yq)) {
-                    JSONObject jSONObject = new JSONObject(yq);
-                    this.eLy = new TbCdnIpListData();
-                    this.eLy.parseJson(jSONObject);
-                    boolean bz = bz(this.eLy.imageUrl, null);
+                String yo = new y(TbCdnTachometerModel.IPLIST_ADDRESS).yo();
+                if (!TextUtils.isEmpty(yo)) {
+                    JSONObject jSONObject = new JSONObject(yo);
+                    this.eLt = new TbCdnIpListData();
+                    this.eLt.parseJson(jSONObject);
+                    boolean bz = bz(this.eLt.imageUrl, null);
                     boolean bz2 = bz("http://imgsrc.baidu.com/forum/crop%3D0%2C63%2C900%2C630%3Bwh%3D150%2C105%3B/sign=8ec7a12a932397ddc236c24464b29e81/f2c8a786c9177f3e8cf664c072cf3bc79e3d5639.jpg", null);
-                    boolean bz3 = bz(TbConfig.URL_IMAGE_PREFIX + this.eLy.imageUrl, null);
+                    boolean bz3 = bz(TbConfig.URL_IMAGE_PREFIX + this.eLt.imageUrl, null);
                     if (!bz2 && !bz3) {
                         testTask2.result = 2;
-                        testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_6_1);
+                        testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_6_1);
                         if (this.CI != null) {
                             this.CI.append("_6:failed1");
                             return;
@@ -243,19 +242,19 @@ public class ImageProblemAssistant {
                         return;
                     } else if (bz && bz2 && bz3) {
                         testTask2.result = 0;
-                        this.eLz = true;
+                        this.eLu = true;
                         return;
                     } else if (bz3) {
                         testTask2.result = 1;
-                        testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_6_2);
+                        testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_6_2);
                         if (this.CI != null) {
                             this.CI.append("_6:warning");
                         }
-                        this.eLz = true;
+                        this.eLu = true;
                         return;
                     } else {
                         testTask2.result = 2;
-                        testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_6_1);
+                        testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_6_1);
                         if (this.CI != null) {
                             this.CI.append("_6:failed2");
                             return;
@@ -264,7 +263,7 @@ public class ImageProblemAssistant {
                     }
                 }
                 testTask2.result = 2;
-                testTask2.eLA = this.mContext.getString(d.j.img_assistant_helptext_6_1);
+                testTask2.eLv = this.mContext.getString(f.j.img_assistant_helptext_6_1);
                 if (this.CI != null) {
                     this.CI.append("_6:failed:iplist");
                 }
@@ -283,11 +282,11 @@ public class ImageProblemAssistant {
 
     public void fix() {
         t.ew(this.CI.toString());
-        if (this.eLz) {
+        if (this.eLu) {
             try {
                 y yVar = new y(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
                 yVar.o("ab_img_m", "1");
-                yVar.yq();
+                yVar.yo();
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -301,7 +300,7 @@ public class ImageProblemAssistant {
                 return false;
             }
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-            f fVar = new f(eVar);
+            com.baidu.tbadk.core.util.a.f fVar = new com.baidu.tbadk.core.util.a.f(eVar);
             eVar.hW().setUrl(str);
             if (str2 != null && str2.length() > 0) {
                 fVar.e(str2, "tbcdn.hiphotos.baidu.com", 1);

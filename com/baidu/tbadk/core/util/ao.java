@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ao {
-    private static ao aqO;
+    private static ao aqP;
 
-    public static synchronized ao zq() {
+    public static synchronized ao zo() {
         ao aoVar;
         synchronized (ao.class) {
-            if (aqO == null) {
-                aqO = new ao();
+            if (aqP == null) {
+                aqP = new ao();
             }
-            aoVar = aqO;
+            aoVar = aqP;
         }
         return aoVar;
     }
@@ -86,12 +86,12 @@ public class ao {
         }
     }
 
-    public void zr() {
+    public void zp() {
         u(new File(l.CD + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
         u(new File(l.CD + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void zs() {
+    public void zq() {
         v(new File(l.CD + "/" + TbConfig.getTempDirName() + "/" + l.cE(3)));
     }
 

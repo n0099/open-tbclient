@@ -6,13 +6,13 @@ import com.tencent.tauth.AuthActivity;
 public class e extends o {
     @Override // com.baidu.tbadk.l.o
     public void a(i iVar) {
-        if (m.KF().KG()) {
+        if (m.KJ().KK()) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append(AuthActivity.ACTION_KEY, "time_t");
             a(ii, iVar);
             ii.append("ishttp", iVar.aTX ? "1" : "0");
             ii.append("issuccess", iVar.isSuccess ? "1" : "0");
-            ii.append("nettype", m.KF().getNetType());
+            ii.append("nettype", m.KJ().getNetType());
             ii.append("ct", String.valueOf(iVar.aTM));
             ii.append("wt", String.valueOf(iVar.aTU));
             ii.append("qt", String.valueOf(iVar.aTN));
@@ -43,7 +43,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.l.o
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.KF().KG()) {
+        if (hVar != null && str != null && m.KJ().KK()) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append(AuthActivity.ACTION_KEY, "resource_t");
             ii.append("actype", str);
@@ -63,7 +63,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.l.o
     public void a(i iVar, boolean z) {
-        if (m.KF().KG()) {
+        if (m.KJ().KK()) {
             if (!z || iVar.aUc > 0) {
                 if (z || iVar.aUd > 0) {
                     com.baidu.adp.lib.stats.a ii = ii();
@@ -76,7 +76,7 @@ public class e extends o {
                     }
                     ii.append("ishttp", iVar.aTX ? "1" : "0");
                     ii.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    ii.append("nettype", m.KF().getNetType());
+                    ii.append("nettype", m.KJ().getNetType());
                     ii.append("qt", String.valueOf(iVar.aTN));
                     ii.append("connt", String.valueOf(iVar.aTO));
                     ii.append("rwt", String.valueOf(iVar.aTP));
@@ -102,7 +102,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.l.o
     public void a(i iVar, int i) {
-        if (m.KF().KG() && iVar.aUe > 0) {
+        if (m.KJ().KK() && iVar.aUe > 0) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append(AuthActivity.ACTION_KEY, "time_t");
             a(ii, iVar);

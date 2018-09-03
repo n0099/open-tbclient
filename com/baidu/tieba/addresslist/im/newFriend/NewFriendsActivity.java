@@ -23,14 +23,14 @@ import com.baidu.tbadk.util.u;
 import com.baidu.tbadk.util.v;
 import com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel;
 import com.baidu.tieba.addresslist.im.newFriend.a;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
-    private c bps;
-    private com.baidu.tbadk.core.dialog.b bpt;
-    private String bpr = "recommend_new_friend" + TbadkCoreApplication.getCurrentAccount();
-    private a.b bpu = new a.b() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.1
+    private c bpu;
+    private com.baidu.tbadk.core.dialog.b bpv;
+    private String bpt = "recommend_new_friend" + TbadkCoreApplication.getCurrentAccount();
+    private a.b bpw = new a.b() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.1
         @Override // com.baidu.tieba.addresslist.im.newFriend.a.b
         public void a(int i, int i2, View view, com.baidu.tieba.im.data.a aVar) {
             if (aVar.getStatus() == 0) {
@@ -40,69 +40,69 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             }
         }
     };
-    final CustomMessageListener bpv = new CustomMessageListener(2001174) { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.6
+    final CustomMessageListener bpx = new CustomMessageListener(2001174) { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001174 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 if (((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 1) {
-                    NewFriendsActivity.this.Rt();
+                    NewFriendsActivity.this.Ry();
                 } else {
-                    NewFriendsActivity.this.Rv();
+                    NewFriendsActivity.this.RA();
                 }
             }
         }
     };
-    final com.baidu.adp.framework.listener.c bpw = new com.baidu.adp.framework.listener.c(304101) { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.9
+    final com.baidu.adp.framework.listener.c bpy = new com.baidu.adp.framework.listener.c(304101) { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             ResponsePassFriendMessage responsePassFriendMessage;
             int error;
             if (socketResponsedMessage == null || !(socketResponsedMessage instanceof SocketResponsedMessage)) {
-                NewFriendsActivity.this.showToast(d.j.neterror);
+                NewFriendsActivity.this.showToast(f.j.neterror);
             } else if ((socketResponsedMessage instanceof ResponsePassFriendMessage) && (error = (responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage).getError()) != 0 && error != 3100098) {
-                NewFriendsActivity.this.showToast(StringUtils.isNull(responsePassFriendMessage.getErrorString()) ? NewFriendsActivity.this.getResources().getString(d.j.neterror) : responsePassFriendMessage.getErrorString());
+                NewFriendsActivity.this.showToast(StringUtils.isNull(responsePassFriendMessage.getErrorString()) ? NewFriendsActivity.this.getResources().getString(f.j.neterror) : responsePassFriendMessage.getErrorString());
             }
         }
     };
-    private final g.b bpx = new g.b() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.4
+    private final g.b bpz = new g.b() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.4
         @Override // com.baidu.tbadk.core.view.g.b
-        public void aS(boolean z) {
+        public void aT(boolean z) {
             if (!z) {
-                NewFriendsActivity.this.Ru();
+                NewFriendsActivity.this.Rz();
             }
         }
     };
-    private final RecommendFriendModel bpy = new RecommendFriendModel(this, new RecommendFriendModel.a() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.5
+    private final RecommendFriendModel bpA = new RecommendFriendModel(this, new RecommendFriendModel.a() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.5
         @Override // com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.a
-        public void iS(String str) {
-            NewFriendsActivity.this.Ru();
-            TbadkSettings.getInst().saveBoolean(NewFriendsActivity.this.bpr, true);
+        public void iT(String str) {
+            NewFriendsActivity.this.Rz();
+            TbadkSettings.getInst().saveBoolean(NewFriendsActivity.this.bpt, true);
         }
 
         @Override // com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.a
         public void onLoadFailed(String str) {
-            NewFriendsActivity.this.bps.completePullRefresh();
-            NewFriendsActivity.this.bps.setData(null);
+            NewFriendsActivity.this.bpu.completePullRefresh();
+            NewFriendsActivity.this.bpu.setData(null);
             BdToast.a(NewFriendsActivity.this.getPageContext().getPageActivity(), str);
         }
     });
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rt() {
+    public void Ry() {
         v.b(new u<List<com.baidu.tieba.im.data.a>>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
             public List<com.baidu.tieba.im.data.a> doInBackground() {
-                return b.Rw().Rz();
+                return b.RB().RE();
             }
         }, new com.baidu.tbadk.util.g<List<com.baidu.tieba.im.data.a>>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.8
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.g
             public void onReturnDataInUI(List<com.baidu.tieba.im.data.a> list) {
-                NewFriendsActivity.this.bps.RB().setData(list);
-                NewFriendsActivity.this.bps.RB().notifyDataSetChanged();
+                NewFriendsActivity.this.bpu.RG().setData(list);
+                NewFriendsActivity.this.bpu.RG().notifyDataSetChanged();
             }
         });
     }
@@ -111,75 +111,75 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.new_friend_activity);
-        this.bps = new c(this);
-        this.bps.a(this.bpx);
-        this.bps.a(this.bpu);
-        registerListener(this.bpv);
-        registerListener(this.bpw);
-        if (TbadkSettings.getInst().loadBoolean(this.bpr, false)) {
-            Ru();
-            this.bps.startPullRefresh();
+        setContentView(f.h.new_friend_activity);
+        this.bpu = new c(this);
+        this.bpu.a(this.bpz);
+        this.bpu.a(this.bpw);
+        registerListener(this.bpx);
+        registerListener(this.bpy);
+        if (TbadkSettings.getInst().loadBoolean(this.bpt, false)) {
+            Rz();
+            this.bpu.startPullRefresh();
             return;
         }
-        this.bpy.setUniqueId(getUniqueId());
-        this.bpy.registerListener();
-        this.bpy.RC();
-        this.bps.startPullRefresh();
+        this.bpA.setUniqueId(getUniqueId());
+        this.bpA.registerListener();
+        this.bpA.RH();
+        this.bpu.startPullRefresh();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bps.a(getLayoutMode(), i);
+        this.bpu.a(getLayoutMode(), i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ru() {
+    public void Rz() {
         v.b(new u<List<com.baidu.tieba.im.data.a>>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.10
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
             public List<com.baidu.tieba.im.data.a> doInBackground() {
-                b.Rw().Ry();
-                return b.Rw().Rz();
+                b.RB().RD();
+                return b.RB().RE();
             }
         }, new com.baidu.tbadk.util.g<List<com.baidu.tieba.im.data.a>>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.11
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.g
             public void onReturnDataInUI(List<com.baidu.tieba.im.data.a> list) {
-                NewFriendsActivity.this.bps.completePullRefresh();
-                NewFriendsActivity.this.bps.setData(list);
+                NewFriendsActivity.this.bpu.completePullRefresh();
+                NewFriendsActivity.this.bpu.setData(list);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rv() {
+    public void RA() {
         v.b(new u<List<com.baidu.tieba.im.data.a>>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.12
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.u
             public List<com.baidu.tieba.im.data.a> doInBackground() {
-                return b.Rw().RA();
+                return b.RB().RF();
             }
         }, new com.baidu.tbadk.util.g<List<com.baidu.tieba.im.data.a>>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.13
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.g
             public void onReturnDataInUI(List<com.baidu.tieba.im.data.a> list) {
-                NewFriendsActivity.this.bps.X(list);
+                NewFriendsActivity.this.bpu.X(list);
             }
         });
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == d.g.new_friend_textview_container) {
+        if (view.getId() == f.g.new_friend_textview_container) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(getPageContext().getPageActivity())));
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.im.data.a item = this.bps.RB().getItem(i);
+        com.baidu.tieba.im.data.a item = this.bpu.RG().getItem(i);
         if (item != null && (item instanceof com.baidu.tieba.im.data.a)) {
             com.baidu.tieba.im.data.a aVar = item;
             if (i == j) {
@@ -190,11 +190,11 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.im.data.a item = this.bps.RB().getItem(i);
+        com.baidu.tieba.im.data.a item = this.bpu.RG().getItem(i);
         if (item != null && (item instanceof com.baidu.tieba.im.data.a)) {
-            this.bpt = a(new a(item));
-            this.bpt.d(getPageContext());
-            this.bpt.xi();
+            this.bpv = a(new a(item));
+            this.bpv.d(getPageContext());
+            this.bpv.xh();
             return true;
         }
         return true;
@@ -202,25 +202,25 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     /* loaded from: classes3.dex */
     private class a implements b.InterfaceC0101b {
-        private com.baidu.tieba.im.data.a bpA;
+        private com.baidu.tieba.im.data.a bpC;
 
         public a(com.baidu.tieba.im.data.a aVar) {
-            this.bpA = aVar;
+            this.bpC = aVar;
         }
 
         @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0101b
         public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
             bVar.dismiss();
-            if (this.bpA != null) {
-                NewFriendsActivity.this.f(this.bpA);
+            if (this.bpC != null) {
+                NewFriendsActivity.this.f(this.bpC);
             }
         }
     }
 
     private com.baidu.tbadk.core.dialog.b a(a aVar) {
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        bVar.ci(d.j.operation);
-        bVar.a(new String[]{getPageContext().getString(d.j.delete)}, aVar);
+        bVar.ci(f.j.operation);
+        bVar.a(new String[]{getPageContext().getString(f.j.delete)}, aVar);
         return bVar;
     }
 
@@ -243,14 +243,14 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.u
             public Boolean doInBackground() {
-                return Boolean.valueOf(b.Rw().aJ(aVar.getId()));
+                return Boolean.valueOf(b.RB().aJ(aVar.getId()));
             }
         }, new com.baidu.tbadk.util.g<Boolean>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.g
             public void onReturnDataInUI(Boolean bool) {
                 if (bool.booleanValue()) {
-                    NewFriendsActivity.this.bps.a(aVar);
+                    NewFriendsActivity.this.bpu.a(aVar);
                 }
             }
         });
@@ -260,8 +260,8 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bpt != null) {
-            this.bpt.dismiss();
+        if (this.bpv != null) {
+            this.bpv.dismiss();
         }
     }
 }

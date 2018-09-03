@@ -16,7 +16,7 @@ public class ah {
         return this.tid;
     }
 
-    public void dh(String str) {
+    public void setTid(String str) {
         this.tid = str;
     }
 
@@ -40,7 +40,7 @@ public class ah {
         this.type = str;
     }
 
-    public SparseArray<String> ui() {
+    public SparseArray<String> uh() {
         return this.agt;
     }
 
@@ -52,7 +52,7 @@ public class ah {
         this.agv = i;
     }
 
-    public int uj() {
+    public int ui() {
         return this.agv;
     }
 
@@ -60,7 +60,7 @@ public class ah {
         this.agw = jSONArray;
     }
 
-    public JSONArray uk() {
+    public JSONArray uj() {
         return this.agw;
     }
 }

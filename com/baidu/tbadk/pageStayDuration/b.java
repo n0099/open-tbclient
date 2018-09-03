@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public abstract class b {
     private boolean aTg = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean Kh();
+    public abstract boolean Kl();
 
-    public abstract int Ki();
+    public abstract int Km();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.Kl()) {
+        if (dVar == null || dVar.Kp()) {
             return false;
         }
         if (dVar.aTh) {
-            dVar.L(c.f(dVar.Kj(), 6));
+            dVar.L(c.f(dVar.Kn(), 6));
         } else {
-            int Ko = Ki() > e.Km().Ko() ? e.Km().Ko() : Ki();
-            dVar.L(c.f(dVar.Kj(), Ko <= 5 ? Ko : 5));
+            int Ks = Km() > e.Kq().Ks() ? e.Kq().Ks() : Km();
+            dVar.L(c.f(dVar.Kn(), Ks <= 5 ? Ks : 5));
         }
         return true;
     }
 
-    private void bV(boolean z) {
+    private void bW(boolean z) {
         if (this.aTg != z) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("page_stay_duration_switch", true);
             this.aTg = z;
@@ -34,13 +34,13 @@ public abstract class b {
             return this.aTg;
         }
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-            bV(false);
+            bW(false);
             return false;
-        } else if (!e.Km().Kn()) {
-            bV(false);
+        } else if (!e.Kq().Kr()) {
+            bW(false);
             return false;
         } else {
-            bV(true);
+            bW(true);
             return true;
         }
     }

@@ -17,11 +17,11 @@ public class bi {
         return this.activity_url;
     }
 
-    public String wV() {
+    public String wU() {
         return this.activity_all_icon;
     }
 
-    public String wW() {
+    public String wV() {
         return this.activity_half_icon;
     }
 

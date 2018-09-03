@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewStub;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class h extends a {
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view = getView();
         if (view != null) {
-            ((ViewStub) view.findViewById(d.g.viewstub_interview_live_info)).inflate();
+            ((ViewStub) view.findViewById(f.g.viewstub_interview_live_info)).inflate();
         }
     }
 

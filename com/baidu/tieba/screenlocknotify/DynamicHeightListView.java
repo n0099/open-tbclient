@@ -6,24 +6,24 @@ import android.view.View;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class DynamicHeightListView extends BdListView {
     private int maxHeight;
 
     public DynamicHeightListView(Context context) {
         super(context);
-        this.maxHeight = l.f(TbadkCoreApplication.getInst(), d.e.ds484);
+        this.maxHeight = l.f(TbadkCoreApplication.getInst(), f.e.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.maxHeight = l.f(TbadkCoreApplication.getInst(), d.e.ds484);
+        this.maxHeight = l.f(TbadkCoreApplication.getInst(), f.e.ds484);
     }
 
     public DynamicHeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.maxHeight = l.f(TbadkCoreApplication.getInst(), d.e.ds484);
+        this.maxHeight = l.f(TbadkCoreApplication.getInst(), f.e.ds484);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

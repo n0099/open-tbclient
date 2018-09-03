@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.g;
+import com.baidu.tieba.i;
 import com.baidu.tieba.model.c;
 /* loaded from: classes.dex */
 public class SyncLoginService extends BdBaseService {
@@ -72,7 +72,7 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: A */
+        /* renamed from: z */
         public c doInBackground(String... strArr) {
             c cVar;
             Exception e;
@@ -107,12 +107,12 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.o("package", packageName);
                 this.mNetWork.o("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
                 this.mNetWork.o("signmd5", as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.mNetWork.o(ARResourceKey.HTTP_AR_MD5, g.getTiebaApkMd5());
-                String yq = this.mNetWork.yq();
-                if (this.mNetWork.yO().zN().isRequestSuccess()) {
+                this.mNetWork.o(ARResourceKey.HTTP_AR_MD5, i.getTiebaApkMd5());
+                String yo = this.mNetWork.yo();
+                if (this.mNetWork.yM().zL().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(yq);
+                        cVar.parserJson(yo);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {

@@ -110,7 +110,7 @@ public class a implements f {
         return true;
     }
 
-    public JSONObject aiv() {
+    public JSONObject aiy() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
@@ -177,7 +177,7 @@ public class a implements f {
         return this.threadId;
     }
 
-    public String aXc() {
+    public String aWY() {
         return this.threadName;
     }
 
@@ -193,7 +193,7 @@ public class a implements f {
         this.threadId = str;
     }
 
-    public void qE(String str) {
+    public void qH(String str) {
         this.threadName = str;
     }
 
@@ -205,11 +205,11 @@ public class a implements f {
         return this.postID;
     }
 
-    public void qF(String str) {
+    public void qI(String str) {
         this.postID = str;
     }
 
-    public boolean aXd() {
+    public boolean aWZ() {
         return this.isHostOnly;
     }
 
@@ -217,7 +217,7 @@ public class a implements f {
         this.isHostOnly = z;
     }
 
-    public boolean aXe() {
+    public boolean aXa() {
         return this.isSquence;
     }
 
@@ -229,7 +229,7 @@ public class a implements f {
         return this.liveId;
     }
 
-    public void qG(String str) {
+    public void qJ(String str) {
         this.liveId = str;
     }
 
@@ -255,8 +255,8 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String Jv() {
-        return aiv().toString();
+    public String Jz() {
+        return aiy().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f

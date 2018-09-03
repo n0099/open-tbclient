@@ -5,7 +5,7 @@ import android.content.ContentProvider;
 public class a {
     private static ContentProvider aVu;
 
-    public static ContentProvider KR() {
+    public static ContentProvider KV() {
         return aVu;
     }
 }

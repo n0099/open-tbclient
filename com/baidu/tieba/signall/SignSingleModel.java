@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.util.y;
 /* loaded from: classes3.dex */
 public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
-    private b gGh;
-    private a gGi;
+    private b gGk;
+    private a gGl;
     private String mForumId;
     private String mForumName;
 
@@ -25,7 +25,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         super(signAllForumActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.gGh = null;
+        this.gGk = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -38,20 +38,20 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         return false;
     }
 
-    public void btf() {
-        if (this.gGh != null) {
-            this.gGh.cancel();
-            this.gGh = null;
+    public void btg() {
+        if (this.gGk != null) {
+            this.gGk.cancel();
+            this.gGk = null;
         }
     }
 
     public void cg(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gGh == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.gGk == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.gGh = new b();
-            this.gGh.setPriority(2);
-            this.gGh.execute(new Object[0]);
+            this.gGk = new b();
+            this.gGk.setPriority(2);
+            this.gGk.execute(new Object[0]);
         }
     }
 
@@ -80,14 +80,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
                 this.mNetwork = new y(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                 this.mNetwork.o("kw", SignSingleModel.this.mForumName);
                 this.mNetwork.o(ImageViewerConfig.FORUM_ID, SignSingleModel.this.mForumId);
-                this.mNetwork.yO().zM().mIsNeedTbs = true;
-                String yq = this.mNetwork.yq();
-                if (!this.mNetwork.yR() || !this.mNetwork.yO().zN().isRequestSuccess()) {
+                this.mNetwork.yM().zK().mIsNeedTbs = true;
+                String yo = this.mNetwork.yo();
+                if (!this.mNetwork.yP() || !this.mNetwork.yM().zL().isRequestSuccess()) {
                     return null;
                 }
                 signData = new SignData();
                 try {
-                    signData.parserJson(yq);
+                    signData.parserJson(yo);
                     signData.forumId = SignSingleModel.this.mForumId;
                     signData.forumName = SignSingleModel.this.mForumName;
                     return signData;
@@ -107,9 +107,9 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.hN();
             }
-            SignSingleModel.this.gGh = null;
+            SignSingleModel.this.gGk = null;
             super.cancel(true);
-            SignSingleModel.this.gGi.cf(SignSingleModel.this.mForumId, null);
+            SignSingleModel.this.gGl.cf(SignSingleModel.this.mForumId, null);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,18 +117,18 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(SignData signData) {
-            SignSingleModel.this.gGh = null;
+            SignSingleModel.this.gGk = null;
             if (signData != null || this.mNetwork == null) {
-                SignSingleModel.this.gGi.b(signData);
+                SignSingleModel.this.gGl.b(signData);
                 return;
             }
-            SignSingleModel.this.mErrorCode = this.mNetwork.yS();
+            SignSingleModel.this.mErrorCode = this.mNetwork.yQ();
             SignSingleModel.this.mErrorString = this.mNetwork.getErrorString();
-            SignSingleModel.this.gGi.cf(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
+            SignSingleModel.this.gGl.cf(SignSingleModel.this.mForumId, SignSingleModel.this.mErrorString);
         }
     }
 
     public void a(a aVar) {
-        this.gGi = aVar;
+        this.gGl = aVar;
     }
 }

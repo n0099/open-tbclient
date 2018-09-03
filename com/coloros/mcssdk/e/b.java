@@ -8,15 +8,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String hDV = null;
+    public static final String hDX = null;
     private String content;
-    private String hDW;
-    private String hDX;
     private String hDY;
     private String hDZ;
+    private String hEa;
+    private String hEb;
     private String params;
     private int responseCode = -2;
-    private int uy;
+    private int uz;
 
     public static List<e> r(String str, String str2, String str3, String str4) {
         ArrayList arrayList;
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.wz(jSONObject.getString(str3));
+                    eVar.wD(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -50,7 +50,7 @@ public class b extends c {
     }
 
     public int fA() {
-        return this.uy;
+        return this.uz;
     }
 
     public String getContent() {
@@ -67,7 +67,7 @@ public class b extends c {
     }
 
     public void setAppKey(String str) {
-        this.hDW = str;
+        this.hDY = str;
     }
 
     public void setContent(String str) {
@@ -75,18 +75,18 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.hEa + ",taskID:" + this.hEb + ",appPackage:" + this.appPackage + ",appKey:" + this.hDW + ",appSecret:" + this.hDX + ",registerID:" + this.hDY + ",sdkVersion:" + this.hDZ + ",command:" + this.uy + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.hEc + ",taskID:" + this.hEd + ",appPackage:" + this.appPackage + ",appKey:" + this.hDY + ",appSecret:" + this.hDZ + ",registerID:" + this.hEa + ",sdkVersion:" + this.hEb + ",command:" + this.uz + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
     public void vS(int i) {
-        this.uy = i;
+        this.uz = i;
     }
 
     public void vT(int i) {
         this.responseCode = i;
     }
 
-    public void wu(String str) {
-        this.hDX = str;
+    public void wy(String str) {
+        this.hDZ = str;
     }
 }

@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<d> bkW = new ArrayList();
-    private long bkX = 0;
+    private List<d> blb = new ArrayList();
+    private long blc = 0;
 
-    public List<d> PT() {
-        return this.bkW;
+    public List<d> PZ() {
+        return this.blb;
     }
 
-    public long PU() {
-        return this.bkX;
+    public long Qa() {
+        return this.blc;
     }
 
     public void a(d dVar) {
-        if (this.bkW != null) {
-            this.bkW.add(dVar);
+        if (this.blb != null) {
+            this.blb.add(dVar);
             if (dVar != null) {
-                this.bkX += dVar.Qd();
+                this.blc += dVar.Qj();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.bkW != null) {
-            this.bkW.remove(dVar);
+        if (this.blb != null) {
+            this.blb.remove(dVar);
             if (dVar != null) {
-                this.bkX -= dVar.Qd();
+                this.blc -= dVar.Qj();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.bkW != null) {
-            d dVar = this.bkW.get(i);
+        if (this.blb != null) {
+            d dVar = this.blb.get(i);
             if (dVar != null) {
-                this.bkX -= dVar.Qd();
+                this.blc -= dVar.Qj();
             }
-            this.bkW.remove(i);
+            this.blb.remove(i);
         }
     }
 
-    public int PV() {
-        if (this.bkW != null) {
-            return this.bkW.size();
+    public int Qb() {
+        if (this.blb != null) {
+            return this.blb.size();
         }
         return 0;
     }
 
-    public d gp(int i) {
-        if (this.bkW != null) {
-            return this.bkW.get(i);
+    public d go(int i) {
+        if (this.blb != null) {
+            return this.blb.get(i);
         }
         return null;
     }

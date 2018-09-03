@@ -20,7 +20,7 @@ public class ae {
             int i4 = 0;
             int i5 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean zH = ar.zH();
+            boolean zF = ar.zF();
             int firstVisiblePosition = kVar.getFirstVisiblePosition();
             int lastVisiblePosition = kVar.getLastVisiblePosition();
             com.baidu.adp.lib.f.c.ih().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
@@ -68,9 +68,9 @@ public class ae {
                                     if (i11 <= 13 && pbImageSize < bigImageMaxUsedMemory && i6 > lastVisiblePosition) {
                                         if (next.bigEmotion != null) {
                                             TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = zH ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
+                                            String str = zF ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.ih().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(zH), str);
+                                                com.baidu.adp.lib.f.c.ih().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, 0, 0, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(zF), str);
                                             }
                                             i2 = i7;
                                             i = pbImageSize;

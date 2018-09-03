@@ -222,7 +222,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         int ah = l.ah(TbadkCoreApplication.getInst().getApp());
         int aj = l.aj(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ar.zw().zy() ? 2 : 1;
+        int i2 = ar.zu().zw() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(ah);
         userPostPageRequestMessage.set_scr_h(aj);
         userPostPageRequestMessage.set_scr_dip(f);
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.cCE != 33) {
+                if (cardPersonDynamicThreadData.cCB != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -510,17 +510,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).cCQ = true;
-                ((CardPersonDynamicThreadData) next).cCP = true;
-                long j = ((CardPersonDynamicThreadData) next).cCC * 1000;
+                ((CardPersonDynamicThreadData) next).cCN = true;
+                ((CardPersonDynamicThreadData) next).cCM = true;
+                long j = ((CardPersonDynamicThreadData) next).cCz * 1000;
                 String Q2 = ap.Q(j);
                 String T = ap.T(j);
                 String S = ap.S(j);
                 if (ap.equals(Q2, Q)) {
-                    ((CardPersonDynamicThreadData) next).cCQ = false;
+                    ((CardPersonDynamicThreadData) next).cCN = false;
                 }
                 if (ap.equals(S, str5) && ap.equals(T, str4) && ap.equals(Q2, Q)) {
-                    ((CardPersonDynamicThreadData) next).cCP = false;
+                    ((CardPersonDynamicThreadData) next).cCM = false;
                     str = str5;
                     str2 = str4;
                     str3 = Q;

@@ -19,14 +19,14 @@ public abstract class n {
             return;
         }
         this.Sn.set(true);
-        j.oZ().removeCallbacks(this.Sp);
-        j.oZ().postDelayed(this.Sp, a.h());
+        j.oW().removeCallbacks(this.Sp);
+        j.oW().postDelayed(this.Sp, a.h());
     }
 
     public final void stop() {
         if (this.Sn.get()) {
             this.Sn.set(false);
-            j.oZ().removeCallbacks(this.Sp);
+            j.oW().removeCallbacks(this.Sp);
         }
     }
 }

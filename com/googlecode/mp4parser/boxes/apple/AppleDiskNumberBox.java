@@ -35,7 +35,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wb(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wa(i)));
         this.a = i;
     }
 

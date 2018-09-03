@@ -22,7 +22,7 @@ public class ae {
         return this.agl;
     }
 
-    public AntiData uh() {
+    public AntiData ug() {
         return this.agm;
     }
 

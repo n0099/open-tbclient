@@ -24,13 +24,13 @@ import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes3.dex */
 public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int RN = 20;
-    private CustomMessageListener fVc;
+    private CustomMessageListener fUY;
     private com.baidu.tieba.personPolymeric.c.a fZZ;
     private int fZk;
     private String fZl;
-    private CustomMessageListener fwq;
-    private CustomMessageListener fwr;
-    private CustomMessageListener fws;
+    private CustomMessageListener fwj;
+    private CustomMessageListener fwk;
+    private CustomMessageListener fwl;
     private com.baidu.adp.framework.listener.a gbA;
     private b gby;
     private a gbz;
@@ -61,13 +61,13 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         };
-        this.fws = new CustomMessageListener(2001426) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.2
+        this.fwl = new CustomMessageListener(2001426) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == PersonPolymericModel.this.unique_id) {
                     com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                    DataRes dataRes = aVar.hbr;
+                    DataRes dataRes = aVar.hbs;
                     if (aVar.error == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
                         if (dataRes.is_mute.equals("0")) {
                             PersonPolymericModel.this.fZk = 0;
@@ -83,7 +83,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         };
-        this.fwq = new CustomMessageListener(2001427) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.3
+        this.fwj = new CustomMessageListener(2001427) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -96,7 +96,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         };
-        this.fwr = new CustomMessageListener(2001428) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.4
+        this.fwk = new CustomMessageListener(2001428) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -107,7 +107,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         };
-        this.fVc = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.5
+        this.fUY = new CustomMessageListener(2001380) { // from class: com.baidu.tieba.personPolymeric.mode.PersonPolymericModel.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -118,11 +118,11 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         };
         setUniqueId(bdUniqueId);
         if (!z) {
-            registerListener(this.fws);
-            registerListener(this.fwq);
-            registerListener(this.fwr);
+            registerListener(this.fwl);
+            registerListener(this.fwj);
+            registerListener(this.fwk);
         } else {
-            registerListener(this.fVc);
+            registerListener(this.fUY);
         }
         this.isHost = z;
         registerListener(this.gbA);
@@ -190,10 +190,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void resetData() {
-        this.fZZ.bjx();
+        this.fZZ.bju();
     }
 
-    public com.baidu.tieba.personPolymeric.c.a bjD() {
+    public com.baidu.tieba.personPolymeric.c.a bjA() {
         return this.fZZ;
     }
 

@@ -33,11 +33,11 @@ public class n extends l {
     private long aUV = -1;
     private long aUW = -1;
 
-    public boolean KJ() {
+    public boolean KN() {
         return this.aUy;
     }
 
-    public void bZ(boolean z) {
+    public void ca(boolean z) {
         this.aUx = z;
     }
 
@@ -45,7 +45,7 @@ public class n extends l {
         this.aUB = j;
     }
 
-    public void ca(boolean z) {
+    public void cb(boolean z) {
         this.aUA = z;
     }
 
@@ -134,7 +134,7 @@ public class n extends l {
         this.aUQ = j;
     }
 
-    public static n KK() {
+    public static n KO() {
         if (aUX == null) {
             synchronized (n.class) {
                 if (aUX == null) {
@@ -145,9 +145,9 @@ public class n extends l {
         return aUX;
     }
 
-    public void KL() {
+    public void KP() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016482, (Class) null);
-        if ((this.aUW - this.aUB) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.aUz && m.KF().KG()) {
+        if ((this.aUW - this.aUB) - ((runTask == null || runTask.getData() == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue()) > 0 && !this.aUz && m.KJ().KK()) {
             this.aUz = true;
             long j = this.aUC - this.aUB;
             long j2 = -1;
@@ -185,12 +185,12 @@ public class n extends l {
             ii.append("newinst", this.aUx ? "1" : "0");
             ii.f("pluginloadsync", Boolean.valueOf(this.aUA));
             BdStatisticsManager.getInstance().performance("startt", ii);
-            sd();
+            sb();
         }
     }
 
     public void az(long j) {
-        if (m.KF().KG() && j > 0) {
+        if (m.KJ().KK() && j > 0) {
             com.baidu.adp.lib.stats.a ii = ii();
             ii.append("procname", "remote");
             ii.append("costt", String.valueOf(j));
@@ -198,7 +198,7 @@ public class n extends l {
         }
     }
 
-    private void sd() {
+    private void sb() {
         this.aUx = false;
         this.aUy = false;
         this.aUB = -1L;

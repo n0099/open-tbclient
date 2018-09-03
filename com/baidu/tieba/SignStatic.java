@@ -44,20 +44,20 @@ public class SignStatic {
                     y yVar = new y(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                     yVar.o("kw", name);
                     yVar.o(ImageViewerConfig.FORUM_ID, id);
-                    yVar.yO().zM().mIsNeedTbs = true;
-                    String yq = yVar.yq();
-                    if (yVar.yR()) {
-                        if (yVar.yO().zN().isRequestSuccess()) {
+                    yVar.yM().zK().mIsNeedTbs = true;
+                    String yo = yVar.yo();
+                    if (yVar.yP()) {
+                        if (yVar.yM().zL().isRequestSuccess()) {
                             signData = new SignData();
-                            signData.parserJson(yq);
+                            signData.parserJson(yo);
                             signData.forumId = id;
                             signData.forumName = name;
                         } else {
-                            if (!ap.isEmpty(yq)) {
-                                JSONObject jSONObject = new JSONObject(yq);
-                                if (AntiHelper.tO(yVar.yS()) || "199901".equals(jSONObject.optString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE))) {
+                            if (!ap.isEmpty(yo)) {
+                                JSONObject jSONObject = new JSONObject(yo);
+                                if (AntiHelper.tO(yVar.yQ()) || "199901".equals(jSONObject.optString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE))) {
                                     signData = new SignData();
-                                    signData.parserJson(yq);
+                                    signData.parserJson(yo);
                                     signData.is_signed = 1;
                                     signData.count_sign_num = 1;
                                     signData.sign_bonus_point = 0;
@@ -65,7 +65,7 @@ public class SignStatic {
                                     signData.forumName = name;
                                 }
                             }
-                            signMessage.mSignErrorCode = yVar.yS();
+                            signMessage.mSignErrorCode = yVar.yQ();
                             signMessage.mSignErrorString = yVar.getErrorString();
                         }
                         signMessage.signData = signData;

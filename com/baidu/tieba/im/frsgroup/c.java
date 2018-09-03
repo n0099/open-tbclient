@@ -4,15 +4,15 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class c {
-    private com.baidu.adp.lib.cache.l<byte[]> bwV;
+    private com.baidu.adp.lib.cache.l<byte[]> bwX;
 
     public c() {
-        asU();
+        asT();
     }
 
-    public void asU() {
-        if (this.bwV == null) {
-            this.bwV = com.baidu.tbadk.core.c.a.xb().dx("tb.im_frsgroup");
+    public void asT() {
+        if (this.bwX == null) {
+            this.bwX = com.baidu.tbadk.core.c.a.xa().dx("tb.im_frsgroup");
         }
     }
 
@@ -20,7 +20,7 @@ public class c {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> ao = this.bwV != null ? this.bwV.ao("frs_group_" + i + "_" + str) : null;
+        l.b<byte[]> ao = this.bwX != null ? this.bwX.ao("frs_group_" + i + "_" + str) : null;
         if (ao == null || ao.value == null) {
             return null;
         }
@@ -29,8 +29,8 @@ public class c {
 
     public void a(int i, String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            asU();
-            this.bwV.a("frs_group_" + i + "_" + str, bArr, 604800000L);
+            asT();
+            this.bwX.a("frs_group_" + i + "_" + str, bArr, 604800000L);
         }
     }
 }

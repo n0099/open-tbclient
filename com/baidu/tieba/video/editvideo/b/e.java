@@ -9,32 +9,32 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes2.dex */
 class e {
-    private final MediaMuxer hdT;
-    private volatile boolean hdV;
+    private final MediaMuxer hdU;
     private volatile boolean hdW;
-    private int hdU = 2;
+    private volatile boolean hdX;
+    private int hdV = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.hdT = new MediaMuxer(str, 0);
+        this.hdU = new MediaMuxer(str, 0);
     }
 
-    public void bAX() {
-        this.hdV = true;
-    }
-
-    public void bAY() {
+    public void bAZ() {
         this.hdW = true;
+    }
+
+    public void bBa() {
+        this.hdX = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.hdW || !this.hdV) {
+        if (!this.hdX || !this.hdW) {
             z = false;
         } else {
-            if (this.hdU > 0 && this.hdW && this.hdV) {
-                this.hdT.start();
+            if (this.hdV > 0 && this.hdX && this.hdW) {
+                this.hdU.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.hdU > 0) {
+        if (this.hdV > 0) {
             try {
-                this.hdT.stop();
-                this.hdT.release();
+                this.hdU.stop();
+                this.hdU.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.hdT.addTrack(mediaFormat);
+        return this.hdU.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.hdT.writeSampleData(i, byteBuffer, bufferInfo);
+            this.hdU.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

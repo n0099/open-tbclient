@@ -3,19 +3,19 @@ package com.baidu.tieba.frs;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId doV = BdUniqueId.gen();
-    private int doW;
+    public static final BdUniqueId doT = BdUniqueId.gen();
+    private int doU;
 
-    public int avE() {
-        return this.doW;
+    public int avD() {
+        return this.doU;
     }
 
-    public void kE(int i) {
-        this.doW = i;
+    public void kD(int i) {
+        this.doU = i;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return doV;
+        return doT;
     }
 }

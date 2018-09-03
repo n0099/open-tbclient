@@ -7,12 +7,12 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import com.baidu.tieba.video.VideoTitleData;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<VideoTitleData> hwM;
+    private List<VideoTitleData> hwO;
 
     /* renamed from: com.baidu.tieba.write.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -23,17 +23,17 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (w.z(this.hwM)) {
+        if (w.z(this.hwO)) {
             return 0;
         }
-        return this.hwM.size();
+        return this.hwO.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: vA */
     public VideoTitleData getItem(int i) {
-        return (VideoTitleData) w.d(this.hwM, i);
+        return (VideoTitleData) w.d(this.hwO, i);
     }
 
     @Override // android.widget.Adapter
@@ -45,18 +45,18 @@ public class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         C0256a c0256a;
         if (view == null) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.video_activity_title_item, (ViewGroup) null);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(f.h.video_activity_title_item, (ViewGroup) null);
             C0256a c0256a2 = new C0256a();
-            c0256a2.title = (TextView) view.findViewById(d.g.title);
-            c0256a2.divider = view.findViewById(d.g.divider_line);
-            am.h(c0256a2.title, d.C0140d.cp_cont_b);
-            am.j(c0256a2.divider, d.C0140d.cp_bg_line_c);
+            c0256a2.title = (TextView) view.findViewById(f.g.title);
+            c0256a2.divider = view.findViewById(f.g.divider_line);
+            am.h(c0256a2.title, f.d.cp_cont_b);
+            am.j(c0256a2.divider, f.d.cp_bg_line_c);
             view.setTag(c0256a2);
             c0256a = c0256a2;
         } else {
             c0256a = (C0256a) view.getTag();
         }
-        am.i(view, d.f.addresslist_item_bg);
+        am.i(view, f.C0146f.addresslist_item_bg);
         if (getItem(i) != null) {
             c0256a.title.setText("#" + getItem(i).name + "#");
         }
@@ -64,7 +64,7 @@ public class a extends BaseAdapter {
     }
 
     public void dR(List<VideoTitleData> list) {
-        this.hwM = list;
+        this.hwO = list;
         notifyDataSetChanged();
     }
 }

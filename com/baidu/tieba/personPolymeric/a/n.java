@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class n {
-    private com.baidu.tieba.person.a.a fTs;
+    private com.baidu.tieba.person.a.a fTk;
     private m fYU;
     private b fYV;
     private i fYW;
@@ -41,8 +41,8 @@ public class n {
         this.fZa = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.gba);
         this.fZb = new k(tbPageContext);
         this.fZc = new d(tbPageContext);
-        this.fZd = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.fTt);
-        this.fTs = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.fTa);
+        this.fZd = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.fTl);
+        this.fTk = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.fSS);
         this.fZe = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
         this.mAdapters.add(this.fYU);
         this.mAdapters.add(this.fYV);
@@ -54,7 +54,7 @@ public class n {
         this.mAdapters.add(this.fZb);
         this.mAdapters.add(this.fZc);
         this.mAdapters.add(this.fZd);
-        this.mAdapters.add(this.fTs);
+        this.mAdapters.add(this.fTk);
         this.mAdapters.add(this.fZe);
         bdPersonListView.addAdapters(this.mAdapters);
     }

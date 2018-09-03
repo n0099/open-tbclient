@@ -9,13 +9,13 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u {
     public static final void an(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, f.j.download_error);
             return;
         }
         File dU = com.baidu.tbadk.core.util.l.dU(str.replace(".", "_") + ".apk");
@@ -40,10 +40,10 @@ public class u {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean aR = ac.aR(activity);
+        boolean aQ = ac.aQ(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return aR;
+        return aQ;
     }
 }

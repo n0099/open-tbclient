@@ -8,16 +8,16 @@ public class h extends g {
     public boolean aTK;
     public boolean isSuccess;
 
-    public void KA() {
+    public void KE() {
         o oVar;
-        if (m.KF().KG() && (oVar = (o) m.KF().fp(this.mSubType)) != null) {
+        if (m.KJ().KK() && (oVar = (o) m.KJ().fo(this.mSubType)) != null) {
             oVar.a(this, "head");
         }
     }
 
-    public void KB() {
+    public void KF() {
         o oVar;
-        if (m.KF().KG() && (oVar = (o) m.KF().fp(this.mSubType)) != null) {
+        if (m.KJ().KK() && (oVar = (o) m.KJ().fo(this.mSubType)) != null) {
             oVar.a(this, SocialConstants.PARAM_IMG_URL);
         }
     }

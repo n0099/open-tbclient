@@ -9,9 +9,9 @@ public class d {
     public boolean gat;
     public String groupId;
     public String groupName;
-    public int gwZ;
-    public String gxa = "";
-    public long gxb;
+    public int gxc;
+    public String gxd = "";
+    public long gxe;
     public boolean isAcceptNotify;
     public long lastTime;
     public long msgId;
@@ -36,7 +36,7 @@ public class d {
     }
 
     private static void e(d dVar) {
-        dVar.gwZ = 0;
+        dVar.gxc = 0;
         dVar.msgType = 4;
         dVar.customGroupType = 4;
         dVar.lastTime = System.currentTimeMillis();

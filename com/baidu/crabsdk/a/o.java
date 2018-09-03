@@ -16,9 +16,9 @@ public final class o implements Runnable {
         Runnable runnable;
         this.Sq.n();
         if (this.Sq.Sn.get()) {
-            Handler oZ = j.oZ();
+            Handler oW = j.oW();
             runnable = this.Sq.Sp;
-            oZ.postDelayed(runnable, this.Sq.So);
+            oW.postDelayed(runnable, this.Sq.So);
         }
     }
 }

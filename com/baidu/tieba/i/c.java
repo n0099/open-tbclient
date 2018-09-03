@@ -13,7 +13,7 @@ public class c extends j {
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getError() == 1990055 && !a.mx(socketResponsedMessage.getCmd())) {
-            a.aCP();
+            a.aCM();
         }
         return socketResponsedMessage;
     }

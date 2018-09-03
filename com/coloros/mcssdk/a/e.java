@@ -19,12 +19,12 @@ public final class e extends c {
         try {
             com.coloros.mcssdk.e.d dVar = new com.coloros.mcssdk.e.d();
             dVar.vU(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            dVar.wv(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
-            dVar.ww(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
+            dVar.wz(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
+            dVar.wA(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             dVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
             dVar.setDescription(com.coloros.mcssdk.c.a.a(intent.getStringExtra(SocialConstants.PARAM_COMMENT)));
-            dVar.wy(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
-            dVar.wx(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
+            dVar.wC(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
+            dVar.wB(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + dVar.toString());
             return dVar;
         } catch (Exception e) {

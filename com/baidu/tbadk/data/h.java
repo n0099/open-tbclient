@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class h {
-    public String aLi;
+    public String aLf;
     public String mLink;
     public int type;
 }

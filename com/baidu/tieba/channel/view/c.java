@@ -20,73 +20,73 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.channel.activity.ChannelEditActivity;
 import com.baidu.tieba.channel.data.ChannelInfo;
-import com.baidu.tieba.d;
+import com.baidu.tieba.f;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private NoNetworkView bvz;
-    private ChannelEditActivity cFA;
-    private TbImageView cFB;
-    private ImageView cFC;
+    private NoNetworkView bvB;
+    private TextView cFA;
+    private TextView cFB;
+    private HeadImageView cFC;
     private TextView cFD;
     private TextView cFE;
-    private HeadImageView cFF;
+    private EditText cFF;
     private TextView cFG;
-    private TextView cFH;
-    private EditText cFI;
-    private TextView cFJ;
+    private ChannelEditActivity cFx;
+    private TbImageView cFy;
+    private ImageView cFz;
     private Context mContext;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-    private com.baidu.tbadk.core.dialog.a cFK = null;
+    private com.baidu.tbadk.core.dialog.a cFH = null;
 
     public c(ChannelEditActivity channelEditActivity) {
-        this.cFA = channelEditActivity;
-        this.cFA.setIsAddSwipeBackLayout(true);
-        this.cFA.setSwipeBackEnabled(true);
-        this.cFA.setUseStyleImmersiveSticky(true);
-        this.mContext = this.cFA.getPageContext().getPageActivity();
+        this.cFx = channelEditActivity;
+        this.cFx.setIsAddSwipeBackLayout(true);
+        this.cFx.setSwipeBackEnabled(true);
+        this.cFx.setUseStyleImmersiveSticky(true);
+        this.mContext = this.cFx.getPageContext().getPageActivity();
         initViews();
     }
 
     public void initViews() {
-        this.cFA.setContentView(d.h.channel_edit_layout);
-        this.mRootView = this.cFA.findViewById(d.g.channel_edit_rootview);
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(d.g.channel_edit_navigation_bar);
+        this.cFx.setContentView(f.h.channel_edit_layout);
+        this.mRootView = this.cFx.findViewById(f.g.channel_edit_rootview);
+        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(f.g.channel_edit_navigation_bar);
         this.mNavigationBar.showBottomLine(false);
         this.mNavigationBar.getBarBgView().setVisibility(8);
         this.mNavigationBar.getTopCoverBgView().setVisibility(0);
-        this.cFC = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, d.h.channel_home_nav_right_item, (View.OnClickListener) null);
-        this.cFC.setOnClickListener(this);
-        this.cFD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.adp.lib.voice.h.getString(d.j.channel_navigation_bar_save));
-        this.cFD.setTextSize(0, this.mContext.getResources().getDimension(d.e.ds28));
-        this.cFD.setOnClickListener(this);
-        this.bvz = (NoNetworkView) this.mRootView.findViewById(d.g.channel_edit_no_network_view);
-        this.cFB = (TbImageView) this.mRootView.findViewById(d.g.channel_edit_top_bg);
-        this.cFB.setDefaultErrorResource(d.f.bg_avatar_weiba_head);
-        this.cFB.setDefaultBgResource(d.f.bg_avatar_weiba_head);
+        this.cFz = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, f.h.channel_home_nav_right_item, (View.OnClickListener) null);
+        this.cFz.setOnClickListener(this);
+        this.cFA = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.adp.lib.voice.h.getString(f.j.channel_navigation_bar_save));
+        this.cFA.setTextSize(0, this.mContext.getResources().getDimension(f.e.ds28));
+        this.cFA.setOnClickListener(this);
+        this.bvB = (NoNetworkView) this.mRootView.findViewById(f.g.channel_edit_no_network_view);
+        this.cFy = (TbImageView) this.mRootView.findViewById(f.g.channel_edit_top_bg);
+        this.cFy.setDefaultErrorResource(f.C0146f.bg_avatar_weiba_head);
+        this.cFy.setDefaultBgResource(f.C0146f.bg_avatar_weiba_head);
+        this.cFy.setOnClickListener(this);
+        this.cFB = (TextView) this.mRootView.findViewById(f.g.channel_edit_channel_cover);
         this.cFB.setOnClickListener(this);
-        this.cFE = (TextView) this.mRootView.findViewById(d.g.channel_edit_channel_cover);
-        this.cFE.setOnClickListener(this);
-        this.cFF = (HeadImageView) this.mRootView.findViewById(d.g.channel_show_channel_img);
-        this.cFF.setIsRound(false);
-        this.cFF.setRadius(0);
-        this.cFF.setDrawBorder(true);
-        this.cFF.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(d.e.ds1));
-        this.cFF.setBorderColor(this.mContext.getResources().getColor(d.C0140d.white_alpha40));
-        this.cFF.setDefaultErrorResource(d.f.avatar_channel_poto_defaul160);
-        this.cFF.setOnClickListener(this);
-        this.cFG = (TextView) this.mRootView.findViewById(d.g.channel_edit_channel_avatar);
-        this.cFG.setOnClickListener(this);
-        this.cFH = (TextView) this.mRootView.findViewById(d.g.channel_edit_channel_name);
-        this.cFI = (EditText) this.mRootView.findViewById(d.g.channel_edit_channel_desc);
-        this.cFJ = (TextView) this.mRootView.findViewById(d.g.channel_desc_text_number);
-        this.cFI.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.channel.view.c.1
+        this.cFC = (HeadImageView) this.mRootView.findViewById(f.g.channel_show_channel_img);
+        this.cFC.setIsRound(false);
+        this.cFC.setRadius(0);
+        this.cFC.setDrawBorder(true);
+        this.cFC.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(f.e.ds1));
+        this.cFC.setBorderColor(this.mContext.getResources().getColor(f.d.white_alpha40));
+        this.cFC.setDefaultErrorResource(f.C0146f.avatar_channel_poto_defaul160);
+        this.cFC.setOnClickListener(this);
+        this.cFD = (TextView) this.mRootView.findViewById(f.g.channel_edit_channel_avatar);
+        this.cFD.setOnClickListener(this);
+        this.cFE = (TextView) this.mRootView.findViewById(f.g.channel_edit_channel_name);
+        this.cFF = (EditText) this.mRootView.findViewById(f.g.channel_edit_channel_desc);
+        this.cFG = (TextView) this.mRootView.findViewById(f.g.channel_desc_text_number);
+        this.cFF.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.channel.view.c.1
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 String replaceAll = editable.toString().replaceAll("\\s*", "");
                 BdLog.d(editable.toString());
-                if (!replaceAll.equals(c.this.cFA.ajD().getDescription())) {
+                if (!replaceAll.equals(c.this.cFx.ajG().getDescription())) {
                     ChannelEditActivity.isChanged = true;
                 }
             }
@@ -97,15 +97,15 @@ public class c implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (c.this.cFI.getText() != null) {
-                    c.this.cFJ.setText(c.this.mContext.getResources().getString(d.j.channel_desc_text_num, Integer.valueOf(c.this.cFI.getText().length())));
+                if (c.this.cFF.getText() != null) {
+                    c.this.cFG.setText(c.this.mContext.getResources().getString(f.j.channel_desc_text_num, Integer.valueOf(c.this.cFF.getText().length())));
                     if (charSequence != null) {
                         String charSequence2 = charSequence.toString();
                         if (charSequence2.contains("\n")) {
-                            c.this.cFI.setText(charSequence2.replaceAll("\\n", ""));
-                            EditText editText = c.this.cFI;
-                            if (i > c.this.cFI.getText().length()) {
-                                i = c.this.cFI.getText().length();
+                            c.this.cFF.setText(charSequence2.replaceAll("\\n", ""));
+                            EditText editText = c.this.cFF;
+                            if (i > c.this.cFF.getText().length()) {
+                                i = c.this.cFF.getText().length();
                             }
                             editText.setSelection(i);
                         }
@@ -117,64 +117,64 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cFE || view == this.cFB) {
+        if (view == this.cFB || view == this.cFy) {
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(this.mContext, this.writeImagesInfo.toJsonString());
             albumActivityConfig.setRequestCode(25007);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-        } else if (view == this.cFG || view == this.cFF) {
+        } else if (view == this.cFD || view == this.cFC) {
             AlbumActivityConfig albumActivityConfig2 = new AlbumActivityConfig(this.mContext, this.writeImagesInfo.toJsonString());
             albumActivityConfig2.setRequestCode(25006);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig2));
-        } else if (view == this.cFC) {
+        } else if (view == this.cFz) {
             if (ChannelEditActivity.isChanged) {
-                this.cFK = new com.baidu.tbadk.core.dialog.a(this.cFA.getActivity());
-                this.cFK.dB(com.baidu.adp.lib.voice.h.getString(d.j.channel_save_info));
-                this.cFK.a(this.mContext.getString(d.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.channel.view.c.2
+                this.cFH = new com.baidu.tbadk.core.dialog.a(this.cFx.getActivity());
+                this.cFH.dB(com.baidu.adp.lib.voice.h.getString(f.j.channel_save_info));
+                this.cFH.a(this.mContext.getString(f.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.channel.view.c.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         aVar.dismiss();
-                        c.this.cFA.ajC();
+                        c.this.cFx.ajF();
                     }
                 });
-                this.cFK.b(this.mContext.getString(d.j.cancel), new a.b() { // from class: com.baidu.tieba.channel.view.c.3
+                this.cFH.b(this.mContext.getString(f.j.cancel), new a.b() { // from class: com.baidu.tieba.channel.view.c.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         aVar.dismiss();
-                        c.this.cFA.finish();
+                        c.this.cFx.finish();
                     }
                 });
-                this.cFK.b(this.cFA.getPageContext());
-                this.cFK.xf();
+                this.cFH.b(this.cFx.getPageContext());
+                this.cFH.xe();
                 return;
             }
-            this.cFA.finish();
-        } else if (view == this.cFD) {
-            this.cFA.ajC();
+            this.cFx.finish();
+        } else if (view == this.cFA) {
+            this.cFx.ajF();
         }
     }
 
     public String getDescription() {
-        return this.cFI.getText().toString();
+        return this.cFF.getText().toString();
     }
 
     public void c(ChannelInfo channelInfo) {
         if (channelInfo != null) {
-            this.cFB.startLoad(channelInfo.getChannelCover(), 10, this.cFB.getWidth(), this.cFB.getHeight(), false);
-            this.cFF.startLoad(channelInfo.getChannelAvatar(), 10, this.cFF.getWidth(), this.cFF.getHeight(), false);
-            this.cFH.setText(channelInfo.getChannelName());
-            this.cFI.setText(channelInfo.getDescription());
+            this.cFy.startLoad(channelInfo.getChannelCover(), 10, this.cFy.getWidth(), this.cFy.getHeight(), false);
+            this.cFC.startLoad(channelInfo.getChannelAvatar(), 10, this.cFC.getWidth(), this.cFC.getHeight(), false);
+            this.cFE.setText(channelInfo.getChannelName());
+            this.cFF.setText(channelInfo.getDescription());
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.cFA.getLayoutMode().setNightMode(i == 1);
-        this.cFA.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.cFA.getPageContext(), i);
-        this.bvz.onChangeSkinType(this.cFA.getPageContext(), i);
+        this.cFx.getLayoutMode().setNightMode(i == 1);
+        this.cFx.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.cFx.getPageContext(), i);
+        this.bvB.onChangeSkinType(this.cFx.getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
-        am.a(this.cFC, d.f.icon_return_bg, d.f.icon_return_bg);
-        am.c(this.cFD, d.C0140d.cp_cont_g, 1);
-        this.cFF.setBorderColor(am.getColor(d.C0140d.cp_bg_line_a_alpha80));
+        am.a(this.cFz, f.C0146f.icon_return_bg, f.C0146f.icon_return_bg);
+        am.c(this.cFA, f.d.cp_cont_g, 1);
+        this.cFC.setBorderColor(am.getColor(f.d.cp_bg_line_a_alpha80));
     }
 
     public void onResume() {

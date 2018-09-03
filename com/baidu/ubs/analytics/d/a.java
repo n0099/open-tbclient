@@ -3,11 +3,11 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final String hCW = Environment.getExternalStorageDirectory().getPath();
-    static final String hCX = hCW + "/baidu/ab/crash/";
-    static final String hCY = hCW + "/baidu/ab/sdklog/";
-    public static final String Sy = hCW + "/baidu/ab/sdkupdata/" + bJp() + "/";
-    private static int hCZ = EnumC0265a.aV;
+    private static final String hCY = Environment.getExternalStorageDirectory().getPath();
+    static final String hCZ = hCY + "/baidu/ab/crash/";
+    static final String hDa = hCY + "/baidu/ab/sdklog/";
+    public static final String Sy = hCY + "/baidu/ab/sdkupdata/" + bJt() + "/";
+    private static int hDb = EnumC0265a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -16,19 +16,19 @@ public final class a {
     public static final class EnumC0265a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] hDa = {aV, aW};
+        private static final /* synthetic */ int[] hDc = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean bJo() {
-        return hCZ == EnumC0265a.aV;
+    public static boolean bJs() {
+        return hDb == EnumC0265a.aV;
     }
 
     public static String u() {
         return "0.4.0";
     }
 
-    private static int bJp() {
+    private static int bJt() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

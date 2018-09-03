@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.y;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class b {
-    private static final String fqW = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    private static final String fqP = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -26,29 +26,29 @@ public class b {
 
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private WeakReference<InterfaceC0206b> fqV;
-        private String fqX;
-        private String fqY;
+        private WeakReference<InterfaceC0206b> fqO;
+        private String fqQ;
+        private String fqR;
 
         public a(String str, String str2, InterfaceC0206b interfaceC0206b) {
-            this.fqX = str;
-            this.fqY = str2;
-            this.fqV = new WeakReference<>(interfaceC0206b);
+            this.fqQ = str;
+            this.fqR = str2;
+            this.fqO = new WeakReference<>(interfaceC0206b);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: y */
+        /* renamed from: x */
         public ForbidTplData doInBackground(String... strArr) {
-            y yVar = new y(b.fqW);
-            yVar.o("forum_id", this.fqX);
-            yVar.o("user_id", this.fqY);
-            String yq = yVar.yq();
-            if (yVar.yO().zN().isRequestSuccess()) {
+            y yVar = new y(b.fqP);
+            yVar.o("forum_id", this.fqQ);
+            yVar.o("user_id", this.fqR);
+            String yo = yVar.yo();
+            if (yVar.yM().zL().isRequestSuccess()) {
                 try {
-                    return (ForbidTplData) OrmObject.objectWithJsonStr(yq, ForbidTplData.class);
+                    return (ForbidTplData) OrmObject.objectWithJsonStr(yo, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -57,7 +57,7 @@ public class b {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = yVar.yS();
+            forbidTplData2.error.errno = yVar.yQ();
             forbidTplData2.error.errMsg = yVar.getErrorString();
             return forbidTplData2;
         }
@@ -68,7 +68,7 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            InterfaceC0206b interfaceC0206b = this.fqV.get();
+            InterfaceC0206b interfaceC0206b = this.fqO.get();
             if (interfaceC0206b != null) {
                 if (forbidTplData.error.errno == 0 && ap.isEmpty(forbidTplData.error.errMsg)) {
                     interfaceC0206b.a(forbidTplData);

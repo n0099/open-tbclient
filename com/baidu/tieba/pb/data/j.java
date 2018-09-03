@@ -11,75 +11,75 @@ import tbclient.PbPage.DataRes;
 import tbclient.SimpleUser;
 /* loaded from: classes2.dex */
 public class j implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId fto = BdUniqueId.gen();
-    private long ftp;
-    private boolean ftq;
-    private ArrayList<MuteUser> ftr;
+    public static final BdUniqueId fth = BdUniqueId.gen();
+    private long fti;
+    private boolean ftj;
+    private ArrayList<MuteUser> ftk;
     public long shareNum;
-    public int ftm = -1;
-    private boolean fts = false;
-    private boolean ftt = false;
-    private int ftu = 1;
+    public int ftf = -1;
+    private boolean ftl = false;
+    private boolean ftm = false;
+    private int ftn = 1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fto;
+        return fth;
     }
 
     public void b(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null) {
             if (dataRes.thread != null && dataRes.thread.agree != null) {
-                this.ftp = dataRes.thread.agree.agree_num.longValue();
-                this.ftq = dataRes.thread.agree.has_agree.intValue() == 1;
-                this.ftm = dataRes.thread.agree.agree_type.intValue();
+                this.fti = dataRes.thread.agree.agree_num.longValue();
+                this.ftj = dataRes.thread.agree.has_agree.intValue() == 1;
+                this.ftf = dataRes.thread.agree.agree_type.intValue();
             }
-            if (this.ftr == null) {
-                this.ftr = new ArrayList<>();
+            if (this.ftk == null) {
+                this.ftk = new ArrayList<>();
             }
-            this.ftr.clear();
+            this.ftk.clear();
             if (dataRes.new_agree_user != null && dataRes.new_agree_user.size() > 0) {
                 for (SimpleUser simpleUser : dataRes.new_agree_user) {
                     if (simpleUser != null) {
                         MuteUser muteUser = new MuteUser();
                         muteUser.parserProtobuf(simpleUser);
-                        this.ftr.add(muteUser);
+                        this.ftk.add(muteUser);
                     }
                 }
             }
             if (dataRes.thread != null) {
                 this.shareNum = dataRes.thread.share_num.longValue();
-                this.ftt = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+                this.ftm = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
             }
         }
     }
 
-    public long aZR() {
-        return this.ftp;
+    public long aZM() {
+        return this.fti;
     }
 
-    public boolean aZS() {
-        return this.ftt;
+    public boolean aZN() {
+        return this.ftm;
     }
 
-    public boolean aZT() {
-        return this.ftq;
+    public boolean aZO() {
+        return this.ftj;
     }
 
-    public ArrayList<MuteUser> aZU() {
-        return this.ftr;
+    public ArrayList<MuteUser> aZP() {
+        return this.ftk;
     }
 
     public void qk(int i) {
-        if (!this.ftq) {
+        if (!this.ftj) {
             qm(i);
             return;
         }
-        this.ftm = i;
-        this.ftq = true;
+        this.ftf = i;
+        this.ftj = true;
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (currentAccountName != null) {
-            Iterator<MuteUser> it = this.ftr.iterator();
+            Iterator<MuteUser> it = this.ftk.iterator();
             while (it.hasNext()) {
                 MuteUser next = it.next();
                 if (currentAccountName.equals(next.getUserName())) {
@@ -91,11 +91,11 @@ public class j implements com.baidu.adp.widget.ListView.h {
     }
 
     public void ql(int i) {
-        this.ftu = i;
+        this.ftn = i;
     }
 
-    public int aZV() {
-        return this.ftu;
+    public int aZQ() {
+        return this.ftn;
     }
 
     public void qm(int i) {
@@ -107,35 +107,35 @@ public class j implements com.baidu.adp.widget.ListView.h {
                 muteUser.setNickName(TbadkCoreApplication.getCurrentAccountObj().getAccountNameShow());
             }
             muteUser.agreeType = i;
-            if (this.ftr == null) {
-                this.ftr = new ArrayList<>();
+            if (this.ftk == null) {
+                this.ftk = new ArrayList<>();
             }
-            this.ftr.add(0, muteUser);
-            if (this.ftp < 0) {
-                this.ftp = 0L;
+            this.ftk.add(0, muteUser);
+            if (this.fti < 0) {
+                this.fti = 0L;
             }
-            this.ftp++;
-            this.ftq = true;
-            this.ftm = i;
+            this.fti++;
+            this.ftj = true;
+            this.ftf = i;
         }
     }
 
-    public void aZW() {
+    public void aZR() {
         if (TbadkCoreApplication.isLogin()) {
-            this.ftp--;
-            if (this.ftp < 0) {
-                this.ftp = 0L;
+            this.fti--;
+            if (this.fti < 0) {
+                this.fti = 0L;
             }
-            this.ftq = false;
-            this.ftm = -1;
-            if (!w.z(this.ftr)) {
+            this.ftj = false;
+            this.ftf = -1;
+            if (!w.z(this.ftk)) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!StringUtils.isNull(currentAccount)) {
-                    Iterator<MuteUser> it = this.ftr.iterator();
+                    Iterator<MuteUser> it = this.ftk.iterator();
                     while (it.hasNext()) {
                         MuteUser next = it.next();
                         if (next != null && currentAccount.equals(next.getUserId())) {
-                            this.ftr.remove(next);
+                            this.ftk.remove(next);
                             return;
                         }
                     }
@@ -145,10 +145,10 @@ public class j implements com.baidu.adp.widget.ListView.h {
     }
 
     public void jr(boolean z) {
-        this.fts = z;
+        this.ftl = z;
     }
 
-    public boolean aZX() {
-        return this.fts;
+    public boolean aZS() {
+        return this.ftl;
     }
 }

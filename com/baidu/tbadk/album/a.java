@@ -5,10 +5,10 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static final String ZW = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String ZX = String.valueOf(2147483646);
-    private MediaFileInfo ZY;
-    private List<MediaFileInfo> ZZ;
+    public static final String ZX = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static final String ZY = String.valueOf(2147483646);
+    private MediaFileInfo ZZ;
+    private List<MediaFileInfo> aaa;
     private String albumId;
     private int count;
     private String name;
@@ -37,30 +37,30 @@ public class a {
         this.count = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public void ry() {
+    public void rw() {
         this.count++;
     }
 
-    public ImageFileInfo rz() {
-        if (this.ZY instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.ZY;
+    public ImageFileInfo rx() {
+        if (this.ZZ instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.ZZ;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.ZY = mediaFileInfo;
+        this.ZZ = mediaFileInfo;
     }
 
-    public MediaFileInfo rA() {
-        return this.ZY;
-    }
-
-    public List<MediaFileInfo> rB() {
+    public MediaFileInfo ry() {
         return this.ZZ;
     }
 
+    public List<MediaFileInfo> rz() {
+        return this.aaa;
+    }
+
     public void o(List<MediaFileInfo> list) {
-        this.ZZ = list;
+        this.aaa = list;
     }
 }

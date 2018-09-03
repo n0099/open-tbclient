@@ -1,79 +1,31 @@
 package com.baidu.tieba.pushdialog;
 
-import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
-import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes3.dex */
 public class b {
-    private PushDialogActivity gkP;
-    private long taskId;
-    private String tid;
+    public static boolean bmm() {
+        String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+        return !StringUtils.isNull(systemProperty) && com.baidu.adp.lib.g.b.g(systemProperty.replace("V", ""), 0) >= 9;
+    }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b(PushDialogActivity pushDialogActivity) {
-        this.gkP = pushDialogActivity;
-        this.gkP.registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614) { // from class: com.baidu.tieba.pushdialog.b.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage instanceof PushDialogHttpResMsg) {
-                    b.this.a((PushDialogHttpResMsg) responsedMessage);
-                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
-                    b.this.a((PushDialogSocketResMsg) responsedMessage);
+    public static boolean bmn() {
+        PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
+        try {
+            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
+                return true;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            try {
+                if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
+                    return true;
                 }
-            }
-        });
-        Intent intent = this.gkP.getIntent();
-        if (intent != null) {
-            this.tid = intent.getStringExtra("thread_id");
-            this.taskId = intent.getLongExtra("task_id", 0L);
-            if (StringUtils.isNull(this.tid)) {
-                this.gkP.finish();
+            } catch (PackageManager.NameNotFoundException e2) {
             }
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void SS() {
-        long c = com.baidu.adp.lib.g.b.c(this.tid, 0L);
-        if (c == 0) {
-            if (this.gkP != null) {
-                this.gkP.a(false, null);
-                return;
-            }
-            return;
-        }
-        PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
-        pushDialogReqNetMsg.setTask_id(this.taskId);
-        pushDialogReqNetMsg.setTid(c);
-        MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        if (this.gkP != null) {
-            this.gkP.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        if (this.gkP != null) {
-            this.gkP.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
-        }
-    }
-
-    public String getTid() {
-        return this.tid;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long getTaskId() {
-        return this.taskId;
+        return false;
     }
 }
