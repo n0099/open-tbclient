@@ -1,47 +1,46 @@
 package com.google.gson.stream;
 
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes2.dex */
 public class a implements Closeable, Flushable {
-    private static final String[] hHS = new String[128];
-    private static final String[] hHT;
-    private boolean hFh;
-    private boolean hFi;
-    private int[] hHU = new int[32];
-    private int hHV = 0;
-    private String hHW;
-    private boolean hHX;
-    private String hHY;
+    private static final String[] hQm = new String[128];
+    private static final String[] hQn;
+    private boolean hNB;
+    private boolean hNC;
+    private int[] hQo = new int[32];
+    private int hQp = 0;
+    private String hQq;
+    private boolean hQr;
+    private String hQs;
     private final Writer out;
     private String separator;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            hHS[i] = String.format("\\u%04x", Integer.valueOf(i));
+            hQm[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        hHS[34] = "\\\"";
-        hHS[92] = "\\\\";
-        hHS[9] = "\\t";
-        hHS[8] = "\\b";
-        hHS[10] = "\\n";
-        hHS[13] = "\\r";
-        hHS[12] = "\\f";
-        hHT = (String[]) hHS.clone();
-        hHT[60] = "\\u003c";
-        hHT[62] = "\\u003e";
-        hHT[38] = "\\u0026";
-        hHT[61] = "\\u003d";
-        hHT[39] = "\\u0027";
+        hQm[34] = "\\\"";
+        hQm[92] = "\\\\";
+        hQm[9] = "\\t";
+        hQm[8] = "\\b";
+        hQm[10] = "\\n";
+        hQm[13] = "\\r";
+        hQm[12] = "\\f";
+        hQn = (String[]) hQm.clone();
+        hQn[60] = "\\u003c";
+        hQn[62] = "\\u003e";
+        hQn[38] = "\\u0026";
+        hQn[61] = "\\u003d";
+        hQn[39] = "\\u0027";
     }
 
     public a(Writer writer) {
-        vX(6);
-        this.separator = SystemInfoUtil.COLON;
-        this.hFh = true;
+        ww(6);
+        this.separator = ":";
+        this.hNB = true;
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
@@ -50,178 +49,178 @@ public class a implements Closeable, Flushable {
 
     public final void setIndent(String str) {
         if (str.length() == 0) {
-            this.hHW = null;
-            this.separator = SystemInfoUtil.COLON;
+            this.hQq = null;
+            this.separator = ":";
             return;
         }
-        this.hHW = str;
+        this.hQq = str;
         this.separator = ": ";
     }
 
     public final void setLenient(boolean z) {
-        this.hHX = z;
+        this.hQr = z;
     }
 
     public boolean isLenient() {
-        return this.hHX;
+        return this.hQr;
     }
 
-    public final void nM(boolean z) {
-        this.hFi = z;
+    public final void oj(boolean z) {
+        this.hNC = z;
     }
 
-    public final boolean bKt() {
-        return this.hFi;
+    public final boolean bNk() {
+        return this.hNC;
     }
 
-    public final void nN(boolean z) {
-        this.hFh = z;
+    public final void ok(boolean z) {
+        this.hNB = z;
     }
 
-    public final boolean bKu() {
-        return this.hFh;
+    public final boolean bNl() {
+        return this.hNB;
     }
 
-    public a bKl() throws IOException {
-        bKw();
-        return at(1, "[");
+    public a bNc() throws IOException {
+        bNn();
+        return au(1, "[");
     }
 
-    public a bKm() throws IOException {
+    public a bNd() throws IOException {
         return i(1, 2, "]");
     }
 
-    public a bKn() throws IOException {
-        bKw();
-        return at(3, "{");
+    public a bNe() throws IOException {
+        bNn();
+        return au(3, "{");
     }
 
-    public a bKo() throws IOException {
+    public a bNf() throws IOException {
         return i(3, 5, "}");
     }
 
-    private a at(int i, String str) throws IOException {
-        nO(true);
-        vX(i);
+    private a au(int i, String str) throws IOException {
+        ol(true);
+        ww(i);
         this.out.write(str);
         return this;
     }
 
     private a i(int i, int i2, String str) throws IOException {
-        int bKv = bKv();
-        if (bKv != i2 && bKv != i) {
+        int bNm = bNm();
+        if (bNm != i2 && bNm != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.hHY != null) {
-            throw new IllegalStateException("Dangling name: " + this.hHY);
+        if (this.hQs != null) {
+            throw new IllegalStateException("Dangling name: " + this.hQs);
         }
-        this.hHV--;
-        if (bKv == i2) {
-            bKx();
+        this.hQp--;
+        if (bNm == i2) {
+            bNo();
         }
         this.out.write(str);
         return this;
     }
 
-    private void vX(int i) {
-        if (this.hHV == this.hHU.length) {
-            int[] iArr = new int[this.hHV * 2];
-            System.arraycopy(this.hHU, 0, iArr, 0, this.hHV);
-            this.hHU = iArr;
+    private void ww(int i) {
+        if (this.hQp == this.hQo.length) {
+            int[] iArr = new int[this.hQp * 2];
+            System.arraycopy(this.hQo, 0, iArr, 0, this.hQp);
+            this.hQo = iArr;
         }
-        int[] iArr2 = this.hHU;
-        int i2 = this.hHV;
-        this.hHV = i2 + 1;
+        int[] iArr2 = this.hQo;
+        int i2 = this.hQp;
+        this.hQp = i2 + 1;
         iArr2[i2] = i;
     }
 
-    private int bKv() {
-        if (this.hHV == 0) {
+    private int bNm() {
+        if (this.hQp == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.hHU[this.hHV - 1];
+        return this.hQo[this.hQp - 1];
     }
 
-    private void vY(int i) {
-        this.hHU[this.hHV - 1] = i;
+    private void wx(int i) {
+        this.hQo[this.hQp - 1] = i;
     }
 
-    public a wE(String str) throws IOException {
+    public a xp(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.hHY != null) {
+        if (this.hQs != null) {
             throw new IllegalStateException();
         }
-        if (this.hHV == 0) {
+        if (this.hQp == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.hHY = str;
+        this.hQs = str;
         return this;
     }
 
-    private void bKw() throws IOException {
-        if (this.hHY != null) {
-            bKy();
-            wG(this.hHY);
-            this.hHY = null;
+    private void bNn() throws IOException {
+        if (this.hQs != null) {
+            bNp();
+            xr(this.hQs);
+            this.hQs = null;
         }
     }
 
-    public a wF(String str) throws IOException {
+    public a xq(String str) throws IOException {
         if (str == null) {
-            return bKp();
+            return bNg();
         }
-        bKw();
-        nO(false);
-        wG(str);
+        bNn();
+        ol(false);
+        xr(str);
         return this;
     }
 
-    public a bKp() throws IOException {
-        if (this.hHY != null) {
-            if (this.hFh) {
-                bKw();
+    public a bNg() throws IOException {
+        if (this.hQs != null) {
+            if (this.hNB) {
+                bNn();
             } else {
-                this.hHY = null;
+                this.hQs = null;
                 return this;
             }
         }
-        nO(false);
+        ol(false);
         this.out.write("null");
         return this;
     }
 
-    public a nL(boolean z) throws IOException {
-        bKw();
-        nO(false);
+    public a oi(boolean z) throws IOException {
+        bNn();
+        ol(false);
         this.out.write(z ? "true" : "false");
         return this;
     }
 
-    public a dg(long j) throws IOException {
-        bKw();
-        nO(false);
+    public a di(long j) throws IOException {
+        bNn();
+        ol(false);
         this.out.write(Long.toString(j));
         return this;
     }
 
     public a b(Number number) throws IOException {
         if (number == null) {
-            return bKp();
+            return bNg();
         }
-        bKw();
+        bNn();
         String obj = number.toString();
-        if (!this.hHX && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+        if (!this.hQr && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
-        nO(false);
+        ol(false);
         this.out.append((CharSequence) obj);
         return this;
     }
 
     public void flush() throws IOException {
-        if (this.hHV == 0) {
+        if (this.hQp == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
         this.out.flush();
@@ -230,22 +229,22 @@ public class a implements Closeable, Flushable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         this.out.close();
-        int i = this.hHV;
-        if (i > 1 || (i == 1 && this.hHU[i - 1] != 7)) {
+        int i = this.hQp;
+        if (i > 1 || (i == 1 && this.hQo[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.hHV = 0;
+        this.hQp = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void wG(String str) throws IOException {
+    private void xr(String str) throws IOException {
         int i;
         String str2;
         int i2 = 0;
-        String[] strArr = this.hFi ? hHT : hHS;
+        String[] strArr = this.hNC ? hQn : hQm;
         this.out.write("\"");
         int length = str.length();
         for (i = 0; i < length; i = i + 1) {
@@ -276,37 +275,37 @@ public class a implements Closeable, Flushable {
         this.out.write("\"");
     }
 
-    private void bKx() throws IOException {
-        if (this.hHW != null) {
+    private void bNo() throws IOException {
+        if (this.hQq != null) {
             this.out.write("\n");
-            int i = this.hHV;
+            int i = this.hQp;
             for (int i2 = 1; i2 < i; i2++) {
-                this.out.write(this.hHW);
+                this.out.write(this.hQq);
             }
         }
     }
 
-    private void bKy() throws IOException {
-        int bKv = bKv();
-        if (bKv == 5) {
+    private void bNp() throws IOException {
+        int bNm = bNm();
+        if (bNm == 5) {
             this.out.write(44);
-        } else if (bKv != 3) {
+        } else if (bNm != 3) {
             throw new IllegalStateException("Nesting problem.");
         }
-        bKx();
-        vY(4);
+        bNo();
+        wx(4);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private void nO(boolean z) throws IOException {
-        switch (bKv()) {
+    private void ol(boolean z) throws IOException {
+        switch (bNm()) {
             case 1:
-                vY(2);
-                bKx();
+                wx(2);
+                bNo();
                 return;
             case 2:
                 this.out.append(',');
-                bKx();
+                bNo();
                 return;
             case 3:
             case 5:
@@ -314,19 +313,19 @@ public class a implements Closeable, Flushable {
                 throw new IllegalStateException("Nesting problem.");
             case 4:
                 this.out.append((CharSequence) this.separator);
-                vY(5);
+                wx(5);
                 return;
             case 6:
                 break;
             case 7:
-                if (!this.hHX) {
+                if (!this.hQr) {
                     throw new IllegalStateException("JSON must have only one top-level value.");
                 }
                 break;
         }
-        if (!this.hHX && !z) {
+        if (!this.hQr && !z) {
             throw new IllegalStateException("JSON must start with an array or an object.");
         }
-        vY(7);
+        wx(7);
     }
 }

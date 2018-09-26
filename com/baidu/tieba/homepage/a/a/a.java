@@ -23,7 +23,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void u(JSONObject jSONObject) {
+    public void E(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -48,12 +48,12 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Jw() {
+    public byte[] KM() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean y(byte[] bArr) {
+    public boolean G(byte[] bArr) {
         try {
             a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
             return true;

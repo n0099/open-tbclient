@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.b.t;
 /* loaded from: classes.dex */
 public class MyProvider extends ContentProvider {
@@ -27,7 +26,7 @@ public class MyProvider extends ContentProvider {
                         try {
                             new StringBuilder("PPP(provider) now to active ").append(str2);
                             Intent intent = new Intent();
-                            intent.putExtra(Info.kBaiduTimeKey, "p");
+                            intent.putExtra("t", "p");
                             intent.putExtra("c", str2);
                             a.a(context, intent);
                         } catch (Throwable th) {

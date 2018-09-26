@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExceptionUtils {
     public static String createStackTrackMessage(Exception exc) {
         StringBuffer stringBuffer = new StringBuffer();

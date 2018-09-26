@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class ah extends k<com.baidu.tbadk.core.data.ao, ai> {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,7 +17,7 @@ public class ah extends k<com.baidu.tbadk.core.data.ao, ai> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bn */
     public ai onCreateViewHolder(ViewGroup viewGroup) {
-        return new ai(this.fxm.getPageContext(), LayoutInflater.from(this.mContext).inflate(f.h.pb_recommend_novel, viewGroup, false));
+        return new ai(this.fFd.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_recommend_novel, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

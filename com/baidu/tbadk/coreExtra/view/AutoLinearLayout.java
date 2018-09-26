@@ -5,56 +5,56 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class AutoLinearLayout extends LinearLayout {
-    private int aGA;
-    private int aGu;
-    private int aGv;
-    private int aGw;
-    private int aGx;
-    private int aGy;
-    private int aGz;
+    private int aJI;
+    private int aJJ;
+    private int aJK;
+    private int aJL;
+    private int aJM;
+    private int aJN;
+    private int aJO;
     private Context mContext;
 
     public AutoLinearLayout(Context context) {
         super(context);
-        this.aGu = 0;
-        this.aGv = 0;
-        this.aGw = 0;
-        this.aGy = 0;
-        this.aGz = 0;
-        this.aGA = 0;
+        this.aJI = 0;
+        this.aJJ = 0;
+        this.aJK = 0;
+        this.aJM = 0;
+        this.aJN = 0;
+        this.aJO = 0;
         this.mContext = context;
         setOrientation(0);
-        this.aGv = l.f(context, f.e.ds24);
-        this.aGw = l.f(context, f.e.ds20);
-        this.aGz = l.f(context, f.e.ds32);
-        this.aGx = l.ah(this.mContext) - (this.aGz * 2);
-        this.aGA = (int) this.mContext.getResources().getDimension(f.e.ds60);
+        this.aJJ = l.h(context, e.C0141e.ds24);
+        this.aJK = l.h(context, e.C0141e.ds20);
+        this.aJN = l.h(context, e.C0141e.ds32);
+        this.aJL = l.aO(this.mContext) - (this.aJN * 2);
+        this.aJO = (int) this.mContext.getResources().getDimension(e.C0141e.ds60);
     }
 
     public AutoLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGu = 0;
-        this.aGv = 0;
-        this.aGw = 0;
-        this.aGy = 0;
-        this.aGz = 0;
-        this.aGA = 0;
+        this.aJI = 0;
+        this.aJJ = 0;
+        this.aJK = 0;
+        this.aJM = 0;
+        this.aJN = 0;
+        this.aJO = 0;
         this.mContext = context;
         setOrientation(0);
-        this.aGv = l.f(context, f.e.ds24);
-        this.aGw = l.f(context, f.e.ds20);
-        this.aGz = l.f(context, f.e.ds32);
-        this.aGx = l.ah(this.mContext) - (this.aGz * 2);
-        this.aGA = (int) this.mContext.getResources().getDimension(f.e.ds60);
+        this.aJJ = l.h(context, e.C0141e.ds24);
+        this.aJK = l.h(context, e.C0141e.ds20);
+        this.aJN = l.h(context, e.C0141e.ds32);
+        this.aJL = l.aO(this.mContext) - (this.aJN * 2);
+        this.aJO = (int) this.mContext.getResources().getDimension(e.C0141e.ds60);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int childCount = getChildCount();
-        int dimension = (int) this.mContext.getResources().getDimension(f.e.ds24);
+        int dimension = (int) this.mContext.getResources().getDimension(e.C0141e.ds24);
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
@@ -64,12 +64,12 @@ public class AutoLinearLayout extends LinearLayout {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 if (i7 != 0 && i6 < measuredWidth) {
-                    dimension += this.aGv + measuredHeight;
+                    dimension += this.aJJ + measuredHeight;
                     i7 = 0;
                 }
                 childAt.layout(i7, dimension, i7 + measuredWidth, measuredHeight + dimension);
-                i6 = (((i3 - i) - i7) - measuredWidth) - this.aGw;
-                i7 += this.aGw + measuredWidth;
+                i6 = (((i3 - i) - i7) - measuredWidth) - this.aJK;
+                i7 += this.aJK + measuredWidth;
             }
             i5++;
             i7 = i7;
@@ -80,20 +80,20 @@ public class AutoLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.aGA, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.aJO, 1073741824);
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
-        if (this.aGu != 0 && this.aGy != 0) {
-            es(childCount);
+        if (this.aJI != 0 && this.aJM != 0) {
+            eE(childCount);
         }
-        if (this.aGu != 0) {
-            for (int i3 = 0; i3 < this.aGy; i3++) {
+        if (this.aJI != 0) {
+            for (int i3 = 0; i3 < this.aJM; i3++) {
                 View childAt = getChildAt(i3);
                 if (childAt != null) {
                     childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                 }
             }
-            this.aGy = 0;
+            this.aJM = 0;
         } else {
             for (int i4 = 0; i4 < childCount; i4++) {
                 View childAt2 = getChildAt(i4);
@@ -102,16 +102,16 @@ public class AutoLinearLayout extends LinearLayout {
                 }
             }
         }
-        if (this.aGu != 0) {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.aGA * this.aGu) + this.aGv, i2));
+        if (this.aJI != 0) {
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.aJO * this.aJI) + this.aJJ, i2));
         } else {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.aGA * culumnsCount) + (this.aGv * culumnsCount), i2));
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.aJO * culumnsCount) + (this.aJJ * culumnsCount), i2));
         }
     }
 
-    private void es(int i) {
-        if (this.aGy <= i) {
-            removeViews(this.aGy, i - this.aGy);
+    private void eE(int i) {
+        if (this.aJM <= i) {
+            removeViews(this.aJM, i - this.aJM);
         }
     }
 
@@ -120,9 +120,9 @@ public class AutoLinearLayout extends LinearLayout {
         int i2;
         int i3;
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.aGA, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.aJO, 1073741824);
         int childCount = getChildCount();
-        int i4 = this.aGx;
+        int i4 = this.aJL;
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
@@ -138,15 +138,15 @@ public class AutoLinearLayout extends LinearLayout {
                 if (i4 < measuredWidth) {
                     i7++;
                     if (i7 == 1) {
-                        this.aGy = i5;
+                        this.aJM = i5;
                     }
-                    i = this.aGw + measuredWidth + 0;
+                    i = this.aJK + measuredWidth + 0;
                 } else {
-                    i = this.aGw + measuredWidth + i6;
+                    i = this.aJK + measuredWidth + i6;
                 }
                 i2 = i7;
                 i3 = i;
-                i4 = this.aGx - i;
+                i4 = this.aJL - i;
             }
             i5++;
             int i9 = i3;
@@ -157,18 +157,18 @@ public class AutoLinearLayout extends LinearLayout {
     }
 
     public void setShowColumns(int i) {
-        this.aGu = i;
+        this.aJI = i;
     }
 
     public void setMarginRight(int i) {
-        this.aGw = i;
+        this.aJK = i;
     }
 
     public void setParentWidth(int i) {
-        this.aGx = i;
+        this.aJL = i;
     }
 
     public void setCellHeight(int i) {
-        this.aGA = i;
+        this.aJO = i;
     }
 }

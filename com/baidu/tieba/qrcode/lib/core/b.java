@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern glA = Pattern.compile(",");
-    private Point glB;
-    private Point glC;
-    private Point glD;
+    private static final Pattern gsS = Pattern.compile(",");
+    private Point gsT;
+    private Point gsU;
+    private Point gsV;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.glB = a.cb(this.mContext);
+        this.gsT = a.cI(this.mContext);
         Point point = new Point();
-        point.x = this.glB.x;
-        point.y = this.glB.y;
-        int ca = a.ca(this.mContext);
-        if (ca == 0) {
-            point.x = this.glB.y;
-            point.y = this.glB.x;
+        point.x = this.gsT.x;
+        point.y = this.gsT.y;
+        int cH = a.cH(this.mContext);
+        if (cH == 0) {
+            point.x = this.gsT.y;
+            point.y = this.gsT.x;
         }
-        this.glD = a(parameters, point);
-        if (ca == 0) {
-            this.glC = new Point(this.glD.y, this.glD.x);
+        this.gsV = a(parameters, point);
+        if (cH == 0) {
+            this.gsU = new Point(this.gsV.y, this.gsV.x);
         } else {
-            this.glC = this.glD;
+            this.gsU = this.gsV;
         }
     }
 
@@ -48,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point bmz() {
-        return this.glC;
+    public Point bpg() {
+        return this.gsU;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.glD.x, this.glD.y);
+        parameters.setPreviewSize(this.gsV.x, this.gsV.y);
         a(parameters);
-        camera.setDisplayOrientation(bmA());
+        camera.setDisplayOrientation(bph());
         camera.setParameters(parameters);
     }
 
@@ -71,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int bmA() {
+    public int bph() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -146,8 +146,8 @@ final class b {
         return null;
     }
 
-    private static int b(CharSequence charSequence, int i) {
-        String[] split = glA.split(charSequence);
+    private static int c(CharSequence charSequence, int i) {
+        String[] split = gsS.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;
@@ -194,7 +194,7 @@ final class b {
             }
             String str4 = parameters.get("mot-zoom-values");
             if (str4 != null) {
-                i = b(str4, i);
+                i = c(str4, i);
             }
             String str5 = parameters.get("mot-zoom-step");
             if (str5 != null) {

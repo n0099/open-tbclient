@@ -6,37 +6,37 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private boolean cYD = false;
-    private com.baidu.tieba.location.data.a eVC;
-    private SearchLocationActivity eVD;
-    private NoDataView eVE;
+    private boolean deA = false;
+    private com.baidu.tieba.location.data.a fcX;
+    private SearchLocationActivity fcY;
+    private NoDataView fcZ;
 
     public a(SearchLocationActivity searchLocationActivity) {
-        this.eVD = searchLocationActivity;
+        this.fcY = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eVC == null || this.eVC.aSJ() == null || this.eVC.aSJ().isEmpty()) {
-            this.cYD = false;
+        if (this.fcX == null || this.fcX.aUX() == null || this.fcX.aUX().isEmpty()) {
+            this.deA = false;
             return 1;
         }
-        this.cYD = true;
-        return this.eVC.aSJ().size();
+        this.deA = true;
+        return this.fcX.aUX().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.eVC == null || this.eVC.aSJ() == null || this.eVC.aSJ().isEmpty()) {
+        if (this.fcX == null || this.fcX.aUX() == null || this.fcX.aUX().isEmpty()) {
             return null;
         }
-        return this.eVC.aSJ().get(i);
+        return this.fcX.aUX().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -46,57 +46,57 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.cYD) {
+        if (!this.deA) {
             return bg(viewGroup);
         }
-        C0194a c0194a = null;
-        if (view != null && (view.getTag() instanceof C0194a)) {
-            c0194a = (C0194a) view.getTag();
+        C0196a c0196a = null;
+        if (view != null && (view.getTag() instanceof C0196a)) {
+            c0196a = (C0196a) view.getTag();
         }
-        if (c0194a == null) {
-            view = LayoutInflater.from(this.eVD.getPageContext().getPageActivity()).inflate(f.h.location_search_item_layout, viewGroup, false);
-            c0194a = aU(view);
-            view.setTag(c0194a);
+        if (c0196a == null) {
+            view = LayoutInflater.from(this.fcY.getPageContext().getPageActivity()).inflate(e.h.location_search_item_layout, viewGroup, false);
+            c0196a = bi(view);
+            view.setTag(c0196a);
         }
-        C0194a c0194a2 = c0194a;
-        c0194a2.eVF.setText(this.eVC.aSJ().get(i).getName());
-        am.j(c0194a2.efJ, f.d.cp_bg_line_b);
-        am.c(c0194a2.eVF, f.d.cp_cont_b, 1);
-        am.i(view, f.C0146f.home_recommend_item_bg);
+        C0196a c0196a2 = c0196a;
+        c0196a2.fda.setText(this.fcX.aUX().get(i).getName());
+        al.j(c0196a2.enf, e.d.cp_bg_line_b);
+        al.c(c0196a2.fda, e.d.cp_cont_b, 1);
+        al.i(view, e.f.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.location.data.a aVar) {
-        this.eVC = aVar;
+        this.fcX = aVar;
     }
 
-    public boolean aSN() {
-        return this.cYD;
+    public boolean aVb() {
+        return this.deA;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0194a {
-        TextView eVF;
-        View efJ;
+    public class C0196a {
+        View enf;
+        TextView fda;
 
-        private C0194a() {
+        private C0196a() {
         }
     }
 
-    public C0194a aU(View view) {
-        C0194a c0194a = new C0194a();
-        c0194a.eVF = (TextView) view.findViewById(f.g.location_search_address_name);
-        c0194a.efJ = view.findViewById(f.g.location_search_line);
-        return c0194a;
+    public C0196a bi(View view) {
+        C0196a c0196a = new C0196a();
+        c0196a.fda = (TextView) view.findViewById(e.g.location_search_address_name);
+        c0196a.enf = view.findViewById(e.g.location_search_line);
+        return c0196a;
     }
 
     public View bg(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.eVE = NoDataViewFactory.a(this.eVD.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dt(f.j.text_try_to_chage_location), null);
-        this.eVE.onChangeSkinType(this.eVD.getPageContext(), skinType);
-        this.eVE.setVisibility(0);
-        return this.eVE;
+        this.fcZ = NoDataViewFactory.a(this.fcY.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.dE(e.j.text_try_to_chage_location), null);
+        this.fcZ.onChangeSkinType(this.fcY.getPageContext(), skinType);
+        this.fcZ.setVisibility(0);
+        return this.fcZ;
     }
 }

@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.mobstat.Config;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -21,7 +21,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class m extends com.baidu.location.d.e {
-    private static m WZ = null;
+    private static m ZA = null;
     String a = null;
     String b = null;
     String c = null;
@@ -42,7 +42,7 @@ public class m extends com.baidu.location.d.e {
             try {
                 bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
                 try {
-                    byte[] bArr = new byte[5120];
+                    byte[] bArr = new byte[Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION];
                     while (true) {
                         int read = bufferedInputStream2.read(bArr);
                         if (read == -1) {
@@ -85,7 +85,7 @@ public class m extends com.baidu.location.d.e {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                String a = com.baidu.location.b.c.a(com.baidu.location.b.b.qB().e());
+                String a = com.baidu.location.b.c.a(com.baidu.location.b.b.rG().e());
                 if (!a.equals("3G")) {
                     if (a.equals("4G")) {
                     }
@@ -225,11 +225,11 @@ public class m extends com.baidu.location.d.e {
         }
     }
 
-    public static m qw() {
-        if (WZ == null) {
-            WZ = new m();
+    public static m rB() {
+        if (ZA == null) {
+            ZA = new m();
         }
-        return WZ;
+        return ZA;
     }
 
     @Override // com.baidu.location.d.e
@@ -244,12 +244,12 @@ public class m extends com.baidu.location.d.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.d.b.qN().b == null) {
+        if (com.baidu.location.d.b.rS().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.d.b.qN().a);
+            stringBuffer.append(com.baidu.location.d.b.rS().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.d.b.qN().b);
+            stringBuffer.append(com.baidu.location.d.b.rS().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -314,11 +314,11 @@ public class m extends com.baidu.location.d.e {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.d.c.qO().a(System.currentTimeMillis());
+        com.baidu.location.d.c.rT().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.d.c.qO().b() > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.location.d.c.rT().b() > 86400000) {
             f().postDelayed(new Runnable() { // from class: com.baidu.location.a.m.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -331,7 +331,7 @@ public class m extends com.baidu.location.d.e {
                 @Override // java.lang.Runnable
                 public void run() {
                 }
-            }, TbConfig.NOTIFY_SOUND_INTERVAL);
+            }, 5000L);
         }
     }
 }

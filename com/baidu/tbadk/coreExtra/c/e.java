@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.s;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.e;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.tencent.connect.common.Constants;
 import java.io.File;
@@ -20,87 +20,87 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class e {
-    private a aGq;
-    private b aGr;
-    private String aGs = TbadkCoreApplication.getInst().getContext().getString(f.j.share_tail);
-    private String aGt = TbadkCoreApplication.getInst().getContext().getString(f.j.weibo_share_tail) + this.aGs;
+    private a aJE;
+    private b aJF;
+    private String aJG = TbadkCoreApplication.getInst().getContext().getString(e.j.share_tail);
+    private String aJH = TbadkCoreApplication.getInst().getContext().getString(e.j.weibo_share_tail) + this.aJG;
     private final Context mContext;
 
     public e(Context context, a aVar) {
         c cVar;
-        this.aGq = null;
-        this.aGr = null;
+        this.aJE = null;
+        this.aJF = null;
         this.mContext = context;
-        this.aGq = aVar;
+        this.aJE = aVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, c.class);
         if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.aGr = cVar.a(this.mContext, this.aGq);
+            this.aJF = cVar.a(this.mContext, this.aJE);
         }
     }
 
-    public static boolean aX(Context context) {
-        return FD();
+    public static boolean bD(Context context) {
+        return GT();
     }
 
-    public static boolean FD() {
+    public static boolean GT() {
         return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
     }
 
-    public static String ak(String str, String str2) {
+    public static String as(String str, String str2) {
         return o(str, "copy", str2);
     }
 
     public void b(d dVar) {
-        if (this.aGr != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.aGn ? this.aGs : "");
-            this.aGr.a(a(dVar, "weixin"), 3, false);
+        if (this.aJF != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aJB ? this.aJG : "");
+            this.aJF.a(a(dVar, "weixin"), 3, false);
         }
     }
 
     public void c(d dVar) {
-        if (this.aGr != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.aGn ? this.aGs : "");
-            if (StringUtils.isNull(dVar.aGf)) {
+        if (this.aJF != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aJB ? this.aJG : "");
+            if (StringUtils.isNull(dVar.aJt)) {
                 dVar.title = dVar.content;
             } else {
-                dVar.title = dVar.aGf;
+                dVar.title = dVar.aJt;
             }
-            this.aGr.a(a(dVar, "weixin_timeline"), 2, false);
+            this.aJF.a(a(dVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(d dVar) {
-        if (this.aGr != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.aGn ? this.aGs : "");
-            this.aGr.a(a(dVar, "qqfriend"), 8, true);
+        if (this.aJF != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aJB ? this.aJG : "");
+            this.aJF.a(a(dVar, "qqfriend"), 8, true);
         }
     }
 
     public void e(d dVar) {
-        if (this.aGr != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.aGn ? this.aGs : "");
-            this.aGr.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
+        if (this.aJF != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aJB ? this.aJG : "");
+            this.aJF.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void f(d dVar) {
-        if (this.aGr != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aGn ? this.aGs : "");
-            this.aGr.a(a(dVar, "tencent_weibo"), 5, true);
+        if (this.aJF != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aJB ? this.aJG : "");
+            this.aJF.a(a(dVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(d dVar) {
-        if (this.aGr != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aGn ? this.aGt : "");
-            this.aGr.a(a(dVar, "sina_weibo"), 6, true);
+        if (this.aJF != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aJB ? this.aJH : "");
+            this.aJF.a(a(dVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(d dVar) {
-        if (this.aGr != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aGn ? this.aGs : "");
-            this.aGr.a(a(dVar, "renren"), 7, true);
+        if (this.aJF != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aJB ? this.aJG : "");
+            this.aJF.a(a(dVar, "renren"), 7, true);
         }
     }
 
@@ -116,7 +116,7 @@ public class e {
     }
 
     private d a(d dVar, String str) {
-        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.FA() == null) {
+        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.GQ() == null) {
             String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
             if (str.startsWith("weixin")) {
                 str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
@@ -125,20 +125,20 @@ public class e {
         }
         if (dVar.imageUri != null && !dVar.imageUri.equals("")) {
             String uri = dVar.imageUri.toString();
-            if (!fY(uri) && !fZ(uri)) {
+            if (!gv(uri) && !gw(uri)) {
                 dVar.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 dVar.imageUri = Uri.parse(uri);
-                al(uri, "sfc=" + str);
+                at(uri, "sfc=" + str);
             }
         }
-        if (dVar.aGo) {
+        if (dVar.aJC) {
             dVar.linkUrl = o(dVar.linkUrl, str, dVar.tid);
         }
         return dVar;
     }
 
-    protected boolean fY(String str) {
+    protected boolean gv(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
             try {
                 File file = new File(new URI(str));
@@ -151,32 +151,32 @@ public class e {
     }
 
     private static String o(String str, String str2, String str3) {
-        String bm;
-        if (ap.isEmpty(str)) {
+        String bD;
+        if (ao.isEmpty(str)) {
             str = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
         }
-        String al = al(al(al(al(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
+        String at = at(at(at(at(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
         if (str3 != null) {
-            if (com.baidu.adp.lib.b.d.hv().ax("android_url_need_cuid") == 1) {
-                bm = s.bm(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+            if (com.baidu.adp.lib.b.d.iB().aO("android_url_need_cuid") == 1) {
+                bD = s.bD(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
             } else {
-                bm = s.bm(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
+                bD = s.bD(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
             }
-            return al(al, "unique=" + bm);
+            return at(at, "unique=" + bD);
         }
-        return al;
+        return at;
     }
 
-    private static String al(String str, String str2) {
-        if (ap.isEmpty(Uri.parse(str).getQuery())) {
+    private static String at(String str, String str2) {
+        if (ao.isEmpty(Uri.parse(str).getQuery())) {
             str = str + "?";
         }
         return str + "&" + str2;
     }
 
-    private boolean fZ(String str) {
+    private boolean gw(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(",");
-        if (az.zI().eU(str)) {
+        if (ay.AN().fm(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

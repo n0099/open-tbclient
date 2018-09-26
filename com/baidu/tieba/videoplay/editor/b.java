@@ -9,61 +9,61 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.d;
 import com.baidu.tbadk.editortools.k;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
-    protected d aZ(Context context) {
+    protected d bF(Context context) {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setBarLauncherType(4);
-        editorTools.setBackgroundColorId(f.d.cp_bg_line_d);
+        editorTools.setBackgroundColorId(e.d.cp_bg_line_d);
         return new a(editorTools);
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void a(d dVar) {
         if (dVar != null) {
-            EditorTools Ht = dVar.Ht();
+            EditorTools IJ = dVar.IJ();
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            Ht.F(arrayList);
-            k eN = Ht.eN(5);
-            if (eN != null) {
-                eN.bG(false);
-                eN.aMP = 0;
+            IJ.G(arrayList);
+            k eZ = IJ.eZ(5);
+            if (eZ != null) {
+                eZ.bS(false);
+                eZ.aQh = 0;
             }
-            Ht.b(new c(Ht.getContext()));
-            Ht.Hu();
-            Ht.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-            Ht.hide();
+            IJ.b(new c(IJ.getContext()));
+            IJ.IK();
+            IJ.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+            IJ.hide();
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void b(d dVar) {
         if (dVar instanceof a) {
-            EditorTools Ht = dVar.Ht();
+            EditorTools IJ = dVar.IJ();
             final a aVar = (a) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.videoplay.editor.b.1
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar2) {
-                    if (aVar != null && aVar.Ht() != null && aVar2 != null) {
+                    if (aVar != null && aVar.IJ() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.gM((String) aVar2.data);
+                                aVar.hi((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
                             default:
                                 return;
                             case 7:
-                                aVar.BX().showToast(f.j.over_limit_tip);
+                                aVar.Dl().showToast(e.j.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.bEg();
-                                if (b.this.a(aVar.BX(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
-                                    aVar.Il();
+                                aVar.bGX();
+                                if (b.this.a(aVar.Dl(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
+                                    aVar.JB();
                                     return;
                                 }
                                 return;
@@ -71,9 +71,9 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            Ht.setActionListener(4, bVar);
-            Ht.setActionListener(7, bVar);
-            Ht.setActionListener(8, bVar);
+            IJ.setActionListener(4, bVar);
+            IJ.setActionListener(7, bVar);
+            IJ.setActionListener(8, bVar);
         }
     }
 

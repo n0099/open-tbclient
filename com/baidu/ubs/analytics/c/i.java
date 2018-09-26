@@ -12,6 +12,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.File;
@@ -97,18 +98,18 @@ public final class i {
         String encode;
         WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-        if (connectionInfo != null && "02:00:00:00:00:00".equals(connectionInfo.getMacAddress())) {
+        if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String pi = pi();
-                if (pi != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(pi);
+                String qo = qo();
+                if (qo != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(qo);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
                 return encode;
             } catch (Exception e) {
                 com.baidu.ubs.analytics.d.j.a(e);
-                return com.baidu.ubs.analytics.d.f.encode("02:00:00:00:00:00");
+                return com.baidu.ubs.analytics.d.f.encode(Config.DEF_MAC_ID);
             }
         } else if (connectionInfo != null && connectionInfo.getMacAddress() != null) {
             return com.baidu.ubs.analytics.d.f.encode(connectionInfo.getMacAddress());
@@ -117,7 +118,7 @@ public final class i {
         }
     }
 
-    private static String pi() {
+    private static String qo() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -211,21 +212,21 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.bIY().getContext());
+            p(com.baidu.ubs.analytics.d.bLP().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.bIY().getContext());
+            p(com.baidu.ubs.analytics.d.bLP().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.bIY().getContext());
+            p(com.baidu.ubs.analytics.d.bLP().getContext());
         }
         return B;
     }

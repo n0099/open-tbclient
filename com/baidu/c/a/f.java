@@ -11,7 +11,7 @@ import org.json.JSONObject;
 class f {
     private Context a;
     private List<HashMap<String, String>> b = null;
-    private a<String> Vx = null;
+    private a<String> XY = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -71,8 +71,8 @@ class f {
                 e2.printStackTrace();
             }
         }
-        if (this.Vx != null) {
-            this.Vx.a(jSONObject != null ? jSONObject.toString() : new JSONObject().toString());
+        if (this.XY != null) {
+            this.XY.a(jSONObject != null ? jSONObject.toString() : new JSONObject().toString());
         }
     }
 
@@ -137,7 +137,7 @@ class f {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
         this.b = a(hashMap, strArr);
-        this.Vx = aVar;
+        this.XY = aVar;
         new Thread(new Runnable() { // from class: com.baidu.c.a.f.1
             @Override // java.lang.Runnable
             public void run() {

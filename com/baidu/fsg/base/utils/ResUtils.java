@@ -8,13 +8,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.ApollonConstants;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ResUtils {
     public static final String ANIM = "anim";
     private static final String a = "id";
@@ -40,6 +39,10 @@ public final class ResUtils {
 
     public static int string(Context context, String str) {
         return a(context, b, str);
+    }
+
+    public static String string(String str) {
+        return m.getString(a(m, b, str));
     }
 
     public static int layout(Context context, String str) {
@@ -229,7 +232,7 @@ public final class ResUtils {
             }
             stringBuffer.append(hexString.toUpperCase());
             if (z && i2 != bArr.length - 1) {
-                stringBuffer.append(SystemInfoUtil.COLON);
+                stringBuffer.append(":");
             }
         }
         return stringBuffer.toString();

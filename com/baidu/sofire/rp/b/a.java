@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.e;
 import java.util.ArrayList;
@@ -14,14 +15,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
     private static a a;
-    private C0094a b;
+    private C0092a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0094a(context);
+        this.b = new C0092a(context);
         this.c = new e(context);
         try {
             this.d = this.b.getWritableDatabase();
@@ -219,7 +220,7 @@ public final class a {
                     while (cursor.moveToNext()) {
                         try {
                             com.baidu.sofire.rp.c.a aVar = new com.baidu.sofire.rp.c.a();
-                            aVar.a = cursor.getInt(cursor.getColumnIndex("a"));
+                            aVar.a = cursor.getInt(cursor.getColumnIndex(Config.APP_VERSION_CODE));
                             aVar.b = cursor.getString(cursor.getColumnIndex("b"));
                             aVar.c = cursor.getInt(cursor.getColumnIndex("c"));
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
@@ -298,7 +299,7 @@ public final class a {
                     try {
                         try {
                             com.baidu.sofire.rp.c.a aVar = new com.baidu.sofire.rp.c.a();
-                            aVar.a = cursor.getInt(cursor.getColumnIndex("a"));
+                            aVar.a = cursor.getInt(cursor.getColumnIndex(Config.APP_VERSION_CODE));
                             aVar.b = cursor.getString(cursor.getColumnIndex("b"));
                             aVar.c = cursor.getInt(cursor.getColumnIndex("c"));
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
@@ -385,7 +386,7 @@ public final class a {
                     try {
                         try {
                             com.baidu.sofire.rp.c.a aVar = new com.baidu.sofire.rp.c.a();
-                            aVar.a = cursor.getInt(cursor.getColumnIndex("a"));
+                            aVar.a = cursor.getInt(cursor.getColumnIndex(Config.APP_VERSION_CODE));
                             aVar.b = cursor.getString(cursor.getColumnIndex("b"));
                             aVar.c = cursor.getInt(cursor.getColumnIndex("c"));
                             aVar.e = cursor.getLong(cursor.getColumnIndex("d"));
@@ -528,8 +529,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class C0094a extends SQLiteOpenHelper {
-        public C0094a(Context context) {
+    class C0092a extends SQLiteOpenHelper {
+        public C0092a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

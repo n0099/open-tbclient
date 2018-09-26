@@ -1,14 +1,13 @@
 package com.baidu.tieba.tbadkCore.util;
 
 import android.text.TextUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes.dex */
 public class b {
-    private static String fKl = "tbgametype";
+    private static String fRQ = "tbgametype";
 
-    public static String tZ(String str) {
+    public static String uG(String str) {
         String[] split;
-        if (TextUtils.isEmpty(str) || (split = str.split(SystemInfoUtil.COLON)) == null) {
+        if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;
         }
         for (String str2 : split) {

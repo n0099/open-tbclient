@@ -27,7 +27,7 @@ import java.lang.ref.WeakReference;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class a extends Service implements LLSInterface {
-    static HandlerC0068a a = null;
+    static HandlerC0073a a = null;
     private static long f = 0;
     private Looper c;
     private HandlerThread d;
@@ -36,10 +36,10 @@ public class a extends Service implements LLSInterface {
 
     /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class HandlerC0068a extends Handler {
+    public static class HandlerC0073a extends Handler {
         private final WeakReference<a> a;
 
-        public HandlerC0068a(Looper looper, a aVar) {
+        public HandlerC0073a(Looper looper, a aVar) {
             super(looper);
             this.a = new WeakReference<>(aVar);
         }
@@ -62,10 +62,10 @@ public class a extends Service implements LLSInterface {
                         aVar.c(message);
                         break;
                     case 22:
-                        j.qs().b(message);
+                        j.rx().b(message);
                         break;
                     case 41:
-                        j.qs().h();
+                        j.rx().h();
                         break;
                     case HttpStatus.SC_UNAUTHORIZED /* 401 */:
                         try {
@@ -82,7 +82,7 @@ public class a extends Service implements LLSInterface {
                         }
                         break;
                     case HttpStatus.SC_NOT_ACCEPTABLE /* 406 */:
-                        com.baidu.location.a.f.qp().e();
+                        com.baidu.location.a.f.ru().e();
                         break;
                 }
             }
@@ -98,34 +98,34 @@ public class a extends Service implements LLSInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        h.qq().a(f.getServiceContext());
-        k.qu().b();
-        com.baidu.location.a.f.qp().b();
-        d.qG().b();
-        b.qB().b();
-        com.baidu.location.d.b.qN();
-        j.qs().d();
-        com.baidu.location.b.f.qI().c();
+        h.rv().a(f.getServiceContext());
+        k.rz().b();
+        com.baidu.location.a.f.ru().b();
+        d.rL().b();
+        b.rG().b();
+        com.baidu.location.d.b.rS();
+        j.rx().d();
+        com.baidu.location.b.f.rN().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
         Log.d("baidu_location_service", "baidu location service register ...");
-        com.baidu.location.a.a.qk().a(message);
-        m.qw().c();
+        com.baidu.location.a.a.rp().a(message);
+        m.rB().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        com.baidu.location.b.f.qI().d();
-        d.qG().e();
-        b.qB().c();
-        j.qs().e();
-        com.baidu.location.a.f.qp().c();
+        com.baidu.location.b.f.rN().d();
+        d.rL().e();
+        b.rG().c();
+        j.rx().e();
+        com.baidu.location.a.f.ru().c();
         p.d();
-        com.baidu.location.a.a.qk().b();
-        com.baidu.location.a.d.qn().b();
-        k.qu().c();
+        com.baidu.location.a.a.rp().b();
+        com.baidu.location.a.d.rs().b();
+        k.rz().c();
         Log.d("baidu_location_service", "baidu location service has stoped ...");
         if (this.e) {
             return;
@@ -135,12 +135,12 @@ public class a extends Service implements LLSInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Message message) {
-        com.baidu.location.a.a.qk().b(message);
+        com.baidu.location.a.a.rp().b(message);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Message message) {
-        com.baidu.location.a.a.qk().f(message);
+        com.baidu.location.a.a.rp().f(message);
     }
 
     @Override // com.baidu.location.LLSInterface
@@ -166,12 +166,12 @@ public class a extends Service implements LLSInterface {
     @Override // com.baidu.location.LLSInterface
     public void onCreate(Context context) {
         f = System.currentTimeMillis();
-        this.d = o.qz();
+        this.d = o.rE();
         this.c = this.d.getLooper();
         if (this.c == null) {
-            a = new HandlerC0068a(Looper.getMainLooper(), this);
+            a = new HandlerC0073a(Looper.getMainLooper(), this);
         } else {
-            a = new HandlerC0068a(this.c, this);
+            a = new HandlerC0073a(this.c, this);
         }
         this.b = new Messenger(a);
         a.sendEmptyMessage(0);

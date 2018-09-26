@@ -35,7 +35,7 @@ public final class y implements Runnable {
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.channel.commonutils.android.b.b(this.a, this.a.getPackageName())));
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, "push_sdk_vn", "3_2_2");
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, "push_sdk_vc", Integer.toString(30202));
-        com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_TOKEN, a.d());
+        com.xiaomi.channel.commonutils.android.h.a(aeVar.h, "token", a.d());
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_IMEI_MD5, com.xiaomi.channel.commonutils.string.d.a(com.xiaomi.channel.commonutils.android.e.c(this.a)));
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_REG_ID, a.e());
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_REG_SECRET, a.f());

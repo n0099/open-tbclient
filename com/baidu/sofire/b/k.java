@@ -6,7 +6,6 @@ import android.os.Process;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.File;
 import org.json.JSONObject;
@@ -376,7 +375,7 @@ public final class k {
             TelephonyManager telephonyManager = (TelephonyManager) this.e.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
             if (telephonyManager != null) {
                 str2 = telephonyManager.getDeviceId();
-                if (str2 != null && str2.contains(SystemInfoUtil.COLON)) {
+                if (str2 != null && str2.contains(":")) {
                     str2 = "";
                 }
                 return TextUtils.isEmpty(str2) ? str2 : str;

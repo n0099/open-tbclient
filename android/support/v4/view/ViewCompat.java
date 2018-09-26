@@ -148,8 +148,9 @@ public class ViewCompat {
     public @interface ScrollIndicators {
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    static class ViewCompatBaseImpl {
+    public static class ViewCompatBaseImpl {
         static boolean sAccessibilityDelegateCheckFailed = false;
         static Field sAccessibilityDelegateField;
         private static Method sChildrenDrawingOrderMethod;

@@ -13,19 +13,22 @@ public class SapiJsCallBacks {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class CallBacks {
-        PageStateCallback A;
-        NormalizeGuestAccountCallback B;
-        AuthorizationListener C;
-        Runnable D;
-        JsPromptResult E;
-        int F = 1;
-        boolean G = false;
-        boolean H;
-        String I;
-        SocialResponse J;
-        SapiAccountResponse K;
-        SapiWebView.FastRegAction L;
-        JoinLoginParams M;
+        SapiWebView.LocalConfigCallback A;
+        PageStateCallback B;
+        NormalizeGuestAccountCallback C;
+        WebviewPageFinishCallback D;
+        RealNameStatusCallback E;
+        AuthorizationListener F;
+        Runnable G;
+        JsPromptResult H;
+        int I = 1;
+        boolean J = false;
+        boolean K;
+        String L;
+        SocialResponse M;
+        SapiAccountResponse N;
+        SapiWebView.FastRegAction O;
+        JoinLoginParams P;
         Handler a;
         SapiWebView.NMLoginHandler b;
         SapiWebView.UniteVerifyHandler c;
@@ -47,11 +50,11 @@ public class SapiJsCallBacks {
         SapiWebView.CoverWebBdussCallback s;
         SapiWebView.PreFillUserNameCallback t;
         SapiWebView.AccountDestoryCallback u;
-        SapiWebView.ShareAccountClickCallback v;
-        SapiWebView.QrLoginCallback w;
-        SapiWebView.SystemUpwardSmsCallback x;
-        SapiWebView.InvokeScAppCallback y;
-        SapiWebView.LocalConfigCallback z;
+        SapiWebView.AccountFreezeCallback v;
+        SapiWebView.ShareAccountClickCallback w;
+        SapiWebView.QrLoginCallback x;
+        SapiWebView.SystemUpwardSmsCallback y;
+        SapiWebView.InvokeScAppCallback z;
     }
 
     /* loaded from: classes.dex */
@@ -75,5 +78,18 @@ public class SapiJsCallBacks {
         public static final int STATE_OTHER = 2;
 
         void pageState(int i);
+    }
+
+    /* loaded from: classes.dex */
+    public interface RealNameStatusCallback {
+        public static final int STATE_JUNIOR_REALNAME = 1;
+        public static final int STATE_SENIOR_REALNAME = 2;
+
+        void onFinish(int i);
+    }
+
+    /* loaded from: classes.dex */
+    public interface WebviewPageFinishCallback {
+        void onFinish(String str);
     }
 }

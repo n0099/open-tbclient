@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util.d;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class l extends a {
     private int procType;
@@ -27,39 +28,39 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean zY() {
+    public boolean Bd() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean zZ() {
+    public boolean Be() {
         return false;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
-    /* renamed from: g */
-    public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a he = com.baidu.tbadk.imageManager.c.IQ().he(str);
-        if (he == null || he.nb() == null) {
-            return null;
-        }
-        return he;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
-    public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        Bitmap decodeFile;
-        if (StringUtils.isNull(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.Kg().hA(str), i, i2);
+        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oh() == null || checkIsValidPicMemoryCache.oh().isRecycled()) {
             return null;
         }
-        return new com.baidu.adp.widget.ImageView.a(decodeFile, false);
+        return checkIsValidPicMemoryCache;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
+    /* renamed from: b */
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+        Bitmap checkBitmapSize;
+        if (StringUtils.isNull(str) || (checkBitmapSize = BitmapHelper.checkBitmapSize(BitmapFactory.decodeFile(str), i, i2)) == null) {
+            return null;
+        }
+        return new com.baidu.adp.widget.ImageView.a(checkBitmapSize, false);
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Aa() {
+    public int Bf() {
         return this.procType;
     }
 }

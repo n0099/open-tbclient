@@ -1,45 +1,42 @@
 package com.baidu.tbadk;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ah;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.e;
+import com.baidu.tieba.t.b;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
     private View mFloatingView;
+    private String mInfo;
     private WindowManager wm;
     private static KuangFloatingViewController instance = null;
     private static String WRITE_PACKAGE = "com.baidu.tieba.write";
     private static String STORY_PACKAGE = "com.baidu.tieba.story";
-    private boolean needShowFloatingView = false;
-    CustomMessageListener backGroundSwitchListener = new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.KuangFloatingViewController.1
+    private CustomMessageListener mBackGroundSwitchListener = new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.KuangFloatingViewController.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean data;
-            if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
-                if (!data.booleanValue()) {
-                    if (KuangFloatingViewController.this.canShowFloatingView() && KuangFloatingViewController.this.init()) {
-                        KuangFloatingViewController.this.showFloatingView();
-                        return;
-                    }
-                    return;
-                }
+            if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && data.booleanValue()) {
                 KuangFloatingViewController.this.hideFloatingView();
             }
         }
@@ -49,17 +46,13 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ai.zj().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.Ao().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
             }
         }
     };
-
-    public void setNeedShowFloatingView(boolean z) {
-        this.needShowFloatingView = z;
-    }
 
     public static KuangFloatingViewController getInstance() {
         if (instance == null) {
@@ -68,50 +61,45 @@ public class KuangFloatingViewController {
         return instance;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean canShowFloatingView() {
-        String topActivityClassName = UtilHelper.getTopActivityClassName();
-        return (topActivityClassName == null || topActivityClassName.contains(WRITE_PACKAGE) || topActivityClassName.contains(STORY_PACKAGE)) ? false : true;
-    }
-
     public boolean init() {
-        if (this.needShowFloatingView) {
-            if (this.mFloatingView == null) {
-                this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(f.h.floating_view_from_kuang, (ViewGroup) null);
-                this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.3
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        KuangFloatingViewController.this.hideFloatingView();
-                        KuangFloatingViewController.this.needShowFloatingView = false;
-                        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                        if (currentActivity != null) {
-                            currentActivity.moveTaskToBack(true);
-                        }
+        if (this.mFloatingView == null) {
+            this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(e.h.floating_view_from_kuang, (ViewGroup) null);
+            this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.3
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    KuangFloatingViewController.this.hideFloatingView();
+                    Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                    if (currentActivity != null) {
+                        currentActivity.moveTaskToBack(true);
                     }
-                });
-                this.mFloatingView.findViewById(f.g.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.4
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        KuangFloatingViewController.this.hideFloatingView();
-                        KuangFloatingViewController.this.needShowFloatingView = false;
-                        TiebaStatic.log(new an("C12265").r("obj_type", 2));
+                    TiebaStatic.log(new am("c12264").w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
+                    Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
+                    if (launchIntentForPackage != null) {
+                        TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
+                        TiebaStatic.log(new am("C12265").w("obj_type", 1));
                     }
-                });
-            } else if (this.mFloatingView.getParent() != null) {
-                return false;
-            }
-            return true;
+                }
+            });
+            this.mFloatingView.findViewById(e.g.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    KuangFloatingViewController.this.hideFloatingView();
+                }
+            });
+        } else if (this.mFloatingView.getParent() != null) {
+            return false;
         }
-        return false;
+        ((TextView) this.mFloatingView.findViewById(e.g.info)).setText(this.mInfo);
+        return true;
     }
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = 2002;
+        layoutParams.type = b.uV(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = l.f(TbadkCoreApplication.getInst(), f.e.ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.y = l.h(TbadkCoreApplication.getInst(), e.C0141e.ds260) + UtilHelper.getStatusBarHeight();
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.gravity = 51;
@@ -126,8 +114,7 @@ public class KuangFloatingViewController {
                 if (this.mFloatingView != null && this.mFloatingView.getParent() == null) {
                     this.wm.addView(this.mFloatingView, layoutParams);
                 }
-                TiebaStatic.log("C12266");
-                MessageManager.getInstance().registerListener(this.backGroundSwitchListener);
+                MessageManager.getInstance().registerListener(this.mBackGroundSwitchListener);
                 MessageManager.getInstance().registerListener(this.writeListener);
             }
         } catch (SecurityException e) {
@@ -153,5 +140,9 @@ public class KuangFloatingViewController {
                 this.mFloatingView = null;
             }
         }
+    }
+
+    public void setInfo(String str) {
+        this.mInfo = str;
     }
 }

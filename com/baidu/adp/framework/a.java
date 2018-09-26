@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a sF;
-    private SparseArray<String> sG;
+    private static volatile a vf;
+    private SparseArray<String> vg;
 
-    public static a eL() {
-        if (sF == null) {
+    public static a fT() {
+        if (vf == null) {
             synchronized (a.class) {
-                if (sF == null) {
-                    sF = new a();
+                if (vf == null) {
+                    vf = new a();
                 }
             }
         }
-        return sF;
+        return vf;
     }
 
     private a() {
-        this.sG = null;
-        this.sG = new SparseArray<>();
+        this.vg = null;
+        this.vg = new SparseArray<>();
     }
 
     public void i(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                Q(str);
+                ah(str);
             }
         }
     }
 
-    private void Q(String str) {
+    private void ah(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.sG.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.sG.get(i) + " 重复");
+                    if (this.vg.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.vg.get(i) + " 重复");
                     }
-                    this.sG.put(i, name);
+                    this.vg.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String A(int i) {
-        String str = this.sG.get(i);
+    public String I(int i) {
+        String str = this.vg.get(i);
         if (str != null) {
             return str;
         }

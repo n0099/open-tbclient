@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,7 +9,7 @@ import tbclient.ForumSubLabel;
 public class LabelDataList extends ArrayList<a> {
     public void parseProtu(List<ForumSubLabel> list) {
         clear();
-        if (!w.z(list)) {
+        if (!v.z(list)) {
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
                     a aVar = new a();
@@ -25,7 +25,7 @@ public class LabelDataList extends ArrayList<a> {
     }
 
     public void setSelectedIndex(int i) {
-        a aVar = (a) w.d(this, i);
+        a aVar = (a) v.d(this, i);
         if (aVar != null) {
             aVar.isSelect = true;
             Iterator<a> it = iterator();
@@ -46,7 +46,7 @@ public class LabelDataList extends ArrayList<a> {
                 return next.labelId;
             }
         }
-        a aVar = (a) w.d(this, 0);
+        a aVar = (a) v.d(this, 0);
         if (aVar != null) {
             aVar.isSelect = true;
             return aVar.labelId;

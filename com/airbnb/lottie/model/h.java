@@ -5,12 +5,12 @@ import com.airbnb.lottie.e;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class h extends b<JSONObject> {
-    private final com.airbnb.lottie.h jQ;
-    private final Resources nd;
+    private final com.airbnb.lottie.h mo;
+    private final Resources pF;
 
     public h(Resources resources, com.airbnb.lottie.h hVar) {
-        this.nd = resources;
-        this.jQ = hVar;
+        this.pF = resources;
+        this.mo = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,7 +18,7 @@ public final class h extends b<JSONObject> {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public com.airbnb.lottie.e doInBackground(JSONObject... jSONObjectArr) {
-        return e.a.a(this.nd, jSONObjectArr[0]);
+        return e.a.a(this.pF, jSONObjectArr[0]);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,6 @@ public final class h extends b<JSONObject> {
     @Override // android.os.AsyncTask
     /* renamed from: j */
     public void onPostExecute(com.airbnb.lottie.e eVar) {
-        this.jQ.a(eVar);
+        this.mo.a(eVar);
     }
 }

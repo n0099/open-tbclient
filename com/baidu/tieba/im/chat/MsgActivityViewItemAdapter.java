@@ -18,13 +18,13 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgActivityView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgActivityView aHs = aVar.aHs();
-        aHs.setPosition(i);
-        aHs.setData(chatMessage);
-        aHs.a(this.ekw);
-        aHs.setOnItemViewLongClickListener(this.ekx);
-        aHs.bX(this.ekD);
-        aHs.bW(chatMessage.getCacheData().getLastMsgTime());
+        MsgActivityView aJH = aVar.aJH();
+        aJH.setPosition(i);
+        aJH.setData(chatMessage);
+        aJH.a(this.erQ);
+        aJH.setOnItemViewLongClickListener(this.erR);
+        aJH.cb(this.erX);
+        aJH.ca(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -36,7 +36,7 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
     /* renamed from: ba */
     public e.a<MsgActivityView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgActivityView msgActivityView = new MsgActivityView(this.mPageContext);
-        return new a(msgActivityView.eB(), msgActivityView);
+        return new a(msgActivityView.fJ(), msgActivityView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

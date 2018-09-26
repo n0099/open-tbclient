@@ -14,12 +14,12 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SendVideoSuccessShareModel extends BdBaseModel {
-    private HttpMessageListener aEA = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
+    private HttpMessageListener aHN = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003384 && (httpResponsedMessage instanceof SendVideoSuccessShareOriginalThreadInfoResponse) && ((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).threadInfo != null && SendVideoSuccessShareModel.this.mLoadDataCallBack != null) {
-                SendVideoSuccessShareModel.this.mLoadDataCallBack.i(((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).getThreadInfo());
+                SendVideoSuccessShareModel.this.mLoadDataCallBack.j(((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).getThreadInfo());
             }
         }
     };
@@ -27,9 +27,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public SendVideoSuccessShareModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.aEA.setTag(getUniqueId());
-        this.aEA.setSelfListener(true);
-        registerListener(this.aEA);
+        this.aHN.setTag(getUniqueId());
+        this.aHN.setSelfListener(true);
+        registerListener(this.aHN);
     }
 
     private void registerTask() {
@@ -45,11 +45,11 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aEA);
+        MessageManager.getInstance().unRegisterListener(this.aHN);
         return false;
     }
 
-    public void uD(String str) {
+    public void vm(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         httpMessage.addParam("video_id", str);
         sendMessage(httpMessage);

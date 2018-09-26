@@ -8,15 +8,15 @@ public interface a {
 
     void b(com.baidu.tieba.pb.data.d dVar);
 
-    void jt(boolean z);
+    void jU(boolean z);
 
-    void ju(boolean z);
+    void jV(boolean z);
 
-    void jv(boolean z);
+    void jW(boolean z);
 
     void q(View.OnClickListener onClickListener);
 
-    void qp(int i);
+    void qQ(int i);
 
     void setFromCDN(boolean z);
 

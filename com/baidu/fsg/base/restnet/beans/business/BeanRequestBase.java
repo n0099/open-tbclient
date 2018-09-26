@@ -3,7 +3,7 @@ package com.baidu.fsg.base.restnet.beans.business;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BeanRequestBase {
     private static final String TAG = "BeanRequestBase";
     protected boolean mBelongPaySdk = false;

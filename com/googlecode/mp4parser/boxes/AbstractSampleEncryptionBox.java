@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes;
 
+import com.baidu.mobstat.Config;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -20,12 +21,12 @@ import org.aspectj.lang.a;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_5 = null;
     protected int algorithmId;
     List<CencSampleAuxiliaryDataFormat> entries;
     protected int ivSize;
@@ -40,7 +41,7 @@ public abstract class AbstractSampleEncryptionBox extends AbstractFullBox {
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getOffsetToFirstIV", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "int"), 33);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "getEntries", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), 92);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "setEntries", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.util.List", "entries", "", "void"), 96);
-        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.lang.Object", "o", "", "boolean"), 164);
+        ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "java.lang.Object", Config.OS, "", "boolean"), 164);
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "int"), 191);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "getEntrySizes", "com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox", "", "", "", "java.util.List"), 199);
     }

@@ -19,7 +19,7 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* renamed from: ba */
     public e.a<MsgPhotoLiveCardVew> onCreateViewHolder(ViewGroup viewGroup) {
         MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.mPageContext);
-        return new a(msgPhotoLiveCardVew.eB(), msgPhotoLiveCardVew);
+        return new a(msgPhotoLiveCardVew.fJ(), msgPhotoLiveCardVew);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,10 +28,10 @@ public class MsgPhotoLiveItemAdapter extends e<MsgPhotoLiveCardVew> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgPhotoLiveCardVew> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgPhotoLiveCardVew aHs = aVar.aHs();
-        aHs.a(this.mPageContext, chatMessage, viewGroup);
-        aHs.a(this.ekw);
-        aHs.setPosition(i);
+        MsgPhotoLiveCardVew aJH = aVar.aJH();
+        aJH.a(this.mPageContext, chatMessage, viewGroup);
+        aJH.a(this.erQ);
+        aJH.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

@@ -29,11 +29,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         return this.list.size();
     }
 
-    public String aVX() {
-        if (StringUtils.isNull(this.uuid) || !l.gd() || StringUtils.isNull(getKey())) {
+    public String aYl() {
+        if (StringUtils.isNull(this.uuid) || !l.hk() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.fgV + aVY();
+        String str = c.a.fos + aYm();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -47,17 +47,17 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         }
     }
 
-    protected String aVY() {
+    protected String aYm() {
         return "_" + this.uuid + "_" + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e aVZ() {
-        return new e(getKey(), aVX());
+    public e aYn() {
+        return new e(getKey(), aYl());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cJ(List<T> list) {
+    public void cK(List<T> list) {
         new BdAsyncTask<List<T>, Void, Void>() { // from class: com.baidu.tieba.j.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -65,9 +65,9 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
             /* renamed from: e */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String aVX = a.this.aVX();
-                    if (!StringUtils.isNull(aVX)) {
-                        a.this.j(aVX, listArr[0]);
+                    String aYl = a.this.aYl();
+                    if (!StringUtils.isNull(aYl)) {
+                        a.this.k(aYl, listArr[0]);
                     }
                 }
                 return null;
@@ -76,12 +76,12 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void j(String str, List<T> list) {
+    public synchronized void k(String str, List<T> list) {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).bla());
+            jSONArray.put(list.get(i).bnG());
         }
-        com.baidu.tieba.j.d.e(new File(str), jSONArray.toString() + "\n");
+        com.baidu.tieba.j.d.f(new File(str), jSONArray.toString() + "\n");
     }
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.framework.MessageManager;
@@ -17,13 +18,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.AdTbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.ao;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String N(String str, String str2) {
+    public static String U(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             str = "http://".concat(str);
@@ -41,7 +42,7 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        sg();
+        tm();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -51,7 +52,7 @@ public class e {
         }
     }
 
-    public static void T(Context context, String str) {
+    public static void ah(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -66,7 +67,7 @@ public class e {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ap.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ao.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -90,12 +91,13 @@ public class e {
     }
 
     public static String appendVersionCode(String str) {
-        return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ao.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void aB(Context context) {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00b3 -> B:39:0x001c). Please submit an issue!!! */
+    public static void bh(Context context) {
         CookieManager cookieManager;
-        a.b db = com.baidu.tbadk.core.a.a.tk().db(TbadkCoreApplication.getCurrentBduss());
+        a.b dt = com.baidu.tbadk.core.a.a.uo().dt(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -104,7 +106,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (db != null) {
+            if (dt != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -115,20 +117,43 @@ public class e {
                 }
             } else {
                 try {
-                    cookieManager.removeAllCookie();
+                    String cookie = cookieManager.getCookie("https://passport.baidu.com");
+                    String cookie2 = cookieManager.getCookie("https://wappass.baidu.com");
+                    String cookie3 = cookieManager.getCookie("https://nsclick.baidu.com");
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                    if (!StringUtils.isNull(cookie)) {
+                        cookieManager.setCookie("https://passport.baidu.com", cookie);
+                    }
+                    if (!StringUtils.isNull(cookie2)) {
+                        cookieManager.setCookie("https://wappass.baidu.com", cookie2);
+                    }
+                    if (!StringUtils.isNull(cookie3)) {
+                        cookieManager.setCookie("https://nsclick.baidu.com", cookie3);
+                    }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
             try {
-                CookieSyncManager.getInstance().sync();
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
             } catch (Exception e2) {
                 BdLog.e(e2);
             }
         }
     }
 
-    private static void sg() {
-        new ah("open_webview", true).start();
+    private static void tm() {
+        new ag("open_webview", true).start();
     }
 }

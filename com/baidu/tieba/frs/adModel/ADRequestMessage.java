@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.adModel;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.GetADList.DataReq;
 import tbclient.GetADList.GetADListReqIdl;
 /* loaded from: classes2.dex */
@@ -22,7 +22,7 @@ public class ADRequestMessage extends NetMessage {
         builder.fid = Long.valueOf(this.fid);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            o.bindCommonParamsToProtobufData(builder, true);
+            p.bindCommonParamsToProtobufData(builder, true);
         }
         GetADListReqIdl.Builder builder2 = new GetADListReqIdl.Builder();
         builder2.data = builder.build(false);

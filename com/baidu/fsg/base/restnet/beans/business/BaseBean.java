@@ -15,7 +15,7 @@ import com.baidu.fsg.base.utils.Md5Utils;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseBean extends NetworkBean {
     public static final int COMET_BEAN = 1;
     private static final String TAG = "BeasBean";

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SafeKeyBoardUtil {
     private String a;
     private Context b;
@@ -69,8 +69,7 @@ public final class SafeKeyBoardUtil {
     }
 
     public void hideSoftInputMethod(EditText editText) {
-        Activity activity = (Activity) this.b;
-        ((InputMethodManager) ((Activity) this.b).getSystemService("input_method")).hideSoftInputFromWindow(this.c.getWindowToken(), 0);
+        ((InputMethodManager) this.b.getSystemService("input_method")).hideSoftInputFromWindow(this.c.getWindowToken(), 0);
         if (Build.VERSION.SDK_INT < 11) {
             editText.setInputType(0);
             return;

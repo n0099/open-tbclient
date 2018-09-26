@@ -11,15 +11,44 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> SB = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float SC = 0.0f;
-    private static float SD = 0.0f;
-    private static float SE = 0.0f;
-    private static float SF = 0.0f;
-    private static String SG = "";
-    private static long SH = 0;
-    private static long SJ = 0;
-    private static Rect SK = null;
+    private static com.baidu.crabsdk.c.b<List> Vh = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float Vi = 0.0f;
+    private static float Vj = 0.0f;
+    private static float Vk = 0.0f;
+    private static float Vl = 0.0f;
+    private static String Vm = "";
+    private static long Vn = 0;
+    private static long Vo = 0;
+    private static Rect Vp = null;
+
+    private static List<View> D(View view) {
+        ArrayList arrayList = new ArrayList();
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                View childAt = viewGroup.getChildAt(i);
+                if (childAt.getVisibility() == 0) {
+                    int i2 = (int) Vi;
+                    int i3 = (int) Vj;
+                    if (Vp == null) {
+                        Vp = new Rect();
+                    }
+                    childAt.getDrawingRect(Vp);
+                    int[] iArr = new int[2];
+                    childAt.getLocationOnScreen(iArr);
+                    Vp.left = iArr[0];
+                    Vp.top = iArr[1];
+                    Vp.right += iArr[0];
+                    Vp.bottom = iArr[1] + Vp.bottom;
+                    if (Vp.contains(i2, i3)) {
+                        arrayList.add(childAt);
+                        arrayList.addAll(D(childAt));
+                    }
+                }
+            }
+        }
+        return arrayList;
+    }
 
     private static void a(int i, Activity activity) {
         View decorView;
@@ -27,9 +56,9 @@ public final class d {
         arrayList.add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
         StringBuilder sb = new StringBuilder();
         if (activity != null && (decorView = activity.getWindow().getDecorView()) != null) {
-            List<View> t = t(decorView);
+            List<View> D = D(decorView);
             String str = "";
-            for (View view : t) {
+            for (View view : D) {
                 str = view.getClass().getName() + ", id=" + view.getId();
             }
             sb.append(str);
@@ -38,51 +67,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + SC + ", " + SD + ")");
+                arrayList.add("(" + Vi + ", " + Vj + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + SC + ", " + SD + ")");
+                arrayList.add("(" + Vi + ", " + Vj + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + SC + ", " + SD + ")");
+                arrayList.add("(" + Vi + ", " + Vj + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + SC + ", " + SD + ") to:(" + SE + ", " + SF + ")");
+                arrayList.add("from:(" + Vi + ", " + Vj + ") to:(" + Vk + ", " + Vl + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + SC + ", " + SD + ") to:(" + SE + ", " + SF + ")");
+                arrayList.add("from:(" + Vi + ", " + Vj + ") to:(" + Vk + ", " + Vl + ")");
                 break;
         }
-        arrayList.add(SG);
-        SB.add(arrayList);
+        arrayList.add(Vm);
+        Vh.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        SG = activity.getClass().getName();
+        Vm = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                SC = motionEvent.getX();
-                SD = motionEvent.getY();
-                SH = System.currentTimeMillis();
+                Vi = motionEvent.getX();
+                Vj = motionEvent.getY();
+                Vn = System.currentTimeMillis();
                 return;
             case 1:
-                SE = motionEvent.getX();
-                SF = motionEvent.getY();
-                SJ = System.currentTimeMillis();
-                if (Math.abs(SF - SD) > 30.0f) {
+                Vk = motionEvent.getX();
+                Vl = motionEvent.getY();
+                Vo = System.currentTimeMillis();
+                if (Math.abs(Vl - Vj) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(SE - SC) > 30.0f && Math.abs(SF - SD) < 30.0f) {
+                } else if (Math.abs(Vk - Vi) > 30.0f && Math.abs(Vl - Vj) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (SJ - SH > 300) {
+                } else if (Vo - Vn > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -95,46 +124,17 @@ public final class d {
         }
     }
 
-    private static List<View> t(View view) {
-        ArrayList arrayList = new ArrayList();
-        if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = (ViewGroup) view;
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0) {
-                    int i2 = (int) SC;
-                    int i3 = (int) SD;
-                    if (SK == null) {
-                        SK = new Rect();
-                    }
-                    childAt.getDrawingRect(SK);
-                    int[] iArr = new int[2];
-                    childAt.getLocationOnScreen(iArr);
-                    SK.left = iArr[0];
-                    SK.top = iArr[1];
-                    SK.right += iArr[0];
-                    SK.bottom = iArr[1] + SK.bottom;
-                    if (SK.contains(i2, i3)) {
-                        arrayList.add(childAt);
-                        arrayList.addAll(t(childAt));
-                    }
-                }
-            }
-        }
-        return arrayList;
-    }
-
     public static String u() {
         StringBuilder sb = new StringBuilder();
-        int size = SB.size();
+        int size = Vh.size();
         for (int i = 0; i < size; i++) {
-            List list = SB.get(i);
+            List list = Vh.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }
             sb.append("STEP" + (i + 1) + "\nTime: " + list.get(0) + "; Activity: " + list.get(4) + "; Component: " + list.get(1) + "; Operation: " + list.get(2) + "; Location: " + list.get(3) + "\n");
         }
-        com.baidu.crabsdk.c.a.cg("Behavior Steps --> " + sb.toString());
+        com.baidu.crabsdk.c.a.cx("Behavior Steps --> " + sb.toString());
         return sb.toString();
     }
 }

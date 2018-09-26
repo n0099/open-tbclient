@@ -2,14 +2,16 @@ package com.baidu.fsg.base.restnet.beans.business;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.fsg.base.a.a;
+import com.baidu.fsg.base.b.a;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.RestResponseEntity;
+import com.baidu.fsg.base.restnet.RestRuntimeException;
 import com.baidu.fsg.base.restnet.RestTemplate;
 import com.baidu.fsg.base.restnet.a.c;
 import com.baidu.fsg.base.restnet.beans.BeanResponseBase;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
+import com.baidu.fsg.base.restnet.rest.RestHttpRequestInterceptor;
 import com.baidu.fsg.base.utils.BussinessUtils;
 import com.baidu.fsg.base.utils.FileCopyUtils;
 import com.baidu.fsg.base.utils.JsonUtils;
@@ -18,23 +20,26 @@ import com.baidu.fsg.base.utils.Md5Utils;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class UploadBean extends NetworkBean {
+    public static final int COMET_BEAN = 1;
     private static final String TAG = UploadBean.class.getSimpleName();
     private static final String UPLOAD_BEAN_TASK_MGR_KEY = "UploadBeanTask";
     private static final String UPLOAD_BEAN_TASK_MGR_TASK_KEY = "UploadBean";
+    private int beanType;
     protected List<UploadFileModel> files;
     public RestMultipartEntity.ProgressListener listener;
     private String mTskKey;
     private Class<?> rspClass;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UploadFileModel {
         public String contentType;
         public String fileName;
@@ -45,7 +50,16 @@ public abstract class UploadBean extends NetworkBean {
     public UploadBean(Context context) {
         super(context);
         this.mTskKey = "";
+        this.beanType = -1;
         this.files = new ArrayList();
+    }
+
+    public UploadBean(Context context, int i) {
+        super(context);
+        this.mTskKey = "";
+        this.beanType = -1;
+        this.files = new ArrayList();
+        this.beanType = i;
     }
 
     public void setProgressListener(RestMultipartEntity.ProgressListener progressListener) {
@@ -60,9 +74,15 @@ public abstract class UploadBean extends NetworkBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     protected void prepareRestTemplate() {
+        RestHttpRequestInterceptor ebpayHttpRequestInterceptor;
         this.mRestTemplate = new RestTemplate(this.mContext, BussinessUtils.getUA(this.mContext), BeanConstants.HTTP_REQUEST_TYPE_UPLOAD_BEAN);
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new EbpayHttpRequestInterceptor());
+        if (this.beanType == 1) {
+            ebpayHttpRequestInterceptor = new CometHttpRequestInterceptor();
+        } else {
+            ebpayHttpRequestInterceptor = new EbpayHttpRequestInterceptor();
+        }
+        arrayList.add(ebpayHttpRequestInterceptor);
         this.mRestTemplate.setRequestInterceptor(arrayList);
         this.mRestTemplate.setMessageConverter(new c());
     }
@@ -76,7 +96,13 @@ public abstract class UploadBean extends NetworkBean {
             generateMultipartEntity.closeOutStream();
             handleResponse(cls, null, postMultipartForEntity);
         } catch (Exception e) {
-            handleResponse(cls, null, null);
+            if ((e instanceof RestRuntimeException) && ((RestRuntimeException) e).contains(SocketTimeoutException.class)) {
+                if (this.mRspCallback != null) {
+                    this.mRspCallback.onBeanExecFailure(getBeanId(), -5, BeanConstants.rim_timeout_error);
+                }
+            } else {
+                handleResponse(cls, null, null);
+            }
             e.printStackTrace();
         }
     }

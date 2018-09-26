@@ -1,8 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.idl.authority.BuildConfig;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -37,13 +35,13 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     public Map<String, String> u;
     public String w;
     private static final org.apache.thrift.protocol.j y = new org.apache.thrift.protocol.j("XmPushActionRegistration");
-    private static final org.apache.thrift.protocol.b z = new org.apache.thrift.protocol.b(BuildConfig.BUILD_TYPE, (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b z = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
     private static final org.apache.thrift.protocol.b A = new org.apache.thrift.protocol.b(BaiduRimConstants.ACTION_TARGET, (byte) 12, 2);
     private static final org.apache.thrift.protocol.b B = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
     private static final org.apache.thrift.protocol.b C = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
     private static final org.apache.thrift.protocol.b D = new org.apache.thrift.protocol.b("appVersion", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b E = new org.apache.thrift.protocol.b("packageName", (byte) 11, 6);
-    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b(Constants.EXTRA_KEY_TOKEN, (byte) 11, 7);
+    private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("token", (byte) 11, 7);
     private static final org.apache.thrift.protocol.b G = new org.apache.thrift.protocol.b("deviceId", (byte) 11, 8);
     private static final org.apache.thrift.protocol.b H = new org.apache.thrift.protocol.b("aliasName", (byte) 11, 9);
     private static final org.apache.thrift.protocol.b I = new org.apache.thrift.protocol.b("sdkVersion", (byte) 11, 10);
@@ -65,13 +63,13 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
 
     /* loaded from: classes3.dex */
     public enum a {
-        DEBUG(1, BuildConfig.BUILD_TYPE),
+        DEBUG(1, "debug"),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),
         ID(3, "id"),
         APP_ID(4, "appId"),
         APP_VERSION(5, "appVersion"),
         PACKAGE_NAME(6, "packageName"),
-        TOKEN(7, Constants.EXTRA_KEY_TOKEN),
+        TOKEN(7, "token"),
         DEVICE_ID(8, "deviceId"),
         ALIAS_NAME(9, "aliasName"),
         SDK_VERSION(10, "sdkVersion"),
@@ -113,13 +111,13 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b(BuildConfig.BUILD_TYPE, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b(BaiduRimConstants.ACTION_TARGET, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.APP_VERSION, (a) new org.apache.thrift.meta_data.b("appVersion", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.TOKEN, (a) new org.apache.thrift.meta_data.b(Constants.EXTRA_KEY_TOKEN, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.TOKEN, (a) new org.apache.thrift.meta_data.b("token", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.DEVICE_ID, (a) new org.apache.thrift.meta_data.b("deviceId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.ALIAS_NAME, (a) new org.apache.thrift.meta_data.b("aliasName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.SDK_VERSION, (a) new org.apache.thrift.meta_data.b("sdkVersion", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));

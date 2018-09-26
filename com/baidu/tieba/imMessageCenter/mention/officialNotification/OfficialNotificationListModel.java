@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.util.u;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.x;
 import com.baidu.tieba.im.chat.d;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgPageData;
@@ -47,8 +47,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 20;
-        aVar.eyZ = null;
-        aVar.eza = null;
+        aVar.eGq = null;
+        aVar.eGr = null;
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;
@@ -69,8 +69,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             j = this.mDatas.getChatMessages().get(0).getMsgId();
             j2 = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.eyZ = String.valueOf(j);
-        aVar.eza = String.valueOf(j2);
+        aVar.eGq = String.valueOf(j);
+        aVar.eGr = String.valueOf(j2);
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;
@@ -99,12 +99,12 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     protected void deleteMsg(final ChatMessage chatMessage) {
         if (this.mUser != null && chatMessage != null) {
-            v.b(new u<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.OfficialNotificationListModel.1
+            x.b(new w<Boolean>() { // from class: com.baidu.tieba.imMessageCenter.mention.officialNotification.OfficialNotificationListModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.u
+                @Override // com.baidu.tbadk.util.w
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(l.aJM().bn(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(l.aMb().bv(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }

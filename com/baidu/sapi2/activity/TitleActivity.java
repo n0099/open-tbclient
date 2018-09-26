@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.d.a.a;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -30,7 +31,6 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
     protected View bottomBackView;
-    public boolean executeSubClassMethod = true;
     protected ImageView mBottomBackBtnIv;
     protected ImageView mLeftBtnIv;
     protected LinearLayout mLeftBtnLayout;
@@ -42,6 +42,8 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     protected RelativeLayout mTitleLayout;
     public TitleBtnCallback titleBtnCallback;
     private PassportViewManager viewManager;
+    protected boolean useTitle = true;
+    public boolean executeSubClassMethod = true;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
@@ -52,27 +54,29 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setupViews() {
-        this.mTitle = (TextView) findViewById(a.d.title);
-        this.mLeftBtnLayout = (LinearLayout) findViewById(a.d.title_left_btn_layout);
-        this.mLeftBtnTv = (TextView) findViewById(a.d.title_btn_left_tv);
-        this.mLeftBtnIv = (ImageView) findViewById(a.d.title_btn_left_iv);
-        this.mRightBtn = (Button) findViewById(a.d.title_btn_right);
-        this.mTitleLayout = (RelativeLayout) findViewById(a.d.sapi_title_layout);
-        this.mTitleBgLayout = (RelativeLayout) findViewById(a.d.sapi_title_bg_layout);
-        this.mRightBtnClose = (ImageView) findViewById(a.d.title_right_close);
-        if (SapiAccountManager.getInstance().getConfignation().showBottomBack) {
-            if (this.bottomBackView == null) {
-                this.bottomBackView = ((ViewStub) findViewById(a.d.stub_bottom_back)).inflate();
+        if (this.useTitle) {
+            this.mTitle = (TextView) findViewById(a.d.title);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(a.d.title_left_btn_layout);
+            this.mLeftBtnTv = (TextView) findViewById(a.d.title_btn_left_tv);
+            this.mLeftBtnIv = (ImageView) findViewById(a.d.title_btn_left_iv);
+            this.mRightBtn = (Button) findViewById(a.d.title_btn_right);
+            this.mTitleLayout = (RelativeLayout) findViewById(a.d.sapi_title_layout);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(a.d.sapi_title_bg_layout);
+            this.mRightBtnClose = (ImageView) findViewById(a.d.title_right_close);
+            if (SapiAccountManager.getInstance().getConfignation().showBottomBack) {
+                if (this.bottomBackView == null) {
+                    this.bottomBackView = ((ViewStub) findViewById(a.d.stub_bottom_back)).inflate();
+                }
+                this.mBottomBackBtnIv = (ImageView) this.bottomBackView.findViewById(a.d.sapi_bottom_back);
+                this.mBottomBackBtnIv.setOnClickListener(this);
+                this.mRightBtnClose.setOnClickListener(this);
+                ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
+                ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
             }
-            this.mBottomBackBtnIv = (ImageView) this.bottomBackView.findViewById(a.d.sapi_bottom_back);
-            this.mBottomBackBtnIv.setOnClickListener(this);
-            this.mRightBtnClose.setOnClickListener(this);
-            ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
-            ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
+            this.mLeftBtnIv.setOnClickListener(this);
+            this.mLeftBtnTv.setOnClickListener(this);
+            this.mRightBtn.setOnClickListener(this);
         }
-        this.mLeftBtnIv.setOnClickListener(this);
-        this.mLeftBtnTv.setOnClickListener(this);
-        this.mRightBtn.setOnClickListener(this);
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
             ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
@@ -184,7 +188,17 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     }
 
     public void setTitleText(String str) {
-        if (!TextUtils.isEmpty(str)) {
+        PassportViewManager.TitleViewModule titleViewModule = PassportViewManager.getInstance().getTitleViewModule();
+        if (titleViewModule != null) {
+            if (titleViewModule.useWebviewTitle) {
+                if (!TextUtils.isEmpty(str)) {
+                    this.mTitle.setText(str);
+                    return;
+                }
+                return;
+            }
+            this.mTitle.setText(titleViewModule.titleText);
+        } else if (!TextUtils.isEmpty(str)) {
             this.mTitle.setText(str);
         }
     }
@@ -259,7 +273,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     public void reportWebviewError(Throwable th) {
         HashMap hashMap = new HashMap();
         hashMap.put("error", Log.getStackTraceString(th));
-        hashMap.put("device", Build.MODEL);
+        hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE);
         StatService.onEvent("webview_init_error", hashMap, false);
     }

@@ -4,16 +4,16 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private int arU;
-    private String gNn;
-    private String gNo;
-    private String gNp;
+    private int aus;
+    private String gUR;
+    private String gUS;
+    private String gUT;
     private int mHeight;
     private String mTitle;
     private int mWidth;
 
-    public String bvE() {
-        return this.gNn;
+    public String byk() {
+        return this.gUR;
     }
 
     public int getImageWidth() {
@@ -24,8 +24,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String bvF() {
-        return this.gNo;
+    public String byl() {
+        return this.gUS;
     }
 
     public String getTitle() {
@@ -33,7 +33,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.gNp;
+        return this.gUT;
     }
 
     public void a(ActHot actHot) {
@@ -42,8 +42,8 @@ public class a {
             if (str != null) {
                 try {
                     String[] split = str.split(",");
-                    this.mWidth = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    this.mHeight = com.baidu.adp.lib.g.b.g(split[1], 1);
+                    this.mWidth = com.baidu.adp.lib.g.b.l(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.g.b.l(split[1], 1);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -54,11 +54,11 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.gNn = actHot.img_src;
-            this.gNo = actHot.link;
+            this.gUR = actHot.img_src;
+            this.gUS = actHot.link;
             this.mTitle = actHot.author_name;
-            this.gNp = actHot.img_des;
-            this.arU = actHot.img_type.intValue();
+            this.gUT = actHot.img_des;
+            this.aus = actHot.img_type.intValue();
         }
     }
 }

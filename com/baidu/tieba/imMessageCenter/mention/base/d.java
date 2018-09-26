@@ -5,14 +5,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class d extends RecyclerView.ItemDecoration {
     private int dividerHeight;
 
     public d() {
         if (this.dividerHeight <= 0) {
-            this.dividerHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.tbds16);
+            this.dividerHeight = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.tbds16);
         }
     }
 

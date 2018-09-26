@@ -40,7 +40,7 @@ public class Debug {
         }
 
         public String b() {
-            return this.a + SystemInfoUtil.COLON + this.b + SystemInfoUtil.COLON + this.d + SystemInfoUtil.COLON + this.c;
+            return this.a + ":" + this.b + ":" + this.d + ":" + this.c;
         }
 
         public void c() {
@@ -49,7 +49,7 @@ public class Debug {
             sb.append(this.c).append("--");
             sb.append(IntentConfig.START);
             if (!TextUtils.isEmpty(this.d)) {
-                sb.append(SystemInfoUtil.COLON).append(this.d);
+                sb.append(":").append(this.d);
             }
             Debug.print(sb.toString(), this.e);
         }
@@ -60,7 +60,7 @@ public class Debug {
             sb.append(this.c).append("--");
             sb.append("end");
             if (!TextUtils.isEmpty(this.d)) {
-                sb.append(SystemInfoUtil.COLON).append(this.d);
+                sb.append(":").append(this.d);
             }
             sb.append(",cost:").append(a());
             Debug.print(sb.toString(), this.f);

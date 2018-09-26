@@ -1,89 +1,24 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class c {
-    public static void M(List<a> list) {
-        if (list != null) {
-            StringBuilder sb = new StringBuilder();
-            HashMap hashMap = new HashMap();
-            for (a aVar : list) {
-                if (aVar != null && !StringUtils.isNull(aVar.forumName)) {
-                    if (!hashMap.containsKey(aVar.forumName)) {
-                        sb.append(aVar.toString()).append("^");
-                        hashMap.put(aVar.forumName, aVar.forumName);
-                    }
-                } else {
-                    return;
-                }
-            }
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
+    private static c aZx;
+
+    public static c My() {
+        if (aZx == null) {
+            aZx = new c();
         }
+        return aZx;
     }
 
-    public static String[] Li() {
-        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
-        if (StringUtils.isNull(string)) {
-            return new String[0];
+    public String hQ(String str) {
+        String str2;
+        if (BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi <= 240) {
+            str2 = "hdpi";
+        } else {
+            str2 = "xhdpi";
         }
-        String[] split = string.split("\\^");
-        if (split != null && split.length > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (String str : split) {
-                a hu = a.hu(str);
-                if (hu != null && !StringUtils.isNull(hu.forumName)) {
-                    arrayList.add(hu.forumName);
-                }
-            }
-            return (String[]) arrayList.toArray(new String[arrayList.size()]);
-        }
-        return null;
-    }
-
-    /* loaded from: classes.dex */
-    public static class a {
-        public String forumName;
-        public int level;
-
-        public a() {
-        }
-
-        public a(String str, int i) {
-            this.forumName = str;
-            this.level = i;
-        }
-
-        public String toString() {
-            if (StringUtils.isNull(this.forumName)) {
-                return null;
-            }
-            return this.forumName + "#" + this.level;
-        }
-
-        public static a hu(String str) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            a aVar = new a();
-            if (str.contains("#")) {
-                String[] split = str.split("#");
-                if (split.length == 1) {
-                    aVar.forumName = split[0];
-                    return aVar;
-                } else if (split.length == 2) {
-                    aVar.forumName = split[0];
-                    aVar.level = com.baidu.adp.lib.g.b.g(split[1], -1);
-                    return aVar;
-                } else {
-                    return aVar;
-                }
-            }
-            aVar.forumName = str;
-            return aVar;
-        }
+        return "http://tb1.bdstatic.com/tb/client/img/" + str2 + "/" + str;
     }
 }

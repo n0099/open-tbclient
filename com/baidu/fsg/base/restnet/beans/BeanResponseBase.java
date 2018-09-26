@@ -4,9 +4,8 @@ import com.baidu.fsg.base.NoProguard;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BeanResponseBase implements NoProguard {
-    private static final String STATUS_SYS_ERR = "系统开小差，等一会儿再试吧";
     public int retCode = 0;
     public String retMsg = null;
     public JSONObject result = null;

@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.TalkBall.AdidasAdvert;
 /* loaded from: classes3.dex */
 public interface a {
-    void Ty();
+    void Vl();
 
     void W(ArrayList<h> arrayList);
 
@@ -17,7 +17,7 @@ public interface a {
 
     void a(AdidasAdvert adidasAdvert);
 
-    void bD(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
+    void bE(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
 
     void c(m mVar);
 

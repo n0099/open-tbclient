@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RestMultipartEntity {
     private static final char[] MULTIPART_CHARS = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     private ProgressListener listener;
@@ -18,7 +18,7 @@ public class RestMultipartEntity {
     private boolean mIsSetFirst = false;
     private boolean mIsSetLast = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ProgressListener {
         void transferred(long j, long j2);
     }
@@ -161,7 +161,7 @@ public class RestMultipartEntity {
         return this.mOut.toByteArray().length;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CountingOutputStream extends FilterOutputStream {
         private final long length;
         private final ProgressListener listener;

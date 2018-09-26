@@ -20,4 +20,6 @@ public interface ISapiAccountManagerService {
     boolean isAppProcess();
 
     boolean isLogin();
+
+    boolean isOutsideCompany();
 }

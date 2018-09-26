@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tieba.e;
 import com.baidu.tieba.frs.worldcup.talkball.b.g;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -22,7 +22,7 @@ public class c extends RecyclerView.Adapter<b> {
 
     public c(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.mTopicName = this.mPageContext.getString(f.j.frs_video_topic);
+        this.mTopicName = this.mPageContext.getString(e.j.frs_video_topic);
     }
 
     public void setData(List<g> list) {
@@ -49,38 +49,38 @@ public class c extends RecyclerView.Adapter<b> {
     /* renamed from: a */
     public void onBindViewHolder(b bVar, int i) {
         g gVar;
-        if (bVar != null && bVar.aBW() != null && this.mData != null && (gVar = this.mData.get(i)) != null) {
+        if (bVar != null && bVar.aEj() != null && this.mData != null && (gVar = this.mData.get(i)) != null) {
             int i2 = i + 1;
-            bVar.aBW().a(gVar);
-            bVar.aBW().getRootView().setOnClickListener(new a(gVar, i2));
-            TiebaStatic.log(new an("c13087").r("obj_locate", i2).ae("obj_name", this.mTopicName).ae(ImageViewerConfig.FORUM_ID, this.mForumId).ae("obj_param1", gVar.aBK()));
+            bVar.aEj().a(gVar);
+            bVar.aEj().getRootView().setOnClickListener(new a(gVar, i2));
+            TiebaStatic.log(new am("c13087").w("obj_locate", i2).al("obj_name", this.mTopicName).al(ImageViewerConfig.FORUM_ID, this.mForumId).al("obj_param1", gVar.aDX()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
-        private int cBI;
-        private g dMZ;
+        private int cHA;
+        private g dUr;
 
         public a(g gVar, int i) {
-            this.dMZ = gVar;
-            this.cBI = i;
+            this.dUr = gVar;
+            this.cHA = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.dMZ != null) {
+            if (this.dUr != null) {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(c.this.mPageContext.getPageActivity());
-                pbActivityConfig.createNormalCfg(this.dMZ.getThreadId(), this.dMZ.aBK(), "frs_page");
+                pbActivityConfig.createNormalCfg(this.dUr.getThreadId(), this.dUr.aDX(), "frs_page");
                 c.this.mPageContext.sendMessage(new CustomMessage(2004001, pbActivityConfig));
-                TiebaStatic.log(new an("c13088").r("obj_locate", this.cBI).ae("obj_name", c.this.mTopicName).ae(ImageViewerConfig.FORUM_ID, c.this.mForumId).ae("obj_param1", this.dMZ.aBK()));
+                TiebaStatic.log(new am("c13088").w("obj_locate", this.cHA).al("obj_name", c.this.mTopicName).al(ImageViewerConfig.FORUM_ID, c.this.mForumId).al("obj_param1", this.dUr.aDX()));
             }
         }
     }
 
     public void setTopicName(String str) {
-        if (!ap.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             this.mTopicName = str;
         }
     }
@@ -91,15 +91,15 @@ public class c extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes3.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private com.baidu.tieba.frs.worldcup.videotopic.b.b dNb;
+        private com.baidu.tieba.frs.worldcup.videotopic.b.b dUt;
 
         public b(com.baidu.tieba.frs.worldcup.videotopic.b.b bVar) {
             super(bVar.getView());
-            this.dNb = bVar;
+            this.dUt = bVar;
         }
 
-        public com.baidu.tieba.frs.worldcup.videotopic.b.b aBW() {
-            return this.dNb;
+        public com.baidu.tieba.frs.worldcup.videotopic.b.b aEj() {
+            return this.dUt;
         }
     }
 }

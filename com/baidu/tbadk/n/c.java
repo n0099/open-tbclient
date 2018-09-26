@@ -12,9 +12,10 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.ab;
-import com.baidu.tbadk.p.ah;
+import com.baidu.tbadk.core.util.aa;
+import com.baidu.tbadk.p.ak;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.StringU;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
@@ -71,11 +72,11 @@ public class c extends com.baidu.adp.framework.a.d {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
         }
-        int jK = j.jK();
-        if (!ah.iq()) {
-            httpMessage.addHeader("net", String.valueOf(jK));
+        int kQ = j.kQ();
+        if (!ak.jw()) {
+            httpMessage.addHeader("net", String.valueOf(kQ));
         }
-        if (1 != jK ? TbadkCoreApplication.getInst().getKeepaliveNonWifi() != 1 : TbadkCoreApplication.getInst().getKeepaliveWifi() != 1) {
+        if (1 != kQ ? TbadkCoreApplication.getInst().getKeepaliveNonWifi() != 1 : TbadkCoreApplication.getInst().getKeepaliveWifi() != 1) {
             z = false;
         }
         if (z) {
@@ -109,12 +110,12 @@ public class c extends com.baidu.adp.framework.a.d {
         if (from != null && from.length() > 0) {
             httpMessage.addParam("from", from);
         }
-        int jK = j.jK();
-        httpMessage.addParam("net_type", String.valueOf(jK));
-        if (com.baidu.tbadk.coreExtra.b.a.Bw().Bx()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.Bw().By()));
+        int kQ = j.kQ();
+        httpMessage.addParam("net_type", String.valueOf(kQ));
+        if (com.baidu.tbadk.coreExtra.b.a.CI().CJ()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.CI().CK()));
         }
-        if (1 == jK) {
+        if (1 == kQ) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
                 httpMessage.addCookie("ka", TbConfig.ST_TYPE_OPEN);
             }
@@ -157,22 +158,26 @@ public class c extends com.baidu.adp.framework.a.d {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        httpMessage.addParam("sign", s.bm(stringBuffer.toString()));
+        httpMessage.addParam("sign", s.bD(stringBuffer.toString()));
+        if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && com.baidu.tbadk.p.s.jw()) {
+            httpMessage.addParam("sig", StringU.iB(stringBuffer.toString()));
+        }
+        httpMessage.getHeaders().remove("needSig");
     }
 
     private void d(HttpMessage httpMessage) {
-        ab.a yX = ab.yX();
-        if (yX != null) {
-            httpMessage.addParam("stTime", String.valueOf(yX.mTime));
-            httpMessage.addParam("stSize", String.valueOf(yX.apO));
-            httpMessage.addParam("stTimesNum", String.valueOf(yX.apP));
-            httpMessage.addParam("stMode", String.valueOf(yX.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(yX.apN));
+        aa.a Ac = aa.Ac();
+        if (Ac != null) {
+            httpMessage.addParam("stTime", String.valueOf(Ac.mTime));
+            httpMessage.addParam("stSize", String.valueOf(Ac.asm));
+            httpMessage.addParam("stTimesNum", String.valueOf(Ac.asn));
+            httpMessage.addParam("stMode", String.valueOf(Ac.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(Ac.asl));
         }
-        int cJ = ab.cJ(0);
-        if (cJ == 0 && yX != null) {
-            cJ = yX.apP;
+        int cS = aa.cS(0);
+        if (cS == 0 && Ac != null) {
+            cS = Ac.asn;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cJ));
+        httpMessage.addParam("stErrorNums", String.valueOf(cS));
     }
 }

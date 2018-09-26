@@ -269,7 +269,7 @@ public class ImMessageCenterPojo implements Serializable {
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
             imMessageCenterPojo.setNameShow(userData.getName_show());
         }
-        if (b.c(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+        if (b.d(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
             userType = userData.getUserType();
         } else {
             userType = userData2.getUserType();

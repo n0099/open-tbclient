@@ -29,12 +29,10 @@ import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.ar.util.ViewUtils;
 import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
-import com.baidu.tbadk.TbConfig;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public abstract class c implements View.OnClickListener, com.baidu.ar.c.c, OrientationManager.OrientationListener, k {
     private static long G = 300;
@@ -235,7 +233,7 @@ public abstract class c implements View.OnClickListener, com.baidu.ar.c.c, Orien
                 }
             };
         }
-        this.b.schedule(this.c, TbConfig.NOTIFY_SOUND_INTERVAL);
+        this.b.schedule(this.c, 5000L);
     }
 
     private void a(int i) {
@@ -441,7 +439,7 @@ public abstract class c implements View.OnClickListener, com.baidu.ar.c.c, Orien
             case MsgField.MSG_PADDLE_INIT /* 2400 */:
                 HashMap hashMap = (HashMap) obj;
                 if (hashMap != null) {
-                    String obj2String = MsgParamsUtil.obj2String(hashMap.get(ClientCookie.PATH_ATTR), "");
+                    String obj2String = MsgParamsUtil.obj2String(hashMap.get("path"), "");
                     String obj2String2 = MsgParamsUtil.obj2String(hashMap.get("secretKey"), "");
                     if (TextUtils.isEmpty(obj2String)) {
                         return;

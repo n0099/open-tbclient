@@ -2,7 +2,7 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.GetLockWindowTid.DataReq;
 import tbclient.GetLockWindowTid.GetLockWindowTidReqIdl;
 /* loaded from: classes3.dex */
@@ -19,7 +19,7 @@ public class PullTidReqNetMessage extends NetMessage {
     protected Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            o.bindCommonParamsToProtobufData(builder, true, true, true);
+            p.bindCommonParamsToProtobufData(builder, true, true, true);
             GetLockWindowTidReqIdl.Builder builder2 = new GetLockWindowTidReqIdl.Builder();
             builder2.data = builder.build(true);
             return builder2.build(true);

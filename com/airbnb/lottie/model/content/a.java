@@ -3,20 +3,19 @@ package com.airbnb.lottie.model.content;
 import android.graphics.PointF;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.a.m;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements b {
-    private final m<PointF, PointF> nB;
-    private final com.airbnb.lottie.model.a.f nJ;
-    private final boolean nK;
     private final String name;
+    private final m<PointF, PointF> qc;
+    private final com.airbnb.lottie.model.a.f ql;
+    private final boolean qm;
 
     private a(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.nB = mVar;
-        this.nJ = fVar;
-        this.nK = z;
+        this.qc = mVar;
+        this.ql = fVar;
+        this.qm = z;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -30,7 +29,7 @@ public class a implements b {
     public static class C0009a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static a o(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new a(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject(NotifyType.SOUND), eVar), jSONObject.optInt("d", 2) == 3);
+            return new a(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject("s"), eVar), jSONObject.optInt("d", 2) == 3);
         }
     }
 
@@ -38,15 +37,15 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> cu() {
-        return this.nB;
+    public m<PointF, PointF> dB() {
+        return this.qc;
     }
 
-    public com.airbnb.lottie.model.a.f cE() {
-        return this.nJ;
+    public com.airbnb.lottie.model.a.f dL() {
+        return this.ql;
     }
 
     public boolean isReversed() {
-        return this.nK;
+        return this.qm;
     }
 }

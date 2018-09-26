@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.ValueCallback;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.d.a.a;
 import com.baidu.fsg.api.RimServiceCallback;
@@ -162,7 +163,7 @@ public class BaseActivity extends TitleActivity {
                 BaseActivity.this.biometricsIdentifyResult = biometricsIdentifyResult;
                 if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
                     BaseActivity.this.getStoken(biometricsIdentifyResult);
-                } else if (SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_CERTINFO.equals(biometricsIdentifyResult.livenessRecogType) || SapiWebView.BiometricsIdentifyResult.LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN.equals(biometricsIdentifyResult.livenessRecogType)) {
+                } else if ("certinfo".equals(biometricsIdentifyResult.livenessRecogType) || "authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
                     BaseActivity.this.livenessRecognize(null, biometricsIdentifyResult);
                 }
             }
@@ -327,8 +328,8 @@ public class BaseActivity extends TitleActivity {
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("errno", SapiWebView.BiometricsIdentifyResult.ERROR_CODE_GET_STOKEN_FAILED);
-                    jSONObject.put("errmsg", "获取stoken 失败");
+                    jSONObject.put("errno", -402);
+                    jSONObject.put("errmsg", SapiWebView.BiometricsIdentifyResult.ERROR_MSG_GET_STOKEN_FAILED);
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -343,7 +344,7 @@ public class BaseActivity extends TitleActivity {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("errno", getTplStokenResult.getResultCode());
-                    jSONObject.put("errmsg", "获取stoken 失败");
+                    jSONObject.put("errmsg", getTplStokenResult.getResultMsg());
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -364,50 +365,35 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void livenessRecognize(String str, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
-        BiometricsManager.getInstance().livenessRecognize(getApplicationContext(), str, biometricsIdentifyResult, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.13
-            /* JADX WARN: Removed duplicated region for block: B:10:0x0037  */
-            /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
+        final BiometricsManager biometricsManager = BiometricsManager.getInstance();
+        biometricsManager.getClass();
+        BiometricsManager.LivenessDTO livenessDTO = new BiometricsManager.LivenessDTO();
+        livenessDTO.livenessRecogType = biometricsIdentifyResult.livenessRecogType;
+        livenessDTO.recordVideo = biometricsIdentifyResult.recordVideo;
+        livenessDTO.showGuidePage = biometricsIdentifyResult.showGuidePage;
+        livenessDTO.subPro = biometricsIdentifyResult.subPro;
+        livenessDTO.realName = biometricsIdentifyResult.realName;
+        livenessDTO.idCardNum = biometricsIdentifyResult.idCardNum;
+        livenessDTO.phoneNum = biometricsIdentifyResult.phoneNum;
+        livenessDTO.authToken = biometricsIdentifyResult.authToken;
+        if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
+            livenessDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
+        }
+        biometricsManager.livenessRecognize(this, str, livenessDTO, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.13
             @Override // com.baidu.fsg.api.RimServiceCallback
-            /*
-                Code decompiled incorrectly, please refer to instructions dump.
-            */
             public void onResult(int i, Map<String, Object> map) {
-                JSONException jSONException;
-                String str2;
-                String str3;
-                String str4;
+                BiometricsManager.LivenessResult parseMap2LivenessResult = biometricsManager.parseMap2LivenessResult(i, map);
                 if (i == 0) {
-                    String str5 = (String) map.get("retMsg");
-                    try {
-                        JSONObject jSONObject = new JSONObject((String) map.get("result"));
-                        String optString = jSONObject.optString("callbackkey");
-                        try {
-                            str4 = jSONObject.optString("authsid");
-                            str3 = optString;
-                        } catch (JSONException e) {
-                            str2 = optString;
-                            jSONException = e;
-                            Log.e(jSONException);
-                            str3 = str2;
-                            str4 = null;
-                            JSONObject livenessResult2JsonObj = BaseActivity.this.livenessResult2JsonObj(i, str5, str3, str4);
-                            if (BaseActivity.this.biometricsIdentifyResult == null) {
-                            }
-                        }
-                    } catch (JSONException e2) {
-                        jSONException = e2;
-                        str2 = null;
-                    }
-                    JSONObject livenessResult2JsonObj2 = BaseActivity.this.livenessResult2JsonObj(i, str5, str3, str4);
-                    if (BaseActivity.this.biometricsIdentifyResult == null) {
-                        BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(livenessResult2JsonObj2.toString());
+                    JSONObject livenessResult2JsonObj = BaseActivity.this.livenessResult2JsonObj(i, parseMap2LivenessResult.errMsg, parseMap2LivenessResult.callBackKey, parseMap2LivenessResult.authSid);
+                    if (BaseActivity.this.biometricsIdentifyResult != null) {
+                        BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(livenessResult2JsonObj.toString());
                         return;
                     }
                     return;
                 }
-                JSONObject livenessResult2JsonObj3 = BaseActivity.this.livenessResult2JsonObj(i, (String) map.get("retMsg"), null, null);
+                JSONObject livenessResult2JsonObj2 = BaseActivity.this.livenessResult2JsonObj(i, parseMap2LivenessResult.errMsg, null, null);
                 if (BaseActivity.this.biometricsIdentifyResult != null) {
-                    BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(livenessResult2JsonObj3.toString());
+                    BaseActivity.this.biometricsIdentifyResult.setIdentifyToken(livenessResult2JsonObj2.toString());
                 }
             }
         });
@@ -415,7 +401,19 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bioScanFace(Context context, final SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult) {
-        BiometricsManager.getInstance().bioScanFace(context, bioScanFaceResult, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.14
+        BiometricsManager biometricsManager = BiometricsManager.getInstance();
+        biometricsManager.getClass();
+        BiometricsManager.LivenessDTO livenessDTO = new BiometricsManager.LivenessDTO();
+        livenessDTO.livingUname = bioScanFaceResult.uid;
+        if (bioScanFaceResult.type == 1) {
+            livenessDTO.livenessRecogType = BiometricsManager.LivenessDTO.LIVENESS_RECOGNIZE_TYPE_UN_REALNAME_REG;
+        } else {
+            livenessDTO.livenessRecogType = BiometricsManager.LivenessDTO.LIVENESS_RECOGNIZE_TYPE_UN_REALNAME_VERIFY;
+        }
+        livenessDTO.subPro = bioScanFaceResult.subpro;
+        livenessDTO.showGuidePage = bioScanFaceResult.showGuidePage;
+        livenessDTO.transParamsList = bioScanFaceResult.transParamsList;
+        BiometricsManager.getInstance().bioScanFace(context, livenessDTO, new RimServiceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.14
             /* JADX WARN: Removed duplicated region for block: B:10:0x0037  */
             /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
             @Override // com.baidu.fsg.api.RimServiceCallback
@@ -481,7 +479,22 @@ public class BaseActivity extends TitleActivity {
         return jSONObject;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            ((RelativeLayout) findViewById(a.d.root_view)).removeView(this.sapiWebView);
+            this.sapiWebView.removeAllViews();
+            this.sapiWebView.destroy();
+            this.sapiWebView = null;
+        } catch (Exception e) {
+            Log.e(e);
+        }
+    }
+
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    @TargetApi(23)
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         if (i == 100) {

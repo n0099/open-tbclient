@@ -2,33 +2,33 @@ package com.baidu.tieba.recapp.download;
 
 import android.os.Handler;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.r;
+import com.baidu.tbadk.core.util.q;
 /* loaded from: classes3.dex */
 public class b {
-    private r apu = null;
-    private com.baidu.tbadk.core.util.a.a apt = null;
+    private q arR = null;
+    private com.baidu.tbadk.core.util.a.a arQ = null;
 
     public b() {
-        yL();
+        zQ();
     }
 
-    public void hQ() {
-        if (this.apu != null) {
-            this.apu.hQ();
+    public void iW() {
+        if (this.arR != null) {
+            this.arR.iW();
         }
     }
 
     public void setUrl(String str) {
-        this.apt.zK().zN().mUrl = str;
+        this.arQ.AP().AS().mUrl = str;
     }
 
-    private void yL() {
-        this.apt = new com.baidu.tbadk.core.util.a.a();
-        this.apu = new c(this.apt);
-        this.apt.zK().zN().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
-        com.baidu.adp.lib.network.a.a.aB(TbadkCoreApplication.getInst().getCuid());
-        com.baidu.adp.lib.network.a.a.aC(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        com.baidu.adp.lib.network.a.a.aD(TbadkCoreApplication.getInst().getCuidGid());
+    private void zQ() {
+        this.arQ = new com.baidu.tbadk.core.util.a.a();
+        this.arR = new c(this.arQ);
+        this.arQ.AP().AS().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        com.baidu.adp.lib.network.a.a.aS(TbadkCoreApplication.getInst().getCuid());
+        com.baidu.adp.lib.network.a.a.aT(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        com.baidu.adp.lib.network.a.a.aU(TbadkCoreApplication.getInst().getCuidGid());
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3) {
@@ -36,11 +36,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        yM().zK().a(this.apu);
-        return this.apu.a(str, handler, i, i2, i3, z);
+        zR().AP().a(this.arR);
+        return this.arR.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a yM() {
-        return this.apt;
+    public com.baidu.tbadk.core.util.a.a zR() {
+        return this.arQ;
     }
 }

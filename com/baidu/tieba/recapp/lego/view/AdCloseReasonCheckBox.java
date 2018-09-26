@@ -5,8 +5,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
     public AdCloseReasonCheckBox(Context context) {
@@ -25,10 +25,10 @@ public class AdCloseReasonCheckBox extends CheckBox {
     }
 
     private void init(Context context) {
-        am.i(this, f.C0146f.btn_home_neg_feedback_reason_selector);
-        am.c(this, f.C0146f.text_home_neg_feedback_reason_selector, 4);
-        int f = l.f(context, f.e.ds32);
-        setPadding(f, 0, f, 0);
+        al.i(this, e.f.btn_home_neg_feedback_reason_selector);
+        al.c(this, e.f.text_home_neg_feedback_reason_selector, 4);
+        int h = l.h(context, e.C0141e.ds32);
+        setPadding(h, 0, h, 0);
         setGravity(17);
         setButtonDrawable((Drawable) null);
     }

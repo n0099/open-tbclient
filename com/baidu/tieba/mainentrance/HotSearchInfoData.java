@@ -7,17 +7,17 @@ public class HotSearchInfoData extends OrmObject {
     public static final int DIRECT_SEARCH_TYPE = 2;
     public static final int FORUM_TYPE = 0;
     public static final int TOPIC_TYPE = 1;
-    private String cSc;
-    private long cSd;
+    private String cXT;
+    private long cXU;
     private long mId;
     private String mName;
 
-    public String aov() {
-        return this.cSc;
+    public String aqk() {
+        return this.cXT;
     }
 
-    public long aSQ() {
-        return this.cSd;
+    public long aVe() {
+        return this.cXU;
     }
 
     public long getId() {
@@ -30,19 +30,19 @@ public class HotSearchInfoData extends OrmObject {
 
     public void a(HotSearch hotSearch) {
         if (hotSearch != null && hotSearch.search_value != null) {
-            this.cSc = hotSearch.search_title;
+            this.cXT = hotSearch.search_title;
             this.mId = hotSearch.search_value.id.longValue();
             this.mName = hotSearch.search_value.name;
-            this.cSd = hotSearch.search_value.type.longValue();
+            this.cXU = hotSearch.search_value.type.longValue();
         }
     }
 
-    public void pE(String str) {
-        this.cSc = str;
+    public void qj(String str) {
+        this.cXT = str;
     }
 
-    public void cu(long j) {
-        this.cSd = j;
+    public void cy(long j) {
+        this.cXU = j;
     }
 
     public void setId(long j) {

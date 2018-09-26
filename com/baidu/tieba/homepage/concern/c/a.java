@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.concern.c;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.j;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
@@ -13,7 +13,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes2.dex */
 public class a {
-    private final c dTJ = new c();
+    private final c ebc = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -37,18 +37,18 @@ public class a {
                     k kVar = new k();
                     kVar.threadData = bbVar;
                     linkedList.add(kVar);
-                } else if (l.R(bbVar)) {
+                } else if (l.S(bbVar)) {
                     l lVar = new l(bbVar);
                     lVar.tid = bbVar.getTid();
-                    lVar.iX(concernData.source.intValue());
+                    lVar.jw(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
-                } else if (j.R(bbVar)) {
+                } else if (j.S(bbVar)) {
                     j jVar = new j(bbVar);
                     if (jVar != null) {
                         jVar.tid = bbVar.getTid();
-                        jVar.lc("3");
+                        jVar.lE("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -56,17 +56,17 @@ public class a {
                 } else {
                     k kVar2 = new k();
                     kVar2.threadData = bbVar;
-                    kVar2.lc(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.lE(kVar2.threadData.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
-                    kVar2.iX(concernData.source.intValue());
+                    kVar2.jw(concernData.source.intValue());
                     if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
             }
         }
-        this.dTJ.bhG = linkedList;
-        return this.dTJ;
+        this.ebc.bny = linkedList;
+        return this.ebc;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -77,7 +77,7 @@ public class a {
 
     private void a(boolean z, List<ConcernData> list, List<ConcernData> list2, int i) {
         if (list != null && list2 != null) {
-            int y = w.y(list);
+            int y = v.y(list);
             if (i == 1) {
                 for (ConcernData concernData : list2) {
                     if (concernData != null && concernData.thread_list.tid != null) {
@@ -86,14 +86,14 @@ public class a {
                 }
             } else {
                 list.clear();
-                for (int y2 = w.y(list2) - 1; y2 >= 0; y2--) {
-                    ConcernData concernData2 = (ConcernData) w.d(list2, y2);
+                for (int y2 = v.y(list2) - 1; y2 >= 0; y2--) {
+                    ConcernData concernData2 = (ConcernData) v.d(list2, y2);
                     if (concernData2 != null && concernData2.thread_list.tid != null) {
                         list.add(0, concernData2);
                     }
                 }
             }
-            this.dTJ.dZt = w.y(list) - y;
+            this.ebc.egP = v.y(list) - y;
         }
     }
 

@@ -3,8 +3,8 @@ package com.meizu.cloud.pushsdk.networking;
 import com.meizu.cloud.pushsdk.networking.common.b;
 /* loaded from: classes3.dex */
 public class a {
-    public static b.C0271b a(String str) {
-        return new b.C0271b(str);
+    public static b.C0277b a(String str) {
+        return new b.C0277b(str);
     }
 
     public static b.c b(String str) {

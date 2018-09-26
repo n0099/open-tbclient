@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.entelechy;
 import android.view.View;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.frs.f.g;
 import com.baidu.tieba.frs.k;
 import com.baidu.tieba.frs.vc.f;
@@ -13,38 +13,38 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.b {
-    private float aGP = 0.16875f;
+    private float aKd = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, l lVar) {
         if (fVar != null && lVar != null) {
             ArrayList<h> threadList = lVar.getThreadList();
-            if (!w.z(threadList)) {
+            if (!v.z(threadList)) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<h> it = threadList.iterator();
                 while (it.hasNext()) {
                     h next = it.next();
-                    if (next.getType() == bb.ahw) {
+                    if (next.getType() == bb.ajW) {
                         arrayList.add(next);
                         it.remove();
                     }
                 }
-                lVar.dv(arrayList);
+                lVar.dw(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean kQ(int i) {
+    public boolean lt(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, k kVar, l lVar) {
         if (fVar != null && kVar != null && lVar != null) {
-            fVar.aAx();
-            if (lVar != null && lVar.aZg() != null) {
-                kVar.a(lVar.aZg().getFrsBannerData());
+            fVar.aCG();
+            if (lVar != null && lVar.bbH() != null) {
+                kVar.a(lVar.bbH().getFrsBannerData());
             }
         }
     }
@@ -55,7 +55,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void aw(View view) {
+    public void aK(View view) {
         view.setVisibility(8);
     }
 }

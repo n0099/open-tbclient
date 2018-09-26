@@ -95,14 +95,14 @@ public class NotifyType implements Parcelable {
         NotifyType notifyType = new NotifyType();
         if (jSONObject != null) {
             try {
-                if (!jSONObject.isNull(VIBRATE)) {
-                    notifyType.setVibrate(jSONObject.getInt(VIBRATE) != 0);
+                if (!jSONObject.isNull("v")) {
+                    notifyType.setVibrate(jSONObject.getInt("v") != 0);
                 }
-                if (!jSONObject.isNull(LIGHTS)) {
-                    notifyType.setLights(jSONObject.getInt(LIGHTS) != 0);
+                if (!jSONObject.isNull("l")) {
+                    notifyType.setLights(jSONObject.getInt("l") != 0);
                 }
-                if (!jSONObject.isNull(SOUND)) {
-                    notifyType.setSound(jSONObject.getInt(SOUND) != 0);
+                if (!jSONObject.isNull("s")) {
+                    notifyType.setSound(jSONObject.getInt("s") != 0);
                 }
             } catch (JSONException e) {
                 a.e("notify_type", "parse json obj error " + e.getMessage());

@@ -4,16 +4,17 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.callback.FillUserProfileCallback;
 import com.baidu.sapi2.callback.FillUsernameCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
@@ -22,6 +23,7 @@ import com.baidu.sapi2.callback.IqiyiLoginCallback;
 import com.baidu.sapi2.callback.SSOConfirmCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
+import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.sapi2.dto.IqiyiLoginDTO;
 import com.baidu.sapi2.dto.SSOConfirmDTO;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
@@ -29,6 +31,8 @@ import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
+import com.baidu.sapi2.result.CheckUserFaceIdResult;
+import com.baidu.sapi2.result.FaceLoginStatusResult;
 import com.baidu.sapi2.result.FastRegResult;
 import com.baidu.sapi2.result.FillUserProfileResult;
 import com.baidu.sapi2.result.FillUsernameResult;
@@ -48,11 +52,11 @@ import com.baidu.sapi2.shell.response.GetUserInfoResponse;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.shell.response.SapiResponse;
 import com.baidu.sapi2.shell.response.SocialResponse;
+import com.baidu.sapi2.utils.SapiCoreUtil;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiEnv;
-import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
@@ -65,6 +69,7 @@ import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
+import com.tencent.tauth.AuthActivity;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -188,6 +193,7 @@ public final class a {
                     if (!TextUtils.isEmpty(cookiePtoken)) {
                         sapiAccount.ptoken = cookiePtoken;
                     }
+                    sapiAccount.app = SapiUtils.getAppName(a.this.c.context);
                     com.baidu.sapi2.share.a.a().a(sapiAccount);
                     web2NativeLoginResult.setResultCode(0);
                     web2NativeLoginCallback.onSuccess(web2NativeLoginResult);
@@ -288,7 +294,7 @@ public final class a {
         this.d.setUserAgent(w());
         HashMap hashMap = new HashMap();
         hashMap.put("crypttype", Constants.VIA_SHARE_TYPE_INFO);
-        hashMap.put("tpl", this.c.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
         hashMap.put("appid", this.c.appId);
         String str5 = this.c.clientId;
         if (!TextUtils.isEmpty(str5)) {
@@ -310,7 +316,7 @@ public final class a {
         jSONObject.put("pinfo", SapiDeviceUtils.getBrandName());
         hashMap.put("userinfo", sapiDataEncryptor.encrypt(str, jSONObject.toString()));
         hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.c.appSignKey));
-        this.d.post(this.c.context, q(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.14
+        this.d.post(this.c.context, q(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.17
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onSuccess(int i, String str6) {
                 super.onSuccess(i, str6);
@@ -359,6 +365,7 @@ public final class a {
                             if (z) {
                                 SapiAccount a2 = a(sapiAccountResponse);
                                 a2.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject).tplStokenMap);
+                                a2.putExtra(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
                                 com.baidu.sapi2.share.a.a().a(a2);
                             }
                             sapiCallBack.onSuccess(sapiAccountResponse);
@@ -398,7 +405,7 @@ public final class a {
         this.d.setUserAgent(w());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
-        hashMap.put("tpl", this.c.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
         }
@@ -412,7 +419,7 @@ public final class a {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, accountFromBduss.ptoken);
         }
         hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo("/v2/sapi/center/getuinfo");
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.GET_USER_INFO_URI);
         if (!TextUtils.isEmpty(deviceInfo)) {
             hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
         }
@@ -426,7 +433,7 @@ public final class a {
             requestParams.put((String) entry.getKey(), (String) entry.getValue());
         }
         requestParams.put("sig", calculateSig);
-        this.d.post(this.c.context, k(), requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.15
+        this.d.post(this.c.context, k(), requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.18
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
                 getUserInfoCallback.onStart();
@@ -505,110 +512,57 @@ public final class a {
         });
     }
 
-    public void a(final GetUserInfoCallBack getUserInfoCallBack, final String str) {
+    public void a(final GetUserInfoCallBack getUserInfoCallBack, String str) {
         if (getUserInfoCallBack == null) {
             throw new IllegalArgumentException(GetUserInfoCallBack.class.getSimpleName() + " can't be null");
         }
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("bduss can't be empty");
-        }
-        if (!SapiUtils.hasActiveNetwork(this.c.context)) {
-            getUserInfoCallBack.onFinish();
-            getUserInfoCallBack.onNetworkFailed();
-            return;
-        }
-        this.d = new AsyncHttpClient();
-        this.d.setUserAgent(w());
-        HashMap hashMap = new HashMap();
-        hashMap.put("appid", this.c.appId);
-        hashMap.put("tpl", this.c.tpl);
-        if (!TextUtils.isEmpty(this.c.clientId)) {
-            hashMap.put("clientid", this.c.clientId);
-        }
-        if (!TextUtils.isEmpty(this.c.clientIp)) {
-            hashMap.put("clientip", this.c.clientIp);
-        }
-        hashMap.put("sdkversion", SapiAccountManager.VERSION_NAME);
-        SapiAccount accountFromBduss = SapiContext.getInstance(this.c.context).getAccountFromBduss(str);
-        if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {
-            hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, accountFromBduss.ptoken);
-        }
-        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
-        String deviceInfo = SapiDeviceInfo.getDeviceInfo("/v2/sapi/center/getuinfo");
-        if (!TextUtils.isEmpty(deviceInfo)) {
-            hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
-        }
-        String pisDeviceInfo = SapiDeviceInfo.getPisDeviceInfo();
-        if (!TextUtils.isEmpty(pisDeviceInfo)) {
-            hashMap.put("pis_di", pisDeviceInfo);
-        }
-        hashMap.put("bduss", str);
-        String calculateSig = SapiUtils.calculateSig(hashMap, this.c.appSignKey);
-        RequestParams requestParams = new RequestParams();
-        for (Map.Entry entry : hashMap.entrySet()) {
-            requestParams.put((String) entry.getKey(), (String) entry.getValue());
-        }
-        requestParams.put("sig", calculateSig);
-        this.d.post(this.c.context, k(), requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.16
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-            public void onSuccess(int i, String str2) {
-                a.this.e.e();
-                getUserInfoCallBack.onFinish();
-                int b2 = a.this.b(str2);
-                switch (b2) {
-                    case 0:
-                        try {
-                            JSONObject jSONObject = new JSONObject(str2);
-                            GetUserInfoResponse getUserInfoResponse = new GetUserInfoResponse();
-                            getUserInfoResponse.errorCode = b2;
-                            getUserInfoResponse.errorMsg = jSONObject.optString("errmsg");
-                            String optString = jSONObject.optString(IntentConfig.PORTRAIT);
-                            if (!TextUtils.isEmpty(optString)) {
-                                getUserInfoResponse.portrait = String.format(SapiHost.getHost(SapiHost.DOMAIN_BDIMG) + "/sys/portrait/item/%s.jpg", optString);
-                                getUserInfoResponse.portraitHttps = String.format(SapiHost.getHost(SapiHost.DOMAIN_PORTRAIT_HTTPS_URL) + "/sys/portrait/item/%s.jpg", optString);
-                            }
-                            getUserInfoResponse.username = jSONObject.optString("username");
-                            getUserInfoResponse.uid = jSONObject.optString("userid");
-                            getUserInfoResponse.displayname = jSONObject.optString("displayname");
-                            getUserInfoResponse.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
-                            getUserInfoResponse.secureMobile = jSONObject.optString("securemobil");
-                            getUserInfoResponse.secureEmail = jSONObject.optString("secureemail");
-                            getUserInfoCallBack.onSuccess(getUserInfoResponse);
-                            return;
-                        } catch (JSONException e) {
-                            getUserInfoCallBack.onSystemError(b2);
-                            Log.e(e);
-                            return;
-                        }
-                    case 400021:
-                        getUserInfoCallBack.onBdussInvalid();
-                        return;
-                    default:
-                        getUserInfoCallBack.onSystemError(b2);
-                        return;
-                }
+        a(new GetUserInfoCallback() { // from class: com.baidu.sapi2.a.19
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.LoginStatusAware
+            /* renamed from: a */
+            public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+                getUserInfoCallBack.onBdussInvalid();
             }
 
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-            public void onFailure(Throwable th, String str2) {
-                if (!a.this.e.c()) {
-                    a.this.e.e();
-                    if (th != null && SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
-                        StatService.onEvent("sslerr_interface", Collections.singletonMap("na_err_code", "0"), false);
-                        getUserInfoCallBack.onFinish();
-                        getUserInfoCallBack.onSystemError(-203);
-                        return;
-                    }
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            /* renamed from: b */
+            public void onSuccess(GetUserInfoResult getUserInfoResult) {
+                GetUserInfoResponse getUserInfoResponse = new GetUserInfoResponse();
+                getUserInfoResponse.errorCode = getUserInfoResult.getResultCode();
+                getUserInfoResponse.errorMsg = getUserInfoResult.getResultMsg();
+                getUserInfoResponse.displayname = getUserInfoResult.displayname;
+                getUserInfoResponse.incompleteUser = getUserInfoResult.incompleteUser;
+                getUserInfoResponse.portrait = getUserInfoResult.portrait;
+                getUserInfoResponse.portraitHttps = getUserInfoResult.portraitHttps;
+                getUserInfoResponse.secureEmail = getUserInfoResult.secureEmail;
+                getUserInfoResponse.secureMobile = getUserInfoResult.secureMobile;
+                getUserInfoResponse.uid = getUserInfoResult.uid;
+                getUserInfoResponse.username = getUserInfoResult.username;
+                getUserInfoCallBack.onSuccess(getUserInfoResponse);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            /* renamed from: c */
+            public void onFailure(GetUserInfoResult getUserInfoResult) {
+                if (-201 == getUserInfoResult.getResultCode()) {
                     getUserInfoCallBack.onFinish();
-                    getUserInfoCallBack.onSystemError(-100);
+                    getUserInfoCallBack.onNetworkFailed();
                     return;
                 }
-                a.this.e.b();
-                a.this.a(getUserInfoCallBack, str);
+                getUserInfoCallBack.onSystemError(getUserInfoResult.getResultCode());
             }
-        });
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onStart() {
+            }
+
+            @Override // com.baidu.sapi2.callback.SapiCallback
+            public void onFinish() {
+                getUserInfoCallBack.onFinish();
+            }
+        }, str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -633,7 +587,7 @@ public final class a {
         this.d.setUserAgent(w());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
-        hashMap.put("tpl", this.c.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
         hashMap.put("cert_id", String.valueOf(1));
         hashMap.put("crypttype", String.valueOf(6));
         JSONObject jSONObject = new JSONObject();
@@ -650,7 +604,7 @@ public final class a {
             jSONObject.put(RimArmor.KEY, sapiDataEncryptor.getAESKey());
             hashMap.put("userinfo", sapiDataEncryptor.encrypt("-----BEGIN CERTIFICATE-----\nMIIFKDCCBBCgAwIBAgIQaG9YabPddabIY+N5IoXttzANBgkqhkiG9w0BAQUFADCB\nvDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL\nExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug\nYXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDE2MDQGA1UEAxMt\nVmVyaVNpZ24gQ2xhc3MgMyBJbnRlcm5hdGlvbmFsIFNlcnZlciBDQSAtIEczMB4X\nDTEwMTIwMzAwMDAwMFoXDTEyMTIwMjIzNTk1OVowga8xCzAJBgNVBAYTAkNOMRAw\nDgYDVQQIEwdCZWlqaW5nMRAwDgYDVQQHFAdCZWlqaW5nMTkwNwYDVQQKFDBCZWlK\naW5nIEJhaWR1IE5ldGNvbSBTY2llbmNlIFRlY2hub2xvZ3kgQ28uLCBMdGQxJTAj\nBgNVBAsUHHNlcnZpY2Ugb3BlcmF0aW9uIGRlcGFydG1lbnQxGjAYBgNVBAMUEW9w\nZW5hcGkuYmFpZHUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC68R1G\nWkkVvvjBOGKHOoyLxdtEcxBiVOGG8lvXTckB8jNrg4tihQzql+fJbr/X8V9MqQLw\nzzOyQViYlW+/GhC6u1jrP6t3Br0Wy8HyThDnvOAWyPFEawgbIywT20F41Iqayled\n/DQ/JCDWcNA7+xX56rqEcQd+6baNAiu9o962PwIDAQABo4IBszCCAa8wCQYDVR0T\nBAIwADALBgNVHQ8EBAMCBaAwQQYDVR0fBDowODA2oDSgMoYwaHR0cDovL1NWUklu\ndGwtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJJbnRsRzMuY3JsMEQGA1UdIAQ9MDsw\nOQYLYIZIAYb4RQEHFwMwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cudmVyaXNp\nZ24uY29tL3JwYTAoBgNVHSUEITAfBglghkgBhvhCBAEGCCsGAQUFBwMBBggrBgEF\nBQcDAjByBggrBgEFBQcBAQRmMGQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLnZl\ncmlzaWduLmNvbTA8BggrBgEFBQcwAoYwaHR0cDovL1NWUkludGwtRzMtYWlhLnZl\ncmlzaWduLmNvbS9TVlJJbnRsRzMuY2VyMG4GCCsGAQUFBwEMBGIwYKFeoFwwWjBY\nMFYWCWltYWdlL2dpZjAhMB8wBwYFKw4DAhoEFEtruSiWBgy70FI4mymsSweLIQUY\nMCYWJGh0dHA6Ly9sb2dvLnZlcmlzaWduLmNvbS92c2xvZ28xLmdpZjANBgkqhkiG\n9w0BAQUFAAOCAQEAgNIl8/QIKP4KWWWj6ltL6lVknoGlpUIoowvnv+57H7FdEYJb\n9zQewrAqoFkblB0mMiUEGdJOa7YxKKJialqz6KnlMrHQMAsB641BHLDESvLjuhio\nUsWmvBowIK92HQ2H9N01U8d1i5rTz5wwFK+Nvue/61tzCTTmbRgBuGPotQ/tcA+g\nYCNuEIHsJMbWiX9O3gflnMdRME7z9Hw9zMogt+lz7GudP/AO1K6sZ6VnQ931Gv1e\nIOmPCPfvO/Kw/aXSacoEWnMsy+qTIewVPT/MMgSaq9JewAQgLpMX+O5qqAJBYoDj\nxoZnHufGgOIKfNmSvYiHjDFJtP55PdEH21q+JA==\n-----END CERTIFICATE-----", jSONObject.toString()));
             hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.c.appSignKey));
-            this.d.post(this.c.context, j(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.17
+            this.d.post(this.c.context, j(), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.20
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                 protected void onStart() {
                     fillUsernameCallback.onStart();
@@ -683,7 +637,9 @@ public final class a {
                                 sapiAccount.displayname = jSONObject3.optString("displayname");
                                 sapiAccount.username = jSONObject3.optString("uname");
                                 sapiAccount.uid = jSONObject3.optString("uid");
+                                sapiAccount.app = SapiUtils.getAppName(a.this.c.context);
                                 sapiAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject3).tplStokenMap);
+                                sapiAccount.putExtra(BaiduRimConstants.TPL_INIT_KEY, a.this.c.tpl);
                                 com.baidu.sapi2.share.a.a().a(sapiAccount);
                                 fillUsernameResult.session = sapiAccount;
                                 fillUsernameCallback.onSuccess(fillUsernameResult);
@@ -755,13 +711,13 @@ public final class a {
             this.d.setUserAgent(w());
             HashMap hashMap = new HashMap();
             hashMap.put("appid", this.c.appId);
-            hashMap.put("tpl", this.c.tpl);
+            hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
             if (!TextUtils.isEmpty(this.c.clientId)) {
                 hashMap.put("clientid", this.c.clientId);
             }
             hashMap.put("bduss", str);
             hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.c.appSignKey));
-            this.d.post(this.c.context, this.e.a() + SapiEnv.FILL_USER_PROFILE_SEND_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.18
+            this.d.post(this.c.context, this.e.a() + SapiEnv.FILL_USER_PROFILE_SEND_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.21
                 @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                 protected void onStart() {
                     fillUserProfileCallback.onStart();
@@ -786,7 +742,7 @@ public final class a {
                                 final String optString3 = jSONObject.optString("upsmschannel");
                                 boolean z = false;
                                 if (SapiUtils.checkRequestPermission("android.permission.SEND_SMS", a.this.c.context)) {
-                                    z = com.baidu.sapi2.utils.a.a(optString2, optString);
+                                    z = SapiCoreUtil.sendSms(optString2, optString);
                                 }
                                 if (z && !TextUtils.isEmpty(optString3)) {
                                     a.this.d = new AsyncHttpClient();
@@ -802,7 +758,7 @@ public final class a {
                                     requestParams.put("callback", "p");
                                     requestParams.put("apiver", "v3");
                                     requestParams.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
-                                    a.this.d.get(a.this.c.context, a.this.e.a() + SapiEnv.GET_QR_LOGIN_STATUS_CHECK, requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.18.1
+                                    a.this.d.get(a.this.c.context, a.this.e.a() + SapiEnv.GET_QR_LOGIN_STATUS_CHECK, requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.21.1
                                         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                                         protected void onStart() {
                                             fillUserProfileCallback.onStart();
@@ -831,7 +787,7 @@ public final class a {
                                                         case 0:
                                                             HashMap hashMap2 = new HashMap();
                                                             hashMap2.put("appid", a.this.c.appId);
-                                                            hashMap2.put("tpl", a.this.c.tpl);
+                                                            hashMap2.put(BaiduRimConstants.TPL_INIT_KEY, a.this.c.tpl);
                                                             if (!TextUtils.isEmpty(a.this.c.clientId)) {
                                                                 hashMap2.put("clientid", a.this.c.clientId);
                                                             }
@@ -840,10 +796,11 @@ public final class a {
                                                             hashMap2.put("vcode", optString2);
                                                             hashMap2.put("sig", SapiUtils.calculateSig(hashMap2, a.this.c.appSignKey));
                                                             a.this.a(fillUserProfileCallback, fillUserProfileResult, hashMap2);
-                                                            break;
+                                                            return;
+                                                        default:
+                                                            fillUserProfileCallback.onFailure(fillUserProfileResult);
+                                                            return;
                                                     }
-                                                    fillUserProfileCallback.onFailure(fillUserProfileResult);
-                                                    return;
                                                 } catch (Throwable th) {
                                                     Log.e(th);
                                                     fillUserProfileResult.setResultCode(-202);
@@ -896,7 +853,7 @@ public final class a {
     void a(final FillUserProfileCallback fillUserProfileCallback, final FillUserProfileResult fillUserProfileResult, Map<String, String> map) {
         this.d = new AsyncHttpClient();
         this.d.setUserAgent(w());
-        this.d.post(this.c.context, this.e.a() + SapiEnv.FILL_USER_PROFILE_BIND_URI, new RequestParams(map), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.19
+        this.d.post(this.c.context, this.e.a() + SapiEnv.FILL_USER_PROFILE_BIND_URI, new RequestParams(map), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.22
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
                 fillUserProfileCallback.onStart();
@@ -922,7 +879,9 @@ public final class a {
                             sapiAccount.uid = jSONObject.optString("uid");
                             sapiAccount.ptoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
                             sapiAccount.stoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_STOKEN);
+                            sapiAccount.app = SapiUtils.getAppName(a.this.c.context);
                             sapiAccount.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject).tplStokenMap);
+                            sapiAccount.putExtra(BaiduRimConstants.TPL_INIT_KEY, a.this.c.tpl);
                             fillUserProfileResult.session = sapiAccount;
                             if (SapiAccountManager.getInstance().isLogin()) {
                                 SapiAccount session = SapiAccountManager.getInstance().getSession();
@@ -1034,7 +993,7 @@ public final class a {
                 }
                 if (!getTplStokenResult.tplStokenMap.isEmpty()) {
                     getTplStokenResult.setResultCode(0);
-                    getTplStokenResult.setResultMsg("成功");
+                    getTplStokenResult.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
                     getTplStokenCallback.onSuccess(getTplStokenResult);
                     PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_TPL_STOKEN, IEventCenterService.EventResult.PHASE.SUCCESS);
                     return getTplStokenResult.tplStokenMap;
@@ -1064,7 +1023,7 @@ public final class a {
         this.d.setUserAgent(w());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
-        hashMap.put("tpl", this.c.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
         hashMap.put("bduss", str);
         hashMap.put("sign", MD5Util.toMd5((this.c.appId + this.c.tpl + str + this.c.appSignKey).getBytes(), false));
         hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
@@ -1074,7 +1033,7 @@ public final class a {
         }
         hashMap.put("tpl_list", str3);
         hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.c.appSignKey));
-        this.d.post(this.c.context, this.e.a() + SapiEnv.GET_STOKEN_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.20
+        this.d.post(this.c.context, this.e.a() + SapiEnv.GET_STOKEN_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.23
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
                 getTplStokenCallback.onStart();
@@ -1208,7 +1167,7 @@ public final class a {
         this.d.setUserAgent(w());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.c.appId);
-        hashMap.put("tpl", this.c.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
         if (!TextUtils.isEmpty(this.c.clientId)) {
             hashMap.put("clientid", this.c.clientId);
         }
@@ -1408,7 +1367,7 @@ public final class a {
             if (!TextUtils.isEmpty(this.c.clientIp)) {
                 hashMap.put("clientip", this.c.clientIp);
             }
-            hashMap.put("tpl", this.c.tpl);
+            hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
             hashMap.put("appid", this.c.appId);
             hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.c.appSignKey));
             this.d.post(this.c.context, this.e.a() + SapiEnv.GET_DYNAMIC_PWD_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.4
@@ -1468,7 +1427,7 @@ public final class a {
             if (!TextUtils.isEmpty(this.c.clientIp)) {
                 hashMap.put("clientip", this.c.clientIp);
             }
-            hashMap.put("tpl", this.c.tpl);
+            hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
             hashMap.put("appid", this.c.appId);
             hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.c.appSignKey));
             this.d.post(this.c.context, this.e.a() + SapiEnv.FAST_REG_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.5
@@ -1536,7 +1495,7 @@ public final class a {
                     Message.obtain(handler, 1001).sendToTarget();
                 }
             };
-            if (SapiUtils.checkRequestPermission("android.permission.SEND_SMS", this.c.context) ? com.baidu.sapi2.utils.a.a(str, SapiUtils.getFastRegChannel(this.c.context)) : false) {
+            if (SapiUtils.checkRequestPermission("android.permission.SEND_SMS", this.c.context) ? SapiCoreUtil.sendSms(str, SapiUtils.getFastRegChannel(this.c.context)) : false) {
                 this.d = new AsyncHttpClient();
                 this.d.setUserAgent(w());
                 Map<String, String> a2 = a(SapiEnv.FAST_REG_URI);
@@ -1581,6 +1540,7 @@ public final class a {
                         case 0:
                             a.this.e.e();
                             SapiAccount a2 = a.this.a(jSONObject);
+                            a2.putExtra(BaiduRimConstants.TPL_INIT_KEY, a.this.c.tpl);
                             a2.addDispersionCertification(SapiAccount.DispersionCertification.fromJSONObject(jSONObject).tplStokenMap);
                             com.baidu.sapi2.share.a.a().a(a2);
                             fastRegResult.newReg = jSONObject.optBoolean("newreg");
@@ -1650,7 +1610,7 @@ public final class a {
 
     Map<String, String> a(String str) {
         HashMap hashMap = new HashMap();
-        hashMap.put("tpl", this.c.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
         hashMap.put("appid", this.c.appId);
         if (TextUtils.isEmpty(this.c.clientId)) {
             this.c.clientId = SapiUtils.getClientId(this.c.context);
@@ -1816,7 +1776,7 @@ public final class a {
         a2.put("json", "1");
         a2.put("type", SocialType.IQIYI.getType() + "");
         a2.put(SocialConstants.PARAM_ACT, "special");
-        a2.put(LivenessRecogActivity.f.a, "native");
+        a2.put("display", "native");
         a2.put("client", HttpConstants.OS_TYPE_VALUE);
         a2.put("sig", SapiUtils.calculateSig(a2, this.c.appSignKey));
         this.d.get(this.c.context, r(), new RequestParams(a2), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.10
@@ -1853,6 +1813,7 @@ public final class a {
                         a3.putExtra(GiftTabActivityConfig.ACCOUNT_TYPE, Integer.valueOf(b2.accountType.getType()));
                         a3.addDispersionCertification(b2.tplStokenMap);
                         a3.addIsGuestAccount(b2.isGuestAccount);
+                        a3.putExtra(BaiduRimConstants.TPL_INIT_KEY, a.this.c.tpl);
                         com.baidu.sapi2.share.a.a().a(a3);
                         iqiyiLoginCallback.onSuccess(iqiyiLoginResult);
                         PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_THROUGH_SERVER, IEventCenterService.EventResult.PHASE.SUCCESS);
@@ -1899,7 +1860,7 @@ public final class a {
             this.d = new AsyncHttpClient();
             this.d.setUserAgent(w());
             HashMap hashMap = new HashMap();
-            hashMap.put("tpl", this.c.tpl);
+            hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
             hashMap.put("appid", this.c.appId);
             hashMap.put("accesstoken", str);
             String calculateSig = SapiUtils.calculateSig(hashMap, this.c.appSignKey);
@@ -1923,16 +1884,34 @@ public final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Context context) {
+    public void a(final Context context, Map<String, Long> map) {
+        String str;
         if (context != null) {
-            final String faceLoginUid = SapiContext.getInstance(context).getFaceLoginUid();
-            if (!TextUtils.isEmpty(faceLoginUid)) {
+            String str2 = "";
+            if (map == null) {
+                map = new FaceLoginService().str2ShareMap(SapiContext.getInstance(context).getV2FaceLivingUnames());
+            }
+            if (!map.isEmpty()) {
+                Iterator<Map.Entry<String, Long>> it = map.entrySet().iterator();
+                String str3 = "";
+                while (true) {
+                    str = str2;
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    Map.Entry<String, Long> next = it.next();
+                    str3 = str3 + ((Object) next.getKey()) + ",";
+                    str2 = str + next.getValue() + ",";
+                }
+                Log.e(Log.TAG, "faceLoginUid", str3, "times", str);
                 this.d = new AsyncHttpClient();
                 this.d.setUserAgent(w());
                 HashMap hashMap = new HashMap();
+                hashMap.put("is_multiple", "1");
+                hashMap.put("uid", str3.substring(0, str3.length() - 1));
+                hashMap.put("times", str.substring(0, str.length() - 1));
                 hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
                 hashMap.put("cuid", this.c.clientId);
-                hashMap.put("uid", faceLoginUid);
                 hashMap.put("zid", SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(context));
                 hashMap.put("clientfrom", "native");
                 String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.FACE_LOGIN_ENABLE);
@@ -1940,28 +1919,295 @@ public final class a {
                     hashMap.put(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo);
                 }
                 hashMap.put("sapiver", "1");
-                hashMap.put("tpl", this.c.tpl);
+                hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
                 hashMap.put("appid", this.c.appId);
                 RequestParams requestParams = new RequestParams(hashMap);
                 requestParams.put("sig", SapiUtils.calculateSig(hashMap, this.c.appSignKey));
                 this.d.post(context, this.e.a() + SapiEnv.FACE_LOGIN_ENABLE, requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.13
                     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-                    public void onSuccess(int i, final String str) {
+                    public void onSuccess(int i, final String str4) {
                         ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.a.13.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                new FaceLoginService().saveFaceLoginCheckResult(faceLoginUid, str);
+                                if (a.this.b(str4) == 0) {
+                                    com.baidu.sapi2.share.face.a aVar = new com.baidu.sapi2.share.face.a();
+                                    aVar.a(str4);
+                                    if (!aVar.a.isEmpty()) {
+                                        FaceLoginService faceLoginService = new FaceLoginService();
+                                        String buildV2FaceUidString = faceLoginService.buildV2FaceUidString(aVar.a);
+                                        if (!TextUtils.isEmpty(buildV2FaceUidString)) {
+                                            SapiContext.getInstance(context).setV2FaceLoginCheckResults(str4);
+                                            SapiContext.getInstance(context).setUidSupFaceLoginType(aVar.d);
+                                            SapiContext.getInstance(context).setV2LastFaceLoginCheckTime(System.currentTimeMillis());
+                                            SapiContext.getInstance(context).setV2FaceLivingunames(buildV2FaceUidString);
+                                            faceLoginService.setV2ShareFaceUids(buildV2FaceUidString);
+                                            if (!TextUtils.isEmpty(aVar.b)) {
+                                                faceLoginService.setFaceCheckResult2OldShareStorage(aVar.b);
+                                                SapiContext.getInstance(context).setFaceLoginUid(aVar.b);
+                                            }
+                                            Log.e(Log.TAG, "faceLoginIsEnable", "v2FaceUidString", buildV2FaceUidString, "faceLoginType", aVar.d, "uidOfMaxTime", aVar.b);
+                                        }
+                                    }
+                                }
                             }
                         }));
                     }
 
                     /* JADX INFO: Access modifiers changed from: protected */
                     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-                    public void onFailure(Throwable th, String str) {
+                    public void onFailure(Throwable th, String str4) {
                     }
                 });
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(final SapiCallback<CheckUserFaceIdResult> sapiCallback, final String str, final Map<String, String> map) {
+        if (sapiCallback == null) {
+            throw new IllegalArgumentException(SapiCallback.class.getSimpleName() + " can't be null");
+        }
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("bduss can't be empty");
+        }
+        this.d = new AsyncHttpClient();
+        this.d.setUserAgent(w());
+        Map<String, String> a2 = a(SapiEnv.CHECK_USER_FACE_ID);
+        if (map != null && !map.isEmpty()) {
+            a2.putAll(map);
+        }
+        a2.put("cuid", this.c.clientId);
+        a2.put("client", HttpConstants.OS_TYPE_VALUE);
+        a2.put("clientfrom", "native");
+        a2.put("bduss", str);
+        a2.put("appid", this.c.appId);
+        a2.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
+        a2.put("cuid", this.c.clientId);
+        a2.put("zid", SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(this.c.context));
+        a2.put("sig", SapiUtils.calculateSig(a2, this.c.appSignKey));
+        RequestParams requestParams = new RequestParams(a2);
+        final CheckUserFaceIdResult checkUserFaceIdResult = new CheckUserFaceIdResult();
+        this.d.post(this.c.context, this.e.a() + SapiEnv.CHECK_USER_FACE_ID, requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.14
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            protected void onStart() {
+                sapiCallback.onStart();
+            }
+
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            protected void onFinish() {
+                sapiCallback.onFinish();
+            }
+
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            public void onFailure(Throwable th, String str2) {
+                if (!a.this.e.c()) {
+                    a.this.e.e();
+                    if (th != null && SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
+                        StatService.onEvent("sslerr_interface", Collections.singletonMap("na_err_code", "0"), false);
+                        checkUserFaceIdResult.setResultCode(-203);
+                    } else {
+                        checkUserFaceIdResult.setResultCode(-202);
+                    }
+                    sapiCallback.onFailure(checkUserFaceIdResult);
+                    return;
+                }
+                a.this.e.b();
+                a.this.a(sapiCallback, str, map);
+            }
+
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            public void onSuccess(int i, String str2) {
+                a.this.e.e();
+                try {
+                    JSONObject jSONObject = new JSONObject(str2);
+                    int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                    checkUserFaceIdResult.setResultCode(parseInt);
+                    checkUserFaceIdResult.setResultMsg(jSONObject.optString("errmsg"));
+                    if (parseInt == 0) {
+                        checkUserFaceIdResult.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
+                        checkUserFaceIdResult.livingUname = jSONObject.optString("livinguname");
+                        checkUserFaceIdResult.authsid = jSONObject.optString("authsid");
+                        checkUserFaceIdResult.authWidgetURL = jSONObject.optString("authurl");
+                        sapiCallback.onSuccess(checkUserFaceIdResult);
+                    } else {
+                        sapiCallback.onFailure(checkUserFaceIdResult);
+                    }
+                } catch (Throwable th) {
+                    checkUserFaceIdResult.setResultCode(-202);
+                    sapiCallback.onFailure(checkUserFaceIdResult);
+                }
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(final SapiCallback<FaceLoginStatusResult> sapiCallback, final String str) {
+        if (sapiCallback == null) {
+            throw new IllegalArgumentException(SapiCallback.class.getSimpleName() + " can't be null");
+        }
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("bduss can't be empty");
+        }
+        this.d = new AsyncHttpClient();
+        this.d.setUserAgent(w());
+        Map<String, String> a2 = a(SapiEnv.FACE_LOGIN_STATUS_CHECK);
+        a2.put("cuid", this.c.clientId);
+        a2.put("client", HttpConstants.OS_TYPE_VALUE);
+        a2.put("clientfrom", "native");
+        a2.put("bduss", str);
+        a2.put("appid", this.c.appId);
+        a2.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
+        a2.put("cuid", this.c.clientId);
+        a2.put("zid", SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(this.c.context));
+        a2.put("sig", SapiUtils.calculateSig(a2, this.c.appSignKey));
+        RequestParams requestParams = new RequestParams(a2);
+        final FaceLoginStatusResult faceLoginStatusResult = new FaceLoginStatusResult();
+        this.d.post(this.c.context, this.e.a() + SapiEnv.FACE_LOGIN_STATUS_CHECK, requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.15
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            protected void onStart() {
+                sapiCallback.onStart();
+            }
+
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            protected void onFinish() {
+                sapiCallback.onFinish();
+            }
+
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            public void onFailure(Throwable th, String str2) {
+                if (!a.this.e.c()) {
+                    a.this.e.e();
+                    if (th != null && SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
+                        StatService.onEvent("sslerr_interface", Collections.singletonMap("na_err_code", "0"), false);
+                        faceLoginStatusResult.setResultCode(-203);
+                    } else {
+                        faceLoginStatusResult.setResultCode(-202);
+                    }
+                    sapiCallback.onFailure(faceLoginStatusResult);
+                    return;
+                }
+                a.this.e.b();
+                a.this.a(sapiCallback, str);
+            }
+
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            public void onSuccess(int i, String str2) {
+                a.this.e.e();
+                try {
+                    JSONObject jSONObject = new JSONObject(str2);
+                    int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                    faceLoginStatusResult.setResultCode(parseInt);
+                    faceLoginStatusResult.setResultMsg(jSONObject.optString("errmsg"));
+                    if (parseInt == 0) {
+                        faceLoginStatusResult.status = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
+                        faceLoginStatusResult.livingUname = jSONObject.optString("livinguname");
+                        faceLoginStatusResult.authsid = jSONObject.optString("authsid");
+                        faceLoginStatusResult.authWidgetURL = jSONObject.optString("authurl");
+                        faceLoginStatusResult.faceLoginSwitch = jSONObject.optInt("faceLoginEnabled") == 1;
+                        sapiCallback.onSuccess(faceLoginStatusResult);
+                    } else {
+                        sapiCallback.onFailure(faceLoginStatusResult);
+                    }
+                } catch (Throwable th) {
+                    faceLoginStatusResult.setResultCode(-202);
+                    sapiCallback.onFailure(faceLoginStatusResult);
+                }
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(final SapiCallback<SapiResult> sapiCallback, final String str, final boolean z, final String str2) {
+        if (sapiCallback == null) {
+            throw new IllegalArgumentException(SapiCallback.class.getSimpleName() + " can't be null");
+        }
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException("bduss can't be empty");
+        }
+        this.d = new AsyncHttpClient();
+        this.d.setUserAgent(w());
+        Map<String, String> a2 = a(SapiEnv.FACE_LOGIN_SWITCH_URI);
+        if (z) {
+            a2.put(AuthActivity.ACTION_KEY, "enable_face_login");
+        } else {
+            a2.put(AuthActivity.ACTION_KEY, "disable_face_login");
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            a2.put("callbackKey", str2);
+        }
+        a2.put("guidefrom", FaceBaseDTO.BUSINESS_SENCE_FACE_LOGIN_SWITCH);
+        a2.put("cuid", this.c.clientId);
+        a2.put("client", HttpConstants.OS_TYPE_VALUE);
+        a2.put("clientfrom", "native");
+        a2.put("bduss", str);
+        a2.put("appid", this.c.appId);
+        a2.put(BaiduRimConstants.TPL_INIT_KEY, this.c.tpl);
+        a2.put("cuid", this.c.clientId);
+        a2.put("zid", SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(this.c.context));
+        a2.put("sig", SapiUtils.calculateSig(a2, this.c.appSignKey));
+        RequestParams requestParams = new RequestParams(a2);
+        final CheckUserFaceIdResult checkUserFaceIdResult = new CheckUserFaceIdResult();
+        this.d.post(this.c.context, this.e.a() + SapiEnv.FACE_LOGIN_SWITCH_URI, requestParams, new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.a.16
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            protected void onStart() {
+                sapiCallback.onStart();
+            }
+
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            protected void onFinish() {
+                sapiCallback.onFinish();
+            }
+
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            public void onFailure(Throwable th, String str3) {
+                if (!a.this.e.c()) {
+                    a.this.e.e();
+                    if (th != null && SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
+                        StatService.onEvent("sslerr_interface", Collections.singletonMap("na_err_code", "0"), false);
+                        checkUserFaceIdResult.setResultCode(-203);
+                    } else {
+                        checkUserFaceIdResult.setResultCode(-202);
+                    }
+                    sapiCallback.onFailure(checkUserFaceIdResult);
+                    return;
+                }
+                a.this.e.b();
+                a.this.a(sapiCallback, str, z, str2);
+            }
+
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            public void onSuccess(int i, String str3) {
+                a.this.e.e();
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                    checkUserFaceIdResult.setResultCode(parseInt);
+                    checkUserFaceIdResult.setResultMsg(jSONObject.optString("errmsg"));
+                    if (parseInt == 0) {
+                        if (!z) {
+                            SapiAccountManager.getInstance().getAccountService().checkFaceLoginEnable(a.this.c.context, null);
+                        } else {
+                            String optString = jSONObject.optString("livinguname");
+                            if (!TextUtils.isEmpty(optString)) {
+                                new FaceLoginService().syncFaceLoginUID(a.this.c.context, optString);
+                            }
+                        }
+                        sapiCallback.onSuccess(checkUserFaceIdResult);
+                        return;
+                    }
+                    sapiCallback.onFailure(checkUserFaceIdResult);
+                } catch (Throwable th) {
+                    checkUserFaceIdResult.setResultCode(-202);
+                    sapiCallback.onFailure(checkUserFaceIdResult);
+                }
+            }
+        });
     }
 
     SapiAccount a(JSONObject jSONObject) {
@@ -2066,7 +2312,7 @@ public final class a {
     }
 
     String k() {
-        return this.e.a() + "/v2/sapi/center/getuinfo";
+        return this.e.a() + SapiEnv.GET_USER_INFO_URI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -31,20 +31,17 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class h {
-    private static h VD;
+    private static h Ye;
     private static Context a;
-    private static i VB = null;
-    private static int e = 0;
-    private static Hashtable<String, a> VC = new Hashtable<>();
-    private e Vz = null;
-    private f VA = null;
+    private e Ya = null;
+    private f Yb = null;
     private final Handler h = new Handler(Looper.getMainLooper()) { // from class: com.baidu.c.a.h.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (b.a) {
                 b.a("handleMessage !!");
             }
-            a aVar = (a) h.VC.get(message.getData().getString("listenerKey"));
+            a aVar = (a) h.Yd.get(message.getData().getString("listenerKey"));
             if (b.a) {
                 b.a("handleMessage listener = " + aVar);
             }
@@ -53,11 +50,14 @@ public class h {
             }
         }
     };
+    private static i Yc = null;
+    private static int e = 0;
+    private static Hashtable<String, a> Yd = new Hashtable<>();
 
     private h(Context context) {
         a = context;
-        if (VB != null && !VB.isAlive()) {
-            VB = null;
+        if (Yc != null && !Yc.isAlive()) {
+            Yc = null;
         }
         b.b("BaiduApiAuth SDK Version:1.0.20");
         e();
@@ -197,20 +197,20 @@ public class h {
         try {
             applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
         } catch (PackageManager.NameNotFoundException e2) {
-            a aVar2 = VC.get(str);
+            a aVar2 = Yd.get(str);
             if (aVar2 != null) {
                 aVar2.g(101, d.a(101, "无法在AndroidManifest.xml中获取com.baidu.android.lbs.API_KEY的值"));
             }
         }
         if (applicationInfo.metaData == null) {
-            a aVar3 = VC.get(str);
+            a aVar3 = Yd.get(str);
             if (aVar3 != null) {
                 aVar3.g(101, d.a(101, "AndroidManifest.xml的application中没有meta-data标签"));
             }
             return "";
         }
         str2 = applicationInfo.metaData.getString("com.baidu.lbsapi.API_KEY");
-        if ((str2 == null || str2.equals("")) && (aVar = VC.get(str)) != null) {
+        if ((str2 == null || str2.equals("")) && (aVar = Yd.get(str)) != null) {
             aVar.g(101, d.a(101, "无法在AndroidManifest.xml中获取com.baidu.android.lbs.API_KEY的值"));
         }
         return str2;
@@ -252,15 +252,15 @@ public class h {
                 obtainMessage.setData(bundle2);
                 this.h.sendMessage(obtainMessage);
             }
-            VB.c();
+            Yc.c();
             e--;
             if (b.a) {
                 b.a("httpRequest called mAuthCounter-- = " + e);
             }
             if (e == 0) {
-                VB.a();
-                if (VB != null) {
-                    VB = null;
+                Yc.a();
+                if (Yc != null) {
+                    Yc = null;
                 }
             }
         }
@@ -330,8 +330,8 @@ public class h {
         } else {
             hashMap.put("from_service", str);
         }
-        this.Vz = new e(a);
-        this.Vz.a(hashMap, new e.a<String>() { // from class: com.baidu.c.a.h.3
+        this.Ya = new e(a);
+        this.Ya.a(hashMap, new e.a<String>() { // from class: com.baidu.c.a.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.c.a.e.a
             public void a(String str6) {
@@ -400,30 +400,14 @@ public class h {
         } else {
             hashMap.put("from_service", str);
         }
-        this.VA = new f(a);
-        this.VA.a(hashMap, strArr, new f.a<String>() { // from class: com.baidu.c.a.h.4
+        this.Yb = new f(a);
+        this.Yb.a(hashMap, strArr, new f.a<String>() { // from class: com.baidu.c.a.h.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.c.a.f.a
             public void a(String str6) {
                 h.this.a(str6, str2);
             }
         });
-    }
-
-    public static h ay(Context context) {
-        if (VD == null) {
-            synchronized (h.class) {
-                if (VD == null) {
-                    VD = new h(context);
-                }
-            }
-        } else if (context != null) {
-            a = context;
-        } else if (b.a) {
-            b.c("input context is null");
-            new RuntimeException("here").printStackTrace();
-        }
-        return VD;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -442,6 +426,22 @@ public class h {
             return (a2 == null || str2 == null || a2.equals(str2)) ? false : true;
         }
         return true;
+    }
+
+    public static h be(Context context) {
+        if (Ye == null) {
+            synchronized (h.class) {
+                if (Ye == null) {
+                    Ye = new h(context);
+                }
+            }
+        } else if (context != null) {
+            a = context;
+        } else if (b.a) {
+            b.c("input context is null");
+            new RuntimeException("here").printStackTrace();
+        }
+        return Ye;
     }
 
     private String c(Context context) {
@@ -468,10 +468,10 @@ public class h {
 
     private void e() {
         synchronized (h.class) {
-            if (VB == null) {
-                VB = new i(AuthorBox.TYPE);
-                VB.start();
-                while (VB.a == null) {
+            if (Yc == null) {
+                Yc = new i(AuthorBox.TYPE);
+                Yc.start();
+                while (Yc.a == null) {
                     try {
                         if (b.a) {
                             b.a("wait for create auth thread.");
@@ -494,7 +494,7 @@ public class h {
         synchronized (h.class) {
             final String str2 = System.currentTimeMillis() + "";
             if (aVar != null) {
-                VC.put(str2, aVar);
+                Yd.put(str2, aVar);
             }
             String a2 = a(a, str2);
             if (a2 == null || a2.equals("")) {
@@ -518,12 +518,12 @@ public class h {
                 }
                 e();
                 if (b.a) {
-                    b.a("mThreadLooper.mHandler = " + VB.a);
+                    b.a("mThreadLooper.mHandler = " + Yc.a);
                 }
-                if (VB == null || VB.a == null) {
+                if (Yc == null || Yc.a == null) {
                     i = -1;
                 } else {
-                    VB.a.post(new Runnable() { // from class: com.baidu.c.a.h.2
+                    Yc.a.post(new Runnable() { // from class: com.baidu.c.a.h.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (b.a) {
@@ -540,25 +540,25 @@ public class h {
                                 if (b.a) {
                                     b.a("authenticate wait  ");
                                 }
-                                h.VB.b();
+                                h.Yc.b();
                                 h.this.a((String) null, str2);
                                 return;
                             }
                             if (b.a) {
                                 b.a("authenticate sendAuthRequest");
                             }
-                            String[] ax = c.ax(h.a);
+                            String[] bd = c.bd(h.a);
                             if (b.a) {
-                                b.a("authStrings.length:" + ax.length);
+                                b.a("authStrings.length:" + bd.length);
                             }
-                            if (ax == null || ax.length <= 1) {
+                            if (bd == null || bd.length <= 1) {
                                 h.this.a(z, str, hashtable, str2);
                                 return;
                             }
                             if (b.a) {
                                 b.a("more sha1 auth");
                             }
-                            h.this.a(z, str, hashtable, ax, str2);
+                            h.this.a(z, str, hashtable, bd, str2);
                         }
                     });
                 }

@@ -2,27 +2,27 @@ package com.baidu.tieba.forumMember.member;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes3.dex */
 public class h extends q.a {
-    public View dja;
+    public View doT;
 
     public h(View view) {
         super(view);
-        this.dja = view;
+        this.doT = view;
     }
 
-    public void kg(int i) {
+    public void kF(int i) {
         if (i < 0) {
-            this.dja.setMinimumHeight(0);
+            this.doT.setMinimumHeight(0);
         } else {
-            this.dja.setMinimumHeight(i);
+            this.doT.setMinimumHeight(i);
         }
     }
 
-    public void dy(int i) {
+    public void dJ(int i) {
         if (i != 0) {
-            am.i(this.dja, i);
+            al.i(this.doT, i);
         }
     }
 }

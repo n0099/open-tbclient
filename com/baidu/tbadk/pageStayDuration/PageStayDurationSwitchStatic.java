@@ -2,12 +2,12 @@ package com.baidu.tbadk.pageStayDuration;
 /* loaded from: classes.dex */
 public class PageStayDurationSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        com.baidu.adp.lib.b.d.hv().f(PageStayDurationSwitchStatic.class);
+        com.baidu.adp.lib.b.d.iB().i(PageStayDurationSwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
-        e.Kq().bX(1 == i);
+    protected void Z(int i) {
+        e.LG().cj(1 == i);
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -16,22 +16,22 @@ public class PageStayDurationSwitchStatic extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hl() {
+    protected String[] ir() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hm() {
+    protected int is() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
+    protected int it() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
+    protected int iu() {
         return 10;
     }
 }

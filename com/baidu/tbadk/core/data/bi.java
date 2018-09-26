@@ -11,23 +11,23 @@ public class bi {
     private String activity_half_icon;
     private int activity_type;
     private String activity_url;
-    private long aes;
+    private long agT;
 
     public String getActivityUrl() {
         return this.activity_url;
     }
 
-    public String wU() {
+    public String yb() {
         return this.activity_all_icon;
     }
 
-    public String wV() {
+    public String yc() {
         return this.activity_half_icon;
     }
 
     public void a(YuleActivity yuleActivity) {
         if (yuleActivity != null) {
-            this.aes = yuleActivity.activity_id.longValue();
+            this.agT = yuleActivity.activity_id.longValue();
             this.activity_type = yuleActivity.activity_type.intValue();
             this.activity_url = yuleActivity.activity_url;
             this.activity_all_icon = yuleActivity.activity_all_icon;
@@ -38,7 +38,7 @@ public class bi {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aes = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
+                this.agT = jSONObject.optLong(GroupActivityActivityConfig.ACTIVITY_ID);
                 this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.activity_url = jSONObject.optString("activity_url");
                 this.activity_all_icon = jSONObject.optString("activity_all_icon");

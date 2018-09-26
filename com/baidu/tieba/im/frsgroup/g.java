@@ -8,27 +8,27 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.CreateGroupMainActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupStepActivityConfig;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.frs.h<h, i> {
-    private View.OnClickListener avD;
+    private View.OnClickListener ayP;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.avD = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.ayP = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int aKj = hVar.aKj();
-                        if (aKj == 0 && (hVar.OR() instanceof GroupPermData)) {
-                            g.this.a((GroupPermData) hVar.OR());
-                        } else if (aKj == 1) {
-                            bb.aU(g.this.mPageContext.getPageActivity());
+                        int aMy = hVar.aMy();
+                        if (aMy == 0 && (hVar.QL() instanceof GroupPermData)) {
+                            g.this.a((GroupPermData) hVar.QL());
+                        } else if (aMy == 1) {
+                            ba.bA(g.this.mPageContext.getPageActivity());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bd */
     public i onCreateViewHolder(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(f.h.net_refresh_view_layout, (ViewGroup) null), this.avD);
+        return new i(LayoutInflater.from(this.mContext).inflate(e.h.net_refresh_view_layout, (ViewGroup) null), this.ayP);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
-            iVar.a(hVar.aKk(), hVar.aKg(), hVar.aKh(), hVar.aKi());
-            iVar.esw.setTag(Integer.valueOf(i));
+            iVar.a(hVar.aMz(), hVar.aMv(), hVar.aMw(), hVar.aMx());
+            iVar.ezQ.setTag(Integer.valueOf(i));
         }
         return view;
     }
@@ -66,11 +66,11 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
                     this.mPageContext.showToast(groupPermData.getCreateNormalTip());
                     return;
                 } else {
-                    this.mPageContext.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.mPageContext.getPageActivity(), 3, com.baidu.adp.lib.g.b.g(forumId, 0), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
+                    this.mPageContext.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.mPageContext.getPageActivity(), 3, com.baidu.adp.lib.g.b.l(forumId, 0), 1013, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
                     return;
                 }
             }
-            this.mPageContext.sendMessage(new CustomMessage(2002001, new CreateGroupMainActivityConfig(this.mPageContext.getPageActivity(), groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), com.baidu.adp.lib.g.b.g(forumId, 0), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
+            this.mPageContext.sendMessage(new CustomMessage(2002001, new CreateGroupMainActivityConfig(this.mPageContext.getPageActivity(), groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), com.baidu.adp.lib.g.b.l(forumId, 0), groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
         }
     }
 }

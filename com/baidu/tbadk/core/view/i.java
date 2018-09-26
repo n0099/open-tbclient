@@ -6,26 +6,22 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
 public class i extends ImageSpan {
+    private int paddingLeft;
+    private int paddingRight;
+
     public i(Drawable drawable, int i) {
         super(drawable, i);
+        this.paddingLeft = 0;
+        this.paddingRight = 2;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.paddingLeft + this.paddingRight;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        if (this.mVerticalAlignment == -100) {
-            Drawable drawable = getDrawable();
-            canvas.save();
-            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            canvas.translate(f, (((fontMetricsInt.bottom - fontMetricsInt.top) - (drawable.getBounds().bottom - drawable.getBounds().top)) / 2) + fontMetricsInt.top + i4);
-            drawable.draw(canvas);
-            canvas.restore();
-            return;
-        }
-        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
+        super.draw(canvas, charSequence, i, i2, f + this.paddingLeft, i3, i4, i5, paint);
     }
 }

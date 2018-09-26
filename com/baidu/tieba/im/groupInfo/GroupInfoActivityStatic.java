@@ -8,15 +8,15 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes3.dex */
 public class GroupInfoActivityStatic {
     static {
-        aCP();
-        atO();
+        aFc();
+        avF();
     }
 
-    private static void aCP() {
+    private static void aFc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008011, new CustomMessageTask.CustomRunnable<GroupInfoActivityConfig>() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<GroupInfoActivityConfig> customMessage) {
@@ -35,9 +35,9 @@ public class GroupInfoActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void atO() {
-        az.zI().a(new az.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.2
-            @Override // com.baidu.tbadk.core.util.az.a
+    private static void avF() {
+        ay.AN().a(new ay.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.2
+            @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
@@ -49,11 +49,11 @@ public class GroupInfoActivityStatic {
                     if (lastIndexOf == -1 || lastIndexOf < indexOf) {
                         lastIndexOf = str.length();
                     }
-                    long c = com.baidu.adp.lib.g.b.c(str.substring(indexOf, lastIndexOf), 0L);
-                    if (c <= 0) {
+                    long d = com.baidu.adp.lib.g.b.d(str.substring(indexOf, lastIndexOf), 0L);
+                    if (d <= 0) {
                         return 3;
                     }
-                    GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(tbPageContext.getPageActivity(), c, 0);
+                    GroupInfoActivityConfig groupInfoActivityConfig = new GroupInfoActivityConfig(tbPageContext.getPageActivity(), d, 0);
                     if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                         tbPageContext.sendMessage(new CustomMessage(2008011, groupInfoActivityConfig));
                         return 1;

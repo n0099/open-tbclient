@@ -27,7 +27,7 @@ public class a implements IToken {
     public String getToken() {
         try {
             if (this.a != null) {
-                return b().an(this.a);
+                return b().getToken(this.a);
             }
         } catch (Throwable th) {
             th.printStackTrace();

@@ -13,5 +13,5 @@ public interface a {
 
     void a(InterfaceC0136a interfaceC0136a);
 
-    void akF();
+    void amq();
 }

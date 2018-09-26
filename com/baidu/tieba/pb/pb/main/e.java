@@ -4,51 +4,51 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
-public class e extends au {
-    private TextView fuQ;
+public class e extends as {
+    private TextView fCI;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.fuQ = null;
+        this.fCI = null;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.au
+    @Override // com.baidu.tieba.pb.pb.main.as
     protected void a(d dVar) {
-        this.fuQ = (TextView) this.mRootView.findViewById(f.g.icon_push);
-        this.fuQ.setVisibility(8);
+        this.fCI = (TextView) this.mRootView.findViewById(e.g.icon_push);
+        this.fCI.setVisibility(8);
     }
 
-    public void jy(boolean z) {
-        if (this.fuQ != null) {
+    public void jZ(boolean z) {
+        if (this.fCI != null) {
             if (z) {
-                this.fuQ.setText(f.j.push);
-                com.baidu.tbadk.core.util.am.h(this.fuQ, f.C0146f.push_text_selector);
-                com.baidu.tbadk.core.util.am.i(this.fuQ, f.C0146f.push_bg_selector);
-                this.fuQ.setClickable(true);
+                this.fCI.setText(e.j.push);
+                com.baidu.tbadk.core.util.al.h(this.fCI, e.f.push_text_selector);
+                com.baidu.tbadk.core.util.al.i(this.fCI, e.f.push_bg_selector);
+                this.fCI.setClickable(true);
             } else {
-                this.fuQ.setText(f.j.already_push);
-                com.baidu.tbadk.core.util.am.i(this.fuQ, f.C0146f.label_bg_gray80);
-                com.baidu.tbadk.core.util.am.h(this.fuQ, f.d.cp_cont_d);
-                this.fuQ.setClickable(false);
+                this.fCI.setText(e.j.already_push);
+                com.baidu.tbadk.core.util.al.i(this.fCI, e.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.al.h(this.fCI, e.d.cp_cont_d);
+                this.fCI.setClickable(false);
             }
-            this.fuQ.setVisibility(0);
+            this.fCI.setVisibility(0);
         }
     }
 
-    public void aj(bb bbVar) {
-        if (bbVar != null && bbVar.vD() != null) {
-            int status = bbVar.vD().getStatus();
+    public void ak(bb bbVar) {
+        if (bbVar != null && bbVar.wH() != null) {
+            int status = bbVar.wH().getStatus();
             if (status == 1) {
-                jy(true);
+                jZ(true);
             } else if (status == 2) {
-                jy(false);
+                jZ(false);
             }
         }
     }
 
-    public TextView baz() {
-        return this.fuQ;
+    public TextView bcZ() {
+        return this.fCI;
     }
 }

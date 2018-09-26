@@ -33,27 +33,27 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void aQZ() {
-        ePt.put(17, ePt.size() + 1);
-        ePt.put(26, ePt.size() + 1);
-        ePt.put(25, ePt.size() + 1);
-        ePt.put(27, ePt.size() + 1);
-        ePt.put(31, ePt.size() + 1);
-        ePt.put(32, ePt.size() + 1);
-        ePt.put(33, ePt.size() + 1);
-        ePt.put(99, ePt.size() + 1);
-        ePu.put(17, BdUniqueId.gen());
-        ePu.put(26, BdUniqueId.gen());
-        ePu.put(25, BdUniqueId.gen());
-        ePu.put(27, BdUniqueId.gen());
-        ePu.put(31, BdUniqueId.gen());
-        ePu.put(32, BdUniqueId.gen());
-        ePu.put(33, BdUniqueId.gen());
-        ePu.put(99, BdUniqueId.gen());
+    protected void aTn() {
+        eWO.put(17, eWO.size() + 1);
+        eWO.put(26, eWO.size() + 1);
+        eWO.put(25, eWO.size() + 1);
+        eWO.put(27, eWO.size() + 1);
+        eWO.put(31, eWO.size() + 1);
+        eWO.put(32, eWO.size() + 1);
+        eWO.put(33, eWO.size() + 1);
+        eWO.put(99, eWO.size() + 1);
+        eWP.put(17, BdUniqueId.gen());
+        eWP.put(26, BdUniqueId.gen());
+        eWP.put(25, BdUniqueId.gen());
+        eWP.put(27, BdUniqueId.gen());
+        eWP.put(31, BdUniqueId.gen());
+        eWP.put(32, BdUniqueId.gen());
+        eWP.put(33, BdUniqueId.gen());
+        eWP.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    public String rq() {
+    public String sw() {
         return "lego_for_RecApp";
     }
 

@@ -18,31 +18,29 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMessageTask> implements com.baidu.adp.framework.client.socket.link.a {
-    private d.a tm;
-    private final LinkedList<e> tp;
-    private final LinkedList<e> tq;
-    private final LinkedList<e> tr;
-    private com.baidu.adp.framework.client.socket.link.a ts;
-    private boolean tt;
-    private b tu;
-
-    /* renamed from: tv  reason: collision with root package name */
-    private long f0tv;
-    private int tw;
+    private d.a vL;
+    private final LinkedList<e> vM;
+    private final LinkedList<e> vN;
+    private final LinkedList<e> vO;
+    private com.baidu.adp.framework.client.socket.link.a vP;
+    private boolean vQ;
+    private b vR;
+    private long vS;
+    private int vT;
 
     public g(MessageManager messageManager) {
         super(messageManager);
-        this.tm = null;
-        this.tp = new LinkedList<>();
-        this.tq = new LinkedList<>();
-        this.tr = new LinkedList<>();
-        this.ts = null;
-        this.tt = true;
-        this.tu = null;
-        this.f0tv = 0L;
-        this.tw = 0;
+        this.vL = null;
+        this.vM = new LinkedList<>();
+        this.vN = new LinkedList<>();
+        this.vO = new LinkedList<>();
+        this.vP = null;
+        this.vQ = true;
+        this.vR = null;
+        this.vS = 0L;
+        this.vT = 0;
         BdSocketLinkService.setConnStateCallBack(this);
-        this.tm = new d.a() { // from class: com.baidu.adp.framework.client.socket.g.1
+        this.vL = new d.a() { // from class: com.baidu.adp.framework.client.socket.g.1
             @Override // com.baidu.adp.framework.client.socket.d.a
             public void a(d.b bVar) {
                 g.this.b(bVar);
@@ -53,7 +51,7 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     public boolean a(SocketMessage socketMessage) {
         if (socketMessage != null && (socketMessage instanceof a)) {
             a aVar = (a) socketMessage;
-            if (c.a(this.tq, aVar, socketMessage.getCmd()) || c.a(this.tp, aVar, socketMessage.getCmd()) || c.a(this.tr, aVar, socketMessage.getCmd())) {
+            if (c.a(this.vN, aVar, socketMessage.getCmd()) || c.a(this.vM, aVar, socketMessage.getCmd()) || c.a(this.vO, aVar, socketMessage.getCmd())) {
                 return true;
             }
         }
@@ -63,23 +61,23 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b
     public void a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        l.jT();
+        l.kZ();
         if (socketMessage != null && socketMessageTask != null) {
-            if (a(socketMessage, socketMessageTask.fY())) {
-                i.a("queue", socketMessage, 0, "sendMessage", h.tX, "duplicate message be removed");
+            if (a(socketMessage, socketMessageTask.hg())) {
+                i.a("queue", socketMessage, 0, "sendMessage", h.wt, "duplicate message be removed");
                 return;
             }
             e eVar = new e(socketMessage, socketMessageTask, this);
             if (BdSocketLinkService.hasAbsoluteClose()) {
-                i.a("queue", socketMessage, 0, "sendMessage", h.uh, "user manual close socket");
-                eVar.G(h.uh);
+                i.a("queue", socketMessage, 0, "sendMessage", h.wC, "user manual close socket");
+                eVar.O(h.wC);
             } else if (!BdSocketLinkService.isAvailable()) {
-                i.a("queue", socketMessage, 0, "sendMessage", h.tW, "isManualBlock message be removed");
-                eVar.G(h.tW);
+                i.a("queue", socketMessage, 0, "sendMessage", h.ws, "isManualBlock message be removed");
+                eVar.O(h.ws);
             } else {
                 i.a("queue", socketMessage, 0, "sendMessage", 0, "socketclient: send message");
-                c.a(eVar, this.tq);
-                fm();
+                c.a(eVar, this.vN);
+                gv();
             }
         }
     }
@@ -89,15 +87,15 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             int cmd = socketMessage.getCmd();
             switch (dupLicateMode) {
                 case REMOVE_ALL:
-                    c.c(this.tq, cmd);
-                    c.c(this.tp, cmd);
-                    c.c(this.tr, cmd);
+                    c.c(this.vN, cmd);
+                    c.c(this.vM, cmd);
+                    c.c(this.vO, cmd);
                     break;
                 case REMOVE_WAITING:
-                    c.c(this.tq, cmd);
+                    c.c(this.vN, cmd);
                     break;
                 case REMOVE_ME:
-                    if (c.b(this.tq, cmd) || c.b(this.tp, cmd) || c.b(this.tr, cmd)) {
+                    if (c.b(this.vN, cmd) || c.b(this.vM, cmd) || c.b(this.vO, cmd)) {
                         return true;
                     }
                     break;
@@ -109,11 +107,11 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     /* JADX INFO: Access modifiers changed from: private */
     public void b(d.b bVar) {
         if (bVar != null) {
-            if (bVar.sY != null) {
-                a(bVar.sY, h.tE, null);
+            if (bVar.vy != null) {
+                a(bVar.vy, h.vZ, null);
                 return;
             }
-            SocketResponsedMessage socketResponsedMessage = bVar.sX;
+            SocketResponsedMessage socketResponsedMessage = bVar.vx;
             if (socketResponsedMessage != null) {
                 i.a("queue", socketResponsedMessage.getOrginalMessage(), 0, "onReceiveMessage", 0, "unpack succ");
                 b(socketResponsedMessage);
@@ -122,33 +120,33 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     public void b(e eVar) {
-        if (eVar != null && eVar.fg() && eVar.fj() < eVar.eR()) {
-            c.a(this.tp, this.tr, eVar);
-            if (this.tu != null) {
-                this.tu.b(true, "timeout seq = " + eVar.getSequenceId());
+        if (eVar != null && eVar.gp() && eVar.gs() < eVar.fZ()) {
+            c.a(this.vM, this.vO, eVar);
+            if (this.vR != null) {
+                this.vR.b(true, "timeout seq = " + eVar.getSequenceId());
             }
-            i.a("queue", eVar.fd(), eVar.getSequenceId(), "onSendTimeOut", h.ub, String.valueOf(eVar.fj()));
+            i.a("queue", eVar.gm(), eVar.getSequenceId(), "onSendTimeOut", h.ww, String.valueOf(eVar.gs()));
             return;
         }
         e(eVar);
-        a(eVar, h.tR, null);
-        fm();
+        a(eVar, h.wn, null);
+        gv();
     }
 
     public void a(int i, e eVar) {
         int i2;
         if (i == 2) {
-            if (eVar.fb() != null) {
-                i2 = eVar.fb().getErrorCode();
+            if (eVar.gk() != null) {
+                i2 = eVar.gk().getErrorCode();
             } else {
-                i2 = h.tN;
+                i2 = h.wi;
             }
         } else {
-            i2 = h.tS;
+            i2 = h.wo;
         }
-        String I = h.I(i2);
+        String Q = h.Q(i2);
         e(eVar);
-        a(eVar, i2, I);
+        a(eVar, i2, Q);
     }
 
     public void c(e eVar) {
@@ -156,23 +154,23 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
 
     public void d(e eVar) {
         if (eVar != null) {
-            if (eVar.fc()) {
-                eVar.fk();
-                c.a(this.tq, this.tp, eVar);
+            if (eVar.gl()) {
+                eVar.gt();
+                c.a(this.vN, this.vM, eVar);
                 return;
             }
-            c.b(eVar, this.tq);
+            c.b(eVar, this.vN);
         }
     }
 
     protected void a(e eVar, int i, String str) {
         SocketResponsedMessage socketResponsedMessage = null;
-        if (eVar != null && eVar.fd() != null) {
-            int cmd = eVar.fd().getCmd();
+        if (eVar != null && eVar.gm() != null) {
+            int cmd = eVar.gm().getCmd();
             int sequenceId = eVar.getSequenceId();
-            i.a("queue", eVar.fd(), sequenceId, "onMessageSendFail", i, str + " retryTime-" + eVar.fj());
-            SocketMessageTask fe = eVar != null ? eVar.fe() : null;
-            SocketMessageTask socketMessageTask = fe == null ? (SocketMessageTask) this.sH.findTask(cmd) : fe;
+            i.a("queue", eVar.gm(), sequenceId, "onMessageSendFail", i, str + " retryTime-" + eVar.gs());
+            SocketMessageTask gn = eVar != null ? eVar.gn() : null;
+            SocketMessageTask socketMessageTask = gn == null ? (SocketMessageTask) this.vh.findTask(cmd) : gn;
             if (socketMessageTask != null && socketMessageTask.getResponsedClass() != null) {
                 try {
                     socketResponsedMessage = socketMessageTask.getResponsedClass().newInstance();
@@ -188,39 +186,39 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
             if (socketResponsedMessage != null) {
                 socketResponsedMessage.setError(i);
                 if (str == null) {
-                    socketResponsedMessage.setErrorString(h.I(i));
+                    socketResponsedMessage.setErrorString(h.Q(i));
                 } else {
                     socketResponsedMessage.setErrorString(str);
                 }
-                socketResponsedMessage.setOrginalMessage(eVar.fd());
-                i.a("queue", eVar.fd(), sequenceId, "onMessageSendFail", i, "onMessageSendFail class = " + socketResponsedMessage.getClass().getName());
-                this.sH.dispatchResponsedMessage(socketResponsedMessage);
+                socketResponsedMessage.setOrginalMessage(eVar.gm());
+                i.a("queue", eVar.gm(), sequenceId, "onMessageSendFail", i, "onMessageSendFail class = " + socketResponsedMessage.getClass().getName());
+                this.vh.dispatchResponsedMessage(socketResponsedMessage);
             }
         }
     }
 
-    private void fm() {
-        e e = c.e(this.tq);
+    private void gv() {
+        e e = c.e(this.vN);
         if (e != null) {
             if (BdSocketLinkService.isClose()) {
-                i.a("queue", e.fd(), 0, "sendNext", h.tY, "");
+                i.a("queue", e.gm(), 0, "sendNext", h.wu, "");
                 BdSocketLinkService.startService(false, "send message");
-            } else if (!this.tt || e.getPriority() <= -3) {
+            } else if (!this.vQ || e.getPriority() <= -3) {
                 BdSocketLinkService.sendMessage(e);
             }
         }
     }
 
     private void b(SocketResponsedMessage socketResponsedMessage) {
-        this.sH.dispatchResponsedMessage(socketResponsedMessage);
+        this.vh.dispatchResponsedMessage(socketResponsedMessage);
     }
 
     private void e(e eVar) {
         if (eVar != null) {
-            eVar.eX();
-            c.b(eVar, this.tp);
-            c.b(eVar, this.tq);
-            c.b(eVar, this.tr);
+            eVar.gg();
+            c.b(eVar, this.vM);
+            c.b(eVar, this.vN);
+            c.b(eVar, this.vO);
         }
     }
 
@@ -228,45 +226,45 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         while (true) {
             e f = c.f(linkedList);
             if (f != null) {
-                f.eX();
-                a(f, h.tT, null);
+                f.gg();
+                a(f, h.wp, null);
             } else {
                 return;
             }
         }
     }
 
-    public void fn() {
-        i(this.tp);
-        i(this.tq);
-        i(this.tr);
+    public void gw() {
+        i(this.vM);
+        i(this.vN);
+        i(this.vO);
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.a
     public boolean e(int i, String str) {
-        if (this.ts != null) {
-            this.ts.e(i, str);
+        if (this.vP != null) {
+            this.vP.e(i, str);
         }
-        if (this.tu != null) {
-            this.tu.eO();
+        if (this.vR != null) {
+            this.vR.fW();
         }
-        if (!l.jV() || c.g(this.tr) || c.g(this.tq) || c.g(this.tp) || !BdSocketLinkService.isAvailable()) {
-            fn();
+        if (!l.lb() || c.g(this.vO) || c.g(this.vN) || c.g(this.vM) || !BdSocketLinkService.isAvailable()) {
+            gw();
             return false;
         }
-        c.h(this.tp);
-        c.a(this.tq, this.tr);
-        c.a(this.tq, this.tp);
+        c.h(this.vM);
+        c.a(this.vN, this.vO);
+        c.a(this.vN, this.vM);
         while (true) {
-            e d = c.d(this.tq);
+            e d = c.d(this.vN);
             if (d == null) {
                 break;
             }
-            d.eX();
-            a(d, h.tT, null);
+            d.gg();
+            a(d, h.wp, null);
         }
-        if (c.c(this.tq) > 0) {
-            i.a("queue", 0, 0, "onClose", h.uc, "have retry message, MessageQueue:reconnect");
+        if (c.c(this.vN) > 0) {
+            i.a("queue", 0, 0, "onClose", h.wx, "have retry message, MessageQueue:reconnect");
             BdSocketLinkService.startService(false, "have retry message");
             return true;
         }
@@ -274,112 +272,112 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.a
-    public void h(Map<String, String> map) {
-        f.fl().g(map);
-        if (this.tu != null) {
-            this.tu.eP();
+    public void i(Map<String, String> map) {
+        f.gu().h(map);
+        if (this.vR != null) {
+            this.vR.fX();
         }
-        this.tt = true;
-        i.a("queue", 0, 0, "onConnected", h.ug, "Queue blocked");
-        if (this.ts != null) {
-            this.ts.h(map);
+        this.vQ = true;
+        i.a("queue", 0, 0, "onConnected", h.wB, "Queue blocked");
+        if (this.vP != null) {
+            this.vP.i(map);
         }
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.a
     public void a(k.a aVar) {
         byte[] bArr;
-        if (aVar != null && (bArr = aVar.EK) != null) {
-            this.f0tv = System.currentTimeMillis();
+        if (aVar != null && (bArr = aVar.Hg) != null) {
+            this.vS = System.currentTimeMillis();
             try {
-                com.baidu.adp.framework.client.socket.coder.c g = com.baidu.adp.framework.client.socket.coder.b.fF().g(bArr);
-                this.tw = 0;
-                int fA = g.uD.fA();
-                int fC = g.uD.fC();
-                i.a("queue", fA, fC, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
-                e n = n(fA, fC);
-                if (n != null) {
-                    n.ti = aVar.ti;
-                    n.tj = aVar.tj;
+                com.baidu.adp.framework.client.socket.coder.c o = com.baidu.adp.framework.client.socket.coder.b.gN().o(bArr);
+                this.vT = 0;
+                int command = o.wW.getCommand();
+                int gK = o.wW.gK();
+                i.a("queue", command, gK, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
+                e p = p(command, gK);
+                if (p != null) {
+                    p.vH = aVar.vH;
+                    p.vI = aVar.vI;
                 }
-                if (this.tu != null) {
-                    if (g.uD.fA() == this.tu.getCmd() && c.a(this.tq, this.tr)) {
-                        fm();
+                if (this.vR != null) {
+                    if (o.wW.getCommand() == this.vR.getCmd() && c.a(this.vN, this.vO)) {
+                        gv();
                     }
-                    this.tu.eP();
+                    this.vR.fX();
                 }
-                if (fC == 0 || (n != null && n.getCmd() == fA)) {
-                    new d(g, n, this.tm, fC).execute(new String[0]);
-                } else if (n != null) {
-                    a(n, h.ui, null);
+                if (gK == 0 || (p != null && p.getCmd() == command)) {
+                    new d(o, p, this.vL, gK).execute(new String[0]);
+                } else if (p != null) {
+                    a(p, h.wD, null);
                 }
-                if (this.ts != null) {
-                    this.ts.a(aVar);
+                if (this.vP != null) {
+                    this.vP.a(aVar);
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2000986));
             } catch (CoderException e) {
-                int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.iW().getMaxAlertCount("alert_protobuf", 2);
-                int i = this.tw + 1;
-                this.tw = i;
+                int maxAlertCount = com.baidu.adp.lib.stats.switchs.a.kc().getMaxAlertCount("alert_protobuf", 2);
+                int i = this.vT + 1;
+                this.vT = i;
                 if (i >= maxAlertCount) {
                     BdStatisticsManager.getInstance().alert("alert_protobuf", "protbuf");
                 }
-                i.a("queue", 0, 0, "onBinaryMesssage", h.tO, "onBinaryMesssage decodeHeader error");
+                i.a("queue", 0, 0, "onBinaryMesssage", h.wj, "onBinaryMesssage decodeHeader error");
             }
         }
     }
 
-    private e n(int i, int i2) {
+    private e p(int i, int i2) {
         e eVar = null;
         if (i2 != 0) {
-            e a = c.a(i2, this.tp);
-            if (a == null && (a = c.a(i2, this.tr)) == null) {
-                eVar = c.a(i2, this.tq);
+            e a = c.a(i2, this.vM);
+            if (a == null && (a = c.a(i2, this.vO)) == null) {
+                eVar = c.a(i2, this.vN);
                 if (eVar == null) {
-                    i.a("queue", i, i2, "findSenderData", h.ue, "original message removed , responsedMessage not dispatchMessage");
+                    i.a("queue", i, i2, "findSenderData", h.wz, "original message removed , responsedMessage not dispatchMessage");
                 }
             } else {
                 eVar = a;
             }
-            i.a("queue", i, i2, "findSenderData", h.ud, "received ack message");
+            i.a("queue", i, i2, "findSenderData", h.wy, "received ack message");
         }
         return eVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.a
     public void a(com.baidu.adp.lib.webSocket.c cVar) {
-        fm();
-        if (this.ts != null) {
-            this.ts.a(cVar);
+        gv();
+        if (this.vP != null) {
+            this.vP.a(cVar);
         }
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.a
-    public void S(String str) {
-        if (this.ts != null) {
-            this.ts.S(str);
+    public void aj(String str) {
+        if (this.vP != null) {
+            this.vP.aj(str);
         }
     }
 
     public void a(com.baidu.adp.framework.client.socket.link.a aVar) {
-        this.ts = aVar;
+        this.vP = aVar;
     }
 
-    public void fo() {
-        boolean z = this.tt;
-        this.tt = false;
-        i.a("queue", 0, 0, "unBlockMessageQueue", h.tZ, "Queue block has release");
+    public void gx() {
+        boolean z = this.vQ;
+        this.vQ = false;
+        i.a("queue", 0, 0, "unBlockMessageQueue", h.wv, "Queue block has release");
         if (z) {
-            fm();
+            gv();
         }
     }
 
     public void a(b bVar) {
-        this.tu = bVar;
+        this.vR = bVar;
     }
 
     public boolean isValid() {
-        return BdSocketLinkService.isOpen() && !this.tt && BdSocketLinkService.isAvailable();
+        return BdSocketLinkService.isOpen() && !this.vQ && BdSocketLinkService.isAvailable();
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
@@ -388,9 +386,9 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
 
     @Override // com.baidu.adp.framework.b
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        c.b(this.tp, i, bdUniqueId);
-        c.b(this.tq, i, bdUniqueId);
-        c.b(this.tr, i, bdUniqueId);
+        c.b(this.vM, i, bdUniqueId);
+        c.b(this.vN, i, bdUniqueId);
+        c.b(this.vO, i, bdUniqueId);
     }
 
     public LinkedList<SocketMessage> a(BdUniqueId bdUniqueId) {
@@ -403,22 +401,22 @@ public class g extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     public boolean a(int i, BdUniqueId bdUniqueId) {
-        return c.a(this.tq, i, bdUniqueId) || c.a(this.tp, i, bdUniqueId) || c.a(this.tr, i, bdUniqueId);
+        return c.a(this.vN, i, bdUniqueId) || c.a(this.vM, i, bdUniqueId) || c.a(this.vO, i, bdUniqueId);
     }
 
-    public long fp() {
-        return this.f0tv;
+    public long gy() {
+        return this.vS;
     }
 
-    public int fq() {
-        return BdAsyncTask.getTaskNum(d.eQ());
+    public int gA() {
+        return BdAsyncTask.getTaskNum(d.fY());
     }
 
-    public int H(int i) {
-        return BdAsyncTask.getTaskNum(String.valueOf(i), d.eQ());
+    public int P(int i) {
+        return BdAsyncTask.getTaskNum(String.valueOf(i), d.fY());
     }
 
-    public b fs() {
-        return this.tu;
+    public b gB() {
+        return this.vR;
     }
 }

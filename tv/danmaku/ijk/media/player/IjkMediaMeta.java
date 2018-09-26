@@ -2,7 +2,6 @@ package tv.danmaku.ijk.media.player;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
@@ -137,7 +136,7 @@ public class IjkMediaMeta {
     }
 
     public String getDurationInline() {
-        long j = (this.mDurationUS + TbConfig.NOTIFY_SOUND_INTERVAL) / 1000000;
+        long j = (this.mDurationUS + 5000) / 1000000;
         long j2 = j / 60;
         return String.format(Locale.US, "%02d:%02d:%02d", Long.valueOf(j2 / 60), Long.valueOf(j2 % 60), Long.valueOf(j % 60));
     }

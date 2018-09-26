@@ -5,6 +5,8 @@ import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_LIST = "";
+    @ProtoField(tag = 5, type = Message.Datatype.INT32)
+    public final Integer call_from;
     @ProtoField(tag = 4, type = Message.Datatype.UINT64)
     public final Long g_id;
     @ProtoField(tag = 2, type = Message.Datatype.UINT32)
@@ -16,6 +18,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_TYPE = 0;
     public static final Integer DEFAULT_ISMASK = 0;
     public static final Long DEFAULT_G_ID = 0L;
+    public static final Integer DEFAULT_CALL_FROM = 0;
 
     private DataReq(Builder builder, boolean z) {
         super(builder);
@@ -37,9 +40,14 @@ public final class DataReq extends Message {
             }
             if (builder.g_id == null) {
                 this.g_id = DEFAULT_G_ID;
-                return;
             } else {
                 this.g_id = builder.g_id;
+            }
+            if (builder.call_from == null) {
+                this.call_from = DEFAULT_CALL_FROM;
+                return;
+            } else {
+                this.call_from = builder.call_from;
                 return;
             }
         }
@@ -47,10 +55,12 @@ public final class DataReq extends Message {
         this.isMask = builder.isMask;
         this.list = builder.list;
         this.g_id = builder.g_id;
+        this.call_from = builder.call_from;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataReq> {
+        public Integer call_from;
         public Long g_id;
         public Integer isMask;
         public String list;
@@ -66,6 +76,7 @@ public final class DataReq extends Message {
                 this.isMask = dataReq.isMask;
                 this.list = dataReq.list;
                 this.g_id = dataReq.g_id;
+                this.call_from = dataReq.call_from;
             }
         }
 

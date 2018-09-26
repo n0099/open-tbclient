@@ -8,7 +8,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NetUtils {
     private static final String TAG = "NetUtils";
 

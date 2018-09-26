@@ -28,6 +28,7 @@ import com.baidu.d.a.a;
 import com.baidu.sapi2.EnhancedService;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;
 import com.baidu.sapi2.receiver.SMSReceiver;
@@ -86,7 +87,7 @@ public class SmsLoginView extends FrameLayout {
         this(context, attributeSet, -1);
     }
 
-    public SmsLoginView(Context context, AttributeSet attributeSet, int i) {
+    public SmsLoginView(final Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isFirstGetCheckCode = true;
         this.context = context;
@@ -116,6 +117,13 @@ public class SmsLoginView extends FrameLayout {
                     InputMethodManager inputMethodManager = (InputMethodManager) SmsLoginView.this.context.getSystemService("input_method");
                     if (inputMethodManager != null) {
                         inputMethodManager.showSoftInput(SmsLoginView.this.phone, 0);
+                    }
+                    if (SapiUtils.getLastLoginType() == 2) {
+                        String decryptStr = SapiContext.getInstance(context).getDecryptStr(SapiContext.KEY_LAST_LOGIN_PHONE);
+                        if (!TextUtils.isEmpty(decryptStr)) {
+                            SmsLoginView.this.phone.setText(decryptStr);
+                            SmsLoginView.this.phone.setSelection(decryptStr.length());
+                        }
                     }
                 }
             }, 100L);
@@ -173,6 +181,16 @@ public class SmsLoginView extends FrameLayout {
         PassportSDK.getInstance().release();
         unregisterReceiver();
         EnhancedService.getInstance(SapiAccountManager.getInstance().getSapiConfiguration(), SapiAccountManager.VERSION_NAME).cancelRequest();
+    }
+
+    public void clean() {
+        this.checkCode.setText("");
+        this.phone.setText("");
+        if (this.timer != null) {
+            this.timer.cancel();
+        }
+        this.getCode.setText(a.f.sapi_sdk_sms_get_check_code);
+        updateGetCodeColor(false);
     }
 
     private void setHintFontSize(EditText editText, String str) {
@@ -295,7 +313,11 @@ public class SmsLoginView extends FrameLayout {
                 webAuthResult.setResultCode(dynamicPwdLoginResult.getResultCode());
                 webAuthResult.setResultMsg(dynamicPwdLoginResult.getResultMsg());
                 webAuthResult.accountType = AccountType.NORMAL;
-                PassportSDK.getInstance().getSmsViewLoginCallback().onSuccess(webAuthResult);
+                if (PassportSDK.getInstance().getSmsViewLoginCallback() != null) {
+                    SapiContext.getInstance(SmsLoginView.this.context).putEncryptStr(SapiContext.KEY_LAST_LOGIN_PHONE, SmsLoginView.this.loginPhoneNumber);
+                    SapiContext.getInstance(SmsLoginView.this.context).put(SapiContext.KEY_PRE_LOGIN_TYPE, "sms");
+                    PassportSDK.getInstance().getSmsViewLoginCallback().onSuccess(webAuthResult);
+                }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -309,11 +331,16 @@ public class SmsLoginView extends FrameLayout {
                     SmsLoginView.this.prompt.setText(dynamicPwdLoginResult.getResultMsg());
                     SmsLoginView.this.prompt.setVisibility(0);
                     SmsLoginView.this.checkCode.setText("");
-                    PassportSDK.getInstance().getSmsViewLoginCallback().onFailure(webAuthResult);
+                    if (PassportSDK.getInstance().getSmsViewLoginCallback() != null) {
+                        PassportSDK.getInstance().getSmsViewLoginCallback().onFailure(webAuthResult);
+                        return;
+                    }
                     return;
                 }
                 SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = SmsLoginView.this.loginPhoneNumber;
-                PassportSDK.getInstance().getSmsViewLoginCallback().onNeedBack(webAuthResult);
+                if (PassportSDK.getInstance().getSmsViewLoginCallback() != null) {
+                    PassportSDK.getInstance().getSmsViewLoginCallback().onNeedBack(webAuthResult);
+                }
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
@@ -387,7 +414,9 @@ public class SmsLoginView extends FrameLayout {
                         webAuthResult.setResultCode(getDynamicPwdResult.getResultCode());
                         webAuthResult.setResultMsg(getDynamicPwdResult.getResultMsg());
                         SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = SmsLoginView.this.loginPhoneNumber;
-                        PassportSDK.getInstance().getSmsViewLoginCallback().onNeedBack(webAuthResult);
+                        if (PassportSDK.getInstance().getSmsViewLoginCallback() != null) {
+                            PassportSDK.getInstance().getSmsViewLoginCallback().onNeedBack(webAuthResult);
+                        }
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -422,7 +451,9 @@ public class SmsLoginView extends FrameLayout {
                         webAuthResult.setResultCode(getDynamicPwdResult.getResultCode());
                         webAuthResult.setResultMsg(getDynamicPwdResult.getResultMsg());
                         SapiAccountManager.getInstance().getConfignation().presetPhoneNumber = SmsLoginView.this.loginPhoneNumber;
-                        PassportSDK.getInstance().getSmsViewLoginCallback().onNeedBack(webAuthResult);
+                        if (PassportSDK.getInstance().getSmsViewLoginCallback() != null) {
+                            PassportSDK.getInstance().getSmsViewLoginCallback().onNeedBack(webAuthResult);
+                        }
                     }
 
                     public void onStart() {

@@ -1,31 +1,31 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.os.Handler;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public abstract class q {
-    public static q aoE = null;
+public interface q {
+    void a(BasicNameValuePair basicNameValuePair);
 
-    public abstract com.baidu.tbadk.core.data.k getmCdnLogData();
+    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    public abstract void insertErrorData(int i, String str);
+    void d(String str, byte[] bArr);
 
-    public abstract void insertNormalData(long j, String str);
+    void iT();
 
-    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.k kVar);
+    void iW();
 
-    public static q getInstance() {
-        if (aoE == null) {
-            synchronized (q.class) {
-                if (aoE == null) {
-                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016101, q.class);
-                    if (runTask != null && runTask.getData() != null) {
-                        aoE = (q) runTask.getData();
-                    }
-                    return aoE;
-                }
-            }
-        }
-        return aoE;
-    }
+    void p(ArrayList<BasicNameValuePair> arrayList);
+
+    void u(String str, String str2);
+
+    ArrayList<BasicNameValuePair> zs();
+
+    String zt();
+
+    byte[] zu();
+
+    String zv();
+
+    String zw();
 }

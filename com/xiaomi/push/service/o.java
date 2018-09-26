@@ -30,7 +30,7 @@ public class o {
             } else {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
                 String string = sharedPreferences.getString(UserBox.TYPE, null);
-                String string2 = sharedPreferences.getString(Constants.EXTRA_KEY_TOKEN, null);
+                String string2 = sharedPreferences.getString("token", null);
                 String string3 = sharedPreferences.getString("security", null);
                 String string4 = sharedPreferences.getString(HttpConstants.HTTP_APP_ID, null);
                 String string5 = sharedPreferences.getString("app_token", null);
@@ -94,7 +94,7 @@ public class o {
                 JSONObject jSONObject = new JSONObject(a4);
                 if (jSONObject.getInt("code") == 0) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                    nVar = new n(jSONObject2.getString("userId") + "@xiaomi.com/an" + com.xiaomi.channel.commonutils.string.d.a(6), jSONObject2.getString(Constants.EXTRA_KEY_TOKEN), jSONObject2.getString("ssecurity"), str4, str5, str6, com.xiaomi.channel.commonutils.misc.a.c());
+                    nVar = new n(jSONObject2.getString("userId") + "@xiaomi.com/an" + com.xiaomi.channel.commonutils.string.d.a(6), jSONObject2.getString("token"), jSONObject2.getString("ssecurity"), str4, str5, str6, com.xiaomi.channel.commonutils.misc.a.c());
                     a(context, nVar);
                     a = nVar;
                 } else {
@@ -117,7 +117,7 @@ public class o {
         SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
         edit.putString(UserBox.TYPE, nVar.a);
         edit.putString("security", nVar.c);
-        edit.putString(Constants.EXTRA_KEY_TOKEN, nVar.b);
+        edit.putString("token", nVar.b);
         edit.putString(HttpConstants.HTTP_APP_ID, nVar.d);
         edit.putString("package_name", nVar.f);
         edit.putString("app_token", nVar.e);

@@ -5,7 +5,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -155,7 +154,7 @@ public class LogBuilder {
                         if (sb.length() > 0) {
                             sb.append("|");
                         }
-                        sb.append(str).append(SystemInfoUtil.COLON).append(extend.get(str));
+                        sb.append(str).append(":").append(extend.get(str));
                         i = i2 + 1;
                     }
                     i2 = i;

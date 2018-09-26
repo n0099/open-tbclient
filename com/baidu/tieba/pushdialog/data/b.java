@@ -1,13 +1,13 @@
 package com.baidu.tieba.pushdialog.data;
 
 import android.content.Context;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private TbRichText glp;
+    private TbRichText gsH;
     private int postNum;
     private long tid;
     private String title;
@@ -17,8 +17,8 @@ public class b {
             this.tid = lockWindowThreadInfo.tid.longValue();
             this.title = lockWindowThreadInfo.title;
             this.postNum = lockWindowThreadInfo.post_num.intValue();
-            if (!w.z(lockWindowThreadInfo.content)) {
-                this.glp = TbRichTextView.a(context, lockWindowThreadInfo.content, true);
+            if (!v.z(lockWindowThreadInfo.content)) {
+                this.gsH = TbRichTextView.a(context, lockWindowThreadInfo.content, true);
             }
         }
     }
@@ -35,7 +35,7 @@ public class b {
         return this.postNum;
     }
 
-    public TbRichText bmt() {
-        return this.glp;
+    public TbRichText bpa() {
+        return this.gsH;
     }
 }

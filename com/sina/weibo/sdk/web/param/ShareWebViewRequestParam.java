@@ -20,7 +20,6 @@ import com.sina.weibo.sdk.web.WebPicUploadResult;
 import com.sina.weibo.sdk.web.WebRequestType;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import com.tencent.open.SocialConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -92,7 +91,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         if (this.multiMessage != null) {
             this.multiMessage.toBundle(bundle);
         }
-        bundle.putString(Constants.EXTRA_KEY_TOKEN, this.token);
+        bundle.putString("token", this.token);
         bundle.putString("packageName", this.packageName);
         bundle.putString("hashKey", this.hashKey);
     }
@@ -101,7 +100,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     protected void transformChildBundle(Bundle bundle) {
         this.multiMessage = new WeiboMultiMessage();
         this.multiMessage.toObject(bundle);
-        this.token = bundle.getString(Constants.EXTRA_KEY_TOKEN);
+        this.token = bundle.getString("token");
         this.packageName = bundle.getString("packageName");
         this.hashKey = bundle.getString("hashKey");
         getBaseUrl();

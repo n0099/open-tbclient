@@ -8,17 +8,17 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class c implements n, Cloneable {
-    public static final c hFC = new c();
-    private boolean hFG;
-    private double hFD = -1.0d;
-    private int hFE = 136;
-    private boolean hFF = true;
-    private List<com.google.gson.a> hFH = Collections.emptyList();
-    private List<com.google.gson.a> hFI = Collections.emptyList();
+    public static final c hNW = new c();
+    private boolean hOa;
+    private double hNX = -1.0d;
+    private int hNY = 136;
+    private boolean hNZ = true;
+    private List<com.google.gson.a> hOb = Collections.emptyList();
+    private List<com.google.gson.a> hOc = Collections.emptyList();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: bKc */
+    /* renamed from: bMT */
     public c clone() {
         try {
             return (c) super.clone();
@@ -29,30 +29,30 @@ public final class c implements n, Cloneable {
 
     @Override // com.google.gson.n
     public <T> m<T> a(final com.google.gson.d dVar, final com.google.gson.b.a<T> aVar) {
-        Class<? super T> bKr = aVar.bKr();
-        final boolean a = a((Class<?>) bKr, true);
-        final boolean a2 = a((Class<?>) bKr, false);
-        if (a || a2) {
+        Class<? super T> bNi = aVar.bNi();
+        final boolean b = b(bNi, true);
+        final boolean b2 = b(bNi, false);
+        if (b || b2) {
             return new m<T>() { // from class: com.google.gson.internal.c.1
-                private m<T> hFo;
+                private m<T> hNI;
 
                 @Override // com.google.gson.m
                 public void a(com.google.gson.stream.a aVar2, T t) throws IOException {
-                    if (a) {
-                        aVar2.bKp();
+                    if (b) {
+                        aVar2.bNg();
                     } else {
-                        bKd().a(aVar2, t);
+                        bMU().a(aVar2, t);
                     }
                 }
 
-                private m<T> bKd() {
-                    m<T> mVar = this.hFo;
+                private m<T> bMU() {
+                    m<T> mVar = this.hNI;
                     if (mVar != 0) {
                         return mVar;
                     }
-                    m<T> a3 = dVar.a(c.this, aVar);
-                    this.hFo = a3;
-                    return a3;
+                    m<T> a = dVar.a(c.this, aVar);
+                    this.hNI = a;
+                    return a;
                 }
             };
         }
@@ -61,13 +61,13 @@ public final class c implements n, Cloneable {
 
     public boolean a(Field field, boolean z) {
         com.google.gson.a.a aVar;
-        if ((this.hFE & field.getModifiers()) != 0) {
+        if ((this.hNY & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.hFD == -1.0d || a((com.google.gson.a.c) field.getAnnotation(com.google.gson.a.c.class), (com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class))) && !field.isSynthetic()) {
-            if (!this.hFG || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.bKa() : !aVar.bJZ()))) {
-                if ((this.hFF || !r(field.getType())) && !q(field.getType())) {
-                    List<com.google.gson.a> list = z ? this.hFH : this.hFI;
+        if ((this.hNX == -1.0d || a((com.google.gson.a.c) field.getAnnotation(com.google.gson.a.c.class), (com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class))) && !field.isSynthetic()) {
+            if (!this.hOa || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.bMR() : !aVar.bMQ()))) {
+                if ((this.hNZ || !u(field.getType())) && !t(field.getType())) {
+                    List<com.google.gson.a> list = z ? this.hOb : this.hOc;
                     if (!list.isEmpty()) {
                         com.google.gson.b bVar = new com.google.gson.b(field);
                         for (com.google.gson.a aVar2 : list) {
@@ -85,11 +85,11 @@ public final class c implements n, Cloneable {
         return true;
     }
 
-    public boolean a(Class<?> cls, boolean z) {
-        if (this.hFD == -1.0d || a((com.google.gson.a.c) cls.getAnnotation(com.google.gson.a.c.class), (com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class))) {
-            if ((this.hFF || !r(cls)) && !q(cls)) {
-                for (com.google.gson.a aVar : z ? this.hFH : this.hFI) {
-                    if (aVar.n(cls)) {
+    public boolean b(Class<?> cls, boolean z) {
+        if (this.hNX == -1.0d || a((com.google.gson.a.c) cls.getAnnotation(com.google.gson.a.c.class), (com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class))) {
+            if ((this.hNZ || !u(cls)) && !t(cls)) {
+                for (com.google.gson.a aVar : z ? this.hOb : this.hOc) {
+                    if (aVar.q(cls)) {
                         return true;
                     }
                 }
@@ -100,15 +100,15 @@ public final class c implements n, Cloneable {
         return true;
     }
 
-    private boolean q(Class<?> cls) {
+    private boolean t(Class<?> cls) {
         return !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass());
     }
 
-    private boolean r(Class<?> cls) {
-        return cls.isMemberClass() && !s(cls);
+    private boolean u(Class<?> cls) {
+        return cls.isMemberClass() && !v(cls);
     }
 
-    private boolean s(Class<?> cls) {
+    private boolean v(Class<?> cls) {
         return (cls.getModifiers() & 8) != 0;
     }
 
@@ -117,10 +117,10 @@ public final class c implements n, Cloneable {
     }
 
     private boolean a(com.google.gson.a.c cVar) {
-        return cVar == null || cVar.bKb() <= this.hFD;
+        return cVar == null || cVar.bMS() <= this.hNX;
     }
 
     private boolean a(com.google.gson.a.d dVar) {
-        return dVar == null || dVar.bKb() > this.hFD;
+        return dVar == null || dVar.bMS() > this.hNX;
     }
 }

@@ -11,16 +11,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.editortools.emotiontool.b;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView erx;
+    private TextView eyR;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -34,16 +34,16 @@ public class ItemInfoView extends LinearLayout {
 
     public void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(f.h.forum_detail_info, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(e.h.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.erx = (TextView) findViewById(f.g.info_brief_content);
+        this.eyR = (TextView) findViewById(e.g.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
-        if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !ap.isEmpty(recommendForumInfo.slogan))) {
-            this.erx.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
+        if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !ao.isEmpty(recommendForumInfo.slogan))) {
+            this.eyR.setText(h(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.erx.setText(getResources().getString(f.j.forum_detail_info_no_brief));
+            this.eyR.setText(getResources().getString(e.j.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -56,7 +56,7 @@ public class ItemInfoView extends LinearLayout {
             PbContent pbContent = list.get(i);
             if (pbContent != null) {
                 if (pbContent.type.intValue() == 2) {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.gA(pbContent.text));
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(bVar.gW(pbContent.text));
                     if (cashBitmap != null) {
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(cashBitmap);
                         bitmapDrawable.setBounds(0, 0, cashBitmap.getWidth(), cashBitmap.getHeight());
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        am.c(this.erx, f.d.common_color_10177, 1);
+        al.c(this.eyR, e.d.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

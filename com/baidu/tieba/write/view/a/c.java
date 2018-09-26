@@ -5,20 +5,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.base.e;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.HorizontalListView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private HorizontalListView hgf;
-    private d hxF;
+    private d hGc;
+    private HorizontalListView hnV;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.hxF.b(cVar);
+        this.hGc.b(cVar);
     }
 
     public c(e eVar) {
@@ -27,10 +27,10 @@ public class c extends a {
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(f.h.pic_sticker_view, (ViewGroup) null);
-        this.hgf = (HorizontalListView) this.mRootView.findViewById(f.g.horizontal_list);
-        this.hxF = new d();
-        this.hgf.setAdapter((ListAdapter) this.hxF);
+        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(e.h.pic_sticker_view, (ViewGroup) null);
+        this.hnV = (HorizontalListView) this.mRootView.findViewById(e.g.horizontal_list);
+        this.hGc = new d();
+        this.hnV.setAdapter((ListAdapter) this.hGc);
     }
 
     public View getRootView() {
@@ -38,17 +38,17 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        am.j(this.mRootView, f.d.cp_bg_line_d);
+        al.j(this.mRootView, e.d.cp_bg_line_d);
     }
 
-    public void dS(List<String> list) {
-        if (!w.z(list)) {
-            this.hxF.setData(list);
-            this.hxF.notifyDataSetChanged();
+    public void dT(List<String> list) {
+        if (!v.z(list)) {
+            this.hGc.setData(list);
+            this.hGc.notifyDataSetChanged();
         }
     }
 
-    public void bHe() {
-        this.hxF.notifyDataSetChanged();
+    public void bJV() {
+        this.hGc.notifyDataSetChanged();
     }
 }

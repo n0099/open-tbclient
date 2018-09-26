@@ -2,26 +2,26 @@ package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    public int dwJ;
-    public List<h> dwK;
+    public int dDt;
+    public List<h> dDu;
     public boolean hasMore;
     public String key;
     public int labelId;
     public int pn;
 
-    public int bq(List<h> list) {
+    public int br(List<h> list) {
         boolean z;
-        if (w.z(list)) {
+        if (v.z(list)) {
             return 0;
         }
-        if (w.z(this.dwK)) {
-            this.dwK = new LinkedList();
-            this.dwK.addAll(list);
+        if (v.z(this.dDu)) {
+            this.dDu = new LinkedList();
+            this.dDu.addAll(list);
             return list.size();
         }
         LinkedList linkedList = new LinkedList();
@@ -29,15 +29,15 @@ public class c {
             h hVar = list.get(i);
             int i2 = 0;
             while (true) {
-                if (i2 >= this.dwK.size()) {
+                if (i2 >= this.dDu.size()) {
                     z = false;
                     break;
                 }
-                h hVar2 = this.dwK.get(i2);
+                h hVar2 = this.dDu.get(i2);
                 if (hVar != null && (hVar instanceof b) && hVar2 != null && (hVar2 instanceof b)) {
-                    bb Tg = ((b) hVar).Tg();
-                    bb Tg2 = ((b) hVar2).Tg();
-                    if (Tg != null && Tg2 != null && Tg.getTid() != null && Tg2.getTid() != null && Tg.getTid().equals(Tg2.getTid())) {
+                    bb UT = ((b) hVar).UT();
+                    bb UT2 = ((b) hVar2).UT();
+                    if (UT != null && UT2 != null && UT.getTid() != null && UT2.getTid() != null && UT.getTid().equals(UT2.getTid())) {
                         z = true;
                         break;
                     }
@@ -45,11 +45,11 @@ public class c {
                 i2++;
             }
             if (!z) {
-                w.b(linkedList, hVar);
+                v.b(linkedList, hVar);
             }
         }
         if (linkedList.size() != 0) {
-            w.a((List) this.dwK, 0, (List) linkedList);
+            v.a((List) this.dDu, 0, (List) linkedList);
         }
         return linkedList.size();
     }

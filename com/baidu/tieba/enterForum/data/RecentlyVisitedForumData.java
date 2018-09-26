@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.data.VisitedForumData;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                     break;
                 }
                 visitedForumData2 = it.next();
-                if (!ap.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+                if (!ao.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     break;
                 }
             }
@@ -27,11 +27,11 @@ public class RecentlyVisitedForumData extends OrmObject {
                 this.mForumData.remove(visitedForumData2);
             }
             this.mForumData.addFirst(visitedForumData);
-            aoA();
+            aqp();
         }
     }
 
-    private void aoA() {
+    private void aqp() {
         if (this.mForumData != null) {
             while (this.mForumData.size() > 20) {
                 this.mForumData.removeLast();
@@ -52,7 +52,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                 break;
             }
             VisitedForumData visitedForumData2 = this.mForumData.get(i2);
-            if (!ap.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
+            if (!ao.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                 i = i2;
                 break;
             }
@@ -69,7 +69,7 @@ public class RecentlyVisitedForumData extends OrmObject {
         if (linkedList != null && linkedList.size() != 0) {
             this.mForumData.clear();
             this.mForumData.addAll(linkedList);
-            aoA();
+            aqp();
         }
     }
 
@@ -82,7 +82,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                     this.mForumData.addLast(next);
                 }
             }
-            aoA();
+            aqp();
         }
     }
 
@@ -93,7 +93,7 @@ public class RecentlyVisitedForumData extends OrmObject {
         Iterator<VisitedForumData> it = linkedList.iterator();
         while (it.hasNext()) {
             VisitedForumData next = it.next();
-            if (!ap.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
+            if (!ao.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(next.getForumId())) {
                 return true;
             }
         }

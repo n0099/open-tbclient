@@ -2,8 +2,8 @@ package com.baidu.tieba.godMultiAttention;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.util.p;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.MFollow.DataReq;
@@ -19,7 +19,7 @@ public class MultiAttentionRequestMessage extends NetMessage {
     }
 
     public void setPortraitList(List<String> list) {
-        if (!w.z(list)) {
+        if (!v.z(list)) {
             this.portraitList.clear();
             this.portraitList.addAll(list);
         }
@@ -38,7 +38,7 @@ public class MultiAttentionRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.portrait = this.portraitList;
         if (z) {
-            o.bindCommonParamsToProtobufData(builder, true, true);
+            p.bindCommonParamsToProtobufData(builder, true, true);
         }
         MFollowReqIdl.Builder builder2 = new MFollowReqIdl.Builder();
         builder2.data = builder.build(false);

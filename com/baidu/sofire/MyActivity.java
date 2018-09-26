@@ -15,7 +15,7 @@ import android.text.TextUtils;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Window;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.b.t;
 import com.baidu.sofire.core.ApkInfo;
 import java.lang.reflect.Field;
@@ -115,7 +115,7 @@ public class MyActivity extends Activity {
         int i2 = 0;
         try {
             final Intent intent = getIntent();
-            if ("a".equals(intent.getStringExtra(Info.kBaiduTimeKey))) {
+            if (Config.APP_VERSION_CODE.equals(intent.getStringExtra("t"))) {
                 final Context applicationContext = getApplicationContext();
                 t.a().a.execute(new Runnable() { // from class: com.baidu.sofire.MyActivity.1
                     @Override // java.lang.Runnable
@@ -124,7 +124,7 @@ public class MyActivity extends Activity {
                             new StringBuilder("PPP(activity) now to active ").append(intent.toString());
                             String stringExtra = intent.getStringExtra("c");
                             Intent intent2 = new Intent();
-                            intent2.putExtra(Info.kBaiduTimeKey, "a");
+                            intent2.putExtra("t", Config.APP_VERSION_CODE);
                             intent2.putExtra("c", stringExtra);
                             com.baidu.sofire.a.a(applicationContext.getApplicationContext(), intent2);
                         } catch (Throwable th) {

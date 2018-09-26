@@ -13,9 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.fsg.base.activity.BaseActivity;
-import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RimGlobalUtils {
     private static String a;
 
@@ -61,15 +60,6 @@ public final class RimGlobalUtils {
             return inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
         return false;
-    }
-
-    public static String getProperties(String str, String str2) {
-        try {
-            return (String) Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES).getMethod("get", String.class, String.class).invoke(null, str, str2);
-        } catch (Exception e) {
-            LogUtil.e("getProperties", "Exception while getting system property: ", e);
-            return str2;
-        }
     }
 
     public static void safeShowDialog(BaseActivity baseActivity, int i) {
@@ -148,6 +138,20 @@ public final class RimGlobalUtils {
     public static String getZid(Context context) {
         try {
             Object invoke = Class.forName("com.baidu.sofire.ac.FH").getDeclaredMethod("gz", Context.class).invoke(null, context);
+            if (invoke != null) {
+                return invoke.toString();
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String getZid2() {
+        try {
+            Class<?> cls = Class.forName("com.fsg.soter.Soter");
+            Object invoke = cls.getDeclaredMethod("getLid", new Class[0]).invoke(cls.getDeclaredMethod("getInstance", new Class[0]).invoke(null, new Object[0]), new Object[0]);
             if (invoke != null) {
                 return invoke.toString();
             }

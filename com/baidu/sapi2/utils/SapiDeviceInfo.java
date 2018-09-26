@@ -5,12 +5,16 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
+import com.baidu.sapi2.passhost.framework.a.b;
+import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.tencent.connect.common.Constants;
@@ -26,7 +30,8 @@ public class SapiDeviceInfo {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", "w", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{"O", Config.APP_VERSION_CODE, "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", Config.DEVICE_WIDTH, Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
+    private static boolean e = ((ISapiAccountManagerService) b.a().getService(6, 0)).isOutsideCompany();
 
     static String a() {
         return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
@@ -152,8 +157,8 @@ public class SapiDeviceInfo {
                 if (!TextUtils.isEmpty((CharSequence) ((ArrayList) combinePisCookies.first).get(i2))) {
                     try {
                         jSONObject.put((String) ((ArrayList) combinePisCookies.first).get(i2), ((ArrayList) combinePisCookies.second).get(i2));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
                 }
                 i = i2 + 1;
@@ -179,42 +184,57 @@ public class SapiDeviceInfo {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (DeviceInfoCookieManager.a.isEmpty()) {
-            return null;
-        }
-        for (String str : list) {
-            try {
-                jSONObject.put(str, DeviceInfoCookieManager.a.get(str));
-            } catch (JSONException e) {
-                Log.e(e);
-            }
-        }
-        Pair<ArrayList<String>, ArrayList<String>> combinePisCookies = PluginFacade.combinePisCookies();
-        if (combinePisCookies != null && combinePisCookies.first != null && combinePisCookies.second != null && ((ArrayList) combinePisCookies.first).size() > 0 && ((ArrayList) combinePisCookies.second).size() > 0 && ((ArrayList) combinePisCookies.first).size() == ((ArrayList) combinePisCookies.second).size()) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= ((ArrayList) combinePisCookies.first).size()) {
-                    break;
+        if (!DeviceInfoCookieManager.a.isEmpty() && list != null) {
+            for (String str : list) {
+                try {
+                    jSONObject.put(str, DeviceInfoCookieManager.a.get(str));
+                } catch (JSONException e2) {
+                    Log.e(e2);
                 }
-                String str2 = (String) ((ArrayList) combinePisCookies.first).get(i2);
-                if (!TextUtils.isEmpty(str2) && list.contains(str2)) {
-                    try {
-                        jSONObject.put((String) ((ArrayList) combinePisCookies.first).get(i2), ((ArrayList) combinePisCookies.second).get(i2));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+            }
+            if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
+                try {
+                    ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
+                    jSONObject.put("sf_zid", isAccountManager.getCurrentZid(isAccountManager.getConfignation().context));
+                } catch (JSONException e3) {
+                    Log.e(e3);
+                }
+            }
+            Pair<ArrayList<String>, ArrayList<String>> combinePisCookies = PluginFacade.combinePisCookies();
+            if (combinePisCookies != null && combinePisCookies.first != null && combinePisCookies.second != null && ((ArrayList) combinePisCookies.first).size() > 0 && ((ArrayList) combinePisCookies.second).size() > 0 && ((ArrayList) combinePisCookies.first).size() == ((ArrayList) combinePisCookies.second).size()) {
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= ((ArrayList) combinePisCookies.first).size()) {
+                        break;
                     }
+                    String str2 = (String) ((ArrayList) combinePisCookies.first).get(i2);
+                    if (!TextUtils.isEmpty(str2) && list.contains(str2)) {
+                        try {
+                            jSONObject.put((String) ((ArrayList) combinePisCookies.first).get(i2), ((ArrayList) combinePisCookies.second).get(i2));
+                        } catch (JSONException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    i = i2 + 1;
                 }
-                i = i2 + 1;
             }
+            if (jSONObject.length() == 0) {
+                return null;
+            }
+            try {
+                if (e) {
+                    jSONObject.put("is_outside_company", "1");
+                }
+            } catch (JSONException e5) {
+                Log.e(e5);
+            }
+            if (z) {
+                return a(jSONObject.toString());
+            }
+            return jSONObject.toString();
         }
-        if (jSONObject.length() == 0) {
-            return null;
-        }
-        if (z) {
-            return a(jSONObject.toString());
-        }
-        return jSONObject.toString();
+        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -234,7 +254,7 @@ public class SapiDeviceInfo {
             arrayList.add("SystemVersion");
             arrayList.add("SystemType");
             arrayList.add("cuid");
-            arrayList.add("tpl");
+            arrayList.add(BaiduRimConstants.TPL_INIT_KEY);
             arrayList.add("uid_count");
             arrayList.add("uid_list");
             arrayList.add("usetype");

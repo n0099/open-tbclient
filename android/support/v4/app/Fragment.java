@@ -33,7 +33,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -217,7 +216,7 @@ public class Fragment implements b, ComponentCallbacks, View.OnCreateContextMenu
     public final void setIndex(int i, Fragment fragment) {
         this.mIndex = i;
         if (fragment != null) {
-            this.mWho = fragment.mWho + SystemInfoUtil.COLON + this.mIndex;
+            this.mWho = fragment.mWho + ":" + this.mIndex;
         } else {
             this.mWho = "android:fragment:" + this.mIndex;
         }
@@ -1009,7 +1008,7 @@ public class Fragment implements b, ComponentCallbacks, View.OnCreateContextMenu
         }
         if (this.mChildFragmentManager != null) {
             printWriter.print(str);
-            printWriter.println("Child " + this.mChildFragmentManager + SystemInfoUtil.COLON);
+            printWriter.println("Child " + this.mChildFragmentManager + ":");
             this.mChildFragmentManager.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }

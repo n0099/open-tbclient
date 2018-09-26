@@ -3,7 +3,7 @@ package com.baidu.tieba.sharewrite;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ShareSDKImageView extends TbClipImageView {
     private int mDefaultBgId;
@@ -19,8 +19,8 @@ public class ShareSDKImageView extends TbClipImageView {
 
     public ShareSDKImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mDefaultId = f.C0146f.pic_share_link;
-        this.mDefaultBgId = f.d.cp_cont_e;
+        this.mDefaultId = e.f.pic_share_link;
+        this.mDefaultBgId = e.d.cp_cont_e;
         init();
     }
 

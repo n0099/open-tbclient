@@ -9,7 +9,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
@@ -18,18 +18,18 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Jn() {
+    public com.baidu.tbadk.mainTab.c KD() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aRI = ThreadFragment.aWP();
+        cVar.aVa = ThreadFragment.aZc();
         cVar.type = 1;
-        cVar.aRJ = f.j.collect_thread;
+        cVar.awr = e.j.collect_thread;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bd(Context context) {
-        this.aRu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(f.h.fragmenttabindicator, (ViewGroup) null);
-        return this.aRu;
+    public TbFragmentTabIndicator bJ(Context context) {
+        this.aUM = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+        return this.aUM;
     }
 
     static {
@@ -37,13 +37,13 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                com.baidu.tbadk.mainTab.c Jo;
+                com.baidu.tbadk.mainTab.c KE;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.collectTab.a)) {
                     com.baidu.tbadk.collectTab.a aVar = (com.baidu.tbadk.collectTab.a) customResponsedMessage.getData();
                     ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
                     aVar.a(threadDelegateStatic);
-                    if (aVar.getContext() != null && (Jo = threadDelegateStatic.Jo()) != null) {
-                        Jo.aRI.setArguments(new Bundle());
+                    if (aVar.getContext() != null && (KE = threadDelegateStatic.KE()) != null) {
+                        KE.aVa.setArguments(new Bundle());
                     }
                 }
             }

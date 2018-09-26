@@ -17,15 +17,15 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("callNativeSMS".equals(str2)) {
-                cU(str3);
+                dm(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("copyToClipboard".equals(str2)) {
-                aQ(str3);
+                bh(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("setBlockPopInfo".equals(str2)) {
-                cV(str3);
+                dn(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else {
@@ -35,7 +35,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    private void cU(String str) {
+    private void dm(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
@@ -44,15 +44,15 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void aQ(String str) {
+    private void bh(String str) {
         try {
-            com.baidu.adp.lib.util.a.aQ(new JSONObject(str).optString("content"));
+            com.baidu.adp.lib.util.a.bh(new JSONObject(str).optString("content"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void cV(String str) {
+    private void dn(String str) {
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             JSONObject jSONObject = new JSONObject(str);

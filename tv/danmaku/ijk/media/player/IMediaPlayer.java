@@ -101,6 +101,8 @@ public interface IMediaPlayer {
 
     void reset();
 
+    void resetListeners();
+
     void seekTo(long j) throws IllegalStateException;
 
     void setAudioStreamType(int i);

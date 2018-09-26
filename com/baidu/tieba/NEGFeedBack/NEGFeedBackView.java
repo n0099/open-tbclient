@@ -10,16 +10,16 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ah;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NEGFeedBackView extends ImageView {
-    private int aOO;
-    private int aOP;
-    private long biS;
-    c biT;
-    private View.OnClickListener biU;
+    private int aSg;
+    private int aSh;
+    private long boC;
+    c boD;
+    private View.OnClickListener boE;
     private Context mContext;
 
     /* loaded from: classes2.dex */
@@ -34,16 +34,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.biS = 0L;
-        this.biU = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.boC = 0L;
+        this.boE = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.PB();
+                NEGFeedBackView.this.Ro();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.biS > 500) {
-                    NEGFeedBackView.this.PA();
+                if (currentTimeMillis - NEGFeedBackView.this.boC > 500) {
+                    NEGFeedBackView.this.Rn();
                 }
-                NEGFeedBackView.this.biS = currentTimeMillis;
+                NEGFeedBackView.this.boC = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -51,14 +51,14 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void f(TbPageContext tbPageContext) {
-        this.biT = new c(tbPageContext, this);
-        setOnClickListener(this.biU);
-        am.c(this, f.C0146f.icon_home_feedback_selector);
+        this.boD = new c(tbPageContext, this);
+        setOnClickListener(this.boE);
+        al.c(this, e.f.icon_home_feedback_selector);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.biT.setUniqueId(bdUniqueId);
+        this.boD.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -66,43 +66,43 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.aOO = i;
-        setPadding(i, 0, this.aOP, 0);
+        this.aSg = i;
+        setPadding(i, 0, this.aSh, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PA() {
-        this.biT.PA();
+    public void Rn() {
+        this.boD.Rn();
     }
 
-    public void PB() {
-        this.biT.PB();
+    public void Ro() {
+        this.boD.Ro();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.biT.onDetachedFromWindow();
+        this.boD.onDetachedFromWindow();
     }
 
     public void setData(ah ahVar) {
-        this.biT.setData(ahVar);
+        this.boD.setData(ahVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.biT.setFirstRowSingleColumn(z);
+        this.boD.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        am.c(this, f.C0146f.icon_home_feedback_selector);
+        al.c(this, e.f.icon_home_feedback_selector);
     }
 
     public void setEventCallback(a aVar) {
-        this.biT.setEventCallback(aVar);
+        this.boD.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.biT.setDefaultReasonArray(strArr);
+        this.boD.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import com.baidu.android.common.util.CommonParam;
 import com.baidu.idl.license.License;
 import com.baidu.idl.util.FileUtil;
 import com.baidu.idl.util.NetUtil;
@@ -19,7 +18,7 @@ import java.util.Map;
 import java.util.Properties;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Statistics {
     private static final String AS_FILE_NAME = "as";
     private static final int MESSAGE_INSTANT_SYNC_FILE = 1;
@@ -48,7 +47,7 @@ public class Statistics {
         this.app = context;
         this.appId = str;
         try {
-            this.userId = CommonParam.getCUID(context);
+            this.userId = "0000";
         } catch (SecurityException e) {
             e.printStackTrace();
         }
@@ -194,7 +193,7 @@ public class Statistics {
         return Holder.instance;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static final class Holder {
         private static final Statistics instance = new Statistics();
 
@@ -203,7 +202,7 @@ public class Statistics {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class StatisticsResult {
         public String errmsg;
         public int errno;

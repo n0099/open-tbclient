@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Environment;
-import android.util.Log;
 import com.baidu.idl.authority.AlgorithmOnMainThreadException;
 import com.baidu.idl.authority.IDLAuthorityException;
 import com.baidu.idl.license.License;
@@ -17,9 +16,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceSDK {
-    private static final String VERSION = "3.0.0.0";
+    private static final String VERSION = "3.0.1.0";
     private static String mApiKey = null;
     private static FaceSDK mInstance = null;
     private static final String tag = "FaceSDK";
@@ -35,7 +34,7 @@ public class FaceSDK {
     private static String cdnn_parsingmodel_path2 = "7_class_model";
     private static String cdnn_parsingparam_path2 = "";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum AlignMethodType {
         SDM,
         CDNN,
@@ -43,23 +42,23 @@ public class FaceSDK {
         SDM_15PTS
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum DetectMethodType {
         BOOST
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ImgType {
         ARGB
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LivenessAction {
         RESET,
         ADD_ONE_FRAME
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LivenessMethodType {
         EYE_BLINK,
         MOUTH_MOTION,
@@ -67,7 +66,7 @@ public class FaceSDK {
         ALL
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ParsMethodType {
         NOT_USE,
         CLASS_NUM_3,
@@ -101,17 +100,11 @@ public class FaceSDK {
             File file = new File(dir.getAbsolutePath() + File.separator + "libFaceSDK.so");
             File file2 = new File(dir.getAbsolutePath() + File.separator + "libidl_license.so");
             if (file.exists() && file2.exists()) {
-                Log.e(tag, "Load lib from private space...");
                 System.load(file2.getAbsolutePath());
-                Log.e(tag, "Load lib  idl_license succeed!");
                 System.load(file.getAbsolutePath());
-                Log.e(tag, "Load lib from app private space succeed!");
             } else {
-                Log.e(tag, "Load lib from default space!");
                 System.loadLibrary("idl_license");
-                Log.e(tag, "Load lib  idl_license succeed!");
                 System.loadLibrary(tag);
-                Log.e(tag, "Load lib  FaceSDK succeed!");
             }
             if (mAuthorityStatus > 48) {
                 new Thread(new Runnable() { // from class: com.baidu.idl.facesdk.FaceSDK.1
@@ -121,7 +114,6 @@ public class FaceSDK {
                             if (str2 == null || str2.length() <= 0) {
                                 FaceSDK.initLicense(context, str, str3);
                             } else {
-                                Log.e(FaceSDK.TAG, "token =" + str2);
                                 FaceSDK.init(context, str, str2);
                             }
                         } catch (AlgorithmOnMainThreadException e) {
@@ -186,28 +178,21 @@ public class FaceSDK {
     @Deprecated
     public static void savePic(Bitmap bitmap) {
         try {
-            Log.e(tag, "start savePic");
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            File file = new File(externalStorageDirectory.getAbsolutePath() + "/awe/");
-            Log.i("sdcard_dir=", externalStorageDirectory.getAbsolutePath() + "/awe/");
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/awe/");
             file.mkdirs();
             File file2 = new File(file, String.format("%d.png", Long.valueOf(System.currentTimeMillis())));
             if (file2.exists()) {
                 file2.delete();
             }
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            Log.e(tag, "strFileName 1= " + file2.getPath());
             if (fileOutputStream != null) {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                 fileOutputStream.flush();
                 fileOutputStream.close();
-                Log.i(tag, "save pic OK!");
             }
         } catch (FileNotFoundException e) {
-            Log.i(tag, "FileNotFoundException");
             e.printStackTrace();
         } catch (IOException e2) {
-            Log.i(tag, "IOException");
             e2.printStackTrace();
         }
     }
@@ -246,7 +231,6 @@ public class FaceSDK {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            Log.e(tag, "[copyFileFromAssets] IOException " + e.toString());
             return false;
         }
     }

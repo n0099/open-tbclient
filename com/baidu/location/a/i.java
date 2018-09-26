@@ -19,11 +19,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i {
     private static long j = 12000;
-    private BDLocation VK;
-    private LocationClient WC;
-    public e WD;
-    private a WE;
-    private f WF;
+    private BDLocation Yl;
+    private LocationClient Zd;
+    public e Ze;
+    private a Zf;
+    private f Zg;
     private Context b;
     private WebView c;
     private List<b> f;
@@ -39,7 +39,7 @@ public class i {
 
         private void a(String str) {
             if (i.this.l) {
-                i.this.WE.removeCallbacks(i.this.WF);
+                i.this.Zf.removeCallbacks(i.this.Zg);
                 i.this.l = false;
             }
             if (i.this.f == null || i.this.f.size() <= 0) {
@@ -106,27 +106,27 @@ public class i {
                     if (i.this.f != null) {
                         i.this.f.add(bVar);
                     }
-                    if (i.this.WC == null) {
+                    if (i.this.Zd == null) {
                         return;
                     }
-                    if (i.this.WC.requestLocation() != 0) {
+                    if (i.this.Zd.requestLocation() != 0) {
                         long currentTimeMillis = System.currentTimeMillis() - i.this.h;
-                        if (i.this.VK != null && currentTimeMillis <= 10000) {
-                            Message obtainMessage = i.this.WE.obtainMessage(2);
-                            obtainMessage.obj = i.this.VK;
+                        if (i.this.Yl != null && currentTimeMillis <= 10000) {
+                            Message obtainMessage = i.this.Zf.obtainMessage(2);
+                            obtainMessage.obj = i.this.Yl;
                             obtainMessage.sendToTarget();
                             z = false;
                             if (z) {
                                 return;
                             }
                             if (i.this.l) {
-                                i.this.WE.removeCallbacks(i.this.WF);
+                                i.this.Zf.removeCallbacks(i.this.Zg);
                                 i.this.l = false;
                             }
-                            if (i.this.WF == null) {
-                                i.this.WF = new f();
+                            if (i.this.Zg == null) {
+                                i.this.Zg = new f();
                             }
-                            i.this.WE.postDelayed(i.this.WF, i.j);
+                            i.this.Zf.postDelayed(i.this.Zg, i.j);
                             i.this.l = true;
                             return;
                         }
@@ -144,18 +144,18 @@ public class i {
                     } else {
                         i.this.f.clear();
                     }
-                    i.this.WC.registerLocationListener(i.this.WD);
+                    i.this.Zd.registerLocationListener(i.this.Ze);
                     return;
                 case 4:
                     if (i.this.f != null) {
                         i.this.f.clear();
                         i.this.f = null;
                     }
-                    i.this.WC.unRegisterLocationListener(i.this.WD);
+                    i.this.Zd.unRegisterLocationListener(i.this.Ze);
                     i.this.h = 0L;
-                    i.this.VK = null;
-                    if (i.this.WF != null && i.this.l) {
-                        i.this.WE.removeCallbacks(i.this.WF);
+                    i.this.Yl = null;
+                    if (i.this.Zg != null && i.this.l) {
+                        i.this.Zf.removeCallbacks(i.this.Zg);
                     }
                     i.this.l = false;
                     return;
@@ -233,7 +233,7 @@ public class i {
 
     /* loaded from: classes2.dex */
     private static final class c {
-        private static final i WG = new i();
+        private static final i Zh = new i();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -248,10 +248,10 @@ public class i {
                 return;
             }
             b bVar = new b(str);
-            if (bVar.a() == null || !bVar.a().equals("requestLoc") || i.this.WE == null) {
+            if (bVar.a() == null || !bVar.a().equals("requestLoc") || i.this.Zf == null) {
                 return;
             }
-            Message obtainMessage = i.this.WE.obtainMessage(1);
+            Message obtainMessage = i.this.Zf.obtainMessage(1);
             obtainMessage.obj = bVar;
             obtainMessage.sendToTarget();
         }
@@ -275,7 +275,7 @@ public class i {
             int locType = bDLocation2.getLocType();
             String coorType = bDLocation2.getCoorType();
             if (locType != 61 && locType != 161 && locType != 66) {
-                i.this.WE.obtainMessage(5).sendToTarget();
+                i.this.Zf.obtainMessage(5).sendToTarget();
                 return;
             }
             if (coorType != null) {
@@ -288,8 +288,8 @@ public class i {
                 }
             }
             i.this.h = System.currentTimeMillis();
-            i.this.VK = new BDLocation(bDLocation2);
-            Message obtainMessage = i.this.WE.obtainMessage(2);
+            i.this.Yl = new BDLocation(bDLocation2);
+            Message obtainMessage = i.this.Zf.obtainMessage(2);
             obtainMessage.obj = bDLocation2;
             obtainMessage.sendToTarget();
         }
@@ -304,20 +304,20 @@ public class i {
         @Override // java.lang.Runnable
         public void run() {
             i.this.l = false;
-            i.this.WE.obtainMessage(6).sendToTarget();
+            i.this.Zf.obtainMessage(6).sendToTarget();
         }
     }
 
     private i() {
         this.b = null;
-        this.WC = null;
-        this.WD = new e();
-        this.WE = null;
+        this.Zd = null;
+        this.Ze = new e();
+        this.Zf = null;
         this.f = null;
         this.g = false;
         this.h = 0L;
-        this.VK = null;
-        this.WF = null;
+        this.Yl = null;
+        this.Zg = null;
         this.l = false;
     }
 
@@ -326,17 +326,17 @@ public class i {
         webView.addJavascriptInterface(new d(), "BaiduLocAssistant");
     }
 
-    public static i qr() {
-        return c.WG;
+    public static i rw() {
+        return c.Zh;
     }
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         if (!this.g && Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
             this.b = context;
             this.c = webView;
-            this.WC = locationClient;
-            this.WE = new a(Looper.getMainLooper());
-            this.WE.obtainMessage(3).sendToTarget();
+            this.Zd = locationClient;
+            this.Zf = new a(Looper.getMainLooper());
+            this.Zf.obtainMessage(3).sendToTarget();
             webView.getSettings().setJavaScriptEnabled(true);
             a(this.c);
             this.g = true;
@@ -345,7 +345,7 @@ public class i {
 
     public void b() {
         if (this.g) {
-            this.WE.obtainMessage(4).sendToTarget();
+            this.Zf.obtainMessage(4).sendToTarget();
             this.g = false;
         }
     }

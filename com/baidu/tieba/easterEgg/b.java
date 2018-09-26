@@ -13,97 +13,100 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private Runnable bit;
-    private PopupWindow cPZ;
-    private com.baidu.tieba.tbadkCore.e.a cQa;
-    private ActivityLifeCycleListener cQb;
-    private com.baidu.tieba.tbadkCore.e.c cQc;
+    private Runnable bod;
+    private PopupWindow cVQ;
+    private com.baidu.tieba.tbadkCore.e.a cVR;
+    private ActivityLifeCycleListener cVS;
+    private com.baidu.tieba.tbadkCore.e.c cVT;
     private Handler handler;
 
     private b() {
         this.handler = new Handler();
-        this.cQc = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.b.1
+        this.cVT = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.b.1
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                return b.this.cQa != null && b.this.cQa.b(str, jsPromptResult);
+                return b.this.cVR != null && b.this.cVR.b(str, jsPromptResult);
             }
         };
-        this.bit = new Runnable() { // from class: com.baidu.tieba.easterEgg.b.2
+        this.bod = new Runnable() { // from class: com.baidu.tieba.easterEgg.b.2
             @Override // java.lang.Runnable
             public void run() {
                 b.this.handler.removeCallbacksAndMessages(null);
-                b.this.anR();
+                b.this.apE();
             }
         };
-        this.cQa = new com.baidu.tieba.tbadkCore.e.a();
-        this.cQa.a(new com.baidu.tieba.easterEgg.a());
-        this.cQb = new ActivityLifeCycleListener();
+        this.cVR = new com.baidu.tieba.tbadkCore.e.a();
+        this.cVR.a(new com.baidu.tieba.easterEgg.a());
+        this.cVS = new ActivityLifeCycleListener();
     }
 
-    public static b anQ() {
-        return a.cQf;
+    public static b apD() {
+        return a.cVW;
     }
 
-    private void b(Activity activity, View view) {
-        this.cPZ = new PopupWindow(activity);
-        this.cPZ.setBackgroundDrawable(new ColorDrawable(0));
-        this.cPZ.setWidth(l.ah(activity));
-        this.cPZ.setHeight(l.aj(activity));
+    private void e(Activity activity, View view) {
+        this.cVQ = new PopupWindow(activity);
+        this.cVQ.setBackgroundDrawable(new ColorDrawable(0));
+        this.cVQ.setWidth(l.aO(activity));
+        this.cVQ.setHeight(l.aQ(activity));
         view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.cPZ.setContentView(view);
+        this.cVQ.setContentView(view);
         this.handler.removeCallbacksAndMessages(null);
-        this.handler.postDelayed(this.bit, TbConfig.NOTIFY_SOUND_INTERVAL);
+        this.handler.postDelayed(this.bod, 5000L);
         FragmentManager fragmentManager = activity.getFragmentManager();
         if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null) {
-            fragmentManager.beginTransaction().add(this.cQb, "LIFE_CYCLE").commitAllowingStateLoss();
+            fragmentManager.beginTransaction().add(this.cVS, "LIFE_CYCLE").commitAllowingStateLoss();
         }
-        this.cPZ.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.easterEgg.b.3
+        this.cVQ.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.easterEgg.b.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                b.this.cPZ = null;
+                b.this.cVQ = null;
             }
         });
         try {
-            this.cPZ.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
-            TiebaStatic.log(new an("c13126"));
+            this.cVQ.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
+            TiebaStatic.log(new am("c13126"));
         } catch (Throwable th) {
         }
     }
 
-    public void lv(final String str) {
-        Activity ex;
-        if (!ap.isEmpty(str) && (ex = com.baidu.adp.base.a.ew().ex()) != null && ex.getWindow() != null && ex.getWindow().getDecorView() != null) {
-            if (A(ex)) {
+    public void lX(final String str) {
+        Activity fF;
+        if (!ao.isEmpty(str) && (fF = com.baidu.adp.base.a.fE().fF()) != null && fF.getWindow() != null && fF.getWindow().getDecorView() != null) {
+            if (B(fF)) {
                 this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.easterEgg.b.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.lv(str);
+                        try {
+                            b.this.lX(str);
+                        } catch (Throwable th) {
+                            b.this.apE();
+                        }
                     }
                 }, 1000L);
                 return;
             }
-            if (this.cPZ != null && this.cPZ.isShowing()) {
-                if (this.cPZ.getContentView() == null || this.cPZ.getContentView().getContext() != ex) {
-                    anR();
+            if (this.cVQ != null && this.cVQ.isShowing()) {
+                if (this.cVQ.getContentView() == null || this.cVQ.getContentView().getContext() != fF) {
+                    apE();
                 } else {
                     return;
                 }
             }
-            View inflate = LayoutInflater.from(ex).inflate(f.h.easter_egg_dialog_h5_layout, (ViewGroup) null);
+            View inflate = LayoutInflater.from(fF).inflate(e.h.easter_egg_dialog_h5_layout, (ViewGroup) null);
             inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            BaseWebView baseWebView = (BaseWebView) inflate.findViewById(f.g.dialog_webview);
+            BaseWebView baseWebView = (BaseWebView) inflate.findViewById(e.g.dialog_webview);
             baseWebView.loadUrl(str);
             baseWebView.setOnPageFinishedListener(new BaseWebView.c() { // from class: com.baidu.tieba.easterEgg.b.5
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
@@ -115,40 +118,46 @@ public class b {
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str2, String str3) {
                     b.this.handler.removeCallbacksAndMessages(null);
-                    b.this.anR();
+                    b.this.apE();
                 }
             });
             baseWebView.setBackgroundColor(0);
-            baseWebView.setOnJsPromptCallback(this.cQc);
-            b(ex, inflate);
+            baseWebView.setOnJsPromptCallback(this.cVT);
+            e(fF, inflate);
         }
     }
 
-    public void aT(final String str, final String str2) {
-        Activity ex;
-        if (!ap.isEmpty(str)) {
-            if ((this.cPZ == null || !this.cPZ.isShowing()) && (ex = com.baidu.adp.base.a.ew().ex()) != null && ac.aQ(ex)) {
-                if (A(ex)) {
+    public void bb(final String str, final String str2) {
+        Activity fF;
+        if (!ao.isEmpty(str)) {
+            if ((this.cVQ == null || !this.cVQ.isShowing()) && (fF = com.baidu.adp.base.a.fE().fF()) != null && ab.bw(fF)) {
+                if (B(fF)) {
                     this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.easterEgg.b.7
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.aT(str, str2);
+                            try {
+                                b.this.bb(str, str2);
+                            } catch (Throwable th) {
+                                b.this.apE();
+                            }
                         }
                     }, 1000L);
                     return;
                 }
-                View inflate = LayoutInflater.from(ex).inflate(f.h.easter_egg_dialog_lottie_layout, (ViewGroup) null);
+                View inflate = LayoutInflater.from(fF).inflate(e.h.easter_egg_dialog_lottie_layout, (ViewGroup) null);
                 inflate.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-                TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(f.g.easter_egg_lottie_view);
-                tBLottieAnimationView.setBackgroundResource(f.d.transparent);
+                TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(e.g.easter_egg_lottie_view);
+                tBLottieAnimationView.setBackgroundResource(e.d.transparent);
                 tBLottieAnimationView.setAnimationUrl(str);
+                tBLottieAnimationView.q(true);
+                tBLottieAnimationView.p(true);
                 tBLottieAnimationView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.easterEgg.b.8
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (!ap.isEmpty(str2) && (view.getContext() instanceof TbPageContextSupport)) {
-                            az.zI().c(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{str2});
+                        if (!ao.isEmpty(str2) && (view.getContext() instanceof TbPageContextSupport)) {
+                            ay.AN().c(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{str2});
                         } else {
-                            b.this.anR();
+                            b.this.apE();
                         }
                     }
                 });
@@ -160,28 +169,28 @@ public class b {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        b.this.anR();
+                        b.this.apE();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        b.this.anR();
+                        b.this.apE();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                tBLottieAnimationView.aX();
-                b(ex, inflate);
+                tBLottieAnimationView.ce();
+                e(fF, inflate);
             }
         }
     }
 
-    public void anR() {
-        if (this.cPZ != null && this.cPZ.isShowing()) {
+    public void apE() {
+        if (this.cVQ != null && this.cVQ.isShowing()) {
             try {
-                this.cPZ.dismiss();
+                this.cVQ.dismiss();
             } catch (Throwable th) {
             }
         }
@@ -189,10 +198,10 @@ public class b {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static b cQf = new b();
+        private static b cVW = new b();
     }
 
-    private boolean A(Activity activity) {
+    private boolean B(Activity activity) {
         return activity != null && (activity.getClass().getName().contains("Write") || activity.getClass().getName().contains("TransmitPostEditActivity") || activity.getClass().getName().contains("Vcode"));
     }
 }

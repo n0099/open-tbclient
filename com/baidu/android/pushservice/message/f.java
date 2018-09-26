@@ -12,7 +12,7 @@ import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.ar.audio.AudioParams;
 import com.baidu.ar.util.IoUtils;
-import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
@@ -164,7 +164,7 @@ public class f extends d {
                     return "uni";
                 }
                 if (simOperator.equals("46003")) {
-                    return "ct";
+                    return Config.EXCEPTION_CRASH_TYPE;
                 }
             }
         } catch (Exception e) {
@@ -275,7 +275,7 @@ public class f extends d {
             }
             String d = d();
             if (!TextUtils.isEmpty(d)) {
-                jSONObject2.put(LivenessRecogActivity.f.J, d);
+                jSONObject2.put("network", d);
             }
             String h = h();
             if (!TextUtils.isEmpty(h)) {

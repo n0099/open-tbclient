@@ -18,27 +18,27 @@ public class VideoTopicNetModelImpl<T> extends NetAutoModel<VideoTopicRequestDat
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JR() {
+    protected int Lh() {
         return CmdConfigHttp.CMD_FRS_VIDEO_TOPIC;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int JS() {
+    protected int Li() {
         return 309607;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String JT() {
+    protected String Lj() {
         return TbConfig.FRS_VIDEO_TOPIC;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> JP() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> Lf() {
         return VideoTopicHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> JQ() {
+    protected Class<? extends MvcSocketResponsedMessage> Lg() {
         return VideoTopicSocketResponseMessage.class;
     }
 }

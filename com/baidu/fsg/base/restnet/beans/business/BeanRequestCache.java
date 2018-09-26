@@ -6,7 +6,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BeanRequestCache implements NoProguard {
     private static BeanRequestCache mRequestCache = null;
     private final HashMap<String, BeanRequestBase> mRequestList = new HashMap<>();

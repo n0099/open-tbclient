@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BussinessUtils {
     public static String getUA(Context context) {
         PackageInfo packageInfo;

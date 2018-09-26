@@ -5,15 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private List<c> agd;
-    public final ArrayList<e> bbd = new ArrayList<>();
-    private e ebw;
+    private List<c> aiE;
+    public final ArrayList<e> bew = new ArrayList<>();
+    private e eiR;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,11 +21,11 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.ebw = eVar;
+        this.eiR = eVar;
     }
 
     public void setData(List<c> list) {
-        this.agd = list;
+        this.aiE = list;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -39,34 +39,34 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return w.y(this.agd);
+        return v.y(this.aiE);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return w.d(this.agd, i);
+        return v.d(this.aiE, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (w.d(this.agd, i) == null) {
+        if (v.d(this.aiE, i) == null) {
             return -1L;
         }
-        return ((c) w.d(this.agd, i)).hashCode();
+        return ((c) v.d(this.aiE, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e ai = this.ebw.ai(view);
-            ai.setOnClickListener(this.mOnClickListener);
-            view.setTag(ai);
-            this.bbd.add(ai);
+            e aw = this.eiR.aw(view);
+            aw.setOnClickListener(this.mOnClickListener);
+            view.setTag(aw);
+            this.bew.add(aw);
         }
         e eVar = (e) view.getTag();
-        if (w.d(this.agd, i) != null) {
-            a(eVar, this.agd.get(i));
+        if (v.d(this.aiE, i) != null) {
+            a(eVar, this.aiE.get(i));
         }
         return eVar.getView();
     }
@@ -77,9 +77,9 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void dm(int i) {
-        if (w.y(this.bbd) > 0) {
-            Iterator<e> it = this.bbd.iterator();
+    public void dx(int i) {
+        if (v.y(this.bew) > 0) {
+            Iterator<e> it = this.bew.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

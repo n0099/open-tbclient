@@ -2,13 +2,12 @@ package com.baidu.fsg.base.restnet.c;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
-import com.baidu.fsg.base.restnet.beans.business.core.DebugConfig;
-import com.baidu.fsg.base.statistics.h;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends BaseBean {
     public static final String a = "/risk/init/stat";
     public static final int b = 1;
@@ -40,13 +39,13 @@ public class a extends BaseBean {
             arrayList.add(new RestNameValuePair("atbc", this.d));
         }
         arrayList.add(new RestNameValuePair("ek", this.e));
-        arrayList.add(new RestNameValuePair(h.c, this.f));
+        arrayList.add(new RestNameValuePair("ev", this.f));
         return arrayList;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return DebugConfig.getInstance(this.c).getRimHttpsHost() + a;
+        return EnvConfig.getInstance(this.c).getRimHttpsHost() + a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

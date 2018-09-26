@@ -6,6 +6,7 @@ import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.MultipartRequestParams;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.GetHistoryPortraitsCallback;
 import com.baidu.sapi2.callback.GetPopularPortraitsCallback;
@@ -61,7 +62,7 @@ public class PortraitService extends AbstractService {
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.configuration.appId);
-        hashMap.put("tpl", this.configuration.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
             hashMap.put("clientid", this.configuration.clientId);
         }
@@ -160,7 +161,7 @@ public class PortraitService extends AbstractService {
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.configuration.appId);
-        hashMap.put("tpl", this.configuration.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
             hashMap.put("clientid", this.configuration.clientId);
         }
@@ -242,7 +243,7 @@ public class PortraitService extends AbstractService {
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.configuration.appId);
-        hashMap.put("tpl", this.configuration.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
             hashMap.put("clientid", this.configuration.clientId);
         }
@@ -331,7 +332,7 @@ public class PortraitService extends AbstractService {
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
         hashMap.put("appid", this.configuration.appId);
-        hashMap.put("tpl", this.configuration.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
         hashMap.put("length", String.valueOf(getHistoryPortraitsDTO.maxNum));
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
             hashMap.put("clientid", this.configuration.clientId);

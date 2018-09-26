@@ -16,10 +16,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class c {
+    private static String Ve = "data/anr/traces.txt";
+    private static int Vf = 5;
+    private static Thread Vg = null;
     private static Context mContext;
-    private static String Sy = "data/anr/traces.txt";
-    private static int Sz = 5;
-    private static Thread SA = null;
 
     private static void a(Map<String, Object> map) {
         StringBuilder sb = new StringBuilder();
@@ -70,7 +70,7 @@ public final class c {
                 i = i2;
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.b("putAnrLogcat", e);
+            com.baidu.crabsdk.c.a.f("putAnrLogcat", e);
         }
     }
 
@@ -85,23 +85,23 @@ public final class c {
     }
 
     public static void d(Context context) {
-        com.baidu.crabsdk.c.a.ce("init AnrCollector");
-        com.baidu.crabsdk.c.a.ce("===Anr init!===");
+        com.baidu.crabsdk.c.a.cv("init AnrCollector");
+        com.baidu.crabsdk.c.a.cv("===Anr init!===");
         mContext = context;
         if (com.baidu.crabsdk.sender.e.Y()) {
-            com.baidu.crabsdk.c.a.ce("===Anr watchThread start!===");
+            com.baidu.crabsdk.c.a.cv("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.a aVar = new com.baidu.crabsdk.sender.a(context);
-                SA = aVar;
+                Vg = aVar;
                 aVar.start();
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.ch("Anr watchThread start failed !!");
+                com.baidu.crabsdk.c.a.cy("Anr watchThread start failed !!");
             }
         }
     }
 
-    public static Thread pa() {
-        return SA;
+    public static Thread qg() {
+        return Vg;
     }
 
     public static Map<String, Object> t() {
@@ -114,7 +114,7 @@ public final class c {
         ArrayList arrayList2 = new ArrayList();
         int i = 0;
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Sy)));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Ve)));
             String readLine = bufferedReader.readLine();
             String F = o.F();
             while (true) {
@@ -123,7 +123,7 @@ public final class c {
                 }
                 if (readLine.startsWith("-----") && readLine.endsWith("-----") && readLine.contains(" pid ") && readLine.contains(" at ")) {
                     i++;
-                    if (i > Sz) {
+                    if (i > Vf) {
                         bufferedReader.close();
                         return null;
                     }
@@ -243,7 +243,7 @@ public final class c {
             bufferedReader.close();
             a(hashMap);
         } catch (IOException e) {
-            com.baidu.crabsdk.c.a.b("读取traces.txt文件失败!", e);
+            com.baidu.crabsdk.c.a.f("读取traces.txt文件失败!", e);
             try {
                 StackTraceElement[] stackTrace = Looper.getMainLooper().getThread().getStackTrace();
                 if (stackTrace != null && stackTrace.length > 0) {
@@ -263,7 +263,7 @@ public final class c {
                     hashMap.put("errorOriLine", stackTrace[0].toString());
                 }
             } catch (Exception e2) {
-                com.baidu.crabsdk.c.a.b("7.0+封装anr数据失败!", e2);
+                com.baidu.crabsdk.c.a.f("7.0+封装anr数据失败!", e2);
             }
         }
         return hashMap;

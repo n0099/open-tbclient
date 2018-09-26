@@ -1,106 +1,102 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes2.dex */
-public class ap extends k<com.baidu.tieba.pb.data.j, aq> {
-    private View.OnTouchListener aWF;
-    private com.baidu.tieba.pb.a.c bgf;
-    private FrameLayout bwF;
-    private com.baidu.tieba.pb.view.b fEh;
-    public boolean fEi;
-    private View.OnClickListener mClickListener;
+public class ap extends com.baidu.tbadk.core.view.userLike.c {
+    private String aZG;
+    public boolean fLR;
+    private int fLS;
+    private int fLT;
+    public boolean isBigV;
+    private TbPageContext mPageContext;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ap(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
-        this.aWF = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.ap.1
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (ap.this.fEh != null) {
-                    return ap.this.fEh.onTouch(view, motionEvent);
+    public ap(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
+        super(tbPageContext, bVar);
+        this.fLR = false;
+        this.isBigV = false;
+        this.fLS = 0;
+        this.fLS = i;
+        this.mPageContext = tbPageContext;
+        if (this.fLS == 1) {
+            super.setFromType("4");
+        } else if (this.fLS == 3) {
+            super.setFromType("5");
+        } else {
+            super.setFromType("0");
+        }
+    }
+
+    public void setTid(String str) {
+        this.aZG = str;
+    }
+
+    public void rn(int i) {
+        this.fLT = i;
+    }
+
+    private int bfU() {
+        String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
+        if (fromPageKey == null) {
+            return 3;
+        }
+        if (fromPageKey.equals("a038")) {
+            return 1;
+        }
+        if (fromPageKey.equals("a002")) {
+            return 2;
+        }
+        if (fromPageKey.equals("a006")) {
+            return 3;
+        }
+        if (fromPageKey.equals("a011")) {
+            return 4;
+        }
+        if (fromPageKey.equals("a033")) {
+            return 5;
+        }
+        if (fromPageKey.equals("a010")) {
+            return 6;
+        }
+        return 7;
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.c, android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i = 3;
+        int i2 = 2;
+        if (view != null && view.getAlpha() >= 0.4d) {
+            String userId = this.aCx != null ? this.aCx.getUserId() : "";
+            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bfU()).al(VideoPlayActivityConfig.OBJ_ID, userId).al("tid", this.aZG));
+            if (this.fLS != 1) {
+                i = this.fLS == 3 ? 2 : 0;
+            }
+            com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c12507");
+            amVar.w("obj_locate", i);
+            amVar.al(VideoPlayActivityConfig.OBJ_ID, userId);
+            amVar.al("tid", this.aZG);
+            amVar.w("obj_param1", this.fLT);
+            if (!com.baidu.tbadk.core.util.ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                amVar.al(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
+            }
+            TiebaStatic.log(amVar);
+            super.onClick(view);
+            if (this.fLR && this.aCx != null) {
+                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11924").al(VideoPlayActivityConfig.OBJ_ID, this.aCx.getUserId()));
+            }
+            if (this.isBigV && this.aCx != null) {
+                if (this.fLS == 1) {
+                    i2 = 1;
+                } else if (this.fLS != 2) {
+                    i2 = 0;
                 }
-                return false;
-            }
-        };
-        this.bwF = new FrameLayout(pbActivity.getPageContext().getPageActivity());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.bwF.setBackgroundResource(f.d.transparent);
-        this.bwF.setTag("PraiseContainerView");
-        ((FrameLayout) pbActivity.getPageContext().getPageActivity().getWindow().getDecorView()).addView(this.bwF, layoutParams);
-        this.fEh = new com.baidu.tieba.pb.view.b(pbActivity.getPageContext().getPageActivity(), this.bwF);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bq */
-    public aq onCreateViewHolder(ViewGroup viewGroup) {
-        aq aqVar = new aq(LayoutInflater.from(this.mContext).inflate(f.h.layout_thread_praise_item, viewGroup, false));
-        if (this.bgf != null && aqVar.mRootView != null) {
-            aqVar.mRootView.setClickable(true);
-            aqVar.mRootView.setOnTouchListener(this.bgf);
-        }
-        return aqVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, aq aqVar) {
-        super.onFillViewHolder(i, view, viewGroup, jVar, aqVar);
-        if (jVar != null && aqVar != null) {
-            aqVar.fEq.setOnClickListener(this.mClickListener);
-            aqVar.fEo.setOnClickListener(this.mClickListener);
-            aqVar.b(jVar);
-            aqVar.fEm.setTag(f.g.pb_main_thread_praise_data, jVar);
-            aqVar.fEm.setTag(f.g.pb_main_thread_praise_view, aqVar);
-            ((aq) this.viewholder).fEn.setTag(f.g.pb_main_thread_praise_view, aqVar);
-            aqVar.fEk.setTag(f.g.pb_main_thread_praise_view, aqVar);
-            if (this.fEh != null) {
-                this.fEh.setAnchorView(aqVar.fEk);
-                this.fEh.bs(((aq) this.viewholder).fEn);
-                this.fEh.setOnTouchListener(this.aWF);
-            } else {
-                aqVar.fEm.setOnClickListener(this.mClickListener);
-            }
-            aqVar.fEn.setOnClickListener(this.mClickListener);
-            aqVar.fEl.setOnClickListener(this.mClickListener);
-            if (this.fEi) {
-                aqVar.bdv();
-            } else {
-                aqVar.bdu();
+                TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12150").w("obj_locate", i2).al(VideoPlayActivityConfig.OBJ_ID, this.aCx.getUserId()));
             }
         }
-        return view;
-    }
-
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.mClickListener = onClickListener;
-        if (this.fEh != null) {
-            this.fEh.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setTbGestureDetector(com.baidu.tieba.pb.a.c cVar) {
-        this.bgf = cVar;
-    }
-
-    public void qy(int i) {
-        if (i == 3 && this.fxm != null && this.bwF != null) {
-            this.bwF.removeAllViews();
-            ((FrameLayout) this.fxm.getPageContext().getPageActivity().getWindow().getDecorView()).removeView(this.bwF);
-        }
-        this.fEh.qy(i);
-    }
-
-    public void i(boolean z, int i) {
-        this.fEh.j(z, i);
     }
 }

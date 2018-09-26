@@ -17,6 +17,6 @@ public class s extends com.baidu.tieba.card.data.a {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return com.baidu.tbadk.core.data.at.agY;
+        return com.baidu.tbadk.core.data.at.ajy;
     }
 }

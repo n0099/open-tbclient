@@ -31,11 +31,11 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0283a {
+public class c extends com.tencent.open.b implements a.InterfaceC0289a {
     static Toast c = null;
     private String d;
     private IUiListener e;
-    private C0284c f;
+    private C0290c f;
     private Handler g;
     private com.tencent.open.c.a h;
     private com.tencent.open.c.b i;
@@ -46,7 +46,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0283a {
         super(context, 16973840);
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C0284c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C0290c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(185.0f * context.getResources().getDisplayMetrics().density);
@@ -222,11 +222,11 @@ public class c extends com.tencent.open.b implements a.InterfaceC0283a {
 
     /* loaded from: classes2.dex */
     private class d extends Handler {
-        private C0284c b;
+        private C0290c b;
 
-        public d(C0284c c0284c, Looper looper) {
+        public d(C0290c c0290c, Looper looper) {
             super(looper);
-            this.b = c0284c;
+            this.b = c0290c;
         }
 
         @Override // android.os.Handler
@@ -260,14 +260,14 @@ public class c extends com.tencent.open.b implements a.InterfaceC0283a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0284c implements IUiListener {
+    private static class C0290c implements IUiListener {
         String a;
         String b;
         private WeakReference<Context> c;
         private String d;
         private IUiListener e;
 
-        public C0284c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C0290c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
             this.a = str2;
@@ -313,7 +313,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0283a {
         }
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC0283a
+    @Override // com.tencent.open.c.a.InterfaceC0289a
     public void a(int i) {
         if (this.j != null && this.j.get() != null) {
             if (i < this.k && 2 == this.j.get().getResources().getConfiguration().orientation) {
@@ -325,7 +325,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0283a {
         f.e("openSDK_LOG.PKDialog", "onKeyboardShown keyboard show");
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC0283a
+    @Override // com.tencent.open.c.a.InterfaceC0289a
     public void a() {
         this.i.getLayoutParams().height = this.k;
         f.e("openSDK_LOG.PKDialog", "onKeyboardHidden keyboard hide");

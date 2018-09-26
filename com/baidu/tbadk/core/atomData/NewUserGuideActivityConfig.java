@@ -16,6 +16,6 @@ public class NewUserGuideActivityConfig extends IntentConfig {
     }
 
     public static boolean canResponse() {
-        return j.jE() && MessageManager.getInstance().findTask(2012116) != null;
+        return j.kK() && MessageManager.getInstance().findTask(2012116) != null;
     }
 }

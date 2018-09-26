@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes2.dex */
 public @interface a {
-    boolean bJZ() default true;
+    boolean bMQ() default true;
 
-    boolean bKa() default true;
+    boolean bMR() default true;
 }

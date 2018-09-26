@@ -6,9 +6,9 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.U;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +43,7 @@ public final class o {
             new StringBuilder().append(a3);
             JSONObject jSONObject2 = new JSONObject(a3);
             JSONArray optJSONArray = jSONObject2.optJSONArray("product");
-            long optLong = jSONObject2.optLong("pt");
+            long optLong = jSONObject2.optLong(Config.PLATFORM_TYPE);
             if (optJSONArray != null && optLong > 0) {
                 new com.baidu.sofire.e(context).a(optJSONArray.toString(), optLong);
             }
@@ -65,7 +65,7 @@ public final class o {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    String optString2 = optJSONObject.optString("s");
                     new StringBuilder("167:").append(optString).append("_").append(optString2);
                     hashMap.put(optString, optString2);
                 }

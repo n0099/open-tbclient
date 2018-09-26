@@ -6,10 +6,10 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class RecordLayout extends RelativeLayout {
-    private a hjE;
+    private a hrt;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void bCR();
+        void bFG();
 
-        void bCS();
+        void bFH();
     }
 
     public RecordLayout(Context context) {
@@ -41,7 +41,7 @@ public class RecordLayout extends RelativeLayout {
     private void init() {
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
-        this.mFlingDistance = com.baidu.adp.lib.util.l.f(getContext(), f.e.ds150);
+        this.mFlingDistance = com.baidu.adp.lib.util.l.h(getContext(), e.C0141e.ds150);
     }
 
     @Override // android.view.ViewGroup
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.hjE != null) {
+                if (this.hrt != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.hjE.bCS();
+                            this.hrt.bFH();
                         } else {
-                            this.hjE.bCR();
+                            this.hrt.bFG();
                         }
-                    } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.ah(getContext())) {
+                    } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.aO(getContext())) {
                         if (rawX > 0) {
-                            this.hjE.bCS();
+                            this.hrt.bFH();
                         } else {
-                            this.hjE.bCS();
+                            this.hrt.bFH();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.hjE = aVar;
+        this.hrt = aVar;
     }
 }

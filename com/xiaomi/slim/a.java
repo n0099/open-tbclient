@@ -1,7 +1,6 @@
 package com.xiaomi.slim;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.protobuf.b;
 import com.xiaomi.push.service.ak;
 import java.util.HashMap;
@@ -34,7 +33,7 @@ class a {
         com.xiaomi.channel.commonutils.logger.b.a("[Slim]: bind id=" + bVar2.h());
         HashMap hashMap = new HashMap();
         hashMap.put("challenge", str);
-        hashMap.put(Constants.EXTRA_KEY_TOKEN, bVar.c);
+        hashMap.put("token", bVar.c);
         hashMap.put("chid", bVar.h);
         hashMap.put("from", bVar.b);
         hashMap.put("id", bVar2.h());

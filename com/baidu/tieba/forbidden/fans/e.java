@@ -2,96 +2,96 @@ package com.baidu.tieba.forbidden.fans;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aj;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.e;
 import com.baidu.tieba.forbidden.fans.d;
 import com.baidu.tieba.view.a;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class e {
-    private com.baidu.tieba.person.e abp;
-    private aj dhT;
-    private d dhU;
-    private com.baidu.tieba.view.a dhV;
-    private a dhW;
+    private com.baidu.tieba.person.e adS;
+    private ai dnL;
+    private d dnM;
+    private com.baidu.tieba.view.a dnN;
+    private a dnO;
     private TbPageContext mContext;
 
     /* loaded from: classes3.dex */
     public interface a {
         void a(int i, String str, boolean z, int i2, long j);
 
-        void asL();
+        void auz();
     }
 
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mContext = tbPageContext;
-        this.dhU = new d(tbPageContext, bdUniqueId);
-        this.dhU.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
+        this.dnM = new d(tbPageContext, bdUniqueId);
+        this.dnM.a(new d.a() { // from class: com.baidu.tieba.forbidden.fans.e.1
             @Override // com.baidu.tieba.forbidden.fans.d.a
-            public void d(int i, String str, boolean z) {
-                if (e.this.dhW != null) {
-                    e.this.dhW.a(i, str, z, 0, 0L);
+            public void g(int i, String str, boolean z) {
+                if (e.this.dnO != null) {
+                    e.this.dnO.a(i, str, z, 0, 0L);
                 }
             }
         });
-        this.dhT = new aj(tbPageContext, bdUniqueId);
-        this.dhT.a(new aj.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
-            @Override // com.baidu.tbadk.core.util.aj.a
+        this.dnL = new ai(tbPageContext, bdUniqueId);
+        this.dnL.a(new ai.a() { // from class: com.baidu.tieba.forbidden.fans.e.2
+            @Override // com.baidu.tbadk.core.util.ai.a
             public void a(int i, String str, long j, boolean z) {
-                if (e.this.dhW != null) {
-                    e.this.dhW.a(i, str, z, 1, j);
+                if (e.this.dnO != null) {
+                    e.this.dnO.a(i, str, z, 1, j);
                 }
             }
         });
     }
 
     public void removeAll() {
-        sw();
+        tD();
     }
 
-    public void bD(long j) {
-        this.dhT.s(j);
+    public void bH(long j) {
+        this.dnL.w(j);
     }
 
-    private void sw() {
-        if (this.abp == null) {
-            this.dhV = new com.baidu.tieba.view.a(this.mContext.getContext());
-            this.dhV.setTitleText(this.mContext.getString(f.j.confirm_remove_all_forbidden_fans));
+    private void tD() {
+        if (this.adS == null) {
+            this.dnN = new com.baidu.tieba.view.a(this.mContext.getContext());
+            this.dnN.setTitleText(this.mContext.getString(e.j.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0251a c0251a = new a.C0251a(this.mContext.getString(f.j.confirm), this.dhV);
-            c0251a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
+            a.C0257a c0257a = new a.C0257a(this.mContext.getString(e.j.confirm), this.dnN);
+            c0257a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
-                    e.this.abp.dismiss();
-                    if (e.this.dhW != null) {
-                        e.this.dhW.asL();
+                    e.this.adS.dismiss();
+                    if (e.this.dnO != null) {
+                        e.this.dnO.auz();
                     }
-                    e.this.dhU.asP();
+                    e.this.dnM.auD();
                 }
             });
-            arrayList.add(c0251a);
-            this.dhV.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
+            arrayList.add(c0257a);
+            this.dnN.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
-                    if (e.this.abp != null) {
-                        e.this.abp.dismiss();
+                    if (e.this.adS != null) {
+                        e.this.adS.dismiss();
                     }
                 }
             });
-            this.dhV.dM(arrayList);
-            this.abp = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.dhV.bEs());
-            this.abp.aA(0.7f);
+            this.dnN.dN(arrayList);
+            this.adS = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.dnN.bHj());
+            this.adS.au(0.7f);
         }
-        this.abp.show();
+        this.adS.show();
     }
 
     public void onChangeSkinType() {
-        if (this.dhV != null) {
-            this.dhV.onChangeSkinType();
+        if (this.dnN != null) {
+            this.dnN.onChangeSkinType();
         }
     }
 
     public void a(a aVar) {
-        this.dhW = aVar;
+        this.dnO = aVar;
     }
 }

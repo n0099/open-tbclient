@@ -17,23 +17,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class CoreSearchRequestStatic {
-    private static EnterForumModel cSk;
+    private static EnterForumModel cYb;
 
     static {
-        aoB();
-        aoC();
+        aqq();
+        aqr();
     }
 
-    private static void aoB() {
-        com.baidu.tieba.tbadkCore.d.c.bwB();
-        if (cSk == null) {
-            cSk = new EnterForumModel(null);
-            cSk.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
+    private static void aqq() {
+        com.baidu.tieba.tbadkCore.d.c.bzf();
+        if (cYb == null) {
+            cYb = new EnterForumModel(null);
+            cYb.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    g aos = aVar.cTA.aos();
+                    g aqh = aVar.cZr.aqh();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<f> it = aos.aoy().iterator();
+                    Iterator<f> it = aqh.aqn().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -44,12 +44,12 @@ public class CoreSearchRequestStatic {
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.cSk.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+                if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && CoreSearchRequestStatic.cYb.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                     if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                        CoreSearchRequestStatic.cSk.a((forumRecommendSocketResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.cYb.a((forumRecommendSocketResponseMessage) responsedMessage);
                     }
                     if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                        CoreSearchRequestStatic.cSk.a((forumRecommendHttpResponseMessage) responsedMessage);
+                        CoreSearchRequestStatic.cYb.a((forumRecommendHttpResponseMessage) responsedMessage);
                     }
                 }
             }
@@ -60,16 +60,16 @@ public class CoreSearchRequestStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin() && (customResponsedMessage instanceof RequestEnterForumDataMessage)) {
                     if (((RequestEnterForumDataMessage) customResponsedMessage).isCache()) {
-                        CoreSearchRequestStatic.cSk.fi(true);
+                        CoreSearchRequestStatic.cYb.fz(true);
                     } else {
-                        CoreSearchRequestStatic.cSk.fh(true);
+                        CoreSearchRequestStatic.cYb.fy(true);
                     }
                 }
             }
         });
     }
 
-    public static void aoC() {
+    public static void aqr() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016562, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.enterForum.home.CoreSearchRequestStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {

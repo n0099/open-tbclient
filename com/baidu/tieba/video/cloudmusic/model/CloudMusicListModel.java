@@ -7,8 +7,8 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -16,8 +16,8 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CloudMusicListModel extends BdBaseModel {
-    private a<CloudMusicData.MusicTagList> hcW;
-    private final HttpMessageListener hcX;
+    private a<CloudMusicData.MusicTagList> hkO;
+    private final HttpMessageListener hkP;
     private int pn;
 
     static /* synthetic */ int b(CloudMusicListModel cloudMusicListModel) {
@@ -29,25 +29,25 @@ public class CloudMusicListModel extends BdBaseModel {
     public CloudMusicListModel(e eVar) {
         super(eVar);
         this.pn = 1;
-        this.hcX = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicListModel.1
+        this.hkP = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST) { // from class: com.baidu.tieba.video.cloudmusic.model.CloudMusicListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && CloudMusicListModel.this.hcW != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003367 && (httpResponsedMessage instanceof VideoCloudMusicListResponseMessage) && CloudMusicListModel.this.hkO != null) {
                     if (httpResponsedMessage.hasError() && httpResponsedMessage.getError() != 0) {
                         CloudMusicListModel.b(CloudMusicListModel.this);
                     }
-                    CloudMusicListModel.this.hcW.ag(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
+                    CloudMusicListModel.this.hkO.aj(((VideoCloudMusicListResponseMessage) httpResponsedMessage).mCloudMusicWithTagData);
                 }
             }
         };
-        bAB();
-        this.hcX.setTag(getUniqueId());
-        this.hcX.setSelfListener(true);
-        registerListener(this.hcX);
+        bDq();
+        this.hkP.setTag(getUniqueId());
+        this.hkP.setSelfListener(true);
+        registerListener(this.hkP);
     }
 
-    private void bAB() {
+    private void bDq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getMusicTagList");
         tbHttpMessageTask.setResponsedClass(VideoCloudMusicListResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -76,15 +76,15 @@ public class CloudMusicListModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
             int i2 = this.pn + 1;
             this.pn = i2;
-            httpMessage.addParam("pn", i2);
-            httpMessage.addParam(LegoListActivityConfig.RN, 10);
+            httpMessage.addParam(Config.PACKAGE_NAME, i2);
+            httpMessage.addParam("rn", 10);
             httpMessage.addParam("tag_id", i);
             sendMessage(httpMessage);
-            this.hcW = aVar;
+            this.hkO = aVar;
         }
     }
 
-    public void bAC() {
+    public void bDr() {
         this.pn = 1;
     }
 

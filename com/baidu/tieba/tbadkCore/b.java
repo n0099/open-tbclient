@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.Group;
 /* loaded from: classes.dex */
 public class b {
-    private int gKA = 0;
-    private int gKB = 0;
+    private int gSb = 0;
+    private int gSc = 0;
 
     public void a(Group group) {
         if (group != null) {
-            this.gKA = group.group_count.intValue();
-            this.gKB = group.hide_recommend_group.intValue();
+            this.gSb = group.group_count.intValue();
+            this.gSc = group.hide_recommend_group.intValue();
         }
     }
 }

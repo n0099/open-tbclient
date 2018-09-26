@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c fTU;
-    private d fUh;
-    private com.baidu.tieba.personCenter.a.a fUi;
-    private com.baidu.tieba.personCenter.a.b fUj;
-    private e fUk;
+    private e gbA;
+    private com.baidu.tieba.personCenter.a.c gbk;
+    private d gbx;
+    private com.baidu.tieba.personCenter.a.a gby;
+    private com.baidu.tieba.personCenter.a.b gbz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -26,16 +26,16 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.fUh = new d(tbPageContext, g.fUO);
-        this.fUi = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.fUx);
-        this.fUj = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.fUy);
-        this.fUk = new e(tbPageContext, i.fUT);
-        this.fTU = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.fUN);
-        this.mAdapters.add(this.fUh);
-        this.mAdapters.add(this.fUi);
-        this.mAdapters.add(this.fUj);
-        this.mAdapters.add(this.fUk);
-        this.mAdapters.add(this.fTU);
+        this.gbx = new d(tbPageContext, g.gcd);
+        this.gby = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.gbN);
+        this.gbz = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.gbO);
+        this.gbA = new e(tbPageContext, i.gci);
+        this.gbk = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gcc);
+        this.mAdapters.add(this.gbx);
+        this.mAdapters.add(this.gby);
+        this.mAdapters.add(this.gbz);
+        this.mAdapters.add(this.gbA);
+        this.mAdapters.add(this.gbk);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -45,11 +45,11 @@ public class a {
         }
     }
 
-    public void bhB() {
-        this.fUi.bhB();
+    public void bkc() {
+        this.gby.bkc();
     }
 
-    public void bhC() {
-        this.fUi.destroy();
+    public void bkd() {
+        this.gby.destroy();
     }
 }

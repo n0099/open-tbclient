@@ -10,20 +10,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.frs.e.c;
 import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class a extends h<com.baidu.tieba.h.b, b> implements c {
-    private com.baidu.tieba.frs.e.a dtV;
+    private com.baidu.tieba.frs.e.a dAB;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.dtV = new com.baidu.tieba.frs.e.a();
+        this.dAB = new com.baidu.tieba.frs.e.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends h<com.baidu.tieba.h.b, b> implements c {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aA */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(f.h.game_rank_list_item, (ViewGroup) null));
+        return new b(LayoutInflater.from(this.mContext).inflate(e.h.game_rank_list_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,28 +43,28 @@ public class a extends h<com.baidu.tieba.h.b, b> implements c {
         if (bVar == null) {
             return null;
         }
-        am.j(view, f.d.cp_bg_line_d);
-        if (this.dtV != null) {
-            TiebaStatic.log(new an("c12104").ae(ImageViewerConfig.FORUM_ID, this.dtV.dEC));
+        al.j(view, e.d.cp_bg_line_d);
+        if (this.dAB != null) {
+            TiebaStatic.log(new am("c12104").al(ImageViewerConfig.FORUM_ID, this.dAB.dLJ));
         }
-        if (bVar2.dyf != null) {
-            bVar2.dyf.setData(bVar);
-            bVar2.dyf.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
+        if (bVar2.dEP != null) {
+            bVar2.dEP.setData(bVar);
+            bVar2.dEP.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
                 @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.a
                 public void b(com.baidu.tieba.h.a aVar, int i2) {
                     if (aVar != null) {
-                        if (a.this.dtV != null) {
-                            TiebaStatic.log(new an("c12105").ae(ImageViewerConfig.FORUM_ID, a.this.dtV.dEC).r("obj_locate", i2 + 1));
+                        if (a.this.dAB != null) {
+                            TiebaStatic.log(new am("c12105").al(ImageViewerConfig.FORUM_ID, a.this.dAB.dLJ).w("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.aCd())) {
-                            com.baidu.tbadk.browser.a.Q(a.this.mPageContext.getPageActivity(), aVar.aCd());
+                        if (!StringUtils.isNull(aVar.aEq())) {
+                            com.baidu.tbadk.browser.a.ae(a.this.mPageContext.getPageActivity(), aVar.aEq());
                         }
                     }
                 }
             });
         }
-        if (bVar2.dyg != null) {
-            bVar2.dyg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
+        if (bVar2.dEQ != null) {
+            bVar2.dEQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("game_rank_list_info", System.currentTimeMillis() + ",7");
@@ -79,7 +79,7 @@ public class a extends h<com.baidu.tieba.h.b, b> implements c {
     }
 
     @Override // com.baidu.tieba.frs.e.c
-    public com.baidu.tieba.frs.e.a axg() {
-        return this.dtV;
+    public com.baidu.tieba.frs.e.a azt() {
+        return this.dAB;
     }
 }

@@ -6,22 +6,23 @@ import com.baidu.d.a.a.a.a;
 /* loaded from: classes2.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setupViews();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.c.sapi_sdk_title_login_sina);
+        setTitleText(a.b.sapi_sdk_title_login_sina);
         this.sapiWebView.loadSinaSSOLogin(getStatParamList());
     }
 
-    @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         this.sapiWebView.onAuthorizedResult(i, i2, intent);
     }

@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d, com.baidu.tieba.person.b.a> {
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -17,9 +17,9 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bt */
+    /* renamed from: bv */
     public com.baidu.tieba.person.b.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(f.h.item_person_center_list_interval, viewGroup, false));
+        return new com.baidu.tieba.person.b.a(LayoutInflater.from(this.mContext).inflate(e.h.item_person_center_list_interval, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,19 +29,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.person.d,
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.person.d dVar, com.baidu.tieba.person.b.a aVar) {
         if (dVar != null && aVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (aVar.azF != skinType) {
-                aVar.azF = skinType;
-                am.i(aVar.fTC, dVar.aRL);
+            if (aVar.aCJ != skinType) {
+                aVar.aCJ = skinType;
+                al.i(aVar.gaS, dVar.aVb);
             }
-            ViewGroup.LayoutParams layoutParams = aVar.fTC.getLayoutParams();
-            if (dVar.fPk > 0) {
-                layoutParams.height = dVar.fPk;
+            ViewGroup.LayoutParams layoutParams = aVar.gaS.getLayoutParams();
+            if (dVar.fWA > 0) {
+                layoutParams.height = dVar.fWA;
             }
-            if (dVar.fPj > 0) {
-                layoutParams.width = dVar.fPj;
+            if (dVar.fWz > 0) {
+                layoutParams.width = dVar.fWz;
             }
-            aVar.fTC.setLayoutParams(layoutParams);
-            aVar.fTC.setOnClickListener(null);
+            aVar.gaS.setLayoutParams(layoutParams);
+            aVar.gaS.setOnClickListener(null);
         }
         return view;
     }

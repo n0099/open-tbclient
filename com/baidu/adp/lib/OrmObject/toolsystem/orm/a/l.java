@@ -8,28 +8,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l implements h {
-    private Map<String, Object> wC;
+    private Map<String, Object> yU;
 
     public l(Map<String, Object> map) {
-        this.wC = map;
+        this.yU = map;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] gE = cVar.gE();
-        Set<String> keySet = this.wC.keySet();
+        Type[] hK = cVar.hK();
+        Set<String> keySet = this.yU.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.wC.get(str);
-            if (gE != null && gE.length >= 2) {
+            Object obj = this.yU.get(str);
+            if (hK != null && hK.length >= 2) {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.n(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(gE[1])));
+                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.o(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hK[1])));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.n(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.gF())));
+                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.o(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.hL())));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -54,7 +54,7 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wC;
+        return this.yU;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -74,6 +74,6 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wC;
+        return this.yU;
     }
 }

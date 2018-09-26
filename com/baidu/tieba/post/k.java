@@ -1,8 +1,7 @@
 package com.baidu.tieba.post;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.idl.authority.BuildConfig;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.j.g;
 import java.io.File;
 import java.util.ArrayList;
@@ -12,22 +11,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
-    private String fgZ;
+    private String fow;
     private boolean isSuccess = true;
-    private int gjC = 0;
-    private boolean giM = false;
-    private List<com.baidu.tieba.m.c> gjD = new ArrayList();
+    private int gqU = 0;
+    private boolean gqe = false;
+    private List<com.baidu.tieba.m.c> gqV = new ArrayList();
 
     static {
-        if (com.baidu.adp.lib.util.f.gd()) {
+        if (com.baidu.adp.lib.util.f.hk()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.post.k.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.j.d.qk(g.a.blM);
-                    com.baidu.tieba.j.d.qk(g.a.fgW);
-                    com.baidu.tieba.j.d.qk(g.a.fgX);
+                    com.baidu.tieba.j.d.qP(g.a.brA);
+                    com.baidu.tieba.j.d.qP(g.a.fot);
+                    com.baidu.tieba.j.d.qP(g.a.fou);
                     return null;
                 }
             }.execute(new Void[0]);
@@ -35,42 +34,42 @@ public class k {
     }
 
     public k(String str) {
-        this.fgZ = str;
+        this.fow = str;
     }
 
-    public void blz() {
+    public void bof() {
         this.isSuccess = false;
     }
 
-    public void blA() {
+    public void bog() {
         this.isSuccess = true;
     }
 
-    public void blB() {
-        this.gjC++;
+    public void boh() {
+        this.gqU++;
     }
 
-    public boolean blC() {
-        return this.gjC > 0;
+    public boolean boi() {
+        return this.gqU > 0;
     }
 
-    public void blD() {
-        this.giM = true;
+    public void boj() {
+        this.gqe = true;
     }
 
-    public boolean blE() {
-        return this.giM;
+    public boolean bok() {
+        return this.gqe;
     }
 
     public void a(com.baidu.tieba.m.c cVar) {
-        this.gjD.add(cVar);
-        blG();
+        this.gqV.add(cVar);
+        bom();
         b(cVar);
-        blF();
+        bol();
     }
 
     private void b(com.baidu.tieba.m.c cVar) {
-        if (com.baidu.adp.lib.util.f.gd() && cVar != null) {
+        if (com.baidu.adp.lib.util.f.hk() && cVar != null) {
             new BdAsyncTask<l, Void, Void>() { // from class: com.baidu.tieba.post.k.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -79,18 +78,18 @@ public class k {
                 public Void doInBackground(l... lVarArr) {
                     if (lVarArr != null && lVarArr.length == 1 && lVarArr[0] != null) {
                         l lVar = lVarArr[0];
-                        synchronized (BuildConfig.BUILD_TYPE) {
-                            com.baidu.tieba.j.d.a(new File(g.a.fgY + g.a.fgP + lVar.uuid + g.a.fgP + BuildConfig.BUILD_TYPE), lVar.gjG.bla().toString() + "\n", true);
+                        synchronized ("debug") {
+                            com.baidu.tieba.j.d.a(new File(g.a.fov + g.a.fom + lVar.uuid + g.a.fom + "debug"), lVar.gqY.bnG().toString() + "\n", true);
                         }
                     }
                     return null;
                 }
-            }.execute(new l(cVar, this.fgZ));
+            }.execute(new l(cVar, this.fow));
         }
     }
 
-    private void blF() {
-        if (com.baidu.adp.lib.util.f.gd()) {
+    private void bol() {
+        if (com.baidu.adp.lib.util.f.hk()) {
             new BdAsyncTask<e, Void, Void>() { // from class: com.baidu.tieba.post.k.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -100,26 +99,26 @@ public class k {
                     if (eVarArr != null && eVarArr.length == 1 && eVarArr[0] != null) {
                         e eVar = eVarArr[0];
                         synchronized ("kpi") {
-                            com.baidu.tieba.j.d.a(new File(g.a.fgY + g.a.fgP + eVar.uuid + g.a.fgP + "kpi"), k.b(eVar.isSuccess, eVar.giL, eVar.giM).toString(), false);
+                            com.baidu.tieba.j.d.a(new File(g.a.fov + g.a.fom + eVar.uuid + g.a.fom + "kpi"), k.b(eVar.isSuccess, eVar.gqd, eVar.gqe).toString(), false);
                         }
                     }
                     return null;
                 }
-            }.execute(new e(this.isSuccess, this.gjC, this.giM, this.fgZ));
+            }.execute(new e(this.isSuccess, this.gqU, this.gqe, this.fow));
         }
     }
 
-    private void blG() {
-        if (com.baidu.adp.lib.util.f.gd()) {
-            File file = new File(g.a.fgY + g.a.fgP + this.fgZ + g.a.fgP);
+    private void bom() {
+        if (com.baidu.adp.lib.util.f.hk()) {
+            File file = new File(g.a.fov + g.a.fom + this.fow + g.a.fom);
             if (!file.exists()) {
                 file.mkdir();
             }
         }
     }
 
-    public JSONObject aVR() {
-        return b(this.isSuccess, this.gjC, this.giM);
+    public JSONObject aYf() {
+        return b(this.isSuccess, this.gqU, this.gqe);
     }
 
     public static final JSONObject b(boolean z, int i, boolean z2) {
@@ -134,14 +133,14 @@ public class k {
         return jSONObject;
     }
 
-    public JSONObject aVS() {
+    public JSONObject aYg() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!w.z(this.gjD)) {
-                int size = this.gjD.size();
+            if (!v.z(this.gqV)) {
+                int size = this.gqV.size();
                 for (int i = 0; i < size; i++) {
-                    jSONArray.put(this.gjD.get(i).bla());
+                    jSONArray.put(this.gqV.get(i).bnG());
                 }
             }
             jSONObject.put("running", jSONArray);

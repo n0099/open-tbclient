@@ -11,7 +11,6 @@ import android.net.wifi.WifiManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
@@ -136,7 +135,7 @@ public class d extends f.a {
         Location location3;
         LocationManager locationManager = (LocationManager) this.g.getSystemService(Headers.LOCATION);
         try {
-            location = locationManager.getLastKnownLocation(LivenessRecogActivity.f.J);
+            location = locationManager.getLastKnownLocation("network");
         } catch (Exception e) {
             location = null;
         }

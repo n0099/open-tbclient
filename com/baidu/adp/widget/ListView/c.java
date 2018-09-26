@@ -9,19 +9,19 @@ import java.security.InvalidParameterException;
 public abstract class c implements BdSwipeRefreshLayout.b {
     private Context mContext;
     private View mView = null;
-    private boolean LD = true;
-    private int LE = 0;
-    private int LG = 0;
+    private boolean Og = true;
+    private int Oh = 0;
+    private int Oi = 0;
 
-    public abstract void Y(boolean z);
+    public abstract void ai(boolean z);
 
-    public abstract void Z(boolean z);
+    public abstract void aj(boolean z);
 
-    public abstract void aa(boolean z);
+    public abstract void ak(boolean z);
 
-    public abstract View np();
+    public abstract View ov();
 
-    public abstract void nq();
+    public abstract void ow();
 
     public abstract void refreshing();
 
@@ -42,13 +42,13 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public final View getView() {
         if (this.mView == null) {
-            this.mView = np();
+            this.mView = ov();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
-            q(this.mView);
-            this.LE = this.mView.getMeasuredHeight();
-            this.LG = this.mView.getMeasuredWidth();
+            A(this.mView);
+            this.Oh = this.mView.getMeasuredHeight();
+            this.Oi = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -59,15 +59,15 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         }
     }
 
-    public boolean nr() {
-        return this.LD;
+    public boolean ox() {
+        return this.Og;
     }
 
     public void setEnable(boolean z) {
-        this.LD = z;
+        this.Og = z;
     }
 
-    private void q(View view) {
+    private void A(View view) {
         int makeMeasureSpec;
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
@@ -83,13 +83,13 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int ns() {
-        return this.LE;
+    public int oy() {
+        return this.Oh;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onPullToRefresh() {
-        Y(false);
+        ai(false);
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -100,17 +100,17 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onRefreshing() {
         refreshing();
-        aa(true);
+        ak(true);
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void nt() {
-        nq();
+    public void oz() {
+        ow();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public void onFinish() {
-        Z(true);
+        aj(true);
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -118,7 +118,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public long nu() {
+    public long oA() {
         return 0L;
     }
 }

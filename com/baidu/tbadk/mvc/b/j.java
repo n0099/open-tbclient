@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface j extends a {
-    void a(Message message);
+    void E(JSONObject jSONObject);
 
-    void u(JSONObject jSONObject);
+    void a(Message message);
 }

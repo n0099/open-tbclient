@@ -2,19 +2,20 @@ package com.baidu.tieba.recapp.lego.model;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.lego.card.b.b;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.recapp.c.a;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, a {
+public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert, b, a {
     public PostAdBaseData.a adData;
     public PostAdBaseData.b feedData;
     private int goodsStyle;
+    public b.a parallelChargeInfo;
     public String preloadLegoCardStr;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -22,20 +23,22 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
         super(jSONObject);
         JSONObject jSONObject2;
         JSONObject jSONObject3 = null;
-        this.goodsStyle = b.g(jSONObject.optString("goods_style"), -1);
+        this.parallelChargeInfo = new b.a();
+        this.parallelChargeInfo.parseFromJson(jSONObject);
+        this.goodsStyle = com.baidu.adp.lib.g.b.l(jSONObject.optString("goods_style"), -1);
         try {
             jSONObject2 = jSONObject.getJSONObject("feed_content");
         } catch (JSONException e) {
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.Y(jSONObject2);
+        this.feedData = PostAdBaseData.b.ai(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.X(jSONObject3);
+        this.adData = PostAdBaseData.a.ah(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -76,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.sh(i);
+            return this.adData.sE(i);
         }
         return 0;
     }
@@ -128,5 +131,10 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return "http://tieba.baidu.com/p/" + queryParameter2;
         }
         return this.feedData.scheme;
+    }
+
+    @Override // com.baidu.tieba.lego.card.b.b
+    public b.a getParallelCharge() {
+        return this.parallelChargeInfo;
     }
 }

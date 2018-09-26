@@ -5,61 +5,61 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class g {
     public String forumName;
-    public int gof;
-    public int gog;
-    public int goh;
+    public int gvx;
+    public int gvy;
+    public int gvz;
     public int refreshCount;
 
     public g() {
         this.refreshCount = 0;
-        this.gof = 0;
-        this.gog = 0;
-        this.goh = 0;
+        this.gvx = 0;
+        this.gvy = 0;
+        this.gvz = 0;
     }
 
     public g(JSONObject jSONObject) {
         this.refreshCount = 0;
-        this.gof = 0;
-        this.gog = 0;
-        this.goh = 0;
+        this.gvx = 0;
+        this.gvy = 0;
+        this.gvz = 0;
         if (jSONObject != null) {
             this.forumName = jSONObject.optString("forum_name");
             this.refreshCount = jSONObject.optInt("refresh_count");
-            this.gof = jSONObject.optInt("loadmore_count");
-            this.gog = jSONObject.optInt("loadmore_count_pb");
-            this.goh = jSONObject.optInt("refresh_count_pb");
+            this.gvx = jSONObject.optInt("loadmore_count");
+            this.gvy = jSONObject.optInt("loadmore_count_pb");
+            this.gvz = jSONObject.optInt("refresh_count_pb");
         }
     }
 
-    public JSONObject bnh() {
+    public JSONObject bpO() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("refresh_count", this.refreshCount);
-            jSONObject.put("loadmore_count", this.gof);
-            jSONObject.put("loadmore_count_pb", this.gog);
-            jSONObject.put("refresh_count_pb", this.goh);
+            jSONObject.put("loadmore_count", this.gvx);
+            jSONObject.put("loadmore_count_pb", this.gvy);
+            jSONObject.put("refresh_count_pb", this.gvz);
             return jSONObject;
         } catch (JSONException e) {
             return null;
         }
     }
 
-    public int O(boolean z, boolean z2) {
-        return z2 ? z ? this.goh : this.gog : z ? this.refreshCount : this.gof;
+    public int Q(boolean z, boolean z2) {
+        return z2 ? z ? this.gvz : this.gvy : z ? this.refreshCount : this.gvx;
     }
 
-    public void P(boolean z, boolean z2) {
+    public void R(boolean z, boolean z2) {
         if (z2) {
             if (z) {
-                this.goh++;
+                this.gvz++;
             } else {
-                this.gog++;
+                this.gvy++;
             }
         } else if (z) {
             this.refreshCount++;
         } else {
-            this.gof++;
+            this.gvx++;
         }
     }
 }

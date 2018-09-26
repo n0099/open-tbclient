@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.brand.relationbar;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private List<OriForumInfo> dsp;
+    private List<OriForumInfo> dyF;
     private Context mContext;
 
     public a(Context context) {
@@ -23,8 +23,8 @@ public class a extends RecyclerView.Adapter<b> {
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (!w.z(list)) {
-            this.dsp = list;
+        if (!v.z(list)) {
+            this.dyF = list;
         }
     }
 
@@ -32,9 +32,9 @@ public class a extends RecyclerView.Adapter<b> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(b bVar, int i) {
-        OriForumInfo oriForumInfo = (OriForumInfo) w.d(this.dsp, i);
+        OriForumInfo oriForumInfo = (OriForumInfo) v.d(this.dyF, i);
         if (oriForumInfo != null) {
-            RelationBarCellView relationBarCellView = (RelationBarCellView) bVar.awu();
+            RelationBarCellView relationBarCellView = (RelationBarCellView) bVar.ayF();
             relationBarCellView.setData(oriForumInfo);
             relationBarCellView.onChangeSkinType();
         }
@@ -42,6 +42,6 @@ public class a extends RecyclerView.Adapter<b> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return w.y(this.dsp);
+        return v.y(this.dyF);
     }
 }

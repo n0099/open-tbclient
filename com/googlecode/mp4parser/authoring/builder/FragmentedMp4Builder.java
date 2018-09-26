@@ -216,18 +216,18 @@ public class FragmentedMp4Builder implements Mp4Builder {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a implements Box {
-        long hIk = -1;
-        private final /* synthetic */ long hIl;
-        private final /* synthetic */ long hIm;
-        private final /* synthetic */ Track hIn;
-        private final /* synthetic */ int hfP;
+        long hQE = -1;
+        private final /* synthetic */ long hQF;
+        private final /* synthetic */ long hQG;
+        private final /* synthetic */ Track hQH;
+        private final /* synthetic */ int hnF;
         Container parent;
 
         a(long j, long j2, Track track, int i) {
-            this.hIl = j;
-            this.hIm = j2;
-            this.hIn = track;
-            this.hfP = i;
+            this.hQF = j;
+            this.hQG = j2;
+            this.hQH = track;
+            this.hnF = i;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -247,14 +247,14 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            if (this.hIk != -1) {
-                return this.hIk;
+            if (this.hQE != -1) {
+                return this.hQE;
             }
             long j = 8;
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.hIl, this.hIm, this.hIn, this.hfP)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.hQF, this.hQG, this.hQH, this.hnF)) {
                 j = sample.getSize() + j;
             }
-            this.hIk = j;
+            this.hQE = j;
             return j;
         }
 
@@ -270,7 +270,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             allocate.put(IsoFile.fourCCtoBytes(getType()));
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.hIl, this.hIm, this.hIn, this.hfP)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.hQF, this.hQG, this.hQH, this.hnF)) {
                 sample.writeTo(writableByteChannel);
             }
         }

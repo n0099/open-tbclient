@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
 import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
@@ -14,66 +14,66 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.tbadkCore.d;
 /* loaded from: classes2.dex */
 public class FrsDynamicModelController extends BdBaseModel implements NetModel.b<FrsDynamicRequestData, b> {
-    private b dsJ;
-    private FrsDynamicFragment dsN;
-    private FrsDynamicRequestData dsO;
-    private FrsDynamicModel<FrsDynamicFragment> dsP;
-    private d.a dsQ;
+    private b dzo;
+    private FrsDynamicFragment dzt;
+    private FrsDynamicRequestData dzu;
+    private FrsDynamicModel<FrsDynamicFragment> dzv;
+    private d.a dzw;
     private long mForumId;
     private int mType;
 
     public FrsDynamicModelController(FrsDynamicFragment frsDynamicFragment) {
         super(frsDynamicFragment.getPageContext());
         this.mType = 3;
-        this.dsN = frsDynamicFragment;
-        this.dsO = new FrsDynamicRequestData();
-        this.dsJ = new b();
-        this.dsP = new FrsDynamicModel<>(this.dsN.getPageContext(), this.dsO);
-        this.dsP.a(this);
-        this.dsP.setUniqueId(getUniqueId());
+        this.dzt = frsDynamicFragment;
+        this.dzu = new FrsDynamicRequestData();
+        this.dzo = new b();
+        this.dzv = new FrsDynamicModel<>(this.dzt.getPageContext(), this.dzu);
+        this.dzv.a(this);
+        this.dzv.setUniqueId(getUniqueId());
     }
 
     public void setForumId(long j) {
         this.mForumId = j;
     }
 
-    public boolean awv() {
-        this.dsJ = new b();
-        this.dsO.lastThreadId = 0L;
-        a(this.dsO, 3);
+    public boolean ayJ() {
+        this.dzo = new b();
+        this.dzu.lastThreadId = 0L;
+        a(this.dzu, 3);
         return true;
     }
 
-    public void bI(long j) {
-        if (!this.dsP.AB()) {
-            this.dsO.lastThreadId = j;
-            a(this.dsO, 4);
+    public void bM(long j) {
+        if (!this.dzv.BO()) {
+            this.dzu.lastThreadId = j;
+            a(this.dzu, 4);
         }
     }
 
     private void a(FrsDynamicRequestData frsDynamicRequestData, int i) {
-        if (this.dsN != null && this.dsN.isAdded() && this.dsN.getPageContext() != null) {
-            this.dsN.dnv.kt(i);
-            this.dsP.a(frsDynamicRequestData);
+        if (this.dzt != null && this.dzt.isAdded() && this.dzt.getPageContext() != null) {
+            this.dzt.dtt.kS(i);
+            this.dzv.a(frsDynamicRequestData);
             this.mType = i;
-            int ah = l.ah(this.dsN.getPageContext().getPageActivity());
-            int aj = l.aj(this.dsN.getPageContext().getPageActivity());
+            int aO = l.aO(this.dzt.getPageContext().getPageActivity());
+            int aQ = l.aQ(this.dzt.getPageContext().getPageActivity());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = 1;
-            if (ar.zu().zw()) {
+            if (aq.Az().AB()) {
                 i2 = 2;
             }
-            frsDynamicRequestData.scrW = ah;
-            frsDynamicRequestData.scrH = aj;
+            frsDynamicRequestData.scrW = aO;
+            frsDynamicRequestData.scrH = aQ;
             frsDynamicRequestData.scrDip = f;
             frsDynamicRequestData.qType = i2;
             frsDynamicRequestData.forumId = this.mForumId;
-            this.dsP.JV();
+            this.dzv.Ll();
         }
     }
 
-    public boolean AB() {
-        return this.dsP.AB();
+    public boolean BO() {
+        return this.dzv.BO();
     }
 
     private boolean a(b bVar) {
@@ -81,13 +81,13 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
             return false;
         }
         if (!bVar.userMap.isEmpty()) {
-            this.dsJ.userMap.putAll(bVar.userMap);
+            this.dzo.userMap.putAll(bVar.userMap);
         }
-        if (!w.z(bVar.threadList)) {
-            this.dsJ.threadList.addAll(bVar.threadList);
+        if (!v.z(bVar.threadList)) {
+            this.dzo.threadList.addAll(bVar.threadList);
         }
-        this.dsJ.hasMore = bVar.hasMore;
-        this.dsN.dnv.a(this.mType, false, this.dsQ);
+        this.dzo.hasMore = bVar.hasMore;
+        this.dzt.dtt.a(this.mType, false, this.dzw);
         return true;
     }
 
@@ -104,14 +104,14 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
     public void a(MvcHttpResponsedMessage<b> mvcHttpResponsedMessage, MvcHttpMessage<FrsDynamicRequestData, b> mvcHttpMessage, MvcNetMessage<FrsDynamicRequestData, b> mvcNetMessage) {
         if (mvcHttpResponsedMessage != null) {
-            if (this.dsQ == null) {
-                this.dsQ = new d.a();
+            if (this.dzw == null) {
+                this.dzw = new d.a();
             }
-            this.dsQ.gKD = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
-            this.dsQ.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
-            this.dsQ.errorCode = mvcHttpResponsedMessage.getError();
-            this.dsQ.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            this.dsQ.gKE = mvcHttpResponsedMessage.getDownSize();
+            this.dzw.gSe = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+            this.dzw.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
+            this.dzw.errorCode = mvcHttpResponsedMessage.getError();
+            this.dzw.errorMsg = mvcHttpResponsedMessage.getErrorString();
+            this.dzw.gSf = mvcHttpResponsedMessage.getDownSize();
             a(mvcHttpResponsedMessage.getData());
             this.mErrorCode = mvcHttpResponsedMessage.getError();
             this.mErrorString = mvcHttpResponsedMessage.getErrorString();
@@ -121,14 +121,14 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
     public void a(MvcSocketResponsedMessage<b, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsDynamicRequestData, b> mvcSocketMessage, MvcNetMessage<FrsDynamicRequestData, b> mvcNetMessage) {
         if (mvcSocketResponsedMessage != null) {
-            if (this.dsQ == null) {
-                this.dsQ = new d.a();
+            if (this.dzw == null) {
+                this.dzw = new d.a();
             }
-            this.dsQ.gKD = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
-            this.dsQ.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
-            this.dsQ.errorCode = mvcSocketResponsedMessage.getError();
-            this.dsQ.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            this.dsQ.gKE = mvcSocketResponsedMessage.getDownSize();
+            this.dzw.gSe = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+            this.dzw.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
+            this.dzw.errorCode = mvcSocketResponsedMessage.getError();
+            this.dzw.errorMsg = mvcSocketResponsedMessage.getErrorString();
+            this.dzw.gSf = mvcSocketResponsedMessage.getDownSize();
             a(mvcSocketResponsedMessage.getData());
             this.mErrorCode = mvcSocketResponsedMessage.getError();
             this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -139,12 +139,12 @@ public class FrsDynamicModelController extends BdBaseModel implements NetModel.b
         return this.mType;
     }
 
-    public b aww() {
-        return this.dsJ;
+    public b ayK() {
+        return this.dzo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onActivityDestroy() {
-        this.dsP.cancelLoadData();
+        this.dzv.cancelLoadData();
     }
 }

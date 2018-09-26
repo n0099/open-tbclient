@@ -5,15 +5,15 @@ import android.os.Bundle;
 public class b {
     private int c = -1;
     private static Object a = new Object();
-    private static b VO = null;
+    private static b Yp = null;
 
-    public static b ql() {
+    public static b rq() {
         b bVar;
         synchronized (a) {
-            if (VO == null) {
-                VO = new b();
+            if (Yp == null) {
+                Yp = new b();
             }
-            bVar = VO;
+            bVar = Yp;
         }
         return bVar;
     }
@@ -25,7 +25,7 @@ public class b {
             bundle.putInt("loctype", i);
             bundle.putInt("diagtype", i2);
             bundle.putByteArray("diagmessage", str.getBytes());
-            a.qk().a(bundle, 303);
+            a.rp().a(bundle, 303);
         }
     }
 }

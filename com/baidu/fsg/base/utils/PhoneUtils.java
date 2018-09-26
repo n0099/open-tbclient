@@ -31,11 +31,10 @@ import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.util.Log;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.permission.PermissionManager;
-import com.baidu.fsg.biometrics.base.d.h;
+import com.baidu.fsg.face.base.d.h;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -57,7 +56,7 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PhoneUtils {
     private static final String a = "PhoneUtils";
     private static final String b = "_rim_pay.preferences";
@@ -175,16 +174,16 @@ public final class PhoneUtils {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                 String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
-                if (lowerCase.startsWith("processor") && lowerCase.indexOf(SystemInfoUtil.COLON, "processor".length()) != -1) {
+                if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", "processor".length()) != -1) {
                     if (cPUInfo.processor.length() > 0) {
                         cPUInfo.processor += "__";
                     }
-                    cPUInfo.processor += lowerCase.split(SystemInfoUtil.COLON)[1].trim();
-                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(SystemInfoUtil.COLON, "features".length()) != -1) {
+                    cPUInfo.processor += lowerCase.split(":")[1].trim();
+                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", "features".length()) != -1) {
                     if (cPUInfo.features.length() > 0) {
                         cPUInfo.features += "__";
                     }
-                    cPUInfo.features += lowerCase.split(SystemInfoUtil.COLON)[1].trim();
+                    cPUInfo.features += lowerCase.split(":")[1].trim();
                 }
             }
             if (bufferedReader != null) {
@@ -233,7 +232,6 @@ public final class PhoneUtils {
                 } else {
                     str2 = obj.toString();
                     if (str2.trim().equals("")) {
-                        LogUtil.w(a, "APP Key值为空||The value of APP Key is empty.");
                     }
                 }
             }
@@ -297,7 +295,7 @@ public final class PhoneUtils {
     }
 
     public static boolean hasPermission(Context context, String str) {
-        return (context == null || context.checkCallingOrSelfPermission(str) == -1) ? false : true;
+        return (context == null || context.checkCallingPermission(str) == -1) ? false : true;
     }
 
     public static void sdkError(String str) {
@@ -355,18 +353,18 @@ public final class PhoneUtils {
             for (byte b2 : bArr2) {
                 stringBuffer.append(a(b2));
             }
-            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(SystemInfoUtil.COLON, "");
+            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
         }
         String wifiMacAddress = getWifiMacAddress(context);
         if (wifiMacAddress != null) {
-            return wifiMacAddress.replaceAll(SystemInfoUtil.COLON, "");
+            return wifiMacAddress.replaceAll(":", "");
         }
         return wifiMacAddress;
     }
 
     private static String a(byte b2) {
         String str;
-        return ("00" + Integer.toHexString(b2) + SystemInfoUtil.COLON).substring(str.length() - 3);
+        return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
     }
 
     public static String getLocalMacAddress() {
@@ -418,7 +416,7 @@ public final class PhoneUtils {
                     e5.printStackTrace();
                 }
             }
-            return stringBuffer.toString().trim().replaceAll(SystemInfoUtil.COLON, "");
+            return stringBuffer.toString().trim().replaceAll(":", "");
         } catch (Exception e6) {
             inputStreamReader = null;
         } catch (Throwable th3) {
@@ -512,7 +510,7 @@ public final class PhoneUtils {
                         str2 = "";
                     } else {
                         ScanResult scanResult2 = wifiManager.getScanResults().get(i6);
-                        str2 = String.format("%s_%s", scanResult2.BSSID.replace(SystemInfoUtil.COLON, "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
+                        str2 = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
                     }
                     try {
                         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
@@ -597,7 +595,7 @@ public final class PhoneUtils {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [865=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [858=4] */
     public static java.util.ArrayList<java.lang.String> getRawPhoneContacts(android.net.Uri r13, android.content.Context r14) {
         /*
             r12 = 2
@@ -877,7 +875,7 @@ public final class PhoneUtils {
         return str2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CPUInfo {
         public static final String FEATURE_COMMON = "common";
         public static final String FEATURE_NEON = "neon";

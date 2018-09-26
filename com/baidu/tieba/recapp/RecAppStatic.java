@@ -22,11 +22,11 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.gok.set(new t());
+        r.gvC.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.Rh().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.SV().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
-            public int d(Context context, String[] strArr) {
+            public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
                 }
@@ -37,9 +37,9 @@ public class RecAppStatic {
                         if (queryParameter.startsWith("tel:")) {
                             if (context instanceof Activity) {
                                 com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                                aVar.zW();
+                                aVar.Bb();
                                 aVar.c((Activity) context, "android.permission.CALL_PHONE");
-                                if (aVar.u((Activity) context)) {
+                                if (aVar.x((Activity) context)) {
                                     return 0;
                                 }
                             }
@@ -73,9 +73,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.OM().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.OM().a(2, new d());
-        bb.ahJ.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.QG().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.QG().a(2, new d());
+        bb.akj.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);
@@ -88,8 +88,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.bmY().bnb();
-        b.bmY().bmZ();
+        b.bpF().bpI();
+        b.bpF().bpG();
         com.baidu.b.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.b.a.a.a(new p());
         com.baidu.b.a.a.a(new q());

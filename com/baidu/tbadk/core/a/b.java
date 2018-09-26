@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean dd(String str) {
+    public static boolean dv(String str) {
         return TiebaDatabase.getInstance().getMainDBDatabaseManager().f("delete from account_data where id=?", new String[]{str});
     }
 
@@ -19,24 +19,24 @@ public class b {
     public static void b(AccountData accountData) {
         if (accountData != null && accountData.getID() != null) {
             if (accountData.getIsActive() == 1) {
-                tm();
+                uq();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!dd(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
-                if (!mainDBDatabaseManager.O("DROP TABLE IF EXISTS account_data")) {
-                    mainDBDatabaseManager.eF();
+            if (!dv(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
+                if (!mainDBDatabaseManager.af("DROP TABLE IF EXISTS account_data")) {
+                    mainDBDatabaseManager.fN();
                 }
-                mainDBDatabaseManager.O("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255),gender int,member_iconurl varchar(255),stoken varchar(255))");
+                mainDBDatabaseManager.af("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255),gender int,member_iconurl varchar(255),stoken varchar(255))");
                 a(accountData, mainDBDatabaseManager);
             }
         }
     }
 
-    public static void tm() {
-        TiebaDatabase.getInstance().getMainDBDatabaseManager().O("update account_data set isactive=0 where isactive=1");
+    public static void uq() {
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().af("update account_data set isactive=0 where isactive=1");
     }
 
-    public static int tn() {
+    public static int ur() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -85,7 +85,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData tp() {
+    public static AccountData us() {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -160,7 +160,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData de(String str) {
+    public static AccountData dw(String str) {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -228,7 +228,7 @@ public class b {
         return accountData;
     }
 
-    public static ArrayList<AccountData> tq() {
+    public static ArrayList<AccountData> ut() {
         Cursor cursor;
         Throwable th;
         Exception exc;

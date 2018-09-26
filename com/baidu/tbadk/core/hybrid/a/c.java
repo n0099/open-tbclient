@@ -19,21 +19,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends n {
-    private l anc;
+    private l apI;
 
     public c(l lVar) {
         super(lVar);
-        this.anc = lVar;
+        this.apI = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String sm() {
+    public String tt() {
         return "TBHY_COMMON_Image";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @o(value = "scanBigImages", xM = false)
+    @o(value = "scanBigImages", yT = false)
     public void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
@@ -57,7 +57,7 @@ public class c extends n {
                     }
                 }
             }
-            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.anc.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.apI.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 

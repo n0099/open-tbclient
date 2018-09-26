@@ -13,7 +13,7 @@ public class SocialLoginActivity extends BaseSSOLoginActivity {
     private SocialType socialType;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.socialType = (SocialType) getIntent().getSerializableExtra(EXTRA_SOCIAL_TYPE);
@@ -35,15 +35,15 @@ public class SocialLoginActivity extends BaseSSOLoginActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
         if (this.socialType == SocialType.SINA_WEIBO) {
-            setTitleText(a.c.sapi_sdk_title_login_sina);
+            setTitleText(a.b.sapi_sdk_title_login_sina);
         } else if (this.socialType == SocialType.CHUANKE) {
-            setTitleText(a.c.sapi_sdk_title_login_ck);
+            setTitleText(a.b.sapi_sdk_title_login_ck);
         } else if (this.socialType == SocialType.TENCENT_WEIBO) {
-            setTitleText(a.c.sapi_sdk_title_login_txweibo);
+            setTitleText(a.b.sapi_sdk_title_login_txweibo);
         }
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.social.SocialLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback

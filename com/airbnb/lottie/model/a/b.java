@@ -2,6 +2,7 @@ package com.airbnb.lottie.model.a;
 
 import com.airbnb.lottie.model.a.m;
 import com.airbnb.lottie.model.a.n;
+import com.baidu.mobstat.Config;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -15,22 +16,22 @@ public class b extends o<Float, Float> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Float, Float> ci() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.mz) : new com.airbnb.lottie.a.b.c(this.mj);
+    public com.airbnb.lottie.a.b.a<Float, Float> dp() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.oZ) : new com.airbnb.lottie.a.b.c(this.oL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: cj */
-    public Float ck() {
-        return (Float) this.mz;
+    /* renamed from: dq */
+    public Float dr() {
+        return (Float) this.oZ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0008b implements m.a<Float> {
-        static final C0008b nm = new C0008b();
+        static final C0008b pO = new C0008b();
 
         private C0008b() {
         }
@@ -39,14 +40,14 @@ public class b extends o<Float, Float> {
         @Override // com.airbnb.lottie.model.a.m.a
         /* renamed from: e */
         public Float b(Object obj, float f) {
-            return Float.valueOf(com.airbnb.lottie.c.b.h(obj) * f);
+            return Float.valueOf(com.airbnb.lottie.c.b.i(obj) * f);
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static b cl() {
+        public static b ds() {
             return new b();
         }
 
@@ -55,12 +56,12 @@ public class b extends o<Float, Float> {
         }
 
         public static b a(JSONObject jSONObject, com.airbnb.lottie.e eVar, boolean z) {
-            float bn = z ? eVar.bn() : 1.0f;
-            if (jSONObject != null && jSONObject.has("x")) {
-                eVar.E("Lottie doesn't support expressions.");
+            float cu = z ? eVar.cu() : 1.0f;
+            if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
+                eVar.V("Lottie doesn't support expressions.");
             }
-            n.a cC = n.a(jSONObject, bn, eVar, C0008b.nm).cC();
-            return new b(cC.mj, (Float) cC.mz);
+            n.a dJ = n.a(jSONObject, cu, eVar, C0008b.pO).dJ();
+            return new b(dJ.oL, (Float) dJ.oZ);
         }
     }
 }

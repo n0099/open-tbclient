@@ -8,20 +8,20 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public class DealEventView extends FrameLayout {
-    private boolean bhd;
-    private float fNj;
-    private float heM;
-    private long hmG;
-    private a hmH;
-    private boolean hmI;
+    private boolean bmV;
+    private float fVd;
+    private float hmE;
+    private long huv;
+    private a huw;
+    private boolean hux;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Oy();
+        void Qs();
 
-        void Oz();
+        void Qt();
 
-        void bDL();
+        void bGA();
     }
 
     public DealEventView(Context context) {
@@ -44,37 +44,37 @@ public class DealEventView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.heM = motionEvent.getX();
-                this.fNj = motionEvent.getY();
+                this.hmE = motionEvent.getX();
+                this.fVd = motionEvent.getY();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.hmG < 300) {
-                    this.bhd = true;
-                    if (this.hmH != null) {
-                        this.hmH.bDL();
+                if (currentTimeMillis - this.huv < 300) {
+                    this.bmV = true;
+                    if (this.huw != null) {
+                        this.huw.bGA();
                     }
                 } else {
-                    this.bhd = false;
+                    this.bmV = false;
                 }
-                this.hmG = currentTimeMillis;
+                this.huv = currentTimeMillis;
                 break;
             case 1:
-                if (this.heM - motionEvent.getX() < 10.0f && this.fNj - motionEvent.getY() < 10.0f) {
-                    this.hmI = true;
+                if (this.hmE - motionEvent.getX() < 10.0f && this.fVd - motionEvent.getY() < 10.0f) {
+                    this.hux = true;
                 } else {
-                    this.hmI = false;
+                    this.hux = false;
                 }
                 postDelayed(new Runnable() { // from class: com.baidu.tieba.videoplay.DealEventView.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!DealEventView.this.bhd && DealEventView.this.hmI && DealEventView.this.hmH != null) {
-                            DealEventView.this.hmH.Oy();
+                        if (!DealEventView.this.bmV && DealEventView.this.hux && DealEventView.this.huw != null) {
+                            DealEventView.this.huw.Qs();
                         }
                     }
                 }, 300L);
                 break;
             case 2:
-                if (this.heM - motionEvent.getX() > 60.0f && (this.heM - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.fNj) && !this.bhd && this.hmH != null) {
-                    this.hmH.Oz();
+                if (this.hmE - motionEvent.getX() > 60.0f && (this.hmE - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.fVd) && !this.bmV && this.huw != null) {
+                    this.huw.Qt();
                     break;
                 }
                 break;
@@ -101,6 +101,6 @@ public class DealEventView extends FrameLayout {
     }
 
     public void setOnViewClickListener(a aVar) {
-        this.hmH = aVar;
+        this.huw = aVar;
     }
 }

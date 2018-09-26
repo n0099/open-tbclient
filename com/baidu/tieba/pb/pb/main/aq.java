@@ -1,122 +1,69 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.e;
+import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes2.dex */
-public class aq extends q.a {
-    public View dZx;
-    public ImageView fEk;
-    public TextView fEl;
-    public TextView fEm;
-    public View fEn;
-    public View fEo;
-    public ImageView fEp;
-    public TextView fEq;
-    private boolean fEr;
-    public View mRootView;
-
-    public aq(View view) {
-        super(view);
-        this.fEr = false;
-        if (view != null) {
-            this.mRootView = view.findViewById(f.g.thread_praise_root);
-            this.fEk = (ImageView) view.findViewById(f.g.view_main_thread_praise_state);
-            this.fEl = (TextView) view.findViewById(f.g.view_main_thread_praise_num);
-            this.fEq = (TextView) view.findViewById(f.g.tv_share);
-            this.fEm = (TextView) view.findViewById(f.g.tv_praise);
-            this.fEn = view.findViewById(f.g.praise_container);
-            this.fEo = view.findViewById(f.g.share_container);
-            this.fEp = (ImageView) view.findViewById(f.g.view_main_thread_share_state);
-            this.dZx = view.findViewById(f.g.bottom_divider_line);
+public class aq {
+    public static Intent at(Context context, String str) {
+        if (TextUtils.isEmpty(str) || context == null) {
+            return null;
         }
+        Intent intent = new Intent(context, DealIntentService.class);
+        intent.putExtra("class", 1);
+        intent.putExtra("id", str);
+        intent.putExtra("from", "nas");
+        intent.putExtra("key_start_from", 5);
+        return intent;
     }
 
-    private boolean AL() {
-        com.baidu.tbadk.coreExtra.data.b activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-        return activitySwitch != null && activitySwitch.BJ();
+    public static boolean k(PostData postData) {
+        if (postData == null || postData.byV() == null) {
+            return false;
+        }
+        com.baidu.tieba.tbadkCore.data.h byV = postData.byV();
+        if (byV.gVh) {
+            int byt = byV.byt();
+            return byt == 2 || byt == 1 || byt == 3;
+        }
+        return false;
     }
 
-    public void b(com.baidu.tieba.pb.data.j jVar) {
-        if (jVar != null) {
-            if (jVar.aZO()) {
-                if (jVar.ftf == 1) {
-                    com.baidu.tbadk.core.util.am.c(this.fEk, f.C0146f.icon_floor_big_praised);
-                } else if (jVar.ftf == 3) {
-                    com.baidu.tbadk.core.util.am.c(this.fEk, f.C0146f.icon_floor_trample);
-                } else if (jVar.ftf == 4) {
-                    com.baidu.tbadk.core.util.am.c(this.fEk, f.C0146f.icon_floor_big_trample);
-                } else if (jVar.aZQ() == 1) {
-                    com.baidu.tbadk.core.util.am.c(this.fEk, AL() ? f.C0146f.icon_card_liked_n_xmas : f.C0146f.icon_card_liked_n);
-                } else {
-                    com.baidu.tbadk.core.util.am.c(this.fEk, AL() ? f.C0146f.icon_floor_bigpraised_xmas : f.C0146f.icon_floor_bigpraised);
+    public static void v(TbPageContext tbPageContext) {
+        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
+            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.user_like_success_dialog, (ViewGroup) null);
+            com.baidu.tbadk.core.util.al.h((TextView) inflate.findViewById(e.g.dialog_title), e.d.cp_cont_b);
+            com.baidu.tbadk.core.util.al.h((TextView) inflate.findViewById(e.g.dialog_message), e.d.cp_cont_j);
+            aVar.a(e.j.know, new a.b() { // from class: com.baidu.tieba.pb.pb.main.aq.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    if (aVar2 != null) {
+                        aVar2.dismiss();
+                    }
                 }
-                com.baidu.tbadk.core.util.am.h(this.fEm, f.d.text_conth_50_color);
-                this.fEn.setBackgroundDrawable(com.baidu.tbadk.core.util.am.getDrawable(f.C0146f.bg_first_floor_praise_border_selector_orange));
-            } else {
-                com.baidu.tbadk.core.util.am.c(this.fEk, AL() ? f.C0146f.icon_card_like_n_xmas : f.C0146f.icon_card_like_n);
-                com.baidu.tbadk.core.util.am.h(this.fEm, f.d.text_contf_50_color);
-                this.fEn.setBackgroundDrawable(com.baidu.tbadk.core.util.am.getDrawable(f.C0146f.bg_first_floor_praise_border_selector));
-            }
-            this.fEr = jVar.aZN();
-            bdt();
-            if (jVar.shareNum > 0) {
-                if (com.baidu.tbadk.core.util.ap.eJ(com.baidu.tbadk.core.util.ap.C(jVar.shareNum)) >= 6) {
-                    this.fEq.setPadding((int) getView().getResources().getDimension(f.e.ds40), 0, (int) getView().getResources().getDimension(f.e.ds40), 0);
+            });
+            ((ImageView) inflate.findViewById(e.g.dialog_close)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.aq.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    if (com.baidu.tbadk.core.dialog.a.this != null) {
+                        com.baidu.tbadk.core.dialog.a.this.dismiss();
+                    }
                 }
-                this.fEq.setText(com.baidu.tbadk.core.util.ap.C(jVar.shareNum));
-            } else {
-                this.fEq.setText(getView().getResources().getString(f.j.share));
-            }
-            com.baidu.tbadk.core.util.am.h(this.fEl, f.d.cp_link_tip_c);
-            this.fEk.setTag(f.g.pb_main_thread_praise_data, jVar);
-            this.fEm.setTag(f.g.pb_main_thread_praise_data, jVar);
-            if (jVar.aZS()) {
-                com.baidu.tbadk.core.util.am.j(this.dZx, f.d.cp_bg_line_c);
-                this.dZx.setVisibility(0);
-            } else {
-                this.dZx.setVisibility(8);
-            }
-            if (jVar.aZM() <= 0 || com.baidu.tbadk.core.util.w.z(jVar.aZP())) {
-                this.fEl.setText(f.j.no_praise_tip);
-                this.fEm.setText(f.j.action_praise_default);
-                com.baidu.tbadk.core.util.am.h(this.fEl, f.d.cp_cont_f);
-                this.fEl.setTag(false);
-                this.fEn.setBackgroundDrawable(com.baidu.tbadk.core.util.am.getDrawable(f.C0146f.bg_first_floor_praise_border_selector));
-                com.baidu.tbadk.core.util.am.h(this.fEm, f.d.text_contf_50_color);
-                com.baidu.tbadk.core.util.am.c(this.fEk, AL() ? f.C0146f.icon_card_like_n_xmas : f.C0146f.icon_card_like_n);
-                return;
-            }
-            this.fEl.setTag(true);
-            this.fEl.setText(String.format(TbadkCoreApplication.getInst().getString(f.j.count_main_thread_praise), com.baidu.tbadk.core.util.ap.C(jVar.aZM())));
-            this.fEm.setText(com.baidu.tbadk.core.util.ap.C(jVar.aZM()));
+            });
+            aVar.G(inflate);
+            aVar.aE(false);
+            aVar.b(tbPageContext).yl();
         }
-    }
-
-    private void bdt() {
-        if (this.fEr) {
-            com.baidu.tbadk.core.util.am.i(this.fEo, f.C0146f.bg_gray_round_border_shape_s);
-            com.baidu.tbadk.core.util.am.i(this.fEp, f.C0146f.icon_topbar_share_d);
-            com.baidu.tbadk.core.util.am.h(this.fEq, f.d.cp_cont_e);
-            this.fEo.setClickable(false);
-            this.fEq.setClickable(false);
-            return;
-        }
-        com.baidu.tbadk.core.util.am.i(this.fEo, f.C0146f.bg_gray_round_border_shape);
-        com.baidu.tbadk.core.util.am.i(this.fEp, f.C0146f.icon_topbar_share_n);
-        com.baidu.tbadk.core.util.am.h(this.fEq, f.d.text_contf_50_color);
-        this.fEo.setClickable(true);
-        this.fEq.setClickable(true);
-    }
-
-    public void bdu() {
-        this.mRootView.setPadding(0, com.baidu.adp.lib.util.l.f(getView().getContext(), f.e.tbds56), 0, 0);
-    }
-
-    public void bdv() {
-        this.mRootView.setPadding(0, 0, 0, 0);
     }
 }

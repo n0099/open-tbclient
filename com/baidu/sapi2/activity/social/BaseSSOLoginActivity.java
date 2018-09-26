@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.d.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseActivity;
@@ -18,7 +17,6 @@ import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.SapiWebViewUtil;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,6 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
     protected int businessFrom;
-    protected SapiWebView sapiWebView;
     protected WebAuthResult webAuthResult = new WebAuthResult() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
@@ -102,11 +99,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     };
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.b.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.C0061a.layout_sapi_sdk_webview_with_title_bar);
             initData();
         } catch (Throwable th) {
             reportWebviewError(th);
@@ -132,11 +129,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
         if (this.executeSubClassMethod) {
-            goBack();
+            this.sapiWebView.onKeyUp(4);
         }
     }
 
@@ -161,32 +158,24 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
         configTitle();
-        this.sapiWebView = (SapiWebView) findViewById(a.C0061a.sapi_webview);
-        SapiWebViewUtil.addCustomView(this, this.sapiWebView);
-        PassportViewManager.getInstance().setReloadWebviewObserver(new PassportViewManager.ReloadWebviewObserver() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
-            @Override // com.baidu.sapi2.PassportViewManager.ReloadWebviewObserver
-            public void onWebviewReload() {
-                BaseSSOLoginActivity.this.sapiWebView.reload();
-            }
-        });
-        this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.4
+        this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
                 BaseSSOLoginActivity.this.handleBack(BaseSSOLoginActivity.this.businessFrom);
                 return true;
             }
         });
-        this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.5
+        this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.4
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
                 BaseSSOLoginActivity.this.handleBack(BaseSSOLoginActivity.this.businessFrom);
             }
         });
-        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.6
+        this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.5
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
                 BaseSSOLoginActivity.this.handleBack(BaseSSOLoginActivity.this.businessFrom);

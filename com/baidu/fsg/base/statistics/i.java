@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class i extends SQLiteOpenHelper {
     private static final String a = "logsender";
     private static final String d = "rim_stat_event";
@@ -19,18 +19,22 @@ class i extends SQLiteOpenHelper {
     private final byte[] c;
     private int h;
 
-    public i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
+    private i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
         super(context, str, cursorFactory, i2);
         this.c = new byte[0];
         this.h = 200;
         this.b = getWritableDatabase();
     }
 
-    public static i a(Context context) {
-        if (i == null) {
-            i = new i(context, e, null, 1);
+    public static synchronized i a(Context context) {
+        i iVar;
+        synchronized (i.class) {
+            if (i == null) {
+                i = new i(context, e, null, 1);
+            }
+            iVar = i;
         }
-        return i;
+        return iVar;
     }
 
     public void a(h hVar) {
@@ -38,7 +42,7 @@ class i extends SQLiteOpenHelper {
             ContentValues contentValues = new ContentValues();
             contentValues.put(h.a, hVar.p);
             contentValues.put("et", Long.valueOf(hVar.q));
-            contentValues.put(h.c, hVar.r);
+            contentValues.put("ev", hVar.r);
             contentValues.put(h.d, hVar.s);
             contentValues.put(h.e, hVar.t);
             synchronized (this.c) {
@@ -73,7 +77,7 @@ class i extends SQLiteOpenHelper {
                     h hVar = new h();
                     hVar.p = rawQuery.getString(rawQuery.getColumnIndex(h.a));
                     hVar.q = rawQuery.getLong(rawQuery.getColumnIndex("et"));
-                    hVar.r = rawQuery.getString(rawQuery.getColumnIndex(h.c));
+                    hVar.r = rawQuery.getString(rawQuery.getColumnIndex("ev"));
                     hVar.s = rawQuery.getString(rawQuery.getColumnIndex(h.d));
                     hVar.t = rawQuery.getString(rawQuery.getColumnIndex(h.e));
                     hVar.u = rawQuery.getInt(rawQuery.getColumnIndex(h.f));

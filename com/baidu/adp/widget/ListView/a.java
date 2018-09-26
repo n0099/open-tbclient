@@ -17,6 +17,7 @@ public abstract class a<T, V extends q.a> {
     protected n mAdapterItemClickListener;
     protected o mAdapterItemLongClickListener;
     protected Context mContext;
+    private com.baidu.adp.widget.a.a mImagePreloadSizeData = new com.baidu.adp.widget.a.a();
     protected BdUniqueId mPageId;
     protected BdUniqueId mType;
     protected V viewholder;
@@ -116,7 +117,7 @@ public abstract class a<T, V extends q.a> {
         if (this.mAdapter == null || this.mType == null) {
             return -1;
         }
-        return this.mAdapter.q(i, this.mType.getId());
+        return this.mAdapter.s(i, this.mType.getId());
     }
 
     public int getCount() {
@@ -134,5 +135,17 @@ public abstract class a<T, V extends q.a> {
             return new RecyclerView.LayoutParams(-1, -2);
         }
         return new ViewGroup.LayoutParams(-1, -2);
+    }
+
+    public boolean setPreloadSize(int i, int i2, int i3) {
+        return this.mImagePreloadSizeData.setPreloadSize(i, i2, i3);
+    }
+
+    public com.baidu.adp.widget.a.c getPreloadSize(int i) {
+        return this.mImagePreloadSizeData.getPreloadSize(i);
+    }
+
+    public boolean isPreloadSizeReady(int i) {
+        return this.mImagePreloadSizeData.isPreloadSizeReady(i);
     }
 }

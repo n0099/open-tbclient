@@ -1,16 +1,17 @@
 package com.baidu.sapi2;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.JsonHttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
@@ -184,7 +185,7 @@ public final class SapiCache {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String c(String str) {
         Uri parse;
-        String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : SystemInfoUtil.COLON + parse.getPort()) + parse.getPath();
+        String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : ":" + parse.getPort()) + parse.getPath();
         if (!str2.endsWith(".html")) {
             return str2 + ".html";
         }
@@ -195,10 +196,6 @@ public final class SapiCache {
         if (SapiUtils.hasActiveNetwork(d)) {
             try {
                 RequestParams c2 = c();
-                String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
-                if (!TextUtils.isEmpty(deviceInfo)) {
-                    StatService.onEvent("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo), false);
-                }
                 String d2 = d();
                 SapiOptions sapiOptions = SapiContext.getInstance(d).getSapiOptions();
                 int i = sapiOptions.configStep;
@@ -212,6 +209,7 @@ public final class SapiCache {
                     public void onSuccess(JSONObject jSONObject) {
                         if (jSONObject != null) {
                             SapiCache.a(jSONObject);
+                            SapiCache.i();
                         }
                     }
 
@@ -220,6 +218,7 @@ public final class SapiCache {
                     public void onFailure(Throwable th, String str) {
                         super.onFailure(th, str);
                         StatService.onEvent("sslerr_config", Collections.singletonMap("na_err_code", "0"), false);
+                        SapiCache.i();
                     }
                 });
             } catch (Throwable th) {
@@ -228,17 +227,30 @@ public final class SapiCache {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void i() {
+        ThreadPoolService.getInstance().run(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.4
+            @Override // java.lang.Runnable
+            public void run() {
+                String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
+                if (!TextUtils.isEmpty(deviceInfo)) {
+                    StatService.onEvent("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo), false);
+                }
+            }
+        }));
+    }
+
     static void a(final JSONObject jSONObject) {
         final SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-        if (sapiConfiguration.importSofire && (TextUtils.isEmpty(sapiConfiguration.sofireAppKey) || TextUtils.isEmpty(sapiConfiguration.sofireSecKey) || sapiConfiguration.sofireHostID == -1)) {
+        if (TextUtils.isEmpty(sapiConfiguration.sofireAppKey) || TextUtils.isEmpty(sapiConfiguration.sofireSecKey) || sapiConfiguration.sofireHostID == -1) {
             throw new IllegalArgumentException("sofireAppKey or sofireSecKey can't be empty and sofireHostID can't equal -1");
         }
-        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.4
+        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.5
             @Override // java.lang.Runnable
             public void run() {
                 SapiOptions sapiOptions = SapiContext.getInstance(SapiCache.d).getSapiOptions();
                 final SapiOptions fromJSON = SapiOptions.fromJSON(jSONObject);
-                if (fromJSON.getSofireSdkEnabled() && sapiConfiguration.importSofire) {
+                if (fromJSON.getSofireSdkEnabled()) {
                     SapiCache.a(sapiConfiguration);
                 }
                 PluginFacade.setSwitch(SapiCache.d, fromJSON.getPluginsEnabled());
@@ -247,6 +259,7 @@ public final class SapiCache {
                 SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
                 SapiAccountManager.getInstance().preFetchStoken(SapiAccountManager.getInstance().getSession(), false);
                 new FaceLoginService().requestFaceLoginModel();
+                SapiCache.a(fromJSON.resetFileExecPer);
                 SapiCache.c.clear();
                 if (cache.isEnabled()) {
                     for (SapiOptions.Cache.Module module : cache.getModules()) {
@@ -263,7 +276,7 @@ public final class SapiCache {
                         if (!SapiCache.a(module2, module3)) {
                             SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
                             SapiContext.getInstance(SapiCache.d).put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, true);
-                            SapiCache.a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.4.2
+                            SapiCache.a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.5.2
                                 @Override // com.baidu.sapi2.SapiCache.a
                                 public void a(SapiOptions.Cache.Module module5, String str) {
                                 }
@@ -285,7 +298,7 @@ public final class SapiCache {
                                 }
                             });
                         } else {
-                            SapiCache.a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.4.1
+                            SapiCache.a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.5.1
                                 @Override // com.baidu.sapi2.SapiCache.a
                                 public void a(SapiOptions.Cache.Module module5, String str) {
                                     SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
@@ -297,7 +310,7 @@ public final class SapiCache {
 
                                 @Override // com.baidu.sapi2.SapiCache.a
                                 public void a(SapiOptions.Cache.Module module5) {
-                                    new AsyncHttpClient().get(SapiCache.d, module2.downloadUrl, SapiCache.c(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.4.1.1
+                                    new AsyncHttpClient().get(SapiCache.d, module2.downloadUrl, SapiCache.c(), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.5.1.1
                                         @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
                                         public void onSuccess(String str) {
                                             SapiCache.a(str, module2, fromJSON);
@@ -319,7 +332,7 @@ public final class SapiCache {
     }
 
     static void a(final String str, final SapiOptions.Cache.Module module, final SapiOptions sapiOptions) {
-        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.5
+        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.6
             @Override // java.lang.Runnable
             public void run() {
                 if (!TextUtils.isEmpty(SapiOptions.Cache.Module.this.id) && !TextUtils.isEmpty(str) && SapiOptions.Cache.Module.this.hash.equals(MD5Util.toMd5(str.getBytes(), false))) {
@@ -334,10 +347,42 @@ public final class SapiCache {
         }));
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    @TargetApi(4)
+    static void a(boolean z) {
+        if (z) {
+            String packageDirExecutePer = SapiContext.getInstance(d).getPackageDirExecutePer();
+            if (!TextUtils.isEmpty(packageDirExecutePer)) {
+                Process process = null;
+                try {
+                    try {
+                        process = Runtime.getRuntime().exec("chmod " + packageDirExecutePer + " " + d.getApplicationInfo().dataDir);
+                        if (process.waitFor() == 0) {
+                            SapiContext.getInstance(d).setPackageDirExecutePer("");
+                        }
+                        if (process != null) {
+                            process.destroy();
+                        }
+                    } catch (Exception e) {
+                        Log.e(e);
+                        if (process != null) {
+                            process.destroy();
+                        }
+                    }
+                } catch (Throwable th) {
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    throw th;
+                }
+            }
+        }
+    }
+
     static void a(SapiConfiguration sapiConfiguration) {
         try {
             long currentTimeMillis = System.currentTimeMillis();
-            SafeService.getInstance().init(d, sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, 1);
+            boolean init = SafeService.getInstance().init(d, sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, 1);
             long currentTimeMillis2 = System.currentTimeMillis();
             String currentZid = SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(d);
             long currentTimeMillis3 = System.currentTimeMillis();
@@ -345,7 +390,8 @@ public final class SapiCache {
             hashMap.put("ssdk_init_time", (currentTimeMillis2 - currentTimeMillis) + "");
             hashMap.put("ssdk_zid_time", (currentTimeMillis3 - currentTimeMillis2) + "");
             hashMap.put("ssdk_zid_whole_time", (currentTimeMillis3 - currentTimeMillis) + "");
-            hashMap.put("ssdk_zid_suc", TextUtils.isEmpty(currentZid) ? "0" : "1");
+            hashMap.put("initSucc", init + "");
+            hashMap.put("zid", currentZid);
             StatService.onEvent("ssdk_zid", hashMap, false);
         } catch (Exception e) {
             Log.e(e);
@@ -356,7 +402,7 @@ public final class SapiCache {
         RequestParams requestParams;
         synchronized (SapiCache.class) {
             requestParams = new RequestParams();
-            requestParams.put("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl);
+            requestParams.put(BaiduRimConstants.TPL_INIT_KEY, SapiAccountManager.getInstance().getSapiConfiguration().tpl);
             requestParams.put(SapiContext.KEY_SDK_VERSION, SapiAccountManager.VERSION_NAME);
             requestParams.put("app_version", SapiUtils.getVersionName(d));
         }
@@ -394,7 +440,7 @@ public final class SapiCache {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [608=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [653=4] */
     static void a(android.content.Context r5, java.lang.String r6, byte[] r7) {
         /*
             r0 = 0
@@ -443,7 +489,7 @@ public final class SapiCache {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.SapiCache.a(android.content.Context, java.lang.String, byte[]):void");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [641=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [686=4] */
     static void a(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;

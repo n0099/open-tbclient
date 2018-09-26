@@ -3,8 +3,8 @@ package com.baidu.tieba.personCenter.view;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.d> {
     private int mSkinType;
@@ -17,14 +17,14 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.j(getView(), f.d.cp_bg_line_e);
+            al.j(getView(), e.d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return f.h.person_center_blank_layout;
+        return e.h.person_center_blank_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

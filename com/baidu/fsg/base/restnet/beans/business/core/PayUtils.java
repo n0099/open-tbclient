@@ -11,7 +11,6 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.utils.ChannelUtils;
 import com.baidu.fsg.base.utils.Crypto;
 import com.baidu.fsg.base.utils.Md5Utils;
-import com.baidu.fsg.base.utils.SharedPreferencesUtils;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
@@ -22,7 +21,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PayUtils {
     private static final String API_SECRET = "";
     public static final String KEY_CARD_NO = "card_no";
@@ -99,8 +98,8 @@ public final class PayUtils {
     }
 
     public static String getNonce(Context context, List<RestNameValuePair> list) {
+        String str;
         MessageDigest messageDigest;
-        String packageName;
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list);
         Collections.sort(arrayList, new Comparator<RestNameValuePair>() { // from class: com.baidu.fsg.base.restnet.beans.business.core.PayUtils.1
@@ -112,14 +111,15 @@ public final class PayUtils {
         });
         RestNameValuePair restNameValuePair = new RestNameValuePair();
         restNameValuePair.setName(RimArmor.KEY);
-        String str = (String) SharedPreferencesUtils.getParam(context, PACKAGE_NAME_INFO, PACKAGE_NAME, "");
-        if (TextUtils.isEmpty(str)) {
-            try {
-                str = Crypto.sha1(context.getPackageName() + ChannelUtils.getHostAppId() + getAppSignatureSha1(context, packageName));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            SharedPreferencesUtils.setParam(context, PACKAGE_NAME_INFO, PACKAGE_NAME, str);
+        String fpk = RimArmor.getInstance().getFpk(context);
+        if (TextUtils.isEmpty(fpk)) {
+            fpk = context.getPackageName();
+        }
+        try {
+            str = Crypto.sha1(fpk + ChannelUtils.getHostAppId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            str = null;
         }
         restNameValuePair.setValue(str);
         arrayList.add(restNameValuePair);
@@ -203,7 +203,7 @@ public final class PayUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ParamComparator implements Comparator<String> {
         private ParamComparator() {
         }

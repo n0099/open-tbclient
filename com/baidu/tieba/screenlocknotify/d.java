@@ -6,12 +6,12 @@ public class d {
     public String content;
     public int customGroupType;
     public int followStatus;
-    public boolean gat;
+    public int gEt;
+    public String gEu = "";
+    public long gEv;
+    public boolean ghK;
     public String groupId;
     public String groupName;
-    public int gxc;
-    public String gxd = "";
-    public long gxe;
     public boolean isAcceptNotify;
     public long lastTime;
     public long msgId;
@@ -36,7 +36,7 @@ public class d {
     }
 
     private static void e(d dVar) {
-        dVar.gxc = 0;
+        dVar.gEt = 0;
         dVar.msgType = 4;
         dVar.customGroupType = 4;
         dVar.lastTime = System.currentTimeMillis();

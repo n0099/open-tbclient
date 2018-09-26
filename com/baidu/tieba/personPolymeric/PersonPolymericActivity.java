@@ -6,29 +6,29 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private PersonPolymericFragment fYK;
+    private PersonPolymericFragment ggb;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(f.h.person_new_fragment_view);
-        this.fYK = new PersonPolymericFragment();
+        setContentView(e.h.person_new_fragment_view);
+        this.ggb = new PersonPolymericFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE, true);
-        this.fYK.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().add(f.g.fragment_container, this.fYK).commit();
+        this.ggb.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().add(e.g.fragment_container, this.ggb).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.fYK != null) {
-            this.fYK.onChangeSkinType(i);
+        if (this.ggb != null) {
+            this.ggb.onChangeSkinType(i);
         }
     }
 
@@ -41,15 +41,15 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.fYK != null) {
-            this.fYK.onActivityResult(i, i2, intent);
+        if (this.ggb != null) {
+            this.ggb.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.fYK != null) {
-            return this.fYK.getVoiceManager();
+        if (this.ggb != null) {
+            return this.ggb.getVoiceManager();
         }
         return null;
     }
@@ -62,7 +62,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (!ap.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        if (!ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
     }

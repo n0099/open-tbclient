@@ -4,7 +4,7 @@ import android.support.v7.widget.ActivityChooserView;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class a {
-    public char Xk;
+    public char ZL;
     public int a;
     public int b;
     public int c;
@@ -25,7 +25,7 @@ public class a {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.g = 0L;
         this.h = -1;
-        this.Xk = '0';
+        this.ZL = '0';
         this.j = null;
         this.k = false;
         this.g = System.currentTimeMillis();
@@ -40,7 +40,7 @@ public class a {
         this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.g = 0L;
         this.h = -1;
-        this.Xk = '0';
+        this.ZL = '0';
         this.j = null;
         this.k = false;
         this.a = i;
@@ -48,12 +48,12 @@ public class a {
         this.c = i3;
         this.d = i4;
         this.h = i5;
-        this.Xk = c;
+        this.ZL = c;
         this.g = System.currentTimeMillis();
     }
 
     public a(a aVar) {
-        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.Xk);
+        this(aVar.a, aVar.b, aVar.c, aVar.d, aVar.h, aVar.ZL);
         this.g = aVar.g;
     }
 
@@ -89,7 +89,7 @@ public class a {
     public String g() {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw=");
-        stringBuffer.append(this.Xk);
+        stringBuffer.append(this.ZL);
         stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d&cl_s=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.h)));
         if (this.k) {
             stringBuffer.append("&newcl=1");
@@ -100,7 +100,7 @@ public class a {
     public String h() {
         StringBuffer stringBuffer = new StringBuffer(128);
         stringBuffer.append("&nw2=");
-        stringBuffer.append(this.Xk);
+        stringBuffer.append(this.ZL);
         stringBuffer.append(String.format(Locale.CHINA, "&cl2=%d|%d|%d|%d&cl_s2=%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b), Integer.valueOf(this.h)));
         return stringBuffer.toString();
     }

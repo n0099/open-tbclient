@@ -18,57 +18,57 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a {
-    private static String Aa;
-    private static String Ab;
-    private static boolean Ac;
-    private static String Ae;
-    private static String Af;
-    private static String Ag;
-    private static String zZ;
-    private e Ah;
-    private c Ai;
-    private long Aj;
+    private static String CA;
+    private static String Cu;
+    private static String Cv;
+    private static String Cw;
+    private static boolean Cx;
+    private static String Cy;
+    private static String Cz;
+    private e CB;
+    private c CC;
+    private long CD;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.Aj = BdStatisticsManager.getInstance().getClientLogId();
+        this.CD = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    public static void aA(String str) {
-        zZ = str;
+    public static void aR(String str) {
+        Cu = str;
     }
 
-    public static void aB(String str) {
-        Ae = str;
+    public static void aS(String str) {
+        Cy = str;
     }
 
-    public static void aC(String str) {
-        Af = str;
+    public static void aT(String str) {
+        Cz = str;
     }
 
-    public static void aD(String str) {
-        Ag = str;
+    public static void aU(String str) {
+        CA = str;
     }
 
     public static void setUserAgent(String str) {
-        Aa = str;
+        Cv = str;
     }
 
     public static void setUid(String str) {
-        Ab = str;
+        Cw = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        Ac = z;
+        Cx = z;
     }
 
     public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Ah = new e();
-        a(this.Ah, z);
-        this.Ah.hW().setUrl(str);
-        this.Ai = new c(this.Ah);
-        this.Ai.d(i, i3, i4);
-        return this.Ah.hX();
+        this.CB = new e();
+        a(this.CB, z);
+        this.CB.jc().setUrl(str);
+        this.CC = new c(this.CB);
+        this.CC.e(i, i3, i4);
+        return this.CB.jd();
     }
 
     public g a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -76,52 +76,52 @@ public class a {
     }
 
     public g a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Ah = new e();
-        a(this.Ah, z);
-        this.Ah.hW().setUrl(str);
+        this.CB = new e();
+        a(this.CB, z);
+        this.CB.jc().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.Ah.hW().a(basicNameValuePair);
+                this.CB.jc().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.Ah.hW().p(next.getName(), next.getValue());
+                this.CB.jc().x(next.getName(), next.getValue());
             }
         }
-        this.Ai = new c(this.Ah);
-        this.Ai.f(i, i2, -1);
-        return this.Ah.hX();
+        this.CC = new c(this.CB);
+        this.CC.g(i, i2, -1);
+        return this.CB.jd();
     }
 
     public g a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Ah = new e();
-        a(this.Ah, z);
-        this.Ah.hW().setUrl(str);
+        this.CB = new e();
+        a(this.CB, z);
+        this.CB.jc().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.Ah.hW().p(next.getName(), next.getValue());
+                this.CB.jc().x(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.Ah.hW().o(next2.getName(), next2.getValue());
+                this.CB.jc().u(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.Ah.hW().d(entry.getKey(), entry.getValue());
+                this.CB.jc().d(entry.getKey(), entry.getValue());
             }
         }
-        this.Ai = new c(this.Ah);
-        this.Ai.f(i, i2, -1);
-        return this.Ah.hX();
+        this.CC = new c(this.CB);
+        this.CC.g(i, i2, -1);
+        return this.CB.jd();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2) {
@@ -129,11 +129,11 @@ public class a {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2, boolean z3) {
-        this.Ah = new e();
-        b(this.Ah);
-        this.Ah.hW().setUrl(str);
-        this.Ai = new c(this.Ah);
-        return this.Ai.a(str2, hVar, i, i2, i3, i4, z2, z3);
+        this.CB = new e();
+        b(this.CB);
+        this.CB.jc().setUrl(str);
+        this.CC = new c(this.CB);
+        return this.CC.a(str2, hVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -141,60 +141,60 @@ public class a {
     }
 
     public void cancel() {
-        if (this.Ai != null) {
-            this.Ai.cancel();
+        if (this.CC != null) {
+            this.CC.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.Ai != null) {
-            return this.Ai.hP();
+        if (this.CC != null) {
+            return this.CC.iV();
         }
         return false;
     }
 
-    public void hQ() {
-        if (this.Ai != null) {
-            this.Ai.hQ();
+    public void iW() {
+        if (this.CC != null) {
+            this.CC.iW();
         }
     }
 
-    public e ie() {
-        return this.Ah;
+    public e jk() {
+        return this.CB;
     }
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(zZ)) {
-                eVar.hW().p(SM.COOKIE, zZ);
+            if (!TextUtils.isEmpty(Cu)) {
+                eVar.jc().x(SM.COOKIE, Cu);
             } else {
-                eVar.hW().p(SM.COOKIE, "");
+                eVar.jc().x(SM.COOKIE, "");
             }
-            if (!TextUtils.isEmpty(Ab)) {
-                eVar.hW().p("client_user_token", Ab);
+            if (!TextUtils.isEmpty(Cw)) {
+                eVar.jc().x("client_user_token", Cw);
             }
-            if (!TextUtils.isEmpty(Aa)) {
-                eVar.hW().p(HTTP.USER_AGENT, Aa);
+            if (!TextUtils.isEmpty(Cv)) {
+                eVar.jc().x(HTTP.USER_AGENT, Cv);
             }
             if (z) {
-                eVar.hW().p("Accept-Encoding", "gzip");
+                eVar.jc().x("Accept-Encoding", "gzip");
             } else {
-                eVar.hW().p("Accept-Encoding", "");
+                eVar.jc().x("Accept-Encoding", "");
             }
-            if (Ac) {
-                eVar.hW().p(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (Cx) {
+                eVar.jc().x(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                eVar.hW().p(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
+                eVar.jc().x(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
             }
-            eVar.hW().p("client_logid", String.valueOf(this.Aj));
-            if (!TextUtils.isEmpty(Ae)) {
-                eVar.hW().p("cuid", Ae);
+            eVar.jc().x("client_logid", String.valueOf(this.CD));
+            if (!TextUtils.isEmpty(Cy)) {
+                eVar.jc().x("cuid", Cy);
             }
-            if (!TextUtils.isEmpty(Af)) {
-                eVar.hW().p("cuid_galaxy2", Af);
+            if (!TextUtils.isEmpty(Cz)) {
+                eVar.jc().x("cuid_galaxy2", Cz);
             }
-            if (!TextUtils.isEmpty(Ag)) {
-                eVar.hW().p("cuid_gid", Ag);
+            if (!TextUtils.isEmpty(CA)) {
+                eVar.jc().x("cuid_gid", CA);
             }
         }
     }

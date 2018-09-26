@@ -7,9 +7,9 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.HttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.callback.QrLoginStatusCheckCallback;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.dto.QrLoginStstusCheckDTO;
@@ -19,15 +19,16 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.result.GetQrCodeImageResult;
 import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginStatusCheckResult;
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -51,18 +52,22 @@ public class QrCodeService extends AbstractService {
         this.a = false;
     }
 
+    public void getQrCodeContent(SapiCallback<GetQrCodeImageResult> sapiCallback, String str) {
+        a(sapiCallback, str, "pc", true);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     public void getQrCodeUrl(SapiCallback<GetQrCodeImageResult> sapiCallback) {
-        a(sapiCallback, null, "app");
+        a(sapiCallback, null, "app", false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, String str) {
-        a(sapiCallback, str, SapiUtils.QR_LOGIN_LP_PC);
+        a(sapiCallback, str, "pc", false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final SapiCallback<GetQrCodeImageResult> sapiCallback, final String str, final String str2) {
+    public void a(final SapiCallback<GetQrCodeImageResult> sapiCallback, final String str, final String str2, final boolean z) {
         if (sapiCallback == null) {
             throw new IllegalArgumentException(SapiCallback.class.getSimpleName() + " can't be null");
         }
@@ -77,9 +82,9 @@ public class QrCodeService extends AbstractService {
         this.asyncHttpClient = new AsyncHttpClient();
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
-        hashMap.put("tpl", this.configuration.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
         hashMap.put("appid", this.configuration.appId);
-        hashMap.put(SapiUtils.KEY_QR_LOGIN_LP, TextUtils.isEmpty(str2) ? SapiUtils.QR_LOGIN_LP_PC : str2);
+        hashMap.put(SapiUtils.KEY_QR_LOGIN_LP, TextUtils.isEmpty(str2) ? "pc" : str2);
         hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
         hashMap.put("apiver", "v3");
         hashMap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
@@ -87,6 +92,7 @@ public class QrCodeService extends AbstractService {
         if (!TextUtils.isEmpty(str)) {
             hashMap.put("openPlatformId", str);
         }
+        hashMap.put("needQrCodeContent", z ? "1" : "0");
         hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.configuration.appSignKey));
         this.asyncHttpClient.get(this.configuration.context, this.domainRetry.getDomain() + SapiEnv.GET_QR_CODE_IMAGE_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.1
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
@@ -116,13 +122,16 @@ public class QrCodeService extends AbstractService {
                             getQrCodeImageResult.imageUrl = SapiUtils.COOKIE_HTTPS_URL_PREFIX + jSONObject.optString("imgurl");
                             getQrCodeImageResult.prompt = jSONObject.optString("prompt");
                             getQrCodeImageResult.channelId = jSONObject.optString("sign");
+                            if (z) {
+                                getQrCodeImageResult.contentUrl = jSONObject.optString("qrcontent_url");
+                            }
                             sapiCallback.onSuccess(getQrCodeImageResult);
                             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_CODE_IMAGE, IEventCenterService.EventResult.PHASE.SUCCESS);
-                            break;
+                            return;
                         default:
                             sapiCallback.onFailure(getQrCodeImageResult);
                             PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_QR_CODE_IMAGE, IEventCenterService.EventResult.PHASE.FAILURE);
-                            break;
+                            return;
                     }
                 } catch (Throwable th) {
                     sapiCallback.onFailure(getQrCodeImageResult);
@@ -148,7 +157,7 @@ public class QrCodeService extends AbstractService {
                     return;
                 }
                 QrCodeService.this.domainRetry.retry();
-                QrCodeService.this.a(sapiCallback, str, str2);
+                QrCodeService.this.a(sapiCallback, str, str2, z);
             }
         });
     }
@@ -175,7 +184,7 @@ public class QrCodeService extends AbstractService {
             this.asyncHttpClient.setUserAgent(getUaInfo());
             this.asyncHttpClient.setTimeout(40000);
             HashMap hashMap = new HashMap();
-            hashMap.put("tpl", this.configuration.tpl);
+            hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
             hashMap.put("appid", this.configuration.appId);
             hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
             hashMap.put("apiver", "v3");
@@ -215,8 +224,10 @@ public class QrCodeService extends AbstractService {
                                     qrLoginStatusCheckCallback.onScanQrCodeDone(qrLoginStatusCheckResult);
                                     QrCodeService.this.qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO);
                                 } else if (optInt == 0) {
-                                    QrCodeService.this.getQrLoginResult(qrLoginStatusCheckCallback, qrLoginStatusCheckResult, jSONObject2.optString(NotifyType.VIBRATE), qrLoginStstusCheckDTO.isJoinCodeLogin);
+                                    QrCodeService.this.getQrLoginResult(qrLoginStatusCheckCallback, qrLoginStatusCheckResult, jSONObject2.optString("v"), qrLoginStstusCheckDTO.isJoinCodeLogin);
                                 } else {
+                                    qrLoginStatusCheckResult.setResultCode(optInt);
+                                    qrLoginStatusCheckResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
                                     QrCodeService.this.qrLoginStatusCheck(qrLoginStatusCheckCallback, qrLoginStstusCheckDTO);
                                     qrLoginStatusCheckCallback.onFailure(qrLoginStatusCheckResult);
                                 }
@@ -264,9 +275,9 @@ public class QrCodeService extends AbstractService {
         this.asyncHttpClient = new AsyncHttpClient();
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
-        hashMap.put("tpl", this.configuration.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
         hashMap.put("appid", this.configuration.appId);
-        hashMap.put(LivenessRecogActivity.f.a, "pcsdk");
+        hashMap.put("display", "pcsdk");
         hashMap.put("qrcode", "1");
         hashMap.put("bduss", str);
         hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
@@ -363,7 +374,8 @@ public class QrCodeService extends AbstractService {
         this.asyncHttpClient = new AsyncHttpClient();
         this.asyncHttpClient.setUserAgent(getUaInfo());
         HashMap hashMap = new HashMap();
-        hashMap.put("sign", SapiUtils.urlParamsToMap(str).get("sign"));
+        Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str);
+        hashMap.put("sign", urlParamsToMap.get("sign"));
         hashMap.put(IntentConfig.CMD, str2);
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
             hashMap.put("clientid", this.configuration.clientId);
@@ -371,7 +383,7 @@ public class QrCodeService extends AbstractService {
         if (!TextUtils.isEmpty(this.configuration.clientIp)) {
             hashMap.put("clientip", this.configuration.clientIp);
         }
-        hashMap.put("tpl", this.configuration.tpl);
+        hashMap.put(BaiduRimConstants.TPL_INIT_KEY, this.configuration.tpl);
         hashMap.put("appid", this.configuration.appId);
         SapiAccount session = ServiceManager.getInstance().getIsAccountManager().getSession();
         if (session != null) {
@@ -380,7 +392,7 @@ public class QrCodeService extends AbstractService {
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, session.ptoken);
         }
         hashMap.put("sig", SapiUtils.calculateSig(hashMap, this.configuration.appSignKey));
-        this.asyncHttpClient.post(this.configuration.context, this.domainRetry.getDomain() + SapiEnv.QR_APP_LOGIN_URI, new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.4
+        this.asyncHttpClient.post(this.configuration.context, this.domainRetry.getDomain() + SapiEnv.QR_APP_LOGIN_URI + "?lp=" + (TextUtils.isEmpty(urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP)) ? "app" : urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_LP)), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.QrCodeService.4
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             protected void onStart() {
                 sapiCallback.onStart();

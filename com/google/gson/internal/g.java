@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public abstract class g {
-    public static g bKh() {
+    public static g bMY() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
             Field declaredField = cls.getDeclaredField("theUnsafe");

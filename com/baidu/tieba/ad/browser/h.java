@@ -8,14 +8,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -23,7 +22,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class h implements com.baidu.tieba.tbadkCore.e.b {
-    private AdBaseWebView bnC;
+    private AdBaseWebView btr;
     private final TbPageContext<?> mTbPageContext;
     private final CustomMessageListener installListener = new CustomMessageListener(2002501) { // from class: com.baidu.tieba.ad.browser.h.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +35,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         }
     };
     private final CustomMessageListener downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.ad.browser.h.2
-        private boolean abt;
+        private boolean adV;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -47,16 +46,16 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.abt) {
-                                    this.abt = true;
+                                if (!this.adV) {
+                                    this.adV = true;
                                     h.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 h.this.callDownloadListener(2);
-                                this.abt = false;
+                                this.adV = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 h.this.callDownloadListener(0);
-                                this.abt = false;
+                                this.adV = false;
                             }
                         }
                     }
@@ -77,7 +76,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         if (TextUtils.isEmpty(dataString)) {
             return null;
         }
-        String[] split = dataString.split(SystemInfoUtil.COLON);
+        String[] split = dataString.split(":");
         if (split != null && split.length == 2) {
             return split[1];
         }
@@ -142,11 +141,11 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         if (StringUtils.isNull(str) || (split = str.split("\\.")) == null || split.length == 0) {
             return false;
         }
-        int g = com.baidu.adp.lib.g.b.g(split[0], 0);
-        if (g > 3) {
+        int l = com.baidu.adp.lib.g.b.l(split[0], 0);
+        if (l > 3) {
             return true;
         }
-        return split.length >= 2 && g == 3 && com.baidu.adp.lib.g.b.g(split[1], 0) >= 2;
+        return split.length >= 2 && l == 3 && com.baidu.adp.lib.g.b.l(split[1], 0) >= 2;
     }
 
     private String downLoadAPK(String str, long j, String str2) {
@@ -184,7 +183,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Hk().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(f.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.IA().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(e.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -199,8 +198,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
-        } else if (this.bnC != null) {
-            this.bnC.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
+        } else if (this.btr != null) {
+            this.btr.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
         }
     }
 
@@ -216,8 +215,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
-        } else if (this.bnC != null) {
-            this.bnC.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
+        } else if (this.btr != null) {
+            this.btr.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
         }
     }
 

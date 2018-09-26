@@ -5,8 +5,8 @@ import tbclient.PbPresent;
 import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class am {
-    private int agD;
-    private ArrayList<a> agE;
+    private int ajd;
+    private ArrayList<a> aje;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -18,9 +18,9 @@ public class am {
 
     public void a(PbPresent pbPresent) {
         if (pbPresent != null) {
-            this.agD = pbPresent.total.intValue();
+            this.ajd = pbPresent.total.intValue();
             if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.agE = new ArrayList<>();
+                this.aje = new ArrayList<>();
                 for (PbPresentList pbPresentList : pbPresent.list) {
                     if (pbPresentList != null) {
                         a aVar = new a();
@@ -28,26 +28,26 @@ public class am {
                         aVar.giftName = pbPresentList.gift_name;
                         aVar.thumbnailUrl = pbPresentList.thumbnail_url;
                         aVar.num = pbPresentList.num.intValue();
-                        this.agE.add(aVar);
+                        this.aje.add(aVar);
                     }
                 }
             }
         }
     }
 
-    public int ut() {
-        return this.agD;
+    public int vw() {
+        return this.ajd;
     }
 
-    public void bP(int i) {
-        this.agD = i;
+    public void bY(int i) {
+        this.ajd = i;
     }
 
-    public ArrayList<a> uu() {
-        return this.agE;
+    public ArrayList<a> vx() {
+        return this.aje;
     }
 
     public void k(ArrayList<a> arrayList) {
-        this.agE = arrayList;
+        this.aje = arrayList;
     }
 }

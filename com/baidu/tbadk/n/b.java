@@ -2,7 +2,6 @@ package com.baidu.tbadk.n;
 
 import com.baidu.adp.framework.a.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.util.i;
 /* loaded from: classes.dex */
 public class b extends j {
     public b() {
@@ -17,7 +16,7 @@ public class b extends j {
             return null;
         }
         if (socketResponsedMessage.getError() == 2260104) {
-            i.Ln();
+            com.baidu.tbadk.util.j.ME();
             return socketResponsedMessage;
         }
         return socketResponsedMessage;

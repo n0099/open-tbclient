@@ -1,45 +1,169 @@
 package com.baidu.tbadk.core.util;
 
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.util.ArrayMap;
+import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class ab {
-    private static ArrayList<a> apL = new ArrayList<>();
-    public static AtomicInteger apM = new AtomicInteger(0);
-
-    /* loaded from: classes.dex */
-    public static class a {
-        public int apN;
-        public long apO;
-        public int apP;
-        public int mMode;
-        public long mTime;
-    }
-
-    public static int cJ(int i) {
-        return apM.getAndSet(i);
-    }
-
-    public static int cK(int i) {
-        return apM.addAndGet(i);
-    }
-
-    public static synchronized void a(a aVar) {
-        synchronized (ab.class) {
-            if (aVar != null) {
-                if (apL.size() <= 20) {
-                    apL.add(aVar);
+    public static boolean br(Context context) {
+        boolean z;
+        boolean z2;
+        if (com.baidu.e.a.sl()) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                z = com.baidu.e.a.a.ad(context, "android.permission.READ_PHONE_STATE");
+            } catch (Exception e) {
+                e = e;
+                z = false;
+            }
+            try {
+                z2 = bs(context);
+            } catch (Exception e2) {
+                e = e2;
+                BdLog.e(e.getMessage());
+                z2 = false;
+                if (z2) {
                 }
             }
+            return !z2 && z;
+        }
+        return true;
+    }
+
+    public static boolean bs(Context context) {
+        if (com.baidu.e.a.sl()) {
+            if (context != null) {
+                try {
+                    if (!com.baidu.e.a.a.ad(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                        if (!com.baidu.e.a.a.ad(context, "android.permission.ACCESS_COARSE_LOCATION")) {
+                            return false;
+                        }
+                    }
+                    return true;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return false;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean bt(Context context) {
+        if (!com.baidu.e.a.sl()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.e.a.a.ad(context, "android.permission.CAMERA");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean bu(Context context) {
+        if (!com.baidu.e.a.sl()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.e.a.a.ad(context, "android.permission.RECORD_AUDIO");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean bv(Context context) {
+        if (!com.baidu.e.a.sl()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.e.a.a.ad(context, "android.permission.READ_PHONE_STATE");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static boolean bw(Context context) {
+        if (!com.baidu.e.a.sl()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.e.a.a.ad(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public static void d(Activity activity, int i) {
+        try {
+            com.baidu.e.a.a.requestPermissions(activity, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public static synchronized a yX() {
-        a remove;
-        synchronized (ab.class) {
-            int size = apL.size();
-            remove = size > 0 ? apL.remove(size - 1) : null;
+    public static ArrayMap<String, Boolean> b(String[] strArr, int[] iArr) {
+        if (strArr == null || strArr.length == 0 || iArr == null || iArr.length == 0) {
+            return null;
         }
-        return remove;
+        ArrayMap<String, Boolean> arrayMap = new ArrayMap<>(strArr.length);
+        for (int i = 0; i < strArr.length && i < iArr.length; i++) {
+            arrayMap.put(strArr[i], Boolean.valueOf(iArr[i] == 0));
+        }
+        return arrayMap;
+    }
+
+    public static boolean e(Activity activity, int i) {
+        ArrayList arrayList = new ArrayList(2);
+        if (!bw(activity.getApplicationContext())) {
+            arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
+        }
+        if (!bt(activity.getApplicationContext())) {
+            arrayList.add("android.permission.CAMERA");
+        }
+        if (arrayList.size() == 0) {
+            return false;
+        }
+        try {
+            com.baidu.e.a.a.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return true;
+    }
+
+    public static boolean ai(Context context, String str) {
+        if (!com.baidu.e.a.sl()) {
+            return true;
+        }
+        if (context != null) {
+            try {
+                return com.baidu.e.a.a.ad(context, str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return false;
     }
 }

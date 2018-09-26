@@ -19,7 +19,6 @@ import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.rp.Report;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.IOException;
@@ -613,7 +612,7 @@ public final class e {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    String optString2 = optJSONObject.optString("s");
                     if (packageName.equals(optString) && !TextUtils.isEmpty(str) && str.equalsIgnoreCase(optString2)) {
                         z = true;
                     }
@@ -664,7 +663,7 @@ public final class e {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    String optString2 = optJSONObject.optString("s");
                     if (str.equals(optString) && !TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(optString2)) {
                         return true;
                     }

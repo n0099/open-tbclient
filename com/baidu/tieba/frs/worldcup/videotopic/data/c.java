@@ -11,8 +11,8 @@ import tbclient.VideoTopicList.DataRes;
 import tbclient.VideoTopicList.VideoTopicListResIdl;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.tbadk.mvc.b.c {
-    public List<h> bhG = new ArrayList();
-    public int cEM;
+    public List<h> bny = new ArrayList();
+    public int cKD;
 
     @Override // com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
@@ -28,21 +28,21 @@ public class c implements com.baidu.tbadk.mvc.b.c {
                 for (ThreadInfo threadInfo : list) {
                     bb bbVar = new bb();
                     bbVar.a(threadInfo);
-                    if (bbVar.getType() == bb.ahM) {
-                        this.bhG.add(bbVar);
+                    if (bbVar.getType() == bb.akm) {
+                        this.bny.add(bbVar);
                     }
                 }
             }
-            this.cEM = dataRes.has_more.intValue();
+            this.cKD = dataRes.has_more.intValue();
         }
     }
 
-    public List<h> aBU() {
-        return this.bhG;
+    public List<h> aEh() {
+        return this.bny;
     }
 
-    public Integer aBV() {
-        return Integer.valueOf(this.cEM);
+    public Integer aEi() {
+        return Integer.valueOf(this.cKD);
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -51,16 +51,16 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Jw() {
+    public byte[] KM() {
         return new byte[0];
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void u(JSONObject jSONObject) {
+    public void E(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean y(byte[] bArr) {
+    public boolean G(byte[] bArr) {
         return false;
     }
 }

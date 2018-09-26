@@ -22,45 +22,45 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tbadk.util.u;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.x;
 import com.baidu.tbadk.widget.richText.c;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.imMessageCenter.mention.officialNotification.OfficialNotificationListModel;
 /* loaded from: classes2.dex */
 public class OfficialNotificationFragment extends BaseFragment implements View.OnClickListener, NoNetworkView.a {
-    private com.baidu.tieba.imMessageCenter.mention.officialNotification.b eHE;
-    private OfficialNotificationListModel eHF;
+    private com.baidu.tieba.imMessageCenter.mention.officialNotification.b eOU;
+    private OfficialNotificationListModel eOV;
     private TbPageContext mPageContext;
     private String mUid;
-    private CustomMessageListener elH = new CustomMessageListener(2001332) { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.1
+    private CustomMessageListener etb = new CustomMessageListener(2001332) { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a)) {
                 c.a aVar = (c.a) customResponsedMessage.getData();
-                com.baidu.tbadk.widget.richText.c.a(OfficialNotificationFragment.this.getPageContext().getPageActivity(), OfficialNotificationFragment.this.eHG, aVar.type, aVar.url, aVar.subType);
+                com.baidu.tbadk.widget.richText.c.a(OfficialNotificationFragment.this.getPageContext().getPageActivity(), OfficialNotificationFragment.this.eOW, aVar.type, aVar.url, aVar.subType);
             }
         }
     };
-    protected com.baidu.adp.base.d elI = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.3
+    protected com.baidu.adp.base.d etd = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.3
         @Override // com.baidu.adp.base.d
-        public void i(Object obj) {
-            if (OfficialNotificationFragment.this.eHF != null && OfficialNotificationFragment.this.eHE != null && !ap.isEmpty(OfficialNotificationFragment.this.mUid) && OfficialNotificationFragment.this.eHF.getUser() != null && ap.equals(OfficialNotificationFragment.this.mUid, OfficialNotificationFragment.this.eHF.getUser().getUserId())) {
-                switch (OfficialNotificationFragment.this.eHF.getLoadDataMode()) {
+        public void j(Object obj) {
+            if (OfficialNotificationFragment.this.eOV != null && OfficialNotificationFragment.this.eOU != null && !ao.isEmpty(OfficialNotificationFragment.this.mUid) && OfficialNotificationFragment.this.eOV.getUser() != null && ao.equals(OfficialNotificationFragment.this.mUid, OfficialNotificationFragment.this.eOV.getUser().getUserId())) {
+                switch (OfficialNotificationFragment.this.eOV.getLoadDataMode()) {
                     case 1:
-                        OfficialNotificationFragment.this.eHE.refreshGo2New(OfficialNotificationFragment.this.eHF.getData());
+                        OfficialNotificationFragment.this.eOU.refreshGo2New(OfficialNotificationFragment.this.eOV.getData());
                         return;
                     case 2:
-                        OfficialNotificationFragment.this.eHE.refreshPrepage(OfficialNotificationFragment.this.eHF.getData());
+                        OfficialNotificationFragment.this.eOU.refreshPrepage(OfficialNotificationFragment.this.eOV.getData());
                         return;
                     case 3:
-                        OfficialNotificationFragment.this.eHE.refreshCheckNew(OfficialNotificationFragment.this.eHF.getData());
+                        OfficialNotificationFragment.this.eOU.refreshCheckNew(OfficialNotificationFragment.this.eOV.getData());
                         return;
                     default:
                         return;
@@ -68,74 +68,74 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
             }
         }
     };
-    com.baidu.tbadk.widget.richText.e eHG = new com.baidu.tbadk.widget.richText.e() { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.4
+    com.baidu.tbadk.widget.richText.e eOW = new com.baidu.tbadk.widget.richText.e() { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.4
         @Override // com.baidu.tbadk.widget.richText.e
         public ListView getListView() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public int Od() {
+        public int Pw() {
             return 0;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public com.baidu.adp.lib.e.b<ImageView> Oe() {
+        public com.baidu.adp.lib.e.b<ImageView> Px() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public com.baidu.adp.lib.e.b<TextView> Of() {
+        public com.baidu.adp.lib.e.b<TextView> Py() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public com.baidu.adp.lib.e.b<GifView> Og() {
+        public com.baidu.adp.lib.e.b<GifView> Pz() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public com.baidu.adp.lib.e.b<View> Oh() {
+        public com.baidu.adp.lib.e.b<View> PA() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public com.baidu.adp.lib.e.b<LinearLayout> Oi() {
+        public com.baidu.adp.lib.e.b<LinearLayout> PB() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public com.baidu.adp.lib.e.b<RelativeLayout> Oj() {
+        public com.baidu.adp.lib.e.b<RelativeLayout> PC() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public void X(Context context, String str) {
+        public void am(Context context, String str) {
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public void d(Context context, String str, boolean z) {
-            az.zI().c(OfficialNotificationFragment.this.getPageContext(), new String[]{str});
+        public void e(Context context, String str, boolean z) {
+            ay.AN().c(OfficialNotificationFragment.this.getPageContext(), new String[]{str});
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public void Y(Context context, String str) {
+        public void an(Context context, String str) {
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public void Z(Context context, String str) {
+        public void ao(Context context, String str) {
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public void aa(Context context, String str) {
+        public void ap(Context context, String str) {
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public void h(Context context, String str, String str2) {
+        public void i(Context context, String str, String str2) {
         }
 
         @Override // com.baidu.tbadk.widget.richText.e
-        public void ab(Context context, String str) {
+        public void aq(Context context, String str) {
         }
     };
 
@@ -149,41 +149,41 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.eHE = new com.baidu.tieba.imMessageCenter.mention.officialNotification.b(this.mPageContext, this, viewGroup);
-        if (this.eHF != null) {
-            this.eHE.a(this.eHF.getData());
-            this.eHF.loadFirst(null);
+        this.eOU = new com.baidu.tieba.imMessageCenter.mention.officialNotification.b(this.mPageContext, this, viewGroup);
+        if (this.eOV != null) {
+            this.eOU.a(this.eOV.getData());
+            this.eOV.loadFirst(null);
         }
-        return this.eHE.getView();
+        return this.eOU.getView();
     }
 
     protected boolean o(Bundle bundle) {
-        this.mUid = com.baidu.tbadk.coreExtra.messageCenter.a.Dl().DN();
-        this.eHF = new OfficialNotificationListModel(this.mPageContext);
-        this.eHF.setLoadDataCallBack(this.elI);
+        this.mUid = com.baidu.tbadk.coreExtra.messageCenter.a.Ey().Fa();
+        this.eOV = new OfficialNotificationListModel(this.mPageContext);
+        this.eOV.setLoadDataCallBack(this.etd);
         if (bundle != null) {
             p(bundle);
             return true;
         }
-        aGM();
+        aJb();
         return true;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void aR(boolean z) {
+    public void bd(boolean z) {
     }
 
     protected void p(Bundle bundle) {
-        if (this.eHF != null) {
-            this.eHF.setIsAcceptNotify(true);
+        if (this.eOV != null) {
+            this.eOV.setIsAcceptNotify(true);
             q(bundle);
         }
     }
 
-    protected void aGM() {
-        if (this.eHF != null) {
-            this.eHF.setIsAcceptNotify(true);
-            aPf();
+    protected void aJb() {
+        if (this.eOV != null) {
+            this.eOV.setIsAcceptNotify(true);
+            aRu();
         }
     }
 
@@ -191,25 +191,25 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             c(userData);
-            this.eHF.setUser(userData);
+            this.eOV.setUser(userData);
         }
     }
 
-    protected void aPf() {
-        if (!ap.isEmpty(this.mUid) && this.mPageContext != null && this.eHF != null) {
-            UserData userData = new UserData(Long.parseLong(this.mUid), this.mPageContext.getString(f.j.system_message), null, 0);
+    protected void aRu() {
+        if (!ao.isEmpty(this.mUid) && this.mPageContext != null && this.eOV != null) {
+            UserData userData = new UserData(Long.parseLong(this.mUid), this.mPageContext.getString(e.j.system_message), null, 0);
             c(userData);
-            this.eHF.setUser(userData);
+            this.eOV.setUser(userData);
         }
     }
 
     protected void c(final UserData userData) {
-        v.b(new u<Void>() { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.2
+        x.b(new w<Void>() { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.u
-            /* renamed from: Rx */
+            @Override // com.baidu.tbadk.util.w
+            /* renamed from: Tl */
             public Void doInBackground() {
-                com.baidu.tieba.im.settingcache.d.aNs().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
+                com.baidu.tieba.im.settingcache.d.aPH().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
                 return null;
             }
         }, null);
@@ -218,50 +218,50 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        registerListener(this.elH);
+        registerListener(this.etb);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.elH);
+        MessageManager.getInstance().unRegisterListener(this.etb);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.eHF.onDestroy();
-        this.eHF.setLoadDataCallBack(null);
+        this.eOV.onDestroy();
+        this.eOV.setLoadDataCallBack(null);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
         int id = view.getId();
-        if ((id == f.g.iv_head || id == f.g.tv_user_name) && !ap.isEmpty(this.mUid)) {
+        if ((id == e.g.iv_head || id == e.g.tv_user_name) && !ao.isEmpty(this.mUid)) {
             TiebaStatic.log("c12938");
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecommendDetailActivityConfig(getPageContext().getPageActivity(), null, Long.parseLong(this.mUid))));
         }
     }
 
-    public void ahe() {
-        if (this.eHF != null) {
-            this.eHF.loadPrepage();
+    public void aiQ() {
+        if (this.eOV != null) {
+            this.eOV.loadPrepage();
         }
     }
 
     public boolean getHasMore() {
-        if (this.eHF == null || this.eHF.getData() == null) {
+        if (this.eOV == null || this.eOV.getData() == null) {
             return true;
         }
-        return this.eHF.getData().getIsNewAdd();
+        return this.eOV.getData().getIsNewAdd();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eHE != null) {
-            this.eHE.onChangeSkinType();
+        if (this.eOU != null) {
+            this.eOU.onChangeSkinType();
         }
     }
 }

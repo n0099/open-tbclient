@@ -4,13 +4,13 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class e extends Handler {
-    private static final e AN = new e();
+    private static final e Di = new e();
 
     private e() {
         super(Looper.getMainLooper());
     }
 
-    public static final e in() {
-        return AN;
+    public static final e jt() {
+        return Di;
     }
 }

@@ -4,7 +4,7 @@ import com.google.gson.internal.LazilyParsedNumber;
 import java.math.BigInteger;
 /* loaded from: classes2.dex */
 public final class k extends h {
-    private static final Class<?>[] hFs = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] hNM = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public k(Boolean bool) {
@@ -24,54 +24,54 @@ public final class k extends h {
             this.value = String.valueOf(((Character) obj).charValue());
             return;
         }
-        com.google.gson.internal.a.checkArgument((obj instanceof Number) || ah(obj));
+        com.google.gson.internal.a.checkArgument((obj instanceof Number) || ak(obj));
         this.value = obj;
     }
 
-    public boolean bJW() {
+    public boolean bMN() {
         return this.value instanceof Boolean;
     }
 
     @Override // com.google.gson.h
-    Boolean bJV() {
+    Boolean bMM() {
         return (Boolean) this.value;
     }
 
     @Override // com.google.gson.h
     public boolean getAsBoolean() {
-        return bJW() ? bJV().booleanValue() : Boolean.parseBoolean(bJN());
+        return bMN() ? bMM().booleanValue() : Boolean.parseBoolean(bME());
     }
 
-    public boolean bJX() {
+    public boolean bMO() {
         return this.value instanceof Number;
     }
 
     @Override // com.google.gson.h
-    public Number bJM() {
+    public Number bMD() {
         return this.value instanceof String ? new LazilyParsedNumber((String) this.value) : (Number) this.value;
     }
 
-    public boolean bJY() {
+    public boolean bMP() {
         return this.value instanceof String;
     }
 
     @Override // com.google.gson.h
-    public String bJN() {
-        if (bJX()) {
-            return bJM().toString();
+    public String bME() {
+        if (bMO()) {
+            return bMD().toString();
         }
-        if (bJW()) {
-            return bJV().toString();
+        if (bMN()) {
+            return bMM().toString();
         }
         return (String) this.value;
     }
 
-    private static boolean ah(Object obj) {
+    private static boolean ak(Object obj) {
         if (obj instanceof String) {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class<?> cls2 : hFs) {
+        for (Class<?> cls2 : hNM) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }
@@ -84,10 +84,10 @@ public final class k extends h {
             return 31;
         }
         if (a(this)) {
-            long longValue = bJM().longValue();
+            long longValue = bMD().longValue();
             return (int) (longValue ^ (longValue >>> 32));
         } else if (this.value instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(bJM().doubleValue());
+            long doubleToLongBits = Double.doubleToLongBits(bMD().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
             return this.value.hashCode();
@@ -106,10 +106,10 @@ public final class k extends h {
         if (this.value == null) {
             return kVar.value == null;
         } else if (a(this) && a(kVar)) {
-            return bJM().longValue() == kVar.bJM().longValue();
+            return bMD().longValue() == kVar.bMD().longValue();
         } else if ((this.value instanceof Number) && (kVar.value instanceof Number)) {
-            double doubleValue = bJM().doubleValue();
-            double doubleValue2 = kVar.bJM().doubleValue();
+            double doubleValue = bMD().doubleValue();
+            double doubleValue2 = kVar.bMD().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
                 z = true;
             }

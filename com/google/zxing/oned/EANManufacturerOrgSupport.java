@@ -2,7 +2,6 @@ package com.google.zxing.oned;
 
 import com.baidu.ar.external.ARCallback;
 import com.baidu.ar.util.MsgConstants;
-import com.baidu.sapi2.biometrics.liveness.camera.a;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
@@ -56,7 +55,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{477}, "LT");
             add(new int[]{478}, "UZ");
             add(new int[]{479}, "LK");
-            add(new int[]{a.d}, "PH");
+            add(new int[]{480}, "PH");
             add(new int[]{481}, "BY");
             add(new int[]{482}, "UA");
             add(new int[]{484}, "MD");

@@ -3,53 +3,53 @@ package com.baidu.tieba.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.h;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class b implements h {
-    public static final BdUniqueId dNm = BdUniqueId.gen();
-    private int cBI;
-    private List<a> dNn;
-    private String dNo;
-    private String dNp;
+    public static final BdUniqueId dUE = BdUniqueId.gen();
+    private int cHA;
+    private List<a> dUF;
+    private String dUG;
+    private String dUH;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.cBI = esport.floor_no.intValue();
+            this.cHA = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.dNo = esport._static.img;
-                this.dNp = esport._static.url;
+                this.dUG = esport._static.img;
+                this.dUH = esport._static.url;
             }
-            this.dNn = new ArrayList();
-            if (!StringUtils.isNull(this.dNo)) {
+            this.dUF = new ArrayList();
+            if (!StringUtils.isNull(this.dUG)) {
                 a aVar = new a();
-                aVar.nl(this.dNo);
-                aVar.nm(this.dNp);
-                this.dNn.add(aVar);
+                aVar.nQ(this.dUG);
+                aVar.nR(this.dUH);
+                this.dUF.add(aVar);
             }
-            if (!w.z(esport.billboard)) {
+            if (!v.z(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.dNn.add(aVar2);
+                    this.dUF.add(aVar2);
                 }
             }
         }
     }
 
-    public int aCe() {
-        return this.cBI;
+    public int aEr() {
+        return this.cHA;
     }
 
-    public List<a> aCf() {
-        return this.dNn;
+    public List<a> aEs() {
+        return this.dUF;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dNm;
+        return dUE;
     }
 }

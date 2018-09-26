@@ -1,10 +1,10 @@
 package com.baidu.sapi2.passhost.framework.a;
 
 import android.content.Context;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiBaseService;
-import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 /* loaded from: classes.dex */
@@ -12,17 +12,18 @@ public class a implements ISapiBaseService {
     private static final String a = "SapiBaseService";
     private Context b;
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0084a {
+    public static class C0081a {
         public static a a = new a();
 
-        private C0084a() {
+        private C0081a() {
         }
     }
 
     public static a a() {
-        return C0084a.a;
+        return C0081a.a;
     }
 
     public void a(Context context) {
@@ -85,9 +86,9 @@ public class a implements ISapiBaseService {
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiBaseService
     public String getAppZid() {
         String str = null;
-        ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
-        if (isAccountManager.getSession() != null) {
-            str = isAccountManager.getSession().uid;
+        SapiAccount session = ServiceManager.getInstance().getIsAccountManager().getSession();
+        if (session != null) {
+            str = session.uid;
         }
         return SafeService.getInstance().getZidAndCheckSafe(this.b, str, 1);
     }

@@ -5,19 +5,19 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static final String ZX = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String ZY = String.valueOf(2147483646);
-    private MediaFileInfo ZZ;
-    private List<MediaFileInfo> aaa;
+    private MediaFileInfo acB;
+    private List<MediaFileInfo> acC;
     private String albumId;
     private int count;
     private String name;
+    public static final String acz = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static final String acA = String.valueOf(2147483646);
 
     public String getAlbumId() {
         return this.albumId;
     }
 
-    public void cF(String str) {
+    public void cW(String str) {
         this.albumId = str;
     }
 
@@ -33,34 +33,34 @@ public class a {
         return this.count;
     }
 
-    public void cG(String str) {
-        this.count = com.baidu.adp.lib.g.b.g(str, 0);
+    public void cX(String str) {
+        this.count = com.baidu.adp.lib.g.b.l(str, 0);
     }
 
-    public void rw() {
+    public void sC() {
         this.count++;
     }
 
-    public ImageFileInfo rx() {
-        if (this.ZZ instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.ZZ;
+    public ImageFileInfo sD() {
+        if (this.acB instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.acB;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.ZZ = mediaFileInfo;
+        this.acB = mediaFileInfo;
     }
 
-    public MediaFileInfo ry() {
-        return this.ZZ;
+    public MediaFileInfo sE() {
+        return this.acB;
     }
 
-    public List<MediaFileInfo> rz() {
-        return this.aaa;
+    public List<MediaFileInfo> sF() {
+        return this.acC;
     }
 
     public void o(List<MediaFileInfo> list) {
-        this.aaa = list;
+        this.acC = list;
     }
 }

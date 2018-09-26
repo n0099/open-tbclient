@@ -11,19 +11,34 @@ import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetFPResponse implements IBeanResponse {
     public RimConfig conf;
     public String confSign;
+    public Exp[] exps;
     public RimFp fp;
     public SoDownloadInfo so_download;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CommonConfig implements NoProguard {
         public String init_delay;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public static class Exp implements NoProguard {
+        public ExpContent[] exp_contents;
+        public String exp_id;
+        public String exp_version;
+        public String is_enable;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class ExpContent implements NoProguard {
+        public String exp_name;
+        public String exp_value;
+    }
+
+    /* loaded from: classes3.dex */
     public static class OcrConfig implements NoProguard {
         public int id_capture_interval;
         public int id_capture_max_num;
@@ -32,19 +47,19 @@ public class GetFPResponse implements IBeanResponse {
         public String id_logo_text;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RimConfig implements NoProguard {
         public CommonConfig common;
         public LivenessConfig living;
         public OcrConfig ocr;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class RimFp implements NoProguard {
         public String fp;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SoDownloadInfo implements NoProguard {
         public boolean enable;
         public boolean extra_global_enable;
@@ -53,7 +68,7 @@ public class GetFPResponse implements IBeanResponse {
         public String zip_version;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SoInfo implements NoProguard {
         public String cpu;
         public String hash;
@@ -85,12 +100,15 @@ public class GetFPResponse implements IBeanResponse {
                 BdWalletUtils.setRimSoDownload(context, json2);
             }
         }
-        if (!TextUtils.isEmpty(this.confSign)) {
-            BdWalletUtils.setRimAllConfiChangeSign(context, this.confSign);
+        if (this.exps != null) {
+            String json3 = JsonUtils.toJson(this.exps);
+            if (!TextUtils.isEmpty(json3)) {
+                BdWalletUtils.setExps(context, json3);
+            }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LivenessConfig implements NoProguard {
         public static final int CROP_FACE_RATIO = 3;
         public static final int CROP_FACE_SIZE = 256;
@@ -98,6 +116,9 @@ public class GetFPResponse implements IBeanResponse {
         public static final int ILLUM_THR = 40;
         public static final int LIVENESS_RECOG_TYPE_BLINK = 1;
         public static final int LIVENESS_RECOG_TYPE_OPEN_MOUTH = 2;
+        public static final String LIVENESS_STATISTICS_REPORTTYPE_DONNOTUSE = "0";
+        public static final String LIVENESS_STATISTICS_REPORTTYPE_TIMEOUT_ANYWAY = "2";
+        public static final String LIVENESS_STATISTICS_REPORTTYPE_TIMEOUT_NOFACE = "1";
         public static final int MAX_REG_IMG_NUM = 3;
         public static final int MIN_FACE_SIZE = 100;
         public static final int PITCH = 15;
@@ -114,6 +135,8 @@ public class GetFPResponse implements IBeanResponse {
         public String recog_time_interval;
         public String recog_upload_portrait_count;
         public String record_video_spno_list;
+        public String report_type;
+        public SpConf sp_conf;
         public String switch_record_video;
         public String min_face_size = String.valueOf(100);
         public String illum_thr = String.valueOf(40);
@@ -126,6 +149,11 @@ public class GetFPResponse implements IBeanResponse {
         public String prefetch_reg_img_interval = String.valueOf(300);
         public String crop_face_ratio = String.valueOf(3);
         public String crop_face_size = String.valueOf(256);
+
+        /* loaded from: classes3.dex */
+        public static class SpConf implements NoProguard {
+            public String tip_msg;
+        }
 
         public int getMinFaceSize() {
             if (!TextUtils.isEmpty(this.min_face_size)) {
@@ -357,6 +385,10 @@ public class GetFPResponse implements IBeanResponse {
                 e.printStackTrace();
             }
             return false;
+        }
+
+        public boolean isStatisticsEnable() {
+            return (TextUtils.isEmpty(this.report_type) || this.report_type.equals("0")) ? false : true;
         }
     }
 }

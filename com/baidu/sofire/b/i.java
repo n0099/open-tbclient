@@ -6,7 +6,6 @@ import android.os.Build;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,7 +27,7 @@ public final class i {
             switch (c) {
                 case 1:
                     String str3 = str + "\r\n{libpath=" + d.libPath + "}";
-                    for (String str4 : com.baidu.sofire.core.e.a().d(str2).libPath.split(SystemInfoUtil.COLON)) {
+                    for (String str4 : com.baidu.sofire.core.e.a().d(str2).libPath.split(":")) {
                         if (str4.startsWith("/data/data/")) {
                             File file = new File(str4);
                             if (!file.exists()) {
@@ -42,7 +41,7 @@ public final class i {
                                 while (i < length) {
                                     File file2 = listFiles[i];
                                     i++;
-                                    str3 = str3 + "\r\n{" + file2.getAbsolutePath() + SystemInfoUtil.COLON + n.a(file2) + "}\r\n";
+                                    str3 = str3 + "\r\n{" + file2.getAbsolutePath() + ":" + n.a(file2) + "}\r\n";
                                 }
                             }
                         }
@@ -94,7 +93,7 @@ public final class i {
                     j += a(file2, jSONArray);
                 } else if (file2.exists()) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(ClientCookie.PATH_ATTR, file2.getAbsolutePath());
+                    jSONObject.put("path", file2.getAbsolutePath());
                     jSONObject.put("size", file2.length());
                     jSONArray.put(jSONObject);
                     j += file2.length();

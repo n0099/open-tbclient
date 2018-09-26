@@ -11,23 +11,23 @@ import android.widget.ImageView;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdRoundedImageView extends ImageView {
-    private static final ImageView.ScaleType[] KS = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
-    private boolean KP;
-    private ColorStateList KQ;
-    private ImageView.ScaleType KR;
-    private int KT;
-    private boolean KU;
-    private Drawable KV;
+    private static final ImageView.ScaleType[] Ns = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+    private boolean Np;
+    private ColorStateList Nq;
+    private ImageView.ScaleType Nr;
+    private int Nt;
+    private boolean Nu;
+    private Drawable Nv;
     private int mBorderWidth;
     private Drawable mDrawable;
 
     public BdRoundedImageView(Context context) {
         super(context);
-        this.KT = 0;
+        this.Nt = 0;
         this.mBorderWidth = 0;
-        this.KQ = ColorStateList.valueOf(0);
-        this.KU = false;
-        this.KP = false;
+        this.Nq = ColorStateList.valueOf(0);
+        this.Nu = false;
+        this.Np = false;
     }
 
     public BdRoundedImageView(Context context, AttributeSet attributeSet) {
@@ -36,32 +36,32 @@ public class BdRoundedImageView extends ImageView {
 
     public BdRoundedImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.KT = 0;
+        this.Nt = 0;
         this.mBorderWidth = 0;
-        this.KQ = ColorStateList.valueOf(0);
-        this.KU = false;
-        this.KP = false;
+        this.Nq = ColorStateList.valueOf(0);
+        this.Nu = false;
+        this.Np = false;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.BdRoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(R.styleable.BdRoundedImageView_android_scaleType, -1);
         if (i2 >= 0) {
-            setScaleType(KS[i2]);
+            setScaleType(Ns[i2]);
         }
-        this.KT = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BdRoundedImageView_corner_radius, -1);
+        this.Nt = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BdRoundedImageView_corner_radius, -1);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BdRoundedImageView_border_width, -1);
-        if (this.KT < 0) {
-            this.KT = 0;
+        if (this.Nt < 0) {
+            this.Nt = 0;
         }
         if (this.mBorderWidth < 0) {
             this.mBorderWidth = 0;
         }
-        this.KQ = obtainStyledAttributes.getColorStateList(R.styleable.BdRoundedImageView_border_color);
-        if (this.KQ == null) {
-            this.KQ = ColorStateList.valueOf(0);
+        this.Nq = obtainStyledAttributes.getColorStateList(R.styleable.BdRoundedImageView_border_color);
+        if (this.Nq == null) {
+            this.Nq = ColorStateList.valueOf(0);
         }
-        this.KU = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_round_background, false);
-        this.KP = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_is_oval, false);
-        nj();
-        nk();
+        this.Nu = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_round_background, false);
+        this.Np = obtainStyledAttributes.getBoolean(R.styleable.BdRoundedImageView_is_oval, false);
+        op();
+        oq();
         obtainStyledAttributes.recycle();
     }
 
@@ -73,7 +73,7 @@ public class BdRoundedImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public ImageView.ScaleType getScaleType() {
-        return this.KR;
+        return this.Nr;
     }
 
     @Override // android.widget.ImageView
@@ -81,8 +81,8 @@ public class BdRoundedImageView extends ImageView {
         if (scaleType == null) {
             throw new NullPointerException();
         }
-        if (this.KR != scaleType) {
-            this.KR = scaleType;
+        if (this.Nr != scaleType) {
+            this.Nr = scaleType;
             switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[scaleType.ordinal()]) {
                 case 1:
                 case 2:
@@ -97,8 +97,8 @@ public class BdRoundedImageView extends ImageView {
                     super.setScaleType(scaleType);
                     break;
             }
-            nj();
-            nk();
+            op();
+            oq();
             invalidate();
         }
     }
@@ -145,7 +145,7 @@ public class BdRoundedImageView extends ImageView {
     public void setImageDrawable(Drawable drawable) {
         if (drawable != null) {
             this.mDrawable = b.c(drawable);
-            nj();
+            op();
         } else {
             this.mDrawable = null;
         }
@@ -156,25 +156,25 @@ public class BdRoundedImageView extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         if (bitmap != null && !bitmap.isRecycled()) {
             this.mDrawable = new b(bitmap);
-            nj();
+            op();
         } else {
             this.mDrawable = null;
         }
         super.setImageDrawable(this.mDrawable);
     }
 
-    private void nj() {
+    private void op() {
         a(this.mDrawable, false);
     }
 
-    private void nk() {
-        a(this.KV, true);
+    private void oq() {
+        a(this.Nv, true);
     }
 
     private void a(Drawable drawable, boolean z) {
         if (drawable != null) {
             if (drawable instanceof b) {
-                ((b) drawable).b(this.KR).L((this.KU || !z) ? this.KT : 0.0f).aF((this.KU || !z) ? this.mBorderWidth : 0).a(this.KQ).X(this.KP);
+                ((b) drawable).b(this.Nr).L((this.Nu || !z) ? this.Nt : 0.0f).aP((this.Nu || !z) ? this.mBorderWidth : 0).a(this.Nq).ah(this.Np);
             } else if (drawable instanceof LayerDrawable) {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -187,20 +187,20 @@ public class BdRoundedImageView extends ImageView {
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
-        this.KV = b.c(drawable);
-        nk();
-        super.setBackgroundDrawable(this.KV);
+        this.Nv = b.c(drawable);
+        oq();
+        super.setBackgroundDrawable(this.Nv);
     }
 
     public int getCornerRadius() {
-        return this.KT;
+        return this.Nt;
     }
 
     public void setCornerRadius(int i) {
-        if (this.KT != i) {
-            this.KT = i;
-            nj();
-            nk();
+        if (this.Nt != i) {
+            this.Nt = i;
+            op();
+            oq();
         }
     }
 
@@ -211,14 +211,14 @@ public class BdRoundedImageView extends ImageView {
     public void setBorderWidth(int i) {
         if (this.mBorderWidth != i) {
             this.mBorderWidth = i;
-            nj();
-            nk();
+            op();
+            oq();
             invalidate();
         }
     }
 
     public int getBorderColor() {
-        return this.KQ.getDefaultColor();
+        return this.Nq.getDefaultColor();
     }
 
     public void setBorderColor(int i) {
@@ -226,17 +226,17 @@ public class BdRoundedImageView extends ImageView {
     }
 
     public ColorStateList getBorderColors() {
-        return this.KQ;
+        return this.Nq;
     }
 
     public void setBorderColors(ColorStateList colorStateList) {
-        if (!this.KQ.equals(colorStateList)) {
+        if (!this.Nq.equals(colorStateList)) {
             if (colorStateList == null) {
                 colorStateList = ColorStateList.valueOf(0);
             }
-            this.KQ = colorStateList;
-            nj();
-            nk();
+            this.Nq = colorStateList;
+            op();
+            oq();
             if (this.mBorderWidth > 0) {
                 invalidate();
             }
@@ -244,9 +244,9 @@ public class BdRoundedImageView extends ImageView {
     }
 
     public void setOval(boolean z) {
-        this.KP = z;
-        nj();
-        nk();
+        this.Np = z;
+        op();
+        oq();
         invalidate();
     }
 
@@ -257,9 +257,9 @@ public class BdRoundedImageView extends ImageView {
     }
 
     public void setRoundBackground(boolean z) {
-        if (this.KU != z) {
-            this.KU = z;
-            nk();
+        if (this.Nu != z) {
+            this.Nu = z;
+            oq();
             invalidate();
         }
     }

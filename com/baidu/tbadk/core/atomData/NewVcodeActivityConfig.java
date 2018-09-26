@@ -19,7 +19,7 @@ public class NewVcodeActivityConfig extends IntentConfig {
         if (writeData != null) {
             getIntent().putExtra("model", writeData);
             getIntent().putExtra("is_ad", z);
-            getIntent().putExtra("page_type", b.g(str, 0));
+            getIntent().putExtra("page_type", b.l(str, 0));
         }
     }
 

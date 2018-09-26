@@ -9,27 +9,27 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaGameRecommendModel extends BdBaseModel {
     public static final int FIRST_PN = 1;
-    private boolean buS;
-    private HttpMessageListener dzc;
-    private a dzd;
+    private boolean bAH;
+    private HttpMessageListener dFM;
+    private a dFN;
     private boolean hasMore;
     private String mForumId;
     private int mPn;
-    private BdUniqueId bwB = BdUniqueId.gen();
-    private com.baidu.tieba.frs.gamerecommend.b.a dze = new com.baidu.tieba.frs.gamerecommend.b.a();
+    private BdUniqueId bCq = BdUniqueId.gen();
+    private com.baidu.tieba.frs.gamerecommend.b.a dFO = new com.baidu.tieba.frs.gamerecommend.b.a();
 
     /* loaded from: classes3.dex */
     public interface a {
-        void b(int i, String str, boolean z);
-
         void b(boolean z, List<h> list);
+
+        void e(int i, String str, boolean z);
     }
 
     static /* synthetic */ int d(AlaGameRecommendModel alaGameRecommendModel) {
@@ -40,73 +40,73 @@ public class AlaGameRecommendModel extends BdBaseModel {
 
     public AlaGameRecommendModel(String str, a aVar) {
         this.mForumId = str;
-        this.dzd = aVar;
-        aya();
+        this.dFN = aVar;
+        aAp();
         registerListener();
     }
 
-    private void aya() {
+    private void aAp() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO, TbConfig.SERVER_ADDRESS + "c/f/game/gameForumRecomTab");
         tbHttpMessageTask.setResponsedClass(AlaGameRecommendReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     private void registerListener() {
-        this.dzc = new HttpMessageListener(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO) { // from class: com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.1
+        this.dFM = new HttpMessageListener(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO) { // from class: com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaGameRecommendModel.this.bwB) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaGameRecommendModel.this.bCq) {
                     AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                     if (alaGameRecommendReponseMessage.hasError() || alaGameRecommendReponseMessage.getError() != 0) {
-                        if (AlaGameRecommendModel.this.dzd != null) {
-                            AlaGameRecommendModel.this.dzd.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaGameRecommendModel.this.buS);
+                        if (AlaGameRecommendModel.this.dFN != null) {
+                            AlaGameRecommendModel.this.dFN.e(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaGameRecommendModel.this.bAH);
                         }
                     } else {
                         com.baidu.tieba.frs.gamerecommend.data.a data = alaGameRecommendReponseMessage.getData();
                         if (data != null) {
                             AlaGameRecommendModel.this.hasMore = data.hasMore;
-                            if (AlaGameRecommendModel.this.buS) {
+                            if (AlaGameRecommendModel.this.bAH) {
                                 AlaGameRecommendModel.d(AlaGameRecommendModel.this);
                             }
-                            AlaGameRecommendModel.this.dze.a(AlaGameRecommendModel.this.mPn, data);
-                            if (AlaGameRecommendModel.this.dzd != null) {
-                                AlaGameRecommendModel.this.dzd.b(AlaGameRecommendModel.this.hasMore, AlaGameRecommendModel.this.dze.getData());
+                            AlaGameRecommendModel.this.dFO.a(AlaGameRecommendModel.this.mPn, data);
+                            if (AlaGameRecommendModel.this.dFN != null) {
+                                AlaGameRecommendModel.this.dFN.b(AlaGameRecommendModel.this.hasMore, AlaGameRecommendModel.this.dFO.getData());
                             }
                         } else {
                             return;
                         }
                     }
-                    AlaGameRecommendModel.this.buS = false;
+                    AlaGameRecommendModel.this.bAH = false;
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.dzc);
+        MessageManager.getInstance().registerListener(this.dFM);
     }
 
     public void loadData() {
-        this.buS = false;
+        this.bAH = false;
         this.mPn = 1;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
         httpMessage.addParam("forum_id", this.mForumId);
         httpMessage.addParam("recom_pn", this.mPn);
-        httpMessage.setTag(this.bwB);
+        httpMessage.setTag(this.bCq);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void Tq() {
-        if (this.hasMore && !this.buS) {
-            this.buS = true;
+    public void Vd() {
+        if (this.hasMore && !this.bAH) {
+            this.bAH = true;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
             httpMessage.addParam("forum_id", this.mForumId);
             httpMessage.addParam("recom_pn", this.mPn + 1);
-            httpMessage.setTag(this.bwB);
+            httpMessage.setTag(this.bCq);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasData() {
-        return !w.z(this.dze.getData());
+        return !v.z(this.dFO.getData());
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -121,6 +121,6 @@ public class AlaGameRecommendModel extends BdBaseModel {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
-        MessageManager.getInstance().unRegisterListener(this.dzc);
+        MessageManager.getInstance().unRegisterListener(this.dFM);
     }
 }

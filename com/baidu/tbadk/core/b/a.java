@@ -4,26 +4,26 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
 public abstract class a {
-    public BdUniqueId acU;
-    public HttpResponsedMessage acV;
+    public BdUniqueId afv;
+    public HttpResponsedMessage afw;
 
     private a() {
     }
 
     /* renamed from: com.baidu.tbadk.core.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0099a extends a {
+    public static class C0098a extends a {
         public long channelId;
 
-        public C0099a() {
+        public C0098a() {
             super();
         }
 
-        public static C0099a a(long j, BdUniqueId bdUniqueId) {
-            C0099a c0099a = new C0099a();
-            c0099a.channelId = j;
-            c0099a.acU = bdUniqueId;
-            return c0099a;
+        public static C0098a a(long j, BdUniqueId bdUniqueId) {
+            C0098a c0098a = new C0098a();
+            c0098a.channelId = j;
+            c0098a.afv = bdUniqueId;
+            return c0098a;
         }
     }
 
@@ -38,14 +38,14 @@ public abstract class a {
         public static c b(long j, BdUniqueId bdUniqueId) {
             c cVar = new c();
             cVar.channelId = j;
-            cVar.acU = bdUniqueId;
+            cVar.afv = bdUniqueId;
             return cVar;
         }
     }
 
     /* loaded from: classes.dex */
     public static class b extends a {
-        public boolean acW;
+        public boolean afx;
         public long channelId;
         public boolean isOpen;
 
@@ -56,7 +56,7 @@ public abstract class a {
         public static b a(long j, boolean z, BdUniqueId bdUniqueId) {
             b bVar = new b();
             bVar.channelId = j;
-            bVar.acU = bdUniqueId;
+            bVar.afv = bdUniqueId;
             bVar.isOpen = z;
             return bVar;
         }

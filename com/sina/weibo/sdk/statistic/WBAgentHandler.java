@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.AidTask;
@@ -283,7 +282,7 @@ class WBAgentHandler {
                     }
                 };
                 mLogTimer = new Timer();
-                mLogTimer.schedule(timerTask, TbConfig.NOTIFY_SOUND_INTERVAL);
+                mLogTimer.schedule(timerTask, 5000L);
                 return;
             }
             adEventLog.setmAid(aid);

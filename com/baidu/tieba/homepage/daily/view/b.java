@@ -11,44 +11,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotRanklistActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.daily.b.e;
 import com.baidu.tieba.view.NoScrollGridView;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemClickListener {
-    private TextView dVc;
-    private ImageView dVd;
-    private NoScrollGridView dVe;
-    private d dVf;
+    private TextView ecv;
+    private ImageView ecw;
+    private NoScrollGridView ecx;
+    private d ecy;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.dVc = (TextView) view.findViewById(f.g.topic_title_view);
-        this.dVd = (ImageView) view.findViewById(f.g.topic_more);
-        this.dVd.setOnClickListener(this);
-        this.dVe = (NoScrollGridView) view.findViewById(f.g.topic_gridview);
-        this.dVf = new d(tbPageContext.getPageActivity());
-        this.dVe.setAdapter((ListAdapter) this.dVf);
-        this.dVe.setOnItemClickListener(this);
+        this.ecv = (TextView) view.findViewById(e.g.topic_title_view);
+        this.ecw = (ImageView) view.findViewById(e.g.topic_more);
+        this.ecw.setOnClickListener(this);
+        this.ecx = (NoScrollGridView) view.findViewById(e.g.topic_gridview);
+        this.ecy = new d(tbPageContext.getPageActivity());
+        this.ecx.setAdapter((ListAdapter) this.ecy);
+        this.ecx.setOnItemClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return f.h.daily_topic_view;
+        return e.h.daily_topic_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
-    public void a(e eVar) {
-        if (eVar != null && eVar.dUN != null) {
-            this.dVf.setData(eVar.dUN);
-            d(aiB(), TbadkCoreApplication.getInst().getSkinType());
+    public void a(com.baidu.tieba.homepage.daily.b.e eVar) {
+        if (eVar != null && eVar.ecg != null) {
+            this.ecy.setData(eVar.ecg);
+            d(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -56,37 +56,37 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.h(this.dVc, f.d.cp_cont_b);
-            am.c(this.dVd, f.C0146f.icon_arrow_gray_right_n);
+            al.h(this.ecv, e.d.cp_cont_b);
+            al.c(this.ecw, e.f.icon_arrow_gray_right_n);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dVd) {
-            if (com.baidu.tbadk.plugins.b.cc(true)) {
+        if (view == this.ecw) {
+            if (com.baidu.tbadk.plugins.b.co(true)) {
                 new HotRanklistActivityConfig(getContext()).createNormalConfig("hotforum", "all").start();
             } else {
-                String aDC = this.dVf.aDC();
-                if (aDC != null) {
-                    az.zI().c(this.mTbPageContext, new String[]{aDC});
+                String aFP = this.ecy.aFP();
+                if (aFP != null) {
+                    ay.AN().c(this.mTbPageContext, new String[]{aFP});
                 }
             }
-            TiebaStatic.log(new an("c13177").r("obj_locate", 5));
+            TiebaStatic.log(new am("c13177").w("obj_locate", 5));
         }
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        e.a item = this.dVf.getItem(i);
+        e.a item = this.ecy.getItem(i);
         if (item != null) {
-            if (com.baidu.tbadk.plugins.b.cc(true)) {
-                new HotTopicActivityConfig(getContext()).createNormalConfig("", item.uB(), "1").start();
-            } else if (item.wF() != null) {
-                az.zI().c(this.mTbPageContext, new String[]{item.wF()});
+            if (com.baidu.tbadk.plugins.b.co(true)) {
+                new HotTopicActivityConfig(getContext()).createNormalConfig("", item.vE(), "1").start();
+            } else if (item.xM() != null) {
+                ay.AN().c(this.mTbPageContext, new String[]{item.xM()});
             }
         }
-        TiebaStatic.log(new an("c13177").r("obj_locate", i + 1));
+        TiebaStatic.log(new am("c13177").w("obj_locate", i + 1));
     }
 
     @Override // com.baidu.tieba.card.a

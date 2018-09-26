@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class d {
-    public static boolean e(File file, String str) {
+    public static boolean f(File file, String str) {
         return a(file, str, true);
     }
 
@@ -47,7 +47,7 @@ public class d {
         }
     }
 
-    public static void qk(String str) {
+    public static void qP(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -56,7 +56,7 @@ public class d {
         }
     }
 
-    public static String B(File file) {
+    public static String H(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -71,16 +71,16 @@ public class d {
                         }
                         sb.append(new String(bArr, 0, read));
                     }
-                    com.baidu.adp.lib.g.a.f(fileInputStream);
+                    com.baidu.adp.lib.g.a.h(fileInputStream);
                 } catch (Exception e) {
                     e = e;
                     e.printStackTrace();
-                    com.baidu.adp.lib.g.a.f(fileInputStream);
+                    com.baidu.adp.lib.g.a.h(fileInputStream);
                     return sb.toString();
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.f(fileInputStream);
+                com.baidu.adp.lib.g.a.h(fileInputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -89,27 +89,27 @@ public class d {
         } catch (Throwable th2) {
             th = th2;
             fileInputStream = null;
-            com.baidu.adp.lib.g.a.f(fileInputStream);
+            com.baidu.adp.lib.g.a.h(fileInputStream);
             throw th;
         }
         return sb.toString();
     }
 
-    public static JSONArray ql(String str) {
+    public static JSONArray qQ(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String B = B(file);
-            String[] split = B.split("\n");
+            String H = H(file);
+            String[] split = H.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
-                    a(str2, jSONArray);
+                    b(str2, jSONArray);
                 }
             } else {
-                a(B, jSONArray);
+                b(H, jSONArray);
             }
             com.baidu.tbadk.core.util.l.deleteFile(file);
             return jSONArray;
@@ -117,7 +117,7 @@ public class d {
         return jSONArray;
     }
 
-    private static void a(String str, JSONArray jSONArray) {
+    private static void b(String str, JSONArray jSONArray) {
         if (!StringUtils.isNull(str) && jSONArray != null) {
             try {
                 JSONArray jSONArray2 = new JSONArray(str);
@@ -130,9 +130,9 @@ public class d {
         }
     }
 
-    public static void qm(String str) {
+    public static void qR(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.l.r(new File(g.a.fgY + g.a.fgP + str));
+            com.baidu.tbadk.core.util.l.x(new File(g.a.fov + g.a.fom + str));
         }
     }
 }

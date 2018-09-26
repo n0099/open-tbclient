@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
-    private static a eqA;
-    public static String eqb = "tb_oficial_msg_";
+    private static a exU;
+    public static String exv = "tb_oficial_msg_";
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized l aJM() {
+    public static synchronized l aMb() {
         l lVar;
         synchronized (l.class) {
-            if (eqA == null) {
-                eqA = new l();
+            if (exU == null) {
+                exU = new l();
             }
-            lVar = (l) eqA;
+            lVar = (l) exU;
         }
         return lVar;
     }
 
-    public static List<String> aJN() {
+    public static List<String> aMc() {
         Cursor cursor = null;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = h.aJD().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+            cursor = h.aLS().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     arrayList.add(cursor.getString(cursor.getColumnIndex("gid")));

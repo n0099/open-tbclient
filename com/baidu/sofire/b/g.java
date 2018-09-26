@@ -60,7 +60,7 @@ public final class g {
                 if (TextUtils.isEmpty(d) && TextUtils.isEmpty(string2)) {
                     return "";
                 }
-                byte[] bytes = (d + SystemInfoUtil.COLON + string2).getBytes();
+                byte[] bytes = (d + ":" + string2).getBytes();
                 for (int i = 0; i < bytes.length; i++) {
                     bytes[i] = (byte) (bytes[i] ^ 246);
                 }

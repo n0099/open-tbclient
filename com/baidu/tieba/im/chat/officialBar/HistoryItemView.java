@@ -7,16 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout awg;
-    TbRichTextView elY;
-    TextView elZ;
-    ChatImageWithTailView ema;
+    LinearLayout azr;
+    TbRichTextView ett;
+    TextView etu;
+    ChatImageWithTailView etv;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -33,34 +33,34 @@ public class HistoryItemView extends LinearLayout {
 
     private void initView() {
         setOrientation(1);
-        LayoutInflater.from(this.mContext).inflate(f.h.official_history_item, (ViewGroup) this, true);
+        LayoutInflater.from(this.mContext).inflate(e.h.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.awg = (LinearLayout) findViewById(f.g.history_container);
-        this.elZ = (TextView) findViewById(f.g.history_send_time);
-        this.elY = (TbRichTextView) findViewById(f.g.history_txt);
-        this.ema = (ChatImageWithTailView) findViewById(f.g.history_pic);
-        am.i(this.awg, f.C0146f.selector_history_multi_single_bg);
-        am.c(this.elZ, f.d.common_color_10067, 1);
-        this.elY.setTextColor(am.getColor(f.d.cp_cont_c));
-        this.ema.setIsSupportNight(true);
+        this.azr = (LinearLayout) findViewById(e.g.history_container);
+        this.etu = (TextView) findViewById(e.g.history_send_time);
+        this.ett = (TbRichTextView) findViewById(e.g.history_txt);
+        this.etv = (ChatImageWithTailView) findViewById(e.g.history_pic);
+        al.i(this.azr, e.f.selector_history_multi_single_bg);
+        al.c(this.etu, e.d.common_color_10067, 1);
+        this.ett.setTextColor(al.getColor(e.d.cp_cont_c));
+        this.etv.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.elZ.setText(str);
+        this.etu.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.elY;
+        return this.ett;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.ema;
+        return this.etv;
     }
 
-    public void aM(View view) {
-        this.awg.setBackgroundDrawable(null);
-        this.awg.removeAllViews();
-        this.awg.addView(view);
+    public void ba(View view) {
+        this.azr.setBackgroundDrawable(null);
+        this.azr.removeAllViews();
+        this.azr.addView(view);
     }
 }

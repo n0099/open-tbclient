@@ -11,15 +11,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class SapiOptions {
-    private static final String A = "share_account_gray";
-    private static final String B = "share_face_login";
+    private static final String A = "di_except_index";
+    private static final String B = "share_account_gray";
     private static final String C = "share_common_storage_enable";
-    private static final String D = "face_login_check_freq";
+    private static final String D = "face_login_check_freq_v2";
     private static final String E = "extrajson_limit_len";
+    private static final String F = "vehicle_system_pkgs";
+    private static final String G = "share_direction";
+    private static final String H = "reset_file_exec_per";
     private static final String a = "fast_reg_sms_num";
     private static final String b = "global_share_strategy";
     private static final String c = "specific_share_strategy";
@@ -42,62 +46,66 @@ public final class SapiOptions {
     private static final String t = "pre_fetch_tpl_list";
     private static final String u = "config_type";
     private static final String v = "config_step";
-    private static final String w = "sms_face_login_enabled";
-    private static final String x = "share_livinguname_enabled";
-    private static final String y = "face_login_check_enabled";
-    private static final String z = "di_except_index";
-    private LoginShareStrategy H;
-    private boolean J;
-    private boolean K;
+    private static final String w = "share_inter_storage_gray";
+    private static final String x = "sms_face_login_enabled";
+    private static final String y = "share_livinguname_enabled";
+    private static final String z = "face_login_check_enabled";
+    private LoginShareStrategy K;
+    private boolean M;
+    private boolean N;
     public boolean faceLoginCheckEnabled;
     public int faceLoginCheckFreq;
     public int loginStatExtraLimitLen;
+    public boolean resetFileExecPer;
     public int shareAccountGray;
     public boolean shareCommonStorageEnable;
     public boolean shareFaceLoginEnable;
+    public int shareInterGray;
     public boolean shareLivingunameEnabled;
     public boolean smsFaceLoginEnable;
-    private boolean I = true;
-    private Map<String, LoginShareStrategy> L = new HashMap();
-    private Map<String, String> M = new HashMap();
-    private Map<String, String> N = new HashMap();
-    private Map<String, String> O = new HashMap();
-    private List<String> P = new ArrayList();
-    private List<String> Q = new ArrayList();
-    private List<String> R = new ArrayList();
-    private List<String> S = new ArrayList();
+    private boolean L = true;
+    private Map<String, LoginShareStrategy> O = new HashMap();
+    private Map<String, String> P = new HashMap();
+    private Map<String, String> Q = new HashMap();
+    private Map<String, String> R = new HashMap();
+    private Map<String, String> S = new HashMap();
+    private List<String> T = new ArrayList();
+    private List<String> U = new ArrayList();
+    private List<String> V = new ArrayList();
+    private List<String> W = new ArrayList();
     public List<Integer> diExceptIndex = new ArrayList();
+    public Map<String, String> shareDirection = new HashMap();
     public int configType = 0;
     public int configStep = 300;
-    private Cache F = new Cache();
-    private String G = SapiEnv.FAST_REG_SMS_NUMBER;
+    private Cache I = new Cache();
+    private String J = SapiEnv.FAST_REG_SMS_NUMBER;
 
     public String getFastRegSmsNum() {
-        return this.G;
-    }
-
-    public LoginShareStrategy getGlobalShareStrategy() {
-        return this.H;
-    }
-
-    public boolean getDefaultHttpsEnabled() {
-        return this.I;
-    }
-
-    public boolean getSofireSdkEnabled() {
         return this.J;
     }
 
-    public boolean getPluginsEnabled() {
+    public LoginShareStrategy getGlobalShareStrategy() {
         return this.K;
     }
 
-    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
+    public boolean getDefaultHttpsEnabled() {
         return this.L;
     }
 
-    public Map<String, String> getPluginsSuffix() {
+    public boolean getSofireSdkEnabled() {
+        return this.M;
+    }
+
+    public boolean getPluginsEnabled() {
+        return this.N;
+    }
+
+    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
         return this.O;
+    }
+
+    public Map<String, String> getPluginsSuffix() {
+        return this.S;
     }
 
     public int getLoginStatExtraLimitLen() {
@@ -105,212 +113,176 @@ public final class SapiOptions {
     }
 
     public Map<String, String> getAuthorizedPackages() {
-        return !this.M.isEmpty() ? this.M : b();
+        return !this.P.isEmpty() ? this.P : b();
     }
 
     public Map<String, String> getSCAuthorizedPackages() {
-        return !this.N.isEmpty() ? this.N : a();
+        return !this.Q.isEmpty() ? this.Q : a();
+    }
+
+    public Map<String, String> getVehicleSystemPackages() {
+        return this.R.isEmpty() ? c() : this.R;
     }
 
     public List<String> getAuthorizedDomains() {
-        return !this.P.isEmpty() ? this.P : g();
+        return !this.T.isEmpty() ? this.T : h();
     }
 
     public List<String> getCuidAuthorizedDomains() {
-        return !this.Q.isEmpty() ? this.Q : h();
+        return !this.U.isEmpty() ? this.U : i();
     }
 
     public List<String> getLoginCookieDiKeys() {
-        return this.R;
+        return this.V;
     }
 
     public List<String> getPreFetchTplList() {
-        return this.S;
+        return this.W;
     }
 
     public Cache getCache() {
-        return this.F;
+        return this.I;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setCache(Cache cache) {
-        this.F = cache;
+        this.I = cache;
     }
 
     public String toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(l, this.F.a());
-            jSONObject.put(a, this.G);
+            jSONObject.put(l, this.I.a());
+            jSONObject.put(a, this.J);
             jSONObject.put(v, this.configStep);
             jSONObject.put(u, this.configType);
-            jSONObject.put(w, this.smsFaceLoginEnable);
-            jSONObject.put(x, this.shareLivingunameEnabled);
-            jSONObject.put(y, this.faceLoginCheckEnabled);
-            jSONObject.put(B, this.shareFaceLoginEnable);
+            jSONObject.put(x, this.smsFaceLoginEnable);
+            jSONObject.put(y, this.shareLivingunameEnabled);
+            jSONObject.put(z, this.faceLoginCheckEnabled);
             jSONObject.put(C, this.shareCommonStorageEnable);
             jSONObject.put(D, this.faceLoginCheckFreq);
-            jSONObject.put(A, this.shareAccountGray);
-            if (this.H != null) {
-                jSONObject.put(b, this.H.getStrValue());
+            jSONObject.put(B, this.shareAccountGray);
+            jSONObject.put(w, this.shareInterGray);
+            if (this.K != null) {
+                jSONObject.put(b, this.K.getStrValue());
             }
-            jSONObject.put(d, this.I);
-            jSONObject.put(e, this.J);
-            jSONObject.put(f, this.K);
+            jSONObject.put(d, this.L);
+            jSONObject.put(e, this.M);
+            jSONObject.put(f, this.N);
             JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, LoginShareStrategy> entry : this.L.entrySet()) {
+            for (Map.Entry<String, LoginShareStrategy> entry : this.O.entrySet()) {
                 jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
             }
             jSONObject.put(c, jSONObject2);
-            JSONObject jSONObject3 = new JSONObject();
-            for (Map.Entry<String, String> entry2 : this.M.entrySet()) {
-                jSONObject3.put(entry2.getKey(), entry2.getValue());
-            }
-            jSONObject.put(h, jSONObject3);
-            JSONObject jSONObject4 = new JSONObject();
-            for (Map.Entry<String, String> entry3 : this.N.entrySet()) {
-                jSONObject4.put(entry3.getKey(), entry3.getValue());
-            }
-            jSONObject.put(i, jSONObject4);
-            JSONObject jSONObject5 = new JSONObject();
-            for (Map.Entry<String, String> entry4 : this.O.entrySet()) {
-                jSONObject5.put(entry4.getKey(), entry4.getValue());
-            }
-            jSONObject.put(g, jSONObject5);
+            a(jSONObject, h, this.P);
+            a(jSONObject, F, this.R);
+            a(jSONObject, i, this.Q);
+            a(jSONObject, g, this.S);
+            a(jSONObject, G, this.shareDirection);
+            a(jSONObject, j, this.T);
+            a(jSONObject, k, this.U);
+            a(jSONObject, s, this.V);
+            a(jSONObject, t, this.W);
             JSONArray jSONArray = new JSONArray();
-            for (String str : this.P) {
-                jSONArray.put(str);
-            }
-            jSONObject.put(j, jSONArray);
-            JSONArray jSONArray2 = new JSONArray();
-            for (String str2 : this.Q) {
-                jSONArray2.put(str2);
-            }
-            jSONObject.put(k, jSONArray2);
-            JSONArray jSONArray3 = new JSONArray();
-            for (String str3 : this.R) {
-                jSONArray3.put(str3);
-            }
-            jSONObject.put(s, jSONArray3);
-            JSONArray jSONArray4 = new JSONArray();
-            for (String str4 : this.S) {
-                jSONArray4.put(str4);
-            }
-            jSONObject.put(t, jSONArray4);
-            JSONArray jSONArray5 = new JSONArray();
             for (Integer num : this.diExceptIndex) {
-                jSONArray5.put(num);
+                jSONArray.put(num);
             }
-            jSONObject.put(z, jSONArray5);
+            jSONObject.put(A, jSONArray);
             jSONObject.put(E, this.loginStatExtraLimitLen);
+            jSONObject.put(H, this.resetFileExecPer);
             return jSONObject.toString();
         } catch (Throwable th) {
             return null;
         }
     }
 
+    private static void a(JSONObject jSONObject, String str, Map<String, String> map) throws JSONException {
+        JSONObject jSONObject2 = new JSONObject();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            jSONObject2.put(entry.getKey(), entry.getValue());
+        }
+        jSONObject.put(str, jSONObject2);
+    }
+
+    private static void a(JSONObject jSONObject, String str, List<String> list) throws JSONException {
+        JSONArray jSONArray = new JSONArray();
+        for (String str2 : list) {
+            jSONArray.put(str2);
+        }
+        jSONObject.put(str, jSONArray);
+    }
+
     public static SapiOptions fromJSON(JSONObject jSONObject) {
         SapiOptions sapiOptions = new SapiOptions();
-        sapiOptions.F = Cache.a(jSONObject.optJSONObject(l));
-        sapiOptions.G = jSONObject.optString(a, SapiEnv.FAST_REG_SMS_NUMBER);
+        sapiOptions.I = Cache.a(jSONObject.optJSONObject(l));
+        sapiOptions.J = jSONObject.optString(a, SapiEnv.FAST_REG_SMS_NUMBER);
         sapiOptions.configType = jSONObject.optInt(u, 0);
         sapiOptions.configStep = jSONObject.optInt(v, 300);
-        sapiOptions.smsFaceLoginEnable = jSONObject.optBoolean(w);
-        sapiOptions.faceLoginCheckEnabled = jSONObject.optBoolean(y, true);
-        sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(x);
-        sapiOptions.shareFaceLoginEnable = jSONObject.optBoolean(B);
+        sapiOptions.smsFaceLoginEnable = jSONObject.optBoolean(x);
+        sapiOptions.faceLoginCheckEnabled = jSONObject.optBoolean(z, true);
+        sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(y);
         sapiOptions.shareCommonStorageEnable = jSONObject.optBoolean(C);
         sapiOptions.faceLoginCheckFreq = jSONObject.optInt(D, 24);
-        sapiOptions.I = jSONObject.optBoolean(d, true);
-        sapiOptions.J = jSONObject.optBoolean(e);
-        sapiOptions.K = jSONObject.optBoolean(f);
-        sapiOptions.shareAccountGray = jSONObject.optInt(A, 0);
+        sapiOptions.L = jSONObject.optBoolean(d, true);
+        sapiOptions.M = jSONObject.optBoolean(e);
+        sapiOptions.N = jSONObject.optBoolean(f);
+        sapiOptions.shareAccountGray = jSONObject.optInt(B, 0);
+        sapiOptions.shareInterGray = jSONObject.optInt(w, 0);
         String optString = jSONObject.optString(b);
         if (!TextUtils.isEmpty(optString)) {
-            sapiOptions.H = LoginShareStrategy.mapStrToValue(optString);
+            sapiOptions.K = LoginShareStrategy.mapStrToValue(optString);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject(c);
         if (optJSONObject != null) {
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                sapiOptions.L.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
+                sapiOptions.O.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
             }
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject(h);
-        if (optJSONObject2 != null) {
-            Iterator<String> keys2 = optJSONObject2.keys();
-            while (keys2.hasNext()) {
-                String next2 = keys2.next();
-                String optString2 = optJSONObject2.optString(next2);
-                if (!TextUtils.isEmpty(next2) && !TextUtils.isEmpty(optString2)) {
-                    sapiOptions.M.put(next2, optString2);
-                }
-            }
-        }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject(i);
-        if (optJSONObject3 != null) {
-            Iterator<String> keys3 = optJSONObject3.keys();
-            while (keys3.hasNext()) {
-                String next3 = keys3.next();
-                String optString3 = optJSONObject3.optString(next3);
-                if (!TextUtils.isEmpty(next3) && !TextUtils.isEmpty(optString3)) {
-                    sapiOptions.N.put(next3, optString3);
-                }
-            }
-        }
-        JSONObject optJSONObject4 = jSONObject.optJSONObject(g);
-        if (optJSONObject4 != null) {
-            Iterator<String> keys4 = optJSONObject4.keys();
-            while (keys4.hasNext()) {
-                String next4 = keys4.next();
-                String optString4 = optJSONObject4.optString(next4);
-                if (!TextUtils.isEmpty(next4) && !TextUtils.isEmpty(next4)) {
-                    sapiOptions.O.put(next4, optString4);
-                }
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray(j);
+        a(jSONObject.optJSONObject(h), sapiOptions.P);
+        a(jSONObject.optJSONObject(F), sapiOptions.R);
+        a(jSONObject.optJSONObject(i), sapiOptions.Q);
+        a(jSONObject.optJSONObject(g), sapiOptions.S);
+        a(jSONObject.optJSONObject(G), sapiOptions.shareDirection);
+        a(jSONObject.optJSONArray(j), sapiOptions.T);
+        a(jSONObject.optJSONArray(k), sapiOptions.U);
+        a(jSONObject.optJSONArray(s), sapiOptions.V);
+        a(jSONObject.optJSONArray(t), sapiOptions.W);
+        JSONArray optJSONArray = jSONObject.optJSONArray(A);
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                if (!TextUtils.isEmpty(optJSONArray.optString(i2))) {
-                    sapiOptions.P.add(optJSONArray.optString(i2));
-                }
-            }
-        }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray(k);
-        if (optJSONArray2 != null) {
-            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                if (!TextUtils.isEmpty(optJSONArray2.optString(i3))) {
-                    sapiOptions.Q.add(optJSONArray2.optString(i3));
-                }
-            }
-        }
-        JSONArray optJSONArray3 = jSONObject.optJSONArray(s);
-        if (optJSONArray3 != null) {
-            for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                if (!TextUtils.isEmpty(optJSONArray3.optString(i4))) {
-                    sapiOptions.R.add(optJSONArray3.optString(i4));
-                }
-            }
-        }
-        JSONArray optJSONArray4 = jSONObject.optJSONArray(t);
-        if (optJSONArray4 != null) {
-            for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
-                if (!TextUtils.isEmpty(optJSONArray4.optString(i5))) {
-                    sapiOptions.S.add(optJSONArray4.optString(i5));
-                }
-            }
-        }
-        JSONArray optJSONArray5 = jSONObject.optJSONArray(z);
-        if (optJSONArray5 != null) {
-            int length = optJSONArray5.length();
-            for (int i6 = 0; i6 < length; i6++) {
-                sapiOptions.diExceptIndex.add(Integer.valueOf(optJSONArray5.optInt(i6)));
+            int length = optJSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                sapiOptions.diExceptIndex.add(Integer.valueOf(optJSONArray.optInt(i2)));
             }
         }
         sapiOptions.loginStatExtraLimitLen = jSONObject.optInt(E, 100);
+        sapiOptions.resetFileExecPer = jSONObject.optBoolean(H, false);
         return sapiOptions;
+    }
+
+    private static void a(JSONObject jSONObject, Map<String, String> map) {
+        if (jSONObject != null) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    map.put(next, optString);
+                }
+            }
+        }
+    }
+
+    private static void a(JSONArray jSONArray, List<String> list) {
+        if (jSONArray != null) {
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                if (!TextUtils.isEmpty(jSONArray.optString(i2))) {
+                    list.add(jSONArray.optString(i2));
+                }
+            }
+        }
     }
 
     /* loaded from: classes.dex */
@@ -418,7 +390,7 @@ public final class SapiOptions {
         }
     }
 
-    static Map<String, String> a() {
+    Map<String, String> a() {
         HashMap hashMap = new HashMap();
         hashMap.put("com.baidu.BaiduMap(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
         hashMap.put("com.baidu.minivideo", "7fd3727852d29eb6f4283988dc0d6150");
@@ -449,7 +421,7 @@ public final class SapiOptions {
         return hashMap;
     }
 
-    static Map<String, String> b() {
+    Map<String, String> b() {
         HashMap hashMap = new HashMap();
         hashMap.put("com.baidu.sapi2.(.*)", "de308d7973b5171883333a97253327e4");
         hashMap.put("com.baidu.tieba(.*)", "673004cf2f6efdec2385c8116c1e8c14");
@@ -515,8 +487,14 @@ public final class SapiOptions {
         return hashMap;
     }
 
+    Map<String, String> c() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("com.baidu.sapi2.demo.standard", "de308d7973b5171883333a97253327e4");
+        return hashMap;
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Map<String, Integer> c() {
+    public Map<String, Integer> d() {
         HashMap hashMap = new HashMap();
         hashMap.put("com.baidu.wallet", 1);
         hashMap.put("com.nuomi", 2);
@@ -530,14 +508,14 @@ public final class SapiOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<String> d() {
+    public List<String> e() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(SapiScheme.SC_APP_PACKAGENAME);
         return arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<String> e() {
+    public List<String> f() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("com.baidu.searchbox(.*)");
         arrayList.add("com.baidu.browser.(.+)");
@@ -546,7 +524,7 @@ public final class SapiOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<String> f() {
+    public List<String> g() {
         ArrayList arrayList = new ArrayList();
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
         String replaceAll = confignation.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
@@ -556,7 +534,7 @@ public final class SapiOptions {
         return arrayList;
     }
 
-    static List<String> g() {
+    static List<String> h() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");
@@ -565,7 +543,7 @@ public final class SapiOptions {
         return arrayList;
     }
 
-    static List<String> h() {
+    static List<String> i() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("nsclick.baidu.com");
         arrayList.add("passport.baidu.com");
@@ -582,7 +560,7 @@ public final class SapiOptions {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static List<String> i() {
+    public static List<String> j() {
         ArrayList arrayList = new ArrayList(1);
         arrayList.add("com.baidu.BaiduMap(.*)");
         return arrayList;

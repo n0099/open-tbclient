@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.c;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    private static long abB = 604800000;
+    private static long aed = 604800000;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void o(File file) {
+    public static void u(File file) {
         if (file != null) {
             try {
                 if (file.isDirectory()) {
@@ -21,7 +21,7 @@ public class a {
                     if (listFiles != null) {
                         for (int i = 0; i < listFiles.length; i++) {
                             if (listFiles[i].isDirectory()) {
-                                o(listFiles[i]);
+                                u(listFiles[i]);
                             } else if (!listFiles[i].delete()) {
                             }
                         }
@@ -49,14 +49,14 @@ public class a {
                     b.getInstance().putLong("key_clear_resource", currentTimeMillis);
                     j = currentTimeMillis;
                 }
-                if (currentTimeMillis - j > a.abB) {
+                if (currentTimeMillis - j > a.aed) {
                     new Thread() { // from class: com.baidu.tbadk.h.a.1.1
                         @Override // java.lang.Thread, java.lang.Runnable
                         public void run() {
                             super.run();
                             try {
-                                c.yc();
-                                a.o(TbadkCoreApplication.getInst().getCacheDir());
+                                c.zj();
+                                a.u(TbadkCoreApplication.getInst().getCacheDir());
                             } catch (Exception e) {
                             }
                         }

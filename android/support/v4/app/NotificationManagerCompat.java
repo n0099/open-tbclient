@@ -21,7 +21,6 @@ import android.provider.Settings;
 import android.support.annotation.GuardedBy;
 import android.support.v4.app.INotificationSideChannel;
 import android.util.Log;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -144,7 +143,7 @@ public final class NotificationManagerCompat {
         synchronized (sEnabledNotificationListenersLock) {
             if (string != null) {
                 if (!string.equals(sEnabledNotificationListeners)) {
-                    String[] split = string.split(SystemInfoUtil.COLON);
+                    String[] split = string.split(":");
                     HashSet hashSet = new HashSet(split.length);
                     for (String str : split) {
                         ComponentName unflattenFromString = ComponentName.unflattenFromString(str);

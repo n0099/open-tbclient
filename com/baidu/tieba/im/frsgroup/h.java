@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId esp = BdUniqueId.gen();
-    private Object bhF;
-    private NoDataViewFactory.ImgType esq;
-    private String esr;
-    private String ess;
-    private String est;
-    private int esu;
+    public static final BdUniqueId ezJ = BdUniqueId.gen();
+    private Object bnx;
+    private NoDataViewFactory.ImgType ezK;
+    private String ezL;
+    private String ezM;
+    private String ezN;
+    private int ezO;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return esp;
+        return ezJ;
     }
 
-    public String aKg() {
-        return this.esr;
+    public String aMv() {
+        return this.ezL;
     }
 
-    public void ot(String str) {
-        this.esr = str;
+    public void oY(String str) {
+        this.ezL = str;
     }
 
-    public String aKh() {
-        return this.ess;
+    public String aMw() {
+        return this.ezM;
     }
 
-    public void ou(String str) {
-        this.ess = str;
+    public void oZ(String str) {
+        this.ezM = str;
     }
 
-    public String aKi() {
-        return this.est;
+    public String aMx() {
+        return this.ezN;
     }
 
-    public void ov(String str) {
-        this.est = str;
+    public void pa(String str) {
+        this.ezN = str;
     }
 
-    public int aKj() {
-        return this.esu;
+    public int aMy() {
+        return this.ezO;
     }
 
-    public void od(int i) {
-        this.esu = i;
+    public void oH(int i) {
+        this.ezO = i;
     }
 
-    public Object OR() {
-        return this.bhF;
+    public Object QL() {
+        return this.bnx;
     }
 
     public void setExtraData(Object obj) {
-        this.bhF = obj;
+        this.bnx = obj;
     }
 
-    public NoDataViewFactory.ImgType aKk() {
-        return this.esq;
+    public NoDataViewFactory.ImgType aMz() {
+        return this.ezK;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.esq = imgType;
+        this.ezK = imgType;
     }
 }

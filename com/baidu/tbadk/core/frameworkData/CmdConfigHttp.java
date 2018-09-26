@@ -38,6 +38,7 @@ public class CmdConfigHttp {
     public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
     public static final int CMD_CHECK_BAIDU_SIM = 1003392;
     public static final int CMD_CHECK_REAL_NAME = 1003325;
+    public static final int CMD_CHECK_SHARE_SDK = 1003417;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_CLIENT_CONFIG = 1003024;
     public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
@@ -59,6 +60,7 @@ public class CmdConfigHttp {
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
     public static final int CMD_FRS_AR_SHARE = 1003391;
+    public static final int CMD_FRS_COMMON_TAB = 1003418;
     public static final int CMD_FRS_DYNAMIC = 1003398;
     public static final int CMD_FRS_GAME_STRATEGY = 1003362;
     public static final int CMD_FRS_STAGE_FEED_BACK = 1003390;
@@ -131,6 +133,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
     public static final int CMD_HTTP_GET_YINJI = 1001533;
+    public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_INCREASE_FORUM_ACCESS_COUNT = 1003150;
     public static final int CMD_MANGA_CHAPTER_ALL = 1003087;
     public static final int CMD_MANGA_CHAPTER_DETAIL = 1003086;
@@ -143,6 +146,7 @@ public class CmdConfigHttp {
     public static final int CMD_MOOV_UPLOAD = 1003388;
     public static final int CMD_NEG_DELETE_THREAD = 1003185;
     public static final int CMD_NEG_FEED_BACK = 1003184;
+    public static final int CMD_OFFICIAL_ACCOUNT_PUSH = 1003419;
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
     public static final int CMD_PAYMENT_PAY = 1001537;
     public static final int CMD_PAY_NEW_VCODE = 1001539;

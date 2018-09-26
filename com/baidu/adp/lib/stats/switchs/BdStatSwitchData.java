@@ -5,7 +5,6 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
 import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.idl.authority.BuildConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,7 +71,7 @@ public class BdStatSwitchData implements Serializable {
                     BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
                     bdStatisticsUploadConfigItem.type = "dbg";
                     this.uploadConfig.item.put(bdStatisticsUploadConfigItem.type, bdStatisticsUploadConfigItem);
-                    a(optJSONObject.optJSONArray(BuildConfig.BUILD_TYPE), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
+                    a(optJSONObject.optJSONArray("debug"), bdStatisticsWriteConfigItem, bdStatisticsUploadConfigItem);
                     BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem2 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
                     bdStatisticsWriteConfigItem2.type = "stat";
                     this.writeConfig.item.put(bdStatisticsWriteConfigItem2.type, bdStatisticsWriteConfigItem2);

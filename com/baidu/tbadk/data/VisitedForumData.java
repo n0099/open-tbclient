@@ -4,29 +4,29 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.HistoryForumInfo;
 /* loaded from: classes.dex */
 public class VisitedForumData extends OrmObject {
-    private boolean aLk;
-    private int aLl;
-    private String aLm;
+    private boolean aOC;
+    private int aOD;
+    private String aOE;
     private String mForumId;
     private String mForumImageUrl;
     private String mForumName;
 
     public VisitedForumData() {
         this.mForumImageUrl = "";
-        this.aLk = false;
-        this.aLl = 0;
+        this.aOC = false;
+        this.aOD = 0;
         this.mForumName = "";
         this.mForumId = "";
-        this.aLm = "";
+        this.aOE = "";
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z) {
         this.mForumImageUrl = str3;
-        this.aLk = z;
+        this.aOC = z;
         this.mForumName = str2;
         this.mForumId = str;
-        this.aLm = str4;
-        this.aLl = 0;
+        this.aOE = str4;
+        this.aOD = 0;
     }
 
     public void a(HistoryForumInfo historyForumInfo) {
@@ -34,22 +34,22 @@ public class VisitedForumData extends OrmObject {
             this.mForumImageUrl = historyForumInfo.avatar;
             this.mForumId = String.valueOf(historyForumInfo.forum_id);
             this.mForumName = historyForumInfo.forum_name;
-            this.aLk = historyForumInfo.is_liveforum.intValue() == 1;
-            this.aLl = historyForumInfo.unread_num.intValue();
-            this.aLm = historyForumInfo.visit_time;
+            this.aOC = historyForumInfo.is_liveforum.intValue() == 1;
+            this.aOD = historyForumInfo.unread_num.intValue();
+            this.aOE = historyForumInfo.visit_time;
         }
     }
 
-    public String Hb() {
+    public String Ir() {
         return this.mForumImageUrl;
     }
 
-    public boolean Hc() {
-        return this.aLk;
+    public boolean Is() {
+        return this.aOC;
     }
 
-    public int Hd() {
-        return this.aLl;
+    public int It() {
+        return this.aOD;
     }
 
     public String getForumName() {
@@ -60,7 +60,7 @@ public class VisitedForumData extends OrmObject {
         return this.mForumId;
     }
 
-    public String He() {
-        return this.aLm;
+    public String Iu() {
+        return this.aOE;
     }
 }

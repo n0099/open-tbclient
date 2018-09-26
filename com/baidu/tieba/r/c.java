@@ -15,21 +15,20 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.coreExtra.c.e;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private static final int haD = l.f(TbadkCoreApplication.getInst(), f.e.ds20);
-    private static final int haE = l.f(TbadkCoreApplication.getInst(), f.e.ds60);
-    private static final int haF = l.f(TbadkCoreApplication.getInst(), f.e.ds140);
-    private static final int haG = l.f(TbadkCoreApplication.getInst(), f.e.fontsize24);
-    private SparseArray<String> gCE;
-    private LinearLayout hay;
-    private a haz;
+    private static final int hiv = l.h(TbadkCoreApplication.getInst(), e.C0141e.ds20);
+    private static final int hiw = l.h(TbadkCoreApplication.getInst(), e.C0141e.ds60);
+    private static final int hix = l.h(TbadkCoreApplication.getInst(), e.C0141e.ds140);
+    private static final int hiy = l.h(TbadkCoreApplication.getInst(), e.C0141e.fontsize24);
+    private SparseArray<String> gKh;
+    private LinearLayout hiq;
+    private a hir;
     private Context mContext;
     private com.baidu.tbadk.coreExtra.c.d mShareItem;
 
@@ -38,50 +37,50 @@ public class c implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.haz = aVar;
+        this.hir = aVar;
     }
 
-    public LinearLayout bzJ() {
-        if (this.hay == null) {
+    public LinearLayout bCy() {
+        if (this.hiq == null) {
             initView();
         }
-        return this.hay;
+        return this.hiq;
     }
 
     private void initView() {
-        this.hay = new LinearLayout(this.mContext);
-        this.hay.setOrientation(0);
-        int f = l.f(this.mContext, f.e.ds18);
-        this.hay.setPadding(f, l.f(this.mContext, f.e.ds30), f, l.f(this.mContext, f.e.ds26));
-        Y(f.C0146f.icon_weixin_n, f.j.share_weixin, 4);
-        Y(f.C0146f.icon_weixin_q_n, f.j.share_weixin_timeline, 3);
-        Y(f.C0146f.icon_qq_zone_n, f.j.share_qzone, 5);
-        Y(f.C0146f.icon_qq_share_n, f.j.share_qq_friends, 9);
-        Y(f.C0146f.icon_sina_n, f.j.share_sina_weibo, 7);
-        Y(f.C0146f.icon_copy_link_n, f.j.share_copy, 10);
+        this.hiq = new LinearLayout(this.mContext);
+        this.hiq.setOrientation(0);
+        int h = l.h(this.mContext, e.C0141e.ds18);
+        this.hiq.setPadding(h, l.h(this.mContext, e.C0141e.ds30), h, l.h(this.mContext, e.C0141e.ds26));
+        ad(e.f.icon_weixin_n, e.j.share_weixin, 4);
+        ad(e.f.icon_weixin_q_n, e.j.share_weixin_timeline, 3);
+        ad(e.f.icon_qq_zone_n, e.j.share_qzone, 5);
+        ad(e.f.icon_qq_share_n, e.j.share_qq_friends, 9);
+        ad(e.f.icon_sina_n, e.j.share_sina_weibo, 7);
+        ad(e.f.icon_copy_link_n, e.j.share_copy, 10);
     }
 
-    private void Y(int i, int i2, int i3) {
+    private void ad(int i, int i2, int i3) {
         RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
         ImageView imageView = new ImageView(this.mContext);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
-        imageView.setId(f.g.photo);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(haE, haE);
+        imageView.setId(e.g.photo);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(hiw, hiw);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = haD;
+        layoutParams.bottomMargin = hiv;
         relativeLayout.addView(imageView, layoutParams);
         TextView textView = new TextView(this.mContext);
-        textView.setTextSize(0, haG);
+        textView.setTextSize(0, hiy);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams2.addRule(3, f.g.photo);
+        layoutParams2.addRule(3, e.g.photo);
         layoutParams2.addRule(14);
         relativeLayout.addView(textView, layoutParams2);
-        am.c(imageView, i);
+        al.c(imageView, i);
         textView.setText(i2);
-        am.h(textView, f.d.cp_cont_f);
+        al.h(textView, e.d.cp_cont_f);
         relativeLayout.setTag(Integer.valueOf(i3));
         relativeLayout.setOnClickListener(this);
-        this.hay.addView(relativeLayout, new LinearLayout.LayoutParams(haF, -2));
+        this.hiq.addView(relativeLayout, new LinearLayout.LayoutParams(hix, -2));
     }
 
     public void o(com.baidu.tbadk.coreExtra.c.d dVar) {
@@ -90,30 +89,30 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.haz != null) {
-            this.haz.bE(view);
+        if (this.hir != null) {
+            this.hir.bR(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
-            if (!j.jE() && num.intValue() != 10) {
-                l.showToast(TbadkCoreApplication.getInst().getContext(), f.j.share_on_no_network);
+            if (!j.kK() && num.intValue() != 10) {
+                l.showToast(TbadkCoreApplication.getInst().getContext(), e.j.share_on_no_network);
                 return;
             }
-            e eVar = new e(this.mContext, null);
+            com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e(this.mContext, null);
             com.baidu.tbadk.coreExtra.c.d dVar = this.mShareItem;
             if (num.intValue() == 4) {
                 l("share_to_weixin", new Object[0]);
-                sV(3);
+                tv(3);
                 a(dVar, 4);
                 if (dVar != null) {
                     eVar.b(dVar);
                 }
             } else if (num.intValue() == 3) {
                 l("share_to_pyq", new Object[0]);
-                sV(2);
+                tv(2);
                 a(dVar, 3);
                 if (dVar != null) {
-                    if (dVar.aFS) {
+                    if (dVar.aJg) {
                         dVar.content = "【" + dVar.title + "】 " + dVar.content;
                     }
                     eVar.c(dVar);
@@ -121,7 +120,7 @@ public class c implements View.OnClickListener {
             } else if (num.intValue() == 5) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qzone", new Object[0]);
-                    sV(4);
+                    tv(4);
                     a(dVar, 5);
                     if (dVar != null) {
                         eVar.e(dVar);
@@ -129,11 +128,11 @@ public class c implements View.OnClickListener {
                     }
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(f.j.share_qq_not_install)).xm();
+                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).yt();
             } else if (num.intValue() == 9) {
                 if (u.isInstalledPackage(this.mContext, "com.tencent.mobileqq")) {
                     l("share_to_qq_friend", new Object[0]);
-                    sV(8);
+                    tv(8);
                     a(dVar, 9);
                     if (dVar != null) {
                         eVar.d(dVar);
@@ -141,25 +140,25 @@ public class c implements View.OnClickListener {
                     }
                     return;
                 }
-                BdToast.a(this.mContext, this.mContext.getText(f.j.share_qq_not_install)).xm();
+                BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).yt();
             } else if (num.intValue() == 7) {
                 l("share_to_sweibo", new Object[0]);
-                sV(6);
+                tv(6);
                 a(dVar, 7);
                 if (dVar != null) {
-                    if (!dVar.aFR) {
+                    if (!dVar.aJf) {
                         dVar.content = m(dVar);
                     }
                     eVar.g(dVar);
                 }
             } else if (num.intValue() == 10) {
                 a(dVar, 10);
-                dVar.linkUrl = e.ak(dVar.linkUrl, dVar.tid);
-                com.baidu.adp.lib.util.a.aQ(dVar.linkUrl);
-                l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(f.j.copy_pb_url_success));
+                dVar.linkUrl = com.baidu.tbadk.coreExtra.c.e.as(dVar.linkUrl, dVar.tid);
+                com.baidu.adp.lib.util.a.bh(dVar.linkUrl);
+                l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(e.j.copy_pb_url_success));
                 n(dVar);
-                if (dVar != null && dVar.aFR) {
-                    ai(8, dVar.aGd);
+                if (dVar != null && dVar.aJf) {
+                    aj(8, dVar.aJr);
                 }
             }
         }
@@ -167,28 +166,28 @@ public class c implements View.OnClickListener {
 
     private void a(com.baidu.tbadk.coreExtra.c.d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.aFS) {
-                TiebaStatic.log(new an("c10125").ae(ImageViewerConfig.FORUM_ID, dVar.extData).r("obj_type", i));
-            } else if (dVar.aFT || dVar.aFW) {
-                TiebaStatic.log(new an("c10125").ae("tid", dVar.extData).r("obj_type", i).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aGg).r("obj_param1", dVar.aGh).ae(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.aFU) {
-                TiebaStatic.log(new an("c10427").ae("tid", dVar.extData).r("obj_type", i));
-            } else if (dVar.aFR) {
-                ai(i, dVar.aGd);
-            } else if (dVar.aFV) {
-                TiebaStatic.log(new an("c10125").r("obj_param1", 7).r("obj_type", i).ae(ImageViewerConfig.FORUM_ID, dVar.extData));
+            if (dVar.aJg) {
+                TiebaStatic.log(new am("c10125").al(ImageViewerConfig.FORUM_ID, dVar.extData).w("obj_type", i));
+            } else if (dVar.aJh || dVar.aJk) {
+                TiebaStatic.log(new am("c10125").al("tid", dVar.extData).w("obj_type", i).w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aJu).w("obj_param1", dVar.aJv).al(ImageViewerConfig.FORUM_ID, dVar.fid));
+            } else if (dVar.aJi) {
+                TiebaStatic.log(new am("c10427").al("tid", dVar.extData).w("obj_type", i));
+            } else if (dVar.aJf) {
+                aj(i, dVar.aJr);
+            } else if (dVar.aJj) {
+                TiebaStatic.log(new am("c10125").w("obj_param1", 7).w("obj_type", i).al(ImageViewerConfig.FORUM_ID, dVar.extData));
             }
         }
     }
 
-    private void ai(int i, String str) {
+    private void aj(int i, String str) {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private void sV(int i) {
-        if (i <= 8 && i > 0 && this.gCE != null) {
-            String str = this.gCE.get(i);
-            if (!ap.isEmpty(str)) {
+    private void tv(int i) {
+        if (i <= 8 && i > 0 && this.gKh != null) {
+            String str = this.gKh.get(i);
+            if (!ao.isEmpty(str)) {
                 l(str, new Object[0]);
             }
         }
@@ -199,19 +198,19 @@ public class c implements View.OnClickListener {
     }
 
     private void n(com.baidu.tbadk.coreExtra.c.d dVar) {
-        an r = new an("share_success").r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 7);
-        if (dVar.aGh != 0) {
-            r.r("obj_param1", dVar.aGh);
-            if (dVar.aGh == 2) {
-                r.ae(ImageViewerConfig.FORUM_ID, dVar.fid);
-            } else if (dVar.aGh == 3) {
-                if (dVar.aGi != 0) {
-                    r.r("obj_type", dVar.aGi);
+        am w = new am("share_success").w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 7);
+        if (dVar.aJv != 0) {
+            w.w("obj_param1", dVar.aJv);
+            if (dVar.aJv == 2) {
+                w.al(ImageViewerConfig.FORUM_ID, dVar.fid);
+            } else if (dVar.aJv == 3) {
+                if (dVar.aJw != 0) {
+                    w.w("obj_type", dVar.aJw);
                 }
-                r.ae("tid", dVar.tid).ae(ImageViewerConfig.FORUM_ID, dVar.fid);
+                w.al("tid", dVar.tid).al(ImageViewerConfig.FORUM_ID, dVar.fid);
             }
         }
-        TiebaStatic.log(r);
+        TiebaStatic.log(w);
     }
 
     private String m(com.baidu.tbadk.coreExtra.c.d dVar) {

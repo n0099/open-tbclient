@@ -2,28 +2,28 @@ package com.baidu.tieba.pb.interactionpopupwindow;
 
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class d extends a<e, CustomDialogData> {
     public d(TbPageContext tbPageContext, CustomDialogData customDialogData) {
         super(tbPageContext, new e(tbPageContext), customDialogData);
-        if (this.ftF instanceof e) {
-            ((e) this.ftF).a(this);
+        if (this.fBo instanceof e) {
+            ((e) this.fBo).a(this);
         }
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean YR() {
+    public boolean aaE() {
         return true;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public boolean YS() {
+    public boolean aaF() {
         return true;
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
-    public int xd() {
-        return l.f(this.mContext, f.e.ds90);
+    public int yk() {
+        return l.h(this.mContext, e.C0141e.ds90);
     }
 }

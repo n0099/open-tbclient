@@ -4,27 +4,27 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.view.m;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.view.p;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c {
-    private static String fqw;
+    private static String fyf;
 
-    public static SpannableStringBuilder al(Context context, String str) {
+    public static SpannableStringBuilder aB(Context context, String str) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) str);
         int length = spannableStringBuilder.length();
-        Drawable drawable = context.getResources().getDrawable(f.C0146f.icon_nichenghuodong);
+        Drawable drawable = context.getResources().getDrawable(e.f.icon_nichenghuodong);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         spannableStringBuilder.append((CharSequence) "tag");
-        spannableStringBuilder.setSpan(new m(drawable), length, spannableStringBuilder.length(), 33);
+        spannableStringBuilder.setSpan(new p(drawable), length, spannableStringBuilder.length(), 33);
         return spannableStringBuilder;
     }
 
-    public static String aYQ() {
-        if (TextUtils.isEmpty(fqw)) {
-            fqw = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
+    public static String bbr() {
+        if (TextUtils.isEmpty(fyf)) {
+            fyf = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("nick_name_activity_link", "");
         }
-        return fqw;
+        return fyf;
     }
 }

@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
-    private a azH;
-    private b azI;
+    private a aCL;
+    private b aCM;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.azH = new a(LayoutInflater.from(context).inflate(f.h.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.azH);
-        this.azI = new b(context, this.azH.azN, this.azH.azL, this.azH.azK, 4, false, true);
+        this.aCL = new a(LayoutInflater.from(context).inflate(e.h.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.aCL);
+        this.aCM = new b(context, this.aCL.aCR, this.aCL.aCP, this.aCL.aCO, 4, false, true);
     }
 
     private void a(a aVar) {
         if (aVar != null) {
-            am.j(aVar.getView(), f.d.cp_bg_line_d);
-            am.c(aVar.title, f.d.cp_cont_c, 1);
-            am.j(aVar.azM, f.d.cp_bg_line_b);
-            am.c(aVar.azK, f.d.cp_cont_d, 1);
-            am.j(aVar.azK, f.d.cp_bg_line_d);
-            aVar.azK.setText(TbadkCoreApplication.getInst().getString(f.j.recommend_frs_hot_thread_more));
-            aVar.azL.setSelector(am.getDrawable(f.C0146f.icon_choose_dot_s));
-            aVar.azL.setDrawable(am.getDrawable(f.C0146f.icon_choose_dot_n));
+            al.j(aVar.getView(), e.d.cp_bg_line_d);
+            al.c(aVar.title, e.d.cp_cont_c, 1);
+            al.j(aVar.aCQ, e.d.cp_bg_line_b);
+            al.c(aVar.aCO, e.d.cp_cont_d, 1);
+            al.j(aVar.aCO, e.d.cp_bg_line_d);
+            aVar.aCO.setText(TbadkCoreApplication.getInst().getString(e.j.recommend_frs_hot_thread_more));
+            aVar.aCP.setSelector(al.getDrawable(e.f.icon_choose_dot_s));
+            aVar.aCP.setDrawable(al.getDrawable(e.f.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.azH.getView();
+        return this.aCL.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.azH.azN;
+        return this.aCL.aCR;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.azH.azL;
+        return this.aCL.aCP;
     }
 
     public TextView getMoreView() {
-        return this.azH.azK;
+        return this.aCL.aCO;
     }
 
     public a getViewHolder() {
-        return this.azH;
+        return this.aCL;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.azI.setMaxScrollCountLimit(i);
+        this.aCM.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.azI.setIsMaxScrollEnabled(z);
+        this.aCM.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.azI.aZ(z);
+        this.aCM.bl(z);
     }
 
     public void setDatas(List<h> list) {
-        this.azI.setDatas(list);
+        this.aCM.setDatas(list);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.azI.setAutoScrollIntervalTime(j);
+        this.aCM.setAutoScrollIntervalTime(j);
     }
 }

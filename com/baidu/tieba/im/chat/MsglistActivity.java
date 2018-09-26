@@ -3,7 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public abstract class MsglistActivity<T> extends TalkableActivity<T> implements d {
     protected abstract boolean a(d dVar);
@@ -13,11 +13,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract boolean o(Bundle bundle);
 
     @Override // com.baidu.tieba.im.chat.d
-    public void aHo() {
-        aGQ();
+    public void aJD() {
+        aJf();
     }
 
-    public void aGQ() {
+    public void aJf() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -29,15 +29,15 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             return;
         }
         initView();
-        adjustResizeForSoftInput(f.d.common_color_10022, false);
-        if (this.ely != null) {
-            this.ely.setImageUploadUIProgressCallback(this.elD);
+        adjustResizeForSoftInput(e.d.common_color_10022, false);
+        if (this.esS != null) {
+            this.esS.setImageUploadUIProgressCallback(this.esX);
         }
-        aHu();
+        aJJ();
         if (a((d) this)) {
             loadDraft();
-            aGO();
-            j.elw = com.baidu.tbadk.util.h.Ll();
+            aJd();
+            j.esQ = com.baidu.tbadk.util.i.MC();
         }
     }
 
@@ -45,8 +45,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.ely != null) {
-            this.ely.onDestroy();
+        if (this.esS != null) {
+            this.esS.onDestroy();
         }
         setIntent(intent);
         if (!o(null)) {
@@ -54,8 +54,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             return;
         }
         initView();
-        adjustResizeForSoftInput(f.d.common_color_10022, false);
-        aHu();
+        adjustResizeForSoftInput(e.d.common_color_10022, false);
+        aJJ();
         if (a((d) this)) {
             loadDraft();
         }
@@ -65,8 +65,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.elx != null) {
-            this.elx.onChangeSkinType(i);
+        if (this.esR != null) {
+            this.esR.onChangeSkinType(i);
         }
     }
 
@@ -74,37 +74,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.elx != null) {
-            this.elx.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            aGL();
+        if (this.esR != null) {
+            this.esR.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            aJa();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aGL() {
+    public void aJa() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.elx.showReceiver();
+            this.esR.showReceiver();
         } else {
-            this.elx.closeReceiver();
+            this.esR.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.ely.loadDraft();
+        return this.esS.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aGP();
+        aJe();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aGO() {
+    public void aJd() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aGP() {
+    public void aJe() {
     }
 }

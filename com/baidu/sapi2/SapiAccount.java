@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.activity.social.SocialLoginActivity;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
@@ -42,7 +43,11 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     public String username;
 
     static {
-        ShareAccountAccessor.setShareAccountAccessor(new SapiAccountAccessorImpl());
+        try {
+            ShareAccountAccessor.setShareAccountAccessor(new SapiAccountAccessorImpl());
+        } catch (Throwable th) {
+            Log.e(th);
+        }
         CREATOR = new Parcelable.Creator<SapiAccount>() { // from class: com.baidu.sapi2.SapiAccount.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
@@ -212,8 +217,16 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         return AccountType.getAccountType(a(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType()));
     }
 
+    public String getShareAccountTpl() {
+        return a(BaiduRimConstants.TPL_INIT_KEY, "");
+    }
+
     public String getSocialPortrait() {
         return a("social_portrait", (String) null);
+    }
+
+    public String getShareAccountPkg() {
+        return a("pkg", (String) null);
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -361,8 +374,10 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         protected static final String EXTRA_ACCOUNT_TYPE = "account_type";
         protected static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";
         protected static final String EXTRA_IS_SOCIAL_ACCOUNT = "is_social_account";
+        protected static final String EXTRA_PKG = "pkg";
         protected static final String EXTRA_SOCIAL_PORTRAIT = "social_portrait";
         protected static final String EXTRA_SOCIAL_TYPE = "social_type";
+        protected static final String EXTRA_TPL = "tpl";
         protected static final String EXTRA_TPL_STOKEN_LIST = "stoken_list";
         String a;
         String b;
@@ -370,6 +385,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         String d;
         protected DispersionCertification dispersionCertification = new DispersionCertification();
         String e;
+        String f;
+        String g;
 
         /* JADX INFO: Access modifiers changed from: protected */
         public JSONObject toJSONObject() {
@@ -381,6 +398,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                 jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.d);
                 jSONObject.put(EXTRA_TPL_STOKEN_LIST, new JSONObject(this.dispersionCertification.tplStokenMap));
                 jSONObject.put(EXTRA_IS_GUEST_ACCOUNT, this.e);
+                jSONObject.put("tpl", this.f);
+                jSONObject.put(EXTRA_PKG, this.g);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -399,6 +418,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
             extraProperty.d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);
             extraProperty.dispersionCertification = DispersionCertification.fromJSONObject(jSONObject);
             extraProperty.e = jSONObject.optString(EXTRA_IS_GUEST_ACCOUNT);
+            extraProperty.f = jSONObject.optString("tpl");
+            extraProperty.g = jSONObject.optString(EXTRA_PKG);
             return extraProperty;
         }
     }
@@ -481,6 +502,11 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public void setAccountPkg(String str) {
+        putExtra("pkg", str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public void updateSession(SapiAccount sapiAccount) {
         ExtraProperty extraProperty;
         if (SapiUtils.isValidAccount(sapiAccount) && this.uid.equals(sapiAccount.uid)) {
@@ -535,7 +561,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
 
     private boolean b() {
         Context context = ServiceManager.getInstance().getIsAccountManager().getConfignation().context;
-        for (String str : SapiContext.getInstance(context).getSapiOptions().e()) {
+        for (String str : SapiContext.getInstance(context).getSapiOptions().f()) {
             if (context.getPackageName().matches(str)) {
                 return true;
             }

@@ -2,90 +2,90 @@ package com.baidu.tbadk.widget.layout;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int bds;
-    private int bdt;
-    private double bdu;
-    private boolean bdv;
+    private int bgN;
+    private int bgO;
+    private double bgP;
+    private boolean bgQ;
 
     public e() {
-        this.bds = 3;
-        this.bdt = this.bds;
-        this.bdv = true;
+        this.bgN = 3;
+        this.bgO = this.bgN;
+        this.bgQ = true;
     }
 
     public e(int i) {
-        this.bds = 3;
-        this.bdt = this.bds;
-        this.bdv = true;
+        this.bgN = 3;
+        this.bgO = this.bgN;
+        this.bgQ = true;
         if (i > 0) {
-            this.bdt = i;
+            this.bgO = i;
         }
     }
 
     @Override // com.baidu.tbadk.widget.layout.b
-    public int fH(int i) {
+    public int fT(int i) {
         return 1;
     }
 
     @Override // com.baidu.tbadk.widget.layout.b
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        return w.y(list) <= 0 ? i2 : d(constrainImageLayout, list, i2);
+        return v.y(list) <= 0 ? i2 : d(constrainImageLayout, list, i2);
     }
 
     private int d(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
         int i2;
-        if (constrainImageLayout == null || w.z(list)) {
+        if (constrainImageLayout == null || v.z(list)) {
             return i;
         }
-        int y = w.y(list);
+        int y = v.y(list);
         if (y >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.bds);
+            constrainImageLayout.setImageMaxChildCount(this.bgN);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = y - this.bdt;
+        int i3 = y - this.bgO;
         if (i3 > 0) {
-            int i4 = this.bdt + i;
-            List<MediaData> a = w.a(list, i, i4);
-            String string = TbadkCoreApplication.getInst().getString(f.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.bdv) {
+            int i4 = this.bgO + i;
+            List<MediaData> b = v.b(list, i, i4);
+            String string = TbadkCoreApplication.getInst().getString(e.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
+            if (!this.bgQ) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(a, i, true, this.bdv);
+            constrainImageLayout.setUrls(b, i, true, this.bgQ);
             i2 = i4;
         } else {
-            constrainImageLayout.setUrls(w.a(list, i, y), i);
+            constrainImageLayout.setUrls(v.b(list, i, y), i);
             constrainImageLayout.setExtraCenterText(null);
             i2 = y;
         }
-        constrainImageLayout.setSingleImageRatio(fL(y));
+        constrainImageLayout.setSingleImageRatio(fX(y));
         return i2;
     }
 
-    private double fL(int i) {
+    private double fX(int i) {
         TbadkCoreApplication.getInst();
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.bdu > 0.0d) {
-            return this.bdu;
+        if (this.bgP > 0.0d) {
+            return this.bgP;
         }
         return 0.6666666666666666d;
     }
 
     public void g(double d) {
-        this.bdu = d;
+        this.bgP = d;
     }
 
-    public void ck(boolean z) {
-        this.bdv = z;
+    public void cw(boolean z) {
+        this.bgQ = z;
     }
 }

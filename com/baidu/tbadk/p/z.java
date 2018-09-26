@@ -2,36 +2,35 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_immersive_switch";
+    protected void Z(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hl() {
+    protected String getName() {
+        return "android_identify_image";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] ir() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hm() {
+    protected int is() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
+    protected int it() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
+    protected int iu() {
         return 10;
     }
 
-    @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
-        if (i == 1) {
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("switch_immersive_sticky_status", true);
-        } else {
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("switch_immersive_sticky_status", false);
-        }
+    public static boolean jw() {
+        return com.baidu.adp.lib.b.d.iB().aO("android_identify_image") == 1;
     }
 }

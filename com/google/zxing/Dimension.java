@@ -1,4 +1,6 @@
 package com.google.zxing;
+
+import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 public final class Dimension {
     private final int height;
@@ -33,6 +35,6 @@ public final class Dimension {
     }
 
     public String toString() {
-        return this.width + "x" + this.height;
+        return this.width + Config.EVENT_HEAT_X + this.height;
     }
 }

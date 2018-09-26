@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.card.data.o;
 import com.baidu.tieba.card.u;
 import com.baidu.tieba.card.v;
@@ -15,7 +15,7 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), o.cCQ);
+        super(tbPageContext.getPageActivity(), o.cIH);
         this.mPageContext = tbPageContext;
     }
 
@@ -34,9 +34,9 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, o oVar, com.baidu.tieba.card.a.a aVar) {
-        aVar.ajC().a(oVar);
-        aVar.ajC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.ajb().a(new an("c10718").ae(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.cCR)));
+        aVar.aln().a(oVar);
+        aVar.aln().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        v.akM().a(new am("c10718").al(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.cII)));
         return aVar.getView();
     }
 }

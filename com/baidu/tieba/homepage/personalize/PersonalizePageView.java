@@ -14,32 +14,30 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.j;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LabelRecommendActivityConfig;
 import com.baidu.tbadk.core.data.ah;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.g;
+import com.baidu.tbadk.core.view.j;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tbadk.k.f;
+import com.baidu.tbadk.k.g;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tbadk.util.s;
+import com.baidu.tbadk.util.u;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.v;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.personalize.a.l;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
-import com.baidu.tieba.homepage.personalize.d;
+import com.baidu.tieba.homepage.personalize.e;
 import com.baidu.tieba.tbadkCore.data.m;
 import com.baidu.tieba.view.FloatingAnimationView;
 import java.util.ArrayList;
@@ -49,88 +47,88 @@ import tbclient.Personalized.DataRes;
 import tbclient.Personalized.FloatInfo;
 /* loaded from: classes2.dex */
 public class PersonalizePageView extends FrameLayout {
-    private final CustomMessageListener aDW;
-    private f brv;
-    private PbListView bvC;
-    private View.OnClickListener dSO;
-    private BdTypeRecyclerView dUr;
-    private BigdaySwipeRefreshLayout dXa;
-    private com.baidu.tieba.homepage.personalize.bigday.b dXb;
-    private com.baidu.tieba.homepage.personalize.bigday.a dXc;
-    private a dXd;
-    private l dXe;
-    private com.baidu.tieba.homepage.framework.b dXf;
-    private d dXg;
-    private com.baidu.tieba.homepage.personalize.a dXh;
-    private com.baidu.tieba.homepage.personalize.model.e dXi;
-    private long dXj;
-    private FloatingAnimationView dXk;
-    private boolean dXl;
-    private int dXm;
-    private NEGFeedBackView.a dXn;
-    private d.a dXo;
-    g.b dXp;
-    g.c dXq;
-    g.a dXr;
-    private Runnable dXs;
-    public CustomMessageListener dXt;
-    private boolean dmW;
-    private CustomMessageListener dnD;
-    private com.baidu.tieba.c.c doe;
+    private final CustomMessageListener aHc;
+    private PbListView bBr;
+    private com.baidu.tbadk.k.f bxm;
+    private boolean dsT;
+    private CustomMessageListener dtB;
+    private com.baidu.tieba.c.c dub;
+    private View.OnClickListener eaf;
+    private BdTypeRecyclerView ebK;
+    private e eeA;
+    private com.baidu.tieba.homepage.personalize.a eeB;
+    private com.baidu.tieba.homepage.personalize.model.e eeC;
+    private long eeD;
+    private FloatingAnimationView eeE;
+    private boolean eeF;
+    private int eeG;
+    private NEGFeedBackView.a eeH;
+    private e.a eeI;
+    j.b eeJ;
+    j.c eeK;
+    j.a eeL;
+    private Runnable eeM;
+    public CustomMessageListener eeN;
+    private BigdaySwipeRefreshLayout eeu;
+    private com.baidu.tieba.homepage.personalize.bigday.b eev;
+    private com.baidu.tieba.homepage.personalize.bigday.a eew;
+    private a eex;
+    private l eey;
+    private com.baidu.tieba.homepage.framework.b eez;
     private int mSkinType;
     private TbPageContext<?> pageContext;
-    private com.baidu.tbadk.k.g refreshView;
+    private g refreshView;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(g.a aVar);
+        void a(j.a aVar);
 
-        void a(g.b bVar);
+        void a(j.b bVar);
 
-        void a(g.c cVar);
+        void a(j.c cVar);
     }
 
     static /* synthetic */ int l(PersonalizePageView personalizePageView) {
-        int i = personalizePageView.dXm + 1;
-        personalizePageView.dXm = i;
+        int i = personalizePageView.eeG + 1;
+        personalizePageView.eeG = i;
         return i;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.dXg != null) {
-            this.dXg.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.eeA != null) {
+            this.eeA.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
-        if (this.dXh != null) {
-            this.dXh.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.eeB != null) {
+            this.eeB.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
     public void completePullRefresh() {
-        if (this.dXa != null) {
-            this.dXa.nW();
+        if (this.eeu != null) {
+            this.eeu.pc();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.dXe != null) {
-            this.dXe.setPageUniqueId(bdUniqueId);
+        if (this.eey != null) {
+            this.eey.setPageUniqueId(bdUniqueId);
         }
-        if (this.dXg != null) {
-            this.dXg.j(bdUniqueId);
+        if (this.eeA != null) {
+            this.eeA.j(bdUniqueId);
         }
-        if (this.dXi != null) {
-            this.dXi.m(bdUniqueId);
+        if (this.eeC != null) {
+            this.eeC.m(bdUniqueId);
         }
-        if (this.dXc != null) {
-            this.dXc.setTag(bdUniqueId);
+        if (this.eew != null) {
+            this.eew.setTag(bdUniqueId);
         }
-        com.baidu.tbadk.core.bigday.b.tu().setTag(bdUniqueId);
-        if (this.aDW != null) {
-            this.aDW.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.aDW);
+        com.baidu.tbadk.core.bigday.b.ux().setTag(bdUniqueId);
+        if (this.aHc != null) {
+            this.aHc.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.aHc);
         }
-        if (this.dXh != null) {
-            this.dXh.setBdUniqueId(bdUniqueId);
+        if (this.eeB != null) {
+            this.eeB.setBdUniqueId(bdUniqueId);
         }
     }
 
@@ -140,29 +138,29 @@ public class PersonalizePageView extends FrameLayout {
             return null;
         }
         m mVar = new m();
-        mVar.tR(String.valueOf(floatInfo.activity_id));
-        mVar.dw(floatInfo.dynamic_url);
-        mVar.cT(floatInfo.end_time.longValue() * 1000);
+        mVar.uy(String.valueOf(floatInfo.activity_id));
+        mVar.dx(floatInfo.dynamic_url);
+        mVar.setEndTime(floatInfo.end_time.longValue() * 1000);
         mVar.setStartTime(floatInfo.start_time.longValue() * 1000);
-        mVar.tQ(floatInfo.float_url);
-        mVar.tP(floatInfo.jump_url);
+        mVar.ux(floatInfo.float_url);
+        mVar.uw(floatInfo.jump_url);
         mVar.setType(floatInfo.show_type.intValue());
         return mVar;
     }
 
     public PersonalizePageView(Context context) {
         super(context);
-        this.dXj = 0L;
+        this.eeD = 0L;
         this.mSkinType = 3;
-        this.dmW = false;
-        this.dXl = false;
-        this.dXm = 0;
-        this.dXn = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
+        this.dsT = false;
+        this.eeF = false;
+        this.eeG = 0;
+        this.eeH = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void a(ah ahVar) {
                 if (ahVar != null) {
-                    TiebaStatic.log(new an("c11693").ae("obj_locate", "1").ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
-                    TiebaStatic.log(new an("c11989").ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11693").al("obj_locate", "1").al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11989").al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
 
@@ -181,90 +179,90 @@ public class PersonalizePageView extends FrameLayout {
                     if (sb.length() > 0) {
                         sb.deleteCharAt(sb.length() - 1);
                     }
-                    TiebaStatic.log(new an("c11693").ae("obj_locate", sb.toString()).ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11693").al("obj_locate", sb.toString()).al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
         };
-        this.dXo = new d.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.7
-            @Override // com.baidu.tieba.homepage.personalize.d.a
-            public void aR(int i, int i2) {
-                if (PersonalizePageView.this.dXf == null) {
-                    PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, TbadkCoreApplication.getInst().getString(f.j.neterror), true);
+        this.eeI = new e.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.7
+            @Override // com.baidu.tieba.homepage.personalize.e.a
+            public void aV(int i, int i2) {
+                if (PersonalizePageView.this.eez == null) {
+                    PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, TbadkCoreApplication.getInst().getString(e.j.neterror), true);
                     PersonalizePageView.this.hideLoadingView();
                     return;
                 }
-                boolean aDg = PersonalizePageView.this.aDg();
-                PersonalizePageView.this.Un();
-                if (aDg) {
-                    PersonalizePageView.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds520));
+                boolean aFt = PersonalizePageView.this.aFt();
+                PersonalizePageView.this.Wa();
+                if (aFt) {
+                    PersonalizePageView.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds520));
                 }
-                PersonalizePageView.this.dXf.aQ(i, i2);
+                PersonalizePageView.this.eez.aU(i, i2);
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
-            public void C(int i, int i2, int i3) {
-                if (PersonalizePageView.this.dXf != null) {
-                    PersonalizePageView.this.dXf.B(i, i2, i3);
+            @Override // com.baidu.tieba.homepage.personalize.e.a
+            public void H(int i, int i2, int i3) {
+                if (PersonalizePageView.this.eez != null) {
+                    PersonalizePageView.this.eez.G(i, i2, i3);
                 }
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
+            @Override // com.baidu.tieba.homepage.personalize.e.a
             public void onError(int i, String str) {
                 PersonalizePageView.this.hideLoadingView();
                 if (i != 1) {
-                    PersonalizePageView.this.dXa.setVisibility(8);
+                    PersonalizePageView.this.eeu.setVisibility(8);
                     PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, str, true);
-                } else if (j.jE()) {
+                } else if (com.baidu.adp.lib.util.j.kK()) {
                     PersonalizePageView.this.pageContext.showToast(str);
                 }
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
+            @Override // com.baidu.tieba.homepage.personalize.e.a
             public void onSuccess() {
-                PersonalizePageView.this.dXa.setVisibility(0);
+                PersonalizePageView.this.eeu.setVisibility(0);
                 PersonalizePageView.this.hideLoadingView();
-                PersonalizePageView.this.Un();
-                m a2 = PersonalizePageView.this.a(PersonalizePageView.this.dXg.aEq());
-                PersonalizePageView.this.bA(PersonalizePageView.this.getContext());
-                if (PersonalizePageView.this.doe != null) {
-                    PersonalizePageView.this.doe.a(a2);
+                PersonalizePageView.this.Wa();
+                m a2 = PersonalizePageView.this.a(PersonalizePageView.this.eeA.aGF());
+                PersonalizePageView.this.ch(PersonalizePageView.this.getContext());
+                if (PersonalizePageView.this.dub != null) {
+                    PersonalizePageView.this.dub.a(a2);
                 }
             }
         };
-        this.dXp = new g.b() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
-            @Override // com.baidu.tbadk.core.view.g.b
-            public void aT(boolean z) {
-                com.baidu.tieba.a.d.QN().iA("page_recommend");
-                PersonalizePageView.this.dXg.update();
+        this.eeJ = new j.b() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
+            @Override // com.baidu.tbadk.core.view.j.b
+            public void bf(boolean z) {
+                com.baidu.tieba.a.d.SB().jc("page_recommend");
+                PersonalizePageView.this.eeA.update();
             }
         };
-        this.dXq = new g.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.9
-            @Override // com.baidu.tbadk.core.view.g.c
-            public void aU(boolean z) {
-                if (PersonalizePageView.this.dXg != null) {
-                    if (PersonalizePageView.this.dXg.avb() != null) {
-                        PersonalizePageView.this.dXg.avb().aFA();
+        this.eeK = new j.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.9
+            @Override // com.baidu.tbadk.core.view.j.c
+            public void bg(boolean z) {
+                if (PersonalizePageView.this.eeA != null) {
+                    if (PersonalizePageView.this.eeA.awU() != null) {
+                        PersonalizePageView.this.eeA.awU().aHP();
                     }
-                    PersonalizePageView.this.dXg.gP(false);
+                    PersonalizePageView.this.eeA.hn(false);
                 }
             }
         };
-        this.dXr = new g.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
-            @Override // com.baidu.tbadk.core.view.g.a
+        this.eeL = new j.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
+            @Override // com.baidu.tbadk.core.view.j.a
             public void b(View view, boolean z) {
-                if (PersonalizePageView.this.dXg != null) {
-                    PersonalizePageView.this.dXg.gP(true);
-                    PersonalizePageView.this.dXg.aEj();
+                if (PersonalizePageView.this.eeA != null) {
+                    PersonalizePageView.this.eeA.hn(true);
+                    PersonalizePageView.this.eeA.aGy();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016477, true));
                 com.baidu.tbadk.core.bigday.a aVar = null;
-                if (com.baidu.adp.lib.b.d.hv().ax("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
-                    aVar = com.baidu.tbadk.core.bigday.b.tu().bD(1);
+                if (com.baidu.adp.lib.b.d.iB().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+                    aVar = com.baidu.tbadk.core.bigday.b.ux().bM(1);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, aVar));
             }
         };
-        this.dXs = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.2
+        this.eeM = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.2
             @Override // java.lang.Runnable
             public void run() {
                 if (PersonalizePageView.this.pageContext != null) {
@@ -273,7 +271,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             }
         };
-        this.aDW = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3
+        this.aHc = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -284,70 +282,70 @@ public class PersonalizePageView extends FrameLayout {
                         z = downloadData.getStatus() == 0 ? true : z;
                     }
                     if (z) {
-                        com.baidu.adp.lib.g.e.in().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3.1
+                        com.baidu.adp.lib.g.e.jt().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                PersonalizePageView.this.aEf();
+                                PersonalizePageView.this.aGt();
                             }
                         }, TimeUnit.SECONDS.toMillis(2L));
                     }
                 }
             }
         };
-        this.dSO = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.4
+        this.eaf = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonalizePageView.this.Tq();
+                PersonalizePageView.this.Vd();
             }
         };
-        this.dnD = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.5
+        this.dtB = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof String) && !TextUtils.isEmpty((String) data)) {
-                        PersonalizePageView.this.dmW = true;
+                        PersonalizePageView.this.dsT = true;
                     }
                 }
             }
         };
-        this.dXt = new CustomMessageListener(2921349) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.6
+        this.eeN = new CustomMessageListener(2921349) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (PersonalizePageView.this.dXa != null && !PersonalizePageView.this.dXa.isRefreshing()) {
+                if (PersonalizePageView.this.eeu != null && !PersonalizePageView.this.eeu.isRefreshing()) {
                     if (!(customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.bigday.a))) {
-                        if (PersonalizePageView.this.dXc == null) {
-                            PersonalizePageView.this.dXc = new com.baidu.tieba.homepage.personalize.bigday.a(PersonalizePageView.this.pageContext);
-                            PersonalizePageView.this.dXc.dB(PersonalizePageView.this.mSkinType);
-                            PersonalizePageView.this.dXd = PersonalizePageView.this.dXc;
-                            PersonalizePageView.this.aEd();
-                        } else if (PersonalizePageView.this.dXd != PersonalizePageView.this.dXc) {
-                            PersonalizePageView.this.dXd = PersonalizePageView.this.dXc;
+                        if (PersonalizePageView.this.eew == null) {
+                            PersonalizePageView.this.eew = new com.baidu.tieba.homepage.personalize.bigday.a(PersonalizePageView.this.pageContext);
+                            PersonalizePageView.this.eew.dM(PersonalizePageView.this.mSkinType);
+                            PersonalizePageView.this.eex = PersonalizePageView.this.eew;
+                            PersonalizePageView.this.aGr();
+                        } else if (PersonalizePageView.this.eex != PersonalizePageView.this.eew) {
+                            PersonalizePageView.this.eex = PersonalizePageView.this.eew;
                         } else {
                             return;
                         }
-                        PersonalizePageView.this.dXc.setEnable(true);
-                        PersonalizePageView.this.dXa.setProgressView(PersonalizePageView.this.dXc);
+                        PersonalizePageView.this.eew.setEnable(true);
+                        PersonalizePageView.this.eeu.setProgressView(PersonalizePageView.this.eew);
                         int i = (int) (61.0f * PersonalizePageView.this.getResources().getDisplayMetrics().density);
-                        PersonalizePageView.this.dXa.setCustomDistances(i, i, i);
+                        PersonalizePageView.this.eeu.setCustomDistances(i, i, i);
                         return;
                     }
                     com.baidu.tbadk.core.bigday.a aVar = (com.baidu.tbadk.core.bigday.a) customResponsedMessage.getData();
-                    if (PersonalizePageView.this.dXb == null) {
-                        PersonalizePageView.this.dXb = new com.baidu.tieba.homepage.personalize.bigday.b(PersonalizePageView.this.pageContext.getContext());
-                        PersonalizePageView.this.dXd = PersonalizePageView.this.dXb;
-                        PersonalizePageView.this.aEd();
-                    } else if (PersonalizePageView.this.dXd != PersonalizePageView.this.dXb || !aVar.equals(PersonalizePageView.this.dXb.aEA())) {
-                        PersonalizePageView.this.dXd = PersonalizePageView.this.dXb;
+                    if (PersonalizePageView.this.eev == null) {
+                        PersonalizePageView.this.eev = new com.baidu.tieba.homepage.personalize.bigday.b(PersonalizePageView.this.pageContext.getContext());
+                        PersonalizePageView.this.eex = PersonalizePageView.this.eev;
+                        PersonalizePageView.this.aGr();
+                    } else if (PersonalizePageView.this.eex != PersonalizePageView.this.eev || !aVar.equals(PersonalizePageView.this.eev.aGP())) {
+                        PersonalizePageView.this.eex = PersonalizePageView.this.eev;
                     } else {
                         return;
                     }
-                    PersonalizePageView.this.dXb.setEnable(true);
-                    PersonalizePageView.this.dXa.setProgressView(PersonalizePageView.this.dXb);
-                    PersonalizePageView.this.dXb.a(aVar);
-                    PersonalizePageView.this.dXa.setCustomDistances((int) PersonalizePageView.this.getResources().getDimension(f.e.tbds236), (int) (com.baidu.adp.lib.util.l.aj(PersonalizePageView.this.pageContext.getContext()) * 0.8d), com.baidu.adp.lib.util.l.aj(PersonalizePageView.this.pageContext.getContext()));
+                    PersonalizePageView.this.eev.setEnable(true);
+                    PersonalizePageView.this.eeu.setProgressView(PersonalizePageView.this.eev);
+                    PersonalizePageView.this.eev.a(aVar);
+                    PersonalizePageView.this.eeu.setCustomDistances((int) PersonalizePageView.this.getResources().getDimension(e.C0141e.tbds236), (int) (com.baidu.adp.lib.util.l.aQ(PersonalizePageView.this.pageContext.getContext()) * 0.8d), com.baidu.adp.lib.util.l.aQ(PersonalizePageView.this.pageContext.getContext()));
                 }
             }
         };
@@ -356,17 +354,17 @@ public class PersonalizePageView extends FrameLayout {
 
     public PersonalizePageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dXj = 0L;
+        this.eeD = 0L;
         this.mSkinType = 3;
-        this.dmW = false;
-        this.dXl = false;
-        this.dXm = 0;
-        this.dXn = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
+        this.dsT = false;
+        this.eeF = false;
+        this.eeG = 0;
+        this.eeH = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void a(ah ahVar) {
                 if (ahVar != null) {
-                    TiebaStatic.log(new an("c11693").ae("obj_locate", "1").ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
-                    TiebaStatic.log(new an("c11989").ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11693").al("obj_locate", "1").al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11989").al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
 
@@ -385,90 +383,90 @@ public class PersonalizePageView extends FrameLayout {
                     if (sb.length() > 0) {
                         sb.deleteCharAt(sb.length() - 1);
                     }
-                    TiebaStatic.log(new an("c11693").ae("obj_locate", sb.toString()).ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11693").al("obj_locate", sb.toString()).al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
         };
-        this.dXo = new d.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.7
-            @Override // com.baidu.tieba.homepage.personalize.d.a
-            public void aR(int i, int i2) {
-                if (PersonalizePageView.this.dXf == null) {
-                    PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, TbadkCoreApplication.getInst().getString(f.j.neterror), true);
+        this.eeI = new e.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.7
+            @Override // com.baidu.tieba.homepage.personalize.e.a
+            public void aV(int i, int i2) {
+                if (PersonalizePageView.this.eez == null) {
+                    PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, TbadkCoreApplication.getInst().getString(e.j.neterror), true);
                     PersonalizePageView.this.hideLoadingView();
                     return;
                 }
-                boolean aDg = PersonalizePageView.this.aDg();
-                PersonalizePageView.this.Un();
-                if (aDg) {
-                    PersonalizePageView.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds520));
+                boolean aFt = PersonalizePageView.this.aFt();
+                PersonalizePageView.this.Wa();
+                if (aFt) {
+                    PersonalizePageView.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds520));
                 }
-                PersonalizePageView.this.dXf.aQ(i, i2);
+                PersonalizePageView.this.eez.aU(i, i2);
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
-            public void C(int i, int i2, int i3) {
-                if (PersonalizePageView.this.dXf != null) {
-                    PersonalizePageView.this.dXf.B(i, i2, i3);
+            @Override // com.baidu.tieba.homepage.personalize.e.a
+            public void H(int i, int i2, int i3) {
+                if (PersonalizePageView.this.eez != null) {
+                    PersonalizePageView.this.eez.G(i, i2, i3);
                 }
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
+            @Override // com.baidu.tieba.homepage.personalize.e.a
             public void onError(int i, String str) {
                 PersonalizePageView.this.hideLoadingView();
                 if (i != 1) {
-                    PersonalizePageView.this.dXa.setVisibility(8);
+                    PersonalizePageView.this.eeu.setVisibility(8);
                     PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, str, true);
-                } else if (j.jE()) {
+                } else if (com.baidu.adp.lib.util.j.kK()) {
                     PersonalizePageView.this.pageContext.showToast(str);
                 }
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
+            @Override // com.baidu.tieba.homepage.personalize.e.a
             public void onSuccess() {
-                PersonalizePageView.this.dXa.setVisibility(0);
+                PersonalizePageView.this.eeu.setVisibility(0);
                 PersonalizePageView.this.hideLoadingView();
-                PersonalizePageView.this.Un();
-                m a2 = PersonalizePageView.this.a(PersonalizePageView.this.dXg.aEq());
-                PersonalizePageView.this.bA(PersonalizePageView.this.getContext());
-                if (PersonalizePageView.this.doe != null) {
-                    PersonalizePageView.this.doe.a(a2);
+                PersonalizePageView.this.Wa();
+                m a2 = PersonalizePageView.this.a(PersonalizePageView.this.eeA.aGF());
+                PersonalizePageView.this.ch(PersonalizePageView.this.getContext());
+                if (PersonalizePageView.this.dub != null) {
+                    PersonalizePageView.this.dub.a(a2);
                 }
             }
         };
-        this.dXp = new g.b() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
-            @Override // com.baidu.tbadk.core.view.g.b
-            public void aT(boolean z) {
-                com.baidu.tieba.a.d.QN().iA("page_recommend");
-                PersonalizePageView.this.dXg.update();
+        this.eeJ = new j.b() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
+            @Override // com.baidu.tbadk.core.view.j.b
+            public void bf(boolean z) {
+                com.baidu.tieba.a.d.SB().jc("page_recommend");
+                PersonalizePageView.this.eeA.update();
             }
         };
-        this.dXq = new g.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.9
-            @Override // com.baidu.tbadk.core.view.g.c
-            public void aU(boolean z) {
-                if (PersonalizePageView.this.dXg != null) {
-                    if (PersonalizePageView.this.dXg.avb() != null) {
-                        PersonalizePageView.this.dXg.avb().aFA();
+        this.eeK = new j.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.9
+            @Override // com.baidu.tbadk.core.view.j.c
+            public void bg(boolean z) {
+                if (PersonalizePageView.this.eeA != null) {
+                    if (PersonalizePageView.this.eeA.awU() != null) {
+                        PersonalizePageView.this.eeA.awU().aHP();
                     }
-                    PersonalizePageView.this.dXg.gP(false);
+                    PersonalizePageView.this.eeA.hn(false);
                 }
             }
         };
-        this.dXr = new g.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
-            @Override // com.baidu.tbadk.core.view.g.a
+        this.eeL = new j.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
+            @Override // com.baidu.tbadk.core.view.j.a
             public void b(View view, boolean z) {
-                if (PersonalizePageView.this.dXg != null) {
-                    PersonalizePageView.this.dXg.gP(true);
-                    PersonalizePageView.this.dXg.aEj();
+                if (PersonalizePageView.this.eeA != null) {
+                    PersonalizePageView.this.eeA.hn(true);
+                    PersonalizePageView.this.eeA.aGy();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016477, true));
                 com.baidu.tbadk.core.bigday.a aVar = null;
-                if (com.baidu.adp.lib.b.d.hv().ax("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
-                    aVar = com.baidu.tbadk.core.bigday.b.tu().bD(1);
+                if (com.baidu.adp.lib.b.d.iB().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+                    aVar = com.baidu.tbadk.core.bigday.b.ux().bM(1);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, aVar));
             }
         };
-        this.dXs = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.2
+        this.eeM = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.2
             @Override // java.lang.Runnable
             public void run() {
                 if (PersonalizePageView.this.pageContext != null) {
@@ -477,7 +475,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             }
         };
-        this.aDW = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3
+        this.aHc = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -488,70 +486,70 @@ public class PersonalizePageView extends FrameLayout {
                         z = downloadData.getStatus() == 0 ? true : z;
                     }
                     if (z) {
-                        com.baidu.adp.lib.g.e.in().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3.1
+                        com.baidu.adp.lib.g.e.jt().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                PersonalizePageView.this.aEf();
+                                PersonalizePageView.this.aGt();
                             }
                         }, TimeUnit.SECONDS.toMillis(2L));
                     }
                 }
             }
         };
-        this.dSO = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.4
+        this.eaf = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonalizePageView.this.Tq();
+                PersonalizePageView.this.Vd();
             }
         };
-        this.dnD = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.5
+        this.dtB = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof String) && !TextUtils.isEmpty((String) data)) {
-                        PersonalizePageView.this.dmW = true;
+                        PersonalizePageView.this.dsT = true;
                     }
                 }
             }
         };
-        this.dXt = new CustomMessageListener(2921349) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.6
+        this.eeN = new CustomMessageListener(2921349) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (PersonalizePageView.this.dXa != null && !PersonalizePageView.this.dXa.isRefreshing()) {
+                if (PersonalizePageView.this.eeu != null && !PersonalizePageView.this.eeu.isRefreshing()) {
                     if (!(customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.bigday.a))) {
-                        if (PersonalizePageView.this.dXc == null) {
-                            PersonalizePageView.this.dXc = new com.baidu.tieba.homepage.personalize.bigday.a(PersonalizePageView.this.pageContext);
-                            PersonalizePageView.this.dXc.dB(PersonalizePageView.this.mSkinType);
-                            PersonalizePageView.this.dXd = PersonalizePageView.this.dXc;
-                            PersonalizePageView.this.aEd();
-                        } else if (PersonalizePageView.this.dXd != PersonalizePageView.this.dXc) {
-                            PersonalizePageView.this.dXd = PersonalizePageView.this.dXc;
+                        if (PersonalizePageView.this.eew == null) {
+                            PersonalizePageView.this.eew = new com.baidu.tieba.homepage.personalize.bigday.a(PersonalizePageView.this.pageContext);
+                            PersonalizePageView.this.eew.dM(PersonalizePageView.this.mSkinType);
+                            PersonalizePageView.this.eex = PersonalizePageView.this.eew;
+                            PersonalizePageView.this.aGr();
+                        } else if (PersonalizePageView.this.eex != PersonalizePageView.this.eew) {
+                            PersonalizePageView.this.eex = PersonalizePageView.this.eew;
                         } else {
                             return;
                         }
-                        PersonalizePageView.this.dXc.setEnable(true);
-                        PersonalizePageView.this.dXa.setProgressView(PersonalizePageView.this.dXc);
+                        PersonalizePageView.this.eew.setEnable(true);
+                        PersonalizePageView.this.eeu.setProgressView(PersonalizePageView.this.eew);
                         int i = (int) (61.0f * PersonalizePageView.this.getResources().getDisplayMetrics().density);
-                        PersonalizePageView.this.dXa.setCustomDistances(i, i, i);
+                        PersonalizePageView.this.eeu.setCustomDistances(i, i, i);
                         return;
                     }
                     com.baidu.tbadk.core.bigday.a aVar = (com.baidu.tbadk.core.bigday.a) customResponsedMessage.getData();
-                    if (PersonalizePageView.this.dXb == null) {
-                        PersonalizePageView.this.dXb = new com.baidu.tieba.homepage.personalize.bigday.b(PersonalizePageView.this.pageContext.getContext());
-                        PersonalizePageView.this.dXd = PersonalizePageView.this.dXb;
-                        PersonalizePageView.this.aEd();
-                    } else if (PersonalizePageView.this.dXd != PersonalizePageView.this.dXb || !aVar.equals(PersonalizePageView.this.dXb.aEA())) {
-                        PersonalizePageView.this.dXd = PersonalizePageView.this.dXb;
+                    if (PersonalizePageView.this.eev == null) {
+                        PersonalizePageView.this.eev = new com.baidu.tieba.homepage.personalize.bigday.b(PersonalizePageView.this.pageContext.getContext());
+                        PersonalizePageView.this.eex = PersonalizePageView.this.eev;
+                        PersonalizePageView.this.aGr();
+                    } else if (PersonalizePageView.this.eex != PersonalizePageView.this.eev || !aVar.equals(PersonalizePageView.this.eev.aGP())) {
+                        PersonalizePageView.this.eex = PersonalizePageView.this.eev;
                     } else {
                         return;
                     }
-                    PersonalizePageView.this.dXb.setEnable(true);
-                    PersonalizePageView.this.dXa.setProgressView(PersonalizePageView.this.dXb);
-                    PersonalizePageView.this.dXb.a(aVar);
-                    PersonalizePageView.this.dXa.setCustomDistances((int) PersonalizePageView.this.getResources().getDimension(f.e.tbds236), (int) (com.baidu.adp.lib.util.l.aj(PersonalizePageView.this.pageContext.getContext()) * 0.8d), com.baidu.adp.lib.util.l.aj(PersonalizePageView.this.pageContext.getContext()));
+                    PersonalizePageView.this.eev.setEnable(true);
+                    PersonalizePageView.this.eeu.setProgressView(PersonalizePageView.this.eev);
+                    PersonalizePageView.this.eev.a(aVar);
+                    PersonalizePageView.this.eeu.setCustomDistances((int) PersonalizePageView.this.getResources().getDimension(e.C0141e.tbds236), (int) (com.baidu.adp.lib.util.l.aQ(PersonalizePageView.this.pageContext.getContext()) * 0.8d), com.baidu.adp.lib.util.l.aQ(PersonalizePageView.this.pageContext.getContext()));
                 }
             }
         };
@@ -560,17 +558,17 @@ public class PersonalizePageView extends FrameLayout {
 
     public PersonalizePageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dXj = 0L;
+        this.eeD = 0L;
         this.mSkinType = 3;
-        this.dmW = false;
-        this.dXl = false;
-        this.dXm = 0;
-        this.dXn = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
+        this.dsT = false;
+        this.eeF = false;
+        this.eeG = 0;
+        this.eeH = new NEGFeedBackView.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.1
             @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
             public void a(ah ahVar) {
                 if (ahVar != null) {
-                    TiebaStatic.log(new an("c11693").ae("obj_locate", "1").ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
-                    TiebaStatic.log(new an("c11989").ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11693").al("obj_locate", "1").al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11989").al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
 
@@ -589,90 +587,90 @@ public class PersonalizePageView extends FrameLayout {
                     if (sb.length() > 0) {
                         sb.deleteCharAt(sb.length() - 1);
                     }
-                    TiebaStatic.log(new an("c11693").ae("obj_locate", sb.toString()).ae(ImageViewerConfig.FORUM_ID, ahVar.getFid()).ae("tid", ahVar.getTid()).ae("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c11693").al("obj_locate", sb.toString()).al(ImageViewerConfig.FORUM_ID, ahVar.getFid()).al("tid", ahVar.getTid()).al("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
         };
-        this.dXo = new d.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.7
-            @Override // com.baidu.tieba.homepage.personalize.d.a
-            public void aR(int i2, int i22) {
-                if (PersonalizePageView.this.dXf == null) {
-                    PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, TbadkCoreApplication.getInst().getString(f.j.neterror), true);
+        this.eeI = new e.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.7
+            @Override // com.baidu.tieba.homepage.personalize.e.a
+            public void aV(int i2, int i22) {
+                if (PersonalizePageView.this.eez == null) {
+                    PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, TbadkCoreApplication.getInst().getString(e.j.neterror), true);
                     PersonalizePageView.this.hideLoadingView();
                     return;
                 }
-                boolean aDg = PersonalizePageView.this.aDg();
-                PersonalizePageView.this.Un();
-                if (aDg) {
-                    PersonalizePageView.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds520));
+                boolean aFt = PersonalizePageView.this.aFt();
+                PersonalizePageView.this.Wa();
+                if (aFt) {
+                    PersonalizePageView.this.g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds520));
                 }
-                PersonalizePageView.this.dXf.aQ(i2, i22);
+                PersonalizePageView.this.eez.aU(i2, i22);
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
-            public void C(int i2, int i22, int i3) {
-                if (PersonalizePageView.this.dXf != null) {
-                    PersonalizePageView.this.dXf.B(i2, i22, i3);
+            @Override // com.baidu.tieba.homepage.personalize.e.a
+            public void H(int i2, int i22, int i3) {
+                if (PersonalizePageView.this.eez != null) {
+                    PersonalizePageView.this.eez.G(i2, i22, i3);
                 }
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
+            @Override // com.baidu.tieba.homepage.personalize.e.a
             public void onError(int i2, String str) {
                 PersonalizePageView.this.hideLoadingView();
                 if (i2 != 1) {
-                    PersonalizePageView.this.dXa.setVisibility(8);
+                    PersonalizePageView.this.eeu.setVisibility(8);
                     PersonalizePageView.this.showNetRefreshView(PersonalizePageView.this, str, true);
-                } else if (j.jE()) {
+                } else if (com.baidu.adp.lib.util.j.kK()) {
                     PersonalizePageView.this.pageContext.showToast(str);
                 }
             }
 
-            @Override // com.baidu.tieba.homepage.personalize.d.a
+            @Override // com.baidu.tieba.homepage.personalize.e.a
             public void onSuccess() {
-                PersonalizePageView.this.dXa.setVisibility(0);
+                PersonalizePageView.this.eeu.setVisibility(0);
                 PersonalizePageView.this.hideLoadingView();
-                PersonalizePageView.this.Un();
-                m a2 = PersonalizePageView.this.a(PersonalizePageView.this.dXg.aEq());
-                PersonalizePageView.this.bA(PersonalizePageView.this.getContext());
-                if (PersonalizePageView.this.doe != null) {
-                    PersonalizePageView.this.doe.a(a2);
+                PersonalizePageView.this.Wa();
+                m a2 = PersonalizePageView.this.a(PersonalizePageView.this.eeA.aGF());
+                PersonalizePageView.this.ch(PersonalizePageView.this.getContext());
+                if (PersonalizePageView.this.dub != null) {
+                    PersonalizePageView.this.dub.a(a2);
                 }
             }
         };
-        this.dXp = new g.b() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
-            @Override // com.baidu.tbadk.core.view.g.b
-            public void aT(boolean z) {
-                com.baidu.tieba.a.d.QN().iA("page_recommend");
-                PersonalizePageView.this.dXg.update();
+        this.eeJ = new j.b() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.8
+            @Override // com.baidu.tbadk.core.view.j.b
+            public void bf(boolean z) {
+                com.baidu.tieba.a.d.SB().jc("page_recommend");
+                PersonalizePageView.this.eeA.update();
             }
         };
-        this.dXq = new g.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.9
-            @Override // com.baidu.tbadk.core.view.g.c
-            public void aU(boolean z) {
-                if (PersonalizePageView.this.dXg != null) {
-                    if (PersonalizePageView.this.dXg.avb() != null) {
-                        PersonalizePageView.this.dXg.avb().aFA();
+        this.eeK = new j.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.9
+            @Override // com.baidu.tbadk.core.view.j.c
+            public void bg(boolean z) {
+                if (PersonalizePageView.this.eeA != null) {
+                    if (PersonalizePageView.this.eeA.awU() != null) {
+                        PersonalizePageView.this.eeA.awU().aHP();
                     }
-                    PersonalizePageView.this.dXg.gP(false);
+                    PersonalizePageView.this.eeA.hn(false);
                 }
             }
         };
-        this.dXr = new g.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
-            @Override // com.baidu.tbadk.core.view.g.a
+        this.eeL = new j.a() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.10
+            @Override // com.baidu.tbadk.core.view.j.a
             public void b(View view, boolean z) {
-                if (PersonalizePageView.this.dXg != null) {
-                    PersonalizePageView.this.dXg.gP(true);
-                    PersonalizePageView.this.dXg.aEj();
+                if (PersonalizePageView.this.eeA != null) {
+                    PersonalizePageView.this.eeA.hn(true);
+                    PersonalizePageView.this.eeA.aGy();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016477, true));
                 com.baidu.tbadk.core.bigday.a aVar = null;
-                if (com.baidu.adp.lib.b.d.hv().ax("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
-                    aVar = com.baidu.tbadk.core.bigday.b.tu().bD(1);
+                if (com.baidu.adp.lib.b.d.iB().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+                    aVar = com.baidu.tbadk.core.bigday.b.ux().bM(1);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, aVar));
             }
         };
-        this.dXs = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.2
+        this.eeM = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.2
             @Override // java.lang.Runnable
             public void run() {
                 if (PersonalizePageView.this.pageContext != null) {
@@ -681,7 +679,7 @@ public class PersonalizePageView extends FrameLayout {
                 }
             }
         };
-        this.aDW = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3
+        this.aHc = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -692,70 +690,70 @@ public class PersonalizePageView extends FrameLayout {
                         z = downloadData.getStatus() == 0 ? true : z;
                     }
                     if (z) {
-                        com.baidu.adp.lib.g.e.in().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3.1
+                        com.baidu.adp.lib.g.e.jt().postDelayed(new Runnable() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.3.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                PersonalizePageView.this.aEf();
+                                PersonalizePageView.this.aGt();
                             }
                         }, TimeUnit.SECONDS.toMillis(2L));
                     }
                 }
             }
         };
-        this.dSO = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.4
+        this.eaf = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonalizePageView.this.Tq();
+                PersonalizePageView.this.Vd();
             }
         };
-        this.dnD = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.5
+        this.dtB = new CustomMessageListener(2921033) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
                     Object data = customResponsedMessage.getData();
                     if ((data instanceof String) && !TextUtils.isEmpty((String) data)) {
-                        PersonalizePageView.this.dmW = true;
+                        PersonalizePageView.this.dsT = true;
                     }
                 }
             }
         };
-        this.dXt = new CustomMessageListener(2921349) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.6
+        this.eeN = new CustomMessageListener(2921349) { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (PersonalizePageView.this.dXa != null && !PersonalizePageView.this.dXa.isRefreshing()) {
+                if (PersonalizePageView.this.eeu != null && !PersonalizePageView.this.eeu.isRefreshing()) {
                     if (!(customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.bigday.a))) {
-                        if (PersonalizePageView.this.dXc == null) {
-                            PersonalizePageView.this.dXc = new com.baidu.tieba.homepage.personalize.bigday.a(PersonalizePageView.this.pageContext);
-                            PersonalizePageView.this.dXc.dB(PersonalizePageView.this.mSkinType);
-                            PersonalizePageView.this.dXd = PersonalizePageView.this.dXc;
-                            PersonalizePageView.this.aEd();
-                        } else if (PersonalizePageView.this.dXd != PersonalizePageView.this.dXc) {
-                            PersonalizePageView.this.dXd = PersonalizePageView.this.dXc;
+                        if (PersonalizePageView.this.eew == null) {
+                            PersonalizePageView.this.eew = new com.baidu.tieba.homepage.personalize.bigday.a(PersonalizePageView.this.pageContext);
+                            PersonalizePageView.this.eew.dM(PersonalizePageView.this.mSkinType);
+                            PersonalizePageView.this.eex = PersonalizePageView.this.eew;
+                            PersonalizePageView.this.aGr();
+                        } else if (PersonalizePageView.this.eex != PersonalizePageView.this.eew) {
+                            PersonalizePageView.this.eex = PersonalizePageView.this.eew;
                         } else {
                             return;
                         }
-                        PersonalizePageView.this.dXc.setEnable(true);
-                        PersonalizePageView.this.dXa.setProgressView(PersonalizePageView.this.dXc);
+                        PersonalizePageView.this.eew.setEnable(true);
+                        PersonalizePageView.this.eeu.setProgressView(PersonalizePageView.this.eew);
                         int i2 = (int) (61.0f * PersonalizePageView.this.getResources().getDisplayMetrics().density);
-                        PersonalizePageView.this.dXa.setCustomDistances(i2, i2, i2);
+                        PersonalizePageView.this.eeu.setCustomDistances(i2, i2, i2);
                         return;
                     }
                     com.baidu.tbadk.core.bigday.a aVar = (com.baidu.tbadk.core.bigday.a) customResponsedMessage.getData();
-                    if (PersonalizePageView.this.dXb == null) {
-                        PersonalizePageView.this.dXb = new com.baidu.tieba.homepage.personalize.bigday.b(PersonalizePageView.this.pageContext.getContext());
-                        PersonalizePageView.this.dXd = PersonalizePageView.this.dXb;
-                        PersonalizePageView.this.aEd();
-                    } else if (PersonalizePageView.this.dXd != PersonalizePageView.this.dXb || !aVar.equals(PersonalizePageView.this.dXb.aEA())) {
-                        PersonalizePageView.this.dXd = PersonalizePageView.this.dXb;
+                    if (PersonalizePageView.this.eev == null) {
+                        PersonalizePageView.this.eev = new com.baidu.tieba.homepage.personalize.bigday.b(PersonalizePageView.this.pageContext.getContext());
+                        PersonalizePageView.this.eex = PersonalizePageView.this.eev;
+                        PersonalizePageView.this.aGr();
+                    } else if (PersonalizePageView.this.eex != PersonalizePageView.this.eev || !aVar.equals(PersonalizePageView.this.eev.aGP())) {
+                        PersonalizePageView.this.eex = PersonalizePageView.this.eev;
                     } else {
                         return;
                     }
-                    PersonalizePageView.this.dXb.setEnable(true);
-                    PersonalizePageView.this.dXa.setProgressView(PersonalizePageView.this.dXb);
-                    PersonalizePageView.this.dXb.a(aVar);
-                    PersonalizePageView.this.dXa.setCustomDistances((int) PersonalizePageView.this.getResources().getDimension(f.e.tbds236), (int) (com.baidu.adp.lib.util.l.aj(PersonalizePageView.this.pageContext.getContext()) * 0.8d), com.baidu.adp.lib.util.l.aj(PersonalizePageView.this.pageContext.getContext()));
+                    PersonalizePageView.this.eev.setEnable(true);
+                    PersonalizePageView.this.eeu.setProgressView(PersonalizePageView.this.eev);
+                    PersonalizePageView.this.eev.a(aVar);
+                    PersonalizePageView.this.eeu.setCustomDistances((int) PersonalizePageView.this.getResources().getDimension(e.C0141e.tbds236), (int) (com.baidu.adp.lib.util.l.aQ(PersonalizePageView.this.pageContext.getContext()) * 0.8d), com.baidu.adp.lib.util.l.aQ(PersonalizePageView.this.pageContext.getContext()));
                 }
             }
         };
@@ -763,96 +761,96 @@ public class PersonalizePageView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.dUr = new BdTypeRecyclerView(context);
-        this.dUr.setLayoutManager(new LinearLayoutManager(this.dUr.getContext()));
-        this.dUr.setFadingEdgeLength(0);
-        this.dUr.setOverScrollMode(2);
-        this.dXa = new BigdaySwipeRefreshLayout(context);
-        this.dXa.addView(this.dUr);
-        this.bvC = new PbListView(context);
-        this.bvC.getView();
-        this.bvC.dA(f.d.cp_bg_line_e);
-        this.bvC.As();
-        this.bvC.setTextColor(am.getColor(f.d.cp_cont_j));
-        this.bvC.setTextSize(f.e.tbfontsize33);
-        this.bvC.dz(f.d.cp_cont_e);
-        this.bvC.setHeight(com.baidu.adp.lib.util.l.f(context, f.e.tbds182));
-        this.bvC.setOnClickListener(this.dSO);
-        this.dUr.setNextPage(this.bvC);
-        com.baidu.adp.base.e<?> ad = i.ad(context);
-        if (ad instanceof TbPageContext) {
-            this.pageContext = (TbPageContext) ad;
+        this.ebK = new BdTypeRecyclerView(context);
+        this.ebK.setLayoutManager(new LinearLayoutManager(this.ebK.getContext()));
+        this.ebK.setFadingEdgeLength(0);
+        this.ebK.setOverScrollMode(2);
+        this.eeu = new BigdaySwipeRefreshLayout(context);
+        this.eeu.addView(this.ebK);
+        this.bBr = new PbListView(context);
+        this.bBr.getView();
+        this.bBr.dL(e.d.cp_bg_line_e);
+        this.bBr.BF();
+        this.bBr.setTextColor(al.getColor(e.d.cp_cont_j));
+        this.bBr.setTextSize(e.C0141e.tbfontsize33);
+        this.bBr.dK(e.d.cp_cont_e);
+        this.bBr.setHeight(com.baidu.adp.lib.util.l.h(context, e.C0141e.tbds182));
+        this.bBr.setOnClickListener(this.eaf);
+        this.ebK.setNextPage(this.bBr);
+        com.baidu.adp.base.e<?> aK = i.aK(context);
+        if (aK instanceof TbPageContext) {
+            this.pageContext = (TbPageContext) aK;
         }
-        MessageManager.getInstance().registerListener(this.dXt);
-        com.baidu.tbadk.core.bigday.b.tu().an(true);
+        MessageManager.getInstance().registerListener(this.eeN);
+        com.baidu.tbadk.core.bigday.b.ux().aw(true);
         com.baidu.tbadk.core.bigday.a aVar = null;
-        if (com.baidu.adp.lib.b.d.hv().ax("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
-            aVar = com.baidu.tbadk.core.bigday.b.tu().bD(1);
+        if (com.baidu.adp.lib.b.d.iB().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+            aVar = com.baidu.tbadk.core.bigday.b.ux().bM(1);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, aVar));
-        addView(this.dXa);
-        ((FrameLayout.LayoutParams) this.dXa.getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.dXi = new com.baidu.tieba.homepage.personalize.model.e();
-        this.dXe = new l(context, this.dUr);
-        this.dXe.b(this.dXi);
-        this.dXg = new d(this.pageContext, this.dUr, this.dXe, this.dXa);
-        this.dXh = new com.baidu.tieba.homepage.personalize.a(this.pageContext);
+        addView(this.eeu);
+        ((FrameLayout.LayoutParams) this.eeu.getLayoutParams()).topMargin = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.eeC = new com.baidu.tieba.homepage.personalize.model.e();
+        this.eey = new l(context, this.ebK);
+        this.eey.b(this.eeC);
+        this.eeA = new e(this.pageContext, this.ebK, this.eey, this.eeu);
+        this.eeB = new com.baidu.tieba.homepage.personalize.a(this.pageContext);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        MessageManager.getInstance().registerListener(this.dnD);
-        this.dXm = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("show_is_uninterest_tag", 0);
+        MessageManager.getInstance().registerListener(this.dtB);
+        this.eeG = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("show_is_uninterest_tag", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bA(Context context) {
-        if (this.dXk == null) {
-            this.dXk = new FloatingAnimationView(context);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.adp.lib.util.l.f(context, f.e.tbds200), com.baidu.adp.lib.util.l.f(context, f.e.tbds200));
+    public void ch(Context context) {
+        if (this.eeE == null) {
+            this.eeE = new FloatingAnimationView(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(com.baidu.adp.lib.util.l.h(context, e.C0141e.tbds200), com.baidu.adp.lib.util.l.h(context, e.C0141e.tbds200));
             layoutParams.gravity = 85;
-            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.f(context, f.e.tbds200);
-            addView(this.dXk, layoutParams);
-            this.dXk.setVisibility(8);
-            this.dXk.setPageId(this.pageContext.getUniqueId());
-            this.doe = new com.baidu.tieba.c.c(this.pageContext, this.dXk, 1);
+            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.h(context, e.C0141e.tbds200);
+            addView(this.eeE, layoutParams);
+            this.eeE.setVisibility(8);
+            this.eeE.setPageId(this.pageContext.getUniqueId());
+            this.dub = new com.baidu.tieba.c.c(this.pageContext, this.eeE, 1);
         }
     }
 
-    public void aEd() {
-        if (this.dXd != null) {
-            this.dXd.a(this.dXp);
-            this.dXd.a(this.dXq);
-            this.dXd.a(this.dXr);
+    public void aGr() {
+        if (this.eex != null) {
+            this.eex.a(this.eeJ);
+            this.eex.a(this.eeK);
+            this.eex.a(this.eeL);
         }
     }
 
-    public void ayh() {
-        this.dXe.a(this.dXn);
-        this.dXg.a(this.dXo);
-        this.dXh.a(this);
-        aEd();
-        this.dUr.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.11
+    public void aAw() {
+        this.eey.a(this.eeH);
+        this.eeA.a(this.eeI);
+        this.eeB.a(this);
+        aGr();
+        this.ebK.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.11
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                PersonalizePageView.this.Tq();
+                PersonalizePageView.this.Vd();
             }
         });
-        this.dUr.setOnScrollStopDelayedListener(new BdListView.d() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.12
+        this.ebK.setOnScrollStopDelayedListener(new BdListView.d() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.12
             @Override // com.baidu.adp.widget.ListView.BdListView.d
             public void onScrollStop(int i, int i2) {
-                if (System.currentTimeMillis() - PersonalizePageView.this.dXj >= TbConfig.NOTIFY_SOUND_INTERVAL) {
-                    PersonalizePageView.this.dXg.aS(i, i2);
+                if (System.currentTimeMillis() - PersonalizePageView.this.eeD >= 5000) {
+                    PersonalizePageView.this.eeA.aW(i, i2);
                 }
             }
         }, 1L);
-        this.dUr.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.13
+        this.ebK.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.13
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                 View view;
                 if (viewHolder != null && (view = viewHolder.itemView) != null) {
-                    if (PersonalizePageView.this.dXg != null && PersonalizePageView.this.dXg.avb() != null) {
-                        PersonalizePageView.this.dXg.avb().aT(view);
+                    if (PersonalizePageView.this.eeA != null && PersonalizePageView.this.eeA.awU() != null) {
+                        PersonalizePageView.this.eeA.awU().bh(view);
                     }
                     if (view.getTag() instanceof com.baidu.tieba.homepage.personalize.a.c) {
-                        ((com.baidu.tieba.homepage.personalize.a.c) view.getTag()).ajC().stopPlay();
+                        ((com.baidu.tieba.homepage.personalize.a.c) view.getTag()).aln().stopPlay();
                     }
                 }
             }
@@ -860,280 +858,284 @@ public class PersonalizePageView extends FrameLayout {
     }
 
     public void setCallback(com.baidu.tieba.homepage.framework.b bVar) {
-        this.dXf = bVar;
+        this.eez = bVar;
     }
 
     public void d(DataRes dataRes, boolean z, boolean z2) {
-        if (this.bvC != null) {
-            this.bvC.Aw();
-            this.bvC.dC(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        if (this.bBr != null) {
+            this.bBr.BJ();
+            this.bBr.dN(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
-        this.dXg.a(z, z2, dataRes, 0, null);
+        this.eeA.a(z, z2, dataRes, 0, null);
     }
 
     public void setIsUnreadTipShow(boolean z) {
-        if (this.dXg != null) {
-            this.dXg.gN(!z);
+        if (this.eeA != null) {
+            this.eeA.hl(!z);
         }
-        this.dXl = z;
+        this.eeF = z;
     }
 
     public boolean getIsUnreadTipShow() {
-        return this.dXl;
+        return this.eeF;
     }
 
-    public void e(Long l) {
-        this.dXg.e(l);
+    public void f(Long l) {
+        this.eeA.f(l);
     }
 
     public void setHeaderViewHeight(int i) {
-        if (this.dXa != null && this.dXa.getLayoutParams() != null) {
-            if (this.dXg != null) {
-                this.dXg.setHeaderViewHeight(i);
+        if (this.eeu != null && this.eeu.getLayoutParams() != null) {
+            if (this.eeA != null) {
+                this.eeA.setHeaderViewHeight(i);
             }
-            if (this.dXh != null) {
-                this.dXh.setHeaderViewHeight(i);
+            if (this.eeB != null) {
+                this.eeB.setHeaderViewHeight(i);
             }
         }
     }
 
-    public void setRecommendFrsNavigationAnimDispatcher(s sVar) {
-        if (this.dXg != null) {
-            this.dXg.setRecommendFrsNavigationAnimDispatcher(sVar);
+    public void setRecommendFrsNavigationAnimDispatcher(u uVar) {
+        if (this.eeA != null) {
+            this.eeA.setRecommendFrsNavigationAnimDispatcher(uVar);
         }
     }
 
     public void showFloatingView() {
-        if (this.dXg != null) {
-            this.dXg.showFloatingView();
+        if (this.eeA != null) {
+            this.eeA.showFloatingView();
         }
     }
 
-    public void aEe() {
-        if (this.dXg != null) {
-            this.dXg.aEe();
+    public void aGs() {
+        if (this.eeA != null) {
+            this.eeA.aGs();
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.brv != null) {
-                this.brv.onChangeSkinType();
+            if (this.bxm != null) {
+                this.bxm.onChangeSkinType();
             }
             if (this.refreshView != null) {
                 this.refreshView.onChangeSkinType();
             }
-            am.j(this.dXa, f.d.cp_bg_line_e);
-            if (this.dXc != null) {
-                this.dXc.dB(i);
+            al.j(this.eeu, e.d.cp_bg_line_e);
+            if (this.eew != null) {
+                this.eew.dM(i);
             }
-            if (this.bvC != null) {
-                this.bvC.setTextColor(am.getColor(f.d.cp_cont_d));
-                this.bvC.dB(i);
+            if (this.bBr != null) {
+                this.bBr.setTextColor(al.getColor(e.d.cp_cont_d));
+                this.bBr.dM(i);
             }
-            this.dXe.onChangeSkinType(i);
+            this.eey.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
 
-    public void W(String str, int i) {
-        if (this.bvC != null) {
-            this.bvC.Aw();
-            this.bvC.dC(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+    public void ab(String str, int i) {
+        if (this.bBr != null) {
+            this.bBr.BJ();
+            this.bBr.dN(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
-        this.dXg.a(true, false, null, i, str);
+        this.eeA.a(true, false, null, i, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNetRefreshView(View view, String str, boolean z) {
         if (this.refreshView == null) {
-            this.refreshView = new com.baidu.tbadk.k.g(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.14
+            this.refreshView = new g(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.14
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (PersonalizePageView.this.dXg != null) {
-                        PersonalizePageView.this.dXg.update();
+                    if (PersonalizePageView.this.eeA != null) {
+                        PersonalizePageView.this.eeA.update();
                     }
                 }
             });
         }
-        this.refreshView.fg(getContext().getResources().getDimensionPixelSize(f.e.ds280));
-        this.refreshView.hk(str);
+        this.refreshView.fs(getContext().getResources().getDimensionPixelSize(e.C0141e.ds280));
+        this.refreshView.hG(str);
         this.refreshView.c(view, z);
-        this.refreshView.Jk();
+        this.refreshView.KA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Un() {
+    public void Wa() {
         if (this.refreshView != null) {
-            this.refreshView.Q(this);
+            this.refreshView.ad(this);
             this.refreshView = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideLoadingView() {
-        if (this.brv != null) {
-            this.brv.Q(this);
-            this.brv = null;
-            this.dUr.setNextPage(this.bvC);
+        if (this.bxm != null) {
+            this.bxm.ad(this);
+            this.bxm = null;
+            this.ebK.setNextPage(this.bBr);
         }
-        if (this.dXa != null) {
-            this.dXa.setVisibility(0);
+        if (this.eeu != null) {
+            this.eeu.setVisibility(0);
         }
-        if (this.dXf != null) {
-            this.dXf.aDI();
+        if (this.eez != null) {
+            this.eez.aFV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aDg() {
+    public boolean aFt() {
         if (this.refreshView != null) {
-            return this.refreshView.Jc();
+            return this.refreshView.Ks();
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g(boolean z, int i) {
-        if (this.brv == null) {
+        if (this.bxm == null) {
             if (i < 0) {
-                this.brv = new com.baidu.tbadk.k.f(getContext());
+                this.bxm = new com.baidu.tbadk.k.f(getContext());
             } else {
-                this.brv = new com.baidu.tbadk.k.f(getContext(), i);
+                this.bxm = new com.baidu.tbadk.k.f(getContext(), i);
             }
-            this.brv.onChangeSkinType();
+            this.bxm.onChangeSkinType();
         }
-        this.brv.c(this, z);
-        this.dUr.setNextPage(null);
-        if (this.dXa != null) {
-            this.dXa.setVisibility(8);
+        this.bxm.c(this, z);
+        this.ebK.setNextPage(null);
+        if (this.eeu != null) {
+            this.eeu.setVisibility(8);
         }
     }
 
     public void setTabInForeBackgroundState(boolean z) {
-        if (this.dXg != null) {
-            this.dXg.setTabInForeBackgroundState(z);
+        if (this.eeA != null) {
+            this.eeA.setTabInForeBackgroundState(z);
         }
     }
 
     public void setViewForeground() {
-        if (this.doe != null) {
-            this.doe.akJ();
+        if (this.dub != null) {
+            this.dub.amu();
         }
         setViewForeground(false);
-        if (this.dXg != null) {
-            this.dXg.fJ(false);
+        if (this.eeA != null) {
+            this.eeA.ga(false);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
-        if (this.dXm < 1 && TbadkCoreApplication.getInst().isNoInterestTag()) {
-            com.baidu.adp.lib.g.e.in().postDelayed(this.dXs, 1000L);
+        if (this.eeG < 1 && TbadkCoreApplication.getInst().isNoInterestTag()) {
+            com.baidu.adp.lib.g.e.jt().postDelayed(this.eeM, 1000L);
         }
     }
 
     public void setViewForeground(boolean z) {
-        if (this.dXg != null) {
-            this.dXg.gH(z);
+        if (this.eeA != null) {
+            this.eeA.hf(z);
         }
     }
 
-    public void aDQ() {
-        if (this.dXg != null) {
-            g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds520));
-            this.dXg.update();
+    public void aGd() {
+        if (this.eeA != null) {
+            g(true, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds520));
+            this.eeA.update();
         }
-        if (com.baidu.adp.lib.b.d.hv().ax("android_bigday_switch") == 1) {
-            com.baidu.tbadk.core.bigday.b.tu().tw();
-            com.baidu.tbadk.core.bigday.b.tu().tv();
+        if (com.baidu.adp.lib.b.d.iB().aO("android_bigday_switch") == 1) {
+            com.baidu.tbadk.core.bigday.b.ux().uz();
+            com.baidu.tbadk.core.bigday.b.ux().uy();
         }
     }
 
     public void reload() {
-        if (this.dUr != null && this.dXa != null) {
+        if (this.ebK != null && this.eeu != null) {
             showFloatingView();
-            this.dUr.setSelection(0);
-            if (!this.dXa.isRefreshing()) {
-                if (this.dXg != null && this.dXg.avb() != null) {
-                    this.dXg.avb().aFA();
-                    this.dXg.gP(false);
+            this.ebK.setSelection(0);
+            if (!this.eeu.isRefreshing()) {
+                if (this.eeA != null && this.eeA.awU() != null) {
+                    this.eeA.awU().aHP();
+                    this.eeA.hn(false);
                 }
-                this.dXa.setRefreshing(true);
+                this.eeu.setRefreshing(true);
             }
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dnD);
-        MessageManager.getInstance().unRegisterListener(this.dXt);
-        this.dXg.onDestroy();
-        this.dXe.a((NEGFeedBackView.a) null);
-        this.dXg.a((d.a) null);
-        if (this.dXb != null) {
-            this.dXb.a((g.b) null);
-            this.dXb.a((g.c) null);
-            this.dXb.a((g.a) null);
-            this.dXb.release();
+        MessageManager.getInstance().unRegisterListener(this.dtB);
+        MessageManager.getInstance().unRegisterListener(this.eeN);
+        this.eeA.onDestroy();
+        this.eey.a((NEGFeedBackView.a) null);
+        this.eeA.a((e.a) null);
+        if (this.eev != null) {
+            this.eev.a((j.b) null);
+            this.eev.a((j.c) null);
+            this.eev.a((j.a) null);
+            this.eev.release();
         }
-        if (this.dXc != null) {
-            this.dXc.a((g.b) null);
-            this.dXc.a((g.c) null);
-            this.dXc.a((g.a) null);
-            this.dXc.release();
+        if (this.eew != null) {
+            this.eew.a((j.b) null);
+            this.eew.a((j.c) null);
+            this.eew.a((j.a) null);
+            this.eew.release();
         }
-        this.dUr.setOnSrollToBottomListener(null);
-        if (this.brv != null) {
-            this.brv.release();
+        this.ebK.setOnSrollToBottomListener(null);
+        if (this.bxm != null) {
+            this.bxm.release();
         }
-        this.dUr.setRecyclerListener(null);
-        if (this.dXh != null) {
-            this.dXh.onDestroy();
+        this.ebK.setRecyclerListener(null);
+        if (this.eeB != null) {
+            this.eeB.onDestroy();
         }
-        if (this.doe != null) {
-            this.doe.onDestroy();
+        if (this.dub != null) {
+            this.dub.onDestroy();
         }
-        com.baidu.tbadk.core.bigday.b.tu().destroy();
-        com.baidu.adp.lib.g.e.in().removeCallbacks(this.dXs);
+        com.baidu.tbadk.core.bigday.b.ux().destroy();
+        com.baidu.adp.lib.g.e.jt().removeCallbacks(this.eeM);
     }
 
     public void onPause() {
-        this.dXg.onPause();
+        this.eeA.onPause();
     }
 
     public void onResume() {
-        if (this.dmW) {
+        if (this.dsT) {
             reload();
-            this.dmW = false;
+            this.dsT = false;
         }
-        if (this.dXa != null) {
-            this.dXa.resume();
-        }
-    }
-
-    public void aEf() {
-        if (this.dXe != null) {
-            this.dXe.notifyDataSetChanged();
+        if (this.eeu != null) {
+            this.eeu.resume();
         }
     }
 
-    public void aDi() {
-        if (this.dXg != null) {
-            this.dXg.fJ(true);
+    public void aGt() {
+        if (this.eey != null) {
+            this.eey.notifyDataSetChanged();
         }
-        v.ajb().cL(false);
+    }
+
+    public void aFv() {
+        if (this.eeA != null) {
+            this.eeA.ga(true);
+        }
+        v.akM().dc(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
-        com.baidu.adp.lib.g.e.in().removeCallbacks(this.dXs);
+        com.baidu.adp.lib.g.e.jt().removeCallbacks(this.eeM);
     }
 
-    public void aEb() {
-        this.dXg.aEp();
+    public void aGp() {
+        this.eeA.aGE();
+    }
+
+    public void aGu() {
+        this.eeA.aGu();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tq() {
-        com.baidu.tieba.homepage.framework.a.aDH().h(System.currentTimeMillis(), 1);
-        if (this.bvC != null && !this.bvC.AB()) {
-            this.bvC.Av();
-            this.bvC.dC(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+    public void Vd() {
+        com.baidu.tieba.homepage.framework.a.aFU().k(System.currentTimeMillis(), 1);
+        if (this.bBr != null && !this.bBr.BO()) {
+            this.bBr.BI();
+            this.bBr.dN(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
-        this.dXg.Tq();
+        this.eeA.Vd();
     }
 }

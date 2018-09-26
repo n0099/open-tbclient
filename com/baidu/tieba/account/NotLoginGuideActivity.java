@@ -32,21 +32,21 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.a;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
-    private View bmQ;
-    private BdAsyncTask<?, ?, ?> bmz;
+    private View bsE;
+    private BdAsyncTask<?, ?, ?> bsn;
     private ImageView mImage = null;
     private Bitmap mBitmap = null;
-    private Button bmP = null;
+    private Button bsD = null;
     private Button mLoginBtn = null;
     private String mFrom = null;
-    private com.baidu.tbadk.coreExtra.view.a aAU = null;
-    private boolean bmR = false;
-    private boolean bmS = false;
-    private int bmT = -1;
-    CustomMessageListener bmU = new CustomMessageListener(2001385) { // from class: com.baidu.tieba.account.NotLoginGuideActivity.1
+    private com.baidu.tbadk.coreExtra.view.a aDY = null;
+    private boolean bsF = false;
+    private boolean bsG = false;
+    private int bsH = -1;
+    CustomMessageListener bsI = new CustomMessageListener(2001385) { // from class: com.baidu.tieba.account.NotLoginGuideActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,11 +55,11 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
     };
-    private final a.InterfaceC0098a bmV = new a.InterfaceC0098a() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.2
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0098a
-        public void dc(String str) {
+    private final a.InterfaceC0097a bsJ = new a.InterfaceC0097a() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.2
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0097a
+        public void du(String str) {
             if (NotLoginGuideActivity.this.getLoadingDialog() == null || !NotLoginGuideActivity.this.getLoadingDialog().isShowing()) {
-                NotLoginGuideActivity.this.showLoadingDialog(NotLoginGuideActivity.this.getPageContext().getString(f.j.sapi_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.2.1
+                NotLoginGuideActivity.this.showLoadingDialog(NotLoginGuideActivity.this.getPageContext().getString(e.j.sapi_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.2.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         NotLoginGuideActivity.this.destroyWaitingDialog();
@@ -68,7 +68,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0098a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0097a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
@@ -79,14 +79,14 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0098a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0097a
         public void b(String str, int i, String str2) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_silent_fail", i, str2, new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
-            if (NotLoginGuideActivity.this.bmT == 1) {
-                NotLoginGuideActivity.this.QY();
-            } else if (NotLoginGuideActivity.this.bmT == 2) {
-                NotLoginGuideActivity.this.QZ();
+            if (NotLoginGuideActivity.this.bsH == 1) {
+                NotLoginGuideActivity.this.SM();
+            } else if (NotLoginGuideActivity.this.bsH == 2) {
+                NotLoginGuideActivity.this.SN();
             }
         }
     };
@@ -101,7 +101,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         TiebaStatic.log("not_login_guide_page_pv");
         initData(bundle);
         initView();
-        registerListener(this.bmU);
+        registerListener(this.bsI);
     }
 
     private void initData(Bundle bundle) {
@@ -113,27 +113,27 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     }
 
     private void initView() {
-        setContentView(f.h.not_login_guide_activity);
-        this.mImage = (ImageView) findViewById(f.g.guide_bg);
-        this.bmP = (Button) findViewById(f.g.guide_regist);
-        this.mLoginBtn = (Button) findViewById(f.g.guide_login);
-        this.bmQ = findViewById(f.g.unlogin_see);
+        setContentView(e.h.not_login_guide_activity);
+        this.mImage = (ImageView) findViewById(e.g.guide_bg);
+        this.bsD = (Button) findViewById(e.g.guide_regist);
+        this.mLoginBtn = (Button) findViewById(e.g.guide_login);
+        this.bsE = findViewById(e.g.unlogin_see);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        int aj = l.aj(getPageContext().getPageActivity());
-        layoutParams.bottomMargin = (int) (((aj * 0.2631579f) - (((aj * 0.2631579f) - l.f(getPageContext().getPageActivity(), f.e.ds190)) / 2.0f)) - l.f(getPageContext().getPageActivity(), f.e.ds16));
-        this.bmQ.setLayoutParams(layoutParams);
-        this.mBitmap = BitmapHelper.getLogoBitmap(getPageContext().getPageActivity(), f.C0146f.not_login_guide_bg);
+        int aQ = l.aQ(getPageContext().getPageActivity());
+        layoutParams.bottomMargin = (int) (((aQ * 0.2631579f) - (((aQ * 0.2631579f) - l.h(getPageContext().getPageActivity(), e.C0141e.ds190)) / 2.0f)) - l.h(getPageContext().getPageActivity(), e.C0141e.ds16));
+        this.bsE.setLayoutParams(layoutParams);
+        this.mBitmap = BitmapHelper.getLogoBitmap(getPageContext().getPageActivity(), e.f.not_login_guide_bg);
         if (this.mBitmap != null) {
             this.mImage.setImageBitmap(this.mBitmap);
         }
-        this.bmP.setOnClickListener(this);
+        this.bsD.setOnClickListener(this);
         this.mLoginBtn.setOnClickListener(this);
-        this.bmQ.setOnClickListener(this);
+        this.bsE.setOnClickListener(this);
     }
 
-    private void QW() {
+    private void SK() {
         com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_silent_startapp", 0, "", new Object[0]);
         if (TbadkCoreApplication.getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(2015001) != null) {
@@ -141,7 +141,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             } else {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
             }
-        } else if (!this.bmS && !TbadkCoreApplication.getInst().getIsFirstUse() && MessageManager.getInstance().findTask(2015001) != null) {
+        } else if (!this.bsG && !TbadkCoreApplication.getInst().getIsFirstUse() && MessageManager.getInstance().findTask(2015001) != null) {
             sendMessage(new CustomMessage(2015001, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, true)));
         } else {
             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
@@ -155,15 +155,15 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.bmP) {
-            this.bmT = 2;
-            QZ();
+        if (view == this.bsD) {
+            this.bsH = 2;
+            SN();
         } else if (view == this.mLoginBtn) {
-            this.bmT = 1;
-            if (!QX()) {
-                QY();
+            this.bsH = 1;
+            if (!SL()) {
+                SM();
             }
-        } else if (view == this.bmQ) {
+        } else if (view == this.bsE) {
             sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "notlogin_1", "click", 1, new Object[0]);
             finish();
@@ -174,7 +174,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bmR = false;
+        this.bsF = false;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -183,7 +183,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             case 4:
                 closeActivity();
                 if (NotLoginGuideActivityConfig.FROM_ACCOUNT.equals(this.mFrom)) {
-                    com.baidu.tbadk.core.e.b.h(getPageContext().getPageActivity(), 200);
+                    com.baidu.tbadk.core.e.b.j(getPageContext().getPageActivity(), 200);
                 }
                 return true;
             default:
@@ -196,11 +196,11 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public void onDestroy() {
         super.onDestroy();
         releaseResource();
-        if (this.aAU != null) {
-            this.aAU.onDestroy();
+        if (this.aDY != null) {
+            this.aDY.onDestroy();
         }
-        if (this.bmz != null) {
-            this.bmz.cancel();
+        if (this.bsn != null) {
+            this.bsn.cancel();
         }
     }
 
@@ -218,18 +218,18 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 11003) {
-            QW();
+            SK();
         }
     }
 
-    public boolean QX() {
+    public boolean SL() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_silent_start", 0, "", new Object[0]);
-            if (this.bmz != null) {
-                this.bmz.cancel();
+            if (this.bsn != null) {
+                this.bsn.cancel();
             }
-            this.bmz = com.baidu.tbadk.core.a.a.tk().a(session.username, session.bduss, "", null, this.bmV);
+            this.bsn = com.baidu.tbadk.core.a.a.uo().a(session.username, session.bduss, "", null, this.bsJ);
             return true;
         }
         return false;
@@ -237,37 +237,37 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        if (this.aAU == null) {
-            this.aAU = new com.baidu.tbadk.coreExtra.view.a(this);
-            this.aAU.a(new a.InterfaceC0107a() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.3
+        if (this.aDY == null) {
+            this.aDY = new com.baidu.tbadk.coreExtra.view.a(this);
+            this.aDY.a(new a.InterfaceC0107a() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.3
                 @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0107a
                 public void g(AccountData accountData2) {
                     NotLoginGuideActivity.this.n(accountData2);
                 }
             });
         }
-        this.aAU.FN();
-        this.aAU.setAccountData(accountData);
-        this.aAU.FJ();
+        this.aDY.Hd();
+        this.aDY.setAccountData(accountData);
+        this.aDY.GZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(final AccountData accountData) {
-        h.io().c(new Runnable() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.4
+        h.ju().c(new Runnable() { // from class: com.baidu.tieba.account.NotLoginGuideActivity.4
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.tbadk.core.a.b.b(accountData);
             }
         });
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-        com.baidu.tbadk.browser.a.aB(TbadkCoreApplication.getInst());
-        QW();
+        com.baidu.tbadk.browser.a.bh(TbadkCoreApplication.getInst());
+        SK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void QY() {
-        if (!this.bmR) {
-            this.bmR = true;
+    public void SM() {
+        if (!this.bsF) {
+            this.bsF = true;
             TiebaStatic.log("sapi_go_to_login_click");
             TiebaStatic.log("c10520");
             TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig((Context) getPageContext().getPageActivity(), true)));
@@ -275,7 +275,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void QZ() {
-        QY();
+    public void SN() {
+        SM();
     }
 }

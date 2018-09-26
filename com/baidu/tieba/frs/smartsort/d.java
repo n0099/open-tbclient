@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.smartsort;
 
+import com.baidu.sapi2.share.face.FaceLoginModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -15,14 +16,14 @@ public class d {
             throw new NullPointerException("JSONObject is Null");
         }
         this.forumName = jSONObject.optString("forum_name");
-        this.lastTime = jSONObject.optLong("last_time");
+        this.lastTime = jSONObject.optLong(FaceLoginModel.KEY_LAST_LOGIN_TIME);
     }
 
-    public JSONObject azZ() {
+    public JSONObject aCi() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);
-            jSONObject.put("last_time", this.lastTime);
+            jSONObject.put(FaceLoginModel.KEY_LAST_LOGIN_TIME, this.lastTime);
             return jSONObject;
         } catch (JSONException e) {
             return null;

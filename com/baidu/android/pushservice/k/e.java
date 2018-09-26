@@ -487,8 +487,8 @@ public final class e {
             List<a> a4 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (a4 != null) {
                 File filesDir = this.b.getFilesDir();
-                if (com.baidu.fsg.biometrics.base.b.c.g.equals(filesDir.getName())) {
-                    str2 = com.baidu.fsg.biometrics.base.b.c.g;
+                if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
+                    str2 = com.baidu.fsg.face.base.b.c.g;
                 } else {
                     Log.e("DeviceId", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str2 = filesDir.getName();
@@ -838,6 +838,6 @@ public final class e {
     }
 
     private static String i(String str) {
-        return (str == null || !str.contains(SystemInfoUtil.COLON)) ? str : "";
+        return (str == null || !str.contains(":")) ? str : "";
     }
 }

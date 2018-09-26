@@ -6,12 +6,13 @@ import android.support.annotation.Nullable;
 import android.view.animation.Interpolator;
 import com.airbnb.lottie.a.a;
 import com.airbnb.lottie.model.a.m;
+import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h extends com.airbnb.lottie.a.a<PointF> {
     @Nullable
-    private Path lh;
+    private Path nJ;
 
     private h(com.airbnb.lottie.e eVar, @Nullable PointF pointF, @Nullable PointF pointF2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
         super(eVar, pointF, pointF2, interpolator, f, f2);
@@ -22,21 +23,21 @@ public class h extends com.airbnb.lottie.a.a<PointF> {
         public static h a(JSONObject jSONObject, com.airbnb.lottie.e eVar, m.a<PointF> aVar) {
             PointF pointF;
             PointF pointF2;
-            com.airbnb.lottie.a.a a = a.C0004a.a(jSONObject, eVar, eVar.bn(), aVar);
-            JSONArray optJSONArray = jSONObject.optJSONArray("ti");
+            com.airbnb.lottie.a.a a = a.C0004a.a(jSONObject, eVar, eVar.cu(), aVar);
+            JSONArray optJSONArray = jSONObject.optJSONArray(Config.FEED_LIST_PART);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("to");
             if (optJSONArray == null || optJSONArray2 == null) {
                 pointF = null;
                 pointF2 = null;
             } else {
-                PointF a2 = com.airbnb.lottie.c.b.a(optJSONArray2, eVar.bn());
-                pointF = com.airbnb.lottie.c.b.a(optJSONArray, eVar.bn());
+                PointF a2 = com.airbnb.lottie.c.b.a(optJSONArray2, eVar.cu());
+                pointF = com.airbnb.lottie.c.b.a(optJSONArray, eVar.cu());
                 pointF2 = a2;
             }
-            h hVar = new h(eVar, (PointF) a.kY, (PointF) a.kZ, a.la, a.lb, a.lc);
-            boolean z = (a.kZ == 0 || a.kY == 0 || !((PointF) a.kY).equals(((PointF) a.kZ).x, ((PointF) a.kZ).y)) ? false : true;
-            if (hVar.kZ != 0 && !z) {
-                hVar.lh = com.airbnb.lottie.c.f.b((PointF) a.kY, (PointF) a.kZ, pointF2, pointF);
+            h hVar = new h(eVar, (PointF) a.nA, (PointF) a.nB, a.nC, a.nD, a.nE);
+            boolean z = (a.nB == 0 || a.nA == 0 || !((PointF) a.nA).equals(((PointF) a.nB).x, ((PointF) a.nB).y)) ? false : true;
+            if (hVar.nB != 0 && !z) {
+                hVar.nJ = com.airbnb.lottie.c.f.b((PointF) a.nA, (PointF) a.nB, pointF2, pointF);
             }
             return hVar;
         }
@@ -45,6 +46,6 @@ public class h extends com.airbnb.lottie.a.a<PointF> {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public Path getPath() {
-        return this.lh;
+        return this.nJ;
     }
 }

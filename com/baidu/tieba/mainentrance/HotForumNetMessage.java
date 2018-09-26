@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.HotForum.DataReq;
 import tbclient.HotForum.HotForumReqIdl;
 /* loaded from: classes3.dex */
@@ -19,7 +19,7 @@ public class HotForumNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.lyo = Integer.valueOf(this.lyo);
         if (z) {
-            o.bindCommonParamsToProtobufData(builder, true);
+            p.bindCommonParamsToProtobufData(builder, true);
         }
         HotForumReqIdl.Builder builder2 = new HotForumReqIdl.Builder();
         builder2.data = builder.build(false);

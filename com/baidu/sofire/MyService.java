@@ -5,10 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.b.t;
 import com.baidu.sofire.core.ApkInfo;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class MyService extends Service {
@@ -32,10 +30,10 @@ public class MyService extends Service {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     new StringBuilder("PPP(service) do action ").append(intent.toString()).append(" ").append(stringExtra);
-                    if (NotifyType.SOUND.equals(intent.getStringExtra(Info.kBaiduTimeKey))) {
+                    if ("s".equals(intent.getStringExtra("t"))) {
                         String stringExtra2 = intent.getStringExtra("c");
                         Intent intent2 = new Intent();
-                        intent2.putExtra(Info.kBaiduTimeKey, NotifyType.SOUND);
+                        intent2.putExtra("t", "s");
                         intent2.putExtra("c", stringExtra2);
                         a.a(MyService.this.getApplicationContext(), intent2);
                     }

@@ -18,8 +18,6 @@ import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.tbadk.TbConfig;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -222,7 +220,7 @@ public class f {
                 z = false;
             }
             if (z) {
-                jSONObject2.put(Constants.EXTRA_KEY_TOKEN, str);
+                jSONObject2.put("token", str);
                 jSONObject.put("info", jSONObject2);
                 k.a(context, b2, str);
             }
@@ -792,7 +790,7 @@ public class f {
                 f.c(context, str);
             }
         };
-        j.postDelayed(m, TbConfig.NOTIFY_SOUND_INTERVAL);
+        j.postDelayed(m, 5000L);
     }
 
     private static void p(Context context) {

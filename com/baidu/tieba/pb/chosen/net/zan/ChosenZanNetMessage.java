@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.chosen.net.zan;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
 /* loaded from: classes3.dex */
@@ -43,7 +43,7 @@ public class ChosenZanNetMessage extends NetMessage {
         builder.excid = Long.valueOf(this.excId);
         builder.thread_id = Long.valueOf(this.threadId);
         builder.post_id = Long.valueOf(this.postId);
-        o.bindCommonParamsToProtobufData(builder, true);
+        p.bindCommonParamsToProtobufData(builder, true);
         ExcZanReqIdl.Builder builder2 = new ExcZanReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

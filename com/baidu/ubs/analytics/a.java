@@ -7,22 +7,22 @@ import com.baidu.ubs.analytics.d;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
-    private static boolean hCc = false;
+    private static boolean hKz = false;
 
-    public static void vY(String str) {
-        if (hCc) {
-            e.bJg().vY(str);
+    public static void wJ(String str) {
+        if (hKz) {
+            e.bLX().wJ(str);
         }
     }
 
-    public static void vZ(String str) {
-        if (hCc) {
-            e.bJg().vZ(str);
+    public static void wK(String str) {
+        if (hKz) {
+            e.bLX().wK(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (hCc && str != null) {
+        if (hKz && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -33,11 +33,11 @@ public class a {
         }
     }
 
-    public static SampleResult wa(String str) {
-        return hCc ? d.a.hCk.wb(str) : SampleResult.OTHERE;
+    public static SampleResult wL(String str) {
+        return hKz ? d.a.hKH.wM(str) : SampleResult.OTHERE;
     }
 
-    public static void nF(boolean z) {
-        hCc = z;
+    public static void oc(boolean z) {
+        hKz = z;
     }
 }

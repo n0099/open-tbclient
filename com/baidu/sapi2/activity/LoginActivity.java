@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
@@ -15,7 +14,6 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.SapiResult;
@@ -106,19 +104,6 @@ public class LoginActivity extends BaseActivity {
             this.webAuthResult.setResultCode(-202);
             this.webAuthResult.setResultMsg(SapiResult.ERROR_MSG_UNKNOWN);
             loginFail(this.webAuthResult);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onDestroy() {
-        super.onDestroy();
-        try {
-            ((RelativeLayout) findViewById(a.d.root_view)).removeView(this.sapiWebView);
-            this.sapiWebView.removeAllViews();
-            this.sapiWebView.destroy();
-            this.sapiWebView = null;
-        } catch (Exception e) {
-            Log.e(e);
         }
     }
 
@@ -370,15 +355,18 @@ public class LoginActivity extends BaseActivity {
             }
         } else if (i == 2005) {
             if (i2 == -1) {
-                if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE.equals(intent.getStringExtra("business"))) {
+                String stringExtra = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
+                if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME.equals(stringExtra)) {
                     this.sapiWebView.preSetUserName(intent.getStringExtra("username"));
-                    return;
+                } else if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE.equals(stringExtra)) {
+                    this.webAuthResult.isAccountFreeze = true;
+                } else {
+                    int type = AccountType.UNKNOWN.getType();
+                    if (intent != null) {
+                        type = intent.getIntExtra(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType());
+                    }
+                    loginSucces(AccountType.getAccountType(type), false);
                 }
-                int type = AccountType.UNKNOWN.getType();
-                if (intent != null) {
-                    type = intent.getIntExtra(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType());
-                }
-                loginSucces(AccountType.getAccountType(type), false);
             }
         } else if (i == 2004 && this.result != null) {
             this.result.onFinish();

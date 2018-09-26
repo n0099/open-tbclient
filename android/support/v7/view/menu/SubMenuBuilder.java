@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import com.baidu.ar.util.SystemInfoUtil;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
@@ -119,6 +118,6 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
         if (itemId == 0) {
             return null;
         }
-        return super.getActionViewStatesKey() + SystemInfoUtil.COLON + itemId;
+        return super.getActionViewStatesKey() + ":" + itemId;
     }
 }

@@ -8,13 +8,13 @@ import android.graphics.Paint;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ChooseColorView extends View {
-    private int dkB;
-    private int fRU;
-    private boolean fRV;
-    private Bitmap fRW;
+    private int dqu;
+    private int fZk;
+    private boolean fZl;
+    private Bitmap fZm;
     private int mBorderColor;
     private Paint mBorderPaint;
     private float mBorderWidth;
@@ -30,49 +30,49 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fRU = ViewCompat.MEASURED_STATE_MASK;
+        this.fZk = ViewCompat.MEASURED_STATE_MASK;
         this.mBorderColor = -1;
-        this.mBorderWidth = getResources().getDimensionPixelSize(f.e.ds4);
+        this.mBorderWidth = getResources().getDimensionPixelSize(e.C0141e.ds4);
         init();
     }
 
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.fRU);
+        this.mPaint.setColor(this.fZk);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.fRW = BitmapFactory.decodeResource(getResources(), f.C0146f.icon_select_n);
+        this.fZm = BitmapFactory.decodeResource(getResources(), e.f.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.fRU = i;
-        this.mPaint.setColor(this.fRU);
+        this.fZk = i;
+        this.mPaint.setColor(this.fZk);
     }
 
     public void setRadius(int i) {
-        this.dkB = i;
+        this.dqu = i;
     }
 
     public int getChooseColor() {
-        return this.fRU;
+        return this.fZk;
     }
 
     public void setIsChooseView(boolean z) {
-        this.fRV = z;
+        this.fZl = z;
         invalidate();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.dkB, this.mPaint);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.dkB, this.mBorderPaint);
-        if (this.fRV) {
-            canvas.drawBitmap(this.fRW, getWidth() - this.fRW.getWidth(), 0.0f, (Paint) null);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.dqu, this.mPaint);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.dqu, this.mBorderPaint);
+        if (this.fZl) {
+            canvas.drawBitmap(this.fZm, getWidth() - this.fZm.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CollectUpdateReceiver extends BroadcastReceiver {
     public static final String ACTION_NAME = "com.baidu.tieba.broadcast.collectupdate";
@@ -16,7 +16,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (ACTION_NAME.equals(intent.getAction())) {
-            b.aWy().aWC();
+            b.aYL().aYP();
             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
@@ -24,8 +24,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
                     intent2.putExtra("is_notify", true);
                     intent2.setFlags(603979776);
                     PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                    String string = context.getString(f.j.collect_update_notification_content);
-                    NotificationHelper.showNotification(context, 28, context.getString(f.j.app_name), string, string, service, false);
+                    String string = context.getString(e.j.collect_update_notification_content);
+                    NotificationHelper.showNotification(context, 28, context.getString(e.j.app_name), string, string, service, false);
                 } catch (Throwable th) {
                     if (BdLog.isDebugMode()) {
                         BdLog.e(th.getMessage());

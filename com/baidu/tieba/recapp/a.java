@@ -7,43 +7,43 @@ import com.a.a.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.ad.play.a;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.view.IVrPlayView;
 /* loaded from: classes3.dex */
 public abstract class a {
-    public MediaPlayer.OnPreparedListener bkd;
-    public MediaPlayer.OnErrorListener bkh;
-    public String bnE;
-    public a.InterfaceC0127a bnF;
-    public IVrPlayView gnB;
-    public com.a.a.g gnC;
-    public com.baidu.tieba.ad.play.a gnD;
-    public MediaPlayer.OnCompletionListener gnE;
-    public a.b gnF;
+    public MediaPlayer.OnPreparedListener bpO;
+    public MediaPlayer.OnErrorListener bpS;
+    public String btt;
+    public a.InterfaceC0127a btu;
+    public IVrPlayView guT;
+    public com.a.a.g guU;
+    public com.baidu.tieba.ad.play.a guV;
+    public MediaPlayer.OnCompletionListener guW;
+    public a.b guX;
     public TbPageContext<?> mContext;
     public int mStatus = -1;
 
     public a(IVrPlayView iVrPlayView) {
-        this.gnB = iVrPlayView;
-        this.mContext = this.gnB.getPageContext();
-        bmX();
+        this.guT = iVrPlayView;
+        this.mContext = this.guT.getPageContext();
+        bpE();
         initListener();
     }
 
-    private void bmX() {
+    private void bpE() {
         if (this.mStatus == -1) {
-            this.gnC = com.a.a.g.d(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
+            this.guU = com.a.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {
-                    a.this.gnD = new com.baidu.tieba.ad.play.a(surface);
-                    a.this.gnB.setPlayer(a.this.gnD);
+                    a.this.guV = new com.baidu.tieba.ad.play.a(surface);
+                    a.this.guT.setPlayer(a.this.guV);
                 }
-            }).o(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
+            }).w(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
                 public void k(MotionEvent motionEvent) {
                 }
-            }).b(this.gnB.getGLView());
-            this.gnC.onResume(this.mContext.getPageActivity());
+            }).b(this.guT.getGLView());
+            this.guU.onResume(this.mContext.getPageActivity());
         }
     }
 
@@ -52,23 +52,23 @@ public abstract class a {
 
     public void startPlay(String str) {
         if (this.mStatus == -1) {
-            if (ap.isEmpty(str)) {
-                this.mContext.showToast(f.j.invalid_resource);
+            if (ao.isEmpty(str)) {
+                this.mContext.showToast(e.j.invalid_resource);
                 return;
             }
-            this.bnE = str;
+            this.btt = str;
             playVideo();
         }
     }
 
     public void playVideo() {
-        if (this.gnD != null && !StringUtils.isNull(this.bnE)) {
-            this.gnD.a(this.bnF);
-            this.gnD.setVideoPath(this.bnE);
-            this.gnD.start();
-            this.gnD.a(this.bkd);
-            this.gnD.setOnErrorListener(this.bkh);
-            this.gnD.a(this.gnE);
+        if (this.guV != null && !StringUtils.isNull(this.btt)) {
+            this.guV.a(this.btu);
+            this.guV.setVideoPath(this.btt);
+            this.guV.start();
+            this.guV.a(this.bpO);
+            this.guV.setOnErrorListener(this.bpS);
+            this.guV.a(this.guW);
             this.mStatus = 0;
         }
     }
@@ -80,10 +80,10 @@ public abstract class a {
     }
 
     public void stopPlay() {
-        if (this.mStatus != -1 && this.gnD != null) {
-            this.gnD.seekTo(0);
-            this.gnD.onDestroy();
-            this.gnB.onDestroy();
+        if (this.mStatus != -1 && this.guV != null) {
+            this.guV.seekTo(0);
+            this.guV.onDestroy();
+            this.guT.onDestroy();
             this.mStatus = -1;
             finishStopPlay();
         }
@@ -93,20 +93,20 @@ public abstract class a {
     }
 
     public void destroy() {
-        this.gnB.onDestroy();
-        if (this.gnD != null && this.mStatus != -1) {
-            this.gnD.onDestroy();
-            this.gnD = null;
+        this.guT.onDestroy();
+        if (this.guV != null && this.mStatus != -1) {
+            this.guV.onDestroy();
+            this.guV = null;
         }
-        if (this.gnC != null) {
-            this.gnC.onDestroy();
-            this.gnC = null;
+        if (this.guU != null) {
+            this.guU.onDestroy();
+            this.guU = null;
         }
         this.mStatus = -1;
     }
 
     public String getVideoPath() {
-        return this.bnE;
+        return this.btt;
     }
 
     public int getPlayStatus() {
@@ -114,9 +114,9 @@ public abstract class a {
     }
 
     public long getCurrentPos() {
-        if (this.gnD == null) {
+        if (this.guV == null) {
             return 0L;
         }
-        return this.gnD.getCurrentPosition();
+        return this.guV.getCurrentPosition();
     }
 }

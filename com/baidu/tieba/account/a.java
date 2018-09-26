@@ -11,18 +11,18 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener avD;
+    private View.OnClickListener ayP;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean bmI = false;
+    private boolean bsw = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.avD = onClickListener;
+        this.ayP = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -75,32 +75,32 @@ public class a extends BaseAdapter {
                     c0126a = (C0126a) view.getTag();
                     view5 = view;
                 } else if (getItemViewType(i) == 0) {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(f.h.account_item, viewGroup, false);
+                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_item, viewGroup, false);
                     c0126a = new C0126a();
-                    c0126a.bmJ = (TextView) view5.findViewById(f.g.account);
-                    c0126a.bmL = (ImageView) view5.findViewById(f.g.active);
-                    c0126a.bmM = (TextView) view5.findViewById(f.g.delete);
-                    c0126a.mLine = view5.findViewById(f.g.account_item_line);
-                    c0126a.bmM.setOnClickListener(this.avD);
+                    c0126a.bsx = (TextView) view5.findViewById(e.g.account);
+                    c0126a.bsz = (ImageView) view5.findViewById(e.g.active);
+                    c0126a.bsA = (TextView) view5.findViewById(e.g.delete);
+                    c0126a.mLine = view5.findViewById(e.g.account_item_line);
+                    c0126a.bsA.setOnClickListener(this.ayP);
                     view5.setTag(c0126a);
                 } else {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(f.h.account_add_item, viewGroup, false);
+                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_add_item, viewGroup, false);
                     c0126a = new C0126a();
-                    c0126a.bmK = (TextView) view5.findViewById(f.g.add_text);
+                    c0126a.bsy = (TextView) view5.findViewById(e.g.add_text);
                     view5.setTag(c0126a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0126a.bmL.setVisibility(8);
-                    c0126a.bmM.setVisibility(8);
-                    c0126a.bmM.setTag(accountData);
+                    c0126a.bsz.setVisibility(8);
+                    c0126a.bsA.setVisibility(8);
+                    c0126a.bsA.setTag(accountData);
                     if (accountData != null) {
-                        c0126a.bmJ.setText(accountData.getAccountNameShow());
+                        c0126a.bsx.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0126a.bmL.setVisibility(0);
+                            c0126a.bsz.setVisibility(0);
                         }
-                        if (this.bmI) {
-                            c0126a.bmM.setVisibility(0);
+                        if (this.bsw) {
+                            c0126a.bsA.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
@@ -149,12 +149,12 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void cy(boolean z) {
-        this.bmI = z;
+    public void cP(boolean z) {
+        this.bsw = z;
     }
 
-    public boolean QV() {
-        return this.bmI;
+    public boolean SJ() {
+        return this.bsw;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -173,10 +173,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0126a {
-        TextView bmJ;
-        TextView bmK;
-        ImageView bmL;
-        TextView bmM;
+        TextView bsA;
+        TextView bsx;
+        TextView bsy;
+        ImageView bsz;
         View mLine;
 
         private C0126a() {

@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class FloatingLayout extends LinearLayout {
-    private int JM;
-    private int JN;
+    private int Mi;
+    private int Mj;
     private int mUsedHeight;
     private int mUsedWidth;
 
@@ -31,7 +31,7 @@ public class FloatingLayout extends LinearLayout {
         } else if (getOrientation() == 0) {
             measureHorizontal(i, i2);
         }
-        setMeasuredDimension(this.JM + getPaddingLeft() + getPaddingRight(), this.JN + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.Mi + getPaddingLeft() + getPaddingRight(), this.Mj + getPaddingTop() + getPaddingBottom());
     }
 
     private void measureVertical(int i, int i2) {
@@ -56,7 +56,7 @@ public class FloatingLayout extends LinearLayout {
                 i3 = Math.max(childAt.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin, i6);
                 this.mUsedWidth = i3;
                 this.mUsedHeight = childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin + this.mUsedHeight;
-                this.JN = Math.max(this.mUsedHeight, this.JN);
+                this.Mj = Math.max(this.mUsedHeight, this.Mj);
                 if ((generateDefaultLayoutParams.clear & 2) == 2) {
                     this.mUsedHeight = 0;
                     this.mUsedWidth = i3 + this.mUsedWidth;
@@ -69,7 +69,7 @@ public class FloatingLayout extends LinearLayout {
             i5++;
             i6 = i3;
         }
-        this.JM = this.mUsedWidth;
+        this.Mi = this.mUsedWidth;
     }
 
     private void measureHorizontal(int i, int i2) {
@@ -97,7 +97,7 @@ public class FloatingLayout extends LinearLayout {
                 }
                 i5 = Math.max(measuredHeight, i3);
                 this.mUsedWidth += measuredWidth;
-                this.JM = Math.max(this.JM, this.mUsedWidth);
+                this.Mi = Math.max(this.Mi, this.mUsedWidth);
                 if ((generateDefaultLayoutParams.clear & 2) == 2) {
                     this.mUsedWidth = 0;
                     this.mUsedHeight += i5;
@@ -106,20 +106,20 @@ public class FloatingLayout extends LinearLayout {
             }
         }
         this.mUsedHeight += i5;
-        this.JN = this.mUsedHeight;
+        this.Mj = this.mUsedHeight;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int orientation = getOrientation();
         if (orientation == 0) {
-            mI();
+            nO();
         } else if (orientation == 1) {
-            mJ();
+            nP();
         }
     }
 
-    private void mI() {
+    private void nO() {
         int childCount = getChildCount();
         int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
         int paddingLeft = getPaddingLeft();
@@ -153,7 +153,7 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
-    private void mJ() {
+    private void nP() {
         a aVar;
         int childCount = getChildCount();
         int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
@@ -198,7 +198,7 @@ public class FloatingLayout extends LinearLayout {
                     this.clear = 1;
                 } else if ("after".equals(string)) {
                     this.clear = 2;
-                } else if ("both".equals(string)) {
+                } else if (com.baidu.sapi2.utils.enums.a.c.equals(string)) {
                     this.clear = 3;
                 }
             }
@@ -240,7 +240,7 @@ public class FloatingLayout extends LinearLayout {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    /* renamed from: mK */
+    /* renamed from: nQ */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 0);
     }

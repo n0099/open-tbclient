@@ -11,17 +11,17 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private static int count = 0;
-    private List<com.coloros.mcssdk.b.c> hDK;
-    private List<d> hDL;
-    private String hDM;
-    private String hDN;
-    private com.coloros.mcssdk.d.b hDO;
+    private List<com.coloros.mcssdk.b.c> hMf;
+    private List<d> hMg;
+    private String hMh;
+    private String hMi;
+    private com.coloros.mcssdk.d.b hMj;
     private String mAppKey;
     private Context mContext;
 
     private a() {
-        this.hDK = new ArrayList();
-        this.hDL = new ArrayList();
+        this.hMf = new ArrayList();
+        this.hMg = new ArrayList();
         synchronized (a.class) {
             if (count > 0) {
                 throw new RuntimeException("PushManager can't create again!");
@@ -43,8 +43,8 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", aVar.bJG());
-            intent.putExtra("appPackage", aVar.bJH());
+            intent.putExtra("taskID", aVar.bMx());
+            intent.putExtra("appPackage", aVar.bMy());
             intent.putExtra("messageID", new StringBuilder().append(aVar.getMessageID()).toString());
             intent.putExtra("messageType", aVar.getType());
             intent.putExtra("eventID", str);
@@ -61,8 +61,8 @@ public class a {
             intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
             intent.setPackage("com.coloros.mcs");
             intent.putExtra("type", 12291);
-            intent.putExtra("taskID", dVar.bJG());
-            intent.putExtra("appPackage", dVar.bJH());
+            intent.putExtra("taskID", dVar.bMx());
+            intent.putExtra("appPackage", dVar.bMy());
             intent.putExtra("messageID", new StringBuilder().append(dVar.getMessageID()).toString());
             intent.putExtra("messageType", dVar.getType());
             intent.putExtra("eventID", str);
@@ -74,17 +74,17 @@ public class a {
 
     private synchronized void a(d dVar) {
         if (dVar != null) {
-            this.hDL.add(dVar);
+            this.hMg.add(dVar);
         }
     }
 
     private synchronized void a(com.coloros.mcssdk.b.c cVar) {
         if (cVar != null) {
-            this.hDK.add(cVar);
+            this.hMf.add(cVar);
         }
     }
 
-    private void as(int i, String str) {
+    private void at(int i, String str) {
         Intent intent = new Intent();
         intent.setAction("com.coloros.mcssdk.action.RECEIVE_SDK_MESSAGE");
         intent.setPackage("com.coloros.mcs");
@@ -92,57 +92,57 @@ public class a {
         intent.putExtra(LegoListActivityConfig.PARAMS, str);
         intent.putExtra("appPackage", this.mContext.getPackageName());
         intent.putExtra(WBConstants.SSO_APP_KEY, this.mAppKey);
-        intent.putExtra("appSecret", this.hDM);
-        intent.putExtra("registerID", this.hDN);
+        intent.putExtra("appSecret", this.hMh);
+        intent.putExtra("registerID", this.hMi);
         intent.putExtra("sdkVersion", getSDKVersion());
         this.mContext.startService(intent);
     }
 
-    public static a bJD() {
+    public static a bMu() {
         a aVar;
-        aVar = c.hDP;
+        aVar = c.hMk;
         return aVar;
     }
 
-    public static boolean cv(Context context) {
+    public static boolean dc(Context context) {
         return com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs") && com.coloros.mcssdk.c.d.b(context, "com.coloros.mcs") >= 1012 && com.coloros.mcssdk.c.d.a(context, "com.coloros.mcs", "supportOpenPush");
     }
 
-    private void vO(int i) {
-        as(i, "");
+    private void wo(int i) {
+        at(i, "");
     }
 
     public void b(Context context, String str, String str2, com.coloros.mcssdk.d.b bVar) {
         if (context == null) {
             throw new IllegalArgumentException("context is null !");
         }
-        if (!cv(context)) {
+        if (!dc(context)) {
             throw new IllegalArgumentException("the phone is not support oppo push!");
         }
         this.mAppKey = str;
-        this.hDM = str2;
+        this.hMh = str2;
         this.mContext = context.getApplicationContext();
-        this.hDO = bVar;
-        vO(12289);
+        this.hMj = bVar;
+        wo(12289);
     }
 
-    public List<d> bJB() {
-        return this.hDL;
+    public List<d> bMs() {
+        return this.hMg;
     }
 
-    public List<com.coloros.mcssdk.b.c> bJC() {
-        return this.hDK;
+    public List<com.coloros.mcssdk.b.c> bMt() {
+        return this.hMf;
     }
 
-    public com.coloros.mcssdk.d.b bJE() {
-        return this.hDO;
+    public com.coloros.mcssdk.d.b bMv() {
+        return this.hMj;
     }
 
     public String getSDKVersion() {
         return "1.0.1";
     }
 
-    public void wu(String str) {
-        this.hDN = str;
+    public void xf(String str) {
+        this.hMi = str;
     }
 }

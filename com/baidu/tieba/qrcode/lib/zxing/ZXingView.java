@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes3.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader gmR;
+    private MultiFormatReader guj;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        bmO();
+        bpv();
     }
 
-    private void bmO() {
-        this.gmR = new MultiFormatReader();
-        this.gmR.setHints(a.gmQ);
+    private void bpv() {
+        this.guj = new MultiFormatReader();
+        this.guj.setHints(a.gui);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect sa = this.glL.sa(i2);
-                if (sa != null) {
-                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, sa.left, sa.top, sa.width(), sa.height(), false);
+                Rect sx = this.gtd.sx(i2);
+                if (sx != null) {
+                    planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, sx.left, sx.top, sx.width(), sx.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.gmR.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.guj.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.gmR.reset();
+                this.guj.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.gmR.reset();
+            this.guj.reset();
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.tbadkCore.a.a;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -30,7 +30,7 @@ public class MultiAttentionModel extends BdBaseModel {
         return false;
     }
 
-    public void aCD() {
+    public void aEQ() {
         this.mIsLoading = false;
     }
 
@@ -39,8 +39,8 @@ public class MultiAttentionModel extends BdBaseModel {
         this.mIsLoading = false;
     }
 
-    public void i(List<String> list, boolean z) {
-        if (!w.z(list) && !this.mIsLoading) {
+    public void j(List<String> list, boolean z) {
+        if (!v.z(list) && !this.mIsLoading) {
             MultiAttentionRequestMessage multiAttentionRequestMessage = new MultiAttentionRequestMessage();
             multiAttentionRequestMessage.setPortraitList(list);
             multiAttentionRequestMessage.setAttentionAll(z);

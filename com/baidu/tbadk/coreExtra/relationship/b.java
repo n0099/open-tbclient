@@ -14,7 +14,7 @@ public class b {
         this.hide = i;
     }
 
-    public String Fx() {
+    public String GN() {
         return this.distance;
     }
 
@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int Fy() {
+    public int GO() {
         return this.hide;
     }
 }

@@ -4,51 +4,51 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h {
-    private com.baidu.tbadk.k.g gje;
-    private d gjk;
-    BdTypeListView gjx;
+    private d gqC;
+    BdTypeListView gqP;
+    private com.baidu.tbadk.k.g gqw;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener etY = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener eBr = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (com.baidu.adp.lib.util.j.js()) {
-                if (h.this.gje != null) {
-                    h.this.gje.Q(h.this.mRootView);
-                    h.this.gje = null;
+            if (com.baidu.adp.lib.util.j.ky()) {
+                if (h.this.gqw != null) {
+                    h.this.gqw.ad(h.this.mRootView);
+                    h.this.gqw = null;
                 }
-                if (h.this.gjk != null) {
-                    h.this.gjk.blh();
+                if (h.this.gqC != null) {
+                    h.this.gqC.bnN();
                 }
             }
         }
     };
 
-    public BdTypeListView blt() {
-        return this.gjx;
+    public BdTypeListView bnZ() {
+        return this.gqP;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.gjx = (BdTypeListView) view.findViewById(f.g.list);
+        this.gqP = (BdTypeListView) view.findViewById(e.g.list);
     }
 
-    public d blu() {
-        return this.gjk;
+    public d boa() {
+        return this.gqC;
     }
 
     public void b(d dVar) {
-        this.gjk = dVar;
+        this.gqC = dVar;
     }
 
-    public void E(String str, boolean z) {
-        f.a(this.gje, this.etY, this.mContext, this.mRootView, str, z);
-        this.gjx.setVisibility(8);
+    public void F(String str, boolean z) {
+        f.a(this.gqw, this.eBr, this.mContext, this.mRootView, str, z);
+        this.gqP.setVisibility(8);
     }
 }

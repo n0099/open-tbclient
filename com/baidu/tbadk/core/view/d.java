@@ -1,73 +1,136 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.os.Handler;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class d {
-    private Toast Do;
-    private View auU;
-    private TextView auV;
-    private ImageView auW;
-    private Context mContext;
-    public long auR = 3000;
-    private int auS = -1;
-    private int auT = -1;
-    private Runnable auY = new Runnable() { // from class: com.baidu.tbadk.core.view.d.1
-        @Override // java.lang.Runnable
-        public void run() {
-            if (d.this.Do != null) {
-                d.this.Do.cancel();
+    private TextView anY;
+    private AlertDialog awF;
+    private String awG;
+    private DialogInterface.OnCancelListener awH;
+    private boolean awI;
+    private Activity mActivity;
+    private TbPageContext<?> mContext;
+
+    public d(TbPageContext<?> tbPageContext) {
+        this.mContext = null;
+        this.mActivity = null;
+        this.awG = null;
+        this.anY = null;
+        this.awI = true;
+        this.mContext = tbPageContext;
+        if (this.mContext != null && this.mContext.getPageActivity() != null) {
+            this.mActivity = this.mContext.getPageActivity();
+        }
+    }
+
+    public d(Activity activity) {
+        this.mContext = null;
+        this.mActivity = null;
+        this.awG = null;
+        this.anY = null;
+        this.awI = true;
+        this.mActivity = activity;
+    }
+
+    private d b(DialogInterface.OnCancelListener onCancelListener) {
+        if (this.mActivity != null) {
+            this.awF = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.awF, this.mActivity);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(e.h.custom_loading_toast, (ViewGroup) null);
+            this.anY = (TextView) inflate.findViewById(e.g.custom_loading_text);
+            if (!StringUtils.isNull(this.awG) && this.anY != null) {
+                this.anY.setText(this.awG);
+            }
+            if (this.awF != null && this.awF.getWindow() != null) {
+                this.awF.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.awF.setCancelable(true);
+                    this.awF.setCanceledOnTouchOutside(true);
+                    this.awF.setOnCancelListener(onCancelListener);
+                } else {
+                    this.awF.setCanceledOnTouchOutside(false);
+                    this.awF.setCancelable(false);
+                }
             }
         }
-    };
-    private Handler auX = new Handler();
-
-    public d() {
-        this.mContext = null;
-        this.auU = null;
-        this.auV = null;
-        this.auW = null;
-        this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.auU = LayoutInflater.from(this.mContext).inflate(f.h.image_toast_view, (ViewGroup) null);
-        this.auV = (TextView) this.auU.findViewById(f.g.tip_text);
-        this.auW = (ImageView) this.auU.findViewById(f.g.tip_iamge);
+        return this;
     }
 
-    public void showToast(int i, int i2) {
-        this.auV.setText(i2);
-        this.auW.setImageResource(i);
-        B(this.auU);
-    }
-
-    public void B(View view) {
-        this.auX.removeCallbacks(this.auY);
-        if (this.Do == null) {
-            this.Do = new Toast(this.mContext);
+    private d c(DialogInterface.OnCancelListener onCancelListener) {
+        if (this.mActivity != null) {
+            this.awF = new AlertDialog.Builder(this.mActivity).create();
+            com.baidu.adp.lib.g.g.a(this.awF, this.mActivity);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(e.h.custom_loading_toast, (ViewGroup) null);
+            this.anY = (TextView) inflate.findViewById(e.g.custom_loading_text);
+            if (!StringUtils.isNull(this.awG) && this.anY != null) {
+                this.anY.setText(this.awG);
+            }
+            if (this.awF != null && this.awF.getWindow() != null) {
+                this.awF.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.awF.setOnCancelListener(onCancelListener);
+                }
+            }
         }
-        this.auX.postDelayed(this.auY, this.auR);
-        this.Do.setView(view);
-        this.Do.setDuration(1);
-        this.Do.setGravity(17, 0, 0);
-        this.Do.show();
+        return this;
     }
 
-    public void e(CharSequence charSequence) {
-        this.auV.setText(charSequence);
-        this.auW.setImageResource(f.C0146f.icon_toast_game_ok);
-        B(this.auU);
+    public void aZ(boolean z) {
+        if (z) {
+            if (this.awI) {
+                b(this.awH);
+                return;
+            } else {
+                c(this.awH);
+                return;
+            }
+        }
+        com.baidu.adp.lib.g.g.b(this.awF, this.mActivity);
     }
 
-    public void f(CharSequence charSequence) {
-        this.auV.setText(charSequence);
-        this.auW.setImageResource(f.C0146f.icon_toast_game_error);
-        B(this.auU);
+    public void dq(int i) {
+        if (this.mActivity != null) {
+            this.awG = this.mActivity.getString(i);
+        }
+    }
+
+    public void fE(String str) {
+        this.awG = str;
+        if (this.anY != null) {
+            this.anY.setText(str);
+        }
+    }
+
+    public void d(DialogInterface.OnCancelListener onCancelListener) {
+        this.awH = onCancelListener;
+    }
+
+    public boolean isShowing() {
+        return this.awF != null && this.awF.isShowing();
+    }
+
+    public void ba(boolean z) {
+        this.awI = z;
+    }
+
+    public void setCancelable(boolean z) {
+        if (this.awF != null) {
+            this.awF.setCancelable(z);
+        }
+    }
+
+    public void setCanceledOnTouchOutside(boolean z) {
+        if (this.awF != null) {
+            this.awF.setCanceledOnTouchOutside(z);
+        }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.fsg.base.armor;
 
 import android.content.Context;
 import com.baidu.fsg.base.utils.ResUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RimArmor {
     public static final String KEY = "key";
     private static RimArmor ins;
@@ -12,6 +12,8 @@ public class RimArmor {
     public native String decrypt(String str);
 
     public native String encrypt(String str);
+
+    public native String getFpk(Context context);
 
     public native String getToken();
 
@@ -24,7 +26,7 @@ public class RimArmor {
     public native String localEncrypt(String str);
 
     static {
-        System.loadLibrary("bd_fsg_rim_v1_1");
+        System.loadLibrary("bd_fsg_rim_v1_3");
     }
 
     private RimArmor() {

@@ -11,15 +11,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView cxA;
-    private TextView cxB;
-    private TextView cxC;
+    private TbImageView cDq;
+    private TextView cDr;
+    private TextView cDs;
     private String mForumId;
     public int mSkinType;
 
@@ -42,19 +42,19 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(f.h.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.cxA = (TbImageView) findViewById(f.g.card_frs_game_recommend_game_pic);
-        this.cxA.setAutoChangeStyle(true);
-        this.cxA.setDefaultResource(17170445);
-        this.cxA.setDefaultErrorResource(f.C0146f.icon_default_avatar100);
-        this.cxA.setDefaultBgResource(f.d.cp_bg_line_e);
-        this.cxA.setDrawerType(1);
-        this.cxA.setRadius(context.getResources().getDimensionPixelSize(f.e.tbds26));
-        this.cxA.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.cxA.setBorderColor(am.getColor(f.d.common_color_10043));
-        this.cxA.setBorderWidth(context.getResources().getDimensionPixelSize(f.e.tbds2));
-        this.cxB = (TextView) findViewById(f.g.card_frs_game_recommend_game_name);
-        this.cxC = (TextView) findViewById(f.g.card_frs_game_recommend_game_dec);
+        LayoutInflater.from(context).inflate(e.h.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
+        this.cDq = (TbImageView) findViewById(e.g.card_frs_game_recommend_game_pic);
+        this.cDq.setAutoChangeStyle(true);
+        this.cDq.setDefaultResource(17170445);
+        this.cDq.setDefaultErrorResource(e.f.icon_default_avatar100);
+        this.cDq.setDefaultBgResource(e.d.cp_bg_line_e);
+        this.cDq.setDrawerType(1);
+        this.cDq.setRadius(context.getResources().getDimensionPixelSize(e.C0141e.tbds26));
+        this.cDq.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.cDq.setBorderColor(al.getColor(e.d.common_color_10043));
+        this.cDq.setBorderWidth(context.getResources().getDimensionPixelSize(e.C0141e.tbds2));
+        this.cDr = (TextView) findViewById(e.g.card_frs_game_recommend_game_name);
+        this.cDs = (TextView) findViewById(e.g.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -63,8 +63,8 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new an("c13047").r("obj_locate", 10).ae(ImageViewerConfig.FORUM_ID, CardFrsGameRecommendGameItemView.this.mForumId));
-                    com.baidu.tbadk.browser.a.Q(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
+                    TiebaStatic.log(new am("c13047").w("obj_locate", 10).al(ImageViewerConfig.FORUM_ID, CardFrsGameRecommendGameItemView.this.mForumId));
+                    com.baidu.tbadk.browser.a.ae(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
                 }
             }
         });
@@ -75,22 +75,22 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     }
 
     public TbImageView getGamePicView() {
-        return this.cxA;
+        return this.cDq;
     }
 
     public TextView getGameNameView() {
-        return this.cxB;
+        return this.cDr;
     }
 
     public TextView getGameDscView() {
-        return this.cxC;
+        return this.cDs;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            am.c(this.cxB, f.d.cp_cont_f, 1);
-            am.c(this.cxC, f.d.cp_cont_d, 1);
+            al.c(this.cDr, e.d.cp_cont_f, 1);
+            al.c(this.cDs, e.d.cp_cont_d, 1);
         }
     }
 }

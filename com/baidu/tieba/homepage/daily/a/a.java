@@ -9,44 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private e dUv;
-    private d dUw;
-    private c dUx;
-    private b dUy;
-    private f dUz;
-    private m dtp;
+    private m dzV;
+    private e ebO;
+    private d ebP;
+    private c ebQ;
+    private b ebR;
+    private f ebS;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, m mVar) {
         this.mPageContext = tbPageContext;
-        this.dtp = mVar;
+        this.dzV = mVar;
         initAdapters();
-        this.dtp.addAdapters(this.mAdapters);
+        this.dzV.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.dUv = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.dUM);
-        this.dUw = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.dUI);
-        this.dUx = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.dUG);
-        this.dUy = new b(this.mPageContext, bb.ahx);
-        this.dUz = new f(this.mPageContext, bb.ahA);
-        this.mAdapters.add(this.dUv);
-        this.mAdapters.add(this.dUw);
-        this.mAdapters.add(this.dUx);
-        this.mAdapters.add(this.dUy);
-        this.mAdapters.add(this.dUz);
+        this.ebO = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.ecf);
+        this.ebP = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.ecb);
+        this.ebQ = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.ebZ);
+        this.ebR = new b(this.mPageContext, bb.ajX);
+        this.ebS = new f(this.mPageContext, bb.aka);
+        this.mAdapters.add(this.ebO);
+        this.mAdapters.add(this.ebP);
+        this.mAdapters.add(this.ebQ);
+        this.mAdapters.add(this.ebR);
+        this.mAdapters.add(this.ebS);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dtp != null) {
-            this.dtp.getListAdapter().notifyDataSetChanged();
+        if (this.dzV != null) {
+            this.dzV.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<h> list) {
-        this.dtp.setData(list);
+        this.dzV.setData(list);
     }
 
     public void onChangeSkinType(int i) {

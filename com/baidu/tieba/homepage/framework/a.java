@@ -3,66 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes2.dex */
 public class a {
-    private static a dVm = new a();
-    private long dVn = 0;
-    private SparseArray<Long> dVo = new SparseArray<>();
-    private SparseArray<Long> dVp = new SparseArray<>();
-    private SparseArray<Long> dVq = new SparseArray<>();
-    private SparseArray<Long> dVr = new SparseArray<>();
+    private static a ecF = new a();
+    private long ecG = 0;
+    private SparseArray<Long> ecH = new SparseArray<>();
+    private SparseArray<Long> ecI = new SparseArray<>();
+    private SparseArray<Long> ecJ = new SparseArray<>();
+    private SparseArray<Long> ecK = new SparseArray<>();
 
     private a() {
     }
 
-    public static a aDH() {
-        return dVm;
+    public static a aFU() {
+        return ecF;
     }
 
     public long getCreateTime() {
-        return this.dVn;
+        return this.ecG;
     }
 
     public void setCreateTime(long j) {
-        this.dVn = j;
+        this.ecG = j;
     }
 
-    public long mB(int i) {
-        Long l = this.dVp.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void e(long j, int i) {
-        this.dVp.put(i, Long.valueOf(j));
-    }
-
-    public long mC(int i) {
-        Long l = this.dVo.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void f(long j, int i) {
-        this.dVo.put(i, Long.valueOf(j));
-    }
-
-    public long mD(int i) {
-        Long l = this.dVq.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void g(long j, int i) {
-        this.dVq.put(i, Long.valueOf(j));
-    }
-
-    public long mE(int i) {
-        Long l = this.dVr.get(i);
+    public long nf(int i) {
+        Long l = this.ecI.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +34,42 @@ public class a {
     }
 
     public void h(long j, int i) {
-        this.dVr.put(i, Long.valueOf(j));
+        this.ecI.put(i, Long.valueOf(j));
+    }
+
+    public long ng(int i) {
+        Long l = this.ecH.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void i(long j, int i) {
+        this.ecH.put(i, Long.valueOf(j));
+    }
+
+    public long nh(int i) {
+        Long l = this.ecJ.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void j(long j, int i) {
+        this.ecJ.put(i, Long.valueOf(j));
+    }
+
+    public long ni(int i) {
+        Long l = this.ecK.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void k(long j, int i) {
+        this.ecK.put(i, Long.valueOf(j));
     }
 }

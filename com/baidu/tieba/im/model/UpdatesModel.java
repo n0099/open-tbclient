@@ -3,9 +3,9 @@ package com.baidu.tieba.im.model;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.util.g;
-import com.baidu.tbadk.util.u;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.h;
+import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.x;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.d;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
@@ -18,45 +18,45 @@ import org.json.JSONObject;
 public class UpdatesModel {
     private List<UpdatesItemData> dataToDelete = new ArrayList();
 
-    public static void updateUpdatesData(g<Boolean> gVar, UpdatesItemData... updatesItemDataArr) {
+    public static void updateUpdatesData(h<Boolean> hVar, UpdatesItemData... updatesItemDataArr) {
         if (updatesItemDataArr != null) {
             final LinkedList linkedList = new LinkedList();
             for (UpdatesItemData updatesItemData : updatesItemDataArr) {
                 linkedList.add(updatesItemData.toGroupNewsPojo());
             }
-            v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+            x.b(new w<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.u
+                @Override // com.baidu.tbadk.util.w
                 public Boolean doInBackground() {
-                    return d.aJx().p(linkedList);
+                    return d.aLM().p(linkedList);
                 }
-            }, gVar);
+            }, hVar);
         }
     }
 
-    public static void deleteUpdatesData(final UpdatesItemData updatesItemData, g<Boolean> gVar) {
+    public static void deleteUpdatesData(final UpdatesItemData updatesItemData, h<Boolean> hVar) {
         if (updatesItemData != null) {
-            v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+            x.b(new w<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.u
+                @Override // com.baidu.tbadk.util.w
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.aJx().oj(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.aLM().oP(UpdatesItemData.this.getNotice_id()));
                 }
-            }, gVar);
+            }, hVar);
         }
     }
 
-    public void deleteDatas(g<Boolean> gVar) {
-        v.b(new u<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+    public void deleteDatas(h<Boolean> hVar) {
+        x.b(new w<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.u
+            @Override // com.baidu.tbadk.util.w
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.aJx().ch(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.aLM().ci(UpdatesModel.this.dataToDelete));
             }
-        }, gVar);
+        }, hVar);
     }
 
     public String deleteDatasIds() {
@@ -107,14 +107,14 @@ public class UpdatesModel {
         }
     }
 
-    public static void requestUpdatesDataFromDB(g<LinkedList<GroupNewsPojo>> gVar) {
-        v.b(new u<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+    public static void requestUpdatesDataFromDB(h<LinkedList<GroupNewsPojo>> hVar) {
+        x.b(new w<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.u
+            @Override // com.baidu.tbadk.util.w
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.aJx().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.aLM().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
-        }, gVar);
+        }, hVar);
     }
 
     public static List<UpdatesItemData> convertToUpdatesItemData(LinkedList<GroupNewsPojo> linkedList) {

@@ -19,7 +19,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.tencent.connect.common.Constants;
@@ -399,7 +398,7 @@ public class j {
         bundle.putString("share_type", str8);
         bundle.putString("detail", str9);
         bundle.putString("os_ver", Build.VERSION.RELEASE);
-        bundle.putString(LivenessRecogActivity.f.J, com.tencent.open.b.a.a(e.a()));
+        bundle.putString("network", com.tencent.open.b.a.a(e.a()));
         bundle.putString("apn", com.tencent.open.b.a.b(e.a()));
         bundle.putString("model_name", Build.MODEL);
         bundle.putString("sdk_ver", Constants.SDK_VERSION);

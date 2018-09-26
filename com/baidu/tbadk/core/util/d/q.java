@@ -31,29 +31,42 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean zY() {
+    public boolean Bd() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean zZ() {
+    public boolean Be() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c fc(String str) {
+    public com.baidu.adp.lib.Disk.ops.c fu(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
+    /* renamed from: b */
+    public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
+        com.baidu.adp.widget.ImageView.a hA = com.baidu.tbadk.imageManager.c.Kg().hA(str);
+        if (hA != null) {
+            hA.Nj.Nl = "memory";
+            hA.Nj.Nm = 0L;
+            hA.Nj.Nn = true;
+        }
+        return hA;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.widget.ImageView.a a(com.baidu.adp.lib.Disk.ops.c cVar, String str) {
+    public com.baidu.adp.widget.ImageView.a a(com.baidu.adp.lib.Disk.ops.c cVar, String str, int i, int i2) {
         if (cVar == null || !(cVar instanceof com.baidu.adp.lib.Disk.ops.b)) {
             return null;
         }
         com.baidu.adp.lib.Disk.ops.b bVar = (com.baidu.adp.lib.Disk.ops.b) cVar;
-        cVar.i(cVar.getData());
+        cVar.q(cVar.getData());
         Bitmap bitmap = cVar.getBitmap();
         if (bitmap != null) {
             return new com.baidu.adp.widget.ImageView.a(bitmap, false, str, bVar.getRect());
@@ -69,8 +82,13 @@ public class q extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean e(Bitmap bitmap) {
+    public boolean f(Bitmap bitmap) {
         return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
+    }
+
+    @Override // com.baidu.tbadk.core.util.d.a
+    protected Bitmap checkBitmapSize(Bitmap bitmap, int i, int i2) {
+        return bitmap;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -79,7 +97,7 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Aa() {
+    public int Bf() {
         return this.procType;
     }
 }

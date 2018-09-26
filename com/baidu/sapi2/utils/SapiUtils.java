@@ -32,7 +32,9 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.gid.BaiduGIDManager;
 import com.baidu.pass.gid.utils.Event;
 import com.baidu.pass.gid.utils.GIDEvent;
@@ -44,8 +46,10 @@ import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.base.utils.EncodeUtils;
 import com.baidu.sapi2.base.utils.NetworkUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.sapi2.utils.enums.BiometricType;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.sapi2.utils.enums.SocialType;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -74,6 +78,9 @@ import java.util.regex.Pattern;
 import org.apache.http.NameValuePair;
 import org.apache.http.conn.util.InetAddressUtils;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SapiUtils {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
@@ -216,7 +223,7 @@ public class SapiUtils {
     }
 
     public static boolean isEmulator(Context context) {
-        return "000000000000000".equals(SapiDeviceUtils.getIMEI(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || Build.SERIAL.equals("unknown");
+        return Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || Build.SERIAL.equals("unknown");
     }
 
     public static String getLocalIpAddress() {
@@ -238,6 +245,7 @@ public class SapiUtils {
         return null;
     }
 
+    @TargetApi(5)
     public static String getBlueToothDeviceName(Context context) {
         BluetoothAdapter defaultAdapter;
         try {
@@ -332,7 +340,7 @@ public class SapiUtils {
         return (new File("/system/bin/su").exists() && a("/system/bin/su")) || (new File("/system/xbin/su").exists() && a("/system/xbin/su"));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [556=5, 558=4, 559=4, 560=4, 564=4, 565=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [561=5, 563=4, 564=4, 565=4, 569=4, 570=4] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0085  */
     /* JADX WARN: Removed duplicated region for block: B:59:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -483,7 +491,7 @@ public class SapiUtils {
                 }
                 String bssid = connectionInfo.getBSSID();
                 if (bssid != null) {
-                    str2 = bssid.replace(SystemInfoUtil.COLON, "");
+                    str2 = bssid.replace(":", "");
                     i = abs;
                     str3 = ssid;
                 } else {
@@ -502,7 +510,7 @@ public class SapiUtils {
                     String str4 = scanResult.BSSID;
                     String str5 = scanResult.SSID;
                     int abs2 = StrictMath.abs(scanResult.level);
-                    String replace = str4 != null ? str4.replace(SystemInfoUtil.COLON, "") : "";
+                    String replace = str4 != null ? str4.replace(":", "") : "";
                     if (!replace.equals(str2) && abs2 != 0) {
                         if (i2 >= 10) {
                             break;
@@ -739,6 +747,17 @@ public class SapiUtils {
         }
     }
 
+    public static boolean isAppInstalled(Context context, String str) {
+        if (context == null || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            return context.getPackageManager().getPackageInfo(str, 0) != null;
+        } catch (PackageManager.NameNotFoundException e2) {
+            return false;
+        }
+    }
+
     public static int dip2px(Context context, float f2) {
         if (context == null) {
             throw new IllegalArgumentException("Context can't be null");
@@ -783,14 +802,29 @@ public class SapiUtils {
     }
 
     public static Map<String, String> parseQrLoginSchema(String str) {
-        return !isQrLoginSchema(str) ? new HashMap() : urlParamsToMap(str);
+        HashMap hashMap = new HashMap();
+        if (isQrLoginSchema(str)) {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            if ("pc".equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
+                HashMap hashMap2 = new HashMap();
+                if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
+                    hashMap2.put("islogin", "0");
+                } else {
+                    hashMap2.put("islogin", "1");
+                }
+                hashMap2.put("client", HttpConstants.OS_TYPE_VALUE);
+                StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2, false);
+            }
+            return urlParamsToMap;
+        }
+        return hashMap;
     }
 
     public static String parseQrFaceAuthSchema(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", "tpl"}) {
+        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", BaiduRimConstants.TPL_INIT_KEY}) {
             if (!str.contains(str2)) {
                 return null;
             }
@@ -822,19 +856,34 @@ public class SapiUtils {
         return SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getAccountActionType();
     }
 
+    public static int getLastLoginType() {
+        String string = SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getString(SapiContext.KEY_PRE_LOGIN_TYPE);
+        if (TextUtils.isEmpty(string)) {
+            string = "none";
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put("none", 0);
+        hashMap.put("password", 1);
+        hashMap.put("sms", 2);
+        hashMap.put("face", 3);
+        hashMap.put(SocialType.WEIXIN.getName() + "", 4);
+        hashMap.put(SocialType.SINA_WEIBO.getName() + "", 5);
+        hashMap.put(SocialType.QQ_SSO.getName() + "", 6);
+        hashMap.put(SocialType.HUAWEI.getName() + "", 10);
+        hashMap.put("slient_share", 7);
+        hashMap.put(ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE, 8);
+        hashMap.put(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE, 9);
+        if (hashMap.containsKey(string)) {
+            return ((Integer) hashMap.get(string)).intValue();
+        }
+        return 11;
+    }
+
+    @TargetApi(3)
     public static void hideSoftInput(Activity activity) {
         InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
         if (inputMethodManager.isActive() && activity.getCurrentFocus() != null && activity.getCurrentFocus().getWindowToken() != null) {
             inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 2);
-        }
-    }
-
-    public static boolean withLivenessAbility() {
-        try {
-            Class.forName("com.baidu.fsg.api.BaiduRIM");
-            return ServiceManager.getInstance().getIsAccountManager().getConfignation().biometricTypeList.contains(BiometricType.LIVENESS_RECOG);
-        } catch (Throwable th) {
-            return false;
         }
     }
 
@@ -944,6 +993,7 @@ public class SapiUtils {
         return !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance(context).getLoginStatExtraLimitLen();
     }
 
+    @TargetApi(4)
     public static boolean isOnline(Context context) {
         String packageName = context.getPackageName();
         if (TextUtils.isEmpty(packageName)) {
@@ -1018,5 +1068,34 @@ public class SapiUtils {
             }
         }
         return sb.toString();
+    }
+
+    public static JSONArray map2JsonArray(Map<String, Long> map, String str, String str2) {
+        JSONArray jSONArray = new JSONArray();
+        if (map == null || map.isEmpty()) {
+            return jSONArray;
+        }
+        for (Map.Entry<String, Long> entry : map.entrySet()) {
+            JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(entry.getKey())) {
+                try {
+                    jSONObject.put(str, entry.getKey());
+                    jSONObject.put(str2, entry.getValue());
+                } catch (JSONException e2) {
+                }
+            }
+            jSONArray.put(jSONObject);
+        }
+        return jSONArray;
+    }
+
+    public static String getSmsCheckCode(String str) {
+        String[] split;
+        for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
+            if (str2.length() == 6) {
+                return str2;
+            }
+        }
+        return "";
     }
 }

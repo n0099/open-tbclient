@@ -9,20 +9,20 @@ import com.baidu.tieba.pb.chosen.PbChosenActivity;
 /* loaded from: classes3.dex */
 public class b {
     public b() {
-        aYV();
-        aYW();
+        bbw();
+        bbx();
     }
 
-    private void aYV() {
+    private void bbw() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309093);
         bVar.setResponsedClass(ChosenPbSocketResponse.class);
-        bVar.n(true);
-        bVar.o(false);
+        bVar.x(true);
+        bVar.y(false);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void aYW() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, com.baidu.tieba.tbadkCore.a.a.aK(TbConfig.FINE_PB_PAGE, 309093));
+    private void bbx() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, com.baidu.tieba.tbadkCore.a.a.aP(TbConfig.FINE_PB_PAGE, 309093));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -33,13 +33,13 @@ public class b {
 
     public void a(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
         ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
-        int ah = l.ah(pbChosenActivity.getPageContext().getPageActivity());
-        int aj = l.aj(pbChosenActivity.getPageContext().getPageActivity());
-        float ak = l.ak(pbChosenActivity.getPageContext().getPageActivity());
+        int aO = l.aO(pbChosenActivity.getPageContext().getPageActivity());
+        int aQ = l.aQ(pbChosenActivity.getPageContext().getPageActivity());
+        float aR = l.aR(pbChosenActivity.getPageContext().getPageActivity());
         chosenPbNetMessage.setQ_type(45L);
-        chosenPbNetMessage.setScrH(aj);
-        chosenPbNetMessage.setScrW(ah);
-        chosenPbNetMessage.setScr_dip(ak);
+        chosenPbNetMessage.setScrH(aQ);
+        chosenPbNetMessage.setScrW(aO);
+        chosenPbNetMessage.setScr_dip(aR);
         chosenPbNetMessage.setExcId(j);
         chosenPbNetMessage.setTagCode(j2);
         chosenPbNetMessage.setThreadId(j3);

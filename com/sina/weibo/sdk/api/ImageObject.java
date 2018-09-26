@@ -3,6 +3,7 @@ package com.sina.weibo.sdk.api;
 import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.mobstat.Config;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -116,7 +117,7 @@ public class ImageObject extends BaseMediaObject {
             if (this.imagePath != null) {
                 File file = new File(this.imagePath);
                 try {
-                    if (!file.exists() || file.length() == 0 || file.length() > 10485760) {
+                    if (!file.exists() || file.length() == 0 || file.length() > Config.FULL_TRACE_LOG_LIMIT) {
                         LogUtil.e("Weibo.ImageObject", "checkArgs fail, image content is too large or not exists");
                         return false;
                     }

@@ -17,91 +17,91 @@ import com.baidu.adp.widget.ListView.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.view.g;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.view.j;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.personalize.PersonalizePageView;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
 /* loaded from: classes2.dex */
 public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLayout.a {
-    private g.b awt;
-    private g.a awu;
-    private g.c awv;
-    private TbImageView dYT;
-    private LottieAnimationView dYU;
-    private ImageView dYV;
-    private TextView dYW;
-    private com.baidu.tbadk.core.bigday.a dYX;
-    private String dYY;
-    private String dYZ;
-    private String dZa;
-    private String dZb;
+    private j.b azG;
+    private j.a azH;
+    private j.c azI;
+    private TbImageView egp;
+    private LottieAnimationView egq;
+    private ImageView egr;
+    private TextView egs;
+    private com.baidu.tbadk.core.bigday.a egt;
+    private String egu;
+    private String egv;
+    private String egw;
+    private String egx;
 
     public b(Context context) {
         super(context);
-        this.awt = null;
-        this.awu = null;
-        this.awv = null;
+        this.azG = null;
+        this.azH = null;
+        this.azI = null;
         if (context != null) {
-            this.dYY = context.getText(f.j.adp_pull_to_refresh).toString();
-            this.dYZ = context.getText(f.j.bigday_refreshing).toString();
-            this.dZa = context.getText(f.j.bigday_release_to_refresh).toString();
-            this.dZb = context.getText(f.j.bigday_release_to_ad).toString();
+            this.egu = context.getText(e.j.adp_pull_to_refresh).toString();
+            this.egv = context.getText(e.j.bigday_refreshing).toString();
+            this.egw = context.getText(e.j.bigday_release_to_refresh).toString();
+            this.egx = context.getText(e.j.bigday_release_to_ad).toString();
         }
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a
-    public void a(g.b bVar) {
-        this.awt = bVar;
+    public void a(j.b bVar) {
+        this.azG = bVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a
-    public void a(g.a aVar) {
-        this.awu = aVar;
+    public void a(j.a aVar) {
+        this.azH = aVar;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.PersonalizePageView.a
-    public void a(g.c cVar) {
-        this.awv = cVar;
+    public void a(j.c cVar) {
+        this.azI = cVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View np() {
-        View inflate = LayoutInflater.from(getContext()).inflate(f.h.bigday_pull_view, (ViewGroup) null, false);
-        this.dYT = (TbImageView) inflate.findViewById(f.g.pull_image);
-        ImageView imageView = (ImageView) inflate.findViewById(f.g.bigday_close);
-        this.dYU = (LottieAnimationView) inflate.findViewById(f.g.bigday_lotti);
-        this.dYV = (ImageView) inflate.findViewById(f.g.text_mask);
-        this.dYW = (TextView) inflate.findViewById(f.g.state_text);
+    public View ov() {
+        View inflate = LayoutInflater.from(getContext()).inflate(e.h.bigday_pull_view, (ViewGroup) null, false);
+        this.egp = (TbImageView) inflate.findViewById(e.g.pull_image);
+        ImageView imageView = (ImageView) inflate.findViewById(e.g.bigday_close);
+        this.egq = (LottieAnimationView) inflate.findViewById(e.g.bigday_lotti);
+        this.egr = (ImageView) inflate.findViewById(e.g.text_mask);
+        this.egs = (TextView) inflate.findViewById(e.g.state_text);
         if (UtilHelper.canUseStyleImmersiveSticky() && (imageView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + TbadkCoreApplication.getInst().getResources().getDimension(f.e.ds25));
+            ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + TbadkCoreApplication.getInst().getResources().getDimension(e.C0141e.ds25));
         }
-        this.dYT.setAutoChangeStyle(false);
-        this.dYW.setText(this.dYY);
+        this.egp.setAutoChangeStyle(false);
+        this.egs.setText(this.egu);
         return inflate;
     }
 
     public void a(com.baidu.tbadk.core.bigday.a aVar) {
-        if (aVar.tt()) {
-            this.dYX = aVar;
+        if (aVar.uw()) {
+            this.egt = aVar;
         }
-        if (aVar.acI == 1) {
-            this.dYW.setTextColor(getContext().getResources().getColor(f.d.cp_cont_i_alpha60));
-            this.dYV.setBackgroundResource(f.C0146f.bigday_text_mask_black);
-            this.dYU.setAnimation(f.i.lottie_refresh_light);
+        if (aVar.afj == 1) {
+            this.egs.setTextColor(getContext().getResources().getColor(e.d.cp_cont_i_alpha60));
+            this.egr.setBackgroundResource(e.f.bigday_text_mask_black);
+            this.egq.setAnimation(e.i.lottie_refresh_light);
         } else {
-            this.dYW.setTextColor(getContext().getResources().getColor(f.d.cp_cont_b_alpha40));
-            this.dYV.setBackgroundResource(f.C0146f.bigday_text_mask_white);
-            this.dYU.setAnimation(f.i.lottie_refresh_dark);
+            this.egs.setTextColor(getContext().getResources().getColor(e.d.cp_cont_b_alpha40));
+            this.egr.setBackgroundResource(e.f.bigday_text_mask_white);
+            this.egq.setAnimation(e.i.lottie_refresh_dark);
         }
-        this.dYU.setFrame(0);
-        this.dYT.startLoad(aVar.imgUrl, 41, false);
-        this.dYT.setOnDrawListener(new TbImageView.b() { // from class: com.baidu.tieba.homepage.personalize.bigday.b.1
+        this.egq.setFrame(0);
+        this.egp.startLoad(aVar.imgUrl, 41, false);
+        this.egp.setOnDrawListener(new TbImageView.b() { // from class: com.baidu.tieba.homepage.personalize.bigday.b.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
-                if (b.this.dYT.getBdImage() == null && b.this.dYX != null && !ap.isEmpty(b.this.dYX.imgUrl)) {
-                    b.this.dYT.startLoad(b.this.dYX.imgUrl, 41, false);
+                if (b.this.egp.getBdImage() == null && b.this.egt != null && !ao.isEmpty(b.this.egt.imgUrl)) {
+                    b.this.egp.startLoad(b.this.egt.imgUrl, 41, false);
                 }
             }
 
@@ -111,80 +111,80 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
         });
     }
 
-    public com.baidu.tbadk.core.bigday.a aEA() {
-        return this.dYX;
+    public com.baidu.tbadk.core.bigday.a aGP() {
+        return this.egt;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void Y(boolean z) {
+    public void ai(boolean z) {
         setAlpha(1.0f);
-        this.dYW.setText(this.dYY);
-        if (this.awv != null) {
-            this.awv.aU(z);
+        this.egs.setText(this.egu);
+        if (this.azI != null) {
+            this.azI.bg(z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void releaseToRefresh() {
-        this.dYW.setText(this.dZa);
+        this.egs.setText(this.egw);
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void refreshing() {
         setAlpha(1.0f);
-        this.dYW.setText(this.dYZ);
-        this.dYU.setAlpha(1.0f);
-        this.dYU.setMinAndMaxFrame(8, 58);
-        this.dYU.i(true);
-        this.dYU.aX();
+        this.egs.setText(this.egv);
+        this.egq.setAlpha(1.0f);
+        this.egq.setMinAndMaxFrame(8, 58);
+        this.egq.s(true);
+        this.egq.ce();
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void aa(boolean z) {
-        if (this.awt != null) {
-            this.awt.aT(z);
+    public void ak(boolean z) {
+        if (this.azG != null) {
+            this.azG.bf(z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void nq() {
-        this.dYW.setText("");
-        this.dYU.animate().alpha(0.0f).setDuration(200L).start();
+    public void ow() {
+        this.egs.setText("");
+        this.egq.animate().alpha(0.0f).setDuration(200L).start();
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public void Z(boolean z) {
+    public void aj(boolean z) {
         setAlpha(1.0f);
-        this.dYU.setAlpha(1.0f);
-        this.dYW.setText(this.dYY);
-        if (this.awu != null) {
-            this.awu.b(getView(), z);
+        this.egq.setAlpha(1.0f);
+        this.egs.setText(this.egu);
+        if (this.azH != null) {
+            this.azH.b(getView(), z);
         }
-        this.dYU.aY();
+        this.egq.cf();
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void aEx() {
-        this.dYW.setText(this.dZb);
+    public void aGM() {
+        this.egs.setText(this.egx);
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void aEy() {
+    public void aGN() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921348, false));
-        this.dYW.animate().alpha(0.0f).setDuration(200L).start();
-        this.dYV.animate().alpha(0.0f).setDuration(200L).start();
+        this.egs.animate().alpha(0.0f).setDuration(200L).start();
+        this.egr.animate().alpha(0.0f).setDuration(200L).start();
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void aEz() {
-        if (this.dYX != null && this.dYX.tt()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(getContext(), this.dYX.imgUrl, this.dYX.acH, this.dYX.acJ)));
+    public void aGO() {
+        if (this.egt != null && this.egt.uw()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BigdayActivityConfig(getContext(), this.egt.imgUrl, this.egt.afi, this.egt.afk)));
         }
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public int aEw() {
-        return (int) (l.aj(getContext()) * 0.3d);
+    public int aGL() {
+        return (int) (l.aQ(getContext()) * 0.3d);
     }
 
     public void release() {
@@ -194,28 +194,28 @@ public class b extends c implements PersonalizePageView.a, BigdaySwipeRefreshLay
     public void k(float f, float f2) {
         float f3 = 0.0f;
         super.k(f, f2);
-        float dimension = getView().getResources().getDimension(f.e.tbds120);
-        float dimension2 = getView().getResources().getDimension(f.e.tbds236);
+        float dimension = getView().getResources().getDimension(e.C0141e.tbds120);
+        float dimension2 = getView().getResources().getDimension(e.C0141e.tbds236);
         float f4 = dimension2 * f;
         if (f4 < dimension2) {
             float f5 = ((f4 - dimension) / (dimension2 - dimension)) * 0.09090909f;
             if (f5 >= 0.0f) {
                 f3 = f5 > 0.09090909f ? 0.09090909f : f5;
             }
-            this.dYU.setProgress(f3);
+            this.egq.setProgress(f3);
             return;
         }
-        this.dYU.setAlpha(1.0f - ((f4 - dimension2) / (aEw() - dimension2)));
+        this.egq.setAlpha(1.0f - ((f4 - dimension2) / (aGL() - dimension2)));
     }
 
     private void setAlpha(float f) {
-        this.dYW.setAlpha(f);
-        this.dYV.setAlpha(f);
-        if (this.dYV.getBackground() == null && this.dYX != null) {
-            if (this.dYX.acI == 1) {
-                this.dYV.setBackgroundResource(f.C0146f.bigday_text_mask_black);
+        this.egs.setAlpha(f);
+        this.egr.setAlpha(f);
+        if (this.egr.getBackground() == null && this.egt != null) {
+            if (this.egt.afj == 1) {
+                this.egr.setBackgroundResource(e.f.bigday_text_mask_black);
             } else {
-                this.dYV.setBackgroundResource(f.C0146f.bigday_text_mask_white);
+                this.egr.setBackgroundResource(e.f.bigday_text_mask_white);
             }
         }
     }

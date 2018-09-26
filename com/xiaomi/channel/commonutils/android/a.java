@@ -53,7 +53,7 @@ public class a {
                 }
             }
         }
-        arrayList.add(com.baidu.fsg.biometrics.base.d.h.a);
+        arrayList.add(com.baidu.fsg.face.base.d.h.a);
         return arrayList;
     }
 
@@ -178,6 +178,6 @@ public class a {
 
     private static String b(String str) {
         String[] split;
-        return (str == null || (split = str.split("/")) == null || split.length <= 1) ? com.baidu.fsg.biometrics.base.d.h.a : split[split.length - 2];
+        return (str == null || (split = str.split("/")) == null || split.length <= 1) ? com.baidu.fsg.face.base.d.h.a : split[split.length - 2];
     }
 }

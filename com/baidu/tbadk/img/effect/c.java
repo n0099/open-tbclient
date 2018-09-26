@@ -1,31 +1,31 @@
 package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c aQZ = new c();
-    private final HashMap<String, Class<? extends b>> aRa = new HashMap<>();
+    private static c aUr = new c();
+    private final HashMap<String, Class<? extends b>> aUs = new HashMap<>();
 
-    public static c Jb() {
-        return aQZ;
+    public static c Kr() {
+        return aUr;
     }
 
     private c() {
-        j(d.class);
-        j(f.class);
-        j(a.class);
-        j(e.class);
-        j(g.class);
+        m(d.class);
+        m(f.class);
+        m(a.class);
+        m(e.class);
+        m(g.class);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
         Bitmap b;
         int i;
-        if (bitmap != null && !w.z(list)) {
+        if (bitmap != null && !v.z(list)) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 b a = a(list.get(i2));
@@ -76,14 +76,14 @@ public class c {
         Bitmap bitmap;
         int i;
         int i2 = 0;
-        if (w.z(list)) {
+        if (v.z(list)) {
             return null;
         }
         int size = list.size();
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.hj(imageFileInfo.getFilePath());
+                return a.hF(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,47 +103,47 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap hj = dVar != null ? dVar.hj(str) : null;
+        Bitmap hF = dVar != null ? dVar.hF(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = hj;
+                bitmap = hF;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    hj = bitmap;
+                    hF = bitmap;
                 } else if (bitmap == null) {
-                    hj = a2.hj(str);
+                    hF = a2.hF(str);
                 } else {
-                    hj = a2.b(bitmap, true);
+                    hF = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = hj;
+            bitmap = hF;
         }
         return bitmap;
     }
 
     protected b a(ImageOperation imageOperation) {
-        b k;
-        Class<? extends b> cls = this.aRa.get(imageOperation.actionName);
-        if (cls != null && (k = k(cls)) != null) {
-            k.setParams(imageOperation.actionParam);
-            return k;
+        b n;
+        Class<? extends b> cls = this.aUs.get(imageOperation.actionName);
+        if (cls != null && (n = n(cls)) != null) {
+            n.setParams(imageOperation.actionParam);
+            return n;
         }
         return null;
     }
 
-    private void j(Class<? extends b> cls) {
-        b k = k(cls);
-        if (k != null) {
-            this.aRa.put(k.getActionName(), cls);
+    private void m(Class<? extends b> cls) {
+        b n = n(cls);
+        if (n != null) {
+            this.aUs.put(n.getActionName(), cls);
         }
     }
 
-    private b k(Class<? extends b> cls) {
+    private b n(Class<? extends b> cls) {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException e) {

@@ -7,30 +7,30 @@ import tbclient.LinkThreadContent;
 import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class ad {
-    public static int agf = 1;
-    private String agg;
-    private String agh;
-    private String agi;
-    private int agj = 0;
-    private boolean agk = false;
+    public static int aiF = 1;
+    private String aiG;
+    private String aiH;
+    private String aiI;
+    private int aiJ = 0;
+    private boolean aiK = false;
     private String linkUrl;
 
     public void a(LinkThreadInfo linkThreadInfo) {
         if (linkThreadInfo != null) {
             this.linkUrl = linkThreadInfo.link_url;
-            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.w.d(linkThreadInfo.link_content, 0);
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.v.d(linkThreadInfo.link_content, 0);
             if (linkThreadContent != null) {
-                this.agg = linkThreadContent.link_title;
-                this.agh = linkThreadContent.link_abstract;
-                this.agi = linkThreadContent.link_head_small_pic;
-                this.agj = linkThreadContent.link_type.intValue();
-                if (com.baidu.tbadk.core.util.ap.isEmpty(this.agg) && com.baidu.tbadk.core.util.ap.isEmpty(this.agh)) {
-                    this.agk = true;
+                this.aiG = linkThreadContent.link_title;
+                this.aiH = linkThreadContent.link_abstract;
+                this.aiI = linkThreadContent.link_head_small_pic;
+                this.aiJ = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.ao.isEmpty(this.aiG) && com.baidu.tbadk.core.util.ao.isEmpty(this.aiH)) {
+                    this.aiK = true;
                     return;
                 }
                 return;
             }
-            this.agk = true;
+            this.aiK = true;
         }
     }
 
@@ -42,23 +42,23 @@ public class ad {
                 try {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
                     if (jSONObject2 != null) {
-                        this.agg = jSONObject2.optString("link_title");
-                        this.agh = jSONObject2.optString("link_abstract");
-                        this.agi = jSONObject2.optString("link_head_small_pic");
-                        this.agj = jSONObject2.optInt("link_type");
-                        if (com.baidu.tbadk.core.util.ap.isEmpty(this.agg) && com.baidu.tbadk.core.util.ap.isEmpty(this.agh)) {
-                            this.agk = true;
+                        this.aiG = jSONObject2.optString("link_title");
+                        this.aiH = jSONObject2.optString("link_abstract");
+                        this.aiI = jSONObject2.optString("link_head_small_pic");
+                        this.aiJ = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.ao.isEmpty(this.aiG) && com.baidu.tbadk.core.util.ao.isEmpty(this.aiH)) {
+                            this.aiK = true;
                         }
                     } else {
-                        this.agk = true;
+                        this.aiK = true;
                     }
                     return;
                 } catch (JSONException e) {
-                    this.agk = true;
+                    this.aiK = true;
                     return;
                 }
             }
-            this.agk = true;
+            this.aiK = true;
         }
     }
 
@@ -66,23 +66,23 @@ public class ad {
         return this.linkUrl;
     }
 
-    public String ub() {
-        return this.agg;
+    public String ve() {
+        return this.aiG;
     }
 
-    public String uc() {
-        return this.agh;
+    public String vf() {
+        return this.aiH;
     }
 
-    public String ud() {
-        return this.agi;
+    public String vg() {
+        return this.aiI;
     }
 
-    public int ue() {
-        return this.agj;
+    public int vh() {
+        return this.aiJ;
     }
 
-    public boolean uf() {
-        return this.agk;
+    public boolean vi() {
+        return this.aiK;
     }
 }

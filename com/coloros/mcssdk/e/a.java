@@ -5,21 +5,21 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long hDQ;
-    long hDR;
-    int hDS;
-    String hDU;
+    long hMl;
+    long hMm;
+    int hMn;
+    String hMp;
     String title;
-    String hDT = "08:00-22:00";
-    int hDV = 0;
-    int hDW = 0;
+    String hMo = "08:00-22:00";
+    int hMq = 0;
+    int hMr = 0;
 
-    public void de(long j) {
-        this.hDQ = j;
+    public void dg(long j) {
+        this.hMl = j;
     }
 
-    public void df(long j) {
-        this.hDR = j;
+    public void dh(long j) {
+        this.hMm = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -37,42 +37,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.hEc);
-        sb.append(",taskID:" + this.hEd);
+        sb.append("messageID:" + this.hMw);
+        sb.append(",taskID:" + this.hMx);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.hDU);
+        sb.append(",rule:" + this.hMp);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.hDS);
-        sb.append(",startTime:" + this.hDQ);
-        sb.append(",endTime:" + this.hDR);
-        sb.append(",balanceTime:" + this.hDS);
-        sb.append(",timeRanges:" + this.hDT);
-        sb.append(",forcedDelivery:" + this.hDV);
-        sb.append(",distinctBycontent:" + this.hDW);
+        sb.append(",balanceTime:" + this.hMn);
+        sb.append(",startTime:" + this.hMl);
+        sb.append(",endTime:" + this.hMm);
+        sb.append(",balanceTime:" + this.hMn);
+        sb.append(",timeRanges:" + this.hMo);
+        sb.append(",forcedDelivery:" + this.hMq);
+        sb.append(",distinctBycontent:" + this.hMr);
         return sb.toString();
     }
 
-    public void vP(int i) {
-        this.hDS = i;
+    public void wp(int i) {
+        this.hMn = i;
     }
 
-    public void vQ(int i) {
-        this.hDV = i;
+    public void wq(int i) {
+        this.hMq = i;
     }
 
-    public void vR(int i) {
-        this.hDW = i;
+    public void wr(int i) {
+        this.hMr = i;
     }
 
-    public void ww(String str) {
+    public void xh(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.hDT = str;
+        this.hMo = str;
     }
 
-    public void wx(String str) {
-        this.hDU = str;
+    public void xi(String str) {
+        this.hMp = str;
     }
 }

@@ -56,11 +56,11 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bP(str);
+        this.cmdRangeInt = cg(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bP(String str) {
+    private int[] cg(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;
@@ -77,14 +77,14 @@ public class PluginSetting implements Serializable, Cloneable {
                 BdLog.e("cmdRange2Int split by '-' error");
                 return null;
             }
-            int g = com.baidu.adp.lib.g.b.g(split2[0], -1);
-            int g2 = com.baidu.adp.lib.g.b.g(split2[1], -1);
-            if (g < 0 || g2 < 0 || g > g2) {
+            int l = com.baidu.adp.lib.g.b.l(split2[0], -1);
+            int l2 = com.baidu.adp.lib.g.b.l(split2[1], -1);
+            if (l < 0 || l2 < 0 || l > l2) {
                 BdLog.e("cmdRange2Int split  toInt error");
                 return null;
             }
-            iArr[i * 2] = g;
-            iArr[(i * 2) + 1] = g2;
+            iArr[i * 2] = l;
+            iArr[(i * 2) + 1] = l2;
         }
         return iArr;
     }
@@ -103,7 +103,7 @@ public class PluginSetting implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSetting m10clone() {
+    public PluginSetting m11clone() {
         PluginSetting pluginSetting = new PluginSetting();
         pluginSetting.apkPath = this.apkPath;
         pluginSetting.setCmdRange(this.cmdRangeStr);

@@ -4,83 +4,83 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.ValidateItemData;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.b<ValidateActivity> {
-    private ValidateActivity eCB;
-    private TextView eCC;
-    private TextView eCD;
-    private TextView eCE;
-    private ValidateItemData eCF;
-    private View exm;
-    private HeadImageView exn;
-    private TextView exo;
+    private View eEF;
+    private HeadImageView eEG;
+    private TextView eEH;
+    private ValidateActivity eJS;
+    private TextView eJT;
+    private TextView eJU;
+    private TextView eJV;
+    private ValidateItemData eJW;
 
     public b(ValidateActivity validateActivity) {
-        super(validateActivity.getPageContext(), f.h.validate_item);
-        this.eCB = validateActivity;
+        super(validateActivity.getPageContext(), e.h.validate_item);
+        this.eJS = validateActivity;
         initView();
     }
 
     void initView() {
-        this.exm = this.rW.findViewById(f.g.root_view);
-        this.exn = (HeadImageView) this.exm.findViewById(f.g.iv_head);
-        this.exn.setIsRound(false);
-        this.eCC = (TextView) this.exm.findViewById(f.g.tv_user_name);
-        this.exo = (TextView) this.exm.findViewById(f.g.tv_group_name);
-        this.eCD = (TextView) this.exm.findViewById(f.g.tv_apply_reason);
-        this.eCE = (TextView) this.exm.findViewById(f.g.btn_pass);
-        this.eCE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
+        this.eEF = this.uz.findViewById(e.g.root_view);
+        this.eEG = (HeadImageView) this.eEF.findViewById(e.g.iv_head);
+        this.eEG.setIsRound(false);
+        this.eJT = (TextView) this.eEF.findViewById(e.g.tv_user_name);
+        this.eEH = (TextView) this.eEF.findViewById(e.g.tv_group_name);
+        this.eJU = (TextView) this.eEF.findViewById(e.g.tv_apply_reason);
+        this.eJV = (TextView) this.eEF.findViewById(e.g.btn_pass);
+        this.eJV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.eCB.a(b.this.eCE, 100, 0, 0L, b.this.eCF);
+                b.this.eJS.a(b.this.eJV, 100, 0, 0L, b.this.eJW);
             }
         });
-        this.exn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
+        this.eEG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.eCB.a(b.this.exn, 101, 0, 0L, b.this.eCF);
+                b.this.eJS.a(b.this.eEG, 101, 0, 0L, b.this.eJW);
             }
         });
-        this.exm.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
+        this.eEF.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.eCB.b(b.this.exm, 200, 0, 0L, b.this.eCF);
+                b.this.eJS.b(b.this.eEF, 200, 0, 0L, b.this.eJW);
                 return true;
             }
         });
     }
 
     public void refresh() {
-        if (this.eCF != null) {
-            this.eCB.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.eCB.getLayoutMode().onModeChanged(this.exm);
-            String portrait = this.eCF.getPortrait();
-            this.exn.setTag(portrait);
-            this.exn.startLoad(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.eCF.getUserName())) {
-                this.eCC.setText(this.eCF.getUserName());
+        if (this.eJW != null) {
+            this.eJS.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.eJS.getLayoutMode().onModeChanged(this.eEF);
+            String portrait = this.eJW.getPortrait();
+            this.eEG.setTag(portrait);
+            this.eEG.startLoad(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.eJW.getUserName())) {
+                this.eJT.setText(this.eJW.getUserName());
             }
-            if (!TextUtils.isEmpty(this.eCF.getGroupName())) {
-                this.exo.setText(this.eCB.getPageContext().getString(f.j.validate_im_apply_prefix) + this.eCF.getGroupName());
+            if (!TextUtils.isEmpty(this.eJW.getGroupName())) {
+                this.eEH.setText(this.eJS.getPageContext().getString(e.j.validate_im_apply_prefix) + this.eJW.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.eCF.getApplyReason())) {
-                this.eCD.setText(this.eCB.getPageContext().getString(f.j.validate_im_reason_prefix) + this.eCF.getApplyReason());
+            if (!TextUtils.isEmpty(this.eJW.getApplyReason())) {
+                this.eJU.setText(this.eJS.getPageContext().getString(e.j.validate_im_reason_prefix) + this.eJW.getApplyReason());
             }
-            if (this.eCF.isPass()) {
-                this.eCE.setEnabled(false);
-                this.eCE.setText(this.eCB.getPageContext().getString(f.j.passed));
-                am.h(this.eCE, f.d.cp_cont_d);
-                this.eCE.setBackgroundDrawable(null);
+            if (this.eJW.isPass()) {
+                this.eJV.setEnabled(false);
+                this.eJV.setText(this.eJS.getPageContext().getString(e.j.passed));
+                al.h(this.eJV, e.d.cp_cont_d);
+                this.eJV.setBackgroundDrawable(null);
             } else {
-                this.eCE.setEnabled(true);
-                this.eCE.setText(this.eCB.getPageContext().getString(f.j.pass));
+                this.eJV.setEnabled(true);
+                this.eJV.setText(this.eJS.getPageContext().getString(e.j.pass));
             }
-            if (!this.eCF.isShown()) {
-                am.i(this.exm, f.d.common_color_10178);
+            if (!this.eJW.isShown()) {
+                al.i(this.eEF, e.d.common_color_10178);
             }
         }
     }
@@ -91,6 +91,6 @@ public class b extends com.baidu.adp.base.b<ValidateActivity> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.eCF = validateItemData;
+        this.eJW = validateItemData;
     }
 }

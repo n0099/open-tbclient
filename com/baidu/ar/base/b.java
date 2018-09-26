@@ -29,7 +29,6 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -115,7 +114,7 @@ public abstract class b {
         if (this.c.getType() == 0 || this.c.getType() == 8) {
             String str = this.h.getPaddle() != null ? ARFileUtils.getARCaseFullPath(this.c.getKey()) + File.separator + this.h.getPaddle().a() : null;
             HashMap hashMap = new HashMap();
-            hashMap.put(ClientCookie.PATH_ATTR, str);
+            hashMap.put("path", str);
             hashMap.put("secretKey", "bai@!duA84$[|secu&^rity*");
             if (this.d != null) {
                 this.d.onStateChange(MsgField.MSG_PADDLE_INIT, hashMap);

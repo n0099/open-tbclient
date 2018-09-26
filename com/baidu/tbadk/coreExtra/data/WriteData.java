@@ -39,6 +39,7 @@ public class WriteData extends OrmObject implements Serializable {
     private boolean isUserFeedback;
     private String linkUrl;
     private String linkUrlCode;
+    private String mAuthSid;
     private long mBarrageTime;
     private int mBigEmtionCount;
     private int mCategoryFrom;
@@ -914,5 +915,13 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setSecondDir(String str) {
         this.mSecondDir = str;
+    }
+
+    public String getAuthSid() {
+        return this.mAuthSid;
+    }
+
+    public void setAuthSid(String str) {
+        this.mAuthSid = str;
     }
 }

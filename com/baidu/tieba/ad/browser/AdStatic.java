@@ -27,16 +27,15 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.util.z;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.util.ab;
+import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.h;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class AdStatic {
-    public static boolean aaN = true;
+    public static boolean adr = true;
 
     static {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tieba.ad.browser.AdStatic.1
@@ -44,11 +43,11 @@ public class AdStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-                    e.aB(TbadkCoreApplication.getInst());
+                    e.bh(TbadkCoreApplication.getInst());
                 }
             }
         });
-        com.baidu.tieba.ad.a.Rh().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
+        com.baidu.tieba.ad.a.SV().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
             @Override // com.baidu.tieba.recapp.h.c
             public int b(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
                 if (z2) {
@@ -59,17 +58,17 @@ public class AdStatic {
                 return 0;
             }
         });
-        com.baidu.adp.lib.b.d.hv().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
-        sn();
-        so();
-        sp();
+        com.baidu.adp.lib.b.d.iB().a(new com.baidu.adp.lib.b.b("switch_mbaidu_startup", 1, null));
+        tu();
+        tv();
+        tw();
     }
 
-    private static void sn() {
-        com.baidu.tieba.ad.a.Rh().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+    private static void tu() {
+        com.baidu.tieba.ad.a.SV().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.h.a
-            public int d(Context context, String[] strArr) {
-                Bundle hK;
+            public int e(Context context, String[] strArr) {
+                Bundle ii;
                 if (context == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -87,19 +86,19 @@ public class AdStatic {
                     String substring = str.substring(4);
                     String str4 = "";
                     if (str.contains("body=")) {
-                        str4 = z.as(str, "body=");
+                        str4 = ab.aA(str, "body=");
                         substring = substring.substring(0, substring.indexOf("?") - 1);
                     }
                     UtilHelper.smsTo(context, substring, str4);
                     return 0;
                 } else if (str.contains("jump=outer")) {
-                    e.T(context, str);
+                    e.ah(context, str);
                     return 1;
                 } else if (str.contains("jump=finish_this_page") && (context instanceof Activity)) {
                     ((Activity) context).finish();
                     return 1;
                 } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("pay=1") && (context instanceof Activity)) {
-                    UtilHelper.showToast(context, f.j.buy_sucess);
+                    UtilHelper.showToast(context, e.j.buy_sucess);
                     ((Activity) context).finish();
                     return 0;
                 } else if (str.startsWith("tieba://focusforum")) {
@@ -113,23 +112,23 @@ public class AdStatic {
                     context.startActivity(intent);
                     return 0;
                 } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("bunding_phone=1")) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, z.as(str, "bindid=")));
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, ab.aA(str, "bindid=")));
                     if (context instanceof Activity) {
                         ((Activity) context).finish();
                     }
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (hK = z.hK(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(hK.getString(ClientCookie.PATH_ATTR))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (ii = ab.ii(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(ii.getString("path"))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else {
                     if (str.startsWith("opfeature:")) {
-                        AdStatic.c(context, e.N(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
+                        AdStatic.c(context, e.U(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
                     } else if (str.startsWith("web:")) {
-                        AdStatic.c(context, e.N(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
+                        AdStatic.c(context, e.U(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
                     } else if (str.startsWith("topic:")) {
                         AdStatic.c(context, str3, str.substring(6), false, true, true, false);
                     } else if (str.startsWith("zb:")) {
-                        AdStatic.c(context, str.substring(3), context.getString(f.j.photo_live_tips), false, true, false, false);
+                        AdStatic.c(context, str.substring(3), context.getString(e.j.photo_live_tips), false, true, false, false);
                     } else if (!str.startsWith("list:")) {
                         return 3;
                     } else {
@@ -144,7 +143,7 @@ public class AdStatic {
         });
     }
 
-    private static String iG(String str) {
+    private static String ji(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return "";
@@ -173,7 +172,7 @@ public class AdStatic {
         return str;
     }
 
-    private static String cQ(String str) {
+    private static String di(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -184,12 +183,12 @@ public class AdStatic {
             return str;
         }
         if (!str.startsWith(checkUrl)) {
-            return checkUrl + cR(str);
+            return checkUrl + dj(str);
         }
         return str;
     }
 
-    public static String cR(String str) {
+    public static String dj(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -208,8 +207,8 @@ public class AdStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
-        String iG = iG(str);
-        if (!iH(iG) && Ri() && iJ("com.baidu.searchbox") && iI(iG) && aaN) {
+        String ji = ji(str);
+        if (!jj(ji) && SW() && jl("com.baidu.searchbox") && jk(ji) && adr) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;
@@ -217,19 +216,19 @@ public class AdStatic {
         c(context, str, str2, z, z2, z3, z4);
     }
 
-    private static boolean iH(String str) {
+    private static boolean jj(String str) {
         return str != null;
     }
 
-    private static boolean Ri() {
-        return com.baidu.adp.lib.b.d.hv().ax("switch_mbaidu_startup") == 1;
+    private static boolean SW() {
+        return com.baidu.adp.lib.b.d.iB().aO("switch_mbaidu_startup") == 1;
     }
 
-    private static boolean iI(String str) {
+    private static boolean jk(String str) {
         return str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || !str.contains("://");
     }
 
-    private static boolean iJ(String str) {
+    private static boolean jl(String str) {
         try {
             PackageInfo packageInfo = TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(str, 1);
             if (packageInfo == null) {
@@ -242,12 +241,12 @@ public class AdStatic {
     }
 
     private static void b(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        String N = e.N(str, null);
+        String U = e.U(str, null);
         Intent intent = new Intent();
         intent.setAction("com.baidu.searchbox.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
         intent.addFlags(268435456);
-        intent.setData(Uri.parse(N));
+        intent.setData(Uri.parse(U));
         intent.putExtra("EXTRA_URL_NEW_WINDOW", true);
         try {
             TbadkCoreApplication.getInst().startActivity(intent);
@@ -260,13 +259,13 @@ public class AdStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        e.b(context, false, cQ(str), str2);
+        e.b(context, false, di(str), str2);
     }
 
-    private static void so() {
-        com.baidu.tieba.ad.a.Rh().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+    private static void tv() {
+        com.baidu.tieba.ad.a.SV().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.h.a
-            public int d(Context context, String[] strArr) {
+            public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
                 }
@@ -333,10 +332,10 @@ public class AdStatic {
         });
     }
 
-    private static void sp() {
-        com.baidu.tieba.ad.a.Rh().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+    private static void tw() {
+        com.baidu.tieba.ad.a.SV().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.h.a
-            public int d(Context context, String[] strArr) {
+            public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
                 }
@@ -378,7 +377,7 @@ public class AdStatic {
         }
         String queryParameter = uri.getQueryParameter("page_type");
         String queryParameter2 = uri.getQueryParameter(LegoListActivityConfig.ITEM_ID);
-        String queryParameter3 = uri.getQueryParameter(LegoListActivityConfig.RN);
+        String queryParameter3 = uri.getQueryParameter("rn");
         String queryParameter4 = uri.getQueryParameter(LegoListActivityConfig.PARAMS);
         String queryParameter5 = uri.getQueryParameter(LegoListActivityConfig.PRE_LOAD);
         String queryParameter6 = uri.getQueryParameter(LegoListActivityConfig.NEXT_PAGE);
@@ -388,7 +387,7 @@ public class AdStatic {
         String queryParameter10 = uri.getQueryParameter(LegoListActivityConfig.IS_LANDINGPAGE);
         String queryParameter11 = uri.getQueryParameter("source");
         String str3 = TextUtils.isEmpty(queryParameter11) ? "unknown" : queryParameter11;
-        if ((!z || cS(queryParameter7)) && str != null && queryParameter != null && str.length() > 0 && queryParameter.length() > 0) {
+        if ((!z || dk(queryParameter7)) && str != null && queryParameter != null && str.length() > 0 && queryParameter.length() > 0) {
             try {
                 int parseInt = Integer.parseInt(queryParameter);
                 try {
@@ -432,7 +431,7 @@ public class AdStatic {
         return false;
     }
 
-    private static boolean cS(String str) {
+    private static boolean dk(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "1.0.0";
         }

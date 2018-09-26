@@ -10,6 +10,7 @@ public class TabData extends LinkedList<d> {
     public static final int TYPE_NEWPAGE = 11;
     public static final int TYPE_TAB_AD = 90;
     public static final int TYPE_TAB_ALA_LIVE = 49;
+    public static final int TYPE_TAB_COMMON_TAB = 91;
     public static final int TYPE_TAB_DYNAMIC = 89;
     private static final long serialVersionUID = -5491033066240609561L;
 

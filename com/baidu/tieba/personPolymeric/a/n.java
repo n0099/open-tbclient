@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class n {
-    private com.baidu.tieba.person.a.a fTk;
-    private m fYU;
-    private b fYV;
-    private i fYW;
-    private a fYX;
-    private c fYY;
-    private h fYZ;
-    private e fZa;
-    private k fZb;
-    private d fZc;
-    private com.baidu.tieba.person.a.d fZd;
-    private p fZe;
-    private BdPersonListView fZf;
+    private com.baidu.tieba.person.a.a gaA;
+    private m ggl;
+    private b ggm;
+    private i ggn;
+    private a ggo;
+    private c ggp;
+    private h ggq;
+    private e ggr;
+    private k ggs;
+    private d ggt;
+    private com.baidu.tieba.person.a.d ggu;
+    private p ggv;
+    private BdPersonListView ggw;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mBdUniqueId;
 
@@ -31,42 +31,42 @@ public class n {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.fZf = bdPersonListView;
-        this.fYU = new m(tbPageContext);
-        this.fYV = new b(tbPageContext);
-        this.fYW = new i(tbPageContext);
-        this.fYX = new a(tbPageContext);
-        this.fYY = new c(tbPageContext);
-        this.fYZ = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.fZa = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.gba);
-        this.fZb = new k(tbPageContext);
-        this.fZc = new d(tbPageContext);
-        this.fZd = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.fTl);
-        this.fTk = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.fSS);
-        this.fZe = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.mAdapters.add(this.fYU);
-        this.mAdapters.add(this.fYV);
-        this.mAdapters.add(this.fYW);
-        this.mAdapters.add(this.fYX);
-        this.mAdapters.add(this.fYY);
-        this.mAdapters.add(this.fYZ);
-        this.mAdapters.add(this.fZa);
-        this.mAdapters.add(this.fZb);
-        this.mAdapters.add(this.fZc);
-        this.mAdapters.add(this.fZd);
-        this.mAdapters.add(this.fTk);
-        this.mAdapters.add(this.fZe);
+        this.ggw = bdPersonListView;
+        this.ggl = new m(tbPageContext);
+        this.ggm = new b(tbPageContext);
+        this.ggn = new i(tbPageContext);
+        this.ggo = new a(tbPageContext);
+        this.ggp = new c(tbPageContext);
+        this.ggq = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.ggr = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.gis);
+        this.ggs = new k(tbPageContext);
+        this.ggt = new d(tbPageContext);
+        this.ggu = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.gaB);
+        this.gaA = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.gai);
+        this.ggv = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.mAdapters.add(this.ggl);
+        this.mAdapters.add(this.ggm);
+        this.mAdapters.add(this.ggn);
+        this.mAdapters.add(this.ggo);
+        this.mAdapters.add(this.ggp);
+        this.mAdapters.add(this.ggq);
+        this.mAdapters.add(this.ggr);
+        this.mAdapters.add(this.ggs);
+        this.mAdapters.add(this.ggt);
+        this.mAdapters.add(this.ggu);
+        this.mAdapters.add(this.gaA);
+        this.mAdapters.add(this.ggv);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void P(View.OnClickListener onClickListener) {
-        if (this.fZd != null) {
-            this.fZd.N(onClickListener);
+    public void O(View.OnClickListener onClickListener) {
+        if (this.ggu != null) {
+            this.ggu.M(onClickListener);
         }
     }
 
     public void setIsHost(boolean z) {
-        this.fZe.setIsHost(z);
-        this.fYW.setIsHost(z);
+        this.ggv.setIsHost(z);
+        this.ggn.setIsHost(z);
     }
 }

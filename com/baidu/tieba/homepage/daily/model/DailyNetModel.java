@@ -15,8 +15,8 @@ import com.baidu.tieba.homepage.daily.message.DailyPageSocketResMessage;
 import tbclient.DailyPage.DataRes;
 /* loaded from: classes2.dex */
 public class DailyNetModel extends BdBaseModel {
-    private a dUV;
-    private final int dUX;
+    private a eco;
+    private final int ecq;
     private int mCurrentPage;
     private boolean mIsLoading;
     private com.baidu.adp.framework.listener.a mNetMessageListener;
@@ -30,15 +30,15 @@ public class DailyNetModel extends BdBaseModel {
 
     public DailyNetModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.dUX = 30;
+        this.ecq = 30;
         this.mNetMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_DAILY_PAGE, 309617) { // from class: com.baidu.tieba.homepage.daily.model.DailyNetModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 DailyNetModel.this.mIsLoading = false;
                 int i = (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof DailyPageRequetMessage)) ? 0 : ((DailyPageRequetMessage) responsedMessage.getOrginalMessage().getExtra()).pn;
                 if (responsedMessage.getError() != 0) {
-                    if (DailyNetModel.this.dUV != null) {
-                        DailyNetModel.this.dUV.s(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (DailyNetModel.this.eco != null) {
+                        DailyNetModel.this.eco.s(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -50,13 +50,13 @@ public class DailyNetModel extends BdBaseModel {
                     dataRes = ((DailyPageSocketResMessage) responsedMessage).getData();
                 }
                 DailyNetModel.this.mCurrentPage = i;
-                if (DailyNetModel.this.dUV != null) {
-                    DailyNetModel.this.dUV.a(dataRes, i == 1);
+                if (DailyNetModel.this.eco != null) {
+                    DailyNetModel.this.eco.a(dataRes, i == 1);
                 }
             }
         };
-        ahh();
-        akm();
+        aiT();
+        alX();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -66,29 +66,29 @@ public class DailyNetModel extends BdBaseModel {
         registerListener(this.mNetMessageListener);
     }
 
-    private void akm() {
+    private void alX() {
         b bVar = new b(309617);
         bVar.setResponsedClass(DailyPageSocketResMessage.class);
-        bVar.n(true);
+        bVar.x(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void ahh() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DAILY_PAGE, com.baidu.tieba.tbadkCore.a.a.aK(TbConfig.URL_DAILY_PAGE, 309617));
+    private void aiT() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DAILY_PAGE, com.baidu.tieba.tbadkCore.a.a.aP(TbConfig.URL_DAILY_PAGE, 309617));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(DailyPageHttpResMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void refresh() {
-        gS(1);
+        hs(1);
     }
 
-    public void Tq() {
-        gS(this.mCurrentPage + 1);
+    public void Vd() {
+        hs(this.mCurrentPage + 1);
     }
 
-    public void gS(int i) {
+    public void hs(int i) {
         if (!this.mIsLoading) {
             DailyPageRequetMessage dailyPageRequetMessage = new DailyPageRequetMessage();
             dailyPageRequetMessage.pn = i;
@@ -109,12 +109,12 @@ public class DailyNetModel extends BdBaseModel {
         return false;
     }
 
-    public boolean AB() {
+    public boolean BO() {
         return this.mIsLoading;
     }
 
     public void a(a aVar) {
-        this.dUV = aVar;
+        this.eco = aVar;
     }
 
     public void onDestroy() {

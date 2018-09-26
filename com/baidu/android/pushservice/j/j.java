@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class j {
@@ -64,12 +63,12 @@ public class j {
         }
         try {
             SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.app_stat", 0).edit();
-            edit.putString("pkg_list", TextUtils.join(SystemInfoUtil.COLON, list));
+            edit.putString("pkg_list", TextUtils.join(":", list));
             edit.putLong("last_save", System.currentTimeMillis());
             for (String str : list) {
                 PackageInfo a = m.a(context, str);
                 if (a != null) {
-                    edit.putString(str, a.versionCode + SystemInfoUtil.COLON + a.versionName);
+                    edit.putString(str, a.versionCode + ":" + a.versionName);
                 }
             }
             edit.apply();

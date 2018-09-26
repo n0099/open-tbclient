@@ -19,7 +19,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public int wxRespErrorCode;
     public String wxRespState;
 
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initView();
@@ -27,7 +27,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
 
     private void initView() {
         setupViews();
-        setTitleText(a.c.sapi_sdk_title_login_wx);
+        setTitleText(a.b.sapi_sdk_title_login_wx);
         this.sapiWebView.setWeixinHandler(new SapiWebView.WeixinHandler() { // from class: com.baidu.sapi2.activity.social.WXLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.WeixinHandler
             public void handleNotInstall() {

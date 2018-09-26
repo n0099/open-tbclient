@@ -15,35 +15,35 @@ import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tieba.e;
 import com.baidu.tieba.postsearch.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends BaseAdapter {
-    private static final int gkq = TbadkCoreApplication.getInst().getListItemRule().Ck();
+    private static final int grI = TbadkCoreApplication.getInst().getListItemRule().Dx();
     private TbPageContext<?> mContext;
-    private int cjD = -1;
+    private int cpv = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
         this.mContext = tbPageContext;
     }
 
-    public int dj(List<b.a> list) {
+    public int dk(List<b.a> list) {
         if (list == null) {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= gkq) {
+        if (size <= grI) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - gkq;
-        rS(i);
+        int i = size - grI;
+        sp(i);
         this.mData.addAll(list);
         return i;
     }
@@ -52,7 +52,7 @@ public class e extends BaseAdapter {
         this.mData.clear();
     }
 
-    private void rS(int i) {
+    private void sp(int i) {
         if (this.mData.size() <= i) {
             this.mData.clear();
         }
@@ -92,13 +92,13 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(f.h.post_search_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.gkt = (TextView) view.findViewById(f.g.title_text);
-            aVar.gku = (TextView) view.findViewById(f.g.content_text);
-            aVar.gkv = (TextView) view.findViewById(f.g.label_text);
-            aVar.cke = (TextView) view.findViewById(f.g.user_name);
-            aVar.gkw = (TextView) view.findViewById(f.g.time_text);
+            aVar.grL = (TextView) view.findViewById(e.g.title_text);
+            aVar.grM = (TextView) view.findViewById(e.g.content_text);
+            aVar.grN = (TextView) view.findViewById(e.g.label_text);
+            aVar.cpW = (TextView) view.findViewById(e.g.user_name);
+            aVar.grO = (TextView) view.findViewById(e.g.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -108,17 +108,17 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.gkt.setText(Html.fromHtml(ap.af(aVar3.title, str)));
-            aVar2.gku.setText(Html.fromHtml(ap.af(aVar3.content, str)));
-            aVar2.cke.setText(aVar3.name_show);
-            aVar2.gkw.setText(ap.w(aVar3.time));
-            aVar2.gkv.setVisibility(0);
+            aVar2.grL.setText(Html.fromHtml(ao.am(aVar3.title, str)));
+            aVar2.grM.setText(Html.fromHtml(ao.am(aVar3.content, str)));
+            aVar2.cpW.setText(aVar3.name_show);
+            aVar2.grO.setText(ao.A(aVar3.time));
+            aVar2.grN.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.gkv.setText(f.j.floor_text);
-            } else if (aVar3.gjR == 1) {
-                aVar2.gkv.setText(f.j.reply_post);
+                aVar2.grN.setText(e.j.floor_text);
+            } else if (aVar3.grj == 1) {
+                aVar2.grN.setText(e.j.reply_post);
             } else {
-                aVar2.gkv.setVisibility(8);
+                aVar2.grN.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
@@ -133,6 +133,7 @@ public class e extends BaseAdapter {
                         }
                         PbActivityConfig createNormalCfg = new PbActivityConfig(e.this.mContext.getPageActivity()).createNormalCfg(aVar3.tid + "", aVar3.pid + "", "search_post");
                         createNormalCfg.setStartFrom(8);
+                        createNormalCfg.setSortType(0);
                         e.this.mContext.sendMessage(new CustomMessage(2004001, createNormalCfg));
                     }
                 }
@@ -143,32 +144,32 @@ public class e extends BaseAdapter {
     }
 
     public void setTabType(int i) {
-        this.cjD = i;
+        this.cpv = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
-        an ae = new an("c12405").ae(ImageViewerConfig.FORUM_NAME, aVar.fname).ae("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.cjD > 0) {
-            ae.r(MyBookrackActivityConfig.TAB_ID, this.cjD);
+        am al = new am("c12405").al(ImageViewerConfig.FORUM_NAME, aVar.fname).al("uid", TbadkCoreApplication.getCurrentAccount());
+        if (this.cpv > 0) {
+            al.w(MyBookrackActivityConfig.TAB_ID, this.cpv);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.gjR == 1) {
-                ae.f(Info.kBaiduPIDKey, aVar.pid);
+            if (aVar.is_floor == 1 || aVar.grj == 1) {
+                al.g(Info.kBaiduPIDKey, aVar.pid);
             } else {
-                ae.f("tid", aVar.tid);
+                al.g("tid", aVar.tid);
             }
         }
-        TiebaStatic.log(ae);
+        TiebaStatic.log(al);
     }
 
     /* loaded from: classes3.dex */
     private static class a {
-        TextView cke;
-        TextView gkt;
-        TextView gku;
-        TextView gkv;
-        TextView gkw;
+        TextView cpW;
+        TextView grL;
+        TextView grM;
+        TextView grN;
+        TextView grO;
 
         private a() {
         }

@@ -7,25 +7,25 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n implements h {
-    private Queue<?> wE;
+    private Queue<?> yW;
 
     public n(Queue<?> queue) {
-        this.wE = queue;
+        this.yW = queue;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] gE = cVar.gE();
+        Type[] hK = cVar.hK();
         JSONArray jSONArray = new JSONArray();
-        for (Object obj : this.wE) {
+        for (Object obj : this.yW) {
             if (obj != null) {
-                if (gE != null && gE.length >= 1) {
-                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.n(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(gE[0]));
+                if (hK != null && hK.length >= 1) {
+                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.o(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hK[0]));
                     if (a != null) {
                         jSONArray.put(a);
                     }
                 } else {
-                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.n(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.gF()));
+                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.o(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.hL()));
                     if (a2 != null) {
                         jSONArray.put(a2);
                     }
@@ -37,17 +37,17 @@ public class n implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] gE = cVar.gE();
+        Type[] hK = cVar.hK();
         ArrayList arrayList = new ArrayList();
-        for (Object obj : this.wE) {
+        for (Object obj : this.yW) {
             if (obj != null) {
-                if (gE != null && gE.length >= 1) {
-                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.n(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(gE[0]));
+                if (hK != null && hK.length >= 1) {
+                    Object a = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.o(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(hK[0]));
                     if (a != null) {
                         arrayList.add(a.toString());
                     }
                 } else {
-                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.n(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.gF()));
+                    Object a2 = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.o(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(cVar.hL()));
                     if (a2 != null) {
                         arrayList.add(a2.toString());
                     }
@@ -64,7 +64,7 @@ public class n implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wE;
+        return this.yW;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -84,6 +84,6 @@ public class n implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return this.wE;
+        return this.yW;
     }
 }

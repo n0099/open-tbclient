@@ -63,6 +63,7 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         this.mOnHandleOppoErrorListener = onHandleOppoErrorListener;
     }
 
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void resetListeners() {
         this.mOnPreparedListener = null;
         this.mOnBufferingUpdateListener = null;

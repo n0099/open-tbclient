@@ -12,17 +12,17 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.newwidget.ImageView.g;
 import com.baidu.adp.newwidget.ImageView.j;
 import com.baidu.adp.newwidget.ImageView.m;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ChatClipImageItemView extends TbImageView implements j.a {
-    private final Path Gh;
-    public j enV;
-    private boolean enW;
-    private a enX;
+    private final Path IE;
+    public j evp;
+    private boolean evq;
+    private a evr;
     private boolean isLeft;
     public int position;
 
@@ -43,9 +43,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         super(context, attributeSet, i);
         this.isLeft = true;
         this.position = 0;
-        this.Gh = new Path();
-        this.enW = true;
-        this.enX = null;
+        this.IE = new Path();
+        this.evq = true;
+        this.evr = null;
         b(context, attributeSet, i);
     }
 
@@ -78,20 +78,20 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             }
         }
         if (z) {
-            this.enV = new g();
+            this.evp = new g();
         } else {
-            this.enV = new m();
+            this.evp = new m();
         }
-        this.mArgs.Gb = true;
-        this.enV.a(this);
-        this.mDrawer = this.enV;
+        this.mArgs.Iw = true;
+        this.evp.a(this);
+        this.mDrawer = this.evp;
         this.mDrawer.a(this.mArgs);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        this.enV.kZ();
+        this.evp.mf();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,12 +99,12 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i != 0) {
-            this.enV.kZ();
-        } else if (!this.enW) {
-            this.enV.kY();
+            this.evp.mf();
+        } else if (!this.evq) {
+            this.evp.me();
             invalidate();
         } else {
-            this.enW = false;
+            this.evq = false;
         }
     }
 
@@ -116,9 +116,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.isLeft = z;
     }
 
-    public void aHT() {
-        this.enV.kY();
-        this.enV.P(true);
+    public void aKi() {
+        this.evp.me();
+        this.evp.Z(true);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
@@ -126,19 +126,19 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         boolean z = false;
         com.baidu.adp.widget.ImageView.a bdImage = super.getBdImage();
         boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
-        boolean z3 = bdImage != null && bdImage.nc();
-        j jVar = this.enV;
+        boolean z3 = bdImage != null && bdImage.oi();
+        j jVar = this.evp;
         if (z3 || z2) {
             z = true;
         }
-        jVar.P(z);
+        jVar.Z(z);
         return bdImage;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public com.baidu.adp.widget.ImageView.a getDefaultBdImage() {
-        this.enV.P(false);
+        this.evp.Z(false);
         return super.getDefaultBdImage();
     }
 
@@ -149,9 +149,9 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         }
         float width = rectF.width();
         float height = rectF.height();
-        this.Gh.reset();
-        this.Gh.set(e(width, height, 1.0f));
-        return this.Gh;
+        this.IE.reset();
+        this.IE.set(e(width, height, 1.0f));
+        return this.IE;
     }
 
     private Path e(float f, float f2, float f3) {
@@ -203,15 +203,15 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.enX == null) {
-            am.e(this, f.d.cp_bg_line_c, 0);
+        if (this.evr == null) {
+            al.e(this, e.d.cp_bg_line_c, 0);
         } else {
-            this.enX.y(canvas);
+            this.evr.y(canvas);
         }
         super.onDraw(canvas);
     }
 
     public void setOnDrawCallback(a aVar) {
-        this.enX = aVar;
+        this.evr = aVar;
     }
 }

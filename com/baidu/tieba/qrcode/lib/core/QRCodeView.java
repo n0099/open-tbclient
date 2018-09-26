@@ -6,25 +6,25 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.qrcode.lib.core.c;
 /* loaded from: classes3.dex */
 public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, c.a {
-    protected CameraPreview glK;
-    protected ScanBoxView glL;
-    protected a glM;
-    protected boolean glN;
-    protected c glO;
-    private Runnable glP;
+    protected CameraPreview gtc;
+    protected ScanBoxView gtd;
+    protected a gte;
+    protected boolean gtf;
+    protected c gtg;
+    private Runnable gth;
     protected Camera mCamera;
     protected Handler mHandler;
     private int mOrientation;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bmy();
+        void bpf();
 
-        void sy(String str);
+        void tf(String str);
     }
 
     public QRCodeView(Context context, AttributeSet attributeSet) {
@@ -33,11 +33,11 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
 
     public QRCodeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.glN = false;
-        this.glP = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.2
+        this.gtf = false;
+        this.gth = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (QRCodeView.this.mCamera != null && QRCodeView.this.glN) {
+                if (QRCodeView.this.mCamera != null && QRCodeView.this.gtf) {
                     try {
                         QRCodeView.this.mCamera.setOneShotPreviewCallback(QRCodeView.this);
                     } catch (Exception e) {
@@ -51,72 +51,72 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
     }
 
     private void f(Context context, AttributeSet attributeSet) {
-        this.glK = new CameraPreview(getContext());
-        this.glL = new ScanBoxView(getContext());
-        this.glL.g(context, attributeSet);
-        this.glK.setId(f.g.bgaqrcode_camera_preview);
-        addView(this.glK);
+        this.gtc = new CameraPreview(getContext());
+        this.gtd = new ScanBoxView(getContext());
+        this.gtd.g(context, attributeSet);
+        this.gtc.setId(e.g.bgaqrcode_camera_preview);
+        addView(this.gtc);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attributeSet);
-        layoutParams.addRule(6, this.glK.getId());
-        layoutParams.addRule(8, this.glK.getId());
-        addView(this.glL, layoutParams);
-        this.mOrientation = com.baidu.tieba.qrcode.lib.core.a.ca(context);
+        layoutParams.addRule(6, this.gtc.getId());
+        layoutParams.addRule(8, this.gtc.getId());
+        addView(this.gtd, layoutParams);
+        this.mOrientation = com.baidu.tieba.qrcode.lib.core.a.cH(context);
     }
 
     public void setDelegate(a aVar) {
-        this.glM = aVar;
+        this.gte = aVar;
     }
 
     public ScanBoxView getScanBoxView() {
-        return this.glL;
+        return this.gtd;
     }
 
-    public void bmD() {
-        if (this.glL != null) {
-            this.glL.setVisibility(0);
+    public void bpk() {
+        if (this.gtd != null) {
+            this.gtd.setVisibility(0);
         }
     }
 
-    public void bmE() {
-        if (this.glL != null) {
-            this.glL.setVisibility(8);
+    public void bpl() {
+        if (this.gtd != null) {
+            this.gtd.setVisibility(8);
         }
     }
 
-    public void bmF() {
-        rX(0);
+    public void bpm() {
+        su(0);
     }
 
-    public void rX(int i) {
+    public void su(int i) {
         if (this.mCamera == null) {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
                 Camera.getCameraInfo(i2, cameraInfo);
                 if (cameraInfo.facing == i) {
-                    rY(i2);
+                    sv(i2);
                     return;
                 }
             }
         }
     }
 
-    private void rY(int i) {
+    private void sv(int i) {
         try {
             this.mCamera = Camera.open(i);
-            this.glK.setCamera(this.mCamera);
+            this.gtc.setCamera(this.mCamera);
         } catch (Exception e) {
-            if (this.glM != null) {
-                this.glM.bmy();
+            if (this.gte != null) {
+                this.gte.bpf();
             }
         }
     }
 
     public void stopCamera() {
         try {
-            bmI();
+            bpp();
             if (this.mCamera != null) {
-                this.glK.bmB();
-                this.glK.setCamera(null);
+                this.gtc.bpi();
+                this.gtc.setCamera(null);
                 this.mCamera.release();
                 this.mCamera = null;
             }
@@ -124,19 +124,19 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
         }
     }
 
-    public void bmG() {
-        rZ(1000);
+    public void bpn() {
+        sw(1000);
     }
 
-    public void rZ(int i) {
-        this.glN = true;
-        this.mHandler.removeCallbacks(this.glP);
-        this.mHandler.postDelayed(this.glP, i);
+    public void sw(int i) {
+        this.gtf = true;
+        this.mHandler.removeCallbacks(this.gth);
+        this.mHandler.postDelayed(this.gth, i);
     }
 
-    public void bmH() {
-        bmJ();
-        this.glN = false;
+    public void bpo() {
+        bpq();
+        this.gtf = false;
         if (this.mCamera != null) {
             try {
                 this.mCamera.setOneShotPreviewCallback(null);
@@ -144,46 +144,46 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
             }
         }
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.glP);
+            this.mHandler.removeCallbacks(this.gth);
         }
     }
 
-    public void bmI() {
-        bmH();
-        bmE();
+    public void bpp() {
+        bpo();
+        bpl();
     }
 
     public void onDestroy() {
         stopCamera();
         this.mHandler = null;
-        this.glM = null;
-        this.glP = null;
+        this.gte = null;
+        this.gth = null;
     }
 
-    protected void bmJ() {
-        if (this.glO != null) {
-            this.glO.gG();
-            this.glO = null;
+    protected void bpq() {
+        if (this.gtg != null) {
+            this.gtg.hM();
+            this.gtg = null;
         }
     }
 
     public boolean getIsScanBarcodeStyle() {
-        return this.glL.getIsBarcode();
+        return this.gtd.getIsBarcode();
     }
 
     @Override // android.hardware.Camera.PreviewCallback
     public void onPreviewFrame(byte[] bArr, final Camera camera) {
-        if (this.glN) {
-            bmJ();
-            this.glO = new c(camera, bArr, this, this.mOrientation) { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.1
+        if (this.gtf) {
+            bpq();
+            this.gtg = new c(camera, bArr, this, this.mOrientation) { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // android.os.AsyncTask
                 public void onPostExecute(String str) {
-                    if (QRCodeView.this.glN) {
-                        if (QRCodeView.this.glM != null && !TextUtils.isEmpty(str)) {
+                    if (QRCodeView.this.gtf) {
+                        if (QRCodeView.this.gte != null && !TextUtils.isEmpty(str)) {
                             try {
-                                QRCodeView.this.glM.sy(str);
+                                QRCodeView.this.gte.tf(str);
                                 return;
                             } catch (Exception e) {
                                 return;
@@ -195,7 +195,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
                         }
                     }
                 }
-            }.bmC();
+            }.bpj();
         }
     }
 }

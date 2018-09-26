@@ -6,54 +6,54 @@ import com.airbnb.lottie.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
-    public static final String bdw = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m bdx;
-    private boolean bdy = false;
-    private String wg;
+    public static final String bgR = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    private m bgS;
+    private boolean bgT = false;
+    private String yz;
 
     @Override // com.airbnb.lottie.c
     public Bitmap a(g gVar) {
-        if (ap.isEmpty(this.wg)) {
+        if (ao.isEmpty(this.yz)) {
             return null;
         }
-        String str = this.wg + gVar.bz().replace("/", "") + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.ih().a(str, 36, new Object[0]);
+        String str = this.yz + gVar.cG().replace("/", "") + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jn().a(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.bdx == null) {
-                this.bdx = new m();
+            if (this.bgS == null) {
+                this.bgS = new m();
             }
-            aVar = this.bdx.fh(str);
+            aVar = this.bgS.m(str, 0, 0);
         }
-        if (aVar != null && aVar.nb() != null) {
-            Bitmap nb = aVar.nb();
+        if (aVar != null && aVar.oh() != null) {
+            Bitmap oh = aVar.oh();
             try {
-                return nb.copy(nb.getConfig(), false);
+                return oh.copy(oh.getConfig(), false);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.f.c.ih().a(str, 36, null, null);
+        com.baidu.adp.lib.f.c.jn().a(str, 36, null, null);
         return null;
     }
 
     public void setPath(String str) {
-        this.wg = getAnimationPath() + str + "/";
+        this.yz = getAnimationPath() + str + "/";
     }
 
     public static String getAnimationPath() {
-        return bdw + "/" + TbConfig.getTempDirName() + "/animation/";
+        return bgR + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.bdy = z;
+        this.bgT = z;
     }
 
     public boolean getFristLoadInternal() {
-        return this.bdy;
+        return this.bgT;
     }
 }

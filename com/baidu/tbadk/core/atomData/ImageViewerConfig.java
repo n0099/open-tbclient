@@ -28,6 +28,8 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String INDEX = "index";
     public static final String IS_CAN_DRAG = "is_can_drag";
     public static final String IS_DATA_VALID = "is_data_valid";
+    public static final String IS_HOT_SORT = "is_hot_sort";
+    public static final String IS_IDENTIFY_IMAGE = "is_identify_image";
     public static final String IS_PV = "is_pv";
     public static final String IS_SHOW_AD = "is_show_ad";
     public static final String IS_SHOW_HOST = "is_show_host";
@@ -128,6 +130,11 @@ public class ImageViewerConfig extends IntentConfig {
         return this;
     }
 
+    public ImageViewerConfig setIsHotSort(boolean z) {
+        getIntent().putExtra(IS_HOT_SORT, z);
+        return this;
+    }
+
     public ImageViewerConfig setIsShowHost(boolean z) {
         getIntent().putExtra(IS_SHOW_HOST, z);
         return this;
@@ -157,5 +164,10 @@ public class ImageViewerConfig extends IntentConfig {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public ImageViewerConfig setIsIdentifyImage(boolean z) {
+        getIntent().putExtra(IS_IDENTIFY_IMAGE, z);
+        return this;
     }
 }

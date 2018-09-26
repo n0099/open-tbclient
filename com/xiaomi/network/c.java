@@ -1,6 +1,5 @@
 package com.xiaomi.network;
 
-import com.baidu.ar.util.SystemInfoUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -81,6 +80,6 @@ class c implements Comparable<c> {
     }
 
     public String toString() {
-        return this.a + SystemInfoUtil.COLON + this.b;
+        return this.a + ":" + this.b;
     }
 }

@@ -11,13 +11,13 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends Resources {
-    private static final ColorStateList AI = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-    private Resources AJ;
+    private static final ColorStateList De = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+    private Resources Df;
     private boolean isNight;
 
     public c(Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
-        this.AJ = resources;
+        this.Df = resources;
         this.isNight = false;
     }
 
@@ -28,7 +28,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.AJ.getDrawable(i);
+                    return this.Df.getDrawable(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
                         throw e;
@@ -41,7 +41,7 @@ public class c extends Resources {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             } else {
-                h("drawable", i);
+                m("drawable", i);
                 return null;
             }
             i2 = i3 + 1;
@@ -56,7 +56,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.AJ.getString(i);
+                    return this.Df.getString(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
                         throw e;
@@ -69,7 +69,7 @@ public class c extends Resources {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             } else {
-                h("string", i);
+                m("string", i);
                 return "";
             }
             i2 = i3 + 1;
@@ -90,7 +90,7 @@ public class c extends Resources {
         while (true) {
             if (i3 < 3) {
                 try {
-                    i2 = this.AJ.getColor(i);
+                    i2 = this.Df.getColor(i);
                     break;
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
@@ -104,7 +104,7 @@ public class c extends Resources {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             } else {
-                h("color", i);
+                m("color", i);
                 break;
             }
             i3++;
@@ -119,7 +119,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.AJ.getColorStateList(i);
+                    return this.Df.getColorStateList(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
                         throw e;
@@ -132,8 +132,8 @@ public class c extends Resources {
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             } else {
-                h("colorstatelist", i);
-                return AI;
+                m("colorstatelist", i);
+                return De;
             }
             i2 = i3 + 1;
         }
@@ -142,18 +142,18 @@ public class c extends Resources {
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i) throws Resources.NotFoundException {
-        return this.AJ.openRawResource(i);
+        return this.Df.openRawResource(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
-        return this.AJ.openRawResource(i, typedValue);
+        return this.Df.openRawResource(i, typedValue);
     }
 
-    private final void h(String str, int i) {
+    private final void m(String str, int i) {
         String str2 = null;
         try {
-            str2 = this.AJ.getResourceEntryName(i);
+            str2 = this.Df.getResourceEntryName(i);
         } catch (Exception e) {
         }
         try {

@@ -8,28 +8,30 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import com.baidu.fsg.base.NoProguard;
+import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.baidu.fsg.base.statistics.RimStatisticsUtil;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.fsg.base.utils.ResUtils;
 import com.baidu.fsg.base.utils.RimAnimUtils;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
 import com.baidu.fsg.base.widget.SafeScrollView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static final int DIALOG_LOADING = 242;
     public static final int DIALOG_PROMPT = 241;
     protected static final int FLAG_PAY_SKD = 1;
-    public static final String MULTI_WINDOW_TIPS = "当前界面在分屏模式下可能显示不正常";
-    public static final String MULTI_WINDOW_TIPS_CLOSE = "请先切到全屏模式再使用该功能";
     public static final String WITH_ANIM = "with_anim";
     private static final String a = "BaseActivity";
     private static final boolean b = false;
-    public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
-    public static int mLiveActivityNum = 0;
     private long h;
     protected RimStatisticsUtil mStatUtil;
+    public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
+    public static int mLiveActivityNum = 0;
+    public static final String MULTI_WINDOW_TIPS = ResUtils.string("multi_window_tips");
+    public static final String MULTI_WINDOW_TIPS_CLOSE = ResUtils.string("multi_window_tips_close");
     public int mFlag = -1;
     private boolean c = false;
     private boolean d = true;
@@ -128,7 +130,6 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onCreate(Bundle bundle) {
         this.h = System.currentTimeMillis();
         this.mStatUtil = RimStatisticsUtil.getInstance();
-        RimStatisticsUtil rimStatisticsUtil = this.mStatUtil;
         RimStatisticsUtil.onPush(getClass().getSimpleName());
         setRequestedOrientation(1);
         super.onCreate(bundle);
@@ -142,12 +143,9 @@ public class BaseActivity extends Activity implements NoProguard {
         addLiveActivityNum();
         this.g = true;
         if (0 != this.h) {
-            long currentTimeMillis = System.currentTimeMillis() - this.h;
-            RimStatisticsUtil rimStatisticsUtil = this.mStatUtil;
-            RimStatisticsUtil.onIn(getClass().getSimpleName(), currentTimeMillis);
+            RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.h);
             this.h = 0L;
         } else {
-            RimStatisticsUtil rimStatisticsUtil2 = this.mStatUtil;
             RimStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
         }
         a();
@@ -156,10 +154,8 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        if (getIntent().getBooleanExtra(WITH_ANIM, true)) {
+        if ("1".equals(BeanConstants.ANIMSTYLE)) {
             RimAnimUtils.finishActivityAnim(getActivity());
-        } else {
-            RimAnimUtils.overridePendingTransitionNoAnim(this);
         }
     }
 
@@ -173,7 +169,6 @@ public class BaseActivity extends Activity implements NoProguard {
         super.onPause();
         decLiveActivityNum();
         this.g = false;
-        RimStatisticsUtil rimStatisticsUtil = this.mStatUtil;
         RimStatisticsUtil.onOut(getClass().getSimpleName());
     }
 
@@ -181,7 +176,6 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onDestroy() {
         super.onDestroy();
         removeFromTask(this);
-        RimStatisticsUtil rimStatisticsUtil = this.mStatUtil;
         RimStatisticsUtil.onBack(getClass().getSimpleName());
     }
 
@@ -196,10 +190,8 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        if (getIntent().getBooleanExtra(WITH_ANIM, true)) {
+        if ("1".equals(BeanConstants.ANIMSTYLE)) {
             RimAnimUtils.finishActivityAnim(getActivity());
-        } else {
-            RimAnimUtils.overridePendingTransitionNoAnim(this);
         }
     }
 
@@ -215,7 +207,9 @@ public class BaseActivity extends Activity implements NoProguard {
     @Override // android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
         super.startActivityForResult(intent, i);
-        RimAnimUtils.startActivityAnim(getActivity());
+        if ("1".equals(BeanConstants.ANIMSTYLE)) {
+            RimAnimUtils.startActivityAnim(getActivity());
+        }
     }
 
     public void startActivityForResultWithoutAnim(Intent intent, int i) {

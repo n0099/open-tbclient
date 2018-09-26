@@ -11,7 +11,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -186,7 +185,7 @@ public abstract class a implements e {
                     public void run() {
                         notificationManager.notify(i, a);
                     }
-                }, TbConfig.NOTIFY_SOUND_INTERVAL);
+                }, 5000L);
             }
         }
     }

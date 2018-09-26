@@ -4,13 +4,13 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Base64;
-import com.baidu.fsg.base.statistics.q;
+import com.baidu.fsg.base.statistics.s;
 import com.baidu.fsg.base.utils.LogUtil;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     private static final String a = "LogSender";
     private static final int c = 10000;
@@ -23,7 +23,7 @@ public class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private static l a = new l(null);
 
@@ -57,11 +57,13 @@ public class l {
                 jSONArray = a(b);
                 str2 = b.j;
             } else if (b.o.equalsIgnoreCase(str)) {
-                jSONArray = f.a().d();
-                str2 = b.k;
+                p pVar = new p(RimStatisticsUtil.getAppContext(), a(f.a().d(), b.k));
+                pVar.setResponseCallback(new n(this, str));
+                pVar.execBean();
+                return;
             }
             if (jSONArray != null && jSONArray.length() != 0) {
-                a(a(jSONArray, str2), new n(this, str, b));
+                a(a(jSONArray, str2), new o(this, str, b));
             }
         }
     }
@@ -91,18 +93,18 @@ public class l {
         return jSONArray;
     }
 
-    private void a(String str, q.a aVar) {
+    private void a(String str, s.a aVar) {
         if (str != null && str.trim().length() != 0) {
             String str2 = str.toString();
             try {
-                q qVar = new q();
-                if (qVar != null) {
+                s sVar = new s();
+                if (sVar != null) {
                     String encodeToString = Base64.encodeToString(str2.getBytes(), 2);
                     HashMap hashMap = new HashMap();
                     hashMap.put(b.g, encodeToString);
-                    hashMap.put("sign", com.baidu.fsg.base.statistics.a.a((encodeToString + (RimStatisticsUtil.getInstance().isReleaseVersion() ? "(null)" : "MhxzKhl")).getBytes("GBK"), false));
+                    hashMap.put("sign", com.baidu.fsg.base.statistics.a.a((encodeToString + RimStatisticsUtil.getInstance().getSignKey()).getBytes("GBK"), false));
                     hashMap.put(b.i, "rim");
-                    qVar.a(b.l, hashMap, aVar);
+                    sVar.a(b.l, hashMap, aVar);
                 }
             } catch (Exception e) {
                 aVar.b();

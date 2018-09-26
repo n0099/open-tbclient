@@ -22,6 +22,7 @@ import com.baidu.ar.util.ARFileUtils;
 import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.MsgConstants;
 import com.baidu.baiduarsdk.ArBridge;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -340,11 +341,11 @@ public class a extends com.baidu.ar.base.b {
         float f;
         float f2;
         if (bundle.getBoolean("is_from_lua", false)) {
-            int[] a = a(bundle.getFloat("x", 0.5f), bundle.getFloat("y", 0.5f));
+            int[] a = a(bundle.getFloat(Config.EVENT_HEAT_X, 0.5f), bundle.getFloat("y", 0.5f));
             f = a[0];
             f2 = a[1];
         } else {
-            f = bundle.getFloat("x", 640.0f);
+            f = bundle.getFloat(Config.EVENT_HEAT_X, 640.0f);
             f2 = bundle.getFloat("y", 360.0f);
         }
         y = ((Integer) bundle.get("type")).intValue();

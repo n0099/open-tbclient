@@ -9,54 +9,54 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected long ekD;
-    private boolean ekE;
-    private boolean ekF;
-    protected int ekG;
-    protected com.baidu.adp.lib.c.a ekw;
-    protected com.baidu.adp.lib.c.b ekx;
+    protected com.baidu.adp.lib.c.a erQ;
+    protected com.baidu.adp.lib.c.b erR;
+    protected long erX;
+    private boolean erY;
+    private boolean erZ;
+    protected int esa;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.ekw = null;
-        this.ekx = null;
-        this.ekD = 0L;
-        this.ekE = false;
-        this.ekF = false;
+        this.erQ = null;
+        this.erR = null;
+        this.erX = 0L;
+        this.erY = false;
+        this.erZ = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.ekw = aVar;
+        this.erQ = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.ekx = bVar;
+        this.erR = bVar;
     }
 
-    private void aHp() {
-        this.ekD = System.currentTimeMillis() / 1000;
+    private void aJE() {
+        this.erX = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aHq() {
-        return this.ekE;
+    public boolean aJF() {
+        return this.erY;
     }
 
-    public void ha(boolean z) {
-        this.ekE = z;
+    public void hy(boolean z) {
+        this.erY = z;
     }
 
-    public boolean aHr() {
-        return this.ekF;
+    public boolean aJG() {
+        return this.erZ;
     }
 
-    public void hb(boolean z) {
-        this.ekF = z;
+    public void hz(boolean z) {
+        this.erZ = z;
     }
 
-    public void nM(int i) {
-        this.ekG = i;
+    public void oq(int i) {
+        this.esa = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,21 +67,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aHp();
+        aJE();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends q.a {
-        private T ekH;
+        private T esb;
 
         public a(View view, T t) {
             super(view);
-            this.ekH = t;
+            this.esb = t;
         }
 
-        public T aHs() {
-            return this.ekH;
+        public T aJH() {
+            return this.esb;
         }
     }
 }

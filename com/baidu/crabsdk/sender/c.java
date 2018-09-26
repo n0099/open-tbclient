@@ -3,7 +3,6 @@ package com.baidu.crabsdk.sender;
 import android.content.Context;
 import android.os.Debug;
 import android.os.Environment;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.crabsdk.b.o;
 import java.io.File;
 import java.io.IOException;
@@ -12,16 +11,16 @@ import java.io.StringWriter;
 import java.lang.Thread;
 /* loaded from: classes2.dex */
 public final class c implements Thread.UncaughtExceptionHandler {
-    public static boolean Tn = false;
-    private static final String To = Environment.getExternalStorageDirectory().getPath() + File.separator + o.G() + File.separator + "oom" + File.separator;
-    private static c Tp = new c();
-    private Thread.UncaughtExceptionHandler Tq = null;
-    private Context Tr = null;
+    public static boolean VQ = false;
+    private static final String VR = Environment.getExternalStorageDirectory().getPath() + File.separator + o.G() + File.separator + "oom" + File.separator;
+    private static c VS = new c();
+    private Thread.UncaughtExceptionHandler VT = null;
+    private Context VU = null;
 
     private c() {
     }
 
-    private static boolean g(Throwable th) {
+    private static boolean h(Throwable th) {
         while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
             th = th.getCause();
             if (th == null) {
@@ -31,17 +30,17 @@ public final class c implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static c pl() {
-        return Tp;
+    public static c qq() {
+        return VS;
     }
 
     public final void d(Context context) {
-        if (this.Tq == null) {
-            this.Tq = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.VT == null) {
+            this.VT = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.Tr == null) {
-            this.Tr = context.getApplicationContext();
+        if (this.VU == null) {
+            this.VU = context.getApplicationContext();
         }
     }
 
@@ -56,7 +55,7 @@ public final class c implements Thread.UncaughtExceptionHandler {
         String str = "";
         if (th2 != null && !th2.equals("")) {
             try {
-                str = th2.length() > 1 ? th2.split(SystemInfoUtil.COLON)[0] : th2;
+                str = th2.length() > 1 ? th2.split(":")[0] : th2;
             } catch (Exception e) {
                 str = "";
             }
@@ -72,47 +71,47 @@ public final class c implements Thread.UncaughtExceptionHandler {
             printWriter.close();
             stringWriter.close();
         } catch (IOException e2) {
-            com.baidu.crabsdk.c.a.b("pw", e2);
+            com.baidu.crabsdk.c.a.f("pw", e2);
         }
         if (obj != null && !str.trim().equals("")) {
-            if (com.baidu.crabsdk.a.n && g(th)) {
+            if (com.baidu.crabsdk.a.n && h(th)) {
                 try {
-                    String str2 = To;
+                    String str2 = VR;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
-                            com.baidu.crabsdk.c.a.ch("app文件创建ok  fileName is " + str2);
+                            com.baidu.crabsdk.c.a.cy("app文件创建ok  fileName is " + str2);
                         } else {
-                            com.baidu.crabsdk.c.a.ch("app文件创建失败  fileName is " + str2);
+                            com.baidu.crabsdk.c.a.cy("app文件创建失败  fileName is " + str2);
                         }
                     }
                     String str3 = str2 + System.currentTimeMillis() + ".hprof";
                     Debug.dumpHprofData(str3);
-                    com.baidu.crabsdk.c.a.cg("输出OOM的dump信息 name=" + str3);
+                    com.baidu.crabsdk.c.a.cx("输出OOM的dump信息 name=" + str3);
                 } catch (Throwable th3) {
-                    com.baidu.crabsdk.c.a.ch("oom save fail" + th3.getMessage());
+                    com.baidu.crabsdk.c.a.cy("oom save fail" + th3.getMessage());
                 }
             }
-            if (e.pn() && e.pp() && e.h(th)) {
-                Tn = false;
-                if (this.Tr != null && thread != null && th != null) {
-                    f.c(this.Tr, f.j(d.a(this.Tr, th, false)));
-                    e.i(th);
+            if (e.qs() && e.qu() && e.i(th)) {
+                VQ = false;
+                if (this.VU != null && thread != null && th != null) {
+                    f.c(this.VU, f.k(d.a(this.VU, th, false)));
+                    e.c(th);
                     e.j(th);
                     e.aa();
-                    h.a(false, this.Tr);
+                    h.a(false, this.VU);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!Tn) {
+                        if (!VQ) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
-                                com.baidu.crabsdk.c.a.cg("T^T upload timeout!");
+                                com.baidu.crabsdk.c.a.cx("T^T upload timeout!");
                                 break;
                             }
                         } else {
-                            com.baidu.crabsdk.c.a.cg("^^ upload finished()! --> cost : " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                            com.baidu.crabsdk.c.a.cx("^^ upload finished()! --> cost : " + (currentTimeMillis2 - currentTimeMillis) + "ms");
                             break;
                         }
                     }
@@ -124,8 +123,8 @@ public final class c implements Thread.UncaughtExceptionHandler {
                 com.baidu.crabsdk.a.M.onCrashStarted(thread, th);
             }
         }
-        if (!this.Tq.equals(this)) {
-            this.Tq.uncaughtException(thread, th);
+        if (!this.VT.equals(this)) {
+            this.VT.uncaughtException(thread, th);
         }
         throw new RuntimeException(th);
     }

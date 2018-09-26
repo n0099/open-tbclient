@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.daily.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.DailyPage.DailyPageReqIdl;
 import tbclient.DailyPage.DataReq;
 /* loaded from: classes2.dex */
@@ -21,7 +21,7 @@ public class DailyPageRequetMessage extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
             if (z) {
-                o.bindCommonParamsToProtobufData(builder, true);
+                p.bindCommonParamsToProtobufData(builder, true);
             }
             DailyPageReqIdl.Builder builder2 = new DailyPageReqIdl.Builder();
             builder2.data = builder.build(false);

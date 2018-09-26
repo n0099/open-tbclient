@@ -1,65 +1,89 @@
 package com.baidu.tbadk.util;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public static float[] a(Bitmap bitmap, Matrix matrix) {
-        float[] fArr = new float[8];
-        matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
-        return fArr;
-    }
-
-    public static Bitmap S(View view) {
-        Bitmap bitmap = null;
-        if (view == null || view.getWidth() <= 0 || view.getHeight() <= 0) {
-            return null;
-        }
-        try {
-            bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-            view.draw(new Canvas(bitmap));
-            return bitmap;
-        } catch (OutOfMemoryError e) {
-            try {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.RGB_565);
-                view.draw(new Canvas(bitmap));
-                return bitmap;
-            } catch (OutOfMemoryError e2) {
-                BdLog.e(e2);
-                return bitmap;
+    public static void N(List<a> list) {
+        if (list != null) {
+            StringBuilder sb = new StringBuilder();
+            HashMap hashMap = new HashMap();
+            for (a aVar : list) {
+                if (aVar != null && !StringUtils.isNull(aVar.forumName)) {
+                    if (!hashMap.containsKey(aVar.forumName)) {
+                        sb.append(aVar.toString()).append("^");
+                        hashMap.put(aVar.forumName, aVar.forumName);
+                    }
+                } else {
+                    return;
+                }
             }
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
         }
     }
 
-    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
-        Bitmap bitmap3 = null;
-        if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
-            return null;
+    public static String[] Mz() {
+        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+        if (StringUtils.isNull(string)) {
+            return new String[0];
         }
-        try {
-            bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            Canvas canvas = new Canvas(bitmap3);
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-            canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-            return bitmap3;
-        } catch (OutOfMemoryError e) {
-            try {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
-                Canvas canvas2 = new Canvas(bitmap3);
-                canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                return bitmap3;
-            } catch (OutOfMemoryError e2) {
-                BdLog.e(e2);
-                return bitmap3;
+        String[] split = string.split("\\^");
+        if (split != null && split.length > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (String str : split) {
+                a hR = a.hR(str);
+                if (hR != null && !StringUtils.isNull(hR.forumName)) {
+                    arrayList.add(hR.forumName);
+                }
             }
+            return (String[]) arrayList.toArray(new String[arrayList.size()]);
+        }
+        return null;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public String forumName;
+        public int level;
+
+        public a() {
+        }
+
+        public a(String str, int i) {
+            this.forumName = str;
+            this.level = i;
+        }
+
+        public String toString() {
+            if (StringUtils.isNull(this.forumName)) {
+                return null;
+            }
+            return this.forumName + "#" + this.level;
+        }
+
+        public static a hR(String str) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            a aVar = new a();
+            if (str.contains("#")) {
+                String[] split = str.split("#");
+                if (split.length == 1) {
+                    aVar.forumName = split[0];
+                    return aVar;
+                } else if (split.length == 2) {
+                    aVar.forumName = split[0];
+                    aVar.level = com.baidu.adp.lib.g.b.l(split[1], -1);
+                    return aVar;
+                } else {
+                    return aVar;
+                }
+            }
+            aVar.forumName = str;
+            return aVar;
         }
     }
 }

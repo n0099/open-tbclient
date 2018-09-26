@@ -12,9 +12,9 @@ import com.baidu.adp.lib.f.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.d.d;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Wire;
 import java.io.File;
 import java.util.ArrayList;
@@ -24,18 +24,18 @@ import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.GetBigdayResIdl;
 /* loaded from: classes.dex */
 public class b {
-    private static b acR = null;
-    private com.baidu.tbadk.core.bigday.a acL;
-    private com.baidu.tbadk.core.bigday.a acM;
-    private SparseArray<Long> acN;
-    private ArrayList<com.baidu.tbadk.core.bigday.a> acO;
-    private boolean acP = false;
-    private boolean acQ = true;
+    private static b afs = null;
+    private com.baidu.tbadk.core.bigday.a afm;
+    private com.baidu.tbadk.core.bigday.a afn;
+    private SparseArray<Long> afo;
+    private ArrayList<com.baidu.tbadk.core.bigday.a> afp;
+    private boolean afq = false;
+    private boolean afr = true;
     private com.baidu.adp.framework.listener.a mNetMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609) { // from class: com.baidu.tbadk.core.bigday.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && !responsedMessage.hasError()) {
-                b.this.acP = true;
+                b.this.afq = true;
                 ArrayList<com.baidu.tbadk.core.bigday.a> arrayList = null;
                 if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
                     arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
@@ -52,28 +52,28 @@ public class b {
         com.baidu.tieba.tbadkCore.a.a.a(309609, GetBigdayInfoSocketResMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
         MessageManager.getInstance().registerListener(this.mNetMessageListener);
-        this.acN = new SparseArray<>();
+        this.afo = new SparseArray<>();
     }
 
-    public static b tu() {
-        if (acR == null) {
-            acR = new b();
+    public static b ux() {
+        if (afs == null) {
+            afs = new b();
         }
-        return acR;
+        return afs;
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
         this.mTag = bdUniqueId;
     }
 
-    public void tv() {
-        this.acP = false;
+    public void uy() {
+        this.afq = false;
         GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
         getBigdayInfoReqMessage.setTag(this.mTag);
         MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
     }
 
-    public void tw() {
+    public void uz() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tbadk.core.bigday.a>>() { // from class: com.baidu.tbadk.core.bigday.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -82,8 +82,8 @@ public class b {
             public ArrayList<com.baidu.tbadk.core.bigday.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tbadk.core.bigday.a> arrayList = new ArrayList<>();
-                l<byte[]> dx = com.baidu.tbadk.core.c.a.xa().dx("tb.bigday_datas");
-                if (dx != null && (bArr = dx.get("tb.bigday_datas")) != null) {
+                l<byte[]> dP = com.baidu.tbadk.core.c.a.yh().dP("tb.bigday_datas");
+                if (dP != null && (bArr = dP.get("tb.bigday_datas")) != null) {
                     try {
                         GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
                         if (getBigdayResIdl.data != null) {
@@ -91,7 +91,7 @@ public class b {
                                 if (bigdayInfo != null) {
                                     com.baidu.tbadk.core.bigday.a aVar = new com.baidu.tbadk.core.bigday.a();
                                     aVar.a(bigdayInfo);
-                                    if (aVar.tt()) {
+                                    if (aVar.uw()) {
                                         arrayList.add(aVar);
                                     }
                                 }
@@ -119,13 +119,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(ArrayList<com.baidu.tbadk.core.bigday.a> arrayList) {
-        if (!w.z(arrayList) && !this.acP) {
-            this.acL = c(arrayList, 1);
-            this.acM = c(arrayList, 3);
-            this.acO = arrayList;
-            tx();
-            if (this.acL != null && d.fg(this.acL.imgUrl) && com.baidu.adp.lib.b.d.hv().ax("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.acL));
+        if (!v.z(arrayList) && !this.afq) {
+            this.afm = c(arrayList, 1);
+            this.afn = c(arrayList, 3);
+            this.afp = arrayList;
+            uA();
+            if (this.afm != null && d.fy(this.afm.imgUrl) && com.baidu.adp.lib.b.d.iB().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.afm));
             }
         }
     }
@@ -135,26 +135,26 @@ public class b {
         com.baidu.tbadk.core.bigday.a c = c(arrayList, 1);
         com.baidu.tbadk.core.bigday.a c2 = c(arrayList, 3);
         h(arrayList);
-        this.acO = arrayList;
-        if (c != null && c.tt()) {
-            this.acL = c;
+        this.afp = arrayList;
+        if (c != null && c.uw()) {
+            this.afm = c;
         }
-        if (c2 != null && c2.tt()) {
-            this.acM = c2;
+        if (c2 != null && c2.uw()) {
+            this.afn = c2;
         }
-        tx();
-        if (this.acL != null && d.fg(this.acL.imgUrl) && com.baidu.adp.lib.b.d.hv().ax("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.acL));
+        uA();
+        if (this.afm != null && d.fy(this.afm.imgUrl) && com.baidu.adp.lib.b.d.iB().aO("android_bigday_switch") == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.afm));
         }
     }
 
-    private void tx() {
-        if (!w.z(this.acO)) {
-            Iterator<com.baidu.tbadk.core.bigday.a> it = this.acO.iterator();
+    private void uA() {
+        if (!v.z(this.afp)) {
+            Iterator<com.baidu.tbadk.core.bigday.a> it = this.afp.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.bigday.a next = it.next();
-                if (!d.fg(next.imgUrl)) {
-                    c.ih().a(next.imgUrl, 41, null, this.mTag);
+                if (!d.fy(next.imgUrl)) {
+                    c.jn().a(next.imgUrl, 41, null, this.mTag);
                 }
             }
         }
@@ -162,28 +162,28 @@ public class b {
 
     private void h(ArrayList<com.baidu.tbadk.core.bigday.a> arrayList) {
         ArrayList arrayList2 = new ArrayList();
-        w.a((List) arrayList2, 0, (List) arrayList);
-        w.b(arrayList2, this.acL);
-        w.b(arrayList2, this.acM);
+        v.a((List) arrayList2, 0, (List) arrayList);
+        v.b(arrayList2, this.afm);
+        v.b(arrayList2, this.afn);
         a aVar = new a(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES, arrayList2);
         aVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        aVar.w(false);
-        aVar.x(true);
-        com.baidu.adp.lib.Disk.d.ge().c(aVar);
+        aVar.F(false);
+        aVar.G(true);
+        com.baidu.adp.lib.Disk.d.hl().c(aVar);
     }
 
     private com.baidu.tbadk.core.bigday.a c(List<com.baidu.tbadk.core.bigday.a> list, int i) {
-        if (!w.z(list)) {
+        if (!v.z(list)) {
             Iterator<com.baidu.tbadk.core.bigday.a> it = list.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tbadk.core.bigday.a next = it.next();
-                if (next.tt() && next.acK == i) {
+                if (next.uw() && next.afl == i) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (next.startTime > currentTimeMillis) {
-                        this.acN.put(i, Long.valueOf(next.startTime));
+                        this.afo.put(i, Long.valueOf(next.startTime));
                         break;
                     } else if (next.endTime >= currentTimeMillis) {
                         return next;
@@ -194,27 +194,27 @@ public class b {
         return null;
     }
 
-    public com.baidu.tbadk.core.bigday.a bD(int i) {
+    public com.baidu.tbadk.core.bigday.a bM(int i) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (i == 1) {
-            if (this.acL == null && this.acN.get(i, 0L).longValue() != 0 && this.acN.get(i, 0L).longValue() < currentTimeMillis) {
-                this.acL = c(this.acO, 1);
+            if (this.afm == null && this.afo.get(i, 0L).longValue() != 0 && this.afo.get(i, 0L).longValue() < currentTimeMillis) {
+                this.afm = c(this.afp, 1);
             }
-            if (this.acL != null && (currentTimeMillis < this.acL.startTime || currentTimeMillis > this.acL.endTime)) {
-                this.acL = c(this.acO, 1);
+            if (this.afm != null && (currentTimeMillis < this.afm.startTime || currentTimeMillis > this.afm.endTime)) {
+                this.afm = c(this.afp, 1);
             }
-            if (this.acL != null && d.fg(this.acL.imgUrl)) {
-                return this.acL;
+            if (this.afm != null && d.fy(this.afm.imgUrl)) {
+                return this.afm;
             }
         } else if (i == 3) {
-            if (this.acM == null && this.acN.get(i, 0L).longValue() != 0 && this.acN.get(i, 0L).longValue() < currentTimeMillis) {
-                this.acL = c(this.acO, 3);
+            if (this.afn == null && this.afo.get(i, 0L).longValue() != 0 && this.afo.get(i, 0L).longValue() < currentTimeMillis) {
+                this.afm = c(this.afp, 3);
             }
-            if (this.acM != null && (currentTimeMillis < this.acM.startTime || currentTimeMillis > this.acM.endTime)) {
-                this.acM = c(this.acO, 3);
+            if (this.afn != null && (currentTimeMillis < this.afn.startTime || currentTimeMillis > this.afn.endTime)) {
+                this.afn = c(this.afp, 3);
             }
-            if (this.acM != null && d.fg(this.acM.imgUrl)) {
-                return this.acM;
+            if (this.afn != null && d.fy(this.afn.imgUrl)) {
+                return this.afn;
             }
         }
         return null;
@@ -224,31 +224,31 @@ public class b {
         MessageManager.getInstance().unRegisterListener(this.mNetMessageListener);
     }
 
-    public boolean ty() {
-        return this.acQ;
+    public boolean uB() {
+        return this.afr;
     }
 
-    public void an(boolean z) {
-        this.acQ = z;
+    public void aw(boolean z) {
+        this.afr = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
-        private ArrayList<String> acT;
+        private ArrayList<String> afu;
 
         public a(String str, String str2, DiskFileOperate.Action action, ArrayList<com.baidu.tbadk.core.bigday.a> arrayList) {
             super(str, str2, action);
-            this.acT = new ArrayList<>();
+            this.afu = new ArrayList<>();
             Iterator<com.baidu.tbadk.core.bigday.a> it = arrayList.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.bigday.a next = it.next();
                 if (next != null) {
-                    String f = c.ih().f(next.imgUrl, 41);
-                    if (!StringUtils.isNULL(f)) {
-                        String eM = as.eM(f);
-                        if (!StringUtils.isNULL(eM)) {
-                            this.acT.add(eM);
+                    String k = c.jn().k(next.imgUrl, 41);
+                    if (!StringUtils.isNULL(k)) {
+                        String fe = ar.fe(k);
+                        if (!StringUtils.isNULL(fe)) {
+                            this.afu.add(fe);
                         }
                     }
                 }
@@ -256,8 +256,8 @@ public class b {
         }
 
         @Override // com.baidu.adp.lib.Disk.a
-        public boolean d(File file) {
-            return (file == null || StringUtils.isNULL(file.getName()) || this.acT.contains(file.getName())) ? false : true;
+        public boolean j(File file) {
+            return (file == null || StringUtils.isNULL(file.getName()) || this.afu.contains(file.getName())) ? false : true;
         }
     }
 }

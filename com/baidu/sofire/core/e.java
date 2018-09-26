@@ -12,13 +12,11 @@ import android.util.Base64;
 import android.util.Log;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.h;
 import com.baidu.sofire.b.n;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.PathClassLoader;
 import java.io.File;
@@ -415,7 +413,7 @@ public final class e {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
-            jSONObject.put("m", str2);
+            jSONObject.put(Config.MODEL, str2);
             jSONArray.put(jSONObject);
             String a = h.a(f, com.baidu.sofire.b.e.a() + "p/1/pdl", jSONArray.toString(), false, false);
             new StringBuilder().append(a);
@@ -426,15 +424,15 @@ public final class e {
             JSONObject optJSONObject = jSONArray2.optJSONObject(0);
             PackageInfo packageInfo = new PackageInfo();
             packageInfo.packageName = optJSONObject.optString("p");
-            packageInfo.versionName = optJSONObject.optString(NotifyType.VIBRATE);
+            packageInfo.versionName = optJSONObject.optString("v");
             ApplicationInfo applicationInfo = new ApplicationInfo();
             applicationInfo.className = optJSONObject.optString("n");
             if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                 applicationInfo.className = packageInfo.packageName + applicationInfo.className;
             }
-            applicationInfo.theme = optJSONObject.optInt(Info.kBaiduTimeKey);
+            applicationInfo.theme = optJSONObject.optInt("t");
             packageInfo.applicationInfo = applicationInfo;
-            JSONArray optJSONArray = optJSONObject.optJSONArray("a");
+            JSONArray optJSONArray = optJSONObject.optJSONArray(Config.APP_VERSION_CODE);
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
                 while (true) {
@@ -450,8 +448,8 @@ public final class e {
                             activityInfo.name = packageInfo.packageName + activityInfo.name;
                         }
                         activityInfo.packageName = packageInfo.packageName;
-                        activityInfo.theme = jSONObject2.optInt(Info.kBaiduTimeKey);
-                        activityInfo.labelRes = jSONObject2.optInt(NotifyType.LIGHTS);
+                        activityInfo.theme = jSONObject2.optInt("t");
+                        activityInfo.labelRes = jSONObject2.optInt("l");
                         if (!TextUtils.isEmpty(activityInfo.name)) {
                             arrayList.add(activityInfo);
                         }
@@ -490,7 +488,7 @@ public final class e {
     private void a(ApkInfo apkInfo, String str, String str2) throws Throwable {
         HashSet hashSet = new HashSet();
         a(apkInfo, str, hashSet, new StringBuilder(), true, false);
-        String str3 = SystemInfoUtil.COLON + System.getProperty("java.library.path");
+        String str3 = ":" + System.getProperty("java.library.path");
         if (Build.VERSION.SDK_INT >= 25) {
             str3 = "";
         }
@@ -505,7 +503,7 @@ public final class e {
             } catch (Throwable th) {
                 com.baidu.sofire.b.e.a(th);
             }
-            str4 = str6 != null ? str5 + SystemInfoUtil.COLON + str6 + str3 : str5 + str3;
+            str4 = str6 != null ? str5 + ":" + str6 + str3 : str5 + str3;
         } else {
             try {
                 if (Build.VERSION.SDK_INT >= 8 && hashSet.contains(Build.CPU_ABI2)) {
@@ -515,7 +513,7 @@ public final class e {
                 com.baidu.sofire.b.e.a(th2);
             }
         }
-        String str7 = (TextUtils.isEmpty(str4) && ((com.baidu.fsg.biometrics.base.d.h.b.equals(Build.CPU_ABI) && hashSet.contains(com.baidu.fsg.biometrics.base.d.h.a)) || (Build.VERSION.SDK_INT >= 8 && com.baidu.fsg.biometrics.base.d.h.b.equals(Build.CPU_ABI2) && hashSet.contains(com.baidu.fsg.biometrics.base.d.h.a)))) ? str + "/armeabi" + str3 : str4;
+        String str7 = (TextUtils.isEmpty(str4) && ((com.baidu.fsg.face.base.d.h.b.equals(Build.CPU_ABI) && hashSet.contains(com.baidu.fsg.face.base.d.h.a)) || (Build.VERSION.SDK_INT >= 8 && com.baidu.fsg.face.base.d.h.b.equals(Build.CPU_ABI2) && hashSet.contains(com.baidu.fsg.face.base.d.h.a)))) ? str + "/armeabi" + str3 : str4;
         apkInfo.libPath = str7;
         PathClassLoader pathClassLoader = new PathClassLoader(apkInfo.hostContext.getPackageResourcePath(), getClass().getClassLoader());
         new StringBuilder().append(str7);
@@ -1124,7 +1122,7 @@ public final class e {
                     if (Build.VERSION.SDK_INT >= 8) {
                         str4 = Build.CPU_ABI2;
                     }
-                    if (name.contains(str3) || ((!TextUtils.isEmpty(str4) && name.contains(str4)) || (name.contains(com.baidu.fsg.biometrics.base.d.h.a) && (com.baidu.fsg.biometrics.base.d.h.b.equalsIgnoreCase(str3) || (!TextUtils.isEmpty(str4) && com.baidu.fsg.biometrics.base.d.h.b.equalsIgnoreCase(str4)))))) {
+                    if (name.contains(str3) || ((!TextUtils.isEmpty(str4) && name.contains(str4)) || (name.contains(com.baidu.fsg.face.base.d.h.a) && (com.baidu.fsg.face.base.d.h.b.equalsIgnoreCase(str3) || (!TextUtils.isEmpty(str4) && com.baidu.fsg.face.base.d.h.b.equalsIgnoreCase(str4)))))) {
                         String str5 = str + name.substring(3).replace(PluginInstallerService.APK_LIB_SUFFIX, str2 + PluginInstallerService.APK_LIB_SUFFIX);
                         new StringBuilder("l=").append(str).append(", n=").append(name).append(", f=").append(str5);
                         String substring = str5.substring(0, str5.lastIndexOf(47));

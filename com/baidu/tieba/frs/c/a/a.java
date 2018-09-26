@@ -4,13 +4,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public interface a {
-    LinearLayout azk();
+    LinearLayout aBs();
 
     View getHeaderView();
 
-    void hV(String str);
-
     void hideTitle();
+
+    void it(String str);
 
     void onChangeSkinType(int i);
 

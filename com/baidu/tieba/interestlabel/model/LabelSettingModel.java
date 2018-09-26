@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.interestlabel.b.b;
 import com.baidu.tieba.interestlabel.message.RequestGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.RequestSubLabelMessage;
@@ -17,25 +17,25 @@ import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelSettingModel extends BdBaseModel {
-    private a eMa;
-    private com.baidu.adp.framework.listener.a eMk;
-    private com.baidu.adp.framework.listener.a eMl;
+    private com.baidu.adp.framework.listener.a eTF;
+    private com.baidu.adp.framework.listener.a eTG;
+    private a eTv;
     private b mLabelDataSet;
     private TbPageContext<?> mPageContext;
 
     public LabelSettingModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eMk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.1
+        this.eTF = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-                    if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.eMa != null) {
-                        LabelSettingModel.this.eMa.a(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.mLabelDataSet : null, responsedMessage.getError());
+                    if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.eTv != null) {
+                        LabelSettingModel.this.eTv.a(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.mLabelDataSet : null, responsedMessage.getError());
                     }
                 }
             }
         };
-        this.eMl = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.2
+        this.eTG = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
@@ -43,8 +43,8 @@ public class LabelSettingModel extends BdBaseModel {
                         if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
                             LabelSettingModel.this.mPageContext.showToast(responsedMessage.getErrorString());
                         }
-                        if (LabelSettingModel.this.eMa != null) {
-                            LabelSettingModel.this.eMa.a(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
+                        if (LabelSettingModel.this.eTv != null) {
+                            LabelSettingModel.this.eTv.a(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
                         }
                     }
                 }
@@ -52,18 +52,18 @@ public class LabelSettingModel extends BdBaseModel {
         };
         this.mPageContext = tbPageContext;
         this.mLabelDataSet = new b();
-        registerListener(this.eMk);
-        registerListener(this.eMl);
+        registerListener(this.eTF);
+        registerListener(this.eTG);
     }
 
     public void a(a aVar) {
-        this.eMa = aVar;
+        this.eTv = aVar;
     }
 
-    public void aQn() {
-        if (!j.js()) {
-            if (this.eMa != null) {
-                this.eMa.a(LabelRequestEnum.GET_LABEL, null, -1);
+    public void aSB() {
+        if (!j.ky()) {
+            if (this.eTv != null) {
+                this.eTv.a(LabelRequestEnum.GET_LABEL, null, -1);
                 return;
             }
             return;
@@ -75,9 +75,9 @@ public class LabelSettingModel extends BdBaseModel {
         sendMessage(requestGetLabelMessage);
     }
 
-    public void cx(List<Integer> list) {
-        if (!j.js()) {
-            this.mPageContext.showToast(f.j.neterror);
+    public void cy(List<Integer> list) {
+        if (!j.ky()) {
+            this.mPageContext.showToast(e.j.neterror);
             return;
         }
         RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();

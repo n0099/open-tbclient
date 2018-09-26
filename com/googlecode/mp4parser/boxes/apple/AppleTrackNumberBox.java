@@ -1,15 +1,16 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import com.baidu.mobstat.Config;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class AppleTrackNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
     int a;
     int b;
 
@@ -20,7 +21,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("AppleTrackNumberBox.java", AppleTrackNumberBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getA", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "", "", "", "int"), 16);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setA", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "int", "a", "", "void"), 20);
+        ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setA", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "int", Config.APP_VERSION_CODE, "", "void"), 20);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getB", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "", "", "", "int"), 24);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setB", "com.googlecode.mp4parser.boxes.apple.AppleTrackNumberBox", "int", "b", "", "void"), 28);
     }
@@ -35,7 +36,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wa(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wz(i)));
         this.a = i;
     }
 
@@ -45,7 +46,7 @@ public class AppleTrackNumberBox extends AppleDataBox {
     }
 
     public void setB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wa(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wz(i)));
         this.b = i;
     }
 

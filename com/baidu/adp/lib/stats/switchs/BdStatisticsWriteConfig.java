@@ -28,7 +28,7 @@ class BdStatisticsWriteConfig implements Serializable {
             if (bdStatisticsWriteChildItem == null) {
                 return bdStatisticsWriteConfigItem.isWrite;
             }
-            return bdStatisticsWriteChildItem.jb() && bdStatisticsWriteConfigItem.isWrite;
+            return bdStatisticsWriteChildItem.kh() && bdStatisticsWriteConfigItem.isWrite;
         }
         return false;
     }
@@ -48,7 +48,7 @@ class BdStatisticsWriteConfig implements Serializable {
         public String subType;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean jb() {
+        public boolean kh() {
             return this.isWrite;
         }
     }

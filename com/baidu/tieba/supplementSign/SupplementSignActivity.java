@@ -15,12 +15,12 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     private int forumId;
-    private final String gKu = "signSuccess";
+    private final String gRV = "signSuccess";
     private final String INTERFACE_NAME = "SupplementSignInterface";
-    private int gKv = 0;
-    private int gKw = 0;
-    private int gKx = 0;
-    private CustomMessageListener gKy = new CustomMessageListener(2001194) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
+    private int gRW = 0;
+    private int gRX = 0;
+    private int gRY = 0;
+    private CustomMessageListener gRZ = new CustomMessageListener(2001194) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,9 +44,9 @@ public class SupplementSignActivity extends TbWebViewActivity {
                     if (!StringUtils.isNull(str3)) {
                         try {
                             JSONObject jSONObject = new JSONObject(str3);
-                            SupplementSignActivity.this.gKv = jSONObject.optInt("all");
-                            SupplementSignActivity.this.gKw += jSONObject.optInt("signed", 0);
-                            SupplementSignActivity.this.gKx = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.gKx;
+                            SupplementSignActivity.this.gRW = jSONObject.optInt("all");
+                            SupplementSignActivity.this.gRX += jSONObject.optInt("signed", 0);
+                            SupplementSignActivity.this.gRY = jSONObject.optInt("bonus", 0) + SupplementSignActivity.this.gRY;
                         } catch (Throwable th) {
                             BdLog.e(th);
                         }
@@ -57,23 +57,23 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 return false;
             }
         });
-        this.mView.ah(false);
-        MessageManager.getInstance().registerListener(this.gKy);
+        this.mView.aq(false);
+        MessageManager.getInstance().registerListener(this.gRZ);
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mView.st();
+        this.mView.tA();
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
         intent.putExtra(SupplementSignActivityConfig.FORUM_ID, this.forumId);
-        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.gKv);
-        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.gKw);
-        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.gKx);
+        intent.putExtra(SupplementSignActivityConfig.CONTINUOUS_SIGN_ALL_DAYS, this.gRW);
+        intent.putExtra(SupplementSignActivityConfig.SUPPLEMENT_SIGN_DAYS, this.gRX);
+        intent.putExtra(SupplementSignActivityConfig.SIGN_BONUS_POINT, this.gRY);
         super.finish(-1, intent);
     }
 
@@ -85,6 +85,6 @@ public class SupplementSignActivity extends TbWebViewActivity {
             this.mWebView.destroy();
             this.mWebView = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.gKy);
+        MessageManager.getInstance().unRegisterListener(this.gRZ);
     }
 }

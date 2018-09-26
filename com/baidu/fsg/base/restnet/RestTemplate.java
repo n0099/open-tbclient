@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet;
 
 import android.content.Context;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.restnet.a.a;
 import com.baidu.fsg.base.restnet.http.HttpDefines;
@@ -15,7 +14,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RestTemplate {
     public static final String TAG = "RestTemplate";
     private Context mContext;
@@ -151,7 +150,7 @@ public class RestTemplate {
             }
             LogUtil.d(TAG, sb.toString());
         }
-        d a = com.baidu.fsg.base.restnet.b.e.a().a(this.mContext, this.mRestType, this.mUserAgent, str, httpMethod, list, restMultipartEntity, str2, z);
+        d a = com.baidu.fsg.base.restnet.b.d.a().a(this.mContext, this.mRestType, this.mUserAgent, str, httpMethod, list, restMultipartEntity, str2, z);
         for (RestHttpRequestInterceptor restHttpRequestInterceptor : getRequestInterceptors()) {
             restHttpRequestInterceptor.intercept(this.mContext, a);
         }
@@ -164,7 +163,7 @@ public class RestTemplate {
             String host = url.getHost();
             int port = url.getPort();
             if (port > 0) {
-                host = host + SystemInfoUtil.COLON + port;
+                host = host + ":" + port;
             }
             dVar.b(url.toString());
             dVar.b().a("Host", host);
@@ -183,7 +182,7 @@ public class RestTemplate {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, INVOKE, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [394=4, 395=4, 398=4, 399=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [393=4, 394=4, 397=4, 398=4] */
     private <T> T handleAndCloseResponse(d dVar, e eVar, f<T> fVar) {
         if (fVar == null) {
             return null;
@@ -226,7 +225,7 @@ public class RestTemplate {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, INVOKE, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [431=4, 432=4, 435=4, 436=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [430=4, 431=4, 434=4, 435=4] */
     private <T> RestResponseEntity<T> handleAndCloseResponseForEntity(d dVar, e eVar, f<T> fVar) {
         RestResponseEntity<T> restResponseEntity = null;
         if (fVar != null) {
@@ -280,7 +279,7 @@ public class RestTemplate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class AcceptHeaderRequestInterceptor implements RestHttpRequestInterceptor {
         private final Class<?> responseType;
 

@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.boxes.threegpp26244;
 
 import com.baidu.ar.paddle.PaddleController;
-import com.baidu.sapi2.SapiAccountManager;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -16,18 +15,18 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class SegmentIndexBox extends AbstractFullBox {
     public static final String TYPE = "sidx";
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_9 = null;
     long earliestPresentationTime;
     List<Entry> entries;
     long firstOffset;
@@ -50,7 +49,7 @@ public class SegmentIndexBox extends AbstractFullBox {
         ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "getTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 144);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "setTimeScale", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "timeScale", "", "void"), 148);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "getEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 152);
-        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "earliestPresentationTime", "", "void"), SapiAccountManager.VERSION_CODE);
+        ajc$tjp_7 = bVar.a("method-execution", bVar.b("1", "setEarliestPresentationTime", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "earliestPresentationTime", "", "void"), 156);
         ajc$tjp_8 = bVar.a("method-execution", bVar.b("1", "getFirstOffset", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "", "", "", "long"), 160);
         ajc$tjp_9 = bVar.a("method-execution", bVar.b("1", "setFirstOffset", "com.googlecode.mp4parser.boxes.threegpp26244.SegmentIndexBox", "long", "firstOffset", "", "void"), 164);
     }
@@ -135,7 +134,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReferenceId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.di(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.dk(j)));
         this.referenceId = j;
     }
 
@@ -145,7 +144,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setTimeScale(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.di(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.dk(j)));
         this.timeScale = j;
     }
 
@@ -155,7 +154,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setEarliestPresentationTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.di(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.dk(j)));
         this.earliestPresentationTime = j;
     }
 
@@ -165,7 +164,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setFirstOffset(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.di(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.dk(j)));
         this.firstOffset = j;
     }
 
@@ -175,7 +174,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     }
 
     public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wa(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.wz(i)));
         this.reserved = i;
     }
 

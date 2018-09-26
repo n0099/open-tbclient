@@ -8,19 +8,19 @@ import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
     private final ContentValues values;
-    private Cursor wH;
-    private final Set<String> wI;
+    private Cursor yZ;
+    private final Set<String> za;
 
     public b(Cursor cursor) {
-        this.wH = cursor;
+        this.yZ = cursor;
         this.values = null;
-        this.wI = new TreeSet();
+        this.za = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.wI.add(columnName);
+                    this.za.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.wI = new TreeSet();
+        this.za = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public Set<String> gD() {
-        return this.wI;
+    public Set<String> hJ() {
+        return this.za;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.wH.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.wH.getColumnCount()) {
+        int columnIndex = this.yZ.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.yZ.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.wH.getShort(columnIndex));
+                valueOf = Short.valueOf(this.yZ.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.wH.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.yZ.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.wH.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.yZ.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.wH.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.yZ.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.wH.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.yZ.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.wH.getString(columnIndex);
+                    string = this.yZ.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.wH.getBlob(columnIndex);
+                        return this.yZ.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -155,9 +155,9 @@ public class b implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar = new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(type);
-            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h o = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.o(object);
-            if (o != null) {
-                return o.g(cVar);
+            com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h p = com.baidu.adp.lib.OrmObject.toolsystem.orm.d.g.p(object);
+            if (p != null) {
+                return p.g(cVar);
             }
             return object;
         }

@@ -12,7 +12,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
@@ -78,6 +78,7 @@ public final class NetworkUtils {
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
                 LogUtil.d(a, "couldn't get connectivity manager");
+                return false;
             }
             return false;
         }

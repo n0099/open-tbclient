@@ -7,68 +7,68 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a gUQ;
-    private InterfaceC0222a gUR = byG();
+    private static a hcD;
+    private InterfaceC0228a hcE = bBo();
 
     /* renamed from: com.baidu.tieba.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0222a {
+    public interface InterfaceC0228a {
         void b(Application application);
 
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
-        void y(Activity activity);
+        void onPause(Activity activity);
 
-        void z(Activity activity);
+        void onResume(Activity activity);
     }
 
-    private boolean byF() {
+    private boolean bBn() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0222a byG() {
+    private InterfaceC0228a bBo() {
         CustomResponsedMessage runTask;
-        if (!byF() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0222a.class)) == null) {
+        if (!bBn() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0228a.class)) == null) {
             return null;
         }
-        return (InterfaceC0222a) runTask.getData();
+        return (InterfaceC0228a) runTask.getData();
     }
 
-    public static a byH() {
-        if (gUQ == null) {
+    public static a bBp() {
+        if (hcD == null) {
             synchronized (a.class) {
-                if (gUQ == null) {
-                    gUQ = new a();
+                if (hcD == null) {
+                    hcD = new a();
                 }
             }
         }
-        return gUQ;
+        return hcD;
     }
 
     public void b(Application application) {
-        if (this.gUR != null) {
-            this.gUR.b(application);
+        if (this.hcE != null) {
+            this.hcE.b(application);
         }
     }
 
-    public void y(Activity activity) {
-        if (this.gUR != null) {
-            this.gUR.y(activity);
+    public void onPause(Activity activity) {
+        if (this.hcE != null) {
+            this.hcE.onPause(activity);
         }
     }
 
-    public void z(Activity activity) {
-        if (this.gUR != null) {
-            this.gUR.z(activity);
+    public void onResume(Activity activity) {
+        if (this.hcE != null) {
+            this.hcE.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.gUR != null) {
-            this.gUR.behaviorRecordEvent(motionEvent, activity);
+        if (this.hcE != null) {
+            this.hcE.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

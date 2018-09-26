@@ -12,40 +12,40 @@ import com.baidu.adp.widget.ListView.q.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int dlN;
-    protected static final int dlO;
-    protected static final int dlP;
-    protected com.baidu.tieba.tbadkCore.l dlQ;
-    protected d dlR;
-    protected com.baidu.adp.widget.ListView.j dlS;
-    protected int dlT;
-    protected f dlU;
-    private boolean dlV;
-    private boolean dlW;
-    protected com.baidu.tieba.card.ad dlX;
+    protected static final int drK;
+    protected static final int drL;
+    protected static final int drM;
+    protected com.baidu.tieba.tbadkCore.l drN;
+    protected d drO;
+    protected com.baidu.adp.widget.ListView.j drP;
+    protected int drQ;
+    protected f drR;
+    private boolean drS;
+    private boolean drT;
+    protected com.baidu.tieba.card.ad drU;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        dlN = resources.getDimensionPixelSize(f.e.ds8);
-        dlO = resources.getDimensionPixelSize(f.e.ds16);
-        dlP = resources.getDimensionPixelSize(f.e.ds1);
+        drK = resources.getDimensionPixelSize(e.C0141e.ds8);
+        drL = resources.getDimensionPixelSize(e.C0141e.ds16);
+        drM = resources.getDimensionPixelSize(e.C0141e.ds1);
     }
 
     public void c(com.baidu.tieba.card.ad adVar) {
-        this.dlX = adVar;
+        this.drU = adVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.dlW = false;
+        this.drT = false;
         a(tbPageContext, bdUniqueId2);
     }
 
@@ -53,7 +53,7 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.dlW = false;
+        this.drT = false;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
@@ -68,12 +68,12 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.dlR = null;
+        this.drO = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.dlU != null) {
-            this.dlU.destory();
-            this.dlU = null;
+        if (this.drR != null) {
+            this.drR.destory();
+            this.drR = null;
         }
     }
 
@@ -81,7 +81,7 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dlS = (com.baidu.adp.widget.ListView.j) viewGroup;
+        this.drP = (com.baidu.adp.widget.ListView.j) viewGroup;
         if (t instanceof bb) {
             ((bb) t).setResource(2);
             return null;
@@ -94,23 +94,23 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void b(com.baidu.tieba.tbadkCore.l lVar) {
-        this.dlQ = lVar;
+        this.drN = lVar;
     }
 
     public void a(d dVar) {
-        this.dlR = dVar;
+        this.drO = dVar;
     }
 
-    public void ko(int i) {
-        this.dlT = i;
+    public void kN(int i) {
+        this.drQ = i;
     }
 
     public void a(f fVar) {
-        this.dlU = fVar;
+        this.drR = fVar;
     }
 
-    public boolean aua() {
-        return this.dlV;
+    public boolean avT() {
+        return this.drS;
     }
 
     public View m(ViewGroup viewGroup, int i) {

@@ -6,26 +6,26 @@ import com.baidu.audiorecorder.lib.voice.NewVoiceRecordButton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortools.k;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends k {
     public b(Context context) {
-        super(context, TbadkCoreApplication.getInst().getResources().getString(f.j.msglist_voice), 6);
-        this.aMP = f.C0146f.btn_pb_add_microphone;
-        this.aMS = 6;
-        this.aMT = true;
-        this.aMc = new NewVoiceRecordButton(context);
-        this.aMU = new int[]{1, 9};
+        super(context, TbadkCoreApplication.getInst().getResources().getString(e.j.msglist_voice), 6);
+        this.aQh = e.f.btn_pb_add_microphone;
+        this.aQk = 6;
+        this.aQl = true;
+        this.aPu = new NewVoiceRecordButton(context);
+        this.aQm = new int[]{1, 9};
     }
 
     @Override // com.baidu.tbadk.editortools.k
-    public boolean oR() {
+    public boolean pX() {
         if (TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
-            return super.oR();
+            return super.pX();
         }
         String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
         if (StringUtils.isNull(uegVoiceWarning)) {
-            uegVoiceWarning = TbadkCoreApplication.getInst().getString(f.j.ueg_voice_warning);
+            uegVoiceWarning = TbadkCoreApplication.getInst().getString(e.j.ueg_voice_warning);
         }
         UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
         return false;

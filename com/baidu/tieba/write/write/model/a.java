@@ -3,5 +3,5 @@ package com.baidu.tieba.write.write.model;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface a {
-    void dU(List<String> list);
+    void dV(List<String> list);
 }

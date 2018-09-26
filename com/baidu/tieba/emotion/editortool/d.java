@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d cRv = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cRw;
+    private static d cXm = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> cXn;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized d aok() {
+    public static synchronized d apZ() {
         d dVar;
         synchronized (d.class) {
-            dVar = cRv;
+            dVar = cXm;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.cRw;
+        return this.cXn;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0110a interfaceC0110a) {
-        if (this.cRw == null || this.cRw.isEmpty()) {
-            this.cRw = new LinkedList<>();
-            if (TbFaceManager.IP().HG() > 0) {
+        if (this.cXn == null || this.cXn.isEmpty()) {
+            this.cXn = new LinkedList<>();
+            if (TbFaceManager.Kf().IW() > 0) {
                 c cVar = new c();
-                this.cRw.add(cVar);
+                this.cXn.add(cVar);
                 if (interfaceC0110a != null) {
                     interfaceC0110a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cRw.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.cXn.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0110a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.cRw == null || this.cRw.size() == 0;
+        return this.cXn == null || this.cXn.size() == 0;
     }
 }

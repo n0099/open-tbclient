@@ -12,10 +12,10 @@ import com.baidu.adp.widget.ImageView.a;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class EmotionPreview extends LinearLayout {
-    private ImageView cVr;
+    private ImageView dbk;
     private int mImageWidth;
 
     public EmotionPreview(Context context) {
@@ -34,52 +34,52 @@ public class EmotionPreview extends LinearLayout {
     }
 
     private void init() {
-        setBackgroundResource(f.C0146f.bg_expression_bubble);
-        int f = l.f(getContext(), f.e.ds20);
-        setPadding(f, f, f, l.f(getContext(), f.e.ds40));
-        this.mImageWidth = l.f(getContext(), f.e.ds200);
+        setBackgroundResource(e.f.bg_expression_bubble);
+        int h = l.h(getContext(), e.C0141e.ds20);
+        setPadding(h, h, h, l.h(getContext(), e.C0141e.ds40));
+        this.mImageWidth = l.h(getContext(), e.C0141e.ds200);
     }
 
     public void a(final String str, final String str2, boolean z, int i) {
         if (!TextUtils.isEmpty(str)) {
             removeAllViews();
             if (z || i == 20) {
-                this.cVr = new GifView(getContext());
-                ((GifView) this.cVr).setSupportNoImage(false);
+                this.dbk = new GifView(getContext());
+                ((GifView) this.dbk).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
                 gifInfo.mSharpText = str;
                 gifInfo.mDynamicUrl = str;
                 gifInfo.mStaticUrl = str2;
-                this.cVr.setTag(gifInfo.mSharpText);
-                ((GifView) this.cVr).a(gifInfo);
+                this.dbk.setTag(gifInfo.mSharpText);
+                ((GifView) this.dbk).a(gifInfo);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mImageWidth, this.mImageWidth);
                 layoutParams.gravity = 17;
-                addView(this.cVr, layoutParams);
+                addView(this.dbk, layoutParams);
                 return;
             }
-            c.ih().a(str, 10, new b<a>() { // from class: com.baidu.tieba.face.view.EmotionPreview.1
+            c.jn().a(str, 10, new b<a>() { // from class: com.baidu.tieba.face.view.EmotionPreview.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(a aVar, String str3, int i2) {
                     if (aVar != null) {
                         if (aVar.isGif()) {
-                            EmotionPreview.this.cVr = new GifView(EmotionPreview.this.getContext());
-                            ((GifView) EmotionPreview.this.cVr).setSupportNoImage(false);
+                            EmotionPreview.this.dbk = new GifView(EmotionPreview.this.getContext());
+                            ((GifView) EmotionPreview.this.dbk).setSupportNoImage(false);
                             GifInfo gifInfo2 = new GifInfo();
                             gifInfo2.mSharpText = str;
                             gifInfo2.mDynamicUrl = str;
                             gifInfo2.mStaticUrl = str2;
-                            EmotionPreview.this.cVr.setTag(gifInfo2.mSharpText);
-                            ((GifView) EmotionPreview.this.cVr).a(gifInfo2);
+                            EmotionPreview.this.dbk.setTag(gifInfo2.mSharpText);
+                            ((GifView) EmotionPreview.this.dbk).a(gifInfo2);
                         } else {
-                            EmotionPreview.this.cVr = new TbImageView(EmotionPreview.this.getContext());
-                            ((TbImageView) EmotionPreview.this.cVr).setGifIconSupport(false);
-                            aVar.a(EmotionPreview.this.cVr);
+                            EmotionPreview.this.dbk = new TbImageView(EmotionPreview.this.getContext());
+                            ((TbImageView) EmotionPreview.this.dbk).setGifIconSupport(false);
+                            aVar.a(EmotionPreview.this.dbk);
                         }
                         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(EmotionPreview.this.mImageWidth, EmotionPreview.this.mImageWidth);
                         layoutParams2.gravity = 17;
-                        EmotionPreview.this.addView(EmotionPreview.this.cVr, layoutParams2);
+                        EmotionPreview.this.addView(EmotionPreview.this.dbk, layoutParams2);
                     }
                 }
             }, null);

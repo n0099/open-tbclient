@@ -1,54 +1,60 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.ap;
-import org.json.JSONException;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
-    private long aCA;
-    private String aCB;
-    private String aCC;
-    private String aCx;
-    private long aCy;
-    private long aCz;
+    private VcodeExtra aFC;
+    private String vcode_md5 = null;
+    private String vcode_pic_url = null;
+    private String aFB = null;
 
-    public void parseJson(String str) {
-        if (!ap.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.aCx = jSONObject.optString("splash_video_url");
-                this.aCy = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.aCz = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.aCA = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.aCB = jSONObject.optString("splash_video_h5_url");
-                this.aCC = jSONObject.optString("splash_video_h5_text");
-            } catch (JSONException e) {
-                e.printStackTrace();
+    public String getVcode_md5() {
+        return this.vcode_md5;
+    }
+
+    public String getVcode_pic_url() {
+        return this.vcode_pic_url;
+    }
+
+    public String DE() {
+        return this.aFB;
+    }
+
+    public VcodeExtra DF() {
+        return this.aFC;
+    }
+
+    public void parserJson(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI);
             }
+            parserJson(optJSONObject);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public String Cu() {
-        return this.aCx;
-    }
-
-    public long Cv() {
-        return this.aCy;
-    }
-
-    public long Cw() {
-        return this.aCz;
-    }
-
-    public long Cx() {
-        return this.aCA;
-    }
-
-    public String Cy() {
-        return this.aCB;
-    }
-
-    public String Cz() {
-        return this.aCC;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.vcode_md5 = jSONObject.optString("vcode_md5");
+                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
+                this.aFB = jSONObject.optString("vcode_type");
+                JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
+                this.aFC = new VcodeExtra();
+                this.aFC.textImg = jSONObject2.optString("textimg");
+                this.aFC.slideImg = jSONObject2.optString("slideimg");
+                this.aFC.endPoint = jSONObject2.optString("endpoint");
+                this.aFC.successImg = jSONObject2.optString("successimg");
+                this.aFC.slideEndPoint = jSONObject2.optString("slideendpoint");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

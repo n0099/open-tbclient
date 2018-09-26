@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.ar.paddle.PaddleController;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
@@ -9,6 +10,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
     private int mScore;
+    private AuthTokenData tokenData;
 
     public PbFloorAgreeResponseMessage(int i) {
         super(i);
@@ -25,10 +27,11 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject2 != null) {
                 this.mScore = optJSONObject2.optInt(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             }
-            this.mActDialogData = com.baidu.tieba.pb.b.W(optJSONObject);
+            this.mActDialogData = com.baidu.tieba.pb.b.ag(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             this.mContriInfo = new ContriInfo();
             this.mContriInfo.parseJson(optJSONObject3);
+            this.tokenData = AuthTokenData.parse(jSONObject);
         }
     }
 
@@ -46,5 +49,9 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
 
     public void setContriInfo(ContriInfo contriInfo) {
         this.mContriInfo = contriInfo;
+    }
+
+    public AuthTokenData getTokenData() {
+        return this.tokenData;
     }
 }

@@ -35,11 +35,33 @@ public class PersonalChatActivityConfig extends IntentConfig {
         this(context, j, str, str2, str3, i, i2, "");
     }
 
+    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i, int i2, int i3) {
+        this(context, j, str, str2, str3, i, i2, "", i3);
+    }
+
     public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i, int i2, String str4) {
         super(context);
         this.mUserData = null;
         UserData userData = new UserData(j, str, str3, i);
         userData.setName_show(str2);
+        this.mUserData = userData;
+        Intent intent = getIntent();
+        intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra("chat_mode", 1);
+        intent.putExtra("user", userData);
+        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        intent.putExtra(KEY_IS_FRIEND, i2);
+        if (!StringUtils.isNull(str4)) {
+            intent.putExtra(KEY_REPLY_CONTENT, str4);
+        }
+    }
+
+    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i, int i2, String str4, int i3) {
+        super(context);
+        this.mUserData = null;
+        UserData userData = new UserData(j, str, str3, i);
+        userData.setName_show(str2);
+        userData.setUserType(i3);
         this.mUserData = userData;
         Intent intent = getIntent();
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);

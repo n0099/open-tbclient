@@ -5,29 +5,29 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class f {
-    private static f tl = null;
-    private int sV = 0;
+    private static f vK = null;
+    private int vv = 0;
 
-    public static f fl() {
-        if (tl == null) {
+    public static f gu() {
+        if (vK == null) {
             synchronized (f.class) {
-                if (tl == null) {
-                    tl = new f();
+                if (vK == null) {
+                    vK = new f();
                 }
             }
         }
-        return tl;
+        return vK;
     }
 
-    public synchronized void g(Map<String, String> map) {
+    public synchronized void h(Map<String, String> map) {
         if (map != null) {
             try {
-                this.sV = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.vv = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                i.a("SequenceManager", 0, 0, "setSequenceId", h.uf, "parser Seq-Id error");
-                if (this.sV == 0) {
-                    this.sV = new Random().nextInt();
+                i.a("SequenceManager", 0, 0, "setSequenceId", h.wA, "parser Seq-Id error");
+                if (this.vv == 0) {
+                    this.vv = new Random().nextInt();
                 }
             }
         }
@@ -35,11 +35,11 @@ public class f {
 
     public synchronized int getSequenceId() {
         int i;
-        if (this.sV == 0) {
-            this.sV++;
+        if (this.vv == 0) {
+            this.vv++;
         }
-        i = this.sV;
-        this.sV = i + 1;
+        i = this.vv;
+        this.vv = i + 1;
         return i;
     }
 }

@@ -10,22 +10,22 @@ public interface b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String ePA;
-        public ArrayList<String> ePB = new ArrayList<>();
-        public ArrayList<String> ePC = new ArrayList<>();
-        public String ePz;
+        public String eWU;
+        public String eWV;
+        public ArrayList<String> eWW = new ArrayList<>();
+        public ArrayList<String> eWX = new ArrayList<>();
 
         public void parseFromJson(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.ePz = jSONObject.optString("charge_click_url");
-                this.ePA = jSONObject.optString("charge_show_url");
+                this.eWU = jSONObject.optString("charge_click_url");
+                this.eWV = jSONObject.optString("charge_show_url");
                 JSONArray optJSONArray = jSONObject.optJSONArray("monitor_show_url");
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         String optString = optJSONArray.optString(i);
                         if (!TextUtils.isEmpty(optString)) {
-                            this.ePB.add(optString);
+                            this.eWW.add(optString);
                         }
                     }
                 }
@@ -35,7 +35,7 @@ public interface b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String optString2 = optJSONArray2.optString(i2);
                         if (!TextUtils.isEmpty(optString2)) {
-                            this.ePC.add(optString2);
+                            this.eWX.add(optString2);
                         }
                     }
                 }

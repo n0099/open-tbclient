@@ -4,68 +4,68 @@ import android.graphics.PointF;
 import com.airbnb.lottie.a.b.h;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.m;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements m<PointF, PointF> {
-    private final List<com.airbnb.lottie.a.b.h> mj;
-    private PointF nq;
+    private final List<com.airbnb.lottie.a.b.h> oL;
+    private PointF pR;
 
     public static m<PointF, PointF> h(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-        if (jSONObject.has("k")) {
-            return new e(jSONObject.opt("k"), eVar);
+        if (jSONObject.has(Config.APP_KEY)) {
+            return new e(jSONObject.opt(Config.APP_KEY), eVar);
         }
-        return new i(b.a.e(jSONObject.optJSONObject("x"), eVar), b.a.e(jSONObject.optJSONObject("y"), eVar));
+        return new i(b.a.e(jSONObject.optJSONObject(Config.EVENT_HEAT_X), eVar), b.a.e(jSONObject.optJSONObject("y"), eVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e() {
-        this.mj = new ArrayList();
-        this.nq = new PointF(0.0f, 0.0f);
+        this.oL = new ArrayList();
+        this.pR = new PointF(0.0f, 0.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Object obj, com.airbnb.lottie.e eVar) {
-        this.mj = new ArrayList();
-        if (f(obj)) {
+        this.oL = new ArrayList();
+        if (g(obj)) {
             JSONArray jSONArray = (JSONArray) obj;
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
-                this.mj.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.nr));
+                this.oL.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.pS));
             }
-            com.airbnb.lottie.a.a.f(this.mj);
+            com.airbnb.lottie.a.a.f(this.oL);
             return;
         }
-        this.nq = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.bn());
+        this.pR = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.cu());
     }
 
-    private boolean f(Object obj) {
+    private boolean g(Object obj) {
         if (obj instanceof JSONArray) {
             Object opt = ((JSONArray) obj).opt(0);
-            return (opt instanceof JSONObject) && ((JSONObject) opt).has(Info.kBaiduTimeKey);
+            return (opt instanceof JSONObject) && ((JSONObject) opt).has("t");
         }
         return false;
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<PointF, PointF> ci() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nq) : new com.airbnb.lottie.a.b.i(this.mj);
+    public com.airbnb.lottie.a.b.a<PointF, PointF> dp() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pR) : new com.airbnb.lottie.a.b.i(this.oL);
     }
 
     public boolean hasAnimation() {
-        return !this.mj.isEmpty();
+        return !this.oL.isEmpty();
     }
 
     public String toString() {
-        return "initialPoint=" + this.nq;
+        return "initialPoint=" + this.pR;
     }
 
     /* loaded from: classes2.dex */
     private static class a implements m.a<PointF> {
-        private static final m.a<PointF> nr = new a();
+        private static final m.a<PointF> pS = new a();
 
         private a() {
         }

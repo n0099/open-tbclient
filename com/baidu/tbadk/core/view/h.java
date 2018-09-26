@@ -1,110 +1,153 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.drawable.AnimationDrawable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
-public class h extends g {
-    protected boolean awH;
-    private CustomMessageListener awI;
-    protected boolean isDone;
-    private CustomMessageListener listener;
+public class h {
+    private View ayn;
+    private ViewGroup.LayoutParams ayo;
+    private Runnable ayp;
+    private FrameLayout ayq;
+    private int mScreenHeight;
+    private int usableHeightPrevious;
+    private int mSkinType = 3;
+    private int ayr = e.d.cp_bg_line_d;
+    private boolean ays = false;
+    private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
+    private int ayt = 0;
 
-    public h(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
-        this.isDone = true;
-        this.listener = new CustomMessageListener(2016203) { // from class: com.baidu.tbadk.core.view.h.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (h.this.isDone) {
-                    h.this.dB(TbadkCoreApplication.getInst().getSkinType());
-                }
-            }
-        };
-        this.awI = new CustomMessageListener(2016204) { // from class: com.baidu.tbadk.core.view.h.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                h.this.awr.setBackgroundColor(ag.za().cN(TbadkCoreApplication.getInst().getSkinType()));
-            }
-        };
-        c(tbPageContext);
+    public static h z(Activity activity) {
+        return new h(activity);
     }
 
-    @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public void Z(boolean z) {
-        this.aws.setBackgroundDrawable(null);
-        super.Z(z);
-        this.isDone = true;
+    public static h d(Activity activity, boolean z) {
+        return new h(activity, z);
     }
 
-    @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public void Y(boolean z) {
-        super.Y(z);
-        this.isDone = false;
-        if (!this.awH) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (this.mSkinType != Integer.MIN_VALUE) {
-                skinType = this.mSkinType;
+    public static h a(Activity activity, int i, boolean z) {
+        return new h(activity, i, z);
+    }
+
+    private h(Activity activity) {
+        b(activity, e.d.cp_bg_line_d, true);
+    }
+
+    private h(Activity activity, boolean z) {
+        b(activity, e.d.cp_bg_line_d, z);
+    }
+
+    private h(Activity activity, int i, boolean z) {
+        b(activity, i, z);
+    }
+
+    public void dx(int i) {
+        if (this.ays) {
+            if (i != this.mSkinType && this.ayq != null) {
+                al.j(this.ayq, this.ayr);
             }
-            dB(skinType);
+            this.mSkinType = i;
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.g, com.baidu.adp.widget.ListView.c
-    public void refreshing() {
-        super.refreshing();
-        this.isDone = false;
+    public void onDestory() {
+        if (this.ayp != null) {
+            com.baidu.adp.lib.g.e.jt().removeCallbacks(this.ayp);
+            this.ayp = null;
+        }
+        if (this.ayn != null) {
+            this.ayn.getViewTreeObserver().removeGlobalOnLayoutListener(this.mGlobalLayoutListener);
+            this.mGlobalLayoutListener = null;
+        }
+        this.ayn = null;
+        this.ayq = null;
     }
 
-    @Override // com.baidu.tbadk.core.view.g
-    public void dB(int i) {
-        super.dB(i);
-        if (this.awr != null && this.aws != null) {
-            this.awH = false;
-            if (!zi()) {
-                this.aww = ag.za().cL(i);
-                if (this.aww != null) {
-                    this.awH = true;
+    private void b(Activity activity, int i, boolean z) {
+        this.ayr = i;
+        this.ays = z;
+        this.ayq = (FrameLayout) activity.findViewById(16908290);
+        if (z) {
+            al.j(this.ayq, i);
+        } else {
+            al.e(this.ayq, i, 0);
+        }
+        this.ayn = this.ayq.getChildAt(0);
+        if (this.ayn != null) {
+            this.mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.h.1
+                @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+                public void onGlobalLayout() {
+                    h.this.Bw();
+                }
+            };
+            this.ayn.getViewTreeObserver().addOnGlobalLayoutListener(this.mGlobalLayoutListener);
+            this.ayo = this.ayn.getLayoutParams();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void Bw() {
+        if (this.ayn != null) {
+            int height = this.ayn.getHeight();
+            if (height > this.mScreenHeight) {
+                this.mScreenHeight = height;
+            }
+            int Bx = Bx();
+            if (this.ayt > 0 && this.ayt <= this.ayo.height) {
+                Bx -= this.ayt;
+            }
+            if (Bx != this.usableHeightPrevious) {
+                int i = this.mScreenHeight;
+                int i2 = i - Bx;
+                if (i2 == 0) {
+                    this.ayo.height = i;
+                    By();
                 } else {
-                    this.aww = new AnimationDrawable();
+                    this.ayo.height = i - i2;
+                    dy(200);
+                    if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
+                        TbadkCoreApplication.getInst().setKeyboardHeight(i2);
+                    }
                 }
-                this.awr.setBackgroundColor(ag.za().cN(i));
-                if (!this.awH) {
-                    this.aww = ag.za().cM(i);
-                }
-                this.aww.setOneShot(false);
-                this.aws.setBackgroundDrawable(this.aww);
+                this.usableHeightPrevious = Bx;
             }
         }
     }
 
-    private void c(TbPageContext<?> tbPageContext) {
-        this.listener.setTag(tbPageContext.getUniqueId());
-        this.awI.setTag(tbPageContext.getUniqueId());
-        tbPageContext.registerListener(this.listener);
-        tbPageContext.registerListener(this.awI);
+    private int Bx() {
+        Rect rect = new Rect();
+        this.ayn.getWindowVisibleDisplayFrame(rect);
+        return rect.bottom;
     }
 
-    public void setTag(BdUniqueId bdUniqueId) {
-        if (this.listener != null) {
-            this.listener.setTag(bdUniqueId);
-        }
-        if (this.awI != null) {
-            this.awI.setTag(bdUniqueId);
-        }
-        MessageManager.getInstance().registerListener(this.listener);
-        MessageManager.getInstance().registerListener(this.awI);
+    public void setExcludeHeight(int i) {
+        this.ayt = i;
     }
 
-    public void release() {
-        MessageManager.getInstance().unRegisterListener(this.listener);
-        MessageManager.getInstance().unRegisterListener(this.awI);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void By() {
+        this.ayn.requestLayout();
+    }
+
+    private void dy(int i) {
+        if (this.ayp != null) {
+            com.baidu.adp.lib.g.e.jt().removeCallbacks(this.ayp);
+            this.ayp = null;
+        }
+        this.ayp = new Runnable() { // from class: com.baidu.tbadk.core.view.h.2
+            @Override // java.lang.Runnable
+            public void run() {
+                h.this.By();
+            }
+        };
+        com.baidu.adp.lib.g.e.jt().postDelayed(this.ayp, i);
     }
 }

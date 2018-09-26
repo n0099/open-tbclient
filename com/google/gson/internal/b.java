@@ -12,34 +12,34 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 /* loaded from: classes2.dex */
 public final class b {
-    private final Map<Type, com.google.gson.e<?>> hFu;
+    private final Map<Type, com.google.gson.e<?>> hNO;
 
     public b(Map<Type, com.google.gson.e<?>> map) {
-        this.hFu = map;
+        this.hNO = map;
     }
 
     public <T> d<T> b(com.google.gson.b.a<T> aVar) {
-        final Type bKs = aVar.bKs();
-        Class<? super T> bKr = aVar.bKr();
-        final com.google.gson.e<?> eVar = this.hFu.get(bKs);
+        final Type bNj = aVar.bNj();
+        Class<? super T> bNi = aVar.bNi();
+        final com.google.gson.e<?> eVar = this.hNO.get(bNj);
         if (eVar != null) {
             return new d<T>() { // from class: com.google.gson.internal.b.1
             };
         }
-        final com.google.gson.e<?> eVar2 = this.hFu.get(bKr);
+        final com.google.gson.e<?> eVar2 = this.hNO.get(bNi);
         if (eVar2 != null) {
             return new d<T>() { // from class: com.google.gson.internal.b.5
             };
         }
-        d<T> p = p(bKr);
-        if (p == null) {
-            d<T> c = c(bKs, bKr);
-            return c == null ? d(bKs, bKr) : c;
+        d<T> s = s(bNi);
+        if (s == null) {
+            d<T> c = c(bNj, bNi);
+            return c == null ? d(bNj, bNi) : c;
         }
-        return p;
+        return s;
     }
 
-    private <T> d<T> p(Class<? super T> cls) {
+    private <T> d<T> s(Class<? super T> cls) {
         try {
             final Constructor<? super T> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
             if (!declaredConstructor.isAccessible()) {
@@ -77,7 +77,7 @@ public final class b {
                 return new d<T>() { // from class: com.google.gson.internal.b.12
                 };
             }
-            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).bKr())) {
+            if ((type instanceof ParameterizedType) && !String.class.isAssignableFrom(com.google.gson.b.a.l(((ParameterizedType) type).getActualTypeArguments()[0]).bNi())) {
                 return new d<T>() { // from class: com.google.gson.internal.b.2
                 };
             }
@@ -90,11 +90,11 @@ public final class b {
 
     private <T> d<T> d(final Type type, final Class<? super T> cls) {
         return new d<T>() { // from class: com.google.gson.internal.b.4
-            private final g hFy = g.bKh();
+            private final g hNS = g.bMY();
         };
     }
 
     public String toString() {
-        return this.hFu.toString();
+        return this.hNO.toString();
     }
 }

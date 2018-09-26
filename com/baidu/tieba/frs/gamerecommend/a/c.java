@@ -8,19 +8,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.card.ad;
 import com.baidu.tieba.card.o;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private com.baidu.tieba.card.f dyw;
+    private com.baidu.tieba.card.f dFg;
     private String mForumId;
     private TbPageContext<?> mPageContext;
-    private ad rP;
+    private ad us;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.cOu);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.cUl);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -30,8 +30,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dyw = new com.baidu.tieba.card.f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.dyw);
+        this.dFg = new com.baidu.tieba.card.f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.dFg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,37 +39,37 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> aVar) {
-        if (aVar.ajC() == null) {
+        if (aVar.aln() == null) {
             return null;
         }
-        aVar.ajC().a(bVar);
-        aVar.ajC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.ajC().b(new ad<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
+        aVar.aln().a(bVar);
+        aVar.aln().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aln().b(new ad<com.baidu.tieba.e.b>() { // from class: com.baidu.tieba.frs.gamerecommend.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             /* renamed from: b */
             public void a(View view2, com.baidu.tieba.e.b bVar2) {
-                TiebaStatic.log(new an("c13047").r("obj_locate", 3).ae(ImageViewerConfig.FORUM_ID, c.this.mForumId));
+                TiebaStatic.log(new am("c13047").w("obj_locate", 3).al(ImageViewerConfig.FORUM_ID, c.this.mForumId));
                 c.this.a(view2, bVar2);
             }
         });
-        return aVar.ajC().getView();
+        return aVar.aln().getView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.tieba.e.b bVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.Tg(), null, o.uX(), 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(bVar.Tg().getFid()));
-        createFromThreadCfg.setForumName(bVar.Tg().vp());
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bVar.UT(), null, o.wa(), 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(bVar.UT().getFid()));
+        createFromThreadCfg.setForumName(bVar.UT().ws());
         createFromThreadCfg.setStartFrom(0);
-        o.kY(bVar.Tg().getTid());
+        o.lA(bVar.UT().getTid());
         this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-        if (this.rP != null) {
-            this.rP.a(view, bVar);
+        if (this.us != null) {
+            this.us.a(view, bVar);
         }
     }
 
     public void d(ad adVar) {
-        this.rP = adVar;
+        this.us = adVar;
     }
 }

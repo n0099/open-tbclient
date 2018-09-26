@@ -1,5 +1,5 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public interface c extends e {
-    void av(int i);
+    void aD(int i);
 }

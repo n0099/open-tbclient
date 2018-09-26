@@ -11,7 +11,7 @@ public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, c
     }
 
     @Override // com.baidu.tbadk.mvc.f.b
-    public int fh(int i) {
+    public int ft(int i) {
         tinfo item = getItem(i);
         if (item == null) {
             return -1;
@@ -26,7 +26,7 @@ public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, c
         return 1;
     }
 
-    public void bn(long j) {
+    public void br(long j) {
         List<tinfo> dataList;
         tinfo tinfoVar;
         if (j > 0 && (dataList = getDataList()) != null && dataList.size() > 0) {
@@ -46,7 +46,7 @@ public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, c
                 }
             }
             if (tinfoVar != null) {
-                E(tinfoVar);
+                F(tinfoVar);
             }
         }
     }

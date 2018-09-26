@@ -14,28 +14,28 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0214a c0214a = new C0214a();
-            c0214a.fSQ = str;
-            c0214a.fSR = bVar;
-            c0214a.execute("");
+            C0220a c0220a = new C0220a();
+            c0220a.gag = str;
+            c0220a.gah = bVar;
+            c0220a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0214a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String fSQ;
-        public b fSR;
+    private static class C0220a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String gag;
+        public b gah;
 
-        private C0214a() {
+        private C0220a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
+        /* renamed from: o */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.f("user_pics").l(l.dT(this.fSQ), false);
+            return new com.baidu.tbadk.img.f("user_pics").n(l.el(this.gag), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,14 +44,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.fSR != null) {
+            if (this.gah != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.fSR.a(i, str, imageUploadResult);
+                this.gah.a(i, str, imageUploadResult);
             }
         }
     }

@@ -5,65 +5,65 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.GroupImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes3.dex */
 public class f extends q.a {
-    public int azF;
+    public int aCJ;
     public View dividerLine;
-    public GroupImageView esf;
-    public TextView esg;
-    public TextView esh;
-    public TextView esi;
-    public TextView esj;
-    public ImageView esk;
-    public ImageView esl;
-    public ImageView esm;
-    public ImageView[] esn;
+    public TextView ezA;
+    public TextView ezB;
+    public TextView ezC;
+    public TextView ezD;
+    public ImageView ezE;
+    public ImageView ezF;
+    public ImageView ezG;
+    public ImageView[] ezH;
+    public GroupImageView ezz;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.azF = 3;
+        this.aCJ = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.esf = (GroupImageView) view.findViewById(f.g.item_head);
-        this.esg = (TextView) view.findViewById(f.g.item_group_name);
-        this.esh = (TextView) view.findViewById(f.g.item_group_meizi);
-        this.esi = (TextView) view.findViewById(f.g.item_group_num);
-        this.esj = (TextView) view.findViewById(f.g.item_introduce);
-        this.esk = (ImageView) view.findViewById(f.g.item_grade1);
-        this.esl = (ImageView) view.findViewById(f.g.item_grade2);
-        this.esm = (ImageView) view.findViewById(f.g.item_grade3);
-        this.dividerLine = view.findViewById(f.g.divider_line);
-        this.esn = new ImageView[4];
-        this.esn[1] = this.esk;
-        this.esn[2] = this.esl;
-        this.esn[3] = this.esm;
+        this.ezz = (GroupImageView) view.findViewById(e.g.item_head);
+        this.ezA = (TextView) view.findViewById(e.g.item_group_name);
+        this.ezB = (TextView) view.findViewById(e.g.item_group_meizi);
+        this.ezC = (TextView) view.findViewById(e.g.item_group_num);
+        this.ezD = (TextView) view.findViewById(e.g.item_introduce);
+        this.ezE = (ImageView) view.findViewById(e.g.item_grade1);
+        this.ezF = (ImageView) view.findViewById(e.g.item_grade2);
+        this.ezG = (ImageView) view.findViewById(e.g.item_grade3);
+        this.dividerLine = view.findViewById(e.g.divider_line);
+        this.ezH = new ImageView[4];
+        this.ezH[1] = this.ezE;
+        this.ezH[2] = this.ezF;
+        this.ezH[3] = this.ezG;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.esf.setTag(null);
-            this.esf.setDrawBorder(true);
-            this.esf.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.ezz.setTag(null);
+            this.ezz.setDrawBorder(true);
+            this.ezz.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.esf.setTag(portrait);
-                this.esf.startLoad(portrait, 10, false);
+                this.ezz.setTag(portrait);
+                this.ezz.startLoad(portrait, 10, false);
             }
-            this.esg.setText(groupInfoData.getName());
-            this.esh.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.esi.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.esj.setText(groupInfoData.getIntro().trim());
-            a(this.esn, groupInfoData.getGrade());
+            this.ezA.setText(groupInfoData.getName());
+            this.ezB.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.ezC.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.ezD.setText(groupInfoData.getIntro().trim());
+            a(this.ezH, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                am.c(this.esg, f.d.common_color_10009, 1);
-                am.c(this.esk, f.C0146f.icon_vip_grade_big_small_s);
-                am.c(this.esl, f.C0146f.icon_vip_grade_big_small_s);
-                am.c(this.esm, f.C0146f.icon_vip_grade_big_small_s);
+                al.c(this.ezA, e.d.common_color_10009, 1);
+                al.c(this.ezE, e.f.icon_vip_grade_big_small_s);
+                al.c(this.ezF, e.f.icon_vip_grade_big_small_s);
+                al.c(this.ezG, e.f.icon_vip_grade_big_small_s);
             }
         }
     }

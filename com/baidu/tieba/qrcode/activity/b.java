@@ -12,39 +12,39 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 /* loaded from: classes3.dex */
 public class b implements QRCodeView.a {
-    private final com.baidu.tieba.qrcode.activity.a glx;
-    private a gly;
+    private final com.baidu.tieba.qrcode.activity.a gsP;
+    private a gsQ;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
-        this.glx = aVar;
+        this.gsP = aVar;
         this.mTbPageContext = tbPageContext;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void sy(String str) {
-        this.glx.bmw();
+    public void tf(String str) {
+        this.gsP.bpd();
         if (StringUtils.isNull(str)) {
-            this.glx.bmu();
+            this.gsP.bpb();
             return;
         }
         if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
-            sz(str);
+            tg(str);
         } else {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921339, null, str);
-            if (runTask == null || !(runTask.getData() instanceof Boolean)) {
-                this.glx.bmx();
+            if (runTask == null || !(runTask.getData() instanceof Boolean) || !((Boolean) runTask.getData()).booleanValue()) {
+                this.gsP.bpe();
                 return;
             }
         }
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    private void sz(String str) {
+    private void tg(String str) {
         CookieSyncManager.createInstance(this.mTbPageContext.getPageActivity());
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
@@ -55,25 +55,25 @@ public class b implements QRCodeView.a {
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void bmy() {
-        l.showToast(this.mTbPageContext.getPageActivity(), f.j.disallow_camera_permission);
+    public void bpf() {
+        l.showToast(this.mTbPageContext.getPageActivity(), e.j.disallow_camera_permission);
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    public void sA(String str) {
+    public void th(String str) {
         if (!StringUtils.isNull(str)) {
-            if (this.gly != null) {
-                this.gly.cancel();
+            if (this.gsQ != null) {
+                this.gsQ.cancel();
             }
-            this.gly = new a();
-            this.gly.execute(str);
+            this.gsQ = new a();
+            this.gsQ.execute(str);
         }
     }
 
     public void onDestroy() {
-        if (this.gly != null) {
-            this.gly.cancel();
-            this.gly = null;
+        if (this.gsQ != null) {
+            this.gsQ.cancel();
+            this.gsQ = null;
         }
     }
 
@@ -86,7 +86,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.glx.bmv();
+            b.this.gsP.bpc();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class b implements QRCodeView.a {
             if (strArr == null || strArr.length <= 0) {
                 return null;
             }
-            return com.baidu.tieba.qrcode.lib.zxing.a.sB(strArr[0]);
+            return com.baidu.tieba.qrcode.lib.zxing.a.ti(strArr[0]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,8 +104,8 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.glx.bmw();
-            b.this.sy(str);
+            b.this.gsP.bpd();
+            b.this.tf(str);
         }
     }
 }

@@ -4,18 +4,18 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class q implements com.baidu.tbadk.core.flow.a.a {
-    private String afe;
-    private String aff;
-    private String afg;
-    private String afh;
-    private boolean afi;
+    private String ahF;
+    private String ahG;
+    private String ahH;
+    private String ahI;
+    private boolean ahJ;
     private String mTitle;
     private String tagNameUrl;
     private float tagRatio;
 
     public q(String str, String str2, String str3) {
-        this.afe = str;
-        this.aff = str2;
+        this.ahF = str;
+        this.ahG = str2;
         this.mTitle = str3;
     }
 
@@ -24,51 +24,51 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.afe;
+        return this.ahF;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String tO() {
-        return this.aff;
+    public String uR() {
+        return this.ahG;
     }
 
     public String getImageUrl() {
-        return this.afe;
+        return this.ahF;
     }
 
     public void setImageUrl(String str) {
-        this.afe = str;
+        this.ahF = str;
     }
 
     public String getLinkUrl() {
-        return this.aff;
+        return this.ahG;
     }
 
     public void setLinkUrl(String str) {
-        this.aff = str;
+        this.ahG = str;
     }
 
     public String getTitle() {
         return this.mTitle;
     }
 
-    public String tP() {
+    public String uS() {
         return this.tagNameUrl;
     }
 
-    public float tQ() {
+    public float uT() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: tR */
+    /* renamed from: uU */
     public q clone() {
         q qVar = new q();
-        qVar.afe = this.afe;
-        qVar.aff = this.aff;
+        qVar.ahF = this.ahF;
+        qVar.ahG = this.ahG;
         qVar.mTitle = this.mTitle;
-        qVar.afg = this.afg;
-        qVar.afh = this.afh;
+        qVar.ahH = this.ahH;
+        qVar.ahI = this.ahI;
         qVar.tagNameUrl = this.tagNameUrl;
         qVar.tagRatio = this.tagRatio;
         return qVar;
@@ -76,17 +76,17 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
 
     public void b(HeadImgs headImgs) {
         if (headImgs != null) {
-            this.afe = headImgs.img_url;
-            this.aff = headImgs.pc_url;
+            this.ahF = headImgs.img_url;
+            this.ahG = headImgs.pc_url;
             this.tagNameUrl = headImgs.tag_name_url;
             String str = headImgs.tag_name_wh;
             if (str != null) {
                 try {
                     String[] split = str.split(",");
-                    int g = com.baidu.adp.lib.g.b.g(split[0], 1);
-                    int g2 = com.baidu.adp.lib.g.b.g(split[1], 1);
-                    if (g2 != 0) {
-                        this.tagRatio = g / g2;
+                    int l = com.baidu.adp.lib.g.b.l(split[0], 1);
+                    int l2 = com.baidu.adp.lib.g.b.l(split[1], 1);
+                    if (l2 != 0) {
+                        this.tagRatio = l / l2;
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -96,19 +96,19 @@ public class q implements com.baidu.tbadk.core.flow.a.a {
                 this.mTitle = headImgs.title.trim();
             }
             if (headImgs.subtitle != null) {
-                this.afg = headImgs.subtitle.trim();
+                this.ahH = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.afh = headImgs.btn_text.trim();
+                this.ahI = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean tS() {
-        return this.afi;
+    public boolean uV() {
+        return this.ahJ;
     }
 
-    public void ao(boolean z) {
-        this.afi = z;
+    public void ax(boolean z) {
+        this.ahJ = z;
     }
 }

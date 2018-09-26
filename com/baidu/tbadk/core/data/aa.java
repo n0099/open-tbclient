@@ -6,20 +6,20 @@ import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class aa {
     private String class_name = null;
-    private int agb = 0;
+    private int aiC = 0;
 
-    public String tX() {
+    public String va() {
         return this.class_name;
     }
 
-    public int tY() {
-        return this.agb;
+    public int vb() {
+        return this.aiC;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.agb = jSONObject.optInt("class_id", 0);
+                this.aiC = jSONObject.optInt("class_id", 0);
                 this.class_name = jSONObject.optString("class_name");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -29,7 +29,7 @@ public class aa {
 
     public void a(Classify classify) {
         if (classify != null) {
-            this.agb = classify.class_id.intValue();
+            this.aiC = classify.class_id.intValue();
             this.class_name = classify.class_name;
         }
     }

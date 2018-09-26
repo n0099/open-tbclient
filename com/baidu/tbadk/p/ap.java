@@ -1,20 +1,32 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class ap extends j {
-    private static ap aVM = new ap();
-
-    public static boolean La() {
-        return aVM.iq();
+public class ap extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void Z(int i) {
     }
 
-    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_custom_offline_web_cache";
+        return "android_url_post";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
-    public int hm() {
-        return super.hm();
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] ir() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int is() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int it() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iu() {
+        return 10;
     }
 }

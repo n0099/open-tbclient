@@ -9,7 +9,7 @@ import com.tencent.connect.common.Constants;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class b {
-    private static b XM = null;
+    private static b aam = null;
     public static String d = null;
     public static String e = null;
     public static String f = null;
@@ -25,11 +25,15 @@ public class b {
         }
     }
 
-    public static b qN() {
-        if (XM == null) {
-            XM = new b();
+    public static b rS() {
+        if (aam == null) {
+            aam = new b();
         }
-        return XM;
+        return aam;
+    }
+
+    public String a(boolean z) {
+        return a(z, (String) null);
     }
 
     public String a(boolean z, String str) {
@@ -92,7 +96,7 @@ public class b {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float d2 = k.qu().d();
+        float d2 = k.rz().d();
         if (d2 != 0.0f) {
             stringBuffer.append("&altv=");
             stringBuffer.append(String.format(Locale.US, "%.5f", Float.valueOf(d2)));
@@ -143,10 +147,6 @@ public class b {
     public void a(String str, String str2) {
         e = str;
         d = str2;
-    }
-
-    public String ad(boolean z) {
-        return a(z, (String) null);
     }
 
     public String b() {

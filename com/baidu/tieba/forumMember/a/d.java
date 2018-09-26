@@ -13,10 +13,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.util.w;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.util.y;
+import com.baidu.tieba.e;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class d extends h<e, f> {
@@ -39,7 +39,7 @@ public class d extends h<e, f> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ag */
     public f onCreateViewHolder(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(f.h.manito_item_member, (ViewGroup) null));
+        return new f(LayoutInflater.from(this.mContext).inflate(e.h.manito_item_member, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,22 +50,22 @@ public class d extends h<e, f> {
         super.onFillViewHolder(i, view, viewGroup, eVar, fVar);
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
-                am.i(fVar.getView(), f.C0146f.frs_member_manito_bg);
-                am.c(fVar.bwl, f.d.cp_cont_b, 1);
-                am.c(fVar.cDV, f.d.cp_cont_c, 1);
-                am.j(fVar.dividerLine, f.d.cp_bg_line_c);
-                am.c(fVar.diM, f.d.cp_cont_c, 1);
+                al.i(fVar.getView(), e.f.frs_member_manito_bg);
+                al.c(fVar.bCa, e.d.cp_cont_b, 1);
+                al.c(fVar.cJM, e.d.cp_cont_c, 1);
+                al.j(fVar.dividerLine, e.d.cp_bg_line_c);
+                al.c(fVar.doF, e.d.cp_cont_c, 1);
             }
-            fVar.diL.startLoad(eVar.asY(), 12, false);
-            fVar.bwl.setText(w.C(eVar.getNameShow(), 16));
+            fVar.doE.startLoad(eVar.auM(), 12, false);
+            fVar.bCa.setText(y.H(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.cDV.setText(f.j.god_intro_default);
+                fVar.cJM.setText(e.j.god_intro_default);
             } else {
-                fVar.cDV.setText(w.C(eVar.getIntro(), 30));
+                fVar.cJM.setText(y.H(eVar.getIntro(), 30));
             }
-            int color = am.getColor(f.d.cp_cont_h);
-            String A = ap.A(eVar.getFansNum());
-            fVar.diM.setText(a(String.format(this.mContext.getResources().getString(f.j.fans_count), A), new String[]{A}, new int[]{color}));
+            int color = al.getColor(e.d.cp_cont_h);
+            String E = ao.E(eVar.getFansNum());
+            fVar.doF.setText(a(String.format(this.mContext.getResources().getString(e.j.fans_count), E), new String[]{E}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

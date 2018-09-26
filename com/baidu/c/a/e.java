@@ -9,7 +9,7 @@ import org.json.JSONObject;
 class e {
     private Context a;
     private HashMap<String, String> b = null;
-    private a<String> Vv = null;
+    private a<String> XW = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -41,12 +41,12 @@ class e {
                 e2.printStackTrace();
             }
         }
-        if (this.Vv != null) {
-            this.Vv.a(jSONObject != null ? jSONObject.toString() : new JSONObject().toString());
+        if (this.XW != null) {
+            this.XW.a(jSONObject != null ? jSONObject.toString() : new JSONObject().toString());
         }
     }
 
-    private HashMap<String, String> i(HashMap<String, String> hashMap) {
+    private HashMap<String, String> n(HashMap<String, String> hashMap) {
         HashMap<String, String> hashMap2 = new HashMap<>();
         for (String str : hashMap.keySet()) {
             String str2 = str.toString();
@@ -57,8 +57,8 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
-        this.b = i(hashMap);
-        this.Vv = aVar;
+        this.b = n(hashMap);
+        this.XW = aVar;
         new Thread(new Runnable() { // from class: com.baidu.c.a.e.1
             @Override // java.lang.Runnable
             public void run() {

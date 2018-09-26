@@ -12,11 +12,11 @@ import com.airbnb.lottie.a.a.q;
 import java.io.Closeable;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final PathMeasure mt = new PathMeasure();
-    private static final Path mw = new Path();
-    private static final Path pG = new Path();
+    private static final PathMeasure oU = new PathMeasure();
+    private static final Path oW = new Path();
+    private static final Path sa = new Path();
     private static final float[] points = new float[4];
-    private static final float pH = (float) Math.sqrt(2.0d);
+    private static final float sb = (float) Math.sqrt(2.0d);
 
     public static Path b(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -43,26 +43,26 @@ public final class f {
     public static float c(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = pH;
-        points[3] = pH;
+        points[2] = sb;
+        points[3] = sb;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
 
     public static void a(Path path, @Nullable q qVar) {
         if (qVar != null) {
-            a(path, qVar.bP().getValue().floatValue() / 100.0f, qVar.bQ().getValue().floatValue() / 100.0f, qVar.bR().getValue().floatValue() / 360.0f);
+            a(path, qVar.cW().getValue().floatValue() / 100.0f, qVar.cX().getValue().floatValue() / 100.0f, qVar.cY().getValue().floatValue() / 360.0f);
         }
     }
 
     public static void a(Path path, float f, float f2, float f3) {
         com.airbnb.lottie.d.beginSection("applyTrimPathIfNeeded");
-        mt.setPath(path, false);
-        float length = mt.getLength();
+        oU.setPath(path, false);
+        float length = oU.getLength();
         if (f == 1.0f && f2 == 0.0f) {
-            com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
-            com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
         } else {
             float f4 = length * f;
             float f5 = length * f2;
@@ -83,25 +83,25 @@ public final class f {
             }
             if (f7 == f8) {
                 path.reset();
-                com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
+                com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
                 return;
             }
             if (f7 >= f8) {
                 f7 -= length;
             }
-            mw.reset();
-            mt.getSegment(f7, f8, mw, true);
+            oW.reset();
+            oU.getSegment(f7, f8, oW, true);
             if (f8 > length) {
-                pG.reset();
-                mt.getSegment(0.0f, f8 % length, pG, true);
-                mw.addPath(pG);
+                sa.reset();
+                oU.getSegment(0.0f, f8 % length, sa, true);
+                oW.addPath(sa);
             } else if (f7 < 0.0f) {
-                pG.reset();
-                mt.getSegment(f7 + length, length, pG, true);
-                mw.addPath(pG);
+                sa.reset();
+                oU.getSegment(f7 + length, length, sa, true);
+                oW.addPath(sa);
             }
-            path.set(mw);
-            com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
+            path.set(oW);
+            com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
         }
     }
 
@@ -113,12 +113,12 @@ public final class f {
             if (eVar.getMinorVersion() < i2) {
                 return false;
             }
-            return eVar.getMinorVersion() > i2 || eVar.bf() >= i3;
+            return eVar.getMinorVersion() > i2 || eVar.cm() >= i3;
         }
         return true;
     }
 
-    public static int b(float f, float f2, float f3, float f4) {
+    public static int c(float f, float f2, float f3, float f4) {
         int i = 17;
         if (f != 0.0f) {
             i = (int) (527 * f);
@@ -135,7 +135,7 @@ public final class f {
         return i;
     }
 
-    public static float S(Context context) {
+    public static float az(Context context) {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getFloat(context.getContentResolver(), "animator_duration_scale", 1.0f) : Settings.System.getFloat(context.getContentResolver(), "animator_duration_scale", 1.0f);
     }
 }

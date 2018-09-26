@@ -2,9 +2,9 @@ package com.baidu.tieba.forumMember.member;
 
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.g;
+import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.frs.al;
 import com.baidu.tieba.frs.ao;
 import com.baidu.tieba.frs.ar;
@@ -12,18 +12,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements g.b {
-    private ao diQ;
-    private com.baidu.tieba.forumMember.member.a.b diS;
-    private e diT;
+public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements j.b {
+    private ao doJ;
+    private com.baidu.tieba.forumMember.member.a.b doL;
+    private e doM;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.h> diR = null;
-    private al diU = new al() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.h> doK = null;
+    private al doN = new al() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.al
         public void a(int i, int i2, ar arVar, ArrayList<com.baidu.adp.widget.ListView.h> arrayList) {
-            ForumMemberActivity.this.diS.hideLoadingView();
-            ForumMemberActivity.this.diS.completePullRefresh();
+            ForumMemberActivity.this.doL.hideLoadingView();
+            ForumMemberActivity.this.doL.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.h> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -32,24 +32,24 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     }
                 }
             }
-            if (!w.z(arrayList)) {
-                ForumMemberActivity.this.diS.Un();
-                ForumMemberActivity.this.diR = arrayList;
-                ForumMemberActivity.this.diS.bi(ForumMemberActivity.this.diR);
-            } else if (w.z(ForumMemberActivity.this.diR) && arVar != null) {
-                ForumMemberActivity.this.diS.mp(arVar.errMsg);
+            if (!v.z(arrayList)) {
+                ForumMemberActivity.this.doL.Wa();
+                ForumMemberActivity.this.doK = arrayList;
+                ForumMemberActivity.this.doL.bj(ForumMemberActivity.this.doK);
+            } else if (v.z(ForumMemberActivity.this.doK) && arVar != null) {
+                ForumMemberActivity.this.doL.mR(arVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a cDn = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a cJe = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void aR(boolean z) {
-            ForumMemberActivity.this.diS.fs(z);
+        public void bd(boolean z) {
+            ForumMemberActivity.this.doL.fJ(z);
             if (z) {
-                if (w.z(ForumMemberActivity.this.diR)) {
-                    ForumMemberActivity.this.asZ();
+                if (v.z(ForumMemberActivity.this.doK)) {
+                    ForumMemberActivity.this.auN();
                 } else {
-                    ForumMemberActivity.this.diS.startPullRefresh();
+                    ForumMemberActivity.this.doL.startPullRefresh();
                 }
             }
         }
@@ -60,13 +60,13 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         j(bundle);
-        this.diS = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.diS.g(this.cDn);
-        this.diT = new e();
-        this.diT.setTag(getUniqueId());
-        this.diT.init();
-        this.diT.a(this.diU);
-        asZ();
+        this.doL = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.doL.g(this.cJe);
+        this.doM = new e();
+        this.doM.setTag(getUniqueId());
+        this.doM.init();
+        this.doM.a(this.doN);
+        auN();
     }
 
     private void j(Bundle bundle) {
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.diQ = new ao();
-        this.diQ.forumId = this.mForumId;
-        this.diQ.forumName = this.mForumName;
+        this.doJ = new ao();
+        this.doJ.forumId = this.mForumId;
+        this.doJ.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.diS.onChangeSkinType(i);
+        this.doL.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.diT.VA();
-        if (this.diS != null) {
-            this.diS.onDestroy();
+        this.doM.Xn();
+        if (this.doL != null) {
+            this.doL.onDestroy();
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.g.b
-    public void aT(boolean z) {
-        e eVar = this.diT;
-        e eVar2 = this.diT;
-        eVar.a(3, 0, this.diQ);
+    @Override // com.baidu.tbadk.core.view.j.b
+    public void bf(boolean z) {
+        e eVar = this.doM;
+        e eVar2 = this.doM;
+        eVar.a(3, 0, this.doJ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (com.baidu.adp.lib.util.j.js()) {
-            asZ();
+        if (com.baidu.adp.lib.util.j.ky()) {
+            auN();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void asZ() {
-        this.diS.showLoadingView();
-        e eVar = this.diT;
-        e eVar2 = this.diT;
-        eVar.a(3, 0, this.diQ);
+    public void auN() {
+        this.doL.showLoadingView();
+        e eVar = this.doM;
+        e eVar2 = this.doM;
+        eVar.a(3, 0, this.doJ);
     }
 }

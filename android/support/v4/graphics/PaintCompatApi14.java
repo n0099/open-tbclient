@@ -20,7 +20,7 @@ class PaintCompatApi14 {
             return true;
         }
         float measureText = paint.measureText(TOFU_STRING);
-        float measureText2 = paint.measureText(EM_STRING);
+        float measureText2 = paint.measureText("m");
         float measureText3 = paint.measureText(str);
         if (measureText3 != 0.0f) {
             if (str.codePointCount(0, str.length()) > 1) {

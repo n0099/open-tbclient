@@ -9,10 +9,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.e;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,78 +21,78 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class i extends e {
-    private RelativeLayout dvK;
-    private TextView dvL;
-    private TextView dvM;
-    private TextView dvN;
+    private RelativeLayout dCu;
+    private TextView dCv;
+    private TextView dCw;
+    private TextView dCx;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view = getView();
-        this.dvK = (RelativeLayout) view.findViewById(f.g.lottery_info_layout);
-        this.dvL = (TextView) view.findViewById(f.g.lottery_time_tv);
-        this.dvM = (TextView) view.findViewById(f.g.lottery_join_count_tv);
-        this.dvN = (TextView) view.findViewById(f.g.lottery_btn);
+        this.dCu = (RelativeLayout) view.findViewById(e.g.lottery_info_layout);
+        this.dCv = (TextView) view.findViewById(e.g.lottery_time_tv);
+        this.dCw = (TextView) view.findViewById(e.g.lottery_join_count_tv);
+        this.dCx = (TextView) view.findViewById(e.g.lottery_btn);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
     public int getLayout() {
-        return f.h.card_frs_lottery_new_frame;
+        return e.h.card_frs_lottery_new_frame;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
-    /* renamed from: E */
+    /* renamed from: F */
     public void a(bb bbVar) {
         if (bbVar != null) {
-            if (w.y(bbVar.vu()) > 1) {
+            if (v.y(bbVar.wx()) > 1) {
                 ArrayList<MediaData> arrayList = new ArrayList<>();
-                arrayList.add(bbVar.vu().get(0));
+                arrayList.add(bbVar.wx().get(0));
                 bbVar.n(arrayList);
             }
             super.a(bbVar);
-            this.czb.setImageClickListener(new com.baidu.tbadk.widget.layout.c() { // from class: com.baidu.tieba.frs.entelechy.view.i.1
+            this.cET.setImageClickListener(new com.baidu.tbadk.widget.layout.c() { // from class: com.baidu.tieba.frs.entelechy.view.i.1
                 @Override // com.baidu.tbadk.widget.layout.c
                 public void b(View view, int i, boolean z) {
-                    if (i.this.atE != null && i.this.WY()) {
-                        az.zI().c(i.this.mTbPageContext, new String[]{i.this.atE.getActUrl()});
+                    if (i.this.awf != null && i.this.YL()) {
+                        ay.AN().c(i.this.mTbPageContext, new String[]{i.this.awf.getActUrl()});
                     }
                 }
             });
-            com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) w.d(bbVar.vv(), 0);
+            com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) v.d(bbVar.wy(), 0);
             if (aVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.dvL.setText(StringUtils.string(getContext().getResources().getString(f.j.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.tA()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.tB())))));
-                this.dvM.setText(String.format(getContext().getResources().getString(f.j.lottery_join_num), String.valueOf(aVar.tC())));
-                this.dvN.setText(f.j.lottery_btn_text);
-                this.bHO.setCommentNumEnable(false);
+                this.dCv.setText(StringUtils.string(getContext().getResources().getString(e.j.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.uD()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.uE())))));
+                this.dCw.setText(String.format(getContext().getResources().getString(e.j.lottery_join_num), String.valueOf(aVar.uF())));
+                this.dCx.setText(e.j.lottery_btn_text);
+                this.bND.setCommentNumEnable(false);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.e
-    protected void es(boolean z) {
-        if (this.atE != null && WY()) {
-            az.zI().c(this.mTbPageContext, new String[]{this.atE.getActUrl()});
+    protected void eJ(boolean z) {
+        if (this.awf != null && YL()) {
+            ay.AN().c(this.mTbPageContext, new String[]{this.awf.getActUrl()});
         }
     }
 
-    protected boolean WY() {
+    protected boolean YL() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        com.baidu.tbadk.core.util.bb.aT(this.mTbPageContext.getPageActivity());
+        ba.bz(this.mTbPageContext.getPageActivity());
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.j(this.dvK, f.d.cp_bg_line_e);
-            am.h(this.dvL, f.d.cp_cont_f);
-            am.h(this.dvM, f.d.cp_cont_f);
-            am.h(this.dvN, f.d.cp_link_tip_a);
-            am.i(this.dvN, f.C0146f.bg_card_frs_lottery_btn);
+            al.j(this.dCu, e.d.cp_bg_line_e);
+            al.h(this.dCv, e.d.cp_cont_f);
+            al.h(this.dCw, e.d.cp_cont_f);
+            al.h(this.dCx, e.d.cp_link_tip_a);
+            al.i(this.dCx, e.f.bg_card_frs_lottery_btn);
         }
         super.d(tbPageContext, i);
     }

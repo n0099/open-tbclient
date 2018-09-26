@@ -20,7 +20,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Base64 {
     public static final int DECODE = 0;
     public static final int DONT_GUNZIP = 4;
@@ -935,7 +935,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InputStream extends FilterInputStream {
         private final boolean a;
         private final byte[] b;
@@ -1051,7 +1051,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OutputStream extends FilterOutputStream {
         private final boolean a;
         private final int b;

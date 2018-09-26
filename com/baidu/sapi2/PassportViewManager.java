@@ -41,6 +41,7 @@ public class PassportViewManager {
         public String titleText = null;
         public int titleVisible = 0;
         public float titleTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.b.sapi_sdk_title_text_size);
+        public boolean useWebviewTitle = true;
         public Drawable titleDrawableLeft = null;
         public Drawable titleDrawableTop = null;
         public Drawable titleDrawableRight = null;

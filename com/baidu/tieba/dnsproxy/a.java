@@ -7,44 +7,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String[] cOQ = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] cOR = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] cOS = {"111.206.37.190"};
-    private static final String[] cOT = {"115.239.211.146", "180.97.33.196"};
-    private volatile int cOP;
+    private static final String[] cUH = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] cUI = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] cUJ = {"111.206.37.190"};
+    private static final String[] cUK = {"115.239.211.146", "180.97.33.196"};
+    private volatile int cUG;
     private volatile String imsi;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String anv() {
-        anw();
-        if (j.jF()) {
-            return cOT[new Random().nextInt(cOT.length)];
+    public String aph() {
+        apj();
+        if (j.kL()) {
+            return cUK[new Random().nextInt(cUK.length)];
         }
-        if (j.jG()) {
-            if (this.cOP == 1) {
-                return cOQ[new Random().nextInt(cOQ.length)];
+        if (j.kM()) {
+            if (this.cUG == 1) {
+                return cUH[new Random().nextInt(cUH.length)];
             }
-            if (this.cOP == 2) {
-                return cOR[new Random().nextInt(cOR.length)];
+            if (this.cUG == 2) {
+                return cUI[new Random().nextInt(cUI.length)];
             }
-            if (this.cOP == 3) {
-                return cOS[new Random().nextInt(cOS.length)];
+            if (this.cUG == 3) {
+                return cUJ[new Random().nextInt(cUJ.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void anw() {
+    protected void apj() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
-        this.cOP = 0;
+        this.cUG = 0;
         if (this.imsi != null) {
             if (this.imsi.startsWith("46000") || this.imsi.startsWith("46002") || this.imsi.startsWith("46007")) {
-                this.cOP = 1;
+                this.cUG = 1;
             } else if (this.imsi.startsWith("46001") || this.imsi.startsWith("46006")) {
-                this.cOP = 2;
+                this.cUG = 2;
             } else if (this.imsi.startsWith("46003") || this.imsi.startsWith("46005")) {
-                this.cOP = 3;
+                this.cUG = 3;
             }
         }
     }

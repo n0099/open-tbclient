@@ -82,14 +82,14 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
             public void onSuccess(boolean z) {
                 NormalizeGuestAccountActivity.this.result.isAccountMerge = z;
                 NormalizeGuestAccountActivity.this.result.setResultCode(0);
-                NormalizeGuestAccountActivity.this.result.setResultMsg("成功");
+                NormalizeGuestAccountActivity.this.result.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
                 NormalizeGuestAccountActivity.this.normalizeSucess();
             }
 
             @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
             public void onFailure(int i, String str) {
                 NormalizeGuestAccountActivity.this.result.setResultCode(0);
-                NormalizeGuestAccountActivity.this.result.setResultMsg("成功");
+                NormalizeGuestAccountActivity.this.result.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
                 NormalizeGuestAccountActivity.this.normalizeFail();
             }
         });

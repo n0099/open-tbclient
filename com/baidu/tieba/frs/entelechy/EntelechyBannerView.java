@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class EntelechyBannerView extends BannerView {
     public EntelechyBannerView(Context context) {
@@ -19,11 +19,11 @@ public class EntelechyBannerView extends BannerView {
     }
 
     private void init() {
-        if (this.aGK != null && (this.aGK.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aGK.getLayoutParams();
-            layoutParams.topMargin = (l.f(getContext(), f.e.ds100) - l.dip2px(getContext(), 20.0f)) / 2;
+        if (this.aJY != null && (this.aJY.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aJY.getLayoutParams();
+            layoutParams.topMargin = (l.h(getContext(), e.C0141e.ds100) - l.dip2px(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
-            this.aGK.requestLayout();
+            this.aJY.requestLayout();
         }
     }
 }

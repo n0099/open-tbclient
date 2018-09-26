@@ -1,50 +1,50 @@
 package com.baidu.tieba.frs.worldcup.talkball.b;
 
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.GuessingCompetition;
 /* loaded from: classes3.dex */
 public class e {
-    private String dLO;
-    private List<c> dLT;
-    private List<String> dLU;
+    private String dTg;
+    private List<c> dTl;
+    private List<String> dTm;
 
     public void a(GuessingCompetition guessingCompetition) {
         if (guessingCompetition != null) {
-            this.dLT = new ArrayList();
+            this.dTl = new ArrayList();
             List<Competition> list = guessingCompetition.competition;
             if (list != null) {
                 for (Competition competition : list) {
                     c cVar = new c();
                     cVar.a(competition);
-                    if (cVar.aBz()) {
-                        this.dLT.add(cVar);
+                    if (cVar.aDM()) {
+                        this.dTl.add(cVar);
                     }
                 }
             }
-            this.dLO = guessingCompetition.ahead_url;
-            this.dLU = new ArrayList();
+            this.dTg = guessingCompetition.ahead_url;
+            this.dTm = new ArrayList();
             if (guessingCompetition.winning_message != null) {
                 for (String str : guessingCompetition.winning_message) {
-                    if (!ap.isEmpty(str)) {
-                        this.dLU.add(str);
+                    if (!ao.isEmpty(str)) {
+                        this.dTm.add(str);
                     }
                 }
             }
         }
     }
 
-    public List<c> aBC() {
-        return this.dLT;
+    public List<c> aDP() {
+        return this.dTl;
     }
 
-    public String aBD() {
-        return this.dLO;
+    public String aDQ() {
+        return this.dTg;
     }
 
-    public List<String> aBE() {
-        return this.dLU;
+    public List<String> aDR() {
+        return this.dTm;
     }
 }

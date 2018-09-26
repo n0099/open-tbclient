@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> eaN = new ArrayList<>(5);
-    public int eaR;
-    public int eaS;
-    int eaT;
+    private static ArrayList<a> eii = new ArrayList<>(5);
+    public int eim;
+    public int ein;
+    int eio;
     public int type;
 
-    private void PD() {
-        this.eaR = 0;
-        this.eaS = 0;
-        this.eaT = 0;
+    private void Rq() {
+        this.eim = 0;
+        this.ein = 0;
+        this.eio = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aER() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eaR, this.eaS) : ExpandableListView.getPackedPositionForGroup(this.eaR);
+    public long aHg() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.eim, this.ein) : ExpandableListView.getPackedPositionForGroup(this.eim);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a nf(int i) {
-        return r(2, i, 0, 0);
+    public static a nJ(int i) {
+        return s(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a r(int i, int i2, int i3, int i4) {
-        a aES = aES();
-        aES.type = i;
-        aES.eaR = i2;
-        aES.eaS = i3;
-        aES.eaT = i4;
-        return aES;
+    public static a s(int i, int i2, int i3, int i4) {
+        a aHh = aHh();
+        aHh.type = i;
+        aHh.eim = i2;
+        aHh.ein = i3;
+        aHh.eio = i4;
+        return aHh;
     }
 
-    private static a aES() {
+    private static a aHh() {
         a aVar;
-        synchronized (eaN) {
-            if (eaN.size() > 0) {
-                aVar = eaN.remove(0);
-                aVar.PD();
+        synchronized (eii) {
+            if (eii.size() > 0) {
+                aVar = eii.remove(0);
+                aVar.Rq();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (eaN) {
-            if (eaN.size() < 5) {
-                eaN.add(this);
+        synchronized (eii) {
+            if (eii.size() < 5) {
+                eii.add(this);
             }
         }
     }

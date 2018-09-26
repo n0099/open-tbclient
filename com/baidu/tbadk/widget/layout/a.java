@@ -2,13 +2,13 @@ package com.baidu.tbadk.widget.layout;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements b {
     @Override // com.baidu.tbadk.widget.layout.b
-    public int fH(int i) {
+    public int fT(int i) {
         if (i < 4) {
             return 1;
         }
@@ -20,7 +20,7 @@ public class a implements b {
 
     @Override // com.baidu.tbadk.widget.layout.b
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        if (w.y(list) > 0) {
+        if (v.y(list) > 0) {
             if (i == 0) {
                 return a(constrainImageLayout, list, i2);
             }
@@ -36,54 +36,54 @@ public class a implements b {
     }
 
     private int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || w.z(list)) {
+        if (constrainImageLayout == null || v.z(list)) {
             return i;
         }
-        int y = w.y(list);
+        int y = v.y(list);
         int i2 = y - 3;
         if (y == 1) {
             constrainImageLayout.setUrls(list, i);
             return 0;
         } else if (y == 2 || y == 4 || y == 5) {
             int i3 = i + 2;
-            constrainImageLayout.setUrls(w.a(list, i, i3), i);
+            constrainImageLayout.setUrls(v.b(list, i, i3), i);
             return i3;
         } else {
             int i4 = i + 3;
-            constrainImageLayout.setUrls(w.a(list, i, i4), i);
+            constrainImageLayout.setUrls(v.b(list, i, i4), i);
             return i4;
         }
     }
 
     private int b(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || w.z(list)) {
+        if (constrainImageLayout == null || v.z(list)) {
             return i;
         }
-        if (w.y(list) == 4) {
+        if (v.y(list) == 4) {
             int i2 = i + 2;
-            constrainImageLayout.setUrls(w.a(list, i, i2), i);
+            constrainImageLayout.setUrls(v.b(list, i, i2), i);
             return i2;
         }
         int i3 = i + 3;
-        constrainImageLayout.setUrls(w.a(list, i, i3), i);
+        constrainImageLayout.setUrls(v.b(list, i, i3), i);
         return i3;
     }
 
     private int c(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || w.z(list)) {
+        if (constrainImageLayout == null || v.z(list)) {
             return i;
         }
-        int y = w.y(list);
+        int y = v.y(list);
         constrainImageLayout.setImageMaxChildCount(3);
         int i2 = y - 9;
         if (i2 > 0) {
             int i3 = i + 3;
-            List<MediaData> a = w.a(list, i, i3);
-            constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(f.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
-            constrainImageLayout.setUrls(a, i, true);
+            List<MediaData> b = v.b(list, i, i3);
+            constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(e.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
+            constrainImageLayout.setUrls(b, i, true);
             return i3;
         }
-        constrainImageLayout.setUrls(w.a(list, i, y), i);
+        constrainImageLayout.setUrls(v.b(list, i, y), i);
         constrainImageLayout.setExtraCenterText(null);
         return y;
     }

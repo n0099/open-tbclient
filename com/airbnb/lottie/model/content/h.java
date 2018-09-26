@@ -3,7 +3,7 @@ package com.airbnb.lottie.model.content;
 import android.graphics.PointF;
 import android.support.annotation.FloatRange;
 import com.airbnb.lottie.model.a.m;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,77 +12,77 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
     private boolean closed;
-    private PointF nq;
-    private final List<com.airbnb.lottie.model.c> om;
+    private PointF pR;
+    private final List<com.airbnb.lottie.model.c> qN;
 
     private h(PointF pointF, boolean z, List<com.airbnb.lottie.model.c> list) {
-        this.om = new ArrayList();
-        this.nq = pointF;
+        this.qN = new ArrayList();
+        this.pR = pointF;
         this.closed = z;
-        this.om.addAll(list);
+        this.qN.addAll(list);
     }
 
     public h() {
-        this.om = new ArrayList();
+        this.qN = new ArrayList();
     }
 
     private void f(float f, float f2) {
-        if (this.nq == null) {
-            this.nq = new PointF();
+        if (this.pR == null) {
+            this.pR = new PointF();
         }
-        this.nq.set(f, f2);
+        this.pR.set(f, f2);
     }
 
-    public PointF dc() {
-        return this.nq;
+    public PointF ej() {
+        return this.pR;
     }
 
     public boolean isClosed() {
         return this.closed;
     }
 
-    public List<com.airbnb.lottie.model.c> dd() {
-        return this.om;
+    public List<com.airbnb.lottie.model.c> ek() {
+        return this.qN;
     }
 
     public void a(h hVar, h hVar2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (this.nq == null) {
-            this.nq = new PointF();
+        if (this.pR == null) {
+            this.pR = new PointF();
         }
         this.closed = hVar.isClosed() || hVar2.isClosed();
-        if (!this.om.isEmpty() && this.om.size() != hVar.dd().size() && this.om.size() != hVar2.dd().size()) {
-            throw new IllegalStateException("Curves must have the same number of control points. This: " + dd().size() + "\tShape 1: " + hVar.dd().size() + "\tShape 2: " + hVar2.dd().size());
+        if (!this.qN.isEmpty() && this.qN.size() != hVar.ek().size() && this.qN.size() != hVar2.ek().size()) {
+            throw new IllegalStateException("Curves must have the same number of control points. This: " + ek().size() + "\tShape 1: " + hVar.ek().size() + "\tShape 2: " + hVar2.ek().size());
         }
-        if (this.om.isEmpty()) {
-            for (int size = hVar.dd().size() - 1; size >= 0; size--) {
-                this.om.add(new com.airbnb.lottie.model.c());
+        if (this.qN.isEmpty()) {
+            for (int size = hVar.ek().size() - 1; size >= 0; size--) {
+                this.qN.add(new com.airbnb.lottie.model.c());
             }
         }
-        PointF dc = hVar.dc();
-        PointF dc2 = hVar2.dc();
-        f(com.airbnb.lottie.c.e.lerp(dc.x, dc2.x, f), com.airbnb.lottie.c.e.lerp(dc.y, dc2.y, f));
-        for (int size2 = this.om.size() - 1; size2 >= 0; size2--) {
-            com.airbnb.lottie.model.c cVar = hVar.dd().get(size2);
-            com.airbnb.lottie.model.c cVar2 = hVar2.dd().get(size2);
-            PointF cd = cVar.cd();
-            PointF ce = cVar.ce();
-            PointF cf = cVar.cf();
-            PointF cd2 = cVar2.cd();
-            PointF ce2 = cVar2.ce();
-            PointF cf2 = cVar2.cf();
-            this.om.get(size2).c(com.airbnb.lottie.c.e.lerp(cd.x, cd2.x, f), com.airbnb.lottie.c.e.lerp(cd.y, cd2.y, f));
-            this.om.get(size2).d(com.airbnb.lottie.c.e.lerp(ce.x, ce2.x, f), com.airbnb.lottie.c.e.lerp(ce.y, ce2.y, f));
-            this.om.get(size2).e(com.airbnb.lottie.c.e.lerp(cf.x, cf2.x, f), com.airbnb.lottie.c.e.lerp(cf.y, cf2.y, f));
+        PointF ej = hVar.ej();
+        PointF ej2 = hVar2.ej();
+        f(com.airbnb.lottie.c.e.lerp(ej.x, ej2.x, f), com.airbnb.lottie.c.e.lerp(ej.y, ej2.y, f));
+        for (int size2 = this.qN.size() - 1; size2 >= 0; size2--) {
+            com.airbnb.lottie.model.c cVar = hVar.ek().get(size2);
+            com.airbnb.lottie.model.c cVar2 = hVar2.ek().get(size2);
+            PointF dk = cVar.dk();
+            PointF dl = cVar.dl();
+            PointF dm = cVar.dm();
+            PointF dk2 = cVar2.dk();
+            PointF dl2 = cVar2.dl();
+            PointF dm2 = cVar2.dm();
+            this.qN.get(size2).c(com.airbnb.lottie.c.e.lerp(dk.x, dk2.x, f), com.airbnb.lottie.c.e.lerp(dk.y, dk2.y, f));
+            this.qN.get(size2).d(com.airbnb.lottie.c.e.lerp(dl.x, dl2.x, f), com.airbnb.lottie.c.e.lerp(dl.y, dl2.y, f));
+            this.qN.get(size2).e(com.airbnb.lottie.c.e.lerp(dm.x, dm2.x, f), com.airbnb.lottie.c.e.lerp(dm.y, dm2.y, f));
         }
     }
 
     public String toString() {
-        return "ShapeData{numCurves=" + this.om.size() + "closed=" + this.closed + '}';
+        return "ShapeData{numCurves=" + this.qN.size() + "closed=" + this.closed + '}';
     }
 
     /* loaded from: classes2.dex */
     public static class a implements m.a<h> {
-        public static final a on = new a();
+        public static final a qO = new a();
 
         private a() {
         }
@@ -95,21 +95,21 @@ public class h {
             JSONObject jSONObject2 = null;
             if (obj instanceof JSONArray) {
                 Object opt = ((JSONArray) obj).opt(0);
-                if (!(opt instanceof JSONObject) || !((JSONObject) opt).has(NotifyType.VIBRATE)) {
+                if (!(opt instanceof JSONObject) || !((JSONObject) opt).has("v")) {
                     jSONObject = null;
                 } else {
                     jSONObject = (JSONObject) opt;
                 }
                 jSONObject2 = jSONObject;
-            } else if ((obj instanceof JSONObject) && ((JSONObject) obj).has(NotifyType.VIBRATE)) {
+            } else if ((obj instanceof JSONObject) && ((JSONObject) obj).has("v")) {
                 jSONObject2 = (JSONObject) obj;
             }
             if (jSONObject2 == null) {
                 return null;
             }
-            JSONArray optJSONArray = jSONObject2.optJSONArray(NotifyType.VIBRATE);
+            JSONArray optJSONArray = jSONObject2.optJSONArray("v");
             JSONArray optJSONArray2 = jSONObject2.optJSONArray("i");
-            JSONArray optJSONArray3 = jSONObject2.optJSONArray("o");
+            JSONArray optJSONArray3 = jSONObject2.optJSONArray(Config.OS);
             boolean optBoolean = jSONObject2.optBoolean("c", false);
             if (optJSONArray == null || optJSONArray2 == null || optJSONArray3 == null || optJSONArray.length() != optJSONArray2.length() || optJSONArray.length() != optJSONArray3.length()) {
                 throw new IllegalStateException("Unable to process points array or tangents. " + jSONObject2);

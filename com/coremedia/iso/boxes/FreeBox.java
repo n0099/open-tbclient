@@ -57,7 +57,7 @@ public class FreeBox implements Box {
         }
         ByteBuffer allocate = ByteBuffer.allocate(8);
         IsoTypeWriter.writeUInt32(allocate, this.data.limit() + 8);
-        allocate.put(TYPE.getBytes());
+        allocate.put("free".getBytes());
         allocate.rewind();
         writableByteChannel.write(allocate);
         allocate.rewind();
@@ -92,7 +92,7 @@ public class FreeBox implements Box {
 
     @Override // com.coremedia.iso.boxes.Box
     public String getType() {
-        return TYPE;
+        return "free";
     }
 
     @Override // com.coremedia.iso.boxes.Box

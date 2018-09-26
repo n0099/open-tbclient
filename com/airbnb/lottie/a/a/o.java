@@ -7,30 +7,30 @@ import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class o implements k, a.InterfaceC0006a {
-    private final com.airbnb.lottie.f jR;
-    private final Path lh = new Path();
+    private final com.airbnb.lottie.f mp;
+    private final Path nJ = new Path();
     @Nullable
-    private q lq;
-    private boolean ly;
-    private final com.airbnb.lottie.a.b.a<?, Path> mb;
+    private q nS;
+    private boolean nZ;
     private final String name;
+    private final com.airbnb.lottie.a.b.a<?, Path> oE;
 
     public o(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
-        this.jR = fVar;
-        this.mb = kVar.df().ci();
-        aVar.a(this.mb);
-        this.mb.b(this);
+        this.mp = fVar;
+        this.oE = kVar.em().dp();
+        aVar.a(this.oE);
+        this.oE.b(this);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0006a
-    public void bF() {
+    public void cM() {
         invalidate();
     }
 
     private void invalidate() {
-        this.ly = false;
-        this.jR.invalidateSelf();
+        this.nZ = false;
+        this.mp.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -40,9 +40,9 @@ public class o implements k, a.InterfaceC0006a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).bO() == ShapeTrimPath.Type.Simultaneously) {
-                    this.lq = (q) bVar;
-                    this.lq.a(this);
+                if ((bVar instanceof q) && ((q) bVar).cV() == ShapeTrimPath.Type.Simultaneously) {
+                    this.nS = (q) bVar;
+                    this.nS.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -53,15 +53,15 @@ public class o implements k, a.InterfaceC0006a {
 
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
-        if (this.ly) {
-            return this.lh;
+        if (this.nZ) {
+            return this.nJ;
         }
-        this.lh.reset();
-        this.lh.set(this.mb.getValue());
-        this.lh.setFillType(Path.FillType.EVEN_ODD);
-        com.airbnb.lottie.c.f.a(this.lh, this.lq);
-        this.ly = true;
-        return this.lh;
+        this.nJ.reset();
+        this.nJ.set(this.oE.getValue());
+        this.nJ.setFillType(Path.FillType.EVEN_ODD);
+        com.airbnb.lottie.c.f.a(this.nJ, this.nS);
+        this.nZ = true;
+        return this.nJ;
     }
 
     @Override // com.airbnb.lottie.a.a.b

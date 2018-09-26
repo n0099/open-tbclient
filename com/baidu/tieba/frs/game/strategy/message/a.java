@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.core.data.ab;
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.data.b;
 import com.baidu.tieba.frs.game.strategy.tab.e;
@@ -15,8 +15,8 @@ import tbclient.GameForumGuideTab.GameForumSubTab;
 import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
 public class a {
-    public static List<e> br(List<GameForumSubTab> list) {
-        if (w.z(list)) {
+    public static List<e> bs(List<GameForumSubTab> list) {
+        if (v.z(list)) {
             return null;
         }
         ArrayList arrayList = new ArrayList(list.size());
@@ -34,8 +34,8 @@ public class a {
         return arrayList;
     }
 
-    public static List<h> bs(List<ThreadInfo> list) {
-        if (w.z(list)) {
+    public static List<h> bt(List<ThreadInfo> list) {
+        if (v.z(list)) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
@@ -47,13 +47,13 @@ public class a {
             }
             b bVar = new b();
             bb bbVar = new bb();
-            bVar.Z(bbVar);
+            bVar.aa(bbVar);
             bbVar.a(list.get(i2));
-            bbVar.ca(3);
-            bbVar.vR();
-            if (!TextUtils.isEmpty(bbVar.wb())) {
+            bbVar.cj(3);
+            bbVar.wW();
+            if (!TextUtils.isEmpty(bbVar.xg())) {
                 ab abVar = new ab();
-                abVar.dh(bbVar.wb());
+                abVar.dz(bbVar.xg());
                 linkedList.add(abVar);
             } else {
                 linkedList.add(bVar);

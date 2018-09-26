@@ -8,12 +8,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.util.Map;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
@@ -31,15 +31,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.oe());
+        addParam("ft", gVar.pk());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.og()));
-        addParam("fc", String.valueOf(gVar.og()));
+        addParam("flr", String.valueOf(gVar.pm()));
+        addParam("fc", String.valueOf(gVar.pm()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.oh().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.pn().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -55,8 +55,8 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("fmt", "json");
         addParam("android_id", androidId());
         addParam("ot", "2");
-        addParam("ct", "2");
-        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.jK()));
+        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
+        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.kQ()));
         addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
         addParam("is_https", 1);
     }
@@ -64,8 +64,8 @@ public class AfdSyncRequestMessage extends HttpMessage {
     private static JSONObject create(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("k", str);
-            jSONObject.put(NotifyType.VIBRATE, str2);
+            jSONObject.put(Config.APP_KEY, str);
+            jSONObject.put("v", str2);
             return jSONObject;
         } catch (JSONException e) {
             return null;

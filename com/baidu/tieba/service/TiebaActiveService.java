@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.l;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -50,9 +50,9 @@ public class TiebaActiveService extends BdBaseService {
     private String getChannelyFile() {
         String str = null;
         try {
-            File dU = l.dU(TbConfig.CHANNEL_FILE);
-            if (dU != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(dU));
+            File em = l.em(TbConfig.CHANNEL_FILE);
+            if (em != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(em));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -68,9 +68,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File ea = l.ea(TbConfig.CHANNEL_FILE);
-                if (ea != null) {
-                    FileWriter fileWriter = new FileWriter(ea);
+                File es = l.es(TbConfig.CHANNEL_FILE);
+                if (es != null) {
+                    FileWriter fileWriter = new FileWriter(es);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -142,32 +142,32 @@ public class TiebaActiveService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        y gxw;
+        x gEN;
 
         private a() {
-            this.gxw = null;
+            this.gEN = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            String yo;
+            String zt;
             try {
-                this.gxw = new y("http://114.113.149.3:8086/partnersService");
-                this.gxw.o("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
-                this.gxw.o("imei", TbadkCoreApplication.getInst().getImei());
-                this.gxw.o("model", Build.MODEL);
-                this.gxw.o("edition", TbConfig.getVersion());
-                this.gxw.o("system", Build.VERSION.SDK);
-                this.gxw.yM().zK().zN().mIsBaiduServer = false;
-                yo = this.gxw.yo();
+                this.gEN = new x("http://114.113.149.3:8086/partnersService");
+                this.gEN.u("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
+                this.gEN.u("imei", TbadkCoreApplication.getInst().getImei());
+                this.gEN.u("model", Build.MODEL);
+                this.gEN.u("edition", TbConfig.getVersion());
+                this.gEN.u("system", Build.VERSION.SDK);
+                this.gEN.zR().AP().AS().mIsBaiduServer = false;
+                zt = this.gEN.zt();
             } catch (Exception e) {
                 b.getInstance().putInt("active", 1);
                 BdLog.e(e.getMessage());
             }
-            if (this.gxw.yP()) {
-                return yo;
+            if (this.gEN.zU()) {
+                return zt;
             }
             return null;
         }
@@ -175,8 +175,8 @@ public class TiebaActiveService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             TiebaActiveService.this.mActiveTask = null;
-            if (this.gxw != null) {
-                this.gxw.hN();
+            if (this.gEN != null) {
+                this.gEN.iT();
             }
             super.cancel(true);
         }

@@ -32,7 +32,6 @@ import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
@@ -1207,7 +1206,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             float[] fArr;
             String str = " ";
             for (int i = 0; i < pathDataNodeArr.length; i++) {
-                str = str + pathDataNodeArr[i].mType + SystemInfoUtil.COLON;
+                str = str + pathDataNodeArr[i].mType + ":";
                 for (int i2 = 0; i2 < pathDataNodeArr[i].mParams.length; i2++) {
                     str = str + fArr[i2] + ",";
                 }

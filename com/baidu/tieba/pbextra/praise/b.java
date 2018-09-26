@@ -6,16 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private View bsg;
-    private HeadImageView fSn;
-    private TextView fSo;
-    private TextView fSp;
-    private ImageView fSq;
+    private View bxX;
+    private HeadImageView fZD;
+    private TextView fZE;
+    private TextView fZF;
+    private ImageView fZG;
 
     public static b c(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.bsg = null;
-        this.fSn = null;
-        this.fSo = null;
-        this.fSp = null;
-        this.fSq = null;
-        this.bsg = LayoutInflater.from(context).inflate(f.h.zan_list_item, (ViewGroup) null);
-        this.fSn = (HeadImageView) this.bsg.findViewById(f.g.zan_list_item_head);
-        this.fSo = (TextView) this.bsg.findViewById(f.g.zan_list_item_name);
-        this.fSp = (TextView) this.bsg.findViewById(f.g.zan_list_item_time);
-        this.fSq = (ImageView) this.bsg.findViewById(f.g.zan_list_item_line_bottom);
-        this.fSq.setVisibility(0);
-        this.bsg.setTag(this);
+        this.bxX = null;
+        this.fZD = null;
+        this.fZE = null;
+        this.fZF = null;
+        this.fZG = null;
+        this.bxX = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
+        this.fZD = (HeadImageView) this.bxX.findViewById(e.g.zan_list_item_head);
+        this.fZE = (TextView) this.bxX.findViewById(e.g.zan_list_item_name);
+        this.fZF = (TextView) this.bxX.findViewById(e.g.zan_list_item_time);
+        this.fZG = (ImageView) this.bxX.findViewById(e.g.zan_list_item_line_bottom);
+        this.fZG.setVisibility(0);
+        this.bxX.setTag(this);
     }
 
     public View getView() {
-        return this.bsg;
+        return this.bxX;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.fSo.setText(str);
-        this.fSn.setImageDrawable(null);
-        this.fSp.setText(ap.w(j));
-        this.fSn.startLoad(str2, 28, false);
+        this.fZE.setText(str);
+        this.fZD.setImageDrawable(null);
+        this.fZF.setText(ao.A(j));
+        this.fZD.startLoad(str2, 28, false);
     }
 }

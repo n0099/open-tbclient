@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import android.widget.Scroller;
 /* loaded from: classes2.dex */
 public class BlankView extends View {
-    private a fKg;
+    private a fRL;
     private Scroller mScroller;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void ayo();
+        void aAD();
     }
 
     public void setScrollCallBack(a aVar) {
-        this.fKg = aVar;
+        this.fRL = aVar;
     }
 
     public BlankView(Context context) {
@@ -31,7 +31,7 @@ public class BlankView extends View {
         super(context, attributeSet, i);
     }
 
-    public void ays() {
+    public void aAH() {
         if (this.mScroller == null) {
             this.mScroller = new Scroller(getContext());
         }
@@ -53,8 +53,8 @@ public class BlankView extends View {
                     layoutParams.height = currY;
                     setLayoutParams(layoutParams);
                 }
-            } else if (this.fKg != null) {
-                this.fKg.ayo();
+            } else if (this.fRL != null) {
+                this.fRL.aAD();
             }
         }
     }

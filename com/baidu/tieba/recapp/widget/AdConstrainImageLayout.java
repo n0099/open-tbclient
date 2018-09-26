@@ -9,20 +9,20 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.adp.widget.ImageView.a;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.imageManager.c;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AdConstrainImageLayout extends ConstrainImageLayout {
-    private TbImageView.b gvP;
+    private TbImageView.b gDg;
 
     public AdConstrainImageLayout(Context context) {
         super(context);
-        this.gvP = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.gDg = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -32,10 +32,10 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    a he = c.IQ().he(com.baidu.adp.lib.f.c.ih().f(tbImageView.getUrl(), 17));
-                    if (he != null) {
-                        int width = he.getWidth();
-                        i = he.getHeight();
+                    a hA = c.Kg().hA(com.baidu.adp.lib.f.c.jn().k(tbImageView.getUrl(), 17));
+                    if (hA != null) {
+                        int width = hA.getWidth();
+                        i = hA.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -66,7 +66,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f2, f2);
-                            if (AdConstrainImageLayout.this.bcJ && i > i2) {
+                            if (AdConstrainImageLayout.this.bge && i > i2) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f);
@@ -84,7 +84,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gvP = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.gDg = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i;
@@ -94,10 +94,10 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    a he = c.IQ().he(com.baidu.adp.lib.f.c.ih().f(tbImageView.getUrl(), 17));
-                    if (he != null) {
-                        int width = he.getWidth();
-                        i = he.getHeight();
+                    a hA = c.Kg().hA(com.baidu.adp.lib.f.c.jn().k(tbImageView.getUrl(), 17));
+                    if (hA != null) {
+                        int width = hA.getWidth();
+                        i = hA.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -128,7 +128,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f2, f2);
-                            if (AdConstrainImageLayout.this.bcJ && i > i2) {
+                            if (AdConstrainImageLayout.this.bge && i > i2) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f);
@@ -146,7 +146,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
 
     public AdConstrainImageLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gvP = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
+        this.gDg = new TbImageView.b() { // from class: com.baidu.tieba.recapp.widget.AdConstrainImageLayout.1
             @Override // com.baidu.tbadk.widget.TbImageView.b
             public void a(TbImageView tbImageView, Canvas canvas) {
                 int i2;
@@ -156,10 +156,10 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    a he = c.IQ().he(com.baidu.adp.lib.f.c.ih().f(tbImageView.getUrl(), 17));
-                    if (he != null) {
-                        int width = he.getWidth();
-                        i2 = he.getHeight();
+                    a hA = c.Kg().hA(com.baidu.adp.lib.f.c.jn().k(tbImageView.getUrl(), 17));
+                    if (hA != null) {
+                        int width = hA.getWidth();
+                        i2 = hA.getHeight();
                         i22 = width;
                     } else {
                         i2 = 0;
@@ -190,7 +190,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                                 f3 = 0.0f;
                             }
                             imageMatrix.setScale(f2, f2);
-                            if (AdConstrainImageLayout.this.bcJ && i2 > i22) {
+                            if (AdConstrainImageLayout.this.bge && i2 > i22) {
                                 imageMatrix.postTranslate(f3, 0.0f);
                             } else {
                                 imageMatrix.postTranslate(f3, f);
@@ -209,9 +209,8 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
     @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout
     public void setUrls(List<MediaData> list, int i, boolean z) {
         int y;
-        super.setUrls(list, i, z);
-        if (this.bcA != null && (y = w.y(list)) > 0) {
-            sy(y);
+        if (this.bfV != null && (y = v.y(list)) > 0) {
+            sW(y);
             int childCount = getChildCount();
             int i2 = 0;
             while (i2 < childCount) {
@@ -241,7 +240,7 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
                     }
                     tbImageView.setScaleType(ImageView.ScaleType.MATRIX);
                     tbImageView.setForegroundColor(0);
-                    tbImageView.setOnDrawListener(this.gvP);
+                    tbImageView.setOnDrawListener(this.gDg);
                     tbImageView.startLoad(thumbnails_url, 17, false);
                 }
                 i2++;
@@ -249,19 +248,19 @@ public class AdConstrainImageLayout extends ConstrainImageLayout {
         }
     }
 
-    private void sy(int i) {
+    private void sW(int i) {
         int childCount = getChildCount() - i;
         if (childCount > 0) {
             removeViews(i, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
-                TbImageView m9if = this.bcA.m9if();
-                m9if.setContentDescription(getResources().getString(f.j.editor_image));
-                m9if.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                m9if.setDefaultBg(am.getDrawable(f.d.common_color_10220));
-                m9if.setPageId(this.aRC);
-                addView(m9if);
+                TbImageView jl = this.bfV.jl();
+                jl.setContentDescription(getResources().getString(e.j.editor_image));
+                jl.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                jl.setDefaultBg(al.getDrawable(e.d.common_color_10220));
+                jl.setPageId(this.aUU);
+                addView(jl);
             }
         }
     }

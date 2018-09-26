@@ -1,13 +1,13 @@
 package com.baidu.tbadk.pageStayDuration;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static String K(List<String> list) {
-        if (w.y(list) <= 0) {
+    public static String L(List<String> list) {
+        if (v.y(list) <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -34,9 +34,9 @@ public class c {
     }
 
     public static List<String> f(List<String> list, int i) {
-        int y = w.y(list);
+        int y = v.y(list);
         if (y > 0 && i >= 0 && y > i) {
-            return w.a(list, y - i, y);
+            return v.b(list, y - i, y);
         }
         return list;
     }

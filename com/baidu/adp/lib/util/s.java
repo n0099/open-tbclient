@@ -4,32 +4,32 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class s {
-    private static final char[] DE = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] FZ = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String toMd5(byte[] bArr) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
-            return m(messageDigest.digest());
+            return u(messageDigest.digest());
         } catch (Exception e) {
             BdLog.e(e);
             return null;
         }
     }
 
-    public static String m(byte[] bArr) {
+    public static String u(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(DE[(bArr[i] & 240) >>> 4]);
-            sb.append(DE[bArr[i] & 15]);
+            sb.append(FZ[(bArr[i] & 240) >>> 4]);
+            sb.append(FZ[bArr[i] & 15]);
         }
         return sb.toString();
     }
 
-    public static String g(InputStream inputStream) {
+    public static String i(InputStream inputStream) {
         String str = null;
         if (inputStream != null) {
             try {
@@ -42,17 +42,17 @@ public class s {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = m(messageDigest.digest());
+                str = u(messageDigest.digest());
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {
-                n.f(inputStream);
+                n.h(inputStream);
             }
         }
         return str;
     }
 
-    public static String bm(String str) {
+    public static String bD(String str) {
         if (str == null) {
             return null;
         }

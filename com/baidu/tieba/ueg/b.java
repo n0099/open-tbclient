@@ -6,41 +6,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean haW = false;
-    private UEGCancelModel.a haU;
-    public int haV = at.a.arv;
-    private UEGCancelModel haT = new UEGCancelModel();
+    public static boolean hiO = false;
+    private UEGCancelModel.a hiM;
+    public int hiN = as.a.atT;
+    private UEGCancelModel hiL = new UEGCancelModel();
 
     public b() {
-        if (this.haU == null) {
-            this.haU = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.hiM == null) {
+            this.hiM = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.haW) {
+                    if (blockPopInfoData != null && !b.hiO) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.haT.a(this.haU);
+        this.hiL.a(this.hiM);
     }
 
-    public void uu(int i) {
-        this.haV = i;
-        this.haT.cancelRequest();
+    public void uU(int i) {
+        this.hiN = i;
+        this.hiL.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BlockPopInfoData blockPopInfoData) {
         boolean z = false;
-        if (blockPopInfoData != null && com.baidu.adp.base.a.ew().ex() != null) {
+        if (blockPopInfoData != null && com.baidu.adp.base.a.fE().fF() != null) {
             String str = blockPopInfoData.block_id_code;
             int i = blockPopInfoData.win_type;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -48,59 +48,59 @@ public class b {
             String str3 = blockPopInfoData.ok_info;
             String str4 = blockPopInfoData.ahead_info;
             String str5 = blockPopInfoData.block_info;
-            if ((i == 1 || i == 2 || i == 3 || i == 4) && !ap.isEmpty(currentAccount) && !ap.isEmpty(str)) {
+            if ((i == 1 || i == 2 || i == 3 || i == 4) && !ao.isEmpty(currentAccount) && !ao.isEmpty(str)) {
                 boolean z2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(str + i + currentAccount, false);
-                if ((!ap.isEmpty(str2) || i == 4) && !ap.isEmpty(str3) && ((!ap.isEmpty(str4) || i == 4) && !ap.isEmpty(str5))) {
+                if ((!ao.isEmpty(str2) || i == 4) && !ao.isEmpty(str3) && ((!ao.isEmpty(str4) || i == 4) && !ao.isEmpty(str5))) {
                     z = true;
                 }
                 if (!z2 && z) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new an("c12534").r("obj_locate", this.haV).r("obj_type", i));
+                    TiebaStatic.log(new am("c12534").w("obj_locate", this.hiN).w("obj_type", i));
                 }
             }
         }
     }
 
     private void b(final BlockPopInfoData blockPopInfoData) {
-        Activity ex;
-        if (blockPopInfoData != null && (ex = com.baidu.adp.base.a.ew().ex()) != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(ex);
-            aVar.dB(blockPopInfoData.block_info);
+        Activity fF;
+        if (blockPopInfoData != null && (fF = com.baidu.adp.base.a.fE().fF()) != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fF);
+            aVar.dT(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new an("c12535").r("obj_locate", b.this.haV).r("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12535").w("obj_locate", b.this.hiN).w("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new an("c12536").r("obj_locate", b.this.haV).r("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12536").w("obj_locate", b.this.hiN).w("obj_type", blockPopInfoData.win_type));
                 }
             });
-            aVar.b(((f) ex).getPageContext());
-            aVar.xe();
+            aVar.b(((f) fF).getPageContext());
+            aVar.yl();
         }
     }
 
-    public void mP(boolean z) {
-        haW = z;
+    public void nm(boolean z) {
+        hiO = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfoData blockPopInfoData) {
-        Activity ex;
-        if (blockPopInfoData != null && (ex = com.baidu.adp.base.a.ew().ex()) != null) {
-            AntiHelper.ar(ex, blockPopInfoData.ahead_url);
+        Activity fF;
+        if (blockPopInfoData != null && (fF = com.baidu.adp.base.a.fE().fF()) != null) {
+            AntiHelper.aH(fF, blockPopInfoData.ahead_url);
         }
     }
 
     public void onDestroy() {
-        if (this.haT != null) {
-            this.haT.onDestroy();
+        if (this.hiL != null) {
+            this.hiL.onDestroy();
         }
     }
 }

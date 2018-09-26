@@ -13,9 +13,10 @@ import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler;
 import com.baidu.cloudsdk.common.http.JsonHttpResponseHandler;
 import com.baidu.cloudsdk.common.http.RequestParams;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.fsg.biometrics.base.b.c;
-import com.baidu.fsg.biometrics.base.d.h;
+import com.baidu.fsg.face.base.b.c;
+import com.baidu.fsg.face.base.d.h;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
@@ -84,15 +85,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0083a {
+    public static class C0080a {
         public static a a = new a();
 
-        private C0083a() {
+        private C0080a() {
         }
     }
 
     public static a a() {
-        return C0083a.a;
+        return C0080a.a;
     }
 
     a() {
@@ -146,7 +147,7 @@ public class a {
     private void a(SapiConfiguration sapiConfiguration) {
         String str;
         RequestParams requestParams = new RequestParams();
-        requestParams.put("tpl", sapiConfiguration.tpl);
+        requestParams.put(BaiduRimConstants.TPL_INIT_KEY, sapiConfiguration.tpl);
         requestParams.put("pack_name", this.c.getPackageName());
         requestParams.put("host_ver", "1.0.3");
         String a2 = a(sapiConfiguration.context, this.c.getPackageName());
@@ -241,7 +242,7 @@ public class a {
                     }
                 }
             } catch (Throwable th) {
-                Log.e(a, "startPassPi()", Info.kBaiduTimeKey, th.toString());
+                Log.e(a, "startPassPi()", "t", th.toString());
             }
         }
     }
@@ -333,9 +334,8 @@ public class a {
                                 this.l++;
                                 if (next != null) {
                                     new AsyncHttpClient().get(this.c, next.url, new BinaryHttpResponseHandler(Looper.getMainLooper(), new String[]{"application/octet-stream", "*/*", "application/apk", "image/png", "application/vnd.android.package-archive"}) { // from class: com.baidu.sapi2.passhost.framework.a.3
-                                        /* JADX INFO: Access modifiers changed from: protected */
                                         @Override // com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler
-                                        public void onSuccess(int i, byte[] bArr) {
+                                        protected void onSuccess(int i, byte[] bArr) {
                                             a.this.a(next, bArr);
                                         }
 

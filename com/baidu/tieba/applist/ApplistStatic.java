@@ -5,14 +5,14 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.data.e;
+import com.baidu.tbadk.coreExtra.data.f;
 /* loaded from: classes3.dex */
 public class ApplistStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001370, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.applist.ApplistStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                c.aiz().eq(false);
+                c.akk().eH(false);
                 return null;
             }
         });
@@ -22,8 +22,8 @@ public class ApplistStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof e)) {
-                    new b().execute((e) customResponsedMessage.getData());
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof f)) {
+                    new b().execute((f) customResponsedMessage.getData());
                 }
             }
         });

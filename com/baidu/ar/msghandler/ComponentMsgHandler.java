@@ -12,6 +12,7 @@ import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.MsgConstants;
 import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
+import com.baidu.mobstat.Config;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class ComponentMsgHandler implements d {
@@ -55,7 +56,7 @@ public class ComponentMsgHandler implements d {
                 case 4100:
                     if (ARConfig.getARType() == 5) {
                         Bundle bundle = new Bundle();
-                        bundle.putFloat("x", ((Float) hashMap.get("x")).floatValue());
+                        bundle.putFloat(Config.EVENT_HEAT_X, ((Float) hashMap.get(Config.EVENT_HEAT_X)).floatValue());
                         bundle.putFloat("y", ((Float) hashMap.get("y")).floatValue());
                         bundle.putInt("type", ((Integer) hashMap.get("type")).intValue());
                         bundle.putFloat("distance", ((Float) hashMap.get("distance")).floatValue());
