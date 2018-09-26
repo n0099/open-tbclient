@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.a.a;
 import com.baidu.sofire.b.r;
 import com.baidu.sofire.core.ApkInfo;
@@ -14,7 +13,6 @@ import com.baidu.sofire.core.d;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.core.f;
 import com.baidu.sofire.jni.Asc;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes.dex */
 public class F implements FI {
@@ -66,7 +64,7 @@ public class F implements FI {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("r", (Integer) 1);
                             contentValues.put("b", str2);
-                            contentValues.put(Info.kBaiduTimeKey, str3);
+                            contentValues.put("t", str3);
                             aVar.c.update("pgn", contentValues, "p=?", new String[]{str});
                         }
                     }
@@ -309,7 +307,7 @@ public class F implements FI {
             if (aVar != null) {
                 int i2 = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(NotifyType.SOUND, Integer.valueOf(i2));
+                contentValues.put("s", Integer.valueOf(i2));
                 aVar.c.update("pgn", contentValues, "k=" + i + " and n=1", null);
             }
         } catch (Throwable th) {
@@ -324,7 +322,7 @@ public class F implements FI {
             if (aVar != null) {
                 int i = z ? 1 : 0;
                 ContentValues contentValues = new ContentValues();
-                contentValues.put(NotifyType.SOUND, Integer.valueOf(i));
+                contentValues.put("s", Integer.valueOf(i));
                 aVar.c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
             }
         } catch (Throwable th) {

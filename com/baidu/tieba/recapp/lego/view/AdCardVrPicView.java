@@ -4,11 +4,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardVrPicView extends AdCardBaseView {
-    private VrPicView gqX;
+    private VrPicView gyp;
 
     public AdCardVrPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -16,37 +16,37 @@ public class AdCardVrPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getCustomLayout() {
-        return f.h.card_ad_vr_pic;
+        return e.h.card_ad_vr_pic;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void by(View view) {
-        this.gqX = (VrPicView) view.findViewById(f.g.vr_pic_view);
+    protected void bL(View view) {
+        this.gyp = (VrPicView) view.findViewById(e.g.vr_pic_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList != null && adCard.threadPicList.length >= 1) {
             String str = adCard.threadPicList[0].pic;
-            this.gpQ.setVisibility(0);
+            this.gxi.setVisibility(0);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            advertAppInfo.adQ.width = this.mMaxWidth;
-            advertAppInfo.adQ.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
-            advertAppInfo.adQ.aeb = str;
-            this.gqX.a(this.mContext, advertAppInfo);
-            ViewGroup.LayoutParams layoutParams = this.gqX.getLayoutParams();
+            advertAppInfo.agr.width = this.mMaxWidth;
+            advertAppInfo.agr.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
+            advertAppInfo.agr.agC = str;
+            this.gyp.a(this.mContext, advertAppInfo);
+            ViewGroup.LayoutParams layoutParams = this.gyp.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = advertAppInfo.adQ.width;
-                layoutParams.height = advertAppInfo.adQ.height;
+                layoutParams.width = advertAppInfo.agr.width;
+                layoutParams.height = advertAppInfo.agr.height;
             }
-            this.gqX.setLayoutParams(layoutParams);
+            this.gyp.setLayoutParams(layoutParams);
             return;
         }
-        this.gpQ.setVisibility(8);
+        this.gxi.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getLayout() {
-        return f.h.card_ad;
+        return e.h.card_ad;
     }
 }

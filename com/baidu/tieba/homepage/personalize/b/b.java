@@ -10,24 +10,24 @@ import com.baidu.adp.widget.ListView.n;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.card.v;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private n dZC;
+    private n egY;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dZC = new n() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.egY = new n() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             @Override // com.baidu.adp.widget.ListView.n
             public void a(View view, h hVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
-                TiebaStatic.log(new an("c11273"));
+                TiebaStatic.log(new am("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
             }
         };
         this.mPageContext = tbPageContext;
-        setOnAdapterItemClickListener(this.dZC);
+        setOnAdapterItemClickListener(this.egY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,18 +43,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        v.ajb().a(new an("c11272"));
-        aVar.dZE.a(cVar);
+        v.akM().a(new am("c11272"));
+        aVar.eha.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes2.dex */
     public static class a extends q.a {
-        public com.baidu.tieba.homepage.personalize.b.a dZE;
+        public com.baidu.tieba.homepage.personalize.b.a eha;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.dZE = aVar;
+            this.eha = aVar;
         }
     }
 }

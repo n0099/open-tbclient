@@ -26,7 +26,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.davemorrissey.labs.subscaleview.decoder.CompatDecoderFactory;
 import com.davemorrissey.labs.subscaleview.decoder.DecoderFactory;
 import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder;
@@ -756,9 +755,9 @@ public class SubsamplingScaleImageView extends View {
                     }
                     if (this.debug) {
                         canvas.drawText("Scale: " + String.format("%.2f", Float.valueOf(this.scale)), 5.0f, 15.0f, this.debugPaint);
-                        canvas.drawText("Translate: " + String.format("%.2f", Float.valueOf(this.vTranslate.x)) + SystemInfoUtil.COLON + String.format("%.2f", Float.valueOf(this.vTranslate.y)), 5.0f, 35.0f, this.debugPaint);
+                        canvas.drawText("Translate: " + String.format("%.2f", Float.valueOf(this.vTranslate.x)) + ":" + String.format("%.2f", Float.valueOf(this.vTranslate.y)), 5.0f, 35.0f, this.debugPaint);
                         PointF center = getCenter();
-                        canvas.drawText("Source center: " + String.format("%.2f", Float.valueOf(center.x)) + SystemInfoUtil.COLON + String.format("%.2f", Float.valueOf(center.y)), 5.0f, 55.0f, this.debugPaint);
+                        canvas.drawText("Source center: " + String.format("%.2f", Float.valueOf(center.x)) + ":" + String.format("%.2f", Float.valueOf(center.y)), 5.0f, 55.0f, this.debugPaint);
                         if (this.anim == null) {
                             return;
                         }

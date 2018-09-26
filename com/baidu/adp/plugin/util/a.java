@@ -21,7 +21,7 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0022a {
-        public boolean Jj;
+        public boolean LC;
         public String mErrMsg;
     }
 
@@ -70,7 +70,7 @@ public class a {
                         @Override // java.util.Comparator
                         public int compare(Object obj, Object obj2) {
                             if ((obj instanceof String) && (obj2 instanceof String)) {
-                                return a.G((String) obj, (String) obj2);
+                                return a.N((String) obj, (String) obj2);
                             }
                             return 0;
                         }
@@ -115,68 +115,68 @@ public class a {
         try {
             DexClassLoader dexClassLoader = (DexClassLoader) classLoader2;
             dexClassLoader.loadClass(str);
-            Object y = y((PathClassLoader) classLoader);
-            Object y2 = y(dexClassLoader);
+            Object z2 = z((PathClassLoader) classLoader);
+            Object z3 = z(dexClassLoader);
             if (Build.VERSION.SDK_INT > 25 || (Build.VERSION.SDK_INT == 25 && Util.isPreview())) {
-                Method declaredMethod = y.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
+                Method declaredMethod = z2.getClass().getDeclaredMethod("addDexPath", String.class, File.class);
                 declaredMethod.setAccessible(true);
-                declaredMethod.invoke(y, str2, null);
-                Object d = d(A(y), A(y2));
+                declaredMethod.invoke(z2, str2, null);
+                Object d = d(B(z2), B(z3));
                 if (d instanceof File[]) {
-                    Arrays.sort((File[]) d, my());
+                    Arrays.sort((File[]) d, nE());
                     list = d;
                 } else {
-                    boolean z2 = d instanceof List;
+                    boolean z4 = d instanceof List;
                     list = d;
-                    if (z2) {
+                    if (z4) {
                         List list4 = (List) d;
-                        Collections.sort(list4, my());
+                        Collections.sort(list4, nE());
                         list = list4;
                     }
                 }
-                a(y, y.getClass(), "nativeLibraryDirectories", list);
+                a(z2, z2.getClass(), "nativeLibraryDirectories", list);
                 ArrayList arrayList = new ArrayList((List) list);
-                arrayList.addAll((List) a(y, y.getClass(), "systemNativeLibraryDirectories"));
-                Method declaredMethod2 = y.getClass().getDeclaredMethod("makePathElements", List.class);
+                arrayList.addAll((List) a(z2, z2.getClass(), "systemNativeLibraryDirectories"));
+                Method declaredMethod2 = z2.getClass().getDeclaredMethod("makePathElements", List.class);
                 declaredMethod2.setAccessible(true);
-                a(y, y.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(y.getClass(), arrayList));
+                a(z2, z2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(z2.getClass(), arrayList));
             } else if (Build.VERSION.SDK_INT >= 23) {
-                a(y, y.getClass(), "dexElements", z ? d(z(y), z(y2)) : d(z(y2), z(y)));
-                Object d2 = d(A(y), A(y2));
+                a(z2, z2.getClass(), "dexElements", z ? d(A(z2), A(z3)) : d(A(z3), A(z2)));
+                Object d2 = d(B(z2), B(z3));
                 if (d2 instanceof File[]) {
-                    Arrays.sort((File[]) d2, my());
+                    Arrays.sort((File[]) d2, nE());
                     list3 = d2;
                 } else {
-                    boolean z3 = d2 instanceof List;
+                    boolean z5 = d2 instanceof List;
                     list3 = d2;
-                    if (z3) {
+                    if (z5) {
                         List list5 = (List) d2;
-                        Collections.sort(list5, my());
+                        Collections.sort(list5, nE());
                         list3 = list5;
                     }
                 }
-                a(y, y.getClass(), "nativeLibraryDirectories", list3);
+                a(z2, z2.getClass(), "nativeLibraryDirectories", list3);
                 ArrayList arrayList2 = new ArrayList((List) list3);
-                arrayList2.addAll((List) a(y, y.getClass(), "systemNativeLibraryDirectories"));
-                Method declaredMethod3 = y.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
+                arrayList2.addAll((List) a(z2, z2.getClass(), "systemNativeLibraryDirectories"));
+                Method declaredMethod3 = z2.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                 declaredMethod3.setAccessible(true);
-                a(y, y.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(y.getClass(), arrayList2, null, new ArrayList()));
+                a(z2, z2.getClass(), "nativeLibraryPathElements", declaredMethod3.invoke(z2.getClass(), arrayList2, null, new ArrayList()));
             } else {
-                a(y, y.getClass(), "dexElements", z ? d(z(y), z(y2)) : d(z(y2), z(y)));
-                Object d3 = d(A(y), A(y2));
+                a(z2, z2.getClass(), "dexElements", z ? d(A(z2), A(z3)) : d(A(z3), A(z2)));
+                Object d3 = d(B(z2), B(z3));
                 if (d3 instanceof File[]) {
-                    Arrays.sort((File[]) d3, my());
+                    Arrays.sort((File[]) d3, nE());
                     list2 = d3;
                 } else {
-                    boolean z4 = d3 instanceof List;
+                    boolean z6 = d3 instanceof List;
                     list2 = d3;
-                    if (z4) {
+                    if (z6) {
                         List list6 = (List) d3;
-                        Collections.sort(list6, my());
+                        Collections.sort(list6, nE());
                         list2 = list6;
                     }
                 }
-                a(y, y.getClass(), "nativeLibraryDirectories", list2);
+                a(z2, z2.getClass(), "nativeLibraryDirectories", list2);
             }
             c0022a = null;
         } catch (ClassNotFoundException e) {
@@ -276,20 +276,20 @@ public class a {
 
     private static C0022a a(boolean z, Throwable th) {
         C0022a c0022a = new C0022a();
-        c0022a.Jj = z;
+        c0022a.LC = z;
         c0022a.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return c0022a;
     }
 
-    private static Object y(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
+    private static Object z(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException, ClassNotFoundException {
         return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
     }
 
-    private static Object z(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    private static Object A(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return a(obj, obj.getClass(), "dexElements");
     }
 
-    private static Object A(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
+    private static Object B(Object obj) throws IllegalArgumentException, NoSuchFieldException, NoSuchFieldError, IllegalAccessException {
         return a(obj, obj.getClass(), "nativeLibraryDirectories");
     }
 
@@ -313,7 +313,7 @@ public class a {
         }
     }
 
-    private static final Comparator<File> my() {
+    private static final Comparator<File> nE() {
         return new Comparator<File>() { // from class: com.baidu.adp.plugin.util.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -321,13 +321,13 @@ public class a {
                 if (file == null || file2 == null) {
                     return 0;
                 }
-                return a.G(file.getAbsolutePath(), file2.getAbsolutePath());
+                return a.N(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int G(String str, String str2) {
+    public static final int N(String str, String str2) {
         if (str == null || str2 == null) {
             return 0;
         }

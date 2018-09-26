@@ -26,8 +26,8 @@ public abstract class a {
     protected volatile long e = 0;
     private LinkedList<Pair<Integer, Long>> p = new LinkedList<>();
     private final Collection<d> q = new CopyOnWriteArrayList();
-    protected final Map<f, C0296a> g = new ConcurrentHashMap();
-    protected final Map<f, C0296a> h = new ConcurrentHashMap();
+    protected final Map<f, C0302a> g = new ConcurrentHashMap();
+    protected final Map<f, C0302a> h = new ConcurrentHashMap();
     protected com.xiaomi.smack.debugger.a i = null;
     protected String j = "";
     protected String k = "";
@@ -38,11 +38,11 @@ public abstract class a {
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.xiaomi.smack.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0296a {
+    public static class C0302a {
         private f a;
         private com.xiaomi.smack.filter.a b;
 
-        public C0296a(f fVar, com.xiaomi.smack.filter.a aVar) {
+        public C0302a(f fVar, com.xiaomi.smack.filter.a aVar) {
             this.a = fVar;
             this.b = aVar;
         }
@@ -143,7 +143,7 @@ public abstract class a {
         if (fVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.g.put(fVar, new C0296a(fVar, aVar));
+        this.g.put(fVar, new C0302a(fVar, aVar));
     }
 
     public abstract void a(com.xiaomi.smack.packet.d dVar);
@@ -184,7 +184,7 @@ public abstract class a {
         if (fVar == null) {
             throw new NullPointerException("Packet listener is null.");
         }
-        this.h.put(fVar, new C0296a(fVar, aVar));
+        this.h.put(fVar, new C0302a(fVar, aVar));
     }
 
     public abstract void b(boolean z);

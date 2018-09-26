@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 final class k {
-    private SQLiteDatabase hCm = f.bJa().getDatabase();
+    private SQLiteDatabase hKJ = f.bLR().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {
-        this.hCm.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
+        this.hKJ.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<l> bIZ() {
-        Cursor rawQuery = this.hCm.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
+    public final List<l> bLQ() {
+        Cursor rawQuery = this.hKJ.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             l lVar = new l();
@@ -33,6 +33,6 @@ final class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.hCm.execSQL("delete from tb_ab_page_log where _id <= " + i);
+        this.hKJ.execSQL("delete from tb_ab_page_log where _id <= " + i);
     }
 }

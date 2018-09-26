@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class EmotionLinearLayout extends LinearLayout {
-    private View aPk;
+    private View aSC;
     private boolean visible;
 
     public EmotionLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class EmotionLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.aPk != null) {
-            this.aPk.measure(getChildMeasureSpec(i, 0, this.aPk.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.aPk.getLayoutParams().height));
+        if (this.aSC != null) {
+            this.aSC.measure(getChildMeasureSpec(i, 0, this.aSC.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.aSC.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class EmotionLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.aPk != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.aPk.getMeasuredWidth();
-            this.aPk.layout(measuredWidth, 0, this.aPk.getMeasuredWidth() + measuredWidth, this.aPk.getMeasuredHeight());
+        if (this.aSC != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.aSC.getMeasuredWidth();
+            this.aSC.layout(measuredWidth, 0, this.aSC.getMeasuredWidth() + measuredWidth, this.aSC.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.aPk = view;
+        this.aSC = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class EmotionLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.aPk.getLeft(), this.aPk.getTop());
-            this.aPk.draw(canvas);
+            canvas.translate(this.aSC.getLeft(), this.aSC.getTop());
+            this.aSC.draw(canvas);
             canvas.restore();
         }
     }

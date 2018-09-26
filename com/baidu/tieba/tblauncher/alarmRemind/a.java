@@ -4,7 +4,6 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
@@ -15,11 +14,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean boL() {
+    public static boolean brs() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage un(String str) {
+    public static RemindRecommendMessage uW(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -53,7 +52,7 @@ public class a {
         }
     }
 
-    public static long cX(long j) {
+    public static long cZ(long j) {
         int i;
         int i2;
         int i3;
@@ -62,15 +61,15 @@ public class a {
         if (TextUtils.isEmpty(loadString)) {
             loadString = "12:05:00";
         }
-        String[] split = loadString.split(SystemInfoUtil.COLON);
+        String[] split = loadString.split(":");
         if (split == null || split.length != 3) {
             i = 0;
             i2 = 5;
             i3 = 12;
         } else {
-            i3 = com.baidu.adp.lib.g.b.g(split[0], 12);
-            i2 = com.baidu.adp.lib.g.b.g(split[1], 5);
-            i = com.baidu.adp.lib.g.b.g(split[2], 0);
+            i3 = com.baidu.adp.lib.g.b.l(split[0], 12);
+            i2 = com.baidu.adp.lib.g.b.l(split[1], 5);
+            i = com.baidu.adp.lib.g.b.l(split[2], 0);
         }
         if (i3 < 0 || i3 > 23 || i2 < 0 || i2 > 59 || i < 0 || i > 59) {
             i = 0;
@@ -98,11 +97,11 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long byn() {
-        return cX(System.currentTimeMillis());
+    public static long bAV() {
+        return cZ(System.currentTimeMillis());
     }
 
-    public static boolean U(long j) {
+    public static boolean Y(long j) {
         Time time = new Time();
         time.set(j);
         int i = time.year;
@@ -112,7 +111,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean byo() {
+    public static boolean bAW() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("sync_local_dialog", 1) == 1;
     }
 }

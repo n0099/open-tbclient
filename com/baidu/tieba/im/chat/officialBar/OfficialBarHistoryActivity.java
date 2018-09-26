@@ -9,17 +9,17 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.e {
-    private e emJ;
-    private a emK;
-    private b emL;
+    private e eue;
+    private a euf;
+    private b eug;
     private List<ResponseHistoryMessage.a> mDataList;
-    private int emI = 0;
-    private boolean buU = false;
+    private int eud = 0;
+    private boolean bAJ = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -31,38 +31,38 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     }
 
     private void initListener() {
-        this.emK = new a();
-        this.emL = new b();
-        registerListener(this.emK);
-        registerListener(this.emL);
+        this.euf = new a();
+        this.eug = new b();
+        registerListener(this.euf);
+        registerListener(this.eug);
     }
 
     private void initUI() {
-        this.emJ = new e(this);
-        this.emJ.d(this);
+        this.eue = new e(this);
+        this.eue.d(this);
     }
 
     private void initData(Bundle bundle) {
-        this.emI = getIntent().getIntExtra("forum_id", 0);
-        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.emI)));
-        aHG();
+        this.eud = getIntent().getIntExtra("forum_id", 0);
+        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.eud)));
+        aJV();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aHG() {
+    public void aJV() {
         int i = 0;
         if (this.mDataList != null && !this.mDataList.isEmpty()) {
             i = this.mDataList.get(this.mDataList.size() - 1).id;
         }
-        this.buU = true;
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.emI, com.baidu.adp.lib.g.b.c(TbadkApplication.getCurrentAccount(), 0L), i));
+        this.bAJ = true;
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.eud, com.baidu.adp.lib.g.b.d(TbadkApplication.getCurrentAccount(), 0L), i));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.emJ.onChangeSkinType(i);
+        this.eue.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,7 +81,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 if (!responseLocalHistoryMessage.getData().isEmpty()) {
                     if (OfficialBarHistoryActivity.this.mDataList == null || OfficialBarHistoryActivity.this.mDataList.isEmpty()) {
                         OfficialBarHistoryActivity.this.mDataList = responseLocalHistoryMessage.getData();
-                        OfficialBarHistoryActivity.this.emJ.setData(OfficialBarHistoryActivity.this.mDataList);
+                        OfficialBarHistoryActivity.this.eue.setData(OfficialBarHistoryActivity.this.mDataList);
                     }
                 }
             }
@@ -99,25 +99,25 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             OfficialBarHistoryActivity.this.hideProgressBar();
-            OfficialBarHistoryActivity.this.buU = false;
+            OfficialBarHistoryActivity.this.bAJ = false;
             if (socketResponsedMessage == null) {
-                OfficialBarHistoryActivity.this.showToast(f.j.neterror);
-                OfficialBarHistoryActivity.this.emJ.cc(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.showToast(e.j.neterror);
+                OfficialBarHistoryActivity.this.eue.cd(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getError() != 0) {
                 OfficialBarHistoryActivity.this.showToast(socketResponsedMessage.getErrorString());
-                OfficialBarHistoryActivity.this.emJ.cc(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.eue.cd(OfficialBarHistoryActivity.this.mDataList);
             } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
-                OfficialBarHistoryActivity.this.emJ.cc(OfficialBarHistoryActivity.this.mDataList);
-                OfficialBarHistoryActivity.this.showToast(f.j.neterror);
+                OfficialBarHistoryActivity.this.eue.cd(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.showToast(e.j.neterror);
             } else {
                 ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                 if (responseHistoryMessage.getMsg().isEmpty()) {
-                    OfficialBarHistoryActivity.this.emJ.cc(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.eue.cd(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage();
                 if (requestHistoryMessage == null) {
-                    OfficialBarHistoryActivity.this.emJ.cc(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.eue.cd(OfficialBarHistoryActivity.this.mDataList);
                     return;
                 }
                 if (requestHistoryMessage.getRequestId() != 0) {
@@ -125,15 +125,15 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 } else {
                     OfficialBarHistoryActivity.this.mDataList = responseHistoryMessage.getMsg();
                 }
-                OfficialBarHistoryActivity.this.emJ.setData(OfficialBarHistoryActivity.this.mDataList);
+                OfficialBarHistoryActivity.this.eue.setData(OfficialBarHistoryActivity.this.mDataList);
                 if (responseHistoryMessage.getMsg().size() == 0) {
-                    OfficialBarHistoryActivity.this.emJ.cc(OfficialBarHistoryActivity.this.mDataList);
+                    OfficialBarHistoryActivity.this.eue.cd(OfficialBarHistoryActivity.this.mDataList);
                 } else {
                     new Handler().post(new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!OfficialBarHistoryActivity.this.emJ.aHH()) {
-                                OfficialBarHistoryActivity.this.aHG();
+                            if (!OfficialBarHistoryActivity.this.eue.aJW()) {
+                                OfficialBarHistoryActivity.this.aJV();
                             }
                         }
                     });
@@ -144,8 +144,8 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!this.buU) {
-            aHG();
+        if (!this.bAJ) {
+            aJV();
         }
     }
 }

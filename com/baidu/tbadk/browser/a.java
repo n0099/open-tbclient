@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.webkit.CookieManager;
@@ -20,14 +21,16 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ah;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ag;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
+    public static String adq;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String N(String str, String str2) {
+    public static String U(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             str = "http://".concat(str);
@@ -40,7 +43,11 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void Q(Context context, String str) {
+    public static void db(String str) {
+        adq = str;
+    }
+
+    public static void ae(Context context, String str) {
         b(context, true, str);
     }
 
@@ -52,7 +59,7 @@ public class a {
         a(context, str2, str, true, true, true, true, z);
     }
 
-    public static void g(Context context, String str, String str2) {
+    public static void h(Context context, String str, String str2) {
         a(context, str, str2, true, true, true, true, true);
     }
 
@@ -69,7 +76,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        sg();
+        tm();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -84,7 +91,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        sg();
+        tm();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -96,8 +103,8 @@ public class a {
         }
     }
 
-    public static void R(Context context, String str) {
-        sg();
+    public static void af(Context context, String str) {
+        tm();
         try {
             if (!StringUtils.isNull(str)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, true, false);
@@ -110,11 +117,11 @@ public class a {
         }
     }
 
-    public static void S(Context context, String str) {
-        Q(context, str);
+    public static void ag(Context context, String str) {
+        ae(context, str);
     }
 
-    public static void T(Context context, String str) {
+    public static void ah(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -128,8 +135,8 @@ public class a {
         }
     }
 
-    public static String b(String str, List<Pair<String, String>> list) {
-        if (!ap.isEmpty(str) && list != null) {
+    public static String c(String str, List<Pair<String, String>> list) {
+        if (!ao.isEmpty(str) && list != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") < 0) {
@@ -149,7 +156,7 @@ public class a {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ap.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ao.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -173,21 +180,20 @@ public class a {
     }
 
     public static String appendVersionCode(String str) {
-        return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ao.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void aB(Context context) {
-        CookieManager cookieManager;
+    public static void bh(Context context) {
+        CookieManager cookieManager = null;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
         } catch (Throwable th) {
             BdLog.e(th);
-            cookieManager = null;
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.tk().db(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.uo().dt(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -196,7 +202,26 @@ public class a {
                 }
             } else {
                 try {
-                    cookieManager.removeAllCookie();
+                    String cookie = cookieManager.getCookie("https://passport.baidu.com");
+                    String cookie2 = cookieManager.getCookie("https://wappass.baidu.com");
+                    String cookie3 = cookieManager.getCookie("https://nsclick.baidu.com");
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        cookieManager.removeAllCookies(null);
+                        CookieManager.getInstance().flush();
+                    } else {
+                        cookieManager.removeAllCookie();
+                        CookieSyncManager.createInstance(context);
+                        CookieSyncManager.getInstance().sync();
+                    }
+                    if (!StringUtils.isNull(cookie)) {
+                        cookieManager.setCookie("https://passport.baidu.com", cookie);
+                    }
+                    if (!StringUtils.isNull(cookie2)) {
+                        cookieManager.setCookie("https://wappass.baidu.com", cookie2);
+                    }
+                    if (!StringUtils.isNull(cookie3)) {
+                        cookieManager.setCookie("https://nsclick.baidu.com", cookie3);
+                    }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -206,7 +231,11 @@ public class a {
             cookieManager.setCookie(".baidu.com", " cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             try {
-                CookieSyncManager.getInstance().sync();
+                if (Build.VERSION.SDK_INT >= 21) {
+                    CookieManager.getInstance().flush();
+                } else {
+                    CookieSyncManager.getInstance().sync();
+                }
                 SapiAccountManager.getInstance().getAccountService().webLogin(context);
             } catch (Throwable th2) {
                 BdLog.e(th2);
@@ -218,7 +247,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void sg() {
-        new ah("open_webview", true).start();
+    private static void tm() {
+        new ag("open_webview", true).start();
     }
 }

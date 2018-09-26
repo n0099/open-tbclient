@@ -14,5 +14,6 @@ public class AccountCenterDTO extends SapiWebDTO {
     public static final NameValuePair HIDE_REAL_NAME = new BasicNameValuePair("realname", "0");
     public List<NameValuePair> paramsList = new ArrayList();
     public String refer = REFER_ACCOUNT_CENTER;
+    public boolean logoutAfterBdussInvalid = true;
     public boolean handleLogin = false;
 }

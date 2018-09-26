@@ -3,6 +3,7 @@ package com.baidu.tieba.im;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.AddGroupActivityConfig;
@@ -12,7 +13,7 @@ import com.baidu.tbadk.core.atomData.OfficialMsgImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.im.chat.GroupChatActivity;
 import com.baidu.tieba.im.chat.OfficialMsgImageActivity;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity;
@@ -29,12 +30,12 @@ public class TiebaIMActivityStatic {
         TbadkApplication.getInst().RegisterIntent(OfficialHistoryImageActivityConfig.class, OfficialHistoryImageActivity.class);
         TbadkApplication.getInst().RegisterIntent(PersonGroupActivityConfig.class, PersonGroupActivity.class);
         TbadkApplication.getInst().RegisterIntent(AddGroupActivityConfig.class, AddGroupActivity.class);
-        aGH();
+        aIW();
     }
 
-    private static void aGH() {
-        az.zI().a(new az.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.az.a
+    private static void aIW() {
+        ay.AN().a(new ay.a() { // from class: com.baidu.tieba.im.TiebaIMActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
                     return 3;
@@ -44,7 +45,7 @@ public class TiebaIMActivityStatic {
                 StringBuilder sb2 = new StringBuilder();
                 if (UtilHelper.parsePushMidPageUrl(lowerCase, sb, sb2)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016486));
-                    tbPageContext.sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(sb.toString(), sb2.toString(), "push")));
+                    tbPageContext.sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(sb.toString(), sb2.toString(), Config.PUSH)));
                     return 0;
                 }
                 return 3;

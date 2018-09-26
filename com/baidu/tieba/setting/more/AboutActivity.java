@@ -12,23 +12,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GuildActivityConfig;
 import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.l;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.setting.model.AboutModel;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private com.baidu.tieba.setting.more.a gyH;
-    private AboutModel gyI;
-    private a gyJ = null;
-    private String gyK = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private com.baidu.tieba.setting.more.a gFW;
+    private AboutModel gFX;
+    private a gFY = null;
+    private String gFZ = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gyH = new com.baidu.tieba.setting.more.a(this, new c() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
+        this.gFW = new com.baidu.tieba.setting.more.a(this, new c() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
             @Override // com.baidu.tieba.setting.more.c
-            public void sL(int i) {
+            public void tj(int i) {
                 if (i == 0) {
                     AboutActivity.this.finish();
                 } else if (i == 1) {
@@ -36,23 +36,23 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     AboutActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(AboutActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(SettingTextFunctionIntroView.gBp, true);
-                    com.baidu.tbadk.browser.a.a(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(f.j.function_intro), AboutActivity.this.gyK, true, false, false);
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(SettingTextFunctionIntroView.gIF, true);
+                    com.baidu.tbadk.browser.a.a(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(e.j.function_intro), AboutActivity.this.gFZ, true, false, false);
                 } else if (i == 4) {
-                    l.ab(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE, l.dT(TbConfig.FATAL_ERROR_FILE));
+                    l.ai(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE, l.el(TbConfig.FATAL_ERROR_FILE));
                 }
             }
         });
-        this.gyH.bpt();
-        aGO();
+        this.gFW.bsa();
+        aJd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.gyH != null) {
-            this.gyH.bpt();
+        if (this.gFW != null) {
+            this.gFW.bsa();
         }
     }
 
@@ -60,12 +60,12 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        aGP();
-        if (this.gyI != null) {
-            this.gyI.cancelLoadData();
+        aJe();
+        if (this.gFX != null) {
+            this.gFX.cancelLoadData();
         }
-        if (this.gyH != null) {
-            this.gyH.aAe();
+        if (this.gFW != null) {
+            this.gFW.aCn();
         }
     }
 
@@ -73,57 +73,57 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gyH != null) {
-            this.gyH.ex(i);
+        if (this.gFW != null) {
+            this.gFW.eJ(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.gyI == null) {
-            this.gyI = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
+        if (this.gFX == null) {
+            this.gFX = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
                 @Override // com.baidu.adp.base.d
-                public void i(Object obj) {
-                    AboutActivity.this.af(obj);
+                public void j(Object obj) {
+                    AboutActivity.this.ai(obj);
                 }
             });
         } else {
-            this.gyI.cancelLoadData();
+            this.gFX.cancelLoadData();
         }
-        this.gyI.bpl();
-        if (this.gyH != null) {
-            this.gyH.bps();
+        this.gFX.brS();
+        if (this.gFW != null) {
+            this.gFW.brZ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void af(Object obj) {
-        if (this.gyH != null) {
-            this.gyH.aAe();
+    public void ai(Object obj) {
+        if (this.gFW != null) {
+            this.gFW.aCn();
         }
         com.baidu.tbadk.coreExtra.model.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.model.d) obj : null;
         if (dVar != null) {
-            TbadkCoreApplication.getInst().setVersionData(dVar.Ew());
+            TbadkCoreApplication.getInst().setVersionData(dVar.FL());
             TbadkCoreApplication.getInst().refreshNewVersion(false);
-            if (dVar.Ew().hasNewVer() && TbConfig.COULD_UPDATE) {
-                if (dVar.Ew().forceUpdate()) {
-                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), dVar.Ew(), dVar.Ev())));
+            if (dVar.FL().hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (dVar.FL().forceUpdate()) {
+                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), dVar.FL(), dVar.FK())));
                 } else {
                     Long valueOf = Long.valueOf(new Date().getTime());
-                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), dVar.Ew(), dVar.Ev()));
+                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), dVar.FL(), dVar.FK()));
                     TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                     sendMessage(customMessage);
                 }
             } else {
-                showToast(getResources().getString(f.j.neednot_update));
+                showToast(getResources().getString(e.j.neednot_update));
             }
-            if (this.gyH != null) {
-                this.gyH.bpt();
+            if (this.gFW != null) {
+                this.gFW.bsa();
                 return;
             }
             return;
         }
-        showToast(getResources().getString(f.j.neterror));
+        showToast(getResources().getString(e.j.neterror));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -134,22 +134,22 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (AboutActivity.this.gyH != null) {
-                AboutActivity.this.gyH.bpt();
+            if (AboutActivity.this.gFW != null) {
+                AboutActivity.this.gFW.bsa();
             }
         }
     }
 
-    private void aGO() {
-        this.gyJ = new a();
+    private void aJd() {
+        this.gFY = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.gyJ, intentFilter);
+        registerReceiver(this.gFY, intentFilter);
     }
 
-    private void aGP() {
-        if (this.gyJ != null) {
-            unregisterReceiver(this.gyJ);
+    private void aJe() {
+        if (this.gFY != null) {
+            unregisterReceiver(this.gFY);
         }
     }
 }

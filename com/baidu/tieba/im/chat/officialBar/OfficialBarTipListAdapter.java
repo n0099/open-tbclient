@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
@@ -18,7 +18,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.c.DS().El()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.c.Ff().Fz()) {
             str = "";
             i = 0;
         }
@@ -32,13 +32,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.elP.setTag(null);
-        aVar.elP.setDrawBorder(true);
-        aVar.elP.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        aVar.elP.setDefaultResource(f.C0146f.icon_default_ba_120);
+        aVar.etk.setTag(null);
+        aVar.etk.setDrawBorder(true);
+        aVar.etk.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.etk.setDefaultResource(e.f.icon_default_ba_120);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.elP.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.elP.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.etk.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.etk.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -54,14 +54,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.elQ.setText(this.mContext.getString(f.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.etl.setText(this.mContext.getString(e.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(f.C0146f.icon_v);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(e.f.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.elQ.setCompoundDrawables(null, null, bitmapDrawable, null);
-            aVar.elQ.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(f.e.ds8)));
+            aVar.etl.setCompoundDrawables(null, null, bitmapDrawable, null);
+            aVar.etl.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(e.C0141e.ds8)));
             return;
         }
-        aVar.elQ.setCompoundDrawables(null, null, null, null);
+        aVar.etl.setCompoundDrawables(null, null, null, null);
     }
 }

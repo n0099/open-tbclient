@@ -24,6 +24,15 @@ public abstract class a {
         }
     }
 
+    public void removeEventDelegate(com.baidu.tbadk.mvc.c.a aVar) {
+        if (this.eventDelegates != null && this.eventDelegates.contains(aVar)) {
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.remove(aVar);
+        }
+    }
+
     public boolean dispatchMvcEvent(b bVar) {
         boolean z;
         boolean z2;
@@ -42,13 +51,13 @@ public abstract class a {
             while (i < size) {
                 try {
                     com.baidu.tbadk.mvc.c.a aVar = this.eventDelegates.get(i);
-                    if (aVar == null || (aVar.JB() && !(aVar.JB() && bVar.getUniqueId() == aVar.getUniqueId()))) {
+                    if (aVar == null || (aVar.KR() && !(aVar.KR() && bVar.getUniqueId() == aVar.getUniqueId()))) {
                         z2 = z;
                     } else {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.JE()) {
+                                if (bVar.KU()) {
                                     return true;
                                 }
                             } catch (Throwable th) {

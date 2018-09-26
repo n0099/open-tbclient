@@ -8,47 +8,47 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class EditHeadsImageView extends DragImageView {
-    private int fWE;
-    private int fWF;
-    private float fWG;
-    private float fWH;
-    private int fWI;
+    private int gdT;
+    private int gdU;
+    private float gdV;
+    private float gdW;
+    private int gdX;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fWE = 0;
-        this.fWF = 0;
-        this.fWG = 0.42857143f;
-        this.fWI = 0;
-        this.fWH = 1.0f;
+        this.gdT = 0;
+        this.gdU = 0;
+        this.gdV = 0.42857143f;
+        this.gdX = 0;
+        this.gdW = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.fWE = 0;
-        this.fWF = 0;
-        this.fWG = 0.42857143f;
-        this.fWI = 0;
-        this.fWH = 1.0f;
+        this.gdT = 0;
+        this.gdU = 0;
+        this.gdV = 0.42857143f;
+        this.gdX = 0;
+        this.gdW = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.fWE = 0;
-        this.fWF = 0;
-        this.fWG = 0.42857143f;
-        this.fWI = 0;
-        this.fWH = 1.0f;
+        this.gdT = 0;
+        this.gdU = 0;
+        this.gdV = 0.42857143f;
+        this.gdX = 0;
+        this.gdW = 1.0f;
         init();
     }
 
     private void init() {
-        this.fWI = getResources().getColor(f.d.common_color_10226);
+        this.gdX = getResources().getColor(e.d.common_color_10226);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -63,30 +63,30 @@ public class EditHeadsImageView extends DragImageView {
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.fWH * getWidth();
+        float width = this.gdW * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.fWE = (int) (((i4 - i2) - width) * this.fWG);
-        this.fWF = (int) (((i4 - i2) - width) * (1.0f - this.fWG));
-        setOffset(0, this.fWE, 0, this.fWF);
+        this.gdT = (int) (((i4 - i2) - width) * this.gdV);
+        this.gdU = (int) (((i4 - i2) - width) * (1.0f - this.gdV));
+        setOffset(0, this.gdT, 0, this.gdU);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         canvas.save();
-        canvas.drawColor(this.fWI);
+        canvas.drawColor(this.gdX);
         super.onDraw(canvas);
         canvas.restore();
     }
 
-    public Bitmap lb(boolean z) {
+    public Bitmap lx(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.fWE, getWidth(), (getHeight() - this.fWF) - this.fWE);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.gdT, getWidth(), (getHeight() - this.gdU) - this.gdT);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -99,7 +99,7 @@ public class EditHeadsImageView extends DragImageView {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.fWH = f;
+        this.gdW = f;
         invalidate();
     }
 }

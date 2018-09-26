@@ -9,67 +9,67 @@ import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class l implements k, a.InterfaceC0006a {
-    private final com.airbnb.lottie.f jR;
-    private final PolystarShape.Type lN;
-    private final com.airbnb.lottie.a.b.a<?, Float> lO;
-    private final com.airbnb.lottie.a.b.a<?, Float> lP;
+    private final com.airbnb.lottie.f mp;
+    private final Path nJ = new Path();
     @Nullable
-    private final com.airbnb.lottie.a.b.a<?, Float> lQ;
-    private final com.airbnb.lottie.a.b.a<?, Float> lR;
-    @Nullable
-    private final com.airbnb.lottie.a.b.a<?, Float> lS;
-    private final com.airbnb.lottie.a.b.a<?, Float> lT;
-    private final Path lh = new Path();
-    @Nullable
-    private q lq;
-    private final com.airbnb.lottie.a.b.a<?, PointF> lw;
-    private boolean ly;
+    private q nS;
+    private final com.airbnb.lottie.a.b.a<?, PointF> nX;
+    private boolean nZ;
     private final String name;
+    private final PolystarShape.Type oo;
+    private final com.airbnb.lottie.a.b.a<?, Float> oq;
+    private final com.airbnb.lottie.a.b.a<?, Float> or;
+    @Nullable
+    private final com.airbnb.lottie.a.b.a<?, Float> ot;
+    private final com.airbnb.lottie.a.b.a<?, Float> ou;
+    @Nullable
+    private final com.airbnb.lottie.a.b.a<?, Float> ov;
+    private final com.airbnb.lottie.a.b.a<?, Float> ow;
 
     public l(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
-        this.jR = fVar;
+        this.mp = fVar;
         this.name = polystarShape.getName();
-        this.lN = polystarShape.cS();
-        this.lO = polystarShape.cT().ci();
-        this.lw = polystarShape.cu().ci();
-        this.lP = polystarShape.cw().ci();
-        this.lR = polystarShape.cV().ci();
-        this.lT = polystarShape.cX().ci();
-        if (this.lN == PolystarShape.Type.Star) {
-            this.lQ = polystarShape.cU().ci();
-            this.lS = polystarShape.cW().ci();
+        this.oo = polystarShape.dZ();
+        this.oq = polystarShape.ea().dp();
+        this.nX = polystarShape.dB().dp();
+        this.or = polystarShape.dD().dp();
+        this.ou = polystarShape.ec().dp();
+        this.ow = polystarShape.ee().dp();
+        if (this.oo == PolystarShape.Type.Star) {
+            this.ot = polystarShape.eb().dp();
+            this.ov = polystarShape.ed().dp();
         } else {
-            this.lQ = null;
-            this.lS = null;
+            this.ot = null;
+            this.ov = null;
         }
-        aVar.a(this.lO);
-        aVar.a(this.lw);
-        aVar.a(this.lP);
-        aVar.a(this.lR);
-        aVar.a(this.lT);
-        if (this.lN == PolystarShape.Type.Star) {
-            aVar.a(this.lQ);
-            aVar.a(this.lS);
+        aVar.a(this.oq);
+        aVar.a(this.nX);
+        aVar.a(this.or);
+        aVar.a(this.ou);
+        aVar.a(this.ow);
+        if (this.oo == PolystarShape.Type.Star) {
+            aVar.a(this.ot);
+            aVar.a(this.ov);
         }
-        this.lO.b(this);
-        this.lw.b(this);
-        this.lP.b(this);
-        this.lR.b(this);
-        this.lT.b(this);
-        if (this.lN == PolystarShape.Type.Star) {
-            this.lR.b(this);
-            this.lT.b(this);
+        this.oq.b(this);
+        this.nX.b(this);
+        this.or.b(this);
+        this.ou.b(this);
+        this.ow.b(this);
+        if (this.oo == PolystarShape.Type.Star) {
+            this.ou.b(this);
+            this.ow.b(this);
         }
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0006a
-    public void bF() {
+    public void cM() {
         invalidate();
     }
 
     private void invalidate() {
-        this.ly = false;
-        this.jR.invalidateSelf();
+        this.nZ = false;
+        this.mp.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -79,9 +79,9 @@ public class l implements k, a.InterfaceC0006a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).bO() == ShapeTrimPath.Type.Simultaneously) {
-                    this.lq = (q) bVar;
-                    this.lq.a(this);
+                if ((bVar instanceof q) && ((q) bVar).cV() == ShapeTrimPath.Type.Simultaneously) {
+                    this.nS = (q) bVar;
+                    this.nS.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -92,22 +92,22 @@ public class l implements k, a.InterfaceC0006a {
 
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
-        if (this.ly) {
-            return this.lh;
+        if (this.nZ) {
+            return this.nJ;
         }
-        this.lh.reset();
-        switch (this.lN) {
+        this.nJ.reset();
+        switch (this.oo) {
             case Star:
-                bM();
+                cT();
                 break;
             case Polygon:
-                bN();
+                cU();
                 break;
         }
-        this.lh.close();
-        com.airbnb.lottie.c.f.a(this.lh, this.lq);
-        this.ly = true;
-        return this.lh;
+        this.nJ.close();
+        com.airbnb.lottie.c.f.a(this.nJ, this.nS);
+        this.nZ = true;
+        return this.nJ;
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -115,7 +115,7 @@ public class l implements k, a.InterfaceC0006a {
         return this.name;
     }
 
-    private void bM() {
+    private void cT() {
         float f;
         double d;
         float f2;
@@ -124,28 +124,28 @@ public class l implements k, a.InterfaceC0006a {
         float f5;
         float f6;
         float f7;
-        float floatValue = this.lO.getValue().floatValue();
-        double radians = Math.toRadians((this.lP == null ? 0.0d : this.lP.getValue().floatValue()) - 90.0d);
+        float floatValue = this.oq.getValue().floatValue();
+        double radians = Math.toRadians((this.or == null ? 0.0d : this.or.getValue().floatValue()) - 90.0d);
         float f8 = (float) (6.283185307179586d / floatValue);
         float f9 = f8 / 2.0f;
         float f10 = floatValue - ((int) floatValue);
         double d2 = f10 != 0.0f ? radians + ((1.0f - f10) * f9) : radians;
-        float floatValue2 = this.lR.getValue().floatValue();
-        float floatValue3 = this.lQ.getValue().floatValue();
-        if (this.lS == null) {
+        float floatValue2 = this.ou.getValue().floatValue();
+        float floatValue3 = this.ot.getValue().floatValue();
+        if (this.ov == null) {
             f = 0.0f;
         } else {
-            f = this.lS.getValue().floatValue() / 100.0f;
+            f = this.ov.getValue().floatValue() / 100.0f;
         }
         float f11 = 0.0f;
-        if (this.lT != null) {
-            f11 = this.lT.getValue().floatValue() / 100.0f;
+        if (this.ow != null) {
+            f11 = this.ow.getValue().floatValue() / 100.0f;
         }
         if (f10 != 0.0f) {
             float f12 = ((floatValue2 - floatValue3) * f10) + floatValue3;
             float cos = (float) (f12 * Math.cos(d2));
             float sin = (float) (f12 * Math.sin(d2));
-            this.lh.moveTo(cos, sin);
+            this.nJ.moveTo(cos, sin);
             d = d2 + ((f8 * f10) / 2.0f);
             f2 = f12;
             f3 = sin;
@@ -153,7 +153,7 @@ public class l implements k, a.InterfaceC0006a {
         } else {
             float cos2 = (float) (floatValue2 * Math.cos(d2));
             float sin2 = (float) (floatValue2 * Math.sin(d2));
-            this.lh.moveTo(cos2, sin2);
+            this.nJ.moveTo(cos2, sin2);
             d = d2 + f9;
             f2 = 0.0f;
             f3 = sin2;
@@ -175,7 +175,7 @@ public class l implements k, a.InterfaceC0006a {
                 float cos3 = (float) (f15 * Math.cos(d3));
                 float sin3 = (float) (f15 * Math.sin(d3));
                 if (f == 0.0f && f11 == 0.0f) {
-                    this.lh.lineTo(cos3, sin3);
+                    this.nJ.lineTo(cos3, sin3);
                 } else {
                     float atan2 = (float) (Math.atan2(f13, f14) - 1.5707963267948966d);
                     float cos4 = (float) Math.cos(atan2);
@@ -203,12 +203,12 @@ public class l implements k, a.InterfaceC0006a {
                             f6 = f21;
                             f7 = f25;
                         }
-                        this.lh.cubicTo(f14 - f6, f13 - f22, f7 + cos3, f5 + sin3, cos3, sin3);
+                        this.nJ.cubicTo(f14 - f6, f13 - f22, f7 + cos3, f5 + sin3, cos3, sin3);
                     }
                     f5 = f24;
                     f6 = f21;
                     f7 = f23;
-                    this.lh.cubicTo(f14 - f6, f13 - f22, f7 + cos3, f5 + sin3, cos3, sin3);
+                    this.nJ.cubicTo(f14 - f6, f13 - f22, f7 + cos3, f5 + sin3, cos3, sin3);
                 }
                 d = d3 + f16;
                 i++;
@@ -216,23 +216,23 @@ public class l implements k, a.InterfaceC0006a {
                 f13 = sin3;
                 f14 = cos3;
             } else {
-                PointF value = this.lw.getValue();
-                this.lh.offset(value.x, value.y);
-                this.lh.close();
+                PointF value = this.nX.getValue();
+                this.nJ.offset(value.x, value.y);
+                this.nJ.close();
                 return;
             }
         }
     }
 
-    private void bN() {
-        int floor = (int) Math.floor(this.lO.getValue().floatValue());
-        double radians = Math.toRadians((this.lP == null ? 0.0d : this.lP.getValue().floatValue()) - 90.0d);
+    private void cU() {
+        int floor = (int) Math.floor(this.oq.getValue().floatValue());
+        double radians = Math.toRadians((this.or == null ? 0.0d : this.or.getValue().floatValue()) - 90.0d);
         float f = (float) (6.283185307179586d / floor);
-        float floatValue = this.lT.getValue().floatValue() / 100.0f;
-        float floatValue2 = this.lR.getValue().floatValue();
+        float floatValue = this.ow.getValue().floatValue() / 100.0f;
+        float floatValue2 = this.ou.getValue().floatValue();
         float cos = (float) (floatValue2 * Math.cos(radians));
         float sin = (float) (floatValue2 * Math.sin(radians));
-        this.lh.moveTo(cos, sin);
+        this.nJ.moveTo(cos, sin);
         double d = radians + f;
         double ceil = Math.ceil(floor);
         int i = 0;
@@ -249,16 +249,16 @@ public class l implements k, a.InterfaceC0006a {
                     float cos2 = (float) Math.cos(atan2);
                     float sin2 = (float) Math.sin(atan2);
                     float atan22 = (float) (Math.atan2(sin, cos) - 1.5707963267948966d);
-                    this.lh.cubicTo(f2 - (cos2 * ((floatValue2 * floatValue) * 0.25f)), f3 - (((floatValue2 * floatValue) * 0.25f) * sin2), cos + (((float) Math.cos(atan22)) * floatValue2 * floatValue * 0.25f), (((float) Math.sin(atan22)) * floatValue2 * floatValue * 0.25f) + sin, cos, sin);
+                    this.nJ.cubicTo(f2 - (cos2 * ((floatValue2 * floatValue) * 0.25f)), f3 - (((floatValue2 * floatValue) * 0.25f) * sin2), cos + (((float) Math.cos(atan22)) * floatValue2 * floatValue * 0.25f), (((float) Math.sin(atan22)) * floatValue2 * floatValue * 0.25f) + sin, cos, sin);
                 } else {
-                    this.lh.lineTo(cos, sin);
+                    this.nJ.lineTo(cos, sin);
                 }
                 d = d2 + f;
                 i = i2 + 1;
             } else {
-                PointF value = this.lw.getValue();
-                this.lh.offset(value.x, value.y);
-                this.lh.close();
+                PointF value = this.nX.getValue();
+                this.nJ.offset(value.x, value.y);
+                this.nJ.close();
                 return;
             }
         }

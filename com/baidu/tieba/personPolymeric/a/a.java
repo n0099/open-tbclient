@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.LikeModel;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.b, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.b>> {
-    private LikeModel azn;
+    private LikeModel aCp;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.b.gaR);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.b.gij);
         this.mPageContext = tbPageContext;
-        this.azn = new LikeModel(tbPageContext);
+        this.aCp = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.b> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.personPolymeric.view.b bVar = new com.baidu.tieba.personPolymeric.view.b(this.mPageContext);
-        bVar.a(this.azn);
+        bVar.a(this.aCp);
         return new com.baidu.tieba.card.a.a<>(bVar);
     }
 
@@ -32,8 +32,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.b> aVar) {
-        aVar.ajC().a(bVar);
-        aVar.ajC().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aln().a(bVar);
+        aVar.aln().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

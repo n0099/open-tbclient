@@ -5,39 +5,39 @@ import android.support.v4.os.TraceCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes2.dex */
 public class d {
-    private static String[] jI;
-    private static long[] jJ;
-    private static boolean jH = false;
-    private static int jK = 0;
-    private static int jL = 0;
+    private static String[] mg;
+    private static long[] mh;
+    private static boolean mf = false;
+    private static int mi = 0;
+    private static int mj = 0;
 
     public static void beginSection(String str) {
-        if (jH) {
-            if (jK == 20) {
-                jL++;
+        if (mf) {
+            if (mi == 20) {
+                mj++;
                 return;
             }
-            jI[jK] = str;
-            jJ[jK] = System.nanoTime();
+            mg[mi] = str;
+            mh[mi] = System.nanoTime();
             TraceCompat.beginSection(str);
-            jK++;
+            mi++;
         }
     }
 
-    public static float D(String str) {
-        if (jL > 0) {
-            jL--;
+    public static float U(String str) {
+        if (mj > 0) {
+            mj--;
             return 0.0f;
-        } else if (jH) {
-            jK--;
-            if (jK == -1) {
+        } else if (mf) {
+            mi--;
+            if (mi == -1) {
                 throw new IllegalStateException("Can't end trace section. There are none.");
             }
-            if (!str.equals(jI[jK])) {
-                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + jI[jK] + ".");
+            if (!str.equals(mg[mi])) {
+                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + mg[mi] + ".");
             }
             TraceCompat.endSection();
-            return ((float) (System.nanoTime() - jJ[jK])) / 1000000.0f;
+            return ((float) (System.nanoTime() - mh[mi])) / 1000000.0f;
         } else {
             return 0.0f;
         }

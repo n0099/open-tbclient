@@ -4,7 +4,6 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,7 +48,7 @@ public final class h {
                 jSONObject4.put("sessionId", lVar.I());
                 jSONObject4.put("endTime", lVar.O());
                 jSONObject4.put("startTime", lVar.N());
-                jSONObject4.put(ClientCookie.PATH_ATTR, lVar.getPath());
+                jSONObject4.put("path", lVar.getPath());
                 jSONArray2.put(jSONObject4);
             }
             for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {

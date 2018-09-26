@@ -1,135 +1,134 @@
 package org.aspectj.a.b;
 
-import com.baidu.ar.util.SystemInfoUtil;
 import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes2.dex */
 abstract class f implements org.aspectj.lang.c {
-    int hFE;
-    Class hJA;
-    a hJB;
-    private String hJC;
-    ClassLoader hJo = null;
-    String hJz;
+    int hNY;
+    ClassLoader hRI = null;
+    String hRT;
+    Class hRU;
+    a hRV;
+    private String hRW;
     String name;
-    private static boolean cOW = true;
+    private static boolean cUN = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] hJD = new Class[0];
+    static Class[] hRX = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public interface a {
-        void au(int i, String str);
+        void av(int i, String str);
 
-        String wf(int i);
+        String wE(int i);
     }
 
     protected abstract String b(h hVar);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.hFE = -1;
-        this.hFE = i;
+        this.hNY = -1;
+        this.hNY = i;
         this.name = str;
-        this.hJA = cls;
+        this.hRU = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (cOW) {
-            if (this.hJB == null) {
+        if (cUN) {
+            if (this.hRV == null) {
                 try {
-                    this.hJB = new b();
+                    this.hRV = new b();
                 } catch (Throwable th) {
-                    cOW = false;
+                    cUN = false;
                 }
             } else {
-                str = this.hJB.wf(hVar.hJO);
+                str = this.hRV.wE(hVar.hSi);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (cOW) {
-            this.hJB.au(hVar.hJO, str);
+        if (cUN) {
+            this.hRV.av(hVar.hSi, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.hJQ);
+        return a(h.hSk);
     }
 
     public int getModifiers() {
-        if (this.hFE == -1) {
-            this.hFE = wc(0);
+        if (this.hNY == -1) {
+            this.hNY = wB(0);
         }
-        return this.hFE;
+        return this.hNY;
     }
 
     public String getName() {
         if (this.name == null) {
-            this.name = wb(1);
+            this.name = wA(1);
         }
         return this.name;
     }
 
-    public Class bKP() {
-        if (this.hJA == null) {
-            this.hJA = wd(2);
+    public Class bNG() {
+        if (this.hRU == null) {
+            this.hRU = wC(2);
         }
-        return this.hJA;
+        return this.hRU;
     }
 
-    public String bKQ() {
-        if (this.hJz == null) {
-            this.hJz = bKP().getName();
+    public String bNH() {
+        if (this.hRT == null) {
+            this.hRT = bNG().getName();
         }
-        return this.hJz;
+        return this.hRT;
     }
 
-    private ClassLoader bKR() {
-        if (this.hJo == null) {
-            this.hJo = getClass().getClassLoader();
+    private ClassLoader bNI() {
+        if (this.hRI == null) {
+            this.hRI = getClass().getClassLoader();
         }
-        return this.hJo;
+        return this.hRI;
     }
 
-    String wb(int i) {
+    String wA(int i) {
         int i2 = 0;
-        int indexOf = this.hJC.indexOf(45);
+        int indexOf = this.hRW.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.hJC.indexOf(45, i2);
+            indexOf = this.hRW.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.hJC.length();
+            indexOf = this.hRW.length();
         }
-        return this.hJC.substring(i2, indexOf);
+        return this.hRW.substring(i2, indexOf);
     }
 
-    int wc(int i) {
-        return Integer.parseInt(wb(i), 16);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Class wd(int i) {
-        return org.aspectj.a.b.b.b(wb(i), bKR());
+    int wB(int i) {
+        return Integer.parseInt(wA(i), 16);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Class[] we(int i) {
-        StringTokenizer stringTokenizer = new StringTokenizer(wb(i), SystemInfoUtil.COLON);
+    public Class wC(int i) {
+        return org.aspectj.a.b.b.b(wA(i), bNI());
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public Class[] wD(int i) {
+        StringTokenizer stringTokenizer = new StringTokenizer(wA(i), ":");
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bKR());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), bNI());
         }
         return clsArr;
     }
@@ -137,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class b implements a {
-        private SoftReference hJE;
+        private SoftReference hRY;
 
         public b() {
-            bKT();
+            bNK();
         }
 
         @Override // org.aspectj.a.b.f.a
-        public String wf(int i) {
-            String[] bKS = bKS();
-            if (bKS == null) {
+        public String wE(int i) {
+            String[] bNJ = bNJ();
+            if (bNJ == null) {
                 return null;
             }
-            return bKS[i];
+            return bNJ[i];
         }
 
         @Override // org.aspectj.a.b.f.a
-        public void au(int i, String str) {
-            String[] bKS = bKS();
-            if (bKS == null) {
-                bKS = bKT();
+        public void av(int i, String str) {
+            String[] bNJ = bNJ();
+            if (bNJ == null) {
+                bNJ = bNK();
             }
-            bKS[i] = str;
+            bNJ[i] = str;
         }
 
-        private String[] bKS() {
-            return (String[]) this.hJE.get();
+        private String[] bNJ() {
+            return (String[]) this.hRY.get();
         }
 
-        private String[] bKT() {
+        private String[] bNK() {
             String[] strArr = new String[3];
-            this.hJE = new SoftReference(strArr);
+            this.hRY = new SoftReference(strArr);
             return strArr;
         }
     }

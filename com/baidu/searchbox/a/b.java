@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.a.a;
 /* loaded from: classes3.dex */
 public class b {
-    public static void a(String str, Context context, String[] strArr, a.InterfaceC0092a interfaceC0092a) {
+    public static void a(String str, Context context, String[] strArr, a.InterfaceC0090a interfaceC0090a) {
     }
 
     public static boolean a(Context context, String[] strArr) {

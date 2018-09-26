@@ -2,16 +2,14 @@ package com.baidu.fsg.base.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
-import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-class d implements Thread.UncaughtExceptionHandler {
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes3.dex */
+public class d implements Thread.UncaughtExceptionHandler {
     private Thread.UncaughtExceptionHandler a;
     private Context b;
     private JSONObject c;
@@ -22,8 +20,9 @@ class d implements Thread.UncaughtExceptionHandler {
         this();
     }
 
-    /* loaded from: classes2.dex */
-    private static class a {
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes3.dex */
+    public static class a {
         private static d a = new d(null);
 
         private a() {
@@ -70,7 +69,7 @@ class d implements Thread.UncaughtExceptionHandler {
         String str = "";
         if (th2 != null && !th2.equals("")) {
             try {
-                str = th2.length() > 0 ? th2.split(SystemInfoUtil.COLON)[0] : th2;
+                str = th2.length() > 0 ? th2.split(":")[0] : th2;
             } catch (Exception e) {
                 str = "";
             }
@@ -100,41 +99,26 @@ class d implements Thread.UncaughtExceptionHandler {
                 if (str.getBytes().length > 51200) {
                     byte[] bArr = new byte[b.c];
                     str.getBytes(0, b.c, bArr, 0);
-                    jSONObject.put(c.d, new String(bArr));
+                    jSONObject.put(c.b, new String(bArr));
                 } else {
-                    jSONObject.put(c.d, str);
+                    jSONObject.put(c.b, str);
                 }
-                jSONObject.put(c.e, com.baidu.fsg.base.statistics.a.a(jSONObject.getString(c.d).getBytes(), false));
-                String b = j.c().b();
-                if (!TextUtils.isEmpty(b)) {
-                    try {
-                        this.c = new JSONObject(b);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (this.c != null) {
-                    Iterator<String> keys = this.c.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        jSONObject.put(next, this.c.get(next));
-                    }
+                jSONObject.put(c.c, com.baidu.fsg.base.statistics.a.a(jSONObject.getString(c.b).getBytes(), false));
+                try {
+                    jSONObject.put(c.d, com.baidu.fsg.base.statistics.a.a());
+                } catch (Exception e) {
                 }
                 try {
-                    jSONObject.put(c.f, com.baidu.fsg.base.statistics.a.a());
+                    jSONObject.put(c.e, com.baidu.fsg.base.statistics.a.b(this.b));
                 } catch (Exception e2) {
                 }
                 try {
-                    jSONObject.put(c.g, com.baidu.fsg.base.statistics.a.b(this.b));
+                    jSONObject.put(c.f, com.baidu.fsg.base.statistics.a.c(this.b));
                 } catch (Exception e3) {
-                }
-                try {
-                    jSONObject.put(c.h, com.baidu.fsg.base.statistics.a.c(this.b));
-                } catch (Exception e4) {
                 }
                 f.a().a(jSONObject);
                 com.baidu.fsg.base.statistics.a.a(this.b, b.n, f.a().d().toString(), false);
-            } catch (Exception e5) {
+            } catch (Exception e4) {
             }
         }
     }

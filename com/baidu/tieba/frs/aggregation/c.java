@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.aggregation;
 /* loaded from: classes3.dex */
 public interface c {
-    void awg();
+    void ayq();
 
-    void fS(boolean z);
+    void gp(boolean z);
 
     void showMsg(String str);
 }

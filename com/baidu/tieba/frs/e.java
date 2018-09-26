@@ -6,33 +6,33 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class e {
-    private String ahR;
-    private String ahS;
-    private List<FrsTabInfo> dlI;
-    private final List<com.baidu.tbadk.mainTab.b> dlJ = new LinkedList();
+    private String akr;
+    private String aks;
+    private List<FrsTabInfo> drB;
+    private final List<com.baidu.tbadk.mainTab.b> drC = new LinkedList();
     private String forumGameLabel;
     private String forumId;
     private String forumName;
     private Context mContext;
 
     public e(Context context, List<FrsTabInfo> list) {
-        this.dlI = list;
+        this.drB = list;
         this.mContext = context;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.Jo() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.dlJ) {
-                if (bVar2 != null && bVar2.Jo() != null && bVar2.Jo().type == bVar.Jo().type) {
+        if (bVar != null && bVar.KE() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.drC) {
+                if (bVar2 != null && bVar2.KE() != null && bVar2.KE().type == bVar.KE().type) {
                     return;
                 }
             }
-            this.dlJ.add(bVar);
+            this.drC.add(bVar);
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> atW() {
-        return this.dlJ;
+    public List<com.baidu.tbadk.mainTab.b> avN() {
+        return this.drC;
     }
 
     public void setForumName(String str) {
@@ -51,11 +51,11 @@ public class e {
         this.forumGameLabel = str;
     }
 
-    public void du(String str) {
-        this.ahR = str;
+    public void dM(String str) {
+        this.akr = str;
     }
 
-    public void dv(String str) {
-        this.ahS = str;
+    public void dN(String str) {
+        this.aks = str;
     }
 }

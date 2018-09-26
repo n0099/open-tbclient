@@ -4,6 +4,7 @@ import com.baidu.fsg.base.ApollonConstants;
 import dalvik.system.PathClassLoader;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
@@ -21,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class JsonUtils {
     private static final boolean a = ApollonConstants.DEBUG & false;
 
@@ -45,7 +46,7 @@ public final class JsonUtils {
         return (T) Decoder.deserialize(new JSONObject(str), cls);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static class Encoder {
         private Encoder() {
         }
@@ -152,7 +153,7 @@ public final class JsonUtils {
             if (cls != null) {
                 a(jSONStringer, cls.getSuperclass(), obj);
                 for (Field field : cls.getDeclaredFields()) {
-                    if (!ClassLoader.class.isAssignableFrom(field.getType()) && !PathClassLoader.class.isAssignableFrom(field.getType()) && !Class.class.isAssignableFrom(field.getType())) {
+                    if (!ClassLoader.class.isAssignableFrom(field.getType()) && !PathClassLoader.class.isAssignableFrom(field.getType()) && !Class.class.isAssignableFrom(field.getType()) && !field.isSynthetic() && !Modifier.isTransient(field.getModifiers())) {
                         try {
                             field.setAccessible(true);
                             Object obj2 = field.get(obj);
@@ -170,7 +171,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     private static class Decoder {
         private Decoder() {
         }
@@ -205,10 +206,13 @@ public final class JsonUtils {
         }
 
         private static void a(JSONObject jSONObject, Class<?> cls, Object obj) {
+            Field[] declaredFields;
             if (cls != null) {
                 a(jSONObject, cls.getSuperclass(), obj);
                 for (Field field : cls.getDeclaredFields()) {
-                    a(jSONObject, obj, field);
+                    if (!Modifier.isTransient(field.getModifiers()) && !field.isSynthetic()) {
+                        a(jSONObject, obj, field);
+                    }
                 }
             }
         }
@@ -409,7 +413,7 @@ public final class JsonUtils {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DataType {
         public static boolean isNull(Object obj) {
             if (obj instanceof JSONObject) {

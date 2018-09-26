@@ -5,8 +5,7 @@ import android.content.res.AssetManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.idl.authority.AuthorityState;
-import com.baidu.idl.authority.IDLAuthorityException;
-import com.baidu.idl.util.HttpClient;
+import com.baidu.idl.util.HttpRequest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,34 +19,34 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class License {
     private static final int LICENSE_AG_ID = -1;
-    private static final String LICENSE_ASSETS_FILE = "idl_license";
-    private static final String LICENSE_ASSETS_MULTIPLE_FILE = "license/idl_license_%s";
-    private static final String LICENSE_FILE = "license";
-    private static final String LICENSE_LICENSE_FILE_NAME = "idl_license_%s";
-    public static final String TAG = "IDL-License";
+    private static final String LICENSE_DATA_DIR_NAME = "license";
+    private static final String LICENSE_DEFAULT_FILE_NAME = "idl_license";
     private static final String URL = "http://sdkss.shitu.baidu.com/cgi-bin/queryLicense.py";
-    private static License mInstance = null;
+    private static final String URL_V1 = "http://sdkss.shitu.baidu.com/cgi-bin/queryLicense.py";
+    private static final String URL_V2 = "http://sdkss.shitu.baidu.com/cgi-bin/queryLicense_new.py";
     private ArrayList<String> mALLicense;
     private int mAuthorityStatus = 256;
-    private int mAlgorithmId = -1;
-    private String mAlgorithmIdLicenseName = "";
+    private int mLicenseAgId = -1;
+    private String mLicenseFileName = "";
+    public static final String TAG = License.class.getSimpleName();
+    private static License mInstance = null;
 
     public static native String getAlgorithmVersion();
 
     public static native String getAuthorityVersion();
 
-    public native long getLicenseRemnant(int i);
+    private native String getPostData(Context context, String str);
+
+    private native int initLicense(Context context, String str, String[] strArr);
+
+    private native int initLicenseWithToken(String str);
+
+    public native int getLicenseRemnant(int i);
 
     public native int getLicenseState(int i);
-
-    public native String getPostData(Context context, String str);
-
-    public native int initLicense(Context context, String str, String[] strArr);
-
-    public native int initLicenseWithToken(String str);
 
     public static synchronized License getInstance() {
         License license;
@@ -65,8 +64,9 @@ public class License {
 
     @Deprecated
     public int init(Context context, String str) {
-        this.mAlgorithmId = -1;
-        this.mAlgorithmIdLicenseName = "";
+        Log.e(TAG, "License Init With ApiKey");
+        this.mLicenseAgId = -1;
+        this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
         if (272 == this.mAuthorityStatus) {
             return this.mAuthorityStatus;
         }
@@ -78,12 +78,14 @@ public class License {
             Log.e(TAG, "Net License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus));
         }
         if (this.mAuthorityStatus > 48) {
-            Log.e(TAG, "IDLAuthorityException :" + AuthorityState.getStateName(this.mAuthorityStatus));
+            Log.e(TAG, "Authority Exception :" + AuthorityState.getStateName(this.mAuthorityStatus));
         }
         return this.mAuthorityStatus;
     }
 
+    @Deprecated
     public int init(String str) {
+        Log.e(TAG, "License Init With Token");
         if (272 == this.mAuthorityStatus) {
             return this.mAuthorityStatus;
         }
@@ -99,14 +101,35 @@ public class License {
         return this.mAuthorityStatus;
     }
 
+    @Deprecated
+    public int init(Context context, String str, int i, String str2) {
+        Log.e(TAG, "License Init With ApiKey and AgId");
+        this.mLicenseAgId = i;
+        if (TextUtils.isEmpty(str2)) {
+            this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
+        } else {
+            this.mLicenseFileName = str2;
+        }
+        return initWithApikey(context, str);
+    }
+
+    public int init(Context context, String str, String str2) {
+        Log.e(TAG, "License Init With ApiKey and License File Name");
+        if (TextUtils.isEmpty(str2)) {
+            this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
+        } else {
+            this.mLicenseFileName = str2;
+        }
+        return initWithApikey(context, str);
+    }
+
     private int verifyByLocalData(final Context context, final String str) {
-        Log.e(TAG, "verifyByLocalData");
         int i = 49;
         this.mALLicense = getLocalLicense(context);
         if (this.mALLicense != null && this.mALLicense.size() > 0) {
             i = initLicense(context, str, (String[]) this.mALLicense.toArray(new String[this.mALLicense.size()]));
             if (i == 0) {
-                Log.e(TAG, "license success.");
+                Log.e(TAG, "Local License Success");
             } else if (i == 16) {
                 new Thread(new Runnable() { // from class: com.baidu.idl.license.License.1
                     @Override // java.lang.Runnable
@@ -118,18 +141,17 @@ public class License {
                 deleteErrorLicense(context);
             }
         } else {
-            Log.e(TAG, "my license is null");
+            Log.e(TAG, "Local License Is Null");
         }
         return i;
     }
 
     private int verifyByNetworkData(Context context, String str) {
-        Log.e(TAG, "verifyByNetworkData");
         this.mALLicense = getLicenseByNetwork(context, str);
-        Log.e(TAG, "Net License:" + this.mALLicense);
         if (this.mALLicense != null && this.mALLicense.size() > 0) {
             int initLicense = initLicense(context, str, (String[]) this.mALLicense.toArray(new String[this.mALLicense.size()]));
             if (initLicense < 48) {
+                Log.e(TAG, "Network License Success.");
                 WriteLicense(context, this.mALLicense);
                 return initLicense;
             }
@@ -140,7 +162,6 @@ public class License {
     }
 
     private ArrayList<String> getLocalLicense(Context context) {
-        Log.e(TAG, "getLocalLicense");
         ArrayList<String> ReadLicenseFromData = ReadLicenseFromData(context);
         if (ReadLicenseFromData == null || ReadLicenseFromData.size() < 1) {
             return ReadLicenseFromAsset(context);
@@ -151,18 +172,12 @@ public class License {
     private ArrayList<String> getLicenseByNetwork(Context context, String str) {
         JSONObject jSONObject;
         ArrayList<String> arrayList;
-        Log.e(TAG, "getLicenseByNetwork");
-        String postData = getPostData(context, str);
-        Log.e(TAG, "Network Request " + postData);
-        String post = HttpClient.post(URL, postData);
-        if (post != null && post.length() > 0) {
-            Log.e(TAG, "Network Response " + post);
-        }
-        if (post == null) {
+        String request = HttpRequest.request("http://sdkss.shitu.baidu.com/cgi-bin/queryLicense.py", getPostData(context, str));
+        if (request == null) {
             return null;
         }
         try {
-            jSONObject = new JSONObject(post);
+            jSONObject = new JSONObject(request);
         } catch (JSONException e) {
             e.printStackTrace();
             jSONObject = null;
@@ -170,7 +185,7 @@ public class License {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("errno", -1);
             jSONObject.optString("msg");
-            JSONArray optJSONArray = jSONObject.optJSONArray(LICENSE_FILE);
+            JSONArray optJSONArray = jSONObject.optJSONArray(LICENSE_DATA_DIR_NAME);
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 optInt = -1;
                 arrayList = null;
@@ -187,7 +202,7 @@ public class License {
             if (optInt != 0 || optJSONArray == null || optJSONArray.length() <= 0) {
                 arrayList = null;
             } else {
-                Log.e(TAG, "resonpse is right.");
+                Log.e(TAG, "Network License Resopnse Is Right.");
             }
         } else {
             arrayList = null;
@@ -197,25 +212,19 @@ public class License {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void getLatestLicense(Context context, String str) {
-        Log.e(TAG, "getLatestLicense");
         ArrayList<String> licenseByNetwork = getLicenseByNetwork(context, str);
         if (licenseByNetwork != null && licenseByNetwork.size() > 0 && initLicense(context, str, (String[]) licenseByNetwork.toArray(new String[licenseByNetwork.size()])) < 48) {
+            Log.e(TAG, "Network Latest License Success.");
             WriteLicense(context, licenseByNetwork);
-            Log.e(TAG, "LatestLicense " + licenseByNetwork);
         }
     }
 
-    public ArrayList<String> ReadLicenseFromData(Context context) {
+    private ArrayList<String> ReadLicenseFromData(Context context) {
         if (context == null) {
             return null;
         }
-        Log.e(TAG, "ReadLicenseFromData");
-        File dataLicenseFile = getDataLicenseFile(context);
-        if (dataLicenseFile != null) {
-            Log.e(TAG, "ReadLicenseFromData file type " + dataLicenseFile.isDirectory() + dataLicenseFile.getAbsolutePath());
-        }
         try {
-            return analyseLicense(new FileInputStream(dataLicenseFile));
+            return analyseLicense(new FileInputStream(getDataLicenseFile(context)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;
@@ -228,27 +237,33 @@ public class License {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [285=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x004b */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [327=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:6:0x000f */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0042 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.InputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0039 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.util.ArrayList<java.lang.String>, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    /* JADX WARN: Type inference failed for: r2v9 */
+    /* JADX WARN: Type inference failed for: r3v0, types: [com.baidu.idl.license.License] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList<String> ReadLicenseFromAsset(Context context) {
+    private ArrayList<String> ReadLicenseFromAsset(Context context) {
         InputStream inputStream;
-        ArrayList<String> arrayList = null;
-        ?? r1 = "ReadLicenseFromAsset";
-        Log.e(TAG, "ReadLicenseFromAsset");
+        ?? r2 = 0;
+        r2 = 0;
+        r2 = 0;
+        r2 = 0;
         try {
             try {
                 inputStream = getAssetsLicenseFileInputStream(context.getAssets());
                 if (inputStream != null) {
                     try {
-                        arrayList = analyseLicense(inputStream);
+                        r2 = analyseLicense(inputStream);
                     } catch (IOException e) {
                         e = e;
                         e.printStackTrace();
@@ -259,10 +274,10 @@ public class License {
                                 e2.printStackTrace();
                             }
                         }
-                        if (arrayList != null) {
-                            WriteLicense(context, arrayList);
+                        if (r2 != 0) {
+                            WriteLicense(context, r2);
                         }
-                        return arrayList;
+                        return r2;
                     }
                 }
                 if (inputStream != null) {
@@ -274,9 +289,9 @@ public class License {
                 }
             } catch (Throwable th) {
                 th = th;
-                if (r1 != 0) {
+                if (0 != 0) {
                     try {
-                        r1.close();
+                        r2.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
@@ -288,19 +303,17 @@ public class License {
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            r1 = 0;
-            if (r1 != 0) {
+            if (0 != 0) {
             }
             throw th;
         }
-        if (arrayList != null && arrayList.size() > 0) {
-            WriteLicense(context, arrayList);
+        if (r2 != 0 && r2.size() > 0) {
+            WriteLicense(context, r2);
         }
-        return arrayList;
+        return r2;
     }
 
     private ArrayList<String> analyseLicense(InputStream inputStream) throws IOException {
-        Log.e(TAG, "analyseLicense");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         ArrayList<String> arrayList = new ArrayList<>();
         while (true) {
@@ -313,19 +326,19 @@ public class License {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [352=5, 354=4, 355=4, 357=4, 358=7] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0091 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x002c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x004f */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [390=5, 392=4, 393=4, 395=4, 396=7] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x0086 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x0023 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0045 */
     /* JADX DEBUG: Multi-variable search result rejected for r4v18, resolved type: java.io.FileOutputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r4v19, resolved type: java.io.FileOutputStream */
     /* JADX DEBUG: Multi-variable search result rejected for r4v20, resolved type: java.io.FileOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x009c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean WriteLicense(Context context, ArrayList<String> arrayList) {
+    private boolean WriteLicense(Context context, ArrayList<String> arrayList) {
         FileOutputStream fileOutputStream;
         boolean z;
         FileOutputStream fileOutputStream2;
@@ -333,7 +346,6 @@ public class License {
         if (arrayList == null || arrayList.size() == 0 || context == null) {
             return false;
         }
-        Log.e(TAG, "WriteLicense");
         File dataLicenseFile = getDataLicenseFile(context);
         if (dataLicenseFile != null) {
             dataLicenseFile.delete();
@@ -351,7 +363,7 @@ public class License {
         FileOutputStream fileOutputStream6 = null;
         try {
             try {
-                Log.e(TAG, "WriteLicense path " + dataLicenseFile.getAbsolutePath());
+                Log.e(TAG, "Write License File " + dataLicenseFile.getAbsolutePath());
                 fileOutputStream3 = new FileOutputStream(dataLicenseFile);
             } catch (Throwable th) {
                 th = th;
@@ -443,27 +455,22 @@ public class License {
         return z;
     }
 
-    public void deleteErrorLicense(Context context) {
-        if (context != null) {
-            Log.e(TAG, "deleteErrorLicense");
-            File dir = context.getDir(LICENSE_FILE, 0);
-            if (dir.exists()) {
-                dir.delete();
+    private void deleteErrorLicense(Context context) {
+        File dir;
+        if (context != null && (dir = context.getDir(LICENSE_DATA_DIR_NAME, 0)) != null && dir.exists() && dir.isDirectory()) {
+            String str = dir.getAbsolutePath() + File.separator + this.mLicenseFileName;
+            Log.e(TAG, "Delete Error License File " + str);
+            File file = new File(str);
+            if (file.exists()) {
+                file.delete();
             }
         }
     }
 
-    public int init(Context context, String str, int i, String str2) {
-        this.mAlgorithmId = i;
-        this.mAlgorithmIdLicenseName = str2;
-        return initWithAlgorithmId(context, str);
-    }
-
-    private int initWithAlgorithmId(Context context, String str) {
+    private int initWithApikey(Context context, String str) {
         if (272 == this.mAuthorityStatus) {
             return this.mAuthorityStatus;
         }
-        Log.e(TAG, "initWithAlgorithmId");
         this.mAuthorityStatus = AuthorityState.STATE_INIT_ING;
         this.mAuthorityStatus = verifyByLocalData(context, str);
         Log.e(TAG, "Local License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus));
@@ -472,7 +479,6 @@ public class License {
             Log.e(TAG, "Net License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus));
         }
         if (this.mAuthorityStatus > 48) {
-            throw new IDLAuthorityException(AuthorityState.getStateName(this.mAuthorityStatus));
         }
         return this.mAuthorityStatus;
     }
@@ -482,29 +488,22 @@ public class License {
     }
 
     private File getDataLicenseFile(Context context) {
-        Log.e(TAG, "getDataLicenseFile");
-        if (TextUtils.isEmpty(this.mAlgorithmIdLicenseName)) {
-            return context.getDir(LICENSE_FILE, 0);
-        }
-        File dir = context.getDir(LICENSE_FILE, 0);
+        File dir = context.getDir(LICENSE_DATA_DIR_NAME, 0);
         if (!dir.exists() || !dir.isDirectory()) {
             dir.mkdirs();
         }
-        return new File(dir.getAbsolutePath() + File.separator + String.format(LICENSE_LICENSE_FILE_NAME, this.mAlgorithmIdLicenseName));
+        String str = dir.getAbsolutePath() + File.separator + this.mLicenseFileName;
+        Log.e(TAG, "Get Data License File" + str);
+        return new File(str);
     }
 
     private InputStream getAssetsLicenseFileInputStream(AssetManager assetManager) {
-        Log.e(TAG, "getAssetsLicenseFileInputStream");
-        InputStream inputStream = null;
+        Log.e(TAG, "Get Assets License File" + this.mLicenseFileName);
         try {
-            if (TextUtils.isEmpty(this.mAlgorithmIdLicenseName)) {
-                inputStream = assetManager.open(LICENSE_ASSETS_FILE);
-            } else {
-                inputStream = assetManager.open(String.format(LICENSE_ASSETS_MULTIPLE_FILE, this.mAlgorithmIdLicenseName));
-            }
+            return assetManager.open(this.mLicenseFileName);
         } catch (IOException e) {
-            Log.e(TAG, "getLicenseFileInputStream error");
+            Log.e(TAG, "Get Assets License File Exception");
+            return null;
         }
-        return inputStream;
     }
 }

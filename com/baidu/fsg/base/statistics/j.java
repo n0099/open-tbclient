@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j {
     public static final String a = "cu";
     public static final String b = "cu2";
@@ -27,7 +27,7 @@ public class j {
     private Pattern j;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private static j a = new j();
 
@@ -39,12 +39,12 @@ public class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt(c, e(RimStatisticsUtil.getAppContext()));
-            jSONObject.putOpt(a, "");
+            jSONObject.putOpt(a, c(RimStatisticsUtil.getAppContext()));
             jSONObject.put(b, d(RimStatisticsUtil.getAppContext()));
-            jSONObject.putOpt(d, f(RimStatisticsUtil.getAppContext()));
+            jSONObject.putOpt("op", f(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt("bs", g(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt(f, h(RimStatisticsUtil.getAppContext()));
-            jSONObject.putOpt(h, b(RimStatisticsUtil.getAppContext()));
+            jSONObject.putOpt("sd", b(RimStatisticsUtil.getAppContext()));
             jSONObject.putOpt(g, a(RimStatisticsUtil.getAppContext()));
         } catch (JSONException e2) {
         }
@@ -52,11 +52,8 @@ public class j {
     }
 
     public String b() {
-        JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(c.b, RimArmor.getInstance().encryptProxy(d(RimStatisticsUtil.getAppContext())));
-            jSONObject.put(c.c, RimArmor.getInstance().getpw());
-            return jSONObject.toString();
+            return new JSONObject().toString();
         } catch (Throwable th) {
             LogUtil.d(i, th.toString());
             return null;

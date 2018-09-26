@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String IS_SHOW_RIGHT_ICON = "is_show_right_icon";
@@ -68,7 +68,7 @@ public class WebViewActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            l.showToast(getContext(), getContext().getString(f.j.web_view_corrupted));
+            l.showToast(getContext(), getContext().getString(e.j.web_view_corrupted));
             return false;
         }
         return true;
@@ -93,9 +93,9 @@ public class WebViewActivityConfig extends IntentConfig {
     }
 
     public static String addTiebaParams(String str) {
-        if (!ap.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (ap.isEmpty(Uri.parse(str).getQuery())) {
+                if (ao.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();

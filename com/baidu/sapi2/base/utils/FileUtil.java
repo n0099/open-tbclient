@@ -36,49 +36,39 @@ public final class FileUtil {
         return file.delete();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [67=4] */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x002c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [69=4] */
     public static String read(String str) throws IOException {
         FileInputStream fileInputStream;
+        Throwable th;
+        FileInputStream fileInputStream2 = null;
         try {
+            fileInputStream = new FileInputStream(str);
             try {
-                fileInputStream = new FileInputStream(str);
-                try {
-                    byte[] bArr = new byte[fileInputStream.available()];
-                    fileInputStream.read(bArr);
-                    String str2 = new String(bArr);
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                        return str2;
-                    }
+                byte[] bArr = new byte[fileInputStream.available()];
+                fileInputStream.read(bArr);
+                String str2 = new String(bArr);
+                if (fileInputStream != null) {
+                    fileInputStream.close();
                     return str2;
-                } catch (Exception e) {
-                    e = e;
-                    Log.e(e);
-                    if (fileInputStream != null) {
-                        fileInputStream.close();
-                    }
-                    return "";
                 }
-            } catch (Throwable th) {
-                th = th;
+                return str2;
+            } catch (Exception e) {
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
                 if (fileInputStream != null) {
                     fileInputStream.close();
                 }
                 throw th;
             }
         } catch (Exception e2) {
-            e = e2;
+        } catch (Throwable th3) {
             fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
-            if (fileInputStream != null) {
-            }
-            throw th;
+            th = th3;
         }
     }
 
@@ -94,7 +84,7 @@ public final class FileUtil {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [114=5, 115=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=5, 117=4] */
     public static boolean write(java.io.File r3, byte[] r4, boolean r5) throws java.io.IOException {
         /*
             r0 = 0

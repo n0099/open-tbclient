@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.pb.main.emotion.message.GetSugMatchWordsResponseMessage;
 import java.util.ArrayList;
@@ -16,38 +16,38 @@ import java.util.List;
 import tbclient.T;
 /* loaded from: classes2.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> ero = new ArrayList();
-    private a fIa;
-    private final HttpMessageListener fIb;
+    private static List<String> eyJ = new ArrayList();
+    private a fPG;
+    private final HttpMessageListener fPH;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void G(List<String> list);
+        void H(List<String> list);
 
         void onFail(int i, String str);
     }
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.fIb = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.fPH = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.fIa != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.fPG != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
-                    if (!w.z(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.fIa.G(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.ero.clear();
-                        GetSugMatchWordsModel.ero.addAll(getSugMatchWordsResponseMessage.getData());
+                    if (!v.z(getSugMatchWordsResponseMessage.getData())) {
+                        GetSugMatchWordsModel.this.fPG.H(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.eyJ.clear();
+                        GetSugMatchWordsModel.eyJ.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.fIa.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.fPG.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
         registerTask();
-        this.fIb.setSelfListener(true);
-        registerListener(this.fIb);
+        this.fPH.setSelfListener(true);
+        registerListener(this.fPH);
     }
 
     private void registerTask() {
@@ -57,10 +57,10 @@ public class GetSugMatchWordsModel extends BdBaseModel {
     }
 
     public void b(a aVar) {
-        this.fIa = aVar;
-        if (this.fIa != null) {
-            if (!w.z(ero)) {
-                this.fIa.G(ero);
+        this.fPG = aVar;
+        if (this.fPG != null) {
+            if (!v.z(eyJ)) {
+                this.fPG.H(eyJ);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.fIb);
+        MessageManager.getInstance().unRegisterListener(this.fPH);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         return true;
     }

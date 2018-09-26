@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes.dex */
@@ -30,22 +30,22 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return M(this.mUrl, "nonavigationbar");
+        return T(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return M(this.mUrl, "noshare");
+        return T(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return M(this.mUrl, "nomenu");
+        return T(this.mUrl, "nomenu");
     }
 
-    public boolean cJ(String str) {
-        return M(str, "blank");
+    public boolean da(String str) {
+        return T(str, "blank");
     }
 
-    public boolean M(String str, String str2) {
+    public boolean T(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
@@ -76,7 +76,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
         com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
-            dVar.title = getResources().getString(f.j.share_from_tieba);
+            dVar.title = getResources().getString(e.j.share_from_tieba);
         } else {
             dVar.title = this.mUrlTitle;
         }

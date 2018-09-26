@@ -10,12 +10,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0106a aEu;
+    private C0106a aHH;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -32,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aEu == null) {
-            this.aEu = new C0106a();
-            this.aEu.setPriority(2);
-            this.aEu.bq(z);
-            this.aEu.setPortrait(str);
-            this.aEu.setToUid(str2);
-            this.aEu.setIsGod(z2);
-            this.aEu.setFrom(str3);
-            this.aEu.setPageId(bdUniqueId);
-            this.aEu.setForumId(str4);
-            this.aEu.setInLive(str5);
-            this.aEu.execute(new Integer[0]);
+        if (this.aHH == null) {
+            this.aHH = new C0106a();
+            this.aHH.setPriority(2);
+            this.aHH.bC(z);
+            this.aHH.setPortrait(str);
+            this.aHH.setToUid(str2);
+            this.aHH.setIsGod(z2);
+            this.aHH.setFrom(str3);
+            this.aHH.setPageId(bdUniqueId);
+            this.aHH.setForumId(str4);
+            this.aHH.setInLive(str5);
+            this.aHH.execute(new Integer[0]);
         }
     }
 
@@ -51,16 +52,18 @@ public class a {
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0106a extends BdAsyncTask<Integer, Integer, String> {
+        private String authSid;
         private String forumId;
         private String from;
         private String inLive;
         private boolean isAttention;
         private boolean isGod;
-        private y mNetwork;
+        private x mNetwork;
         private BdUniqueId pageId;
         private String portrait;
         private boolean showToastAfterAttentionSuc;
         private String toUid;
+        private AuthTokenData tokenData;
 
         private C0106a() {
             this.mNetwork = null;
@@ -79,7 +82,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void bq(boolean z) {
+        public void bC(boolean z) {
             this.isAttention = z;
         }
 
@@ -112,22 +115,26 @@ public class a {
         public String doInBackground(Integer... numArr) {
             try {
                 if (this.portrait != null) {
-                    this.mNetwork = new y();
+                    this.mNetwork = new x();
                     if (this.isAttention) {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
+                        this.mNetwork.aR(true);
                     } else {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
                     }
-                    this.mNetwork.o(IntentConfig.PORTRAIT, this.portrait);
+                    this.mNetwork.u(IntentConfig.PORTRAIT, this.portrait);
                     if (!StringUtils.isNull(this.from)) {
-                        this.mNetwork.o("from_type", this.from);
+                        this.mNetwork.u("from_type", this.from);
                     }
                     if (!StringUtils.isNull(this.forumId)) {
-                        this.mNetwork.o("forum_id", this.forumId);
+                        this.mNetwork.u("forum_id", this.forumId);
                     }
-                    this.mNetwork.o("in_live", this.inLive);
-                    this.mNetwork.yM().zK().mIsNeedTbs = true;
-                    return this.mNetwork.yo();
+                    this.mNetwork.u("in_live", this.inLive);
+                    this.mNetwork.u("authsid", this.authSid);
+                    this.mNetwork.zR().AP().mIsNeedTbs = true;
+                    String zt = this.mNetwork.zt();
+                    this.tokenData = AuthTokenData.parse(zt);
+                    return zt;
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -140,19 +147,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0106a) str);
-            a.this.aEu = null;
+            a.this.aHH = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Gp = this.mNetwork.yM().zL().isRequestSuccess();
+                aVar.IM = this.mNetwork.zR().AQ().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
-                aVar.j(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.yM().zL().isRequestSuccess()) {
-                    aVar.aDt = null;
+                aVar.l(str, this.showToastAfterAttentionSuc);
+                if (this.mNetwork.zR().AQ().isRequestSuccess()) {
+                    aVar.aGz = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.yQ(), aVar.aDs)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.zV(), aVar.aGy)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -164,15 +171,15 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetwork != null) {
-                this.mNetwork.hN();
+                this.mNetwork.iT();
                 this.mNetwork = null;
             }
-            if (a.this.aEu != null) {
-                a.this.aEu.cancel();
-                a.this.aEu = null;
+            if (a.this.aHH != null) {
+                a.this.aHH.cancel();
+                a.this.aHH = null;
             }
             if (a.this.mLoadDataCallBack != null) {
-                a.this.mLoadDataCallBack.i(false);
+                a.this.mLoadDataCallBack.j(false);
             }
         }
     }
@@ -185,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aEu != null) {
-            this.aEu.cancel();
+        if (this.aHH != null) {
+            this.aHH.cancel();
         }
     }
 }

@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static final String a = f.class.getSimpleName();
     private JSONArray b;
@@ -15,7 +15,7 @@ public class f {
     private byte[] e;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         private static f a = new f();
 
@@ -46,7 +46,6 @@ public class f {
 
     public void b() {
         String str;
-        RimStatisticsUtil.getInstance();
         Context appContext = RimStatisticsUtil.getAppContext();
         if (com.baidu.fsg.base.statistics.a.c(appContext, com.baidu.fsg.base.statistics.b.n)) {
             String a2 = com.baidu.fsg.base.statistics.a.a(appContext, com.baidu.fsg.base.statistics.b.n);
@@ -80,7 +79,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     static class a {
         public int a;
         public String b;
@@ -105,7 +104,6 @@ public class f {
             synchronized (this.d) {
                 this.b = new JSONArray();
             }
-            RimStatisticsUtil.getInstance();
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, "{}", false);
         }
     }

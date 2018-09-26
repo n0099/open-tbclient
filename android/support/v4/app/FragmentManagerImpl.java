@@ -40,7 +40,6 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.ScaleAnimation;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.utils.ResUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -376,7 +375,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
             printWriter.print(str);
             printWriter.print("Active Fragments in ");
             printWriter.print(Integer.toHexString(System.identityHashCode(this)));
-            printWriter.println(SystemInfoUtil.COLON);
+            printWriter.println(":");
             for (int i = 0; i < size5; i++) {
                 Fragment valueAt = this.mActive.valueAt(i);
                 printWriter.print(str);

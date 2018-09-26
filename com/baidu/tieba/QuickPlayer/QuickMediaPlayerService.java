@@ -2,19 +2,23 @@ package com.baidu.tieba.QuickPlayer;
 
 import android.app.Service;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 /* loaded from: classes2.dex */
-public class QuickMediaPlayerService extends Service implements a {
+public class QuickMediaPlayerService extends Service implements com.baidu.tieba.QuickPlayer.a {
     public static final String KEY_RELEASE_ALL_PLAYERS = "KEY_RELEASE_ALL_PLAYERS";
     public static final String KEY_RELEASE_PLAYERS_IDS = "KEY_RELEASE_PLAYERS_IDS";
     public static final String KEY_RELEASE_SOME_PLAYERS = "KEY_RELEASE_SOME_PLAYERS";
-    private List<IMediaPlayer> mPlayerList = new ArrayList();
+    private LRULinkedHashMap<Uri, a> mPlayerList = new LRULinkedHashMap<>();
 
     @Override // android.app.Service
     public void onCreate() {
@@ -39,78 +43,141 @@ public class QuickMediaPlayerService extends Service implements a {
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
+        String[] stringArrayExtra;
+        IMediaPlayer iMediaPlayer;
         super.onStart(intent, i);
         if (intent != null && intent.getBooleanExtra(KEY_RELEASE_ALL_PLAYERS, false)) {
             synchronized (QuickMediaPlayerService.class) {
-                for (IMediaPlayer iMediaPlayer : this.mPlayerList) {
-                    if (iMediaPlayer != null) {
-                        iMediaPlayer.release();
+                Iterator<Map.Entry<Uri, a>> it = this.mPlayerList.entrySet().iterator();
+                while (it.hasNext()) {
+                    Map.Entry<Uri, a> next = it.next();
+                    if (next != null && next.getValue() != null) {
+                        next.getValue().Ry();
+                        it.remove();
                     }
                 }
-                this.mPlayerList.clear();
             }
         } else if (intent != null && intent.getBooleanExtra(KEY_RELEASE_SOME_PLAYERS, false) && intent.getStringArrayExtra(KEY_RELEASE_PLAYERS_IDS) != null) {
-            String[] stringArrayExtra = intent.getStringArrayExtra(KEY_RELEASE_PLAYERS_IDS);
-            ArrayList arrayList = new ArrayList(stringArrayExtra.length);
-            for (String str : stringArrayExtra) {
+            for (String str : intent.getStringArrayExtra(KEY_RELEASE_PLAYERS_IDS)) {
                 synchronized (QuickMediaPlayerService.class) {
-                    for (IMediaPlayer iMediaPlayer2 : this.mPlayerList) {
-                        if (iMediaPlayer2 != null && TextUtils.equals(iMediaPlayer2.generateMediaID(), str)) {
-                            iMediaPlayer2.release();
-                            arrayList.add(iMediaPlayer2);
+                    Iterator<Map.Entry<Uri, a>> it2 = this.mPlayerList.entrySet().iterator();
+                    while (it2.hasNext()) {
+                        Map.Entry<Uri, a> next2 = it2.next();
+                        if (next2 != null && next2.getValue() != null && (iMediaPlayer = next2.getValue().bpv) != null && TextUtils.equals(iMediaPlayer.generateMediaID(), str)) {
+                            iMediaPlayer.release();
+                            it2.remove();
                         }
                     }
                 }
             }
-            synchronized (QuickMediaPlayerService.class) {
-                this.mPlayerList.removeAll(arrayList);
+        }
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.a
+    public void addPlayer(IMediaPlayer iMediaPlayer, Uri uri) {
+        synchronized (QuickMediaPlayerService.class) {
+            if (this.mPlayerList.containsKey(uri) && this.mPlayerList.get(uri) != null) {
+                this.mPlayerList.get(uri).Ry();
+            }
+            this.mPlayerList.put(uri, new a(iMediaPlayer));
+        }
+    }
+
+    @Override // com.baidu.tieba.QuickPlayer.a
+    public void removePlayer(Uri uri) {
+        synchronized (QuickMediaPlayerService.class) {
+            a aVar = this.mPlayerList.get(uri);
+            if (aVar != null) {
+                aVar.count--;
+                IMediaPlayer iMediaPlayer = aVar.bpv;
+                if (iMediaPlayer != null) {
+                    if (iMediaPlayer.isPlaying()) {
+                        iMediaPlayer.pause();
+                    }
+                    if (aVar.count <= 0) {
+                        iMediaPlayer.resetListeners();
+                        iMediaPlayer.setSurface(null);
+                    }
+                }
             }
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.a
-    public void addPlayer(IMediaPlayer iMediaPlayer) {
+    public IMediaPlayer getPlayer(Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
-            this.mPlayerList.add(iMediaPlayer);
-        }
-    }
-
-    @Override // com.baidu.tieba.QuickPlayer.a
-    public void removePlayer(IMediaPlayer iMediaPlayer) {
-        synchronized (QuickMediaPlayerService.class) {
-            this.mPlayerList.remove(iMediaPlayer);
+            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).bpv != null) {
+                this.mPlayerList.get(uri).count++;
+                return this.mPlayerList.get(uri).bpv;
+            }
+            return null;
         }
     }
 
     @Override // com.baidu.tieba.QuickPlayer.a
     public boolean isExistInRemote(IMediaPlayer iMediaPlayer) {
+        boolean containsValue;
         synchronized (QuickMediaPlayerService.class) {
             if (iMediaPlayer != null) {
                 if (this.mPlayerList != null && !this.mPlayerList.isEmpty()) {
-                    for (IMediaPlayer iMediaPlayer2 : this.mPlayerList) {
-                        if (iMediaPlayer2 != null && iMediaPlayer2 == iMediaPlayer) {
-                            return true;
-                        }
-                    }
-                    return false;
+                    containsValue = this.mPlayerList.containsValue(new a(iMediaPlayer));
                 }
             }
+            containsValue = false;
         }
-        return false;
+        return containsValue;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.a
     public List<String> getMediaIDs() {
         ArrayList arrayList = new ArrayList();
         synchronized (QuickMediaPlayerService.class) {
-            int size = this.mPlayerList.size();
-            for (int i = 0; i < size; i++) {
-                IMediaPlayer iMediaPlayer = this.mPlayerList.get(i);
-                if (iMediaPlayer != null) {
-                    arrayList.add(iMediaPlayer.generateMediaID());
+            for (Map.Entry<Uri, a> entry : this.mPlayerList.entrySet()) {
+                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().bpv != null) {
+                    arrayList.add(entry.getValue().bpv.generateMediaID());
                 }
             }
         }
         return arrayList;
+    }
+
+    /* loaded from: classes2.dex */
+    class LRULinkedHashMap<K, V> extends LinkedHashMap<K, V> {
+        public static final int MAX_PLAYERS = 10;
+        private static final long serialVersionUID = 1;
+
+        LRULinkedHashMap() {
+            super(10, 0.75f, true);
+        }
+
+        @Override // java.util.LinkedHashMap
+        public boolean removeEldestEntry(Map.Entry<K, V> entry) {
+            boolean z = size() > 10;
+            V value = entry.getValue();
+            if (z && (value instanceof a)) {
+                ((a) value).bpv.release();
+            }
+            return z;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    class a {
+        public IMediaPlayer bpv;
+        public int count = 1;
+
+        public a(IMediaPlayer iMediaPlayer) {
+            this.bpv = iMediaPlayer;
+        }
+
+        public boolean equals(Object obj) {
+            return (obj instanceof a) && this.bpv == ((a) obj).bpv;
+        }
+
+        public void Ry() {
+            if (this.bpv != null) {
+                this.bpv.release();
+            }
+        }
     }
 }

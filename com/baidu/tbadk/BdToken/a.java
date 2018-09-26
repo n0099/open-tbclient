@@ -9,19 +9,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ay;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    private c Zx;
+    private c abX;
+    private InterfaceC0094a abZ;
     private TbPageContext mPageContext;
-    private b.a Zz = new b.a() { // from class: com.baidu.tbadk.BdToken.a.1
+    private b.a aca = new b.a() { // from class: com.baidu.tbadk.BdToken.a.1
         @Override // com.baidu.tbadk.BdToken.b.a
         public void a(boolean z, f fVar) {
-            if (z && fVar != null && !ap.isEmpty(fVar.getUrl())) {
+            if (z && fVar != null) {
                 a.this.clearClipBoard();
                 a.this.a(fVar);
+                a.this.b(fVar);
             }
         }
     };
@@ -31,43 +33,49 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 a.this.check();
-                a.this.rh();
+                a.this.sm();
             }
         }
     };
-    private b Zy = new b();
+    private b abY = new b();
+
+    /* renamed from: com.baidu.tbadk.BdToken.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0094a {
+        void cV(String str);
+    }
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.Zy.a(this.Zz);
-        this.Zx = new c(tbPageContext);
+        this.abY.a(this.aca);
+        this.abX = new c(tbPageContext);
         MessageManager.getInstance().registerListener(this.mAppEnterBackgroundListener);
     }
 
     public void check() {
-        String rj = rj();
+        String so = so();
         String clipBoardContent = getClipBoardContent();
-        if (!ap.isEmpty(rj) && !ap.isEmpty(clipBoardContent) && Pattern.compile(rj).matcher(clipBoardContent).find()) {
-            cE(clipBoardContent);
-        } else if (this.Zx != null && ri()) {
-            this.Zx.check();
+        if (!ao.isEmpty(so) && !ao.isEmpty(clipBoardContent) && Pattern.compile(so).matcher(clipBoardContent).find()) {
+            cU(clipBoardContent);
+        } else if (this.abX != null && sn()) {
+            this.abX.check();
         }
     }
 
-    public void rh() {
+    public void sm() {
         String clipBoardContent = getClipBoardContent();
-        if (!ap.isEmpty(clipBoardContent) && clipBoardContent.contains("^sZqulxTVsT$")) {
-            cE(clipBoardContent);
+        if (!ao.isEmpty(clipBoardContent) && clipBoardContent.contains("^sZqulxTVsT$")) {
+            cU(clipBoardContent);
         }
     }
 
-    private boolean ri() {
+    private boolean sn() {
         String topActivityClassName = UtilHelper.getTopActivityClassName();
-        return !ap.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
+        return !ao.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
     }
 
-    private void cE(String str) {
-        this.Zy.load(str);
+    private void cU(String str) {
+        this.abY.load(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -79,24 +87,35 @@ public class a {
         return UtilHelper.getClipBoardContent();
     }
 
-    private String rj() {
+    private String so() {
         return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_baidu_password_re", "XF5bIyRhLXpBLVowLTldezEwfVxe"), 0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(f fVar) {
-        if (fVar != null) {
-            az.zI().a(this.mPageContext, fVar.getTitle(), new String[]{fVar.getUrl()});
+        if (fVar != null && !ao.isEmpty(fVar.getUrl())) {
+            ay.AN().a(this.mPageContext, fVar.getTitle(), new String[]{fVar.getUrl()});
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(f fVar) {
+        if (fVar != null && fVar.sv() != null && !ao.isEmpty(fVar.sv().btntext) && this.abZ != null) {
+            this.abZ.cV(fVar.sv().btntext);
         }
     }
 
     public void onDestroy() {
-        if (this.Zy != null) {
-            this.Zy.onDestroy();
+        if (this.abY != null) {
+            this.abY.onDestroy();
         }
-        if (this.Zx != null) {
-            this.Zx.onDestroy();
+        if (this.abX != null) {
+            this.abX.onDestroy();
         }
         MessageManager.getInstance().unRegisterListener(this.mAppEnterBackgroundListener);
+    }
+
+    public void a(InterfaceC0094a interfaceC0094a) {
+        this.abZ = interfaceC0094a;
     }
 }

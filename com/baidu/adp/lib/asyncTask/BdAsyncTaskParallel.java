@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId xm;
-    private BdAsyncTaskParallelType xn;
-    private int xo;
+    private BdUniqueId zE;
+    private BdAsyncTaskParallelType zF;
+    private int zG;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,40 +19,40 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.xm = null;
-        this.xn = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.xo = 1;
+        this.zE = null;
+        this.zF = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.zG = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.xn = bdAsyncTaskParallelType;
-        this.xm = bdUniqueId;
+        this.zF = bdAsyncTaskParallelType;
+        this.zE = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.xm = null;
-        this.xn = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.xo = 1;
+        this.zE = null;
+        this.zF = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.zG = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.xn = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-        this.xo = i;
-        this.xm = bdUniqueId;
+        this.zF = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.zG = i;
+        this.zE = bdUniqueId;
     }
 
-    public int gP() {
-        return this.xo;
+    public int hV() {
+        return this.zG;
     }
 
     public int getTag() {
-        if (this.xm == null) {
+        if (this.zE == null) {
             return 0;
         }
-        return this.xm.getId();
+        return this.zE.getId();
     }
 
-    public BdAsyncTaskParallelType gQ() {
-        return this.xn;
+    public BdAsyncTaskParallelType hW() {
+        return this.zF;
     }
 }

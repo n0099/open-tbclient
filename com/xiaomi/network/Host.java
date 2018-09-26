@@ -1,6 +1,5 @@
 package com.xiaomi.network;
 
-import com.baidu.ar.util.SystemInfoUtil;
 import java.net.InetSocketAddress;
 /* loaded from: classes3.dex */
 public final class Host {
@@ -13,7 +12,7 @@ public final class Host {
     }
 
     public static Host a(String str, int i) {
-        int lastIndexOf = str.lastIndexOf(SystemInfoUtil.COLON);
+        int lastIndexOf = str.lastIndexOf(":");
         if (lastIndexOf != -1) {
             String substring = str.substring(0, lastIndexOf);
             try {
@@ -43,6 +42,6 @@ public final class Host {
     }
 
     public String toString() {
-        return this.b > 0 ? this.a + SystemInfoUtil.COLON + this.b : this.a;
+        return this.b > 0 ? this.a + ":" + this.b : this.a;
     }
 }

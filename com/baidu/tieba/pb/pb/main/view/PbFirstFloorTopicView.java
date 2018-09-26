@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int dqa;
-    private int dqd;
+    private int dwo;
+    private int dwr;
     private Context mContext;
     private int mWidth;
 
@@ -38,27 +38,27 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.dqd = l.f(this.mContext, f.e.ds8);
-        this.mWidth = l.ah(this.mContext);
-        this.dqa = l.ah(this.mContext) / 2;
+        this.dwr = l.h(this.mContext, e.C0141e.ds8);
+        this.mWidth = l.aO(this.mContext);
+        this.dwo = l.aO(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
         LinearLayout linearLayout;
-        if (!w.z(arrayList)) {
+        if (!v.z(arrayList)) {
             if (getChildCount() > 0) {
                 removeAllViews();
             }
-            int y = w.y(arrayList);
+            int y = v.y(arrayList);
             LinearLayout linearLayout2 = null;
             int i = 0;
             while (i < y) {
                 if (i % 2 == 0) {
-                    linearLayout = beY();
+                    linearLayout = bhC();
                 } else {
                     if (linearLayout2 != null) {
-                        b(linearLayout2, (String) w.d(arrayList, i - 1));
-                        b(linearLayout2, (String) w.d(arrayList, i));
+                        b(linearLayout2, (String) v.d(arrayList, i - 1));
+                        b(linearLayout2, (String) v.d(arrayList, i));
                     }
                     linearLayout = linearLayout2;
                 }
@@ -66,8 +66,8 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.dqa = this.mWidth;
-                b(linearLayout2, (String) w.d(arrayList, y - 1));
+                this.dwo = this.mWidth;
+                b(linearLayout2, (String) v.d(arrayList, y - 1));
             }
         }
     }
@@ -76,23 +76,23 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         TextView textView = new TextView(this.mContext);
         textView.setText(str);
         textView.setGravity(17);
-        am.j(textView, f.d.cp_bg_line_c);
-        am.h(textView, f.d.black_alpha100);
-        textView.setTextSize(0, getResources().getDimension(f.e.ds28));
+        al.j(textView, e.d.cp_bg_line_c);
+        al.h(textView, e.d.black_alpha100);
+        textView.setTextSize(0, getResources().getDimension(e.C0141e.ds28));
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.dqa);
+        textView.setWidth(this.dwo);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.dqd;
-        layoutParams.rightMargin = this.dqd;
+        layoutParams.leftMargin = this.dwr;
+        layoutParams.rightMargin = this.dwr;
     }
 
-    private LinearLayout beY() {
+    private LinearLayout bhC() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        am.j(linearLayout, f.d.transparent);
+        al.j(linearLayout, e.d.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);

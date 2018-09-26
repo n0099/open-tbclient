@@ -1,9 +1,9 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface l {
-    void bna();
+    void bpH();
 
-    void bnb();
+    void bpI();
 
-    int bnc();
+    int bpJ();
 }

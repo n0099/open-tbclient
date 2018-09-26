@@ -10,10 +10,10 @@ import java.util.Locale;
 public class e {
     private String p;
     private boolean q = true;
-    private static e Wq = null;
+    private static e YR = null;
     private static String b = "Temp_in.dat";
     private static File c = new File(com.baidu.location.d.f.a, b);
-    private static StringBuffer Wr = null;
+    private static StringBuffer YS = null;
     private static boolean e = true;
     private static int f = 0;
     private static int g = 0;
@@ -95,9 +95,9 @@ public class e {
             long time = location.getTime() / 1000;
             if (e) {
                 f = 1;
-                Wr = new StringBuffer("");
-                Wr.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                g = Wr.length();
+                YS = new StringBuffer("");
+                YS.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                g = YS.length();
                 h = time;
                 k = longitude;
                 l = latitude;
@@ -110,12 +110,12 @@ public class e {
             Location.distanceBetween(latitude, longitude, l, k, fArr);
             long j2 = time - h;
             if (fArr[0] >= com.baidu.location.d.g.ac || j2 >= com.baidu.location.d.g.ad) {
-                if (Wr == null) {
+                if (YS == null) {
                     f++;
                     g = 0;
-                    Wr = new StringBuffer("");
-                    Wr.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
-                    g = Wr.length();
+                    YS = new StringBuffer("");
+                    YS.append(String.format(Locale.CHINA, "&nr=%s&traj=%d,%.5f,%.5f|", this.p, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                    g = YS.length();
                     h = time;
                     k = longitude;
                     l = latitude;
@@ -129,15 +129,15 @@ public class e {
                     m = (int) (time - h);
                     n = (int) (floor - i);
                     o = (int) (floor2 - j);
-                    Wr.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
-                    g = Wr.length();
+                    YS.append(String.format(Locale.CHINA, "%d,%d,%d|", Integer.valueOf(m), Integer.valueOf(n), Integer.valueOf(o)));
+                    g = YS.length();
                     h = time;
                     i = floor;
                     j = floor2;
                 }
                 if (g + 15 > 750) {
-                    a(Wr.toString());
-                    Wr = null;
+                    a(YS.toString());
+                    YS = null;
                 }
                 if (f >= com.baidu.location.d.g.ae) {
                     this.q = false;
@@ -165,7 +165,7 @@ public class e {
                     d();
                     return false;
                 }
-                if (com.baidu.location.d.g.Yr) {
+                if (com.baidu.location.d.g.ab) {
                     if (readInt == com.baidu.location.d.g.ae) {
                         if (str.equals(a(readInt3 == 1 ? com.baidu.location.d.g.ae : readInt3 - 1))) {
                             randomAccessFile.close();
@@ -272,7 +272,7 @@ public class e {
 
     private static void c() {
         e = true;
-        Wr = null;
+        YS = null;
         f = 0;
         g = 0;
         h = 0L;
@@ -307,11 +307,11 @@ public class e {
         }
     }
 
-    public static e qo() {
-        if (Wq == null) {
-            Wq = new e(com.baidu.location.d.b.qN().c());
+    public static e rt() {
+        if (YR == null) {
+            YR = new e(com.baidu.location.d.b.rS().c());
         }
-        return Wq;
+        return YR;
     }
 
     public boolean f(Location location) {

@@ -1,14 +1,14 @@
 package com.baidu.fsg.base.restnet.beans;
 
 import android.content.Context;
-import com.baidu.fsg.base.a.a;
+import com.baidu.fsg.base.b.a;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.RestResponseEntity;
 import com.baidu.fsg.base.restnet.RestTemplate;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.NetworkUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ApollonBean {
     private static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
     private static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";

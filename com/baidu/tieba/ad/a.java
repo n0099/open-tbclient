@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.tieba.recapp.h;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,24 +15,24 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern arE = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a bnk = new a();
+    private static final Pattern auc = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a bsY = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> arC = new ConcurrentHashMap<>();
-    private h.c bnl = null;
+    private final ConcurrentHashMap<String, h.b> aua = new ConcurrentHashMap<>();
+    private h.c bsZ = null;
 
     private a() {
     }
 
-    public static a Rh() {
-        return bnk;
+    public static a SV() {
+        return bsY;
     }
 
     public void a(final h.a aVar) {
-        if (l.jU()) {
+        if (l.la()) {
             b(aVar);
         } else {
-            e.in().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
+            e.jt().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(aVar);
@@ -50,21 +49,21 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.bnl = cVar;
+        this.bsZ = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
         return a(context, "", strArr, z, dVar, z2);
     }
 
-    public int b(Context context, String[] strArr) {
-        int d;
+    public int c(Context context, String[] strArr) {
+        int e;
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
         for (h.a aVar : this.mListeners) {
-            if (aVar != null && (d = aVar.d(context, strArr)) != 3) {
-                return d;
+            if (aVar != null && (e = aVar.e(context, strArr)) != 3) {
+                return e;
             }
         }
         return 3;
@@ -77,9 +76,9 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.arC.get(eT(str2));
+        h.b bVar = this.aua.get(fl(str2));
         if (bVar != null) {
-            bVar.d(context, eS(iE(str2)));
+            bVar.d(context, fk(jg(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -89,12 +88,12 @@ public final class a implements h {
                 break;
             }
             h.a next = it.next();
-            if (next != null && next.d(context, strArr) != 3) {
+            if (next != null && next.e(context, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.bnl != null) {
+        if (!z3 && this.bsZ != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -105,15 +104,15 @@ public final class a implements h {
         return z4;
     }
 
-    private String iE(String str) {
+    private String jg(String str) {
         int lastIndexOf;
-        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(SystemInfoUtil.COLON)) >= 0) {
+        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
         }
         return null;
     }
 
-    private Map<String, String> eS(String str) {
+    private Map<String, String> fk(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -132,18 +131,18 @@ public final class a implements h {
         return hashMap;
     }
 
-    private String eT(String str) {
+    private String fl(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        if (str.contains(SystemInfoUtil.COLON)) {
-            return str.substring(0, str.lastIndexOf(SystemInfoUtil.COLON));
+        if (str.contains(":")) {
+            return str.substring(0, str.lastIndexOf(":"));
         }
         return str;
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean c(Context context, String[] strArr) {
+    public boolean d(Context context, String[] strArr) {
         return a(context, strArr, false, null, false);
     }
 
@@ -153,13 +152,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (arE.matcher(str2).find()) {
-            this.bnl.b(context, str, str2, z, dVar, z2);
+        if (auc.matcher(str2).find()) {
+            this.bsZ.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean iF(String str) {
-        return arE.matcher(str).find();
+    public boolean jh(String str) {
+        return auc.matcher(str).find();
     }
 }

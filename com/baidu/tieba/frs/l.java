@@ -6,14 +6,14 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class l extends h<m, n> {
-    private final int doS;
+    private final int duP;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.doS = (com.baidu.adp.lib.util.l.aj(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(f.e.ds90);
+        this.duP = (com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,10 +21,10 @@ public class l extends h<m, n> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: am */
     public n onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(f.h.frs_no_list_item_view, viewGroup, false);
+        View inflate = LayoutInflater.from(this.mContext).inflate(e.h.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.doS;
+        generateLayoutParamsByParent.height = this.duP;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new n(inflate);
     }
@@ -35,12 +35,12 @@ public class l extends h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar.avD() == 6) {
-            nVar.doV.setText(f.j.attention_no_post_tip);
+        if (mVar.axx() == 6) {
+            nVar.duS.setText(e.j.attention_no_post_tip);
         } else {
-            nVar.doV.setText(f.j.no_data_text);
+            nVar.duS.setText(e.j.no_data_text);
         }
-        com.baidu.tbadk.core.util.am.c(nVar.doV, f.d.cp_cont_b, 1);
+        com.baidu.tbadk.core.util.al.c(nVar.duS, e.d.cp_cont_b, 1);
         return view;
     }
 }

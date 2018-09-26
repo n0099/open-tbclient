@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.face.b;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -32,15 +32,15 @@ public class PbFullScreenEditorInputView extends EditText {
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
     }
 
-    public void b(com.baidu.tbadk.coreExtra.data.n nVar) {
-        if (com.baidu.tieba.face.a.lC(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.yd().showToast(f.j.too_many_face);
+    public void b(com.baidu.tbadk.coreExtra.data.o oVar) {
+        if (com.baidu.tieba.face.a.me(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.zk().showToast(e.j.too_many_face);
         } else {
-            com.baidu.tieba.face.b.b(getContext(), nVar, this);
+            com.baidu.tieba.face.b.b(getContext(), oVar, this);
         }
     }
 
-    public void gG(String str) {
+    public void hc(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }

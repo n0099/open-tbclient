@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.j;
 public class h {
     public static String getNetType() {
         try {
-            if (j.jE()) {
-                if (j.jF()) {
+            if (j.kK()) {
+                if (j.kL()) {
                     return "3";
                 }
                 String defaultHost = Proxy.getDefaultHost();

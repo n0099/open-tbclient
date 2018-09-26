@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.util.SimpleArrayMap;
 import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes2.dex */
@@ -285,7 +284,7 @@ public abstract class FragmentHostCallback<E> extends FragmentContainer {
             printWriter.print(str);
             printWriter.print("Loader Manager ");
             printWriter.print(Integer.toHexString(System.identityHashCode(this.mLoaderManager)));
-            printWriter.println(SystemInfoUtil.COLON);
+            printWriter.println(":");
             this.mLoaderManager.dump(str + "  ", fileDescriptor, printWriter, strArr);
         }
     }

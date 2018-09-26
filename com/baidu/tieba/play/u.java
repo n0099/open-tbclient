@@ -1,6 +1,7 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import java.util.Iterator;
 import tbclient.VideoDesc;
@@ -8,7 +9,7 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
     private int duration;
-    private String ggZ;
+    private String gos;
     private String videoMd5;
     private long videoSize;
     private String videoUrl;
@@ -19,7 +20,7 @@ public class u {
             String str2 = videoInfo.video_url;
             videoInfo.video_width.toString();
             videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.w.z(videoInfo.video_desc)) {
+            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.z(videoInfo.video_desc)) {
                 VideoDesc videoDesc = null;
                 Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
                 while (true) {
@@ -28,8 +29,8 @@ public class u {
                     }
                     VideoDesc next = it.next();
                     if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.jF()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.jG()) {
+                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.kL()) {
+                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.kM()) {
                                 videoDesc = next;
                                 break;
                             }
@@ -46,7 +47,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.ggZ = videoInfo.video_width + "x" + videoInfo.video_height;
+                    this.gos = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -54,7 +55,7 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.ggZ = videoInfo.video_width + "x" + videoInfo.video_height;
+            this.gos = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -69,7 +70,7 @@ public class u {
         }
     }
 
-    public long bkL() {
+    public long bnr() {
         return this.videoSize;
     }
 
@@ -77,7 +78,7 @@ public class u {
         return this.duration;
     }
 
-    public String bkM() {
-        return this.ggZ;
+    public String bns() {
+        return this.gos;
     }
 }

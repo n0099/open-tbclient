@@ -1,37 +1,35 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.ar.constants.HttpConstants;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private final int aBK;
-    private final int aBL;
-    private final boolean aBM;
-    private final TbPageContext<?> mContext;
+    private String appId = "";
+    private String appName = "";
+    private String packageName = "";
+    private boolean aEO = false;
 
-    public g(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
-        this.mContext = tbPageContext;
-        this.aBK = i;
-        this.aBL = i2;
-        this.aBM = z;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.appId = jSONObject.optString(HttpConstants.HTTP_APP_ID, "");
+            this.appName = jSONObject.optString("app_name", "");
+            this.packageName = jSONObject.optString("package_name", "");
+        }
     }
 
-    public g(TbPageContext<?> tbPageContext, int i, int i2) {
-        this(tbPageContext, i, i2, false);
+    public String getAppId() {
+        return this.appId;
     }
 
-    public TbPageContext<?> BX() {
-        return this.mContext;
+    public String getPackageName() {
+        return this.packageName;
     }
 
-    public int BY() {
-        return this.aBK;
+    public boolean Dk() {
+        return this.aEO;
     }
 
-    public int BZ() {
-        return this.aBL;
-    }
-
-    public boolean isAvailable() {
-        return this.mContext != null && this.aBK > 0 && this.aBL > 0;
+    public void bn(boolean z) {
+        this.aEO = z;
     }
 }

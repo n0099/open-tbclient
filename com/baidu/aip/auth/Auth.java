@@ -10,27 +10,40 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class Auth {
-    private static Throwable Pr;
-    private String Pt;
-    private String Pu;
+    private static Throwable RV;
+    private String RX;
+    private String RY;
     private long mExpiresTime;
-    private int Ps = 1;
+    private int RW = 1;
     private String mToken = null;
 
     static {
         try {
             System.loadLibrary("aip-native-auth");
-            Pr = null;
+            RV = null;
         } catch (Throwable th) {
-            Pr = new AuthException(283506, AuthException.a);
+            RV = new AuthException(283506, AuthException.a);
         }
     }
 
-    private static String ao(Context context) {
+    private static String C(byte[] bArr) {
+        char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        char[] cArr2 = new char[bArr.length * 2];
+        int i = 0;
+        for (byte b : bArr) {
+            int i2 = i + 1;
+            cArr2[i] = cArr[(b >>> 4) & 15];
+            i = i2 + 1;
+            cArr2[i2] = cArr[b & 15];
+        }
+        return new String(cArr2);
+    }
+
+    private static String aU(Context context) {
         return Base64.encodeToString(initWithBin(context), 2);
     }
 
-    private static String f(Context context, String str, String str2) {
+    private static String g(Context context, String str, String str2) {
         return str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + md5(str2) + Base64.encodeToString(init(context), 2);
     }
 
@@ -40,15 +53,11 @@ public class Auth {
 
     private static String md5(String str) {
         try {
-            return u(MessageDigest.getInstance("MD5").digest(str.getBytes()));
+            return C(MessageDigest.getInstance("MD5").digest(str.getBytes()));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return "";
         }
-    }
-
-    private boolean or() {
-        return System.currentTimeMillis() > this.mExpiresTime;
     }
 
     private void parseJson(String str) {
@@ -72,32 +81,23 @@ public class Auth {
         }
     }
 
-    private static String u(byte[] bArr) {
-        char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        char[] cArr2 = new char[bArr.length * 2];
-        int i = 0;
-        for (byte b : bArr) {
-            int i2 = i + 1;
-            cArr2[i] = cArr[(b >>> 4) & 15];
-            i = i2 + 1;
-            cArr2[i2] = cArr[b & 15];
-        }
-        return new String(cArr2);
+    private boolean px() {
+        return System.currentTimeMillis() > this.mExpiresTime;
     }
 
-    public String an(Context context) {
+    public String getToken(Context context) {
         String str;
         String str2 = null;
-        if (or() || this.mToken == null) {
-            if (this.Ps == 0) {
+        if (px() || this.mToken == null) {
+            if (this.RW == 0) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/sk?channel=ar";
-                str = f(context, this.Pt, this.Pu);
+                str = g(context, this.RX, this.RY);
             } else {
                 str = null;
             }
-            if (this.Ps == 1) {
+            if (this.RW == 1) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/bin?channel=ar";
-                str = ao(context);
+                str = aU(context);
             }
             parseJson(a.a(str2, str));
             return this.mToken;

@@ -9,9 +9,9 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class i {
     private boolean enabled = false;
-    private final Set<a> kS = new ArraySet();
-    private Map<String, com.airbnb.lottie.c.d> kT = new HashMap();
-    private final Comparator<Pair<String, Float>> kU = new Comparator<Pair<String, Float>>() { // from class: com.airbnb.lottie.i.1
+    private final Set<a> nu = new ArraySet();
+    private Map<String, com.airbnb.lottie.c.d> nv = new HashMap();
+    private final Comparator<Pair<String, Float>> nw = new Comparator<Pair<String, Float>>() { // from class: com.airbnb.lottie.i.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -40,14 +40,14 @@ public class i {
 
     public void b(String str, float f) {
         if (this.enabled) {
-            com.airbnb.lottie.c.d dVar = this.kT.get(str);
+            com.airbnb.lottie.c.d dVar = this.nv.get(str);
             if (dVar == null) {
                 dVar = new com.airbnb.lottie.c.d();
-                this.kT.put(str, dVar);
+                this.nv.put(str, dVar);
             }
             dVar.o(f);
             if (str.equals("root")) {
-                for (a aVar : this.kS) {
+                for (a aVar : this.nu) {
                     aVar.f(f);
                 }
             }

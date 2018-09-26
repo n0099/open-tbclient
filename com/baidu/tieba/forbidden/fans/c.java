@@ -4,37 +4,37 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private al dhM;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> dhN;
-    private a dhO;
-    private HttpMessageListener dhP = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private al dnE;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> dnF;
+    private a dnG;
+    private HttpMessageListener dnH = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.dhM = getForbiddenFansResponse.getPageData();
-                if (c.this.dhN == null) {
-                    c.this.dhN = new ArrayList();
+                c.this.dnE = getForbiddenFansResponse.getPageData();
+                if (c.this.dnF == null) {
+                    c.this.dnF = new ArrayList();
                 }
-                if (c.this.dhM != null) {
-                    if (c.this.dhM.up() == 1) {
-                        c.this.dhN.clear();
+                if (c.this.dnE != null) {
+                    if (c.this.dnE.vs() == 1) {
+                        c.this.dnF.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.dhN.addAll(getForbiddenFansResponse.getFansList());
+                        c.this.dnF.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (c.this.dhO != null) {
-                    c.this.dhO.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dhN);
+                if (c.this.dnG != null) {
+                    c.this.dnG.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dnF);
                 }
             }
         }
@@ -52,35 +52,35 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.dhP);
+        MessageManager.getInstance().registerListener(this.dnH);
     }
 
-    public void asN() {
+    public void auB() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-        httpMessage.addParam(LegoListActivityConfig.RN, 20);
-        httpMessage.addParam("pn", 1);
+        httpMessage.addParam("rn", 20);
+        httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void asO() {
-        if (this.dhM == null || this.dhM.ur() == 1) {
-            int up = this.dhM != null ? this.dhM.up() + 1 : 1;
+    public void auC() {
+        if (this.dnE == null || this.dnE.vu() == 1) {
+            int vs = this.dnE != null ? this.dnE.vs() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-            httpMessage.addParam(LegoListActivityConfig.RN, 20);
-            httpMessage.addParam("pn", up);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam(Config.PACKAGE_NAME, vs);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasMore() {
-        return this.dhM != null && this.dhM.ur() == 1;
+        return this.dnE != null && this.dnE.vu() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dhP);
+        MessageManager.getInstance().unRegisterListener(this.dnH);
     }
 
     public void a(a aVar) {
-        this.dhO = aVar;
+        this.dnG = aVar;
     }
 }

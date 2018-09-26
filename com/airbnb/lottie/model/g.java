@@ -1,5 +1,6 @@
 package com.airbnb.lottie.model;
 
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,9 +8,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g {
-    private final List<com.airbnb.lottie.model.content.j> nf;
-    private final char ng;
-    private final String nh;
+    private final List<com.airbnb.lottie.model.content.j> pH;
+    private final char pI;
+    private final String pJ;
     private final int size;
     private final String style;
     private final double width;
@@ -19,16 +20,17 @@ public class g {
     }
 
     g(List<com.airbnb.lottie.model.content.j> list, char c, int i, double d, String str, String str2) {
-        this.nf = list;
-        this.ng = c;
+        this.pH = list;
+        this.pI = c;
         this.size = i;
         this.width = d;
         this.style = str;
-        this.nh = str2;
+        this.pJ = str2;
     }
 
-    public List<com.airbnb.lottie.model.content.j> ch() {
-        return this.nf;
+    /* renamed from: do  reason: not valid java name */
+    public List<com.airbnb.lottie.model.content.j> m6do() {
+        return this.pH;
     }
 
     public double getWidth() {
@@ -42,7 +44,7 @@ public class g {
             int i = 0;
             char charAt = jSONObject.optString("ch").charAt(0);
             int optInt = jSONObject.optInt("size");
-            double optDouble = jSONObject.optDouble("w");
+            double optDouble = jSONObject.optDouble(Config.DEVICE_WIDTH);
             String optString = jSONObject.optString("style");
             String optString2 = jSONObject.optString("fFamily");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
@@ -64,6 +66,6 @@ public class g {
     }
 
     public int hashCode() {
-        return a(this.ng, this.nh, this.style);
+        return a(this.pI, this.pJ, this.style);
     }
 }

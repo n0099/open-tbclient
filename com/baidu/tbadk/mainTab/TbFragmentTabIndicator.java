@@ -5,35 +5,35 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean aSb;
+    protected boolean aVq;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.aSb = false;
+        this.aVq = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aSb = false;
+        this.aVq = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aSb = false;
+        this.aVq = false;
     }
 
-    public void dF(int i) {
+    public void dQ(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void bP(boolean z) {
+    public void cb(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +49,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a hl(String str) {
+    public a hH(String str) {
         return null;
     }
 
@@ -86,43 +86,43 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void ap(String str, String str2) {
+    public void ax(String str, String str2) {
     }
 
-    public void Jp() {
+    public void KF() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aSb = z;
+        this.aVq = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int aSd;
-        public TbFragmentTabIndicator aSf;
+        public int Bs;
+        public int aVs;
+        public TbFragmentTabIndicator aVu;
         public View view;
-        public int yX;
-        public boolean aSc = true;
-        public int aSe = f.d.common_color_10225;
+        public boolean aVr = true;
+        public int aVt = e.d.common_color_10225;
 
-        public void dF(int i) {
-            if (this.aSd != 0) {
-                am.i(this.view, this.aSd);
+        public void dQ(int i) {
+            if (this.aVs != 0) {
+                al.i(this.view, this.aVs);
             }
             if (this.view instanceof TextView) {
-                if (this.aSe != 0) {
-                    am.c(this.view, this.aSe, 1);
+                if (this.aVt != 0) {
+                    al.c(this.view, this.aVt, 1);
                 }
                 int a = a((TextView) this.view);
                 if (a > 0 && a < 10) {
-                    am.i(this.view, f.C0146f.icon_news_head_prompt_one);
+                    al.i(this.view, e.f.icon_news_head_prompt_one);
                 } else if (a >= 10 && a < 100) {
-                    am.i(this.view, f.C0146f.icon_news_head_prompt_two);
+                    al.i(this.view, e.f.icon_news_head_prompt_two);
                 } else if (a >= 100) {
-                    am.i(this.view, f.C0146f.icon_news_head_prompt_more);
+                    al.i(this.view, e.f.icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {
@@ -138,7 +138,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             if ("   ".equals(charSequence)) {
                 return 100;
             }
-            return com.baidu.adp.lib.g.b.g(charSequence, -1);
+            return com.baidu.adp.lib.g.b.l(charSequence, -1);
         }
     }
 }

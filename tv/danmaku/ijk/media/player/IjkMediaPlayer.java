@@ -806,7 +806,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.by(message.arg1, message.arg2);
+                    e.bA(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:
@@ -888,7 +888,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         this.mOnMediaCodecSelectListener = onMediaCodecSelectListener;
     }
 
-    @Override // tv.danmaku.ijk.media.player.AbstractMediaPlayer
+    @Override // tv.danmaku.ijk.media.player.AbstractMediaPlayer, tv.danmaku.ijk.media.player.IMediaPlayer
     public void resetListeners() {
         super.resetListeners();
         this.mOnMediaCodecSelectListener = null;

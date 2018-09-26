@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.af;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.personPolymeric.c.i;
 import com.baidu.tieba.personPolymeric.c.j;
@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int gbC = 0;
-    private static int gbD = 1;
-    private static String gbE = "";
+    private static int giT = 0;
+    private static int giU = 1;
+    private static String giV = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        gbD = 1;
+        giU = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(gbE)) {
-                gbC = 1;
-                gbE = str;
+            if (z || !str.equals(giV)) {
+                giT = 1;
+                giV = str;
             } else {
-                gbC++;
+                giT++;
             }
         } else {
-            if (z || !str.equals(gbE)) {
+            if (z || !str.equals(giV)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    gbD = 1;
+                    giU = 1;
                 } else {
-                    gbD = 0;
+                    giU = 0;
                 }
-                gbE = str;
+                giV = str;
             }
-            gbD++;
+            giU++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(gbE);
+        userPostPageRequestMessage.setUid(giV);
         if (z3) {
-            userPostPageRequestMessage.setPn(gbC);
+            userPostPageRequestMessage.setPn(giT);
         } else {
-            userPostPageRequestMessage.setPn(gbD);
+            userPostPageRequestMessage.setPn(giU);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -219,12 +219,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
         userPostPageRequestMessage.setFrom(this.mFrom);
-        int ah = l.ah(TbadkCoreApplication.getInst().getApp());
-        int aj = l.aj(TbadkCoreApplication.getInst().getApp());
+        int aO = l.aO(TbadkCoreApplication.getInst().getApp());
+        int aQ = l.aQ(TbadkCoreApplication.getInst().getApp());
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = ar.zu().zw() ? 2 : 1;
-        userPostPageRequestMessage.set_scr_w(ah);
-        userPostPageRequestMessage.set_scr_h(aj);
+        int i2 = aq.Az().AB() ? 2 : 1;
+        userPostPageRequestMessage.set_scr_w(aO);
+        userPostPageRequestMessage.set_scr_h(aQ);
         userPostPageRequestMessage.set_scr_dip(f);
         userPostPageRequestMessage.set_q_type(i2);
         userPostPageRequestMessage.setCallback(aVar);
@@ -246,7 +246,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             } else {
                 z = true;
             }
-            if (w.z(dataRes.post_list) && z) {
+            if (v.z(dataRes.post_list) && z) {
                 this.mCardNullPolymericData = new i();
                 this.postList.add(this.mCardNullPolymericData);
                 return;
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.cCB != 33) {
+                if (cardPersonDynamicThreadData.cIs != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -314,7 +314,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes3.dex */
-    public static class PostInfoList extends OrmObject implements h, af, Serializable {
+    public static class PostInfoList extends OrmObject implements h, ae, Serializable {
         public static final BdUniqueId POST_INFO = BdUniqueId.gen();
         public boolean isDeal;
         public boolean isShareThread;
@@ -399,7 +399,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.af
+        @Override // com.baidu.tbadk.core.util.ae
         public ArrayList<PreLoadImageInfo> getImages() {
             Media[] mediaArr;
             ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
@@ -483,7 +483,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 if (labelInfoArr[i] != null) {
                     int random = getRandom(3, -1);
                     if (random == i2 || random == i3) {
-                        random = w(length, i2, i3);
+                        random = B(length, i2, i3);
                     }
                     if (i == 0) {
                         i2 = random;
@@ -503,45 +503,45 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         String str;
         String str2;
         String str3;
-        String Q = ap.Q(System.currentTimeMillis());
+        String U = ao.U(System.currentTimeMillis());
         String str4 = "";
         String str5 = "";
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
-                ((CardPersonDynamicThreadData) next).cCN = true;
-                ((CardPersonDynamicThreadData) next).cCM = true;
-                long j = ((CardPersonDynamicThreadData) next).cCz * 1000;
-                String Q2 = ap.Q(j);
-                String T = ap.T(j);
-                String S = ap.S(j);
-                if (ap.equals(Q2, Q)) {
-                    ((CardPersonDynamicThreadData) next).cCN = false;
+                ((CardPersonDynamicThreadData) next).cIE = true;
+                ((CardPersonDynamicThreadData) next).cID = true;
+                long j = ((CardPersonDynamicThreadData) next).cIq * 1000;
+                String U2 = ao.U(j);
+                String X = ao.X(j);
+                String W = ao.W(j);
+                if (ao.equals(U2, U)) {
+                    ((CardPersonDynamicThreadData) next).cIE = false;
                 }
-                if (ap.equals(S, str5) && ap.equals(T, str4) && ap.equals(Q2, Q)) {
-                    ((CardPersonDynamicThreadData) next).cCM = false;
+                if (ao.equals(W, str5) && ao.equals(X, str4) && ao.equals(U2, U)) {
+                    ((CardPersonDynamicThreadData) next).cID = false;
                     str = str5;
                     str2 = str4;
-                    str3 = Q;
+                    str3 = U;
                 } else {
-                    str = S;
-                    str2 = T;
-                    str3 = Q2;
+                    str = W;
+                    str2 = X;
+                    str3 = U2;
                 }
             } else {
                 str = str5;
                 str2 = str4;
-                str3 = Q;
+                str3 = U;
             }
             str4 = str2;
-            Q = str3;
+            U = str3;
             str5 = str;
         }
         return arrayList;
     }
 
-    private static int w(int i, int i2, int i3) {
+    private static int B(int i, int i2, int i3) {
         for (int i4 = 0; i4 < i && i4 < 3; i4++) {
             if (i4 != i2 && i4 != i3) {
                 return i4;

@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment dHU;
+    private VideoMiddlePageFragment dOZ;
     private String mFrom;
     private String mId;
 
@@ -23,7 +23,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(f.h.activity_video_middle_page_layout);
+        setContentView(e.h.activity_video_middle_page_layout);
         init();
     }
 
@@ -31,23 +31,23 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         Intent intent = getIntent();
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
-        aAZ();
-        an anVar = new an("c12664");
+        aDh();
+        am amVar = new am("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
-            anVar.ae(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
+            amVar.al(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom);
         }
-        TiebaStatic.log(anVar);
+        TiebaStatic.log(amVar);
     }
 
-    private void aAZ() {
+    private void aDh() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
             if (videoMiddlePageFragment == null) {
-                videoMiddlePageFragment = VideoMiddlePageFragment.bi(this.mFrom, this.mId);
-                supportFragmentManager.beginTransaction().add(f.g.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
+                videoMiddlePageFragment = VideoMiddlePageFragment.bq(this.mFrom, this.mId);
+                supportFragmentManager.beginTransaction().add(e.g.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.dHU = videoMiddlePageFragment;
+            this.dOZ = videoMiddlePageFragment;
         }
     }
 
@@ -76,10 +76,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.dHU == null) {
+        if (keyEvent == null || this.dOZ == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.dHU.kL(i)) {
+        if (this.dOZ.lo(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -102,16 +102,9 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
             } else if ("frs".equals(this.mFrom)) {
                 arrayList.add("a006");
             }
-            pageStayDurationItem.L(arrayList);
-            pageStayDurationItem.aTm = "0";
+            pageStayDurationItem.M(arrayList);
+            pageStayDurationItem.aWB = "0";
         }
         return pageStayDurationItem;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void enterExitAnimation() {
-        clearAnimatable();
-        clearAnimation();
-        overridePendingTransition(0, 0);
     }
 }

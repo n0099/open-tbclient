@@ -16,7 +16,7 @@ public class f {
         if (editable == null) {
             return 0;
         }
-        return hH(editable.toString());
+        return m19if(editable.toString());
     }
 
     public static int d(char c) {
@@ -30,7 +30,8 @@ public class f {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int hH(String str) {
+    /* renamed from: if  reason: not valid java name */
+    public static int m19if(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }

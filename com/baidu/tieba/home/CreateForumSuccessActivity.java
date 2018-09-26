@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
-    private LinearLayout axD;
-    private NoDataView dSb;
-    private NoNetworkView dit;
+    private LinearLayout aAJ;
+    private NoDataView dZs;
+    private NoNetworkView dom;
     private NavigationBar mNavigationBar;
     private String mForumName = null;
     private TextView mTextView = null;
-    private TextView dSn = null;
+    private TextView dZE = null;
 
-    public static void ag(Context context, String str) {
+    public static void av(Context context, String str) {
         if (str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateForumSuccessActivity.class);
             intent.putExtra("forumname", str);
@@ -37,9 +37,9 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(f.h.create_forum_success_activity);
+        setContentView(e.h.create_forum_success_activity);
         initData();
-        aDa();
+        aFn();
     }
 
     private void initData() {
@@ -49,23 +49,23 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         }
     }
 
-    private void aDa() {
-        this.axD = (LinearLayout) findViewById(f.g.root_view);
-        this.mNavigationBar = (NavigationBar) findViewById(f.g.view_navigation_bar);
+    private void aFn() {
+        this.aAJ = (LinearLayout) findViewById(e.g.root_view);
+        this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(f.j.create_bar);
-        this.dit = (NoNetworkView) this.axD.findViewById(f.g.view_no_network);
-        int f = l.f(getActivity(), f.e.ds100);
-        this.dSb = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.axD.findViewById(f.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, f), null, null);
-        this.dSb.setVisibility(0);
-        this.mTextView = (TextView) findViewById(f.g.text_suc_tip);
-        this.mTextView.setText(getActivity().getString(f.j.noforum_create_suc_tip1) + this.mForumName + getActivity().getString(f.j.noforum_create_suc_tip2));
-        this.dSn = (TextView) findViewById(f.g.text_audit_tip);
-        String string = getResources().getString(f.j.noforum_create_audit_tip);
-        if (!StringUtils.isNull(string) && this.dSn != null) {
-            this.dSn.setText(string.replace("%s", this.mForumName));
+        this.mNavigationBar.setTitleText(e.j.create_bar);
+        this.dom = (NoNetworkView) this.aAJ.findViewById(e.g.view_no_network);
+        int h = l.h(getActivity(), e.C0141e.ds100);
+        this.dZs = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.aAJ.findViewById(e.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, h), null, null);
+        this.dZs.setVisibility(0);
+        this.mTextView = (TextView) findViewById(e.g.text_suc_tip);
+        this.mTextView.setText(getActivity().getString(e.j.noforum_create_suc_tip1) + this.mForumName + getActivity().getString(e.j.noforum_create_suc_tip2));
+        this.dZE = (TextView) findViewById(e.g.text_audit_tip);
+        String string = getResources().getString(e.j.noforum_create_audit_tip);
+        if (!StringUtils.isNull(string) && this.dZE != null) {
+            this.dZE.setText(string.replace("%s", this.mForumName));
         }
-        findViewById(f.g.text_create_succ).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.CreateForumSuccessActivity.1
+        findViewById(e.g.text_create_succ).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.CreateForumSuccessActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CreateForumSuccessActivity.this.finish();
@@ -77,13 +77,13 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public void changeSkinType(int i) {
         super.changeSkinType(i);
         super.changeSkinType(i);
-        getLayoutMode().onModeChanged(this.axD);
-        com.baidu.tbadk.o.a.a(getPageContext(), this.axD);
-        if (this.dit != null && this.dit.getVisibility() == 0) {
-            this.dit.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        getLayoutMode().onModeChanged(this.aAJ);
+        com.baidu.tbadk.o.a.a(getPageContext(), this.aAJ);
+        if (this.dom != null && this.dom.getVisibility() == 0) {
+            this.dom.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        if (this.dSb != null) {
-            this.dSb.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.dZs != null) {
+            this.dZs.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);

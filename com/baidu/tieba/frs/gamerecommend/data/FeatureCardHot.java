@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.gamerecommend.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FeatureCardHot extends OrmObject {
@@ -11,6 +11,6 @@ public class FeatureCardHot extends OrmObject {
     public String type;
 
     public boolean isValid() {
-        return !w.z(this.sub_nodes);
+        return !v.z(this.sub_nodes);
     }
 }

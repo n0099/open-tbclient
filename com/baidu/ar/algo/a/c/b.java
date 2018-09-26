@@ -84,7 +84,7 @@ public class b {
 
     public int a(int i, int i2) {
         long currentTimeMillis = System.currentTimeMillis();
-        int arInit = ARAlgoJniClient.arInit(new byte[1], com.baidu.sapi2.biometrics.liveness.camera.a.d, com.baidu.sapi2.biometrics.liveness.camera.a.d, i, i2, this.c.b, this.c.a);
+        int arInit = ARAlgoJniClient.arInit(new byte[1], 480, 480, i, i2, this.c.b, this.c.a);
         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
         return arInit;
     }

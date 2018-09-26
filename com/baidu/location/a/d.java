@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.location.Jni;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedOutputStream;
@@ -36,9 +36,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d {
-    private static d VY = null;
+    private static d Yz = null;
     public static String f = "0";
-    private Handler Wi;
+    private Handler YJ;
     private int k = 1;
     private double l = 0.699999988079071d;
     private String m = "3G|4G";
@@ -46,36 +46,36 @@ public class d {
     private int o = 307200;
     private int p = 15;
     private int q = 1;
-    private double VZ = 3.5d;
-    private double Wa = 3.0d;
-    private double Wb = 0.5d;
+    private double YA = 3.5d;
+    private double YB = 3.0d;
+    private double YC = 0.5d;
     private int u = 300;
     private int v = 60;
     private int w = 0;
     private int x = 60;
     private int y = 0;
     private long z = 0;
-    private a Wc = null;
+    private a YD = null;
     private boolean B = false;
     private boolean C = false;
     private int D = 0;
-    private float Wd = 0.0f;
-    private float We = 0.0f;
+    private float YE = 0.0f;
+    private float YF = 0.0f;
     private long G = 0;
     private int H = 500;
     long a = 0;
-    Location Wf = null;
-    Location Wg = null;
-    StringBuilder Wh = null;
+    Location YG = null;
+    Location YH = null;
+    StringBuilder YI = null;
     long e = 0;
-    private byte[] Wj = new byte[4];
-    private byte[] Wk = null;
+    private byte[] YK = new byte[4];
+    private byte[] YL = null;
     private int L = 0;
-    private List<Byte> Wl = null;
+    private List<Byte> YM = null;
     private boolean N = false;
     int g = 0;
     double h = 116.22345545d;
-    double Wm = 40.245667323d;
+    double YN = 40.245667323d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -105,7 +105,7 @@ public class d {
                 try {
                     JSONObject jSONObject = new JSONObject(this.j);
                     jSONObject.put("prod", com.baidu.location.d.b.d);
-                    jSONObject.put("uptime", System.currentTimeMillis());
+                    jSONObject.put(Config.DEVICE_UPTIME, System.currentTimeMillis());
                     d.this.e(jSONObject.toString());
                 } catch (Exception e) {
                 }
@@ -117,8 +117,8 @@ public class d {
     }
 
     private d() {
-        this.Wi = null;
-        this.Wi = new Handler();
+        this.YJ = null;
+        this.YJ = new Handler();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -233,7 +233,7 @@ public class d {
     private void b(int i) {
         byte[] a2 = a(i);
         for (int i2 = 0; i2 < 4; i2++) {
-            this.Wl.add(Byte.valueOf(a2[i2]));
+            this.YM.add(Byte.valueOf(a2[i2]));
         }
     }
 
@@ -282,7 +282,7 @@ public class d {
             }
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(8L);
-            byte[] bytes2 = (b("%d_%02d_%02d") + SystemInfoUtil.COLON + i).getBytes();
+            byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
             randomAccessFile2.writeInt(bytes2.length);
             randomAccessFile2.write(bytes2);
             randomAccessFile2.close();
@@ -294,12 +294,12 @@ public class d {
         if (System.currentTimeMillis() - this.a < this.H || location == null) {
             return;
         }
-        if (location != null && location.hasSpeed() && location.getSpeed() > this.Wd) {
-            this.Wd = location.getSpeed();
+        if (location != null && location.hasSpeed() && location.getSpeed() > this.YE) {
+            this.YE = location.getSpeed();
         }
         try {
-            if (this.Wl == null) {
-                this.Wl = new ArrayList();
+            if (this.YM == null) {
+                this.YM = new ArrayList();
                 i();
                 d(location);
             } else {
@@ -336,13 +336,13 @@ public class d {
                     this.q = jSONObject.getInt("chdron");
                 }
                 if (jSONObject.has("spsh")) {
-                    this.VZ = jSONObject.getDouble("spsh");
+                    this.YA = jSONObject.getDouble("spsh");
                 }
                 if (jSONObject.has("acsh")) {
-                    this.Wa = jSONObject.getDouble("acsh");
+                    this.YB = jSONObject.getDouble("acsh");
                 }
                 if (jSONObject.has("stspsh")) {
-                    this.Wb = jSONObject.getDouble("stspsh");
+                    this.YC = jSONObject.getDouble("stspsh");
                 }
                 if (jSONObject.has("drstsh")) {
                     this.u = jSONObject.getInt("drstsh");
@@ -356,8 +356,8 @@ public class d {
                 if (jSONObject.has("nondrper")) {
                     this.x = jSONObject.getInt("nondrper");
                 }
-                if (jSONObject.has("uptime")) {
-                    this.z = jSONObject.getLong("uptime");
+                if (jSONObject.has(Config.DEVICE_UPTIME)) {
+                    this.z = jSONObject.getLong(Config.DEVICE_UPTIME);
                 }
                 k();
             } catch (JSONException e) {
@@ -368,20 +368,20 @@ public class d {
     private void d() {
         String[] split = (0 == 0 ? "7.4.2" : null).split("\\.");
         int length = split.length;
-        this.Wj[0] = 0;
-        this.Wj[1] = 0;
-        this.Wj[2] = 0;
-        this.Wj[3] = 0;
+        this.YK[0] = 0;
+        this.YK[1] = 0;
+        this.YK[2] = 0;
+        this.YK[3] = 0;
         if (length >= 4) {
             length = 4;
         }
         for (int i = 0; i < length; i++) {
             try {
-                this.Wj[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
+                this.YK[i] = (byte) (Integer.valueOf(split[i]).intValue() & 255);
             } catch (Exception e) {
             }
         }
-        this.Wk = a(com.baidu.location.d.b.d + SystemInfoUtil.COLON + com.baidu.location.d.b.qN().b);
+        this.YL = a(com.baidu.location.d.b.d + ":" + com.baidu.location.d.b.rS().b);
     }
 
     private void d(Location location) {
@@ -392,16 +392,16 @@ public class d {
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         if (c > 0) {
-            this.Wl.add((byte) 32);
+            this.YM.add((byte) 32);
         } else {
-            this.Wl.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
+            this.YM.add(Byte.valueOf((byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & (-33))));
         }
         if (c2 > 0) {
-            this.Wl.add(Byte.MIN_VALUE);
+            this.YM.add(Byte.MIN_VALUE);
         } else {
-            this.Wl.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
+            this.YM.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
         }
-        this.Wf = location;
+        this.YG = location;
     }
 
     private void d(String str) {
@@ -417,9 +417,9 @@ public class d {
                 byte[] bArr = new byte[readInt2];
                 randomAccessFile.read(bArr, 0, readInt2);
                 String str2 = new String(bArr);
-                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(SystemInfoUtil.COLON)) {
+                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(":")) {
                     try {
-                        String[] split = str2.split(SystemInfoUtil.COLON);
+                        String[] split = str2.split(":");
                         if (split.length > 1) {
                             this.y = Integer.valueOf(split[1]).intValue();
                         }
@@ -451,8 +451,8 @@ public class d {
         if (location == null) {
             return;
         }
-        int longitude = (int) ((location.getLongitude() - this.Wf.getLongitude()) * 1000000.0d);
-        int latitude = (int) ((location.getLatitude() - this.Wf.getLatitude()) * 1000000.0d);
+        int longitude = (int) ((location.getLongitude() - this.YG.getLongitude()) * 1000000.0d);
+        int latitude = (int) ((location.getLatitude() - this.YG.getLatitude()) * 1000000.0d);
         char c = location.hasBearing() ? (char) 0 : (char) 1;
         char c2 = location.hasSpeed() ? (char) 0 : (char) 1;
         char c3 = longitude > 0 ? (char) 0 : (char) 1;
@@ -460,29 +460,29 @@ public class d {
         char c4 = latitude > 0 ? (char) 0 : (char) 1;
         int abs2 = Math.abs(latitude);
         if (this.L > 1) {
-            this.Wg = null;
-            this.Wg = this.Wf;
+            this.YH = null;
+            this.YH = this.YG;
         }
-        this.Wf = location;
-        if (this.Wf != null && this.Wg != null && this.Wf.getTime() > this.Wg.getTime() && this.Wf.getTime() - this.Wg.getTime() < TbConfig.NOTIFY_SOUND_INTERVAL) {
-            long time = this.Wf.getTime() - this.Wg.getTime();
+        this.YG = location;
+        if (this.YG != null && this.YH != null && this.YG.getTime() > this.YH.getTime() && this.YG.getTime() - this.YH.getTime() < 5000) {
+            long time = this.YG.getTime() - this.YH.getTime();
             float[] fArr = new float[2];
-            Location.distanceBetween(this.Wf.getAltitude(), this.Wf.getLongitude(), this.Wg.getLatitude(), this.Wg.getLongitude(), fArr);
-            double speed = (2.0f * (fArr[0] - (this.Wg.getSpeed() * ((float) time)))) / ((float) (time * time));
-            if (speed > this.We) {
-                this.We = (float) speed;
+            Location.distanceBetween(this.YG.getAltitude(), this.YG.getLongitude(), this.YH.getLatitude(), this.YH.getLongitude(), fArr);
+            double speed = (2.0f * (fArr[0] - (this.YH.getSpeed() * ((float) time)))) / ((float) (time * time));
+            if (speed > this.YF) {
+                this.YF = (float) speed;
             }
         }
-        this.Wl.add(Byte.valueOf((byte) (abs & 255)));
-        this.Wl.add(Byte.valueOf((byte) ((65280 & abs) >> 8)));
-        this.Wl.add(Byte.valueOf((byte) (abs2 & 255)));
-        this.Wl.add(Byte.valueOf((byte) ((65280 & abs2) >> 8)));
+        this.YM.add(Byte.valueOf((byte) (abs & 255)));
+        this.YM.add(Byte.valueOf((byte) ((65280 & abs) >> 8)));
+        this.YM.add(Byte.valueOf((byte) (abs2 & 255)));
+        this.YM.add(Byte.valueOf((byte) ((65280 & abs2) >> 8)));
         if (c > 0) {
             byte b = c4 > 0 ? (byte) 96 : (byte) 32;
             if (c3 > 0) {
                 b = (byte) (b | Byte.MIN_VALUE);
             }
-            this.Wl.add(Byte.valueOf(b));
+            this.YM.add(Byte.valueOf(b));
         } else {
             byte bearing = (byte) (((byte) (((int) (location.getBearing() / 15.0f)) & 255)) & 31);
             if (c4 > 0) {
@@ -491,12 +491,12 @@ public class d {
             if (c3 > 0) {
                 bearing = (byte) (bearing | Byte.MIN_VALUE);
             }
-            this.Wl.add(Byte.valueOf(bearing));
+            this.YM.add(Byte.valueOf(bearing));
         }
         if (c2 > 0) {
-            this.Wl.add(Byte.MIN_VALUE);
+            this.YM.add(Byte.MIN_VALUE);
         } else {
-            this.Wl.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
+            this.YM.add(Byte.valueOf((byte) (((byte) (((int) ((location.getSpeed() * 3.6d) / 4.0d)) & 255)) & Byte.MAX_VALUE)));
         }
     }
 
@@ -636,14 +636,14 @@ public class d {
     private boolean f() {
         if (this.B) {
             if (!this.C) {
-                if (this.Wd < this.Wb) {
+                if (this.YE < this.YC) {
                     this.C = true;
                     this.D = 0;
                     this.D += this.p;
                     return true;
                 }
                 return true;
-            } else if (this.Wd >= this.Wb) {
+            } else if (this.YE >= this.YC) {
                 this.D = 0;
                 this.C = false;
                 return true;
@@ -653,7 +653,7 @@ public class d {
                     return true;
                 }
             }
-        } else if (this.Wd >= this.VZ || this.We >= this.Wa) {
+        } else if (this.YE >= this.YA || this.YF >= this.YB) {
             this.B = true;
             return true;
         } else if (this.w == 1 && System.currentTimeMillis() - this.G > this.x * 1000) {
@@ -663,13 +663,13 @@ public class d {
     }
 
     private void g() {
-        this.Wl = null;
+        this.YM = null;
         this.e = 0L;
         this.L = 0;
-        this.Wf = null;
-        this.Wg = null;
-        this.Wd = 0.0f;
-        this.We = 0.0f;
+        this.YG = null;
+        this.YH = null;
+        this.YE = 0.0f;
+        this.YF = 0.0f;
     }
 
     /* JADX WARN: Type inference failed for: r0v11, types: [com.baidu.location.a.d$2] */
@@ -691,14 +691,14 @@ public class d {
                 g();
                 return;
             }
-            if (this.Wl != null) {
-                int size = this.Wl.size();
-                this.Wl.set(0, Byte.valueOf((byte) (size & 255)));
-                this.Wl.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
-                this.Wl.set(3, Byte.valueOf((byte) (this.L & 255)));
+            if (this.YM != null) {
+                int size = this.YM.size();
+                this.YM.set(0, Byte.valueOf((byte) (size & 255)));
+                this.YM.set(1, Byte.valueOf((byte) ((65280 & size) >> 8)));
+                this.YM.set(3, Byte.valueOf((byte) (this.L & 255)));
                 byte[] bArr = new byte[size];
                 for (int i = 0; i < size; i++) {
-                    bArr[i] = this.Wl.get(i).byteValue();
+                    bArr[i] = this.YM.get(i).byteValue();
                 }
                 if (Environment.getExternalStorageState().equals("mounted")) {
                     File file = new File(Environment.getExternalStorageDirectory(), "baidu/tempdata");
@@ -732,34 +732,34 @@ public class d {
     }
 
     private void i() {
-        this.Wl.add((byte) 0);
-        this.Wl.add((byte) 0);
+        this.YM.add((byte) 0);
+        this.YM.add((byte) 0);
         if (f.equals("0")) {
-            this.Wl.add((byte) -82);
+            this.YM.add((byte) -82);
         } else {
-            this.Wl.add((byte) -66);
+            this.YM.add((byte) -66);
         }
-        this.Wl.add((byte) 0);
-        this.Wl.add(Byte.valueOf(this.Wj[0]));
-        this.Wl.add(Byte.valueOf(this.Wj[1]));
-        this.Wl.add(Byte.valueOf(this.Wj[2]));
-        this.Wl.add(Byte.valueOf(this.Wj[3]));
-        int length = this.Wk.length;
-        this.Wl.add(Byte.valueOf((byte) ((length + 1) & 255)));
+        this.YM.add((byte) 0);
+        this.YM.add(Byte.valueOf(this.YK[0]));
+        this.YM.add(Byte.valueOf(this.YK[1]));
+        this.YM.add(Byte.valueOf(this.YK[2]));
+        this.YM.add(Byte.valueOf(this.YK[3]));
+        int length = this.YL.length;
+        this.YM.add(Byte.valueOf((byte) ((length + 1) & 255)));
         for (int i = 0; i < length; i++) {
-            this.Wl.add(Byte.valueOf(this.Wk[i]));
+            this.YM.add(Byte.valueOf(this.YL[i]));
         }
     }
 
     private void j() {
         if (System.currentTimeMillis() - this.z > 86400000) {
-            if (this.Wc == null) {
-                this.Wc = new a();
+            if (this.YD == null) {
+                this.YD = new a();
             }
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(com.baidu.location.d.b.qN().ad(false));
-            stringBuffer.append(com.baidu.location.a.a.qk().c());
-            this.Wc.a(stringBuffer.toString());
+            stringBuffer.append(com.baidu.location.d.b.rS().a(false));
+            stringBuffer.append(com.baidu.location.a.a.rp().c());
+            this.YD.a(stringBuffer.toString());
         }
         k();
     }
@@ -767,20 +767,20 @@ public class d {
     private void k() {
     }
 
-    public static d qn() {
-        if (VY == null) {
-            VY = new d();
+    public static d rs() {
+        if (Yz == null) {
+            Yz = new d();
         }
-        return VY;
+        return Yz;
     }
 
     public void a(final Location location) {
         if (!this.N) {
             c();
         }
-        if (this.k == 1 && this.m.contains(com.baidu.location.b.c.a(com.baidu.location.b.b.qB().e()))) {
+        if (this.k == 1 && this.m.contains(com.baidu.location.b.c.a(com.baidu.location.b.b.rG().e()))) {
             if (this.n != 1 || this.y <= this.o) {
-                this.Wi.post(new Runnable() { // from class: com.baidu.location.a.d.1
+                this.YJ.post(new Runnable() { // from class: com.baidu.location.a.d.1
                     @Override // java.lang.Runnable
                     public void run() {
                         d.this.b(location);

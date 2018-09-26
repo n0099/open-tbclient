@@ -30,13 +30,13 @@ public final class SapiConfiguration implements ISapiConfiguration {
     public int activityOpenAnimId;
     public final String appId;
     public final String appSignKey;
-    public final List<BiometricType> biometricTypeList;
     public String clientId;
     public String clientIp;
     public final Switch configurableViewLayout;
     public final Context context;
     public final boolean customActionBarEnabled;
     public final boolean debug;
+    public boolean disableVoiceVerify;
     public final boolean enableShare;
     public final Domain environment;
     public final List<FastLoginFeature> fastLoginFeatureList;
@@ -47,7 +47,6 @@ public final class SapiConfiguration implements ISapiConfiguration {
     public final boolean forbidSslErrorDialog;
     public final String hwAppId;
     public final String hwLoginChannelId;
-    public final boolean importSofire;
     public boolean isNightMode;
     public final Language language;
     public final boolean lowerUpdateFreq;
@@ -108,39 +107,38 @@ public final class SapiConfiguration implements ISapiConfiguration {
         this.sofireAppKey = builder.w;
         this.sofireSecKey = builder.x;
         this.sofireHostID = builder.y;
-        this.importSofire = builder.z;
         this.realnameAuthenticateStoken = builder.s;
-        this.fastRegConfirm = builder.A;
-        this.fastRegConfirmMsg = builder.B;
-        this.skin = builder.C;
-        this.presetPhoneNumber = builder.D;
-        this.forbidPresetPhoneNumber = builder.E;
-        this.customActionBarEnabled = builder.F;
-        this.showBottomBack = builder.G;
-        this.showRegLink = builder.H;
-        this.configurableViewLayout = builder.I;
-        this.fastRegTitleText = builder.J;
-        this.debug = builder.K;
-        this.smsLoginConfig = builder.L;
-        this.uniteVerify = builder.M;
-        this.syncCacheOnInit = builder.N;
-        this.silentShareOnUpgrade = builder.O;
-        this.quickUserEnabled = builder.P;
-        this.biometricTypeList = builder.Q;
-        this.accountCenterRealAutnen = builder.R;
-        this.forbidSslErrorDialog = builder.S;
-        this.enableShare = builder.T;
-        this.supportPhoto = builder.U;
-        this.processName = builder.V;
-        this.supportFaceLogin = builder.X;
-        this.lowerUpdateFreq = builder.Y;
-        this.isNightMode = builder.Z;
-        this.supportSpecialLogin = builder.aa;
-        this.userAgent = builder.W;
-        this.activityOpenAnimId = builder.ab;
-        this.activityExitAnimId = builder.ac;
-        this.showPmnRationaleDialog = builder.ad;
-        this.needOpenid = builder.af;
+        this.fastRegConfirm = builder.z;
+        this.fastRegConfirmMsg = builder.A;
+        this.skin = builder.B;
+        this.presetPhoneNumber = builder.C;
+        this.forbidPresetPhoneNumber = builder.D;
+        this.customActionBarEnabled = builder.E;
+        this.showBottomBack = builder.F;
+        this.showRegLink = builder.G;
+        this.configurableViewLayout = builder.H;
+        this.fastRegTitleText = builder.I;
+        this.debug = builder.J;
+        this.smsLoginConfig = builder.K;
+        this.uniteVerify = builder.L;
+        this.syncCacheOnInit = builder.M;
+        this.silentShareOnUpgrade = builder.N;
+        this.quickUserEnabled = builder.O;
+        this.accountCenterRealAutnen = builder.P;
+        this.forbidSslErrorDialog = builder.Q;
+        this.enableShare = builder.R;
+        this.supportPhoto = builder.S;
+        this.processName = builder.T;
+        this.lowerUpdateFreq = builder.V;
+        this.isNightMode = builder.W;
+        this.supportSpecialLogin = builder.X;
+        this.userAgent = builder.U;
+        this.activityOpenAnimId = builder.Y;
+        this.activityExitAnimId = builder.Z;
+        this.showPmnRationaleDialog = builder.aa;
+        this.disableVoiceVerify = builder.ac;
+        this.needOpenid = builder.ad;
+        this.supportFaceLogin = builder.ae;
     }
 
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiConfiguration
@@ -308,19 +306,17 @@ public final class SapiConfiguration implements ISapiConfiguration {
 
     /* loaded from: classes.dex */
     public static class Builder {
+        private String A;
         private String B;
         private String C;
-        private String D;
-        private boolean E;
-        private String J;
-        private SmsLoginConfig L;
-        private List<BiometricType> Q;
-        private String V;
-        private String W;
-        private boolean X;
-        private boolean Y;
+        private boolean D;
+        private String I;
+        private SmsLoginConfig K;
+        private String T;
+        private String U;
+        private boolean V;
         private Context a;
-        private boolean af;
+        private boolean ad;
         private String b;
         private String c;
         private String d;
@@ -345,27 +341,28 @@ public final class SapiConfiguration implements ISapiConfiguration {
         private String w;
         private String x;
         private int y = -1;
-        private boolean z = true;
-        private boolean A = false;
+        private boolean z = false;
+        private boolean E = false;
         private boolean F = false;
-        private boolean G = false;
-        private boolean H = true;
-        private Switch I = Switch.OFF;
-        private boolean K = false;
-        private boolean M = false;
+        private boolean G = true;
+        private Switch H = Switch.OFF;
+        private boolean J = false;
+        private boolean L = false;
+        private boolean M = true;
         private boolean N = true;
-        private boolean O = true;
-        private boolean P = false;
+        private boolean O = false;
+        private boolean P = true;
+        private boolean Q = false;
         private boolean R = true;
-        private boolean S = false;
-        private boolean T = true;
-        private boolean U = true;
-        private boolean Z = false;
-        private boolean aa = true;
-        private int ab = 0;
-        private int ac = 0;
-        private boolean ad = false;
-        private boolean ae = false;
+        private boolean S = true;
+        private boolean W = false;
+        private boolean X = true;
+        private int Y = 0;
+        private int Z = 0;
+        private boolean aa = false;
+        private boolean ab = false;
+        private boolean ac = true;
+        private boolean ae = true;
 
         public Builder(Context context) {
             this.a = context.getApplicationContext();
@@ -394,42 +391,42 @@ public final class SapiConfiguration implements ISapiConfiguration {
         }
 
         public Builder presetPhoneNumber(String str) {
-            this.D = str;
+            this.C = str;
             return this;
         }
 
         public Builder forbidPresetPhoneNumber(boolean z) {
-            this.E = z;
+            this.D = z;
             return this;
         }
 
         public Builder showRegLink(boolean z) {
-            this.H = z;
+            this.G = z;
             return this;
         }
 
         public Builder configurableViewLayout(Switch r1) {
-            this.I = r1;
+            this.H = r1;
             return this;
         }
 
         public Builder fastRegTitleText(String str) {
-            this.J = str;
+            this.I = str;
             return this;
         }
 
         public Builder debug(boolean z) {
-            this.K = z;
+            this.J = z;
             return this;
         }
 
         public Builder syncCacheOnInit(boolean z) {
-            this.N = z;
+            this.M = z;
             return this;
         }
 
         public Builder silentShareOnUpgrade(boolean z) {
-            this.O = z;
+            this.N = z;
             return this;
         }
 
@@ -503,63 +500,58 @@ public final class SapiConfiguration implements ISapiConfiguration {
             return this;
         }
 
-        public Builder importSofireSdk(boolean z) {
+        public Builder fastRegConfirm(boolean z) {
             this.z = z;
             return this;
         }
 
-        public Builder fastRegConfirm(boolean z) {
-            this.A = z;
-            return this;
-        }
-
         public Builder fastRegConfirmMsg(String str) {
-            this.B = str;
+            this.A = str;
             return this;
         }
 
         public Builder skin(String str) {
-            this.C = str;
+            this.B = str;
             return this;
         }
 
         public Builder customActionBar(boolean z) {
-            this.F = z;
+            this.E = z;
             return this;
         }
 
         public Builder showBottomBack(boolean z) {
-            this.G = z;
+            this.F = z;
             return this;
         }
 
         public Builder enableQuickUser(boolean z) {
-            this.P = z;
+            this.O = z;
             return this;
         }
 
         public Builder smsLoginConfig(SmsLoginConfig smsLoginConfig) {
-            this.L = smsLoginConfig;
+            this.K = smsLoginConfig;
             return this;
         }
 
         public Builder uniteVerify(boolean z) {
-            this.M = z;
+            this.L = z;
             return this;
         }
 
         public Builder setSupportFaceLogin(boolean z) {
-            this.X = z;
+            this.ae = z;
             return this;
         }
 
         public Builder setLowerUpdateFreq(boolean z) {
-            this.Y = z;
+            this.V = z;
             return this;
         }
 
         public Builder setNeedOpenid(boolean z) {
-            this.af = z;
+            this.ad = z;
             SapiContext.MAX_SHARE_ACCOUNTS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             return this;
         }
@@ -567,7 +559,7 @@ public final class SapiConfiguration implements ISapiConfiguration {
         public Builder setProcessName(String str) {
             boolean z;
             if (!TextUtils.isEmpty(str)) {
-                Iterator<String> it = SapiOptions.i().iterator();
+                Iterator<String> it = SapiOptions.j().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -578,7 +570,7 @@ public final class SapiConfiguration implements ISapiConfiguration {
                     }
                 }
                 if (z) {
-                    this.V = str;
+                    this.T = str;
                 }
             }
             return this;
@@ -590,61 +582,62 @@ public final class SapiConfiguration implements ISapiConfiguration {
         }
 
         public Builder biometricTypeSupport(BiometricType... biometricTypeArr) {
-            this.Q = new ArrayList();
-            if (biometricTypeArr != null) {
-                Collections.addAll(this.Q, biometricTypeArr);
-            }
             return this;
         }
 
         public Builder supportRealNameAuthen(boolean z) {
-            this.R = z;
+            this.P = z;
             return this;
         }
 
         public Builder setSupportPhoto(boolean z) {
-            this.U = z;
-            return this;
-        }
-
-        public Builder forbidSslErrorDalog(boolean z) {
             this.S = z;
             return this;
         }
 
+        public Builder forbidSslErrorDalog(boolean z) {
+            this.Q = z;
+            return this;
+        }
+
         public Builder enableShare(boolean z) {
-            this.T = z;
+            this.R = z;
             return this;
         }
 
         public Builder customWebviewUA(String str) {
-            this.W = str;
+            this.U = str;
             return this;
         }
 
         public Builder setNightMode(boolean z) {
-            this.Z = z;
+            this.W = z;
             return this;
         }
 
         public Builder setSupSpecialLogin(boolean z) {
-            this.aa = z;
+            this.X = z;
             return this;
         }
 
         public Builder setActivityAnim(int i, int i2) {
-            this.ab = i;
-            this.ac = i2;
+            this.Y = i;
+            this.Z = i2;
             return this;
         }
 
         public Builder showPmnRationaleDialog(boolean z) {
-            this.ad = z;
+            this.aa = z;
             return this;
         }
 
         public Builder setSupNewVerSapiLogin(boolean z) {
-            this.ae = z;
+            this.ab = z;
+            return this;
+        }
+
+        public Builder setDisableVoiceVerify(boolean z) {
+            this.ac = z;
             return this;
         }
 
@@ -670,19 +663,16 @@ public final class SapiConfiguration implements ISapiConfiguration {
             if (this.k == null) {
                 this.k = new ArrayList();
             }
-            if (this.L == null) {
-                this.L = new SmsLoginConfig(Switch.OFF, Switch.OFF, Switch.OFF);
+            if (this.K == null) {
+                this.K = new SmsLoginConfig(Switch.OFF, Switch.OFF, Switch.OFF);
             }
-            if (this.I == null) {
-                this.I = Switch.OFF;
+            if (this.H == null) {
+                this.H = Switch.OFF;
             }
-            if (this.Q == null) {
-                this.Q = new ArrayList();
+            if (this.F) {
+                this.E = true;
             }
-            if (this.G) {
-                this.F = true;
-            }
-            Log.enable(this.K);
+            Log.enable(this.J);
             return new SapiConfiguration(this);
         }
     }
@@ -725,12 +715,21 @@ public final class SapiConfiguration implements ISapiConfiguration {
             return LoginShareStrategy.DISABLED;
         }
         SapiOptions sapiOptions = SapiContext.getInstance(this.context).getSapiOptions();
-        if (sapiOptions.getSpecificShareStrategy().containsKey(this.tpl) && sapiOptions.getSpecificShareStrategy().get(this.tpl) != null) {
-            return sapiOptions.getSpecificShareStrategy().get(this.tpl);
+        LoginShareStrategy loginShareStrategy = sapiOptions.getSpecificShareStrategy().get(this.tpl);
+        if (loginShareStrategy == null) {
+            if (sapiOptions.getGlobalShareStrategy() != null) {
+                return sapiOptions.getGlobalShareStrategy();
+            }
+            return this.a;
         }
-        if (sapiOptions.getGlobalShareStrategy() != null) {
-            return sapiOptions.getGlobalShareStrategy();
+        return loginShareStrategy;
+    }
+
+    public String loginShareDirection() {
+        String str = SapiContext.getInstance(this.context).getSapiOptions().shareDirection.get(this.tpl);
+        if (TextUtils.isEmpty(str)) {
+            return com.baidu.sapi2.utils.enums.a.c;
         }
-        return this.a;
+        return str;
     }
 }

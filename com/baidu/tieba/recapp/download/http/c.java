@@ -11,56 +11,60 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class c {
-    private static String Aa;
-    private static String Ab;
-    private static boolean Ac;
-    private static String Ae;
-    private static String zZ;
-    private long Aj;
-    private g gpq;
-    private d gpr;
+    private static String Cu;
+    private static String Cv;
+    private static String Cw;
+    private static boolean Cx;
+    private static String Cy;
+    private long CD;
+    private g gwI;
+    private d gwJ;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.Aj = BdStatisticsManager.getInstance().getClientLogId();
+        this.CD = BdStatisticsManager.getInstance().getClientLogId();
+    }
+
+    public static void aR(String str) {
+        Cu = str;
     }
 
     public static void setUserAgent(String str) {
-        Aa = str;
+        Cv = str;
     }
 
     public static void setUid(String str) {
-        Ab = str;
+        Cw = str;
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.gpq = new g();
-        a(this.gpq, z);
-        this.gpq.bnE().setUrl(str);
-        this.gpr = new d(this.gpq);
-        this.gpr.d(i, i3, i4);
-        return this.gpq.bnF();
+        this.gwI = new g();
+        a(this.gwI, z);
+        this.gwI.bql().setUrl(str);
+        this.gwJ = new d(this.gwI);
+        this.gwJ.e(i, i3, i4);
+        return this.gwI.bqm();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.gpq = new g();
-        a(this.gpq, z);
-        this.gpq.bnE().setUrl(str);
+        this.gwI = new g();
+        a(this.gwI, z);
+        this.gwI.bql().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.gpq.bnE().a(basicNameValuePair);
+                this.gwI.bql().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.gpq.bnE().p(next.getName(), next.getValue());
+                this.gwI.bql().x(next.getName(), next.getValue());
             }
         }
-        this.gpr = new d(this.gpq);
-        this.gpr.f(i, i2, -1);
-        return this.gpq.bnF();
+        this.gwJ = new d(this.gwI);
+        this.gwJ.g(i, i2, -1);
+        return this.gwI.bqm();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -68,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.gpq = new g();
-        b(this.gpq);
-        this.gpq.bnE().setUrl(str);
-        this.gpr = new d(this.gpq);
-        return this.gpr.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.gwI = new g();
+        b(this.gwI);
+        this.gwI.bql().setUrl(str);
+        this.gwJ = new d(this.gwI);
+        return this.gwJ.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -80,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.gpr != null) {
-            this.gpr.cancel();
+        if (this.gwJ != null) {
+            this.gwJ.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.gpr != null) {
-            return this.gpr.hP();
+        if (this.gwJ != null) {
+            return this.gwJ.iV();
         }
         return false;
     }
 
-    public void hQ() {
-        if (this.gpr != null) {
-            this.gpr.hQ();
+    public void iW() {
+        if (this.gwJ != null) {
+            this.gwJ.iW();
         }
     }
 
-    public g bnD() {
-        return this.gpq;
+    public g bqk() {
+        return this.gwI;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
-            if (!TextUtils.isEmpty(zZ)) {
-                gVar.bnE().p(SM.COOKIE, zZ);
+            if (!TextUtils.isEmpty(Cu)) {
+                gVar.bql().x(SM.COOKIE, Cu);
             } else {
-                gVar.bnE().p(SM.COOKIE, "");
+                gVar.bql().x(SM.COOKIE, "");
             }
-            if (!TextUtils.isEmpty(Ab)) {
-                gVar.bnE().p("client_user_token", Ab);
+            if (!TextUtils.isEmpty(Cw)) {
+                gVar.bql().x("client_user_token", Cw);
             }
-            if (!TextUtils.isEmpty(Aa)) {
-                gVar.bnE().p(HTTP.USER_AGENT, Aa);
+            if (!TextUtils.isEmpty(Cv)) {
+                gVar.bql().x(HTTP.USER_AGENT, Cv);
             }
             if (z) {
-                gVar.bnE().p("Accept-Encoding", "gzip");
+                gVar.bql().x("Accept-Encoding", "gzip");
             } else {
-                gVar.bnE().p("Accept-Encoding", "");
+                gVar.bql().x("Accept-Encoding", "");
             }
-            if (Ac) {
-                gVar.bnE().p(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (Cx) {
+                gVar.bql().x(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.bnE().p(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
+                gVar.bql().x(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
             }
-            gVar.bnE().p("client_logid", String.valueOf(this.Aj));
-            if (!TextUtils.isEmpty(Ae)) {
-                gVar.bnE().p("cuid", Ae);
+            gVar.bql().x("client_logid", String.valueOf(this.CD));
+            if (!TextUtils.isEmpty(Cy)) {
+                gVar.bql().x("cuid", Cy);
             }
         }
     }

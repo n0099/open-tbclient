@@ -1,16 +1,16 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.graphics.drawable.Drawable;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class d {
-    public static Drawable gc(int i) {
+    public static Drawable go(int i) {
         switch (i) {
             case 0:
-                return am.getDrawable(f.C0146f.icon_xiangqing_n);
+                return al.getDrawable(e.f.icon_xiangqing_n);
             default:
-                return am.getDrawable(f.C0146f.icon_xiangqing_n);
+                return al.getDrawable(e.f.icon_xiangqing_n);
         }
     }
 }

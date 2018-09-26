@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.ultraviolet;
 
+import com.baidu.mobstat.Config;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -10,13 +11,13 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class BaseLocationBox extends AbstractFullBox {
     public static final String TYPE = "bloc";
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_6 = null;
     String baseLocation;
     String purchaseLocation;
 
@@ -30,7 +31,7 @@ public class BaseLocationBox extends AbstractFullBox {
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setBaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.String", "baseLocation", "", "void"), 48);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getPurchaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 52);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setPurchaseLocation", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.String", "purchaseLocation", "", "void"), 56);
-        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.Object", "o", "", "boolean"), 86);
+        ajc$tjp_4 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "java.lang.Object", Config.OS, "", "boolean"), 86);
         ajc$tjp_5 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "int"), 100);
         ajc$tjp_6 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox", "", "", "", "java.lang.String"), 107);
     }

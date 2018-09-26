@@ -1,32 +1,71 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class az extends com.baidu.adp.lib.b.a {
-    @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_url_need_cuid";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected String[] hl() {
-        return new String[0];
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hm() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
-        return 10;
+public class az {
+    public static void Ms() {
+        com.baidu.adp.lib.b.d.iB().i(w.class);
+        com.baidu.adp.lib.b.d.iB().i(a.class);
+        com.baidu.adp.lib.b.d.iB().i(b.class);
+        com.baidu.adp.lib.b.d.iB().i(c.class);
+        com.baidu.adp.lib.b.d.iB().i(d.class);
+        com.baidu.adp.lib.b.d.iB().i(f.class);
+        com.baidu.adp.lib.b.d.iB().i(e.class);
+        com.baidu.adp.lib.b.d.iB().i(h.class);
+        com.baidu.adp.lib.b.d.iB().i(i.class);
+        com.baidu.adp.lib.b.d.iB().i(m.class);
+        com.baidu.adp.lib.b.d.iB().i(n.class);
+        com.baidu.adp.lib.b.d.iB().i(o.class);
+        com.baidu.adp.lib.b.d.iB().i(p.class);
+        com.baidu.adp.lib.b.d.iB().i(q.class);
+        com.baidu.adp.lib.b.d.iB().i(u.class);
+        com.baidu.adp.lib.b.d.iB().i(v.class);
+        com.baidu.adp.lib.b.d.iB().i(x.class);
+        com.baidu.adp.lib.b.d.iB().i(y.class);
+        com.baidu.adp.lib.b.d.iB().i(ab.class);
+        com.baidu.adp.lib.b.d.iB().i(ae.class);
+        com.baidu.adp.lib.b.d.iB().i(ag.class);
+        com.baidu.adp.lib.b.d.iB().i(ah.class);
+        com.baidu.adp.lib.b.d.iB().i(aj.class);
+        com.baidu.adp.lib.b.d.iB().i(aq.class);
+        com.baidu.adp.lib.b.d.iB().i(at.class);
+        com.baidu.adp.lib.b.d.iB().i(av.class);
+        com.baidu.adp.lib.b.d.iB().i(ax.class);
+        com.baidu.adp.lib.b.d.iB().i(bb.class);
+        com.baidu.adp.lib.b.d.iB().i(bd.class);
+        com.baidu.adp.lib.b.d.iB().i(bf.class);
+        com.baidu.adp.lib.b.d.iB().i(bk.class);
+        com.baidu.adp.lib.b.d.iB().i(bm.class);
+        com.baidu.adp.lib.b.d.iB().i(bn.class);
+        com.baidu.adp.lib.b.d.iB().i(bo.class);
+        com.baidu.adp.lib.b.d.iB().i(bl.class);
+        com.baidu.adp.lib.b.d.iB().i(aa.class);
+        com.baidu.adp.lib.b.d.iB().i(ao.class);
+        com.baidu.adp.lib.b.d.iB().i(ba.class);
+        com.baidu.adp.lib.b.d.iB().i(g.class);
+        com.baidu.adp.lib.b.d.iB().i(ap.class);
+        com.baidu.adp.lib.b.d.iB().i(be.class);
+        com.baidu.adp.lib.b.d.iB().i(am.class);
+        com.baidu.adp.lib.b.d.iB().i(t.class);
+        com.baidu.adp.lib.b.d.iB().i(as.class);
+        com.baidu.adp.lib.b.d.iB().i(ar.class);
+        com.baidu.adp.lib.b.d.iB().i(bc.class);
+        com.baidu.adp.lib.b.d.iB().i(r.class);
+        com.baidu.adp.lib.b.d.iB().i(an.class);
+        com.baidu.adp.lib.b.d.iB().i(aw.class);
+        com.baidu.adp.lib.b.d.iB().i(ay.class);
+        com.baidu.adp.lib.b.d.iB().i(bg.class);
+        com.baidu.adp.lib.b.d.iB().i(au.class);
+        com.baidu.adp.lib.b.d.iB().i(bj.class);
+        com.baidu.adp.lib.b.d.iB().i(ak.class);
+        com.baidu.adp.lib.b.d.iB().i(al.class);
+        com.baidu.adp.lib.b.d.iB().i(ai.class);
+        com.baidu.adp.lib.b.d.iB().i(l.class);
+        com.baidu.adp.lib.b.d.iB().i(ac.class);
+        com.baidu.adp.lib.b.d.iB().i(k.class);
+        com.baidu.adp.lib.b.d.iB().i(ad.class);
+        com.baidu.adp.lib.b.d.iB().i(bi.class);
+        com.baidu.adp.lib.b.d.iB().i(z.class);
+        com.baidu.adp.lib.b.d.iB().i(s.class);
+        com.baidu.adp.lib.b.d.iB().i(af.class);
+        com.baidu.adp.lib.b.d.iB().i(bh.class);
     }
 }

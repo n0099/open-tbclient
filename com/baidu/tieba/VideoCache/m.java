@@ -7,14 +7,14 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long io(String str) {
+    public static long iP(String str) {
         long j;
         long j2 = 0;
-        long ip = ip(str);
+        long iQ = iQ(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.blQ + str);
+            File file = new File(i.brE + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + ip;
+        return j + j2 + iQ;
     }
 
-    public static long ip(String str) {
+    public static long iQ(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.blQ + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.brE + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,12 +43,12 @@ public class m {
         return j;
     }
 
-    public static long Qv() {
+    public static long Sj() {
         StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }
 
-    public static synchronized long h(File file) {
+    public static synchronized long n(File file) {
         long j;
         synchronized (m.class) {
             j = 0;
@@ -61,7 +61,7 @@ public class m {
         return j;
     }
 
-    public static void y(File file) {
+    public static void E(File file) {
         if (file != null) {
             if (file.isFile()) {
                 file.delete();
@@ -72,14 +72,14 @@ public class m {
                     return;
                 }
                 for (File file2 : listFiles) {
-                    y(file2);
+                    E(file2);
                 }
                 file.delete();
             }
         }
     }
 
-    public static String iq(String str) {
+    public static String iR(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

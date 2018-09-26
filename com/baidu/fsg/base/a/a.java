@@ -1,310 +1,213 @@
 package com.baidu.fsg.base.a;
 
+import android.annotation.TargetApi;
+import android.app.DownloadManager;
+import android.content.Context;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Environment;
+import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.fsg.base.ApollonConstants;
-import java.util.ArrayList;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Timer;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Future;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+import java.util.HashSet;
+@TargetApi(9)
+/* loaded from: classes3.dex */
 public final class a {
-    public static final long a = 1000;
-    private static final long e = Long.MAX_VALUE;
-    private static final int f = 5;
-    private static final int g = 128;
-    private static final int h = 1;
-    private static final boolean c = ApollonConstants.DEBUG;
-    private static final String d = a.class.getSimpleName();
-    public static HashMap<String, a> b = new HashMap<>();
-    private static a i = null;
-    private final HashMap<Future<?>, Runnable> k = new HashMap<>();
-    private final ThreadFactory l = new com.baidu.fsg.base.a.b(this);
-    private long m = e;
-    private Timer n = new Timer();
-    private BlockingQueue<Runnable> o = new LinkedBlockingQueue(10);
-    private C0063a p = new C0063a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
-    private b q = new b(this, null);
-    private final HashMap<String, ArrayList<c>> j = new HashMap<>();
+    private static final String a = "WalletDownloadManager";
+    private static final String b = "content://downloads/my_downloads/";
+    private static a c;
+    private final DownloadManager d;
+    private final HashMap<Long, b> e = new HashMap<>();
+    private Context f;
 
-    private a() {
-    }
-
-    public static synchronized a a(String str) {
-        a aVar;
-        synchronized (a.class) {
-            if (b.get(str) == null) {
-                i = new a();
-                b.put(str, i);
-            }
-            aVar = i;
-        }
-        return aVar;
-    }
-
-    public boolean a(c cVar, String str) {
-        if (cVar == null || cVar.b == null) {
-            return false;
-        }
-        synchronized (this.j) {
-            ArrayList<c> c2 = c(str);
-            if (!a(cVar, c2)) {
-                if (cVar.f <= System.currentTimeMillis()) {
-                    c(cVar);
-                } else if (cVar.d > 0) {
-                    c(cVar);
-                }
-                if (cVar.c > 0) {
-                    cVar.f = System.currentTimeMillis() + cVar.d + cVar.c;
-                    c2.add(cVar);
-                    a(cVar);
-                }
-            } else {
-                b(cVar, str);
-            }
-        }
-        return true;
-    }
-
-    public void b(String str) {
-        synchronized (this.j) {
-            ArrayList<c> c2 = c(str);
-            Iterator<c> it = c2.iterator();
-            while (it.hasNext()) {
-                b(it.next());
-            }
-            c2.clear();
-            this.j.remove(str);
-        }
-    }
-
-    public void a(String str, String str2) {
-        synchronized (this.j) {
-            ArrayList<c> c2 = c(str);
-            Iterator<c> it = c2.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (next.a.equals(str2)) {
-                    b(next);
-                    c2.remove(next.a);
-                }
-            }
-        }
-    }
-
-    private c a(String str, ArrayList<c> arrayList) {
-        Iterator<c> it = arrayList.iterator();
-        while (it.hasNext()) {
-            c next = it.next();
-            if (TextUtils.equals(str, next.a)) {
-                return next;
-            }
-        }
-        return null;
-    }
-
-    private ArrayList<c> c(String str) {
-        ArrayList<c> arrayList = this.j.get(str);
-        if (arrayList == null) {
-            arrayList = new ArrayList<>();
-        }
-        this.j.put(str, arrayList);
-        return arrayList;
-    }
-
-    private boolean b(c cVar, String str) {
-        boolean z = false;
-        if (cVar != null && cVar.b != null) {
-            synchronized (this.j) {
-                ArrayList<c> c2 = c(str);
-                c a2 = a(cVar.a, c2);
-                if (a2 != null) {
-                    b(a2);
-                    c2.remove(a2);
-                    a(cVar, str);
-                    z = true;
-                }
-            }
-        }
-        return z;
-    }
-
-    private void a(c cVar) {
-        if (cVar.f < this.m) {
-            a(Math.max(cVar.f - System.currentTimeMillis(), 1000L));
-        }
-    }
-
-    private void a(long j) {
-        if (c) {
-            Log.d(d, "intervalMillis: " + j);
-        }
-        if (this.n != null) {
-            this.n.cancel();
-            this.n = null;
-        }
-        this.n = new Timer();
-        this.n.schedule(new com.baidu.fsg.base.a.c(this), j);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        if (c) {
-            Log.d(d, "scheduleForPeriodTasks run");
-        }
-        synchronized (this.j) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.m = e;
-            for (String str : this.j.keySet()) {
-                ArrayList arrayList = new ArrayList();
-                Iterator<c> it = c(str).iterator();
-                while (it.hasNext()) {
-                    c next = it.next();
-                    if (next.f - currentTimeMillis < 1000) {
-                        if (c) {
-                            Log.d(d, "task.mNextRunTime - current = " + (next.f - currentTimeMillis));
-                        }
-                        c(next);
-                        if (next.c > 0) {
-                            next.f = next.c + currentTimeMillis;
-                            arrayList.add(next);
-                        }
-                    }
-                    if (next.f < this.m) {
-                        this.m = next.f;
-                    }
-                }
-                if (this.m < e) {
-                    a(this.m - currentTimeMillis);
-                }
-            }
-        }
-    }
-
-    private boolean a(c cVar, ArrayList<c> arrayList) {
-        Iterator<c> it = arrayList.iterator();
-        while (it.hasNext()) {
-            if (TextUtils.equals(it.next().a, cVar.a)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private void b(c cVar) {
-        if (cVar.e) {
-            this.q.a(cVar.b);
-            return;
-        }
-        for (Future<?> future : this.k.keySet()) {
-            if (this.k.get(future) == cVar.b && future != null && (!future.isCancelled() || !future.isDone())) {
-                future.cancel(true);
-            }
-        }
-    }
-
-    private void c(c cVar) {
-        if (cVar.d > 0) {
-            a(cVar, cVar.f - System.currentTimeMillis());
-        } else {
-            d(cVar);
-        }
-    }
-
-    private void a(c cVar, long j) {
-        this.p.execute(new d(this, j, cVar));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(c cVar) {
-        if (cVar.c > 0) {
-            cVar.d = 0L;
-        }
-        if (cVar.e) {
-            this.q.execute(cVar.b);
-            return;
-        }
-        this.k.put(this.p.submit(cVar.b), cVar.b);
-        if (c) {
-            Log.d(d, "execute task, " + cVar.a + " execute time is " + System.currentTimeMillis());
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.base.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0063a extends ThreadPoolExecutor {
-        public C0063a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
-            super(i, i2, j, timeUnit, blockingQueue, threadFactory);
-        }
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0063a {
+        void a(c cVar);
+    }
 
-        @Override // java.util.concurrent.ThreadPoolExecutor
-        protected void afterExecute(Runnable runnable, Throwable th) {
-            a.this.k.remove((Future) runnable);
-            super.afterExecute(runnable, th);
+    private a(Context context) {
+        this.f = null;
+        this.f = context;
+        this.d = (DownloadManager) this.f.getSystemService("download");
+    }
+
+    public static a a(Context context) {
+        if (c == null) {
+            c = new a(context);
+        }
+        return c;
+    }
+
+    public void a(Context context, long j, InterfaceC0063a interfaceC0063a) {
+        b bVar;
+        if (interfaceC0063a != null && -1 != j) {
+            b bVar2 = this.e.get(Long.valueOf(j));
+            if (bVar2 == null) {
+                bVar = new b(context, j);
+                this.e.put(Long.valueOf(j), bVar);
+                context.getContentResolver().registerContentObserver(Uri.parse(b + j), true, bVar);
+            } else {
+                bVar = bVar2;
+            }
+            bVar.a(interfaceC0063a);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public class b implements Executor {
-        final LinkedList<Runnable> a;
-        Runnable b;
-
-        private b() {
-            this.a = new LinkedList<>();
+    public void b(Context context, long j, InterfaceC0063a interfaceC0063a) {
+        b bVar;
+        if (j == -1 || (bVar = this.e.get(Long.valueOf(j))) == null) {
+            return;
         }
-
-        /* synthetic */ b(a aVar, com.baidu.fsg.base.a.b bVar) {
-            this();
-        }
-
-        @Override // java.util.concurrent.Executor
-        public synchronized void execute(Runnable runnable) {
-            this.a.offer(new e(this, runnable));
-            if (this.b == null) {
-                a();
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        public synchronized void a() {
-            Runnable poll = this.a.poll();
-            this.b = poll;
-            if (poll != null) {
-                a.this.p.execute(this.b);
-            }
-        }
-
-        public synchronized void a(Runnable runnable) {
-            this.a.remove(runnable);
+        bVar.b(interfaceC0063a);
+        if (bVar.a()) {
+            context.getContentResolver().unregisterContentObserver(bVar);
+            this.e.remove(Uri.parse(b + j));
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c {
-        public String a;
-        public Runnable b;
-        public long c;
-        public long d;
-        public boolean e;
-        long f;
+    public void a(Context context, long j) {
+        b bVar;
+        if (j == -1 || (bVar = this.e.get(Long.valueOf(j))) == null) {
+            return;
+        }
+        bVar.b();
+        context.getContentResolver().unregisterContentObserver(bVar);
+        this.e.remove(Uri.parse(b + j));
+    }
 
-        public c(long j, long j2, boolean z, String str, Runnable runnable) {
-            this.d = j;
-            this.f = System.currentTimeMillis() + j;
-            this.c = j2;
-            this.e = z;
-            this.b = runnable;
-            this.a = str;
+    public long a(String str, String str2, boolean z, boolean z2, boolean z3) {
+        if (TextUtils.isEmpty(str2) || (!str2.startsWith("http://") && !str2.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+            return -1L;
+        }
+        return this.d.enqueue(b(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, ".apk"));
+    }
+
+    public long a(String str, String str2, String str3, boolean z, boolean z2, boolean z3, String str4) {
+        if (TextUtils.isEmpty(str3) || (!str3.startsWith("http://") && !str3.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+            return -1L;
+        }
+        return this.d.enqueue(b(str, str2, str3, z, z2, z3, str4));
+    }
+
+    private DownloadManager.Request b(String str, String str2, String str3, boolean z, boolean z2, boolean z3, String str4) {
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(str3));
+        if (z3) {
+            request.setAllowedNetworkTypes(2);
+        } else {
+            request.setAllowedNetworkTypes(3);
+        }
+        request.setShowRunningNotification(z);
+        request.setVisibleInDownloadsUi(z2);
+        request.setDestinationInExternalPublicDir(str, str2 + str4);
+        return request;
+    }
+
+    public void a(long j) {
+        this.d.remove(j);
+    }
+
+    public c b(long j) {
+        if (j == -1) {
+            return null;
+        }
+        c cVar = new c(j);
+        a(cVar);
+        return cVar;
+    }
+
+    public void a(c cVar) {
+        if (-1 != cVar.d()) {
+            Cursor query = this.d.query(new DownloadManager.Query().setFilterById(cVar.d()));
+            if (query != null) {
+                try {
+                    if (query.getCount() != 0 && query.moveToFirst()) {
+                        int columnIndexOrThrow = query.getColumnIndexOrThrow("total_size");
+                        int columnIndexOrThrow2 = query.getColumnIndexOrThrow("bytes_so_far");
+                        int columnIndex = query.getColumnIndex(NotificationCompat.CATEGORY_STATUS);
+                        long j = query.getLong(columnIndexOrThrow);
+                        long j2 = query.getLong(columnIndexOrThrow2);
+                        int i = query.getInt(columnIndex);
+                        cVar.b(j);
+                        cVar.a(j2);
+                        cVar.a(i);
+                        if (query != null) {
+                            query.close();
+                        }
+                    }
+                } finally {
+                    if (query != null) {
+                        query.close();
+                    }
+                }
+            }
+            cVar.a(0L);
+            cVar.b(-1L);
+            cVar.a(1);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    private final class b extends ContentObserver {
+        private final c b;
+        private final HashSet<InterfaceC0063a> c;
+        private long d;
+        private long e;
+        private int f;
+
+        private b(Context context, long j) {
+            super(context != null ? new Handler(context.getMainLooper()) : new Handler());
+            this.c = new HashSet<>();
+            this.d = 0L;
+            this.e = 0L;
+            this.f = 1;
+            this.b = new c(j);
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            super.onChange(z);
+            a.this.a(this.b);
+            long currentTimeMillis = System.currentTimeMillis();
+            if ((this.f != this.b.a() || this.d != this.b.b()) && this.e != currentTimeMillis) {
+                if (2 == this.b.a()) {
+                    this.b.c(((this.b.b() - this.d) * 1000) / (currentTimeMillis - this.e));
+                } else {
+                    this.b.c(0L);
+                }
+                this.d = this.b.b();
+                this.f = this.b.a();
+                this.e = currentTimeMillis;
+                synchronized (this) {
+                    InterfaceC0063a[] interfaceC0063aArr = new InterfaceC0063a[this.c.size()];
+                    this.c.toArray(interfaceC0063aArr);
+                    for (InterfaceC0063a interfaceC0063a : interfaceC0063aArr) {
+                        interfaceC0063a.a(this.b);
+                    }
+                }
+            }
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public synchronized boolean a(InterfaceC0063a interfaceC0063a) {
+            return this.c.add(interfaceC0063a);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public synchronized boolean b(InterfaceC0063a interfaceC0063a) {
+            return this.c.remove(interfaceC0063a);
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public synchronized void b() {
+            this.c.clear();
+        }
+
+        public boolean a() {
+            return this.c.isEmpty();
         }
     }
 }

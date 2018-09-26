@@ -8,10 +8,8 @@ import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -30,7 +28,7 @@ public class BDLocManager {
     private Object k;
     private Method l;
     private String q;
-    private final long a = TbConfig.NOTIFY_SOUND_INTERVAL;
+    private final long a = 5000;
     private a d = new a();
     private WifiList j = null;
     private boolean m = true;
@@ -121,12 +119,12 @@ public class BDLocManager {
                 } else {
                     String str = this._WifiList.get(i3).BSSID;
                     int i5 = this._WifiList.get(i3).level;
-                    String replace = str.replace(SystemInfoUtil.COLON, "");
+                    String replace = str.replace(":", "");
                     if (BDLocManager.this.o == null || !replace.equals(BDLocManager.this.o)) {
                         if (i4 < i) {
                             stringBuffer.append("h");
                             stringBuffer.append(replace);
-                            stringBuffer.append("m");
+                            stringBuffer.append(Config.MODEL);
                             stringBuffer.append(StrictMath.abs(i5));
                             i2 = i4 + 1;
                             z2 = false;
@@ -254,7 +252,7 @@ public class BDLocManager {
         if (str.equals("Z")) {
             return null;
         }
-        return a(str + Info.kBaiduTimeKey + System.currentTimeMillis() + this.q);
+        return a(str + "t" + System.currentTimeMillis() + this.q);
     }
 
     private static String a(String str) {
@@ -390,7 +388,7 @@ public class BDLocManager {
         }
         try {
             String bssid = connectionInfo.getBSSID();
-            String replace = bssid != null ? bssid.replace(SystemInfoUtil.COLON, "") : null;
+            String replace = bssid != null ? bssid.replace(":", "") : null;
             if (replace.length() == 12) {
                 this.o = new String(replace);
                 return true;
@@ -422,7 +420,7 @@ public class BDLocManager {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis() - this.n;
-        if (currentTimeMillis > TbConfig.NOTIFY_SOUND_INTERVAL || currentTimeMillis < 0) {
+        if (currentTimeMillis > 5000 || currentTimeMillis < 0) {
             if (!this.i.isWifiEnabled()) {
                 this.n = 0L;
                 return false;

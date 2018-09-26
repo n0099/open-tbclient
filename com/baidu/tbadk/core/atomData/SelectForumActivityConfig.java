@@ -13,9 +13,12 @@ public class SelectForumActivityConfig extends IntentConfig {
     public static final String EXTRA_KEY_ORIGINAL_THREAD = "extra_key_original_thread";
     public static final String EXTRA_KEY_PRIVATE_THREAD = "extra_key_private_thread";
     public static final int FROM_ALA_SHARE = 1;
+    public static final int FROM_SHARE_SDK = 3;
     public static final int FROM_TRANSMIT_SHARE = 2;
     public static final String KEY_INPUT_FORUM_LIST = "KEY_INTPUT_FORUM_LIST";
     public static final String KEY_OUTPUT_FORUM_LIST = "KEY_OUTPUT_FORUM_LIST";
+    public static final String SELECT_FORUM_ID = "select_forum_id";
+    public static final String SELECT_FORUM_NAME = "select_forum_name";
 
     public SelectForumActivityConfig(Context context, int i) {
         super(context);

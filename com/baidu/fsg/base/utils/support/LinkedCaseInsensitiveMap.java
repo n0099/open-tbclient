@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LinkedCaseInsensitiveMap<V> extends LinkedHashMap<String, V> {
     private static final long serialVersionUID = 1;
     private final Map<String, String> caseInsensitiveKeys;

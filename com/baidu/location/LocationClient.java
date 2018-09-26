@@ -19,6 +19,7 @@ import android.webkit.WebView;
 import com.baidu.location.a.c;
 import com.baidu.location.a.h;
 import com.baidu.location.a.i;
+import com.baidu.sapi2.utils.StatService;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -526,8 +527,8 @@ public final class LocationClient implements c.a {
         bundle.putBoolean("enableSimulateGps", this.c.enableSimulateGps);
         bundle.putInt("timeOut", this.c.timeOut);
         bundle.putInt(LogFactory.PRIORITY_KEY, this.c.priority);
-        bundle.putBoolean("map", this.y.booleanValue());
-        bundle.putBoolean("import", this.z.booleanValue());
+        bundle.putBoolean(StatService.StatModel.KEY_MAP, this.y.booleanValue());
+        bundle.putBoolean(com.baidu.sapi2.utils.enums.a.a, this.z.booleanValue());
         bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
         bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
         bundle.putBoolean("isneedpoiregion", this.c.isNeedPoiRegion);
@@ -623,7 +624,7 @@ public final class LocationClient implements c.a {
     }
 
     public void disableAssistantLocation() {
-        i.qr().b();
+        i.rw().b();
     }
 
     public void disableLocInForeground(boolean z) {
@@ -635,7 +636,7 @@ public final class LocationClient implements c.a {
     }
 
     public void enableAssistantLocation(WebView webView) {
-        i.qr().a(this.f, webView, this);
+        i.rw().a(this.f, webView, this);
     }
 
     public void enableLocInForeground(int i, Notification notification) {

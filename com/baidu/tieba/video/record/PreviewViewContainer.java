@@ -7,51 +7,51 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class PreviewViewContainer extends FrameLayout {
-    private b hiX;
-    private View hje;
+    private b hqM;
+    private View hqT;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hje = null;
+        this.hqT = null;
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hje = null;
+        this.hqT = null;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.hiX != null) {
-            this.hiX.j(motionEvent);
+        if (this.hqM != null) {
+            this.hqM.j(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.hiX = bVar;
+            this.hqM = bVar;
         }
     }
 
-    public void afn() {
+    public void agZ() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void afo() {
+    public void aha() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.hje == null) {
-            this.hje = LayoutInflater.from(getContext()).inflate(f.h.camera_face_fail_identify, (ViewGroup) null);
+        if (this.hqT == null) {
+            this.hqT = LayoutInflater.from(getContext()).inflate(e.h.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.hje, layoutParams);
+            addView(this.hqT, layoutParams);
         }
-        this.hje.setVisibility(z ? 0 : 8);
+        this.hqT.setVisibility(z ? 0 : 8);
     }
 }

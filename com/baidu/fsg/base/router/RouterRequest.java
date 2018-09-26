@@ -4,7 +4,7 @@ import com.tencent.tauth.AuthActivity;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RouterRequest {
     private static final String a = "RouterRequest";
     private String b = "";

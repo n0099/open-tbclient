@@ -11,8 +11,7 @@ import com.airbnb.lottie.c.b;
 import com.airbnb.lottie.c.f;
 import com.airbnb.lottie.e;
 import com.airbnb.lottie.model.a.m;
-import com.baidu.appsearchlib.Info;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,18 +21,18 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a<T> {
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
-    private final e jY;
+    private final e my;
     @Nullable
-    public final T kY;
+    public final T nA;
     @Nullable
-    public final T kZ;
+    public final T nB;
     @Nullable
-    public final Interpolator la;
-    public final float lb;
+    public final Interpolator nC;
+    public final float nD;
     @Nullable
-    public Float lc;
-    private float ld = Float.MIN_VALUE;
-    private float le = Float.MIN_VALUE;
+    public Float nE;
+    private float nF = Float.MIN_VALUE;
+    private float nG = Float.MIN_VALUE;
 
     public static void f(List<? extends a<?>> list) {
         int size = list.size();
@@ -43,78 +42,78 @@ public class a<T> {
             if (i2 >= size - 1) {
                 break;
             }
-            list.get(i2).lc = Float.valueOf(list.get(i2 + 1).lb);
+            list.get(i2).nE = Float.valueOf(list.get(i2 + 1).nD);
             i = i2 + 1;
         }
         a<?> aVar = list.get(size - 1);
-        if (aVar.kY == null) {
+        if (aVar.nA == null) {
             list.remove(aVar);
         }
     }
 
     public a(e eVar, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
-        this.jY = eVar;
-        this.kY = t;
-        this.kZ = t2;
-        this.la = interpolator;
-        this.lb = f;
-        this.lc = f2;
+        this.my = eVar;
+        this.nA = t;
+        this.nB = t2;
+        this.nC = interpolator;
+        this.nD = f;
+        this.nE = f2;
     }
 
-    public float bA() {
-        if (this.ld == Float.MIN_VALUE) {
-            this.ld = (this.lb - ((float) this.jY.bg())) / this.jY.bm();
+    public float cH() {
+        if (this.nF == Float.MIN_VALUE) {
+            this.nF = (this.nD - ((float) this.my.cn())) / this.my.ct();
         }
-        return this.ld;
+        return this.nF;
     }
 
-    public float bB() {
-        if (this.le == Float.MIN_VALUE) {
-            if (this.lc == null) {
-                this.le = 1.0f;
+    public float cI() {
+        if (this.nG == Float.MIN_VALUE) {
+            if (this.nE == null) {
+                this.nG = 1.0f;
             } else {
-                this.le = bA() + ((this.lc.floatValue() - this.lb) / this.jY.bm());
+                this.nG = cH() + ((this.nE.floatValue() - this.nD) / this.my.ct());
             }
         }
-        return this.le;
+        return this.nG;
     }
 
-    public boolean bC() {
-        return this.la == null;
+    public boolean cJ() {
+        return this.nC == null;
     }
 
     public boolean g(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return f >= bA() && f < bB();
+        return f >= cH() && f < cI();
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.kY + ", endValue=" + this.kZ + ", startFrame=" + this.lb + ", endFrame=" + this.lc + ", interpolator=" + this.la + '}';
+        return "Keyframe{startValue=" + this.nA + ", endValue=" + this.nB + ", startFrame=" + this.nD + ", endFrame=" + this.nE + ", interpolator=" + this.nC + '}';
     }
 
     /* renamed from: com.airbnb.lottie.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0004a {
-        private static SparseArrayCompat<WeakReference<Interpolator>> lf;
+        private static SparseArrayCompat<WeakReference<Interpolator>> nH;
 
-        private static SparseArrayCompat<WeakReference<Interpolator>> bE() {
-            if (lf == null) {
-                lf = new SparseArrayCompat<>();
+        private static SparseArrayCompat<WeakReference<Interpolator>> cL() {
+            if (nH == null) {
+                nH = new SparseArrayCompat<>();
             }
-            return lf;
+            return nH;
         }
 
         @Nullable
-        private static WeakReference<Interpolator> k(int i) {
+        private static WeakReference<Interpolator> s(int i) {
             WeakReference<Interpolator> weakReference;
             synchronized (C0004a.class) {
-                weakReference = bE().get(i);
+                weakReference = cL().get(i);
             }
             return weakReference;
         }
 
         private static void a(int i, WeakReference<Interpolator> weakReference) {
             synchronized (C0004a.class) {
-                lf.put(i, weakReference);
+                nH.put(i, weakReference);
             }
         }
 
@@ -129,13 +128,13 @@ public class a<T> {
             PointF pointF2;
             Interpolator interpolator2;
             float f2 = 0.0f;
-            if (jSONObject.has(Info.kBaiduTimeKey)) {
-                f2 = (float) jSONObject.optDouble(Info.kBaiduTimeKey, 0.0d);
-                Object opt = jSONObject.opt(NotifyType.SOUND);
+            if (jSONObject.has("t")) {
+                f2 = (float) jSONObject.optDouble("t", 0.0d);
+                Object opt = jSONObject.opt("s");
                 T b2 = opt != null ? aVar.b(opt, f) : null;
                 Object opt2 = jSONObject.opt("e");
                 T b3 = opt2 != null ? aVar.b(opt2, f) : null;
-                JSONObject optJSONObject = jSONObject.optJSONObject("o");
+                JSONObject optJSONObject = jSONObject.optJSONObject(Config.OS);
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("i");
                 if (optJSONObject == null || optJSONObject2 == null) {
                     pointF = null;
@@ -156,13 +155,13 @@ public class a<T> {
                     pointF2.y = com.airbnb.lottie.c.e.clamp(pointF2.y, -100.0f, 100.0f);
                     pointF.x = com.airbnb.lottie.c.e.clamp(pointF.x, -f, f);
                     pointF.y = com.airbnb.lottie.c.e.clamp(pointF.y, -100.0f, 100.0f);
-                    int b4 = f.b(pointF2.x, pointF2.y, pointF.x, pointF.y);
-                    WeakReference<Interpolator> k = k(b4);
-                    interpolator2 = k != null ? k.get() : null;
-                    if (k == null || interpolator2 == null) {
+                    int c = f.c(pointF2.x, pointF2.y, pointF.x, pointF.y);
+                    WeakReference<Interpolator> s = s(c);
+                    interpolator2 = s != null ? s.get() : null;
+                    if (s == null || interpolator2 == null) {
                         interpolator2 = PathInterpolatorCompat.create(pointF2.x / f, pointF2.y / f, pointF.x / f, pointF.y / f);
                         try {
-                            a(b4, new WeakReference(interpolator2));
+                            a(c, new WeakReference(interpolator2));
                         } catch (ArrayIndexOutOfBoundsException e) {
                         }
                     }

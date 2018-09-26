@@ -3,59 +3,59 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.cache.e;
 /* loaded from: classes.dex */
 public class j<T> extends d<T> {
-    protected final c<T> xK;
+    protected final c<T> Ac;
 
     public j(c<T> cVar, e eVar, boolean z) {
         super(eVar, z);
-        this.xK = cVar;
+        this.Ac = cVar;
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    public g<T> ai(String str) {
-        return this.xK.ad(str);
+    public g<T> az(String str) {
+        return this.Ac.au(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public void c(g<T> gVar) {
-        this.xK.b(gVar);
+        this.Ac.b(gVar);
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    public void aj(String str) {
-        this.xK.ae(str);
+    public void aA(String str) {
+        this.Ac.av(str);
     }
 
     @Override // com.baidu.adp.lib.cache.d
-    protected void ak(String str) {
-        this.xK.b(str, true);
+    protected void aB(String str) {
+        this.Ac.c(str, true);
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void am(String str) {
-        this.xK.af(str);
+    public void aD(String str) {
+        this.Ac.aw(str);
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public void an(final String str) {
-        if (this.xz instanceof e.b) {
-            com.baidu.adp.lib.g.h.io().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
+    public void aE(final String str) {
+        if (this.zR instanceof e.b) {
+            com.baidu.adp.lib.g.h.ju().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.xK.ah(str);
+                    j.this.Ac.ay(str);
                 }
             });
         }
-        if (this.xz instanceof e.a) {
-            com.baidu.adp.lib.g.h.io().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
+        if (this.zR instanceof e.a) {
+            com.baidu.adp.lib.g.h.ju().d(new Runnable() { // from class: com.baidu.adp.lib.cache.j.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    j.this.xK.ag(str);
+                    j.this.Ac.ax(str);
                 }
             });
         }
     }
 
-    public c<T> hc() {
-        return this.xK;
+    public c<T> ii() {
+        return this.Ac;
     }
 }

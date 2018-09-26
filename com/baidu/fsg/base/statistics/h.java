@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class h {
     public static final String a = "en";
     public static final String b = "et";
@@ -40,7 +40,7 @@ class h {
             }
             jSONObject.putOpt(e, this.t);
             if (this.r != null) {
-                jSONObject.put(c, this.r);
+                jSONObject.put("ev", this.r);
             }
         } catch (JSONException e2) {
             jSONObject = null;

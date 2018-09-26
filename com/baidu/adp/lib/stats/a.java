@@ -10,9 +10,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean AQ;
-    private ArrayList<BasicNameValuePair> AR;
-    private StringBuilder AT;
+    boolean Dl;
+    private ArrayList<BasicNameValuePair> Dm;
+    private StringBuilder Dn;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -21,11 +21,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.AQ = false;
+        this.Dl = false;
         this.mType = null;
-        this.AT = new StringBuilder(100);
+        this.Dn = new StringBuilder(100);
         this.mType = str;
-        this.AQ = false;
+        this.Dl = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -33,27 +33,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.AQ = false;
+        this.Dl = false;
         this.mType = null;
-        this.AT = new StringBuilder(100);
+        this.Dn = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.AR == null) {
-                this.AR = new ArrayList<>();
+            if (this.Dm == null) {
+                this.Dm = new ArrayList<>();
             }
-            this.AR.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.Dm.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.AT.length() > 0) {
-            sb.append((CharSequence) this.AT);
+        if (this.Dn.length() > 0) {
+            sb.append((CharSequence) this.Dn);
         }
-        if (this.AR != null) {
-            Iterator<BasicNameValuePair> it = this.AR.iterator();
+        if (this.Dm != null) {
+            Iterator<BasicNameValuePair> it = this.Dm.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -63,10 +63,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(aG(next.getValue()), IoUtils.UTF_8));
+                        sb.append(URLEncoder.encode(aX(next.getValue()), IoUtils.UTF_8));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(aG(next.getValue()));
+                        sb.append(aX(next.getValue()));
                     }
                 }
             }
@@ -89,29 +89,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.AT.length() > 0) {
-                this.AT.append('&');
+            if (this.Dn.length() > 0) {
+                this.Dn.append('&');
             }
-            this.AT.append(str);
-            this.AT.append("=");
+            this.Dn.append(str);
+            this.Dn.append("=");
             try {
-                this.AT.append(URLEncoder.encode(aG(str2), IoUtils.UTF_8));
+                this.Dn.append(URLEncoder.encode(aX(str2), IoUtils.UTF_8));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.AT.append(aG(str2));
+                this.Dn.append(aX(str2));
             }
         }
     }
 
-    public void ir() {
+    public void jx() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long is() {
+    public long jy() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String aG(String str) {
+    public static String aX(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

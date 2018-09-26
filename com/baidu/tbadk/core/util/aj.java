@@ -2,66 +2,169 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.core.data.AttentionHostData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.e;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class aj {
-    private BdUniqueId aqw;
-    private a aqx;
-    private HttpMessageListener aqy = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.aj.1
+    public static int asY = 0;
+    public static int asZ = 1;
+    public static int ata = 2;
+    public static int atb = 2;
+    public static int atc = 3;
+    private com.baidu.tbadk.core.dialog.a SK;
+    private com.baidu.tbadk.coreExtra.model.a atd;
+    private AttentionHostData ate;
+    private int atf;
+    private a atg;
+    private TbPageContext mContext;
+    private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tbadk.core.util.aj.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Message<?> orginalMessage;
-            if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
-                long longValue = ((Long) orginalMessage.getExtra()).longValue();
-                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == aj.this.aqw;
-                if (aj.this.aqx != null) {
-                    aj.this.aqx.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof UpdateAttentionMessage) {
+                UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+                UpdateAttentionMessage.a data = updateAttentionMessage.getData();
+                if (aj.this.ate != null && !StringUtils.isNull(aj.this.ate.uid) && data != null && aj.this.ate.uid.equals(data.toUid)) {
+                    boolean z = false;
+                    if (updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag().equals(aj.this.mId)) {
+                        z = true;
+                        if (updateAttentionMessage.getError() == 3250013) {
+                            BdToast.a(aj.this.mContext.getPageActivity(), updateAttentionMessage.getErrorString(), e.f.icon_toast_game_error, 3000).yt();
+                        } else {
+                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.aGz);
+                        }
+                    }
+                    if (data.IM) {
+                        aj.this.ate.likeStatus = data.status;
+                        aj.this.ate.isAttention = data.isAttention;
+                    }
+                    if (z && aj.this.atg != null) {
+                        aj.this.atg.c(data.IM, aj.this.atf);
+                    }
                 }
             }
         }
     };
-    private TbPageContext mPageContext;
+    private BdUniqueId mId = BdUniqueId.gen();
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(int i, String str, long j, boolean z);
+        void c(boolean z, int i);
     }
 
-    public aj(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.mPageContext = tbPageContext;
-        this.aqw = bdUniqueId;
-        this.aqy.setTag(bdUniqueId);
-        this.mPageContext.registerListener(this.aqy);
-        zl();
+    public aj(TbPageContext tbPageContext) {
+        this.mContext = tbPageContext;
+        this.mAttentionListener.setTag(this.mId);
+        MessageManager.getInstance().registerListener(this.mAttentionListener);
     }
 
-    private static void zl() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public boolean cY(int i) {
+        if (i == atc) {
+            com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), e.j.reason_cannot_reply_thread);
+            return false;
+        }
+        return true;
     }
 
-    public void s(long j) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_FANS);
-        httpMessage.addParam("fans_uid", j);
-        httpMessage.setTag(this.aqw);
-        httpMessage.setExtra(Long.valueOf(j));
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public boolean w(int i, int i2) {
+        this.atf = i2;
+        if (i == atb) {
+            if (this.ate == null || this.ate.isAttention) {
+                return true;
+            }
+            Ar();
+            return false;
+        } else if (i == atc) {
+            com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), e.j.reason_cannot_reply_thread);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void a(AttentionHostData attentionHostData) {
+        this.ate = attentionHostData;
+    }
+
+    private void Ar() {
+        if (this.SK == null) {
+            this.SK = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            this.SK.cp(e.j.message_privacy_fans_can_reply);
+            this.SK.a(e.j.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.aj.1
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+                    aj.this.As();
+                    aj.this.SK.dismiss();
+                }
+            });
+            this.SK.b(e.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.aj.2
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+                    aj.this.SK.dismiss();
+                }
+            });
+            this.SK.setAutoNight(true);
+            this.SK.b(this.mContext);
+        }
+        this.SK.yl();
+    }
+
+    public void a(com.baidu.tbadk.core.data.aw awVar) {
+        if (awVar != null && !StringUtils.isNull(awVar.title) && !StringUtils.isNull(awVar.ajH) && !StringUtils.isNull(awVar.ajI)) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
+            aVar.dT(awVar.title);
+            aVar.a(awVar.ajI, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aj.this.As();
+                    aVar2.dismiss();
+                }
+            });
+            aVar.b(awVar.ajH, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
+                @Override // com.baidu.tbadk.core.dialog.a.b
+                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                    aVar2.dismiss();
+                }
+            });
+            aVar.setAutoNight(true);
+            aVar.b(this.mContext);
+            aVar.yl();
+            return;
+        }
+        Ar();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void As() {
+        if (!com.baidu.adp.lib.util.j.ky()) {
+            this.mContext.showToast(e.j.network_ungeilivable);
+        } else if (this.ate != null && ba.bA(this.mContext.getPageActivity())) {
+            if (this.atd == null) {
+                this.atd = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
+            }
+            this.atd.a(true, this.ate.portrait, this.ate.uid, this.ate.isGod, "0", this.mId, null, "0");
+        }
     }
 
     public void a(a aVar) {
-        this.aqx = aVar;
+        this.atg = aVar;
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.mId);
+        if (this.SK != null) {
+            this.SK.dismiss();
+        }
+        if (this.atd != null) {
+            this.atd.cancel();
+        }
     }
 }

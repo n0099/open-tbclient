@@ -10,8 +10,8 @@ import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
-import com.baidu.appsearchlib.Info;
 import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
@@ -20,7 +20,6 @@ import com.baidu.sofire.rp.Report;
 import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
@@ -253,9 +252,9 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 for (ApkInfo apkInfo2 : hashMap.values()) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put(PushConstants.URI_PACKAGE_NAME, apkInfo2.packageName);
-                    jSONObject.put("m", apkInfo2.apkMD5);
-                    jSONObject.put(NotifyType.LIGHTS, apkInfo2.key);
-                    jSONObject.put(NotifyType.VIBRATE, apkInfo2.versionName);
+                    jSONObject.put(Config.MODEL, apkInfo2.apkMD5);
+                    jSONObject.put("l", apkInfo2.key);
+                    jSONObject.put("v", apkInfo2.versionName);
                     jSONArray2.put(jSONObject);
                 }
                 String a = h.a(context, str, jSONArray2.toString(), false, false);
@@ -269,20 +268,20 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                 for (int i2 = 0; i2 < jSONArray3.length(); i2++) {
                     JSONObject optJSONObject2 = jSONArray3.optJSONObject(i2);
                     int optInt2 = optJSONObject2.optInt("errno");
-                    int optInt3 = optJSONObject2.optInt(NotifyType.LIGHTS);
+                    int optInt3 = optJSONObject2.optInt("l");
                     if (optInt2 == 1) {
                         JSONObject optJSONObject3 = optJSONObject2.optJSONObject("detail");
                         PackageInfo packageInfo = new PackageInfo();
                         packageInfo.packageName = optJSONObject3.optString("p");
-                        packageInfo.versionName = optJSONObject3.optString(NotifyType.VIBRATE);
+                        packageInfo.versionName = optJSONObject3.optString("v");
                         ApplicationInfo applicationInfo = new ApplicationInfo();
                         applicationInfo.className = optJSONObject3.optString("n");
                         if (!TextUtils.isEmpty(applicationInfo.className) && applicationInfo.className.startsWith(".")) {
                             applicationInfo.className = packageInfo.packageName + applicationInfo.className;
                         }
-                        applicationInfo.theme = optJSONObject3.optInt(Info.kBaiduTimeKey);
+                        applicationInfo.theme = optJSONObject3.optInt("t");
                         packageInfo.applicationInfo = applicationInfo;
-                        JSONArray optJSONArray = optJSONObject3.optJSONArray("a");
+                        JSONArray optJSONArray = optJSONObject3.optJSONArray(Config.APP_VERSION_CODE);
                         if (optJSONArray != null && optJSONArray.length() > 0) {
                             ArrayList arrayList2 = new ArrayList();
                             for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
@@ -294,8 +293,8 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                         activityInfo.name = packageInfo.packageName + activityInfo.name;
                                     }
                                     activityInfo.packageName = packageInfo.packageName;
-                                    activityInfo.theme = jSONObject2.optInt(Info.kBaiduTimeKey);
-                                    activityInfo.labelRes = jSONObject2.optInt(NotifyType.LIGHTS);
+                                    activityInfo.theme = jSONObject2.optInt("t");
+                                    activityInfo.labelRes = jSONObject2.optInt("l");
                                     if (!TextUtils.isEmpty(activityInfo.name)) {
                                         arrayList2.add(activityInfo);
                                     }

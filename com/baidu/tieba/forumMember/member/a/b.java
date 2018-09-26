@@ -3,84 +3,85 @@ package com.baidu.tieba.forumMember.member.a;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.g;
-import com.baidu.tbadk.core.view.h;
+import com.baidu.tbadk.core.view.j;
+import com.baidu.tbadk.core.view.k;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private BaseActivity bnc;
-    private NoNetworkView cSv;
-    private View djW;
-    private a djX;
+    private BaseActivity bsQ;
+    private NoNetworkView cYm;
+    private View dpP;
+    private a dpQ;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
-    private h mPullView;
+    private k mPullView;
     private View mRootView;
 
     public b(BaseActivity baseActivity) {
-        this.bnc = baseActivity;
-        this.bnc.setContentView(f.h.forum_member_activity);
-        this.mRootView = this.bnc.findViewById(f.g.activity_root_view);
-        this.mNavigationBar = (NavigationBar) this.bnc.findViewById(f.g.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.bnc.getString(f.j.forummember)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.b.1
+        this.bsQ = baseActivity;
+        this.bsQ.setContentView(e.h.forum_member_activity);
+        this.mRootView = this.bsQ.findViewById(e.g.activity_root_view);
+        this.mNavigationBar = (NavigationBar) this.bsQ.findViewById(e.g.view_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.bsQ.getString(e.j.forummember)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.bnc.finish();
+                b.this.bsQ.finish();
             }
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.bnc.setNetRefreshViewTopMargin(BdListViewHelper.aWi);
-        this.cSv = (NoNetworkView) this.bnc.findViewById(f.g.view_no_network);
-        this.mListView = (BdTypeListView) this.bnc.findViewById(f.g.forum_member_listview);
-        this.mPullView = new h(this.bnc.getPageContext());
-        this.mPullView.setTag(this.bnc.getUniqueId());
-        if (this.bnc instanceof g.b) {
-            this.mPullView.a((g.b) this.bnc);
+        this.bsQ.setNetRefreshViewTopMargin(BdListViewHelper.aZy);
+        this.cYm = (NoNetworkView) this.bsQ.findViewById(e.g.view_no_network);
+        this.mListView = (BdTypeListView) this.bsQ.findViewById(e.g.forum_member_listview);
+        this.mPullView = new k(this.bsQ.getPageContext());
+        this.mPullView.setTag(this.bsQ.getUniqueId());
+        if (this.bsQ instanceof j.b) {
+            this.mPullView.a((j.b) this.bsQ);
         }
-        if (this.bnc instanceof BdListView.e) {
-            this.mListView.setOnSrollToBottomListener((BdListView.e) this.bnc);
+        if (this.bsQ instanceof BdListView.e) {
+            this.mListView.setOnSrollToBottomListener((BdListView.e) this.bsQ);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.djW = BdListViewHelper.a(this.bnc.getPageContext().getPageActivity(), this.mListView, BdListViewHelper.HeadType.DEFAULT);
-        this.djX = new a(this.bnc, this.mListView);
-        this.mListView.addAdapters(this.djX.ati());
+        this.dpP = BdListViewHelper.a(this.bsQ.getPageContext().getPageActivity(), this.mListView, BdListViewHelper.HeadType.DEFAULT);
+        this.dpQ = new a(this.bsQ, this.mListView);
+        this.mListView.addAdapters(this.dpQ.auW());
     }
 
     public void showLoadingView() {
         this.mListView.setVisibility(8);
-        this.bnc.showLoadingView(this.mRootView, true);
+        this.bsQ.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
         this.mListView.setVisibility(0);
-        this.bnc.hideLoadingView(this.mRootView);
+        this.bsQ.hideLoadingView(this.mRootView);
     }
 
-    public void mp(String str) {
+    public void mR(String str) {
         this.mListView.setVisibility(8);
-        this.bnc.showNetRefreshView(this.mRootView, str, true);
+        this.bsQ.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void Un() {
+    public void Wa() {
         this.mListView.setVisibility(0);
-        this.bnc.hideNetRefreshView(this.mRootView);
+        this.bsQ.hideNetRefreshView(this.mRootView);
     }
 
-    public void bi(List<com.baidu.adp.widget.ListView.h> list) {
+    public void bj(List<h> list) {
         if (list != null) {
             this.mListView.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        this.djX.notifyDataSetChanged();
+        this.dpQ.notifyDataSetChanged();
     }
 
     public void completePullRefresh() {
@@ -93,22 +94,22 @@ public class b {
 
     public void g(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.cSv.a(aVar);
+            this.cYm.a(aVar);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.bnc.getPageContext(), i);
-        this.cSv.onChangeSkinType(this.bnc.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.bsQ.getPageContext(), i);
+        this.cYm.onChangeSkinType(this.bsQ.getPageContext(), i);
         notifyDataSetChanged();
-        am.j(this.mRootView, f.d.cp_bg_line_c);
+        al.j(this.mRootView, e.d.cp_bg_line_c);
     }
 
-    public void fs(boolean z) {
-        BdListViewHelper.a(this.djW, BdListViewHelper.HeadType.DEFAULT, z);
+    public void fJ(boolean z) {
+        BdListViewHelper.a(this.dpP, BdListViewHelper.HeadType.DEFAULT, z);
     }
 
     public void onDestroy() {
-        this.djX.onDestroy();
+        this.dpQ.onDestroy();
     }
 }

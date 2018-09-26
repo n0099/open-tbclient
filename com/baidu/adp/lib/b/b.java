@@ -3,14 +3,14 @@ package com.baidu.adp.lib.b;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
+    private int AA;
+    private a AD;
     private String mName;
-    private int yh;
-    private a yk;
-    private int yj = 0;
-    private String[] ym = null;
-    private int yi = 0;
-    private String[] yn = null;
-    private boolean yo = false;
+    private int AC = 0;
+    private String[] AF = null;
+    private int AB = 0;
+    private String[] AG = null;
+    private boolean AH = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,61 +19,61 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.yk = null;
-        this.yh = 0;
+        this.AD = null;
+        this.AA = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.yk = aVar;
-        this.yh = i;
+        this.AD = aVar;
+        this.AA = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.yj = i;
-        this.ym = strArr;
-        this.yi = i2;
+        this.AC = i;
+        this.AF = strArr;
+        this.AB = i2;
     }
 
-    public void A(boolean z) {
-        this.yo = z;
+    public void K(boolean z) {
+        this.AH = z;
     }
 
-    public boolean hr() {
-        return this.yo;
+    public boolean ix() {
+        return this.AH;
     }
 
-    public void g(String[] strArr) {
-        this.yn = strArr;
+    public void h(String[] strArr) {
+        this.AG = strArr;
     }
 
-    public String[] hp() {
-        return this.yn;
+    public String[] iv() {
+        return this.AG;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public int ho() {
-        return this.yj;
+    public int iu() {
+        return this.AC;
     }
 
-    public String[] hs() {
-        return this.ym;
+    public String[] iy() {
+        return this.AF;
     }
 
-    public int hn() {
-        return this.yi;
+    public int it() {
+        return this.AB;
     }
 
-    public int hm() {
-        return this.yh;
+    public int is() {
+        return this.AA;
     }
 
     public void f(int i, boolean z) {
-        if (this.yk != null) {
-            this.yk.a(this.mName, i, z);
+        if (this.AD != null) {
+            this.AD.a(this.mName, i, z);
         }
     }
 }

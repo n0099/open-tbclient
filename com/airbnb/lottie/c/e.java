@@ -12,25 +12,25 @@ public class e {
 
     public static void a(h hVar, Path path) {
         path.reset();
-        PointF dc = hVar.dc();
-        path.moveTo(dc.x, dc.y);
-        PointF pointF = new PointF(dc.x, dc.y);
+        PointF ej = hVar.ej();
+        path.moveTo(ej.x, ej.y);
+        PointF pointF = new PointF(ej.x, ej.y);
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= hVar.dd().size()) {
+            if (i2 >= hVar.ek().size()) {
                 break;
             }
-            com.airbnb.lottie.model.c cVar = hVar.dd().get(i2);
-            PointF cd = cVar.cd();
-            PointF ce = cVar.ce();
-            PointF cf = cVar.cf();
-            if (cd.equals(pointF) && ce.equals(cf)) {
-                path.lineTo(cf.x, cf.y);
+            com.airbnb.lottie.model.c cVar = hVar.ek().get(i2);
+            PointF dk = cVar.dk();
+            PointF dl = cVar.dl();
+            PointF dm = cVar.dm();
+            if (dk.equals(pointF) && dl.equals(dm)) {
+                path.lineTo(dm.x, dm.y);
             } else {
-                path.cubicTo(cd.x, cd.y, ce.x, ce.y, cf.x, cf.y);
+                path.cubicTo(dk.x, dk.y, dl.x, dl.y, dm.x, dm.y);
             }
-            pointF.set(cf.x, cf.y);
+            pointF.set(dm.x, dm.y);
             i = i2 + 1;
         }
         if (hVar.isClosed()) {

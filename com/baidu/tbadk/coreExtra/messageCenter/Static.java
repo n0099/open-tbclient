@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        a.Dl();
+        a.Ey();
         CustomMessageTask customMessageTask = new CustomMessageTask(2005006, new CustomMessageTask.CustomRunnable<AccountData>() { // from class: com.baidu.tbadk.coreExtra.messageCenter.Static.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-                if (l.jU()) {
-                    a.Dl().Dp();
+                if (l.la()) {
+                    a.Ey().EC();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
                     TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tbadk.coreExtra.messageCenter.Static.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.Dl().Dp();
+                            a.Ey().EC();
                         }
                     });
                     return null;

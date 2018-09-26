@@ -5,13 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.e;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes2.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener bpZ;
+    public View.OnClickListener bvP;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -20,9 +20,9 @@ public class a extends k<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: br */
+    /* renamed from: bt */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(f.h.pb_god_reply_look_more_item, viewGroup, false));
+        return new c(LayoutInflater.from(this.mContext).inflate(e.h.pb_god_reply_look_more_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,21 +31,21 @@ public class a extends k<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.czi != null) {
-            if (this.bpZ != null) {
-                cVar.czi.setOnClickListener(this.bpZ);
+        if (cVar != null && cVar.cFa != null) {
+            if (this.bvP != null) {
+                cVar.cFa.setOnClickListener(this.bvP);
             }
-            if (cVar.azF != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.azF = TbadkCoreApplication.getInst().getSkinType();
-                am.h(cVar.czi, f.d.cp_cont_f);
-                am.i(cVar.czi, f.C0146f.more_all);
-                am.i(cVar.dividerLine, f.d.cp_bg_line_c);
+            if (cVar.aCJ != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.aCJ = TbadkCoreApplication.getInst().getSkinType();
+                al.h(cVar.cFa, e.d.cp_cont_f);
+                al.i(cVar.cFa, e.f.more_all);
+                al.i(cVar.dividerLine, e.d.cp_bg_line_c);
             }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bpZ = onClickListener;
+        this.bvP = onClickListener;
     }
 }

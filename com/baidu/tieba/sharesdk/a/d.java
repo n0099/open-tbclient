@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes3.dex */
 public class d extends a {
@@ -16,9 +16,9 @@ public class d extends a {
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
         String str;
         if (shareEntity == null || TextUtils.isEmpty(shareEntity.getContent())) {
-            l.showToast(getAppContext(), f.j.share_empty_tip);
+            l.showToast(getAppContext(), e.j.share_empty_tip);
             if (bVar != null) {
-                bVar.bD(0, 2);
+                bVar.bF(0, 2);
                 return;
             }
             return;
@@ -32,12 +32,12 @@ public class d extends a {
         intent.setAction("android.intent.action.SEND");
         intent.putExtra("android.intent.extra.TEXT", str);
         intent.setType("text/plain");
-        if (com.baidu.tieba.sharesdk.c.a.h(this.context, Intent.createChooser(intent, this.context.getString(f.j.share_to)))) {
+        if (com.baidu.tieba.sharesdk.c.a.h(this.context, Intent.createChooser(intent, this.context.getString(e.j.share_to)))) {
             if (bVar != null) {
-                bVar.bD(0, 1);
+                bVar.bF(0, 1);
             }
         } else if (bVar != null) {
-            bVar.bD(0, 2);
+            bVar.bF(0, 2);
         }
     }
 }

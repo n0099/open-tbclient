@@ -4,7 +4,7 @@ import android.util.Base64;
 import com.baidu.ar.util.IoUtils;
 import java.lang.Character;
 import java.net.URLEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class EncodeUtils {
     private EncodeUtils() {
     }

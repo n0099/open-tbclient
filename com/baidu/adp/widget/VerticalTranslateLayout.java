@@ -23,32 +23,32 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private int JM;
-    private int JN;
-    private final int JR;
-    private int JV;
-    private final Paint JY;
-    private int JZ;
-    private int Ka;
-    private final List<d> Ki;
-    private float Ng;
-    private float Nh;
-    private float Ni;
-    private float Nj;
-    private int Nk;
-    private boolean Nl;
-    private boolean Nm;
-    private TrackDirection Nn;
-    private final Rect No;
-    private final Rect Np;
-    private int Nq;
-    private boolean Nr;
-    private final a Ns;
-    private final b Nt;
-    private final g Nu;
-    private e Nv;
-    private c Nw;
-    private f Nx;
+    private final List<d> ME;
+    private int Mi;
+    private int Mj;
+    private final int Mn;
+    private int Mr;
+    private final Paint Mu;
+    private int Mv;
+    private int Mw;
+    private float PJ;
+    private float PK;
+    private float PM;
+    private float PN;
+    private int PO;
+    private boolean PP;
+    private boolean PQ;
+    private TrackDirection PR;
+    private final Rect PT;
+    private final Rect PU;
+    private int PV;
+    private boolean PW;
+    private final a PY;
+    private final b PZ;
+    private final g Qa;
+    private e Qb;
+    private c Qc;
+    private f Qd;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -62,31 +62,31 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface c {
-        void mU();
+        void oU();
 
-        void nO();
+        void oa();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface d {
-        void mS();
+        void nY();
 
-        void mT();
+        void nZ();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface e {
-        void mQ();
+        void nW();
 
-        void nP();
+        void oV();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface f {
-        void aQ(int i);
+        void ba(int i);
     }
 
     static {
@@ -95,39 +95,39 @@ public class VerticalTranslateLayout extends FrameLayout {
 
     public VerticalTranslateLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
-        this.No = new Rect();
-        this.Np = new Rect();
-        this.Ki = new ArrayList();
-        this.Ns = new a();
-        this.Nt = new b();
-        this.Nu = new g();
-        this.JV = 10004;
+        this.PT = new Rect();
+        this.PU = new Rect();
+        this.ME = new ArrayList();
+        this.PY = new a();
+        this.PZ = new b();
+        this.Qa = new g();
+        this.Mr = 10004;
         Resources resources = getResources();
-        this.JY = new Paint();
-        this.JY.setColor(-1);
-        this.JR = (int) ((resources.getDisplayMetrics().density * 35.0f) + 0.5d);
+        this.Mu = new Paint();
+        this.Mu.setColor(-1);
+        this.Mn = (int) ((resources.getDisplayMetrics().density * 35.0f) + 0.5d);
         b(attributeSet);
     }
 
     private void b(AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.VerticalTranslateLayout);
-        this.Ng = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
-        this.Ni = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
-        this.Nh = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
-        this.Nj = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomHeight, -1.0f);
+        this.PJ = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
+        this.PM = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
+        this.PK = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
+        this.PN = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomHeight, -1.0f);
         String string = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_transTrack);
         if (string != null && string.length() > 0) {
-            if (nI() && nJ() && "vertical".equals(string)) {
+            if (oO() && oP() && "vertical".equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack vertical");
-                this.Nn = TrackDirection.vertical;
-            } else if (nJ() && "bottom".equals(string)) {
+                this.PR = TrackDirection.vertical;
+            } else if (oP() && "bottom".equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack bottom");
-                this.Nn = TrackDirection.bottom;
-            } else if (nI() && "top".equals(string)) {
+                this.PR = TrackDirection.bottom;
+            } else if (oO() && "top".equals(string)) {
                 BdLog.d("VerticalTranslateLayout@parseTrack top");
-                this.Nn = TrackDirection.top;
+                this.PR = TrackDirection.top;
             } else {
-                this.Nn = TrackDirection.none;
+                this.PR = TrackDirection.none;
                 BdLog.d("VerticalTranslateLayout@parseTrack no direction");
             }
         }
@@ -136,133 +136,133 @@ public class VerticalTranslateLayout extends FrameLayout {
             String[] split = string2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
             for (String str : split) {
                 BdLog.d("VerticalTranslateLayout@loadAttrs tap area " + str);
-                if ("top".equals(str) && this.Ng != -1.0f) {
-                    this.Nl = true;
-                } else if ("bottom".equals(str) && this.Ni != -1.0f) {
-                    this.Nm = true;
+                if ("top".equals(str) && this.PJ != -1.0f) {
+                    this.PP = true;
+                } else if ("bottom".equals(str) && this.PM != -1.0f) {
+                    this.PQ = true;
                 } else {
                     BdLog.d("VerticalTranslateLayout@loadAttrs tap_back_area value illegal");
                 }
             }
         }
-        this.JY.setColor(obtainStyledAttributes.getColor(R.styleable.VerticalTranslateLayout_transBackground, 0));
+        this.Mu.setColor(obtainStyledAttributes.getColor(R.styleable.VerticalTranslateLayout_transBackground, 0));
         obtainStyledAttributes.recycle();
         setClickable(true);
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.JY.setColor(i);
+        this.Mu.setColor(i);
         invalidate();
     }
 
     public void setProportion(float f2) {
         if (f2 >= -1.0f && f2 <= 1.0f) {
             if (f2 < 0.0f) {
-                this.Nk = (int) ((this.Ng - this.JN) * (-f2));
+                this.PO = (int) ((this.PJ - this.Mj) * (-f2));
             } else if (f2 > 0.0f) {
-                this.Nk = (int) ((this.JN - this.Ni) * f2);
+                this.PO = (int) ((this.Mj - this.PM) * f2);
             } else if (f2 == 0.0f) {
-                this.Nk = 0;
-                this.JV = 10004;
+                this.PO = 0;
+                this.Mr = 10004;
             } else if (f2 == -1.0f) {
-                this.Ng -= this.JN;
-                this.JV = 10000;
+                this.PJ -= this.Mj;
+                this.Mr = 10000;
             } else if (f2 == 1.0f) {
-                this.Ng = this.JN - this.Ni;
-                this.JV = 10001;
+                this.PJ = this.Mj - this.PM;
+                this.Mr = 10001;
             }
             invalidate();
         }
     }
 
     public int getTopOffset() {
-        return (int) this.Ng;
+        return (int) this.PJ;
     }
 
     public int getBottomOffset() {
-        return (int) this.Ni;
+        return (int) this.PM;
     }
 
     public void setTopTapBack(boolean z) {
-        this.Nl = z;
+        this.PP = z;
     }
 
     public void setBottomTapBack(boolean z) {
-        this.Nm = z;
+        this.PQ = z;
     }
 
     public int getState() {
-        return this.JV;
+        return this.Mr;
     }
 
     public void setTopAnimationListener(e eVar) {
-        this.Nv = eVar;
+        this.Qb = eVar;
     }
 
     public void setBottomAnimationListener(c cVar) {
-        this.Nw = cVar;
+        this.Qc = cVar;
     }
 
     public void setVerticalTrackListener(f fVar) {
-        this.Nx = fVar;
+        this.Qd = fVar;
     }
 
-    private boolean nI() {
-        return (this.Ng == -1.0f && this.Nj == -1.0f) ? false : true;
+    private boolean oO() {
+        return (this.PJ == -1.0f && this.PN == -1.0f) ? false : true;
     }
 
-    private boolean nJ() {
-        return (this.Ni == -1.0f && this.Nh == -1.0f) ? false : true;
+    private boolean oP() {
+        return (this.PM == -1.0f && this.PK == -1.0f) ? false : true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(0.0f, this.Nk);
-        BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.Nk);
-        canvas.drawRect(0.0f, 0.0f, this.JM, this.JN, this.JY);
+        canvas.translate(0.0f, this.PO);
+        BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.PO);
+        canvas.drawRect(0.0f, 0.0f, this.Mi, this.Mj, this.Mu);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
     public int getTopTranslate() {
-        return this.Nk;
+        return this.PO;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.Nn == TrackDirection.none) {
+        if (this.PR == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & 255;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        if (this.JV == 10004) {
+        if (this.Mr == 10004) {
             switch (action) {
                 case 0:
-                    this.JZ = x;
-                    this.Ka = y;
-                    this.Ns.removeMessages(-100);
-                    this.Ns.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
-                    this.Ns.removeMessages(-101);
-                    this.Ns.removeMessages(-105);
+                    this.Mv = x;
+                    this.Mw = y;
+                    this.PY.removeMessages(-100);
+                    this.PY.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
+                    this.PY.removeMessages(-101);
+                    this.PY.removeMessages(-105);
                     return false;
                 case 1:
                 default:
                     return false;
                 case 2:
                     BdLog.d("VerticalTranslateLayout@interceptInterceptTouchEvent");
-                    motionEvent.offsetLocation(0.0f, -this.Nk);
-                    return o(x, y);
+                    motionEvent.offsetLocation(0.0f, -this.PO);
+                    return q(x, y);
             }
         }
         BdLog.d("VerticalTranslateLayoutIntercepted to onTouch()");
         return true;
     }
 
-    private boolean o(int i, int i2) {
-        return i >= this.JZ - this.JR && i <= this.JZ + this.JR && (i2 < this.Ka - this.JR || i2 > this.Ka + this.JR) && this.Nu.aD(i2 - this.Ka);
+    private boolean q(int i, int i2) {
+        return i >= this.Mv - this.Mn && i <= this.Mv + this.Mn && (i2 < this.Mw - this.Mn || i2 > this.Mw + this.Mn) && this.Qa.aL(i2 - this.Mw);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -271,33 +271,33 @@ public class VerticalTranslateLayout extends FrameLayout {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         int action = motionEvent.getAction() & 255;
-        if (this.JV == 10004) {
+        if (this.Mr == 10004) {
             switch (action) {
                 case 1:
                 case 3:
                     BdLog.d("VerticalTranslateLayout@onTouchEvent up");
-                    this.Nr = false;
-                    if (this.Nu.Kv) {
+                    this.PW = false;
+                    if (this.Qa.MS) {
                         BdLog.d("VerticalTranslateLayout@onTouchEvent tracking");
-                        this.Nu.mW();
-                        this.Nu.mX();
+                        this.Qa.oc();
+                        this.Qa.od();
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.Nu.Kv) {
-                        if (!this.Nr) {
-                            if (y > this.Ka) {
-                                this.Nq = this.Ka + this.JR;
-                                this.Nr = true;
+                    if (this.Qa.MS) {
+                        if (!this.PW) {
+                            if (y > this.Mw) {
+                                this.PV = this.Mw + this.Mn;
+                                this.PW = true;
                             } else {
-                                this.Nq = this.Ka - this.JR;
-                                this.Nr = true;
+                                this.PV = this.Mw - this.Mn;
+                                this.PW = true;
                             }
                         }
-                        this.Nu.aE(this.Nq - y);
-                        this.Nq = y;
-                        this.Nu.Ku.addMovement(motionEvent);
+                        this.Qa.aM(this.PV - y);
+                        this.PV = y;
+                        this.Qa.MR.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -307,20 +307,20 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
         switch (action) {
             case 0:
-                if ((this.JV != 10000 || !this.No.contains(x, y)) && (this.JV != 10001 || !this.Np.contains(x, y))) {
+                if ((this.Mr != 10000 || !this.PT.contains(x, y)) && (this.Mr != 10001 || !this.PU.contains(x, y))) {
                     return false;
                 }
-                if (!this.Nu.Kv) {
-                    this.Nq = y;
-                    this.Nu.aD(y);
+                if (!this.Qa.MS) {
+                    this.PV = y;
+                    this.Qa.aL(y);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.Nu.Kv) {
-                    this.Nu.mW();
-                    this.Nu.mX();
+                if (this.Qa.MS) {
+                    this.Qa.oc();
+                    this.Qa.od();
                     return true;
                 }
                 return true;
@@ -329,10 +329,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.Nu.Kv) {
-            this.Nu.aE(this.Nq - y);
-            this.Nq = y;
-            this.Nu.Ku.addMovement(motionEvent);
+        if (this.Qa.MS) {
+            this.Qa.aM(this.PV - y);
+            this.PV = y;
+            this.Qa.MR.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -342,15 +342,15 @@ public class VerticalTranslateLayout extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.Ng != -1.0f) {
-                this.No.set(i, i2, i3, (int) (i2 + this.Ng));
+            if (this.PJ != -1.0f) {
+                this.PT.set(i, i2, i3, (int) (i2 + this.PJ));
             }
-            if (this.Ni != -1.0f) {
-                this.Np.set(i, (int) (i4 - this.Ni), i3, i4);
+            if (this.PM != -1.0f) {
+                this.PU.set(i, (int) (i4 - this.PM), i3, i4);
             }
         }
-        if (!this.Nt.Kt && !this.Nu.Kv) {
-            mL();
+        if (!this.PZ.MQ && !this.Qa.MS) {
+            nR();
         }
     }
 
@@ -358,31 +358,31 @@ public class VerticalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i2;
-        if (this.Nh != -1.0f) {
-            this.Ng = i3 - this.Nj;
+        if (this.PK != -1.0f) {
+            this.PJ = i3 - this.PN;
         }
-        if (this.Nj != -1.0f) {
-            this.Ni = i3 - this.Nh;
+        if (this.PN != -1.0f) {
+            this.PM = i3 - this.PK;
         }
-        if (!$assertionsDisabled && i3 < this.Ng) {
+        if (!$assertionsDisabled && i3 < this.PJ) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!$assertionsDisabled && i3 < this.Ni) {
+        if (!$assertionsDisabled && i3 < this.PM) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
-        this.JM = getMeasuredWidth();
-        this.JN = getMeasuredHeight();
+        this.Mi = getMeasuredWidth();
+        this.Mj = getMeasuredHeight();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mL() {
-        switch (this.JV) {
+    public void nR() {
+        switch (this.Mr) {
             case 10000:
-                this.Nk = (int) (this.Ng - this.JN);
+                this.PO = (int) (this.PJ - this.Mj);
                 invalidate();
                 return;
             case 10001:
-                this.Nk = (int) (this.JN - this.Ni);
+                this.PO = (int) (this.Mj - this.PM);
                 invalidate();
                 return;
             case 10002:
@@ -390,7 +390,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return;
             case 10004:
-                this.Nk = 0;
+                this.PO = 0;
                 invalidate();
                 return;
         }
@@ -404,23 +404,23 @@ public class VerticalTranslateLayout extends FrameLayout {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (VerticalTranslateLayout.this.Nt.Kt) {
+            if (VerticalTranslateLayout.this.PZ.MQ) {
                 switch (message.what) {
                     case -105:
-                        VerticalTranslateLayout.this.Nt.nN();
+                        VerticalTranslateLayout.this.PZ.oT();
                         return;
                     case SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED /* -104 */:
-                        VerticalTranslateLayout.this.Nt.nM();
+                        VerticalTranslateLayout.this.PZ.oS();
                         return;
                     case -103:
                     case FastRegResult.ERROR_CODE_SEND_SMS_FAILED /* -102 */:
                     default:
                         return;
                     case -101:
-                        VerticalTranslateLayout.this.Nt.nL();
+                        VerticalTranslateLayout.this.PZ.oR();
                         return;
                     case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
-                        VerticalTranslateLayout.this.Nt.nK();
+                        VerticalTranslateLayout.this.PZ.oQ();
                         return;
                 }
             }
@@ -430,69 +430,69 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class g {
-        VelocityTracker Ku;
-        boolean Kv;
-        final int Kw;
-        final int Kx;
+        VelocityTracker MR;
+        boolean MS;
+        final int MT;
+        final int MU;
 
         g() {
             float f = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
-            this.Kw = (int) ((200.0f * f) + 0.5f);
-            this.Kx = (int) ((f * 500.0f) + 0.5f);
+            this.MT = (int) ((200.0f * f) + 0.5f);
+            this.MU = (int) ((f * 500.0f) + 0.5f);
         }
 
-        boolean aD(int i) {
-            switch (VerticalTranslateLayout.this.Nn) {
+        boolean aL(int i) {
+            switch (VerticalTranslateLayout.this.PR) {
                 case top:
-                    if (VerticalTranslateLayout.this.JV != 10004 && VerticalTranslateLayout.this.JV != 10000) {
+                    if (VerticalTranslateLayout.this.Mr != 10004 && VerticalTranslateLayout.this.Mr != 10000) {
                         return false;
                     }
                     break;
                 case bottom:
-                    if (VerticalTranslateLayout.this.JV != 10004 && VerticalTranslateLayout.this.JV != 10001) {
+                    if (VerticalTranslateLayout.this.Mr != 10004 && VerticalTranslateLayout.this.Mr != 10001) {
                         return false;
                     }
                     break;
                 case vertical:
-                    if (VerticalTranslateLayout.this.Nx != null) {
-                        VerticalTranslateLayout.this.Nx.aQ(i);
+                    if (VerticalTranslateLayout.this.Qd != null) {
+                        VerticalTranslateLayout.this.Qd.ba(i);
                         break;
                     }
                     break;
             }
-            this.Ku = VelocityTracker.obtain();
-            this.Kv = true;
+            this.MR = VelocityTracker.obtain();
+            this.MS = true;
             return true;
         }
 
-        void mW() {
-            this.Kv = false;
+        void oc() {
+            this.MS = false;
         }
 
-        void aE(int i) {
-            if (this.Kv) {
-                int i2 = VerticalTranslateLayout.this.Nk - i;
-                switch (VerticalTranslateLayout.this.Nn) {
+        void aM(int i) {
+            if (this.MS) {
+                int i2 = VerticalTranslateLayout.this.PO - i;
+                switch (VerticalTranslateLayout.this.PR) {
                     case top:
                         BdLog.d("VerticalTranslateLayout@move top");
-                        if (i2 > VerticalTranslateLayout.this.Ng - VerticalTranslateLayout.this.JN && i2 < 0) {
-                            VerticalTranslateLayout.this.Nk -= i;
+                        if (i2 > VerticalTranslateLayout.this.PJ - VerticalTranslateLayout.this.Mj && i2 < 0) {
+                            VerticalTranslateLayout.this.PO -= i;
                             VerticalTranslateLayout.this.invalidate();
                             return;
                         }
                         return;
                     case bottom:
                         BdLog.d("VerticalTranslateLayout@move bottom");
-                        if (i2 < VerticalTranslateLayout.this.JN - VerticalTranslateLayout.this.Ni && i2 > 0) {
-                            VerticalTranslateLayout.this.Nk -= i;
+                        if (i2 < VerticalTranslateLayout.this.Mj - VerticalTranslateLayout.this.PM && i2 > 0) {
+                            VerticalTranslateLayout.this.PO -= i;
                             VerticalTranslateLayout.this.invalidate();
                             return;
                         }
                         return;
                     case vertical:
                         BdLog.d("VerticalTranslateLayout@move vertical");
-                        if (i2 >= VerticalTranslateLayout.this.Ng - VerticalTranslateLayout.this.JN && i2 <= VerticalTranslateLayout.this.JN - VerticalTranslateLayout.this.Ni) {
-                            VerticalTranslateLayout.this.Nk -= i;
+                        if (i2 >= VerticalTranslateLayout.this.PJ - VerticalTranslateLayout.this.Mj && i2 <= VerticalTranslateLayout.this.Mj - VerticalTranslateLayout.this.PM) {
+                            VerticalTranslateLayout.this.PO -= i;
                             VerticalTranslateLayout.this.invalidate();
                             return;
                         }
@@ -504,17 +504,17 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void mX() {
+        public void od() {
             float max;
-            this.Ku.computeCurrentVelocity(this.Kw);
-            float yVelocity = this.Ku.getYVelocity();
+            this.MR.computeCurrentVelocity(this.MT);
+            float yVelocity = this.MR.getYVelocity();
             BdLog.d("VerticalTranslateLayout@fling y " + yVelocity);
             if (yVelocity < 0.0f) {
-                max = Math.min(yVelocity, -this.Kx);
+                max = Math.min(yVelocity, -this.MU);
             } else {
-                max = Math.max(yVelocity, this.Kx);
+                max = Math.max(yVelocity, this.MU);
             }
-            switch (VerticalTranslateLayout.this.Nn) {
+            switch (VerticalTranslateLayout.this.PR) {
                 case top:
                     U(max);
                     break;
@@ -525,24 +525,24 @@ public class VerticalTranslateLayout extends FrameLayout {
                     T(max);
                     break;
             }
-            this.Ku.recycle();
-            this.Ku = null;
+            this.MR.recycle();
+            this.MR = null;
         }
 
         private void T(float f) {
             BdLog.d("VerticalTranslateLayout@verticalFling");
-            int i = VerticalTranslateLayout.this.Nk;
-            if (i <= 0 && i >= VerticalTranslateLayout.this.Ng - VerticalTranslateLayout.this.JN) {
+            int i = VerticalTranslateLayout.this.PO;
+            if (i <= 0 && i >= VerticalTranslateLayout.this.PJ - VerticalTranslateLayout.this.Mj) {
                 if (f < 0.0f) {
-                    VerticalTranslateLayout.this.Nt.R(f);
+                    VerticalTranslateLayout.this.PZ.R(f);
                 } else {
-                    VerticalTranslateLayout.this.Nt.P(f);
+                    VerticalTranslateLayout.this.PZ.P(f);
                 }
-            } else if (i >= 0 && i <= VerticalTranslateLayout.this.JN - VerticalTranslateLayout.this.Ni) {
+            } else if (i >= 0 && i <= VerticalTranslateLayout.this.Mj - VerticalTranslateLayout.this.PM) {
                 if (f < 0.0f) {
-                    VerticalTranslateLayout.this.Nt.Q(f);
+                    VerticalTranslateLayout.this.PZ.Q(f);
                 } else {
-                    VerticalTranslateLayout.this.Nt.S(f);
+                    VerticalTranslateLayout.this.PZ.S(f);
                 }
             }
         }
@@ -550,18 +550,18 @@ public class VerticalTranslateLayout extends FrameLayout {
         private void U(float f) {
             BdLog.d("VerticalTranslateLayout@topFling");
             if (f < 0.0f) {
-                VerticalTranslateLayout.this.Nt.R(f);
+                VerticalTranslateLayout.this.PZ.R(f);
             } else {
-                VerticalTranslateLayout.this.Nt.P(f);
+                VerticalTranslateLayout.this.PZ.P(f);
             }
         }
 
         private void V(float f) {
             BdLog.d("VerticalTranslateLayout@bottomFling");
             if (f < 0.0f) {
-                VerticalTranslateLayout.this.Nt.Q(f);
+                VerticalTranslateLayout.this.PZ.Q(f);
             } else {
-                VerticalTranslateLayout.this.Nt.S(f);
+                VerticalTranslateLayout.this.PZ.S(f);
             }
         }
     }
@@ -569,172 +569,172 @@ public class VerticalTranslateLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        final float Km;
-        float Kn;
-        float Ko;
-        float Kp;
-        float Kq;
-        long Kr;
-        long Ks;
-        boolean Kt;
+        final float MI;
+        float MJ;
+        float MK;
+        float MM;
+        float MN;
+        long MO;
+        long MP;
+        boolean MQ;
 
         b() {
-            this.Km = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density * 600.0f;
+            this.MI = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density * 600.0f;
         }
 
         private void compute() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.Kn = ((((float) (uptimeMillis - this.Kr)) / 1000.0f) * this.Ko) + this.Kn;
-            this.Kr = uptimeMillis;
-            this.Ks += 16;
+            this.MJ = ((((float) (uptimeMillis - this.MO)) / 1000.0f) * this.MK) + this.MJ;
+            this.MO = uptimeMillis;
+            this.MP += 16;
         }
 
-        void nK() {
+        void oQ() {
             compute();
-            if (this.Kn <= this.Kp) {
-                e eVar = VerticalTranslateLayout.this.Nv;
+            if (this.MJ <= this.MM) {
+                e eVar = VerticalTranslateLayout.this.Qb;
                 if (eVar != null) {
-                    eVar.nP();
+                    eVar.oV();
                 }
-                this.Kt = false;
-                VerticalTranslateLayout.this.JV = 10000;
-                VerticalTranslateLayout.this.mL();
+                this.MQ = false;
+                VerticalTranslateLayout.this.Mr = 10000;
+                VerticalTranslateLayout.this.nR();
                 return;
             }
-            VerticalTranslateLayout.this.Nk = (int) (com.baidu.adp.widget.a.a(this.Kp, this.Kn, false) + this.Kq);
+            VerticalTranslateLayout.this.PO = (int) (com.baidu.adp.widget.a.a(this.MM, this.MJ, false) + this.MN);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-100, this.Ks);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(-100, this.MP);
         }
 
-        void nL() {
+        void oR() {
             compute();
-            if (this.Kn >= this.Kp) {
-                c cVar = VerticalTranslateLayout.this.Nw;
+            if (this.MJ >= this.MM) {
+                c cVar = VerticalTranslateLayout.this.Qc;
                 if (cVar != null) {
-                    cVar.nO();
+                    cVar.oU();
                 }
-                this.Kt = false;
-                VerticalTranslateLayout.this.JV = 10001;
-                VerticalTranslateLayout.this.mL();
+                this.MQ = false;
+                VerticalTranslateLayout.this.Mr = 10001;
+                VerticalTranslateLayout.this.nR();
                 return;
             }
-            VerticalTranslateLayout.this.Nk = (int) (com.baidu.adp.widget.a.a(this.Kp, this.Kn, false) + this.Kq);
+            VerticalTranslateLayout.this.PO = (int) (com.baidu.adp.widget.a.a(this.MM, this.MJ, false) + this.MN);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-101, this.Ks);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(-101, this.MP);
         }
 
-        void nM() {
+        void oS() {
             compute();
-            if (this.Kn >= this.Kp) {
-                for (d dVar : VerticalTranslateLayout.this.Ki) {
+            if (this.MJ >= this.MM) {
+                for (d dVar : VerticalTranslateLayout.this.ME) {
                     if (dVar != null) {
-                        dVar.mT();
+                        dVar.nZ();
                     }
                 }
-                this.Kt = false;
-                VerticalTranslateLayout.this.JV = 10004;
-                VerticalTranslateLayout.this.mL();
+                this.MQ = false;
+                VerticalTranslateLayout.this.Mr = 10004;
+                VerticalTranslateLayout.this.nR();
                 return;
             }
-            VerticalTranslateLayout.this.Nk = (int) (com.baidu.adp.widget.a.a(this.Kp, this.Kn, false) + this.Kq);
+            VerticalTranslateLayout.this.PO = (int) (com.baidu.adp.widget.a.a(this.MM, this.MJ, false) + this.MN);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.Ks);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.MP);
         }
 
-        void nN() {
+        void oT() {
             compute();
-            if (this.Kn <= this.Kp) {
-                for (d dVar : VerticalTranslateLayout.this.Ki) {
+            if (this.MJ <= this.MM) {
+                for (d dVar : VerticalTranslateLayout.this.ME) {
                     if (dVar != null) {
-                        dVar.mT();
+                        dVar.nZ();
                     }
                 }
-                this.Kt = false;
-                VerticalTranslateLayout.this.JV = 10004;
-                VerticalTranslateLayout.this.mL();
+                this.MQ = false;
+                VerticalTranslateLayout.this.Mr = 10004;
+                VerticalTranslateLayout.this.nR();
                 return;
             }
-            VerticalTranslateLayout.this.Nk = (int) (com.baidu.adp.widget.a.a(this.Kp, this.Kn, false) + this.Kq);
+            VerticalTranslateLayout.this.PO = (int) (com.baidu.adp.widget.a.a(this.MM, this.MJ, false) + this.MN);
             VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-105, this.Ks);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(-105, this.MP);
         }
 
         void P(float f) {
-            for (d dVar : VerticalTranslateLayout.this.Ki) {
+            for (d dVar : VerticalTranslateLayout.this.ME) {
                 if (dVar != null) {
-                    dVar.mS();
+                    dVar.nY();
                 }
             }
-            this.Kt = true;
+            this.MQ = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.Kr = uptimeMillis;
-            this.Ks = uptimeMillis + 16;
-            this.Ko = f;
-            this.Kn = 0.0f;
-            this.Kp = 0 - VerticalTranslateLayout.this.Nk;
-            this.Kq = VerticalTranslateLayout.this.Nk;
-            VerticalTranslateLayout.this.Ns.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
-            BdLog.d("Animator@animateTopOpen " + this.Kp);
+            this.MO = uptimeMillis;
+            this.MP = uptimeMillis + 16;
+            this.MK = f;
+            this.MJ = 0.0f;
+            this.MM = 0 - VerticalTranslateLayout.this.PO;
+            this.MN = VerticalTranslateLayout.this.PO;
+            VerticalTranslateLayout.this.PY.removeMessages(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED);
+            BdLog.d("Animator@animateTopOpen " + this.MM);
             BdLog.d("Animator@animateTopOpen " + f);
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.Ks);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(SapiErrorCode.ERROR_CODE_METHOD_DEPRECATED, this.MP);
         }
 
         void Q(float f) {
-            for (d dVar : VerticalTranslateLayout.this.Ki) {
+            for (d dVar : VerticalTranslateLayout.this.ME) {
                 if (dVar != null) {
-                    dVar.mS();
+                    dVar.nY();
                 }
             }
-            this.Kt = true;
+            this.MQ = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.Kr = uptimeMillis;
-            this.Ks = uptimeMillis + 16;
-            this.Ko = f;
-            this.Kn = 0.0f;
-            this.Kp = 0 - VerticalTranslateLayout.this.Nk;
-            this.Kq = VerticalTranslateLayout.this.Nk;
-            BdLog.d("Animator@animateBottomOpen " + this.Kp);
+            this.MO = uptimeMillis;
+            this.MP = uptimeMillis + 16;
+            this.MK = f;
+            this.MJ = 0.0f;
+            this.MM = 0 - VerticalTranslateLayout.this.PO;
+            this.MN = VerticalTranslateLayout.this.PO;
+            BdLog.d("Animator@animateBottomOpen " + this.MM);
             BdLog.d("Animator@animateBottomOpen " + f);
-            VerticalTranslateLayout.this.Ns.removeMessages(-105);
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-105, this.Ks);
+            VerticalTranslateLayout.this.PY.removeMessages(-105);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(-105, this.MP);
         }
 
         void R(float f) {
-            e eVar = VerticalTranslateLayout.this.Nv;
+            e eVar = VerticalTranslateLayout.this.Qb;
             if (eVar != null) {
-                eVar.mQ();
+                eVar.nW();
             }
-            this.Kt = true;
+            this.MQ = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.Kr = uptimeMillis;
-            this.Ks = uptimeMillis + 16;
-            this.Ko = f;
-            this.Kn = 0.0f;
-            this.Kp = ((-VerticalTranslateLayout.this.JN) + VerticalTranslateLayout.this.Ng) - VerticalTranslateLayout.this.Nk;
-            this.Kq = VerticalTranslateLayout.this.Nk;
-            BdLog.d("Animator@animateTop " + this.Kp);
+            this.MO = uptimeMillis;
+            this.MP = uptimeMillis + 16;
+            this.MK = f;
+            this.MJ = 0.0f;
+            this.MM = ((-VerticalTranslateLayout.this.Mj) + VerticalTranslateLayout.this.PJ) - VerticalTranslateLayout.this.PO;
+            this.MN = VerticalTranslateLayout.this.PO;
+            BdLog.d("Animator@animateTop " + this.MM);
             BdLog.d("Animator@animateTop " + f);
-            VerticalTranslateLayout.this.Ns.removeMessages(-100);
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-100, this.Ks);
+            VerticalTranslateLayout.this.PY.removeMessages(-100);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(-100, this.MP);
         }
 
         void S(float f) {
-            c cVar = VerticalTranslateLayout.this.Nw;
+            c cVar = VerticalTranslateLayout.this.Qc;
             if (cVar != null) {
-                cVar.mU();
+                cVar.oa();
             }
-            this.Kt = true;
+            this.MQ = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.Kr = uptimeMillis;
-            this.Ks = uptimeMillis + 16;
-            this.Ko = f;
-            this.Kn = 0.0f;
-            this.Kp = (VerticalTranslateLayout.this.JN - VerticalTranslateLayout.this.Ni) - VerticalTranslateLayout.this.Nk;
-            this.Kq = VerticalTranslateLayout.this.Nk;
-            BdLog.d("Animator@animateBottom " + this.Kp);
+            this.MO = uptimeMillis;
+            this.MP = uptimeMillis + 16;
+            this.MK = f;
+            this.MJ = 0.0f;
+            this.MM = (VerticalTranslateLayout.this.Mj - VerticalTranslateLayout.this.PM) - VerticalTranslateLayout.this.PO;
+            this.MN = VerticalTranslateLayout.this.PO;
+            BdLog.d("Animator@animateBottom " + this.MM);
             BdLog.d("Animator@animateBottom " + f);
-            VerticalTranslateLayout.this.Ns.removeMessages(-101);
-            VerticalTranslateLayout.this.Ns.sendEmptyMessageAtTime(-101, this.Ks);
+            VerticalTranslateLayout.this.PY.removeMessages(-101);
+            VerticalTranslateLayout.this.PY.sendEmptyMessageAtTime(-101, this.MP);
         }
     }
 }

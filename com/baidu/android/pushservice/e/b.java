@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public final class b {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         hashMap.put(HttpConstants.TIMESTAMP, currentTimeMillis + "");
         hashMap.put("expires", (86400 + currentTimeMillis) + "");
-        hashMap.put(NotifyType.VIBRATE, "1");
+        hashMap.put("v", "1");
         try {
             hashMap.put("vcode", com.baidu.android.pushservice.k.f.a(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false));
         } catch (UnsupportedEncodingException e) {

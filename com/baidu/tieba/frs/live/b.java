@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.data.bb;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes2.dex */
 public class b implements CustomMessageTask.CustomRunnable<bb>, ab {
-    private com.baidu.tieba.frs.e.a dCZ;
-    private int dtU = 3;
+    private int dAA = 3;
+    private com.baidu.tieba.frs.e.a dJP;
 
     public b(com.baidu.tieba.frs.e.a aVar) {
-        this.dCZ = null;
-        this.dCZ = aVar;
+        this.dJP = null;
+        this.dJP = aVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
@@ -21,13 +21,13 @@ public class b implements CustomMessageTask.CustomRunnable<bb>, ab {
         if (customMessage != null && (customMessage.getData() instanceof bb)) {
             bb data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
-                com.baidu.tieba.frs.e.b.aAa().a(this.dCZ, data, 1);
+                com.baidu.tieba.frs.e.b.aCj().a(this.dJP, data, 1);
             } else if (customMessage.getCmd() == 2921016) {
-                com.baidu.tieba.frs.e.b.aAa().a(this.dCZ, data, 2);
+                com.baidu.tieba.frs.e.b.aCj().a(this.dJP, data, 2);
             } else if (customMessage.getCmd() == 2921019) {
-                com.baidu.tieba.frs.e.b.aAa().a(this.dCZ, data, 4);
+                com.baidu.tieba.frs.e.b.aCj().a(this.dJP, data, 4);
             } else if (customMessage.getCmd() == 2921017) {
-                com.baidu.tieba.frs.e.b.aAa().a(this.dCZ, data);
+                com.baidu.tieba.frs.e.b.aCj().a(this.dJP, data);
             }
         }
         return null;
@@ -38,7 +38,7 @@ public class b implements CustomMessageTask.CustomRunnable<bb>, ab {
     }
 
     @Override // com.baidu.tieba.card.ab
-    public void hk(int i) {
-        this.dtU = i;
+    public void hK(int i) {
+        this.dAA = i;
     }
 }

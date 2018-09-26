@@ -1,57 +1,37 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class h {
-    private AntiData aBN = new AntiData();
-    private ArrayList<String> agn;
-    private UserData mUser;
+    private final int aEQ;
+    private final int aER;
+    private final boolean aES;
+    private final TbPageContext<?> mContext;
 
-    public h() {
-        this.mUser = null;
-        this.agn = null;
-        this.mUser = new UserData();
-        this.agn = new ArrayList<>(3);
+    public h(TbPageContext<?> tbPageContext, int i, int i2, boolean z) {
+        this.mContext = tbPageContext;
+        this.aEQ = i;
+        this.aER = i2;
+        this.aES = z;
     }
 
-    public UserData getUser() {
-        return this.mUser;
+    public h(TbPageContext<?> tbPageContext, int i, int i2) {
+        this(tbPageContext, i, i2, false);
     }
 
-    public ArrayList<String> Ca() {
-        return this.agn;
+    public TbPageContext<?> Dl() {
+        return this.mContext;
     }
 
-    public AntiData Cb() {
-        return this.aBN;
+    public int Dm() {
+        return this.aEQ;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int Dn() {
+        return this.aER;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.mUser.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.agn.add(optJSONArray.optString(i, null));
-                }
-            }
-            this.aBN.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public boolean isAvailable() {
+        return this.mContext != null && this.aEQ > 0 && this.aER > 0;
     }
 }

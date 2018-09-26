@@ -70,6 +70,7 @@ public class PbActivityConfig extends IntentConfig {
     public static final String KEY_POST_THREAD_TIP = "KEY_POST_THREAD_TIP";
     public static final String KEY_PRE_LOAD = "lego_pre_load_data";
     public static final String KEY_SMART_FRS_POSITION = "KEY_SMART_FRS_POSITION";
+    public static final String KEY_SORTTYPE = "sort_type";
     public static final String KEY_SQUENCE = "squence";
     public static final String KEY_START_FROM = "key_start_from";
     public static final String KEY_ST_TYPE = "st_type";
@@ -133,6 +134,7 @@ public class PbActivityConfig extends IntentConfig {
         if (str != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", str);
+            intent.putExtra(KEY_SORTTYPE, 0);
             intent.putExtra("post_id", str2);
             intent.putExtra("thread_type", i);
             intent.putExtra("st_type", str3);
@@ -165,6 +167,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("from", str4);
+            intent.putExtra(KEY_SORTTYPE, 0);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity) || "from_searchbox".equals(str4)) {
                 intent.addFlags(268435456);
@@ -182,6 +185,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("post_id", str2);
             intent.putExtra("st_type", str3);
             intent.putExtra("from", str4);
+            intent.putExtra(KEY_SORTTYPE, 0);
             intent.putExtra("query_word", str5);
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             if (!(this.mContext instanceof Activity) || "from_baidu_searchbox".equals(str4)) {
@@ -243,6 +247,11 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("post_id", str2);
         intent.putExtra("host_only", z);
         intent.putExtra("squence", z2);
+        if (z2) {
+            intent.putExtra(KEY_SORTTYPE, 0);
+        } else {
+            intent.putExtra(KEY_SORTTYPE, 1);
+        }
         intent.putExtra("st_type", str3);
         intent.putExtra("from_mark", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
@@ -268,6 +277,11 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("post_id", str2);
         intent.putExtra("host_only", z);
         intent.putExtra("squence", z2);
+        if (z2) {
+            intent.putExtra(KEY_SORTTYPE, 0);
+        } else {
+            intent.putExtra(KEY_SORTTYPE, 1);
+        }
         intent.putExtra("st_type", str3);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
@@ -279,12 +293,12 @@ public class PbActivityConfig extends IntentConfig {
         if (bbVar != null) {
             Intent intent = getIntent();
             intent.putExtra("thread_id", bbVar.getTid());
-            if (bbVar.ww() != null && !StringUtils.isNull(bbVar.ww().getId())) {
-                intent.putExtra(KEY_GOD_REPLY_ID, bbVar.ww().getId());
+            if (bbVar.xD() != null && !StringUtils.isNull(bbVar.xD().getId())) {
+                intent.putExtra(KEY_GOD_REPLY_ID, bbVar.xD().getId());
             }
-            intent.putExtra("is_good", bbVar.vf());
-            intent.putExtra("is_top", bbVar.ve());
-            intent.putExtra("thread_time", bbVar.vc());
+            intent.putExtra("is_good", bbVar.wi());
+            intent.putExtra("is_top", bbVar.wh());
+            intent.putExtra("thread_time", bbVar.wf());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -294,21 +308,21 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra(IntentConfig.REQUEST_CODE, i);
             intent.putExtra("is_from_thread_config", true);
-            intent.putExtra("extra_pb_cache_key", "zan=" + (bbVar.uW() == null ? 0L : bbVar.uW().getNum()));
-            if (bbVar.vj() != null && bbVar.vj().getGodUserData().getId() != null) {
-                intent.putExtra("extra_pb_funs_count_key", bbVar.vj().getFansNum());
-                intent.putExtra("extra_pb_is_attention_key", bbVar.vj().getGodUserData().getIsLike());
+            intent.putExtra("extra_pb_cache_key", "zan=" + (bbVar.vZ() == null ? 0L : bbVar.vZ().getNum()));
+            if (bbVar.wm() != null && bbVar.wm().getGodUserData().getId() != null) {
+                intent.putExtra("extra_pb_funs_count_key", bbVar.wm().getFansNum());
+                intent.putExtra("extra_pb_is_attention_key", bbVar.wm().getGodUserData().getIsLike());
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(bbVar.getFid());
-            String vp = bbVar.vp();
-            if (bbVar.ajQ != null) {
+            String ws = bbVar.ws();
+            if (bbVar.amu != null) {
                 setFromForumId(valueOf);
-                valueOf = bbVar.ajQ.id;
-                vp = bbVar.ajQ.ori_fname;
+                valueOf = bbVar.amu.id;
+                ws = bbVar.amu.ori_fname;
             }
             setForumId(String.valueOf(valueOf));
-            setForumName(vp);
+            setForumName(ws);
             addMoreIntentExtraParam();
         }
         return this;
@@ -521,5 +535,12 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("squence", z);
         }
         return this;
+    }
+
+    public void setSortType(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_SORTTYPE, i);
+        }
     }
 }

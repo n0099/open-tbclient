@@ -1,9 +1,9 @@
 package com.baidu.sapi2.social;
 
 import android.content.Intent;
-import com.baidu.sapi2.activity.TitleActivity;
+import com.baidu.sapi2.activity.BaseActivity;
 /* loaded from: classes2.dex */
-public class SocialLoginBase extends TitleActivity {
+public class SocialLoginBase extends BaseActivity {
     protected static WXInvokeCallback wxInvokeCallback;
 
     /* loaded from: classes2.dex */

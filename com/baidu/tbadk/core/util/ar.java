@@ -1,113 +1,82 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.TbConfig;
+import android.content.pm.PackageInfo;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar arj = null;
-    private boolean ark = false;
-    private boolean arl = false;
-    private int arm = TbConfig.POST_IMAGE_SMALL;
-    private String arn = String.valueOf(45);
+    private static final char[] FZ = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    public static ar zu() {
-        if (arj == null) {
-            synchronized (ar.class) {
-                arj = new ar();
+    public static String d(PackageInfo packageInfo) throws NumberFormatException {
+        long j = 0;
+        String e = e(packageInfo);
+        if (e == null || e.length() < 32) {
+            return "-1";
+        }
+        String substring = e.substring(8, 24);
+        long j2 = 0;
+        for (int i = 0; i < 8; i++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
+        }
+        for (int i2 = 8; i2 < substring.length(); i2++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
+        }
+        return String.valueOf((j + j2) & 4294967295L);
+    }
+
+    private static String e(PackageInfo packageInfo) {
+        if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
+            return null;
+        }
+        try {
+            return com.baidu.adp.lib.util.s.toMd5(packageInfo.signatures[0].toCharsString().getBytes());
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
+        }
+    }
+
+    public static String E(byte[] bArr) {
+        int i = 0;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr = new char[32];
+            for (int i2 = 0; i2 < 16; i2++) {
+                byte b = digest[i2];
+                int i3 = i + 1;
+                cArr[i] = FZ[(b >>> 4) & 15];
+                i = i3 + 1;
+                cArr[i3] = FZ[b & 15];
+            }
+            return new String(cArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String f(PackageInfo packageInfo) {
+        if (packageInfo == null) {
+            return null;
+        }
+        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+        if (file.exists()) {
+            try {
+                return com.baidu.adp.lib.util.s.i(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
         }
-        return arj;
+        return null;
     }
 
-    public ar() {
-        zx();
-        zv();
-    }
-
-    private void zv() {
-        zC();
-        zD();
-        zE();
-    }
-
-    public void aJ(boolean z) {
-        this.arl = z;
-    }
-
-    public boolean zw() {
-        return this.arl;
-    }
-
-    public void aK(boolean z) {
-        this.ark = z;
-        zv();
-    }
-
-    private void zx() {
-        this.ark = com.baidu.adp.lib.util.j.jF();
-    }
-
-    public boolean zy() {
-        return this.ark;
-    }
-
-    public String zz() {
-        return this.arn;
-    }
-
-    public int zA() {
-        zE();
-        return this.arm;
-    }
-
-    public int zB() {
-        return TbConfig.POST_IMAGE_HIGHT_LIMIT;
-    }
-
-    public void zC() {
-        boolean z = true;
-        if (com.baidu.tbadk.core.i.td().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.td().getViewImageQuality() != 1 : !this.ark) {
-            z = false;
-        }
-        aJ(z);
-    }
-
-    public void zD() {
-        String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.i.td().getViewImageQuality() == 0) {
-            if (zy()) {
-                valueOf = String.valueOf(80);
-            }
-        } else if (com.baidu.tbadk.core.i.td().getViewImageQuality() == 1) {
-            valueOf = String.valueOf(80);
-        }
-        this.arn = valueOf;
-    }
-
-    public void zE() {
-        int i = 2000;
-        switch (com.baidu.tbadk.core.i.td().tg()) {
-            case 0:
-                if (!zy()) {
-                    i = 1500;
-                    break;
-                }
-                break;
-            case 1:
-                break;
-            case 2:
-                i = 1800;
-                break;
-            case 3:
-                i = 1500;
-                break;
-            default:
-                i = 1800;
-                break;
-        }
-        this.arm = i;
-    }
-
-    public static boolean zF() {
-        return l.gd() && com.baidu.adp.gif.c.gb();
+    public static String fe(String str) {
+        return com.baidu.adp.lib.util.s.bD(str);
     }
 }

@@ -7,107 +7,107 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class g extends a {
-    protected TbImageView aRm;
-    protected TextView aRn;
-    protected TextView aRo;
-    protected TextView aRp;
-    private LinearLayout aRq;
+    protected TbImageView aUE;
+    protected TextView aUF;
+    protected TextView aUG;
+    protected TextView aUH;
+    private LinearLayout aUI;
 
     public TextView getTitleView() {
-        return this.aRo;
+        return this.aUG;
     }
 
-    public TextView Jj() {
-        return this.aRp;
+    public TextView Kz() {
+        return this.aUH;
     }
 
     public g(Context context, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(context).inflate(f.h.net_refresh_view_layout, (ViewGroup) null));
-        this.aRm = (TbImageView) this.aRe.findViewById(f.g.net_refresh_image);
-        this.aRn = (TextView) this.aRe.findViewById(f.g.net_refresh_desc);
-        this.aRo = (TextView) this.aRe.findViewById(f.g.net_refresh_title);
-        this.aRq = (LinearLayout) this.aRe.findViewById(f.g.net_refresh_info_layout);
-        this.aRp = (TextView) this.aRe.findViewById(f.g.net_refresh_button);
-        this.aRp.setOnClickListener(onClickListener);
-        this.aRe.setOnClickListener(null);
+        super(LayoutInflater.from(context).inflate(e.h.net_refresh_view_layout, (ViewGroup) null));
+        this.aUE = (TbImageView) this.aUw.findViewById(e.g.net_refresh_image);
+        this.aUF = (TextView) this.aUw.findViewById(e.g.net_refresh_desc);
+        this.aUG = (TextView) this.aUw.findViewById(e.g.net_refresh_title);
+        this.aUI = (LinearLayout) this.aUw.findViewById(e.g.net_refresh_info_layout);
+        this.aUH = (TextView) this.aUw.findViewById(e.g.net_refresh_button);
+        this.aUH.setOnClickListener(onClickListener);
+        this.aUw.setOnClickListener(null);
     }
 
-    public void hk(String str) {
+    public void hG(String str) {
         if (str == null) {
-            this.aRn.setVisibility(8);
+            this.aUF.setVisibility(8);
             return;
         }
-        this.aRn.setVisibility(0);
-        this.aRn.setText(str);
+        this.aUF.setVisibility(0);
+        this.aUF.setText(str);
     }
 
-    public void ff(int i) {
-        ((LinearLayout.LayoutParams) this.aRq.getLayoutParams()).topMargin = i;
+    public void fr(int i) {
+        ((LinearLayout.LayoutParams) this.aUI.getLayoutParams()).topMargin = i;
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.aRo.setText(str);
+            this.aUG.setText(str);
         }
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.aRp.setText(str);
+            this.aUH.setText(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.k.a
-    public void Jd() {
-        super.Jd();
+    public void Kt() {
+        super.Kt();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.k.a
-    public void Je() {
-        super.Je();
-        this.aRm.setImageResource(0);
+    public void Ku() {
+        super.Ku();
+        this.aUE.setImageResource(0);
     }
 
-    public void fg(int i) {
-        ViewGroup.LayoutParams layoutParams = this.aRm.getLayoutParams();
+    public void fs(int i) {
+        ViewGroup.LayoutParams layoutParams = this.aUE.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.aRm.setLayoutParams(marginLayoutParams);
+            this.aUE.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void Jk() {
-        this.aRp.setVisibility(0);
-        this.aRo.setVisibility(0);
-        am.c(this.aRn, f.d.cp_cont_d, 1);
+    public void KA() {
+        this.aUH.setVisibility(0);
+        this.aUG.setVisibility(0);
+        al.c(this.aUF, e.d.cp_cont_d, 1);
     }
 
-    public void Jl() {
-        this.aRp.setVisibility(8);
-        this.aRo.setVisibility(8);
-        am.c(this.aRn, f.d.cp_cont_b, 1);
+    public void KB() {
+        this.aUH.setVisibility(8);
+        this.aUG.setVisibility(8);
+        al.c(this.aUF, e.d.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        am.c(this.aRm, f.C0146f.net_refresh_emotion);
-        am.b(this.aRn, f.d.cp_cont_d, 1, skinType);
-        am.b(this.aRo, f.d.cp_cont_b, 1, skinType);
-        am.b(this.aRp, f.d.cp_cont_g, 1, skinType);
-        am.d(this.aRp, f.C0146f.btn_appdownload, skinType);
-        am.j(this.aRe, f.d.cp_bg_line_d);
+        al.c(this.aUE, e.f.net_refresh_emotion);
+        al.b(this.aUF, e.d.cp_cont_d, 1, skinType);
+        al.b(this.aUG, e.d.cp_cont_b, 1, skinType);
+        al.b(this.aUH, e.d.cp_cont_g, 1, skinType);
+        al.d(this.aUH, e.f.btn_appdownload, skinType);
+        al.j(this.aUw, e.d.cp_bg_line_d);
     }
 
-    public View Ji() {
-        return this.aRe;
+    public View Ky() {
+        return this.aUw;
     }
 }

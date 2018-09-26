@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.http;
 
 import android.support.v4.app.FrameMetricsAggregator;
 import com.baidu.ar.util.MsgConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum HttpStatus {
     CONTINUE(100, "Continue"),
     SWITCHING_PROTOCOLS(101, "Switching Protocols"),
@@ -104,7 +104,7 @@ public enum HttpStatus {
         return Integer.toString(this.value);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Series {
         INFORMATIONAL(1),
         SUCCESSFUL(2),

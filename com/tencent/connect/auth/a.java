@@ -32,7 +32,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.ar.base.MsgField;
 import com.baidu.ar.parser.ARResourceKey;
-import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.tencent.connect.auth.b;
 import com.tencent.connect.common.Constants;
@@ -213,8 +212,8 @@ public class a extends Dialog {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0275a extends WebViewClient {
-        private C0275a() {
+    public class C0281a extends WebViewClient {
+        private C0281a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -468,7 +467,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0275a());
+        this.j.setWebViewClient(new C0281a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();
@@ -537,7 +536,7 @@ public class a extends Dialog {
         Bundle b2 = j.b(this.a);
         b2.putString("token_key", c2);
         b2.putString("serial", a2);
-        b2.putString(BeanConstants.CHANNEL_ID_BROWSER, "1");
+        b2.putString("browser", "1");
         this.a = substring + "?" + HttpUtils.encodeUrl(b2);
         return j.a(this.k, this.a);
     }

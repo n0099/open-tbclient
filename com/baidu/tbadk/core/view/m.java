@@ -2,40 +2,27 @@ package com.baidu.tbadk.core.view;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class m extends ImageSpan {
     private WeakReference<Drawable> mDrawableRef;
+    private int offset;
 
     public m(Drawable drawable) {
         super(drawable);
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Rect bounds = getCachedDrawable().getBounds();
-        if (fontMetricsInt != null) {
-            Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-            int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-            int i4 = bounds.bottom - bounds.top;
-            int i5 = (i4 / 2) - (i3 / 4);
-            int i6 = (i3 / 4) + (i4 / 2);
-            fontMetricsInt.ascent = -i6;
-            fontMetricsInt.top = -i6;
-            fontMetricsInt.bottom = i5;
-            fontMetricsInt.descent = i5;
-        }
-        return bounds.right;
+    public void setOffset(int i) {
+        this.offset = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Drawable cachedDrawable = getCachedDrawable();
         canvas.save();
-        canvas.translate(f, ((i5 - cachedDrawable.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
+        canvas.translate(f, (((paint.getFontMetricsInt().descent + i4) - cachedDrawable.getBounds().height()) / 2) + this.offset);
         cachedDrawable.draw(canvas);
         canvas.restore();
     }

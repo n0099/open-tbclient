@@ -4,23 +4,24 @@ import android.graphics.Path;
 import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.a.a;
 import com.airbnb.lottie.model.a.d;
+import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i implements b {
-    @Nullable
-    private final com.airbnb.lottie.model.a.d nE;
-    private final Path.FillType nO;
     private final String name;
     @Nullable
-    private final com.airbnb.lottie.model.a.a nw;
-    private final boolean oo;
+    private final com.airbnb.lottie.model.a.a pX;
+    private final boolean qP;
+    @Nullable
+    private final com.airbnb.lottie.model.a.d qf;
+    private final Path.FillType qq;
 
     private i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.oo = z;
-        this.nO = fillType;
-        this.nw = aVar;
-        this.nE = dVar;
+        this.qP = z;
+        this.qq = fillType;
+        this.pX = aVar;
+        this.qf = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +32,7 @@ public class i implements b {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject("c");
             com.airbnb.lottie.model.a.a d = optJSONObject != null ? a.C0007a.d(optJSONObject, eVar) : null;
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("o");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.OS);
             return new i(optString, jSONObject.optBoolean("fillEnabled"), jSONObject.optInt("r", 1) == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, d, optJSONObject2 != null ? d.a.g(optJSONObject2, eVar) : null);
         }
     }
@@ -41,17 +42,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.a de() {
-        return this.nw;
+    public com.airbnb.lottie.model.a.a el() {
+        return this.pX;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.d cx() {
-        return this.nE;
+    public com.airbnb.lottie.model.a.d dE() {
+        return this.qf;
     }
 
     public Path.FillType getFillType() {
-        return this.nO;
+        return this.qq;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -60,6 +61,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=" + (this.nw == null ? "null" : Integer.toHexString(this.nw.ck().intValue())) + ", fillEnabled=" + this.oo + ", opacity=" + (this.nE == null ? "null" : this.nE.ck()) + '}';
+        return "ShapeFill{color=" + (this.pX == null ? "null" : Integer.toHexString(this.pX.dr().intValue())) + ", fillEnabled=" + this.qP + ", opacity=" + (this.qf == null ? "null" : this.qf.dr()) + '}';
     }
 }

@@ -1,50 +1,111 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
 /* loaded from: classes.dex */
 public class an {
-    private String key;
-    private List<Object> params = new ArrayList();
+    private static an atn;
 
-    public List<Object> getParams() {
-        return this.params;
+    public static synchronized an At() {
+        an anVar;
+        synchronized (an.class) {
+            if (atn == null) {
+                atn = new an();
+            }
+            anVar = atn;
+        }
+        return anVar;
     }
 
-    public String getKey() {
-        return this.key;
+    public String eX(String str) {
+        if (str == null) {
+            return null;
+        }
+        long j = 0;
+        for (byte b : str.getBytes()) {
+            j += b;
+        }
+        return "image/" + (j % 20);
     }
 
-    public an() {
+    public Bitmap eA(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return l.ah(eX(str), str);
     }
 
-    public an(String str) {
-        this.key = str;
+    public boolean eY(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return l.ag(eX(str), str);
     }
 
-    public an ae(String str, String str2) {
-        this.params.add(str);
-        this.params.add(str2);
-        return this;
+    public int eZ(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        return (int) l.af(eX(str), str);
     }
 
-    public an r(String str, int i) {
-        this.params.add(str);
-        this.params.add(Integer.valueOf(i));
-        return this;
+    public boolean ai(String str, String str2) {
+        String str3 = l.EZ + "/" + TbConfig.getTempDirName() + "/";
+        if (!l.ej(str3)) {
+            l.eG(str3);
+        }
+        String str4 = str3 + eX(str2);
+        if (!l.ej(str4)) {
+            l.eG(str4);
+        }
+        String str5 = str4 + "/" + str2;
+        if (str.equals(str5)) {
+            return false;
+        }
+        return l.c(str, str5, true);
     }
 
-    public an f(String str, long j) {
-        this.params.add(str);
-        this.params.add(Long.valueOf(j));
-        return this;
+    public void i(String str, byte[] bArr) {
+        if (!TextUtils.isEmpty(str)) {
+            l.d(eX(str), str, bArr);
+        }
     }
 
-    public void delete(String str) {
-        int indexOf;
-        if (!ap.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
-            this.params.remove(indexOf);
-            this.params.remove(indexOf);
+    private void A(File file) {
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    A(file2);
+                    file2.delete();
+                } else if (!file2.delete()) {
+                }
+            }
+        }
+    }
+
+    public void Au() {
+        A(new File(l.EZ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        A(new File(l.EZ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    }
+
+    public void Av() {
+        B(new File(l.EZ + "/" + TbConfig.getTempDirName() + "/" + l.cO(3)));
+    }
+
+    private void B(File file) {
+        long currentTimeMillis = System.currentTimeMillis();
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    A(file2);
+                    file2.delete();
+                } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
+                }
+            }
         }
     }
 }

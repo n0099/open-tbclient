@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 public @interface o {
     String value() default "";
 
-    boolean xM() default false;
+    boolean yT() default false;
 }

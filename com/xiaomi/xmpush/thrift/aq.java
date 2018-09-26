@@ -26,7 +26,7 @@ public class aq {
             return null;
         }
         try {
-            return new org.apache.thrift.g(new a.C0297a()).a(t);
+            return new org.apache.thrift.g(new a.C0303a()).a(t);
         } catch (org.apache.thrift.f e) {
             com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e);
             return null;

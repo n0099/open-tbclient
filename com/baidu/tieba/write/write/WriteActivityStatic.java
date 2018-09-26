@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.write.album.AlbumActivity;
 import com.baidu.tieba.write.selectForum.HotTopicChangeFourmActivity;
@@ -44,8 +44,8 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class WriteActivityStatic {
-    private static int hAl = 11;
-    private static int hAm = 18;
+    private static int hII = 11;
+    private static int hIJ = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -61,9 +61,9 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumActivityConfig.class, SelectForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
-        LocationModel.bwT();
-        az.zI().a("feedback:", new az.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.az.b
+        LocationModel.bzx();
+        ay.AN().a("feedback:", new ay.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.ay.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
                     WriteActivityStatic.C(tbPageContext);
@@ -78,7 +78,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void C(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= hAm && Build.VERSION.SDK_INT >= hAl) {
+        if (Build.VERSION.SDK_INT <= hIJ && Build.VERSION.SDK_INT >= hII) {
             G(tbPageContext);
         } else {
             H(tbPageContext);
@@ -86,7 +86,7 @@ public class WriteActivityStatic {
     }
 
     private static void G(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(f.j.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+        com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(e.j.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
     }
 
     private static void H(TbPageContext<?> tbPageContext) {
@@ -110,7 +110,7 @@ public class WriteActivityStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ax.zG() != null && ax.zG().indexOf("NewVcode") != -1) {
+                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && aw.AL() != null && aw.AL().indexOf("NewVcode") != -1) {
                     TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
                 }
             }

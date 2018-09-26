@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.message.SignMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -41,23 +41,24 @@ public class SignStatic {
                 SignMessage signMessage = new SignMessage();
                 try {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getContext(), "sign_do_time", System.currentTimeMillis() + "");
-                    y yVar = new y(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
-                    yVar.o("kw", name);
-                    yVar.o(ImageViewerConfig.FORUM_ID, id);
-                    yVar.yM().zK().mIsNeedTbs = true;
-                    String yo = yVar.yo();
-                    if (yVar.yP()) {
-                        if (yVar.yM().zL().isRequestSuccess()) {
+                    x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
+                    xVar.u("kw", name);
+                    xVar.u(ImageViewerConfig.FORUM_ID, id);
+                    xVar.zR().AP().mIsNeedTbs = true;
+                    xVar.aR(true);
+                    String zt = xVar.zt();
+                    if (xVar.zU()) {
+                        if (xVar.zR().AQ().isRequestSuccess()) {
                             signData = new SignData();
-                            signData.parserJson(yo);
+                            signData.parserJson(zt);
                             signData.forumId = id;
                             signData.forumName = name;
                         } else {
-                            if (!ap.isEmpty(yo)) {
-                                JSONObject jSONObject = new JSONObject(yo);
-                                if (AntiHelper.tO(yVar.yQ()) || "199901".equals(jSONObject.optString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE))) {
+                            if (!ao.isEmpty(zt)) {
+                                JSONObject jSONObject = new JSONObject(zt);
+                                if (AntiHelper.uo(xVar.zV()) || "199901".equals(jSONObject.optString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE))) {
                                     signData = new SignData();
-                                    signData.parserJson(yo);
+                                    signData.parserJson(zt);
                                     signData.is_signed = 1;
                                     signData.count_sign_num = 1;
                                     signData.sign_bonus_point = 0;
@@ -65,8 +66,8 @@ public class SignStatic {
                                     signData.forumName = name;
                                 }
                             }
-                            signMessage.mSignErrorCode = yVar.yQ();
-                            signMessage.mSignErrorString = yVar.getErrorString();
+                            signMessage.mSignErrorCode = xVar.zV();
+                            signMessage.mSignErrorString = xVar.getErrorString();
                         }
                         signMessage.signData = signData;
                         return signMessage;

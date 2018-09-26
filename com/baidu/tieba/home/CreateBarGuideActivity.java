@@ -9,25 +9,25 @@ import com.baidu.tbadk.core.atomData.AboutActivityConfig;
 import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.home.BfbInfoModel;
 import tbclient.UserBfbInfo;
 /* loaded from: classes3.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
-    private a dRW;
-    private BfbInfoModel dRX;
-    private BfbInfoModel.a dRY = new BfbInfoModel.a() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.1
+    private a dZn;
+    private BfbInfoModel dZo;
+    private BfbInfoModel.a dZp = new BfbInfoModel.a() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.1
         @Override // com.baidu.tieba.home.BfbInfoModel.a
         public void a(int i, String str, UserBfbInfo userBfbInfo) {
-            CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.dRW.getRootView());
-            CreateBarGuideActivity.this.dRW.aCZ();
+            CreateBarGuideActivity.this.hideLoadingView(CreateBarGuideActivity.this.dZn.getRootView());
+            CreateBarGuideActivity.this.dZn.aFm();
             if (i == 0) {
-                CreateBarGuideActivity.this.dRW.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
+                CreateBarGuideActivity.this.dZn.a(CreateBarGuideActivity.this.forumName, userBfbInfo);
                 return;
             }
             CreateBarGuideActivity.this.showToast(str);
             if (i == 260211) {
-                CreateBarGuideActivity.this.ns(null);
+                CreateBarGuideActivity.this.nX(null);
             }
         }
     };
@@ -41,52 +41,52 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         if (!TextUtils.isEmpty(this.forumName) && this.forumName.length() > 30) {
             this.forumName = this.forumName.substring(0, 30);
         }
-        this.dRX = new BfbInfoModel(this);
-        this.dRX.a(this.dRY);
-        this.dRW = new a(this);
-        this.dRW.aCY();
-        showLoadingView(this.dRW.getRootView());
-        this.dRX.LoadData();
+        this.dZo = new BfbInfoModel(this);
+        this.dZo.a(this.dZp);
+        this.dZn = new a(this);
+        this.dZn.aFl();
+        showLoadingView(this.dZn.getRootView());
+        this.dZo.LoadData();
         TiebaStatic.log("c11222");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ns(String str) {
+    public void nX(String str) {
         if (StringUtils.isNull(str)) {
-            str = getResources().getString(f.j.tips_version_low);
+            str = getResources().getString(e.j.tips_version_low);
         }
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-        aVar.dA(str);
-        aVar.a(f.j.confirm, new a.b() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.2
+        aVar.dS(str);
+        aVar.a(e.j.confirm, new a.b() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar.dismiss();
                 CreateBarGuideActivity.this.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(CreateBarGuideActivity.this.getPageContext().getPageActivity())));
             }
         });
-        aVar.b(f.j.cancel, new a.b() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.3
+        aVar.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.home.CreateBarGuideActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar.dismiss();
             }
         });
         aVar.b(getPageContext());
-        aVar.xe();
+        aVar.yl();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.dRW = null;
-        this.dRX.aCU();
+        this.dZn = null;
+        this.dZo.aFh();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        if (this.dRW != null) {
-            this.dRW.FG();
+        if (this.dZn != null) {
+            this.dZn.GW();
         }
     }
 }

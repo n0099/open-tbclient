@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FrsArShareModel extends BdBaseModel {
-    private final HttpMessageListener drF;
-    private a drQ;
-    private String drR;
+    private final HttpMessageListener dxV;
+    private a dyg;
+    private String dyh;
     private String forumName;
     private boolean mIsLoading;
     private TbPageContext mPageContext;
@@ -28,41 +28,41 @@ public class FrsArShareModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void mC(String str);
+        void nf(String str);
 
-        void mD(String str);
+        void ng(String str);
     }
 
     public FrsArShareModel(TbPageContext tbPageContext, a aVar, String str, String str2, String str3) {
         super(tbPageContext);
-        this.drF = new HttpMessageListener(CmdConfigHttp.CMD_FRS_AR_SHARE) { // from class: com.baidu.tieba.frs.ar.model.FrsArShareModel.1
+        this.dxV = new HttpMessageListener(CmdConfigHttp.CMD_FRS_AR_SHARE) { // from class: com.baidu.tieba.frs.ar.model.FrsArShareModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003391 || !(httpResponsedMessage instanceof FrsArShareResponseMessage)) {
-                    FrsArShareModel.this.drQ.mC("error");
+                    FrsArShareModel.this.dyg.nf("error");
                     return;
                 }
                 FrsArShareModel.this.mIsLoading = false;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    FrsArShareModel.this.drQ.mD(((FrsArShareResponseMessage) httpResponsedMessage).shareUrl);
+                    FrsArShareModel.this.dyg.ng(((FrsArShareResponseMessage) httpResponsedMessage).shareUrl);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getResources().getString(f.j.error_unkown_try_again);
+                    errorString = TbadkCoreApplication.getInst().getResources().getString(e.j.error_unkown_try_again);
                 }
-                FrsArShareModel.this.drQ.mC(errorString);
+                FrsArShareModel.this.dyg.nf(errorString);
             }
         };
         this.mPageContext = tbPageContext;
-        this.drQ = aVar;
+        this.dyg = aVar;
         registerTask();
-        this.drF.setTag(getUniqueId());
-        this.drF.setSelfListener(true);
-        registerListener(this.drF);
+        this.dxV.setTag(getUniqueId());
+        this.dxV.setSelfListener(true);
+        registerListener(this.dxV);
         this.forumName = str;
-        this.drR = str3;
+        this.dyh = str3;
         this.videoUrl = str2;
     }
 
@@ -100,7 +100,7 @@ public class FrsArShareModel extends BdBaseModel {
         this.mIsLoading = true;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_AR_SHARE);
         httpMessage.addParam(WebVideoActivityConfig.KEY_VIDEO_URL, this.videoUrl);
-        httpMessage.addParam("cover_url", this.drR);
+        httpMessage.addParam("cover_url", this.dyh);
         httpMessage.addParam("forum_name", this.forumName);
         sendMessage(httpMessage);
         return true;

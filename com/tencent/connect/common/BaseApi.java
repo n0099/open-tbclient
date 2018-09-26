@@ -10,6 +10,7 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.open.TDialog;
@@ -54,7 +55,7 @@ public abstract class BaseApi {
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", "a");
+        bundle.putString("sdkp", Config.APP_VERSION_CODE);
         if (this.b != null && this.b.isSessionValid()) {
             bundle.putString("access_token", this.b.getAccessToken());
             bundle.putString("oauth_consumer_key", this.b.getAppId());
@@ -103,7 +104,7 @@ public abstract class BaseApi {
             bundle.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
         }
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", "a");
+        bundle.putString("sdkp", Config.APP_VERSION_CODE);
         return bundle;
     }
 

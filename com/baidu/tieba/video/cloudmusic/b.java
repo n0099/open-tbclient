@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes2.dex */
 public class b implements c.a {
-    private final CloudMusicModel hcD;
-    private final c.b hcE;
+    private final CloudMusicModel hkv;
+    private final c.b hkw;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.hcD = cloudMusicModel;
-        this.hcE = bVar;
+        this.hkv = cloudMusicModel;
+        this.hkw = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void bAv() {
-        this.hcE.mQ(true);
-        this.hcD.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void bDk() {
+        this.hkw.nn(true);
+        this.hkv.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
-            public void ag(CloudMusicData cloudMusicData) {
-                b.this.hcE.mQ(false);
+            public void aj(CloudMusicData cloudMusicData) {
+                b.this.hkw.nn(false);
                 if (cloudMusicData != null) {
-                    b.this.hcE.mR(false);
+                    b.this.hkw.no(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.hcE.mR(true);
+                        b.this.hkw.no(true);
                         return;
                     } else {
-                        b.this.hcE.a(cloudMusicData);
+                        b.this.hkw.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.hcE.mR(true);
+                b.this.hkw.no(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void awr() {
-        this.hcD.cancelLoadData();
+    public void ayC() {
+        this.hkv.cancelLoadData();
     }
 }

@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.mp4;
 
+import com.baidu.mobstat.Config;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor;
 import org.aspectj.a.b.b;
@@ -7,10 +8,10 @@ import org.aspectj.lang.a;
 /* loaded from: classes2.dex */
 public class ESDescriptorBox extends AbstractDescriptorBox {
     public static final String TYPE = "esds";
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0298a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
 
     static {
         ajc$preClinit();
@@ -20,7 +21,7 @@ public class ESDescriptorBox extends AbstractDescriptorBox {
         b bVar = new b("ESDescriptorBox.java", ESDescriptorBox.class);
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getEsDescriptor", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "", "", "", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor"), 33);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setEsDescriptor", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "com.googlecode.mp4parser.boxes.mp4.objectdescriptors.ESDescriptor", "esDescriptor", "", "void"), 37);
-        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "java.lang.Object", "o", "", "boolean"), 42);
+        ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "equals", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "java.lang.Object", Config.OS, "", "boolean"), 42);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "hashCode", "com.googlecode.mp4parser.boxes.mp4.ESDescriptorBox", "", "", "", "int"), 53);
     }
 

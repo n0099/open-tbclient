@@ -22,5 +22,5 @@ public interface a {
 
     String getVideoUrl();
 
-    void s(BdUniqueId bdUniqueId);
+    void r(BdUniqueId bdUniqueId);
 }

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -55,6 +55,7 @@ public class TbConfig {
     public static final String CARD_BOX_MEMBER_PAY = "c/e/packet/andmember";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
+    public static final String CHECK_OFFICIAL_SWITCH_URL = "c/u/user/getOfficialSwitch";
     public static final String CHECK_USER_BOOKMARK = "c/e/tbread/checkUserBookMark";
     public static final String CLEAR_LOCATION_INFO = "c/u/recent/hide_position";
     public static final String CMD_CHANNEL_FOLLOW = "c/c/video/followChannel";
@@ -127,6 +128,7 @@ public class TbConfig {
     public static final String FROM_FILE = "from.dat";
     public static final int FRS_ABSTRACT_ITEM_NUMBER = 50;
     public static final String FRS_ADDRESS = "c/f/frs/page";
+    public static final String FRS_COMMON_TAB = "c/f/frs/generalTabList";
     public static final String FRS_DYNAMIC_ADDRESS = "c/f/frs/starTrends";
     public static final String FRS_HEAD_VIDEO_LIST = "c/f/video/forumHeadVideo";
     public static final int FRS_NOABSTRACT_ITEM_NUMBER = 35;
@@ -312,6 +314,7 @@ public class TbConfig {
     public static final int PB_IMAGE_MAX_WIDTH = 105;
     public static final int PB_IMAGE_NEW_MAX_WIDTH = 640;
     public static final float PB_IMAGE_NEW_SCALE = 1.6f;
+    public static final int PB_MAX_PRELOAD_PIC_NUM = 3;
     public static final String PB_MORE_GOD_REPLY_URL = "/c/f/pb/getPostList";
     public static final int PB_PHOTO_MAX_SIZE = 80;
     public static final int PB_PHOTO_QUALITY = 80;
@@ -342,6 +345,7 @@ public class TbConfig {
     public static final String POST_SEARCH_URL = "c/s/searchpost";
     public static final String POST_THREAD_ADDRESS = "c/c/thread/add";
     public static final String POST_THREAD_FOR_SHARE_ADDRESS = "c/c/thread/sdkshare";
+    public static final String PRIVACY_DETAIL_URL = "https://tieba.baidu.com/tb/cms/client-static/privacy.html";
     public static final String PRODUCT_NO = "1000002";
     public static final String PROFILE_HEAD_MODIFY = "c/c/img/portrait";
     public static final String PROFILE_MODIFY = "c/c/profile/modify";
@@ -376,6 +380,7 @@ public class TbConfig {
     public static final String SHARE_HUB_DIR_NAME = "share_hub";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
     public static final String SKIN_DETAIL_PAGE = "c/e/theme/getSkin";
+    public static final String SMART_APP_URL = "c/f/frs/smartapplist";
     public static final String SQUARE_SEARCH_PAGE = "https://tieba.baidu.com/n/apage-runtime/page/205?keyword=";
     public static final String STAT_CLIENT_START = "c/c/forum/statClientStartTimes";
     public static final String ST_PARAM_PERSON_INFO_SEND_MESSAGE = "3";
@@ -479,9 +484,6 @@ public class TbConfig {
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
     public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
     public static final String USER_MUTE_QUERY = "c/u/user/userMuteQuery";
-    public static final int USER_PHOTO_AUTO = 0;
-    public static final int USER_PHOTO_CLOSE = 2;
-    public static final int USER_PHOTO_OPEN = 1;
     public static final String VIDEO_FINISH_ADDRESS = "c/c/video/uploadVideoChunkFinish";
     public static final String VIDEO_SINGLE_UPLOAD_ADDRESS = "c/c/video/uploadVideo";
     public static final String VIDEO_UPLOAD_ADDRESS = "c/c/video/uploadVideoChunk";
@@ -549,24 +551,25 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds56);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds52);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds48);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds42);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds52);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds48);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds38);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds72);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds68);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds64);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.f(TbadkCoreApplication.getInst().getContext(), f.e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds52);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds48);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds42);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds52);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds48);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds38);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds72);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds68);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds64);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds56);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/136_1";
     public static String GET_HOT_GOD = "c/u/user/getHotGod";
     public static String GET_BFB_INFO = "c/f/forum/getUserBfbInfo";
+    public static final String CHECK_SHARE_SDK_URL = SERVER_ADDRESS + "c/s/checkAppValid";
 
     /* loaded from: classes.dex */
     public static final class PassConfig {
@@ -697,7 +700,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.IQ().fa(i);
+            c.Kg().fm(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -842,7 +845,7 @@ public class TbConfig {
     public static void initBigImageWidth(Context context) {
         if (!sThreadImageMaxInited) {
             sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(l.ah(context) * l.aj(context));
+            int sqrt = (int) Math.sqrt(l.aO(context) * l.aQ(context));
             if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
                 THREAD_IMAGE_MAX_WIDTH = sqrt;
             }

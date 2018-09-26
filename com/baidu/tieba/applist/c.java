@@ -16,18 +16,18 @@ import com.baidu.adp.lib.b.d;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.u;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.util.w;
+import com.baidu.tbadk.util.x;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c cwd = null;
-    private AlarmManager cwe;
-    private final int cwb = 7;
-    private int cwc = PersonListModel.CACHETIME;
-    private HttpMessageListener bvR = new HttpMessageListener(CmdConfigHttp.REPORT_APPLIST) { // from class: com.baidu.tieba.applist.c.1
+    private static volatile c cBT = null;
+    private AlarmManager cBU;
+    private final int cBR = 7;
+    private int cBS = PersonListModel.CACHETIME;
+    private HttpMessageListener bBG = new HttpMessageListener(CmdConfigHttp.REPORT_APPLIST) { // from class: com.baidu.tieba.applist.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -47,40 +47,40 @@ public class c {
 
     private c() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(Hi());
-        messageManager.registerListener(this.bvR);
-        aiA();
+        messageManager.registerTask(Iy());
+        messageManager.registerListener(this.bBG);
+        akl();
     }
 
-    public static c aiz() {
-        if (cwd == null) {
+    public static c akk() {
+        if (cBT == null) {
             synchronized (c.class) {
-                if (cwd == null) {
-                    cwd = new c();
+                if (cBT == null) {
+                    cBT = new c();
                 }
             }
         }
-        return cwd;
+        return cBT;
     }
 
-    public void aiA() {
-        if (this.cwe == null) {
+    public void akl() {
+        if (this.cBU == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             calendar.add(6, 7);
             PendingIntent broadcast = PendingIntent.getBroadcast(BdBaseApplication.getInst().getApp(), 0, new Intent("com.baidu.tieba.report.applist"), 134217728);
-            this.cwe = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
-            this.cwe.setRepeating(0, calendar.getTimeInMillis(), this.cwc, broadcast);
+            this.cBU = (AlarmManager) BdBaseApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+            this.cBU.setRepeating(0, calendar.getTimeInMillis(), this.cBS, broadcast);
         }
     }
 
-    public void eq(boolean z) {
-        if (d.hv().ax("applist_switch") != 0) {
+    public void eH(boolean z) {
+        if (d.iB().aO("applist_switch") != 0) {
             long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("applist_report_time", 0L);
             long currentTimeMillis = System.currentTimeMillis() - j;
-            if (j == 0 || z || currentTimeMillis >= this.cwc) {
-                v.a(new u<Object>() { // from class: com.baidu.tieba.applist.c.2
-                    @Override // com.baidu.tbadk.util.u
+            if (j == 0 || z || currentTimeMillis >= this.cBS) {
+                x.a(new w<Object>() { // from class: com.baidu.tieba.applist.c.2
+                    @Override // com.baidu.tbadk.util.w
                     public Object doInBackground() {
                         MessageManager.getInstance().sendMessageFromBackground(new ApplistRequest());
                         return null;
@@ -90,7 +90,7 @@ public class c {
         }
     }
 
-    private HttpMessageTask Hi() {
+    private HttpMessageTask Iy() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_APPLIST, TbConfig.REPORT_APPLIST);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);
@@ -106,7 +106,7 @@ public class c {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals("com.baidu.tieba.report.applist")) {
-                c.aiz().eq(true);
+                c.akk().eH(true);
             }
         }
     }

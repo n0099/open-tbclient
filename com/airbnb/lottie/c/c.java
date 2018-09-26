@@ -4,88 +4,88 @@ import android.animation.ValueAnimator;
 import android.support.annotation.FloatRange;
 /* loaded from: classes2.dex */
 public class c extends ValueAnimator {
-    private long pB;
-    private boolean pA = false;
+    private long rV;
+    private boolean rU = false;
     private float speed = 1.0f;
     @FloatRange(from = 0.0d, to = 1.0d)
     private float value = 0.0f;
     @FloatRange(from = 0.0d, to = 1.0d)
-    private float pC = 0.0f;
+    private float rW = 0.0f;
     @FloatRange(from = 0.0d, to = 1.0d)
-    private float pD = 1.0f;
+    private float rX = 1.0f;
 
     public c() {
         setInterpolator(null);
         addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.airbnb.lottie.c.c.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!c.this.pA) {
+                if (!c.this.rU) {
                     c.this.value = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 }
             }
         });
-        dA();
+        eH();
     }
 
-    public void bs() {
-        this.pA = true;
+    public void cz() {
+        this.rU = true;
     }
 
-    public void h(long j) {
-        this.pB = j;
-        dA();
+    public void k(long j) {
+        this.rV = j;
+        eH();
     }
 
     public void l(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        float clamp = e.clamp(f, this.pC, this.pD);
+        float clamp = e.clamp(f, this.rW, this.rX);
         this.value = clamp;
-        float abs = (isReversed() ? this.pD - clamp : clamp - this.pC) / Math.abs(this.pD - this.pC);
+        float abs = (isReversed() ? this.rX - clamp : clamp - this.rW) / Math.abs(this.rX - this.rW);
         if (getDuration() > 0) {
             setCurrentPlayTime(abs * ((float) getDuration()));
         }
     }
 
-    public float dz() {
+    public float eG() {
         return this.value;
     }
 
     public void g(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.pC = f;
-        this.pD = f2;
-        dA();
+        this.rW = f;
+        this.rX = f2;
+        eH();
     }
 
     public void m(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f >= this.pD) {
+        if (f >= this.rX) {
             throw new IllegalArgumentException("Min value must be smaller then max value.");
         }
-        this.pC = f;
-        dA();
+        this.rW = f;
+        eH();
     }
 
     public void n(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f <= this.pC) {
+        if (f <= this.rW) {
             throw new IllegalArgumentException("Max value must be greater than min value.");
         }
-        this.pD = f;
-        dA();
+        this.rX = f;
+        eH();
     }
 
     public void setSpeed(float f) {
         this.speed = f;
-        dA();
+        eH();
     }
 
     public float getSpeed() {
         return this.speed;
     }
 
-    public void aX() {
+    public void ce() {
         start();
-        l(isReversed() ? this.pD : this.pC);
+        l(isReversed() ? this.rX : this.rW);
     }
 
-    public void aZ() {
+    public void cg() {
         float f = this.value;
         cancel();
         l(f);
@@ -95,11 +95,11 @@ public class c extends ValueAnimator {
         return this.speed < 0.0f;
     }
 
-    private void dA() {
-        setDuration((((float) this.pB) * (this.pD - this.pC)) / Math.abs(this.speed));
+    private void eH() {
+        setDuration((((float) this.rV) * (this.rX - this.rW)) / Math.abs(this.speed));
         float[] fArr = new float[2];
-        fArr[0] = this.speed < 0.0f ? this.pD : this.pC;
-        fArr[1] = this.speed < 0.0f ? this.pC : this.pD;
+        fArr[0] = this.speed < 0.0f ? this.rX : this.rW;
+        fArr[1] = this.speed < 0.0f ? this.rW : this.rX;
         setFloatValues(fArr);
         l(this.value);
     }

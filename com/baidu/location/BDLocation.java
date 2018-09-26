@@ -9,8 +9,8 @@ import com.baidu.appsearchlib.Info;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Address;
 import com.baidu.location.d.g;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -434,11 +434,11 @@ public final class BDLocation implements Parcelable {
                 setTime(jSONObject3.getString("time"));
                 if (parseInt == 61) {
                     JSONObject jSONObject4 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject5 = jSONObject4.getJSONObject("point");
+                    JSONObject jSONObject5 = jSONObject4.getJSONObject(Config.EVENT_HEAT_POINT);
                     setLatitude(Double.parseDouble(jSONObject5.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject5.getString("x")));
+                    setLongitude(Double.parseDouble(jSONObject5.getString(Config.EVENT_HEAT_X)));
                     setRadius(Float.parseFloat(jSONObject4.getString("radius")));
-                    setSpeed(Float.parseFloat(jSONObject4.getString(NotifyType.SOUND)));
+                    setSpeed(Float.parseFloat(jSONObject4.getString("s")));
                     setDirection(Float.parseFloat(jSONObject4.getString("d")));
                     setSatelliteNumber(Integer.parseInt(jSONObject4.getString("n")));
                     if (jSONObject4.has("h")) {
@@ -469,17 +469,17 @@ public final class BDLocation implements Parcelable {
                         return;
                     }
                     JSONObject jSONObject6 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject7 = jSONObject6.getJSONObject("point");
+                    JSONObject jSONObject7 = jSONObject6.getJSONObject(Config.EVENT_HEAT_POINT);
                     setLatitude(Double.parseDouble(jSONObject7.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject7.getString("x")));
+                    setLongitude(Double.parseDouble(jSONObject7.getString(Config.EVENT_HEAT_X)));
                     setRadius(Float.parseFloat(jSONObject6.getString("radius")));
                     a(Boolean.valueOf(Boolean.parseBoolean(jSONObject6.getString("isCellChanged"))));
                     setCoorType("gcj02");
                 } else {
                     JSONObject jSONObject8 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject9 = jSONObject8.getJSONObject("point");
+                    JSONObject jSONObject9 = jSONObject8.getJSONObject(Config.EVENT_HEAT_POINT);
                     setLatitude(Double.parseDouble(jSONObject9.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject9.getString("x")));
+                    setLongitude(Double.parseDouble(jSONObject9.getString(Config.EVENT_HEAT_X)));
                     setRadius(Float.parseFloat(jSONObject8.getString("radius")));
                     if (jSONObject8.has("sema")) {
                         JSONObject jSONObject10 = jSONObject8.getJSONObject("sema");
@@ -496,7 +496,7 @@ public final class BDLocation implements Parcelable {
                             ArrayList arrayList = new ArrayList();
                             for (int i = 0; i < jSONArray.length(); i++) {
                                 JSONObject jSONObject11 = jSONArray.getJSONObject(i);
-                                arrayList.add(new Poi(jSONObject11.getString(Info.kBaiduPIDKey), jSONObject11.getString("pname"), jSONObject11.getDouble("pr")));
+                                arrayList.add(new Poi(jSONObject11.getString(Info.kBaiduPIDKey), jSONObject11.getString("pname"), jSONObject11.getDouble(Config.PRINCIPAL_PART)));
                             }
                             this.L = arrayList;
                         }

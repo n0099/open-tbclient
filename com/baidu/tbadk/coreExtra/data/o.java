@@ -1,33 +1,67 @@
 package com.baidu.tbadk.coreExtra.data;
-
-import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class o {
-    private int aCg;
-    private int aCh;
-    private int aCi;
+    private EmotionGroupType aFl;
+    private int height;
+    private String name;
+    private String pid;
+    private String pname;
+    private String url;
+    private int width;
 
-    public int Ck() {
-        return this.aCg == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aCg;
+    public String getName() {
+        return this.name;
     }
 
-    public void fA(String str) {
-        this.aCg = com.baidu.adp.lib.g.b.g(str, 0);
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public int Cl() {
-        return this.aCh;
+    public EmotionGroupType Dv() {
+        return this.aFl;
     }
 
-    public void fB(String str) {
-        this.aCh = com.baidu.adp.lib.g.b.g(str, 0);
+    public void a(EmotionGroupType emotionGroupType) {
+        this.aFl = emotionGroupType;
     }
 
-    public int Cm() {
-        return this.aCi;
+    public String Dw() {
+        return this.pname;
     }
 
-    public void fC(String str) {
-        this.aCi = com.baidu.adp.lib.g.b.g(str, 0);
+    public void fV(String str) {
+        this.pname = str;
+    }
+
+    public String getPid() {
+        return this.pid;
+    }
+
+    public void setPid(String str) {
+        this.pid = str;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public void setWidth(int i) {
+        this.width = i;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
     }
 }

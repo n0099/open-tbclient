@@ -3,27 +3,27 @@ package com.baidu.tieba.pb.b.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.af;
+import com.baidu.tbadk.core.util.ae;
 import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
-public class e implements af, d {
-    private ArrayList<PreLoadImageInfo> fMe;
-    public String fMf;
+public class e implements ae, d {
+    private ArrayList<PreLoadImageInfo> fTU;
+    public String fTV;
     private int height;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.fMe = new ArrayList<>(1);
+            this.fTU = new ArrayList<>(1);
             this.src = excContent.src;
-            this.fMf = excContent.bsize;
-            if (this.fMf != null) {
+            this.fTV = excContent.bsize;
+            if (this.fTV != null) {
                 try {
-                    String[] split = this.fMf.split(",");
-                    this.width = com.baidu.adp.lib.g.b.g(split[0], 0);
-                    this.height = com.baidu.adp.lib.g.b.g(split[1], 0);
+                    String[] split = this.fTV.split(",");
+                    this.width = com.baidu.adp.lib.g.b.l(split[0], 0);
+                    this.height = com.baidu.adp.lib.g.b.l(split[1], 0);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
@@ -44,15 +44,15 @@ public class e implements af, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.fMe.add(preLoadImageInfo);
+            this.fTU.add(preLoadImageInfo);
         }
     }
 
-    public String NP() {
+    public String Pi() {
         return this.src;
     }
 
-    public int ra(int i) {
+    public int rz(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -64,8 +64,8 @@ public class e implements af, d {
         return 3;
     }
 
-    @Override // com.baidu.tbadk.core.util.af
+    @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.fMe;
+        return this.fTU;
     }
 }

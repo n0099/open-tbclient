@@ -11,26 +11,26 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class a {
-    private static Activity St;
-    private static long Sx;
-    private static com.baidu.crabsdk.c.b<List> Su = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
-    private static boolean Sv = false;
-    private static boolean Sw = true;
+    private static Activity UZ;
+    private static long Vd;
+    private static com.baidu.crabsdk.c.b<List> Va = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
+    private static boolean Vb = false;
+    private static boolean Vc = true;
     private static int aP = 0;
     private static int aQ = 0;
     private static int aR = 0;
 
     public static void a(Activity activity) {
-        Sv = true;
-        St = activity;
+        Vb = true;
+        UZ = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        Su.add(arrayList);
-        int size = Su.size();
+        Va.add(arrayList);
+        int size = Va.size();
         if (size >= 2) {
-            List list = Su.get(size - 2);
-            if (list.size() == 3 && ((Date) Su.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
+            List list = Va.get(size - 2);
+            if (list.size() == 3 && ((Date) Va.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
                 aP++;
             }
         } else {
@@ -41,10 +41,10 @@ public final class a {
 
     @SuppressLint({"NewApi"})
     public static void a(Application application) {
-        if (Sw) {
-            Sw = false;
-            Sx = System.currentTimeMillis();
-            if (com.baidu.crabsdk.c.c.pg() >= 14) {
+        if (Vc) {
+            Vc = false;
+            Vd = System.currentTimeMillis();
+            if (com.baidu.crabsdk.c.c.qm() >= 14) {
                 application.registerActivityLifecycleCallbacks(new b());
             }
         }
@@ -52,16 +52,16 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity) {
-        if (St != null && activity != null && St.hashCode() == activity.hashCode()) {
-            St = null;
+        if (UZ != null && activity != null && UZ.hashCode() == activity.hashCode()) {
+            UZ = null;
         }
         int i = aQ - aR;
-        int size = Su.size();
+        int size = Va.size();
         if (i < 0) {
             i += 100;
         }
         if (i > 0 && size >= i) {
-            List list = Su.get(size - i);
+            List list = Va.get(size - i);
             if (list.size() == 2) {
                 list.add(new Date());
             }
@@ -70,47 +70,22 @@ public final class a {
     }
 
     public static void doActivityStart(Activity activity) {
-        if (com.baidu.crabsdk.c.c.pg() < 14) {
+        if (com.baidu.crabsdk.c.c.qm() < 14) {
             a(activity);
         }
     }
 
     public static void doActivityStop(Activity activity) {
-        if (com.baidu.crabsdk.c.c.pg() < 14) {
+        if (com.baidu.crabsdk.c.c.qm() < 14) {
             b(activity);
         }
     }
 
-    public static long oY() {
-        return Sx;
-    }
-
-    public static byte[] oZ() {
-        if (St == null) {
-            return new byte[0];
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            View decorView = St.getWindow().getDecorView();
-            decorView.setDrawingCacheEnabled(true);
-            Bitmap drawingCache = decorView.getDrawingCache();
-            if (drawingCache != null) {
-                drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
-            } else {
-                com.baidu.crabsdk.c.a.ce("getScreenshot failed, curActivity " + St.getClass().getName());
-            }
-            decorView.setDrawingCacheEnabled(false);
-        } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.b("getScreenshot failed, curActivity " + St.getClass().getName(), e);
-        }
-        return byteArrayOutputStream.toByteArray();
-    }
-
     public static String p() {
         StringBuilder sb = new StringBuilder();
-        int size = Su.size();
+        int size = Va.size();
         for (int i = 0; i < size; i++) {
-            List list = Su.get((size - i) - 1);
+            List list = Va.get((size - i) - 1);
             if (list.size() == 3) {
                 sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.e((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.e((Date) list.get(2))).append("\n");
             } else if (list.size() == 2) {
@@ -121,6 +96,31 @@ public final class a {
     }
 
     public static String q() {
-        return St == null ? "N/A" : St.getClass().getName();
+        return UZ == null ? "N/A" : UZ.getClass().getName();
+    }
+
+    public static long qe() {
+        return Vd;
+    }
+
+    public static byte[] qf() {
+        if (UZ == null) {
+            return new byte[0];
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            View decorView = UZ.getWindow().getDecorView();
+            decorView.setDrawingCacheEnabled(true);
+            Bitmap drawingCache = decorView.getDrawingCache();
+            if (drawingCache != null) {
+                drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
+            } else {
+                com.baidu.crabsdk.c.a.cv("getScreenshot failed, curActivity " + UZ.getClass().getName());
+            }
+            decorView.setDrawingCacheEnabled(false);
+        } catch (RuntimeException e) {
+            com.baidu.crabsdk.c.a.f("getScreenshot failed, curActivity " + UZ.getClass().getName(), e);
+        }
+        return byteArrayOutputStream.toByteArray();
     }
 }

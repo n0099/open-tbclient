@@ -7,8 +7,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ay;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -42,15 +42,15 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 i = 3;
                             }
                         }
-                        TiebaStatic.log(new an("c11703").r("obj_type", 2).ae("task_id", str).ae("obj_to", str2).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                        TiebaStatic.log(new am("c11703").w("obj_type", 2).al("task_id", str).al("obj_to", str2).w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
                         if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https"))) {
-                            az.zI().c(getPageContext(), new String[]{str2});
+                            ay.AN().c(getPageContext(), new String[]{str2});
                         }
                     }
                     i = 0;
-                    TiebaStatic.log(new an("c11703").r("obj_type", 2).ae("task_id", str).ae("obj_to", str2).r(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                    TiebaStatic.log(new am("c11703").w("obj_type", 2).al("task_id", str).al("obj_to", str2).w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
                     if (!TextUtils.isEmpty(str2)) {
-                        az.zI().c(getPageContext(), new String[]{str2});
+                        ay.AN().c(getPageContext(), new String[]{str2});
                     }
                 }
             }

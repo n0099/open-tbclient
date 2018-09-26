@@ -20,8 +20,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
-import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
@@ -148,7 +147,7 @@ public class SapiBDLocManager {
             str = str + str2;
         }
         if (str.equals("Z")) {
-            return b(str + Info.kBaiduTimeKey + System.currentTimeMillis() + this.m);
+            return b(str + "t" + System.currentTimeMillis() + this.m);
         }
         return null;
     }
@@ -442,7 +441,7 @@ public class SapiBDLocManager {
                 } else {
                     String str = this.wifiList.get(i3).BSSID;
                     int i5 = this.wifiList.get(i3).level;
-                    String replace = str.replace(SystemInfoUtil.COLON, "");
+                    String replace = str.replace(":", "");
                     if (SapiBDLocManager.this.k != null && replace.equals(SapiBDLocManager.this.k)) {
                         SapiBDLocManager.this.l = StrictMath.abs(i5);
                         i2 = i4;
@@ -452,7 +451,7 @@ public class SapiBDLocManager {
                         if (i4 < i) {
                             stringBuffer.append("h");
                             stringBuffer.append(replace);
-                            stringBuffer.append("m");
+                            stringBuffer.append(Config.MODEL);
                             stringBuffer.append(StrictMath.abs(i5));
                             i2 = i4 + 1;
                             z2 = false;
@@ -517,7 +516,7 @@ public class SapiBDLocManager {
         }
         try {
             String bssid = connectionInfo.getBSSID();
-            String replace = bssid != null ? bssid.replace(SystemInfoUtil.COLON, "") : null;
+            String replace = bssid != null ? bssid.replace(":", "") : null;
             if (replace.length() == 12) {
                 this.k = new String(replace);
                 return true;

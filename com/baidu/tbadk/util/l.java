@@ -1,42 +1,34 @@
 package com.baidu.tbadk.util;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Looper;
-import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 /* loaded from: classes.dex */
 public class l {
-    public static final boolean Lp() {
-        Message message;
-        int i = 0;
-        Object c = com.baidu.adp.lib.OrmObject.a.a.c(Looper.myQueue(), "mMessages");
-        if (c == null || !(c instanceof Message)) {
-            return false;
-        }
-        Message message2 = (Message) c;
-        boolean z = false;
-        while (message2 != null && message2.obj != null && !z && i < 10) {
-            i++;
-            boolean m = m(message2);
-            Object c2 = com.baidu.adp.lib.OrmObject.a.a.c(message2, "next");
-            if (c2 != null && (c2 instanceof Message)) {
-                message = (Message) c2;
-            } else {
-                message = null;
-            }
-            message2 = message;
-            z = m;
-        }
-        return z;
-    }
+    private static String aZG;
+    private static String mPid;
+    private static String aZF = "";
+    private static int mThreadType = 0;
+    public static String aZH = "floor";
+    public static String aZI = "pbPage";
 
-    private static final boolean m(Message message) {
-        Object c;
-        ComponentName component;
-        if (message == null) {
-            return false;
+    public static void a(String str, String str2, String str3, int i, com.baidu.adp.base.e eVar) {
+        aZG = str;
+        mPid = str2;
+        aZF = str3;
+        mThreadType = i;
+        if (!StringUtils.isNull(aZF) && eVar != null && eVar.getPageActivity() != null) {
+            if (aZH.equals(aZF)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(eVar.getPageActivity()).createSubPbActivityConfig(aZG, mPid, "search_post", true);
+                createSubPbActivityConfig.setKeyPageStartFrom(8);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                return;
+            }
+            PbActivityConfig createNormalCfg = new PbActivityConfig(eVar.getPageActivity()).createNormalCfg(aZG, mPid, "search_post");
+            createNormalCfg.setStartFrom(8);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
         }
-        Object obj = message.obj;
-        return (obj == null || (c = com.baidu.adp.lib.OrmObject.a.a.c(obj, "intent")) == null || !(c instanceof Intent) || (component = ((Intent) c).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 }

@@ -7,7 +7,7 @@ public interface h {
 
     /* loaded from: classes.dex */
     public interface a {
-        int d(Context context, String[] strArr);
+        int e(Context context, String[] strArr);
     }
 
     /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public interface h {
 
     void a(Context context, String[] strArr, boolean z);
 
-    boolean c(Context context, String[] strArr);
+    boolean d(Context context, String[] strArr);
 
-    boolean iF(String str);
+    boolean jh(String str);
 }

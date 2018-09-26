@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final String a = "utf-8";
     private static final String b = "c82c403505338808201aad86f8194734";
@@ -23,7 +23,7 @@ public class a {
     a() {
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [44=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [41=4] */
     public static void a(Context context, String str, String str2, boolean z) {
         FileOutputStream fileOutputStream;
         Throwable th;
@@ -84,7 +84,7 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [89=4, 90=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [86=4, 87=4] */
     static byte[] b(Context context, String str) {
         FileInputStream fileInputStream;
         Throwable th;
@@ -176,11 +176,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a(Context context) {
         ConnectivityManager connectivityManager;
-        if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
+        if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null) {
+            return false;
         }
-        return false;
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

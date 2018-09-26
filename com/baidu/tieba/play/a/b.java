@@ -3,7 +3,7 @@ package com.baidu.tieba.play.a;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.ar.util.IoUtils;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -14,55 +14,55 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b ghL = null;
-    private com.baidu.tieba.play.a.a ghK;
-    private InterfaceC0216b ghM = null;
-    private int ghN = 0;
+    private static b gpe = null;
+    private com.baidu.tieba.play.a.a gpd;
+    private InterfaceC0222b gpf = null;
+    private int gpg = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0216b {
-        void bU(String str, String str2);
+    public interface InterfaceC0222b {
+        void ce(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b bkW() {
-        if (ghL == null) {
+    public static b bnC() {
+        if (gpe == null) {
             synchronized (b.class) {
-                if (ghL == null) {
-                    ghL = new b();
+                if (gpe == null) {
+                    gpe = new b();
                 }
             }
         }
-        return ghL;
+        return gpe;
     }
 
-    public void a(InterfaceC0216b interfaceC0216b) {
-        this.ghM = interfaceC0216b;
+    public void a(InterfaceC0222b interfaceC0222b) {
+        this.gpf = interfaceC0222b;
     }
 
-    public boolean sj(String str) {
+    public boolean sR(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (sk(str) && this.ghK.bkV().size() > this.ghN) {
-            if (this.ghM != null) {
-                InterfaceC0216b interfaceC0216b = this.ghM;
-                List<String> bkV = this.ghK.bkV();
-                int i = this.ghN;
-                this.ghN = i + 1;
-                interfaceC0216b.bU(bkV.get(i), str);
+        if (sS(str) && this.gpd.bnB().size() > this.gpg) {
+            if (this.gpf != null) {
+                InterfaceC0222b interfaceC0222b = this.gpf;
+                List<String> bnB = this.gpd.bnB();
+                int i = this.gpg;
+                this.gpg = i + 1;
+                interfaceC0222b.ce(bnB.get(i), str);
             }
             return true;
-        } else if (this.ghK != null && this.ghK.bkV() != null && this.ghK.bkV().size() <= this.ghN) {
-            this.ghN = 0;
-            this.ghK = null;
+        } else if (this.gpd != null && this.gpd.bnB() != null && this.gpd.bnB().size() <= this.gpg) {
+            this.gpg = 0;
+            this.gpd = null;
             return false;
         } else {
-            this.ghN = 0;
-            this.ghK = null;
+            this.gpg = 0;
+            this.gpd = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -70,19 +70,19 @@ public class b {
         }
     }
 
-    private boolean sk(String str) {
-        return (this.ghK == null || TextUtils.isEmpty(str) || !str.equals(this.ghK.getHost()) || w.z(this.ghK.bkV()) || this.ghK.cN(System.currentTimeMillis()) || this.ghK.bkV().size() <= this.ghN) ? false : true;
+    private boolean sS(String str) {
+        return (this.gpd == null || TextUtils.isEmpty(str) || !str.equals(this.gpd.getHost()) || v.z(this.gpd.bnB()) || this.gpd.cR(System.currentTimeMillis()) || this.gpd.bnB().size() <= this.gpg) ? false : true;
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, com.baidu.tieba.play.a.a, Void> {
-        private String EL = null;
+        private String Hh = null;
 
         public a() {
         }
 
         public void setHost(String str) {
-            this.EL = str;
+            this.Hh = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class b {
             HttpsURLConnection httpsURLConnection2 = null;
             StringBuffer stringBuffer = new StringBuffer();
             try {
-                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.EL).openConnection();
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.Hh).openConnection();
                 try {
                     httpsURLConnection3.setDoOutput(true);
                     httpsURLConnection3.setDoInput(true);
@@ -189,7 +189,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.si(stringBuffer.toString()));
+                            publishProgress(aVar.sQ(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -259,15 +259,15 @@ public class b {
         /* renamed from: a */
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
-            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.EL)) {
-                b.this.ghK = aVarArr[0];
-                if (!w.z(aVarArr[0].bkV()) && b.this.ghM != null) {
-                    b.this.ghM.bU(aVarArr[0].bkV().get(0), aVarArr[0].getHost());
+            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.Hh)) {
+                b.this.gpd = aVarArr[0];
+                if (!v.z(aVarArr[0].bnB()) && b.this.gpf != null) {
+                    b.this.gpf.ce(aVarArr[0].bnB().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.ghM != null) {
-                b.this.ghM.bU(null, null);
+            if (b.this.gpf != null) {
+                b.this.gpf.ce(null, null);
             }
         }
 

@@ -3,78 +3,78 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes2.dex */
 public class g {
-    private static g fxT;
-    private com.baidu.adp.lib.cache.l<byte[]> fxU = null;
-    private com.baidu.adp.lib.cache.l<byte[]> fxV = null;
+    private static g fFK;
+    private com.baidu.adp.lib.cache.l<byte[]> fFL = null;
+    private com.baidu.adp.lib.cache.l<byte[]> fFM = null;
 
-    public static synchronized g bbM() {
+    public static synchronized g ben() {
         g gVar;
         synchronized (g.class) {
-            if (fxT == null) {
-                fxT = new g();
+            if (fFK == null) {
+                fFK = new g();
             }
-            gVar = fxT;
+            gVar = fFK;
         }
         return gVar;
     }
 
     private g() {
-        asT();
+        auH();
     }
 
-    private void asT() {
-        if (this.fxU == null) {
-            this.fxU = com.baidu.tbadk.core.c.a.xa().dx("tb.pb_mark");
+    private void auH() {
+        if (this.fFL == null) {
+            this.fFL = com.baidu.tbadk.core.c.a.yh().dP("tb.pb_mark");
         }
-        if (this.fxV == null) {
-            this.fxV = com.baidu.tbadk.core.c.a.xa().dx("tb.pb_normal");
+        if (this.fFM == null) {
+            this.fFM = com.baidu.tbadk.core.c.a.yh().dP("tb.pb_normal");
         }
     }
 
-    public void J(String str, boolean z) {
+    public void K(String str, boolean z) {
         if (z) {
-            if (this.fxU != null && str != null) {
-                this.fxU.b(str, new byte[0], 0L);
+            if (this.fFL != null && str != null) {
+                this.fFL.b(str, new byte[0], 0L);
             }
-        } else if (this.fxV != null && str != null) {
-            this.fxV.b(str, new byte[0], 0L);
+        } else if (this.fFM != null && str != null) {
+            this.fFM.b(str, new byte[0], 0L);
         }
     }
 
-    public byte[] K(String str, boolean z) {
-        l.b<byte[]> ao;
+    public byte[] L(String str, boolean z) {
+        l.b<byte[]> aF;
         if (z) {
-            if (this.fxU != null && str != null) {
-                ao = this.fxU.ao(str);
+            if (this.fFL != null && str != null) {
+                aF = this.fFL.aF(str);
             }
-            ao = null;
+            aF = null;
         } else {
-            if (this.fxV != null && str != null) {
-                ao = this.fxV.ao(str);
+            if (this.fFM != null && str != null) {
+                aF = this.fFM.aF(str);
             }
-            ao = null;
+            aF = null;
         }
-        if (ao == null || ao.value == null) {
+        if (aF == null || aF.value == null) {
             return null;
         }
-        return ao.value;
+        return aF.value;
     }
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
-            asT();
+            auH();
             if (z) {
-                this.fxU.a(str, bArr, 604800000L);
+                this.fFL.a(str, bArr, 604800000L);
             } else {
-                this.fxV.a(str, bArr, 86400000L);
+                this.fFM.a(str, bArr, 86400000L);
             }
         }
     }
 
     public void m(String str, byte[] bArr) {
         if (bArr != null && str != null) {
-            asT();
-            this.fxU.a(str, bArr, 2592000000L);
+            auH();
+            this.fFL.a(str, bArr, 2592000000L);
         }
     }
 }

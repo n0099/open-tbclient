@@ -16,6 +16,9 @@ public abstract class ShareAccountAccessor {
     public abstract String getStoken(SapiAccount sapiAccount);
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void setAccountPkg(SapiAccount sapiAccount, String str);
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void setExtra(SapiAccount sapiAccount, String str);
 
     /* JADX INFO: Access modifiers changed from: protected */

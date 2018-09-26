@@ -1,27 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.bb;
 /* loaded from: classes.dex */
-public class f extends ImageSpan {
-    private int paddingLeft;
-    private int paddingRight;
+public interface f {
+    ClickableHeaderImageView getHeaderImg();
 
-    public f(Drawable drawable, int i) {
-        super(drawable, i);
-        this.paddingLeft = 0;
-        this.paddingRight = 2;
-    }
+    boolean getIsSimpleThread();
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.paddingLeft + this.paddingRight;
-    }
+    TextView getUserName();
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        super.draw(canvas, charSequence, i, i2, f + this.paddingLeft, i3, i4, i5, paint);
-    }
+    boolean setData(bb bbVar);
+
+    void setPageUniqueId(BdUniqueId bdUniqueId);
+
+    void setUserAfterClickListener(View.OnClickListener onClickListener);
+
+    void showForumNameView(boolean z);
 }

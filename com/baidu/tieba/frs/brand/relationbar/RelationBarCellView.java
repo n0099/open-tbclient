@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import tbclient.OriForumInfo;
 /* loaded from: classes2.dex */
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
-    private TbImageView dsq;
-    private TextView dsr;
-    private TextView dss;
-    private OriForumInfo dst;
+    private TbImageView dyG;
+    private TextView dyH;
+    private TextView dyI;
+    private OriForumInfo dyJ;
     private int mHeight;
     private int mSkinType;
     private int mWidth;
@@ -49,14 +49,14 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(f.h.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-        this.dsq = (TbImageView) findViewById(f.g.frs_brand_bar_cell_img);
-        this.dsr = (TextView) findViewById(f.g.frs_brand_bar_cell_name);
-        this.dss = (TextView) findViewById(f.g.frs_brand_bar_cell_attention);
-        this.dsq.setDefaultResource(17170445);
-        this.dsq.setDefaultBgResource(f.d.cp_bg_line_e);
-        this.mWidth = l.f(context, f.e.tbds394);
-        this.mHeight = l.f(context, f.e.tbds146);
+        LayoutInflater.from(context).inflate(e.h.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
+        this.dyG = (TbImageView) findViewById(e.g.frs_brand_bar_cell_img);
+        this.dyH = (TextView) findViewById(e.g.frs_brand_bar_cell_name);
+        this.dyI = (TextView) findViewById(e.g.frs_brand_bar_cell_attention);
+        this.dyG.setDefaultResource(17170445);
+        this.dyG.setDefaultBgResource(e.d.cp_bg_line_e);
+        this.mWidth = l.h(context, e.C0141e.tbds394);
+        this.mHeight = l.h(context, e.C0141e.tbds146);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -73,25 +73,25 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             return;
         }
         setVisibility(0);
-        this.dst = oriForumInfo;
-        this.dsq.startLoad(oriForumInfo.ori_avatar, 10, false);
-        this.dsr.setText(oriForumInfo.ori_fname);
-        this.dss.setText(String.format(getContext().getString(f.j.frs_brand_relation_bar_attention), ap.G(oriForumInfo.ori_member_num.longValue())));
+        this.dyJ = oriForumInfo;
+        this.dyG.startLoad(oriForumInfo.ori_avatar, 10, false);
+        this.dyH.setText(oriForumInfo.ori_fname);
+        this.dyI.setText(String.format(getContext().getString(e.j.frs_brand_relation_bar_attention), ao.K(oriForumInfo.ori_member_num.longValue())));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new an("c13110").f(VideoPlayActivityConfig.OBJ_ID, this.dst.ori_fid.longValue()));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.dst.ori_fname, "")));
+        TiebaStatic.log(new am("c13110").g(VideoPlayActivityConfig.OBJ_ID, this.dyJ.ori_fid.longValue()));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.dyJ.ori_fname, "")));
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            am.i(this, f.C0146f.cp_bg_line_d_e_selector);
-            am.h(this.dsr, f.d.cp_cont_b);
-            am.h(this.dss, f.d.cp_cont_d);
+            al.i(this, e.f.cp_bg_line_d_e_selector);
+            al.h(this.dyH, e.d.cp_cont_b);
+            al.h(this.dyI, e.d.cp_cont_d);
         }
     }
 }

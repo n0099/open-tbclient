@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes2.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView dUf;
-    private TextView dUg;
-    private TextView dUh;
+    private TextView ebA;
+    private ImageView eby;
+    private TextView ebz;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -35,26 +35,26 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(f.h.concern_not_login_layout, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(e.h.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.dUf = (ImageView) inflate.findViewById(f.g.iv_concern_not_login_emotion_pic);
-        this.dUg = (TextView) inflate.findViewById(f.g.tv_concern_you_not_login);
-        this.dUh = (TextView) inflate.findViewById(f.g.tv_concern_login_and_see_more);
-        this.dUh.setOnClickListener(this);
+        this.eby = (ImageView) inflate.findViewById(e.g.iv_concern_not_login_emotion_pic);
+        this.ebz = (TextView) inflate.findViewById(e.g.tv_concern_you_not_login);
+        this.ebA = (TextView) inflate.findViewById(e.g.tv_concern_login_and_see_more);
+        this.ebA.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == f.g.tv_concern_login_and_see_more) {
-            bb.aU(this.mContext);
-            HomePageStatic.dSr = true;
+        if (view.getId() == e.g.tv_concern_login_and_see_more) {
+            ba.bA(this.mContext);
+            HomePageStatic.dZI = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        am.c(this.dUf, f.C0146f.pic_jinba_login);
-        am.h(this.dUg, f.d.cp_cont_b);
-        am.h(this.dUh, f.d.cp_cont_i);
-        am.i(this.dUh, f.C0146f.btn_all_blue);
+        al.c(this.eby, e.f.pic_jinba_login);
+        al.h(this.ebz, e.d.cp_cont_b);
+        al.h(this.ebA, e.d.cp_cont_i);
+        al.i(this.ebA, e.f.btn_all_blue);
     }
 }

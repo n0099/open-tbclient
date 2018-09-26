@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import com.xiaomi.push.service.ac;
@@ -711,8 +710,8 @@ public class s {
             return list;
         }
         long rawOffset = ((timeZone.getRawOffset() - timeZone2.getRawOffset()) / 1000) / 60;
-        long parseLong = ((((Long.parseLong(list.get(0).split(SystemInfoUtil.COLON)[0]) * 60) + Long.parseLong(list.get(0).split(SystemInfoUtil.COLON)[1])) - rawOffset) + 1440) % 1440;
-        long parseLong2 = (((Long.parseLong(list.get(1).split(SystemInfoUtil.COLON)[1]) + (60 * Long.parseLong(list.get(1).split(SystemInfoUtil.COLON)[0]))) - rawOffset) + 1440) % 1440;
+        long parseLong = ((((Long.parseLong(list.get(0).split(":")[0]) * 60) + Long.parseLong(list.get(0).split(":")[1])) - rawOffset) + 1440) % 1440;
+        long parseLong2 = (((Long.parseLong(list.get(1).split(":")[1]) + (60 * Long.parseLong(list.get(1).split(":")[0]))) - rawOffset) + 1440) % 1440;
         ArrayList arrayList = new ArrayList();
         arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong / 60), Long.valueOf(parseLong % 60)));
         arrayList.add(String.format("%1$02d:%2$02d", Long.valueOf(parseLong2 / 60), Long.valueOf(parseLong2 % 60)));

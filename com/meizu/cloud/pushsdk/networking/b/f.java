@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.networking.b;
 
-import com.baidu.ar.util.SystemInfoUtil;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -156,7 +155,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC0270a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC0276a.SUCCESS) {
             return aVar.b();
         }
         return null;
@@ -166,27 +165,27 @@ public class f {
     /* renamed from: com.meizu.cloud.pushsdk.networking.b.f$1  reason: invalid class name */
     /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] a = new int[a.EnumC0270a.values().length];
+        static final /* synthetic */ int[] a = new int[a.EnumC0276a.values().length];
 
         static {
             try {
-                a[a.EnumC0270a.SUCCESS.ordinal()] = 1;
+                a[a.EnumC0276a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                a[a.EnumC0270a.INVALID_HOST.ordinal()] = 2;
+                a[a.EnumC0276a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                a[a.EnumC0270a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                a[a.EnumC0276a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                a[a.EnumC0270a.MISSING_SCHEME.ordinal()] = 4;
+                a[a.EnumC0276a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                a[a.EnumC0270a.INVALID_PORT.ordinal()] = 5;
+                a[a.EnumC0276a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
@@ -218,7 +217,7 @@ public class f {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.meizu.cloud.pushsdk.networking.b.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public enum EnumC0270a {
+        public enum EnumC0276a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -297,7 +296,7 @@ public class f {
             return sb.toString();
         }
 
-        EnumC0270a a(f fVar, String str) {
+        EnumC0276a a(f fVar, String str) {
             int i;
             int a = m.a(str, 0, str.length());
             int b = m.b(str, a, str.length());
@@ -309,12 +308,12 @@ public class f {
                     this.a = HttpHost.DEFAULT_SCHEME_NAME;
                     a += "http:".length();
                 } else {
-                    return EnumC0270a.UNSUPPORTED_SCHEME;
+                    return EnumC0276a.UNSUPPORTED_SCHEME;
                 }
             } else if (fVar != null) {
                 this.a = fVar.b;
             } else {
-                return EnumC0270a.MISSING_SCHEME;
+                return EnumC0276a.MISSING_SCHEME;
             }
             boolean z = false;
             boolean z2 = false;
@@ -337,7 +336,7 @@ public class f {
                                 this.d = e(str, i3, d);
                                 this.e = g(str, d + 1, a2);
                                 if (this.e == -1) {
-                                    return EnumC0270a.INVALID_PORT;
+                                    return EnumC0276a.INVALID_PORT;
                                 }
                             } else {
                                 this.d = e(str, i3, d);
@@ -347,7 +346,7 @@ public class f {
                                 a = a2;
                                 break;
                             } else {
-                                return EnumC0270a.INVALID_HOST;
+                                return EnumC0276a.INVALID_HOST;
                             }
                         case '@':
                             if (!z3) {
@@ -397,7 +396,7 @@ public class f {
             if (i < b && str.charAt(i) == '#') {
                 this.h = f.a(str, i + 1, b, "", true, false, false, false);
             }
-            return EnumC0270a.SUCCESS;
+            return EnumC0276a.SUCCESS;
         }
 
         private void a(String str, int i, int i2) {
@@ -516,7 +515,7 @@ public class f {
 
         private static String e(String str, int i, int i2) {
             String a = f.a(str, i, i2, false);
-            if (a.contains(SystemInfoUtil.COLON)) {
+            if (a.contains(":")) {
                 InetAddress f = (a.startsWith("[") && a.endsWith("]")) ? f(a, 1, a.length() - 1) : f(a, 0, a.length());
                 if (f == null) {
                     return null;
@@ -570,7 +569,7 @@ public class f {
                             return null;
                         }
                         if (i8 != 0) {
-                            if (str.regionMatches(i5, SystemInfoUtil.COLON, 0, 1)) {
+                            if (str.regionMatches(i5, ":", 0, 1)) {
                                 i5++;
                             } else {
                                 if (str.regionMatches(i5, ".", 0, 1) && a(str, i6, i2, bArr, i8 - 2)) {

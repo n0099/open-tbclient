@@ -7,52 +7,52 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 /* loaded from: classes.dex */
 public class c implements com.baidu.tbadk.core.e.a {
-    private b gTr;
+    private b hbe;
 
     @Override // com.baidu.tbadk.core.e.a
-    public void b(Context context, int i, boolean z) {
+    public void c(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void h(Context context, int i) {
+    public void j(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void aI(Context context) {
+    public void bo(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            h(context, 1);
+            j(context, 1);
         } else {
-            h(context, 0);
+            j(context, 0);
         }
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void c(Context context, int i, boolean z) {
+    public void d(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> xR() {
+    public Class<?> yY() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String xS() {
+    public String yZ() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.gTr != null) {
-            return this.gTr.getCurrentTabType();
+        if (this.hbe != null) {
+            return this.hbe.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(b bVar) {
-        this.gTr = bVar;
+        this.hbe = bVar;
     }
 }

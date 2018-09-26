@@ -37,9 +37,11 @@ public interface IQuickMediaPlayer extends IInterface {
 
     boolean isLooping() throws RemoteException;
 
+    boolean isPlayerReuse() throws RemoteException;
+
     boolean isPlaying() throws RemoteException;
 
-    void openVideo(Uri uri, Surface surface, String str) throws RemoteException;
+    void openVideo(Uri uri, Surface surface, String str, boolean z) throws RemoteException;
 
     void pause() throws RemoteException;
 
@@ -73,6 +75,7 @@ public interface IQuickMediaPlayer extends IInterface {
         static final int TRANSACTION_isExistInRemote = 16;
         static final int TRANSACTION_isIjkPlayer = 19;
         static final int TRANSACTION_isLooping = 14;
+        static final int TRANSACTION_isPlayerReuse = 24;
         static final int TRANSACTION_isPlaying = 9;
         static final int TRANSACTION_openVideo = 2;
         static final int TRANSACTION_pause = 5;
@@ -116,7 +119,7 @@ public interface IQuickMediaPlayer extends IInterface {
                     parcel.enforceInterface(DESCRIPTOR);
                     Uri uri = parcel.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(parcel) : null;
                     Surface surface = parcel.readInt() != 0 ? (Surface) Surface.CREATOR.createFromParcel(parcel) : null;
-                    openVideo(uri, surface, parcel.readString());
+                    openVideo(uri, surface, parcel.readString(), parcel.readInt() != 0);
                     parcel2.writeNoException();
                     if (surface != null) {
                         parcel2.writeInt(1);
@@ -243,6 +246,12 @@ public interface IQuickMediaPlayer extends IInterface {
                     parcel2.writeNoException();
                     parcel2.writeInt(cachedSize);
                     return true;
+                case 24:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    boolean isPlayerReuse = isPlayerReuse();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(isPlayerReuse ? 1 : 0);
+                    return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -284,7 +293,7 @@ public interface IQuickMediaPlayer extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
-            public void openVideo(Uri uri, Surface surface, String str) throws RemoteException {
+            public void openVideo(Uri uri, Surface surface, String str, boolean z) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -302,6 +311,7 @@ public interface IQuickMediaPlayer extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeString(str);
+                    obtain.writeInt(z ? 1 : 0);
                     this.mRemote.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
@@ -621,6 +631,21 @@ public interface IQuickMediaPlayer extends IInterface {
                     this.mRemote.transact(23, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public boolean isPlayerReuse() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(24, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt() != 0;
                 } finally {
                     obtain2.recycle();
                     obtain.recycle();

@@ -6,18 +6,18 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tieba.e;
 import java.text.DecimalFormat;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
-    private TextView gfh;
-    private TextView gfi;
-    private TextView gfj;
-    private TextView gfk;
-    private TextView gfl;
-    private View.OnClickListener gfm;
+    private TextView gmA;
+    private TextView gmB;
+    private TextView gmC;
+    private TextView gmD;
+    private View.OnClickListener gmE;
+    private TextView gmz;
 
     public PbVideoWifiTipLayout(Context context) {
         super(context);
@@ -35,33 +35,33 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     }
 
     private void initView() {
-        inflate(getContext(), f.h.layout_video_wifi_tip, this);
-        this.gfh = (TextView) findViewById(f.g.tv_video_duration);
-        this.gfi = (TextView) findViewById(f.g.tv_video_data);
-        this.gfj = (TextView) findViewById(f.g.tv_play);
-        this.gfk = (TextView) findViewById(f.g.tv_divider);
-        this.gfl = (TextView) findViewById(f.g.tv_open_free_data);
-        this.gfl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
+        inflate(getContext(), e.h.layout_video_wifi_tip, this);
+        this.gmz = (TextView) findViewById(e.g.tv_video_duration);
+        this.gmA = (TextView) findViewById(e.g.tv_video_data);
+        this.gmB = (TextView) findViewById(e.g.tv_play);
+        this.gmC = (TextView) findViewById(e.g.tv_divider);
+        this.gmD = (TextView) findViewById(e.g.tv_open_free_data);
+        this.gmD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.play.PbVideoWifiTipLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.tbadk.browser.a.a(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(f.j.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-                if (PbVideoWifiTipLayout.this.gfm != null) {
-                    PbVideoWifiTipLayout.this.gfm.onClick(view);
+                com.baidu.tbadk.browser.a.a(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(e.j.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+                if (PbVideoWifiTipLayout.this.gmE != null) {
+                    PbVideoWifiTipLayout.this.gmE.onClick(view);
                 }
             }
         });
     }
 
     public TextView getTvPlay() {
-        return this.gfj;
+        return this.gmB;
     }
 
     public TextView getTvOpenFreeData() {
-        return this.gfl;
+        return this.gmD;
     }
 
     public void setFreeClickListener(View.OnClickListener onClickListener) {
-        this.gfm = onClickListener;
+        this.gmE = onClickListener;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -72,21 +72,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public void setData(int i, int i2) {
         if (i > 0) {
-            this.gfh.setText(String.format(getResources().getString(f.j.pb_video_duration), ap.da(i * 1000)));
+            this.gmz.setText(String.format(getResources().getString(e.j.pb_video_duration), ao.dj(i * 1000)));
         } else {
-            this.gfh.setVisibility(8);
-            this.gfk.setVisibility(8);
+            this.gmz.setVisibility(8);
+            this.gmC.setVisibility(8);
         }
         if (i2 > 0) {
-            this.gfi.setText(String.format(getResources().getString(f.j.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
+            this.gmA.setText(String.format(getResources().getString(e.j.pb_video_data), new DecimalFormat("0.0").format(i2 / 1048576.0f)));
         } else {
-            this.gfi.setVisibility(8);
-            this.gfk.setVisibility(8);
+            this.gmA.setVisibility(8);
+            this.gmC.setVisibility(8);
         }
-        this.gfl.setVisibility(0);
+        this.gmD.setVisibility(0);
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.gfj.setOnClickListener(onClickListener);
+        this.gmB.setOnClickListener(onClickListener);
     }
 }

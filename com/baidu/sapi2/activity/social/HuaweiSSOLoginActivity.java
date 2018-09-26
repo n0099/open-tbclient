@@ -9,17 +9,17 @@ import com.baidu.sapi2.result.SapiResult;
 /* loaded from: classes2.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setupViews();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.TitleActivity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.c.sapi_sdk_title_login_hw);
+        setTitleText(a.b.sapi_sdk_title_login_hw);
         this.sapiWebView.setHuaweiHandler(new SapiWebView.HuaweiHandler() { // from class: com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.HuaweiHandler
             public void handleHuaweiLoginFailure() {
@@ -40,8 +40,9 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
         this.sapiWebView.loadHuaWeiSSOLogin(getStatParamList());
     }
 
-    @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
     }
 }

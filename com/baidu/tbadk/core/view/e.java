@@ -1,153 +1,55 @@
 package com.baidu.tbadk.core.view;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.f;
-@SuppressLint({"ResourceAsColor"})
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.text.style.ReplacementSpan;
+import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
-public class e {
-    private View avb;
-    private ViewGroup.LayoutParams avc;
-    private Runnable avd;
-    private FrameLayout ave;
-    private int mScreenHeight;
-    private int usableHeightPrevious;
-    private int mSkinType = 3;
-    private int avf = f.d.cp_bg_line_d;
-    private boolean avg = false;
-    private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
-    private int avh = 0;
+public class e extends ReplacementSpan {
+    private int awJ;
+    private int awK;
+    private int awL;
+    private int awN;
+    private int awO;
+    private int awP;
+    private int awQ;
+    private int mTextSize;
+    private RectF awM = new RectF();
+    private Paint awR = new Paint();
 
-    public static e w(Activity activity) {
-        return new e(activity);
+    public e(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+        this.awJ = i;
+        this.awK = i2;
+        this.awL = i3;
+        this.mTextSize = i4;
+        this.awN = i5;
+        this.awO = i6;
+        this.awQ = i7;
+        this.awR.setAntiAlias(true);
+        this.awR.setStyle(Paint.Style.STROKE);
+        this.awR.setTextSize(this.mTextSize);
     }
 
-    public static e a(Activity activity, boolean z) {
-        return new e(activity, z);
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        this.awP = ((int) this.awR.measureText(charSequence, i, i2)) + (this.awO * 2);
+        return this.awP;
     }
 
-    public static e a(Activity activity, int i, boolean z) {
-        return new e(activity, i, z);
-    }
-
-    private e(Activity activity) {
-        b(activity, f.d.cp_bg_line_d, true);
-    }
-
-    private e(Activity activity, boolean z) {
-        b(activity, f.d.cp_bg_line_d, z);
-    }
-
-    private e(Activity activity, int i, boolean z) {
-        b(activity, i, z);
-    }
-
-    public void dm(int i) {
-        if (this.avg) {
-            if (i != this.mSkinType && this.ave != null) {
-                am.j(this.ave, this.avf);
-            }
-            this.mSkinType = i;
-        }
-    }
-
-    public void onDestory() {
-        if (this.avd != null) {
-            com.baidu.adp.lib.g.e.in().removeCallbacks(this.avd);
-            this.avd = null;
-        }
-        if (this.avb != null) {
-            this.avb.getViewTreeObserver().removeGlobalOnLayoutListener(this.mGlobalLayoutListener);
-            this.mGlobalLayoutListener = null;
-        }
-        this.avb = null;
-        this.ave = null;
-    }
-
-    private void b(Activity activity, int i, boolean z) {
-        this.avf = i;
-        this.avg = z;
-        this.ave = (FrameLayout) activity.findViewById(16908290);
-        if (z) {
-            am.j(this.ave, i);
-        } else {
-            am.e(this.ave, i, 0);
-        }
-        this.avb = this.ave.getChildAt(0);
-        if (this.avb != null) {
-            this.mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.e.1
-                @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-                public void onGlobalLayout() {
-                    e.this.Ai();
-                }
-            };
-            this.avb.getViewTreeObserver().addOnGlobalLayoutListener(this.mGlobalLayoutListener);
-            this.avc = this.avb.getLayoutParams();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Ai() {
-        if (this.avb != null) {
-            int height = this.avb.getHeight();
-            if (height > this.mScreenHeight) {
-                this.mScreenHeight = height;
-            }
-            int Aj = Aj();
-            if (this.avh > 0 && this.avh <= this.avc.height) {
-                Aj -= this.avh;
-            }
-            if (Aj != this.usableHeightPrevious) {
-                int i = this.mScreenHeight;
-                int i2 = i - Aj;
-                if (i2 == 0) {
-                    this.avc.height = i;
-                    Ak();
-                } else {
-                    this.avc.height = i - i2;
-                    dn(200);
-                    if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
-                        TbadkCoreApplication.getInst().setKeyboardHeight(i2);
-                    }
-                }
-                this.usableHeightPrevious = Aj;
-            }
-        }
-    }
-
-    private int Aj() {
-        Rect rect = new Rect();
-        this.avb.getWindowVisibleDisplayFrame(rect);
-        return rect.bottom;
-    }
-
-    public void setExcludeHeight(int i) {
-        this.avh = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Ak() {
-        this.avb.requestLayout();
-    }
-
-    private void dn(int i) {
-        if (this.avd != null) {
-            com.baidu.adp.lib.g.e.in().removeCallbacks(this.avd);
-            this.avd = null;
-        }
-        this.avd = new Runnable() { // from class: com.baidu.tbadk.core.view.e.2
-            @Override // java.lang.Runnable
-            public void run() {
-                e.this.Ak();
-            }
-        };
-        com.baidu.adp.lib.g.e.in().postDelayed(this.avd, i);
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        this.awR.setColor(al.getColor(this.awL));
+        int i6 = ((i5 - this.awQ) / 2) + i3;
+        this.awM.left = f;
+        this.awM.top = i6;
+        this.awM.right = this.awP + f;
+        this.awM.bottom = i6 + this.awQ;
+        canvas.drawRoundRect(this.awM, this.awK, this.awK, this.awR);
+        Paint.FontMetricsInt fontMetricsInt = this.awR.getFontMetricsInt();
+        this.awR.setColor(al.getColor(this.awN));
+        canvas.drawText(charSequence, i, i2, f + this.awO, (int) ((this.awM.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.awR);
     }
 }

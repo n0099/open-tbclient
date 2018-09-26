@@ -7,11 +7,11 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private TextView ald;
-    private CircleView ale;
+    private TextView anJ;
+    private CircleView anK;
     private FrameLayout mFrameLayout;
     private String mMessage;
     private TextView mTextView;
@@ -25,17 +25,17 @@ public class c extends AlertDialog {
         super.show();
         Window window = getWindow();
         if (window != null) {
-            window.setContentView(f.h.progress_dialog);
-            this.mFrameLayout = (FrameLayout) window.findViewById(f.g.frame_progress_dialog);
+            window.setContentView(e.h.progress_dialog);
+            this.mFrameLayout = (FrameLayout) window.findViewById(e.g.frame_progress_dialog);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mFrameLayout.getLayoutParams();
-            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(f.e.ds32);
+            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(e.C0141e.ds32);
             this.mFrameLayout.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.ald = (TextView) window.findViewById(f.g.text_progress_dialog_message);
-                this.ald.setText(this.mMessage);
+                this.anJ = (TextView) window.findViewById(e.g.text_progress_dialog_message);
+                this.anJ.setText(this.mMessage);
             }
-            this.mTextView = (TextView) window.findViewById(f.g.text_progress_dialog_percent);
-            this.ale = (CircleView) window.findViewById(f.g.circle_progress_dialog);
+            this.mTextView = (TextView) window.findViewById(e.g.text_progress_dialog_percent);
+            this.anK = (CircleView) window.findViewById(e.g.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.ale != null) {
-            this.ale.setProgress(i);
+        if (this.anK != null) {
+            this.anK.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.ald != null) {
-            this.ald.setText(this.mMessage);
+        if (this.anJ != null) {
+            this.anJ.setText(this.mMessage);
         }
     }
 }

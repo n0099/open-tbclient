@@ -10,7 +10,7 @@ public class ShareEntity implements Parcelable {
     public static final Parcelable.Creator<ShareEntity> CREATOR = new Parcelable.Creator<ShareEntity>() { // from class: com.baidu.tieba.sharesdk.bean.ShareEntity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: t */
+        /* renamed from: u */
         public ShareEntity createFromParcel(Parcel parcel) {
             if (parcel == null) {
                 return null;
@@ -19,38 +19,38 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.sR(parcel.readInt());
+            shareEntity.tr(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
             shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
             shareEntity.f(parcel.readBundle());
-            shareEntity.lZ(parcel.readInt() != 0);
+            shareEntity.mw(parcel.readInt() != 0);
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: sS */
+        /* renamed from: ts */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
     };
-    private Location aGc;
-    private boolean aGj;
-    private Bundle aGl;
+    private Location aJq;
+    private boolean aJx;
+    private Bundle aJz;
     private String content;
-    private int gCg;
+    private int gJJ;
     private Uri imageUri;
     private String linkUrl;
     private String title;
     private String videoUrl;
 
     public void f(Bundle bundle) {
-        this.aGl = bundle;
+        this.aJz = bundle;
     }
 
-    public Bundle Fz() {
-        return this.aGl;
+    public Bundle GP() {
+        return this.aJz;
     }
 
     public String getVideoUrl() {
@@ -85,7 +85,7 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public String tT() {
+    public String uW() {
         return this.imageUri == null ? "" : this.imageUri.toString();
     }
 
@@ -98,23 +98,23 @@ public class ShareEntity implements Parcelable {
     }
 
     public void setLocation(Location location) {
-        this.aGc = location;
+        this.aJq = location;
     }
 
-    public int brt() {
-        return this.gCg;
+    public int btY() {
+        return this.gJJ;
     }
 
-    public void sR(int i) {
-        this.gCg = i;
+    public void tr(int i) {
+        this.gJJ = i;
     }
 
-    public boolean bru() {
-        return this.aGj;
+    public boolean btZ() {
+        return this.aJx;
     }
 
-    public void lZ(boolean z) {
-        this.aGj = z;
+    public void mw(boolean z) {
+        this.aJx = z;
     }
 
     @Override // android.os.Parcelable
@@ -127,11 +127,11 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeInt(this.gCg);
+        parcel.writeInt(this.gJJ);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
-        parcel.writeParcelable(this.aGc, i);
-        parcel.writeBundle(this.aGl);
-        parcel.writeInt(this.aGj ? 1 : 0);
+        parcel.writeParcelable(this.aJq, i);
+        parcel.writeBundle(this.aJz);
+        parcel.writeInt(this.aJx ? 1 : 0);
     }
 }

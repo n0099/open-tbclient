@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.activity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class a implements Runnable {
     final /* synthetic */ int a;
     final /* synthetic */ Object b;

@@ -40,9 +40,9 @@ public class RequestSendOfficialBarMenuMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.rid = Integer.valueOf(com.baidu.adp.lib.g.b.g(this.rid, 0));
+        builder.rid = Integer.valueOf(com.baidu.adp.lib.g.b.l(this.rid, 0));
         builder.forum_id = getForum_id();
-        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.c(this.user_id, 0L));
+        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.d(this.user_id, 0L));
         SendMenuMsgReqIdl.Builder builder2 = new SendMenuMsgReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -369,7 +369,7 @@ public class g {
         return sb.toString();
     }
 
-    private HashMap<String, String> k(HashMap<String, String> hashMap) {
+    private HashMap<String, String> o(HashMap<String, String> hashMap) {
         HashMap<String, String> hashMap2 = new HashMap<>();
         for (String str : hashMap.keySet()) {
             String str2 = str.toString();
@@ -378,7 +378,7 @@ public class g {
         return hashMap2;
     }
 
-    private HttpsURLConnection qh() {
+    private HttpsURLConnection rm() {
         try {
             URL url = new URL(this.b);
             b.a("https URL: " + this.b);
@@ -415,14 +415,14 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String a(HashMap<String, String> hashMap) {
-        this.c = k(hashMap);
+        this.c = o(hashMap);
         this.b = this.c.get("url");
-        HttpsURLConnection qh = qh();
-        if (qh == null) {
+        HttpsURLConnection rm = rm();
+        if (rm == null) {
             b.c("syncConnect failed,httpsURLConnection is null");
             return this.d;
         }
-        a(qh);
+        a(rm);
         return this.d;
     }
 

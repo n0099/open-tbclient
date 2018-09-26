@@ -18,7 +18,7 @@ public class ForumMemberRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         if (z) {
-            com.baidu.tbadk.util.o.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.p.bindCommonParamsToProtobufData(builder, true);
         }
         GetMemberInfoReqIdl.Builder builder2 = new GetMemberInfoReqIdl.Builder();
         builder2.data = builder.build(false);

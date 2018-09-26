@@ -4,25 +4,25 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.q;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class o extends q.a {
-    public TextView bzE;
-    public ImageView duA;
-    public TextView duB;
-    public ImageView duC;
-    public View duD;
-    public View duE;
+    public TextView bFt;
+    public ImageView dBh;
+    public TextView dBi;
+    public ImageView dBj;
+    public View dBk;
+    public View dBl;
 
     public o(View view) {
         super(view);
         if (view != null) {
-            this.bzE = (TextView) view.findViewById(f.g.video_activity_item_title);
-            this.duA = (ImageView) view.findViewById(f.g.video_activity_item_tip);
-            this.duB = (TextView) view.findViewById(f.g.video_activity_item_type);
-            this.duC = (ImageView) view.findViewById(f.g.video_activity_item_more);
-            this.duD = view.findViewById(f.g.top_divider_line);
-            this.duE = view.findViewById(f.g.bottom_divider_line);
+            this.bFt = (TextView) view.findViewById(e.g.video_activity_item_title);
+            this.dBh = (ImageView) view.findViewById(e.g.video_activity_item_tip);
+            this.dBi = (TextView) view.findViewById(e.g.video_activity_item_type);
+            this.dBj = (ImageView) view.findViewById(e.g.video_activity_item_more);
+            this.dBk = view.findViewById(e.g.top_divider_line);
+            this.dBl = view.findViewById(e.g.bottom_divider_line);
         }
     }
 }

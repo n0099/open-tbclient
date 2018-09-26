@@ -1,11 +1,11 @@
 package com.baidu.fsg.base.router;
 
 import android.content.Context;
-import android.util.Log;
+import com.baidu.fsg.base.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RouterManager {
     private static final String a = "MaApplication";
     private static RouterManager b = new RouterManager();
@@ -26,10 +26,10 @@ public class RouterManager {
         if (applicationContext == null) {
             throw new RuntimeException("Router manager init with applciation context null");
         }
-        Log.d(a, "Application onCreate start: " + System.currentTimeMillis());
+        LogUtil.d(a, "Application onCreate start: " + System.currentTimeMillis());
         LocalRouter.init(applicationContext);
         a(applicationContext, hashMap);
-        Log.d(a, "Application onCreate end: " + System.currentTimeMillis());
+        LogUtil.d(a, "Application onCreate end: " + System.currentTimeMillis());
     }
 
     private void a(Context context, HashMap<String, Object> hashMap) {
@@ -42,7 +42,6 @@ public class RouterManager {
                         next.instance = next.logicClass.newInstance();
                     } catch (IllegalAccessException e) {
                     } catch (InstantiationException e2) {
-                        e2.printStackTrace();
                         e2.printStackTrace();
                     }
                     if (next != null && next.instance != null) {

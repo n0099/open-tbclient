@@ -2,31 +2,35 @@ package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void R(int i) {
+    protected void Z(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_url_post";
+        return "nickname_activity";
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hl() {
+    protected String[] ir() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hm() {
-        return 1;
-    }
-
-    @Override // com.baidu.adp.lib.b.a
-    protected int hn() {
+    protected int is() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int ho() {
+    protected int it() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iu() {
         return 10;
+    }
+
+    public static boolean jw() {
+        return com.baidu.adp.lib.b.d.iB().aO("nickname_activity") == 1;
     }
 }

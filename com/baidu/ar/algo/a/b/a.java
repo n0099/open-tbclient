@@ -19,7 +19,7 @@ public class a {
         c.h = new float[]{1.0E-5f, 0.0f, 0.0f, 0.0f, 0.0f};
         d = new a();
         d.a = 640;
-        d.b = com.baidu.sapi2.biometrics.liveness.camera.a.d;
+        d.b = 480;
         c.i = true;
         d.g = new float[]{594.25995f, 0.0f, 313.4141f, 0.0f, 594.826f, 237.53111f, 0.0f, 0.0f, 1.0f};
         d.h = new float[]{0.184825f, -0.433983f, -0.003168f, -0.010542f, 0.0f};

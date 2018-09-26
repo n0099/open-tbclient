@@ -6,17 +6,17 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tbadk.editortools.l;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class MenuKeyboardView extends LinearLayout implements l {
-    private EditorTools Qg;
-    private int Qh;
+    private EditorTools SG;
+    private int SH;
 
     public MenuKeyboardView(Context context) {
         super(context);
-        this.Qh = 0;
-        inflate(context, f.h.official_bar_menu_toggle, this);
-        setLayoutParams(new RawLayout.a(context.getResources().getDimensionPixelSize(f.e.ds100), -2));
+        this.SH = 0;
+        inflate(context, e.h.official_bar_menu_toggle, this);
+        setLayoutParams(new RawLayout.a(context.getResources().getDimensionPixelSize(e.C0141e.ds100), -2));
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.MenuKeyboardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -31,24 +31,24 @@ public class MenuKeyboardView extends LinearLayout implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.Qg = editorTools;
+        this.SG = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Qg != null) {
-            this.Qg.b(aVar);
+        if (this.SG != null) {
+            this.SG.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.Qh = i;
+        this.SH = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.Qh;
+        return this.SH;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -56,7 +56,7 @@ public class MenuKeyboardView extends LinearLayout implements l {
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void oC() {
+    public void pI() {
         setVisibility(0);
     }
 

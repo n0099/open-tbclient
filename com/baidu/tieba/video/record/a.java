@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    public static boolean mX(boolean z) {
+    public static boolean nu(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -34,7 +34,7 @@ public class a {
         return true;
     }
 
-    public static int mY(boolean z) {
+    public static int nv(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -74,14 +74,14 @@ public class a {
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int I = I(activity);
+        int K = K(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + I) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + K) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - I) + 360) % 360;
+        return ((cameraInfo.orientation - K) + 360) % 360;
     }
 
-    public static int I(Activity activity) {
+    public static int K(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:
@@ -100,7 +100,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0246a());
+        Collections.sort(supportedPreviewSizes, new C0252a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -138,8 +138,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0246a implements Comparator<Camera.Size> {
-        private C0246a() {
+    private static class C0252a implements Comparator<Camera.Size> {
+        private C0252a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

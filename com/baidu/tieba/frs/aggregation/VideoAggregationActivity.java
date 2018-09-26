@@ -7,10 +7,10 @@ import android.view.KeyEvent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
-    private VideoAggregationFragment drh;
+    private VideoAggregationFragment dxv;
     private String mFrom;
     private String mId;
 
@@ -18,7 +18,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(f.h.activity_video_aggregation);
+        setContentView(e.h.activity_video_aggregation);
         this.mFrom = getIntent().getStringExtra("PARAM_FROM");
         this.mId = getIntent().getStringExtra("PARAM_FID");
         String stringExtra = getIntent().getStringExtra("st_type");
@@ -26,16 +26,16 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.drh = VideoAggregationFragment.l(this.mId, this.mFrom, stringExtra, stringExtra2);
-        getSupportFragmentManager().beginTransaction().replace(f.g.container, this.drh).commit();
+        this.dxv = VideoAggregationFragment.l(this.mId, this.mFrom, stringExtra, stringExtra2);
+        getSupportFragmentManager().beginTransaction().replace(e.g.container, this.dxv).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.drh != null) {
+        if (this.dxv != null) {
             getLayoutMode().setNightMode(i == 1);
-            getLayoutMode().onModeChanged(this.drh.getView());
-            this.drh.onChangeSkinType(i);
+            getLayoutMode().onModeChanged(this.dxv.getView());
+            this.dxv.onChangeSkinType(i);
         }
     }
 
@@ -51,10 +51,10 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.drh == null) {
+        if (keyEvent == null || this.dxv == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.drh.kL(i)) {
+        if (this.dxv.lo(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -69,7 +69,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
         com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null && StringUtils.isNull(this.mId) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom)) {
-            pageStayDurationItem.setTid(com.baidu.adp.lib.g.b.c(this.mId, 0L));
+            pageStayDurationItem.setTid(com.baidu.adp.lib.g.b.d(this.mId, 0L));
         }
         return pageStayDurationItem;
     }

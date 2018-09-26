@@ -3,53 +3,53 @@ package com.baidu.tieba.personPolymeric.view;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.e> {
-    private TextView gbO;
-    private TextView gbQ;
-    private TbImageView gcd;
-    private com.baidu.tieba.personPolymeric.c.e gce;
+    private TextView gjf;
+    private TextView gjh;
+    private TbImageView gju;
+    private com.baidu.tieba.personPolymeric.c.e gjv;
     private View mRootView;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.gcd = (TbImageView) this.mRootView.findViewById(f.g.card_person_auth_icon);
-        this.gbQ = (TextView) this.mRootView.findViewById(f.g.card_person_auth_bar_name);
-        this.gbO = (TextView) this.mRootView.findViewById(f.g.card_person_auth_des);
+        this.gju = (TbImageView) this.mRootView.findViewById(e.g.card_person_auth_icon);
+        this.gjh = (TextView) this.mRootView.findViewById(e.g.card_person_auth_bar_name);
+        this.gjf = (TextView) this.mRootView.findViewById(e.g.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            am.i(this.mRootView, f.d.cp_bg_line_d);
-            am.c(this.gbQ, f.d.cp_cont_b, 1);
-            am.c(this.gbO, f.d.cp_cont_d, 1);
-            if (this.gce.iconUrl == null) {
-                am.c(this.gcd, f.C0146f.icon_shen_mine);
+            al.i(this.mRootView, e.d.cp_bg_line_d);
+            al.c(this.gjh, e.d.cp_cont_b, 1);
+            al.c(this.gjf, e.d.cp_cont_d, 1);
+            if (this.gjv.iconUrl == null) {
+                al.c(this.gju, e.f.icon_shen_mine);
             }
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return f.h.card_person_auth_layout;
+        return e.h.card_person_auth_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.gce = eVar;
+            this.gjv = eVar;
             if (eVar.iconUrl != null) {
-                this.gcd.startLoad(eVar.iconUrl, 10, false);
+                this.gju.startLoad(eVar.iconUrl, 10, false);
             }
-            this.gbQ.setText(eVar.gaS);
-            this.gbO.setText(eVar.des);
+            this.gjh.setText(eVar.gik);
+            this.gjf.setText(eVar.des);
         }
     }
 

@@ -7,18 +7,18 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.e;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.g> {
-    private HTypeListView bob;
-    private View cUL;
-    private com.baidu.tieba.personPolymeric.a.o gcf;
+    private HTypeListView btQ;
+    private View daE;
+    private com.baidu.tieba.personPolymeric.a.o gjw;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -27,22 +27,22 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         this.mRootView = getView();
-        this.cUL = this.mRootView.findViewById(f.g.divider_view);
-        this.mTitle = (TextView) this.mRootView.findViewById(f.g.gift_title);
-        this.bob = (HTypeListView) this.mRootView.findViewById(f.g.gift_horizontal_list);
-        this.gcf = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.bob);
+        this.daE = this.mRootView.findViewById(e.g.divider_view);
+        this.mTitle = (TextView) this.mRootView.findViewById(e.g.gift_title);
+        this.btQ = (HTypeListView) this.mRootView.findViewById(e.g.gift_horizontal_list);
+        this.gjw = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.btQ);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
-        am.j(this.mRootView, f.d.cp_bg_line_d);
-        am.j(this.cUL, f.d.cp_bg_line_b);
-        am.h(this.mTitle, f.d.cp_cont_d);
+        al.j(this.mRootView, e.d.cp_bg_line_d);
+        al.j(this.daE, e.d.cp_bg_line_b);
+        al.h(this.mTitle, e.d.cp_cont_d);
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return f.h.card_gift_list;
+        return e.h.card_gift_list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,16 +58,16 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.gcf.Q(onClickListener);
+        this.gjw.P(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.gcf.R(onClickListener);
-        this.bob.setData(df(gVar.gbd));
+        this.gjw.Q(onClickListener);
+        this.btQ.setData(dg(gVar.giv));
         if (gVar.mIsHost) {
-            this.mTitle.setText(f.j.gift_received_by_me);
-        } else if (gVar.gbb) {
-            this.mTitle.setText(f.j.gift_received_by_him);
+            this.mTitle.setText(e.j.gift_received_by_me);
+        } else if (gVar.git) {
+            this.mTitle.setText(e.j.gift_received_by_him);
         } else {
-            this.mTitle.setText(f.j.gift_received_by_her);
+            this.mTitle.setText(e.j.gift_received_by_her);
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -75,28 +75,28 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.personPolymeric.c.g gVar) {
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
-            this.mPageContext.showToast(f.j.gift_load_fail);
-        } else if (bb.aU(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Bd, gVar.gbc, gVar.mSex)));
+            this.mPageContext.showToast(e.j.gift_load_fail);
+        } else if (ba.bA(this.mPageContext.getPageActivity())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.Dx, gVar.giu, gVar.mSex)));
         }
     }
 
-    private List<com.baidu.adp.widget.ListView.h> df(List<com.baidu.adp.widget.ListView.h> list) {
-        int y = w.y(list);
+    private List<com.baidu.adp.widget.ListView.h> dg(List<com.baidu.adp.widget.ListView.h> list) {
+        int y = v.y(list);
         if (y > 0) {
             List<com.baidu.adp.widget.ListView.h> arrayList = new ArrayList<>(list);
-            int f = com.baidu.adp.lib.util.l.f(this.mTbPageContext.getPageActivity(), f.e.ds100);
-            int f2 = com.baidu.adp.lib.util.l.f(this.mTbPageContext.getPageActivity(), f.e.ds32);
+            int h = com.baidu.adp.lib.util.l.h(this.mTbPageContext.getPageActivity(), e.C0141e.ds100);
+            int h2 = com.baidu.adp.lib.util.l.h(this.mTbPageContext.getPageActivity(), e.C0141e.ds32);
             if (y > 7) {
                 arrayList = arrayList.subList(0, 7);
                 com.baidu.tieba.personPolymeric.c.h hVar = new com.baidu.tieba.personPolymeric.c.h();
-                hVar.height = f;
-                hVar.width = f;
-                w.b(arrayList, hVar);
+                hVar.height = h;
+                hVar.width = h;
+                v.b(arrayList, hVar);
             }
-            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(f2, f);
-            w.a((List<com.baidu.tieba.person.d>) arrayList, 0, dVar);
-            w.b(arrayList, dVar);
+            com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(h2, h);
+            v.a((List<com.baidu.tieba.person.d>) arrayList, 0, dVar);
+            v.b(arrayList, dVar);
             return arrayList;
         }
         return list;

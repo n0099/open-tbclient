@@ -20,67 +20,67 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<l>, NetModel.b<k, l> {
-    private FeedData eGC;
-    private f eGD;
-    private ReplyMessageFragment eHM;
-    private k eHN;
-    private ReplyMeNetModel eHO;
-    private ReplyMeCacheModel eHP;
+    private FeedData eNS;
+    private f eNT;
+    private ReplyMessageFragment ePc;
+    private k ePd;
+    private ReplyMeNetModel ePe;
+    private ReplyMeCacheModel ePf;
 
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.eHM = replyMessageFragment;
+        this.ePc = replyMessageFragment;
     }
 
     public void i(Bundle bundle) {
-        this.eHN = new k();
-        this.eHO = new ReplyMeNetModel(this.eHM.getPageContext(), this.eHN);
-        this.eHO.a(this);
-        this.eHO.setUniqueId(this.eHM.getUniqueId());
-        this.eHP = new ReplyMeCacheModel(this.eHM.getPageContext());
-        this.eHP.a(this);
-        this.eHP.setUniqueId(this.eHM.getUniqueId());
-        this.eGD = new f();
+        this.ePd = new k();
+        this.ePe = new ReplyMeNetModel(this.ePc.getPageContext(), this.ePd);
+        this.ePe.a(this);
+        this.ePe.setUniqueId(this.ePc.getUniqueId());
+        this.ePf = new ReplyMeCacheModel(this.ePc.getPageContext());
+        this.ePf.a(this);
+        this.ePf.setUniqueId(this.ePc.getUniqueId());
+        this.eNT = new f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean ako() {
-        if (this.eHO.AB() || !aOJ()) {
+    public boolean alZ() {
+        if (this.ePe.BO() || !aQY()) {
             return false;
         }
-        this.eHN.d(this.eGC);
-        this.eHO.setNeedCache(false);
-        this.eHO.JV();
+        this.ePd.d(this.eNS);
+        this.ePe.setNeedCache(false);
+        this.ePe.Ll();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean awv() {
-        if (this.eHO.AB() || !aOJ()) {
+    public boolean ayJ() {
+        if (this.ePe.BO() || !aQY()) {
             return false;
         }
-        this.eGC = null;
-        this.eHN.reset();
-        this.eHO.setNeedCache(true);
-        this.eHO.JV();
+        this.eNS = null;
+        this.ePd.reset();
+        this.ePe.setNeedCache(true);
+        this.ePe.Ll();
         return true;
     }
 
-    protected boolean aOJ() {
+    protected boolean aQY() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.eGD != null && this.eGD.eHB != null) {
-            this.eGD.eHB.clear();
+        if (this.eNT != null && this.eNT.eOR != null) {
+            this.eNT.eOR.clear();
         }
-        this.eHM.aPl();
-        this.eHM.b(false, (ArrayList<com.baidu.adp.widget.ListView.h>) null);
+        this.ePc.aRy();
+        this.ePc.b(false, (ArrayList<com.baidu.adp.widget.ListView.h>) null);
         return false;
     }
 
-    public boolean akn() {
-        if (aOJ()) {
-            this.eHP.a((com.baidu.tbadk.mvc.b.e) this.eHN);
+    public boolean alY() {
+        if (aQY()) {
+            this.ePf.a((com.baidu.tbadk.mvc.b.e) this.ePd);
             return true;
         }
         return true;
@@ -91,18 +91,18 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z3;
         boolean z4;
         if (kVar.getUpdateType() != 4) {
-            this.eGD.aPe().clear();
+            this.eNT.aRt().clear();
         }
-        this.eGD.a(lVar);
-        if (lVar != null && lVar.aPe() != null && lVar.aPe().size() > 0) {
-            this.eGC = lVar.aPe().get(lVar.aPe().size() - 1);
-            if (this.eGD.uv() != null) {
-                z4 = this.eGD.uv().ur() == 1;
+        this.eNT.a(lVar);
+        if (lVar != null && lVar.aRt() != null && lVar.aRt().size() > 0) {
+            this.eNS = lVar.aRt().get(lVar.aRt().size() - 1);
+            if (this.eNT.vy() != null) {
+                z4 = this.eNT.vy().vu() == 1;
             } else {
                 z4 = true;
             }
             if (kVar.getUpdateType() == 1) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.Dl().setMsgReplyme(0);
+                com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgReplyme(0);
             }
             if (kVar != null) {
                 kVar.toNextPage();
@@ -113,34 +113,34 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 z2 = z4;
             }
         } else {
-            this.eGC = null;
+            this.eNS = null;
             z2 = false;
             z3 = false;
         }
-        com.baidu.tbadk.coreExtra.messageCenter.a.Dl().Dz();
+        com.baidu.tbadk.coreExtra.messageCenter.a.Ey().EM();
         ArrayList<com.baidu.adp.widget.ListView.h> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.eGD.eHB.iterator();
+        Iterator<FeedData> it = this.eNT.eOR.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.imMessageCenter.mention.base.a aVar = new com.baidu.tieba.imMessageCenter.mention.base.a();
             aVar.e(it.next());
             if (z) {
-                aVar.ii(false);
+                aVar.iG(false);
             }
             arrayList.add(aVar);
         }
-        this.eHM.b(z2, arrayList);
+        this.ePc.b(z2, arrayList);
         return z3;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
     public void a(ReadCacheRespMsg<List<l>> readCacheRespMsg, ReadCacheMessage<l> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.eHN, readCacheRespMsg.getData().get(0), true);
+            a(this.ePd, readCacheRespMsg.getData().get(0), true);
         }
-        this.eGC = null;
-        this.eHN.reset();
-        this.eHO.setNeedCache(true);
-        this.eHO.JV();
+        this.eNS = null;
+        this.ePd.reset();
+        this.ePe.setNeedCache(true);
+        this.ePe.Ll();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
@@ -157,7 +157,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.Dl().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgReplyme(0);
             lVar = null;
         }
         if (r1 == null || lVar == null || !a(r1, lVar, false)) {
@@ -169,7 +169,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.eHM.a(errorData);
+                this.ePc.a(errorData);
             }
         }
     }
@@ -184,7 +184,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.Dl().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.Ey().setMsgReplyme(0);
             lVar = null;
         }
         if (r1 == null || lVar == null || !a(r1, lVar, false)) {
@@ -196,7 +196,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.eHM.a(errorData);
+                this.ePc.a(errorData);
             }
         }
     }
@@ -212,11 +212,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     public void onDestroy() {
-        if (this.eHO != null) {
-            this.eHO.a((NetModel.b) null);
+        if (this.ePe != null) {
+            this.ePe.a((NetModel.b) null);
         }
-        if (this.eHP != null) {
-            this.eHP.a((CacheModel.a) null);
+        if (this.ePf != null) {
+            this.ePf.a((CacheModel.a) null);
         }
     }
 }

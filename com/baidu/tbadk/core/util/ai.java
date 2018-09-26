@@ -1,43 +1,67 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ai {
-    private static final ai aqu = new ai();
-    private final HashMap<Class<?>, Class<?>> aqv = new HashMap<>();
-
-    public static final ai zj() {
-        return aqu;
-    }
-
-    private ai() {
-    }
-
-    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
-        this.aqv.put(cls, cls2);
-    }
-
-    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
-        if (!this.aqv.containsKey(cls)) {
-            this.aqv.put(cls, cls2);
-        } else {
-            BdLog.e("register Intent failed, " + cls.getName() + " exist");
+    private BdUniqueId asU;
+    private a asV;
+    private HttpMessageListener asW = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_FANS) { // from class: com.baidu.tbadk.core.util.ai.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Message<?> orginalMessage;
+            if (httpResponsedMessage != null && (orginalMessage = httpResponsedMessage.getOrginalMessage()) != null && (orginalMessage.getExtra() instanceof Long)) {
+                long longValue = ((Long) orginalMessage.getExtra()).longValue();
+                boolean z = httpResponsedMessage.getOrginalMessage().getTag() == ai.this.asU;
+                if (ai.this.asV != null) {
+                    ai.this.asV.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), longValue, z);
+                }
+            }
         }
+    };
+    private TbPageContext mPageContext;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void a(int i, String str, long j, boolean z);
     }
 
-    public boolean appResponseToIntentClass(Class<?> cls) {
-        return getIntentClass(cls) != null;
+    public ai(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        this.mPageContext = tbPageContext;
+        this.asU = bdUniqueId;
+        this.asW.setTag(bdUniqueId);
+        this.mPageContext.registerListener(this.asW);
+        Aq();
     }
 
-    public int zk() {
-        return this.aqv.size();
+    private static void Aq() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REMOVE_FANS, TbConfig.SERVER_ADDRESS + TbConfig.URL_REMOVE_FANS);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public Class<?> getIntentClass(Class<?> cls) {
-        if (this.aqv != null) {
-            return this.aqv.get(cls);
-        }
-        return null;
+    public void w(long j) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REMOVE_FANS);
+        httpMessage.addParam("fans_uid", j);
+        httpMessage.setTag(this.asU);
+        httpMessage.setExtra(Long.valueOf(j));
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public void a(a aVar) {
+        this.asV = aVar;
     }
 }

@@ -4,11 +4,11 @@ import android.content.Context;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean mx(int i) {
+    public static boolean nb(int i) {
         switch (i) {
             case 202001:
             case 205001:
@@ -20,32 +20,32 @@ public class a {
         }
     }
 
-    public static boolean a(y yVar) {
-        if (yVar == null) {
+    public static boolean a(x xVar) {
+        if (xVar == null) {
             return false;
         }
-        if ((yVar.yP() ? yVar.yQ() : yVar.yR()) == 1990055) {
-            aCM();
+        if ((xVar.zU() ? xVar.zV() : xVar.zW()) == 1990055) {
+            aEZ();
             return true;
         }
         return false;
     }
 
-    public static void aCM() {
-        if (!l.jU()) {
+    public static void aEZ() {
+        if (!l.la()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.aCN();
+                    a.aFa();
                 }
             });
         } else {
-            aCN();
+            aFa();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void aCN() {
+    public static final void aFa() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder("https://wappass.baidu.com/passport/realnamewidget?tpl=tieba&adapter=3&nomenu=1");
         sb.append("&u=").append(URLEncoder.encode("http://tieba.baidu.com/?jump=finish_this_page"));

@@ -1,7 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.idl.authority.BuildConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.io.Serializable;
 import java.util.BitSet;
@@ -15,7 +14,7 @@ import java.util.Map;
 public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> m;
     private static final org.apache.thrift.protocol.j n = new org.apache.thrift.protocol.j("XmPushActionSendMessage");
-    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b(BuildConfig.BUILD_TYPE, (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b(BaiduRimConstants.ACTION_TARGET, (byte) 12, 2);
     private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
     private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
@@ -43,7 +42,7 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
 
     /* loaded from: classes3.dex */
     public enum a {
-        DEBUG(1, BuildConfig.BUILD_TYPE),
+        DEBUG(1, "debug"),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),
         ID(3, "id"),
         APP_ID(4, "appId"),
@@ -80,7 +79,7 @@ public class aj implements Serializable, Cloneable, org.apache.thrift.a<aj, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b(BuildConfig.BUILD_TYPE, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b(BaiduRimConstants.ACTION_TARGET, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));

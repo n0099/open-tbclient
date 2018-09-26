@@ -2,7 +2,7 @@ package com.baidu.fsg.base.widget;
 
 import android.os.Handler;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j implements Runnable {
     final /* synthetic */ SafeKeyBoardUtil a;
 

@@ -6,22 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import com.baidu.adp.lib.g.g;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class c {
-    private PopupWindow cTh;
+    private PopupWindow cYY;
     private TbPageContext<?> mPageContext;
     private View mRootView;
     private Handler mHandler = new Handler();
-    private Runnable cTi = new Runnable() { // from class: com.baidu.tieba.enterForum.home.c.1
+    private Runnable cYZ = new Runnable() { // from class: com.baidu.tieba.enterForum.home.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.cTh != null) {
-                g.a(c.this.cTh);
+            if (c.this.cYY != null) {
+                g.a(c.this.cYY);
             }
         }
     };
@@ -42,7 +41,7 @@ public class c {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.home.c.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.aw(i, l);
+                    c.this.aA(i, l);
                 }
             }, 100L);
         }
@@ -52,7 +51,7 @@ public class c {
         int size = linkedList.size();
         for (int i = 0; i < 3 && i < size; i++) {
             VisitedForumData visitedForumData = linkedList.get(i);
-            if (visitedForumData != null && visitedForumData.Hc()) {
+            if (visitedForumData != null && visitedForumData.Is()) {
                 return i;
             }
         }
@@ -60,30 +59,30 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aw(int i, int i2) {
+    public void aA(int i, int i2) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_enter_forum_ufan_recent_visit_tip_show", true);
-        if (this.cTh == null || !this.cTh.isShowing()) {
+        if (this.cYY == null || !this.cYY.isShowing()) {
             if (this.mRootView == null) {
-                this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(f.h.enter_forum_ufan_item_tip, (ViewGroup) null);
+                this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(e.h.enter_forum_ufan_item_tip, (ViewGroup) null);
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.c.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        c.this.aoX();
+                        c.this.aqM();
                     }
                 });
             }
-            if (this.cTh == null) {
-                this.cTh = new PopupWindow(this.mRootView, -2, -2);
-                this.cTh.setOutsideTouchable(true);
+            if (this.cYY == null) {
+                this.cYY = new PopupWindow(this.mRootView, -2, -2);
+                this.cYY.setOutsideTouchable(true);
             }
-            g.showPopupWindowAtLocation(this.cTh, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(f.e.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(f.e.tbds220) * i2), i);
-            this.mHandler.postDelayed(this.cTi, TbConfig.NOTIFY_SOUND_INTERVAL);
+            g.showPopupWindowAtLocation(this.cYY, this.mPageContext.getPageActivity().findViewById(16908290), 51, this.mPageContext.getResources().getDimensionPixelSize(e.C0141e.tbds44) + (this.mPageContext.getResources().getDimensionPixelSize(e.C0141e.tbds220) * i2), i);
+            this.mHandler.postDelayed(this.cYZ, 5000L);
         }
     }
 
-    public void aoX() {
-        if (this.cTh != null) {
-            g.a(this.cTh);
+    public void aqM() {
+        if (this.cYY != null) {
+            g.a(this.cYY);
         }
     }
 

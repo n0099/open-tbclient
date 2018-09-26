@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.d;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class h extends a {
     private int height;
@@ -14,27 +14,16 @@ public class h extends a {
         this.procType = 0;
         this.procType = i;
         if (z) {
-            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(f.e.ds176);
+            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0141e.ds176);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(f.e.ds184);
-        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(f.e.ds184);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
-    /* renamed from: g */
-    public com.baidu.adp.widget.ImageView.a f(String str, String str2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a f = super.f(str, str2, objArr);
-        if (f != null && f.nb() != null && f.nb().isRecycled()) {
-            return null;
-        }
-        return f;
+        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0141e.ds184);
+        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0141e.ds184);
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
-    public boolean ik() {
+    public boolean jq() {
         return true;
     }
 
@@ -54,17 +43,17 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean zY() {
+    public boolean Bd() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean zZ() {
+    public boolean Be() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Aa() {
+    public int Bf() {
         return this.procType;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.adp.base.i;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -24,7 +24,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         this.context = context;
     }
 
-    public void r(BdUniqueId bdUniqueId) {
+    public void q(BdUniqueId bdUniqueId) {
         this.pageId = bdUniqueId;
     }
 
@@ -36,49 +36,49 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public BdUniqueId getPageId() {
-        h ab;
+        h aI;
         BdUniqueId bdUniqueId = this.pageId;
-        if (bdUniqueId == null && (ab = i.ab(this.context)) != null) {
-            return ab.getUniqueId();
+        if (bdUniqueId == null && (aI = i.aI(this.context)) != null) {
+            return aI.getUniqueId();
         }
         return bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tl(String str) {
-        aJ(str, f.C0146f.icon_toast_game_error);
+    public void tS(String str) {
+        aO(str, e.f.icon_toast_game_error);
     }
 
-    protected void tm(String str) {
-        aJ(str, f.C0146f.icon_toast_game_ok);
+    protected void tT(String str) {
+        aO(str, e.f.icon_toast_game_ok);
     }
 
-    protected void aJ(String str, int i) {
-        BdToast.b(getAppContext(), str, i).xm();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void sT(int i) {
-        aj(i, null);
+    protected void aO(String str, int i) {
+        BdToast.b(getAppContext(), str, i).yt();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aj(int i, String str) {
+    public void tt(int i) {
+        ak(i, null);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void ak(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(f.j.share_success, new Object[0]);
+                str = getString(e.j.share_success, new Object[0]);
             }
-            tm(str);
+            tT(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(f.j.share_cancel, new Object[0]);
+                str = getString(e.j.share_cancel, new Object[0]);
             }
-            tl(str);
+            tS(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
-                str = getString(f.j.share_failed, new Object[0]);
+                str = getString(e.j.share_failed, new Object[0]);
             }
-            tl(str);
+            tS(str);
         }
     }
 
@@ -93,12 +93,12 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap brv() {
-        return BitmapHelper.getCashBitmap(f.C0146f.icon);
+    public Bitmap bua() {
+        return BitmapHelper.getCashBitmap(e.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap tn(String str) {
+    public Bitmap tU(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 

@@ -4,35 +4,35 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String cBR = "";
+    public String cHI = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo cBQ = null;
+    public AdvertAppInfo cHH = null;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (this.cBQ != null && this.cBQ.getType() == AdvertAppInfo.adn) {
-            return AdvertAppInfo.adt;
+        if (this.cHH != null && this.cHH.getType() == AdvertAppInfo.afN) {
+            return AdvertAppInfo.afT;
         }
-        if (this.cBQ != null && this.cBQ.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.adw;
-            switch (this.cBQ.legoCard.getGoodsStyle()) {
+        if (this.cHH != null && this.cHH.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.afW;
+            switch (this.cHH.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.adx;
+                    return AdvertAppInfo.afX;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.ady;
+                    return AdvertAppInfo.afY;
                 case 7:
-                    return AdvertAppInfo.adz;
+                    return AdvertAppInfo.afZ;
                 case 9:
-                    return AdvertAppInfo.adB;
+                    return AdvertAppInfo.agb;
                 case 10:
-                    return AdvertAppInfo.adA;
+                    return AdvertAppInfo.aga;
             }
         }
         return null;
@@ -40,23 +40,23 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.g(this.cBQ != null ? this.cBQ.adPosition : "-1", -1);
+        return com.baidu.adp.lib.g.b.l(this.cHH != null ? this.cHH.adPosition : "-1", -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean ajs() {
+    public boolean ald() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eB(boolean z) {
+    public void eS(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eC(boolean z) {
+    public void eT(boolean z) {
     }
 
-    public AdvertAppInfo ajt() {
-        return this.cBQ;
+    public AdvertAppInfo ale() {
+        return this.cHH;
     }
 }

@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class ag extends k<ad, af> {
     /* JADX INFO: Access modifiers changed from: protected */
@@ -18,7 +18,7 @@ public class ag extends k<ad, af> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bm */
     public af onCreateViewHolder(ViewGroup viewGroup) {
-        return new af(this.fxm.getPageContext(), LayoutInflater.from(this.mContext).inflate(f.h.pb_page_news, viewGroup, false));
+        return new af(this.fFd.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_page_news, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

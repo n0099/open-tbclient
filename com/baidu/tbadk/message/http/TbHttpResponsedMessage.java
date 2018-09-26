@@ -6,7 +6,7 @@ import com.baidu.adp.lib.network.http.d;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.j;
 import com.baidu.ar.util.IoUtils;
-import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
@@ -53,16 +53,16 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
     public void logStatInBackground(int i, e eVar) {
-        if (eVar.hY().size() > 0) {
-            d dVar = eVar.hY().get(eVar.hY().size() - 1);
-            ab.apM.addAndGet(eVar.hY().size() - 1);
-            ab.a aVar = new ab.a();
-            aVar.mMode = getMode(j.jK());
-            aVar.apO = dVar.zz;
-            aVar.mTime = dVar.zC;
-            aVar.apP = dVar.zB;
-            aVar.apN = eVar.hW().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
-            ab.a(aVar);
+        if (eVar.je().size() > 0) {
+            d dVar = eVar.je().get(eVar.je().size() - 1);
+            aa.ask.addAndGet(eVar.je().size() - 1);
+            aa.a aVar = new aa.a();
+            aVar.mMode = getMode(j.kQ());
+            aVar.asm = dVar.BU;
+            aVar.mTime = dVar.BX;
+            aVar.asn = dVar.BW;
+            aVar.asl = eVar.jc().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aa.a(aVar);
         }
     }
 }

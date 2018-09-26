@@ -1,20 +1,36 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
-public class ak extends j {
-    private static ak aVL = new ak();
-
-    public static boolean La() {
-        return aVL.iq();
+public class ak extends com.baidu.adp.lib.b.a {
+    @Override // com.baidu.adp.lib.b.a
+    protected void Z(int i) {
     }
 
-    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "pb_reply_switch";
+        return "android_net_delete";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.p.j, com.baidu.adp.lib.b.a
-    public int hm() {
-        return super.hm();
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] ir() {
+        return new String[0];
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int is() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int it() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iu() {
+        return 10;
+    }
+
+    public static boolean jw() {
+        return com.baidu.adp.lib.b.d.iB().aO("android_net_delete") == 1;
     }
 }

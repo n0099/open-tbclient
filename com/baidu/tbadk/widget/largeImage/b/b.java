@@ -1,31 +1,31 @@
 package com.baidu.tbadk.widget.largeImage.b;
 /* loaded from: classes.dex */
 public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.largeImage.a.a> {
-    private int bbz;
+    private int beS;
 
     public b(int i) {
-        this.bbz = i;
+        this.beS = i;
     }
 
     public int getBlockSize() {
-        return this.bbz;
+        return this.beS;
     }
 
-    public void fG(int i) {
-        this.bbz = i;
+    public void fS(int i) {
+        this.beS = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: MZ */
-    public com.baidu.tbadk.widget.largeImage.a.a ig() {
-        return new com.baidu.tbadk.widget.largeImage.a.a(this.bbz);
+    /* renamed from: Or */
+    public com.baidu.tbadk.widget.largeImage.a.a jm() {
+        return new com.baidu.tbadk.widget.largeImage.a.a(this.beS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: b */
-    public void q(com.baidu.tbadk.widget.largeImage.a.a aVar) {
+    public void r(com.baidu.tbadk.widget.largeImage.a.a aVar) {
         if (aVar != null && aVar.getBitmap() != null) {
             aVar.getBitmap().recycle();
         }
@@ -34,14 +34,14 @@ public class b implements com.baidu.adp.lib.e.c<com.baidu.tbadk.widget.largeImag
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
-    public com.baidu.tbadk.widget.largeImage.a.a r(com.baidu.tbadk.widget.largeImage.a.a aVar) {
+    public com.baidu.tbadk.widget.largeImage.a.a s(com.baidu.tbadk.widget.largeImage.a.a aVar) {
         return aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: d */
-    public com.baidu.tbadk.widget.largeImage.a.a s(com.baidu.tbadk.widget.largeImage.a.a aVar) {
+    public com.baidu.tbadk.widget.largeImage.a.a t(com.baidu.tbadk.widget.largeImage.a.a aVar) {
         return aVar;
     }
 }

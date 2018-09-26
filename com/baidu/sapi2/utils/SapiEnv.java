@@ -5,8 +5,11 @@ public interface SapiEnv {
     public static final String ACCOUNT_CENTER_EDITUSER = "/wp/v3/ucenter/edituser";
     public static final String ACCOUNT_CENTER_MODIFY_PWD_RESULT = "/wp/passwordresult";
     public static final String CAPTCHA_URI = "/cgi-bin/genimage?";
+    public static final String CHECK_USER_FACE_ID = "/v3/security/sapi/faceCheck";
     public static final String DEFAULT_PORTRAIT = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/img/default_portrait.png";
     public static final String FACE_LOGIN_ENABLE = "/v3/login/facelogincheck";
+    public static final String FACE_LOGIN_STATUS_CHECK = "/v3/security/sapi/faceLoginStatus";
+    public static final String FACE_LOGIN_SWITCH_URI = "/v3/security/faceloginswitchresult";
     public static final String FAST_REG_SMS_NUMBER = "10698000036592";
     public static final String FAST_REG_URI = "/v2/sapi/smsgetlogin";
     public static final String FILL_USER_PROFILE_BIND_URI = "/v2/security/sapibindwidgetbind";
@@ -28,7 +31,7 @@ public interface SapiEnv {
     public static final String PASS_RETRY_IP2 = "http://220.181.111.48";
     public static final String PASS_RETRY_IP3 = "http://123.125.115.81";
     public static final String PHONE_REG_URI = "/v2/sapi/phoneregverify";
-    public static final String QR_APP_LOGIN_URI = "/v2/sapi/qrlogin?lp=app";
+    public static final String QR_APP_LOGIN_URI = "/v2/sapi/qrlogin";
     public static final String SAPI_CONFIG_HTTPS_URI = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/conf/config.txt";
     public static final String SAPI_CONFIG_URI = "/static/appsapi/conf/config.txt";
     public static final String SAPI_PLUGIN_CONFIG_OFFLINE_URI = "/static/appsapi/hosts/";
@@ -36,7 +39,6 @@ public interface SapiEnv {
     public static final String SHARE_AES_MODE = "AES/CBC/PKCS5Padding";
     public static final String SHARE_ALGORITHM = "AES";
     public static final String SHARE_IV = "8070605040302010";
-    public static final String SINA_APP_KEY = "2512457640";
     public static final String SOCIAL_AFTER_AUTH_URI = "/phoenix/account/afterauth";
     public static final String SOCIAL_FINISH_AUTH_URI = "/phoenix/account/finishbind";
     public static final String SOCIAL_START_URI = "/phoenix/account/startlogin";

@@ -1,6 +1,8 @@
 package com.baidu.fsg.base.restnet.beans.business;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.ar.util.IoUtils;
@@ -15,6 +17,7 @@ import com.baidu.fsg.base.restnet.beans.business.core.utils.NetUtils;
 import com.baidu.fsg.base.utils.Base64Utils;
 import com.baidu.fsg.base.utils.BussinessUtils;
 import com.baidu.fsg.base.utils.ChannelUtils;
+import com.baidu.fsg.base.utils.Crypto;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.Md5Utils;
 import com.baidu.fsg.base.utils.NetworkUtils;
@@ -28,7 +31,7 @@ import java.util.UUID;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class NetworkBean extends ApollonBean {
     private static final boolean DEBUG = false;
     private static final String PARAM_APPID = "appid";
@@ -45,6 +48,7 @@ public abstract class NetworkBean extends ApollonBean {
     private static final String PARAM_UA = "ua";
     private static final String PARAM_WIFI_SSID = "wssid";
     private static final String REQID = "reqid";
+    private static final String SING_SHA1 = "s1";
     private static final String SP_PARAMETER = "sp_params";
     private static final String TAG = "NetworkBean";
     protected String reqId;
@@ -75,7 +79,7 @@ public abstract class NetworkBean extends ApollonBean {
         if (exc instanceof RestRuntimeException) {
             if (this.mRspCallback != null) {
                 if (((RestRuntimeException) exc).contains(SocketTimeoutException.class)) {
-                    this.mRspCallback.onBeanExecFailure(getBeanId(), -15, "网络不给力，请稍后重试");
+                    this.mRspCallback.onBeanExecFailure(getBeanId(), -5, BeanConstants.rim_timeout_error);
                 } else if (((RestRuntimeException) exc).contains(SSLPeerUnverifiedException.class) || ((RestRuntimeException) exc).contains(CertificateException.class)) {
                     this.mRspCallback.onBeanExecFailure(getBeanId(), -16, BeanConstants.rim_ssl);
                 } else if (((RestRuntimeException) exc).contains(IllegalArgumentException.class)) {
@@ -108,6 +112,7 @@ public abstract class NetworkBean extends ApollonBean {
         this.reqId = Md5Utils.toMD5(PhoneUtils.getCUID2(context) + System.currentTimeMillis() + UUID.randomUUID());
         list.add(new RestNameValuePair(REQID, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, this.reqId)));
         list.add(new RestNameValuePair(SP_PARAMETER, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, this.spParameter)));
+        list.add(new RestNameValuePair(SING_SHA1, RimArmor.getInstance().encryptProxy(getAppSignatureSha1(context, context.getPackageName()))));
         if (needNonce()) {
             try {
                 list.add(new RestNameValuePair("nonce", PayUtils.getNonce(this.mContext, list)));
@@ -116,6 +121,20 @@ public abstract class NetworkBean extends ApollonBean {
             }
         }
         return list;
+    }
+
+    private static String getAppSignatureSha1(Context context, String str) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            if (packageInfo != null && packageInfo.signatures != null) {
+                return Crypto.sha1(packageInfo.signatures[0].toByteArray());
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return "";
     }
 
     private void appendCertification(Context context, List<RestNameValuePair> list) {
@@ -179,7 +198,7 @@ public abstract class NetworkBean extends ApollonBean {
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     protected void handleNetworkFailureError() {
         if (this.mRspCallback != null) {
-            this.mRspCallback.onBeanExecFailure(getBeanId(), -8, "网络不给力，请稍后重试");
+            this.mRspCallback.onBeanExecFailure(getBeanId(), -8, BeanConstants.rim_no_network);
         }
     }
 }

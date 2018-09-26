@@ -1,24 +1,34 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.base.BdBaseApplication;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
 /* loaded from: classes.dex */
 public class b {
-    private static b aWh;
+    private static b aZw = null;
 
-    public static b Lh() {
-        if (aWh == null) {
-            aWh = new b();
-        }
-        return aWh;
+    private b() {
     }
 
-    public String ht(String str) {
-        String str2;
-        if (BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi <= 240) {
-            str2 = "hdpi";
-        } else {
-            str2 = "xhdpi";
+    public static synchronized b Mv() {
+        b bVar;
+        synchronized (b.class) {
+            if (aZw == null) {
+                aZw = new b();
+            }
+            bVar = aZw;
         }
-        return "http://tb1.bdstatic.com/tb/client/img/" + str2 + "/" + str;
+        return bVar;
+    }
+
+    public void Mw() {
+        String Mx = Mx();
+        if (!TextUtils.isEmpty(Mx)) {
+            com.baidu.adp.lib.f.c.jn().a(Mx, 10, null, 0, 0, null, new Object[0]);
+        }
+    }
+
+    public String Mx() {
+        return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
     }
 }

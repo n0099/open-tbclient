@@ -1,7 +1,7 @@
 package com.baidu.fsg.base.widget;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 class m implements Runnable {
     final /* synthetic */ SafeScrollView a;
 

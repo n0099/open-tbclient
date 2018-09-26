@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String dkJ;
-    private g gjN;
-    private d gjO;
+    public String dqC;
+    private g grf;
+    private d grg;
     public String mForumId;
     public String mForumName;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.postsearch.PostSearchActivity.1
@@ -23,7 +23,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            PostSearchActivity.this.rN(i);
+            PostSearchActivity.this.sk(i);
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -35,58 +35,58 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gjN = new g(this);
-        this.gjN.initView();
-        this.gjN.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.gjO = new d(this);
+        this.grf = new g(this);
+        this.grf.initView();
+        this.grf.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.grg = new d(this);
         initData();
     }
 
-    public void st(String str) {
-        this.dkJ = str;
-        this.gjN.rT(1);
-        this.gjO.bmb();
-        this.gjN.showLoadingView();
+    public void ta(String str) {
+        this.dqC = str;
+        this.grf.sq(1);
+        this.grg.boH();
+        this.grf.showLoadingView();
     }
 
-    public void ss(String str) {
-        this.gjN.ss(str);
+    public void sZ(String str) {
+        this.grf.sZ(str);
     }
 
-    public void blL() {
-        this.gjN.au(this.gjO.gkl);
+    public void bor() {
+        this.grf.au(this.grg.grD);
     }
 
     public void a(int i, b bVar, boolean z) {
-        if (i == 1 && (bVar == null || !bVar.aNe())) {
-            this.gjN.hideLoadingView();
-            this.gjN.bmf();
+        if (i == 1 && (bVar == null || !bVar.aPt())) {
+            this.grf.hideLoadingView();
+            this.grf.boL();
             return;
         }
-        this.gjN.hideLoadingView();
-        this.gjN.blT();
-        this.gjN.a(i, bVar, z);
+        this.grf.hideLoadingView();
+        this.grf.boz();
+        this.grf.a(i, bVar, z);
     }
 
-    public boolean blM() {
-        return this.gjN.blM();
+    public boolean bos() {
+        return this.grf.bos();
     }
 
-    public void blH() {
-        this.gjN.blH();
+    public void bon() {
+        this.grf.bon();
     }
 
-    public d blN() {
-        return this.gjO;
+    public d bot() {
+        return this.grg;
     }
 
-    public g blO() {
-        return this.gjN;
+    public g bou() {
+        return this.grf;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        this.gjN.onChangeSkinType(i);
+        this.grf.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -95,20 +95,20 @@ public class PostSearchActivity extends BaseFragmentActivity {
             this.mForumName = intent.getStringExtra("forum_name");
             this.mForumId = intent.getStringExtra("forum_id");
         }
-        this.gjO.blY();
+        this.grg.boE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gjN != null) {
-            this.gjN.onDestroy();
+        if (this.grf != null) {
+            this.grf.onDestroy();
         }
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rN(int i) {
+    public void sk(int i) {
         int i2 = 0;
         switch (i) {
             case 0:
@@ -121,10 +121,10 @@ public class PostSearchActivity extends BaseFragmentActivity {
                 i2 = 3;
                 break;
         }
-        an ae = new an("c12404").ae(ImageViewerConfig.FORUM_ID, this.mForumId).ae(ImageViewerConfig.FORUM_NAME, this.mForumName).ae("uid", TbadkCoreApplication.getCurrentAccount());
+        am al = new am("c12404").al(ImageViewerConfig.FORUM_ID, this.mForumId).al(ImageViewerConfig.FORUM_NAME, this.mForumName).al("uid", TbadkCoreApplication.getCurrentAccount());
         if (i2 != 0) {
-            ae.r(MyBookrackActivityConfig.TAB_ID, i2);
+            al.w(MyBookrackActivityConfig.TAB_ID, i2);
         }
-        TiebaStatic.log(ae);
+        TiebaStatic.log(al);
     }
 }

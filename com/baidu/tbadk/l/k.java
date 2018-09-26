@@ -2,52 +2,52 @@ package com.baidu.tbadk.l;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.r;
 import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
 public class k extends l {
-    public static void b(s sVar, s sVar2, s sVar3, s sVar4, s sVar5, int i) {
-        if (m.KJ().KK()) {
-            com.baidu.adp.lib.stats.a ii = ii();
-            ii.append(AuthActivity.ACTION_KEY, "dlStat");
-            ii.append("c_dnum", String.valueOf(sVar.num));
-            ii.append("c_dfnum", String.valueOf(sVar.aoF));
-            ii.append("c_spnum", String.valueOf(sVar.aoG));
-            ii.append("c_costt", String.valueOf(sVar.time));
-            ii.append("c_dlsize", String.valueOf(sVar.zz));
-            ii.append("p_dnum", String.valueOf(sVar2.num));
-            ii.append("p_dfnum", String.valueOf(sVar2.aoF));
-            ii.append("p_spnum", String.valueOf(sVar2.aoG));
-            ii.append("p_costt", String.valueOf(sVar2.time));
-            ii.append("p_dlsize", String.valueOf(sVar2.zz));
-            ii.append("t_dnum", String.valueOf(sVar3.num));
-            ii.append("t_dfnum", String.valueOf(sVar3.aoF));
-            ii.append("t_spnum", String.valueOf(sVar3.aoG));
-            ii.append("t_costt", String.valueOf(sVar3.time));
-            ii.append("t_dlsize", String.valueOf(sVar3.zz));
-            ii.append("d_dnum", String.valueOf(sVar4.num));
-            ii.append("d_dfnum", String.valueOf(sVar4.aoF));
-            ii.append("d_spnum", String.valueOf(sVar4.aoG));
-            ii.append("d_costt", String.valueOf(sVar4.time));
-            ii.append("d_dlsize", String.valueOf(sVar4.zz));
-            ii.append("op_dnum", String.valueOf(sVar5.num));
-            ii.append("op_dfnum", String.valueOf(sVar5.aoF));
-            ii.append("op_spnum", String.valueOf(sVar5.aoG));
-            ii.append("op_costt", String.valueOf(sVar5.time));
-            ii.append("op_dlsize", String.valueOf(sVar5.zz));
-            ii.append("nettype", m.fn(i));
-            BdStatisticsManager.getInstance().performance(TbConfig.TMP_PIC_DIR_NAME, ii);
+    public static void b(r rVar, r rVar2, r rVar3, r rVar4, r rVar5, int i) {
+        if (m.LZ().Ma()) {
+            com.baidu.adp.lib.stats.a jo = jo();
+            jo.append(AuthActivity.ACTION_KEY, "dlStat");
+            jo.append("c_dnum", String.valueOf(rVar.num));
+            jo.append("c_dfnum", String.valueOf(rVar.ard));
+            jo.append("c_spnum", String.valueOf(rVar.are));
+            jo.append("c_costt", String.valueOf(rVar.time));
+            jo.append("c_dlsize", String.valueOf(rVar.BU));
+            jo.append("p_dnum", String.valueOf(rVar2.num));
+            jo.append("p_dfnum", String.valueOf(rVar2.ard));
+            jo.append("p_spnum", String.valueOf(rVar2.are));
+            jo.append("p_costt", String.valueOf(rVar2.time));
+            jo.append("p_dlsize", String.valueOf(rVar2.BU));
+            jo.append("t_dnum", String.valueOf(rVar3.num));
+            jo.append("t_dfnum", String.valueOf(rVar3.ard));
+            jo.append("t_spnum", String.valueOf(rVar3.are));
+            jo.append("t_costt", String.valueOf(rVar3.time));
+            jo.append("t_dlsize", String.valueOf(rVar3.BU));
+            jo.append("d_dnum", String.valueOf(rVar4.num));
+            jo.append("d_dfnum", String.valueOf(rVar4.ard));
+            jo.append("d_spnum", String.valueOf(rVar4.are));
+            jo.append("d_costt", String.valueOf(rVar4.time));
+            jo.append("d_dlsize", String.valueOf(rVar4.BU));
+            jo.append("op_dnum", String.valueOf(rVar5.num));
+            jo.append("op_dfnum", String.valueOf(rVar5.ard));
+            jo.append("op_spnum", String.valueOf(rVar5.are));
+            jo.append("op_costt", String.valueOf(rVar5.time));
+            jo.append("op_dlsize", String.valueOf(rVar5.BU));
+            jo.append("nettype", m.fz(i));
+            BdStatisticsManager.getInstance().performance(TbConfig.TMP_PIC_DIR_NAME, jo);
         }
     }
 
     public static void a(int i, int i2, long j) {
-        if (m.KJ().KK()) {
-            com.baidu.adp.lib.stats.a ii = ii();
-            ii.append(AuthActivity.ACTION_KEY, "dcStat");
-            ii.append("dcnum", String.valueOf(i));
-            ii.append("dcfnum", String.valueOf(i2));
-            ii.append("dcstime", String.valueOf(j));
-            BdStatisticsManager.getInstance().performance(TbConfig.TMP_PIC_DIR_NAME, ii);
+        if (m.LZ().Ma()) {
+            com.baidu.adp.lib.stats.a jo = jo();
+            jo.append(AuthActivity.ACTION_KEY, "dcStat");
+            jo.append("dcnum", String.valueOf(i));
+            jo.append("dcfnum", String.valueOf(i2));
+            jo.append("dcstime", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance(TbConfig.TMP_PIC_DIR_NAME, jo);
         }
     }
 }

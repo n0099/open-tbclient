@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -362,8 +361,8 @@ public final class ParserJson {
     public static b parsePaddle(JSONObject jSONObject, String str) {
         b bVar = new b();
         try {
-            if (jSONObject.has(ClientCookie.PATH_ATTR)) {
-                bVar.a(jSONObject.getString(ClientCookie.PATH_ATTR));
+            if (jSONObject.has("path")) {
+                bVar.a(jSONObject.getString("path"));
             }
         } catch (Exception e) {
             e.printStackTrace();

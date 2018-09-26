@@ -7,21 +7,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.editortools.editorinfotool.LocationInfoView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class LocationInfoWithDelView extends LinearLayout implements View.OnClickListener {
-    private LocationInfoView hvG;
-    private ImageView hvH;
-    private a hvI;
+    private LocationInfoView hDB;
+    private ImageView hDC;
+    private a hDD;
     private int mSkinType;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bGx();
+        void bJn();
 
-        void bGy();
+        void bJo();
     }
 
     public LocationInfoWithDelView(Context context) {
@@ -35,29 +35,29 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     }
 
     private void initUI() {
-        int dimensionPixelSize = getResources().getDimensionPixelSize(f.e.ds24);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(e.C0141e.ds24);
         setOrientation(0);
         setPadding(dimensionPixelSize, 0, 0, 0);
         setGravity(16);
         setOnClickListener(this);
-        this.hvG = new LocationInfoView(getContext());
-        this.hvG.setMaxEms(4);
-        this.hvG.setPadding(0, 0, 0, 0);
-        addView(this.hvG, new LinearLayout.LayoutParams(-2, -2));
-        this.hvH = new ImageView(getContext());
-        this.hvH.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hvH.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
-        addView(this.hvH, new LinearLayout.LayoutParams(dimensionPixelSize * 3, dimensionPixelSize));
-        this.hvH.setOnClickListener(this);
+        this.hDB = new LocationInfoView(getContext());
+        this.hDB.setMaxEms(4);
+        this.hDB.setPadding(0, 0, 0, 0);
+        addView(this.hDB, new LinearLayout.LayoutParams(-2, -2));
+        this.hDC = new ImageView(getContext());
+        this.hDC.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hDC.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
+        addView(this.hDC, new LinearLayout.LayoutParams(dimensionPixelSize * 3, dimensionPixelSize));
+        this.hDC.setOnClickListener(this);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         hide();
     }
 
     public void onChangeSkinType(int i) {
-        this.hvG.onChangeSkinType(i);
+        this.hDB.onChangeSkinType(i);
         if (this.mSkinType != i) {
-            am.i(this, f.C0146f.state_switch_bg);
-            am.c(this.hvH, f.C0146f.icon_edit_close_n);
+            al.i(this, e.f.state_switch_bg);
+            al.c(this.hDC, e.f.icon_edit_close_n);
             this.mSkinType = i;
         }
     }
@@ -68,7 +68,7 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.hvG.setState(i, str);
+            this.hDB.setState(i, str);
             setVisibility(0);
             return;
         }
@@ -80,16 +80,16 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     }
 
     public void setLocationClickListener(a aVar) {
-        this.hvI = aVar;
+        this.hDD = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hvI != null) {
-            if (view == this.hvH) {
-                this.hvI.bGy();
+        if (this.hDD != null) {
+            if (view == this.hDC) {
+                this.hDD.bJo();
             } else if (view == this) {
-                this.hvI.bGx();
+                this.hDD.bJn();
             }
         }
     }

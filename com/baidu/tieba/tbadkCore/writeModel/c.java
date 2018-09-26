@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c {
     public static void d(Context context, View view) {
@@ -22,13 +22,13 @@ public class c {
     }
 
     public static void e(Context context, String str, String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(f.h.post_write_or_reply_lay, (ViewGroup) null);
-        View findViewById = inflate.findViewById(f.g.experience_score);
-        TextView textView = (TextView) inflate.findViewById(f.g.success_text);
-        TextView textView2 = (TextView) inflate.findViewById(f.g.pre_msg);
-        TextView textView3 = (TextView) inflate.findViewById(f.g.color_msg);
+        View inflate = LayoutInflater.from(context).inflate(e.h.post_write_or_reply_lay, (ViewGroup) null);
+        View findViewById = inflate.findViewById(e.g.experience_score);
+        TextView textView = (TextView) inflate.findViewById(e.g.success_text);
+        TextView textView2 = (TextView) inflate.findViewById(e.g.pre_msg);
+        TextView textView3 = (TextView) inflate.findViewById(e.g.color_msg);
         if (StringUtils.isNull(str)) {
-            str = context.getString(f.j.send_success);
+            str = context.getString(e.j.send_success);
         }
         textView.setText(str);
         if (str2 != null || str3 != null) {
@@ -39,18 +39,18 @@ public class c {
         d(context, inflate);
     }
 
-    public static void a(y yVar, WriteData writeData) {
+    public static void a(x xVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
-            yVar.o("is_location", "2");
-            Address H = com.baidu.adp.lib.d.a.hB().H(false);
-            if (H != null) {
-                yVar.o("lat", String.valueOf(H.getLatitude()));
-                yVar.o("lng", String.valueOf(H.getLongitude()));
+            xVar.u("is_location", "2");
+            Address R = com.baidu.adp.lib.d.a.iH().R(false);
+            if (R != null) {
+                xVar.u("lat", String.valueOf(R.getLatitude()));
+                xVar.u("lng", String.valueOf(R.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bwO().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.bzs().getLocationData();
             if (locationData != null) {
-                yVar.o("name", locationData.bwK());
-                yVar.o("sn", locationData.bwM());
+                xVar.u("name", locationData.bzo());
+                xVar.u("sn", locationData.bzq());
             }
         }
     }

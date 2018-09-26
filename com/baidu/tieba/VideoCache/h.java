@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes2.dex */
 public class h {
-    private String ZQ;
-    private String blG;
-    private boolean blH;
-    private long blI = -1;
-    private long blJ = -1;
-    private long blK = 0;
-    private long blL = 0;
+    private String acs;
+    private String bru;
+    private boolean brv;
+    private long brw = -1;
+    private long brx = -1;
+    private long bry = 0;
+    private long brz = 0;
 
-    public String Qn() {
-        return this.blG;
+    public String Sb() {
+        return this.bru;
     }
 
-    public void il(String str) {
-        this.blG = str;
+    public void iM(String str) {
+        this.bru = str;
     }
 
-    public String Qo() {
-        return this.ZQ;
+    public String Sc() {
+        return this.acs;
     }
 
-    public void im(String str) {
-        this.ZQ = str;
+    public void iN(String str) {
+        this.acs = str;
     }
 
-    public boolean Qp() {
-        return this.blH;
+    public boolean Sd() {
+        return this.brv;
     }
 
-    public void cx(boolean z) {
-        this.blH = z;
+    public void cO(boolean z) {
+        this.brv = z;
     }
 
-    public long Qq() {
-        return this.blI;
+    public long Se() {
+        return this.brw;
     }
 
-    public void aD(long j) {
-        this.blI = j;
+    public void aH(long j) {
+        this.brw = j;
     }
 
-    public long Qr() {
-        return this.blJ;
+    public long Sf() {
+        return this.brx;
     }
 
-    public void aE(long j) {
-        this.blJ = j;
+    public void aI(long j) {
+        this.brx = j;
     }
 
     public long getTotalLength() {
-        return this.blK;
+        return this.bry;
     }
 
-    public void W(long j) {
-        this.blK = j;
+    public void aa(long j) {
+        this.bry = j;
     }
 
-    public void aF(long j) {
-        this.blL = j;
+    public void aJ(long j) {
+        this.brz = j;
     }
 
-    public long Qs() {
-        return this.blL;
+    public long Sg() {
+        return this.brz;
     }
 }

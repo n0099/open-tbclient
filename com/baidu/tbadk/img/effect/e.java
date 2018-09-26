@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int aRb = 0;
+    private int aUt = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return "rotate";
     }
 
-    public static ImageOperation fe(int i) {
+    public static ImageOperation fq(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -23,7 +23,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.aRb = Integer.parseInt(str);
+            this.aUt = Integer.parseInt(str);
         }
     }
 
@@ -32,19 +32,19 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.IQ().fd(BitmapHelper.getBitmapSize(bitmap) * 2);
-        if (this.aRb == 0 || this.aRb == 1) {
-            return BitmapHelper.rotateBitmap(bitmap, this.aRb);
+        com.baidu.tbadk.imageManager.c.Kg().fp(BitmapHelper.getBitmapSize(bitmap) * 2);
+        if (this.aUt == 0 || this.aUt == 1) {
+            return BitmapHelper.rotateBitmap(bitmap, this.aUt);
         }
-        if (this.aRb == 2 || this.aRb == 3) {
-            return BitmapHelper.reversalBitmap(bitmap, this.aRb);
+        if (this.aUt == 2 || this.aUt == 3) {
+            return BitmapHelper.reversalBitmap(bitmap, this.aUt);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap hj(String str) throws Exception {
-        int max = Math.max(l.ah(TbadkCoreApplication.getInst().getApp()), l.aj(TbadkCoreApplication.getInst().getApp()));
+    public Bitmap hF(String str) throws Exception {
+        int max = Math.max(l.aO(TbadkCoreApplication.getInst().getApp()), l.aQ(TbadkCoreApplication.getInst().getApp()));
         return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
     }
 }

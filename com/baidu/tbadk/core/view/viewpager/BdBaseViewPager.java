@@ -6,11 +6,14 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
+import android.widget.Scroller;
+import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class BdBaseViewPager extends ViewPager {
-    private boolean azB;
-    private boolean azC;
+    private boolean aCD;
+    private boolean aCE;
     private int mActivePointerId;
+    private int mDuration;
     private float mInitialMotionX;
     private float mInitialMotionY;
     private float mLastMotionX;
@@ -19,17 +22,19 @@ public class BdBaseViewPager extends ViewPager {
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.azB = false;
-        this.azC = false;
+        this.aCD = false;
+        this.aCE = false;
         this.mActivePointerId = -1;
+        this.mDuration = 600;
         initViewPager();
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.azB = false;
-        this.azC = false;
+        this.aCD = false;
+        this.aCE = false;
         this.mActivePointerId = -1;
+        this.mDuration = 600;
         initViewPager();
     }
 
@@ -39,7 +44,7 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.azB = z;
+        this.aCD = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -48,7 +53,7 @@ public class BdBaseViewPager extends ViewPager {
         if (r(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.azB) {
+        if (motionEvent.getPointerCount() > 1 && this.aCD) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -64,7 +69,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.azC) {
+        if (this.aCE) {
             return false;
         }
         if (r(motionEvent)) {
@@ -80,7 +85,7 @@ public class BdBaseViewPager extends ViewPager {
                 this.mLastMotionY = y;
                 this.mActivePointerId = motionEvent.getPointerId(0);
                 if (getCurrentItem() != 0) {
-                    aY(true);
+                    bk(true);
                     break;
                 }
                 break;
@@ -90,11 +95,11 @@ public class BdBaseViewPager extends ViewPager {
                     float x2 = motionEvent.getX(findPointerIndex) - this.mLastMotionX;
                     float abs = Math.abs(x2);
                     float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.mInitialMotionY);
-                    if (x2 > 0.0f && abs > abs2 && getCurrentItem() == 0) {
-                        aY(false);
+                    if (x2 > 0.0f && abs > abs2 && getCurrentItem() == 0 && getScrollState() == 0) {
+                        bk(false);
                         return false;
                     } else if (abs > 0.0f && abs > abs2 && getCurrentItem() != 0) {
-                        aY(true);
+                        bk(true);
                         break;
                     }
                 }
@@ -109,7 +114,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.azC) {
+        if (this.aCE) {
             return false;
         }
         switch (motionEvent.getAction() & 255) {
@@ -122,13 +127,13 @@ public class BdBaseViewPager extends ViewPager {
                 this.mLastMotionY = y;
                 this.mActivePointerId = motionEvent.getPointerId(0);
                 if (getCurrentItem() != 0) {
-                    aY(true);
+                    bk(true);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                aY(false);
+                bk(false);
                 break;
             case 2:
                 int i = this.mActivePointerId;
@@ -136,11 +141,11 @@ public class BdBaseViewPager extends ViewPager {
                     float x2 = motionEvent.getX(findPointerIndex) - this.mLastMotionX;
                     float abs = Math.abs(x2);
                     float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.mInitialMotionY);
-                    if (x2 > 0.0f && abs > abs2 && getCurrentItem() == 0) {
-                        aY(false);
+                    if (x2 > 0.0f && abs > abs2 && getCurrentItem() == 0 && getScrollState() == 0) {
+                        bk(false);
                         return false;
                     } else if (abs > 0.0f && abs > abs2 && getCurrentItem() != 0) {
-                        aY(true);
+                        bk(true);
                         break;
                     }
                 }
@@ -179,13 +184,58 @@ public class BdBaseViewPager extends ViewPager {
         return motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount();
     }
 
-    private void aY(boolean z) {
+    public void bk(boolean z) {
         if (getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
     }
 
     public void setmDisallowSlip(boolean z) {
-        this.azC = z;
+        this.aCE = z;
+    }
+
+    public int getScrollState() {
+        try {
+            Field declaredField = ViewPager.class.getDeclaredField("mScrollState");
+            declaredField.setAccessible(true);
+            return ((Integer) declaredField.get(this)).intValue();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class a extends Scroller {
+        private int aCF;
+
+        public a(Context context) {
+            super(context);
+            this.aCF = 1000;
+        }
+
+        @Override // android.widget.Scroller
+        public void startScroll(int i, int i2, int i3, int i4, int i5) {
+            super.startScroll(i, i2, i3, i4, this.aCF);
+        }
+
+        @Override // android.widget.Scroller
+        public void startScroll(int i, int i2, int i3, int i4) {
+            super.startScroll(i, i2, i3, i4, this.aCF);
+        }
+
+        public void b(ViewPager viewPager) {
+            try {
+                Field declaredField = ViewPager.class.getDeclaredField("mScroller");
+                declaredField.setAccessible(true);
+                declaredField.set(viewPager, this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void dU(int i) {
+            this.aCF = i;
+        }
     }
 }

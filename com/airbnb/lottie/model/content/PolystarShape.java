@@ -4,18 +4,19 @@ import android.graphics.PointF;
 import com.airbnb.lottie.a.a.l;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.m;
+import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PolystarShape implements b {
-    private final Type lN;
-    private final m<PointF, PointF> nB;
-    private final com.airbnb.lottie.model.a.b nD;
     private final String name;
-    private final com.airbnb.lottie.model.a.b oc;
-    private final com.airbnb.lottie.model.a.b od;
-    private final com.airbnb.lottie.model.a.b oe;
-    private final com.airbnb.lottie.model.a.b of;
-    private final com.airbnb.lottie.model.a.b og;
+    private final Type oo;
+    private final com.airbnb.lottie.model.a.b qE;
+    private final com.airbnb.lottie.model.a.b qF;
+    private final com.airbnb.lottie.model.a.b qG;
+    private final com.airbnb.lottie.model.a.b qH;
+    private final com.airbnb.lottie.model.a.b qI;
+    private final m<PointF, PointF> qc;
+    private final com.airbnb.lottie.model.a.b qe;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -41,50 +42,50 @@ public class PolystarShape implements b {
 
     private PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.lN = type;
-        this.oc = bVar;
-        this.nB = mVar;
-        this.nD = bVar2;
-        this.od = bVar3;
-        this.oe = bVar4;
-        this.of = bVar5;
-        this.og = bVar6;
+        this.oo = type;
+        this.qE = bVar;
+        this.qc = mVar;
+        this.qe = bVar2;
+        this.qF = bVar3;
+        this.qG = bVar4;
+        this.qH = bVar5;
+        this.qI = bVar6;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type cS() {
-        return this.lN;
+    public Type dZ() {
+        return this.oo;
     }
 
-    public com.airbnb.lottie.model.a.b cT() {
-        return this.oc;
+    public com.airbnb.lottie.model.a.b ea() {
+        return this.qE;
     }
 
-    public m<PointF, PointF> cu() {
-        return this.nB;
+    public m<PointF, PointF> dB() {
+        return this.qc;
     }
 
-    public com.airbnb.lottie.model.a.b cw() {
-        return this.nD;
+    public com.airbnb.lottie.model.a.b dD() {
+        return this.qe;
     }
 
-    public com.airbnb.lottie.model.a.b cU() {
-        return this.od;
+    public com.airbnb.lottie.model.a.b eb() {
+        return this.qF;
     }
 
-    public com.airbnb.lottie.model.a.b cV() {
-        return this.oe;
+    public com.airbnb.lottie.model.a.b ec() {
+        return this.qG;
     }
 
-    public com.airbnb.lottie.model.a.b cW() {
-        return this.of;
+    public com.airbnb.lottie.model.a.b ed() {
+        return this.qH;
     }
 
-    public com.airbnb.lottie.model.a.b cX() {
-        return this.og;
+    public com.airbnb.lottie.model.a.b ee() {
+        return this.qI;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -101,7 +102,7 @@ public class PolystarShape implements b {
             com.airbnb.lottie.model.a.b bVar2;
             String optString = jSONObject.optString("nm");
             Type forValue = Type.forValue(jSONObject.optInt("sy"));
-            com.airbnb.lottie.model.a.b a = b.a.a(jSONObject.optJSONObject("pt"), eVar, false);
+            com.airbnb.lottie.model.a.b a = b.a.a(jSONObject.optJSONObject(Config.PLATFORM_TYPE), eVar, false);
             m<PointF, PointF> h = com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar);
             com.airbnb.lottie.model.a.b a2 = b.a.a(jSONObject.optJSONObject("r"), eVar, false);
             com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("or"), eVar);

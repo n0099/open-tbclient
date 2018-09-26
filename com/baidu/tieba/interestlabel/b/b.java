@@ -1,27 +1,27 @@
 package com.baidu.tieba.interestlabel.b;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private List<a> eMf;
-    private List<Integer> eMg;
-    private List<a> eMj;
+    private List<a> eTA;
+    private List<Integer> eTB;
+    private List<a> eTE;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!w.z(dataRes.sex_taglist)) {
-                this.eMj = new ArrayList();
-                o(this.eMj, dataRes.sex_taglist);
+            if (!v.z(dataRes.sex_taglist)) {
+                this.eTE = new ArrayList();
+                o(this.eTE, dataRes.sex_taglist);
             }
-            if (!w.z(dataRes.taglist)) {
-                this.eMf = new ArrayList();
-                this.eMg = new ArrayList();
-                o(this.eMf, dataRes.taglist);
+            if (!v.z(dataRes.taglist)) {
+                this.eTA = new ArrayList();
+                this.eTB = new ArrayList();
+                o(this.eTA, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.eMg != null && aVar.isFollow) {
-                        this.eMg.add(Integer.valueOf(aVar.labelId));
+                    if (this.eTB != null && aVar.isFollow) {
+                        this.eTB.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> aQk() {
-        return this.eMj;
+    public List<a> aSy() {
+        return this.eTE;
     }
 
-    public List<a> aQl() {
-        return this.eMf;
+    public List<a> aSz() {
+        return this.eTA;
     }
 
-    public List<Integer> aQm() {
-        return this.eMg;
+    public List<Integer> aSA() {
+        return this.eTB;
     }
 }

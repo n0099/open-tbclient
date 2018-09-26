@@ -16,6 +16,7 @@ import com.baidu.ar.track.TrackStateMachine;
 import com.baidu.ar.util.ARLog;
 import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -224,7 +225,7 @@ public class a extends com.baidu.baiduarsdk.b.a {
                 return;
             case 4100:
                 Bundle bundle3 = new Bundle();
-                bundle3.putFloat("x", ((Float) hashMap.get("x")).floatValue());
+                bundle3.putFloat(Config.EVENT_HEAT_X, ((Float) hashMap.get(Config.EVENT_HEAT_X)).floatValue());
                 bundle3.putFloat("y", ((Float) hashMap.get("y")).floatValue());
                 bundle3.putInt("type", ((Integer) hashMap.get("type")).intValue());
                 bundle3.putFloat("distance", ((Float) hashMap.get("distance")).floatValue());

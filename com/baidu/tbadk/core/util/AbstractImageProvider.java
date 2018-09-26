@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public abstract class AbstractImageProvider extends OrmObject implements v {
+public abstract class AbstractImageProvider extends OrmObject implements u {
     public boolean isSupportImageSize() {
         return false;
     }

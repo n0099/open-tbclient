@@ -124,7 +124,7 @@ public class y implements Runnable {
 
     private HashMap<String, String> c() throws Exception {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("method", com.xiaomi.mipush.sdk.Constants.EXTRA_KEY_TOKEN);
+        hashMap.put("method", "token");
         b.a(hashMap);
         hashMap.put(StatisticConstants.DEVICE_TYPE, "3");
         String b = com.baidu.android.pushservice.k.e.b(this.a);

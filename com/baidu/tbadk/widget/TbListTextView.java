@@ -13,30 +13,30 @@ import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean aYg;
+    private boolean bbz;
 
     public TbListTextView(Context context) {
         super(context);
-        this.aYg = true;
+        this.bbz = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aYg = true;
+        this.bbz = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aYg = true;
+        this.bbz = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.aYg = z;
+        this.bbz = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.aYg) {
+        if (!this.bbz) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -49,25 +49,25 @@ public class TbListTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            J(i, i2);
+            L(i, i2);
         }
     }
 
-    private void J(int i, int i2) {
+    private void L(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            K(i, i2);
+            M(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.aYh) {
+        if (b.bbA) {
             a(i, i2, spannableStringBuilder, b);
         } else {
-            K(i, i2);
+            M(i, i2);
         }
     }
 
@@ -77,12 +77,12 @@ public class TbListTextView extends TextView {
         ArrayList arrayList2 = new ArrayList(spans.length);
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
-            if (a(spannableStringBuilder, spanStart - 1)) {
+            if (b(spannableStringBuilder, spanStart - 1)) {
                 spannableStringBuilder.insert(spanStart, " ");
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
-            if (a(spannableStringBuilder, spanEnd)) {
+            if (b(spannableStringBuilder, spanEnd)) {
                 spannableStringBuilder.insert(spanEnd, " ");
                 arrayList2.add(obj);
             }
@@ -93,10 +93,10 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.Mg();
+        return a.Ny();
     }
 
-    private boolean a(CharSequence charSequence, int i) {
+    private boolean b(CharSequence charSequence, int i) {
         return charSequence == null || i < 0 || i >= charSequence.length() || charSequence.charAt(i) != ' ';
     }
 
@@ -106,7 +106,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.aYj) {
+        for (Object obj : aVar.bbC) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -116,7 +116,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.aYi) {
+        for (Object obj2 : aVar.bbB) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -133,29 +133,29 @@ public class TbListTextView extends TextView {
         }
     }
 
-    private void K(int i, int i2) {
+    private void M(int i, int i2) {
         a(getText().toString(), i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean aYh;
-        public final List<Object> aYi;
-        public final List<Object> aYj;
+        public final boolean bbA;
+        public final List<Object> bbB;
+        public final List<Object> bbC;
 
         public static a d(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a Mg() {
+        public static a Ny() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.aYh = z;
-            this.aYi = list;
-            this.aYj = list2;
+            this.bbA = z;
+            this.bbB = list;
+            this.bbC = list2;
         }
     }
 }

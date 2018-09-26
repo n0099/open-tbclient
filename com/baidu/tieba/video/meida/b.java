@@ -8,7 +8,6 @@ import android.media.MediaFormat;
 import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.video.meida.c;
 import com.baidu.tieba.video.meida.g;
 import java.io.FileOutputStream;
@@ -39,7 +38,7 @@ public class b extends c {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str2 = this.hhr;
+        String str2 = this.hph;
         MediaExtractor mediaExtractor = new MediaExtractor();
         mediaExtractor.setDataSource(str2);
         int i3 = 0;
@@ -63,11 +62,11 @@ public class b extends c {
         }
         BdLog.e("mediaFormat " + mediaFormat);
         c.b bVar = new c.b();
-        bVar.hhu = aVar2.channelCount;
-        bVar.sampleRate = aVar2.hhx;
-        bVar.hhv = aVar2.hhv;
-        bVar.hht = str;
-        FileOutputStream fileOutputStream = new FileOutputStream(bVar.hht);
+        bVar.hpk = aVar2.channelCount;
+        bVar.sampleRate = aVar2.hpn;
+        bVar.hpl = aVar2.hpl;
+        bVar.hpj = str;
+        FileOutputStream fileOutputStream = new FileOutputStream(bVar.hpj);
         MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString(IMediaFormat.KEY_MIME));
         createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
         createDecoderByType.start();
@@ -81,14 +80,14 @@ public class b extends c {
         while (!z4) {
             if (!z5) {
                 try {
-                    int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(TbConfig.NOTIFY_SOUND_INTERVAL);
+                    int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
                     if (dequeueInputBuffer >= 0) {
                         int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
                         if (readSampleData < 0) {
                             BdLog.i("saw input EOS.");
                             createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
                             z2 = true;
-                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, TbConfig.NOTIFY_SOUND_INTERVAL);
+                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
                             if (dequeueOutputBuffer < 0) {
                                 if ((bufferInfo.flags & 2) != 0) {
                                     BdLog.i("audio encoder: codec config buffer");
@@ -105,11 +104,11 @@ public class b extends c {
                                         byte[] bArr2 = null;
                                         byte[] bArr3 = null;
                                         if (!z) {
-                                            if (aVar2.bCd()) {
-                                                bArr2 = g.c(aVar2.hhv / 8, aVar.hhv / 8, bArr);
+                                            if (aVar2.bES()) {
+                                                bArr2 = g.c(aVar2.hpl / 8, aVar.hpl / 8, bArr);
                                             }
-                                            if (aVar2.bCc()) {
-                                                bArr3 = g.a(aVar2.channelCount, aVar.channelCount, aVar.hhv / 8, bArr2 == null ? bArr : bArr2);
+                                            if (aVar2.bER()) {
+                                                bArr3 = g.a(aVar2.channelCount, aVar.channelCount, aVar.hpl / 8, bArr2 == null ? bArr : bArr2);
                                             }
                                         }
                                         if (bArr3 != null) {
@@ -118,10 +117,10 @@ public class b extends c {
                                             bArr2 = bArr;
                                         }
                                         fileOutputStream.write(bArr2);
-                                        if (this.hhs != null) {
-                                            this.hhs.a(bArr, bufferInfo.presentationTimeUs / d);
+                                        if (this.hpi != null) {
+                                            this.hpi.a(bArr, bufferInfo.presentationTimeUs / d);
                                         }
-                                        BdLog.i(this.hhr + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        BdLog.i(this.hph + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
                                     } else {
                                         i2 = i4;
                                     }
@@ -164,7 +163,7 @@ public class b extends c {
                 }
             }
             z2 = z5;
-            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, TbConfig.NOTIFY_SOUND_INTERVAL);
+            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
             if (dequeueOutputBuffer < 0) {
             }
             i4 = i;
@@ -172,8 +171,8 @@ public class b extends c {
             outputBuffers = byteBufferArr;
         }
         bVar.size = i4;
-        if (this.hhs != null) {
-            this.hhs.a(null, 1.0d);
+        if (this.hpi != null) {
+            this.hpi.a(null, 1.0d);
         }
         BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - currentTimeMillis) + " milliseconds !");
         return bVar;

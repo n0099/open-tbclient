@@ -17,8 +17,8 @@ public class d {
             @Override // com.baidu.adp.framework.a.f
             /* renamed from: d */
             public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.websocketBase.c.Gx().ez(socketMessage.getCmd())) {
-                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.websocketBase.c.Gx().Gy());
+                if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !com.baidu.tbadk.coreExtra.websocketBase.c.HN().eL(socketMessage.getCmd())) {
+                    ((NetMessage) socketMessage.getExtra()).setSocketErrNo(com.baidu.tbadk.coreExtra.websocketBase.c.HN().HO());
                     return null;
                 }
                 return socketMessage;
@@ -32,7 +32,7 @@ public class d {
             /* renamed from: d */
             public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage != null) {
-                    com.baidu.tbadk.coreExtra.websocketBase.c.Gx().eB(socketResponsedMessage.getCmd());
+                    com.baidu.tbadk.coreExtra.websocketBase.c.HN().eN(socketResponsedMessage.getCmd());
                 }
                 return socketResponsedMessage;
             }
@@ -42,7 +42,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                    com.baidu.tbadk.coreExtra.websocketBase.c.Gx().eA(((Integer) customResponsedMessage.getData()).intValue());
+                    com.baidu.tbadk.coreExtra.websocketBase.c.HN().eM(((Integer) customResponsedMessage.getData()).intValue());
                 }
             }
         };

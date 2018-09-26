@@ -6,12 +6,12 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private BdUniqueId eHI;
-    private a eHJ;
-    private com.baidu.adp.framework.listener.c eHK;
+    private BdUniqueId eOY;
+    private a eOZ;
+    private com.baidu.adp.framework.listener.c ePa;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,9 +26,9 @@ public class ReplyMeModel extends BdBaseModel {
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eHI = BdUniqueId.gen();
+        this.eOY = BdUniqueId.gen();
         this.mPageContext = tbPageContext;
-        aPg();
+        aRv();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -36,18 +36,18 @@ public class ReplyMeModel extends BdBaseModel {
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTid(com.baidu.adp.lib.g.b.c(str2, 0L));
+        checkPostRequestMessage.setTid(com.baidu.adp.lib.g.b.d(str2, 0L));
         checkPostRequestMessage.setTag(this.mPageContext.getUniqueId());
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aPg() {
-        this.eHK = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
+    public void aRv() {
+        this.ePa = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-                    ReplyMeModel.this.mPageContext.showToast(f.j.neterror);
+                    ReplyMeModel.this.mPageContext.showToast(e.j.neterror);
                     return;
                 }
                 CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
@@ -56,7 +56,7 @@ public class ReplyMeModel extends BdBaseModel {
                         ReplyMeModel.this.mPageContext.showToast(checkPostResponseMessage.getErrorString());
                         return;
                     } else {
-                        ReplyMeModel.this.mPageContext.showToast(f.j.neterror);
+                        ReplyMeModel.this.mPageContext.showToast(e.j.neterror);
                         return;
                     }
                 }
@@ -66,19 +66,19 @@ public class ReplyMeModel extends BdBaseModel {
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
                 if (postState == 1) {
-                    if (ReplyMeModel.this.eHJ != null) {
-                        ReplyMeModel.this.eHJ.a(forumId, quoteId, repostId, forumName);
+                    if (ReplyMeModel.this.eOZ != null) {
+                        ReplyMeModel.this.eOZ.a(forumId, quoteId, repostId, forumName);
                     }
                 } else if (postState == 0) {
-                    ReplyMeModel.this.mPageContext.showToast(f.j.thread_delete_tip);
+                    ReplyMeModel.this.mPageContext.showToast(e.j.thread_delete_tip);
                 } else if (postState == -1) {
-                    ReplyMeModel.this.mPageContext.showToast(f.j.thread_shield_tip);
+                    ReplyMeModel.this.mPageContext.showToast(e.j.thread_shield_tip);
                 }
             }
         };
-        this.eHK.setTag(this.mPageContext.getUniqueId());
-        this.eHK.setSelfListener(true);
-        this.mPageContext.registerListener(this.eHK);
+        this.ePa.setTag(this.mPageContext.getUniqueId());
+        this.ePa.setSelfListener(true);
+        this.mPageContext.registerListener(this.ePa);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -92,12 +92,12 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.eHJ = aVar;
+        this.eOZ = aVar;
     }
 
     public void onDestroy() {
-        if (this.eHK != null) {
-            MessageManager.getInstance().unRegisterListener(this.eHK);
+        if (this.ePa != null) {
+            MessageManager.getInstance().unRegisterListener(this.ePa);
         }
     }
 }

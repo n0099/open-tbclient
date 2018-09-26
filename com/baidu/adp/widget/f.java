@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public interface f {
-    void aI(int i);
+    void aS(int i);
 
     boolean dispatchTouchEvent(MotionEvent motionEvent);
 

@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HomeWatcher {
     static final String a = "HomeWatcher";
     private final Context b;
@@ -12,7 +12,7 @@ public class HomeWatcher {
     private OnHomePressedListener d;
     private InnerRecevier e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnHomePressedListener {
         void onHomeLongPressed();
 
@@ -40,7 +40,7 @@ public class HomeWatcher {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     class InnerRecevier extends BroadcastReceiver {
         final String a = "reason";
         final String b = "globalactions";

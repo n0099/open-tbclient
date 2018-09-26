@@ -1,136 +1,147 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.f;
-/* loaded from: classes.dex */
+import android.widget.ImageView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.e;
+import com.baidu.tieba.tbadkCore.data.PostData;
+/* loaded from: classes2.dex */
 public class a {
-    private TextView alt;
-    private AlertDialog atr;
-    private String ats;
-    private DialogInterface.OnCancelListener att;
-    private boolean atu;
-    private Activity mActivity;
-    private TbPageContext<?> mContext;
-
-    public a(TbPageContext<?> tbPageContext) {
-        this.mContext = null;
-        this.mActivity = null;
-        this.ats = null;
-        this.alt = null;
-        this.atu = true;
-        this.mContext = tbPageContext;
-        if (this.mContext != null && this.mContext.getPageActivity() != null) {
-            this.mActivity = this.mContext.getPageActivity();
+    protected PostPraiseView avU;
+    protected PostDisPraiseView avV;
+    protected ImageView avW;
+    private PostData avX;
+    private boolean avY;
+    private final View.OnClickListener avZ = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            a.this.Bp();
         }
-    }
-
-    public a(Activity activity) {
-        this.mContext = null;
-        this.mActivity = null;
-        this.ats = null;
-        this.alt = null;
-        this.atu = true;
-        this.mActivity = activity;
-    }
-
-    private a b(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.mActivity != null) {
-            this.atr = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.a(this.atr, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(f.h.custom_loading_toast, (ViewGroup) null);
-            this.alt = (TextView) inflate.findViewById(f.g.custom_loading_text);
-            if (!StringUtils.isNull(this.ats) && this.alt != null) {
-                this.alt.setText(this.ats);
-            }
-            if (this.atr != null && this.atr.getWindow() != null) {
-                this.atr.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.atr.setCancelable(true);
-                    this.atr.setCanceledOnTouchOutside(true);
-                    this.atr.setOnCancelListener(onCancelListener);
-                } else {
-                    this.atr.setCanceledOnTouchOutside(false);
-                    this.atr.setCancelable(false);
-                }
+    };
+    private CustomMessageListener awa = new CustomMessageListener(2016552) { // from class: com.baidu.tbadk.core.view.a.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            PostData postData;
+            if ((customResponsedMessage.getData() instanceof PostData) && a.this.avX != null && !TextUtils.isEmpty(a.this.avX.getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && a.this.avX.getId().equals(postData.getId())) {
+                a.this.avX.t(postData.xy());
+                a.this.avX.u(postData.xz());
+                a.this.avX.mR(postData.ayA());
+                a.this.avX.cm(postData.xB());
+                a.this.Bp();
             }
         }
-        return this;
-    }
-
-    private a c(DialogInterface.OnCancelListener onCancelListener) {
-        if (this.mActivity != null) {
-            this.atr = new AlertDialog.Builder(this.mActivity).create();
-            com.baidu.adp.lib.g.g.a(this.atr, this.mActivity);
-            View inflate = LayoutInflater.from(this.mActivity).inflate(f.h.custom_loading_toast, (ViewGroup) null);
-            this.alt = (TextView) inflate.findViewById(f.g.custom_loading_text);
-            if (!StringUtils.isNull(this.ats) && this.alt != null) {
-                this.alt.setText(this.ats);
-            }
-            if (this.atr != null && this.atr.getWindow() != null) {
-                this.atr.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.atr.setOnCancelListener(onCancelListener);
-                }
+    };
+    private CustomMessageListener awb = new CustomMessageListener(2156670) { // from class: com.baidu.tbadk.core.view.a.3
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && ((String) customResponsedMessage.getData()).equals("zan_or_cai_smallflow")) {
+                a.this.Bn();
+                a.this.Bp();
             }
         }
-        return this;
+    };
+
+    public a(PostPraiseView postPraiseView, PostDisPraiseView postDisPraiseView, ImageView imageView) {
+        this.avU = postPraiseView;
+        this.avV = postDisPraiseView;
+        this.avW = imageView;
+        setFrom(5);
     }
 
-    public void aN(boolean z) {
-        if (z) {
-            if (this.atu) {
-                b(this.att);
-                return;
-            } else {
-                c(this.att);
+    public void aX(boolean z) {
+        this.avY = z;
+    }
+
+    public void Bn() {
+        if (com.baidu.tbadk.util.a.Mu().CM()) {
+            if (this.avU != null) {
+                this.avU.awr = e.j.action_like;
+                this.avU.awu = e.f.selector_comment_and_prise_item_text_color;
+                this.avU.awv = e.d.cp_cont_h;
+                this.avU.aws = e.f.icon_card_like_n;
+                this.avU.awt = e.f.icon_card_like_s;
+                this.avU.setAfterClickListener(this.avZ);
+                this.avU.setVisibility(0);
+            }
+            if (this.avV != null) {
+                this.avV.awr = e.j.action_dislike;
+                this.avV.awu = e.d.cp_cont_j;
+                this.avV.awv = e.d.cp_link_tip_a;
+                this.avV.aws = e.f.icon_card_dislike_n;
+                this.avV.awt = e.f.icon_card_dislike_s;
+                this.avV.setAfterClickListener(this.avZ);
+                this.avV.setVisibility(0);
+            }
+            if (this.avW != null) {
+                this.avW.setVisibility(8);
                 return;
             }
+            return;
         }
-        com.baidu.adp.lib.g.g.b(this.atr, this.mActivity);
-    }
-
-    public void df(int i) {
-        if (this.mActivity != null) {
-            this.ats = this.mActivity.getString(i);
+        if (this.avU != null) {
+            this.avU.awr = e.j.action_praise_default;
+            this.avU.awu = e.f.selector_comment_and_prise_item_text_color;
+            this.avU.awv = e.d.cp_cont_h;
+            this.avU.aws = Bo() ? e.f.icon_home_card_like_n_xmas : e.f.icon_home_card_like_n;
+            this.avU.awt = Bo() ? e.f.icon_home_card_like_s_xmas : e.f.icon_home_card_like_s;
+            this.avU.setVisibility(this.avY ? 8 : 0);
+            this.avU.setAfterClickListener(this.avZ);
         }
-    }
-
-    public void fk(String str) {
-        this.ats = str;
-        if (this.alt != null) {
-            this.alt.setText(str);
+        if (this.avV != null) {
+            this.avV.setAfterClickListener(this.avZ);
+            this.avV.setVisibility(8);
         }
-    }
-
-    public void d(DialogInterface.OnCancelListener onCancelListener) {
-        this.att = onCancelListener;
-    }
-
-    public boolean isShowing() {
-        return this.atr != null && this.atr.isShowing();
-    }
-
-    public void aO(boolean z) {
-        this.atu = z;
-    }
-
-    public void setCancelable(boolean z) {
-        if (this.atr != null) {
-            this.atr.setCancelable(z);
+        if (this.avW != null) {
+            this.avW.setVisibility(this.avY ? 8 : 0);
         }
     }
 
-    public void setCanceledOnTouchOutside(boolean z) {
-        if (this.atr != null) {
-            this.atr.setCanceledOnTouchOutside(z);
+    private boolean Bo() {
+        com.baidu.tbadk.coreExtra.data.c activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
+        return activitySwitch != null && activitySwitch.CX();
+    }
+
+    public void setFrom(int i) {
+        if (this.avU != null) {
+            this.avU.setFrom(i);
         }
+        if (this.avV != null) {
+            this.avV.setFrom(i);
+        }
+    }
+
+    public void a(PostData postData) {
+        if (this.avX == null) {
+            this.avX = postData;
+        }
+        if (this.avU != null) {
+            this.avU.a(postData);
+        }
+        if (this.avV != null) {
+            this.avV.a(postData);
+        }
+    }
+
+    public void Bp() {
+        if (this.avU != null) {
+            this.avU.Bp();
+        }
+        if (this.avV != null) {
+            this.avV.Bp();
+        }
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        this.awb.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.awb);
+        this.awa.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.awa);
     }
 }

@@ -5,48 +5,48 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.view.ThreadLinkView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class e extends d {
-    private ThreadLinkView czA;
+    private ThreadLinkView cFs;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void ah(View view) {
+    protected void av(View view) {
         if (view != null) {
-            this.czA = (ThreadLinkView) view.findViewById(f.g.card_recommend_god_link_therad);
-            this.czA.setTag(getTag());
+            this.cFs = (ThreadLinkView) view.findViewById(e.g.card_recommend_god_link_therad);
+            this.cFs.setTag(getTag());
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return f.h.card_recgod_link;
+        return e.h.card_recgod_link;
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void af(bb bbVar) {
+    protected void ag(bb bbVar) {
         if (bbVar != null && !StringUtils.isNull(bbVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.dTZ);
+                getView().setOnClickListener(this.ebs);
             }
-            this.czA.setData(bbVar);
+            this.cFs.setData(bbVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void aiH() {
-        super.aiH();
-        this.czA.fq(this.buy.getId());
+    public void akr() {
+        super.akr();
+        this.cFs.fL(this.bAn.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        this.czA.onChangeSkinType();
+        this.cFs.onChangeSkinType();
     }
 }

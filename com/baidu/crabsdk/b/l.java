@@ -11,7 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public final class l {
-    private static ActivityManager SR;
+    private static ActivityManager Vu;
     private static Context mContext;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x007a */
@@ -62,7 +62,7 @@ public final class l {
                             e = e2;
                             fileReader2 = fileReader;
                             try {
-                                com.baidu.crabsdk.c.a.b("getSysMemInfo fail.", e);
+                                com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
@@ -94,7 +94,7 @@ public final class l {
                         } catch (IOException e5) {
                             e = e5;
                             bufferedReader2 = bufferedReader;
-                            com.baidu.crabsdk.c.a.b("getSysMemInfo fail.", e);
+                            com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -109,7 +109,7 @@ public final class l {
                         } catch (Exception e7) {
                             e = e7;
                             bufferedReader2 = bufferedReader;
-                            com.baidu.crabsdk.c.a.b("getSysMemInfo fail.", e);
+                            com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -162,18 +162,18 @@ public final class l {
     public static String B() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (SR == null) {
+        if (Vu == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            SR.getMemoryInfo(memoryInfo2);
-            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.p(memoryInfo2.threshold)).append("\n");
-            if (com.baidu.crabsdk.c.c.pg() >= 5 && (memoryInfo = SR.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.p(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
+            Vu.getMemoryInfo(memoryInfo2);
+            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.i(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.i(memoryInfo2.threshold)).append("\n");
+            if (com.baidu.crabsdk.c.c.qm() >= 5 && (memoryInfo = Vu.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.b("getMemInfo error!!!", e);
+            com.baidu.crabsdk.c.a.f("getMemInfo error!!!", e);
         }
         return sb.toString();
     }
@@ -181,7 +181,7 @@ public final class l {
     public static void d(Context context) {
         if (mContext == null) {
             mContext = context;
-            SR = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            Vu = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 }

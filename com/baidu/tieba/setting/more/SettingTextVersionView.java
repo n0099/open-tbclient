@@ -4,13 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static String gBp = "has_shown_funtion_intro";
+    public static String gIF = "has_shown_funtion_intro";
 
     public SettingTextVersionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -24,12 +24,12 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             z = false;
         }
         if (z) {
-            am.i(this.aIs, f.C0146f.icon_news_head_new);
-            this.aIs.setText((CharSequence) null);
+            al.i(this.aLI, e.f.icon_news_head_new);
+            this.aLI.setText((CharSequence) null);
             return;
         }
-        this.aIs.setText(TbConfig.getVersion());
-        this.aIs.setBackgroundDrawable(null);
-        this.aIs.setTextAppearance(this.mContext, z2 ? f.k.setting_version_text_1 : f.k.setting_version_text);
+        this.aLI.setText(TbConfig.getVersion());
+        this.aLI.setBackgroundDrawable(null);
+        this.aLI.setTextAppearance(this.mContext, z2 ? e.k.setting_version_text_1 : e.k.setting_version_text);
     }
 }

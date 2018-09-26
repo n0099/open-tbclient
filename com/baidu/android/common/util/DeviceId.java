@@ -26,7 +26,7 @@ import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.security.SHA1Util;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.fsg.biometrics.base.b.c;
+import com.baidu.fsg.face.base.b.c;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -703,7 +703,7 @@ public final class DeviceId {
     }
 
     private static String imeiCheck(String str) {
-        return (str == null || !str.contains(SystemInfoUtil.COLON)) ? str : "";
+        return (str == null || !str.contains(":")) ? str : "";
     }
 
     private void initPublicKey() {

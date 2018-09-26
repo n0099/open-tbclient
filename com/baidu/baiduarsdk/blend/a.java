@@ -11,6 +11,7 @@ import com.baidu.baiduarsdk.gpuimage.a.f;
 import com.baidu.baiduarsdk.gpuimage.a.g;
 import com.baidu.baiduarsdk.gpuimage.a.h;
 import com.baidu.baiduarsdk.gpuimage.a.m;
+import com.baidu.mobstat.Config;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,7 @@ public class a implements d {
     }
 
     private void a(h hVar, int i, int i2) {
-        Log.d(g, "initGPUImageFilters: " + i + "x" + i2);
+        Log.d(g, "initGPUImageFilters: " + i + Config.EVENT_HEAT_X + i2);
         hVar.c();
         if (i <= 0 || i2 <= 0) {
             return;

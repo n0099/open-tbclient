@@ -9,88 +9,88 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class MarkModel extends BdBaseModel {
-    private boolean fkw;
-    private MarkData fkx;
-    private a fky;
-    private a.InterfaceC0097a fkz;
+    private boolean frT;
+    private MarkData frU;
+    private a frV;
+    private a.InterfaceC0096a frW;
 
-    public void a(a.InterfaceC0097a interfaceC0097a) {
-        this.fkz = interfaceC0097a;
+    public void a(a.InterfaceC0096a interfaceC0096a) {
+        this.frW = interfaceC0096a;
     }
 
     public MarkModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.fkw = false;
-        this.fkx = null;
-        this.fky = null;
-        this.fkz = null;
-        this.fkx = new MarkData();
+        this.frT = false;
+        this.frU = null;
+        this.frV = null;
+        this.frW = null;
+        this.frU = new MarkData();
     }
 
     public MarkModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.fkw = false;
-        this.fkx = null;
-        this.fky = null;
-        this.fkz = null;
-        this.fkx = new MarkData();
+        this.frT = false;
+        this.frU = null;
+        this.frV = null;
+        this.frW = null;
+        this.frU = new MarkData();
     }
 
-    public boolean rL() {
-        return this.fkw;
+    public boolean sR() {
+        return this.frT;
     }
 
-    public MarkData rO() {
-        return this.fkx;
+    public MarkData sU() {
+        return this.frU;
     }
 
     public void a(MarkData markData) {
-        this.fkx = markData;
+        this.frU = markData;
     }
 
-    public void ae(boolean z) {
-        this.fkw = z;
+    public void an(boolean z) {
+        this.frT = z;
     }
 
-    public String rK() {
-        if (this.fkx != null) {
-            return this.fkx.getPostId();
+    public String sQ() {
+        if (this.frU != null) {
+            return this.frU.getPostId();
         }
         return null;
     }
 
-    public void rN() {
-        if (this.fky != null) {
-            this.fky.cancel();
+    public void sT() {
+        if (this.frV != null) {
+            this.frV.cancel();
         }
-        this.fky = new a(true);
-        this.fky.setPriority(3);
-        this.fky.execute(new Boolean[0]);
+        this.frV = new a(true);
+        this.frV.setPriority(3);
+        this.frV.execute(new Boolean[0]);
     }
 
-    public void rM() {
-        if (this.fky != null) {
-            this.fky.cancel();
+    public void sS() {
+        if (this.frV != null) {
+            this.frV.cancel();
         }
-        this.fky = new a(false);
-        this.fky.setPriority(3);
-        this.fky.execute(new Boolean[0]);
+        this.frV = new a(false);
+        this.frV.setPriority(3);
+        this.frV.execute(new Boolean[0]);
     }
 
     /* loaded from: classes3.dex */
     private class a extends BdAsyncTask<Boolean, Integer, Boolean> {
-        private boolean cGP;
-        private c fks;
-        private y mNetWork = null;
+        private boolean cMG;
+        private c frP;
+        private x mNetWork = null;
 
         public a(boolean z) {
-            this.cGP = true;
-            this.fks = null;
-            this.cGP = z;
-            this.fks = new c();
+            this.cMG = true;
+            this.frP = null;
+            this.cMG = z;
+            this.frP = new c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -103,20 +103,20 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public Boolean doInBackground(Boolean... boolArr) {
-            if (this.cGP) {
-                this.mNetWork = new y(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
+            if (this.cMG) {
+                this.mNetWork = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
                 com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.f(MarkModel.this.fkx);
-                this.mNetWork.o("data", aVar.bl(0, 1));
+                aVar.f(MarkModel.this.frU);
+                this.mNetWork.u("data", aVar.bp(0, 1));
             } else {
-                this.mNetWork = new y(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.mNetWork.o("user_id", MarkModel.this.fkx.getAccount());
-                this.mNetWork.o("tid", MarkModel.this.fkx.getId());
-                this.mNetWork.o(ImageViewerConfig.FORUM_ID, MarkModel.this.fkx.getForumId());
+                this.mNetWork = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.mNetWork.u("user_id", MarkModel.this.frU.getAccount());
+                this.mNetWork.u("tid", MarkModel.this.frU.getId());
+                this.mNetWork.u(ImageViewerConfig.FORUM_ID, MarkModel.this.frU.getForumId());
             }
-            this.fks.parserJson(this.mNetWork.yo());
-            boolean z = this.fks.getErrorCode() == 0;
-            if (this.mNetWork.yM().zL().isRequestSuccess() && z) {
+            this.frP.parserJson(this.mNetWork.zt());
+            boolean z = this.frP.getErrorCode() == 0;
+            if (this.mNetWork.zR().AQ().isRequestSuccess() && z) {
                 return true;
             }
             return false;
@@ -126,9 +126,9 @@ public class MarkModel extends BdBaseModel {
         public void cancel() {
             super.cancel(true);
             if (this.mNetWork != null) {
-                this.mNetWork.hN();
+                this.mNetWork.iT();
             }
-            MarkModel.this.fky = null;
+            MarkModel.this.frV = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -136,21 +136,21 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             try {
-                if (this.fks != null) {
-                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.fks.getErrorCode(), this.fks.getErrorString(), new Object[0]);
+                if (this.frP != null) {
+                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.frP.getErrorCode(), this.frP.getErrorString(), new Object[0]);
                 }
                 if (bool.booleanValue()) {
-                    if (MarkModel.this.fkz != null) {
-                        MarkModel.this.fkz.a(true, this.cGP, null);
+                    if (MarkModel.this.frW != null) {
+                        MarkModel.this.frW.a(true, this.cMG, null);
                     }
-                } else if (MarkModel.this.fkz != null) {
-                    if (this.mNetWork == null || this.mNetWork.yM().zL().isRequestSuccess()) {
-                        MarkModel.this.fkz.a(false, this.cGP, this.fks.getErrorString());
+                } else if (MarkModel.this.frW != null) {
+                    if (this.mNetWork == null || this.mNetWork.zR().AQ().isRequestSuccess()) {
+                        MarkModel.this.frW.a(false, this.cMG, this.frP.getErrorString());
                     } else {
-                        MarkModel.this.fkz.a(false, this.cGP, this.mNetWork.getErrorString());
+                        MarkModel.this.frW.a(false, this.cMG, this.mNetWork.getErrorString());
                     }
                 }
-                MarkModel.this.fky = null;
+                MarkModel.this.frV = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -164,8 +164,8 @@ public class MarkModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.fky != null) {
-            this.fky.cancel();
+        if (this.frV != null) {
+            this.frV.cancel();
             return false;
         }
         return false;

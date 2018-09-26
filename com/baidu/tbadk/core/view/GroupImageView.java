@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class GroupImageView extends TbClipImageView {
     private int mDefaultBgId;
@@ -19,8 +19,8 @@ public class GroupImageView extends TbClipImageView {
 
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mDefaultId = f.C0146f.transparent_bg;
-        this.mDefaultBgId = f.d.cp_bg_line_e;
+        this.mDefaultId = e.f.transparent_bg;
+        this.mDefaultBgId = e.d.cp_bg_line_e;
         init();
     }
 
@@ -29,7 +29,7 @@ public class GroupImageView extends TbClipImageView {
         setGifIconSupport(false);
         setDrawBorder(true);
         setDefaultResource(this.mDefaultId);
-        setDefaultErrorResource(f.C0146f.icon_default_group_120);
+        setDefaultErrorResource(e.f.icon_default_group_120);
         setDefaultBgResource(this.mDefaultBgId);
     }
 }

@@ -18,9 +18,9 @@ public class ApplistRequest extends HttpMessage {
     public ApplistRequest() {
         super(CmdConfigHttp.REPORT_APPLIST);
         addParam("applist", listToString());
-        addParam("screen_w", String.valueOf(l.ah(TbadkCoreApplication.getInst().getContext())));
-        addParam("screen_h", String.valueOf(l.aj(TbadkCoreApplication.getInst().getContext())));
-        addParam("mnc", String.valueOf(j.jN()));
+        addParam("screen_w", String.valueOf(l.aO(TbadkCoreApplication.getInst().getContext())));
+        addParam("screen_h", String.valueOf(l.aQ(TbadkCoreApplication.getInst().getContext())));
+        addParam("mnc", String.valueOf(j.kT()));
         addParam("uid", TbadkCoreApplication.getCurrentAccount());
         addParam("_os_version", Build.VERSION.RELEASE);
         addParam("brand", Build.BRAND);
@@ -28,13 +28,13 @@ public class ApplistRequest extends HttpMessage {
     }
 
     private String listToString() {
-        JSONObject aiy;
+        JSONObject jsonObject;
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
             for (a aVar : getAppInfos()) {
-                if (aVar != null && (aiy = aVar.aiy()) != null) {
-                    jSONArray.put(aiy);
+                if (aVar != null && (jsonObject = aVar.toJsonObject()) != null) {
+                    jSONArray.put(jsonObject);
                 }
             }
             jSONObject.put("applist", jSONArray);
@@ -52,13 +52,13 @@ public class ApplistRequest extends HttpMessage {
             aVar.setIcon(applicationInfo.loadIcon(packageManager));
             aVar.setName(applicationInfo.loadLabel(packageManager).toString());
             String str = applicationInfo.packageName;
-            aVar.kW(str);
+            aVar.ly(str);
             try {
                 aVar.setVersion(packageManager.getPackageInfo(str, 0).versionName);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-            aVar.ep(filterApp(applicationInfo));
+            aVar.eG(filterApp(applicationInfo));
             arrayList.add(aVar);
         }
         return arrayList;

@@ -19,9 +19,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.KV() != null) {
+        if (a.Ml() != null) {
             try {
-                return a.KV().query(uri, strArr, str, strArr2, str2);
+                return a.Ml().query(uri, strArr, str, strArr2, str2);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -32,9 +32,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         setPlugin();
-        if (a.KV() != null) {
+        if (a.Ml() != null) {
             try {
-                return a.KV().getType(uri);
+                return a.Ml().getType(uri);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -45,9 +45,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         setPlugin();
-        if (a.KV() != null) {
+        if (a.Ml() != null) {
             try {
-                return a.KV().insert(uri, contentValues);
+                return a.Ml().insert(uri, contentValues);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -58,9 +58,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         setPlugin();
-        if (a.KV() != null) {
+        if (a.Ml() != null) {
             try {
-                return a.KV().delete(uri, str, strArr);
+                return a.Ml().delete(uri, str, strArr);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -71,9 +71,9 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.KV() != null) {
+        if (a.Ml() != null) {
             try {
-                return a.KV().update(uri, contentValues, str, strArr);
+                return a.Ml().update(uri, contentValues, str, strArr);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -84,8 +84,8 @@ public class GameCenterDownloadProvider extends ContentProvider {
     private void setPlugin() {
         if (!this.isPluginSetted) {
             MessageManager.getInstance().runTask(new CustomMessage<>(2016518, this), (Class) null);
-            if (a.KV() != null) {
-                a.KV().onCreate();
+            if (a.Ml() != null) {
+                a.Ml().onCreate();
                 this.isPluginSetted = true;
             }
         }

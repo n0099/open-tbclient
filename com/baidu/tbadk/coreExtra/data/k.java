@@ -1,21 +1,40 @@
 package com.baidu.tbadk.coreExtra.data;
-
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private String AX;
+    private j aEW;
+    private int mErrorCode;
+    private String mErrorString;
+    private boolean yA;
 
-    public String getClientId() {
-        return this.AX;
+    public j Dr() {
+        return this.aEW;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.AX = jSONObject.optString("client_id");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public void b(j jVar) {
+        this.aEW = jVar;
+    }
+
+    public boolean isSuccess() {
+        return this.yA;
+    }
+
+    public void aN(boolean z) {
+        this.yA = z;
+    }
+
+    public int getErrorCode() {
+        return this.mErrorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.mErrorCode = i;
+    }
+
+    public String getErrorString() {
+        return this.mErrorString;
+    }
+
+    public void setErrorString(String str) {
+        this.mErrorString = str;
     }
 }

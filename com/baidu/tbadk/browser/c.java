@@ -18,32 +18,32 @@ public class c extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String sm() {
+    public String tt() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(value = "showToast", xM = false)
+    @o(value = "showToast", yT = false)
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.a(getContext(), jSONObject.optString("message")).xm();
+            BdToast.a(getContext(), jSONObject.optString("message")).yt();
         }
     }
 
-    @o(value = "showNetStatus", xM = false)
+    @o(value = "showNetStatus", yT = false)
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (j.jF()) {
+        if (j.kL()) {
             i = 1;
             str = "WIFI";
-        } else if (j.jJ()) {
+        } else if (j.kP()) {
             i = 3;
             str = "2G";
-        } else if (j.jI()) {
+        } else if (j.kO()) {
             i = 4;
             str = "3G";
-        } else if (j.jH()) {
+        } else if (j.kN()) {
             i = 5;
             str = "4G";
         }
@@ -55,13 +55,13 @@ public class c extends n {
         return jSONObject;
     }
 
-    @o(value = "showDeviceInfo", xM = false)
+    @o(value = "showDeviceInfo", yT = false)
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(com.baidu.adp.lib.util.l.ah(getContext())) + "," + String.valueOf(com.baidu.adp.lib.util.l.aj(getContext()));
+        String str3 = String.valueOf(com.baidu.adp.lib.util.l.aO(getContext())) + "," + String.valueOf(com.baidu.adp.lib.util.l.aQ(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", HttpConstants.OS_TYPE_VALUE);

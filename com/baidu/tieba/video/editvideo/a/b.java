@@ -7,21 +7,21 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a hdB;
+    private com.baidu.tieba.video.editvideo.data.a hlt;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.hdB = this.mList.get(0);
+                this.hlt = this.mList.get(0);
             }
         }
     }
@@ -49,16 +49,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
         a aVar;
         if (view == null) {
             aVar = new a();
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(f.h.list_item_filter, (ViewGroup) null);
-            aVar.hdC = (TbImageView) view.findViewById(f.g.iv_effect);
-            aVar.hdC.setIsRound(true);
-            aVar.hdC.setDrawerType(1);
-            aVar.hdC.setDefaultBgResource(f.d.transparent);
-            aVar.hdC.setBorderWidth(l.f(viewGroup.getContext(), f.e.ds4));
-            aVar.hdC.setBorderColor(am.getColor(f.d.cp_link_tip_a));
-            aVar.fzT = (TextView) view.findViewById(f.g.tv_name);
-            am.h(aVar.fzT, f.d.cp_cont_j);
-            aVar.fzT = (TextView) view.findViewById(f.g.tv_name);
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(e.h.list_item_filter, (ViewGroup) null);
+            aVar.hlu = (TbImageView) view.findViewById(e.g.iv_effect);
+            aVar.hlu.setIsRound(true);
+            aVar.hlu.setDrawerType(1);
+            aVar.hlu.setDefaultBgResource(e.d.transparent);
+            aVar.hlu.setBorderWidth(l.h(viewGroup.getContext(), e.C0141e.ds4));
+            aVar.hlu.setBorderColor(al.getColor(e.d.cp_link_tip_a));
+            aVar.fHC = (TextView) view.findViewById(e.g.tv_name);
+            al.h(aVar.fHC, e.d.cp_cont_j);
+            aVar.fHC = (TextView) view.findViewById(e.g.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -66,15 +66,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.hdC.setTag(aVar2);
-                aVar.hdC.setOnClickListener(this);
-                aVar.hdC.startLoad(String.valueOf(aVar2.hef), 24, false);
-                aVar.fzT.setText(aVar2.name);
+                aVar.hlu.setTag(aVar2);
+                aVar.hlu.setOnClickListener(this);
+                aVar.hlu.startLoad(String.valueOf(aVar2.hlX), 24, false);
+                aVar.fHC.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.hdB != null && TextUtils.equals(aVar2.name, this.hdB.name)) {
-                aVar.hdC.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.hlt != null && TextUtils.equals(aVar2.name, this.hlt.name)) {
+                aVar.hlu.setDrawBorder(true);
             } else {
-                aVar.hdC.setDrawBorder(false);
+                aVar.hlu.setDrawBorder(false);
             }
         }
         return view;
@@ -82,16 +82,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == f.g.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.hdB = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+        if (view.getId() == e.g.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
+            this.hlt = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes2.dex */
     class a {
-        TextView fzT;
-        TbImageView hdC;
+        TextView fHC;
+        TbImageView hlu;
 
         a() {
         }

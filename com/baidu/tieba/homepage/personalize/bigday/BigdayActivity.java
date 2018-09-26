@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import java.util.Calendar;
 /* loaded from: classes2.dex */
 public class BigdayActivity extends BaseActivity {
-    private String acH;
-    private long acJ;
-    private TbImageView dYR;
-    private ImageView dYS;
+    private String afi;
+    private long afk;
+    private TbImageView egn;
+    private ImageView ego;
     private String imgUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,35 +32,35 @@ public class BigdayActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        setContentView(f.h.bigday_activity);
-        this.dYR = (TbImageView) findViewById(f.g.bigday_img);
-        this.dYR.setAutoChangeStyle(false);
-        this.dYS = (ImageView) findViewById(f.g.bigday_close);
+        setContentView(e.h.bigday_activity);
+        this.egn = (TbImageView) findViewById(e.g.bigday_img);
+        this.egn.setAutoChangeStyle(false);
+        this.ego = (ImageView) findViewById(e.g.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.dYS.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(f.e.ds25));
+            ((FrameLayout.LayoutParams) this.ego.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(e.C0141e.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
             this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-            this.acH = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
-            this.acJ = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
+            this.afi = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
+            this.afk = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.dYR.setTag(getPageContext().getUniqueId());
-        this.dYR.startLoad(this.imgUrl, 41, false);
-        this.dYR.setOnClickListener(this);
-        this.dYS.setOnClickListener(this);
-        TiebaStatic.log(new an("c13111").f(VideoPlayActivityConfig.OBJ_ID, this.acJ).ae("obj_to", this.acH));
+        this.egn.setTag(getPageContext().getUniqueId());
+        this.egn.startLoad(this.imgUrl, 41, false);
+        this.egn.setOnClickListener(this);
+        this.ego.setOnClickListener(this);
+        TiebaStatic.log(new am("c13111").g(VideoPlayActivityConfig.OBJ_ID, this.afk).al("obj_to", this.afi));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.dYR.getId()) {
-            if (!StringUtils.isNULL(this.acH)) {
-                az.zI().c(getPageContext(), new String[]{this.acH});
-                TiebaStatic.log(new an("c13112").f(VideoPlayActivityConfig.OBJ_ID, this.acJ).ae("obj_to", this.acH));
+        if (view.getId() == this.egn.getId()) {
+            if (!StringUtils.isNULL(this.afi)) {
+                ay.AN().c(getPageContext(), new String[]{this.afi});
+                TiebaStatic.log(new am("c13112").g(VideoPlayActivityConfig.OBJ_ID, this.afk).al("obj_to", this.afi));
                 finish();
             }
-        } else if (view.getId() == this.dYS.getId()) {
+        } else if (view.getId() == this.ego.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);

@@ -9,73 +9,73 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class FrsShareCardView extends LinearLayout {
-    private LinearLayout axD;
-    private TextView bwl;
+    private LinearLayout aAJ;
+    private TextView bCa;
     private Context context;
-    private EditText dKn;
-    private HeadImageView dKo;
-    private TextView dKp;
-    private TextView dKq;
-    private ShareFromFrsMsgData dKr;
+    private TextView dRA;
+    private ShareFromFrsMsgData dRB;
+    private EditText dRx;
+    private HeadImageView dRy;
+    private TextView dRz;
 
     public EditText getChatMsgView() {
-        return this.dKn;
+        return this.dRx;
     }
 
-    public void D(String str, boolean z) {
-        if (this.dKo != null) {
-            this.dKo.startLoad(str, 15, false);
+    public void E(String str, boolean z) {
+        if (this.dRy != null) {
+            this.dRy.startLoad(str, 15, false);
         }
     }
 
     public FrsShareCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.context = context;
-        by(context);
+        cf(context);
     }
 
     public FrsShareCardView(Context context) {
         super(context);
         this.context = context;
-        by(context);
+        cf(context);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.dKo.setPageId(bdUniqueId);
+        this.dRy.setPageId(bdUniqueId);
     }
 
-    private void by(Context context) {
-        LayoutInflater.from(context).inflate(f.h.frs_share_card_view, this);
+    private void cf(Context context) {
+        LayoutInflater.from(context).inflate(e.h.frs_share_card_view, this);
         setOrientation(1);
-        this.axD = (LinearLayout) findViewById(f.g.share_content);
-        this.bwl = (TextView) findViewById(f.g.frs_card_name);
-        this.dKn = (EditText) findViewById(f.g.chat_msg);
-        this.dKo = (HeadImageView) findViewById(f.g.frs_card_img);
-        this.dKq = (TextView) findViewById(f.g.frs_card_member_num);
-        this.dKp = (TextView) findViewById(f.g.frs_card_post_num);
-        am.c(this.bwl, f.d.cp_cont_b, 1);
-        am.c(this.dKn, f.d.cp_cont_b, 2);
-        this.dKn.setHintTextColor(am.getColor(f.d.cp_cont_e));
-        this.dKn.setPadding(context.getResources().getDimensionPixelSize(f.e.ds20), 0, 0, 0);
-        aBl();
+        this.aAJ = (LinearLayout) findViewById(e.g.share_content);
+        this.bCa = (TextView) findViewById(e.g.frs_card_name);
+        this.dRx = (EditText) findViewById(e.g.chat_msg);
+        this.dRy = (HeadImageView) findViewById(e.g.frs_card_img);
+        this.dRA = (TextView) findViewById(e.g.frs_card_member_num);
+        this.dRz = (TextView) findViewById(e.g.frs_card_post_num);
+        al.c(this.bCa, e.d.cp_cont_b, 1);
+        al.c(this.dRx, e.d.cp_cont_b, 2);
+        this.dRx.setHintTextColor(al.getColor(e.d.cp_cont_e));
+        this.dRx.setPadding(context.getResources().getDimensionPixelSize(e.C0141e.ds20), 0, 0, 0);
+        aDw();
     }
 
-    public void aBl() {
-        this.axD.setFocusable(true);
-        this.axD.setFocusableInTouchMode(true);
-        this.axD.requestFocus();
+    public void aDw() {
+        this.aAJ.setFocusable(true);
+        this.aAJ.setFocusableInTouchMode(true);
+        this.aAJ.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.dKn != null) {
-            return k.a(this.dKn.getText(), null);
+        if (this.dRx != null) {
+            return k.a(this.dRx.getText(), null);
         }
         return null;
     }
@@ -88,19 +88,19 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.dKr = shareFromFrsMsgData;
-        Ap();
+        this.dRB = shareFromFrsMsgData;
+        Bp();
     }
 
-    private void Ap() {
-        this.bwl.setText(eO(this.dKr.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.dKr.getImageUrl());
-        this.dKo.startLoad(this.dKr.getImageUrl(), 15, false);
-        this.dKq.setText(ap.F(this.dKr.getMemberNum()));
-        this.dKp.setText(ap.F(this.dKr.getPostNum()));
+    private void Bp() {
+        this.bCa.setText(fg(this.dRB.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.dRB.getImageUrl());
+        this.dRy.startLoad(this.dRB.getImageUrl(), 15, false);
+        this.dRA.setText(ao.J(this.dRB.getMemberNum()));
+        this.dRz.setText(ao.J(this.dRB.getPostNum()));
     }
 
-    private String eO(String str) {
-        return ap.j(str, 18) + this.context.getString(f.j.forum);
+    private String fg(String str) {
+        return ao.o(str, 18) + this.context.getString(e.j.forum);
     }
 }

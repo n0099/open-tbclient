@@ -836,8 +836,8 @@ public class NotificationCompat {
         }
 
         protected static CharSequence limitCharSequenceLength(CharSequence charSequence) {
-            if (charSequence != null && charSequence.length() > MAX_CHARSEQUENCE_LENGTH) {
-                return charSequence.subSequence(0, MAX_CHARSEQUENCE_LENGTH);
+            if (charSequence != null && charSequence.length() > 5120) {
+                return charSequence.subSequence(0, 5120);
             }
             return charSequence;
         }

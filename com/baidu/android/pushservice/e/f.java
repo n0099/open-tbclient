@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushSettings;
+import com.baidu.mobstat.Config;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class f extends d {
@@ -67,7 +68,7 @@ public class f extends d {
         }
         hashMap.put("manufacture", Build.MANUFACTURER);
         if (com.baidu.android.pushservice.j.m.f()) {
-            hashMap.put("rom", com.baidu.android.pushservice.j.m.C(this.a));
+            hashMap.put(Config.ROM, com.baidu.android.pushservice.j.m.C(this.a));
         }
         if (com.baidu.android.pushservice.j.m.F(this.a)) {
             hashMap.put("connect_version", "3");

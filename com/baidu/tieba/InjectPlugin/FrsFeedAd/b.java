@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements h, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> bht = new SparseArray<>();
-    private Object bhu;
-    private int bhv;
+    private static SparseArray<BdUniqueId> bnl = new SparseArray<>();
+    private Object bnm;
+    private int bnn;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return bht.get(this.bhv);
+        return bnl.get(this.bnn);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object OG() {
-        return this.bhu;
+    public Object QA() {
+        return this.bnm;
     }
 
-    public void I(Object obj) {
-        this.bhu = obj;
+    public void L(Object obj) {
+        this.bnm = obj;
     }
 
-    public int OH() {
-        return this.bhv;
+    public int QB() {
+        return this.bnn;
     }
 
-    public void gg(int i) {
-        this.bhv = i;
+    public void gH(int i) {
+        this.bnn = i;
     }
 
-    public static void N(List<Integer> list) {
-        if (bht.size() <= 0 && list != null) {
+    public static void O(List<Integer> list) {
+        if (bnl.size() <= 0 && list != null) {
             for (Integer num : list) {
-                bht.put(num.intValue(), BdUniqueId.gen());
+                bnl.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> OI() {
+    public static List<BdUniqueId> QC() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bht.size(); i++) {
-            arrayList.add(bht.valueAt(i));
+        for (int i = 0; i < bnl.size(); i++) {
+            arrayList.add(bnl.valueAt(i));
         }
         return arrayList;
     }
 
     public static int i(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (bht.size() == 0 || (indexOfValue = bht.indexOfValue(bdUniqueId)) == -1 || bht.size() <= indexOfValue) {
+        if (bnl.size() == 0 || (indexOfValue = bnl.indexOfValue(bdUniqueId)) == -1 || bnl.size() <= indexOfValue) {
             return -1;
         }
-        return bht.keyAt(indexOfValue);
+        return bnl.keyAt(indexOfValue);
     }
 }

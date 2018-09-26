@@ -1,6 +1,4 @@
 package com.baidu.location;
-
-import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes2.dex */
 public class Jni {
     private static int a = 0;
@@ -52,7 +50,7 @@ public class Jni {
             i2 = h;
         }
         try {
-            String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(SystemInfoUtil.COLON);
+            String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
             dArr[0] = Double.parseDouble(split[0]);
             dArr[1] = Double.parseDouble(split[1]);
         } catch (UnsatisfiedLinkError e2) {

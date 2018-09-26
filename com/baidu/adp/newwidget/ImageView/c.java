@@ -3,44 +3,44 @@ package com.baidu.adp.newwidget.ImageView;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class c {
-    public BitmapDrawable FQ;
-    public com.baidu.adp.widget.ImageView.a FR;
+    public BitmapDrawable Im;
+    public com.baidu.adp.widget.ImageView.a In;
     public volatile boolean isDefault = true;
 
-    public boolean kV() {
-        return (this.FQ == null || this.FQ.getBitmap() == null || this.FQ.getBitmap().isRecycled()) ? false : true;
+    public boolean mb() {
+        return (this.Im == null || this.Im.getBitmap() == null || this.Im.getBitmap().isRecycled()) ? false : true;
     }
 
-    public boolean kW() {
-        return this.FR != null && this.FR.nc();
+    public boolean mc() {
+        return this.In != null && this.In.oi();
     }
 
     public boolean isAvailable() {
-        return kV() || kW();
+        return mb() || mc();
     }
 
     public int getWidth() {
-        if (kV()) {
-            return this.FQ.getIntrinsicWidth();
+        if (mb()) {
+            return this.Im.getIntrinsicWidth();
         }
-        if (kW()) {
-            return this.FR.getWidth();
+        if (mc()) {
+            return this.In.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (kV()) {
-            return this.FQ.getIntrinsicHeight();
+        if (mb()) {
+            return this.Im.getIntrinsicHeight();
         }
-        if (kW()) {
-            return this.FR.getHeight();
+        if (mc()) {
+            return this.In.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.FR = null;
-        this.FQ = null;
+        this.In = null;
+        this.Im = null;
     }
 }

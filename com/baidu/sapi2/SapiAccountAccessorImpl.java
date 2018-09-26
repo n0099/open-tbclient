@@ -42,4 +42,9 @@ final class SapiAccountAccessorImpl extends ShareAccountAccessor {
     protected void updatePtoken(SapiAccount sapiAccount) {
         sapiAccount.a();
     }
+
+    @Override // com.baidu.sapi2.share.ShareAccountAccessor
+    protected void setAccountPkg(SapiAccount sapiAccount, String str) {
+        sapiAccount.setAccountPkg(str);
+    }
 }

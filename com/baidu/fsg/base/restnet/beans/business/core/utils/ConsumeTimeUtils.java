@@ -1,9 +1,8 @@
 package com.baidu.fsg.base.restnet.beans.business.core.utils;
 
 import android.os.SystemClock;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConsumeTimeUtils {
     String mTAG = "ConsumeTime";
     TimeResult mTimeResult;
@@ -28,7 +27,7 @@ public class ConsumeTimeUtils {
         this.prefix = str;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class TimeResult {
         long startTime = 0;
         long endTime = 0;
@@ -63,7 +62,7 @@ public class ConsumeTimeUtils {
         public String buildLog() {
             StringBuilder sb = new StringBuilder();
             if (ConsumeTimeUtils.this.prefix != null) {
-                sb.append(ConsumeTimeUtils.this.prefix + SystemInfoUtil.COLON);
+                sb.append(ConsumeTimeUtils.this.prefix + ":");
             }
             sb.append(" task last " + getDurationMesc() + " millisecond about " + getDurationSecond() + " second");
             return sb.toString();

@@ -8,18 +8,18 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class b {
-    private int aYA;
-    protected final Paint aYs = new Paint();
-    protected final Paint aYt = new Paint();
-    private int aYu;
-    private int aYv;
-    private int aYw;
-    private int aYx;
-    private int aYy;
-    private int aYz;
+    protected final Paint bbL = new Paint();
+    protected final Paint bbM = new Paint();
+    private int bbN;
+    private int bbO;
+    private int bbP;
+    private int bbQ;
+    private int bbR;
+    private int bbS;
+    private int bbT;
     protected final View view;
 
     private Context getContext() {
@@ -27,26 +27,26 @@ public class b {
     }
 
     public b(View view) {
-        this.aYu = 16;
-        this.aYv = 16;
-        this.aYw = -1;
-        this.aYx = 1711276032;
-        this.aYy = 20;
-        this.aYz = 16;
-        this.aYA = 32;
+        this.bbN = 16;
+        this.bbO = 16;
+        this.bbP = -1;
+        this.bbQ = 1711276032;
+        this.bbR = 20;
+        this.bbS = 16;
+        this.bbT = 32;
         this.view = view;
-        this.aYx = getContext().getResources().getColor(f.d.black_alpha40);
-        this.aYt.setColor(this.aYx);
-        this.aYt.setAntiAlias(true);
-        this.aYy = (int) getContext().getResources().getDimension(f.e.tbfontsize26);
-        this.aYw = getContext().getResources().getColor(f.d.cp_cont_i);
-        this.aYs.setColor(this.aYw);
-        this.aYs.setTextSize(this.aYy);
-        this.aYs.setAntiAlias(true);
-        this.aYu = l.f(getContext(), f.e.tbds20);
-        this.aYv = l.f(getContext(), f.e.tbds20);
-        this.aYz = l.f(getContext(), f.e.ds16);
-        this.aYA = l.f(getContext(), f.e.tbds40);
+        this.bbQ = getContext().getResources().getColor(e.d.black_alpha40);
+        this.bbM.setColor(this.bbQ);
+        this.bbM.setAntiAlias(true);
+        this.bbR = (int) getContext().getResources().getDimension(e.C0141e.tbfontsize26);
+        this.bbP = getContext().getResources().getColor(e.d.cp_cont_i);
+        this.bbL.setColor(this.bbP);
+        this.bbL.setTextSize(this.bbR);
+        this.bbL.setAntiAlias(true);
+        this.bbN = l.h(getContext(), e.C0141e.tbds20);
+        this.bbO = l.h(getContext(), e.C0141e.tbds20);
+        this.bbS = l.h(getContext(), e.C0141e.ds16);
+        this.bbT = l.h(getContext(), e.C0141e.tbds40);
     }
 
     public void c(Canvas canvas, String str) {
@@ -60,14 +60,14 @@ public class b {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.aYs.measureText(str);
-            float f = this.aYA + measureText;
-            float f2 = this.aYy + this.aYz;
-            canvas.translate((((right - left) - paddingRight) - f) - this.aYv, (((bottom - top) - paddingBottom) - f2) - this.aYu);
+            float measureText = this.bbL.measureText(str);
+            float f = this.bbT + measureText;
+            float f2 = this.bbR + this.bbS;
+            canvas.translate((((right - left) - paddingRight) - f) - this.bbO, (((bottom - top) - paddingBottom) - f2) - this.bbN);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.aYt);
-            Paint.FontMetrics fontMetrics = this.aYs.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.aYs);
+            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.bbM);
+            Paint.FontMetrics fontMetrics = this.bbL.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.bbL);
             canvas.restoreToCount(save);
         }
     }
@@ -79,33 +79,33 @@ public class b {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.aYv = i;
-        this.aYu = i2;
+        this.bbO = i;
+        this.bbN = i2;
         invalidate();
     }
 
-    public void fu(int i) {
-        this.aYw = i;
-        this.aYs.setColor(i);
+    public void fG(int i) {
+        this.bbP = i;
+        this.bbL.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.aYy = i;
-        this.aYs.setTextSize(i);
+        this.bbR = i;
+        this.bbL.setTextSize(i);
         invalidate();
     }
 
-    public float hO(String str) {
-        return l.b(this.aYs, str).height() + this.aYz;
+    public float im(String str) {
+        return l.b(this.bbL, str).height() + this.bbS;
     }
 
-    public float hP(String str) {
-        return l.a(this.aYs, str) + this.aYA;
+    public float in(String str) {
+        return l.a(this.bbL, str) + this.bbT;
     }
 
-    public void L(int i, int i2) {
-        this.aYA = i;
-        this.aYz = i2;
+    public void N(int i, int i2) {
+        this.bbT = i;
+        this.bbS = i2;
     }
 }

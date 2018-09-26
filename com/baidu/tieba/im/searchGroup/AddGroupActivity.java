@@ -14,32 +14,32 @@ import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.im.model.SearchGroupModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    private a eAZ = null;
-    private SearchGroupModel eBa = null;
-    private c eBb = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
+    private a eIq = null;
+    private SearchGroupModel eIr = null;
+    private c eIs = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            AddGroupActivity.this.eAZ.hA(false);
+            AddGroupActivity.this.eIq.hY(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                AddGroupActivity.this.aNi();
+                AddGroupActivity.this.aPx();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                AddGroupActivity.this.aNi();
+                AddGroupActivity.this.aPx();
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
-                    AddGroupActivity.this.aa(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                    AddGroupActivity.this.af(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                     return;
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                 if (searchResult == null || searchResult.size() <= 0) {
-                    AddGroupActivity.this.aNi();
+                    AddGroupActivity.this.aPx();
                 } else {
                     AddGroupActivity.this.a(searchResult.get(0));
                 }
@@ -51,31 +51,31 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eAZ = new a(this);
-        this.eBa = new SearchGroupModel(this);
-        registerListener(this.eBb);
+        this.eIq = new a(this);
+        this.eIr = new SearchGroupModel(this);
+        registerListener(this.eIs);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eAZ.changeSkinType(i);
+        this.eIq.changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eAZ.aNk()) {
+        if (view == this.eIq.aPz()) {
             finish();
-        } else if (view == this.eAZ.aNj()) {
+        } else if (view == this.eIq.aPy()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                oL((String) view.getTag());
+                pq((String) view.getTag());
             }
-        } else if (view == this.eAZ.aIH()) {
-            this.eAZ.aNm();
-        } else if (view == this.eAZ.aNl()) {
+        } else if (view == this.eIq.aKW()) {
+            this.eIq.aPB();
+        } else if (view == this.eIq.aPA()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -93,30 +93,30 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        if (this.eBa != null) {
-            this.eBa.cancelLoadData();
+        if (this.eIr != null) {
+            this.eIr.cancelLoadData();
         }
     }
 
-    public void oL(String str) {
+    public void pq(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.eAZ.hA(true);
-                this.eBa.sendMessage(b.c(str, 0L));
+                this.eIq.hY(true);
+                this.eIr.sendMessage(b.d(str, 0L));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.eAZ.hA(false);
-                showToast(f.j.groupid_error);
+                this.eIq.hY(false);
+                showToast(e.j.groupid_error);
                 return;
             }
         }
-        showToast(f.j.please_input_groupid);
+        showToast(e.j.please_input_groupid);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aNi() {
-        showToast(f.j.add_group_toast_noresult);
+    public void aPx() {
+        showToast(e.j.add_group_toast_noresult);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -127,13 +127,13 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aa(String str, int i) {
+    public void af(String str, int i) {
         if (i < 0) {
-            showToast(f.j.neterror);
+            showToast(e.j.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             showToast(str);
         } else {
-            showToast(getResources().getString(f.j.neterror));
+            showToast(getResources().getString(e.j.neterror));
         }
     }
 }

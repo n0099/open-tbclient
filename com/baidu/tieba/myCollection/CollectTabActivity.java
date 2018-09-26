@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tieba.e;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a fjm;
-    private CustomMessageListener fjn = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a fqI;
+    private CustomMessageListener fqJ = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,8 +27,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.fjm.aWu()) {
-                    CollectTabActivity.this.fjm.iR(z);
+                if (i != -1 && i == CollectTabActivity.this.fqI.aYH()) {
+                    CollectTabActivity.this.fqI.jp(z);
                 }
             }
         }
@@ -38,38 +38,38 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(f.h.collect_tab_activity);
-        this.fjm = new a(this);
-        registerListener(this.fjn);
-        aWt();
+        setContentView(e.h.collect_tab_activity);
+        this.fqI = new a(this);
+        registerListener(this.fqJ);
+        aYG();
         Q(getIntent());
     }
 
-    protected void aWt() {
+    protected void aYG() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
         if (aVar.getContext() != null) {
-            com.baidu.tbadk.mainTab.c Jo = threadDelegateStatic.Jo();
-            if (Jo != null) {
-                Jo.aRI.setArguments(new Bundle());
+            com.baidu.tbadk.mainTab.c KE = threadDelegateStatic.KE();
+            if (KE != null) {
+                KE.aVa.setArguments(new Bundle());
             } else {
                 return;
             }
         }
-        this.fjm.aj(aVar.sE());
+        this.fqI.aj(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.fjm.onChangeSkinType(i);
+        this.fqI.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fjm.aWw()) {
-            this.fjm.iQ(!this.fjm.aWx());
+        if (view == this.fqI.aYJ()) {
+            this.fqI.jo(!this.fqI.aYK());
         }
     }
 
@@ -77,8 +77,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.aWy().iS(true);
-        b.aWy().iT(false);
+        b.aYL().jq(true);
+        b.aYL().jr(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -86,16 +86,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.aWy().iS(false);
+        b.aYL().jq(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment aWv = this.fjm.aWv();
-        if (aWv != null) {
-            aWv.onActivityResult(i, i2, intent);
+        Fragment aYI = this.fqI.aYI();
+        if (aYI != null) {
+            aYI.onActivityResult(i, i2, intent);
         }
     }
 
@@ -127,9 +127,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 if (decode.startsWith("//")) {
                     decode = decode.substring(2);
                 }
-                Map<String, String> eP = az.eP(decode);
-                if (eP != null) {
-                    TiebaStatic.log(new an("c10320").ae("obj_locate", eP.get("obj_locate")).r("obj_type", 1).ae(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eP.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)).ae("obj_param2", eP.get("obj_param2")).r("obj_to", 4));
+                Map<String, String> fh = ay.fh(decode);
+                if (fh != null) {
+                    TiebaStatic.log(new am("c10320").al("obj_locate", fh.get("obj_locate")).w("obj_type", 1).al(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, fh.get(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)).al("obj_param2", fh.get("obj_param2")).w("obj_to", 4));
                 }
             }
         }

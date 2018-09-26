@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c implements d, k, a.InterfaceC0006a {
-    private final com.airbnb.lottie.f jR;
-    private final Path lh;
-    private final List<b> lr;
-    @Nullable
-    private List<k> lt;
-    @Nullable
-    private com.airbnb.lottie.a.b.p lu;
     private final Matrix matrix;
+    private final com.airbnb.lottie.f mp;
+    private final Path nJ;
+    private final List<b> nT;
+    @Nullable
+    private List<k> nU;
+    @Nullable
+    private com.airbnb.lottie.a.b.p nV;
     private final String name;
     private final RectF rect;
 
@@ -64,15 +64,15 @@ public class c implements d, k, a.InterfaceC0006a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, String str, List<b> list, @Nullable com.airbnb.lottie.model.a.l lVar) {
         this.matrix = new Matrix();
-        this.lh = new Path();
+        this.nJ = new Path();
         this.rect = new RectF();
         this.name = str;
-        this.jR = fVar;
-        this.lr = list;
+        this.mp = fVar;
+        this.nT = list;
         if (lVar != null) {
-            this.lu = lVar.cA();
-            this.lu.a(aVar);
-            this.lu.a(this);
+            this.nV = lVar.dH();
+            this.nV.a(aVar);
+            this.nV.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -87,8 +87,8 @@ public class c implements d, k, a.InterfaceC0006a {
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0006a
-    public void bF() {
-        this.jR.invalidateSelf();
+    public void cM() {
+        this.mp.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -101,8 +101,8 @@ public class c implements d, k, a.InterfaceC0006a {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.lr.size()) {
-                b bVar = this.lr.get(i2);
+            if (i2 < this.nT.size()) {
+                b bVar = this.nT.get(i2);
                 if (bVar instanceof d) {
                     d dVar = (d) bVar;
                     if (str2 == null || str2.equals(bVar.getName())) {
@@ -120,39 +120,39 @@ public class c implements d, k, a.InterfaceC0006a {
 
     @Override // com.airbnb.lottie.a.a.b
     public void b(List<b> list, List<b> list2) {
-        ArrayList arrayList = new ArrayList(list.size() + this.lr.size());
+        ArrayList arrayList = new ArrayList(list.size() + this.nT.size());
         arrayList.addAll(list);
-        for (int size = this.lr.size() - 1; size >= 0; size--) {
-            b bVar = this.lr.get(size);
-            bVar.b(arrayList, this.lr.subList(0, size));
+        for (int size = this.nT.size() - 1; size >= 0; size--) {
+            b bVar = this.nT.get(size);
+            bVar.b(arrayList, this.nT.subList(0, size));
             arrayList.add(bVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<k> bG() {
-        if (this.lt == null) {
-            this.lt = new ArrayList();
+    public List<k> cN() {
+        if (this.nU == null) {
+            this.nU = new ArrayList();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.lr.size()) {
+                if (i2 >= this.nT.size()) {
                     break;
                 }
-                b bVar = this.lr.get(i2);
+                b bVar = this.nT.get(i2);
                 if (bVar instanceof k) {
-                    this.lt.add((k) bVar);
+                    this.nU.add((k) bVar);
                 }
                 i = i2 + 1;
             }
         }
-        return this.lt;
+        return this.nU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Matrix bH() {
-        if (this.lu != null) {
-            return this.lu.getMatrix();
+    public Matrix cO() {
+        if (this.nV != null) {
+            return this.nV.getMatrix();
         }
         this.matrix.reset();
         return this.matrix;
@@ -161,28 +161,28 @@ public class c implements d, k, a.InterfaceC0006a {
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
         this.matrix.reset();
-        if (this.lu != null) {
-            this.matrix.set(this.lu.getMatrix());
+        if (this.nV != null) {
+            this.matrix.set(this.nV.getMatrix());
         }
-        this.lh.reset();
-        for (int size = this.lr.size() - 1; size >= 0; size--) {
-            b bVar = this.lr.get(size);
+        this.nJ.reset();
+        for (int size = this.nT.size() - 1; size >= 0; size--) {
+            b bVar = this.nT.get(size);
             if (bVar instanceof k) {
-                this.lh.addPath(((k) bVar).getPath(), this.matrix);
+                this.nJ.addPath(((k) bVar).getPath(), this.matrix);
             }
         }
-        return this.lh;
+        return this.nJ;
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         this.matrix.set(matrix);
-        if (this.lu != null) {
-            this.matrix.preConcat(this.lu.getMatrix());
-            i = (int) ((((this.lu.ca().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        if (this.nV != null) {
+            this.matrix.preConcat(this.nV.getMatrix());
+            i = (int) ((((this.nV.dh().getValue().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
-        for (int size = this.lr.size() - 1; size >= 0; size--) {
-            b bVar = this.lr.get(size);
+        for (int size = this.nT.size() - 1; size >= 0; size--) {
+            b bVar = this.nT.get(size);
             if (bVar instanceof d) {
                 ((d) bVar).a(canvas, this.matrix, i);
             }
@@ -192,12 +192,12 @@ public class c implements d, k, a.InterfaceC0006a {
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         this.matrix.set(matrix);
-        if (this.lu != null) {
-            this.matrix.preConcat(this.lu.getMatrix());
+        if (this.nV != null) {
+            this.matrix.preConcat(this.nV.getMatrix());
         }
         this.rect.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.lr.size() - 1; size >= 0; size--) {
-            b bVar = this.lr.get(size);
+        for (int size = this.nT.size() - 1; size >= 0; size--) {
+            b bVar = this.nT.get(size);
             if (bVar instanceof d) {
                 ((d) bVar).a(this.rect, this.matrix);
                 if (rectF.isEmpty()) {

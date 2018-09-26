@@ -1,40 +1,31 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class j {
-    private i aBQ;
-    private int mErrorCode;
-    private String mErrorString;
-    private boolean wh;
+    private long aEU;
+    private int aEV;
+    private String mMd5;
 
-    public i Ce() {
-        return this.aBQ;
+    public String Dp() {
+        return this.mMd5;
     }
 
-    public void b(i iVar) {
-        this.aBQ = iVar;
+    public void fU(String str) {
+        this.mMd5 = str;
     }
 
-    public boolean isSuccess() {
-        return this.wh;
+    public long getTotalLength() {
+        return this.aEU;
     }
 
-    public void aE(boolean z) {
-        this.wh = z;
+    public void aa(long j) {
+        this.aEU = j;
     }
 
-    public int getErrorCode() {
-        return this.mErrorCode;
+    public int Dq() {
+        return this.aEV;
     }
 
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
-    }
-
-    public String getErrorString() {
-        return this.mErrorString;
-    }
-
-    public void setErrorString(String str) {
-        this.mErrorString = str;
+    public void ef(int i) {
+        this.aEV = i;
     }
 }

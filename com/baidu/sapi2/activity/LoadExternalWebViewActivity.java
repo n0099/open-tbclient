@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.d.a.a;
+import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.WebLoginDTO;
+import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
+import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
@@ -18,10 +22,12 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
+    public static final String EXTRA_BUSINESS_TYPE = "business_type";
     public static final String EXTRA_EXTERNAL_TITLE = "extra_external_title";
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     private static final int REQUEST_CODE_LOGIN = 2001;
-    public static final String RESULT_BUSINESS_TYPE = "business_pre_set_username";
+    public static final String RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE = "business_account_freeze";
+    public static final String RESULT_BUSINESS_TYPE_PRE_SET_UNAME = "business_pre_set_username";
     private AuthorizationListener authorizationListener = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onFailed(int i, String str) {
@@ -119,13 +125,32 @@ public class LoadExternalWebViewActivity extends BaseActivity {
                 LoadExternalWebViewActivity.this.startActivityForResult(intent, 2001);
             }
         });
-        this.sapiWebView.setPreFillUserNameCallback(new SapiWebView.PreFillUserNameCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.7
+        this.sapiWebView.setAccountFreezeCallback(new SapiWebView.AccountFreezeCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.7
+            @Override // com.baidu.sapi2.SapiWebView.AccountFreezeCallback
+            public void onAccountFreeze(SapiWebView.AccountFreezeCallback.AccountFreezeResult accountFreezeResult) {
+                Intent intent = new Intent();
+                intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE);
+                LoadExternalWebViewActivity.this.setResult(-1, intent);
+                LoadExternalWebViewActivity.this.finish();
+            }
+        });
+        this.sapiWebView.setPreFillUserNameCallback(new SapiWebView.PreFillUserNameCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.8
             @Override // com.baidu.sapi2.SapiWebView.PreFillUserNameCallback
             public void onPreFillUserName(SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult) {
                 Intent intent = new Intent();
-                intent.putExtra("business", LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE);
+                intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME);
                 intent.putExtra("username", preFillUserNameResult.userName);
                 LoadExternalWebViewActivity.this.setResult(-1, intent);
+            }
+        });
+        this.sapiWebView.setWebviewPageFinishCallback(new SapiJsCallBacks.WebviewPageFinishCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.9
+            @Override // com.baidu.sapi2.SapiJsCallBacks.WebviewPageFinishCallback
+            public void onFinish(String str) {
+                if (PassportSDK.getInstance().getExtendSysWebViewMethodCallback() != null) {
+                    ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
+                    extendSysWebViewMethodResult.params.put("result", str);
+                    PassportSDK.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
+                }
             }
         });
         ArrayList arrayList = new ArrayList();
@@ -180,6 +205,17 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public void onClose() {
         super.onClose();
         finish();
+    }
+
+    @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void finish() {
+        super.finish();
+        if (PassportSDK.getInstance().getExtendSysWebViewMethodCallback() != null) {
+            ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
+            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, -301);
+            extendSysWebViewMethodResult.params.put("retMsg", SapiResult.ERROR_MSG_PROCESSED_END);
+            PassportSDK.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
+        }
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity

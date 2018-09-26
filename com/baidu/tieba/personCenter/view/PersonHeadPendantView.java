@@ -6,10 +6,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.view.HeadPendantView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View fVA;
+    private View gcP;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,24 +27,24 @@ public class PersonHeadPendantView extends HeadPendantView {
     @Override // com.baidu.tbadk.core.view.HeadPendantView
     public void init() {
         super.init();
-        this.fVA = new View(getContext());
-        addView(this.fVA, 0, new FrameLayout.LayoutParams(-1, -1));
+        this.gcP = new View(getContext());
+        addView(this.gcP, 0, new FrameLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.FrameLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fVA.getLayoutParams();
-        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(f.e.ds4));
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gcP.getLayoutParams();
+        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(e.C0141e.ds4));
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.fVA.setLayoutParams(layoutParams);
+        this.gcP.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.fVA.setBackgroundDrawable(drawable);
+        this.gcP.setBackgroundDrawable(drawable);
     }
 }

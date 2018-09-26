@@ -1,33 +1,110 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
+import android.graphics.drawable.AnimationDrawable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.af;
 /* loaded from: classes.dex */
-public class k extends i {
-    private int ayr;
-    private int ays;
-    private int ayt;
+public class k extends j {
+    protected boolean azU;
+    private CustomMessageListener azV;
+    protected boolean isDone;
+    private CustomMessageListener listener;
 
-    public k(Drawable drawable, int i, int i2, int i3) {
-        super(drawable, i);
-        this.ayr = 0;
-        this.ays = 0;
-        this.ayt = 0;
-        this.ayr = i2;
-        this.ays = i3;
+    public k(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.isDone = true;
+        this.listener = new CustomMessageListener(2016203) { // from class: com.baidu.tbadk.core.view.k.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (k.this.isDone) {
+                    k.this.dM(TbadkCoreApplication.getInst().getSkinType());
+                }
+            }
+        };
+        this.azV = new CustomMessageListener(2016204) { // from class: com.baidu.tbadk.core.view.k.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                k.this.azE.setBackgroundColor(af.Af().cW(TbadkCoreApplication.getInst().getSkinType()));
+            }
+        };
+        c(tbPageContext);
     }
 
-    @Override // com.baidu.tbadk.core.view.i, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        return (this.ayr == 0 && this.ays == 0) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) : getDrawable().getBounds().width() + this.ayr + this.ays;
+    @Override // com.baidu.tbadk.core.view.j, com.baidu.adp.widget.ListView.c
+    public void aj(boolean z) {
+        this.azF.setBackgroundDrawable(null);
+        super.aj(z);
+        this.isDone = true;
     }
 
-    @Override // com.baidu.tbadk.core.view.i, android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        canvas.save();
-        canvas.translate(0.0f, this.ayt);
-        super.draw(canvas, charSequence, i, i2, f + this.ayr, i3, i4, i5, paint);
-        canvas.restore();
+    @Override // com.baidu.tbadk.core.view.j, com.baidu.adp.widget.ListView.c
+    public void ai(boolean z) {
+        super.ai(z);
+        this.isDone = false;
+        if (!this.azU) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (this.mSkinType != Integer.MIN_VALUE) {
+                skinType = this.mSkinType;
+            }
+            dM(skinType);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.j, com.baidu.adp.widget.ListView.c
+    public void refreshing() {
+        super.refreshing();
+        this.isDone = false;
+    }
+
+    @Override // com.baidu.tbadk.core.view.j
+    public void dM(int i) {
+        super.dM(i);
+        if (this.azE != null && this.azF != null) {
+            this.azU = false;
+            if (!An()) {
+                this.azJ = af.Af().cU(i);
+                if (this.azJ != null) {
+                    this.azU = true;
+                } else {
+                    this.azJ = new AnimationDrawable();
+                }
+                this.azE.setBackgroundColor(af.Af().cW(i));
+                if (!this.azU) {
+                    this.azJ = af.Af().cV(i);
+                }
+                this.azJ.setOneShot(false);
+                this.azF.setBackgroundDrawable(this.azJ);
+            }
+        }
+    }
+
+    private void c(TbPageContext<?> tbPageContext) {
+        this.listener.setTag(tbPageContext.getUniqueId());
+        this.azV.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.listener);
+        tbPageContext.registerListener(this.azV);
+    }
+
+    public void setTag(BdUniqueId bdUniqueId) {
+        if (this.listener != null) {
+            this.listener.setTag(bdUniqueId);
+        }
+        if (this.azV != null) {
+            this.azV.setTag(bdUniqueId);
+        }
+        MessageManager.getInstance().registerListener(this.listener);
+        MessageManager.getInstance().registerListener(this.azV);
+    }
+
+    public void release() {
+        MessageManager.getInstance().unRegisterListener(this.listener);
+        MessageManager.getInstance().unRegisterListener(this.azV);
     }
 }

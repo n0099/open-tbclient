@@ -17,9 +17,13 @@ import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
 /* loaded from: classes2.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
+    private static final long MIN_INVOKE_INTER_TIME = 500;
+    private long lastInvokeTime = 0;
+
     public ThirdPartyService() {
         PassportSDK.getInstance().setThirdPartyService(this);
     }
@@ -27,41 +31,45 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i) {
         Intent intent;
-        boolean z = context instanceof Activity;
-        if (socialType == SocialType.SINA_WEIBO_SSO) {
-            intent = new Intent(context, SinaSSOLoginActivity.class);
-        } else if (socialType == SocialType.HUAWEI) {
-            intent = new Intent(context, HuaweiSSOLoginActivity.class);
-        } else if (socialType == SocialType.WEIXIN) {
-            intent = new Intent(context, WXLoginActivity.class);
-        } else if (socialType == SocialType.CHUANKE) {
-            if (z) {
-                ((Activity) context).finish();
-                WebAuthResult webAuthResult = new WebAuthResult();
-                webAuthResult.setResultCode(-301);
-                webAuthResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-                loginFail((Activity) context, webAuthResult, i);
+        if (System.currentTimeMillis() - this.lastInvokeTime >= MIN_INVOKE_INTER_TIME) {
+            this.lastInvokeTime = System.currentTimeMillis();
+            SapiStatUtil.statThirdLoginEnter(socialType);
+            boolean z = context instanceof Activity;
+            if (socialType == SocialType.SINA_WEIBO_SSO) {
+                intent = new Intent(context, SinaSSOLoginActivity.class);
+            } else if (socialType == SocialType.HUAWEI) {
+                intent = new Intent(context, HuaweiSSOLoginActivity.class);
+            } else if (socialType == SocialType.WEIXIN) {
+                intent = new Intent(context, WXLoginActivity.class);
+            } else if (socialType == SocialType.CHUANKE) {
+                if (z) {
+                    ((Activity) context).finish();
+                    WebAuthResult webAuthResult = new WebAuthResult();
+                    webAuthResult.setResultCode(-301);
+                    webAuthResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
+                    loginFail((Activity) context, webAuthResult, i);
+                    return;
+                }
                 return;
+            } else if (socialType == SocialType.QQ_SSO) {
+                intent = new Intent(context, QQSSOLoginActivity.class);
+            } else if (socialType == SocialType.XIAOMI) {
+                intent = new Intent(context, XiaomiSSOLoginActivity.class);
+            } else if (socialType == SocialType.MEIZU) {
+                intent = new Intent(context, MeizuSSOLoginActivity.class);
+            } else {
+                intent = new Intent(context, SocialLoginActivity.class);
+                intent.putExtra(SocialLoginActivity.EXTRA_SOCIAL_TYPE, socialType);
             }
-            return;
-        } else if (socialType == SocialType.QQ_SSO) {
-            intent = new Intent(context, QQSSOLoginActivity.class);
-        } else if (socialType == SocialType.XIAOMI) {
-            intent = new Intent(context, XiaomiSSOLoginActivity.class);
-        } else if (socialType == SocialType.MEIZU) {
-            intent = new Intent(context, MeizuSSOLoginActivity.class);
-        } else {
-            intent = new Intent(context, SocialLoginActivity.class);
-            intent.putExtra(SocialLoginActivity.EXTRA_SOCIAL_TYPE, socialType);
-        }
-        intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
-        if (!z) {
-            intent.setFlags(268435456);
-            context.startActivity(intent);
-        } else if (socialType == SocialType.WEIXIN) {
-            context.startActivity(intent);
-        } else {
-            ((Activity) context).startActivityForResult(intent, 2001);
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
+            if (!z) {
+                intent.setFlags(268435456);
+                context.startActivity(intent);
+            } else if (socialType == SocialType.WEIXIN) {
+                context.startActivity(intent);
+            } else {
+                ((Activity) context).startActivityForResult(intent, 2001);
+            }
         }
     }
 

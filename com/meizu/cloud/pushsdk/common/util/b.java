@@ -7,7 +7,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.meizu.cloud.pushsdk.common.util.d;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,7 +43,7 @@ public class b {
                     if (TextUtils.isEmpty(b2)) {
                         return null;
                     }
-                    sb.append(b2.replace(SystemInfoUtil.COLON, "").toUpperCase());
+                    sb.append(b2.replace(":", "").toUpperCase());
                     b = sb.toString();
                 }
             } else {

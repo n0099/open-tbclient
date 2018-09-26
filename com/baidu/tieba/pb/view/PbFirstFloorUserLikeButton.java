@@ -7,12 +7,12 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation fNE;
+    private AlphaAnimation fVA;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -30,42 +30,42 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void init() {
         super.init();
-        setTextSize(0, l.f(getContext(), f.e.tbfontsize34));
+        setTextSize(0, l.h(getContext(), e.C0141e.tbfontsize34));
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void aW(boolean z) {
-        this.azk = z;
+    public void bi(boolean z) {
+        this.aCm = z;
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.azi);
+            setText(this.aCk);
             setPadding(0, 0, 0, 0);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.azj);
-            setPadding(getResources().getDimensionPixelSize(f.e.tbds18), 0, getResources().getDimensionPixelSize(f.e.tbds12), 0);
+            setText(this.aCl);
+            setPadding(getResources().getDimensionPixelSize(e.C0141e.tbds18), 0, getResources().getDimensionPixelSize(e.C0141e.tbds12), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void d(boolean z, int i) {
-        aW(z);
+        bi(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void a(boolean z, int i, boolean z2) {
         if (z2) {
-            this.azk = z;
+            this.aCm = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.fNE == null) {
-                        this.fNE = new AlphaAnimation(1.0f, 0.0f);
-                        this.fNE.setDuration(500L);
-                        this.fNE.setFillAfter(true);
-                        this.fNE.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.fVA == null) {
+                        this.fVA = new AlphaAnimation(1.0f, 0.0f);
+                        this.fVA.setDuration(500L);
+                        this.fVA.setFillAfter(true);
+                        this.fVA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -81,10 +81,10 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.fNE.cancel();
+                        this.fVA.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.fNE);
+                        startAnimation(this.fVA);
                         return;
                     } else {
                         setVisibility(8);
@@ -93,25 +93,25 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.azj);
-                setPadding(getResources().getDimensionPixelSize(f.e.tbds18), 0, getResources().getDimensionPixelSize(f.e.tbds12), 0);
+                setText(this.aCl);
+                setPadding(getResources().getDimensionPixelSize(e.C0141e.tbds18), 0, getResources().getDimensionPixelSize(e.C0141e.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             return;
         }
-        aW(z);
+        bi(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        am.c(this, f.d.cp_cont_g, 1);
-        if (this.azk) {
+        al.c(this, e.d.cp_cont_g, 1);
+        if (this.aCm) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             setBackgroundDrawable(null);
             return;
         }
-        setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(f.C0146f.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
-        setBackgroundDrawable(am.getDrawable(f.C0146f.selector_like_button_bg));
+        setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(e.f.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
+        setBackgroundDrawable(al.getDrawable(e.f.selector_like_button_bg));
     }
 }

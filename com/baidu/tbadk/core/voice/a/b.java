@@ -5,27 +5,27 @@ import com.baidu.tbadk.core.util.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a ft(String str) {
+    public static a fO(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.dP(aVar.error_code);
-        } else if (!l.dR(l.yj() + "voice")) {
+            aVar.error_msg = a.eb(aVar.error_code);
+        } else if (!l.ej(l.zq() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.dP(aVar.error_code);
+            aVar.error_msg = a.eb(aVar.error_code);
         } else {
-            String g = s.g(l.el(str));
-            if (g == null) {
+            String i = s.i(l.eD(str));
+            if (i == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.dP(aVar.error_code);
+                aVar.error_msg = a.eb(aVar.error_code);
             } else {
-                String b = l.b(g, 1, true);
-                if (l.ad(str, b)) {
+                String b = l.b(i, 1, true);
+                if (l.ak(str, b)) {
                     aVar.path = b;
-                    aVar.md5 = g;
+                    aVar.md5 = i;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.dP(aVar.error_code);
+                    aVar.error_msg = a.eb(aVar.error_code);
                 }
             }
         }
@@ -33,12 +33,12 @@ public class b {
     }
 
     public static boolean renameFile(String str, String str2) {
-        return l.ad(str, l.b(str2, 1, true));
+        return l.ak(str, l.b(str2, 1, true));
     }
 
-    public static synchronized void Bi() {
+    public static synchronized void Cu() {
         synchronized (b.class) {
-            File file = new File(l.yj() + "voice");
+            File file = new File(l.zq() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

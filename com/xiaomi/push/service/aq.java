@@ -1,6 +1,4 @@
 package com.xiaomi.push.service;
-
-import com.baidu.ar.util.SystemInfoUtil;
 /* loaded from: classes3.dex */
 public class aq {
     private static int a = 8;
@@ -34,7 +32,7 @@ public class aq {
         }
         if (z) {
             StringBuilder sb = new StringBuilder();
-            sb.append("S_").append(i - 1).append(SystemInfoUtil.COLON);
+            sb.append("S_").append(i - 1).append(":");
             for (int i3 = 0; i3 <= i; i3++) {
                 sb.append(" ").append(a(this.b[i3]));
             }

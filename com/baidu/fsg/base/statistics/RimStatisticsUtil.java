@@ -2,20 +2,22 @@ package com.baidu.fsg.base.statistics;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.fsg.base.statistics.StatService;
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.fsg.base.utils.ResUtils;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RimStatisticsUtil {
     private static final String TAG = "logsender";
     private static boolean mInited = false;
     private static Context sAppContext;
     private boolean hasInit;
-    private q mHttpImpl;
+    private s mHttpImpl;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private static RimStatisticsUtil a = new RimStatisticsUtil();
 
@@ -31,7 +33,6 @@ public final class RimStatisticsUtil {
     }
 
     public static void initStatisticsModule(Context context) {
-        getInstance();
         if (cacheAppContext(context)) {
             RimStatisticsUtil rimStatisticsUtil = getInstance();
             try {
@@ -49,9 +50,30 @@ public final class RimStatisticsUtil {
         return true;
     }
 
+    public String getSignKey() {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(getSignKey1());
+        stringBuffer.append(getSignKey2());
+        stringBuffer.append(getSignKey3());
+        return RimArmor.getInstance().localDecryptProxy(stringBuffer.toString());
+    }
+
+    private String getSignKey1() {
+        return com.baidu.fsg.base.a.h;
+    }
+
+    private String getSignKey3() {
+        return "G4Ytg9bd7jt7sJG9sGf";
+    }
+
+    private String getSignKey2() {
+        return ResUtils.getString(sAppContext, "rim_base_asdasdasd_assdadsads");
+    }
+
     public void triggerSending() {
         LogUtil.d(TAG, "=====triggerSending====");
         l.a().a(b.p);
+        l.a().a(b.o);
     }
 
     private static boolean cacheAppContext(Context context) {

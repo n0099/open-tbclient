@@ -6,72 +6,72 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.w;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
-    private int eMA;
-    private ViewGroup eMr;
-    private TextView eMs;
-    private TextView eMt;
-    private ImageView eMu;
-    private TextView eMv;
-    private ImageView eMw;
-    private TextView eMx;
-    private int eMy;
-    private int eMz;
+    private ViewGroup eTM;
+    private TextView eTN;
+    private TextView eTO;
+    private ImageView eTP;
+    private TextView eTQ;
+    private ImageView eTR;
+    private TextView eTS;
+    private int eTT;
+    private int eTU;
+    private int eTV;
 
     public a(Context context) {
-        this.eMr = (ViewGroup) LayoutInflater.from(context).inflate(f.h.label_recommend_header, (ViewGroup) null);
-        this.eMs = (TextView) this.eMr.findViewById(f.g.choose_like_label);
-        this.eMt = (TextView) this.eMr.findViewById(f.g.recommend_interest_thread);
-        this.eMu = (ImageView) this.eMr.findViewById(f.g.male_icon);
-        this.eMv = (TextView) this.eMr.findViewById(f.g.male_text);
-        this.eMw = (ImageView) this.eMr.findViewById(f.g.female_icon);
-        this.eMx = (TextView) this.eMr.findViewById(f.g.female_text);
-        this.eMu.setOnClickListener(this);
-        this.eMw.setOnClickListener(this);
+        this.eTM = (ViewGroup) LayoutInflater.from(context).inflate(e.h.label_recommend_header, (ViewGroup) null);
+        this.eTN = (TextView) this.eTM.findViewById(e.g.choose_like_label);
+        this.eTO = (TextView) this.eTM.findViewById(e.g.recommend_interest_thread);
+        this.eTP = (ImageView) this.eTM.findViewById(e.g.male_icon);
+        this.eTQ = (TextView) this.eTM.findViewById(e.g.male_text);
+        this.eTR = (ImageView) this.eTM.findViewById(e.g.female_icon);
+        this.eTS = (TextView) this.eTM.findViewById(e.g.female_text);
+        this.eTP.setOnClickListener(this);
+        this.eTR.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        am.h(this.eMs, f.d.cp_cont_b);
-        am.h(this.eMt, f.d.cp_cont_d);
-        am.c(this.eMu, f.C0146f.img_lable_boy_n);
-        am.h(this.eMv, f.d.cp_cont_d);
-        am.c(this.eMw, f.C0146f.img_lable_girl_n);
-        am.h(this.eMx, f.d.cp_cont_d);
+        al.h(this.eTN, e.d.cp_cont_b);
+        al.h(this.eTO, e.d.cp_cont_d);
+        al.c(this.eTP, e.f.img_lable_boy_n);
+        al.h(this.eTQ, e.d.cp_cont_d);
+        al.c(this.eTR, e.f.img_lable_girl_n);
+        al.h(this.eTS, e.d.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
-        if (w.y(list) == 2) {
-            this.eMy = list.get(0).labelId;
-            this.eMz = list.get(1).labelId;
+        if (v.y(list) == 2) {
+            this.eTT = list.get(0).labelId;
+            this.eTU = list.get(1).labelId;
         }
     }
 
-    public ViewGroup aQr() {
-        return this.eMr;
+    public ViewGroup aSF() {
+        return this.eTM;
     }
 
-    public int aQs() {
-        return this.eMA;
+    public int aSG() {
+        return this.eTV;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (view == this.eMu) {
+        if (view == this.eTP) {
             z = true;
         } else {
-            z = view == this.eMw ? false : false;
+            z = view == this.eTR ? false : false;
         }
-        this.eMA = z ? this.eMy : this.eMz;
-        am.c(this.eMu, z ? f.C0146f.img_lable_boy_s : f.C0146f.img_lable_boy_n);
-        am.h(this.eMv, z ? f.d.cp_link_tip_a : f.d.cp_cont_d);
-        am.c(this.eMw, z ? f.C0146f.img_lable_girl_n : f.C0146f.img_lable_girl_s);
-        am.h(this.eMx, z ? f.d.cp_cont_d : f.d.cp_cont_h);
+        this.eTV = z ? this.eTT : this.eTU;
+        al.c(this.eTP, z ? e.f.img_lable_boy_s : e.f.img_lable_boy_n);
+        al.h(this.eTQ, z ? e.d.cp_link_tip_a : e.d.cp_cont_d);
+        al.c(this.eTR, z ? e.f.img_lable_girl_n : e.f.img_lable_girl_s);
+        al.h(this.eTS, z ? e.d.cp_cont_d : e.d.cp_cont_h);
     }
 }

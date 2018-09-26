@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
@@ -106,7 +105,7 @@ public final class h {
         String[] split;
         ArrayList<String> arrayList = new ArrayList<>();
         String string = context.getSharedPreferences("pst", 0).getString(str, null);
-        if (!TextUtils.isEmpty(string) && (split = string.split(SystemInfoUtil.COLON)) != null && split.length > 0) {
+        if (!TextUtils.isEmpty(string) && (split = string.split(":")) != null && split.length > 0) {
             for (String str2 : split) {
                 arrayList.add(str2);
             }
@@ -212,7 +211,7 @@ public final class h {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
                 String str3 = "";
                 for (int i2 = 0; i2 < allByName.length; i2++) {
-                    str3 = str3 + SystemInfoUtil.COLON + allByName[i2].getHostAddress();
+                    str3 = str3 + ":" + allByName[i2].getHostAddress();
                 }
                 if (str3.length() > 1) {
                     String substring = str3.substring(1);

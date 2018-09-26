@@ -7,14 +7,14 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a extends b {
-    private FrsGameRecommendFragment dyn;
+    private FrsGameRecommendFragment dEX;
 
     public a(String str, String str2) {
-        this.dyn = FrsGameRecommendFragment.be(str, str2);
-        Jo().aRI = this.dyn;
+        this.dEX = FrsGameRecommendFragment.bm(str, str2);
+        KE().aVa = this.dEX;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,18 +23,18 @@ public class a extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Jn() {
+    public c KD() {
         c cVar = new c();
         cVar.type = 11;
-        cVar.aRJ = f.j.frs_game_recommend_tab_title;
-        cVar.aRQ = c.aRN;
+        cVar.awr = e.j.frs_game_recommend_tab_title;
+        cVar.aVg = c.aVd;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bd(Context context) {
-        this.aRu = (FragmentTabIndicator) LayoutInflater.from(context).inflate(f.h.fragmenttabindicator, (ViewGroup) null);
-        this.aRu.setTextSize(2.0f);
-        return this.aRu;
+    public TbFragmentTabIndicator bJ(Context context) {
+        this.aUM = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+        this.aUM.setTextSize(2.0f);
+        return this.aUM;
     }
 }

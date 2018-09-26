@@ -1,23 +1,23 @@
 package com.baidu.tieba.homepage.daily.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes2.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dUM = BdUniqueId.gen();
-    public List<a> dUN;
+    public static final BdUniqueId ecf = BdUniqueId.gen();
+    public List<a> ecg;
 
-    public static e bQ(List<DailyTopic> list) {
-        if (w.z(list)) {
+    public static e bR(List<DailyTopic> list) {
+        if (v.z(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.dUN = arrayList;
+        eVar.ecg = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dUM;
+        return ecf;
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private String dMa;
-        private String dUO;
-        private String dUP;
-        private String dUQ;
-        private String dUR;
+        private String dTs;
+        private String ech;
+        private String eci;
+        private String ecj;
+        private String eck;
 
         public void a(DailyTopic dailyTopic) {
-            this.dUO = dailyTopic.topic_pic;
-            this.dMa = dailyTopic.topic_title;
-            this.dUP = dailyTopic.topic_abstract;
-            this.dUQ = dailyTopic.topic_url;
-            this.dUR = dailyTopic.topic_rank_url;
+            this.ech = dailyTopic.topic_pic;
+            this.dTs = dailyTopic.topic_title;
+            this.eci = dailyTopic.topic_abstract;
+            this.ecj = dailyTopic.topic_url;
+            this.eck = dailyTopic.topic_rank_url;
         }
 
-        public String aDA() {
-            return this.dUO;
+        public String aFN() {
+            return this.ech;
         }
 
-        public String uB() {
-            return this.dMa;
+        public String vE() {
+            return this.dTs;
         }
 
-        public String aDB() {
-            return this.dUP;
+        public String aFO() {
+            return this.eci;
         }
 
-        public String wF() {
-            return this.dUQ;
+        public String xM() {
+            return this.ecj;
         }
 
-        public String aDC() {
-            return this.dUR;
+        public String aFP() {
+            return this.eck;
         }
     }
 }

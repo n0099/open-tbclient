@@ -1,9 +1,10 @@
 package com.baidu.tieba.frs.e;
 /* loaded from: classes2.dex */
 public class a {
-    public boolean dEA = false;
-    public int dEB = 0;
-    public String dEC = null;
-    public int dED = -1;
-    public int dEE = -1;
+    public boolean dLH = false;
+    public int dLI = 0;
+    public String dLJ = null;
+    public int dLK = -1;
+    public int dLL = -1;
+    public int dLM = -1;
 }

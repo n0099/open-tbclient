@@ -373,7 +373,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.a.Dl().DK() != null && com.baidu.tbadk.coreExtra.messageCenter.a.Dl().DK().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.a.Ey().EX() != null && com.baidu.tbadk.coreExtra.messageCenter.a.Ey().EX().contains(String.valueOf(this.userId)) && this.msgType == 1) {
             return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
         }
         if (this.msgType == 11) {
@@ -411,7 +411,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, h {
             try {
                 JSONArray jSONArray = new JSONArray(this.content);
                 if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = b.c(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                    this.statisticsTaskId = b.d(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                 }
             } catch (Exception e) {
             }

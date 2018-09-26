@@ -8,25 +8,25 @@ import java.lang.reflect.TypeVariable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class j<T> extends m<T> {
-    private final m<T> hFo;
-    private final com.google.gson.d hGM;
-    private final Type hGN;
+    private final m<T> hNI;
+    private final com.google.gson.d hPg;
+    private final Type hPh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(com.google.gson.d dVar, m<T> mVar, Type type) {
-        this.hGM = dVar;
-        this.hFo = mVar;
-        this.hGN = type;
+        this.hPg = dVar;
+        this.hNI = mVar;
+        this.hPh = type;
     }
 
     @Override // com.google.gson.m
     public void a(com.google.gson.stream.a aVar, T t) throws IOException {
-        m<T> mVar = this.hFo;
-        Type a = a(this.hGN, t);
-        if (a != this.hGN) {
-            mVar = this.hGM.a(com.google.gson.b.a.l(a));
-            if ((mVar instanceof g.a) && !(this.hFo instanceof g.a)) {
-                mVar = this.hFo;
+        m<T> mVar = this.hNI;
+        Type a = a(this.hPh, t);
+        if (a != this.hPh) {
+            mVar = this.hPg.a(com.google.gson.b.a.l(a));
+            if ((mVar instanceof g.a) && !(this.hNI instanceof g.a)) {
+                mVar = this.hNI;
             }
         }
         mVar.a(aVar, t);

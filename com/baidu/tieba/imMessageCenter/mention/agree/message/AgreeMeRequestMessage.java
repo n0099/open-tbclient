@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.i;
-import com.baidu.tbadk.util.o;
+import com.baidu.tbadk.util.p;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
 /* loaded from: classes2.dex */
@@ -21,13 +21,13 @@ public class AgreeMeRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.id = Long.valueOf(this.id);
-            builder.q_type = Integer.valueOf(i.td().getViewImageQuality());
+            builder.q_type = Integer.valueOf(i.uj().getViewImageQuality());
             builder.rn = 20;
             builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            builder.scr_h = Integer.valueOf(l.aj(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_w = Integer.valueOf(l.ah(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(l.aO(TbadkCoreApplication.getInst().getApp()));
             if (z) {
-                o.bindCommonParamsToProtobufData(builder, true);
+                p.bindCommonParamsToProtobufData(builder, true);
             }
             AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
             builder2.data = builder.build(false);

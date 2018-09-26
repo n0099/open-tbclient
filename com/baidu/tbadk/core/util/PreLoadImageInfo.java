@@ -7,6 +7,7 @@ public class PreLoadImageInfo extends OrmObject {
     public TbRichTextEmotionInfo bigEmotion;
     public int height;
     public String imgUrl;
+    public int preloadType;
     public int procType;
     public int width;
 }

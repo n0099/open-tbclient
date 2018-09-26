@@ -2,7 +2,7 @@ package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class t {
@@ -13,51 +13,51 @@ public class t {
     }
 
     public static void a(String str, a aVar) {
-        if (ap.isEmpty(str)) {
+        if (ao.isEmpty(str)) {
             if (aVar != null) {
                 aVar.a(null);
                 return;
             }
             return;
         }
-        new b(tK(str), aVar).execute(new String[0]);
+        new b(ur(str), aVar).execute(new String[0]);
     }
 
     public static void b(String str, a aVar) {
-        if (ap.isEmpty(str)) {
+        if (ao.isEmpty(str)) {
             if (aVar != null) {
                 aVar.a(null);
                 return;
             }
             return;
         }
-        new b(tJ(str), aVar).execute(new String[0]);
+        new b(uq(str), aVar).execute(new String[0]);
     }
 
     public static void c(String str, a aVar) {
-        if (ap.isEmpty(str)) {
+        if (ao.isEmpty(str)) {
             if (aVar != null) {
                 aVar.a(null);
                 return;
             }
             return;
         }
-        new b(tL(str), aVar).execute(new String[0]);
+        new b(us(str), aVar).execute(new String[0]);
     }
 
     public static void b(final String str, final WriteData writeData) {
-        if (!ap.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> dy = com.baidu.tbadk.core.c.a.xa().dy("tb.pb_editor");
+                    com.baidu.adp.lib.cache.l<String> dQ = com.baidu.tbadk.core.c.a.yh().dQ("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        dy.a(t.tL(str), WriteData.this.toDraftString(), 604800000L);
+                        dQ.a(t.us(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    dy.remove(t.tL(str));
+                    dQ.remove(t.us(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -65,18 +65,18 @@ public class t {
     }
 
     public static void c(final String str, final WriteData writeData) {
-        if (!ap.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> dy = com.baidu.tbadk.core.c.a.xa().dy("tb.pb_editor");
+                    com.baidu.adp.lib.cache.l<String> dQ = com.baidu.tbadk.core.c.a.yh().dQ("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        dy.a(t.tK(str), WriteData.this.toDraftString(), 604800000L);
+                        dQ.a(t.ur(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    dy.remove(t.tK(str));
+                    dQ.remove(t.ur(str));
                     return null;
                 }
             }.execute(new Void[0]);
@@ -84,33 +84,33 @@ public class t {
     }
 
     public static void d(final String str, final WriteData writeData) {
-        if (!ap.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.tbadkCore.t.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.adp.lib.cache.l<String> dy = com.baidu.tbadk.core.c.a.xa().dy("tb.pb_editor");
+                    com.baidu.adp.lib.cache.l<String> dQ = com.baidu.tbadk.core.c.a.yh().dQ("tb.pb_editor");
                     if (WriteData.this != null && WriteData.this.hasContentToSave()) {
-                        dy.a(t.tJ(str), WriteData.this.toDraftString(), 604800000L);
+                        dQ.a(t.uq(str), WriteData.this.toDraftString(), 604800000L);
                         return null;
                     }
-                    dy.remove(t.tJ(str));
+                    dQ.remove(t.uq(str));
                     return null;
                 }
             }.execute(new Void[0]);
         }
     }
 
-    protected static String tJ(String str) {
+    protected static String uq(String str) {
         return TbadkCoreApplication.getCurrentAccount() + "@subpb" + str;
     }
 
-    protected static String tK(String str) {
+    protected static String ur(String str) {
         return TbadkCoreApplication.getCurrentAccount() + "@pb" + str;
     }
 
-    protected static String tL(String str) {
+    protected static String us(String str) {
         return TbadkCoreApplication.getCurrentAccount() + "@frs";
     }
 
@@ -118,22 +118,22 @@ public class t {
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<String, String, WriteData> {
         private final String cacheKey;
-        private final a gMY;
+        private final a gUB;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.gMY = aVar;
+            this.gUB = aVar;
             this.cacheKey = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: C */
+        /* renamed from: E */
         public WriteData doInBackground(String... strArr) {
             String str;
             try {
-                str = com.baidu.tbadk.core.c.a.xa().dy("tb.pb_editor").get(this.cacheKey);
+                str = com.baidu.tbadk.core.c.a.yh().dQ("tb.pb_editor").get(this.cacheKey);
             } catch (Exception e) {
                 str = null;
             }
@@ -146,8 +146,8 @@ public class t {
         /* renamed from: c */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.gMY != null) {
-                this.gMY.a(writeData);
+            if (this.gUB != null) {
+                this.gUB.a(writeData);
             }
         }
     }

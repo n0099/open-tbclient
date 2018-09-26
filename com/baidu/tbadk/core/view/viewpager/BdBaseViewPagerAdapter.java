@@ -16,14 +16,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapter implements View.OnClickListener {
     private Context context;
-    private HashMap<BdUniqueId, c<T, V>> azD = new HashMap<>();
+    private HashMap<BdUniqueId, c<T, V>> aCH = new HashMap<>();
     private List<h> mListData = new ArrayList();
-    private List<View> azE = new ArrayList();
+    private List<View> aCI = new ArrayList();
     private int mChildCount = 0;
 
     public void a(Context context, c<T, V> cVar) {
         if (cVar != null && cVar.getType() != null) {
-            this.azD.put(cVar.getType(), cVar);
+            this.aCH.put(cVar.getType(), cVar);
         }
     }
 
@@ -34,9 +34,9 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         c<T, V> cVar;
-        a M = M(view);
-        if (M != null && M.AW() != null && M.AW().getType() != null && (cVar = this.azD.get(M.AW().getType())) != null && cVar.Ba() != null) {
-            cVar.Ba().c(M, M.AW());
+        a Y = Y(view);
+        if (Y != null && Y.Ci() != null && Y.Ci().getType() != null && (cVar = this.aCH.get(Y.Ci().getType())) != null && cVar.Cm() != null) {
+            cVar.Cm().c(Y, Y.Ci());
         }
     }
 
@@ -44,8 +44,8 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
         if (list != null && list.size() > 0) {
             destory();
             this.mListData = list;
-            if (this.azE == null) {
-                this.azE = new ArrayList();
+            if (this.aCI == null) {
+                this.aCI = new ArrayList();
             }
             int i = 0;
             while (true) {
@@ -55,7 +55,7 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
                     if (hVar != null) {
                         View a2 = a(hVar);
                         a2.setOnClickListener(this);
-                        this.azE.add(a2);
+                        this.aCI.add(a2);
                     }
                     i = i2 + 1;
                 } else {
@@ -66,7 +66,7 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
     }
 
     private View a(h hVar) {
-        c<T, V> cVar = this.azD.get(hVar.getType());
+        c<T, V> cVar = this.aCH.get(hVar.getType());
         if (cVar != null) {
             V f = cVar.f(null);
             if (BdBaseApplication.getInst().isDebugMode()) {
@@ -109,7 +109,7 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         View view;
-        if (this.azE.size() > 0 && i >= 0 && i < this.azE.size() && (view = this.azE.get(i)) != null) {
+        if (this.aCI.size() > 0 && i >= 0 && i < this.aCI.size() && (view = this.aCI.get(i)) != null) {
             viewGroup.removeView(view);
         }
     }
@@ -119,21 +119,21 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
         if (i >= this.mListData.size()) {
             return null;
         }
-        View dJ = dJ(i);
-        if (dJ != null && dJ.getParent() != viewGroup) {
-            viewGroup.addView(dJ);
-            return dJ;
+        View dV = dV(i);
+        if (dV != null && dV.getParent() != viewGroup) {
+            viewGroup.addView(dV);
+            return dV;
         }
-        return dJ;
+        return dV;
     }
 
-    public View dJ(int i) {
-        if (i >= this.azE.size() || i >= this.mListData.size()) {
+    public View dV(int i) {
+        if (i >= this.aCI.size() || i >= this.mListData.size()) {
             return null;
         }
-        View view = this.azE.get(i);
-        a M = M(view);
-        if (M != null && M.AW() == null) {
+        View view = this.aCI.get(i);
+        a Y = Y(view);
+        if (Y != null && Y.Ci() == null) {
             a((a) view.getTag(), this.mListData.get(i));
             return view;
         }
@@ -142,13 +142,13 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
 
     private void a(a aVar, h hVar) {
         c<T, V> cVar;
-        if (aVar != null && hVar != null && (cVar = this.azD.get(hVar.getType())) != null) {
+        if (aVar != null && hVar != null && (cVar = this.aCH.get(hVar.getType())) != null) {
             aVar.b(hVar);
             cVar.a(null, aVar, hVar);
         }
     }
 
-    private a M(View view) {
+    private a Y(View view) {
         if (view == null || !(view.getTag() instanceof a)) {
             return null;
         }
@@ -162,15 +162,15 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
 
     public void destory() {
         c<T, V> cVar;
-        if (this.azE != null) {
-            for (View view : this.azE) {
-                a M = M(view);
-                if (M != null && M.AW() != null && (cVar = this.azD.get(M.AW().getType())) != null) {
-                    cVar.b(M, M.AW());
+        if (this.aCI != null) {
+            for (View view : this.aCI) {
+                a Y = Y(view);
+                if (Y != null && Y.Ci() != null && (cVar = this.aCH.get(Y.Ci().getType())) != null) {
+                    cVar.b(Y, Y.Ci());
                 }
             }
-            this.azE.clear();
-            this.azE = null;
+            this.aCI.clear();
+            this.aCI = null;
         }
         if (this.mListData != null) {
             this.mListData.clear();
@@ -179,8 +179,8 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
 
     /* loaded from: classes.dex */
     public static class a {
-        public int azF = 3;
-        private h azG = null;
+        public int aCJ = 3;
+        private h aCK = null;
         private View view;
 
         public a(View view) {
@@ -196,12 +196,12 @@ public class BdBaseViewPagerAdapter<T extends h, V extends a> extends PagerAdapt
             return this.view;
         }
 
-        public h AW() {
-            return this.azG;
+        public h Ci() {
+            return this.aCK;
         }
 
         public void b(h hVar) {
-            this.azG = hVar;
+            this.aCK = hVar;
         }
     }
 }

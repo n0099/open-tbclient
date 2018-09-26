@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.j;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.data.k;
+import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
-public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener cIn;
+public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.person.b.c> {
+    private View.OnClickListener cOe;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -20,25 +20,25 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.person
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bv */
+    /* renamed from: bx */
     public com.baidu.tieba.person.b.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(f.h.user_pic_nomal_item, (ViewGroup) null));
+        return new com.baidu.tieba.person.b.c(LayoutInflater.from(this.mTbPageContext.getPageActivity()).inflate(e.h.user_pic_nomal_item, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, com.baidu.tieba.person.b.c cVar) {
-        if (cVar == null || jVar == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.person.b.c cVar) {
+        if (cVar == null || kVar == null) {
             return null;
         }
-        cVar.u(this.cIn);
-        cVar.g(jVar);
+        cVar.u(this.cOe);
+        cVar.g(kVar);
         return cVar.getView();
     }
 
     public void u(View.OnClickListener onClickListener) {
-        this.cIn = onClickListener;
+        this.cOe = onClickListener;
     }
 }

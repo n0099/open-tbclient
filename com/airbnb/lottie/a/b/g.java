@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g {
-    private final List<a<com.airbnb.lottie.model.content.h, Path>> mm;
-    private final List<a<Integer, Integer>> mn;
-    private final List<Mask> mo;
+    private final List<a<com.airbnb.lottie.model.content.h, Path>> oO;
+    private final List<a<Integer, Integer>> oP;
+    private final List<Mask> oQ;
 
     public g(List<Mask> list) {
-        this.mo = list;
-        this.mm = new ArrayList(list.size());
-        this.mn = new ArrayList(list.size());
+        this.oQ = list;
+        this.oO = new ArrayList(list.size());
+        this.oP = new ArrayList(list.size());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.mm.add(list.get(i2).cQ().ci());
-                this.mn.add(list.get(i2).cx().ci());
+                this.oO.add(list.get(i2).dX().dp());
+                this.oP.add(list.get(i2).dE().dp());
                 i = i2 + 1;
             } else {
                 return;
@@ -27,15 +27,15 @@ public class g {
         }
     }
 
-    public List<Mask> bW() {
-        return this.mo;
+    public List<Mask> dd() {
+        return this.oQ;
     }
 
-    public List<a<com.airbnb.lottie.model.content.h, Path>> bX() {
-        return this.mm;
+    public List<a<com.airbnb.lottie.model.content.h, Path>> de() {
+        return this.oO;
     }
 
-    public List<a<Integer, Integer>> bY() {
-        return this.mn;
+    public List<a<Integer, Integer>> df() {
+        return this.oP;
     }
 }

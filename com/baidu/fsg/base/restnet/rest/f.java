@@ -2,7 +2,7 @@ package com.baidu.fsg.base.restnet.rest;
 
 import android.util.Log;
 import com.baidu.fsg.base.restnet.http.HttpStatus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f<T> {
     private static final String a = f.class.getSimpleName();
     private final Class<T> b;

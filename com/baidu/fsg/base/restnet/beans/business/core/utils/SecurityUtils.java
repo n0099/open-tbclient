@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SecurityUtils {
     public static boolean isRoot() {
         if (new File("/system/bin/su").exists() && isExecutable("/system/bin/su")) {
@@ -14,7 +14,7 @@ public class SecurityUtils {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [44=4, 45=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [41=4, 42=4] */
     private static boolean isExecutable(String str) {
         Process process = null;
         try {

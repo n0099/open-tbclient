@@ -2,7 +2,6 @@ package com.baidu.ar.recorder.e;
 
 import android.opengl.GLES20;
 import android.util.Log;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -16,7 +15,7 @@ public class d {
         int[] iArr = new int[1];
         GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
-            Log.e("GlUtil", "Could not compile shader " + i + SystemInfoUtil.COLON);
+            Log.e("GlUtil", "Could not compile shader " + i + ":");
             Log.e("GlUtil", " " + GLES20.glGetShaderInfoLog(glCreateShader));
             GLES20.glDeleteShader(glCreateShader);
             return 0;

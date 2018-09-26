@@ -5,8 +5,8 @@ import android.graphics.Rect;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class s extends t {
-    public s(boolean z, boolean z2, boolean z3, int i) {
-        super(z, z2, z3, i);
+    public s(boolean z, boolean z2, int i) {
+        super(z, z2, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

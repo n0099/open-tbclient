@@ -16,7 +16,7 @@ public final class j {
         ArrayList arrayList2 = new ArrayList();
         arrayList2.addAll(Arrays.asList("-t", String.valueOf(com.baidu.crabsdk.a.h), "-v", "time"));
         int indexOf = arrayList2.indexOf("-t");
-        if (indexOf >= 0 && indexOf < arrayList2.size() && com.baidu.crabsdk.c.c.pg() < 8) {
+        if (indexOf >= 0 && indexOf < arrayList2.size() && com.baidu.crabsdk.c.c.qm() < 8) {
             arrayList2.remove(indexOf + 1);
             arrayList2.remove(indexOf);
             arrayList2.add("-d");

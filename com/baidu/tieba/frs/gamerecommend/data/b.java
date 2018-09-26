@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.gamerecommend.data;
 
 import com.baidu.tbadk.core.data.bb;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -12,6 +12,6 @@ public class b {
     public Integer type;
 
     public boolean isValid() {
-        return !w.z(this.sub_nodes);
+        return !v.z(this.sub_nodes);
     }
 }

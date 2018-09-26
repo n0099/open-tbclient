@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId djJ = BdUniqueId.gen();
-    private String djM;
-    private String djN;
-    private int djK = -1;
-    private int djL = -1;
-    private int djO = -1;
+    public static final BdUniqueId dpC = BdUniqueId.gen();
+    private String dpF;
+    private String dpG;
+    private int dpD = -1;
+    private int dpE = -1;
+    private int dpH = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return djJ;
+        return dpC;
     }
 
-    public int atd() {
-        return this.djK;
+    public int auR() {
+        return this.dpD;
     }
 
-    public void kh(int i) {
-        this.djK = i;
+    public void kG(int i) {
+        this.dpD = i;
     }
 
-    public int ate() {
-        return this.djO;
+    public int auS() {
+        return this.dpH;
     }
 
-    public void ki(int i) {
-        this.djO = i;
+    public void kH(int i) {
+        this.dpH = i;
     }
 
-    public int atf() {
-        return this.djL;
+    public int auT() {
+        return this.dpE;
     }
 
-    public void kj(int i) {
-        this.djL = i;
+    public void kI(int i) {
+        this.dpE = i;
     }
 
-    public String atg() {
-        return this.djM;
+    public String auU() {
+        return this.dpF;
     }
 
-    public void mn(String str) {
-        this.djM = str;
+    public void mP(String str) {
+        this.dpF = str;
     }
 
-    public String ath() {
-        return this.djN;
+    public String auV() {
+        return this.dpG;
     }
 
-    public void mo(String str) {
-        this.djN = str;
+    public void mQ(String str) {
+        this.dpG = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.djM) || StringUtils.isNull(this.djN) || this.djK < 0 || this.djL < 0;
+        return StringUtils.isNull(this.dpF) || StringUtils.isNull(this.dpG) || this.dpD < 0 || this.dpE < 0;
     }
 }

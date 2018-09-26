@@ -10,72 +10,72 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
-    protected NoDataView aSW;
-    private RelativeLayout bPD;
-    protected NavigationBar bpP;
-    protected NoNetworkView gxp;
-    private RelativeLayout gxq;
+    protected NoDataView aWl;
+    private RelativeLayout bVs;
+    protected NavigationBar bvF;
+    protected NoNetworkView gEG;
+    private RelativeLayout gEH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        super.setContentView(f.h.nevigationbar_layout);
-        this.bpP = (NavigationBar) findViewById(f.g.navigation_bar);
-        this.bPD = (RelativeLayout) findViewById(f.g.navigation_bar_root);
-        this.bpP.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.selectpoi.NavigationBarActivity.1
+        super.setContentView(e.h.nevigationbar_layout);
+        this.bvF = (NavigationBar) findViewById(e.g.navigation_bar);
+        this.bVs = (RelativeLayout) findViewById(e.g.navigation_bar_root);
+        this.bvF.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.selectpoi.NavigationBarActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 NavigationBarActivity.this.finish();
             }
         });
-        if (boS()) {
-            this.gxp = (NoNetworkView) ((ViewStub) findViewById(f.g.no_network_viewstub)).inflate();
+        if (brz()) {
+            this.gEG = (NoNetworkView) ((ViewStub) findViewById(e.g.no_network_viewstub)).inflate();
         }
     }
 
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (boS()) {
+        if (brz()) {
         }
-        this.gxq = new RelativeLayout(getPageContext().getContext());
-        this.gxq.addView(view, new ViewGroup.LayoutParams(-1, -1));
-        this.bPD.addView(this.gxq, 0, layoutParams);
+        this.gEH = new RelativeLayout(getPageContext().getContext());
+        this.gEH.addView(view, new ViewGroup.LayoutParams(-1, -1));
+        this.bVs.addView(this.gEH, 0, layoutParams);
     }
 
-    protected boolean boS() {
+    protected boolean brz() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (boS()) {
-            layoutParams.addRule(3, f.g.no_network_view);
+        if (brz()) {
+            layoutParams.addRule(3, e.g.no_network_view);
         } else {
-            layoutParams.addRule(3, f.g.no_network_viewstub);
+            layoutParams.addRule(3, e.g.no_network_viewstub);
         }
-        this.gxq = new RelativeLayout(getPageContext().getContext());
-        this.gxq.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
-        this.bPD.addView(this.gxq, layoutParams);
+        this.gEH = new RelativeLayout(getPageContext().getContext());
+        this.gEH.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        this.bVs.addView(this.gEH, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bpP.onChangeSkinType(getPageContext(), i);
-        if (this.gxp != null) {
-            this.gxp.onChangeSkinType(getPageContext(), i);
+        this.bvF.onChangeSkinType(getPageContext(), i);
+        if (this.gEG != null) {
+            this.gEG.onChangeSkinType(getPageContext(), i);
         }
-        if (this.aSW != null) {
-            this.aSW.onChangeSkinType(getPageContext(), i);
+        if (this.aWl != null) {
+            this.aWl.onChangeSkinType(getPageContext(), i);
         }
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.bPD);
+        getLayoutMode().onModeChanged(this.bVs);
     }
 }

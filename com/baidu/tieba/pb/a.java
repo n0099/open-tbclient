@@ -3,19 +3,19 @@ package com.baidu.tieba.pb;
 import android.os.Build;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.sapi2.biometrics.liveness.activity.LivenessRecogActivity;
+import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: com.baidu.tieba.pb.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0203a {
+    public interface InterfaceC0206a {
         void d(String str, String str2, String str3, String str4, String str5);
     }
 
@@ -27,39 +27,39 @@ public class a {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            an ae = new an("ad_tpoint").ae(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).ae("obj_name", str);
+            am al = new am("ad_tpoint").al(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).al("obj_name", str);
             if (str3 != null) {
-                ae = ae.ae("page", str3);
+                al = al.al("page", str3);
             }
             if (str4 != null) {
-                ae = ae.ae("loc_param", str4);
+                al = al.al("loc_param", str4);
             }
             if (str5 != null) {
-                ae = ae.ae(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str5);
+                al = al.al(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str5);
             }
             if (str6 != null) {
-                ae = ae.ae("task", str6);
+                al = al.al("task", str6);
             }
             if (str7 != null) {
-                ae = ae.ae("obj_param", str7);
+                al = al.al("obj_param", str7);
             }
             if (str8 != null) {
-                ae = ae.ae(LegoListActivityConfig.PARAMS, str8);
+                al = al.al(LegoListActivityConfig.PARAMS, str8);
             }
             if (str9 != null) {
-                ae = ae.ae(ImageViewerConfig.FORUM_ID, str9);
+                al = al.al(ImageViewerConfig.FORUM_ID, str9);
             }
             if (str10 != null) {
-                ae = ae.ae(ImageViewerConfig.FORUM_NAME, str10);
+                al = al.al(ImageViewerConfig.FORUM_NAME, str10);
             }
             if (str11 != null) {
-                ae = ae.ae("tid", str11);
+                al = al.al("tid", str11);
             }
-            an ae2 = ae.ae("line", "PT").ae("locate", "c0114").r("obj_cpid", 0).r("obj_good_id", 0).ae("obj_throw_type", "BY_POST").ae("client_type", "MOBILE_APP").ae("user_timestamp", String.valueOf(System.currentTimeMillis())).ae("os", HttpConstants.OS_TYPE_VALUE).ae(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).ae("log_ver", "1.1");
+            am al2 = al.al("line", "PT").al("locate", "c0114").w("obj_cpid", 0).w("obj_good_id", 0).al("obj_throw_type", "BY_POST").al("client_type", "MOBILE_APP").al("user_timestamp", String.valueOf(System.currentTimeMillis())).al("os", HttpConstants.OS_TYPE_VALUE).al(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).al("log_ver", "1.1");
             if (str2 != null) {
-                ae2 = ae2.ae("link", str2);
+                al2 = al2.al("link", str2);
             }
-            TiebaStatic.log(ae2);
+            TiebaStatic.log(al2);
         }
     }
 }

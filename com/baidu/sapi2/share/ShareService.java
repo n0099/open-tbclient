@@ -16,6 +16,7 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.share.face.FaceLoginModel;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
@@ -73,7 +74,7 @@ public final class ShareService extends Service {
         protected boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             Bundle readBundle;
             ShareModel shareModel;
-            if (!c.b(ShareService.this)) {
+            if (!c.c(ShareService.this)) {
                 return false;
             }
             if (SapiAccountManager.getReceiveShareListener() != null) {
@@ -106,35 +107,47 @@ public final class ShareService extends Service {
             }
             String string = readBundle.getString("IQIYI_TOKEN");
             boolean z = readBundle.getBoolean("EXTRA_OTHER_INFO");
+            ArrayList arrayList = new ArrayList();
             String string2 = readBundle.getString("FACE_LOGIN_UID");
             if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(ShareService.a).getFaceLoginUid())) {
-                new FaceLoginService().syncFaceLoginUID(ShareService.a, string2);
+                arrayList.add(new FaceLoginModel.a(string2, 1L));
             }
-            String string3 = readBundle.getString("FACE_LOGIN_MODEL");
+            String string3 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
             if (!TextUtils.isEmpty(string3)) {
-                SapiContext.getInstance(ShareService.a).setFaceLoginModel(string3);
-                new FaceLoginService().syncShareFaceLoginModel(string3);
+                arrayList.addAll(new FaceLoginService().str2ShareModelV2List(string3));
             }
-            if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") == null || !(readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
-                int i3 = readBundle.getInt("SDK_VERSION");
-                if (!z) {
-                    c.b(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
-                }
-                switch (shareModel.b()) {
-                    case VALIDATE:
-                        c.a(ShareService.a, ShareService.b, shareModel, i3, string, z);
+            if (!arrayList.isEmpty()) {
+                new FaceLoginService().syncPriWithShare(arrayList, false);
+            }
+            boolean z2 = readBundle.getBoolean("VEHICLE_SYSTEM", false);
+            if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") != null && (readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) && ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) != SapiAccountManager.getInstance().getSapiConfiguration().environment) {
+                return true;
+            }
+            int i3 = readBundle.getInt(ShareCallPacking.EXTRA_SDK_VERSION);
+            if (!z) {
+                c.b(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
+            }
+            String string4 = readBundle.getString("PKG");
+            String loginShareDirection = SapiAccountManager.getInstance().getSapiConfiguration().loginShareDirection();
+            switch (shareModel.b()) {
+                case VALIDATE:
+                    if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
+                        c.a(ShareService.a, ShareService.b, shareModel, i3, string, z, z2, string4);
                         break;
-                    case INVALIDATE:
+                    }
+                    break;
+                case INVALIDATE:
+                    if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
                         c.a(ShareService.a, shareModel);
                         break;
-                    case SYNC_REQ:
-                        if (!SapiAccountManager.getInstance().getSession().isGuestAccount()) {
-                            ShareService.this.a(parcel2);
-                            break;
-                        }
+                    }
+                    break;
+                case SYNC_REQ:
+                    if (!com.baidu.sapi2.utils.enums.a.a.equals(loginShareDirection) || !SapiAccountManager.getInstance().getSession().isGuestAccount()) {
+                        ShareService.this.a(parcel2);
                         break;
-                }
-                return true;
+                    }
+                    break;
             }
             return true;
         }
@@ -184,16 +197,14 @@ public final class ShareService extends Service {
             bundle.putString("RELOGIN_CREDENTIALS", b.a(a, c.getReloginCredentials().toString()));
         }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
-        bundle.putInt("SDK_VERSION", SapiAccountManager.VERSION_CODE);
-        boolean shareFaceLoginEnable = SapiContext.getInstance(this).getShareFaceLoginEnable();
-        if (SapiContext.getInstance(a).shareLivingunameEnable() || shareFaceLoginEnable) {
+        bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, SapiAccountManager.VERSION_CODE);
+        if (SapiContext.getInstance(a).shareLivingunameEnable()) {
             bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(a).getFaceLoginUid());
+            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(a).getV2FaceLivingUnames());
         }
-        if (shareFaceLoginEnable) {
-            String faceLoginModel = SapiContext.getInstance(a).getFaceLoginModel();
-            if (new FaceLoginService().convertResult2Model(faceLoginModel) != null) {
-                bundle.putString("FACE_LOGIN_MODEL", faceLoginModel);
-            }
+        bundle.putString("PKG", getPackageName());
+        if (c.b()) {
+            bundle.putBoolean("VEHICLE_SYSTEM", true);
         }
         parcel.writeBundle(bundle);
     }

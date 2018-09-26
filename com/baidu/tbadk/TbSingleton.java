@@ -2,19 +2,20 @@ package com.baidu.tbadk;
 
 import com.baidu.tbadk.c.a;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ao;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class TbSingleton {
     private static TbSingleton mInstance = null;
     private boolean isRecommendPage;
     private LinkedList<a> mVideoWatchTimeRecord;
-    private long pushDialogLoopTime = ap.aqS;
-    private long pushDialogShowTime = 5 * ap.aqR;
+    private long pushDialogLoopTime = ao.atq;
+    private long pushDialogShowTime = 5 * ao.atp;
     private long lastResumeTime = 0;
     private boolean canShowPermDlg = false;
     private boolean hasShowPermDlg = false;
     private boolean isNewUser = false;
+    private boolean mHasAgreeToPlay = false;
 
     private TbSingleton() {
     }
@@ -41,7 +42,7 @@ public class TbSingleton {
     public void putVideoRecord(String str, int i) {
         a aVar;
         boolean z;
-        if (!ap.isEmpty(str)) {
+        if (!ao.isEmpty(str)) {
             if (this.mVideoWatchTimeRecord == null) {
                 this.mVideoWatchTimeRecord = new LinkedList<>();
             }
@@ -136,5 +137,13 @@ public class TbSingleton {
 
     public void setNewUser(boolean z) {
         this.isNewUser = z;
+    }
+
+    public void setHasAgreeToPlay(boolean z) {
+        this.mHasAgreeToPlay = z;
+    }
+
+    public boolean hasAgreeToPlay() {
+        return this.mHasAgreeToPlay;
     }
 }

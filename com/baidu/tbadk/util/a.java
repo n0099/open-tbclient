@@ -1,34 +1,45 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a aWg = null;
+    private static a aZv;
+    private com.baidu.tbadk.coreExtra.data.a aIa;
 
-    private a() {
-    }
-
-    public static synchronized a Le() {
-        a aVar;
-        synchronized (a.class) {
-            if (aWg == null) {
-                aWg = new a();
+    public static a Mu() {
+        if (aZv == null) {
+            synchronized (a.class) {
+                if (aZv == null) {
+                    aZv = new a();
+                }
             }
-            aVar = aWg;
         }
-        return aVar;
+        return aZv;
     }
 
-    public void Lf() {
-        String Lg = Lg();
-        if (!TextUtils.isEmpty(Lg)) {
-            com.baidu.adp.lib.f.c.ih().a(Lg, 10, null, 0, 0, null, new Object[0]);
+    public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
+        b(aVar);
+    }
+
+    private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
+        boolean z = false;
+        z = (aVar == null || this.aIa == null || aVar.CM() != this.aIa.CM()) ? true : true;
+        this.aIa = aVar;
+        if (z) {
+            hP("zan_or_cai_smallflow");
         }
     }
 
-    public String Lg() {
-        return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
+    public boolean CM() {
+        if (this.aIa == null) {
+            this.aIa = new com.baidu.tbadk.coreExtra.data.a();
+            this.aIa.CN();
+        }
+        return this.aIa.CM();
+    }
+
+    private void hP(String str) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 }

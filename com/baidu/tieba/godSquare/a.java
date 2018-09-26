@@ -3,72 +3,73 @@ package com.baidu.tieba.godSquare;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.h;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.g;
-import com.baidu.tbadk.core.view.h;
-import com.baidu.tieba.f;
+import com.baidu.tbadk.core.view.j;
+import com.baidu.tbadk.core.view.k;
+import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private BaseActivity bnc;
-    private PbListView bvC;
-    private NoNetworkView cSv;
-    private com.baidu.tieba.godSquare.a.a dQY;
+    private PbListView bBr;
+    private BaseActivity bsQ;
+    private NoNetworkView cYm;
+    private com.baidu.tieba.godSquare.a.a dYq;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
-    private h mPullView;
+    private k mPullView;
     private View mRootView;
 
     public a(BaseActivity baseActivity) {
-        this.bnc = baseActivity;
-        this.bnc.setContentView(f.h.god_square_activity);
-        this.mRootView = this.bnc.findViewById(f.g.activity_root_view);
-        this.mNavigationBar = (NavigationBar) this.bnc.findViewById(f.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(f.j.god_square);
+        this.bsQ = baseActivity;
+        this.bsQ.setContentView(e.h.god_square_activity);
+        this.mRootView = this.bsQ.findViewById(e.g.activity_root_view);
+        this.mNavigationBar = (NavigationBar) this.bsQ.findViewById(e.g.view_navigation_bar);
+        this.mNavigationBar.setTitleText(e.j.god_square);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cSv = (NoNetworkView) this.bnc.findViewById(f.g.view_no_network);
-        this.bvC = new PbListView(this.bnc.getPageContext().getPageActivity());
-        this.bvC.np();
-        this.bvC.Av();
-        this.mListView = (BdTypeListView) this.bnc.findViewById(f.g.god_square_list_view);
-        this.mPullView = new h(this.bnc.getPageContext());
-        if (this.bnc instanceof g.b) {
-            this.mPullView.a((g.b) this.bnc);
+        this.cYm = (NoNetworkView) this.bsQ.findViewById(e.g.view_no_network);
+        this.bBr = new PbListView(this.bsQ.getPageContext().getPageActivity());
+        this.bBr.ov();
+        this.bBr.BI();
+        this.mListView = (BdTypeListView) this.bsQ.findViewById(e.g.god_square_list_view);
+        this.mPullView = new k(this.bsQ.getPageContext());
+        if (this.bsQ instanceof j.b) {
+            this.mPullView.a((j.b) this.bsQ);
         }
-        if (this.bnc instanceof BdListView.e) {
-            this.mListView.setOnSrollToBottomListener((BdListView.e) this.bnc);
+        if (this.bsQ instanceof BdListView.e) {
+            this.mListView.setOnSrollToBottomListener((BdListView.e) this.bsQ);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.dQY = new com.baidu.tieba.godSquare.a.a(this.bnc.getPageContext(), this.mListView);
-        this.mListView.addAdapters(this.dQY.ati());
-        this.mListView.setNextPage(this.bvC);
+        this.dYq = new com.baidu.tieba.godSquare.a.a(this.bsQ.getPageContext(), this.mListView);
+        this.mListView.addAdapters(this.dYq.auW());
+        this.mListView.setNextPage(this.bBr);
     }
 
     public void showLoadingView() {
         this.mListView.setVisibility(8);
-        this.bnc.showLoadingView(this.mRootView, true);
+        this.bsQ.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
         this.mListView.setVisibility(0);
-        this.bnc.hideLoadingView(this.mRootView);
+        this.bsQ.hideLoadingView(this.mRootView);
     }
 
-    public void mp(String str) {
+    public void mR(String str) {
         this.mListView.setVisibility(8);
-        this.bnc.showNetRefreshView(this.mRootView, str, true);
+        this.bsQ.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void Un() {
+    public void Wa() {
         this.mListView.setVisibility(0);
-        this.bnc.hideNetRefreshView(this.mRootView);
+        this.bsQ.hideNetRefreshView(this.mRootView);
     }
 
-    public void bN(List<com.baidu.adp.widget.ListView.h> list) {
+    public void bO(List<h> list) {
         if (list != null) {
             this.mListView.setData(list);
         }
@@ -79,29 +80,29 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.dQY.notifyDataSetChanged();
+        this.dYq.notifyDataSetChanged();
     }
 
-    public void aCJ() {
-        this.bvC.Av();
+    public void aEW() {
+        this.bBr.BI();
     }
 
-    public void aCK() {
-        this.bvC.setText(this.bnc.getResources().getString(f.j.network_ungeilivable));
-        this.bvC.Aw();
+    public void aEX() {
+        this.bBr.setText(this.bsQ.getResources().getString(e.j.network_ungeilivable));
+        this.bBr.BJ();
     }
 
-    public void aCL() {
-        this.bvC.setText(this.bnc.getResources().getString(f.j.list_no_more));
-        this.bvC.Aw();
+    public void aEY() {
+        this.bBr.setText(this.bsQ.getResources().getString(e.j.list_no_more));
+        this.bBr.BJ();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.bnc.getPageContext(), i);
-        this.bvC.dA(f.d.cp_bg_line_c);
-        this.bvC.setTextColor(am.getColor(f.d.cp_cont_d));
-        this.bvC.dB(i);
-        this.cSv.onChangeSkinType(this.bnc.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.bsQ.getPageContext(), i);
+        this.bBr.dL(e.d.cp_bg_line_c);
+        this.bBr.setTextColor(al.getColor(e.d.cp_cont_d));
+        this.bBr.dM(i);
+        this.cYm.onChangeSkinType(this.bsQ.getPageContext(), i);
     }
 
     public void startPullRefresh() {
@@ -110,7 +111,7 @@ public class a {
 
     public void g(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.cSv.a(aVar);
+            this.cYm.a(aVar);
         }
     }
 }

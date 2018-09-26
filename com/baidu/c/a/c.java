@@ -8,7 +8,6 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -34,12 +33,58 @@ class c {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String a() {
+        return Locale.getDefault().getLanguage();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public static String a(Context context) {
+        String packageName = context.getPackageName();
+        return a(context, packageName) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
+    }
+
+    private static String a(Context context, String str) {
+        String str2;
+        try {
+            str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(context.getPackageManager().getPackageInfo(str, 64).signatures[0].toByteArray())));
+        } catch (PackageManager.NameNotFoundException e) {
+            str2 = "";
+        } catch (CertificateException e2) {
+            str2 = "";
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < str2.length(); i++) {
+            stringBuffer.append(str2.charAt(i));
+            if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
+                stringBuffer.append(":");
+            }
+        }
+        return stringBuffer.toString();
+    }
+
+    static String a(X509Certificate x509Certificate) {
+        try {
+            return a.a(a(x509Certificate.getEncoded()));
+        } catch (CertificateEncodingException e) {
+            return null;
+        }
+    }
+
+    static byte[] a(byte[] bArr) {
+        try {
+            return MessageDigest.getInstance("SHA1").digest(bArr);
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:16:0x0040  */
     /* JADX WARN: Removed duplicated region for block: B:21:0x004a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String[] N(Context context, String str) {
+    private static String[] ab(Context context, String str) {
         String[] strArr;
         String[] strArr2;
         int i;
@@ -84,7 +129,7 @@ class c {
                 for (int i3 = 0; i3 < strArr2[i].length(); i3++) {
                     stringBuffer.append(strArr2[i].charAt(i3));
                     if (i3 > 0 && i3 % 2 == 1 && i3 < strArr2[i].length() - 1) {
-                        stringBuffer.append(SystemInfoUtil.COLON);
+                        stringBuffer.append(":");
                     }
                 }
                 strArr4[i] = stringBuffer.toString();
@@ -93,62 +138,16 @@ class c {
         return strArr4;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String a() {
-        return Locale.getDefault().getLanguage();
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
-    public static String a(Context context) {
+    public static String[] bd(Context context) {
         String packageName = context.getPackageName();
-        return a(context, packageName) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
-    }
-
-    private static String a(Context context, String str) {
-        String str2;
-        try {
-            str2 = a((X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream(context.getPackageManager().getPackageInfo(str, 64).signatures[0].toByteArray())));
-        } catch (PackageManager.NameNotFoundException e) {
-            str2 = "";
-        } catch (CertificateException e2) {
-            str2 = "";
-        }
-        StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < str2.length(); i++) {
-            stringBuffer.append(str2.charAt(i));
-            if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
-                stringBuffer.append(SystemInfoUtil.COLON);
-            }
-        }
-        return stringBuffer.toString();
-    }
-
-    static String a(X509Certificate x509Certificate) {
-        try {
-            return a.a(a(x509Certificate.getEncoded()));
-        } catch (CertificateEncodingException e) {
+        String[] ab = ab(context, packageName);
+        if (ab == null || ab.length <= 0) {
             return null;
         }
-    }
-
-    static byte[] a(byte[] bArr) {
-        try {
-            return MessageDigest.getInstance("SHA1").digest(bArr);
-        } catch (NoSuchAlgorithmException e) {
-            return null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static String[] ax(Context context) {
-        String packageName = context.getPackageName();
-        String[] N = N(context, packageName);
-        if (N == null || N.length <= 0) {
-            return null;
-        }
-        String[] strArr = new String[N.length];
+        String[] strArr = new String[ab.length];
         for (int i = 0; i < strArr.length; i++) {
-            strArr[i] = N[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
+            strArr[i] = ab[i] + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + packageName;
             if (b.a) {
                 b.a("mcode" + strArr[i]);
             }

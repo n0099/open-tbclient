@@ -7,8 +7,8 @@ import tbclient.TbBookrack;
 /* loaded from: classes2.dex */
 public class a {
     public String booktown;
-    public int fTm;
-    public List<b> fTn;
+    public int gaC;
+    public List<b> gaD;
     public String icon;
     public String tip;
     public String title;
@@ -16,17 +16,17 @@ public class a {
     public void a(TbBookrack tbBookrack) {
         if (tbBookrack != null) {
             this.booktown = tbBookrack.booktown;
-            this.fTm = tbBookrack.num.intValue();
+            this.gaC = tbBookrack.num.intValue();
             this.title = tbBookrack.title;
             this.icon = tbBookrack.icon;
             this.tip = tbBookrack.tip;
-            this.fTn = new ArrayList();
+            this.gaD = new ArrayList();
             if (tbBookrack.book_list != null) {
                 for (BookInfo bookInfo : tbBookrack.book_list) {
                     if (bookInfo != null) {
                         b bVar = new b();
                         bVar.a(bookInfo);
-                        this.fTn.add(bVar);
+                        this.gaD.add(bVar);
                     }
                 }
             }

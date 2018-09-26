@@ -72,8 +72,9 @@ public class AccountCenterActivity extends BaseActivity {
         return PassportSDK.getInstance().getAccountCenterDTO();
     }
 
-    @Override // android.app.Activity
-    protected void onDestroy() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
+    public void onDestroy() {
         super.onDestroy();
     }
 
@@ -188,7 +189,10 @@ public class AccountCenterActivity extends BaseActivity {
         this.sapiWebView.setAccountDestoryCallback(new SapiWebView.AccountDestoryCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.7
             @Override // com.baidu.sapi2.SapiWebView.AccountDestoryCallback
             public void onAccountDestory(SapiWebView.AccountDestoryCallback.AccountDestoryResult accountDestoryResult) {
-                SapiAccountManager.getInstance().logout();
+                AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
+                if (accountCenterDTO != null && accountCenterDTO.logoutAfterBdussInvalid) {
+                    SapiAccountManager.getInstance().logout();
+                }
                 AccountCenterResult accountCenterResult = new AccountCenterResult();
                 accountCenterResult.isAccountDestory = true;
                 AccountCenterActivity.this.finishActivity(accountCenterResult);
@@ -202,7 +206,19 @@ public class AccountCenterActivity extends BaseActivity {
                 }
             }
         });
-        this.sapiWebView.setBdussChangeCallback(new SapiWebView.BdussChangeCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.9
+        this.sapiWebView.setAccountFreezeCallback(new SapiWebView.AccountFreezeCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.9
+            @Override // com.baidu.sapi2.SapiWebView.AccountFreezeCallback
+            public void onAccountFreeze(SapiWebView.AccountFreezeCallback.AccountFreezeResult accountFreezeResult) {
+                AccountCenterDTO accountCenterDTO = PassportSDK.getInstance().getAccountCenterDTO();
+                if (accountCenterDTO != null && accountCenterDTO.logoutAfterBdussInvalid) {
+                    SapiAccountManager.getInstance().logout();
+                }
+                AccountCenterResult accountCenterResult = new AccountCenterResult();
+                accountCenterResult.isAccountFreeze = true;
+                AccountCenterActivity.this.finishActivity(accountCenterResult);
+            }
+        });
+        this.sapiWebView.setBdussChangeCallback(new SapiWebView.BdussChangeCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.10
             @Override // com.baidu.sapi2.SapiWebView.BdussChangeCallback
             public void onBdussChange() {
                 AccountCenterActivity.this.web2NativeLogin();
@@ -216,7 +232,7 @@ public class AccountCenterActivity extends BaseActivity {
         if (!TextUtils.isEmpty(str)) {
             ArrayList arrayList = new ArrayList();
             arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.10
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onSuccess(GetTplStokenResult getTplStokenResult) {
@@ -329,7 +345,7 @@ public class AccountCenterActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void web2NativeLogin() {
-        SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
+        SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.12
             @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
             public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
             }

@@ -8,7 +8,10 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class SapiAccountResponse extends SapiResponse {
     public String actionType;
+    public String app;
     public String authSid;
+    public String extra;
+    public String livingUname;
     public boolean newReg;
     public String bduss = "";
     public String ptoken = "";

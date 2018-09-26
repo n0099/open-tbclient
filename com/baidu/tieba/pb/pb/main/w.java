@@ -5,26 +5,26 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.f;
+import com.baidu.tieba.e;
 /* loaded from: classes2.dex */
 public class w extends q.a {
-    public TextView bSQ;
-    public TextView elZ;
-    public HeadImageView fAq;
-    public TbImageView fAr;
-    public TextView fAs;
+    public TextView bYF;
+    public TextView etu;
+    public HeadImageView fHZ;
+    public TbImageView fIa;
+    public TextView fIb;
     public int mSkinType;
     public TextView text;
 
     public w(View view) {
         super(view);
         this.mSkinType = 3;
-        this.fAq = (HeadImageView) view.findViewById(f.g.photo);
-        this.fAq.setRadius(com.baidu.adp.lib.util.l.f(view.getContext(), f.e.ds30));
-        this.bSQ = (TextView) view.findViewById(f.g.user_name);
-        this.elZ = (TextView) view.findViewById(f.g.time);
-        this.text = (TextView) view.findViewById(f.g.text);
-        this.fAr = (TbImageView) view.findViewById(f.g.god_pic);
-        this.fAs = (TextView) view.findViewById(f.g.god_btn);
+        this.fHZ = (HeadImageView) view.findViewById(e.g.photo);
+        this.fHZ.setRadius(com.baidu.adp.lib.util.l.h(view.getContext(), e.C0141e.ds30));
+        this.bYF = (TextView) view.findViewById(e.g.user_name);
+        this.etu = (TextView) view.findViewById(e.g.time);
+        this.text = (TextView) view.findViewById(e.g.text);
+        this.fIa = (TbImageView) view.findViewById(e.g.god_pic);
+        this.fIb = (TextView) view.findViewById(e.g.god_btn);
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 public class k implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
-        int g = com.baidu.adp.lib.g.b.g(customMessage.getData(), 0);
-        if (!com.baidu.tieba.im.db.l.aJM().od(String.valueOf(g))) {
+        int l = com.baidu.adp.lib.g.b.l(customMessage.getData(), 0);
+        if (!com.baidu.tieba.im.db.l.aMb().oK(String.valueOf(l))) {
             return null;
         }
-        return new CustomResponsedMessage<>(2001151, String.valueOf(g));
+        return new CustomResponsedMessage<>(2001151, String.valueOf(l));
     }
 }

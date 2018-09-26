@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class k implements SensorEventListener {
-    private SensorManager WW;
+    private SensorManager Zx;
     private float[] c;
     private int d = 0;
     private List<Float> e = new ArrayList();
@@ -18,15 +18,15 @@ public class k implements SensorEventListener {
     private boolean g = false;
     private boolean h;
     private static Object a = new Object();
-    private static k WV = null;
+    private static k Zw = null;
 
     public k() {
         this.h = false;
         try {
-            if (this.WW == null) {
-                this.WW = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.Zx == null) {
+                this.Zx = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.WW.getDefaultSensor(6) != null) {
+            if (this.Zx.getDefaultSensor(6) != null) {
                 this.h = true;
             }
         } catch (Exception e) {
@@ -34,13 +34,13 @@ public class k implements SensorEventListener {
         }
     }
 
-    public static k qu() {
+    public static k rz() {
         k kVar;
         synchronized (a) {
-            if (WV == null) {
-                WV = new k();
+            if (Zw == null) {
+                Zw = new k();
             }
-            kVar = WV;
+            kVar = Zw;
         }
         return kVar;
     }
@@ -52,11 +52,11 @@ public class k implements SensorEventListener {
                 this.d = 0;
                 this.e.clear();
                 this.f.clear();
-                if (this.WW == null) {
-                    this.WW = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+                if (this.Zx == null) {
+                    this.Zx = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
                 }
-                if (this.WW != null && (defaultSensor = this.WW.getDefaultSensor(6)) != null) {
-                    this.WW.registerListener(this, defaultSensor, 2);
+                if (this.Zx != null && (defaultSensor = this.Zx.getDefaultSensor(6)) != null) {
+                    this.Zx.registerListener(this, defaultSensor, 2);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -68,9 +68,9 @@ public class k implements SensorEventListener {
     public void c() {
         if (this.g) {
             try {
-                if (this.WW != null) {
-                    this.WW.unregisterListener(this);
-                    this.WW = null;
+                if (this.Zx != null) {
+                    this.Zx.unregisterListener(this);
+                    this.Zx = null;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
