@@ -5,7 +5,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
-import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,11 +14,11 @@ import org.json.JSONObject;
 public final class h {
     private Context b;
     private JSONArray c;
-    private WifiManager kg;
+    private WifiManager kM;
 
     public h(Context context) {
         this.b = null;
-        this.kg = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+        this.kM = (WifiManager) context.getApplicationContext().getSystemService("wifi");
         this.b = context;
     }
 
@@ -28,7 +27,7 @@ public final class h {
         i iVar;
         int i;
         if (d()) {
-            WifiInfo connectionInfo = this.kg.getConnectionInfo();
+            WifiInfo connectionInfo = this.kM.getConnectionInfo();
             i iVar2 = connectionInfo != null ? new i(this, connectionInfo.getBSSID(), connectionInfo.getRssi(), connectionInfo.getSSID()) : null;
             ArrayList arrayList2 = new ArrayList();
             if (iVar2 != null) {
@@ -36,9 +35,9 @@ public final class h {
                 a.put("tag", "connect");
                 jSONArray.put(a);
             }
-            List<ScanResult> scanResults = Build.VERSION.SDK_INT < 23 ? this.kg.getScanResults() : (this.b == null || !cn.jiguang.g.a.a(this.b, "android.permission.ACCESS_COARSE_LOCATION")) ? null : this.kg.getScanResults();
+            List<ScanResult> scanResults = Build.VERSION.SDK_INT < 23 ? this.kM.getScanResults() : (this.b == null || !cn.jiguang.g.a.a(this.b, "android.permission.ACCESS_COARSE_LOCATION")) ? null : this.kM.getScanResults();
             if (scanResults != null && scanResults.size() > 0) {
-                int i2 = SapiErrorCode.NETWORK_FAILED;
+                int i2 = -200;
                 i iVar3 = null;
                 for (ScanResult scanResult : scanResults) {
                     i iVar4 = new i(this, scanResult);
@@ -84,7 +83,7 @@ public final class h {
 
     private boolean d() {
         try {
-            return this.kg.isWifiEnabled();
+            return this.kM.isWifiEnabled();
         } catch (Exception e) {
             return false;
         }
@@ -97,7 +96,7 @@ public final class h {
     public final void b() {
         if (cn.jiguang.g.a.a(this.b, "android.permission.ACCESS_WIFI_STATE")) {
             Context context = this.b;
-            if (((cn.jiguang.g.a.a(context, "android.permission.ACCESS_COARSE_LOCATION") && cn.jiguang.g.a.a(context, "android.permission.ACCESS_WIFI_STATE") && cn.jiguang.g.a.a(context, "android.permission.CHANGE_WIFI_STATE") && cn.jiguang.g.a.a(context, "android.permission.ACCESS_FINE_LOCATION")) || cn.jiguang.g.a.ar(this.b)) && this.kg.isWifiEnabled()) {
+            if (((cn.jiguang.g.a.a(context, "android.permission.ACCESS_COARSE_LOCATION") && cn.jiguang.g.a.a(context, "android.permission.ACCESS_WIFI_STATE") && cn.jiguang.g.a.a(context, "android.permission.CHANGE_WIFI_STATE") && cn.jiguang.g.a.a(context, "android.permission.ACCESS_FINE_LOCATION")) || cn.jiguang.g.a.ar(this.b)) && this.kM.isWifiEnabled()) {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     List<i> a = a(jSONArray);

@@ -1,39 +1,94 @@
 package com.google.gson.internal;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectStreamClass;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.i;
+import com.google.gson.internal.a.n;
+import com.google.gson.j;
+import com.google.gson.stream.MalformedJsonException;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.Writer;
 /* loaded from: classes2.dex */
-public abstract class g {
-    public static g bMY() {
+public final class g {
+    public static i h(com.google.gson.stream.a aVar) throws JsonParseException {
+        boolean z = true;
         try {
-            Class<?> cls = Class.forName("sun.misc.Unsafe");
-            Field declaredField = cls.getDeclaredField("theUnsafe");
-            declaredField.setAccessible(true);
-            final Object obj = declaredField.get(null);
-            final Method method = cls.getMethod("allocateInstance", Class.class);
-            return new g() { // from class: com.google.gson.internal.g.1
-            };
-        } catch (Exception e) {
-            try {
-                final Method declaredMethod = ObjectInputStream.class.getDeclaredMethod("newInstance", Class.class, Class.class);
-                declaredMethod.setAccessible(true);
-                return new g() { // from class: com.google.gson.internal.g.2
-                };
-            } catch (Exception e2) {
-                try {
-                    Method declaredMethod2 = ObjectStreamClass.class.getDeclaredMethod("getConstructorId", Class.class);
-                    declaredMethod2.setAccessible(true);
-                    final int intValue = ((Integer) declaredMethod2.invoke(null, Object.class)).intValue();
-                    final Method declaredMethod3 = ObjectStreamClass.class.getDeclaredMethod("newInstance", Class.class, Integer.TYPE);
-                    declaredMethod3.setAccessible(true);
-                    return new g() { // from class: com.google.gson.internal.g.3
-                    };
-                } catch (Exception e3) {
-                    return new g() { // from class: com.google.gson.internal.g.4
-                    };
-                }
+            aVar.bZe();
+            z = false;
+            return n.inb.b(aVar);
+        } catch (MalformedJsonException e) {
+            throw new JsonSyntaxException(e);
+        } catch (EOFException e2) {
+            if (z) {
+                return j.ikg;
+            }
+            throw new JsonSyntaxException(e2);
+        } catch (IOException e3) {
+            throw new JsonIOException(e3);
+        } catch (NumberFormatException e4) {
+            throw new JsonSyntaxException(e4);
+        }
+    }
+
+    public static void b(i iVar, com.google.gson.stream.b bVar) throws IOException {
+        n.inb.a(bVar, iVar);
+    }
+
+    public static Writer a(Appendable appendable) {
+        return appendable instanceof Writer ? (Writer) appendable : new a(appendable);
+    }
+
+    /* loaded from: classes2.dex */
+    private static final class a extends Writer {
+        private final Appendable ilg;
+        private final C0326a ilh = new C0326a();
+
+        a(Appendable appendable) {
+            this.ilg = appendable;
+        }
+
+        @Override // java.io.Writer
+        public void write(char[] cArr, int i, int i2) throws IOException {
+            this.ilh.chars = cArr;
+            this.ilg.append(this.ilh, i, i + i2);
+        }
+
+        @Override // java.io.Writer
+        public void write(int i) throws IOException {
+            this.ilg.append((char) i);
+        }
+
+        @Override // java.io.Writer, java.io.Flushable
+        public void flush() {
+        }
+
+        @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
+        public void close() {
+        }
+
+        /* renamed from: com.google.gson.internal.g$a$a  reason: collision with other inner class name */
+        /* loaded from: classes2.dex */
+        static class C0326a implements CharSequence {
+            char[] chars;
+
+            C0326a() {
+            }
+
+            @Override // java.lang.CharSequence
+            public int length() {
+                return this.chars.length;
+            }
+
+            @Override // java.lang.CharSequence
+            public char charAt(int i) {
+                return this.chars[i];
+            }
+
+            @Override // java.lang.CharSequence
+            public CharSequence subSequence(int i, int i2) {
+                return new String(this.chars, i, i2 - i);
             }
         }
     }

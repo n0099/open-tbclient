@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.webkit.net.BdNetTask;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -65,7 +66,7 @@ public class ConnectionFactory {
         httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         httpURLConnection.setRequestProperty("Charset", "UTF-8");
         httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
-        httpURLConnection.setConnectTimeout(25000);
+        httpURLConnection.setConnectTimeout(BdNetTask.TIMEOUT_READ);
         return httpURLConnection;
     }
 

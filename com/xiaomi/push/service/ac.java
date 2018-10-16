@@ -20,7 +20,7 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.tieba.ala.ALaKeepAliveService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.android.b;
@@ -191,7 +191,7 @@ public class ac {
                 if (s != null && s.containsKey(ALaKeepAliveService.KEY_TICKER)) {
                     builder.setTicker(s.get(ALaKeepAliveService.KEY_TICKER));
                 }
-                if (currentTimeMillis - a > 10000) {
+                if (currentTimeMillis - a > ErrDef.Feature.WEIGHT) {
                     a = currentTimeMillis;
                     int c = e(context, a2) ? c(context, a2) : m.f;
                     builder.setDefaults(c);
@@ -222,7 +222,7 @@ public class ac {
         if (s != null) {
             builder.setTicker(s.get(ALaKeepAliveService.KEY_TICKER));
         }
-        if (currentTimeMillis - a > 10000) {
+        if (currentTimeMillis - a > ErrDef.Feature.WEIGHT) {
         }
         notification = builder.getNotification();
         if (z) {
@@ -274,7 +274,7 @@ public class ac {
                     notification2.tickerText = s.get(ALaKeepAliveService.KEY_TICKER);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - a > 10000) {
+                if (currentTimeMillis - a > ErrDef.Feature.WEIGHT) {
                     a = currentTimeMillis;
                     int c = e(context, a(abVar)) ? c(context, a(abVar)) : m.f;
                     notification2.defaults = c;
@@ -496,8 +496,8 @@ public class ac {
                         }
                     }
                 }
-                if (jSONObject.has(TbConfig.TMP_PIC_DIR_NAME)) {
-                    JSONObject jSONObject3 = jSONObject.getJSONObject(TbConfig.TMP_PIC_DIR_NAME);
+                if (jSONObject.has("image")) {
+                    JSONObject jSONObject3 = jSONObject.getJSONObject("image");
                     Iterator<String> keys2 = jSONObject3.keys();
                     while (keys2.hasNext()) {
                         String next2 = keys2.next();

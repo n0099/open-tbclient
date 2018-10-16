@@ -5,14 +5,15 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.util.Log;
 import android.view.Surface;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private c hMF;
-    private MediaCodec hMG;
-    private int hMH;
-    private boolean hMI;
+    private c iiY;
+    private MediaCodec iiZ;
+    private int ija;
+    private boolean ijb;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
 
     public a(c cVar) {
@@ -21,15 +22,15 @@ public class a {
         createAudioFormat.setInteger("channel-mask", 16);
         createAudioFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, 128000);
         try {
-            this.hMG = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            this.iiZ = MediaCodec.createEncoderByType("audio/mp4a-latm");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        this.hMG.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.hMG.start();
-        this.hMH = -1;
-        this.hMI = false;
-        this.hMF = cVar;
+        this.iiZ.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.iiZ.start();
+        this.ija = -1;
+        this.ijb = false;
+        this.iiY = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,15 +41,15 @@ public class a {
     */
     public void c(ByteBuffer byteBuffer, int i, long j) throws Exception {
         int dequeueInputBuffer;
-        ByteBuffer[] inputBuffers = this.hMG.getInputBuffers();
+        ByteBuffer[] inputBuffers = this.iiZ.getInputBuffers();
         while (true) {
-            dequeueInputBuffer = this.hMG.dequeueInputBuffer(10000L);
+            dequeueInputBuffer = this.iiZ.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
             if (dequeueInputBuffer < 0) {
                 break;
             }
             if (dequeueInputBuffer == -1) {
             }
-            dequeueInputBuffer = this.hMG.dequeueInputBuffer(10000L);
+            dequeueInputBuffer = this.iiZ.dequeueInputBuffer(ErrDef.Feature.WEIGHT);
             if (dequeueInputBuffer < 0) {
             }
         }
@@ -58,38 +59,38 @@ public class a {
             byteBuffer2.put(byteBuffer);
         }
         if (i <= 0) {
-            this.hMG.queueInputBuffer(dequeueInputBuffer, 0, 0, j, 4);
+            this.iiZ.queueInputBuffer(dequeueInputBuffer, 0, 0, j, 4);
         } else {
-            this.hMG.queueInputBuffer(dequeueInputBuffer, 0, i, j, 0);
+            this.iiZ.queueInputBuffer(dequeueInputBuffer, 0, i, j, 0);
         }
     }
 
-    public void bMA() throws Exception {
-        ByteBuffer[] outputBuffers = this.hMG.getOutputBuffers();
+    public void bYw() throws Exception {
+        ByteBuffer[] outputBuffers = this.iiZ.getOutputBuffers();
         while (true) {
-            int dequeueOutputBuffer = this.hMG.dequeueOutputBuffer(this.mBufferInfo, 10000L);
+            int dequeueOutputBuffer = this.iiZ.dequeueOutputBuffer(this.mBufferInfo, ErrDef.Feature.WEIGHT);
             if (dequeueOutputBuffer != -1) {
                 if (dequeueOutputBuffer == -3) {
-                    outputBuffers = this.hMG.getOutputBuffers();
+                    outputBuffers = this.iiZ.getOutputBuffers();
                 } else if (dequeueOutputBuffer == -2) {
-                    if (this.hMI) {
+                    if (this.ijb) {
                         throw new RuntimeException("format changed twice");
                     }
-                    MediaFormat outputFormat = this.hMG.getOutputFormat();
+                    MediaFormat outputFormat = this.iiZ.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.hMH = this.hMF.addTrack(outputFormat);
-                    if (!this.hMF.start()) {
-                        synchronized (this.hMF) {
-                            while (!this.hMF.isStarted()) {
+                    this.ija = this.iiY.addTrack(outputFormat);
+                    if (!this.iiY.start()) {
+                        synchronized (this.iiY) {
+                            while (!this.iiY.isStarted()) {
                                 try {
-                                    this.hMF.wait(100L);
+                                    this.iiY.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
                         }
                     }
-                    this.hMI = true;
+                    this.ijb = true;
                 } else if (dequeueOutputBuffer < 0) {
                     Log.w("AudioEncoder", "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                 } else {
@@ -101,14 +102,14 @@ public class a {
                         this.mBufferInfo.size = 0;
                     }
                     if (this.mBufferInfo.size != 0) {
-                        if (!this.hMI) {
+                        if (!this.ijb) {
                             throw new RuntimeException("muxer hasn't started");
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.hMF.writeSampleData(this.hMH, byteBuffer, this.mBufferInfo);
+                        this.iiY.writeSampleData(this.ija, byteBuffer, this.mBufferInfo);
                     }
-                    this.hMG.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    this.iiZ.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
                         return;
                     }
@@ -121,14 +122,14 @@ public class a {
 
     public void release() {
         try {
-            if (this.hMG != null) {
-                this.hMG.stop();
-                this.hMG.release();
-                this.hMG = null;
+            if (this.iiZ != null) {
+                this.iiZ.stop();
+                this.iiZ.release();
+                this.iiZ = null;
             }
-            if (this.hMF != null) {
-                this.hMF.stop();
-                this.hMF = null;
+            if (this.iiY != null) {
+                this.iiY.stop();
+                this.iiY = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

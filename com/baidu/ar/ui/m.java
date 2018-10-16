@@ -16,6 +16,7 @@ import com.baidu.ar.util.Res;
 import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.ar.util.UiUtils;
 import com.baidu.ar.util.ViewUtils;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 /* loaded from: classes3.dex */
 public class m extends c implements r {
     private View A;
@@ -90,10 +91,10 @@ public class m extends c implements r {
                 return;
             }
             try {
-                a.C0048a c0048a = new a.C0048a(this.r);
-                c0048a.a((CharSequence) Res.getString("bdar_dialog_prompt_title"));
-                c0048a.a(Res.getString("bdar_error_network_tips"));
-                c0048a.a(Res.getString("bdar_retry"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.m.2
+                a.C0051a c0051a = new a.C0051a(this.r);
+                c0051a.a((CharSequence) Res.getString("bdar_dialog_prompt_title"));
+                c0051a.a(Res.getString("bdar_error_network_tips"));
+                c0051a.a(Res.getString("bdar_retry"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.m.2
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         m.this.y();
@@ -101,8 +102,8 @@ public class m extends c implements r {
                         m.this.y.setRecgArRetry();
                     }
                 });
-                c0048a.b(Res.getString("bdar_cancel"), onClickListener);
-                this.z = c0048a.a();
+                c0051a.b(Res.getString("bdar_cancel"), onClickListener);
+                this.z = c0051a.a();
                 this.z.setCanceledOnTouchOutside(false);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -138,7 +139,7 @@ public class m extends c implements r {
             case MsgConstants.TRACK_SHOW_RECG_NOTSANNER /* 315 */:
                 b(Res.getString("bdar_not_recg_image"));
                 ViewUtils.setViewVisibility(this.x, 0);
-                i.a().a(MsgConstants.TRACK_HIDE_RECG_NOTSANNER, 2000L);
+                i.a().a(MsgConstants.TRACK_HIDE_RECG_NOTSANNER, SystemScreenshotManager.DELAY_TIME);
                 return;
             case MsgConstants.TRACK_HIDE_RECG_NOTSANNER /* 316 */:
                 ViewUtils.setViewVisibility(this.x, 8);

@@ -8,14 +8,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.e;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a extends com.baidu.adp.widget.ListView.b {
-    private TextView fVx;
-    private View.OnClickListener fVy = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
+    private TextView gcX;
+    private View.OnClickListener gcY = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ((PbActivity) a.this.mPageContext.getOrignalPage()).skipToLoginActivity();
-            ((PbActivity) a.this.mPageContext.getOrignalPage()).ke(true);
+            ((PbActivity) a.this.mPageContext.getOrignalPage()).kv(true);
         }
     };
     private TbPageContext<PbActivity> mPageContext;
@@ -26,11 +26,11 @@ public class a extends com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public View ov() {
+    public View oG() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(e.h.login_see_more_layout, (ViewGroup) null);
-        this.fVx = (TextView) this.mRootView.findViewById(e.g.login_button);
-        this.fVx.setOnClickListener(this.fVy);
-        dM(TbadkCoreApplication.getInst().getSkinType());
+        this.gcX = (TextView) this.mRootView.findViewById(e.g.login_button);
+        this.gcX.setOnClickListener(this.gcY);
+        dW(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }
 
@@ -38,7 +38,7 @@ public class a extends com.baidu.adp.widget.ListView.b {
     public void onClick() {
     }
 
-    public void dM(int i) {
+    public void dW(int i) {
         com.baidu.tbadk.o.a.a(this.mPageContext, this.mRootView);
     }
 }

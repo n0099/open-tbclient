@@ -9,21 +9,21 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gis = BdUniqueId.gen();
-    public String Dx;
+    public static final BdUniqueId gpS = BdUniqueId.gen();
+    public String Eg;
     public int giftNum = 0;
-    public boolean git;
-    public String giu;
-    public List<com.baidu.adp.widget.ListView.h> giv;
+    public boolean gpT;
+    public String gpU;
+    public List<com.baidu.adp.widget.ListView.h> gpV;
     public boolean mIsHost;
     public int mSex;
     public String mUid;
 
     public void parserProtoBuf(User user) {
-        if (user != null && !v.z(user.gift_list)) {
+        if (user != null && !v.J(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
-            this.Dx = user.name;
-            this.giu = user.name_show;
+            this.Eg = user.name;
+            this.gpU = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.git = false;
+                this.gpT = false;
             } else {
-                this.git = true;
+                this.gpT = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.giv = new ArrayList();
+            this.gpV = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.giv.add(oVar);
+                    this.gpV.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.z(this.giv);
+        return !v.J(this.gpV);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gis;
+        return gpS;
     }
 }

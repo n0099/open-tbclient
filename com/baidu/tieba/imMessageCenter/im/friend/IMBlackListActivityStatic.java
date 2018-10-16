@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.IMBlackListActivityConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class IMBlackListActivityStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008001, new CustomMessageTask.CustomRunnable<IMBlackListActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivityStatic.1

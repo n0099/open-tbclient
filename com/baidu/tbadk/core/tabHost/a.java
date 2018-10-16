@@ -16,15 +16,15 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class a {
-    private int aqx;
+    private int avo;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
-            if (a.this.mTabHost == null || aVar == null || !aVar.oi()) {
-                a.this.zh();
+            if (a.this.mTabHost == null || aVar == null || !aVar.ot()) {
+                a.this.Bp();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -36,18 +36,18 @@ public class a {
                 al.j(tabWrapper, e.d.black_alpha0);
                 al.j(fragmentTabWidget, e.d.black_alpha0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                layoutParams.bottomMargin = l.h(a.this.mTabHost.getContext(), e.C0141e.tbds100);
+                layoutParams.bottomMargin = l.h(a.this.mTabHost.getContext(), e.C0175e.tbds100);
                 fragmentViewPager.setLayoutParams(layoutParams);
-                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.oh()));
+                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.os()));
             }
         }
     };
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.aqx = 0;
+        this.avo = 0;
         this.mTabHost = fragmentTabHost;
-        this.aqx = i;
+        this.avo = i;
     }
 
     public void a(Pair<String, String> pair) {
@@ -55,17 +55,17 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                ed(str2);
+                et(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                ed(str);
+                et(str);
             } else {
-                zh();
+                Bp();
             }
         }
     }
 
-    private void ed(String str) {
-        c.jn().a(str, 10, this.mCallback, getBdUniqueId());
+    private void et(String str) {
+        c.jC().a(str, 10, this.mCallback, getBdUniqueId());
     }
 
     private BdUniqueId getBdUniqueId() {
@@ -77,11 +77,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zh() {
+    public void Bp() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.aqx);
-            al.j(this.mTabHost.getFragmentTabWidget(), this.aqx);
-            al.j(this.mTabHost.getTabWrapper(), this.aqx);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.avo);
+            al.j(this.mTabHost.getFragmentTabWidget(), this.avo);
+            al.j(this.mTabHost.getTabWrapper(), this.avo);
         }
     }
 }

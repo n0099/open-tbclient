@@ -16,8 +16,8 @@ import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -171,7 +171,7 @@ public class f {
             if (z2 && a2 && str2 != null && !b2) {
                 Intent intent = new Intent();
                 intent.putExtra("method", PushConstants.METHOD_BIND);
-                intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
+                intent.putExtra("error_msg", 0);
                 intent.putExtra("content", str2.getBytes());
                 intent.putExtra("bind_status", 0);
                 com.baidu.android.pushservice.g.a.a("PushManagerHandler", "new startWork> sendResult to " + context.getPackageName() + " ,method:" + PushConstants.METHOD_BIND + " ,errorCode : 0 ,content : " + new String(str2), context.getApplicationContext());
@@ -373,7 +373,7 @@ public class f {
         Long valueOf = Long.valueOf(sharedPreferences.getLong("currbindtime", 0L));
         String string = sharedPreferences.getString("access_token", "");
         String string2 = sharedPreferences.getString("secret_key", "");
-        Long valueOf2 = Long.valueOf(sharedPreferences.getLong(ARResourceKey.HTTP_VERSION_CODE, 0L));
+        Long valueOf2 = Long.valueOf(sharedPreferences.getLong("version_code", 0L));
         if (Long.valueOf(System.currentTimeMillis()).longValue() - valueOf.longValue() > 43200000) {
             sharedPreferences.edit().clear().commit();
             return false;
@@ -527,7 +527,7 @@ public class f {
                     return stringExtra;
                 }
                 for (int i2 = 0; i2 < split.length; i2++) {
-                    if (split[i2].contains("S.bdpush_hwsigninfo") && (split2 = split[i2].split("=")) != null && 1 < split2.length) {
+                    if (split[i2].contains("S.bdpush_hwsigninfo") && (split2 = split[i2].split(ETAG.EQUAL)) != null && 1 < split2.length) {
                         return split2[1];
                     }
                 }
@@ -630,7 +630,7 @@ public class f {
                     if (!TextUtils.isEmpty(fragment) && (split = fragment.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length > 0) {
                         while (true) {
                             if (i2 < split.length) {
-                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split("=")) != null && 1 < split2.length) {
+                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split(ETAG.EQUAL)) != null && 1 < split2.length) {
                                     stringExtra2 = split2[1];
                                     intent.putExtra("bdpush_hwmsgid", stringExtra2);
                                     break;
@@ -688,7 +688,7 @@ public class f {
         }
         Intent intent = new Intent();
         intent.putExtra("method", PushConstants.METHOD_BIND);
-        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i2);
+        intent.putExtra("error_msg", i2);
         intent.putExtra("content", str2.getBytes());
         intent.putExtra("bind_status", 0);
         m.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());
@@ -723,7 +723,7 @@ public class f {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_RECEIVE);
         intent.putExtra("method", "method_unbind");
-        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
+        intent.putExtra("error_msg", 0);
         intent.putExtra("content", PushConstants.a(0).getBytes());
         intent.setFlags(32);
         intent.setPackage(context.getPackageName());
@@ -747,7 +747,7 @@ public class f {
         String a2 = PushConstants.a(30602);
         intent.setAction(PushConstants.ACTION_RECEIVE);
         intent.putExtra("method", PushConstants.METHOD_BIND);
-        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 30602);
+        intent.putExtra("error_msg", 30602);
         intent.putExtra("content", a2.getBytes());
         intent.setFlags(32);
         m.b(context, intent, intent.getAction(), context.getPackageName());
@@ -812,7 +812,7 @@ public class f {
             com.baidu.android.pushservice.g.a.b("PushManagerHandler", "errorCode:10011", context.getApplicationContext());
             Intent intent = new Intent();
             intent.putExtra("method", PushConstants.METHOD_BIND);
-            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 10011);
+            intent.putExtra("error_msg", 10011);
             intent.putExtra("content", "errorCode:10011".getBytes());
             intent.putExtra("bind_status", 0);
             m.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());

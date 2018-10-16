@@ -40,6 +40,10 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppFileClassifyHelper;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.DexClassLoader;
 import java.io.BufferedInputStream;
@@ -85,15 +89,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0080a {
+    public static class C0091a {
         public static a a = new a();
 
-        private C0080a() {
+        private C0091a() {
         }
     }
 
     public static a a() {
-        return C0080a.a;
+        return C0091a.a;
     }
 
     a() {
@@ -171,7 +175,7 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
             public void onFailure(Throwable th, String str2) {
-                Log.w(a.a, "getTplPkgname()", "error", th.toString());
+                Log.w(a.a, "getTplPkgname()", AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, th.toString());
             }
         });
     }
@@ -333,7 +337,7 @@ public class a {
                             if (a3) {
                                 this.l++;
                                 if (next != null) {
-                                    new AsyncHttpClient().get(this.c, next.url, new BinaryHttpResponseHandler(Looper.getMainLooper(), new String[]{"application/octet-stream", "*/*", "application/apk", "image/png", "application/vnd.android.package-archive"}) { // from class: com.baidu.sapi2.passhost.framework.a.3
+                                    new AsyncHttpClient().get(this.c, next.url, new BinaryHttpResponseHandler(Looper.getMainLooper(), new String[]{"application/octet-stream", "*/*", "application/apk", "image/png", AiAppFileClassifyHelper.MIME_TYPE_APK}) { // from class: com.baidu.sapi2.passhost.framework.a.3
                                         @Override // com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler
                                         protected void onSuccess(int i, byte[] bArr) {
                                             a.this.a(next, bArr);
@@ -342,7 +346,7 @@ public class a {
                                         /* JADX INFO: Access modifiers changed from: protected */
                                         @Override // com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler
                                         public void onFailure(Throwable th, byte[] bArr) {
-                                            Log.d(a.a, "installPassPis() onFailure", next.url, "error", th.toString());
+                                            Log.d(a.a, "installPassPis() onFailure", next.url, AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, th.toString());
                                             super.onFailure(th, bArr);
                                             if (a.a(a.this) == a.this.l) {
                                                 com.baidu.sapi2.passhost.hostsdk.service.a.a().a(0);
@@ -475,7 +479,7 @@ public class a {
                 } else if (!this.f.get(Integer.valueOf(i)).mPiVer.equals(pluginContext.mPiVer)) {
                     this.f.put(Integer.valueOf(i), pluginContext);
                 }
-                Log.i(a, "addPiEntityToMap()", "size", Integer.valueOf(this.f.size()));
+                Log.i(a, "addPiEntityToMap()", ChooseVideoAction.CB_KEY_SIZE, Integer.valueOf(this.f.size()));
             }
         }
     }
@@ -961,7 +965,7 @@ public class a {
         HashMap hashMap = new HashMap();
         hashMap.put("pids", TextUtils.join(",", arrayList));
         hashMap.put("pi_vers", TextUtils.join(",", arrayList2));
-        hashMap.put("package_name", this.c.getPackageName());
+        hashMap.put(ETAG.KEY_PACKAGE_NAME, this.c.getPackageName());
         hashMap.put("host_ver", "1.0.3");
         StatService.onEvent("app_pi_info", hashMap);
     }

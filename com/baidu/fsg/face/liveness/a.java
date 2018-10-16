@@ -18,21 +18,21 @@ import java.util.HashMap;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     private a() {
     }
 
     public static a a() {
-        return C0066a.a;
+        return C0077a.a;
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class C0066a {
+    /* loaded from: classes6.dex */
+    private static class C0077a {
         private static a a = new a();
 
-        private C0066a() {
+        private C0077a() {
         }
     }
 

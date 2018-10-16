@@ -14,7 +14,7 @@ public class d {
         }
     }
 
-    public boolean aDM() {
+    public boolean aHe() {
         return (ao.isEmpty(this.mIcon) || ao.isEmpty(this.mName)) ? false : true;
     }
 

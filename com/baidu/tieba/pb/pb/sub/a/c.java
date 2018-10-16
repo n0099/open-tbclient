@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub.b.a, a> {
     public c(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
@@ -34,20 +34,20 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends q.a {
-        private TextView fTM;
+        private TextView gbm;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.fTM = (TextView) view.findViewById(e.g.no_reply_list_view);
+            this.gbm = (TextView) view.findViewById(e.g.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                al.h(this.fTM, e.d.cp_cont_d);
+                al.h(this.gbm, e.d.cp_cont_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

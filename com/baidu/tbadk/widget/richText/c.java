@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String bjh;
-    private int bji;
+    private String bnl;
+    private int bnm;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -43,8 +43,8 @@ public class c extends ClickableSpan {
         this.mType = i;
     }
 
-    public void gl(int i) {
-        this.bji = i;
+    public void gt(int i) {
+        this.bnm = i;
     }
 
     public void setColor(int i) {
@@ -55,12 +55,12 @@ public class c extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void gm(int i) {
+    public void gu(int i) {
         this.urlType = i;
     }
 
-    public void is(String str) {
-        this.bjh = str;
+    public void iF(String str) {
+        this.bnl = str;
     }
 
     public String getLink() {
@@ -79,13 +79,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.bji == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bnm == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_c);
             } else {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_z);
             }
-        } else if (this.bji == 2) {
+        } else if (this.bnm == 2) {
             textPaint.bgColor = al.getColor(e.d.transparent);
         }
     }
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bjh));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bnl));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -104,7 +104,7 @@ public class c extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new am("c11972").w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).w("obj_type", i));
+            TiebaStatic.log(new am("c11972").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).x("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }

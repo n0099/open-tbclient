@@ -5,10 +5,10 @@ import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class GetMessageFromWX {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public String username;
 
@@ -40,7 +40,7 @@ public final class GetMessageFromWX {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         private static final String TAG = "MicroMsg.SDK.GetMessageFromWX.Resp";
         public WXMediaMessage message;

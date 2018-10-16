@@ -1547,7 +1547,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
         @ColorInt
         public int getScrimColor(CoordinatorLayout coordinatorLayout, V v) {
-            return ViewCompat.MEASURED_STATE_MASK;
+            return -16777216;
         }
 
         @FloatRange(from = 0.0d, to = 1.0d)

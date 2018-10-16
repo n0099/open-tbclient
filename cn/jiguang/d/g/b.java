@@ -10,12 +10,12 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public final class b extends a {
-    private ByteBuffer lL = ByteBuffer.allocate(8192);
+    private ByteBuffer mq = ByteBuffer.allocate(8192);
 
     private boolean k(byte[] bArr) {
         try {
             if (b() && bArr != null && bArr.length > 0) {
-                int write = this.lJ.write(ByteBuffer.wrap(bArr));
+                int write = this.mo.write(ByteBuffer.wrap(bArr));
                 return write > 0 || write >= 0;
             }
             return false;
@@ -31,13 +31,13 @@ public final class b extends a {
         int i2 = -991;
         synchronized (this) {
             super.a(str, i);
-            this.lJ = SocketChannel.open();
-            this.lK = Selector.open();
-            this.lJ.configureBlocking(false);
-            this.lJ.connect(new InetSocketAddress(str, i));
+            this.mo = SocketChannel.open();
+            this.mp = Selector.open();
+            this.mo.configureBlocking(false);
+            this.mo.connect(new InetSocketAddress(str, i));
             long currentTimeMillis = System.currentTimeMillis();
             while (true) {
-                if (!this.lJ.finishConnect()) {
+                if (!this.mo.finishConnect()) {
                     if (!this.e) {
                         break;
                     } else if (System.currentTimeMillis() - currentTimeMillis > 3000) {
@@ -46,7 +46,7 @@ public final class b extends a {
                         break;
                     }
                 } else if (this.e) {
-                    this.lJ.register(this.lK, 1);
+                    this.mo.register(this.mp, 1);
                     i2 = 0;
                 }
             }
@@ -57,19 +57,19 @@ public final class b extends a {
     @Override // cn.jiguang.d.g.a
     public final void a() {
         super.a();
-        if (this.lK != null) {
+        if (this.mp != null) {
             try {
-                this.lK.close();
+                this.mp.close();
             } catch (IOException e) {
             }
         }
-        if (this.lJ != null) {
+        if (this.mo != null) {
             try {
-                this.lJ.close();
+                this.mo.close();
             } catch (Exception e2) {
             }
         }
-        this.lJ = null;
+        this.mo = null;
     }
 
     @Override // cn.jiguang.d.g.a
@@ -92,24 +92,24 @@ public final class b extends a {
                 int i2 = 1048576;
                 while (b() && this.c < i2) {
                     try {
-                        if ((i > 0 ? this.lK.select(i) : this.lK.select()) != 0) {
-                            Iterator<SelectionKey> it = this.lK.selectedKeys().iterator();
+                        if ((i > 0 ? this.mp.select(i) : this.mp.select()) != 0) {
+                            Iterator<SelectionKey> it = this.mp.selectedKeys().iterator();
                             while (it.hasNext()) {
                                 SelectionKey next = it.next();
                                 SocketChannel socketChannel = (SocketChannel) next.channel();
                                 if (next.isReadable()) {
-                                    int read = socketChannel.read(this.lL);
+                                    int read = socketChannel.read(this.mq);
                                     if (read < 0) {
                                         return new d(-996, "read len < 0:" + read);
                                     }
-                                    this.lL.flip();
-                                    int limit = this.lL.limit();
+                                    this.mq.flip();
+                                    int limit = this.mq.limit();
                                     if (this.a.remaining() < limit) {
                                         return new d(-996, "the total buf remaining less than readLen,remaining:" + this.a.remaining() + ",readLen:" + limit);
                                     }
-                                    this.a.put(this.lL);
+                                    this.a.put(this.mq);
                                     this.c += limit;
-                                    this.lL.compact();
+                                    this.mq.compact();
                                     i2 = this.c >= 20 ? c() : i2;
                                 } else {
                                     next.isWritable();

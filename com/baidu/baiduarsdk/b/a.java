@@ -12,6 +12,8 @@ import com.baidu.baiduarsdk.a.a.d;
 import com.baidu.baiduarsdk.a.e;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
 import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
+import com.baidu.webkit.sdk.WebView;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class a implements ArBridge.d {
@@ -42,7 +44,7 @@ public class a implements ArBridge.d {
         a(StatisticConstants.PHONE_CALL);
         Intent intent = new Intent("android.intent.action.DIAL");
         intent.setFlags(268435456);
-        intent.setData(Uri.parse("tel:" + cVar.a()));
+        intent.setData(Uri.parse(WebView.SCHEME_TEL + cVar.a()));
         if (intent.resolveActivity(this.a.getPackageManager()) != null) {
             this.a.startActivity(intent);
         }
@@ -89,8 +91,8 @@ public class a implements ArBridge.d {
         if (hashMap.get("type") != null) {
             dVar.a(MsgParamsUtil.obj2Int(hashMap.get("type"), 0));
         }
-        if (hashMap.get("interval") != null) {
-            dVar.b(MsgParamsUtil.obj2Int(hashMap.get("interval"), 0));
+        if (hashMap.get(AiAppsBluetoothConstants.KEY_INTERVAL) != null) {
+            dVar.b(MsgParamsUtil.obj2Int(hashMap.get(AiAppsBluetoothConstants.KEY_INTERVAL), 0));
         }
         if (hashMap.get("pattern") != null) {
             dVar.a(MsgParamsUtil.obj2String(hashMap.get("pattern"), null));
@@ -137,7 +139,7 @@ public class a implements ArBridge.d {
             case 1003:
                 com.baidu.baiduarsdk.a.a.a().b(aVar, hashMap);
                 return;
-            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
+            case 1005:
                 com.baidu.baiduarsdk.a.a.a().c(aVar, hashMap);
                 return;
             case 1007:
@@ -227,7 +229,7 @@ public class a implements ArBridge.d {
                 return;
             case 1001:
             case 1003:
-            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
+            case 1005:
             case 1007:
                 a(hashMap, i);
                 return;

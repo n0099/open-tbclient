@@ -6,7 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import com.baidu.sapi2.base.network.Apn;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
     protected static final Uri a = Uri.parse("content://telephony/carriers/preferapn");
 

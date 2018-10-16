@@ -5,7 +5,7 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RouterManager {
     private static final String a = "MaApplication";
     private static RouterManager b = new RouterManager();

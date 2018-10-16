@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.pushtracer.d;
 
 import android.content.Context;
+import com.baidu.searchbox.ng.ai.apps.core.container.NgWebView;
 import com.meizu.cloud.pushsdk.PushManager;
 import com.meizu.cloud.pushsdk.pushtracer.utils.LogLevel;
 import java.util.HashMap;
@@ -104,7 +105,7 @@ public abstract class c {
         }
         if (this.c != null) {
             if (!this.c.a().isEmpty()) {
-                list.add(new com.meizu.cloud.pushsdk.pushtracer.a.b("geolocation", this.c.a()));
+                list.add(new com.meizu.cloud.pushsdk.pushtracer.a.b(NgWebView.APP_GEO_PATH, this.c.a()));
             }
             if (!this.c.b().isEmpty()) {
                 list.add(new com.meizu.cloud.pushsdk.pushtracer.a.b("mobileinfo", this.c.b()));

@@ -32,7 +32,7 @@ public final class g {
         return this.d;
     }
 
-    public final double bw() {
+    public final double bN() {
         return this.g;
     }
 

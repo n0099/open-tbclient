@@ -15,7 +15,6 @@ import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
-import android.support.v4.view.ViewCompat;
 /* loaded from: classes2.dex */
 public class IconCompat {
     private static final float ADAPTIVE_ICON_INSET_FACTOR = 0.25f;
@@ -150,7 +149,7 @@ public class IconCompat {
         paint.setShadowLayer(f3, 0.0f, 0.0f, 503316480);
         canvas.drawCircle(f, f, f2, paint);
         paint.clearShadowLayer();
-        paint.setColor(ViewCompat.MEASURED_STATE_MASK);
+        paint.setColor(-16777216);
         BitmapShader bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         Matrix matrix = new Matrix();
         matrix.setTranslate((-(bitmap.getWidth() - min)) / 2, (-(bitmap.getHeight() - min)) / 2);

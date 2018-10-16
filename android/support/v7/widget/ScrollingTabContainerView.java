@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ScrollingTabContainerView extends HorizontalScrollView implements AdapterView.OnItemSelectedListener {
@@ -73,7 +74,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         } else {
             this.mMaxTabWidth = -1;
         }
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContentHeight, 1073741824);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContentHeight, AiAppsFileUtils.GB);
         if (z2 || !this.mAllowCollapse) {
             z = false;
         }
@@ -365,7 +366,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         public void onMeasure(int i, int i2) {
             super.onMeasure(i, i2);
             if (ScrollingTabContainerView.this.mMaxTabWidth > 0 && getMeasuredWidth() > ScrollingTabContainerView.this.mMaxTabWidth) {
-                super.onMeasure(View.MeasureSpec.makeMeasureSpec(ScrollingTabContainerView.this.mMaxTabWidth, 1073741824), i2);
+                super.onMeasure(View.MeasureSpec.makeMeasureSpec(ScrollingTabContainerView.this.mMaxTabWidth, AiAppsFileUtils.GB), i2);
             }
         }
 

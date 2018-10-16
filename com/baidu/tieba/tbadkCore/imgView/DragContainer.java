@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap bbh;
+    private Bitmap bfJ;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -41,7 +41,7 @@ public class DragContainer extends LinearLayout {
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.bbh = Bitmap.createBitmap(drawingCache);
+            this.bfJ = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
@@ -55,17 +55,17 @@ public class DragContainer extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.bbh != null) {
+            if (this.mScroller.computeScrollOffset() && this.bfJ != null) {
                 canvas.save();
-                canvas.drawBitmap(this.bbh, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.bfJ, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.bbh != null) {
-                this.bbh.recycle();
+            if (this.bfJ != null) {
+                this.bfJ.recycle();
             }
-            this.bbh = null;
+            this.bfJ = null;
             this.view = null;
         }
     }
@@ -74,10 +74,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.bbh != null) {
-            this.bbh.recycle();
+        if (this.bfJ != null) {
+            this.bfJ.recycle();
         }
-        this.bbh = null;
+        this.bfJ = null;
         this.view = null;
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.sapi2.utils.enums;
+
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes.dex */
 public enum SocialType {
-    UNKNOWN(0, "未知"),
+    UNKNOWN(0, AiAppsFileUtils.UNKNOW),
     SINA_WEIBO(2, "新浪微博"),
     SINA_WEIBO_SSO(2, "新浪微博SSO"),
     TENCENT_WEIBO(4, "腾讯微博"),

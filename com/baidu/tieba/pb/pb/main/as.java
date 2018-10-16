@@ -2,15 +2,15 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class as {
-    protected BaseActivity bsQ;
+    protected BaseActivity bwX;
     protected View mRootView;
 
     protected abstract void a(d dVar);
 
     public as(BaseActivity baseActivity, View view) {
-        this.bsQ = baseActivity;
+        this.bwX = baseActivity;
         this.mRootView = view;
     }
 
@@ -19,7 +19,7 @@ public abstract class as {
     }
 
     public void b(d dVar) {
-        if (this.bsQ != null && this.mRootView != null) {
+        if (this.bwX != null && this.mRootView != null) {
             a(dVar);
         }
     }

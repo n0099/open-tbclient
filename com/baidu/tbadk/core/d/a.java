@@ -3,14 +3,13 @@ package com.baidu.tbadk.core.d;
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.tencent.tauth.AuthActivity;
 /* loaded from: classes.dex */
 public class a {
     public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
         com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a();
         aVar.f(IntentConfig.CMD, Integer.valueOf(i));
         if (!TextUtils.isEmpty(str2)) {
-            aVar.append(AuthActivity.ACTION_KEY, str2);
+            aVar.append("action", str2);
         }
         aVar.append("errNo", String.valueOf(i2));
         if (!TextUtils.isEmpty(str3) && i2 != 0) {

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
+import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -14,7 +15,7 @@ import com.tencent.open.a.f;
 import com.tencent.open.b.d;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class SocialOperation extends BaseApi {
     public static final String GAME_FRIEND_ADD_MESSAGE = "add_msg";
     public static final String GAME_FRIEND_LABEL = "friend_label";
@@ -139,7 +140,7 @@ public class SocialOperation extends BaseApi {
                 for (String str : b.keySet()) {
                     b.putString(str, Base64.encodeToString(j.i(b.getString(str)), 2));
                 }
-                stringBuffer.append("&" + HttpUtils.encodeUrl(b));
+                stringBuffer.append(ETAG.ITEM_SEPARATOR + HttpUtils.encodeUrl(b));
                 f.a("openSDK_LOG.GameAppOperation", "-->bindQQGroup, url: " + stringBuffer.toString());
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(Uri.parse(stringBuffer.toString()));

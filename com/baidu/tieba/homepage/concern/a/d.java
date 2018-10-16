@@ -9,10 +9,10 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
     public d(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.eaQ);
+        super(context, com.baidu.tieba.homepage.concern.b.a.eiJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,47 +28,47 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
-        if (aVar.awG != null) {
-            aVar2.ayh.setText(aVar.awG);
+        if (aVar.aBr != null) {
+            aVar2.aCQ.setText(aVar.aBr);
         }
-        switch (aVar.eaR) {
+        switch (aVar.eiK) {
             case 2:
-                aVar2.aT(TbadkCoreApplication.getInst().getSkinType(), e.f.emotion_dashen);
+                aVar2.aW(TbadkCoreApplication.getInst().getSkinType(), e.f.emotion_dashen);
                 break;
             case 3:
-                aVar2.aT(TbadkCoreApplication.getInst().getSkinType(), e.f.emotion_dashen);
+                aVar2.aW(TbadkCoreApplication.getInst().getSkinType(), e.f.emotion_dashen);
                 break;
         }
         return aVar2.getView();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends q.a {
-        private int aCJ;
-        public TextView ayh;
-        public View dBk;
-        public View dBl;
-        public ViewGroup eaB;
-        public ImageView eaC;
+        public TextView aCQ;
+        private int aHp;
+        public View dJk;
+        public View dJl;
+        public ViewGroup eiu;
+        public ImageView eiv;
 
         public a(View view) {
             super(view);
-            this.aCJ = 3;
-            this.dBk = view.findViewById(e.g.concern_emotion_tip_top_line);
-            this.eaB = (ViewGroup) view.findViewById(e.g.ll_concern_emotion_tip);
-            this.eaC = (ImageView) view.findViewById(e.g.iv_concern_emotion_tip_pic);
-            this.ayh = (TextView) view.findViewById(e.g.tv_concern_emotion_tip);
-            this.dBl = view.findViewById(e.g.concern_emotion_tip_bottom_line);
+            this.aHp = 3;
+            this.dJk = view.findViewById(e.g.concern_emotion_tip_top_line);
+            this.eiu = (ViewGroup) view.findViewById(e.g.ll_concern_emotion_tip);
+            this.eiv = (ImageView) view.findViewById(e.g.iv_concern_emotion_tip_pic);
+            this.aCQ = (TextView) view.findViewById(e.g.tv_concern_emotion_tip);
+            this.dJl = view.findViewById(e.g.concern_emotion_tip_bottom_line);
         }
 
-        protected void aT(int i, int i2) {
-            if (this.aCJ != i) {
-                al.j(this.dBk, e.d.cp_bg_line_c);
-                al.c(this.eaC, i2);
-                al.h(this.ayh, e.d.cp_cont_b);
-                al.j(this.dBl, e.d.cp_bg_line_c);
+        protected void aW(int i, int i2) {
+            if (this.aHp != i) {
+                al.j(this.dJk, e.d.cp_bg_line_c);
+                al.c(this.eiv, i2);
+                al.h(this.aCQ, e.d.cp_cont_b);
+                al.j(this.dJl, e.d.cp_bg_line_c);
             }
-            this.aCJ = i;
+            this.aHp = i;
         }
     }
 }

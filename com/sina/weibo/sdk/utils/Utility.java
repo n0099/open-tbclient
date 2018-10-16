@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.BuildConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
@@ -33,8 +35,8 @@ public class Utility {
     public static Bundle decodeUrl(String str) {
         Bundle bundle = new Bundle();
         if (str != null) {
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str2.split(ETAG.EQUAL);
                 try {
                     bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
                 } catch (UnsupportedEncodingException e) {
@@ -107,7 +109,7 @@ public class Utility {
         sb.append(str);
         sb.append("__");
         try {
-            sb.append(WbSdkVersion.WEIBO_SDK_VERSION_CODE.replaceAll("\\s+", "_"));
+            sb.append(WbSdkVersion.WEIBO_SDK_VERSION_CODE.replaceAll("\\s+", BaseRequestAction.SPLITE));
         } catch (Exception e) {
             sb.append("unknown");
         }

@@ -5,14 +5,13 @@ import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Build;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public static boolean nu(boolean z) {
+    public static boolean nL(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -34,7 +33,7 @@ public class a {
         return true;
     }
 
-    public static int nv(boolean z) {
+    public static int nM(boolean z) {
         int numberOfCameras = Camera.getNumberOfCameras();
         Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
         for (int i = 0; i < numberOfCameras; i++) {
@@ -68,20 +67,20 @@ public class a {
         return i2;
     }
 
-    public static int g(Activity activity, int i) {
+    public static int h(Activity activity, int i) {
         if (Build.VERSION.SDK_INT <= 8) {
             return 0;
         }
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(i, cameraInfo);
-        int K = K(activity);
+        int N = N(activity);
         if (cameraInfo.facing == 1) {
-            return (360 - ((cameraInfo.orientation + K) % 360)) % 360;
+            return (360 - ((cameraInfo.orientation + N) % 360)) % 360;
         }
-        return ((cameraInfo.orientation - K) + 360) % 360;
+        return ((cameraInfo.orientation - N) + 360) % 360;
     }
 
-    public static int K(Activity activity) {
+    public static int N(Activity activity) {
         switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {
             case 0:
             default:
@@ -89,9 +88,9 @@ public class a {
             case 1:
                 return 90;
             case 2:
-                return SubsamplingScaleImageView.ORIENTATION_180;
+                return 180;
             case 3:
-                return SubsamplingScaleImageView.ORIENTATION_270;
+                return 270;
         }
     }
 
@@ -100,7 +99,7 @@ public class a {
         Camera.Size size;
         boolean z;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0252a());
+        Collections.sort(supportedPreviewSizes, new C0287a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -137,14 +136,13 @@ public class a {
     }
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0252a implements Comparator<Camera.Size> {
-        private C0252a() {
+    /* loaded from: classes5.dex */
+    private static class C0287a implements Comparator<Camera.Size> {
+        private C0287a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
-        /* renamed from: b */
         public int compare(Camera.Size size, Camera.Size size2) {
             return size.width != size2.width ? size.width - size2.width : size.height - size2.height;
         }

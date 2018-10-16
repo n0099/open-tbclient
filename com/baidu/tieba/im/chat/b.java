@@ -15,231 +15,231 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.c<GroupSettingActivity> {
-    private GroupSettingActivity erA;
-    private com.baidu.tbadk.core.dialog.b erB;
-    private com.baidu.tbadk.core.dialog.a erC;
-    private SettingTextSwitchView erD;
-    private SettingTextSwitchView erE;
-    private TbSettingTextTipView erF;
-    private TbSettingTextTipView erG;
-    private TbSettingTextTipView erH;
-    private Button erI;
-    private Button erJ;
-    private com.baidu.tbadk.core.dialog.a erK;
-    private View erL;
-    private b.InterfaceC0100b ern;
+    private com.baidu.tbadk.core.dialog.a ezA;
+    private View ezB;
+    private b.InterfaceC0124b eze;
+    private GroupSettingActivity ezq;
+    private com.baidu.tbadk.core.dialog.b ezr;
+    private com.baidu.tbadk.core.dialog.a ezs;
+    private SettingTextSwitchView ezt;
+    private SettingTextSwitchView ezu;
+    private TbSettingTextTipView ezv;
+    private TbSettingTextTipView ezw;
+    private TbSettingTextTipView ezx;
+    private Button ezy;
+    private Button ezz;
     private NavigationBar mNavigationBar;
     private RelativeLayout mParent;
 
-    public void a(b.InterfaceC0100b interfaceC0100b) {
-        this.ern = interfaceC0100b;
+    public void a(b.InterfaceC0124b interfaceC0124b) {
+        this.eze = interfaceC0124b;
     }
 
     public b(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.erA = null;
+        this.ezq = null;
         this.mParent = null;
-        this.erB = null;
-        this.erD = null;
-        this.erE = null;
-        this.erF = null;
-        this.erG = null;
-        this.erH = null;
-        this.ern = null;
-        this.erA = groupSettingActivity;
+        this.ezr = null;
+        this.ezt = null;
+        this.ezu = null;
+        this.ezv = null;
+        this.ezw = null;
+        this.ezx = null;
+        this.eze = null;
+        this.ezq = groupSettingActivity;
         initView();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.erD.eJ(i);
-        this.erE.eJ(i);
-        this.erA.getLayoutMode().setNightMode(i == 1);
-        this.erA.getLayoutMode().onModeChanged(this.mParent);
-        this.mNavigationBar.onChangeSkinType(this.erA.getPageContext(), i);
-        al.i(this.erI, e.f.big_red_button);
-        al.i(this.erJ, e.f.big_red_button);
+        this.ezt.eS(i);
+        this.ezu.eS(i);
+        this.ezq.getLayoutMode().setNightMode(i == 1);
+        this.ezq.getLayoutMode().onModeChanged(this.mParent);
+        this.mNavigationBar.onChangeSkinType(this.ezq.getPageContext(), i);
+        al.i(this.ezy, e.f.big_red_button);
+        al.i(this.ezz, e.f.big_red_button);
     }
 
-    public View aJl() {
-        return this.erL;
+    public View aMC() {
+        return this.ezB;
     }
 
     public void setGroupName(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.erF.setText(str);
+            this.ezv.setText(str);
         }
     }
 
     private void initView() {
-        this.erA.setContentView(e.h.group_setting_activity);
-        this.erD = (SettingTextSwitchView) this.erA.findViewById(e.g.sv_group_msg_notify);
-        this.erE = (SettingTextSwitchView) this.erA.findViewById(e.g.sv_group_add_group);
-        this.erF = (TbSettingTextTipView) this.erA.findViewById(e.g.tv_change_name);
-        this.erG = (TbSettingTextTipView) this.erA.findViewById(e.g.sv_report);
-        this.erH = (TbSettingTextTipView) this.erA.findViewById(e.g.sv_delete_msg);
-        this.erI = (Button) this.erA.findViewById(e.g.btn_dismiss);
-        this.erJ = (Button) this.erA.findViewById(e.g.btn_quit);
-        this.mParent = (RelativeLayout) this.erA.findViewById(e.g.parent);
-        this.mNavigationBar = (NavigationBar) this.erA.findViewById(e.g.view_navigation_bar);
-        this.erL = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ezq.setContentView(e.h.group_setting_activity);
+        this.ezt = (SettingTextSwitchView) this.ezq.findViewById(e.g.sv_group_msg_notify);
+        this.ezu = (SettingTextSwitchView) this.ezq.findViewById(e.g.sv_group_add_group);
+        this.ezv = (TbSettingTextTipView) this.ezq.findViewById(e.g.tv_change_name);
+        this.ezw = (TbSettingTextTipView) this.ezq.findViewById(e.g.sv_report);
+        this.ezx = (TbSettingTextTipView) this.ezq.findViewById(e.g.sv_delete_msg);
+        this.ezy = (Button) this.ezq.findViewById(e.g.btn_dismiss);
+        this.ezz = (Button) this.ezq.findViewById(e.g.btn_quit);
+        this.mParent = (RelativeLayout) this.ezq.findViewById(e.g.parent);
+        this.mNavigationBar = (NavigationBar) this.ezq.findViewById(e.g.view_navigation_bar);
+        this.ezB = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(e.j.group_setting);
     }
 
     public void initListener() {
-        this.erD.setSwitchStateChangeListener(this.erA);
-        this.erE.setSwitchStateChangeListener(this.erA);
-        this.erF.setOnClickListener(this.erA);
-        this.erG.setOnClickListener(this.erA);
-        this.erI.setOnClickListener(this.erA);
-        this.erJ.setOnClickListener(this.erA);
-        this.erH.setOnClickListener(this.erA);
+        this.ezt.setSwitchStateChangeListener(this.ezq);
+        this.ezu.setSwitchStateChangeListener(this.ezq);
+        this.ezv.setOnClickListener(this.ezq);
+        this.ezw.setOnClickListener(this.ezq);
+        this.ezy.setOnClickListener(this.ezq);
+        this.ezz.setOnClickListener(this.ezq);
+        this.ezx.setOnClickListener(this.ezq);
     }
 
-    public TbSettingTextTipView aJm() {
-        return this.erF;
+    public TbSettingTextTipView aMD() {
+        return this.ezv;
     }
 
-    public Button aJn() {
-        return this.erJ;
+    public Button aME() {
+        return this.ezz;
     }
 
-    public Button aJo() {
-        return this.erI;
+    public Button aMF() {
+        return this.ezy;
     }
 
-    public TbSettingTextTipView aJp() {
-        return this.erG;
+    public TbSettingTextTipView aMG() {
+        return this.ezw;
     }
 
-    public TbSettingTextTipView aJq() {
-        return this.erH;
+    public TbSettingTextTipView aMH() {
+        return this.ezx;
     }
 
-    public void aJr() {
-        if (this.erC == null) {
-            this.erC = new com.baidu.tbadk.core.dialog.a(this.erA.getPageContext().getPageActivity());
-            this.erC.co(e.j.inform);
-            this.erC.cp(e.j.group_quit_alert);
-            this.erC.aE(false);
-            this.erC.a(e.j.alert_yes_button, this.erA);
-            this.erC.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.1
+    public void aMI() {
+        if (this.ezs == null) {
+            this.ezs = new com.baidu.tbadk.core.dialog.a(this.ezq.getPageContext().getPageActivity());
+            this.ezs.cy(e.j.inform);
+            this.ezs.cz(e.j.group_quit_alert);
+            this.ezs.aO(false);
+            this.ezs.a(e.j.alert_yes_button, this.ezq);
+            this.ezs.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.erC.b(this.erA.getPageContext());
-            this.erC.aF(true);
+            this.ezs.b(this.ezq.getPageContext());
+            this.ezs.aP(true);
         }
-        this.erC.yl();
+        this.ezs.Au();
     }
 
-    public com.baidu.tbadk.core.dialog.a aJs() {
-        return this.erC;
+    public com.baidu.tbadk.core.dialog.a aMJ() {
+        return this.ezs;
     }
 
-    public void BY() {
-        if (this.erB == null) {
-            this.erB = new com.baidu.tbadk.core.dialog.b(this.erA.getPageContext().getPageActivity());
-            this.erB.cs(e.j.group_report);
-            this.erB.a(new CharSequence[]{new SpannableString(this.erA.getPageContext().getString(e.j.group_report_ad)), new SpannableString(this.erA.getPageContext().getString(e.j.group_report_sex)), new SpannableString(this.erA.getPageContext().getString(e.j.group_report_lllegal))}, this.ern);
-            this.erB.d(this.erA.getPageContext());
+    public void Ed() {
+        if (this.ezr == null) {
+            this.ezr = new com.baidu.tbadk.core.dialog.b(this.ezq.getPageContext().getPageActivity());
+            this.ezr.cC(e.j.group_report);
+            this.ezr.a(new CharSequence[]{new SpannableString(this.ezq.getPageContext().getString(e.j.group_report_ad)), new SpannableString(this.ezq.getPageContext().getString(e.j.group_report_sex)), new SpannableString(this.ezq.getPageContext().getString(e.j.group_report_lllegal))}, this.eze);
+            this.ezr.d(this.ezq.getPageContext());
         }
-        this.erB.yo();
+        this.ezr.Ax();
     }
 
-    public void aJt() {
-        if (this.erJ != null) {
-            this.erJ.setVisibility(8);
-        }
-    }
-
-    public void aJu() {
-        if (this.erI != null) {
-            this.erI.setVisibility(8);
+    public void aMK() {
+        if (this.ezz != null) {
+            this.ezz.setVisibility(8);
         }
     }
 
-    public void hw(boolean z) {
-        if (this.erE != null) {
-            this.erE.setVisibility(z ? 0 : 8);
+    public void aML() {
+        if (this.ezy != null) {
+            this.ezy.setVisibility(8);
         }
     }
 
-    public void hx(boolean z) {
+    public void hO(boolean z) {
+        if (this.ezu != null) {
+            this.ezu.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public void hP(boolean z) {
         if (z) {
-            this.erE.nK();
+            this.ezu.nU();
         } else {
-            this.erE.nL();
+            this.ezu.nV();
         }
     }
 
-    public void aJv() {
-        if (this.erJ != null) {
-            this.erJ.setVisibility(0);
+    public void aMM() {
+        if (this.ezz != null) {
+            this.ezz.setVisibility(0);
         }
     }
 
-    public void aJw() {
-        if (this.erI != null) {
-            this.erI.setVisibility(0);
+    public void aMN() {
+        if (this.ezy != null) {
+            this.ezy.setVisibility(0);
         }
     }
 
-    public void aio() {
-        if (this.erG != null) {
-            this.erG.setVisibility(0);
+    public void alT() {
+        if (this.ezw != null) {
+            this.ezw.setVisibility(0);
         }
     }
 
-    public void aJx() {
-        if (this.erG != null) {
-            this.erG.setVisibility(8);
+    public void aMO() {
+        if (this.ezw != null) {
+            this.ezw.setVisibility(8);
         }
     }
 
-    public BdSwitchView aJy() {
-        return this.erE.getSwitchView();
+    public BdSwitchView aMP() {
+        return this.ezu.getSwitchView();
     }
 
-    public BdSwitchView aJz() {
-        return this.erD.getSwitchView();
+    public BdSwitchView aMQ() {
+        return this.ezt.getSwitchView();
     }
 
-    public void aJA() {
-        if (this.erK == null) {
-            this.erK = new com.baidu.tbadk.core.dialog.a(this.erA.getPageContext().getPageActivity());
-            this.erK.cp(e.j.group_dismiss_alert);
-            this.erK.aE(false);
-            this.erK.a(e.j.alert_yes_button, this.erA);
-            this.erK.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.2
+    public void aMR() {
+        if (this.ezA == null) {
+            this.ezA = new com.baidu.tbadk.core.dialog.a(this.ezq.getPageContext().getPageActivity());
+            this.ezA.cz(e.j.group_dismiss_alert);
+            this.ezA.aO(false);
+            this.ezA.a(e.j.alert_yes_button, this.ezq);
+            this.ezA.b(e.j.cancel, new a.b() { // from class: com.baidu.tieba.im.chat.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.erK.b(this.erA.getPageContext());
+            this.ezA.b(this.ezq.getPageContext());
         }
-        this.erK.yl();
+        this.ezA.Au();
     }
 
-    public com.baidu.tbadk.core.dialog.a aJB() {
-        return this.erK;
+    public com.baidu.tbadk.core.dialog.a aMS() {
+        return this.ezA;
     }
 
-    public void aJC() {
-        if (this.erK != null) {
-            this.erK.dismiss();
-            this.erK = null;
+    public void aMT() {
+        if (this.ezA != null) {
+            this.ezA.dismiss();
+            this.ezA = null;
         }
-        if (this.erB != null) {
-            this.erB.dismiss();
-            this.erB = null;
+        if (this.ezr != null) {
+            this.ezr.dismiss();
+            this.ezr = null;
         }
-        if (this.erC != null) {
-            this.erC.dismiss();
-            this.erC = null;
+        if (this.ezs != null) {
+            this.ezs.dismiss();
+            this.ezs = null;
         }
     }
 }

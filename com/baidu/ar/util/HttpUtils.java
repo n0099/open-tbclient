@@ -3,6 +3,7 @@ package com.baidu.ar.util;
 import android.net.http.Headers;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.UploadFileAction;
 import java.io.ByteArrayInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -369,7 +370,7 @@ public class HttpUtils {
     public static String uploadFile(String str, HashMap hashMap, byte[] bArr) {
         DataOutputStream dataOutputStream;
         String str2;
-        ?? r2 = "multipart/form-data";
+        ?? r2 = UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE;
         try {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -381,7 +382,7 @@ public class HttpUtils {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setRequestProperty("Charset", IoUtils.UTF_8);
                 httpURLConnection.setRequestProperty(Headers.CONN_DIRECTIVE, "keep-alive");
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + a);
+                httpURLConnection.setRequestProperty("Content-Type", UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE + ";boundary=" + a);
                 if (bArr != null) {
                     dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     try {

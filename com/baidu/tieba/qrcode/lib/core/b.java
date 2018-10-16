@@ -5,17 +5,17 @@ import android.graphics.Point;
 import android.hardware.Camera;
 import android.support.v7.widget.ActivityChooserView;
 import android.view.WindowManager;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern gsS = Pattern.compile(",");
-    private Point gsT;
-    private Point gsU;
-    private Point gsV;
+    private static final Pattern gAt = Pattern.compile(",");
+    private Point gAu;
+    private Point gAv;
+    private Point gAw;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.gsT = a.cI(this.mContext);
+        this.gAu = a.cV(this.mContext);
         Point point = new Point();
-        point.x = this.gsT.x;
-        point.y = this.gsT.y;
-        int cH = a.cH(this.mContext);
-        if (cH == 0) {
-            point.x = this.gsT.y;
-            point.y = this.gsT.x;
+        point.x = this.gAu.x;
+        point.y = this.gAu.y;
+        int cU = a.cU(this.mContext);
+        if (cU == 0) {
+            point.x = this.gAu.y;
+            point.y = this.gAu.x;
         }
-        this.gsV = a(parameters, point);
-        if (cH == 0) {
-            this.gsU = new Point(this.gsV.y, this.gsV.x);
+        this.gAw = a(parameters, point);
+        if (cU == 0) {
+            this.gAv = new Point(this.gAw.y, this.gAw.x);
         } else {
-            this.gsU = this.gsV;
+            this.gAv = this.gAw;
         }
     }
 
@@ -48,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point bpg() {
-        return this.gsU;
+    public Point bsv() {
+        return this.gAv;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.gsV.x, this.gsV.y);
+        parameters.setPreviewSize(this.gAw.x, this.gAw.y);
         a(parameters);
-        camera.setDisplayOrientation(bph());
+        camera.setDisplayOrientation(bsw());
         camera.setParameters(parameters);
     }
 
@@ -71,11 +71,11 @@ final class b {
         return null;
     }
 
-    public int bph() {
+    public int bsw() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
-        switch (((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getRotation()) {
+        switch (((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getRotation()) {
             case 0:
                 i = 0;
                 break;
@@ -83,10 +83,10 @@ final class b {
                 i = 90;
                 break;
             case 2:
-                i = SubsamplingScaleImageView.ORIENTATION_180;
+                i = 180;
                 break;
             case 3:
-                i = SubsamplingScaleImageView.ORIENTATION_270;
+                i = 270;
                 break;
             default:
                 i = 0;
@@ -147,7 +147,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = gsS.split(charSequence);
+        String[] split = gAt.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

@@ -6,42 +6,42 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class DisableScrollLayout extends FrameLayout {
-    private int axu;
-    private double axv;
-    private double axw;
-    private boolean axx;
+    private double aCe;
+    private double aCf;
+    private boolean aCg;
+    private int mHeaderViewHeight;
 
     public DisableScrollLayout(Context context) {
         super(context);
-        this.axv = 0.0d;
-        this.axw = 0.0d;
-        this.axx = true;
+        this.aCe = 0.0d;
+        this.aCf = 0.0d;
+        this.aCg = true;
     }
 
     public DisableScrollLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.axv = 0.0d;
-        this.axw = 0.0d;
-        this.axx = true;
+        this.aCe = 0.0d;
+        this.aCf = 0.0d;
+        this.aCg = true;
     }
 
     public void setHeaderViewHeight(int i) {
-        this.axu = i;
+        this.mHeaderViewHeight = i;
     }
 
-    public void bb(boolean z) {
-        this.axx = z;
+    public void bl(boolean z) {
+        this.aCg = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.axv = motionEvent.getX();
-            this.axw = motionEvent.getY();
+            this.aCe = motionEvent.getX();
+            this.aCf = motionEvent.getY();
         }
-        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.axu) {
+        if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.mHeaderViewHeight) {
             double y = motionEvent.getY();
-            if (Math.abs(motionEvent.getX() - this.axv) > Math.abs(y - this.axw) || (y > this.axw && !this.axx)) {
+            if (Math.abs(motionEvent.getX() - this.aCe) > Math.abs(y - this.aCf) || (y > this.aCf && !this.aCg)) {
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);

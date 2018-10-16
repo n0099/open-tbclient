@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -23,7 +24,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class SocialApiIml extends BaseApi {
     private Activity c;
 
@@ -161,7 +162,7 @@ public class SocialApiIml extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class a implements IUiListener {
         private IUiListener b;
         private String c;
@@ -222,7 +223,7 @@ public class SocialApiIml extends BaseApi {
         settings.setDomStorageEnabled(true);
         settings.setJavaScriptEnabled(true);
         settings.setDatabaseEnabled(true);
-        String str2 = "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.b.getOpenId() + "_" + this.b.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>";
+        String str2 = "<!DOCTYPE HTML><html lang=\"en-US\"><head><meta charset=\"UTF-8\"><title>localStorage Test</title><script type=\"text/javascript\">document.domain = 'qq.com';localStorage[\"" + this.b.getOpenId() + BaseRequestAction.SPLITE + this.b.getAppId() + "\"]=\"" + str + "\";</script></head><body></body></html>";
         String a2 = g.a().a(context, "http://qzs.qq.com");
         bVar.loadDataWithBaseURL(a2, str2, "text/html", IoUtils.UTF_8, a2);
     }

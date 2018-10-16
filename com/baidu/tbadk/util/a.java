@@ -4,18 +4,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a aZv;
-    private com.baidu.tbadk.coreExtra.data.a aIa;
+    private static a bdV;
+    private com.baidu.tbadk.coreExtra.data.a aMC;
 
-    public static a Mu() {
-        if (aZv == null) {
+    public static a Os() {
+        if (bdV == null) {
             synchronized (a.class) {
-                if (aZv == null) {
-                    aZv = new a();
+                if (bdV == null) {
+                    bdV = new a();
                 }
             }
         }
-        return aZv;
+        return bdV;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -24,22 +24,22 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.aIa == null || aVar.CM() != this.aIa.CM()) ? true : true;
-        this.aIa = aVar;
+        z = (aVar == null || this.aMC == null || aVar.EQ() != this.aMC.EQ()) ? true : true;
+        this.aMC = aVar;
         if (z) {
-            hP("zan_or_cai_smallflow");
+            ie("zan_or_cai_smallflow");
         }
     }
 
-    public boolean CM() {
-        if (this.aIa == null) {
-            this.aIa = new com.baidu.tbadk.coreExtra.data.a();
-            this.aIa.CN();
+    public boolean EQ() {
+        if (this.aMC == null) {
+            this.aMC = new com.baidu.tbadk.coreExtra.data.a();
+            this.aMC.ER();
         }
-        return this.aIa.CM();
+        return this.aMC.EQ();
     }
 
-    private void hP(String str) {
+    private void ie(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 }

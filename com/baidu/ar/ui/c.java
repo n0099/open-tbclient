@@ -422,10 +422,10 @@ public abstract class c implements View.OnClickListener, com.baidu.ar.c.c, Orien
             case MsgField.IMSG_TRACK_HIDE_LOST_INFO /* 1880 */:
                 ViewUtils.setViewVisibility(this.p.c(), 8);
                 return;
-            case MsgField.IMSG_MODE_SHOWING /* 2101 */:
+            case 2101:
                 i();
                 return;
-            case MsgField.MSG_ID_TRACK_MODEL_CAN_DISAPPEARING /* 2104 */:
+            case 2104:
                 if (((Boolean) obj).booleanValue()) {
                     a(this.g);
                     return;
@@ -433,7 +433,7 @@ public abstract class c implements View.OnClickListener, com.baidu.ar.c.c, Orien
                     z();
                     return;
                 }
-            case MsgField.MSG_ID_TRACK_MSG_ID_TRACK_LOST /* 2105 */:
+            case 2105:
                 a(this.g);
                 return;
             case MsgField.MSG_PADDLE_INIT /* 2400 */:

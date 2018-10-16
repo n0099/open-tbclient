@@ -14,10 +14,10 @@ import com.baidu.tieba.tbadkCore.r;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    private LikeModel aCp;
-    private com.baidu.tbadk.core.view.commonLike.b aCq;
-    private b aCr;
-    private View.OnClickListener aCs;
+    private LikeModel aGV;
+    private com.baidu.tbadk.core.view.commonLike.b aGW;
+    private b aGX;
+    private View.OnClickListener aGY;
     private TbPageContext mPageContext;
     private CustomMessageListener mLikeForumListener = new CustomMessageListener(2001437) { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,37 +26,37 @@ public class a implements View.OnClickListener {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.writeModel.a)) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = (com.baidu.tieba.tbadkCore.writeModel.a) customResponsedMessage.getData();
                 String l = Long.toString(aVar.forumId);
-                if (a.this.aCr != null && l.equals(a.this.aCr.getForumId()) && aVar.isSuccess) {
-                    a.this.aCr.setIsLike(true);
-                    a.this.aCr.ay(true);
-                    a.this.aCq.bi(true);
+                if (a.this.aGX != null && l.equals(a.this.aGX.getForumId()) && aVar.isSuccess) {
+                    a.this.aGX.setIsLike(true);
+                    a.this.aGX.aI(true);
+                    a.this.aGW.bs(true);
                 }
             }
         }
     };
-    private CustomMessageListener aCt = new CustomMessageListener(2001438) { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.2
+    private CustomMessageListener aGZ = new CustomMessageListener(2001438) { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.writeModel.a)) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = (com.baidu.tieba.tbadkCore.writeModel.a) customResponsedMessage.getData();
                 String l = Long.toString(aVar.forumId);
-                if (a.this.aCr != null && l.equals(a.this.aCr.getForumId()) && aVar.isSuccess) {
-                    a.this.aCr.setIsLike(false);
-                    a.this.aCr.ay(false);
-                    a.this.aCq.bi(false);
+                if (a.this.aGX != null && l.equals(a.this.aGX.getForumId()) && aVar.isSuccess) {
+                    a.this.aGX.setIsLike(false);
+                    a.this.aGX.aI(false);
+                    a.this.aGW.bs(false);
                 }
             }
         }
     };
-    d aCu = new d() { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.3
+    d aHa = new d() { // from class: com.baidu.tbadk.core.view.commonLike.forum.a.3
         @Override // com.baidu.adp.base.d
-        public void j(Object obj) {
+        public void m(Object obj) {
             if ((obj instanceof r) && ((r) obj).getErrorCode() != 0) {
-                if (AntiHelper.am(a.this.aCp.getErrorCode(), a.this.aCp.getErrorString())) {
-                    AntiHelper.aG(a.this.mPageContext.getPageActivity(), a.this.aCp.getErrorString());
+                if (AntiHelper.am(a.this.aGV.getErrorCode(), a.this.aGV.getErrorString())) {
+                    AntiHelper.aI(a.this.mPageContext.getPageActivity(), a.this.aGV.getErrorString());
                 } else {
-                    a.this.mPageContext.showToast(a.this.aCp.getErrorString());
+                    a.this.mPageContext.showToast(a.this.aGV.getErrorString());
                 }
             }
         }
@@ -64,48 +64,48 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, com.baidu.tbadk.core.view.commonLike.b bVar) {
         this.mPageContext = tbPageContext;
-        this.aCp = new LikeModel(tbPageContext);
-        this.aCp.setLoadDataCallBack(this.aCu);
-        this.aCq = bVar;
-        this.aCq.c(this);
+        this.aGV = new LikeModel(tbPageContext);
+        this.aGV.setLoadDataCallBack(this.aHa);
+        this.aGW = bVar;
+        this.aGW.c(this);
         tbPageContext.registerListener(this.mLikeForumListener);
-        tbPageContext.registerListener(this.aCt);
+        tbPageContext.registerListener(this.aGZ);
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.aCr = bVar;
-            this.aCq.bi(bVar.getIsLike());
+            this.aGX = bVar;
+            this.aGW.bs(bVar.getIsLike());
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         this.mLikeForumListener.setTag(bdUniqueId);
-        this.aCt.setTag(bdUniqueId);
+        this.aGZ.setTag(bdUniqueId);
     }
 
     public void setLikeButtonAfterClickListener(View.OnClickListener onClickListener) {
-        this.aCs = onClickListener;
+        this.aGY = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aCq != null) {
-            this.aCq.X(view);
+        if (this.aGW != null) {
+            this.aGW.X(view);
         }
-        if (!j.kK()) {
+        if (!j.kX()) {
             this.mPageContext.showToast(e.j.neterror);
             return;
         }
-        if (ba.bA(this.mPageContext.getPageActivity())) {
-            if (this.aCr != null) {
-                this.aCp.cu(this.aCr.getForumName(), this.aCr.getForumId());
+        if (ba.bI(this.mPageContext.getPageActivity())) {
+            if (this.aGX != null) {
+                this.aGV.cF(this.aGX.getForumName(), this.aGX.getForumId());
             } else {
                 return;
             }
         }
-        if (this.aCs != null) {
-            this.aCs.onClick(view);
+        if (this.aGY != null) {
+            this.aGY.onClick(view);
         }
     }
 }

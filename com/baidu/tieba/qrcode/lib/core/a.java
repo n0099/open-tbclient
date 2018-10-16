@@ -12,15 +12,16 @@ import android.os.Build;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 /* loaded from: classes3.dex */
 public class a {
-    public static final int cH(Context context) {
-        Point cI = cI(context);
-        return cI.x > cI.y ? 1 : 0;
+    public static final int cU(Context context) {
+        Point cV = cV(context);
+        return cV.x > cV.y ? 1 : 0;
     }
 
-    public static Point cI(Context context) {
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+    public static Point cV(Context context) {
+        Display defaultDisplay = ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 13) {
             defaultDisplay.getSize(point);

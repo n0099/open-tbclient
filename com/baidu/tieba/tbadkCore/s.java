@@ -4,25 +4,25 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bb;
 /* loaded from: classes.dex */
 public class s extends bb {
-    public static final BdUniqueId gUu = BdUniqueId.gen();
+    public static final BdUniqueId hbP = BdUniqueId.gen();
     private String fortune_desc;
-    private boolean gUv;
-    private m gUw;
+    private boolean hbQ;
+    private m hbR;
 
-    public boolean bye() {
-        return this.gUv;
+    public boolean bBt() {
+        return this.hbQ;
     }
 
-    public String byf() {
+    public String bBu() {
         return this.fortune_desc;
     }
 
-    public m byg() {
-        return this.gUw;
+    public m bBv() {
+        return this.hbR;
     }
 
     @Override // com.baidu.tbadk.core.data.bb, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gUu;
+        return hbP;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.biometrics.liveness;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static final boolean a = false;
     public static final String b = "com.baidu.sapi2.biometrics.liveness";

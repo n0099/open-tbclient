@@ -4,13 +4,14 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class i {
-    public static void ei(String str) {
+    public static void ey(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -31,19 +32,19 @@ public class i {
             String[] split = matcher2.group().split(",");
             if (split != null && split.length == 5) {
                 String str2 = split[1];
-                if (!TextUtils.isEmpty(str2) && str2.contains("_") && !str2.contains("collect_")) {
+                if (!TextUtils.isEmpty(str2) && str2.contains(BaseRequestAction.SPLITE) && !str2.contains("collect_")) {
                     i++;
                 }
             }
         }
         if (i > 0) {
             am amVar = new am("c12231");
-            amVar.w("obj_param1", i);
+            amVar.x("obj_param1", i);
             TiebaStatic.log(amVar);
         }
     }
 
-    public static void zn() {
+    public static void Bv() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.i.1
             @Override // java.lang.Runnable
             public void run() {
@@ -52,7 +53,7 @@ public class i {
                 int i;
                 com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
                 try {
-                    cursor = mainDBDatabaseManager.fL().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    cursor = mainDBDatabaseManager.ge().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
                     i = 0;
                     while (cursor.moveToNext()) {
                         try {
@@ -63,8 +64,8 @@ public class i {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.e(cursor);
                                 am amVar = new am("c12232");
-                                amVar.al("uid", TbadkCoreApplication.getCurrentAccount());
-                                amVar.w("obj_param1", i);
+                                amVar.ax("uid", TbadkCoreApplication.getCurrentAccount());
+                                amVar.x("obj_param1", i);
                                 TiebaStatic.log(amVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.e(cursor);
@@ -79,8 +80,8 @@ public class i {
                     i = 0;
                 }
                 am amVar2 = new am("c12232");
-                amVar2.al("uid", TbadkCoreApplication.getCurrentAccount());
-                amVar2.w("obj_param1", i);
+                amVar2.ax("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar2.x("obj_param1", i);
                 TiebaStatic.log(amVar2);
             }
         }).start();

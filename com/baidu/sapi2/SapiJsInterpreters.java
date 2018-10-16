@@ -17,14 +17,12 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Message;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.widget.DatePicker;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
 import com.baidu.sapi2.passhost.framework.PluginFacade;
@@ -45,9 +43,13 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeUtilsDispatcher;
+import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
+import com.baidu.webkit.internal.ABTestConstants;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import com.tencent.tauth.AuthActivity;
 import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -100,7 +102,7 @@ public class SapiJsInterpreters {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String c(String str) {
-        String[] split = str.split("_");
+        String[] split = str.split(BaseRequestAction.SPLITE);
         StringBuilder sb = new StringBuilder();
         sb.append("com.baidu.sapi2.SapiJsInterpreters$");
         for (String str2 : split) {
@@ -686,7 +688,7 @@ public class SapiJsInterpreters {
             Calendar calendar = Calendar.getInstance();
             Date time = calendar.getTime();
             try {
-                calendar.setTime(new SimpleDateFormat("yyyyMMdd").parse(str));
+                calendar.setTime(new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT).parse(str));
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -1080,7 +1082,7 @@ public class SapiJsInterpreters {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                 String optString = jSONObject.optString("username");
-                boolean equals = jSONObject.optString(IntentConfig.CLOSE, "0").equals("1");
+                boolean equals = jSONObject.optString("close", "0").equals("1");
                 SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new SapiWebView.PreFillUserNameCallback.PreFillUserNameResult();
                 preFillUserNameResult.userName = optString;
                 if (SapiJsInterpreters.this.c.t != null) {
@@ -1341,7 +1343,7 @@ public class SapiJsInterpreters {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("error", SapiWebView.ErrorCode.WEIXIN_NOT_INTALL);
+                jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, SapiWebView.ErrorCode.WEIXIN_NOT_INTALL);
                 jSONObject.put("errmsg", SapiWebView.DEFAULT_WEIXIN_NOT_INSTALL_ERROR);
             } catch (JSONException e) {
                 Log.e(e);
@@ -1472,7 +1474,7 @@ public class SapiJsInterpreters {
                     try {
                         jSONObject.put("with_permision", z);
                         jSONObject.put("send_suc", z2);
-                        jSONObject.put("cancel", z3);
+                        jSONObject.put(AiAppsUBCStatistic.VALUE_CANCEL, z3);
                     } catch (JSONException e) {
                         Log.e(e);
                     }
@@ -1505,16 +1507,16 @@ public class SapiJsInterpreters {
                     byteArrayOutputStream.reset();
                     createScaledBitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
                 }
-                jSONObject.put("icon", "data:image/png;base64," + SapiDeviceUtils.DeviceCrypto.base64Encode(byteArrayOutputStream.toByteArray()));
+                jSONObject.put(AiAppUnitedSchemeUtilsDispatcher.PARAM_TOAST_ICON_KEY, "data:image/png;base64," + SapiDeviceUtils.DeviceCrypto.base64Encode(byteArrayOutputStream.toByteArray()));
                 List<ShareStorage.StorageModel> a = com.baidu.sapi2.share.a.a().a(SapiJsInterpreters.this.b.context);
                 if (SapiJsInterpreters.this.c.w != null && a != null && a.size() > 0) {
                     jSONObject.put("openShareLogin", "true");
                 } else {
-                    jSONObject.put("openShareLogin", "false");
+                    jSONObject.put("openShareLogin", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
                 }
-                jSONObject.put("hasThirdAccount", SapiJsInterpreters.this.c.P == null ? "false" : SapiJsInterpreters.this.c.P.hasThirdAccount + "");
+                jSONObject.put("hasThirdAccount", SapiJsInterpreters.this.c.P == null ? ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE : SapiJsInterpreters.this.c.P.hasThirdAccount + "");
                 if (!new FaceLoginService().isSupFaceLogin()) {
-                    jSONObject.put("supportFaceLogin", "false");
+                    jSONObject.put("supportFaceLogin", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
                 } else {
                     jSONObject.put("supportFaceLogin", "true");
                 }
@@ -1573,7 +1575,7 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             try {
-                int optInt = new JSONObject(command.getActionParams().get(0)).optInt(NotificationCompat.CATEGORY_STATUS);
+                int optInt = new JSONObject(command.getActionParams().get(0)).optInt("status");
                 if (SapiJsInterpreters.this.c.E != null) {
                     SapiJsInterpreters.this.c.E.onFinish(optInt);
                     return null;
@@ -1596,10 +1598,10 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                jSONObject.optString(AuthActivity.ACTION_KEY);
+                jSONObject.optString("action");
                 String optString = jSONObject.optString("minver");
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(WXLoginActivity.KEY_BASE_RESP_STATE, new SapiScheme().getInvokeScState(SapiJsInterpreters.this.d, optString, SapiJsInterpreters.this.c.z));
+                jSONObject2.put("state", new SapiScheme().getInvokeScState(SapiJsInterpreters.this.d, optString, SapiJsInterpreters.this.c.z));
                 return jSONObject2.toString();
             } catch (JSONException e) {
                 Log.e(e);
@@ -1635,13 +1637,13 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject.optString(AuthActivity.ACTION_KEY);
+                String optString = jSONObject.optString("action");
                 String optString2 = jSONObject.optString("minver");
                 ArrayList arrayList = new ArrayList();
                 Iterator<String> keys = jSONObject.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    if (!next.equals(AuthActivity.ACTION_KEY)) {
+                    if (!next.equals("action")) {
                         arrayList.add(new BasicNameValuePair(next, jSONObject.optString(next)));
                     }
                 }
@@ -1968,7 +1970,7 @@ public class SapiJsInterpreters {
                         try {
                             jSONObject.put("with_permision", false);
                             jSONObject.put("send_suc", false);
-                            jSONObject.put("cancel", false);
+                            jSONObject.put(AiAppsUBCStatistic.VALUE_CANCEL, false);
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }

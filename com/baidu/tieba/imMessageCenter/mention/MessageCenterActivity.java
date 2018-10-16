@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.voice.VoiceManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MessageCenterActivity extends BaseFragmentActivity implements VoiceManager.c {
-    private MessageCenterFragment eOx;
+    private MessageCenterFragment eWf;
     private int mSkinType = 3;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!ba.bA(this)) {
+        if (!ba.bI(this)) {
             finish();
             return;
         }
-        this.eOx = new MessageCenterFragment();
+        this.eWf = new MessageCenterFragment();
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, this.eOx);
+        beginTransaction.add(16908290, this.eWf);
         beginTransaction.commitAllowingStateLoss();
     }
 
@@ -37,8 +37,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.eOx != null) {
-            this.eOx.onActivityResult(i, i2, intent);
+        if (this.eWf != null) {
+            this.eWf.onActivityResult(i, i2, intent);
         }
     }
 
@@ -46,8 +46,8 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.eOx != null) {
-            this.eOx.onNewIntent(intent);
+        if (this.eWf != null) {
+            this.eWf.onNewIntent(intent);
         }
     }
 
@@ -55,13 +55,13 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     protected void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.eOx.onChangeSkinType(i);
+            this.eWf.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        return this.eOx.getVoiceManager();
+        return this.eWf.getVoiceManager();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c

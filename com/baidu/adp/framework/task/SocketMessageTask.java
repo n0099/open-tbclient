@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean xT;
-    private boolean xU;
-    private boolean xV;
-    private DupLicateMode xW;
+    private boolean yF;
+    private boolean yG;
+    private boolean yH;
+    private DupLicateMode yI;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,10 +20,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.xT = false;
-        this.xU = false;
-        this.xV = true;
-        this.xW = DupLicateMode.NONE;
+        this.yF = false;
+        this.yG = false;
+        this.yH = true;
+        this.yI = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -32,19 +32,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void x(boolean z) {
-        this.xT = z;
+        this.yF = z;
     }
 
-    public boolean hd() {
-        return this.xT;
+    public boolean hu() {
+        return this.yF;
     }
 
-    public boolean he() {
-        return this.xU;
+    public boolean hv() {
+        return this.yG;
     }
 
     public void y(boolean z) {
-        this.xU = z;
+        this.yG = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -55,19 +55,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean hf() {
-        return this.xV;
+    public boolean hw() {
+        return this.yH;
     }
 
     public void z(boolean z) {
-        this.xV = z;
+        this.yH = z;
     }
 
-    public DupLicateMode hg() {
-        return this.xW;
+    public DupLicateMode hx() {
+        return this.yI;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.xW = dupLicateMode;
+        this.yI = dupLicateMode;
     }
 }

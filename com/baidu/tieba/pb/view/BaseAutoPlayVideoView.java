@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseAutoPlayVideoView extends FrameLayout {
     public BaseAutoPlayVideoView(Context context) {
         super(context);

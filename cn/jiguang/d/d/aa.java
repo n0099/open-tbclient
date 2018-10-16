@@ -10,6 +10,7 @@ import cn.jpush.android.service.PushReceiver;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.security.interfaces.RSAPublicKey;
@@ -49,16 +50,16 @@ public final class aa {
             try {
                 if (jSONObject.length() != 0) {
                     if (cn.jiguang.g.a.d(context)) {
-                        boolean equalsIgnoreCase = "CN".equalsIgnoreCase(cn.jiguang.d.a.ky.a());
+                        boolean equalsIgnoreCase = "CN".equalsIgnoreCase(cn.jiguang.d.a.ld.a());
                         LinkedHashSet<String> linkedHashSet = new LinkedHashSet();
-                        if (equalsIgnoreCase && (d = f.bE().ai(context).d(set)) != null) {
+                        if (equalsIgnoreCase && (d = f.bV().ai(context).d(set)) != null) {
                             for (String str : d) {
                                 if (!TextUtils.isEmpty(str)) {
                                     linkedHashSet.add(str);
                                 }
                             }
                         }
-                        String g = cn.jiguang.d.a.ky.g();
+                        String g = cn.jiguang.d.a.ld.g();
                         if (!TextUtils.isEmpty(g)) {
                             linkedHashSet.add(SapiUtils.COOKIE_HTTPS_URL_PREFIX + g);
                         }
@@ -198,7 +199,7 @@ public final class aa {
             jSONObject = new JSONObject();
         }
         try {
-            jSONObject.put("itime", cn.jiguang.api.e.bg());
+            jSONObject.put("itime", cn.jiguang.api.e.bx());
             jSONObject.put("type", str);
             jSONObject.put("account_id", cn.jiguang.d.a.d.m(context));
         } catch (JSONException e) {
@@ -282,7 +283,7 @@ public final class aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(Context context, JSONArray jSONArray, Set set) {
         try {
-            String c2 = f.bE().ah(context).c(set);
+            String c2 = f.bV().ah(context).c(set);
             JSONObject d = d(context);
             ArrayList<JSONArray> a2 = a(jSONArray, 40960, (int) com.baidu.fsg.base.statistics.b.b);
             boolean z = d == null;
@@ -337,7 +338,7 @@ public final class aa {
 
     public static void b(Context context) {
         try {
-            l.bI().d(context, "report_history", new Bundle());
+            l.bZ().d(context, "report_history", new Bundle());
         } catch (Throwable th) {
         }
     }
@@ -387,8 +388,8 @@ public final class aa {
                 jSONObject.put("uid", c2);
                 String b2 = cn.jiguang.d.a.b(context);
                 if (!cn.jiguang.g.i.a(b2)) {
-                    jSONObject.put("app_key", b2);
-                    e.bD().a(jSONObject);
+                    jSONObject.put(AiAppsApsUtils.APP_KEY, b2);
+                    e.bU().a(jSONObject);
                     jSONObject.put("core_sdk_ver", "1.2.5");
                     String H = cn.jiguang.d.a.a.H("");
                     if (cn.jiguang.g.i.a(H)) {

@@ -41,7 +41,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
-import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class FontsContractCompat {
     private static final int BACKGROUND_THREAD_KEEP_ALIVE_DURATION_MS = 10000;
@@ -490,7 +489,7 @@ public class FontsContractCompat {
                             } else {
                                 withAppendedId = ContentUris.withAppendedId(build2, query.getLong(columnIndex3));
                             }
-                            arrayList.add(new FontInfo(withAppendedId, i2, columnIndex5 != -1 ? query.getInt(columnIndex5) : HttpStatus.SC_BAD_REQUEST, columnIndex6 != -1 && query.getInt(columnIndex6) == 1, i));
+                            arrayList.add(new FontInfo(withAppendedId, i2, columnIndex5 != -1 ? query.getInt(columnIndex5) : 400, columnIndex6 != -1 && query.getInt(columnIndex6) == 1, i));
                         }
                         if (query != null) {
                             query.close();

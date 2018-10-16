@@ -24,12 +24,12 @@ public final class h extends Thread {
     private String e;
     private String f;
     private int g;
-    private WifiManager jM;
-    private boolean[] jN;
+    private WifiManager kr;
+    private boolean[] ks;
 
     private h(WifiManager wifiManager, String str, String str2, String str3, Context context, int i2, int i3) {
         this.g = 2;
-        this.jM = wifiManager;
+        this.kr = wifiManager;
         this.a = i2;
         this.b = context;
         this.g = i3;
@@ -37,7 +37,7 @@ public final class h extends Thread {
         this.e = str3;
         this.f = str;
         if (i3 == 2) {
-            this.jN = new boolean[3];
+            this.ks = new boolean[3];
         }
     }
 
@@ -218,7 +218,7 @@ public final class h extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
-        DhcpInfo dhcpInfo = this.jM.getDhcpInfo();
+        DhcpInfo dhcpInfo = this.kr.getDhcpInfo();
         if (dhcpInfo == null) {
             return;
         }
@@ -248,14 +248,14 @@ public final class h extends Thread {
         try {
             if (this.g == 2) {
                 for (int i2 = 0; i2 < 3; i2++) {
-                    this.jN[i2] = false;
+                    this.ks[i2] = false;
                     int i3 = (i2 * 85) + 0;
                     cn.jiguang.api.e.a(new f(new d(a7, this.a), a, i3, i3 + 85, new j(this, new l(), i2)), new int[0]);
                 }
                 synchronized (i) {
                     while (true) {
                         boolean z = false;
-                        boolean[] zArr = this.jN;
+                        boolean[] zArr = this.ks;
                         int length = zArr.length;
                         int i4 = 0;
                         while (true) {

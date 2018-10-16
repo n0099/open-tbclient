@@ -15,30 +15,30 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.view.j;
 import com.baidu.tieba.card.v;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FrsCommonTabFragment extends BaseFragment implements j.b {
-    private b dyR;
-    private c dyS;
-    public boolean dyT;
-    public boolean dyU;
+    private b dGR;
+    private c dGS;
+    public boolean dGT;
+    public boolean dGU;
     public String forumId;
     public boolean isBrandForum;
     private View mRootView;
     public int tabId;
-    private int dyV = 3;
-    private CustomMessageListener dtg = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.commontab.FrsCommonTabFragment.1
+    private int dGV = 3;
+    private CustomMessageListener dBh = new CustomMessageListener(2001624) { // from class: com.baidu.tieba.frs.commontab.FrsCommonTabFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof Integer) && Integer.parseInt(data.toString()) == FrsCommonTabFragment.this.tabId) {
-                    if (FrsCommonTabFragment.this.dyR != null) {
-                        FrsCommonTabFragment.this.dyR.setSelection(0);
+                    if (FrsCommonTabFragment.this.dGR != null) {
+                        FrsCommonTabFragment.this.dGR.setSelection(0);
                     }
-                    if (FrsCommonTabFragment.this.mRefreshView == null || !FrsCommonTabFragment.this.mRefreshView.Ks()) {
-                        FrsCommonTabFragment.this.dyR.cH(true);
-                        FrsCommonTabFragment.this.bf(true);
+                    if (FrsCommonTabFragment.this.mRefreshView == null || !FrsCommonTabFragment.this.mRefreshView.Mq()) {
+                        FrsCommonTabFragment.this.dGR.cQ(true);
+                        FrsCommonTabFragment.this.bp(true);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, true));
                         return;
                     }
@@ -54,37 +54,37 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
         if (bundle != null) {
             this.tabId = bundle.getInt(MyBookrackActivityConfig.TAB_ID);
             this.forumId = bundle.getString("forum_id");
-            this.dyU = bundle.getBoolean("can_auto_play_video");
-            this.dyT = bundle.getBoolean("need_log");
+            this.dGU = bundle.getBoolean("can_auto_play_video");
+            this.dGT = bundle.getBoolean("need_log");
             this.isBrandForum = bundle.getBoolean("is_brand_forum");
         } else {
             Bundle arguments = getArguments();
             if (arguments != null) {
                 this.tabId = arguments.getInt(MyBookrackActivityConfig.TAB_ID);
                 this.forumId = arguments.getString("forum_id");
-                this.dyU = arguments.getBoolean("can_auto_play_video");
-                this.dyT = arguments.getBoolean("need_log");
+                this.dGU = arguments.getBoolean("can_auto_play_video");
+                this.dGT = arguments.getBoolean("need_log");
                 this.isBrandForum = arguments.getBoolean("is_brand_forum");
             }
         }
-        this.dyS = new c(this, Integer.parseInt(this.forumId), this.tabId);
-        setNetRefreshViewTextAndPicDistance(getResources().getDimensionPixelSize(e.C0141e.ds_102));
-        registerListener(this.dtg);
+        this.dGS = new c(this, Integer.parseInt(this.forumId), this.tabId);
+        setNetRefreshViewTextAndPicDistance(getResources().getDimensionPixelSize(e.C0175e.ds_102));
+        registerListener(this.dBh);
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = layoutInflater.inflate(e.h.frs_common_tab_fragment, (ViewGroup) null);
-        this.dyR = new b(this, this.mRootView);
+        this.dGR = new b(this, this.mRootView);
         return this.mRootView;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (com.baidu.adp.lib.util.j.kK()) {
-            showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0141e.ds250));
-            ayI();
+        if (com.baidu.adp.lib.util.j.kX()) {
+            showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0175e.ds250));
+            aCb();
             return;
         }
         showNetRefreshView(this.mRootView, null, true);
@@ -92,22 +92,22 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        this.dyR.gv(false);
+        this.dGR.gN(false);
         super.showNetRefreshView(view, str, z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        this.dyR.gv(true);
+        this.dGR.gN(true);
         super.hideNetRefreshView(view);
     }
 
     public void a(d dVar) {
         if (dVar != null) {
             hideLoadingView(this.mRootView);
-            if (this.dyR != null) {
-                this.dyR.cH(false);
-                this.dyR.a(dVar);
+            if (this.dGR != null) {
+                this.dGR.cQ(false);
+                this.dGR.a(dVar);
             }
         }
     }
@@ -121,60 +121,60 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
                 showToast(e.j.im_error_default);
             }
         }
-        if (!this.dyS.hasData()) {
+        if (!this.dGS.hasData()) {
             String str = null;
             if (errorData != null) {
                 str = getPageContext().getResources().getString(e.j.net_error_text, errorData.error_msg, Integer.valueOf(errorData.error_code));
             }
             showNetRefreshView(this.mRootView, str, true);
         }
-        if (this.dyR != null) {
-            this.dyR.cH(false);
+        if (this.dGR != null) {
+            this.dGR.cQ(false);
         }
     }
 
-    public void ayH() {
-        if (l.lb() && this.dyS != null) {
-            this.dyS.Vd();
+    public void aCa() {
+        if (l.lo() && this.dGS != null) {
+            this.dGS.YK();
         }
     }
 
-    private void ayI() {
-        if (l.lb() && this.dyS != null) {
-            this.dyS.ayI();
+    private void aCb() {
+        if (l.lo() && this.dGS != null) {
+            this.dGS.aCb();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.j.b
-    public void bf(boolean z) {
-        if (com.baidu.adp.lib.util.j.kK()) {
+    public void bp(boolean z) {
+        if (com.baidu.adp.lib.util.j.kX()) {
             hideNetRefreshView(this.mRootView);
-            if (this.dyS.hasData()) {
+            if (this.dGS.hasData()) {
                 hideLoadingView(this.mRootView);
             } else {
-                showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0141e.ds250));
+                showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0175e.ds250));
             }
-            ayI();
+            aCb();
             return;
         }
-        this.dyR.cH(false);
+        this.dGR.cQ(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
-        if (com.baidu.adp.lib.util.j.kK()) {
+        if (com.baidu.adp.lib.util.j.kX()) {
             hideNetRefreshView(this.mRootView);
-            showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0141e.ds250));
-            ayI();
+            showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(e.C0175e.ds250));
+            aCb();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        v.akM().eP(false);
+        v.aoo().fh(false);
         super.onDestroy();
-        if (this.dyR != null) {
-            this.dyR.onDestroy();
+        if (this.dGR != null) {
+            this.dGR.onDestroy();
         }
     }
 
@@ -182,36 +182,36 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            if (this.dyR != null) {
-                this.dyR.resume();
+            if (this.dGR != null) {
+                this.dGR.resume();
             }
-        } else if (this.dyR != null) {
-            this.dyR.pause();
+        } else if (this.dGR != null) {
+            this.dGR.pause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.dyR != null) {
-            this.dyR.resume();
+        if (this.dGR != null) {
+            this.dGR.resume();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.dyR != null) {
-            this.dyR.pause();
+        if (this.dGR != null) {
+            this.dGR.pause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.dyV != 3 || this.dyR != null) {
-            this.dyV = i;
+        if (this.dGV != 3 || this.dGR != null) {
+            this.dGV = i;
             super.onChangeSkinType(i);
-            this.dyR.onChangeSkinType(i);
+            this.dGR.onChangeSkinType(i);
         }
     }
 
@@ -220,8 +220,8 @@ public class FrsCommonTabFragment extends BaseFragment implements j.b {
         super.onSaveInstanceState(bundle);
         bundle.putInt(MyBookrackActivityConfig.TAB_ID, this.tabId);
         bundle.putString("forum_id", this.forumId);
-        bundle.putBoolean("can_auto_play_video", this.dyU);
-        bundle.putBoolean("need_log", this.dyT);
+        bundle.putBoolean("can_auto_play_video", this.dGU);
+        bundle.putBoolean("need_log", this.dGT);
         bundle.putBoolean("is_brand_forum", this.isBrandForum);
     }
 }

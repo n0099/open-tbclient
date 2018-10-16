@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.sofire.ac.U;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.security.PublicKey;
@@ -66,7 +67,7 @@ public final class o {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("p");
                     String optString2 = optJSONObject.optString("s");
-                    new StringBuilder("167:").append(optString).append("_").append(optString2);
+                    new StringBuilder("167:").append(optString).append(BaseRequestAction.SPLITE).append(optString2);
                     hashMap.put(optString, optString2);
                 }
                 for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {

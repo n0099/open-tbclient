@@ -4,41 +4,41 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 final class f {
-    private static f hKL;
-    private static SQLiteOpenHelper hKM;
-    private AtomicInteger hKN = new AtomicInteger();
-    private SQLiteDatabase hKO;
+    private static f hTD;
+    private static SQLiteOpenHelper hTE;
+    private AtomicInteger hTF = new AtomicInteger();
+    private SQLiteDatabase hTG;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (hKL == null) {
-                hKL = new f();
-                hKM = new d(context);
+            if (hTD == null) {
+                hTD = new f();
+                hTE = new d(context);
             }
         }
     }
 
-    public static synchronized f bLR() {
+    public static synchronized f bQh() {
         f fVar;
         synchronized (f.class) {
-            if (hKL == null) {
-                b(com.baidu.ubs.analytics.d.bLP().getContext());
+            if (hTD == null) {
+                b(com.baidu.ubs.analytics.d.bQf().getContext());
             }
-            fVar = hKL;
+            fVar = hTD;
         }
         return fVar;
     }
 
     public final synchronized SQLiteDatabase getDatabase() {
-        if (this.hKN.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.wS("***************新建立了 一个数据库的实例****************");
-            this.hKO = hKM.getWritableDatabase();
+        if (this.hTF.incrementAndGet() == 1) {
+            com.baidu.ubs.analytics.d.b.xS("***************新建立了 一个数据库的实例****************");
+            this.hTG = hTE.getWritableDatabase();
         }
-        return this.hKO;
+        return this.hTG;
     }
 }

@@ -2,25 +2,26 @@ package com.baidu.tbadk.core.util.e;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.j;
+import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
 import com.baidu.tbadk.p.bi;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e avJ;
-    private int avK = 3;
+    private static e aAu;
+    private int aAv = 3;
     private boolean isWifi = true;
     private int mSize = 0;
 
-    public static e Bk() {
-        if (avJ == null) {
+    public static e Dr() {
+        if (aAu == null) {
             synchronized (e.class) {
-                if (avJ == null) {
-                    avJ = new e();
+                if (aAu == null) {
+                    aAu = new e();
                 }
             }
         }
-        return avJ;
+        return aAu;
     }
 
     private e() {
@@ -33,15 +34,15 @@ public class e {
     }
 
     public boolean isOpen() {
-        if (bi.jw()) {
-            return !this.isWifi || j.kL();
+        if (bi.jL()) {
+            return !this.isWifi || j.kY();
         }
         g.log("PreLoadVideoSwitchManager isOpen switch close ");
         return false;
     }
 
-    public int Bl() {
-        return this.avK;
+    public int Ds() {
+        return this.aAv;
     }
 
     public int getSize() {
@@ -51,7 +52,7 @@ public class e {
         return this.mSize;
     }
 
-    public void fB(String str) {
+    public void fP(String str) {
         g.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -66,10 +67,10 @@ public class e {
     private void parseJson(String str) throws JSONException {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject(str);
-            this.avK = jSONObject.optInt("num", 3);
+            this.aAv = jSONObject.optInt("num", 3);
             this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
-            this.mSize = jSONObject.optInt("size", 512000);
-            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.avK + " size: " + this.mSize + " isWifi " + this.isWifi);
+            this.mSize = jSONObject.optInt(ChooseVideoAction.CB_KEY_SIZE, 512000);
+            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.aAv + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

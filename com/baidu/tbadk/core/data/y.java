@@ -1,16 +1,16 @@
 package com.baidu.tbadk.core.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class y {
     public int accountType;
-    public long air;
-    public long ais;
-    public int ait;
-    public String aiu;
-    public long aiv;
-    public long aiw;
-    public int aix;
-    public int aiy;
-    public int aiz;
+    public long anm;
+    public long ann;
+    public int ano;
+    public String anp;
+    public long anq;
+    public long anr;
+    public int ans;
+    public int ant;
+    public int anu;
     public long beginTime;
     public String desc;
     public long endTime;

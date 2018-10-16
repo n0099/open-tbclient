@@ -10,18 +10,18 @@ import org.json.JSONObject;
 public class i implements b {
     private final String name;
     @Nullable
-    private final com.airbnb.lottie.model.a.a pX;
-    private final boolean qP;
+    private final com.airbnb.lottie.model.a.a qK;
     @Nullable
-    private final com.airbnb.lottie.model.a.d qf;
-    private final Path.FillType qq;
+    private final com.airbnb.lottie.model.a.d qS;
+    private final boolean rC;
+    private final Path.FillType rc;
 
     private i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.qP = z;
-        this.qq = fillType;
-        this.pX = aVar;
-        this.qf = dVar;
+        this.rC = z;
+        this.rc = fillType;
+        this.qK = aVar;
+        this.qS = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ public class i implements b {
         public static i v(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject("c");
-            com.airbnb.lottie.model.a.a d = optJSONObject != null ? a.C0007a.d(optJSONObject, eVar) : null;
+            com.airbnb.lottie.model.a.a d = optJSONObject != null ? a.C0010a.d(optJSONObject, eVar) : null;
             JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.OS);
             return new i(optString, jSONObject.optBoolean("fillEnabled"), jSONObject.optInt("r", 1) == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, d, optJSONObject2 != null ? d.a.g(optJSONObject2, eVar) : null);
         }
@@ -42,17 +42,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.a el() {
-        return this.pX;
+    public com.airbnb.lottie.model.a.a eD() {
+        return this.qK;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.d dE() {
-        return this.qf;
+    public com.airbnb.lottie.model.a.d dW() {
+        return this.qS;
     }
 
     public Path.FillType getFillType() {
-        return this.qq;
+        return this.rc;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -61,6 +61,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=" + (this.pX == null ? "null" : Integer.toHexString(this.pX.dr().intValue())) + ", fillEnabled=" + this.qP + ", opacity=" + (this.qf == null ? "null" : this.qf.dr()) + '}';
+        return "ShapeFill{color=" + (this.qK == null ? "null" : Integer.toHexString(this.qK.dJ().intValue())) + ", fillEnabled=" + this.rC + ", opacity=" + (this.qS == null ? "null" : this.qS.dJ()) + '}';
     }
 }

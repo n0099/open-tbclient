@@ -1,6 +1,9 @@
 package com.xiaomi.xmpush.thrift;
 
 import com.baidu.fsg.base.BaiduRimConstants;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
+import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
+import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -16,10 +19,10 @@ public class ai implements Serializable, Cloneable, org.apache.thrift.a<ai, a> {
     private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b(BaiduRimConstants.ACTION_TARGET, (byte) 12, 2);
     private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
+    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 11, 4);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("request", (byte) 12, 5);
-    private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("errorCode", (byte) 10, 6);
-    private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("reason", (byte) 11, 7);
+    private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b(AudioStatusCallback.KEY_ERROR_CODE, (byte) 10, 6);
+    private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b(WebSocketAction.PARAM_KEY_REASON, (byte) 11, 7);
     private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("category", (byte) 11, 8);
     public String a;
     public u b;
@@ -36,10 +39,10 @@ public class ai implements Serializable, Cloneable, org.apache.thrift.a<ai, a> {
         DEBUG(1, "debug"),
         TARGET(2, BaiduRimConstants.ACTION_TARGET),
         ID(3, "id"),
-        APP_ID(4, "appId"),
+        APP_ID(4, AiAppsLifecycleMessage.APP_ID_KEY),
         REQUEST(5, "request"),
-        ERROR_CODE(6, "errorCode"),
-        REASON(7, "reason"),
+        ERROR_CODE(6, AudioStatusCallback.KEY_ERROR_CODE),
+        REASON(7, WebSocketAction.PARAM_KEY_REASON),
         CATEGORY(8, "category");
         
         private static final Map<String, a> i = new HashMap();
@@ -69,10 +72,10 @@ public class ai implements Serializable, Cloneable, org.apache.thrift.a<ai, a> {
         enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b(BaiduRimConstants.ACTION_TARGET, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.REQUEST, (a) new org.apache.thrift.meta_data.b("request", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, ah.class)));
-        enumMap.put((EnumMap) a.ERROR_CODE, (a) new org.apache.thrift.meta_data.b("errorCode", (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
-        enumMap.put((EnumMap) a.REASON, (a) new org.apache.thrift.meta_data.b("reason", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.ERROR_CODE, (a) new org.apache.thrift.meta_data.b(AudioStatusCallback.KEY_ERROR_CODE, (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
+        enumMap.put((EnumMap) a.REASON, (a) new org.apache.thrift.meta_data.b(WebSocketAction.PARAM_KEY_REASON, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         i = Collections.unmodifiableMap(enumMap);
         org.apache.thrift.meta_data.b.a(ai.class, i);

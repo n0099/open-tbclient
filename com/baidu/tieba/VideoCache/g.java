@@ -1,5 +1,6 @@
 package com.baidu.tieba.VideoCache;
 
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import java.io.DataInputStream;
@@ -11,18 +12,18 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class g implements Runnable {
     private static final String TAG = g.class.getSimpleName();
-    private String avN;
+    private String aAy;
 
     public synchronized void setVideoUrl(String str) {
-        this.avN = str;
+        this.aAy = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Sa();
+        TW();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -52,7 +53,7 @@ public class g implements Runnable {
         if (r10 == r14) goto L86;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x01a1, code lost:
-        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").al("errormsg", "准备合并文件时文件片段错误").al("url", r18.avN));
+        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").ax("errormsg", "准备合并文件时文件片段错误").ax("url", r18.aAy));
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x01cd, code lost:
         if (a(r12.getAbsolutePath(), r13) == false) goto L89;
@@ -65,24 +66,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void Sa() {
+    private synchronized void TW() {
         File file;
-        long iL;
+        long iY;
         File[] fileArr;
         int i;
         long j;
         long n;
         long j2;
-        j.aF(TAG, "merge ...");
-        String iR = m.iR(this.avN);
-        if (iR != null && !iR.isEmpty() && ((file = new File(i.brE + iR + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.brE + iR + "/completed.temp");
+        j.log(TAG, "merge ...");
+        String je = m.je(this.aAy);
+        if (je != null && !je.isEmpty() && ((file = new File(i.bvM + je + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.bvM + je + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.brE + iR + "/segments");
+            File file3 = new File(i.bvM + je + "/segments");
             if (file3 != null && file3.exists()) {
-                iL = iL(iR);
+                iY = iY(je);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -94,7 +95,7 @@ public class g implements Runnable {
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 file4.delete();
-                                j.aF(TAG, "delete file " + file4.getAbsolutePath());
+                                j.log(TAG, "delete file " + file4.getAbsolutePath());
                             }
                         }
                     }
@@ -109,7 +110,7 @@ public class g implements Runnable {
                         if (fileArr[i2] == null) {
                             break;
                         }
-                        j.aF(TAG, "file name " + fileArr[i2].getName());
+                        j.log(TAG, "file name " + fileArr[i2].getName());
                         i2++;
                     }
                 }
@@ -129,7 +130,7 @@ public class g implements Runnable {
             }
             if (j + n == j2) {
             }
-        } else if (m.n(fileArr[i]) + j == iL) {
+        } else if (m.n(fileArr[i]) + j == iY) {
             i++;
         }
     }
@@ -181,7 +182,7 @@ public class g implements Runnable {
                 e = e3;
                 fileChannel = channel;
                 try {
-                    TiebaStatic.log(new am("c12027").al("errormsg", "合并文件出现异常").al("error", e.getMessage()).al("url", this.avN));
+                    TiebaStatic.log(new am("c12027").ax("errormsg", "合并文件出现异常").ax(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e.getMessage()).ax("url", this.aAy));
                     e.printStackTrace();
                     if (fileChannel != null) {
                         try {
@@ -243,12 +244,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long iL(String str) {
+    private long iY(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.brE + str + "/content_length");
+        File file = new File(i.bvM + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

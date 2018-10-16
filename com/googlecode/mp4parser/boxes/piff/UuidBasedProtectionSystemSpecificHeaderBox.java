@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.boxes.piff;
 
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.CastUtils;
@@ -11,16 +10,16 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     public static byte[] USER_TYPE;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_6 = null;
     ProtectionSpecificHeader protectionSpecificHeader;
     UUID systemId;
 
@@ -41,7 +40,7 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
     }
 
     public UuidBasedProtectionSystemSpecificHeaderBox() {
-        super(UserBox.TYPE, USER_TYPE);
+        super("uuid", USER_TYPE);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox

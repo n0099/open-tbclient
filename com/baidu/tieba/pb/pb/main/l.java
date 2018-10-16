@@ -1,5 +1,5 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class l extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void Z(int i) {
@@ -11,22 +11,22 @@ public class l extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ir() {
+    protected String[] iH() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int is() {
+    protected int iI() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int it() {
+    protected int iJ() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iu() {
+    protected int iK() {
         return 10;
     }
 }

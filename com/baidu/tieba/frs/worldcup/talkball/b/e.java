@@ -7,44 +7,44 @@ import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.GuessingCompetition;
 /* loaded from: classes3.dex */
 public class e {
-    private String dTg;
-    private List<c> dTl;
-    private List<String> dTm;
+    private String eaZ;
+    private List<c> ebe;
+    private List<String> ebf;
 
     public void a(GuessingCompetition guessingCompetition) {
         if (guessingCompetition != null) {
-            this.dTl = new ArrayList();
+            this.ebe = new ArrayList();
             List<Competition> list = guessingCompetition.competition;
             if (list != null) {
                 for (Competition competition : list) {
                     c cVar = new c();
                     cVar.a(competition);
-                    if (cVar.aDM()) {
-                        this.dTl.add(cVar);
+                    if (cVar.aHe()) {
+                        this.ebe.add(cVar);
                     }
                 }
             }
-            this.dTg = guessingCompetition.ahead_url;
-            this.dTm = new ArrayList();
+            this.eaZ = guessingCompetition.ahead_url;
+            this.ebf = new ArrayList();
             if (guessingCompetition.winning_message != null) {
                 for (String str : guessingCompetition.winning_message) {
                     if (!ao.isEmpty(str)) {
-                        this.dTm.add(str);
+                        this.ebf.add(str);
                     }
                 }
             }
         }
     }
 
-    public List<c> aDP() {
-        return this.dTl;
+    public List<c> aHh() {
+        return this.ebe;
     }
 
-    public String aDQ() {
-        return this.dTg;
+    public String aHi() {
+        return this.eaZ;
     }
 
-    public List<String> aDR() {
-        return this.dTm;
+    public List<String> aHj() {
+        return this.ebf;
     }
 }

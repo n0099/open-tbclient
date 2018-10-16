@@ -7,7 +7,8 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.ar.util.HttpUtils;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,11 +71,11 @@ public class d implements com.baidu.ar.logo.a {
         if (hashMap != null) {
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                 sb.append((Object) entry.getKey());
-                sb.append("=");
+                sb.append(ETAG.EQUAL);
                 sb.append((Object) entry.getValue());
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             }
-            sb.deleteCharAt(sb.lastIndexOf("&"));
+            sb.deleteCharAt(sb.lastIndexOf(ETAG.ITEM_SEPARATOR));
         }
         String post = HttpUtils.post(str, sb.toString());
         c cVar = new c();
@@ -102,8 +103,8 @@ public class d implements com.baidu.ar.logo.a {
                     JSONObject jSONObject3 = jSONObject2.getJSONObject(Headers.LOCATION);
                     com.baidu.ar.logo.b bVar = new com.baidu.ar.logo.b();
                     bVar.d(jSONObject3.getInt("height"));
-                    bVar.b(jSONObject3.getInt("top"));
-                    bVar.a(jSONObject3.getInt(CustomDialogData.POS_LEFT));
+                    bVar.b(jSONObject3.getInt(AiAppsNaViewModel.POSITION_KEY_TOP));
+                    bVar.a(jSONObject3.getInt("left"));
                     bVar.c(jSONObject3.getInt("width"));
                     recognitionRes.setImageLocation(bVar);
                 }

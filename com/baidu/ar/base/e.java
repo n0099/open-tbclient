@@ -6,7 +6,6 @@ import com.baidu.ar.TakePictureCallback;
 import com.baidu.ar.TakePictureCallback2;
 import com.baidu.ar.util.Utils;
 import com.baidu.baiduarsdk.blend.b;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public class e implements b.d {
     private static final String a = e.class.getSimpleName();
@@ -34,7 +33,7 @@ public class e implements b.d {
         new Thread(new Runnable() { // from class: com.baidu.ar.base.e.1
             @Override // java.lang.Runnable
             public void run() {
-                Bitmap rotateBitmap = Utils.rotateBitmap(Utils.scaleBitmap(Utils.createBitmapFromColors(iArr, i, i2)), (e.this.c + SubsamplingScaleImageView.ORIENTATION_180) % 360);
+                Bitmap rotateBitmap = Utils.rotateBitmap(Utils.scaleBitmap(Utils.createBitmapFromColors(iArr, i, i2)), (e.this.c + 180) % 360);
                 if (e.this.f != null) {
                     e.this.e = rotateBitmap;
                     e.this.f.onPictureTake(true, e.this.e);

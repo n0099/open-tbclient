@@ -21,7 +21,7 @@ public final class m {
         a.put(1002, "Message received succeed");
         a.put(1003, "Message silence download succeed");
         a.put(1004, "Video silence downlaod succeed");
-        a.put(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC, "User clicked video and jumped to url Message (browser)");
+        a.put(1005, "User clicked video and jumped to url Message (browser)");
         a.put(1008, "Video is force closed by user");
         a.put(1007, "User clicked 'OK'");
         a.put(1006, "User clicked 'Cancel'");

@@ -20,11 +20,12 @@ import com.baidu.tbadk.core.atomData.AdTbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.webkit.internal.ETAG;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String U(String str, String str2) {
+    public static String ah(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             str = "http://".concat(str);
@@ -42,7 +43,7 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        tm();
+        vw();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -71,7 +72,7 @@ public class e {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
             }
@@ -95,9 +96,9 @@ public class e {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00b3 -> B:39:0x001c). Please submit an issue!!! */
-    public static void bh(Context context) {
+    public static void bq(Context context) {
         CookieManager cookieManager;
-        a.b dt = com.baidu.tbadk.core.a.a.uo().dt(TbadkCoreApplication.getCurrentBduss());
+        a.b dJ = com.baidu.tbadk.core.a.a.wx().dJ(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -106,7 +107,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (dt != null) {
+            if (dJ != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -153,7 +154,7 @@ public class e {
         }
     }
 
-    private static void tm() {
+    private static void vw() {
         new ag("open_webview", true).start();
     }
 }

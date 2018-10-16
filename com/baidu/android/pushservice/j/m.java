@@ -34,8 +34,13 @@ import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.tieba.keepLive.util.RomTypeUtil;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 import com.baidu.tieba.model.ReportUserInfoModel;
+import com.baidu.webkit.internal.GlobalConstants;
 import com.meizu.cloud.pushsdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -144,13 +149,13 @@ public final class m {
         String str = "";
         String upperCase = Build.MANUFACTURER.toUpperCase();
         if (upperCase.contains("XIAOMI")) {
-            str = "ro.build.version.incremental";
+            str = AiAppRomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL;
         } else if (upperCase.contains("HUAWEI")) {
             str = "ro.build.version.emui";
         } else if (upperCase.contains("MEIZU")) {
             return Build.DISPLAY;
         } else {
-            if (upperCase.contains(RomTypeUtil.ROM_OPPO)) {
+            if (upperCase.contains("OPPO")) {
                 str = "ro.build.version.opporom";
             }
         }
@@ -158,7 +163,7 @@ public final class m {
             Class<?> cls = Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES);
             return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
         } catch (Exception e) {
-            return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("XIAOMI") ? "MIUI_notfound" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "ColorOS_notfound" : "" : "EmotionUI_notfound";
+            return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("XIAOMI") ? "MIUI_notfound" : upperCase.contains("OPPO") ? "ColorOS_notfound" : "" : "EmotionUI_notfound";
         }
     }
 
@@ -173,8 +178,8 @@ public final class m {
             } else if (upperCase.contains("HUAWEI")) {
                 str3 = "ro.build.version.emui";
             } else if (upperCase.contains("MEIZU")) {
-                str3 = "ro.build.display.id";
-            } else if (upperCase.contains(RomTypeUtil.ROM_OPPO)) {
+                str3 = AiAppRomUtils.PROP_RO_BUILD_DISPLAY_ID;
+            } else if (upperCase.contains("OPPO")) {
                 str3 = "ro.build.version.opporom";
             }
             try {
@@ -191,19 +196,19 @@ public final class m {
                         }
                         Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str);
                         return matcher.find() ? matcher.group() : str;
-                    } else if (!upperCase.contains(RomTypeUtil.ROM_OPPO) || TextUtils.isEmpty(str)) {
+                    } else if (!upperCase.contains("OPPO") || TextUtils.isEmpty(str)) {
                         return str;
                     } else {
                         Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str);
                         return matcher2.find() ? matcher2.group(1) : str;
                     }
                 }
-                str2 = str.substring(str.indexOf("_") + 1, str.length());
+                str2 = str.substring(str.indexOf(BaseRequestAction.SPLITE) + 1, str.length());
                 if (!str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21) {
                     return "3.1";
                 }
             } catch (Exception e2) {
-                return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? "1.0" : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "5.0" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "3.0" : str : "3.1";
+                return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? "1.0" : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "5.0" : upperCase.contains("OPPO") ? "3.0" : str : "3.1";
             }
         }
         return str2;
@@ -626,7 +631,7 @@ public final class m {
         long ceil3 = (long) Math.ceil(((float) ((currentTimeMillis / 60) / 60)) / 1000.0f);
         long ceil4 = (long) Math.ceil(((float) (((currentTimeMillis / 24) / 60) / 60)) / 1000.0f);
         if (ceil4 - 1 > 3) {
-            stringBuffer.append(new SimpleDateFormat("MM月dd日").format(new Date(j)));
+            stringBuffer.append(new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT_MONTH_CN).format(new Date(j)));
         } else if (ceil4 - 1 > 0) {
             stringBuffer.append(ceil4 + "天前");
         } else if (ceil3 - 1 > 0) {
@@ -777,7 +782,7 @@ public final class m {
         try {
             Context applicationContext = context.getApplicationContext();
             k.a(applicationContext, 8, "");
-            com.coloros.mcssdk.a.bMu().b(applicationContext, str, str2, bVar);
+            com.coloros.mcssdk.a.bQK().b(applicationContext, str, str2, bVar);
         } catch (Exception e) {
         }
     }
@@ -1476,7 +1481,7 @@ public final class m {
 
     public static int[] b(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) context.getSystemService("window");
+        WindowManager windowManager = (WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY);
         if (windowManager != null) {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         }
@@ -1731,7 +1736,7 @@ public final class m {
     }
 
     public static boolean d() {
-        return Build.MANUFACTURER.toUpperCase().contains(RomTypeUtil.ROM_OPPO);
+        return Build.MANUFACTURER.toUpperCase().contains("OPPO");
     }
 
     private static String e(String str) {
@@ -1801,13 +1806,13 @@ public final class m {
     public static long f(Context context) {
         String packageName = context.getPackageName();
         if (H(context) && packageName.equalsIgnoreCase("com.baidu.push4manufacture")) {
-            return 10000L;
+            return ErrDef.Feature.WEIGHT;
         }
         long a2 = com.baidu.android.pushservice.a.a();
         int b2 = com.baidu.android.pushservice.a.b();
         if (b2 > 0) {
             return (b2 <= 5 ? b2 : 5) + (a2 << 4) + 10;
-        } else if (context.getPackageName().equals("com.baidu.searchbox")) {
+        } else if (context.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
             return (a2 << 4) + 10;
         } else {
             long j = a2 << 2;

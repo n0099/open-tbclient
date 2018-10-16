@@ -23,6 +23,7 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean mIsShowTransmitShare;
     public int mPrivateThread;
     public SparseArray<String> mtjStatistics;
+    public DialogInterface.OnCancelListener onCancelListener;
     public DialogInterface.OnDismissListener onDismissListener;
     public d shareItem;
     public boolean showLocation;

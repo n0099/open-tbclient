@@ -1,38 +1,38 @@
 package com.baidu.tieba.video.cloudmusic;
 
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface d {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(CloudMusicData.MusicTagList.MusicList musicList, int i);
 
-        void ayC();
+        void aBV();
 
-        void boH();
+        void brW();
 
         void c(CloudMusicData.MusicTagList musicTagList);
 
-        void ve(int i);
+        void vB(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(a aVar);
 
         void b(CloudMusicData.MusicTagList musicTagList);
 
-        void bDh();
+        void bGv();
 
-        void no(boolean z);
+        void nF(boolean z);
 
-        void np(boolean z);
+        void nG(boolean z);
 
-        void vb(int i);
+        void vA(int i);
 
-        void vc(int i);
+        void vy(int i);
 
-        void vd(int i);
+        void vz(int i);
     }
 }

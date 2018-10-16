@@ -6,19 +6,19 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.Build;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class KeepJobServiceManager {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class a {
-        private static final KeepJobServiceManager eUl = new KeepJobServiceManager();
+        private static final KeepJobServiceManager fbT = new KeepJobServiceManager();
     }
 
     private KeepJobServiceManager() {
     }
 
     public static final KeepJobServiceManager getInstance() {
-        return a.eUl;
+        return a.fbT;
     }
 
     @TargetApi(21)

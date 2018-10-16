@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public static boolean pG(int i) {
+    public static boolean qe(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

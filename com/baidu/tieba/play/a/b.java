@@ -14,55 +14,55 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b gpe = null;
-    private com.baidu.tieba.play.a.a gpd;
-    private InterfaceC0222b gpf = null;
-    private int gpg = 0;
+    private static b gwF = null;
+    private com.baidu.tieba.play.a.a gwE;
+    private InterfaceC0256b gwG = null;
+    private int gwH = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0222b {
-        void ce(String str, String str2);
+    public interface InterfaceC0256b {
+        void cp(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b bnC() {
-        if (gpe == null) {
+    public static b bqR() {
+        if (gwF == null) {
             synchronized (b.class) {
-                if (gpe == null) {
-                    gpe = new b();
+                if (gwF == null) {
+                    gwF = new b();
                 }
             }
         }
-        return gpe;
+        return gwF;
     }
 
-    public void a(InterfaceC0222b interfaceC0222b) {
-        this.gpf = interfaceC0222b;
+    public void a(InterfaceC0256b interfaceC0256b) {
+        this.gwG = interfaceC0256b;
     }
 
-    public boolean sR(String str) {
+    public boolean tr(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (sS(str) && this.gpd.bnB().size() > this.gpg) {
-            if (this.gpf != null) {
-                InterfaceC0222b interfaceC0222b = this.gpf;
-                List<String> bnB = this.gpd.bnB();
-                int i = this.gpg;
-                this.gpg = i + 1;
-                interfaceC0222b.ce(bnB.get(i), str);
+        if (ts(str) && this.gwE.bqQ().size() > this.gwH) {
+            if (this.gwG != null) {
+                InterfaceC0256b interfaceC0256b = this.gwG;
+                List<String> bqQ = this.gwE.bqQ();
+                int i = this.gwH;
+                this.gwH = i + 1;
+                interfaceC0256b.cp(bqQ.get(i), str);
             }
             return true;
-        } else if (this.gpd != null && this.gpd.bnB() != null && this.gpd.bnB().size() <= this.gpg) {
-            this.gpg = 0;
-            this.gpd = null;
+        } else if (this.gwE != null && this.gwE.bqQ() != null && this.gwE.bqQ().size() <= this.gwH) {
+            this.gwH = 0;
+            this.gwE = null;
             return false;
         } else {
-            this.gpg = 0;
-            this.gpd = null;
+            this.gwH = 0;
+            this.gwE = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -70,19 +70,19 @@ public class b {
         }
     }
 
-    private boolean sS(String str) {
-        return (this.gpd == null || TextUtils.isEmpty(str) || !str.equals(this.gpd.getHost()) || v.z(this.gpd.bnB()) || this.gpd.cR(System.currentTimeMillis()) || this.gpd.bnB().size() <= this.gpg) ? false : true;
+    private boolean ts(String str) {
+        return (this.gwE == null || TextUtils.isEmpty(str) || !str.equals(this.gwE.getHost()) || v.J(this.gwE.bqQ()) || this.gwE.cY(System.currentTimeMillis()) || this.gwE.bqQ().size() <= this.gwH) ? false : true;
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, com.baidu.tieba.play.a.a, Void> {
-        private String Hh = null;
+        private String mHost = null;
 
         public a() {
         }
 
         public void setHost(String str) {
-            this.Hh = str;
+            this.mHost = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class b {
             HttpsURLConnection httpsURLConnection2 = null;
             StringBuffer stringBuffer = new StringBuffer();
             try {
-                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.Hh).openConnection();
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.mHost).openConnection();
                 try {
                     httpsURLConnection3.setDoOutput(true);
                     httpsURLConnection3.setDoInput(true);
@@ -189,7 +189,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.sQ(stringBuffer.toString()));
+                            publishProgress(aVar.tq(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -259,15 +259,15 @@ public class b {
         /* renamed from: a */
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
-            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.Hh)) {
-                b.this.gpd = aVarArr[0];
-                if (!v.z(aVarArr[0].bnB()) && b.this.gpf != null) {
-                    b.this.gpf.ce(aVarArr[0].bnB().get(0), aVarArr[0].getHost());
+            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
+                b.this.gwE = aVarArr[0];
+                if (!v.J(aVarArr[0].bqQ()) && b.this.gwG != null) {
+                    b.this.gwG.cp(aVarArr[0].bqQ().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.gpf != null) {
-                b.this.gpf.ce(null, null);
+            if (b.this.gwG != null) {
+                b.this.gwG.cp(null, null);
             }
         }
 

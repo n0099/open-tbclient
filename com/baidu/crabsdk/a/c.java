@@ -6,59 +6,59 @@ import android.os.Looper;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c {
-    private static c Ux;
-    private static Context Uy;
-    private static ExecutorService Uz;
-    private static boolean ak = false;
-    public l Uv;
-    public p Uw;
+    private static c Xm;
+    private static Context Xn;
+    private static ExecutorService Xo;
+    private static boolean al = false;
+    public l Xk;
+    public p Xl;
 
     private c(Context context) {
-        Uy = context;
-        this.Uw = new p(Looper.getMainLooper().getThread(), a.T);
-        this.Uv = new l(new d(this), context);
-        if (Uz == null) {
-            Uz = Executors.newSingleThreadExecutor();
+        Xn = context;
+        this.Xl = new p(Looper.getMainLooper().getThread(), a.U);
+        this.Xk = new l(new d(this), context);
+        if (Xo == null) {
+            Xo = Executors.newSingleThreadExecutor();
         }
-    }
-
-    public static c aZ(Context context) {
-        if (Ux == null) {
-            synchronized (c.class) {
-                if (Ux == null) {
-                    Ux = new c(context);
-                }
-            }
-        }
-        return Ux;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(long j, long j2, long j3, long j4) {
         ArrayList<String> b = p.b(j, j2);
-        com.baidu.crabsdk.c.a.cx("-BlockCanaryCore- threadStackEntries: size = " + b.size());
+        com.baidu.crabsdk.c.a.cI("-BlockCanaryCore- threadStackEntries: size = " + b.size());
         if (b.isEmpty()) {
             return;
         }
-        a pY = a.pY();
-        pY.Ur = b;
-        pY.a(j, j2, j3, j4);
+        a ri = a.ri();
+        ri.Xg = b;
+        ri.a(j, j2, j3, j4);
+    }
+
+    public static c bg(Context context) {
+        if (Xm == null) {
+            synchronized (c.class) {
+                if (Xm == null) {
+                    Xm = new c(context);
+                }
+            }
+        }
+        return Xm;
     }
 
     public static void start() {
-        ak = true;
+        al = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.UC.start();
-            com.baidu.crabsdk.c.a.cv("start FrameMonitor...");
+            e.Xq.start();
+            com.baidu.crabsdk.c.a.cG("start FrameMonitor...");
         }
     }
 
     public static void stop() {
-        ak = false;
+        al = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.UC.stop();
+            e.Xq.stop();
         }
     }
 }

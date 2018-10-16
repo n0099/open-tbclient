@@ -15,6 +15,8 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.F;
@@ -892,9 +894,9 @@ public final class e {
             jSONObject.put("20", Build.VERSION.SDK_INT);
             timeZone = TimeZone.getDefault();
             if (timeZone == null) {
-                jSONObject.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, timeZone.getID());
+                jSONObject.put("21", timeZone.getID());
             } else {
-                jSONObject.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "-1");
+                jSONObject.put("21", AiAppsAudioPlayer.ERROR_UNKNOWN);
             }
             return jSONObject;
         }
@@ -969,7 +971,7 @@ public final class e {
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, 2);
             }
             jSONObject2.put("20", g.c(context));
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, g.e(context));
+            jSONObject2.put("21", g.e(context));
             jSONObject2.put(Constants.VIA_REPORT_TYPE_DATALINE, g.b(context));
             String string = eVar.b.getString("xygls", "");
             if (TextUtils.isEmpty(string)) {
@@ -1328,7 +1330,7 @@ public final class e {
                             }
                             if (c.this.c.d(i)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                while (c.this.c.d(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
+                                while (c.this.c.d(i) && System.currentTimeMillis() - currentTimeMillis < ErrDef.Feature.WEIGHT) {
                                     SystemClock.sleep(300L);
                                 }
                             }

@@ -14,8 +14,8 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieba.channel.data.d> {
-    private TextView cLC;
-    private b cLD;
+    private TextView cTV;
+    private b cTW;
     private Context mContext;
     private boolean mIsHost;
 
@@ -34,10 +34,10 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     @Override // com.baidu.tieba.channel.view.e
     public void a(boolean z, b bVar) {
         this.mIsHost = z;
-        this.cLD = bVar;
+        this.cTW = bVar;
         this.mContext = getContext();
         LayoutInflater.from(this.mContext).inflate(e.h.channel_home_header_desc_view, (ViewGroup) this, true);
-        this.cLC = (TextView) findViewById(e.g.channel_home_header_desc_text);
+        this.cTV = (TextView) findViewById(e.g.channel_home_header_desc_text);
     }
 
     public void d(ChannelInfo channelInfo) {
@@ -47,17 +47,17 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
                 description = this.mContext.getResources().getString(e.j.channel_home_default_desc);
             }
             SpannableString spannableString = new SpannableString(description + "^");
-            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(e.C0141e.ds24);
-            int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(e.C0141e.ds16);
+            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(e.C0175e.ds24);
+            int dimensionPixelSize2 = this.mContext.getResources().getDimensionPixelSize(e.C0175e.ds16);
             Drawable drawable = this.mContext.getResources().getDrawable(e.f.icon_channel_edit);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             spannableString.setSpan(new com.baidu.tieba.channel.c.a(drawable, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2), spannableString.length() - 1, spannableString.length(), 17);
-            this.cLC.setText(spannableString);
-            this.cLC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
+            this.cTV.setText(spannableString);
+            this.cTV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelHomeDescView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (ChannelHomeDescView.this.cLD != null) {
-                        ChannelHomeDescView.this.cLD.a(11, view, null, -1);
+                    if (ChannelHomeDescView.this.cTW != null) {
+                        ChannelHomeDescView.this.cTW.a(11, view, null, -1);
                     }
                 }
             });
@@ -67,19 +67,19 @@ public class ChannelHomeDescView extends FrameLayout implements e<com.baidu.tieb
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.channel.view.e
     /* renamed from: c */
-    public void W(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.alx() != null) {
-            ChannelInfo alx = dVar.alx();
+    public void aa(com.baidu.tieba.channel.data.d dVar) {
+        if (dVar != null && dVar.aoZ() != null) {
+            ChannelInfo aoZ = dVar.aoZ();
             if (this.mIsHost) {
-                d(alx);
+                d(aoZ);
                 return;
             }
-            if (TextUtils.isEmpty(alx.getDescription())) {
-                this.cLC.setText(this.mContext.getResources().getString(e.j.channel_home_default_desc_guest));
+            if (TextUtils.isEmpty(aoZ.getDescription())) {
+                this.cTV.setText(this.mContext.getResources().getString(e.j.channel_home_default_desc_guest));
             } else {
-                this.cLC.setText(alx.getDescription());
+                this.cTV.setText(aoZ.getDescription());
             }
-            this.cLC.setOnClickListener(null);
+            this.cTV.setOnClickListener(null);
         }
     }
 

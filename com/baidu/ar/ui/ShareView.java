@@ -46,7 +46,6 @@ import com.baidu.ar.util.UrlUtils;
 import com.baidu.ar.util.Utils;
 import com.baidu.ar.utils.AppUtils;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.tencent.open.SocialConstants;
 import java.io.File;
 import java.util.HashMap;
@@ -419,23 +418,23 @@ public class ShareView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2) {
-        a.C0048a c0048a = new a.C0048a(this.c);
-        c0048a.a((CharSequence) str);
-        c0048a.a(str2);
-        c0048a.a(Res.getString("bdar_go_setting"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.9
+        a.C0051a c0051a = new a.C0051a(this.c);
+        c0051a.a((CharSequence) str);
+        c0051a.a(str2);
+        c0051a.a(Res.getString("bdar_go_setting"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 AppUtils.openDetailSettings(ShareView.this.c);
             }
         });
-        c0048a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.10
+        c0051a.b(Res.getString("bdar_cancel"), new DialogInterface.OnClickListener() { // from class: com.baidu.ar.ui.ShareView.10
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 ShareView.this.f();
                 ShareView.this.j.setEnabled(true);
             }
         });
-        this.A = c0048a.a();
+        this.A = c0051a.a();
         this.A.setCanceledOnTouchOutside(false);
         this.A.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.ar.ui.ShareView.2
             @Override // android.content.DialogInterface.OnKeyListener
@@ -473,7 +472,7 @@ public class ShareView extends FrameLayout {
             }
             JSONObject jSONObject3 = new JSONObject(jSONObject.optString("data"));
             String optString = jSONObject3.optString("title");
-            String optString2 = jSONObject3.optString(SocialConstants.PARAM_COMMENT);
+            String optString2 = jSONObject3.optString("description");
             String concat = UrlUtils.URL_AR_PREFIX.concat(jSONObject3.optString(PbChosenActivityConfig.KEY_SHARE_URL));
             String optString3 = jSONObject3.optString("pic_url");
             String optString4 = jSONObject3.optString("thumbnail");
@@ -671,7 +670,7 @@ public class ShareView extends FrameLayout {
         } else if (orientation == Orientation.PORTRAIT) {
             RotateViewUtils.requestOrientation(this.f, Orientation.LANDSCAPE);
         } else if (orientation == Orientation.LANDSCAPE) {
-            this.f.setAngle(SubsamplingScaleImageView.ORIENTATION_180);
+            this.f.setAngle(180);
         } else if (orientation == Orientation.LANDSCAPE_REVERSE) {
             if (this.a) {
                 this.g.setScaleType(ImageView.ScaleType.FIT_CENTER);

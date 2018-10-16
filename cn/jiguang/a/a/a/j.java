@@ -4,13 +4,13 @@ import cn.jiguang.g.l;
 /* loaded from: classes3.dex */
 final class j implements g {
     final /* synthetic */ int b;
-    final /* synthetic */ l jP;
-    final /* synthetic */ h jQ;
+    final /* synthetic */ l ku;
+    final /* synthetic */ h kv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar, l lVar, int i) {
-        this.jQ = hVar;
-        this.jP = lVar;
+        this.kv = hVar;
+        this.ku = lVar;
         this.b = i;
     }
 
@@ -21,8 +21,8 @@ final class j implements g {
         Object obj2;
         obj = h.i;
         synchronized (obj) {
-            this.jP.a("thread" + this.b);
-            zArr = this.jQ.jN;
+            this.ku.a("thread" + this.b);
+            zArr = this.kv.ks;
             zArr[this.b] = true;
             obj2 = h.i;
             obj2.notifyAll();

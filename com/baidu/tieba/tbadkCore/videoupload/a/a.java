@@ -8,10 +8,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public String avN;
-    public int dzx;
-    public ArrayList<Integer> gYv;
-    public String gYw;
+    public String aAy;
+    public int dHx;
+    public ArrayList<Integer> hfO;
+    public String hfP;
     public String mErrorMessage;
 
     public void parseJson(String str) {
@@ -22,13 +22,13 @@ public class a {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
                     if (optJSONArray != null) {
                         int length = optJSONArray.length();
-                        this.gYv = new ArrayList<>();
+                        this.hfO = new ArrayList<>();
                         for (int i = 0; i < length; i++) {
-                            this.gYv.add(Integer.valueOf(optJSONArray.getInt(i)));
+                            this.hfO.add(Integer.valueOf(optJSONArray.getInt(i)));
                         }
                     }
-                    this.gYw = optJSONObject.optString("upload_id");
-                    this.avN = optJSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
+                    this.hfP = optJSONObject.optString("upload_id");
+                    this.aAy = optJSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
                 }
             } catch (JSONException e) {
             }

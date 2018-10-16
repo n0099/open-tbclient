@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
 public abstract class DisplayManagerCompat {
@@ -42,7 +43,7 @@ public abstract class DisplayManagerCompat {
         private final WindowManager mWindowManager;
 
         DisplayManagerCompatApi14Impl(Context context) {
-            this.mWindowManager = (WindowManager) context.getSystemService("window");
+            this.mWindowManager = (WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY);
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat

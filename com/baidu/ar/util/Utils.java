@@ -11,10 +11,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+import com.baidu.webkit.sdk.WebView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,7 +24,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.apache.http.HttpStatus;
 /* loaded from: classes3.dex */
 public final class Utils {
     private static String b;
@@ -260,7 +260,7 @@ public final class Utils {
                 }
                 int i17 = i15 * 1192;
                 int i18 = i17 + (i5 * 1634);
-                int i19 = (i17 - (i5 * 833)) - (i3 * HttpStatus.SC_BAD_REQUEST);
+                int i19 = (i17 - (i5 * 833)) - (i3 * 400);
                 int i20 = i17 + (i3 * 2066);
                 if (i18 < 0) {
                     i18 = 0;
@@ -278,7 +278,7 @@ public final class Utils {
                     i20 = 262143;
                 }
                 if (i11 < iArr.length) {
-                    iArr[i11] = ((i20 << 6) & 16711680) | ViewCompat.MEASURED_STATE_MASK | ((i19 >> 2) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((i18 >> 10) & 255);
+                    iArr[i11] = ((i20 << 6) & 16711680) | (-16777216) | ((i19 >> 2) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((i18 >> 10) & 255);
                 }
                 i10++;
                 i11++;
@@ -317,7 +317,7 @@ public final class Utils {
                 }
                 int i17 = i15 * 1192;
                 int i18 = i17 + (i3 * 1634);
-                int i19 = (i17 - (i3 * 833)) - (i4 * HttpStatus.SC_BAD_REQUEST);
+                int i19 = (i17 - (i3 * 833)) - (i4 * 400);
                 int i20 = i17 + (i4 * 2066);
                 if (i18 < 0) {
                     i18 = 0;
@@ -334,7 +334,7 @@ public final class Utils {
                 } else if (i20 > 262143) {
                     i20 = 262143;
                 }
-                iArr[i12] = ((i20 >> 10) & 255) | ((i19 >> 2) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((i18 << 6) & 16711680) | ViewCompat.MEASURED_STATE_MASK;
+                iArr[i12] = ((i20 >> 10) & 255) | ((i19 >> 2) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((i18 << 6) & 16711680) | (-16777216);
                 i11++;
                 i9 = i5;
                 i12++;
@@ -347,7 +347,7 @@ public final class Utils {
 
     public static void dialPhone(Context context, String str) {
         try {
-            Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str));
+            Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(WebView.SCHEME_TEL + str));
             intent.addFlags(268435456);
             context.startActivity(intent);
         } catch (Exception e) {
@@ -379,7 +379,7 @@ public final class Utils {
     }
 
     public static int getHeight(Context context) {
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         if (Build.VERSION.SDK_INT > 12) {
             Point point = new Point();
             defaultDisplay.getSize(point);
@@ -405,7 +405,7 @@ public final class Utils {
         bitmap.getPixels(iArr, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
         int i2 = (i * 255) / 100;
         for (int i3 = 0; i3 < iArr.length; i3++) {
-            iArr[i3] = (i2 << 24) | (iArr[i3] & ViewCompat.MEASURED_SIZE_MASK);
+            iArr[i3] = (i2 << 24) | (iArr[i3] & 16777215);
         }
         return Bitmap.createBitmap(iArr, bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
     }
@@ -416,7 +416,7 @@ public final class Utils {
     }
 
     public static int getWidth(Context context) {
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         if (Build.VERSION.SDK_INT > 12) {
             Point point = new Point();
             defaultDisplay.getSize(point);
@@ -477,7 +477,7 @@ public final class Utils {
     }
 
     public static boolean needCropSize(Context context) {
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         int min = Math.min(defaultDisplay.getHeight(), defaultDisplay.getWidth());
         int max = Math.max(defaultDisplay.getHeight(), defaultDisplay.getWidth());
         float f = (1.3333334f + 1.7777778f) / 2.0f;
@@ -531,7 +531,7 @@ public final class Utils {
                 } else if (round3 > 255) {
                     round3 = 255;
                 }
-                iArr[(i4 * i) + i5] = (round3 << 16) + ViewCompat.MEASURED_STATE_MASK + (round2 << 8) + round;
+                iArr[(i4 * i) + i5] = ((round3 << 16) - 16777216) + (round2 << 8) + round;
             }
         }
         Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);

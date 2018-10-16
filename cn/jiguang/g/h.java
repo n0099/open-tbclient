@@ -5,8 +5,6 @@ import android.support.v4.app.NotificationManagerCompat;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import cn.jiguang.d.d.aa;
-import com.baidu.baiduarsdk.ArBridge;
-import com.tencent.tauth.AuthActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -26,7 +24,7 @@ public final class h {
         a.put(-994, "Response timeout. Please Retry later!");
         a.put(-993, "Invalid socket. Please Retry later!");
         a.put(11, "Failed to register!");
-        a.put(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC, "Your appKey and android package name are not matched. Please double check them according to Application you created on Portal.");
+        a.put(1005, "Your appKey and android package name are not matched. Please double check them according to Application you created on Portal.");
         a.put(1006, "You android package name is not exist, Please register your pacakge name in Portal.");
         a.put(1007, "Invalid Imei, Register again.");
         a.put(1008, "Invalid appKey, Please get your Appkey from JIGUANG web console!");
@@ -51,7 +49,7 @@ public final class h {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(AuthActivity.ACTION_KEY, "rmv");
+            jSONObject.put("action", "rmv");
             jSONObject.put("appid", str);
             aa.a((Context) null, jSONObject, "app_add_rmv");
             return jSONObject;
@@ -66,7 +64,7 @@ public final class h {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(AuthActivity.ACTION_KEY, "add");
+            jSONObject.put("action", "add");
             jSONObject.put("appid", str);
             aa.a((Context) null, jSONObject, "app_add_rmv");
             jSONObject.put("install_type", i);

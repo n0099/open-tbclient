@@ -1,7 +1,6 @@
 package com.baidu.baiduarsdk.gpuimage.a;
 
 import android.opengl.GLES20;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 /* loaded from: classes3.dex */
 public class p extends g {
@@ -46,7 +45,7 @@ public class p extends g {
     @Override // com.baidu.baiduarsdk.gpuimage.a.g
     public void a() {
         super.a();
-        this.a = GLES20.glGetUniformLocation(h(), LegoListActivityConfig.PARAMS);
+        this.a = GLES20.glGetUniformLocation(h(), "params");
         this.k = GLES20.glGetUniformLocation(h(), "singleStepOffset");
         this.l = GLES20.glGetUniformLocation(h(), "brightness");
         this.m = GLES20.glGetUniformLocation(h(), FreeSpaceBox.TYPE);

@@ -1,6 +1,5 @@
 package com.xiaomi.push.thrift;
 
-import com.coremedia.iso.boxes.UserBox;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +19,7 @@ import org.apache.thrift.protocol.j;
 public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> d;
     private static final j e = new j("StatsEvents");
-    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b(UserBox.TYPE, (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("uuid", (byte) 11, 1);
     private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("operator", (byte) 11, 2);
     private static final org.apache.thrift.protocol.b h = new org.apache.thrift.protocol.b("events", (byte) 15, 3);
     public String a;
@@ -29,7 +28,7 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
 
     /* loaded from: classes3.dex */
     public enum a {
-        UUID(1, UserBox.TYPE),
+        UUID(1, "uuid"),
         OPERATOR(2, "operator"),
         EVENTS(3, "events");
         
@@ -57,7 +56,7 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.UUID, (a) new org.apache.thrift.meta_data.b(UserBox.TYPE, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.UUID, (a) new org.apache.thrift.meta_data.b("uuid", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.OPERATOR, (a) new org.apache.thrift.meta_data.b("operator", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.EVENTS, (a) new org.apache.thrift.meta_data.b("events", (byte) 1, new d((byte) 15, new g((byte) 12, b.class))));
         d = Collections.unmodifiableMap(enumMap);

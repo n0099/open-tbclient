@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.WbAppInfo;
@@ -214,7 +215,7 @@ public class WeiboPageUtils {
             String str3 = str2;
             if (it.hasNext()) {
                 Map.Entry<String, String> next = it.next();
-                str2 = str3 + "&" + next.getKey().toString() + "=" + next.getValue().toString();
+                str2 = str3 + ETAG.ITEM_SEPARATOR + next.getKey().toString() + ETAG.EQUAL + next.getValue().toString();
             } else {
                 return str3;
             }

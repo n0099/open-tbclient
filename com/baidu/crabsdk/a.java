@@ -4,10 +4,10 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    public static OnAnrCrashListener M;
-    public static OnCrashExceedListener N;
+    public static OnAnrCrashListener N;
+    public static OnCrashExceedListener O;
     public static String a = "";
     public static String b = "alpha";
     public static String c = null;
@@ -46,15 +46,16 @@ public final class a {
     public static boolean J = false;
     public static boolean K = true;
     public static boolean L = false;
-    public static String O = "http://cq01-tdw-bfe02.cq01.baidu.com:8123/api/add_crab";
-    public static String P = "http://cq01-tdw-bfe02.cq01.baidu.com:8123/api/add_crab";
+    public static boolean M = false;
+    public static String P = "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
+    public static String Q = "http://yq01-crab-offline01.epc.baidu.com:8123/api/add_crab";
 
     public static String a() {
-        return E ? "https://crab.baidu.com/api_int/add_crab" : O;
+        return E ? "https://crab.baidu.com/api_int/add_crab" : P;
     }
 
     public static String b() {
-        return E ? "https://crab.baidu.com/api_anr/add_crab" : P;
+        return E ? "https://crab.baidu.com/api_anr/add_crab" : Q;
     }
 
     public static String c() {

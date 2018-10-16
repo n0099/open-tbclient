@@ -24,7 +24,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.sapi2.EnhancedService;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
@@ -131,18 +131,18 @@ public class SmsLoginView extends FrameLayout {
     }
 
     public static void notifyStartLogin() {
-        onEvent(StatEvent.LOGIN_SHOW, null);
+        onEvent("show", null);
     }
 
     private void switchNightModeView() {
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
-            this.rootView.setBackgroundColor(getResources().getColor(a.C0060a.sapi_sdk_sms_bg_night_mode));
-            this.phone.setTextColor(getResources().getColor(a.C0060a.sapi_sdk_sms_edit_phone_text_color_night_mode));
-            this.phone.setHintTextColor(getResources().getColor(a.C0060a.sapi_sdk_sms_edit_hint_color_night_mode));
-            this.checkCode.setTextColor(getResources().getColor(a.C0060a.sapi_sdk_sms_edit_check_code_text_color_night_mode));
-            this.checkCode.setHintTextColor(getResources().getColor(a.C0060a.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
-            this.prompt.setTextColor(getResources().getColor(a.C0060a.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
-            this.separateLine.setBackgroundColor(getResources().getColor(a.C0060a.sapi_sdk_separate_line_color_night_mode));
+            this.rootView.setBackgroundColor(getResources().getColor(a.C0071a.sapi_sdk_sms_bg_night_mode));
+            this.phone.setTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_phone_text_color_night_mode));
+            this.phone.setHintTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_hint_color_night_mode));
+            this.checkCode.setTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_check_code_text_color_night_mode));
+            this.checkCode.setHintTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
+            this.prompt.setTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
+            this.separateLine.setBackgroundColor(getResources().getColor(a.C0071a.sapi_sdk_separate_line_color_night_mode));
         }
         updateGetCodeColor(false);
     }
@@ -151,21 +151,21 @@ public class SmsLoginView extends FrameLayout {
     public void updateGetCodeColor(boolean z) {
         int color;
         int i;
-        getResources().getColor(a.C0060a.sapi_sdk_sms_get_code_text_color);
+        getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_text_color);
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
-            int color2 = getResources().getColor(a.C0060a.sapi_sdk_sms_bg_night_mode);
+            int color2 = getResources().getColor(a.C0071a.sapi_sdk_sms_bg_night_mode);
             if (z) {
-                color = getResources().getColor(a.C0060a.sapi_sdk_sms_get_code_text_color_night_mode);
+                color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_text_color_night_mode);
                 i = color2;
             } else {
-                color = getResources().getColor(a.C0060a.sapi_sdk_sms_get_code_disable_color_night_mode);
+                color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_disable_color_night_mode);
                 i = color2;
             }
         } else if (z) {
-            color = getResources().getColor(a.C0060a.sapi_sdk_sms_get_code_text_color);
+            color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_text_color);
             i = -1;
         } else {
-            color = getResources().getColor(a.C0060a.sapi_sdk_sms_get_code_disable_color);
+            color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_disable_color);
             i = -1;
         }
         GradientDrawable gradientDrawable = (GradientDrawable) this.getCode.getBackground();

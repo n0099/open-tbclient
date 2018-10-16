@@ -25,6 +25,7 @@ import com.baidu.sapi2.shell.response.GetPortraitResponse;
 import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class PortraitService extends AbstractService {
     public PortraitService(SapiConfiguration sapiConfiguration, String str) {
         super(sapiConfiguration, str);
@@ -375,7 +376,7 @@ public class PortraitService extends AbstractService {
                     getHistoryPortraitsResult.setResultCode(i2);
                     getHistoryPortraitsResult.setResultMsg(jSONObject.optString("errmsg"));
                     if (i2 == 0) {
-                        JSONArray optJSONArray = jSONObject.optJSONArray("history");
+                        JSONArray optJSONArray = jSONObject.optJSONArray(GetSwanHistoryAction.KEY_HISTORY);
                         int length = optJSONArray.length();
                         getHistoryPortraitsResult.historyPortraits = new ArrayList(length);
                         for (int i3 = 0; i3 < length; i3++) {

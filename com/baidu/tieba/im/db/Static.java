@@ -16,10 +16,10 @@ public class Static {
                     x.b(new w<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.w
-                        /* renamed from: Tl */
+                        /* renamed from: Vh */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.oT((String) customResponsedMessage.getData());
+                                g.pv((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

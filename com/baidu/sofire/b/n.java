@@ -2,6 +2,7 @@ package com.baidu.sofire.b;
 
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,7 +36,7 @@ public final class n {
             th = th;
         }
         try {
-            return d(MessageDigest.getInstance("MD5").digest(str2.getBytes()));
+            return d(MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(str2.getBytes()));
         } catch (Throwable th2) {
             str3 = str2;
             th = th2;
@@ -49,7 +50,7 @@ public final class n {
             return null;
         }
         try {
-            return d(MessageDigest.getInstance("MD5").digest(bArr));
+            return d(MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(bArr));
         } catch (Throwable th) {
             e.a(th);
             return null;
@@ -61,7 +62,7 @@ public final class n {
         String str = null;
         if (file != null && file.exists()) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
                 fileInputStream = new FileInputStream(file);
                 try {
                     byte[] bArr = new byte[8192];
@@ -114,7 +115,7 @@ public final class n {
 
     public static String b(byte[] bArr) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
@@ -137,7 +138,7 @@ public final class n {
             return null;
         }
         try {
-            return MessageDigest.getInstance("MD5").digest(bArr);
+            return MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(bArr);
         } catch (Throwable th) {
             e.a(th);
             return null;

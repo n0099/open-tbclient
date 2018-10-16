@@ -8,8 +8,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.tencent.connect.common.Constants;
-import com.tencent.tauth.AuthActivity;
 import com.xiaomi.push.service.ac;
 import com.xiaomi.push.service.ak;
 import java.io.IOException;
@@ -182,7 +182,7 @@ public class s {
             if (m != null && m.b() != null) {
                 com.xiaomi.channel.commonutils.logger.b.a(String.format("receive a message, appid=%1$s, msgid= %2$s", a.h(), m.b()));
             }
-            if (m != null && (s = m.s()) != null && s.containsKey("hide") && "true".equalsIgnoreCase(s.get("hide"))) {
+            if (m != null && (s = m.s()) != null && s.containsKey(AiAppsNaViewModel.KEY_HIDDEN) && "true".equalsIgnoreCase(s.get(AiAppsNaViewModel.KEY_HIDDEN))) {
                 c(xMPushService, a);
                 return;
             }
@@ -254,7 +254,7 @@ public class s {
             contentValues.put("geo_id", str);
             contentValues.put("message_id", rVar.b());
             int parseInt = Integer.parseInt(s.get("__geo_action"));
-            contentValues.put(AuthActivity.ACTION_KEY, Integer.valueOf(parseInt));
+            contentValues.put("action", Integer.valueOf(parseInt));
             contentValues.put("content", bArr);
             contentValues.put("deadline", Long.valueOf(Long.parseLong(s.get("__geo_deadline"))));
             if (TextUtils.equals(e.a(xMPushService).c(str), "Enter") && parseInt == 1) {

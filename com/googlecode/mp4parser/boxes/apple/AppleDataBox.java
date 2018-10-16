@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.tbadk.pay.PayConfig;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -12,14 +13,14 @@ import java.util.HashMap;
 import java.util.Locale;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -76,7 +77,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wz(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.yo(i)));
         this.dataCountry = i;
     }
 
@@ -86,7 +87,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.wz(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.yo(i)));
         this.dataLanguage = i;
     }
 
@@ -152,7 +153,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("18", "Croatian");
         language.put(Constants.VIA_ACT_TYPE_NINETEEN, "Traditional_Chinese");
         language.put("20", "Urdu");
-        language.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, "Hindi");
+        language.put("21", "Hindi");
         language.put(Constants.VIA_REPORT_TYPE_DATALINE, "Thai");
         language.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "Korean");
         language.put("24", "Lithuanian");
@@ -236,7 +237,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("135", "Tatar");
         language.put("136", "Uighur");
         language.put("137", "Dzongkha");
-        language.put("138", "JavaneseRom");
+        language.put(UnitedSchemeMainDispatcher.UBC_OUTER_INVOKE_TO_TAYGET_ID, "JavaneseRom");
         language.put("32767", "Unspecified");
     }
 }

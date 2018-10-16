@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.i;
 import com.baidu.tbadk.util.p;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public long id;
 
@@ -21,7 +21,7 @@ public class AgreeMeRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.id = Long.valueOf(this.id);
-            builder.q_type = Integer.valueOf(i.uj().getViewImageQuality());
+            builder.q_type = Integer.valueOf(i.ws().getViewImageQuality());
             builder.rn = 20;
             builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
             builder.scr_h = Integer.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp()));

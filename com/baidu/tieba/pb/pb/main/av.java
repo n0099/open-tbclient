@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class av {
     private TbPageContext mPageContext;
 
@@ -15,7 +15,7 @@ public class av {
         new a(str, bArr).execute(new String[0]);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     private class a extends BdAsyncTask<String, Integer, String> {
         byte[] mData;
         String mUrl;
@@ -33,7 +33,7 @@ public class av {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.l.a(this.mUrl, this.mData, av.this.mPageContext.getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.l.zo();
+                    return com.baidu.tbadk.core.util.l.Bw();
                 case -1:
                 default:
                     return av.this.mPageContext.getString(e.j.save_fail);

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DTSTrackImpl extends AbstractTrack {
     int bcCoreBitRate;
     int bcCoreChannelMask;

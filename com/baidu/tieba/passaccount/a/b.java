@@ -26,27 +26,27 @@ import com.baidu.tieba.passaccount.app.AuthActivity;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static volatile b fwU;
-    private a fwV;
-    private AtomicBoolean fwW = new AtomicBoolean(false);
-    private AtomicBoolean fwX = new AtomicBoolean(false);
+    private static volatile b fEw;
+    private a fEx;
+    private AtomicBoolean fEy = new AtomicBoolean(false);
+    private AtomicBoolean fEz = new AtomicBoolean(false);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void b(AuthVerifyData.c cVar);
     }
 
-    public static b baL() {
-        if (fwU == null) {
+    public static b bdX() {
+        if (fEw == null) {
             synchronized (b.class) {
-                if (fwU == null) {
-                    fwU = new b();
+                if (fEw == null) {
+                    fEw = new b();
                 }
             }
         }
-        return fwU;
+        return fEw;
     }
 
     private b() {
@@ -62,9 +62,9 @@ public class b {
         } else if (authVerifyData.getType() == 1) {
             loadModifyPwd(session.bduss);
         } else if (authVerifyData.getType() == 2) {
-            rx(session.bduss);
+            rX(session.bduss);
         } else if (authVerifyData.getType() == 3) {
-            baM();
+            bdY();
         }
     }
 
@@ -86,7 +86,7 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void rx(String str) {
+    private void rX(String str) {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra("EXTRA_TYPE", 2);
@@ -95,8 +95,8 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void baM() {
-        c.baS().b(new c.a() { // from class: com.baidu.tieba.passaccount.a.b.1
+    private void bdY() {
+        c.bee().b(new c.a() { // from class: com.baidu.tieba.passaccount.a.b.1
             @Override // com.baidu.tieba.passaccount.a.c.a
             public void b(boolean z, boolean z2, String str) {
                 b.this.n(z2, str);
@@ -120,84 +120,84 @@ public class b {
     }
 
     public void b(AuthVerifyData authVerifyData, a aVar) {
-        if (this.fwX.compareAndSet(false, true)) {
-            if (this.fwW.compareAndSet(false, true)) {
+        if (this.fEz.compareAndSet(false, true)) {
+            if (this.fEy.compareAndSet(false, true)) {
                 try {
                     a(authVerifyData, aVar);
                 } catch (Exception e) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
-                    this.fwW.set(false);
+                    this.fEy.set(false);
                 }
-            } else if (!baO()) {
+            } else if (!bea()) {
                 try {
                     a(authVerifyData, aVar);
                 } catch (Exception e2) {
-                    this.fwW.set(false);
+                    this.fEy.set(false);
                 }
             }
-            this.fwX.set(false);
+            this.fEz.set(false);
         }
     }
 
     public void a(AuthVerifyData.c cVar) {
-        if (this.fwV != null) {
+        if (this.fEx != null) {
             if (cVar == null) {
                 cVar = new AuthVerifyData.c(false);
             }
-            this.fwV.b(cVar);
+            this.fEx.b(cVar);
         }
-        this.fwV = null;
-        this.fwW.set(false);
+        this.fEx = null;
+        this.fEy.set(false);
     }
 
     public void m(boolean z, String str) {
         a(new AuthVerifyData.a(z, str));
     }
 
-    public void jG(boolean z) {
+    public void jX(boolean z) {
         a(new AuthVerifyData.c(false));
         if (z) {
-            baN();
+            bdZ();
         }
     }
 
-    public void jH(boolean z) {
+    public void jY(boolean z) {
         a(new AuthVerifyData.c(z));
     }
 
     public void n(boolean z, String str) {
-        c.baS().a((c.a) null);
+        c.bee().a((c.a) null);
         a(new AuthVerifyData.b(z, str));
     }
 
-    private void baN() {
-        com.baidu.tbadk.coreExtra.a.c CG;
+    private void bdZ() {
+        com.baidu.tbadk.coreExtra.a.c EK;
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj == null) {
-            currentAccountObj = com.baidu.tbadk.core.a.b.us();
+            currentAccountObj = com.baidu.tbadk.core.a.b.wB();
         }
         if (currentAccountObj == null || (TextUtils.isEmpty(currentAccountObj.getAccount()) && TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
             Handler handler = TbadkCoreApplication.getInst().handler;
             handler.sendMessage(handler.obtainMessage(1));
             return;
         }
-        com.baidu.tbadk.core.a.b.dv(currentAccountObj.getID());
-        if (ReloginManager.za().zd() && !TextUtils.isEmpty(currentAccountObj.getID()) && (CG = com.baidu.tbadk.coreExtra.a.a.CG()) != null) {
-            CG.f(currentAccountObj);
+        com.baidu.tbadk.core.a.b.dL(currentAccountObj.getID());
+        if (ReloginManager.Bi().Bl() && !TextUtils.isEmpty(currentAccountObj.getID()) && (EK = com.baidu.tbadk.coreExtra.a.a.EK()) != null) {
+            EK.f(currentAccountObj);
         }
-        ReloginManager.za().e(null);
+        ReloginManager.Bi().e(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean baO() {
-        ComponentName baP = baP();
-        if (baP != null) {
-            return AuthActivity.class.getName().equals(baP.getClassName()) || LivenessRecogActivity.class.getName().equals(baP.getClassName()) || LivenessRecogGuidActivity.class.getName().equals(baP.getClassName());
+    public boolean bea() {
+        ComponentName beb = beb();
+        if (beb != null) {
+            return AuthActivity.class.getName().equals(beb.getClassName()) || LivenessRecogActivity.class.getName().equals(beb.getClassName()) || LivenessRecogGuidActivity.class.getName().equals(beb.getClassName());
         }
         return false;
     }
 
-    private ComponentName baP() {
+    private ComponentName beb() {
         ActivityManager activityManager;
         List<ActivityManager.RunningTaskInfo> runningTasks;
         try {
@@ -214,16 +214,16 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.fwV = aVar;
+        this.fEx = aVar;
     }
 
     public static void registerTask() {
-        baQ();
-        baR();
+        bec();
+        bed();
     }
 
-    private static void baQ() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921364, new CustomMessageTask.CustomRunnable<AuthVerifyData>() { // from class: com.baidu.tieba.passaccount.a.b.2
+    private static void bec() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921372, new CustomMessageTask.CustomRunnable<AuthVerifyData>() { // from class: com.baidu.tieba.passaccount.a.b.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<AuthVerifyData> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
@@ -234,7 +234,7 @@ public class b {
                             l.showToast(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
                         } else {
                             MessageManager.getInstance().runTask(2921332, (Class) null);
-                            b.baL().b(data, new C0205b(data));
+                            b.bdX().b(data, new C0239b(data));
                         }
                     }
                 }
@@ -245,14 +245,14 @@ public class b {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void baR() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921365, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.passaccount.a.b.3
+    private static void bed() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921373, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.passaccount.a.b.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Boolean> run(CustomMessage customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921365, Boolean.valueOf(b.baL().baO()));
+                return new CustomResponsedMessage<>(2921373, Boolean.valueOf(b.bdX().bea()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -260,18 +260,18 @@ public class b {
     }
 
     /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    static class C0205b implements a {
-        private AuthVerifyData fwZ;
+    /* loaded from: classes6.dex */
+    static class C0239b implements a {
+        private AuthVerifyData fEB;
 
-        public C0205b(AuthVerifyData authVerifyData) {
-            this.fwZ = authVerifyData;
+        public C0239b(AuthVerifyData authVerifyData) {
+            this.fEB = authVerifyData;
         }
 
         @Override // com.baidu.tieba.passaccount.a.b.a
         public void b(AuthVerifyData.c cVar) {
-            this.fwZ.setResult(cVar);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921364, this.fwZ));
+            this.fEB.setResult(cVar);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921372, this.fEB));
         }
     }
 }

@@ -29,10 +29,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.resloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0042a implements IDownloadParamsParser {
+    public static class C0045a implements IDownloadParamsParser {
         private ARResource a;
 
-        public C0042a(ARResource aRResource) {
+        public C0045a(ARResource aRResource) {
             this.a = aRResource;
         }
 
@@ -47,7 +47,7 @@ public class a {
                 if (jSONObject.optInt(ARResourceKey.HTTP_ERR_CODE, -1) == 0 && (optJSONArray = (optJSONObject = jSONObject.optJSONObject(ARResourceKey.HTTP_RET)).optJSONArray(ARResourceKey.HTTP_AR_MULTI_RESOURCE)) != null && optJSONArray.length() >= 1) {
                     String optString = optJSONArray.optString(0);
                     if (!TextUtils.isEmpty(optString)) {
-                        this.a.setVersionCode(optJSONObject.optString(ARResourceKey.HTTP_VERSION_CODE));
+                        this.a.setVersionCode(optJSONObject.optString("version_code"));
                         downloadParam.mErrorCode = 0;
                         downloadParam.mDownloadUrl = optString;
                         String aRCaseMainZipFullPath = ARFileUtils.getARCaseMainZipFullPath(this.a.getKey(), this.a.getVersionCode());
@@ -95,7 +95,7 @@ public class a {
                 return HttpTaskUtility.getHttpParamsForCaseSwitch(context, key);
             }
         };
-        C0042a c0042a = new C0042a(aRResource);
+        C0045a c0045a = new C0045a(aRResource);
         ActionResponseListener<String> actionResponseListener = new ActionResponseListener<String>() { // from class: com.baidu.ar.resloader.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.ar.task.HttpResponseListener
@@ -196,7 +196,7 @@ public class a {
             public void onUpdate(boolean z, float f) {
             }
         };
-        DownloadManager.getInstance().downloadRes(key, null, bundle, extraOperateListener, c0042a, null, DownloadTask.FileStoreStrategy.SKIP, null, true, FileManageTask.FileMergeStrategy.SKIP, new FileManageTask.ExtraOperateListener() { // from class: com.baidu.ar.resloader.a.5
+        DownloadManager.getInstance().downloadRes(key, null, bundle, extraOperateListener, c0045a, null, DownloadTask.FileStoreStrategy.SKIP, null, true, FileManageTask.FileMergeStrategy.SKIP, new FileManageTask.ExtraOperateListener() { // from class: com.baidu.ar.resloader.a.5
             @Override // com.baidu.ar.load.FileManageTask.ExtraOperateListener
             public String excuteChangeResult(String str) {
                 return ArResourceUtils.generateResult(str);

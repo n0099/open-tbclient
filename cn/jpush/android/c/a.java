@@ -64,23 +64,23 @@ public class a {
 
     public final synchronized void a(Context context, Bundle bundle) {
         byte byteValue = bundle.getByte("plugin.platform.type", (byte) 0).byteValue();
-        if (byteValue != 0 && cn.jiguang.api.e.bi()) {
+        if (byteValue != 0 && cn.jiguang.api.e.bz()) {
             String string = bundle.getString("plugin.platform.regid ");
             if (!this.a.containsKey(Byte.valueOf(byteValue)) || !TextUtils.equals(this.a.get(Byte.valueOf(byteValue)).b, string)) {
-                long bh = cn.jiguang.api.e.bh();
+                long by = cn.jiguang.api.e.by();
                 long uid = cn.jiguang.api.e.getUid();
                 int sid = cn.jiguang.api.e.getSid();
                 cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
                 bVar.l(0);
                 bVar.k(1);
                 bVar.k(27);
-                bVar.h(bh);
+                bVar.h(by);
                 bVar.g(sid);
                 bVar.h(uid);
                 bVar.f(TextUtils.isEmpty(string) ? new byte[0] : string.getBytes());
                 bVar.k(byteValue);
                 bVar.l(bVar.current(), 0);
-                b bVar2 = new b(this, byteValue, string, bh, bVar.toByteArray());
+                b bVar2 = new b(this, byteValue, string, by, bVar.toByteArray());
                 this.a.put(Byte.valueOf(byteValue), bVar2);
                 a(context, bVar2);
             }

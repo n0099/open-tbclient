@@ -1,19 +1,18 @@
 package com.baidu.tieba.imageProblem.cdnOptimize;
 
-import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     public TBCdnMobileListData mobileCdnData;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class TBCdnMobileListData {
-        public String eSv = null;
-        public String eSw = null;
+        public String fad = null;
+        public String fae = null;
         public ArrayList<String> mobileIpList = new ArrayList<>();
     }
 
@@ -26,7 +25,7 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             try {
-                if (jSONObject.optInt(NotificationCompat.CATEGORY_STATUS, -1) == 0) {
+                if (jSONObject.optInt("status", -1) == 0) {
                     if (this.mobileCdnData == null) {
                         this.mobileCdnData = new TBCdnMobileListData();
                     }
@@ -40,8 +39,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                             }
                         }
                     }
-                    this.mobileCdnData.eSv = optJSONObject.optString("testimg_url");
-                    this.mobileCdnData.eSw = optJSONObject.optString("testimg_md5");
+                    this.mobileCdnData.fad = optJSONObject.optString("testimg_url");
+                    this.mobileCdnData.fae = optJSONObject.optString("testimg_md5");
                 }
             } catch (Exception e) {
                 BdLog.e(e);

@@ -5,25 +5,25 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes.dex */
 public class ab extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    private ICardInfo RK;
-    private boolean aiD;
+    private ICardInfo Sc;
+    private boolean any;
     private String card;
 
-    public void dz(String str) {
+    public void dP(String str) {
         this.card = str;
     }
 
-    public void vc() {
-        this.RK = com.baidu.tieba.lego.card.b.pU(this.card);
-        this.aiD = this.RK != null;
+    public void xl() {
+        this.Sc = com.baidu.tieba.lego.card.b.qw(this.card);
+        this.any = this.Sc != null;
     }
 
-    public ICardInfo vd() {
-        return this.RK;
+    public ICardInfo xm() {
+        return this.Sc;
     }
 
     public boolean isValid() {
-        return this.aiD;
+        return this.any;
     }
 
     @Override // com.baidu.adp.widget.ListView.h

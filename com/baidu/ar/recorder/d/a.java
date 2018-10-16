@@ -5,6 +5,7 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.util.Log;
 import android.view.Surface;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
@@ -21,7 +22,7 @@ public class a extends b {
         this.c.presentationTimeUs -= this.f;
         if (this.c.presentationTimeUs < this.h) {
             MediaCodec.BufferInfo bufferInfo = this.c;
-            long j = this.h + 10000;
+            long j = this.h + ErrDef.Feature.WEIGHT;
             this.h = j;
             bufferInfo.presentationTimeUs = j;
         }

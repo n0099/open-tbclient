@@ -22,7 +22,7 @@ public class ForumLikeBotton extends CommonLikeButton {
 
     @Override // com.baidu.tbadk.core.view.commonLike.CommonLikeButton
     public void onChangeSkinType(int i) {
-        if (this.aCm) {
+        if (this.aGS) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             al.h(this, e.d.btn_forum_focus_gray_color);
             al.i(this, e.f.btn_transparent_gray_border);

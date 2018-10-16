@@ -15,16 +15,16 @@ public class SpecialFrsWebManagerStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001616 && customResponsedMessage.getData() != null) {
                     ad adVar = (ad) customResponsedMessage.getData();
-                    for (FrsTabInfo frsTabInfo : adVar.axV()) {
+                    for (FrsTabInfo frsTabInfo : adVar.aBq()) {
                         if (frsTabInfo.tab_id.intValue() > 100) {
                             c cVar = new c(frsTabInfo.tab_id.intValue(), frsTabInfo.tab_url);
                             adVar.b(cVar);
                             if (adVar.getContext() == null) {
                                 continue;
                             } else {
-                                com.baidu.tbadk.mainTab.c KE = cVar.KE();
-                                if (KE != null) {
-                                    KE.aVa.setArguments(new Bundle());
+                                com.baidu.tbadk.mainTab.c MC = cVar.MC();
+                                if (MC != null) {
+                                    MC.aZz.setArguments(new Bundle());
                                 } else {
                                     return;
                                 }

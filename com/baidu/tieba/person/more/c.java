@@ -12,24 +12,24 @@ import com.baidu.tieba.personCenter.data.f;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private a gbo;
+    private a giQ;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
-    private ad<f> us;
+    private ad<f> vf;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
-    public void am(View view) {
+    public void initView(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(e.g.person_more_navigation_bar);
-        atZ();
+        axv();
         this.mListView = (BdTypeListView) view.findViewById(e.g.person_more_listview);
-        this.gbo = new a(this.mPageContext, this.mListView, this.us);
+        this.giQ = new a(this.mPageContext, this.mListView, this.vf);
     }
 
-    private void atZ() {
+    private void axv() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(e.j.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -46,11 +46,11 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.gbo.notifyDataSetChanged();
+        this.giQ.notifyDataSetChanged();
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void b(ad<f> adVar) {
-        this.us = adVar;
+        this.vf = adVar;
     }
 }

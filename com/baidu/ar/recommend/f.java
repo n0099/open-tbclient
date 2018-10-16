@@ -36,14 +36,14 @@ public class f implements g.b {
     private h j;
     private SlidingDrawer.OnDrawerOpenListener k;
     private boolean h = false;
-    private a.InterfaceC0038a i = new a.InterfaceC0038a() { // from class: com.baidu.ar.recommend.f.1
-        @Override // com.baidu.ar.recommend.a.InterfaceC0038a
+    private a.InterfaceC0041a i = new a.InterfaceC0041a() { // from class: com.baidu.ar.recommend.f.1
+        @Override // com.baidu.ar.recommend.a.InterfaceC0041a
         public void a(String str, int i) {
             Log.d("Download", "progress:" + i + ",arKey:" + str);
             f.this.a(str, i);
         }
 
-        @Override // com.baidu.ar.recommend.a.InterfaceC0038a
+        @Override // com.baidu.ar.recommend.a.InterfaceC0041a
         public void a(String str, boolean z, String str2) {
             Log.d("Download", "onFinish: success:" + z + ",arKey:" + str);
             f.this.a(str, z, str2);

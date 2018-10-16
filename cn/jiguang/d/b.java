@@ -11,7 +11,7 @@ final class b implements ServiceConnection {
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         cn.jiguang.g.a.a.a(cn.jiguang.b.b.a(iBinder));
         if (a.d != null) {
-            l.bI().d(a.d, "intent.INIT", new Bundle());
+            l.bZ().d(a.d, "intent.INIT", new Bundle());
         }
     }
 

@@ -1,0 +1,80 @@
+package com.baidu.searchbox.dns;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+/* loaded from: classes2.dex */
+public class a {
+    private static volatile a b;
+    private boolean d;
+    private ConnectivityManager e;
+    private C0102a f;
+    private boolean g = false;
+    private Context mContext;
+    private static long a = 5000;
+    private static String c = "android.net.conn.CONNECTIVITY_CHANGE";
+
+    private a(Context context) {
+        this.mContext = context.getApplicationContext();
+    }
+
+    public static a a(Context context) {
+        if (b == null) {
+            synchronized (a.class) {
+                if (b == null) {
+                    b = new a(context);
+                }
+            }
+        }
+        return b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public synchronized void a() {
+        if (!this.g) {
+            this.e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(c);
+            this.f = new C0102a();
+            this.mContext.registerReceiver(this.f, intentFilter);
+            this.g = true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public synchronized void exit() {
+        if (this.g) {
+            this.mContext.unregisterReceiver(this.f);
+            this.g = false;
+        }
+    }
+
+    public static a b() {
+        return b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean c() {
+        NetworkInfo activeNetworkInfo = this.e.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    private class C0102a extends BroadcastReceiver {
+        private C0102a() {
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            a.this.d = a.this.c();
+            if (a.this.d) {
+                com.baidu.searchbox.dns.a.a.e().clear();
+                b.d();
+            }
+        }
+    }
+}

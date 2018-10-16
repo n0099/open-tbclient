@@ -11,40 +11,40 @@ import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.l;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d implements com.baidu.tieba.frs.entelechy.b.b {
-    private float aKd = 0.16875f;
+    private float aOF = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, l lVar) {
         if (fVar != null && lVar != null) {
             ArrayList<h> threadList = lVar.getThreadList();
-            if (!v.z(threadList)) {
+            if (!v.J(threadList)) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<h> it = threadList.iterator();
                 while (it.hasNext()) {
                     h next = it.next();
-                    if (next.getType() == bb.ajW) {
+                    if (next.getType() == bb.aoR) {
                         arrayList.add(next);
                         it.remove();
                     }
                 }
-                lVar.dw(arrayList);
+                lVar.dK(arrayList);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean lt(int i) {
+    public boolean lR(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, k kVar, l lVar) {
         if (fVar != null && kVar != null && lVar != null) {
-            fVar.aCG();
-            if (lVar != null && lVar.bbH() != null) {
-                kVar.a(lVar.bbH().getFrsBannerData());
+            fVar.aFY();
+            if (lVar != null && lVar.beT() != null) {
+                kVar.a(lVar.beT().getFrsBannerData());
             }
         }
     }

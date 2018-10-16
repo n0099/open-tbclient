@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ItemProtectionBox extends AbstractContainerBox implements FullBox {
     public static final String TYPE = "ipro";
     private int flags;

@@ -1,13 +1,13 @@
 package org.aspectj.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 class g implements org.aspectj.lang.reflect.d {
     String fileName;
-    Class hRZ;
+    Class iqx;
     int line;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(Class cls, String str, int i) {
-        this.hRZ = cls;
+        this.iqx = cls;
         this.fileName = str;
         this.line = i;
     }
@@ -16,11 +16,11 @@ class g implements org.aspectj.lang.reflect.d {
         return this.fileName;
     }
 
-    public int bNL() {
+    public int caF() {
         return this.line;
     }
 
     public String toString() {
-        return new StringBuffer().append(getFileName()).append(":").append(bNL()).toString();
+        return new StringBuffer().append(getFileName()).append(":").append(caF()).toString();
     }
 }

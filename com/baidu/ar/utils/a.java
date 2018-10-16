@@ -1,7 +1,6 @@
 package com.baidu.ar.utils;
 
 import android.graphics.Bitmap;
-import android.support.v4.view.ViewCompat;
 /* loaded from: classes3.dex */
 public class a {
     public static Bitmap a(int i, int i2, byte[] bArr) {
@@ -33,7 +32,7 @@ public class a {
                 } else if (round3 > 255) {
                     round3 = 255;
                 }
-                iArr[(i4 * i) + i5] = (round3 << 16) + ViewCompat.MEASURED_STATE_MASK + (round2 << 8) + round;
+                iArr[(i4 * i) + i5] = ((round3 << 16) - 16777216) + (round2 << 8) + round;
             }
         }
         Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);

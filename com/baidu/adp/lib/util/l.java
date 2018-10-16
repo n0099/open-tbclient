@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -26,111 +27,111 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
-    private static float FF;
-    static int FG;
-    static int FH;
-    private static String FK;
-    static boolean FE = false;
-    private static Toast FI = null;
-    private static a FJ = null;
+    private static float Go;
+    static int Gp;
+    static int Gq;
+    private static String Gt;
+    static boolean Gn = false;
+    private static Toast Gr = null;
+    private static a Gs = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.FI != null) {
-                l.FI.cancel();
+            if (l.Gr != null) {
+                l.Gr.cancel();
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void bC(String str);
+        void bB(String str);
 
-        View lh();
+        View ls();
     }
 
     public static void aP(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) context.getSystemService("window");
+        WindowManager windowManager = (WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY);
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            FG = displayMetrics.heightPixels;
-            FH = displayMetrics.widthPixels;
+            Gp = displayMetrics.heightPixels;
+            Gq = displayMetrics.widthPixels;
         } else {
-            FG = displayMetrics.widthPixels;
-            FH = displayMetrics.heightPixels;
+            Gp = displayMetrics.widthPixels;
+            Gq = displayMetrics.heightPixels;
         }
-        FF = displayMetrics.density;
-        FE = true;
+        Go = displayMetrics.density;
+        Gn = true;
     }
 
     public static int aO(Context context) {
-        if (!FE) {
+        if (!Gn) {
             aP(context);
         }
-        return FG;
+        return Gp;
     }
 
     public static int aQ(Context context) {
-        if (!FE) {
+        if (!Gn) {
             aP(context);
         }
-        return FH;
+        return Gq;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!FE) {
+        if (!Gn) {
             aP(context);
         }
-        return (int) ((FF * f) + 0.5f);
+        return (int) ((Go * f) + 0.5f);
     }
 
     public static int px2dip(Context context, float f) {
-        if (!FE) {
+        if (!Gn) {
             aP(context);
         }
-        return (int) ((f / FF) + 0.5f);
+        return (int) ((f / Go) + 0.5f);
     }
 
     public static float aR(Context context) {
-        if (!FE) {
+        if (!Gn) {
             aP(context);
         }
-        return FF;
+        return Go;
     }
 
     public static void e(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (FI == null) {
-                if (FJ == null || FJ.lh() == null) {
-                    FI = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (Gr == null) {
+                if (Gs == null || Gs.ls() == null) {
+                    Gr = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    FI = new Toast(BdBaseApplication.getInst().getApp());
-                    FI.setDuration(0);
-                    FJ.bC(str);
-                    FI.setView(FJ.lh());
+                    Gr = new Toast(BdBaseApplication.getInst().getApp());
+                    Gr.setDuration(0);
+                    Gs.bB(str);
+                    Gr.setView(Gs.ls());
                 }
-                FI.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                Gr.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(FK)) {
-                    if (FJ == null || FJ.lh() == null) {
-                        FI.setText(str);
+                if (!str.equals(Gt)) {
+                    if (Gs == null || Gs.ls() == null) {
+                        Gr.setText(str);
                     } else {
-                        FJ.bC(str);
+                        Gs.bB(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
                 if (BdBaseApplication.getInst().getApp().getResources().getConfiguration().orientation == 2) {
                     dip2px = 0;
                 }
-                FI.setGravity(17, 0, dip2px);
+                Gr.setGravity(17, 0, dip2px);
             }
-            FK = str;
+            Gt = str;
             mHandler.postDelayed(mRunnable, i);
-            FI.show();
+            Gr.show();
         }
     }
 
@@ -209,7 +210,7 @@ public class l {
         if (context == null) {
             return iArr;
         }
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
         iArr[0] = defaultDisplay.getWidth();
         iArr[1] = defaultDisplay.getHeight();
         return iArr;
@@ -346,9 +347,9 @@ public class l {
         return false;
     }
 
-    public static void kZ() {
+    public static void lm() {
         if (BdBaseApplication.getInst().isDebugMode()) {
-            if (la() ? false : true) {
+            if (ln() ? false : true) {
                 StringBuilder sb = new StringBuilder(100);
                 StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
                 for (int i = 1; i < stackTrace.length; i++) {
@@ -365,12 +366,12 @@ public class l {
         }
     }
 
-    public static boolean la() {
+    public static boolean ln() {
         return Looper.getMainLooper() == Looper.myLooper() && Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 
-    public static boolean lb() {
-        return j.kK();
+    public static boolean lo() {
+        return j.kX();
     }
 
     public static void a(Context context, final View view, int i, int i2, int i3, int i4) {
@@ -393,7 +394,7 @@ public class l {
         });
     }
 
-    public static String lc() {
+    public static String getLocalDns() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -426,7 +427,7 @@ public class l {
         return str;
     }
 
-    public static String ld() {
+    public static String lp() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -459,12 +460,12 @@ public class l {
         return str;
     }
 
-    public static boolean le() {
-        String bB;
+    public static boolean lq() {
+        String bA;
         String str = Build.DISPLAY;
-        if (str != null && str.contains("Flyme") && (bB = bB(str)) != null && bB.length() >= 3) {
-            int l = com.baidu.adp.lib.g.b.l(bB(bB.substring(0, 1)), 0);
-            int l2 = com.baidu.adp.lib.g.b.l(bB(bB.substring(1, 2)), 0);
+        if (str != null && str.contains("Flyme") && (bA = bA(str)) != null && bA.length() >= 3) {
+            int l = com.baidu.adp.lib.g.b.l(bA(bA.substring(0, 1)), 0);
+            int l2 = com.baidu.adp.lib.g.b.l(bA(bA.substring(1, 2)), 0);
             if (l > 3) {
                 return true;
             }
@@ -475,18 +476,18 @@ public class l {
         return false;
     }
 
-    public static String bB(String str) {
+    public static String bA(String str) {
         if (str == null) {
             return null;
         }
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a lf() {
-        return FJ;
+    public static a lr() {
+        return Gs;
     }
 
     public static void a(a aVar) {
-        FJ = aVar;
+        Gs = aVar;
     }
 }

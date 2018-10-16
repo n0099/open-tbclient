@@ -7,17 +7,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c implements af {
-    public static final AtomicReference<af> drt = new AtomicReference<>(null);
-    private static final af dru = new c();
+    public static final AtomicReference<af> dzu = new AtomicReference<>(null);
+    private static final af dzv = new c();
 
     private c() {
     }
 
-    public static af avz() {
-        af afVar = drt.get();
-        return afVar == null ? dru : afVar;
+    public static af ayV() {
+        af afVar = dzu.get();
+        return afVar == null ? dzv : afVar;
     }
 
     @Override // com.baidu.tieba.frs.af

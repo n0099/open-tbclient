@@ -3,7 +3,6 @@ package cn.jiguang.d;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.InputDeviceCompat;
 import cn.jiguang.g.i;
 /* loaded from: classes3.dex */
@@ -50,7 +49,7 @@ public final class d {
                         return null;
                     }
                     return null;
-                case FragmentTransaction.TRANSIT_FRAGMENT_OPEN /* 4097 */:
+                case 4097:
                     bundle3.putString("arg1", cn.jiguang.d.a.a.b(context, null));
                     return bundle3;
                 case InputDeviceCompat.SOURCE_TOUCHSCREEN /* 4098 */:

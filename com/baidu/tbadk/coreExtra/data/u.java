@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class u {
     private String checkUrl;
 
-    public String DD() {
+    public String FE() {
         return this.checkUrl;
     }
 

@@ -67,11 +67,11 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             String i = l.i(LocalPicModel.this.mSPath, LocalPicModel.this.mSName, TiebaIMConfig.POST_IMAGE_PATH, str + "_send");
             String str2 = str + "_display";
             String i2 = l.i(LocalPicModel.this.mDPath, LocalPicModel.this.mDName, TiebaIMConfig.POST_IMAGE_PATH, str2);
-            Bitmap ah = l.ah(TiebaIMConfig.POST_IMAGE_PATH, str2);
-            if (i == null || i2 == null || ah == null) {
+            Bitmap au = l.au(TiebaIMConfig.POST_IMAGE_PATH, str2);
+            if (i == null || i2 == null || au == null) {
                 return null;
             }
-            return new ResponseData(ah, i, i2);
+            return new ResponseData(au, i, i2);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -87,7 +87,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             super.onPostExecute((GetImageTask) responseData);
             LocalPicModel.this.mImageTask = null;
             if (LocalPicModel.this.mLoadDataCallBack != null) {
-                LocalPicModel.this.mLoadDataCallBack.j(responseData);
+                LocalPicModel.this.mLoadDataCallBack.m(responseData);
             }
         }
     }

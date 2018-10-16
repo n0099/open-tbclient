@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import com.baidu.mobstat.bz;
+import com.baidu.searchbox.ng.ai.apps.console.AiAppsPropertyWindow;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -71,7 +73,7 @@ public class au {
                 jSONObject2.put(Config.DEVICE_WIDTH, b2.getWidth());
                 jSONObject2.put("h", b2.getHeight());
                 jSONObject.put("screen", jSONObject2);
-                jSONObject.put("page", activity.getClass().getName());
+                jSONObject.put(SystemScreenshotManager.PAGE, activity.getClass().getName());
                 jSONObject.put("objects", c2);
                 return jSONObject;
             } catch (Throwable th) {
@@ -127,9 +129,9 @@ public class au {
                         jSONObject3.put("y", ao.a(activity, e.top));
                         jSONObject3.put(Config.DEVICE_WIDTH, ao.a(activity, e.width()));
                         jSONObject3.put("h", ao.a(activity, e.height()));
-                        jSONObject.put("frame", jSONObject3);
+                        jSONObject.put(AiAppsPropertyWindow.KEY_FRAME, jSONObject3);
                         jSONObject.put("alpha", bq.i(view));
-                        jSONObject.put("page", activity.getClass().getName());
+                        jSONObject.put(SystemScreenshotManager.PAGE, activity.getClass().getName());
                         jSONObject.put("z", bq.j(view));
                         if (view instanceof WebView) {
                             String a2 = bs.a(activity, (WebView) view, e);

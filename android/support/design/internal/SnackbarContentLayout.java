@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class SnackbarContentLayout extends LinearLayout implements BaseTransientBottomBar.ContentViewCallback {
@@ -51,7 +52,7 @@ public class SnackbarContentLayout extends LinearLayout implements BaseTransient
         boolean z;
         super.onMeasure(i, i2);
         if (this.mMaxWidth > 0 && getMeasuredWidth() > this.mMaxWidth) {
-            i = View.MeasureSpec.makeMeasureSpec(this.mMaxWidth, 1073741824);
+            i = View.MeasureSpec.makeMeasureSpec(this.mMaxWidth, AiAppsFileUtils.GB);
             super.onMeasure(i, i2);
         }
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.design_snackbar_padding_vertical_2lines);

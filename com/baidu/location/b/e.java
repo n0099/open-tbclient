@@ -8,12 +8,14 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.d.g;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class e {
     public List<ScanResult> a;
     private long b;
@@ -39,7 +41,7 @@ public class e {
     }
 
     private String b(String str) {
-        return str != null ? (str.contains("&") || str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) ? str.replace("&", "_").replace(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "_") : str : str;
+        return str != null ? (str.contains(ETAG.ITEM_SEPARATOR) || str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) ? str.replace(ETAG.ITEM_SEPARATOR, BaseRequestAction.SPLITE).replace(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, BaseRequestAction.SPLITE) : str : str;
     }
 
     private void l() {
@@ -112,15 +114,15 @@ public class e {
                 Random random = new Random();
                 StringBuffer stringBuffer2 = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo rO = f.rN().rO();
-                if (rO == null || rO.getBSSID() == null) {
+                WifiInfo tI = f.tH().tI();
+                if (tI == null || tI.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                     str2 = null;
                 } else {
-                    String replace = rO.getBSSID().replace(":", "");
-                    int rssi = rO.getRssi();
-                    String m = f.rN().m();
+                    String replace = tI.getBSSID().replace(":", "");
+                    int rssi = tI.getRssi();
+                    String m = f.tH().m();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = m;
@@ -489,7 +491,7 @@ public class e {
     }
 
     public boolean e() {
-        return a(g.aaQ);
+        return a(g.afx);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x003d  */

@@ -12,7 +12,6 @@ import android.graphics.Paint;
 import android.graphics.Shader;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -161,7 +160,7 @@ public class SpeechCircleView extends View {
         this.t = new TimerTask() { // from class: com.baidu.ar.ui.speech.SpeechCircleView.3
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                SpeechCircleView.this.u.sendEmptyMessage(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                SpeechCircleView.this.u.sendEmptyMessage(4097);
             }
         };
         this.r.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.ar.ui.speech.SpeechCircleView.4
@@ -201,7 +200,7 @@ public class SpeechCircleView extends View {
                 this.t.cancel();
                 this.t = null;
             }
-            this.u.removeMessages(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            this.u.removeMessages(4097);
             d();
         }
     }

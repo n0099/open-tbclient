@@ -7,8 +7,8 @@ import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestRequestCallbacker;
 import com.baidu.fsg.base.utils.LogUtil;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.webkit.internal.ABTestConstants;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements com.baidu.fsg.base.restnet.rest.b {
     private static final String a = "appcache";
     private static final int b = 2;
@@ -100,7 +100,7 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
             uRLConnection.setReadTimeout(this.e.h() > 0 ? this.e.h() : 30000);
         }
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-            System.setProperty("http.keepAlive", "false");
+            System.setProperty("http.keepAlive", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
         } else {
             System.setProperty("http.keepAlive", "true");
             System.setProperty("http.maxConnections ", String.valueOf(10));
@@ -209,7 +209,7 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
             String l = this.e.l();
             if (!TextUtils.isEmpty(l)) {
                 if (str.contains("?")) {
-                    return str + "&" + l;
+                    return str + ETAG.ITEM_SEPARATOR + l;
                 }
                 return str + "?" + l;
             }
@@ -220,14 +220,14 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     private void d() {
         try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.c.getDir(a, 0), "com/baidu/fsg/base/restnet/http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
+            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), 10485760L);
         } catch (Exception e) {
         }
     }
 
     private void e() {
         try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod(IntentConfig.CLOSE, new Class[0]).invoke(null, new Object[0]);
+            Class.forName("android.net.http.HttpResponseCache").getMethod("close", new Class[0]).invoke(null, new Object[0]);
         } catch (Exception e) {
         }
     }

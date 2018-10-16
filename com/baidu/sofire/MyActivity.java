@@ -16,6 +16,7 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Window;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
 import com.baidu.sofire.b.t;
 import com.baidu.sofire.core.ApkInfo;
 import java.lang.reflect.Field;
@@ -77,8 +78,8 @@ public class MyActivity extends Activity {
         k = f.a((Class<?>) Activity.class, "onStart", (Class<?>[]) new Class[0]);
         l = f.a((Class<?>) Activity.class, "onResume", (Class<?>[]) new Class[0]);
         m = f.a((Class<?>) Activity.class, "onPostResume", (Class<?>[]) new Class[0]);
-        n = f.a((Class<?>) Activity.class, "onPause", (Class<?>[]) new Class[0]);
-        o = f.a((Class<?>) Activity.class, "onStop", (Class<?>[]) new Class[0]);
+        n = f.a((Class<?>) Activity.class, AudioStatusCallback.ON_PAUSE, (Class<?>[]) new Class[0]);
+        o = f.a((Class<?>) Activity.class, AudioStatusCallback.ON_STOP, (Class<?>[]) new Class[0]);
         p = f.a((Class<?>) Activity.class, "onDestroy", (Class<?>[]) new Class[0]);
         f = f.a(Activity.class, "mCurrentConfig");
         g = f.a(Activity.class, "mConfigChangeFlags");

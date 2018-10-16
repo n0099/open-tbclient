@@ -3,7 +3,7 @@ package com.baidu.fsg.face.base.d;
 import android.content.Context;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static final String a = "SapiBioFileUtils";
     public static final String b = "liveness_video.mp4";

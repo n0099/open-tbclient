@@ -1,28 +1,29 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class k {
-    private StringBuilder aqY;
+    private StringBuilder avO;
 
     public k() {
-        this.aqY = null;
-        this.aqY = null;
+        this.avO = null;
+        this.avO = null;
     }
 
     public void h(String str, Object obj) {
         if (!ao.isEmpty(str) && obj != null) {
             try {
-                if (this.aqY == null) {
-                    this.aqY = new StringBuilder();
-                    this.aqY.append(str);
-                    this.aqY.append("=");
-                    this.aqY.append(obj.toString());
+                if (this.avO == null) {
+                    this.avO = new StringBuilder();
+                    this.avO.append(str);
+                    this.avO.append(ETAG.EQUAL);
+                    this.avO.append(obj.toString());
                 } else {
-                    this.aqY.append("|");
-                    this.aqY.append(str);
-                    this.aqY.append("=");
-                    this.aqY.append(obj.toString());
+                    this.avO.append("|");
+                    this.avO.append(str);
+                    this.avO.append(ETAG.EQUAL);
+                    this.avO.append(obj.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -31,6 +32,6 @@ public class k {
     }
 
     public String toString() {
-        return this.aqY != null ? this.aqY.toString() : "";
+        return this.avO != null ? this.avO.toString() : "";
     }
 }

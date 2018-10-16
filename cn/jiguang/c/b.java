@@ -6,11 +6,11 @@ import java.util.LinkedHashSet;
 public interface b {
     String a();
 
-    LinkedHashMap<String, Integer> bm();
+    LinkedHashMap<String, Integer> bD();
 
-    LinkedHashMap<String, Integer> bn();
+    LinkedHashMap<String, Integer> bE();
 
-    LinkedHashSet<String> bo();
+    LinkedHashSet<String> bF();
 
     String d();
 

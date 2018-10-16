@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class AudioSampleEntry extends AbstractSampleEntry {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE1 = "samr";

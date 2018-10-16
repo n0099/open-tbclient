@@ -15,58 +15,58 @@ import com.baidu.tieba.card.t;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadData, com.baidu.tieba.card.a.a<t>> {
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dwN;
-    private com.baidu.adp.lib.e.b<TbImageView> dwO;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dEO;
+    private com.baidu.adp.lib.e.b<TbImageView> dEP;
     private boolean isHost;
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.cIp);
-        this.dwN = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
+        super(tbPageContext.getPageActivity(), CardPersonDynamicThreadData.cQI);
+        this.dEO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.personPolymeric.a.i.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: ayk */
-            public ConstrainImageLayout jm() {
+            /* renamed from: aBF */
+            public ConstrainImageLayout jB() {
                 return new ConstrainImageLayout(i.this.mPageContext.getPageActivity());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: c */
-            public void r(ConstrainImageLayout constrainImageLayout) {
+            public void u(ConstrainImageLayout constrainImageLayout) {
                 constrainImageLayout.removeAllViews();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: d */
-            public ConstrainImageLayout s(ConstrainImageLayout constrainImageLayout) {
+            public ConstrainImageLayout v(ConstrainImageLayout constrainImageLayout) {
                 return constrainImageLayout;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: e */
-            public ConstrainImageLayout t(ConstrainImageLayout constrainImageLayout) {
+            public ConstrainImageLayout w(ConstrainImageLayout constrainImageLayout) {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.dwO = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.i.3
+        this.dEP = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.personPolymeric.a.i.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: Ca */
-            public TbImageView jm() {
+            /* renamed from: Ef */
+            public TbImageView jB() {
                 TbImageView tbImageView = new TbImageView(i.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(al.getColor(e.d.common_color_10043));
-                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds1));
+                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds1));
                 return tbImageView;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: a */
-            public void r(TbImageView tbImageView) {
+            public void u(TbImageView tbImageView) {
                 tbImageView.setOnClickListener(null);
                 tbImageView.setForegroundColor(0);
             }
@@ -74,14 +74,14 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: b */
-            public TbImageView s(TbImageView tbImageView) {
+            public TbImageView v(TbImageView tbImageView) {
                 return tbImageView;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: c */
-            public TbImageView t(TbImageView tbImageView) {
+            public TbImageView w(TbImageView tbImageView) {
                 tbImageView.setOnClickListener(null);
                 tbImageView.setForegroundColor(0);
                 return tbImageView;
@@ -96,23 +96,23 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<t> onCreateViewHolder(ViewGroup viewGroup) {
         t tVar = new t(this.mPageContext);
-        tVar.setConstrainLayoutPool(this.dwN);
-        tVar.setConstrainImagePool(this.dwO);
+        tVar.setConstrainLayoutPool(this.dEO);
+        tVar.setConstrainImagePool(this.dEP);
         tVar.currentPageType = 4;
-        if (tVar.cFH != null) {
-            tVar.cFH.amD = 4;
+        if (tVar.cOb != null) {
+            tVar.cOb.ary = 4;
         }
-        if (tVar.bND != null) {
-            tVar.bND.amD = 4;
+        if (tVar.bWf != null) {
+            tVar.bWf.ary = 4;
         }
-        if (tVar.cGe != null) {
-            tVar.cGe.cGR = 4;
+        if (tVar.cOy != null) {
+            tVar.cOy.cPl = 4;
         }
         tVar.b(new ad<CardPersonDynamicThreadData>() { // from class: com.baidu.tieba.personPolymeric.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, CardPersonDynamicThreadData cardPersonDynamicThreadData) {
-                TiebaStatic.log(new am("c12042").w("obj_type", i.this.isHost ? 1 : 2));
+                TiebaStatic.log(new am("c12042").x("obj_type", i.this.isHost ? 1 : 2));
             }
         });
         return new com.baidu.tieba.card.a.a<>(tVar);
@@ -123,8 +123,8 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, CardPersonDynamicThreadData cardPersonDynamicThreadData, com.baidu.tieba.card.a.a<t> aVar) {
-        aVar.aln().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        aVar.aln().a(cardPersonDynamicThreadData);
+        aVar.aoP().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aoP().a(cardPersonDynamicThreadData);
         return aVar.getView();
     }
 

@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import com.baidu.ar.rotate.Orientation;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public class RotateViewGroup extends ViewGroup implements IRotateView {
     private int a;
@@ -141,7 +140,7 @@ public class RotateViewGroup extends ViewGroup implements IRotateView {
             this.a = layoutParams.a;
             this.i = true;
         }
-        if (Math.abs(this.a % SubsamplingScaleImageView.ORIENTATION_180) == 90) {
+        if (Math.abs(this.a % 180) == 90) {
             measureChild(view, i2, i);
             setMeasuredDimension(View.resolveSize(view.getMeasuredHeight(), i), View.resolveSize(view.getMeasuredWidth(), i2));
             return;

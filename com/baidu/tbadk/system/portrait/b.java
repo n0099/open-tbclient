@@ -1,5 +1,5 @@
 package com.baidu.tbadk.system.portrait;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
     private int myItem;
     private int num;
@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void hO(String str) {
+    public void ic(String str) {
         this.series = str;
     }
 
@@ -22,7 +22,7 @@ public class b {
         this.num = i;
     }
 
-    public void fD(int i) {
+    public void fM(int i) {
         this.myItem = i;
     }
 }

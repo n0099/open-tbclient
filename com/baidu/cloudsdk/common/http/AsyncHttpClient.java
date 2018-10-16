@@ -2,6 +2,7 @@ package com.baidu.cloudsdk.common.http;
 
 import android.content.Context;
 import com.baidu.android.common.net.ConnectManager;
+import com.baidu.webkit.internal.ETAG;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -51,7 +52,7 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.SyncBasicHttpContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AsyncHttpClient extends DefaultHttpClient {
     private static final int DEFAULT_CHECK_INTERVAL = 10000;
     private static final int DEFAULT_CONNECT_TIMEOUT = 15000;
@@ -237,7 +238,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
             if (!str.contains("?")) {
                 return str + "?" + queryString;
             }
-            return str + "&" + queryString;
+            return str + ETAG.ITEM_SEPARATOR + queryString;
         }
         return str;
     }
@@ -317,7 +318,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     private static class InflatingEntity extends HttpEntityWrapper {
         GZIPInputStream gzipStream;
         InputStream wrappedStream;

@@ -3,6 +3,7 @@ package com.baidu.fsg.base.utils;
 import android.os.Build;
 import android.util.Base64;
 import com.baidu.sapi2.utils.SapiEnv;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -13,7 +14,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Crypto {
     private static final int a = 16;
     private static final int b = 8;
@@ -47,7 +48,7 @@ public class Crypto {
 
     public static String sha1(byte[] bArr) throws Exception {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_SHA1);
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer();
@@ -67,7 +68,7 @@ public class Crypto {
 
     public static String sha1(String str) throws Exception {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_SHA1);
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer();

@@ -6,47 +6,47 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a<K, A> {
-    private final List<? extends com.airbnb.lottie.a.a<K>> oL;
+    private final List<? extends com.airbnb.lottie.a.a<K>> pD;
     @Nullable
-    private com.airbnb.lottie.a.a<K> oM;
-    final List<InterfaceC0006a> oF = new ArrayList();
-    private boolean oK = false;
+    private com.airbnb.lottie.a.a<K> pE;
+    final List<InterfaceC0009a> px = new ArrayList();
+    private boolean pC = false;
     private float progress = 0.0f;
 
     /* renamed from: com.airbnb.lottie.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0006a {
-        void cM();
+    public interface InterfaceC0009a {
+        void de();
     }
 
     abstract A a(com.airbnb.lottie.a.a<K> aVar, float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(List<? extends com.airbnb.lottie.a.a<K>> list) {
-        this.oL = list;
+        this.pD = list;
     }
 
-    public void cZ() {
-        this.oK = true;
+    public void dr() {
+        this.pC = true;
     }
 
-    public void b(InterfaceC0006a interfaceC0006a) {
-        this.oF.add(interfaceC0006a);
+    public void b(InterfaceC0009a interfaceC0009a) {
+        this.px.add(interfaceC0009a);
     }
 
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f < dc()) {
-            f = dc();
-        } else if (f > cI()) {
-            f = cI();
+        if (f < du()) {
+            f = du();
+        } else if (f > da()) {
+            f = da();
         }
         if (f != this.progress) {
             this.progress = f;
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.oF.size()) {
-                    this.oF.get(i2).cM();
+                if (i2 < this.px.size()) {
+                    this.px.get(i2).de();
                     i = i2 + 1;
                 } else {
                     return;
@@ -55,55 +55,55 @@ public abstract class a<K, A> {
         }
     }
 
-    private com.airbnb.lottie.a.a<K> da() {
-        if (this.oL.isEmpty()) {
+    private com.airbnb.lottie.a.a<K> ds() {
+        if (this.pD.isEmpty()) {
             throw new IllegalStateException("There are no keyframes");
         }
-        if (this.oM != null && this.oM.g(this.progress)) {
-            return this.oM;
+        if (this.pE != null && this.pE.g(this.progress)) {
+            return this.pE;
         }
-        com.airbnb.lottie.a.a<K> aVar = this.oL.get(this.oL.size() - 1);
-        if (this.progress < aVar.cH()) {
-            for (int size = this.oL.size() - 1; size >= 0; size--) {
-                aVar = this.oL.get(size);
+        com.airbnb.lottie.a.a<K> aVar = this.pD.get(this.pD.size() - 1);
+        if (this.progress < aVar.cZ()) {
+            for (int size = this.pD.size() - 1; size >= 0; size--) {
+                aVar = this.pD.get(size);
                 if (aVar.g(this.progress)) {
                     break;
                 }
             }
         }
-        this.oM = aVar;
+        this.pE = aVar;
         return aVar;
     }
 
-    private float db() {
-        if (this.oK) {
+    private float dt() {
+        if (this.pC) {
             return 0.0f;
         }
-        com.airbnb.lottie.a.a<K> da = da();
-        if (da.cJ()) {
+        com.airbnb.lottie.a.a<K> ds = ds();
+        if (ds.db()) {
             return 0.0f;
         }
-        return da.nC.getInterpolation((this.progress - da.cH()) / (da.cI() - da.cH()));
+        return ds.oq.getInterpolation((this.progress - ds.cZ()) / (ds.da() - ds.cZ()));
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
-    private float dc() {
-        if (this.oL.isEmpty()) {
+    private float du() {
+        if (this.pD.isEmpty()) {
             return 0.0f;
         }
-        return this.oL.get(0).cH();
+        return this.pD.get(0).cZ();
     }
 
     @FloatRange(from = 0.0d, to = 1.0d)
-    private float cI() {
-        if (this.oL.isEmpty()) {
+    private float da() {
+        if (this.pD.isEmpty()) {
             return 1.0f;
         }
-        return this.oL.get(this.oL.size() - 1).cI();
+        return this.pD.get(this.pD.size() - 1).da();
     }
 
     public A getValue() {
-        return a(da(), db());
+        return a(ds(), dt());
     }
 
     public float getProgress() {

@@ -13,7 +13,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import org.apache.http.client.utils.URLEncodedUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HttpRequest {
     private static final String TAG = HttpRequest.class.getSimpleName();
 

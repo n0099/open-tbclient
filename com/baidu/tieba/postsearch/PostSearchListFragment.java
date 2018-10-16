@@ -21,25 +21,25 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class PostSearchListFragment extends BaseFragment implements BdListView.e {
-    private PbListView bBr;
-    private int cpv;
-    private PostSearchActivity grb;
-    private BdListView grq;
-    private e grr;
-    private b grs;
-    private String grt;
+    private PbListView bJY;
+    private int cxY;
+    private PostSearchActivity gyB;
+    private BdListView gyQ;
+    private e gyR;
+    private b gyS;
+    private String gyT;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public PostSearchListFragment() {
-        this.cpv = -1;
-        this.grt = "";
+        this.cxY = -1;
+        this.gyT = "";
     }
 
     public PostSearchListFragment(int i) {
-        this.cpv = -1;
-        this.grt = "";
-        this.cpv = i;
+        this.cxY = -1;
+        this.gyT = "";
+        this.cxY = i;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -52,147 +52,147 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.grb = (PostSearchActivity) getBaseFragmentActivity();
-        this.grr = new e(this.grb.getPageContext());
-        this.grr.setTabType(this.cpv);
-        BdListViewHelper.a(this.grb.getActivity(), this.grq, BdListViewHelper.HeadType.HASTAB);
-        this.grq.setAdapter((ListAdapter) this.grr);
-        this.bBr = new PbListView(this.grb.getPageContext().getPageActivity());
-        this.bBr.ov();
-        this.grq.setOnSrollToBottomListener(this);
+        this.gyB = (PostSearchActivity) getBaseFragmentActivity();
+        this.gyR = new e(this.gyB.getPageContext());
+        this.gyR.setTabType(this.cxY);
+        BdListViewHelper.a(this.gyB.getActivity(), this.gyQ, BdListViewHelper.HeadType.HASTAB);
+        this.gyQ.setAdapter((ListAdapter) this.gyR);
+        this.bJY = new PbListView(this.gyB.getPageContext().getPageActivity());
+        this.bJY.oG();
+        this.gyQ.setOnSrollToBottomListener(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.cpv == this.grb.bou().getCurrentTabType()) {
-            boD();
-            mb(false);
+        if (this.cxY == this.gyB.brJ().getCurrentTabType()) {
+            brS();
+            mt(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.grb != null) {
-            com.baidu.tbadk.o.a.a(this.grb.getPageContext(), this.mRootView);
+        if (this.gyB != null) {
+            com.baidu.tbadk.o.a.a(this.gyB.getPageContext(), this.mRootView);
         }
-        if (this.bBr != null) {
-            this.bBr.dM(i);
+        if (this.bJY != null) {
+            this.bJY.dW(i);
         }
-        if (this.grr != null) {
-            this.grr.notifyDataSetChanged();
+        if (this.gyR != null) {
+            this.gyR.notifyDataSetChanged();
         }
     }
 
     public void a(b bVar, boolean z) {
         hideNoDataView();
         hideLoadingView(this.mRootView);
-        if (bVar == null || bVar.gri == null || bVar.gri.size() == 0) {
-            if (!z || this.grs == null || this.grs.gri == null || this.grs.gri.size() == 0) {
-                Wd();
+        if (bVar == null || bVar.gyI == null || bVar.gyI.size() == 0) {
+            if (!z || this.gyS == null || this.gyS.gyI == null || this.gyS.gyI.size() == 0) {
+                ZK();
                 showNoDataView();
-                this.grq.setVisibility(8);
-                this.grs = bVar;
+                this.gyQ.setVisibility(8);
+                this.gyS = bVar;
                 return;
             }
-            if (this.grs.dnE.vu() == 1) {
-                Wb();
+            if (this.gyS.dvH.xD() == 1) {
+                ZI();
                 return;
             } else {
-                Wc();
+                ZJ();
                 return;
             }
         }
-        if (!z || this.grs == null || this.grs.gri == null || this.grs.gri.size() == 0) {
-            this.grs = bVar;
+        if (!z || this.gyS == null || this.gyS.gyI == null || this.gyS.gyI.size() == 0) {
+            this.gyS = bVar;
         } else {
-            this.grs.dnE = bVar.dnE;
-            this.grs.gri.addAll(bVar.gri);
+            this.gyS.dvH = bVar.dvH;
+            this.gyS.gyI.addAll(bVar.gyI);
         }
         if (z) {
-            boD();
+            brS();
         }
-        if (this.grs.dnE.vu() == 1) {
-            Wb();
+        if (this.gyS.dvH.xD() == 1) {
+            ZI();
         } else {
-            Wc();
+            ZJ();
         }
-        this.grr.clear();
-        this.grr.dk(this.grs.gri);
-        this.grr.notifyDataSetChanged();
+        this.gyR.clear();
+        this.gyR.dy(this.gyS.gyI);
+        this.gyR.notifyDataSetChanged();
         if (!z) {
-            this.grq.setSelection(0);
+            this.gyQ.setSelection(0);
         }
-        this.grq.setVisibility(0);
+        this.gyQ.setVisibility(0);
     }
 
-    public void mb(boolean z) {
-        if (this.grb != null) {
-            String str = this.grb.dqC;
+    public void mt(boolean z) {
+        if (this.gyB != null) {
+            String str = this.gyB.dyD;
             if (!StringUtils.isNull(str)) {
-                boolean z2 = !str.equals(this.grt) || z;
-                if (this.grs == null || (this.grs != null && !this.grs.aPt())) {
+                boolean z2 = !str.equals(this.gyT) || z;
+                if (this.gyS == null || (this.gyS != null && !this.gyS.aSH())) {
                     z2 = true;
                 }
                 if (z2) {
-                    showLoadingView(this.mRootView, false, this.grb.getResources().getDimensionPixelSize(e.C0141e.ds320));
-                    this.grb.bot().aJ(str, this.cpv);
-                    this.grt = str;
+                    showLoadingView(this.mRootView, false, this.gyB.getResources().getDimensionPixelSize(e.C0175e.ds320));
+                    this.gyB.brI().aN(str, this.cxY);
+                    this.gyT = str;
                 }
             }
         }
     }
 
-    public void boB() {
-        if (this.grs != null && this.grs.gri != null) {
-            this.grs.gri.clear();
-            this.grr.clear();
-            this.grr.dk(this.grs.gri);
-            this.grr.notifyDataSetChanged();
+    public void brQ() {
+        if (this.gyS != null && this.gyS.gyI != null) {
+            this.gyS.gyI.clear();
+            this.gyR.clear();
+            this.gyR.dy(this.gyS.gyI);
+            this.gyR.notifyDataSetChanged();
         }
-        Wd();
+        ZK();
         hideNoDataView();
     }
 
     private void initView() {
-        this.grq = (BdListView) this.mRootView.findViewById(e.g.result_list);
+        this.gyQ = (BdListView) this.mRootView.findViewById(e.g.result_list);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.grt) && this.grs != null && this.grs.isHasMore() && this.grb.bot().aJ(this.grt, this.cpv)) {
-            boC();
+        if (!StringUtils.isNull(this.gyT) && this.gyS != null && this.gyS.isHasMore() && this.gyB.brI().aN(this.gyT, this.cxY)) {
+            brR();
         }
     }
 
-    private void boC() {
-        this.grq.setNextPage(this.bBr);
-        this.bBr.BI();
+    private void brR() {
+        this.gyQ.setNextPage(this.bJY);
+        this.bJY.DO();
     }
 
-    private void Wb() {
-        this.grq.setNextPage(this.bBr);
-        this.bBr.BJ();
-        this.bBr.setText(this.grb.getResources().getString(e.j.pb_load_more));
+    private void ZI() {
+        this.gyQ.setNextPage(this.bJY);
+        this.bJY.DP();
+        this.bJY.setText(this.gyB.getResources().getString(e.j.pb_load_more));
     }
 
-    private void Wc() {
-        this.grq.setNextPage(this.bBr);
-        this.bBr.BJ();
-        this.bBr.setText(this.grb.getResources().getString(e.j.list_no_more));
+    private void ZJ() {
+        this.gyQ.setNextPage(this.bJY);
+        this.bJY.DP();
+        this.bJY.setText(this.gyB.getResources().getString(e.j.list_no_more));
     }
 
-    private void Wd() {
-        if (this.grq != null) {
-            this.grq.setNextPage(null);
+    private void ZK() {
+        if (this.gyQ != null) {
+            this.gyQ.setNextPage(null);
         }
     }
 
     private void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.grb.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.grb.getActivity(), e.C0141e.ds320)), NoDataViewFactory.d.dE(e.j.text_no_search_result), null);
-            this.mNoDataView.onChangeSkinType(this.grb.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mNoDataView = NoDataViewFactory.a(this.gyB.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.gyB.getActivity(), e.C0175e.ds320)), NoDataViewFactory.d.dO(e.j.text_no_search_result), null);
+            this.mNoDataView.onChangeSkinType(this.gyB.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);
     }
@@ -203,9 +203,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
         }
     }
 
-    private void boD() {
-        if (this.grb != null) {
-            TiebaStatic.log(new am("c12406").al(ImageViewerConfig.FORUM_ID, this.grb.mForumId).al(ImageViewerConfig.FORUM_NAME, this.grb.mForumName).al("uid", TbadkCoreApplication.getCurrentAccount()).w(MyBookrackActivityConfig.TAB_ID, this.cpv));
+    private void brS() {
+        if (this.gyB != null) {
+            TiebaStatic.log(new am("c12406").ax(ImageViewerConfig.FORUM_ID, this.gyB.mForumId).ax(ImageViewerConfig.FORUM_NAME, this.gyB.mForumName).ax("uid", TbadkCoreApplication.getCurrentAccount()).x(MyBookrackActivityConfig.TAB_ID, this.cxY));
         }
     }
 }

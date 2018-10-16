@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.beans;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static String a = "https://passport.baidu.com";
     public static String b = "https://passport.qatest.baidu.com";

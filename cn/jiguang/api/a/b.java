@@ -3,7 +3,7 @@ package cn.jiguang.api.a;
 import java.math.BigInteger;
 /* loaded from: classes3.dex */
 public class b {
-    private static final BigInteger kt = BigInteger.ONE.shiftLeft(64);
+    private static final BigInteger kZ = BigInteger.ONE.shiftLeft(64);
     private byte[] a;
     private int b;
     private int c;

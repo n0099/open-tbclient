@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ap;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -50,7 +50,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
             this.resultString = jSONObject.toString();
-            this.errCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            this.errCode = jSONObject.optInt("error_code");
             this.data.parserJson(jSONObject);
         }
     }
@@ -58,7 +58,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> dQ;
+        l<String> eg;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -68,8 +68,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (dQ = com.baidu.tbadk.core.c.a.yh().dQ("tb.my_pages")) != null) {
-                        dQ.a("personal_myfollow_" + str, parseToString, 604800000L);
+                    if (parseToString != null && (eg = com.baidu.tbadk.core.c.a.Aq().eg("tb.my_pages")) != null) {
+                        eg.a("personal_myfollow" + BaseRequestAction.SPLITE + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

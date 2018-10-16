@@ -10,54 +10,54 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.ad;
 import com.baidu.tieba.card.r;
 import com.baidu.tieba.card.v;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<r>> implements com.baidu.tieba.a.f {
-    public BdUniqueId aUU;
-    private String bNq;
-    private NEGFeedBackView.a boM;
-    private ad eav;
-    private r efB;
+    public BdUniqueId aZt;
+    private String bVS;
+    private NEGFeedBackView.a bsM;
+    private ad eio;
+    private r enu;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.boM = null;
-        this.eav = new ad<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.e.1
+        this.bsM = null;
+        this.eio = new ad<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                v.akM().dc(true);
-                if (view != null && e.this.efB != null && e.this.efB.getView() != null && kVar != null && kVar.UT() != null && !StringUtils.isNull(kVar.UT().getTid())) {
-                    if (view.getId() != e.this.efB.getView().getId()) {
-                        if (e.this.efB.getHeaderImg() == null || view.getId() != e.this.efB.getHeaderImg().getId()) {
-                            if (e.this.efB.akp() == null || view.getId() != e.this.efB.akp().getId()) {
-                                if (e.this.efB.bND == null || e.this.efB.bND.getBarNameTv() == null || view.getId() != e.this.efB.bND.getBarNameTv().getId()) {
-                                    if (e.this.efB.bOr == null || e.this.efB.bOr.aBk == null || view.getId() != e.this.efB.bOr.aBk.getId()) {
-                                        if (e.this.efB.ako() != null && view.getId() == e.this.efB.ako().getId()) {
-                                            TiebaStatic.log(kVar.lL("c12202"));
+                v.aoo().dy(true);
+                if (view != null && e.this.enu != null && e.this.enu.getView() != null && kVar != null && kVar.YA() != null && !StringUtils.isNull(kVar.YA().getTid())) {
+                    if (view.getId() != e.this.enu.getView().getId()) {
+                        if (e.this.enu.getHeaderImg() == null || view.getId() != e.this.enu.getHeaderImg().getId()) {
+                            if (e.this.enu.anR() == null || view.getId() != e.this.enu.anR().getId()) {
+                                if (e.this.enu.bWf == null || e.this.enu.bWf.getBarNameTv() == null || view.getId() != e.this.enu.bWf.getBarNameTv().getId()) {
+                                    if (e.this.enu.bWS == null || e.this.enu.bWS.aFR == null || view.getId() != e.this.enu.bWS.aFR.getId()) {
+                                        if (e.this.enu.anQ() != null && view.getId() == e.this.enu.anQ().getId()) {
+                                            TiebaStatic.log(kVar.mn("c12202"));
                                             return;
                                         }
                                         return;
                                     }
-                                    TiebaStatic.log(kVar.alj());
+                                    TiebaStatic.log(kVar.aoL());
                                     return;
                                 }
-                                TiebaStatic.log(kVar.alj());
+                                TiebaStatic.log(kVar.aoL());
                                 return;
                             }
-                            TiebaStatic.log(kVar.lK("c12191"));
+                            TiebaStatic.log(kVar.mm("c12191"));
                             return;
                         }
-                        TiebaStatic.log(kVar.lK("c12191"));
+                        TiebaStatic.log(kVar.mm("c12191"));
                         return;
                     }
-                    TiebaStatic.log(kVar.lK("c12192"));
+                    TiebaStatic.log(kVar.mm("c12192"));
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        aGJ();
+        aKb();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,16 +65,16 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: Y */
     public com.baidu.tieba.card.a.a<r> onCreateViewHolder(ViewGroup viewGroup) {
-        this.efB = new r(this.mPageContext);
-        this.efB.currentPageType = 2;
-        if (this.efB.bND != null) {
-            this.efB.bND.amD = 2;
+        this.enu = new r(this.mPageContext);
+        this.enu.currentPageType = 2;
+        if (this.enu.bWf != null) {
+            this.enu.bWf.ary = 2;
         }
-        if (this.efB.bOr != null && this.efB.bOr.aBl != null) {
-            this.efB.bOr.aBl.amD = 2;
+        if (this.enu.bWS != null && this.enu.bWS.aFS != null) {
+            this.enu.bWS.aFS.ary = 2;
         }
-        this.efB.j(this.aUU);
-        return new com.baidu.tieba.card.a.a<>(this.efB);
+        this.enu.j(this.aZt);
+        return new com.baidu.tieba.card.a.a<>(this.enu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,40 +82,40 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, com.baidu.tieba.card.a.a<r> aVar) {
-        if (kVar == null || aVar == null || aVar.aln() == null) {
+        if (kVar == null || aVar == null || aVar.aoP() == null) {
             return null;
         }
-        kVar.jv(i + 1);
-        v.akM().a(kVar.lJ("c12190"));
-        if (aVar.aln() instanceof com.baidu.tieba.a.e) {
-            aVar.aln().setPage(this.bNq);
+        kVar.jT(i + 1);
+        v.aoo().a(kVar.ml("c12190"));
+        if (aVar.aoP() instanceof com.baidu.tieba.a.e) {
+            aVar.aoP().setPage(this.bVS);
         }
-        aVar.aln().a(kVar);
-        aVar.aln().b(this.eav);
-        aVar.aln().a(this.boM);
+        aVar.aoP().a(kVar);
+        aVar.aoP().b(this.eio);
+        aVar.aoP().a(this.bsM);
         return aVar.getView();
     }
 
-    private void aGJ() {
-        com.baidu.tieba.card.data.k.cHM = "c10705";
-        com.baidu.tieba.card.data.k.cHN = "c10730";
-        com.baidu.tieba.card.data.k.cHO = "c10731";
-        com.baidu.tieba.card.data.k.cHP = "c10704";
-        com.baidu.tieba.card.data.k.cHQ = "c10755";
-        com.baidu.tieba.card.data.k.cHR = "c10710";
-        com.baidu.tieba.card.data.k.cHS = "c10736";
-        com.baidu.tieba.card.data.k.cHT = "c10737";
-        com.baidu.tieba.card.data.k.cHU = "c10711";
-        com.baidu.tieba.card.data.k.cHV = "c10758";
-        com.baidu.tieba.card.data.k.cHW = "c10757";
+    private void aKb() {
+        com.baidu.tieba.card.data.k.cQf = "c10705";
+        com.baidu.tieba.card.data.k.cQg = "c10730";
+        com.baidu.tieba.card.data.k.cQh = "c10731";
+        com.baidu.tieba.card.data.k.cQi = "c10704";
+        com.baidu.tieba.card.data.k.cQj = "c10755";
+        com.baidu.tieba.card.data.k.cQk = "c10710";
+        com.baidu.tieba.card.data.k.cQl = "c10736";
+        com.baidu.tieba.card.data.k.cQm = "c10737";
+        com.baidu.tieba.card.data.k.cQn = "c10711";
+        com.baidu.tieba.card.data.k.cQo = "c10758";
+        com.baidu.tieba.card.data.k.cQp = "c10757";
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.boM = aVar;
+        this.bsM = aVar;
     }
 
     @Override // com.baidu.tieba.a.f
-    public void jd(String str) {
-        this.bNq = str;
+    public void jq(String str) {
+        this.bVS = str;
     }
 }

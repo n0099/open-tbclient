@@ -6,11 +6,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class f extends Thread implements cn.jiguang.api.j {
-    final /* synthetic */ e kk;
+    final /* synthetic */ e kQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.kk = eVar;
+        this.kQ = eVar;
     }
 
     @Override // cn.jiguang.api.j
@@ -28,7 +28,7 @@ public final class f extends Thread implements cn.jiguang.api.j {
             if (X == null) {
                 return;
             }
-            e eVar = this.kk;
+            e eVar = this.kQ;
             U = e.U(X);
             if (U != null) {
                 aa.a(X, U, this);

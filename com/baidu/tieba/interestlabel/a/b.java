@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private List<com.baidu.tieba.interestlabel.b.a> eTA;
-    private List<Integer> eTB = new ArrayList();
-    private LabelSettingView eTy;
+    private LabelSettingView fbg;
+    private List<com.baidu.tieba.interestlabel.b.a> fbi;
+    private List<Integer> fbj = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.eTy = labelSettingView;
+        this.fbg = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.z(bVar.aSz())) {
+        if (bVar != null && !v.J(bVar.aVN())) {
             this.mLabelDataSet = bVar;
-            this.eTA = bVar.aSz();
-            if (!v.z(bVar.aSA())) {
-                this.eTB = new ArrayList(bVar.aSA());
+            this.fbi = bVar.aVN();
+            if (!v.J(bVar.aVO())) {
+                this.fbj = new ArrayList(bVar.aVO());
             }
         }
     }
 
-    public List<Integer> aSw() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aSA();
+    public List<Integer> aVK() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.aVO();
     }
 
-    public List<Integer> aSx() {
-        return this.eTB;
+    public List<Integer> aVL() {
+        return this.fbj;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.y(this.eTA);
+        return v.I(this.fbi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: py */
+    /* renamed from: pW */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.d(this.eTA, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.d(this.fbi, i);
     }
 
     @Override // android.widget.Adapter
@@ -65,20 +65,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0189b c0189b;
+        C0223b c0223b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.eTy.getContext()).inflate(e.h.item_label_layout, (ViewGroup) null);
-            C0189b c0189b2 = new C0189b();
-            c0189b2.eTD = (TextView) view2;
-            view2.setTag(c0189b2);
-            c0189b = c0189b2;
+            view2 = LayoutInflater.from(this.fbg.getContext()).inflate(e.h.item_label_layout, (ViewGroup) null);
+            C0223b c0223b2 = new C0223b();
+            c0223b2.fbl = (TextView) view2;
+            view2.setTag(c0223b2);
+            c0223b = c0223b2;
         } else {
-            c0189b = (C0189b) view.getTag();
+            c0223b = (C0223b) view.getTag();
             view2 = view;
         }
-        c0189b.eTD.setOnClickListener(new a(i));
-        a(c0189b.eTD, getItem(i));
+        c0223b.fbl.setOnClickListener(new a(i));
+        a(c0223b.fbl, getItem(i));
         return view2;
     }
 
@@ -104,10 +104,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    class C0189b {
-        TextView eTD;
+    class C0223b {
+        TextView fbl;
 
-        C0189b() {
+        C0223b() {
         }
     }
 
@@ -128,12 +128,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.eTB.add(Integer.valueOf(item.labelId));
+                    b.this.fbj.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.eTB.remove(Integer.valueOf(item.labelId));
+                    b.this.fbj.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.eTy != null) {
-                    b.this.eTy.iJ(v.y(b.this.eTB) > 0);
+                if (b.this.fbg != null) {
+                    b.this.fbg.jb(v.I(b.this.fbj) > 0);
                 }
             }
         }

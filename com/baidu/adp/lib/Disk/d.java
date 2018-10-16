@@ -6,63 +6,63 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class d {
-    private static BdUniqueId ym = BdUniqueId.gen();
-    private static BdUniqueId yn = BdUniqueId.gen();
-    private static d yq = null;
-    private b yk;
-    private final int yo = 10;
-    private final int yp = 5;
-    private BdAsyncTaskParallel yr;
-    private BdAsyncTaskParallel ys;
+    private static BdUniqueId yX = BdUniqueId.gen();
+    private static BdUniqueId yY = BdUniqueId.gen();
+    private static d zb = null;
+    private b yV;
+    private final int yZ = 10;
+    private final int za = 5;
+    private BdAsyncTaskParallel zc;
+    private BdAsyncTaskParallel zd;
 
-    public static d hl() {
-        if (yq == null) {
+    public static d hC() {
+        if (zb == null) {
             synchronized (d.class) {
-                if (yq == null) {
-                    yq = new d();
+                if (zb == null) {
+                    zb = new d();
                 }
             }
         }
-        return yq;
+        return zb;
     }
 
     private d() {
-        this.yk = null;
-        this.yr = null;
-        this.ys = null;
-        this.yr = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.ys = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.yk = new b();
+        this.yV = null;
+        this.zc = null;
+        this.zd = null;
+        this.zc = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.zd = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.yV = new b();
     }
 
     public void ar(String str) {
-        this.yk.aq(str);
+        this.yV.aq(str);
     }
 
     public boolean b(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        boolean hm = new e(this.yk, diskFileOperate).hm();
-        diskFileOperate.A(hm);
-        return hm;
+        boolean hD = new e(this.yV, diskFileOperate).hD();
+        diskFileOperate.A(hD);
+        return hD;
     }
 
     public boolean c(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.hA()) {
-            return a(diskFileOperate, ym, this.yr, 10);
+        if (diskFileOperate.hQ()) {
+            return a(diskFileOperate, yX, this.zc, 10);
         }
-        return a(diskFileOperate, yn, this.ys, 5);
+        return a(diskFileOperate, yY, this.zd, 5);
     }
 
     private boolean a(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel, int i) {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.hx() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < diskFileOperate.hC() + i) {
+        if (diskFileOperate.hN() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(bdUniqueId) < diskFileOperate.hS() + i) {
             return a(diskFileOperate, bdUniqueId, bdAsyncTaskParallel);
         }
         return false;
@@ -71,8 +71,8 @@ public class d {
     public void d(DiskFileOperate diskFileOperate) {
         String e = e(diskFileOperate);
         if (e != null) {
-            BdAsyncTask.removeAllTask(ym, e);
-            BdAsyncTask.removeAllTask(yn, e);
+            BdAsyncTask.removeAllTask(yX, e);
+            BdAsyncTask.removeAllTask(yY, e);
         }
     }
 
@@ -87,7 +87,7 @@ public class d {
     }
 
     private boolean a(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel) {
-        c cVar = new c(this.yk, diskFileOperate);
+        c cVar = new c(this.yV, diskFileOperate);
         cVar.setTag(bdUniqueId);
         cVar.setParallel(bdAsyncTaskParallel);
         cVar.setPriority(4);

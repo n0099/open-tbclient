@@ -12,7 +12,7 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class ReflectUtils {
     private final Object a;
     private final boolean b = true;
@@ -368,7 +368,7 @@ public final class ReflectUtils {
         return this.b ? (Class) this.a : this.a.getClass();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class NULL {
         public NULL() {
         }

@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.sapi2.base.network.Apn;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -17,7 +18,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class e {
     public String h = null;
     public int i = 3;
@@ -131,9 +132,9 @@ public abstract class e {
                         StringBuffer stringBuffer = new StringBuffer();
                         for (Map.Entry<String, Object> entry : e.this.k.entrySet()) {
                             stringBuffer.append(entry.getKey());
-                            stringBuffer.append("=");
+                            stringBuffer.append(ETAG.EQUAL);
                             stringBuffer.append(entry.getValue());
-                            stringBuffer.append("&");
+                            stringBuffer.append(ETAG.ITEM_SEPARATOR);
                         }
                         if (stringBuffer.length() > 0) {
                             stringBuffer.deleteCharAt(stringBuffer.length() - 1);
@@ -462,9 +463,9 @@ public abstract class e {
                             httpsURLConnection3.setRequestProperty("Accept-Encoding", "gzip");
                             for (Map.Entry<String, Object> entry : e.this.k.entrySet()) {
                                 stringBuffer.append(entry.getKey());
-                                stringBuffer.append("=");
+                                stringBuffer.append(ETAG.EQUAL);
                                 stringBuffer.append(entry.getValue());
-                                stringBuffer.append("&");
+                                stringBuffer.append(ETAG.ITEM_SEPARATOR);
                             }
                             if (stringBuffer.length() > 0) {
                                 stringBuffer.deleteCharAt(stringBuffer.length() - 1);

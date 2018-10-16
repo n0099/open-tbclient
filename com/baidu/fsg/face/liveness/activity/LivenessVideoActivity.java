@@ -60,7 +60,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoActivity extends LivenessCameraBaseActivity {
     private static final String b = "CONSTRASTBEANTAG";
     private static final String c = "LivenessVideoActivity";
@@ -445,7 +445,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     private class a extends AsyncTask<Void, Void, String> {
         private a() {
         }

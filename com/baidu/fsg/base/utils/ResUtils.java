@@ -9,11 +9,12 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.baidu.fsg.base.ApollonConstants;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.RequestPolymerPaymentAction;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class ResUtils {
     public static final String ANIM = "anim";
     private static final String a = "id";
@@ -38,11 +39,11 @@ public final class ResUtils {
     }
 
     public static int string(Context context, String str) {
-        return a(context, b, str);
+        return a(context, "string", str);
     }
 
     public static String string(String str) {
-        return m.getString(a(m, b, str));
+        return m.getString(a(m, "string", str));
     }
 
     public static int layout(Context context, String str) {
@@ -50,7 +51,7 @@ public final class ResUtils {
     }
 
     public static int style(Context context, String str) {
-        return a(context, d, str);
+        return a(context, "style", str);
     }
 
     public static int drawable(Context context, String str) {
@@ -143,7 +144,7 @@ public final class ResUtils {
         Resources resources = context.getResources();
         String packageName = context.getPackageName();
         if (ChannelUtils.isSpecailPackage()) {
-            packageName = "com.baidu.wallet";
+            packageName = RequestPolymerPaymentAction.PACKAGE_NAME;
         }
         if (ApollonConstants.DEBUG) {
             Log.d("ResUtils", "context instance is " + context);
@@ -164,7 +165,7 @@ public final class ResUtils {
         }
         Resources resources = context.getResources();
         if (ChannelUtils.isSpecailPackage()) {
-            str = "com.baidu.wallet";
+            str = RequestPolymerPaymentAction.PACKAGE_NAME;
         }
         if (ApollonConstants.DEBUG) {
             Log.d("ResUtils", "context instance is " + context);

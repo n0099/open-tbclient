@@ -1,10 +1,9 @@
 package com.baidu.tieba.channel.data;
 
-import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private String cKC;
+    private String cSV;
     private String channel_avatar;
     private String channel_name;
     private String create_time;
@@ -12,11 +11,11 @@ public class f {
     private String follow_time;
     private String user_id;
 
-    public String alA() {
-        return this.cKC;
+    public String apc() {
+        return this.cSV;
     }
 
-    public String alB() {
+    public String apd() {
         return this.channel_name;
     }
 
@@ -24,14 +23,14 @@ public class f {
         return this.description;
     }
 
-    public String alC() {
+    public String ape() {
         return this.channel_avatar;
     }
 
     public void parserJson(JSONObject jSONObject) {
-        this.cKC = jSONObject.optString("channel_id");
+        this.cSV = jSONObject.optString("channel_id");
         this.channel_name = jSONObject.optString("channel_name");
-        this.description = jSONObject.optString(SocialConstants.PARAM_COMMENT);
+        this.description = jSONObject.optString("description");
         this.channel_avatar = jSONObject.optString("channel_avatar");
         this.user_id = jSONObject.optString("user_id");
         this.create_time = jSONObject.optString("create_time");

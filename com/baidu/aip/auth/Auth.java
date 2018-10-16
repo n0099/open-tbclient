@@ -1,28 +1,28 @@
 package com.baidu.aip.auth;
 
 import android.content.Context;
-import android.support.v4.app.NotificationCompat;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class Auth {
-    private static Throwable RV;
-    private String RX;
-    private String RY;
+    private static Throwable Sk;
+    private String Sm;
+    private String Sn;
     private long mExpiresTime;
-    private int RW = 1;
+    private int Sl = 1;
     private String mToken = null;
 
     static {
         try {
             System.loadLibrary("aip-native-auth");
-            RV = null;
+            Sk = null;
         } catch (Throwable th) {
-            RV = new AuthException(283506, AuthException.a);
+            Sk = new AuthException(283506, AuthException.a);
         }
     }
 
@@ -53,20 +53,24 @@ public class Auth {
 
     private static String md5(String str) {
         try {
-            return C(MessageDigest.getInstance("MD5").digest(str.getBytes()));
+            return C(MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(str.getBytes()));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             return "";
         }
     }
 
+    private boolean pF() {
+        return System.currentTimeMillis() > this.mExpiresTime;
+    }
+
     private void parseJson(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.isNull(NotificationCompat.CATEGORY_STATUS)) {
+            if (jSONObject.isNull("status")) {
                 throw new AuthException(283505, AuthException.c);
             }
-            int optInt = jSONObject.optInt(NotificationCompat.CATEGORY_STATUS);
+            int optInt = jSONObject.optInt("status");
             if (optInt != 0) {
                 String optString = jSONObject.optString("message");
                 throw new AuthException(optInt, optString + " logId: " + Long.valueOf(jSONObject.optLong("log_id")));
@@ -81,21 +85,17 @@ public class Auth {
         }
     }
 
-    private boolean px() {
-        return System.currentTimeMillis() > this.mExpiresTime;
-    }
-
     public String getToken(Context context) {
         String str;
         String str2 = null;
-        if (px() || this.mToken == null) {
-            if (this.RW == 0) {
+        if (pF() || this.mToken == null) {
+            if (this.Sl == 0) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/sk?channel=ar";
-                str = g(context, this.RX, this.RY);
+                str = g(context, this.Sm, this.Sn);
             } else {
                 str = null;
             }
-            if (this.RW == 1) {
+            if (this.Sl == 1) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/bin?channel=ar";
                 str = aU(context);
             }

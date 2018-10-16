@@ -1,19 +1,18 @@
 package com.googlecode.mp4parser.boxes.piff;
 
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
 import com.googlecode.mp4parser.boxes.AbstractSampleEncryptionBox;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_5 = null;
 
     static {
         ajc$preClinit();
@@ -30,7 +29,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public PiffSampleEncryptionBox() {
-        super(UserBox.TYPE);
+        super("uuid");
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -44,7 +43,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.wz(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.yo(i)));
         this.algorithmId = i;
     }
 
@@ -54,7 +53,7 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
     }
 
     public void setIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.wz(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.yo(i)));
         this.ivSize = i;
     }
 

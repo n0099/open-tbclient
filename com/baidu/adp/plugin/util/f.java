@@ -3,54 +3,54 @@ package com.baidu.adp.plugin.util;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f implements Comparable<f> {
-    int LH;
-    int LI;
-    int LJ;
-    int LK;
-    int LM;
-    int LN;
+    int Mh;
+    int Mi;
+    int mDay;
+    int mMinute;
+    int mMonth;
+    int mYear;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.LH = i;
-        this.LI = i2;
-        this.LJ = i3;
-        this.LK = i4;
-        this.LM = i5;
-        this.LN = i6;
+        this.mYear = i;
+        this.mMonth = i2;
+        this.mDay = i3;
+        this.Mh = i4;
+        this.mMinute = i5;
+        this.Mi = i6;
     }
 
     public String toString() {
-        return this.LH + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.LI + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.LJ + " " + this.LK + ":" + this.LM + ":" + this.LN;
+        return this.mYear + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMonth + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mDay + " " + this.Mh + ":" + this.mMinute + ":" + this.Mi;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        if (this.LH - fVar.LH > 0) {
+        if (this.mYear - fVar.mYear > 0) {
             return 1;
         }
-        if (this.LH - fVar.LH < 0) {
+        if (this.mYear - fVar.mYear < 0) {
             return -1;
         }
-        if (this.LI - fVar.LI <= 0) {
-            if (this.LI - fVar.LI < 0) {
+        if (this.mMonth - fVar.mMonth <= 0) {
+            if (this.mMonth - fVar.mMonth < 0) {
                 return -1;
             }
-            if (this.LJ - fVar.LJ <= 0) {
-                if (this.LJ - fVar.LJ < 0) {
+            if (this.mDay - fVar.mDay <= 0) {
+                if (this.mDay - fVar.mDay < 0) {
                     return -1;
                 }
-                if (this.LK - fVar.LK <= 0) {
-                    if (this.LK - fVar.LK < 0) {
+                if (this.Mh - fVar.Mh <= 0) {
+                    if (this.Mh - fVar.Mh < 0) {
                         return -1;
                     }
-                    if (this.LM - fVar.LM <= 0) {
-                        if (this.LM - fVar.LM < 0) {
+                    if (this.mMinute - fVar.mMinute <= 0) {
+                        if (this.mMinute - fVar.mMinute < 0) {
                             return -1;
                         }
-                        if (this.LN - fVar.LN <= 0) {
-                            return this.LN - fVar.LN < 0 ? -1 : 0;
+                        if (this.Mi - fVar.Mi <= 0) {
+                            return this.Mi - fVar.Mi < 0 ? -1 : 0;
                         }
                         return 1;
                     }

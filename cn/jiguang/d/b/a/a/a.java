@@ -8,6 +8,6 @@ public final class a extends i {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // cn.jiguang.d.b.a.a.i
     public final int a() {
-        return b(a(this.kG.bt()));
+        return b(a(this.lk.bK()));
     }
 }

@@ -11,9 +11,9 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.MovementMethod;
 import android.text.style.URLSpan;
 import android.text.util.Linkify;
-import android.webkit.WebView;
 import android.widget.TextView;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.webkit.sdk.WebView;
 import java.io.UnsupportedEncodingException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -67,7 +67,7 @@ public final class LinkifyCompat {
             gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_WEB_URL, new String[]{"http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, "rtsp://"}, Linkify.sUrlMatchFilter, null);
         }
         if ((i & 2) != 0) {
-            gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{"mailto:"}, null, null);
+            gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{WebView.SCHEME_MAILTO}, null, null);
         }
         if ((i & 8) != 0) {
             gatherMapLinks(arrayList, spannable);
@@ -229,7 +229,7 @@ public final class LinkifyCompat {
         int i = 0;
         while (true) {
             try {
-                String findAddress = WebView.findAddress(obj);
+                String findAddress = android.webkit.WebView.findAddress(obj);
                 if (findAddress != null && (indexOf = obj.indexOf(findAddress)) >= 0) {
                     LinkSpec linkSpec = new LinkSpec();
                     int length = findAddress.length() + indexOf;
@@ -238,7 +238,7 @@ public final class LinkifyCompat {
                     obj = obj.substring(length);
                     i += length;
                     try {
-                        linkSpec.url = "geo:0,0?q=" + URLEncoder.encode(findAddress, "UTF-8");
+                        linkSpec.url = WebView.SCHEME_GEO + URLEncoder.encode(findAddress, "UTF-8");
                         arrayList.add(linkSpec);
                     } catch (UnsupportedEncodingException e) {
                     }

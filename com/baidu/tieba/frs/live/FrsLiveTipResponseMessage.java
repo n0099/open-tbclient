@@ -4,11 +4,11 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.tencent.open.SocialConstants;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
     public AlaLiveInfoCoreData infoCoreData;
     public AlaLiveInfoListCoreData listCoreData;
@@ -63,10 +63,10 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
         alaLiveInfoCoreData.userID = jSONObject.optLong("user_id");
         alaLiveInfoCoreData.userName = jSONObject.optString("user_name");
         alaLiveInfoCoreData.groupID = jSONObject.optLong("group_id");
-        alaLiveInfoCoreData.sessionID = jSONObject.optString("session_id");
+        alaLiveInfoCoreData.sessionID = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
         alaLiveInfoCoreData.liveType = jSONObject.optInt("live_type");
         alaLiveInfoCoreData.screenDirection = jSONObject.optInt("screen_direction");
-        alaLiveInfoCoreData.liveTitle = jSONObject.optString(SocialConstants.PARAM_COMMENT);
+        alaLiveInfoCoreData.liveTitle = jSONObject.optString("description");
         alaLiveInfoCoreData.liveCover = jSONObject.optString("cover");
         JSONObject optJSONObject = jSONObject.optJSONObject("session_info_backup");
         if (optJSONObject != null) {

@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import cn.jpush.android.service.PushService;
+import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes3.dex */
 public final class l {
     private static final Object c = new Object();
-    private static volatile l lx;
+    private static volatile l mc;
     private boolean a;
     private Context b;
     private boolean e;
@@ -22,65 +23,65 @@ public final class l {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(l lVar, String str, Bundle bundle) {
         try {
-            cn.jiguang.d.b.d.bx().a(lVar.b);
+            cn.jiguang.d.b.d.bO().a(lVar.b);
             String str2 = b(lVar.b) + ".";
             if (str.startsWith(str2)) {
                 str = str.substring(str2.length());
             }
             if (str.equals("intent.INIT")) {
                 if (cn.jiguang.d.b.g.a.get() == 0) {
-                    cn.jiguang.d.b.d.bx().f();
+                    cn.jiguang.d.b.d.bO().f();
                 }
             } else if (str.equals("senddata.action")) {
                 if (cn.jiguang.d.b.g.a.get() == 0) {
-                    cn.jiguang.d.b.d.bx().f();
+                    cn.jiguang.d.b.d.bO().f();
                     return;
                 }
                 byte[] byteArray = bundle.getByteArray(IntentConfig.DATAS);
                 if (byteArray != null) {
                     byte[] a = cn.jiguang.d.e.a.a.b.a(cn.jiguang.d.a.d.a(), 0L, byteArray);
-                    if (cn.jiguang.d.g.c.bP().bQ().j(cn.jiguang.d.e.a.a.b.a(a, 1)) == 6026) {
+                    if (cn.jiguang.d.g.c.cg().ch().j(cn.jiguang.d.e.a.a.b.a(a, 1)) == 6026) {
                         int i = bundle.getInt(IntentConfig.CMD);
                         String string = bundle.getString("sdktype");
                         cn.jiguang.g.a.m(a);
-                        e.bD().a(lVar.b, string, cn.jiguang.g.a.m(a), i, 6026);
+                        e.bU().a(lVar.b, string, cn.jiguang.g.a.m(a), i, 6026);
                     }
                 }
             } else if ("intent.RTC".equals(str)) {
-                cn.jiguang.d.b.d.bx().b(bundle.getBoolean("force"), bundle.getLong("rtc_delay", 0L));
+                cn.jiguang.d.b.d.bO().b(bundle.getBoolean("force"), bundle.getLong("rtc_delay", 0L));
             } else if ("intent.CONNECTIVITY_CHANGE".equals(str)) {
-                cn.jiguang.d.b.d.bx().a(bundle);
+                cn.jiguang.d.b.d.bO().a(bundle);
                 if (bundle.getBoolean("connection-state", false)) {
                     aa.a(lVar.b);
                 }
             } else if (str.equals("run.action")) {
                 String string2 = bundle.getString("sdktype");
-                e.bD();
-                e.a(lVar.b, string2, cn.jiguang.d.b.g.a.get(), bundle, cn.jiguang.d.b.d.bx().by());
+                e.bU();
+                e.a(lVar.b, string2, cn.jiguang.d.b.g.a.get(), bundle, cn.jiguang.d.b.d.bO().bP());
             } else if (str.equals("intent.STOPPUSH")) {
                 String string3 = bundle.getString("sdktype");
-                cn.jiguang.d.b.d bx = cn.jiguang.d.b.d.bx();
+                cn.jiguang.d.b.d bO = cn.jiguang.d.b.d.bO();
                 cn.jiguang.d.a.b(lVar.b);
-                bx.b(string3, bundle);
+                bO.b(string3, bundle);
             } else if (str.equals("intent.RESTOREPUSH")) {
                 String string4 = bundle.getString("sdktype");
-                cn.jiguang.d.b.d bx2 = cn.jiguang.d.b.d.bx();
+                cn.jiguang.d.b.d bO2 = cn.jiguang.d.b.d.bO();
                 cn.jiguang.d.a.b(lVar.b);
-                bx2.a(string4, bundle);
+                bO2.a(string4, bundle);
             } else if (str.equals("sendrequestdata.action")) {
                 byte[] byteArray2 = bundle.getByteArray(IntentConfig.DATAS);
-                int i2 = bundle.getInt("timeout");
+                int i2 = bundle.getInt(AiAppsBluetoothConstants.KEY_TIME_OUT);
                 String string5 = bundle.getString("sdktype");
-                cn.jiguang.d.b.d.bx();
+                cn.jiguang.d.b.d.bO();
                 cn.jiguang.d.b.d.a(byteArray2, string5, i2);
             } else if (str.equals("intent.power.save")) {
-                cn.jiguang.d.b.d.bx().a(bundle.getBoolean("key_power_save"));
+                cn.jiguang.d.b.d.bO().a(bundle.getBoolean("key_power_save"));
             } else if (str.equals("cn.jpush.android.intent.check.notification.state")) {
                 cn.jiguang.a.c.c.b(lVar.b, bundle.getInt("key_trigger_scene"));
             } else if (str.equals("report_history")) {
                 aa.a(lVar.b);
             } else if (str.equals("intent.PERIOD_RESUME")) {
-                o.bJ().b(lVar.b, bundle.getBoolean("force"));
+                o.ca().b(lVar.b, bundle.getBoolean("force"));
             }
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JServiceCommandHelper", "handleAction failed", th);
@@ -112,15 +113,15 @@ public final class l {
         return str == null ? "" : str;
     }
 
-    public static l bI() {
-        if (lx == null) {
+    public static l bZ() {
+        if (mc == null) {
             synchronized (c) {
-                if (lx == null) {
-                    lx = new l();
+                if (mc == null) {
+                    mc = new l();
                 }
             }
         }
-        return lx;
+        return mc;
     }
 
     private static boolean c(String str, Bundle bundle) {

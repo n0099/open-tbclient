@@ -11,6 +11,8 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.utils.ChannelUtils;
 import com.baidu.fsg.base.utils.Crypto;
 import com.baidu.fsg.base.utils.Md5Utils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
@@ -21,7 +23,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class PayUtils {
     private static final String API_SECRET = "";
     public static final String KEY_CARD_NO = "card_no";
@@ -59,7 +61,7 @@ public final class PayUtils {
     public static String genAPIsig(List<RestNameValuePair> list) {
         ArrayList arrayList = new ArrayList();
         for (RestNameValuePair restNameValuePair : list) {
-            arrayList.add(restNameValuePair.getName() + "=" + restNameValuePair.getValue());
+            arrayList.add(restNameValuePair.getName() + ETAG.EQUAL + restNameValuePair.getValue());
         }
         return getSign(arrayList);
     }
@@ -69,7 +71,7 @@ public final class PayUtils {
         StringBuffer stringBuffer = new StringBuffer();
         for (String str : list) {
             stringBuffer.append(str);
-            stringBuffer.append("&");
+            stringBuffer.append(ETAG.ITEM_SEPARATOR);
         }
         stringBuffer.append("key=");
         stringBuffer.append("");
@@ -124,7 +126,7 @@ public final class PayUtils {
         restNameValuePair.setValue(str);
         arrayList.add(restNameValuePair);
         try {
-            messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
         } catch (NoSuchAlgorithmException e2) {
             e2.printStackTrace();
             messageDigest = null;
@@ -182,7 +184,7 @@ public final class PayUtils {
     public static List<String> mapToList(Map<String, String> map) {
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<String, String> entry : map.entrySet()) {
-            arrayList.add(entry.getKey().toString() + "=" + (TextUtils.isEmpty(entry.getValue()) ? "" : entry.getValue().toString()));
+            arrayList.add(entry.getKey().toString() + ETAG.EQUAL + (TextUtils.isEmpty(entry.getValue()) ? "" : entry.getValue().toString()));
         }
         if (arrayList == null || arrayList.size() <= 0) {
             return null;
@@ -195,7 +197,7 @@ public final class PayUtils {
         StringBuffer stringBuffer = new StringBuffer();
         for (String str2 : list) {
             stringBuffer.append(str2);
-            stringBuffer.append("&");
+            stringBuffer.append(ETAG.ITEM_SEPARATOR);
         }
         stringBuffer.append("key=");
         stringBuffer.append(str);
@@ -203,7 +205,7 @@ public final class PayUtils {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ParamComparator implements Comparator<String> {
         private ParamComparator() {
         }

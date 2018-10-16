@@ -3,7 +3,7 @@ package com.baidu.adp.lib.webSocket;
 public interface n {
     void O(int i);
 
-    void gi();
+    void gB();
 
-    void gj();
+    void gC();
 }

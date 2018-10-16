@@ -2,7 +2,7 @@ package com.baidu.fsg.face.base;
 
 import android.content.Context;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends d {
     public static final String a = "1.3.7";
     public static final int b = 32;

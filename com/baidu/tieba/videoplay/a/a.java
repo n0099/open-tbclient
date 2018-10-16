@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.sharedPref.b;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private int dPH = -1;
-    private int dPE = b.getInstance().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> dPF = new HashSet();
+    private int dXC = -1;
+    private int dXz = b.getInstance().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> dXA = new HashSet();
 
-    public void vy(int i) {
-        this.dPF.add(Integer.valueOf(i));
-        if (this.dPE == this.dPF.size()) {
-            this.dPH = i;
+    public void vV(int i) {
+        this.dXA.add(Integer.valueOf(i));
+        if (this.dXz == this.dXA.size()) {
+            this.dXC = i;
         }
     }
 
-    public int aDk() {
-        return this.dPH;
+    public int aGC() {
+        return this.dXC;
     }
 
-    public boolean gR(boolean z) {
+    public boolean hj(boolean z) {
         boolean z2 = b.getInstance().getBoolean("nani_key_is_show_download_nani_panel", true);
         boolean z3 = b.getInstance().getBoolean("nani_key_is_activate_app", false);
         String string = b.getInstance().getString("nani_key_download_link_url", null);
@@ -32,15 +32,15 @@ public class a {
             case 1:
                 return true;
             case 2:
-                return gS(z);
+                return hk(z);
             case 3:
-                return gT(z);
+                return hl(z);
             default:
                 return false;
         }
     }
 
-    private boolean gS(boolean z) {
+    private boolean hk(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);
@@ -50,7 +50,7 @@ public class a {
         return j <= 0 || System.currentTimeMillis() - j >= 86400000;
     }
 
-    private boolean gT(boolean z) {
+    private boolean hl(boolean z) {
         long j;
         if (z) {
             j = b.getInstance().getLong("key_vertical_shown_time", -1L);

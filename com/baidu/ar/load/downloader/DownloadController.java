@@ -210,7 +210,7 @@ public class DownloadController {
                 this.p = bundle.getInt(DownloadConstants.QUERY_REQUEST_MODE);
             }
             this.r = (IDownloadParamsParser) map.get(DownloadConstants.DOWNLOAD_PARAMS_PARSER);
-            this.s = (String) map.get(DownloadConstants.DOWNLOAD_URL);
+            this.s = (String) map.get("download_url");
             this.t = (String) map.get(DownloadConstants.DOWNLOAD_SAVE_PATH);
             this.u = (DownloadTask.FileStoreStrategy) map.get(DownloadConstants.FILE_STORE_STRATEGY);
             this.x = (String) map.get(DownloadConstants.TARGET_PATH);

@@ -8,7 +8,6 @@ import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
 import android.util.SparseArray;
 import com.baidu.tbadk.core.util.UtilHelper;
 import java.io.ByteArrayInputStream;
@@ -16,7 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static byte[] a(int i, int i2, Bitmap bitmap) {
         try {
@@ -44,7 +43,7 @@ public class c {
             int i11 = i8;
             int i12 = i7;
             while (i10 < i) {
-                int i13 = (iArr[i11] & ViewCompat.MEASURED_STATE_MASK) >> 24;
+                int i13 = (iArr[i11] & (-16777216)) >> 24;
                 int i14 = (iArr[i11] & 16711680) >> 16;
                 int i15 = (iArr[i11] & MotionEventCompat.ACTION_POINTER_INDEX_MASK) >> 8;
                 int i16 = (iArr[i11] & 255) >> 0;
@@ -123,7 +122,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void aI(Context context, String str) {
+    public static void aK(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
@@ -186,7 +185,7 @@ public class c {
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public int color;
         public int x;

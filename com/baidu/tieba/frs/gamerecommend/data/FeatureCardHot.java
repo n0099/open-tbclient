@@ -11,6 +11,6 @@ public class FeatureCardHot extends OrmObject {
     public String type;
 
     public boolean isValid() {
-        return !v.z(this.sub_nodes);
+        return !v.J(this.sub_nodes);
     }
 }

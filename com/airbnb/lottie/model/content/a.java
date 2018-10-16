@@ -7,15 +7,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements b {
     private final String name;
-    private final m<PointF, PointF> qc;
-    private final com.airbnb.lottie.model.a.f ql;
-    private final boolean qm;
+    private final m<PointF, PointF> qP;
+    private final com.airbnb.lottie.model.a.f qX;
+    private final boolean qY;
 
     private a(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.qc = mVar;
-        this.ql = fVar;
-        this.qm = z;
+        this.qP = mVar;
+        this.qX = fVar;
+        this.qY = z;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -26,7 +26,7 @@ public class a implements b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.airbnb.lottie.model.content.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0009a {
+    public static class C0012a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static a o(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             return new a(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject("s"), eVar), jSONObject.optInt("d", 2) == 3);
@@ -37,15 +37,15 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> dB() {
-        return this.qc;
+    public m<PointF, PointF> dT() {
+        return this.qP;
     }
 
-    public com.airbnb.lottie.model.a.f dL() {
-        return this.ql;
+    public com.airbnb.lottie.model.a.f ed() {
+        return this.qX;
     }
 
     public boolean isReversed() {
-        return this.qm;
+        return this.qY;
     }
 }

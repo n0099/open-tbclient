@@ -13,11 +13,11 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
-            configuration.AQ = parcel.readInt();
-            configuration.AR = parcel.readInt();
-            configuration.AT = parcel.readInt();
-            configuration.AU = parcel.readByte() == 1;
-            configuration.AV = parcel.readByte() == 1;
+            configuration.Bz = parcel.readInt();
+            configuration.BA = parcel.readInt();
+            configuration.BB = parcel.readInt();
+            configuration.BC = parcel.readByte() == 1;
+            configuration.BD = parcel.readByte() == 1;
             return configuration;
         }
 
@@ -28,17 +28,17 @@ public class Configuration implements Parcelable {
             return new Configuration[i];
         }
     };
-    boolean AP;
+    boolean mOutsideTouchable;
     View mTargetView = null;
     int mAlpha = 255;
-    int AQ = -1;
-    int AR = -1;
-    int AT = 17170444;
-    boolean AU = true;
-    boolean AV = false;
-    boolean AW = false;
-    int AX = -1;
-    int AY = -1;
+    int Bz = -1;
+    int BA = -1;
+    int BB = 17170444;
+    boolean BC = true;
+    boolean BD = false;
+    boolean BE = false;
+    int BF = -1;
+    int BG = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -48,10 +48,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
-        parcel.writeInt(this.AQ);
-        parcel.writeInt(this.AR);
-        parcel.writeInt(this.AT);
-        parcel.writeByte((byte) (this.AU ? 1 : 0));
-        parcel.writeByte((byte) (this.AV ? 1 : 0));
+        parcel.writeInt(this.Bz);
+        parcel.writeInt(this.BA);
+        parcel.writeInt(this.BB);
+        parcel.writeByte((byte) (this.BC ? 1 : 0));
+        parcel.writeByte((byte) (this.BD ? 1 : 0));
     }
 }

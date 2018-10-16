@@ -1,26 +1,26 @@
 package com.baidu.tieba.video.meida;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class d {
     int channelCount;
-    String hpm;
-    int hpn;
+    String hwA;
+    int sampleRate;
 
-    public abstract void vK(String str);
+    public abstract void wl(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.hpm = str;
+        this.hwA = str;
     }
 
     public void setSampleRate(int i) {
-        this.hpn = i;
+        this.sampleRate = i;
     }
 
     public void setChannelCount(int i) {
         this.channelCount = i;
     }
 
-    public static d vL(String str) {
+    public static d wm(String str) {
         return new a(str);
     }
 }

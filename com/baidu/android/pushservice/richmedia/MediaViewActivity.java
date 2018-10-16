@@ -50,7 +50,7 @@ public class MediaViewActivity extends Activity {
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             String substring;
-            if (str.startsWith("tel:")) {
+            if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_TEL)) {
                 try {
                     Intent intent = new Intent("android.intent.action.DIAL");
                     intent.setData(Uri.parse(str));
@@ -64,7 +64,7 @@ public class MediaViewActivity extends Activity {
                     MediaViewActivity.this.startActivity(intent2);
                 } catch (ActivityNotFoundException e2) {
                 }
-            } else if (str.startsWith("mailto:")) {
+            } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
                 try {
                     Intent intent3 = new Intent("android.intent.action.VIEW");
                     intent3.setData(Uri.parse(str));

@@ -1,18 +1,18 @@
 package com.baidu.tieba.video.record;
 
 import android.animation.Animator;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class m implements Animator.AnimatorListener {
-    protected boolean htH = false;
+    protected boolean hAT = false;
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationStart(Animator animator) {
-        this.htH = false;
+        this.hAT = false;
     }
 
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {
-        this.htH = true;
+        this.hAT = true;
     }
 
     @Override // android.animation.Animator.AnimatorListener

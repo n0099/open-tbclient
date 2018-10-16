@@ -10,6 +10,7 @@ import android.support.compat.R;
 import android.support.v4.provider.FontRequest;
 import android.util.Base64;
 import android.util.Xml;
+import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaFont;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -156,7 +157,7 @@ public class FontResourcesParserCompat {
         ArrayList arrayList = new ArrayList();
         while (xmlPullParser.next() != 3) {
             if (xmlPullParser.getEventType() == 2) {
-                if (xmlPullParser.getName().equals("font")) {
+                if (xmlPullParser.getName().equals(DaFont.ACTION_TYPE)) {
                     arrayList.add(readFont(xmlPullParser, resources));
                 } else {
                     skip(xmlPullParser);

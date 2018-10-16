@@ -10,37 +10,37 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private VideoTopicFragment dTQ;
-    private b dTV;
-    l dwv;
-    private m dzV;
+    l dEw;
+    private m dHV;
+    private VideoTopicFragment ebJ;
+    private b ebO;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public a(VideoTopicFragment videoTopicFragment, m mVar) {
-        this.dTQ = videoTopicFragment;
-        this.dzV = mVar;
+        this.ebJ = videoTopicFragment;
+        this.dHV = mVar;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dTV = new b(this.dTQ.getPageContext(), bb.akm, this.dTQ.getUniqueId());
-        this.dwv = new l(this.dTQ.getPageContext(), com.baidu.tieba.frs.m.duQ);
-        this.mAdapters.add(this.dwv);
-        this.mAdapters.add(this.dTV);
-        this.dzV.addAdapters(this.mAdapters);
+        this.ebO = new b(this.ebJ.getPageContext(), bb.aph, this.ebJ.getUniqueId());
+        this.dEw = new l(this.ebJ.getPageContext(), com.baidu.tieba.frs.m.dCR);
+        this.mAdapters.add(this.dEw);
+        this.mAdapters.add(this.ebO);
+        this.dHV.addAdapters(this.mAdapters);
     }
 
     public void setForumId(String str) {
-        this.dTV.setForumId(str);
+        this.ebO.setForumId(str);
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.dzV.setData(arrayList);
+        this.dHV.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        if (this.dzV.getListAdapter() != null) {
-            this.dzV.getListAdapter().notifyDataSetChanged();
+        if (this.dHV.getListAdapter() != null) {
+            this.dHV.getListAdapter().notifyDataSetChanged();
         }
     }
 

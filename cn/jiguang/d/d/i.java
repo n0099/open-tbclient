@@ -9,7 +9,7 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public final class i {
     private static final Object g = new Object();
-    private static volatile i lv;
+    private static volatile i ma;
     private boolean a;
     private boolean b;
     private boolean c;
@@ -31,7 +31,7 @@ public final class i {
     }
 
     private static String a(Context context, String str) {
-        e.bD();
+        e.bU();
         String j = e.j(str, "");
         return (TextUtils.isEmpty(j) || j.equals(cn.jiguang.d.a.d.b(context, str))) ? "" : j;
     }
@@ -52,24 +52,24 @@ public final class i {
         bVar.f(str.getBytes());
         bVar.l(bVar.current(), 0);
         byte[] byteArray = bVar.toByteArray();
-        cn.jiguang.d.b.d.bx();
+        cn.jiguang.d.b.d.bO();
         cn.jiguang.d.b.d.a(byteArray, SdkType.JCORE.name(), 0);
         this.h.put(Long.valueOf(f), str2);
     }
 
-    public static i bG() {
-        if (lv == null) {
+    public static i bX() {
+        if (ma == null) {
             synchronized (g) {
-                if (lv == null) {
-                    lv = new i();
+                if (ma == null) {
+                    ma = new i();
                 }
             }
         }
-        return lv;
+        return ma;
     }
 
     public static boolean e() {
-        e.bD();
+        e.bU();
         return e.a(0);
     }
 
@@ -148,19 +148,19 @@ public final class i {
     public final void a(Context context, long j) {
         String remove = this.h.remove(Long.valueOf(j));
         if (!TextUtils.isEmpty(remove)) {
-            e.bD();
+            e.bU();
             TextUtils.isEmpty(e.j(remove, ""));
         }
         if ((this.h != null && !this.h.isEmpty()) || this.b || this.a) {
             return;
         }
-        cn.jiguang.d.b.d.bx().c();
+        cn.jiguang.d.b.d.bO().c();
     }
 
     public final void b(Context context, long j) {
         String remove = this.h.remove(Long.valueOf(j));
         if (!TextUtils.isEmpty(remove)) {
-            e.bD();
+            e.bU();
             String j2 = e.j(remove, "");
             if (!TextUtils.isEmpty(j2)) {
                 cn.jiguang.d.a.d.a(context, remove, j2);
@@ -169,7 +169,7 @@ public final class i {
         if (b(context)) {
             return;
         }
-        cn.jiguang.d.b.d.bx().c();
+        cn.jiguang.d.b.d.bO().c();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:? A[RETURN, SYNTHETIC] */
@@ -202,7 +202,7 @@ public final class i {
         return true;
     }
 
-    public final short bH() {
+    public final short bY() {
         short s = this.a ? (short) 1 : (short) 0;
         return this.b ? (cn.jiguang.d.a.a.u() >= 0 || cn.jiguang.d.a.a.t()) ? (short) (s | 32) : (short) (s | 64) : s;
     }
@@ -226,7 +226,7 @@ public final class i {
         if ((this.h != null && !this.h.isEmpty()) || this.b || this.a) {
             return;
         }
-        cn.jiguang.d.b.d.bx().c();
+        cn.jiguang.d.b.d.bO().c();
     }
 
     public final short d() {

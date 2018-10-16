@@ -3,8 +3,8 @@ package com.baidu.tieba.myAttentionAndFans.message;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.tbadk.core.c.a;
 import com.baidu.tbadk.core.data.aq;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -41,8 +41,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            this.mErrCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
-            this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            this.mErrCode = jSONObject.optInt("error_code");
+            this.mErrMsg = jSONObject.optString("error_msg");
             this.data = new aq();
             this.data.parserJson(jSONObject);
         }
@@ -58,16 +58,16 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = httpMessage.getTag();
             Map map = (Map) httpMessage.getExtra();
             if (map != null) {
-                if ((map.get("page") == null || map.get("page").equals("0")) && map.get("id") != null) {
+                if ((map.get(SystemScreenshotManager.PAGE) == null || map.get(SystemScreenshotManager.PAGE).equals("0")) && map.get("id") != null) {
                     if (tag != null && tag.equals(PersonListModel.FOLLOWME)) {
                         z = true;
                     } else {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> dQ = a.yh().dQ("tb.my_pages");
-                    if (dQ != null) {
-                        dQ.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
+                    l<String> eg = a.Aq().eg("tb.my_pages");
+                    if (eg != null) {
+                        eg.a((z ? "personal_followme" : "personal_myfollow") + BaseRequestAction.SPLITE + map.get("id"), str, 604800000L);
                     }
                 }
             }

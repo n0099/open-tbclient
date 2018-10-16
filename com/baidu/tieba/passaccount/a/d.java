@@ -6,20 +6,20 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d implements com.baidu.tbadk.coreExtra.a.c {
-    private static d fxg;
+    private static d fEI;
 
     private d() {
     }
 
-    public static synchronized d baU() {
+    public static synchronized d beg() {
         d dVar;
         synchronized (d.class) {
-            if (fxg == null) {
-                fxg = new d();
+            if (fEI == null) {
+                fEI = new d();
             }
-            dVar = fxg;
+            dVar = fEI;
         }
         return dVar;
     }
@@ -38,7 +38,7 @@ public class d implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void CH() {
+    public void EL() {
         try {
             SapiAccountManager.getInstance().logout();
         } catch (Exception e) {

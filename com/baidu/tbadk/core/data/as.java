@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import tbclient.RecomPostTopic;
 /* loaded from: classes.dex */
 public class as {
-    public long ajx;
+    public long aos;
     public String recom_title;
     public String recom_topic;
 
@@ -11,7 +11,7 @@ public class as {
         if (recomPostTopic != null) {
             this.recom_title = recomPostTopic.recom_title;
             this.recom_topic = recomPostTopic.recom_topic;
-            this.ajx = recomPostTopic.uniq_topicid.longValue();
+            this.aos = recomPostTopic.uniq_topicid.longValue();
         }
     }
 }

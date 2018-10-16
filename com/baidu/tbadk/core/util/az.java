@@ -6,7 +6,7 @@ import android.view.View;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class az {
-    public static Rect w(Activity activity) {
+    public static Rect y(Activity activity) {
         Rect rect = new Rect();
         View decorView = activity.getWindow().getDecorView();
         int windowVisibility = decorView.getWindowVisibility();

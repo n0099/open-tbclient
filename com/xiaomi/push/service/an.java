@@ -89,15 +89,15 @@ public class an extends at.a implements HostManager.HostManagerFactory {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(a.C0298a c0298a) {
+    public void a(a.C0351a c0351a) {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(b.C0299b c0299b) {
+    public void a(b.C0352b c0352b) {
         Fallback fallbacksByHost;
         boolean z;
-        if (c0299b.e() && c0299b.d() && System.currentTimeMillis() - this.b > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0299b.d());
+        if (c0352b.e() && c0352b.d() && System.currentTimeMillis() - this.b > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0352b.d());
             this.b = System.currentTimeMillis();
             HostManager hostManager = HostManager.getInstance();
             hostManager.clear();

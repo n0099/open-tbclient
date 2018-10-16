@@ -6,56 +6,56 @@ import android.os.Message;
 import android.widget.MediaController;
 /* loaded from: classes.dex */
 public class j {
-    private MediaController.MediaPlayerControl btE;
-    private a cEH;
-    private c gmw;
-    private b gmx;
-    private int gmu = 1000;
-    private int gmv = 0;
+    private MediaController.MediaPlayerControl bxJ;
+    private a cNb;
+    private c gtY;
+    private b gtZ;
+    private int gtW = 1000;
+    private int gtX = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message != null && message.what == 1 && j.this.btE != null && j.this.btE.isPlaying()) {
-                int currentPosition = j.this.btE.getCurrentPosition();
-                int duration = j.this.btE.getDuration();
-                if (currentPosition < j.this.gmv) {
-                    if (j.this.cEH != null) {
-                        j.this.cEH.akC();
+            if (message != null && message.what == 1 && j.this.bxJ != null && j.this.bxJ.isPlaying()) {
+                int currentPosition = j.this.bxJ.getCurrentPosition();
+                int duration = j.this.bxJ.getDuration();
+                if (currentPosition < j.this.gtX) {
+                    if (j.this.cNb != null) {
+                        j.this.cNb.aoe();
                     }
-                } else if (currentPosition == j.this.gmv && j.this.gmw != null) {
-                    j.this.gmw.Vo();
+                } else if (currentPosition == j.this.gtX && j.this.gtY != null) {
+                    j.this.gtY.YV();
                 }
-                if (j.this.gmx != null) {
-                    j.this.gmx.bz(duration, currentPosition);
+                if (j.this.gtZ != null) {
+                    j.this.gtZ.bC(duration, currentPosition);
                 }
-                j.this.gmv = currentPosition;
-                j.this.bmQ();
+                j.this.gtX = currentPosition;
+                j.this.bqe();
             }
         }
     };
 
     /* loaded from: classes.dex */
     public interface a {
-        void akC();
+        void aoe();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void bz(int i, int i2);
+        void bC(int i, int i2);
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void Vo();
+        void YV();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.btE = mediaPlayerControl;
+        this.bxJ = mediaPlayerControl;
     }
 
     public void start() {
-        this.gmv = 0;
-        bmQ();
+        this.gtX = 0;
+        bqe();
     }
 
     public void stop() {
@@ -63,20 +63,20 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bmQ() {
+    public void bqe() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.gmu);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.gtW);
     }
 
     public void a(a aVar) {
-        this.cEH = aVar;
+        this.cNb = aVar;
     }
 
     public void a(c cVar) {
-        this.gmw = cVar;
+        this.gtY = cVar;
     }
 
     public void a(b bVar) {
-        this.gmx = bVar;
+        this.gtZ = bVar;
     }
 }

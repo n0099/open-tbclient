@@ -1,7 +1,7 @@
 package com.baidu.tieba.account;
 
 import com.baidu.tbadk.TiebaDatabase;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static void deleteAccountAllInfo(String str) {
         if (str != null) {

@@ -2,29 +2,29 @@ package com.coloros.mcssdk.a;
 
 import android.content.Context;
 import android.content.Intent;
-import com.tencent.open.SocialConstants;
+import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 /* loaded from: classes3.dex */
 public final class e extends c {
     @Override // com.coloros.mcssdk.a.d
     public final com.coloros.mcssdk.e.c a(Context context, int i, Intent intent) {
         if (4103 == i) {
-            com.coloros.mcssdk.e.c ak = ak(intent);
-            com.coloros.mcssdk.a.a(context, (com.coloros.mcssdk.e.d) ak, "push_transmit");
-            return ak;
+            com.coloros.mcssdk.e.c ao = ao(intent);
+            com.coloros.mcssdk.a.a(context, (com.coloros.mcssdk.e.d) ao, "push_transmit");
+            return ao;
         }
         return null;
     }
 
-    public final com.coloros.mcssdk.e.c ak(Intent intent) {
+    public final com.coloros.mcssdk.e.c ao(Intent intent) {
         try {
             com.coloros.mcssdk.e.d dVar = new com.coloros.mcssdk.e.d();
-            dVar.wt(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            dVar.xk(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
-            dVar.xl(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
+            dVar.xa(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
+            dVar.yk(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WebSocketAction.PARAM_KEY_TASKID)));
+            dVar.yl(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             dVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
-            dVar.setDescription(com.coloros.mcssdk.c.a.a(intent.getStringExtra(SocialConstants.PARAM_COMMENT)));
-            dVar.xn(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
-            dVar.xm(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
+            dVar.setDescription(com.coloros.mcssdk.c.a.a(intent.getStringExtra("description")));
+            dVar.setAppID(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appID")));
+            dVar.ym(com.coloros.mcssdk.c.a.a(intent.getStringExtra("globalID")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + dVar.toString());
             return dVar;
         } catch (Exception e) {

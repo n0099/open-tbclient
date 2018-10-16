@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.utils;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LivenessVideoState {
     public static final int STATE_RECOG_FIRST = 1;
     public static final int STATE_RECOG_INIT = 0;

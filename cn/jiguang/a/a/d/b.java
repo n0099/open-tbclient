@@ -5,6 +5,9 @@ import android.content.Context;
 import cn.jiguang.d.d.aa;
 import cn.jiguang.g.i;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -13,10 +16,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    private static volatile b km = null;
+    private static volatile b kS = null;
     public static boolean a = false;
     public static boolean b = false;
-    private ExecutorService kn = Executors.newSingleThreadExecutor();
+    private ExecutorService kT = Executors.newSingleThreadExecutor();
     private String e = null;
     private String f = null;
     private long g = 30;
@@ -26,8 +29,8 @@ public class b {
     private boolean k = false;
     private boolean l = true;
     private long m = 0;
-    private JSONObject ko = null;
-    private final Object kp = new Object();
+    private JSONObject kU = null;
+    private final Object kV = new Object();
 
     private b() {
     }
@@ -47,13 +50,13 @@ public class b {
         boolean z = false;
         if (bVar.j) {
             bVar.j = false;
-            long c = cn.jiguang.a.b.c.bb().c(context, "last_pause", -1L);
+            long c = cn.jiguang.a.b.c.bs().c(context, "last_pause", -1L);
             if (c != -1) {
             }
             z = true;
         }
         if (!z) {
-            bVar.f = cn.jiguang.a.b.c.bb().a(context, "session_id", null);
+            bVar.f = cn.jiguang.a.b.c.bs().a(context, ETAG.KEY_STATISTICS_SEESIONID, null);
             return;
         }
         JSONArray jSONArray = new JSONArray();
@@ -61,7 +64,7 @@ public class b {
         if (e != null) {
             jSONArray.put(e);
         }
-        synchronized (bVar.kp) {
+        synchronized (bVar.kV) {
             d = bVar.d(context);
             if (d != null && d.length() > 0) {
                 try {
@@ -69,7 +72,7 @@ public class b {
                 } catch (Exception e2) {
                 }
                 aa.b(context, "jpush_stat_cache.json", null);
-                bVar.ko = null;
+                bVar.kU = null;
             }
         }
         if (d != null && d.length() > 0) {
@@ -80,8 +83,8 @@ public class b {
 
     private static void a(JSONObject jSONObject) {
         String a2 = cn.jiguang.d.h.c.a();
-        String str = a2.split("_")[0];
-        String str2 = a2.split("_")[1];
+        String str = a2.split(BaseRequestAction.SPLITE)[0];
+        String str2 = a2.split(BaseRequestAction.SPLITE)[1];
         jSONObject.put("date", str);
         jSONObject.put("time", str2);
     }
@@ -90,30 +93,30 @@ public class b {
     public static /* synthetic */ void b(b bVar, Context context) {
         long j;
         if (context != null) {
-            synchronized (bVar.kp) {
-                cn.jiguang.a.b.c.bb().d(context, "last_pause", bVar.i);
-                cn.jiguang.a.b.c.bb().d(context, "cur_seesion_end", bVar.i);
+            synchronized (bVar.kV) {
+                cn.jiguang.a.b.c.bs().d(context, "last_pause", bVar.i);
+                cn.jiguang.a.b.c.bs().d(context, "cur_seesion_end", bVar.i);
                 JSONObject d = bVar.d(context);
                 JSONObject jSONObject = d == null ? new JSONObject() : d;
                 try {
-                    long c = cn.jiguang.a.b.c.bb().c(context, "cur_session_start", 0L);
+                    long c = cn.jiguang.a.b.c.bs().c(context, "cur_session_start", 0L);
                     if (c == 0) {
                         long j2 = bVar.i - bVar.m;
                         j = j2 > 0 ? j2 / 1000 : 10L;
-                        cn.jiguang.a.b.c.bb().d(context, "cur_session_start", bVar.m);
+                        cn.jiguang.a.b.c.bs().d(context, "cur_session_start", bVar.m);
                     } else {
                         j = (bVar.i - c) / 1000;
                     }
                     jSONObject.put("duration", j);
-                    jSONObject.put("itime", cn.jiguang.d.a.a.bp());
-                    jSONObject.put("session_id", bVar.f);
+                    jSONObject.put("itime", cn.jiguang.d.a.a.bG());
+                    jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, bVar.f);
                     a(jSONObject);
                 } catch (Exception e) {
                 }
-                bVar.ko = jSONObject;
-                if (bVar.ko != null) {
+                bVar.kU = jSONObject;
+                if (bVar.kU != null) {
                     try {
-                        aa.a(context, bVar.ko.toString().getBytes(IoUtils.UTF_8).length);
+                        aa.a(context, bVar.kU.toString().getBytes(IoUtils.UTF_8).length);
                     } catch (UnsupportedEncodingException e2) {
                     } catch (Exception e3) {
                     }
@@ -123,13 +126,13 @@ public class b {
         }
     }
 
-    public static b ba() {
-        if (km == null) {
+    public static b br() {
+        if (kS == null) {
             synchronized (b.class) {
-                km = new b();
+                kS = new b();
             }
         }
-        return km;
+        return kS;
     }
 
     private boolean c(Context context, String str) {
@@ -144,14 +147,14 @@ public class b {
     }
 
     private JSONObject d(Context context) {
-        if (this.ko == null) {
-            this.ko = aa.I(context, "jpush_stat_cache.json");
+        if (this.kU == null) {
+            this.kU = aa.I(context, "jpush_stat_cache.json");
         }
-        return this.ko;
+        return this.kU;
     }
 
     private JSONObject e(Context context, long j) {
-        cn.jiguang.a.b.c.bb().d(context, "cur_session_start", this.h);
+        cn.jiguang.a.b.c.bs().d(context, "cur_session_start", this.h);
         StringBuilder sb = new StringBuilder();
         String b2 = cn.jiguang.d.a.b(context);
         if (!i.a(b2)) {
@@ -163,12 +166,12 @@ public class b {
         }
         sb.append(j);
         this.f = cn.jiguang.g.a.a(sb.toString());
-        cn.jiguang.a.b.c.bb().b(context, "session_id", this.f);
+        cn.jiguang.a.b.c.bs().b(context, ETAG.KEY_STATISTICS_SEESIONID, this.f);
         JSONObject jSONObject = new JSONObject();
         try {
             a(jSONObject);
             aa.a(context, jSONObject, "active_launch");
-            jSONObject.put("session_id", this.f);
+            jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f);
             return jSONObject;
         } catch (JSONException e) {
             return null;
@@ -190,7 +193,7 @@ public class b {
             this.h = System.currentTimeMillis();
             this.e = context.getClass().getName();
             try {
-                this.kn.execute(new e(this, context.getApplicationContext()));
+                this.kT.execute(new e(this, context.getApplicationContext()));
             } catch (Throwable th) {
             }
         }
@@ -204,13 +207,13 @@ public class b {
         this.e = str;
         this.h = System.currentTimeMillis();
         try {
-            this.kn.execute(new c(this, context.getApplicationContext()));
+            this.kT.execute(new c(this, context.getApplicationContext()));
         } catch (Throwable th) {
         }
     }
 
     public final void b(Context context) {
-        if (c(context, "onPause")) {
+        if (c(context, AudioStatusCallback.ON_PAUSE)) {
             b = true;
             try {
                 this.k = true;
@@ -226,7 +229,7 @@ public class b {
                 this.i = System.currentTimeMillis();
                 this.m = this.h;
                 try {
-                    this.kn.execute(new f(this, context.getApplicationContext()));
+                    this.kT.execute(new f(this, context.getApplicationContext()));
                 } catch (Throwable th) {
                 }
             }
@@ -242,7 +245,7 @@ public class b {
             }
             this.i = System.currentTimeMillis();
             try {
-                this.kn.execute(new d(this, context.getApplicationContext()));
+                this.kT.execute(new d(this, context.getApplicationContext()));
             } catch (Throwable th) {
             }
         }
@@ -255,7 +258,7 @@ public class b {
             }
             this.i = System.currentTimeMillis();
             try {
-                this.kn.execute(new g(this, context.getApplicationContext()));
+                this.kT.execute(new g(this, context.getApplicationContext()));
             } catch (Throwable th) {
             }
         } catch (Exception e) {

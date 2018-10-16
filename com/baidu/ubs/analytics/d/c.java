@@ -8,35 +8,35 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    private static List<WeakReference<ScheduledFuture<?>>> hLC = new ArrayList();
-    private static int hLE = 30;
-    private static ExecutorService hLD = Executors.newFixedThreadPool(2);
-    private static ScheduledExecutorService hLF = Executors.newScheduledThreadPool(2);
+    private static List<WeakReference<ScheduledFuture<?>>> hUw = new ArrayList();
+    private static int hUy = 30;
+    private static ExecutorService hUx = Executors.newFixedThreadPool(2);
+    private static ScheduledExecutorService hUz = Executors.newScheduledThreadPool(2);
 
     public static void execute(Runnable runnable) {
-        if (hLD == null || hLD.isShutdown()) {
-            hLD = Executors.newFixedThreadPool(2);
+        if (hUx == null || hUx.isShutdown()) {
+            hUx = Executors.newFixedThreadPool(2);
         }
-        hLD.execute(runnable);
+        hUx.execute(runnable);
     }
 
     public static synchronized void a(Runnable runnable, long j, long j2) {
         synchronized (c.class) {
-            if (hLF == null || hLF.isShutdown()) {
-                hLF = Executors.newScheduledThreadPool(2);
+            if (hUz == null || hUz.isShutdown()) {
+                hUz = Executors.newScheduledThreadPool(2);
             }
-            hLC.add(new WeakReference<>(hLF.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            hUw.add(new WeakReference<>(hUz.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
         }
     }
 
     public static synchronized void a(Runnable runnable) {
         synchronized (c.class) {
-            if (hLF == null || hLF.isShutdown()) {
-                hLF = Executors.newScheduledThreadPool(2);
+            if (hUz == null || hUz.isShutdown()) {
+                hUz = Executors.newScheduledThreadPool(2);
             }
-            hLF.execute(runnable);
+            hUz.execute(runnable);
         }
     }
 }

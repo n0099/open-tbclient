@@ -22,7 +22,7 @@ import javax.microedition.khronos.egl.EGLContext;
 public class a {
     protected Timer b;
     protected TimerTask c;
-    private HandlerC0058a f;
+    private HandlerC0063a f;
     private int i;
     private int j;
     private int l;
@@ -45,10 +45,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.baiduarsdk.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0058a extends Handler {
+    public static class HandlerC0063a extends Handler {
         a a;
 
-        HandlerC0058a(a aVar, Looper looper) {
+        HandlerC0063a(a aVar, Looper looper) {
             super(looper);
             this.a = aVar;
         }
@@ -111,7 +111,7 @@ public class a {
         this.l = 1;
         this.e.a(eGLContext, eGLConfig);
         this.e.start();
-        this.f = new HandlerC0058a(this, this.e.getLooper());
+        this.f = new HandlerC0063a(this, this.e.getLooper());
         a(new Runnable() { // from class: com.baidu.baiduarsdk.c.a.1
             @Override // java.lang.Runnable
             public void run() {

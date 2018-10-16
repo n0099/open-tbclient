@@ -5,20 +5,22 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.ng.ai.apps.network.AiAppNetworkUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
+/* loaded from: classes6.dex */
 public final class n {
-    private static TelephonyManager Vy;
-    private static ConnectivityManager Vz;
+    private static TelephonyManager Yk;
+    private static ConnectivityManager Yl;
     private static Context mContext;
 
-    public static String D() {
+    public static String E() {
         NetworkInfo activeNetworkInfo;
         StringBuilder sb = new StringBuilder();
         try {
-            if (Vz == null) {
-                Vz = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (Yl == null) {
+                Yl = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            activeNetworkInfo = Vz.getActiveNetworkInfo();
+            activeNetworkInfo = Yl.getActiveNetworkInfo();
         } catch (RuntimeException e) {
             com.baidu.crabsdk.c.a.f("getNetworkInfo", e);
         }
@@ -29,10 +31,10 @@ public final class n {
             sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
             if (activeNetworkInfo.getType() == 0) {
                 sb.append("subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
-                if (Vy == null) {
-                    Vy = (TelephonyManager) mContext.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                if (Yk == null) {
+                    Yk = (TelephonyManager) mContext.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
                 }
-                sb.append("isRoaming: ").append(Vy.isNetworkRoaming() ? "yes" : "no").append("\n");
+                sb.append("isRoaming: ").append(Yk.isNetworkRoaming() ? "yes" : AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
             }
         } else {
             sb.append("type: none\n");
@@ -40,15 +42,15 @@ public final class n {
         return sb.toString();
     }
 
-    public static String E() {
+    public static String F() {
         try {
-            if (Vz == null) {
-                Vz = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (Yl == null) {
+                Yl = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = Vz.getActiveNetworkInfo();
-            return activeNetworkInfo == null ? "UNKNOWN" : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
+            NetworkInfo activeNetworkInfo = Yl.getActiveNetworkInfo();
+            return activeNetworkInfo == null ? AiAppRomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
         } catch (RuntimeException e) {
-            return "UNKNOWN";
+            return AiAppRomUtils.UNKNOWN;
         }
     }
 

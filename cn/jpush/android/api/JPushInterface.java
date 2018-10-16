@@ -13,7 +13,7 @@ import cn.jpush.android.d.f;
 import cn.jpush.android.data.JPushLocalNotification;
 import cn.jpush.android.service.ServiceInterface;
 import com.baidu.baiduarsdk.ArBridge;
-import com.tencent.tauth.AuthActivity;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -211,7 +211,7 @@ public class JPushInterface {
         a(context);
         cn.jiguang.api.e.b(context, (int) InputDeviceCompat.SOURCE_TOUCHSCREEN, (Bundle) null);
         if (cn.jpush.android.a.a(context)) {
-            if (cn.jiguang.api.e.be() && !cn.jpush.android.d.a.a(context)) {
+            if (cn.jiguang.api.e.bv() && !cn.jpush.android.d.a.a(context)) {
                 f.a("JPushInterface", "检测到当前没有网络。长连接将在有网络时自动继续建立。");
             }
             if (cn.jpush.android.b.a(context) == -1) {
@@ -358,7 +358,7 @@ public class JPushInterface {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putString(AuthActivity.ACTION_KEY, "intent.MOBILE_NUMBER");
+        bundle.putString("action", "intent.MOBILE_NUMBER");
         bundle.putInt("sequence", i);
         bundle.putString("mobile_number", str);
         cn.jiguang.api.e.b(context, cn.jpush.android.a.a, bundle);
@@ -381,7 +381,7 @@ public class JPushInterface {
 
     public static void setPushTime(Context context, Set<Integer> set, int i, int i2) {
         a(context);
-        if (cn.jiguang.api.e.be() && !cn.jpush.android.d.a.a(context)) {
+        if (cn.jiguang.api.e.bv() && !cn.jpush.android.d.a.a(context)) {
             f.a("JPushInterface", "检测到当前没有网络。此动作将在有网络时自动继续执行。");
         }
         if (set == null) {
@@ -399,7 +399,7 @@ public class JPushInterface {
                 }
                 sb.append(num);
             }
-            sb.append("_");
+            sb.append(BaseRequestAction.SPLITE);
             sb.append(i);
             sb.append("^");
             sb.append(i2);

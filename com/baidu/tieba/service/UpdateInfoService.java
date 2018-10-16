@@ -12,20 +12,20 @@ import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.tieba.model.ReportUserInfoModel;
 /* loaded from: classes.dex */
 public class UpdateInfoService extends BdBaseService {
-    private a.InterfaceC0014a locationCallBack = new a.InterfaceC0014a() { // from class: com.baidu.tieba.service.UpdateInfoService.2
-        @Override // com.baidu.adp.lib.d.a.InterfaceC0014a
+    private a.InterfaceC0017a locationCallBack = new a.InterfaceC0017a() { // from class: com.baidu.tieba.service.UpdateInfoService.2
+        @Override // com.baidu.adp.lib.d.a.InterfaceC0017a
         public void b(int i, String str, Address address) {
             switch (i) {
                 case 0:
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.d.a.bqL().oz(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.d.a.bqL().oA(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.d.a.bqL().cS(System.currentTimeMillis());
-                        if (UpdateInfoService.this.mModel.aXG() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        com.baidu.tieba.recapp.d.a.bua().pb(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.d.a.bua().pc(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.d.a.bua().cZ(System.currentTimeMillis());
+                        if (UpdateInfoService.this.mModel.baT() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.b(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.aXH();
+                            UpdateInfoService.this.mModel.baU();
                             return;
                         }
                         return;
@@ -50,11 +50,11 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.aXI();
-        this.mModel.cB(540000L);
+        this.mModel.baV();
+        this.mModel.cI(540000L);
         this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
-            public void qu(int i) {
+            public void qS(int i) {
                 BdLog.i("location_success");
                 BdLog.e("location_success next time=" + i);
                 if (i <= 0) {
@@ -62,13 +62,13 @@ public class UpdateInfoService extends BdBaseService {
                 } else if (i >= 32400) {
                     i = 32400;
                 }
-                UpdateInfoService.this.mModel.cB(i * 1000);
+                UpdateInfoService.this.mModel.cI(i * 1000);
             }
 
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
             public void onError(int i, String str) {
                 BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-                UpdateInfoService.this.mModel.cB(KeepJobService.JOB_CHECK_PERIODIC);
+                UpdateInfoService.this.mModel.cI(KeepJobService.JOB_CHECK_PERIODIC);
             }
         });
     }
@@ -76,7 +76,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.aXG()) {
+        if (this.mModel.baT()) {
             findLocationFromLocal();
         }
     }
@@ -89,10 +89,10 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        a.iH().a(true, this.locationCallBack);
+        a.iX().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        a.iH().a(this.locationCallBack);
+        a.iX().a(this.locationCallBack);
     }
 }

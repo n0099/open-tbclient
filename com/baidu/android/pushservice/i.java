@@ -20,6 +20,7 @@ import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class i {
     private static i c;
@@ -51,7 +52,7 @@ public class i {
         if (!TextUtils.isEmpty(lVar.i) && com.baidu.android.pushservice.b.b.a(this.a).b(lVar.e, lVar.i) && !TextUtils.isEmpty(f)) {
             Intent intent2 = new Intent();
             intent2.putExtra("method", lVar.a);
-            intent2.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
+            intent2.putExtra("error_msg", 0);
             intent2.putExtra("content", f.getBytes());
             intent2.putExtra("bind_status", intExtra);
             if (a.b() > 0) {
@@ -116,7 +117,7 @@ public class i {
 
     private boolean g(Intent intent) {
         com.baidu.android.pushservice.b.f c2;
-        String stringExtra = intent.getStringExtra("package_name");
+        String stringExtra = intent.getStringExtra(ETAG.KEY_PACKAGE_NAME);
         String stringExtra2 = intent.getStringExtra(HttpConstants.HTTP_APP_ID);
         if (TextUtils.isEmpty(stringExtra2) && (c2 = com.baidu.android.pushservice.b.b.a(this.a).c(stringExtra)) != null) {
             stringExtra2 = c2.a();

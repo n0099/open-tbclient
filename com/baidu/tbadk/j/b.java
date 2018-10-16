@@ -9,34 +9,34 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 /* loaded from: classes.dex */
 public class b extends q.a {
-    private int aCJ;
-    private HTypeListView aTs;
-    private com.baidu.tieba.b.b aTt;
+    private int aHp;
+    private HTypeListView aXR;
+    private com.baidu.tieba.b.b aXS;
     private View mBottomLine;
     private TbPageContext mPageContext;
 
     public b(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aCJ = 3;
+        this.aHp = 3;
         this.mPageContext = tbPageContext;
-        this.aTs = (HTypeListView) view.findViewById(e.g.follow_live_list);
+        this.aXR = (HTypeListView) view.findViewById(e.g.follow_live_list);
         this.mBottomLine = view.findViewById(e.g.follow_live_bottom_line);
-        this.aTs.setSelector(e.f.transparent_bg);
-        this.aTt = new com.baidu.tieba.b.b(this.mPageContext, this.aTs);
+        this.aXR.setSelector(e.f.transparent_bg);
+        this.aXS = new com.baidu.tieba.b.b(this.mPageContext, this.aXR);
     }
 
     public void a(com.baidu.tbadk.data.b bVar) {
         if (bVar != null) {
-            this.aTt.setDatas(bVar.getList());
+            this.aXS.setDatas(bVar.getList());
         }
     }
 
-    public void Ke() {
-        if (this.aCJ != TbadkCoreApplication.getInst().getSkinType()) {
-            this.aCJ = TbadkCoreApplication.getInst().getSkinType();
-            al.j(this.aTs, e.d.cp_bg_line_d);
+    public void Mc() {
+        if (this.aHp != TbadkCoreApplication.getInst().getSkinType()) {
+            this.aHp = TbadkCoreApplication.getInst().getSkinType();
+            al.j(this.aXR, e.d.cp_bg_line_d);
             al.j(this.mBottomLine, e.d.cp_bg_line_c);
-            this.aTt.notifyDataSetChanged();
+            this.aXS.notifyDataSetChanged();
         }
     }
 }

@@ -11,13 +11,13 @@ public interface i {
 
     void g(Context context, String str, int i);
 
-    String iT(String str);
+    String jg(String str);
 
-    String iU(String str);
+    String jh(String str);
 
-    void iV(String str);
+    void ji(String str);
 
-    String iW(String str);
+    String jj(String str);
 
-    String o(String str, boolean z);
+    String v(String str, boolean z);
 }

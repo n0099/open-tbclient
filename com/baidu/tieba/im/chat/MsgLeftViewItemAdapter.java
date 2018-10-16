@@ -15,7 +15,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void hA(boolean z) {
+    public void hS(boolean z) {
         this.mNeedShowName = z;
     }
 
@@ -25,7 +25,7 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     /* renamed from: ba */
     public e.a<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
-        return new a(msgleftView.fJ(), msgleftView);
+        return new a(msgleftView.gb(), msgleftView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,17 +34,17 @@ public class MsgLeftViewItemAdapter extends e<MsgleftView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgleftView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgleftView aJH = aVar.aJH();
-        aJH.oq(this.esa);
-        aJH.hA(this.mNeedShowName);
+        MsgleftView aMY = aVar.aMY();
+        aMY.oO(this.ezQ);
+        aMY.hS(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        aJH.a(this.erQ);
-        aJH.setOnItemViewLongClickListener(this.erR);
-        aJH.setPosition(i);
-        aJH.cb(this.erX);
-        aJH.ca(chatMessage.getCacheData().getLastMsgTime());
-        aJH.a(viewGroup, chatMessage);
-        aJH.b(viewGroup, chatMessage);
+        aMY.a(this.ezG);
+        aMY.setOnItemViewLongClickListener(this.ezH);
+        aMY.setPosition(i);
+        aMY.ci(this.ezN);
+        aMY.ch(chatMessage.getCacheData().getLastMsgTime());
+        aMY.a(viewGroup, chatMessage);
+        aMY.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

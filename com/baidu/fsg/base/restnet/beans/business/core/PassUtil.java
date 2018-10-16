@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.beans.business.core;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class PassUtil {
     public static final String NORMALIZE_URL = "normalize_url";
     public static final String PASS_ACCOUNT = "pass_account";

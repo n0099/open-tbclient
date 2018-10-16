@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.widget.ActivityChooserView;
 import android.view.View;
 import android.widget.ProgressBar;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 /* loaded from: classes2.dex */
 public class PassportViewManager {
@@ -25,7 +25,7 @@ public class PassportViewManager {
 
     /* loaded from: classes2.dex */
     public static class TitleViewModule {
-        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.configuration.context.getResources().getColor(a.C0060a.sapi_sdk_edit_text_color);
+        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.configuration.context.getResources().getColor(a.C0071a.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgResId = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgVisible = 0;

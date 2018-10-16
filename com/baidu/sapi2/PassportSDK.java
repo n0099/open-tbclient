@@ -65,8 +65,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatLoadLogin;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.tencent.tauth.AuthActivity;
+import com.baidu.webkit.internal.ETAG;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -419,7 +418,7 @@ public final class PassportSDK {
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(WebAuthResult webAuthResult) {
                 arrayList.add(webAuthResult);
-                PassportSDK.this.openQrLoginPage(str + (str.indexOf("?") > 0 ? "&" : "?") + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", z);
+                PassportSDK.this.openQrLoginPage(str + (str.indexOf("?") > 0 ? ETAG.ITEM_SEPARATOR : "?") + "login_action_type=" + SapiUtils.getLastLoginType() + "&clientfrom=android", z);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -594,8 +593,8 @@ public final class PassportSDK {
         final ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int optInt = jSONObject.optInt(AuthActivity.ACTION_KEY);
-            JSONObject optJSONObject = jSONObject.optJSONObject(LegoListActivityConfig.PARAMS);
+            int optInt = jSONObject.optInt("action");
+            JSONObject optJSONObject = jSONObject.optJSONObject("params");
             switch (optInt) {
                 case 1:
                 case 2:

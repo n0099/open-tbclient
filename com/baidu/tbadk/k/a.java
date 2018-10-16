@@ -4,31 +4,31 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View aUw;
-    private boolean aUx;
+    protected View aYV;
+    private boolean aYW;
 
     public a(View view) {
-        this.aUw = view;
+        this.aYV = view;
     }
 
-    public boolean Ks() {
-        return this.aUx;
+    public boolean Mq() {
+        return this.aYW;
     }
 
     public void c(View view, boolean z) {
-        if (view != null && this.aUw != null && this.aUw.getParent() == null) {
-            this.aUx = true;
-            d.ae(view).a(view, this.aUw, z);
-            Kt();
+        if (view != null && this.aYV != null && this.aYV.getParent() == null) {
+            this.aYW = true;
+            d.ae(view).a(view, this.aYV, z);
+            Mr();
         }
     }
 
     public void ad(View view) {
-        if (view != null && this.aUw != null && this.aUw.getParent() != null && (view instanceof ViewGroup)) {
+        if (view != null && this.aYV != null && this.aYV.getParent() != null && (view instanceof ViewGroup)) {
             try {
-                Ku();
-                ((ViewGroup) view).removeView(this.aUw);
-                this.aUx = false;
+                Ms();
+                ((ViewGroup) view).removeView(this.aYV);
+                this.aYW = false;
             } catch (Exception e) {
             }
         }
@@ -39,10 +39,10 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Kt() {
+    public void Mr() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ku() {
+    public void Ms() {
     }
 }

@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 /* loaded from: classes3.dex */
 public abstract class m implements Serializable, Cloneable, Comparable {
-    private static final DecimalFormat ln;
+    private static final DecimalFormat lT;
     protected j a;
     protected int b;
     protected int c;
@@ -13,7 +13,7 @@ public abstract class m implements Serializable, Cloneable, Comparable {
 
     static {
         DecimalFormat decimalFormat = new DecimalFormat();
-        ln = decimalFormat;
+        lT = decimalFormat;
         decimalFormat.setMinimumIntegerDigits(3);
     }
 
@@ -59,7 +59,7 @@ public abstract class m implements Serializable, Cloneable, Comparable {
         return pVar;
     }
 
-    private byte[] bB() {
+    private byte[] bS() {
         e eVar = new e();
         a(eVar, true);
         return eVar.b();
@@ -114,15 +114,15 @@ public abstract class m implements Serializable, Cloneable, Comparable {
         if (i2 != 0) {
             return i2;
         }
-        byte[] bB = bB();
-        byte[] bB2 = mVar.bB();
-        for (int i3 = 0; i3 < bB.length && i3 < bB2.length; i3++) {
-            int i4 = (bB[i3] & 255) - (bB2[i3] & 255);
+        byte[] bS = bS();
+        byte[] bS2 = mVar.bS();
+        for (int i3 = 0; i3 < bS.length && i3 < bS2.length; i3++) {
+            int i4 = (bS[i3] & 255) - (bS2[i3] & 255);
             if (i4 != 0) {
                 return i4;
             }
         }
-        return bB.length - bB2.length;
+        return bS.length - bS2.length;
     }
 
     public final int d() {
@@ -139,7 +139,7 @@ public abstract class m implements Serializable, Cloneable, Comparable {
         }
         m mVar = (m) obj;
         if (this.b == mVar.b && this.c == mVar.c && this.a.equals(mVar.a)) {
-            return Arrays.equals(bB(), mVar.bB());
+            return Arrays.equals(bS(), mVar.bS());
         }
         return false;
     }

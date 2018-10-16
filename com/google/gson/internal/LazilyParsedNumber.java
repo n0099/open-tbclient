@@ -49,4 +49,19 @@ public final class LazilyParsedNumber extends Number {
     private Object writeReplace() throws ObjectStreamException {
         return new BigDecimal(this.value);
     }
+
+    public int hashCode() {
+        return this.value.hashCode();
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof LazilyParsedNumber) {
+            LazilyParsedNumber lazilyParsedNumber = (LazilyParsedNumber) obj;
+            return this.value == lazilyParsedNumber.value || this.value.equals(lazilyParsedNumber.value);
+        }
+        return false;
+    }
 }

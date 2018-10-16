@@ -11,21 +11,22 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tieba.e;
+import com.baidu.webkit.internal.ETAG;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern gVu = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern hcP = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String gVs = null;
-    private SpannableStringBuilder gVt = null;
-    private boolean gVr = false;
+    private String hcN = null;
+    private SpannableStringBuilder hcO = null;
+    private boolean hcM = false;
 
-    public static boolean bM(int i, int i2) {
+    public static boolean bP(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -41,23 +42,23 @@ public class k {
         return this.text;
     }
 
-    public String byw() {
+    public String bBL() {
         return this.c;
     }
 
-    public SpannableStringBuilder byx() {
-        return this.gVt;
+    public SpannableStringBuilder bBM() {
+        return this.hcO;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.gVt == null) {
-            this.gVt = new SpannableStringBuilder();
+        if (this.hcO == null) {
+            this.hcO = new SpannableStringBuilder();
         }
-        this.gVt.append((CharSequence) spannableString);
-        return this.gVt;
+        this.hcO.append((CharSequence) spannableString);
+        return this.hcO;
     }
 
-    public SpannableString cM(Context context) {
+    public SpannableString cY(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -74,23 +75,23 @@ public class k {
                         if (matcher.find()) {
                             try {
                                 String group = matcher.group();
-                                hW(group.substring(group.lastIndexOf("/") + 1));
+                                il(group.substring(group.lastIndexOf("/") + 1));
                                 return;
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = k.gVu.matcher(k.this.link);
+                        Matcher matcher2 = k.hcP.matcher(k.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
-                                hW(group2.substring(group2.lastIndexOf("=") + 1));
+                                il(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
                                 return;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        hV(k.this.link);
+                        ik(k.this.link);
                     }
                 }, 0, this.text.length() - 1, 33);
                 return spannableString;
@@ -98,9 +99,9 @@ public class k {
                 SpannableString spannableString2 = new SpannableString(this.text + " ");
                 com.baidu.adp.widget.ImageView.a face = TbadkCoreApplication.getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable oj = face.oj();
-                    oj.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(oj, 1), 0, this.text.length(), 33);
+                    BitmapDrawable ou = face.ou();
+                    ou.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(ou, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -137,7 +138,7 @@ public class k {
                 spannableString4.setSpan(new com.baidu.tbadk.util.k(context) { // from class: com.baidu.tieba.tbadkCore.data.k.1
                     @Override // com.baidu.tbadk.util.k, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        hV(k.this.text);
+                        ik(k.this.text);
                     }
                 }, string.length(), str.length() - 1, 33);
                 return spannableString4;

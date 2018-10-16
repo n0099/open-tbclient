@@ -7,6 +7,7 @@ import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.lib.g.b;
 import com.baidu.adp.widget.ListView.h;
 import com.baidu.appsearchlib.Info;
+import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeUtilsDispatcher;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.data.IconData;
@@ -127,7 +128,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, h {
             String optString3 = jSONObject.optString("url_d");
             String optString4 = jSONObject.optString(Info.kBaiduPIDKey);
             String optString5 = jSONObject.optString("packet_name");
-            String optString6 = jSONObject.optString("icon");
+            String optString6 = jSONObject.optString(AiAppUnitedSchemeUtilsDispatcher.PARAM_TOAST_ICON_KEY);
             int optInt = jSONObject.optInt("size_width");
             int optInt2 = jSONObject.optInt("size_height");
             GifInfo gifInfo = new GifInfo();
@@ -373,7 +374,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.a.Ey().EX() != null && com.baidu.tbadk.coreExtra.messageCenter.a.Ey().EX().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.a.Gz().GY() != null && com.baidu.tbadk.coreExtra.messageCenter.a.Gz().GY().contains(String.valueOf(this.userId)) && this.msgType == 1) {
             return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
         }
         if (this.msgType == 11) {

@@ -5,7 +5,6 @@ import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.ar.statistic.StatisticHelper;
 import com.baidu.ar.util.Res;
 import com.baidu.mms.voicesearch.invoke.voicerecognition.IVoiceRecognitionCallback;
-import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -48,15 +47,15 @@ public class a implements IVoiceRecognitionCallback {
                 break;
             case 201:
             case 202:
-            case HttpStatus.SC_NON_AUTHORITATIVE_INFORMATION /* 203 */:
-            case HttpStatus.SC_RESET_CONTENT /* 205 */:
+            case 203:
+            case 205:
             case 603:
                 i = 2;
                 string = Res.getString("bdar_speech_error_network");
                 break;
             case 301:
             case 302:
-            case HttpStatus.SC_NOT_FOUND /* 404 */:
+            case 404:
                 i = 1;
                 string = Res.getString("bdar_speech_error_timeout");
                 break;

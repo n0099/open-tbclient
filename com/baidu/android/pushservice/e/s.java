@@ -29,7 +29,7 @@ public class s extends c {
             intent.setAction(PushConstants.ACTION_RECEIVE);
         }
         intent.putExtra("method", this.b.a);
-        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
+        intent.putExtra("error_msg", i);
         intent.putExtra("content", bArr);
         if (!this.d.isEmpty()) {
             intent.putStringArrayListExtra("tags_list", this.d);

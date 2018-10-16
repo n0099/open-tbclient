@@ -3,14 +3,14 @@ package com.baidu.tieba.personCenter.data;
 import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f extends com.baidu.tieba.card.data.b {
-    public static BdUniqueId gcc = BdUniqueId.gen();
-    public String afi;
-    public UserData fAd;
-    public boolean gbZ = false;
-    public h gca;
-    public Bundle gcb;
+    public static BdUniqueId gjE = BdUniqueId.gen();
+    public String akf;
+    public UserData fHF;
+    public boolean gjB = false;
+    public h gjC;
+    public Bundle gjD;
     public int iconId;
     public int itemId;
     public String title;
@@ -18,6 +18,6 @@ public class f extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gcc;
+        return gjE;
     }
 }

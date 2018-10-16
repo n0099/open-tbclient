@@ -11,11 +11,11 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FontTableBox extends AbstractBox {
     public static final String TYPE = "ftab";
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
     List<FontRecord> entries;
 
     static {
@@ -75,7 +75,7 @@ public class FontTableBox extends AbstractBox {
         this.entries = list;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class FontRecord {
         int fontId;
         String fontname;

@@ -2,6 +2,7 @@ package com.baidu.ar.component.b;
 
 import android.util.Log;
 import com.baidu.ar.util.Res;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.speech.EventListener;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,7 +79,7 @@ public class b implements EventListener {
         if (str.equals("asr.finish")) {
             this.a.d();
             try {
-                int i3 = new JSONObject(str2).getInt("error");
+                int i3 = new JSONObject(str2).getInt(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
                 if (i3 != 0) {
                     a(i3);
                 }

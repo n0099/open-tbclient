@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
@@ -29,7 +30,7 @@ public class SingleSquareActivityConfig extends IntentConfig {
             e.printStackTrace();
             sb.append("|");
         }
-        sb.append(str + "_" + str2);
+        sb.append(str + BaseRequestAction.SPLITE + str2);
         return sb.toString();
     }
 }

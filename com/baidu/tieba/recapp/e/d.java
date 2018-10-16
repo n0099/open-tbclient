@@ -8,28 +8,28 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class d {
     private final Context context;
-    private final ViewGroup gBL;
+    private final ViewGroup gJj;
     public int page = 0;
 
     public d(Context context, ViewGroup viewGroup) {
         this.context = context;
-        this.gBL = viewGroup;
+        this.gJj = viewGroup;
     }
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !cl(fVar.style, eVar.gBM)) {
-                if (this.gBL == null) {
+            if (eVar == null || !cw(fVar.style, eVar.gJk)) {
+                if (this.gJj == null) {
                     return null;
                 }
-                this.gBL.removeAllViews();
+                this.gJj.removeAllViews();
                 if ("jump".equals(fVar.style)) {
                     if (this.page == 1) {
-                        return new c(LayoutInflater.from(this.context).inflate(e.h.videolist_tail_frame_ad_jump, this.gBL, true), "jump");
+                        return new c(LayoutInflater.from(this.context).inflate(e.h.videolist_tail_frame_ad_jump, this.gJj, true), "jump");
                     }
-                    return new b(LayoutInflater.from(this.context).inflate(e.h.tail_frame_ad_jump, this.gBL, true), "jump");
+                    return new b(LayoutInflater.from(this.context).inflate(e.h.tail_frame_ad_jump, this.gJj, true), "jump");
                 } else if ("apk_download".equals(fVar.style)) {
-                    return new a(LayoutInflater.from(this.context).inflate(e.h.tail_frame_ad_download, this.gBL, true), "apk_download");
+                    return new a(LayoutInflater.from(this.context).inflate(e.h.tail_frame_ad_download, this.gJj, true), "apk_download");
                 } else {
                     return null;
                 }
@@ -39,7 +39,7 @@ public class d {
         return eVar;
     }
 
-    private boolean cl(String str, String str2) {
+    private boolean cw(String str, String str2) {
         if ("apk_download".equals(str)) {
             return "apk_download".equals(str2);
         }

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     public static PointF a(JSONObject jSONObject, float f) {
-        return new PointF(i(jSONObject.opt(Config.EVENT_HEAT_X)) * f, i(jSONObject.opt("y")) * f);
+        return new PointF(l(jSONObject.opt(Config.EVENT_HEAT_X)) * f, l(jSONObject.opt("y")) * f);
     }
 
     public static PointF a(JSONArray jSONArray, float f) {
@@ -17,7 +17,7 @@ public class b {
         return new PointF(((float) jSONArray.optDouble(0, 1.0d)) * f, ((float) jSONArray.optDouble(1, 1.0d)) * f);
     }
 
-    public static float i(Object obj) {
+    public static float l(Object obj) {
         if (obj instanceof Float) {
             return ((Float) obj).floatValue();
         }

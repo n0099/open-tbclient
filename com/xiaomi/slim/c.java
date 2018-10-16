@@ -50,7 +50,7 @@ public class c {
                 z = true;
             }
             if (b.h()) {
-                b.C0299b i = b.i();
+                b.C0352b i = b.i();
                 b bVar = new b();
                 bVar.a("SYNC", "CONF");
                 bVar.a(i.c(), (String) null);

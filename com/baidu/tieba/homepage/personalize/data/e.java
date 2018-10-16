@@ -2,25 +2,25 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import java.util.List;
 import tbclient.UnreadTip.DataRes;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class e {
-    public int egE;
-    public List<String> egF;
-    public long egG;
-    public String egH;
-    public int egI;
+    public long eoA;
+    public String eoB;
+    public int eoC;
+    public int eoy;
+    public List<String> eoz;
 
-    public boolean aGQ() {
-        return this.egE > 0;
+    public boolean aKi() {
+        return this.eoy > 0;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.egE = dataRes.user_count.intValue();
-            this.egF = dataRes.portrait_list;
-            this.egG = dataRes.hide_unix.longValue() * 1000;
-            this.egH = dataRes.show_tip;
-            this.egI = dataRes.thread_count.intValue();
+            this.eoy = dataRes.user_count.intValue();
+            this.eoz = dataRes.portrait_list;
+            this.eoA = dataRes.hide_unix.longValue() * 1000;
+            this.eoB = dataRes.show_tip;
+            this.eoC = dataRes.thread_count.intValue();
         }
     }
 }

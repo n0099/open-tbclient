@@ -10,6 +10,7 @@ import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class GridLayoutManager extends LinearLayoutManager {
@@ -482,7 +483,7 @@ public class GridLayoutManager extends LinearLayoutManager {
             int i11 = 0;
             while (i11 < i5) {
                 View view2 = this.mSet[i11];
-                measureChild(view2, 1073741824, true);
+                measureChild(view2, AiAppsFileUtils.GB, true);
                 int decoratedMeasurement2 = this.mOrientationHelper.getDecoratedMeasurement(view2);
                 if (decoratedMeasurement2 <= i10) {
                     decoratedMeasurement2 = i10;
@@ -500,11 +501,11 @@ public class GridLayoutManager extends LinearLayoutManager {
                 int i14 = rect.right + rect.left + layoutParams.leftMargin + layoutParams.rightMargin;
                 int spaceForSpanRange = getSpaceForSpanRange(layoutParams.mSpanIndex, layoutParams.mSpanSize);
                 if (this.mOrientation == 1) {
-                    makeMeasureSpec = getChildMeasureSpec(spaceForSpanRange, 1073741824, i14, layoutParams.width, false);
-                    childMeasureSpec = View.MeasureSpec.makeMeasureSpec(i10 - i13, 1073741824);
+                    makeMeasureSpec = getChildMeasureSpec(spaceForSpanRange, AiAppsFileUtils.GB, i14, layoutParams.width, false);
+                    childMeasureSpec = View.MeasureSpec.makeMeasureSpec(i10 - i13, AiAppsFileUtils.GB);
                 } else {
-                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i10 - i14, 1073741824);
-                    childMeasureSpec = getChildMeasureSpec(spaceForSpanRange, 1073741824, i13, layoutParams.height, false);
+                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i10 - i14, AiAppsFileUtils.GB);
+                    childMeasureSpec = getChildMeasureSpec(spaceForSpanRange, AiAppsFileUtils.GB, i13, layoutParams.height, false);
                 }
                 measureChildWithDecorationsAndMargin(view3, makeMeasureSpec, childMeasureSpec, true);
             }

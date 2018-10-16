@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.util;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Matrix {
     double a;
     double b;

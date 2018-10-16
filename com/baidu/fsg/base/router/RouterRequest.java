@@ -1,10 +1,9 @@
 package com.baidu.fsg.base.router;
 
-import com.tencent.tauth.AuthActivity;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RouterRequest {
     private static final String a = "RouterRequest";
     private String b = "";
@@ -27,7 +26,7 @@ public class RouterRequest {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("provider", this.b);
-            jSONObject.put(AuthActivity.ACTION_KEY, this.c);
+            jSONObject.put("action", this.c);
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 for (Object obj : this.d.keySet()) {

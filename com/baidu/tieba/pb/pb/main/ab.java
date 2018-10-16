@@ -1,24 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ab {
-    public String fKu;
-    public boolean fKv;
-    public boolean fKw;
-    public boolean fKg = false;
-    public boolean fKh = false;
-    public boolean fBb = false;
-    public boolean fKi = false;
-    public boolean qm = false;
-    public boolean fKj = false;
-    public boolean fKk = false;
-    public boolean fKl = false;
-    public boolean fKm = false;
-    public boolean fKn = false;
-    public boolean fKo = false;
-    public boolean fKp = false;
-    public boolean fKq = false;
-    public boolean fKr = false;
-    public boolean fKs = false;
-    public boolean fKt = false;
+    public String fRV;
+    public boolean fRW;
+    public boolean fRX;
+    public boolean fRH = false;
+    public boolean fRI = false;
+    public boolean fID = false;
+    public boolean fRJ = false;
+    public boolean qY = false;
+    public boolean fRK = false;
+    public boolean fRL = false;
+    public boolean fRM = false;
+    public boolean fRN = false;
+    public boolean fRO = false;
+    public boolean fRP = false;
+    public boolean fRQ = false;
+    public boolean fRR = false;
+    public boolean fRS = false;
+    public boolean fRT = false;
+    public boolean fRU = false;
     public boolean isHostOnly = false;
 }

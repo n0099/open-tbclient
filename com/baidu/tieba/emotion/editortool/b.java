@@ -1,37 +1,37 @@
 package com.baidu.tieba.emotion.editortool;
 
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private EmotionGroupType cXg;
-    private int cXh;
-    private int cXi;
-    private com.baidu.tbadk.editortools.emotiontool.c cXj;
-    private int cXk;
-    private int cXl;
     private int column;
+    private int dfA;
+    private com.baidu.tbadk.editortools.emotiontool.c dfB;
+    private int dfC;
+    private int dfD;
+    private EmotionGroupType dfy;
+    private int dfz;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.cXj = cVar;
+        this.dfB = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c apR() {
-        return this.cXj;
+    public com.baidu.tbadk.editortools.emotiontool.c atn() {
+        return this.dfB;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.cXg = emotionGroupType;
+        this.dfy = emotionGroupType;
     }
 
-    public EmotionGroupType apS() {
-        return this.cXg;
+    public EmotionGroupType ato() {
+        return this.dfy;
     }
 
-    public void fj(int i) {
+    public void fs(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class b {
         return this.row;
     }
 
-    public void fi(int i) {
+    public void fr(int i) {
         this.column = i;
     }
 
-    public int apT() {
+    public int atp() {
         return this.column;
     }
 
-    public void ka(int i) {
-        this.cXl = i;
+    public void ky(int i) {
+        this.dfD = i;
     }
 
-    public int apU() {
-        return this.cXl;
+    public int atq() {
+        return this.dfD;
     }
 
-    public void kb(int i) {
-        this.cXk = i;
+    public void kz(int i) {
+        this.dfC = i;
     }
 
-    public int apV() {
-        return this.cXk;
+    public int atr() {
+        return this.dfC;
     }
 
-    public void kc(int i) {
-        this.cXh = i;
+    public void kA(int i) {
+        this.dfz = i;
     }
 
-    public int apW() {
-        return this.cXh;
+    public int ats() {
+        return this.dfz;
     }
 
-    public void kd(int i) {
+    public void kB(int i) {
         this.startIndex = i;
     }
 
-    public int apX() {
+    public int att() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void ke(int i) {
-        this.cXi = i;
+    public void kC(int i) {
+        this.dfA = i;
     }
 
-    public int apY() {
-        return this.cXi;
+    public int atu() {
+        return this.dfA;
     }
 }

@@ -444,7 +444,7 @@ public class DataCore {
             if (!it.hasNext()) {
                 z = true;
                 break;
-            } else if (((JSONObject) it.next()).getLong(Config.TRACE_VISIT_RECENT_DAY) == j) {
+            } else if (((JSONObject) it.next()).getLong("day") == j) {
                 z = false;
                 break;
             }
@@ -452,7 +452,7 @@ public class DataCore {
         if (z) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Config.TRACE_VISIT_RECENT_DAY, j);
+                jSONObject.put("day", j);
                 jSONObject.put(Config.TRACE_VISIT_RECENT_COUNT, j2);
                 arrayList.add(jSONObject);
             } catch (Exception e3) {

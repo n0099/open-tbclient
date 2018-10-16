@@ -14,26 +14,26 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.frs.gametab.FrsTabController;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsCommonImageLayout.c {
-    private com.baidu.adp.lib.e.b<TbImageView> aBR;
-    private FrsTabController drv;
-    private com.baidu.adp.lib.e.b<TbImageView> drw;
+    private com.baidu.adp.lib.e.b<TbImageView> aGx;
+    private FrsTabController dzw;
+    private com.baidu.adp.lib.e.b<TbImageView> dzx;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.drv = new FrsTabController(this);
-        this.drv.init(bundle);
+        this.dzw = new FrsTabController(this);
+        this.dzw.init(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.drv != null) {
-            this.drv.onNewIntent(intent);
+        if (this.dzw != null) {
+            this.dzw.onNewIntent(intent);
         }
     }
 
@@ -41,8 +41,8 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.drv != null) {
-            this.drv.onResume();
+        if (this.dzw != null) {
+            this.dzw.onResume();
         }
     }
 
@@ -50,8 +50,8 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.drv != null) {
-            this.drv.onPause();
+        if (this.dzw != null) {
+            this.dzw.onPause();
         }
     }
 
@@ -59,10 +59,10 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.drv != null) {
-            this.drv.onDestroy();
+        if (this.dzw != null) {
+            this.dzw.onDestroy();
         }
-        a.avq().reset();
+        a.ayM().reset();
         if (!com.baidu.tbadk.core.util.ao.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
@@ -71,15 +71,15 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        if (this.drv != null) {
-            this.drv.onSaveInstanceState(bundle);
+        if (this.dzw != null) {
+            this.dzw.onSaveInstanceState(bundle);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.drv != null) {
-            this.drv.onChangeSkinType(i);
+        if (this.dzw != null) {
+            this.dzw.onChangeSkinType(i);
         }
     }
 
@@ -90,7 +90,7 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.drv != null ? this.drv.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
+        return this.dzw != null ? this.dzw.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
     }
 
     public boolean b(int i, KeyEvent keyEvent) {
@@ -100,15 +100,15 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.drv != null) {
-            this.drv.onActivityResult(i, i2, intent);
+        if (this.dzw != null) {
+            this.dzw.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
     public VoiceManager getVoiceManager() {
-        if (this.drv != null) {
-            return this.drv.getVoiceManager();
+        if (this.dzw != null) {
+            return this.dzw.getVoiceManager();
         }
         return null;
     }
@@ -120,71 +120,71 @@ public class FrsActivity extends BaseFragmentActivity implements UserIconBox.b, 
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
     public void a(int i, com.baidu.tieba.InjectPlugin.a.a aVar) {
-        if (this.drv instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            this.drv.a(i, aVar);
+        if (this.dzw instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.dzw.a(i, aVar);
         }
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
-    public com.baidu.tieba.InjectPlugin.a.a gI(int i) {
-        if (this.drv instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            return this.drv.gI(i);
+    public com.baidu.tieba.InjectPlugin.a.a gQ(int i) {
+        if (this.dzw instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            return this.dzw.gQ(i);
         }
         return null;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.b
     public void a(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.drv instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            this.drv.a(bVar);
+        if (this.dzw instanceof com.baidu.tieba.InjectPlugin.a.b) {
+            this.dzw.a(bVar);
         }
     }
 
-    public FrsFragment avB() {
-        if (this.drv == null) {
+    public FrsFragment ayX() {
+        if (this.dzw == null) {
             return null;
         }
-        return this.drv.avB();
+        return this.dzw.ayX();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> avC() {
-        if (this.drw == null) {
-            this.drw = FrsCommonImageLayout.r(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.e.b<TbImageView> ayY() {
+        if (this.dzx == null) {
+            this.dzx = FrsCommonImageLayout.s(getPageContext().getPageActivity(), 12);
         }
-        return this.drw;
+        return this.dzx;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public View Cb() {
+    public View Eg() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public com.baidu.adp.lib.e.b<TbImageView> Cc() {
-        if (this.aBR == null) {
-            this.aBR = UserIconBox.k(getPageContext().getPageActivity(), 8);
+    public com.baidu.adp.lib.e.b<TbImageView> Eh() {
+        if (this.aGx == null) {
+            this.aGx = UserIconBox.l(getPageContext().getPageActivity(), 8);
         }
-        return this.aBR;
+        return this.aGx;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        avB().onRequestPermissionsResult(i, strArr, iArr);
+        ayX().onRequestPermissionsResult(i, strArr, iArr);
     }
 
-    public void fM(boolean z) {
-        if (this.drv != null) {
-            FragmentTabHost axL = this.drv.axL();
-            if (axL != null && axL.getFragmentTabWidget() != null) {
+    public void ge(boolean z) {
+        if (this.dzw != null) {
+            FragmentTabHost aBg = this.dzw.aBg();
+            if (aBg != null && aBg.getFragmentTabWidget() != null) {
                 if (z) {
-                    axL.cL(2);
+                    aBg.cV(2);
                 } else {
-                    axL.cL(4);
+                    aBg.cV(4);
                 }
             }
-            this.drv.gf(z);
+            this.dzw.gx(z);
         }
     }
 }

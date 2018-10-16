@@ -10,12 +10,12 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.adp.widget.ListView.q.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected com.baidu.adp.widget.ListView.j drP;
-    private SparseIntArray fBA;
-    private SparseArray<SoftReference<Drawable>> fBz;
-    protected PbActivity fFd;
+    protected com.baidu.adp.widget.ListView.j dzR;
+    private SparseArray<SoftReference<Drawable>> fJa;
+    private SparseIntArray fJb;
+    protected PbActivity fME;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -24,14 +24,14 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.fBz = new SparseArray<>();
-        this.fBA = new SparseIntArray();
+        this.fJa = new SparseArray<>();
+        this.fJb = new SparseIntArray();
         ap(pbActivity);
     }
 
     public void ap(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.fFd = pbActivity;
+            this.fME = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -40,7 +40,7 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.drP = (com.baidu.adp.widget.ListView.j) viewGroup;
+        this.dzR = (com.baidu.adp.widget.ListView.j) viewGroup;
         return null;
     }
 
@@ -50,10 +50,10 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        int i2 = this.fBA.get(i, -1);
+        int i2 = this.fJb.get(i, -1);
         if (i2 == -1) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.fBA.put(i, dimensionPixelSize);
+            this.fJb.put(i, dimensionPixelSize);
             return dimensionPixelSize;
         }
         return i2;

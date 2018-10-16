@@ -3,42 +3,42 @@ package com.baidu.tieba.a;
 import com.baidu.tbadk.core.util.ao;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private HashMap<String, b> brY = new HashMap<>();
-    private ArrayList<Integer> brZ;
-    private c bsa;
+    private HashMap<String, b> bwf = new HashMap<>();
+    private ArrayList<Integer> bwg;
+    private c bwh;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.brZ = arrayList;
-        this.bsa = cVar;
+        this.bwg = arrayList;
+        this.bwh = cVar;
     }
 
-    public int L(String str, int i) {
-        if (this.brY == null || ao.isEmpty(str) || this.brZ == null || !this.brZ.contains(Integer.valueOf(i))) {
+    public int M(String str, int i) {
+        if (this.bwf == null || ao.isEmpty(str) || this.bwg == null || !this.bwg.contains(Integer.valueOf(i))) {
             return 0;
         }
-        if (!this.brY.containsKey(str)) {
-            jb(str);
+        if (!this.bwf.containsKey(str)) {
+            jo(str);
         }
-        b bVar = this.brY.get(str);
+        b bVar = this.bwf.get(str);
         if (bVar == null) {
             return 0;
         }
-        return bVar.gT(i);
+        return bVar.hb(i);
     }
 
-    public void jb(String str) {
-        if (this.brY != null && !ao.isEmpty(str) && this.bsa != null) {
-            if (this.brY.containsKey(str)) {
-                b bVar = this.brY.get(str);
-                this.bsa.a(this.brZ, bVar);
-                this.brY.put(str, bVar);
+    public void jo(String str) {
+        if (this.bwf != null && !ao.isEmpty(str) && this.bwh != null) {
+            if (this.bwf.containsKey(str)) {
+                b bVar = this.bwf.get(str);
+                this.bwh.a(this.bwg, bVar);
+                this.bwf.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.bsa.a(this.brZ, bVar2);
-            this.brY.put(str, bVar2);
+            this.bwh.a(this.bwg, bVar2);
+            this.bwf.put(str, bVar2);
         }
     }
 }

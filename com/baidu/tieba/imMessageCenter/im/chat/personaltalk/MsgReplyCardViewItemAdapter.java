@@ -8,7 +8,7 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgReplyCardView> {
     public MsgReplyCardViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
@@ -20,7 +20,7 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* renamed from: ba */
     public e.a<MsgReplyCardView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.mPageContext);
-        return new a(msgReplyCardView.fJ(), msgReplyCardView);
+        return new a(msgReplyCardView.gb(), msgReplyCardView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,17 +29,17 @@ public class MsgReplyCardViewItemAdapter extends com.baidu.tieba.im.chat.e<MsgRe
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgReplyCardView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgReplyCardView aJH = aVar.aJH();
-        aJH.a(this.mPageContext, chatMessage, viewGroup);
-        aJH.a(this.erQ);
-        aJH.setPosition(i);
+        MsgReplyCardView aMY = aVar.aMY();
+        aMY.a(this.mPageContext, chatMessage, viewGroup);
+        aMY.a(this.ezG);
+        aMY.setPosition(i);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class a extends e.a<MsgReplyCardView> {
         public a(View view, MsgReplyCardView msgReplyCardView) {
             super(view, msgReplyCardView);

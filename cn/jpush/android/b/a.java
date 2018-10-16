@@ -5,6 +5,7 @@ import cn.jiguang.h.b;
 import cn.jiguang.h.c;
 import cn.jiguang.h.d;
 import cn.jpush.android.d.f;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -16,7 +17,9 @@ import org.apache.http.protocol.HTTP;
 public final class a {
     public static c a(String str, int i, long j) {
         c cVar = null;
-        j = (j < 200 || j > 60000) ? 2000L : 2000L;
+        if (j < 200 || j > 60000) {
+            j = SystemScreenshotManager.DELAY_TIME;
+        }
         int i2 = 0;
         while (true) {
             try {
@@ -74,7 +77,9 @@ public final class a {
         byte[] bArr2;
         int i4 = 0;
         i = (i <= 0 || i > 10) ? 1 : 1;
-        j = (j < 200 || j > 60000) ? 2000L : 2000L;
+        if (j < 200 || j > 60000) {
+            j = SystemScreenshotManager.DELAY_TIME;
+        }
         int i5 = -1;
         int i6 = 0;
         InputStream inputStream2 = null;

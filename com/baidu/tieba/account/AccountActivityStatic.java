@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
 import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class AccountActivityStatic {
     static {
-        SI();
+        UE();
         registerTask();
     }
 
@@ -29,7 +29,7 @@ public class AccountActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void SI() {
+    private static void UE() {
         TbadkCoreApplication.getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
     }

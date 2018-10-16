@@ -1,5 +1,7 @@
 package com.meizu.cloud.pushsdk.platform;
 
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
@@ -11,7 +13,7 @@ public class a {
         Set<Map.Entry> entrySet = new TreeMap(map).entrySet();
         StringBuilder sb = new StringBuilder();
         for (Map.Entry entry : entrySet) {
-            sb.append((String) entry.getKey()).append("=").append((String) entry.getValue());
+            sb.append((String) entry.getKey()).append(ETAG.EQUAL).append((String) entry.getValue());
         }
         sb.append(str);
         return a(sb.toString());
@@ -19,7 +21,7 @@ public class a {
 
     public static String a(String str) {
         try {
-            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+            byte[] digest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(str.getBytes());
             StringBuffer stringBuffer = new StringBuffer();
             for (byte b : digest) {
                 int i = b & 255;

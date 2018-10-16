@@ -1,11 +1,9 @@
 package com.baidu.ar.rotate;
-
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public enum Orientation {
     UNKNOWN(-1),
     PORTRAIT(0),
-    PORTRAIT_REVERSE(SubsamplingScaleImageView.ORIENTATION_180),
+    PORTRAIT_REVERSE(180),
     LANDSCAPE(90),
     LANDSCAPE_REVERSE(-90);
     

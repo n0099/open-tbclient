@@ -1,5 +1,5 @@
 package com.baidu.tieba.j.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class e {
     public final String key;
     public final String url;

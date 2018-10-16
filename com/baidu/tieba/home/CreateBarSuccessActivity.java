@@ -18,12 +18,12 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String dZk = null;
+    private String ehd = null;
     private TextView mTextView = null;
-    private TextView dZy = null;
-    LinearLayout azr = null;
+    private TextView ehr = null;
+    LinearLayout aDZ = null;
 
-    public static void av(Context context, String str) {
+    public static void ax(Context context, String str) {
         if (str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateBarSuccessActivity.class);
             intent.putExtra("barname", str);
@@ -37,18 +37,18 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(e.h.create_bar_success_activity);
         initData();
-        aFn();
+        aIF();
     }
 
     private void initData() {
-        this.dZk = getIntent().getStringExtra("barname");
-        if (this.dZk == null) {
-            this.dZk = "";
+        this.ehd = getIntent().getStringExtra("barname");
+        if (this.ehd == null) {
+            this.ehd = "";
         }
     }
 
-    private void aFn() {
-        this.azr = (LinearLayout) findViewById(e.g.container);
+    private void aIF() {
+        this.aDZ = (LinearLayout) findViewById(e.g.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.g.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
@@ -59,7 +59,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(e.j.create_bar));
         this.mTextView = (TextView) findViewById(e.g.text);
-        this.dZy = (TextView) findViewById(e.g.text_more);
+        this.ehr = (TextView) findViewById(e.g.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,14 +67,14 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.azr);
-        boolean jw = new p().jw();
-        String string = jw ? getPageContext().getString(e.j.create_bar_new_tip) : getPageContext().getString(e.j.create_bar_info1);
+        getLayoutMode().onModeChanged(this.aDZ);
+        boolean jL = new p().jL();
+        String string = jL ? getPageContext().getString(e.j.create_bar_new_tip) : getPageContext().getString(e.j.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(jw ? string + this.dZk + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.dZk + getPageContext().getString(e.j.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.dZk.length() + length, 33);
+        SpannableString spannableString = new SpannableString(jL ? string + this.ehd + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.ehd + getPageContext().getString(e.j.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.ehd.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.dZy.setVisibility(jw ? 0 : 8);
+        this.ehr.setVisibility(jL ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

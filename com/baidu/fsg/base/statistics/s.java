@@ -1,6 +1,7 @@
 package com.baidu.fsg.base.statistics;
 
 import com.baidu.fsg.base.utils.LogUtil;
+import com.baidu.webkit.internal.ETAG;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -8,11 +9,11 @@ import java.net.URLEncoder;
 import java.util.Map;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 class s {
     private static final String a = "logsender";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     interface a {
         void a();
 
@@ -82,7 +83,7 @@ class s {
         StringBuilder sb = new StringBuilder();
         if (map != null && !map.isEmpty()) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                sb.append(URLEncoder.encode(entry.getKey())).append("=").append(URLEncoder.encode(entry.getValue())).append("&");
+                sb.append(URLEncoder.encode(entry.getKey())).append(ETAG.EQUAL).append(URLEncoder.encode(entry.getValue())).append(ETAG.ITEM_SEPARATOR);
             }
         }
         return sb.length() > 0 ? sb.substring(0, sb.length() - 1) : "";

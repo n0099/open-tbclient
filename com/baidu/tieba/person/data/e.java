@@ -2,24 +2,24 @@ package com.baidu.tieba.person.data;
 
 import com.baidu.adp.widget.ListView.h;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class e {
-    private ArrayList<h> anX;
-    private boolean gaR = true;
+    private boolean git = true;
+    private ArrayList<h> mData;
 
     public void ar(ArrayList<h> arrayList) {
-        this.anX = arrayList;
+        this.mData = arrayList;
     }
 
-    public boolean bjY() {
-        return this.gaR;
+    public boolean bnj() {
+        return this.git;
     }
 
-    public void lq(boolean z) {
-        this.gaR = z;
+    public void lH(boolean z) {
+        this.git = z;
     }
 
-    public ArrayList<h> bjZ() {
-        return this.anX;
+    public ArrayList<h> bnk() {
+        return this.mData;
     }
 }

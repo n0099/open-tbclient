@@ -17,6 +17,7 @@ import com.baidu.android.pushservice.message.a.l;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.webkit.internal.ABTestConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
@@ -236,7 +237,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                 if (TextUtils.isEmpty(stringExtra3)) {
                     return;
                 }
-                int intExtra2 = intent.getIntExtra(PushConstants.EXTRA_ERROR_CODE, 0);
+                int intExtra2 = intent.getIntExtra("error_msg", 0);
                 String str = intent.getByteArrayExtra("content") != null ? new String(intent.getByteArrayExtra("content")) : "";
                 if (stringExtra3.equals("com.baidu.android.pushservice.action.notification.ARRIVED")) {
                     String stringExtra4 = intent.getStringExtra("msgid");
@@ -273,7 +274,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                         com.baidu.android.pushservice.j.j.a(context, string2, string3, optString, string, string4, true, m.d(context, context.getPackageName()), j, str2, str3);
                         onBind(context, intExtra2, string2, string4, TextUtils.isEmpty(optString) ? string3 : optString, string);
                         m.b("PushMessageReceiver#onBind from " + context.getPackageName() + ", errorCode= " + intExtra2 + ", appid=  " + string2 + ", userId=" + string4 + ", channelId=" + string3 + ", newChannelId=" + optString + ", requestId=" + string + ", at time of " + System.currentTimeMillis(), context);
-                        String b2 = com.baidu.android.pushservice.b.b.a(context).b(context.getPackageName() + "," + string2 + "," + string4 + ",false," + ((int) com.baidu.android.pushservice.a.a()));
+                        String b2 = com.baidu.android.pushservice.b.b.a(context).b(context.getPackageName() + "," + string2 + "," + string4 + "," + ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE + "," + ((int) com.baidu.android.pushservice.a.a()));
                         com.baidu.android.pushservice.d.c.d(context, b2);
                         if (m.E(context)) {
                             n.a(context, context.getPackageName() + ".self_push_sync", "bindinfo", b2);
@@ -310,7 +311,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     try {
                         JSONObject jSONObject3 = new JSONObject(str);
                         String string5 = jSONObject3.getString(StatisticConstants.REQUEST_ID);
-                        if (!TextUtils.isEmpty(jSONObject3.optString(PushConstants.EXTRA_ERROR_CODE))) {
+                        if (!TextUtils.isEmpty(jSONObject3.optString("error_msg"))) {
                             onSetTags(context, intExtra2, new ArrayList(), new ArrayList(), string5);
                             return;
                         }

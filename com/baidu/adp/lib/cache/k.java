@@ -9,11 +9,11 @@ public interface k<T> {
 
     void aE(String str);
 
-    e ib();
+    e ir();
 
-    T r(String str, String str2);
+    T s(String str, String str2);
 
-    l.b<T> s(String str, String str2);
+    l.b<T> t(String str, String str2);
 
-    void t(String str, String str2);
+    void u(String str, String str2);
 }

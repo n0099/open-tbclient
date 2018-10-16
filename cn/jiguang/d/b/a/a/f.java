@@ -6,19 +6,19 @@ import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public final class f implements Runnable {
     private final LinkedList<i> a = new LinkedList<>();
-    private final cn.jiguang.d.b.a.d kF;
+    private final cn.jiguang.d.b.a.d lj;
 
     public f(Context context, cn.jiguang.d.b.g gVar, long j) {
-        this.kF = new cn.jiguang.d.b.a.d(context, gVar, j);
-        this.a.add(new h(this.kF, true));
-        this.a.add(new a(this.kF));
-        this.a.add(new k(this.kF));
-        this.a.add(new d(this.kF));
-        this.a.add(new e(this.kF));
-        this.a.add(new g(this.kF));
-        this.a.add(new j(this.kF));
-        this.a.add(new b(this.kF));
-        this.a.add(new h(this.kF, false));
+        this.lj = new cn.jiguang.d.b.a.d(context, gVar, j);
+        this.a.add(new h(this.lj, true));
+        this.a.add(new a(this.lj));
+        this.a.add(new k(this.lj));
+        this.a.add(new d(this.lj));
+        this.a.add(new e(this.lj));
+        this.a.add(new g(this.lj));
+        this.a.add(new j(this.lj));
+        this.a.add(new b(this.lj));
+        this.a.add(new h(this.lj, false));
     }
 
     public final void a() {
@@ -46,6 +46,6 @@ public final class f implements Runnable {
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.kF.f();
+        this.lj.f();
     }
 }

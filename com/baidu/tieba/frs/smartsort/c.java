@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.CardHListViewData;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static boolean b(FrsRequestData frsRequestData) {
         return frsRequestData != null && frsRequestData.getLoadType() == 1;
     }
 
     public static boolean a(ArrayList<h> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        if (cardHListViewData == null || v.z(arrayList) || StringUtils.isNull(str) || i < 0) {
+        if (cardHListViewData == null || v.J(arrayList) || StringUtils.isNull(str) || i < 0) {
             return false;
         }
         int size = arrayList.size();

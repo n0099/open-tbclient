@@ -1,6 +1,5 @@
 package com.baidu.crabsdk.sender;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Base64;
 import java.io.ByteArrayOutputStream;
@@ -11,15 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class f {
-    public static synchronized List<String> W(Context context, String str) {
+    public static synchronized List<String> X(Context context, String str) {
         ArrayList arrayList;
         synchronized (f.class) {
             arrayList = new ArrayList();
@@ -42,8 +40,8 @@ public final class f {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:75:0x00c7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x00c2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x00d1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -54,15 +52,20 @@ public final class f {
         deflaterOutputStream2 = null;
         FileOutputStream fileOutputStream2 = null;
         synchronized (f.class) {
-            com.baidu.crabsdk.c.a.cv("writeFile: " + str);
-            e.h(str);
+            com.baidu.crabsdk.c.a.cG("writeFile: " + str);
+            e.i(str);
             if (com.baidu.crabsdk.a.G) {
+                String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
                 try {
-                    String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, UUID.randomUUID().toString());
-                    str2 = com.baidu.crabsdk.c.d.S(str2, c);
-                    e.b("key_" + str, com.baidu.crabsdk.c.e.cE(c));
+                    str2 = com.baidu.crabsdk.c.d.Y(str2, c);
                 } catch (Exception e) {
-                    com.baidu.crabsdk.c.a.cy("RSA failed: " + e.getMessage());
+                    com.baidu.crabsdk.c.a.f("crash content AES failed!", e);
+                }
+                try {
+                    e.b("key_" + str, com.baidu.crabsdk.c.e.cO(c));
+                } catch (Exception e2) {
+                    e.b("key_" + str, "NoEncrypt_" + c);
+                    e2.printStackTrace();
                 }
             }
             try {
@@ -74,23 +77,23 @@ public final class f {
                         try {
                             deflaterOutputStream.write(bytes);
                             deflaterOutputStream.close();
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e3) {
+                            e = e3;
                             fileOutputStream2 = fileOutputStream;
                             try {
                                 e.printStackTrace();
                                 if (deflaterOutputStream != null) {
                                     try {
                                         deflaterOutputStream.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
+                                    } catch (IOException e4) {
+                                        e4.printStackTrace();
                                     }
                                 }
                                 if (fileOutputStream2 != null) {
                                     try {
                                         fileOutputStream2.close();
-                                    } catch (IOException e4) {
-                                        e4.printStackTrace();
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
                                     }
                                 }
                             } catch (Throwable th) {
@@ -100,15 +103,15 @@ public final class f {
                                 if (deflaterOutputStream2 != null) {
                                     try {
                                         deflaterOutputStream2.close();
-                                    } catch (IOException e5) {
-                                        e5.printStackTrace();
+                                    } catch (IOException e6) {
+                                        e6.printStackTrace();
                                     }
                                 }
                                 if (fileOutputStream != null) {
                                     try {
                                         fileOutputStream.close();
-                                    } catch (IOException e6) {
-                                        e6.printStackTrace();
+                                    } catch (IOException e7) {
+                                        e7.printStackTrace();
                                     }
                                 }
                                 throw th;
@@ -130,26 +133,26 @@ public final class f {
                     if (deflaterOutputStream != null) {
                         try {
                             deflaterOutputStream.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
                         }
                     }
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
+                        } catch (IOException e9) {
+                            e9.printStackTrace();
                         }
                     }
-                } catch (Exception e9) {
-                    e = e9;
+                } catch (Exception e10) {
+                    e = e10;
                     deflaterOutputStream = null;
                     fileOutputStream2 = fileOutputStream;
                 } catch (Throwable th3) {
                     th = th3;
                 }
-            } catch (Exception e10) {
-                e = e10;
+            } catch (Exception e11) {
+                e = e11;
                 deflaterOutputStream = null;
             } catch (Throwable th4) {
                 th = th4;
@@ -164,7 +167,7 @@ public final class f {
         }
     }
 
-    public static synchronized List<String> bb(Context context) {
+    public static synchronized List<String> bi(Context context) {
         ArrayList arrayList;
         synchronized (f.class) {
             arrayList = new ArrayList();
@@ -189,7 +192,7 @@ public final class f {
         return arrayList;
     }
 
-    public static synchronized List<String> bc(Context context) {
+    public static synchronized List<String> bj(Context context) {
         ArrayList arrayList;
         synchronized (f.class) {
             arrayList = new ArrayList();
@@ -198,7 +201,7 @@ public final class f {
                 File[] listFiles = filesDir.listFiles();
                 for (File file : listFiles) {
                     if (file.getName().contains("native_") && !file.getName().contains(".crab") && !file.getName().contains(".logcat")) {
-                        arrayList.add(file.getAbsolutePath());
+                        arrayList.add(file.getAbsolutePath() + "@" + file.lastModified());
                     }
                 }
             }
@@ -229,7 +232,7 @@ public final class f {
         }
     }
 
-    public static byte[] cF(String str) {
+    public static byte[] cS(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -318,19 +321,19 @@ public final class f {
         return bArr;
     }
 
-    public static String cG(String str) {
+    public static String cT(String str) {
         if (str == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.cw("开始遍历..." + str);
+            com.baidu.crabsdk.c.a.cH("开始遍历..." + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     sb.append(file.getName()).append("$");
                 }
-                com.baidu.crabsdk.c.a.cw(sb.toString());
+                com.baidu.crabsdk.c.a.cH(sb.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -346,12 +349,11 @@ public final class f {
         return false;
     }
 
-    @SuppressLint({"NewApi"})
-    public static String k(Map<String, Object> map) {
+    public static String j(Map<String, Object> map) {
         if (map == null) {
             return "";
         }
-        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.qm() > 7) {
+        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.rv() > 7) {
             map.put("screenshot", Base64.encodeToString((byte[]) map.get("screenshot"), 0));
         }
         JSONObject jSONObject = new JSONObject();
@@ -367,7 +369,7 @@ public final class f {
                 } else if (obj instanceof Float) {
                     jSONObject.put(str, (Float) obj);
                 } else {
-                    com.baidu.crabsdk.c.a.cz("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+                    com.baidu.crabsdk.c.a.v("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
                 }
             } catch (JSONException e) {
                 com.baidu.crabsdk.c.a.f("Could not create JSON object for key " + str, e);

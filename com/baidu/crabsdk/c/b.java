@@ -2,17 +2,17 @@ package com.baidu.crabsdk.c;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class b<E> extends LinkedList<E> {
-    private final int bQ;
+    private final int bP;
 
     public b(int i) {
-        this.bQ = i;
+        this.bP = i;
     }
 
     @Override // java.util.LinkedList, java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
     public final void add(int i, E e) {
-        if (size() == this.bQ) {
+        if (size() == this.bP) {
             removeFirst();
         }
         super.add(i, e);
@@ -20,7 +20,7 @@ public final class b<E> extends LinkedList<E> {
 
     @Override // java.util.LinkedList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List, java.util.Deque, java.util.Queue
     public final boolean add(E e) {
-        if (size() == this.bQ) {
+        if (size() == this.bP) {
             removeFirst();
         }
         return super.add(e);

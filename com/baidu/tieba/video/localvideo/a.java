@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> hoJ = new ArrayList<>();
-    private boolean hoK = false;
+    private ArrayList<d> hvY = new ArrayList<>();
+    private boolean hvZ = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.hoK = true;
-        this.hoJ.clear();
+        this.hvZ = true;
+        this.hvY.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.hoJ.addAll(list);
+            this.hvY.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void vE(String str) {
-        if (this.hoJ != null && !TextUtils.isEmpty(str)) {
+    public void wf(String str) {
+        if (this.hvY != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.hoJ.size()) {
-                    d dVar = this.hoJ.get(i2);
+                if (i2 < this.hvY.size()) {
+                    d dVar = this.hvY.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.hoJ.remove(i2);
+                        this.hvY.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.z(this.hoJ)) {
+        if (v.J(this.hvY)) {
             return 0;
         }
-        return this.hoJ.size();
+        return this.hvY.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vj */
+    /* renamed from: vG */
     public d getItem(int i) {
-        if (this.hoJ == null || this.hoJ.isEmpty() || i < 0 || i >= this.hoJ.size()) {
+        if (this.hvY == null || this.hvY.isEmpty() || i < 0 || i >= this.hvY.size()) {
             return null;
         }
-        return this.hoJ.get(i);
+        return this.hvY.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.hoJ != null && this.hoJ.size() > i) {
-            localVideoInfoView.a(this.hoJ.get(i));
-        } else if (i == 0 && this.hoK) {
-            localVideoInfoView.ns(true);
+        if (this.hvY != null && this.hvY.size() > i) {
+            localVideoInfoView.a(this.hvY.get(i));
+        } else if (i == 0 && this.hvZ) {
+            localVideoInfoView.nJ(true);
         } else {
-            localVideoInfoView.ns(false);
+            localVideoInfoView.nJ(false);
         }
         return view2;
     }

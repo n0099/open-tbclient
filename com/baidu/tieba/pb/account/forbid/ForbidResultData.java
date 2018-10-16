@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.account.forbid;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ForbidResultData extends OrmObject implements Serializable {
     private static final long serialVersionUID = 2253122288401584111L;
     public int error_code = 0;

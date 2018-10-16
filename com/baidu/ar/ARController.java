@@ -38,6 +38,7 @@ import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.baiduarsdk.ArBridge;
 import com.baidu.baiduarsdk.ArTouchEvent;
 import com.baidu.baiduarsdk.blend.TextureParams;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class ARController implements IDuMix {
@@ -365,7 +366,7 @@ public class ARController implements IDuMix {
     public void cancelDownloadCase(String str) {
         ARResource aRResource = new ARResource();
         if (TextUtils.isEmpty(str)) {
-            Log.e("error", "null arKey");
+            Log.e(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, "null arKey");
             return;
         }
         aRResource.setKey(str);
@@ -442,7 +443,7 @@ public class ARController implements IDuMix {
         }
         ARResource aRResource = new ARResource();
         if (TextUtils.isEmpty(str)) {
-            Log.e("error", "null arKey");
+            Log.e(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, "null arKey");
             return;
         }
         aRResource.setKey(str);

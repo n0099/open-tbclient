@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.sofire.ac.F;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -128,8 +129,8 @@ public final class e {
             String string = this.a.getString("pdcgts", "");
             if (TextUtils.isEmpty(string)) {
                 str = String.valueOf(j);
-            } else if (string.split("_").length < 20) {
-                str = string + "_" + String.valueOf(j);
+            } else if (string.split(BaseRequestAction.SPLITE).length < 20) {
+                str = string + BaseRequestAction.SPLITE + String.valueOf(j);
             } else {
                 return;
             }

@@ -14,7 +14,7 @@ public class b {
         this.hide = i;
     }
 
-    public String GN() {
+    public String IO() {
         return this.distance;
     }
 
@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int GO() {
+    public int IP() {
         return this.hide;
     }
 }

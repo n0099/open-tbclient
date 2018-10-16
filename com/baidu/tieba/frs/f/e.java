@@ -12,26 +12,26 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.view.FrsShareCardView;
 import com.baidu.tieba.tbadkCore.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class e {
     private static ShareFromFrsMsgData f(l lVar) {
         ShareFromFrsMsgData shareFromFrsMsgData = new ShareFromFrsMsgData();
-        shareFromFrsMsgData.setImageUrl(lVar.bbH().getImage_url());
-        shareFromFrsMsgData.setName(lVar.bbH().getName());
-        shareFromFrsMsgData.setMemberNum(lVar.bbH().getMember_num());
-        shareFromFrsMsgData.setPostNum(lVar.bbH().getPost_num());
-        shareFromFrsMsgData.setContent(lVar.bbH().getSlogan());
+        shareFromFrsMsgData.setImageUrl(lVar.beT().getImage_url());
+        shareFromFrsMsgData.setName(lVar.beT().getName());
+        shareFromFrsMsgData.setMemberNum(lVar.beT().getMember_num());
+        shareFromFrsMsgData.setPostNum(lVar.beT().getPost_num());
+        shareFromFrsMsgData.setContent(lVar.beT().getSlogan());
         return shareFromFrsMsgData;
     }
 
     public static void a(final FrsFragment frsFragment, l lVar, final long j, final String str, final long j2) {
-        if (lVar != null && lVar.bbH() != null) {
+        if (lVar != null && lVar.beT() != null) {
             final ShareFromFrsMsgData f = f(lVar);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(frsFragment.getPageContext().getPageActivity());
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(f);
-            aVar.cr(1);
+            aVar.cB(1);
             aVar.G(frsShareCardView);
             aVar.a(e.j.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -48,10 +48,10 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.aF(true);
-            aVar.b(frsFragment.getPageContext()).yl();
+            aVar.aP(true);
+            aVar.b(frsFragment.getPageContext()).Au();
             if (!k.isEmpty(f.getImageUrl())) {
-                frsShareCardView.E(f.getImageUrl(), false);
+                frsShareCardView.L(f.getImageUrl(), false);
             }
         }
     }

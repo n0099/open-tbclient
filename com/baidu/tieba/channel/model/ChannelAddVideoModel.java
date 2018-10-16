@@ -18,11 +18,11 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class ChannelAddVideoModel extends BdBaseModel<ChannelAddVideoActivity> {
     public HttpMessageListener addVideoListener;
-    private boolean bCK;
-    private boolean bEO;
-    private a cJd;
-    private b cKN;
-    private com.baidu.tieba.channel.data.a cKO;
+    private boolean bLp;
+    private boolean bNr;
+    private a cRw;
+    private b cTg;
+    private com.baidu.tieba.channel.data.a cTh;
     public HttpMessageListener getUserVideoListener;
     private boolean mHasMore;
     private int mPageNum;
@@ -39,8 +39,8 @@ public class ChannelAddVideoModel extends BdBaseModel<ChannelAddVideoActivity> {
 
     public ChannelAddVideoModel(e<ChannelAddVideoActivity> eVar) {
         super(eVar);
-        this.bEO = true;
-        this.bCK = false;
+        this.bNr = true;
+        this.bLp = false;
         this.getUserVideoListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_USER_VIDEO_LIST) { // from class: com.baidu.tieba.channel.model.ChannelAddVideoModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -49,10 +49,10 @@ public class ChannelAddVideoModel extends BdBaseModel<ChannelAddVideoActivity> {
                     if (httpResponsedMessage.getError() == 0) {
                         ChannelAddVideoModel.this.a((ResponseNetUserVideoListMessage) httpResponsedMessage);
                     }
-                    if (ChannelAddVideoModel.this.cKN != null) {
-                        ChannelAddVideoModel.this.cKN.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelAddVideoModel.this.bEO, ChannelAddVideoModel.this.cKO);
+                    if (ChannelAddVideoModel.this.cTg != null) {
+                        ChannelAddVideoModel.this.cTg.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ChannelAddVideoModel.this.bNr, ChannelAddVideoModel.this.cTh);
                     }
-                    ChannelAddVideoModel.this.bEO = false;
+                    ChannelAddVideoModel.this.bNr = false;
                 }
             }
         };
@@ -60,8 +60,8 @@ public class ChannelAddVideoModel extends BdBaseModel<ChannelAddVideoActivity> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelAddVideoResponseMessage) && ChannelAddVideoModel.this.cJd != null) {
-                    ChannelAddVideoModel.this.cJd.M(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelAddVideoResponseMessage) && ChannelAddVideoModel.this.cRw != null) {
+                    ChannelAddVideoModel.this.cRw.M(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         };
@@ -70,19 +70,19 @@ public class ChannelAddVideoModel extends BdBaseModel<ChannelAddVideoActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ResponseNetUserVideoListMessage responseNetUserVideoListMessage) {
         if (responseNetUserVideoListMessage != null) {
-            if (this.cKO == null) {
-                this.cKO = new com.baidu.tieba.channel.data.a();
+            if (this.cTh == null) {
+                this.cTh = new com.baidu.tieba.channel.data.a();
             }
             com.baidu.tieba.channel.data.a data = responseNetUserVideoListMessage.getData();
             if (data != null) {
-                this.cKO.getItems().addAll(data.getItems());
-                this.cKO.setHasMore(data.hasMore());
+                this.cTh.getItems().addAll(data.getItems());
+                this.cTh.setHasMore(data.hasMore());
                 this.mHasMore = data.hasMore();
             }
         }
     }
 
-    public void Vb() {
+    public void YI() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_USER_VIDEO_LIST, TbConfig.SERVER_ADDRESS + "c/f/video/getUserVideoList");
         tbHttpMessageTask.setResponsedClass(ResponseNetUserVideoListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -99,12 +99,12 @@ public class ChannelAddVideoModel extends BdBaseModel<ChannelAddVideoActivity> {
         MessageManager.getInstance().unRegisterListener(this.addVideoListener);
     }
 
-    public void alG() {
+    public void apj() {
         LinkedList<HttpMessage> findHttpMessage = MessageManager.getInstance().findHttpMessage(getUniqueId());
         if (findHttpMessage == null || findHttpMessage.size() == 0) {
-            if (!this.bCK) {
+            if (!this.bLp) {
                 this.mPageNum = 1;
-                this.cKO = null;
+                this.cTh = null;
             } else {
                 this.mPageNum++;
             }
@@ -141,15 +141,15 @@ public class ChannelAddVideoModel extends BdBaseModel<ChannelAddVideoActivity> {
         return this.mHasMore;
     }
 
-    public void eV(boolean z) {
-        this.bCK = z;
+    public void fn(boolean z) {
+        this.bLp = z;
     }
 
     public void a(b bVar) {
-        this.cKN = bVar;
+        this.cTg = bVar;
     }
 
     public void a(a aVar) {
-        this.cJd = aVar;
+        this.cRw = aVar;
     }
 }

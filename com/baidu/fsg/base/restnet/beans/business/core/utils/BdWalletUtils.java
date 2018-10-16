@@ -12,11 +12,12 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.baidu.fsg.base.restnet.fp.a;
 import com.baidu.fsg.base.utils.SharedPreferencesUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BdWalletUtils {
     private static final String DEVICE_FP = "rim_device_fp";
     private static final String PREF_FILE_NAME_FP = "__RIM_SDK_FP_V1";
@@ -171,10 +172,10 @@ public class BdWalletUtils {
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str)) {
             try {
-                String[] split2 = str.split("&");
+                String[] split2 = str.split(ETAG.ITEM_SEPARATOR);
                 if (split2 != null && split2.length > 0) {
                     for (String str2 : split2) {
-                        if (str2 != null && (split = str2.split("=")) != null && split.length == 2) {
+                        if (str2 != null && (split = str2.split(ETAG.EQUAL)) != null && split.length == 2) {
                             hashMap.put(split[0], split[1]);
                         }
                     }

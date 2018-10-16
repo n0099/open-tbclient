@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.AddGroupUsers.AddGroupUsersResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ResponseAddGroupUserMessage extends SocketResponsedMessage {
     private long groupId;
 

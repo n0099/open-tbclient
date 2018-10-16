@@ -16,52 +16,52 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout aLG;
-    protected TextView aLH;
-    protected TextView aLI;
-    private boolean aLK;
-    protected ImageView aLL;
+    protected LinearLayout aQi;
+    protected TextView aQj;
+    protected TextView aQk;
+    private boolean aQm;
+    protected ImageView aQn;
     private View mBottomLine;
     protected Context mContext;
     private View mTopLine;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aLK = true;
+        this.aQm = true;
         this.mContext = context;
-        Hh();
+        Ji();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.aLK = true;
+        this.aQm = true;
         this.mContext = context;
-        Hh();
+        Ji();
     }
 
     public void displayTip() {
-        if (this.aLI != null) {
-            this.aLI.setVisibility(0);
+        if (this.aQk != null) {
+            this.aQk.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.aLI != null) {
-            this.aLI.setTextColor(i);
+        if (this.aQk != null) {
+            this.aQk.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.aLI != null) {
+        if (this.aQk != null) {
         }
     }
 
     public void g(int i, int i2, int i3, int i4) {
-        if (this.aLI != null) {
+        if (this.aQk != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.aLI.setLayoutParams(layoutParams);
+            this.aQk.setLayoutParams(layoutParams);
         }
     }
 
@@ -69,35 +69,35 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.aLL.setVisibility(8);
+        this.aQn.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.aLH.setText(str);
+        this.aQj.setText(str);
     }
 
     public void setText(int i) {
-        this.aLH.setText(i);
+        this.aQj.setText(i);
     }
 
     public void setTip(String str) {
-        this.aLI.setText(str);
+        this.aQk.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.aLI.getText();
+        return this.aQk.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.aLI.setBackgroundDrawable(drawable);
+        this.aQk.setBackgroundDrawable(drawable);
     }
 
-    protected void Hh() {
+    protected void Ji() {
         LayoutInflater.from(this.mContext).inflate(e.h.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.aLG = (LinearLayout) findViewById(e.g.container);
-        this.aLH = (TextView) findViewById(e.g.text);
-        this.aLI = (TextView) findViewById(e.g.tip);
-        this.aLL = (ImageView) findViewById(e.g.arrow2);
+        this.aQi = (LinearLayout) findViewById(e.g.container);
+        this.aQj = (TextView) findViewById(e.g.text);
+        this.aQk = (TextView) findViewById(e.g.tip);
+        this.aQn = (ImageView) findViewById(e.g.arrow2);
         this.mBottomLine = findViewById(e.g.bottom_line_ll);
         this.mTopLine = findViewById(e.g.top_line_ll);
     }
@@ -108,18 +108,18 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(e.l.TbSettingView_settingText);
             String string2 = obtainStyledAttributes.getString(e.l.TbSettingView_settingTip);
             if (string != null) {
-                this.aLH.setText(string);
+                this.aQj.setText(string);
             }
             if (string2 != null) {
-                this.aLI.setText(string2);
+                this.aQk.setText(string2);
             }
-            this.aLK = obtainStyledAttributes.getBoolean(e.l.TbSettingView_settingShowArraw, true);
+            this.aQm = obtainStyledAttributes.getBoolean(e.l.TbSettingView_settingShowArraw, true);
             obtainStyledAttributes.recycle();
         }
-        this.aLG.setClickable(false);
-        this.aLG.setFocusable(false);
-        if (!this.aLK) {
-            this.aLL.setVisibility(4);
+        this.aQi.setClickable(false);
+        this.aQi.setFocusable(false);
+        if (!this.aQm) {
+            this.aQn.setVisibility(4);
         }
     }
 
@@ -140,31 +140,31 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setMainTextSize(float f) {
-        this.aLH.setTextSize(0, f);
+        this.aQj.setTextSize(0, f);
     }
 
     private void setTipTextSize(float f) {
-        this.aLI.setTextSize(0, f);
+        this.aQk.setTextSize(0, f);
     }
 
-    public void Hi() {
-        int h = l.h(this.mContext, e.C0141e.tbds42);
-        int h2 = l.h(this.mContext, e.C0141e.tbds33);
+    public void Jj() {
+        int h = l.h(this.mContext, e.C0175e.tbds42);
+        int h2 = l.h(this.mContext, e.C0175e.tbds33);
         setMainTextSize(h);
         setTipTextSize(h2);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aLH.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aQj.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.aLI.getLayoutParams()).setMargins(0, 0, l.h(this.mContext, e.C0141e.tbds18), 0);
-        this.aLG.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.aQk.getLayoutParams()).setMargins(0, 0, l.h(this.mContext, e.C0175e.tbds18), 0);
+        this.aQi.getLayoutParams().height = -1;
         requestLayout();
     }
 
     public void onChangeSkinType(int i) {
         al.j(this.mTopLine, e.d.cp_bg_line_b);
-        al.i(this.aLG, e.f.setting_item_selector);
-        al.h(this.aLH, e.d.cp_cont_b);
-        al.h(this.aLI, e.d.cp_cont_d);
-        al.c(this.aLL, e.f.icon_arrow_gray_right_n);
+        al.i(this.aQi, e.f.setting_item_selector);
+        al.h(this.aQj, e.d.cp_cont_b);
+        al.h(this.aQk, e.d.cp_cont_d);
+        al.c(this.aQn, e.f.icon_arrow_gray_right_n);
         al.j(this.mBottomLine, e.d.cp_bg_line_b);
     }
 }

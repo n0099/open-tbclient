@@ -3,13 +3,13 @@ package com.baidu.tieba.personCenter.data;
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class i extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.h {
-    public static BdUniqueId gci = BdUniqueId.gen();
-    public List<a> gbP = new ArrayList();
+    public static BdUniqueId gjK = BdUniqueId.gen();
+    public List<a> gjr = new ArrayList();
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gci;
+        return gjK;
     }
 }

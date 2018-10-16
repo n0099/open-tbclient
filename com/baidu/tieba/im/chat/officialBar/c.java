@@ -1,21 +1,22 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.view.coverview.model.ImageCoverViewModel;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        public String etH;
-        public long etO;
-        public String etP;
-        public int etQ;
+        public long eBD;
+        public String eBE;
+        public int eBF;
+        public String eBw;
         public String fid;
         public long picId;
         public String src;
@@ -46,7 +47,7 @@ public class c {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 String optString = optJSONObject.optString("title");
                 String optString2 = optJSONObject.optString("url");
-                String optString3 = optJSONObject.optString("src");
+                String optString3 = optJSONObject.optString(ImageCoverViewModel.KEY_SRC);
                 String optString4 = optJSONObject.optString("text");
                 long optLong = optJSONObject.optLong("picId");
                 String optString5 = optJSONObject.optString("msg_src");
@@ -58,14 +59,14 @@ public class c {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.etH = optString5;
+                aVar.eBw = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.etO = j;
-                    aVar.etP = userData.getUserId();
-                    aVar.etQ = userData.getUserType();
+                    aVar.eBD = j;
+                    aVar.eBE = userData.getUserId();
+                    aVar.eBF = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

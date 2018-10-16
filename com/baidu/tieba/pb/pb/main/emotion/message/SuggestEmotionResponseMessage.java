@@ -11,7 +11,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     private a mData;
 
@@ -25,8 +25,8 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null) {
             this.mData = new a();
-            this.mData.aY(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.cZ(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+            this.mData.bo(parseImageData(jSONObject.optJSONArray("memes")));
+            this.mData.dn(parseHotWordsData(jSONObject.optJSONArray("topwords")));
             this.mData.a(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }

@@ -28,6 +28,7 @@ import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.fsg.face.base.b.c;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -521,7 +522,7 @@ public final class DeviceId {
                 sb.append(SystemInfoUtil.LINE_END);
             }
             bufferedReader.close();
-            split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split("=");
+            split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split(ETAG.EQUAL);
         } catch (FileNotFoundException e) {
             str2 = str;
         } catch (IOException e2) {
@@ -782,7 +783,7 @@ public final class DeviceId {
             }
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
-            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), IoUtils.UTF_8));
+            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + ETAG.EQUAL + str2).getBytes()), IoUtils.UTF_8));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {

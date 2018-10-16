@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class m {
-    private long ack;
-    private String bsN;
-    private String gWw;
-    private List<String> gWx;
-    private String gWy;
+    private String bwU;
+    private String hdR;
+    private List<String> hdS;
+    private String hdT;
+    private long mEndTime;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.ack = redpacketRain.end_time.longValue() * 1000;
-            this.bsN = redpacketRain.jump_url;
-            this.gWw = redpacketRain.float_url;
-            this.gWx = redpacketRain.dynamic_img;
-            this.gWy = redpacketRain.activity_id;
+            this.mEndTime = redpacketRain.end_time.longValue() * 1000;
+            this.bwU = redpacketRain.jump_url;
+            this.hdR = redpacketRain.float_url;
+            this.hdS = redpacketRain.dynamic_img;
+            this.hdT = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,23 +29,23 @@ public class m {
     }
 
     public long getEndTime() {
-        return this.ack;
+        return this.mEndTime;
     }
 
-    public String SP() {
-        return this.bsN;
+    public String UL() {
+        return this.bwU;
     }
 
-    public String byZ() {
-        return this.gWw;
+    public String bCo() {
+        return this.hdR;
     }
 
-    public List<String> bza() {
-        return this.gWx;
+    public List<String> bCp() {
+        return this.hdS;
     }
 
-    public String bzb() {
-        return this.gWy;
+    public String bCq() {
+        return this.hdT;
     }
 
     public void setStartTime(long j) {
@@ -53,23 +53,23 @@ public class m {
     }
 
     public void setEndTime(long j) {
-        this.ack = j;
+        this.mEndTime = j;
     }
 
-    public void uw(String str) {
-        this.bsN = str;
+    public void uY(String str) {
+        this.bwU = str;
     }
 
-    public void ux(String str) {
-        this.gWw = str;
+    public void uZ(String str) {
+        this.hdR = str;
     }
 
-    public void dx(List<String> list) {
-        this.gWx = list;
+    public void dL(List<String> list) {
+        this.hdS = list;
     }
 
-    public void uy(String str) {
-        this.gWy = str;
+    public void va(String str) {
+        this.hdT = str;
     }
 
     public int getType() {

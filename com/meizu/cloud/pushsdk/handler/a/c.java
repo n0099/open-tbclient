@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.meizu.cloud.pushsdk.NotificationService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
@@ -134,9 +136,9 @@ public class c extends a<MessageV3> {
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_SCHEDULE_NOTIFICATION_MESSAGE, messageV3);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SCHEDULE_NOTIFICATION);
-        PendingIntent service = PendingIntent.getService(c(), 0, intent, 1073741824);
+        PendingIntent service = PendingIntent.getService(c(), 0, intent, AiAppsFileUtils.GB);
         String startShowTime = messageV3.getmTimeDisplaySetting().getStartShowTime();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(AiAppDateTimeUtil.TIME_FORMAT);
         String str = null;
         if (!TextUtils.isEmpty(startShowTime)) {
             str = simpleDateFormat.format(new Date(Long.valueOf(startShowTime).longValue()));

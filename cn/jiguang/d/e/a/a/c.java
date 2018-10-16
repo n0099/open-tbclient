@@ -9,7 +9,7 @@ public final class c {
     int e;
     long f;
     private boolean g;
-    Long lE;
+    Long mj;
 
     public c(boolean z, int i, int i2, int i3, long j, int i4, long j2) {
         this.g = false;
@@ -17,7 +17,7 @@ public final class c {
         this.a = 0;
         this.b = i2;
         this.c = i3;
-        this.lE = Long.valueOf(j);
+        this.mj = Long.valueOf(j);
         this.e = i4;
         this.f = j2;
     }
@@ -34,7 +34,7 @@ public final class c {
         this.a &= 32767;
         this.b = wrap.get();
         this.c = wrap.get();
-        this.lE = Long.valueOf(wrap.getLong());
+        this.mj = Long.valueOf(wrap.getLong());
         if (z) {
             this.e = wrap.getInt();
         }
@@ -58,15 +58,15 @@ public final class c {
     }
 
     public final void b(Long l) {
-        this.lE = l;
-    }
-
-    public final Long bL() {
-        return this.lE;
+        this.mj = l;
     }
 
     public final long c() {
         return this.f;
+    }
+
+    public final Long cc() {
+        return this.mj;
     }
 
     public final int d() {
@@ -85,7 +85,7 @@ public final class c {
         allocate.putShort((short) this.a);
         allocate.put((byte) this.b);
         allocate.put((byte) this.c);
-        allocate.putLong(this.lE.longValue());
+        allocate.putLong(this.mj.longValue());
         if (this.g) {
             allocate.putInt(this.e);
         }
@@ -95,6 +95,6 @@ public final class c {
     }
 
     public final String toString() {
-        return "[JHead] - len:" + this.a + ", version:" + this.b + ", command:" + this.c + ", rid:" + this.lE + (this.g ? ", sid:" + this.e : "") + ", juid:" + this.f;
+        return "[JHead] - len:" + this.a + ", version:" + this.b + ", command:" + this.c + ", rid:" + this.mj + (this.g ? ", sid:" + this.e : "") + ", juid:" + this.f;
     }
 }

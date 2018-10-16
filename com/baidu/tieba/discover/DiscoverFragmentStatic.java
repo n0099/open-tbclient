@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DiscoverFragmentStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921010, new CustomMessageTask.CustomRunnable<BaseFragment>() { // from class: com.baidu.tieba.discover.DiscoverFragmentStatic.1

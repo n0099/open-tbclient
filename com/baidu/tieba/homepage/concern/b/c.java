@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.concern.b;
 
 import com.baidu.adp.lib.util.StringUtils;
 import tbclient.Userlike.UserList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c implements com.baidu.tbadk.core.view.userLike.a {
     private int is_like;
     private int likeStatus = 1;
@@ -64,7 +64,7 @@ public class c implements com.baidu.tbadk.core.view.userLike.a {
         return this.portrait;
     }
 
-    public String aFD() {
+    public String aIV() {
         return this.recom_reason;
     }
 

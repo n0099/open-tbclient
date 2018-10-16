@@ -1,7 +1,9 @@
 package com.google.gson;
 
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Field;
+import java.util.Locale;
 /* loaded from: classes2.dex */
 public enum FieldNamingPolicy implements c {
     IDENTITY { // from class: com.google.gson.FieldNamingPolicy.1
@@ -13,30 +15,29 @@ public enum FieldNamingPolicy implements c {
     UPPER_CAMEL_CASE { // from class: com.google.gson.FieldNamingPolicy.2
         @Override // com.google.gson.c
         public String translateName(Field field) {
-            return FieldNamingPolicy.upperCaseFirstLetter(field.getName());
+            return upperCaseFirstLetter(field.getName());
         }
     },
     UPPER_CAMEL_CASE_WITH_SPACES { // from class: com.google.gson.FieldNamingPolicy.3
         @Override // com.google.gson.c
         public String translateName(Field field) {
-            return FieldNamingPolicy.upperCaseFirstLetter(FieldNamingPolicy.separateCamelCase(field.getName(), " "));
+            return upperCaseFirstLetter(separateCamelCase(field.getName(), " "));
         }
     },
     LOWER_CASE_WITH_UNDERSCORES { // from class: com.google.gson.FieldNamingPolicy.4
         @Override // com.google.gson.c
         public String translateName(Field field) {
-            return FieldNamingPolicy.separateCamelCase(field.getName(), "_").toLowerCase();
+            return separateCamelCase(field.getName(), BaseRequestAction.SPLITE).toLowerCase(Locale.ENGLISH);
         }
     },
     LOWER_CASE_WITH_DASHES { // from class: com.google.gson.FieldNamingPolicy.5
         @Override // com.google.gson.c
         public String translateName(Field field) {
-            return FieldNamingPolicy.separateCamelCase(field.getName(), Constants.ACCEPT_TIME_SEPARATOR_SERVER).toLowerCase();
+            return separateCamelCase(field.getName(), Constants.ACCEPT_TIME_SEPARATOR_SERVER).toLowerCase(Locale.ENGLISH);
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static String separateCamelCase(String str, String str2) {
+    static String separateCamelCase(String str, String str2) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
@@ -48,8 +49,7 @@ public enum FieldNamingPolicy implements c {
         return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static String upperCaseFirstLetter(String str) {
+    static String upperCaseFirstLetter(String str) {
         StringBuilder sb = new StringBuilder();
         int i = 0;
         char charAt = str.charAt(0);
@@ -68,6 +68,9 @@ public enum FieldNamingPolicy implements c {
     }
 
     private static String modifyString(char c, String str, int i) {
-        return i < str.length() ? c + str.substring(i) : String.valueOf(c);
+        if (i < str.length()) {
+            return c + str.substring(i);
+        }
+        return String.valueOf(c);
     }
 }

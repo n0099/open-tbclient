@@ -1,9 +1,9 @@
 package com.baidu.tieba.enterForum.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface c {
-    void alQ();
+    void aC(int i, int i2);
 
-    void az(int i, int i2);
+    void kD(int i);
 
-    void kf(int i);
+    void notifyDataChanged();
 }

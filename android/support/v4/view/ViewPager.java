@@ -32,6 +32,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.Scroller;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
@@ -615,7 +616,7 @@ public class ViewPager extends ViewGroup {
         } else {
             abs = (int) (((Math.abs(i4) / ((clientWidth * this.mAdapter.getPageWidth(this.mCurItem)) + this.mPageMargin)) + 1.0f) * 100.0f);
         }
-        int min = Math.min(abs, (int) MAX_SETTLE_DURATION);
+        int min = Math.min(abs, 600);
         this.mIsScrollStarted = false;
         this.mScroller.startScroll(scrollX, scrollY, i4, i5, min);
         ViewCompat.postInvalidateOnAnimation(this);
@@ -1154,19 +1155,19 @@ public class ViewPager extends ViewGroup {
                 boolean z = i8 == 48 || i8 == 80;
                 boolean z2 = i7 == 3 || i7 == 5;
                 if (z) {
-                    i9 = 1073741824;
+                    i9 = AiAppsFileUtils.GB;
                 } else if (z2) {
-                    i10 = 1073741824;
+                    i10 = AiAppsFileUtils.GB;
                 }
                 if (layoutParams2.width != -2) {
-                    i3 = 1073741824;
+                    i3 = AiAppsFileUtils.GB;
                     i4 = layoutParams2.width != -1 ? layoutParams2.width : paddingLeft;
                 } else {
                     i3 = i9;
                     i4 = paddingLeft;
                 }
                 if (layoutParams2.height != -2) {
-                    i10 = 1073741824;
+                    i10 = AiAppsFileUtils.GB;
                     if (layoutParams2.height != -1) {
                         i5 = layoutParams2.height;
                         childAt.measure(View.MeasureSpec.makeMeasureSpec(i4, i3), View.MeasureSpec.makeMeasureSpec(i5, i10));
@@ -1183,8 +1184,8 @@ public class ViewPager extends ViewGroup {
                 }
             }
         }
-        this.mChildWidthMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingLeft, 1073741824);
-        this.mChildHeightMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredHeight, 1073741824);
+        this.mChildWidthMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingLeft, AiAppsFileUtils.GB);
+        this.mChildHeightMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredHeight, AiAppsFileUtils.GB);
         this.mInLayout = true;
         populate();
         this.mInLayout = false;
@@ -1192,7 +1193,7 @@ public class ViewPager extends ViewGroup {
         for (int i11 = 0; i11 < childCount2; i11++) {
             View childAt2 = getChildAt(i11);
             if (childAt2.getVisibility() != 8 && ((layoutParams = (LayoutParams) childAt2.getLayoutParams()) == null || !layoutParams.isDecor)) {
-                childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (layoutParams.widthFactor * paddingLeft), 1073741824), this.mChildHeightMeasureSpec);
+                childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (layoutParams.widthFactor * paddingLeft), AiAppsFileUtils.GB), this.mChildHeightMeasureSpec);
             }
         }
     }
@@ -1324,7 +1325,7 @@ public class ViewPager extends ViewGroup {
                     int i22 = ((int) (infoForChild.offset * i20)) + paddingLeft;
                     if (layoutParams2.needsMeasure) {
                         layoutParams2.needsMeasure = false;
-                        childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (layoutParams2.widthFactor * i20), 1073741824), View.MeasureSpec.makeMeasureSpec((i11 - paddingTop) - paddingBottom, 1073741824));
+                        childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (layoutParams2.widthFactor * i20), AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec((i11 - paddingTop) - paddingBottom, AiAppsFileUtils.GB));
                     }
                     childAt2.layout(i22, paddingTop, childAt2.getMeasuredWidth() + i22, childAt2.getMeasuredHeight() + paddingTop);
                 }

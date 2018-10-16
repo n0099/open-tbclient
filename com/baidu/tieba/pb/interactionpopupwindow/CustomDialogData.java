@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.interactionpopupwindow;
 
-import com.baidu.tbadk.TbConfig;
-import com.tencent.tauth.AuthActivity;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
+import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -45,20 +45,20 @@ public class CustomDialogData implements IBaseDialogData {
         JSONObject optJSONObject = jSONObject.optJSONObject("head");
         if (optJSONObject != null) {
             Head head = new Head();
-            head.imageUrl = optJSONObject.optString(TbConfig.TMP_PIC_DIR_NAME);
+            head.imageUrl = optJSONObject.optString("image");
             head.text = optJSONObject.optString("text");
             customDialogData.head = head;
         }
-        customDialogData.body = jSONObject.optString("body");
+        customDialogData.body = jSONObject.optString(NetworkDef.Http.BODY);
         JSONArray optJSONArray = jSONObject.optJSONArray("button");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                 Button button = new Button();
                 button.text = optJSONObject2.optString("text");
-                button.action = optJSONObject2.optString(AuthActivity.ACTION_KEY);
-                button.image = optJSONObject2.optString(TbConfig.TMP_PIC_DIR_NAME);
-                if (optJSONObject2.optString("position").equals(POS_LEFT)) {
+                button.action = optJSONObject2.optString("action");
+                button.image = optJSONObject2.optString("image");
+                if (optJSONObject2.optString(AiAppsNaViewModel.KEY_POSITION).equals("left")) {
                     customDialogData.leftButton = button;
                 } else {
                     customDialogData.rightButton = button;

@@ -41,6 +41,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -832,7 +833,7 @@ public class Toolbar extends ViewGroup {
             if (mode != 0) {
                 i5 = Math.min(View.MeasureSpec.getSize(childMeasureSpec2), i5);
             }
-            childMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i5, 1073741824);
+            childMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i5, AiAppsFileUtils.GB);
         }
         view.measure(childMeasureSpec, childMeasureSpec2);
     }

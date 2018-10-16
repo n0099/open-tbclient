@@ -2,26 +2,27 @@ package com.baidu.tieba.s;
 
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.ar.util.IoUtils;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static boolean g(byte[] bArr, String str) {
         if (bArr == null) {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.jc().setUrl(str);
-        eVar.jc().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.jc().d("", bArr);
+        eVar.jr().setUrl(str);
+        eVar.jr().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.jr().d("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).g(3, -1, -1);
-        int i = eVar.jd().responseCode;
-        byte[] bArr2 = eVar.jd().Cs;
+        int i = eVar.js().responseCode;
+        byte[] bArr2 = eVar.js().Dc;
         if (bArr2 == null || i != 200) {
             return false;
         }
         try {
-            if (new JSONObject(new String(bArr2, IoUtils.UTF_8)).optJSONObject("error").optInt("errno") != 0) {
+            if (new JSONObject(new String(bArr2, IoUtils.UTF_8)).optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR).optInt("errno") != 0) {
                 return false;
             }
             return true;
@@ -31,7 +32,7 @@ public class c {
         }
     }
 
-    public static byte[] dF(List<String> list) {
+    public static byte[] dT(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -44,7 +45,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] al(JSONObject jSONObject) {
+    public static byte[] av(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

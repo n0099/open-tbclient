@@ -12,16 +12,16 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d extends k<PostData, a> {
-    private View.OnClickListener cOe;
+    private View.OnClickListener cWv;
 
     public d(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cOe = onClickListener;
+        this.cWv = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class d extends k<PostData, a> {
     /* renamed from: bh */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(e.g.tv_pb_reply_more).setOnClickListener(this.cOe);
+        inflate.findViewById(e.g.tv_pb_reply_more).setOnClickListener(this.cWv);
         a aVar = new a(inflate);
-        aVar.GW();
+        aVar.IX();
         return aVar;
     }
 
@@ -45,31 +45,31 @@ public class d extends k<PostData, a> {
         return aVar.getView();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends q.a {
-        private TextView fBI;
+        private TextView fJj;
 
         public a(View view) {
             super(view);
-            this.fBI = (TextView) view.findViewById(e.g.tv_pb_reply_more);
+            this.fJj = (TextView) view.findViewById(e.g.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.gVZ) {
+                if (postData.hdu) {
                     Drawable drawable = al.getDrawable(e.f.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.fBI.setCompoundDrawables(null, null, drawable, null);
+                    this.fJj.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = al.getDrawable(e.f.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.fBI.setCompoundDrawables(null, null, drawable2, null);
+                this.fJj.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void GW() {
-            al.h(this.fBI, e.d.cp_cont_d);
+        public void IX() {
+            al.h(this.fJj, e.d.cp_cont_d);
         }
     }
 }

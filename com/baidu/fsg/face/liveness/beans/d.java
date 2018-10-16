@@ -8,11 +8,10 @@ import com.baidu.fsg.base.utils.Base64Utils;
 import com.baidu.fsg.base.utils.RandomUtils;
 import com.baidu.fsg.base.utils.SafeUtils;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
-import com.baidu.tbadk.TbConfig;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends k {
     private String b;
     private String c;
@@ -42,7 +41,7 @@ public class d extends k {
         arrayList.add(new RestNameValuePair("imgdigests", this.b));
         String randomString = RandomUtils.getRandomString(4096);
         try {
-            arrayList.add(new RestNameValuePair(TbConfig.TMP_PIC_DIR_NAME, Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

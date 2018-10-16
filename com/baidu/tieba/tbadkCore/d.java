@@ -1,14 +1,14 @@
 package com.baidu.tieba.tbadkCore;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        public boolean gSe = false;
+        public boolean gZz = false;
         public boolean isSuccess = false;
         public int errorCode = 0;
         public String errorMsg = "";
-        public long gSf = 0;
+        public long gZA = 0;
         public boolean isWifi = false;
     }
 }

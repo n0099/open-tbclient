@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.atomData.AtMessageActivityConfig;
 import com.baidu.tbadk.core.atomData.MessageCenterActivityConfig;
 import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MessageCenterActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AgreeMeActivityConfig.class, AgreeMeActivity.class);
-        aHL();
+        aLd();
     }
 
-    private static void aHL() {
-        ay.AN().a(new ay.a() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivityStatic.1
+    private static void aLd() {
+        ay.CU().a(new ay.a() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

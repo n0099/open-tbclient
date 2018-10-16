@@ -45,11 +45,11 @@ public class RelationshipStatic {
                     ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                     if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                        aVar.gr(responseNewFriendUpdateUiMsg.getKey());
+                        aVar.gG(responseNewFriendUpdateUiMsg.getKey());
                         aVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                         aVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                         aVar.setUserName(responseNewFriendUpdateUiMsg.getName());
-                        aVar.gq(responseNewFriendUpdateUiMsg.getPortrait());
+                        aVar.gF(responseNewFriendUpdateUiMsg.getPortrait());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2001179, aVar));
                     } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
@@ -64,7 +64,7 @@ public class RelationshipStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2002014) {
-                    h.TE();
+                    h.VA();
                 }
             }
         });

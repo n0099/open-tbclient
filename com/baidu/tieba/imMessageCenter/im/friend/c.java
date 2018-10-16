@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tieba.e;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 class c extends BaseAdapter {
-    private final TbPageContextSupport aWt;
-    private TbCheckBox.a eMA;
-    private boolean eMC;
+    private final TbPageContextSupport baT;
+    private TbCheckBox.a eUi;
+    private boolean eUk;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
-    private b eMB = null;
+    private b eUj = null;
     private ViewGroup mParent = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(View view, com.baidu.tbadk.coreExtra.relationship.a aVar);
     }
 
     public c(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.aWt = tbPageContextSupport;
-        this.eMC = z;
+        this.baT = tbPageContextSupport;
+        this.eUk = z;
     }
 
     public void a(b bVar) {
-        this.eMB = bVar;
+        this.eUj = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
@@ -38,7 +38,7 @@ class c extends BaseAdapter {
     }
 
     public void a(TbCheckBox.a aVar) {
-        this.eMA = aVar;
+        this.eUi = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -83,52 +83,52 @@ class c extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = aQC();
+            aVar2 = aTQ();
         } else {
             aVar2 = (a) obj;
         }
-        if (this.eMB != null) {
-            this.eMB.a(aVar2.rootView, aVar);
+        if (this.eUj != null) {
+            this.eUj.a(aVar2.rootView, aVar);
         }
-        a(aVar, aVar2, aVar.GK());
-        aVar2.bYF.setText(aVar.GM());
-        if (this.eMC) {
-            aVar2.eMD.setVisibility(8);
+        a(aVar, aVar2, aVar.IL());
+        aVar2.chf.setText(aVar.IN());
+        if (this.eUk) {
+            aVar2.eUl.setVisibility(8);
         } else {
-            aVar2.eMD.setTagData(aVar);
+            aVar2.eUl.setTagData(aVar);
         }
-        if (this.aWt instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.aWt).getLayoutMode().onModeChanged(aVar2.rootView);
+        if (this.baT instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.baT).getLayoutMode().onModeChanged(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.eMi.setTag(str);
-            aVar2.eMi.startLoad(str, 12, false);
+            aVar2.eTQ.setTag(str);
+            aVar2.eTQ.startLoad(str, 12, false);
         }
     }
 
-    private a aQC() {
+    private a aTQ() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.aWt.getPageContext().getContext()).inflate(e.h.invite_friend_list_item, (ViewGroup) null);
-        aVar.eMi = (HeadImageView) aVar.rootView.findViewById(e.g.photo);
-        aVar.eMi.setIsRound(false);
-        aVar.bYF = (TextView) aVar.rootView.findViewById(e.g.txt_user_name);
-        aVar.eMD = (TbCheckBox) aVar.rootView.findViewById(e.g.ckb_select);
-        if (this.eMA != null) {
-            aVar.eMD.setStatedChangedListener(this.eMA);
+        aVar.rootView = LayoutInflater.from(this.baT.getPageContext().getContext()).inflate(e.h.invite_friend_list_item, (ViewGroup) null);
+        aVar.eTQ = (HeadImageView) aVar.rootView.findViewById(e.g.photo);
+        aVar.eTQ.setIsRound(false);
+        aVar.chf = (TextView) aVar.rootView.findViewById(e.g.txt_user_name);
+        aVar.eUl = (TbCheckBox) aVar.rootView.findViewById(e.g.ckb_select);
+        if (this.eUi != null) {
+            aVar.eUl.setStatedChangedListener(this.eUi);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class a {
-        public TextView bYF;
-        public TbCheckBox eMD;
-        public HeadImageView eMi;
+        public TextView chf;
+        public HeadImageView eTQ;
+        public TbCheckBox eUl;
         public View rootView;
 
         public a() {

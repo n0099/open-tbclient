@@ -7,8 +7,9 @@ import com.baidu.fsg.base.restnet.RestResponseEntity;
 import com.baidu.fsg.base.restnet.RestTemplate;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.NetworkUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class ApollonBean {
     private static final String BEAN_TASK_MGR_KEY = "BeanTaskManager";
     private static final String BEAN_TASK_MGR_TASK_KEY = "ApollonBeanTask";
@@ -86,7 +87,7 @@ public abstract class ApollonBean {
             return;
         }
         a a = a.a(BEAN_TASK_MGR_KEY);
-        this.mTskKey = "BeanTask_" + getBeanId() + "_" + System.currentTimeMillis();
+        this.mTskKey = "BeanTask_" + getBeanId() + BaseRequestAction.SPLITE + System.currentTimeMillis();
         a.getClass();
         a.a(new a.c(0L, 0L, false, this.mTskKey, runnable), BEAN_TASK_MGR_TASK_KEY);
     }

@@ -7,21 +7,21 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ab {
-    public static boolean br(Context context) {
+    public static boolean bA(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.e.a.sl()) {
+        if (com.baidu.f.a.uf()) {
             if (context == null) {
                 return false;
             }
             try {
-                z = com.baidu.e.a.a.ad(context, "android.permission.READ_PHONE_STATE");
+                z = com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
             } catch (Exception e) {
                 e = e;
                 z = false;
             }
             try {
-                z2 = bs(context);
+                z2 = bB(context);
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
@@ -34,12 +34,12 @@ public class ab {
         return true;
     }
 
-    public static boolean bs(Context context) {
-        if (com.baidu.e.a.sl()) {
+    public static boolean bB(Context context) {
+        if (com.baidu.f.a.uf()) {
             if (context != null) {
                 try {
-                    if (!com.baidu.e.a.a.ad(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                        if (!com.baidu.e.a.a.ad(context, "android.permission.ACCESS_COARSE_LOCATION")) {
+                    if (!com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                        if (!com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.ACCESS_COARSE_LOCATION")) {
                             return false;
                         }
                     }
@@ -54,13 +54,13 @@ public class ab {
         return true;
     }
 
-    public static boolean bt(Context context) {
-        if (!com.baidu.e.a.sl()) {
+    public static boolean aX(Context context) {
+        if (!com.baidu.f.a.uf()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.e.a.a.ad(context, "android.permission.CAMERA");
+                return com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.CAMERA");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -69,13 +69,13 @@ public class ab {
         return false;
     }
 
-    public static boolean bu(Context context) {
-        if (!com.baidu.e.a.sl()) {
+    public static boolean bC(Context context) {
+        if (!com.baidu.f.a.uf()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.e.a.a.ad(context, "android.permission.RECORD_AUDIO");
+                return com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.RECORD_AUDIO");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -84,13 +84,13 @@ public class ab {
         return false;
     }
 
-    public static boolean bv(Context context) {
-        if (!com.baidu.e.a.sl()) {
+    public static boolean bD(Context context) {
+        if (!com.baidu.f.a.uf()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.e.a.a.ad(context, "android.permission.READ_PHONE_STATE");
+                return com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -99,13 +99,13 @@ public class ab {
         return false;
     }
 
-    public static boolean bw(Context context) {
-        if (!com.baidu.e.a.sl()) {
+    public static boolean bE(Context context) {
+        if (!com.baidu.f.a.uf()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.e.a.a.ad(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+                return com.baidu.f.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -116,7 +116,7 @@ public class ab {
 
     public static void d(Activity activity, int i) {
         try {
-            com.baidu.e.a.a.requestPermissions(activity, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, i);
+            com.baidu.f.a.a.requestPermissions(activity, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -135,17 +135,17 @@ public class ab {
 
     public static boolean e(Activity activity, int i) {
         ArrayList arrayList = new ArrayList(2);
-        if (!bw(activity.getApplicationContext())) {
+        if (!bE(activity.getApplicationContext())) {
             arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
         }
-        if (!bt(activity.getApplicationContext())) {
+        if (!aX(activity.getApplicationContext())) {
             arrayList.add("android.permission.CAMERA");
         }
         if (arrayList.size() == 0) {
             return false;
         }
         try {
-            com.baidu.e.a.a.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
+            com.baidu.f.a.a.requestPermissions(activity, (String[]) arrayList.toArray(new String[arrayList.size()]), i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -153,12 +153,12 @@ public class ab {
     }
 
     public static boolean ai(Context context, String str) {
-        if (!com.baidu.e.a.sl()) {
+        if (!com.baidu.f.a.uf()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.e.a.a.ad(context, str);
+                return com.baidu.f.a.a.checkPermissionGranted(context, str);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;

@@ -10,6 +10,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.appsearchlib.Info;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -31,15 +32,15 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.pk());
+        addParam("ft", gVar.ps());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.pm()));
-        addParam("fc", String.valueOf(gVar.pm()));
+        addParam("flr", String.valueOf(gVar.pu()));
+        addParam("fc", String.valueOf(gVar.pu()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pn().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.pv().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -52,11 +53,11 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("ov", Build.VERSION.RELEASE);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("imei", TbadkCoreApplication.getInst().getImei());
-        addParam("fmt", "json");
+        addParam("fmt", NetworkDef.DataType.JSON);
         addParam("android_id", androidId());
         addParam("ot", "2");
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
-        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.kQ()));
+        addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.ld()));
         addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
         addParam("is_https", 1);
     }

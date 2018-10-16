@@ -12,7 +12,7 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class Static {
     static {
         MessageManager.getInstance().registerListener(103104, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.Static.1
@@ -37,12 +37,12 @@ public class Static {
                     RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.oZ(requestAddGroupMessage.getGroupType()));
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.px(requestAddGroupMessage.getGroupType()));
                     AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                     if (addGroupInfo != null) {
                         imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                         imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.ct(1L));
+                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.cA(1L));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
                     }
                 }

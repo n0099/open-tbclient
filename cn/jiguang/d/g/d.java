@@ -25,11 +25,11 @@ public final class d {
         this.a = -994;
     }
 
-    public final ByteBuffer bN() {
-        return this.b;
-    }
-
     public final String c() {
         return this.c;
+    }
+
+    public final ByteBuffer ce() {
+        return this.b;
     }
 }

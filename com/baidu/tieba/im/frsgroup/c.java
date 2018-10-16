@@ -2,17 +2,18 @@ package com.baidu.tieba.im.frsgroup;
 
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 /* loaded from: classes3.dex */
 public class c {
-    private com.baidu.adp.lib.cache.l<byte[]> bCM;
+    private com.baidu.adp.lib.cache.l<byte[]> bLr;
 
     public c() {
-        auH();
+        ayd();
     }
 
-    public void auH() {
-        if (this.bCM == null) {
-            this.bCM = com.baidu.tbadk.core.c.a.yh().dP("tb.im_frsgroup");
+    public void ayd() {
+        if (this.bLr == null) {
+            this.bLr = com.baidu.tbadk.core.c.a.Aq().ef("tb.im_frsgroup");
         }
     }
 
@@ -20,7 +21,7 @@ public class c {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> aF = this.bCM != null ? this.bCM.aF("frs_group_" + i + "_" + str) : null;
+        l.b<byte[]> aF = this.bLr != null ? this.bLr.aF("frs_group_" + i + BaseRequestAction.SPLITE + str) : null;
         if (aF == null || aF.value == null) {
             return null;
         }
@@ -29,8 +30,8 @@ public class c {
 
     public void a(int i, String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            auH();
-            this.bCM.a("frs_group_" + i + "_" + str, bArr, 604800000L);
+            ayd();
+            this.bLr.a("frs_group_" + i + BaseRequestAction.SPLITE + str, bArr, 604800000L);
         }
     }
 }

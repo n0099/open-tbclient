@@ -11,20 +11,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d extends n {
-    private l apI;
+    private l auz;
 
     public d(l lVar) {
         super(lVar);
-        this.apI = lVar;
+        this.auz = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String tt() {
+    public String vC() {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @o(value = "showShareDialog", yT = false)
+    @o(Bb = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");
@@ -40,7 +40,7 @@ public class d extends n {
                 dVar.imageUri = Uri.parse(optString3);
             }
             dVar.linkUrl = optString4;
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.apI.getContext(), dVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.auz.getContext(), dVar, true);
             shareDialogConfig.setIsSupportNightMode(true);
             shareDialogConfig.setIsCopyLink(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));

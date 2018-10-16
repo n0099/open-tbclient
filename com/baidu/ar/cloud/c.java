@@ -44,12 +44,12 @@ public class c implements d {
 
     /* renamed from: com.baidu.ar.cloud.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0035c {
+    private class C0038c {
         String a;
         HashMap<String, String> b;
         byte[] c;
 
-        public C0035c(String str, HashMap<String, String> hashMap, byte[] bArr) {
+        public C0038c(String str, HashMap<String, String> hashMap, byte[] bArr) {
             this.a = str;
             this.b = hashMap;
             this.c = bArr;
@@ -144,7 +144,7 @@ public class c implements d {
         this.e = context;
         if (this.c != null) {
             this.c.removeMessages(1007);
-            this.c.sendMessage(this.c.obtainMessage(1001, new C0035c(str, hashMap, bArr)));
+            this.c.sendMessage(this.c.obtainMessage(1001, new C0038c(str, hashMap, bArr)));
         }
     }
 
@@ -152,8 +152,8 @@ public class c implements d {
     public void a(Message message) {
         switch (message.what) {
             case 1001:
-                C0035c c0035c = (C0035c) message.obj;
-                a(c0035c.a, c0035c.b, c0035c.c);
+                C0038c c0038c = (C0038c) message.obj;
+                a(c0038c.a, c0038c.b, c0038c.c);
                 return;
             default:
                 return;

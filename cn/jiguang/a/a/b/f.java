@@ -6,18 +6,19 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import cn.jiguang.d.d.aa;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.webkit.internal.ETAG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class f {
     private static final Object d = new Object();
-    private static volatile f kb;
+    private static volatile f kH;
     protected Handler b;
     private Context e;
-    private a kc;
-    private c kd;
-    private h ke;
+    private a kI;
+    private c kJ;
+    private h kK;
     private String f = "all";
     private boolean g = true;
     public boolean a = false;
@@ -28,32 +29,32 @@ public final class f {
 
     private f(Context context) {
         this.e = context;
-        this.kc = new a(context, this);
-        this.ke = new h(context);
-        this.kd = new c(context, this);
+        this.kI = new a(context, this);
+        this.kK = new h(context);
+        this.kJ = new c(context, this);
     }
 
     public static e R(Context context) {
-        e aY = kb != null ? kb.aY() : null;
-        if (aY == null || !aY.a()) {
-            aY = e.E(cn.jiguang.d.a.d.l(context));
+        e bp = kH != null ? kH.bp() : null;
+        if (bp == null || !bp.a()) {
+            bp = e.E(cn.jiguang.d.a.d.l(context));
         }
-        return (aY == null || !aY.a()) ? new e(200.0d, 200.0d, 0.0d, 0.0f, 0.0f, "", 0L, false) : aY;
+        return (bp == null || !bp.a()) ? new e(200.0d, 200.0d, 0.0d, 0.0f, 0.0f, "", 0L, false) : bp;
     }
 
     public static void a(Context context, boolean z) {
         if (context == null) {
             return;
         }
-        if (kb == null) {
+        if (kH == null) {
             synchronized (d) {
-                if (kb == null) {
-                    kb = new f(context);
+                if (kH == null) {
+                    kH = new f(context);
                 }
             }
         }
-        kb.a = z;
-        f fVar = kb;
+        kH.a = z;
+        f fVar = kH;
         try {
             if (fVar.b == null) {
                 HandlerThread handlerThread = new HandlerThread(Headers.LOCATION);
@@ -107,18 +108,18 @@ public final class f {
         return true;
     }
 
-    private e aY() {
-        if (this.kd != null) {
-            return this.kd.aX();
-        }
-        return null;
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(f fVar) {
-        fVar.kc.c();
-        fVar.ke.a();
-        fVar.kd.b();
+        fVar.kI.c();
+        fVar.kK.a();
+        fVar.kJ.b();
+    }
+
+    private e bp() {
+        if (this.kJ != null) {
+            return this.kJ.bo();
+        }
+        return null;
     }
 
     private void c() {
@@ -126,15 +127,15 @@ public final class f {
         boolean z;
         JSONArray jSONArray = null;
         if (cn.jiguang.d.a.d.d(this.e)) {
-            JSONArray c = this.ke.c();
-            JSONArray aW = this.kc.aW();
-            e aY = this.a ? null : aY();
-            JSONObject f = aY != null ? aY.f() : null;
-            if (f == null && aW == null && c == null) {
+            JSONArray c = this.kK.c();
+            JSONArray bn = this.kI.bn();
+            e bp = this.a ? null : bp();
+            JSONObject f = bp != null ? bp.f() : null;
+            if (f == null && bn == null && c == null) {
                 return;
             }
             String jSONObject = f != null ? f.toString() : "";
-            if (a(c, aW, jSONObject)) {
+            if (a(c, bn, jSONObject)) {
                 return;
             }
             if (f != null && f.length() > 0) {
@@ -146,14 +147,14 @@ public final class f {
             try {
                 aa.a(this.e, jSONObject2, "loc_info");
                 jSONObject2.put(HttpConstants.NETWORK_TYPE, cn.jiguang.g.a.e(this.e));
-                jSONObject2.put("local_dns", cn.jiguang.g.a.b());
+                jSONObject2.put(ETAG.KEY_LOCAL_DNS, cn.jiguang.g.a.b());
                 if (c != null && c.length() > 0) {
                     jSONObject2.put("wifi", c);
                     this.h = ((JSONObject) c.get(0)).optString("ssid");
                 }
-                if (aW != null && aW.length() > 0) {
-                    jSONObject2.put("cell", aW);
-                    this.i = aW.toString();
+                if (bn != null && bn.length() > 0) {
+                    jSONObject2.put("cell", bn);
+                    this.i = bn.toString();
                 }
                 if (!this.a && jSONArray != null && jSONArray.length() > 0) {
                     jSONObject2.put("gps", jSONArray);
@@ -202,7 +203,7 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void c(f fVar) {
         if (cn.jiguang.g.a.a(fVar.e, "android.permission.ACCESS_COARSE_LOCATION")) {
-            fVar.kc.a();
+            fVar.kI.a();
         } else {
             fVar.a();
         }
@@ -210,8 +211,8 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a() {
-        this.ke.b();
-        this.kd.a(this.e);
+        this.kK.b();
+        this.kJ.a(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -221,17 +222,17 @@ public final class f {
         try {
             if (this.g) {
                 if (this.f.equals("cell_towers")) {
-                    if (cn.jiguang.d.a.d.d(this.e) && (a2 = cn.jiguang.g.a.a("loc_cell", this.kc.aW())) != null && a2.length() > 0) {
+                    if (cn.jiguang.d.a.d.d(this.e) && (a2 = cn.jiguang.g.a.a("loc_cell", this.kI.bn())) != null && a2.length() > 0) {
                         aa.a(this.e, a2);
                     }
                 } else if (this.f.equals("wifi_towers")) {
-                    if (cn.jiguang.d.a.d.d(this.e) && (a = cn.jiguang.g.a.a("loc_wifi", this.ke.c())) != null && a.length() > 0) {
+                    if (cn.jiguang.d.a.d.d(this.e) && (a = cn.jiguang.g.a.a("loc_wifi", this.kK.c())) != null && a.length() > 0) {
                         aa.a(this.e, a);
                     }
                 } else if (this.f.equals("gps")) {
                     if (cn.jiguang.d.a.d.d(this.e) && !this.a) {
-                        e aY = aY();
-                        JSONObject f = aY != null ? aY.f() : null;
+                        e bp = bp();
+                        JSONObject f = bp != null ? bp.f() : null;
                         if (f != null && f.length() > 0) {
                             JSONArray jSONArray = new JSONArray();
                             jSONArray.put(f);

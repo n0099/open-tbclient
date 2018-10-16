@@ -14,31 +14,31 @@ import com.baidu.ar.Config;
 import com.baidu.ar.util.Res;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private C0048a a;
+    private C0051a a;
 
     /* renamed from: com.baidu.ar.ui.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0048a {
+    public static class C0051a {
         private final b a;
         private final a b;
         private Context c;
         private boolean d = false;
 
-        public C0048a(Context context) {
+        public C0051a(Context context) {
             this.b = a(context);
             this.b.a(this);
             this.a = new b((ViewGroup) this.b.getWindow().getDecorView());
             this.c = context;
         }
 
-        public C0048a a(CharSequence charSequence) {
+        public C0051a a(CharSequence charSequence) {
             if (charSequence != null) {
                 this.a.a.setText(charSequence);
             }
             return this;
         }
 
-        public C0048a a(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
+        public C0051a a(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
                 this.a.d.setVisibility(8);
                 if (this.a.e.getVisibility() == 0) {
@@ -53,10 +53,10 @@ public class a extends Dialog {
                 this.a.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        C0048a.this.b.a(-1);
-                        C0048a.this.b.dismiss();
+                        C0051a.this.b.a(-1);
+                        C0051a.this.b.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(C0048a.this.b, -1);
+                            onClickListener.onClick(C0051a.this.b, -1);
                         }
                     }
                 });
@@ -64,7 +64,7 @@ public class a extends Dialog {
             return this;
         }
 
-        public C0048a a(String str) {
+        public C0051a a(String str) {
             if (this.a.c.getVisibility() != 0) {
                 this.a.c.setVisibility(0);
             }
@@ -74,7 +74,7 @@ public class a extends Dialog {
             return this;
         }
 
-        public C0048a a(boolean z) {
+        public C0051a a(boolean z) {
             if (this.a != null) {
                 this.a.q.setVisibility(z ? 0 : 8);
             }
@@ -100,7 +100,7 @@ public class a extends Dialog {
             return new a(context, Res.getStyle("bdar_NoTitleDialog"));
         }
 
-        public C0048a b(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
+        public C0051a b(CharSequence charSequence, final DialogInterface.OnClickListener onClickListener) {
             if (TextUtils.isEmpty(charSequence)) {
                 this.a.e.setVisibility(8);
                 if (this.a.d.getVisibility() == 0) {
@@ -115,10 +115,10 @@ public class a extends Dialog {
                 this.a.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.ar.ui.a.a.a.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        C0048a.this.b.a(-2);
-                        C0048a.this.b.dismiss();
+                        C0051a.this.b.a(-2);
+                        C0051a.this.b.dismiss();
                         if (onClickListener != null) {
-                            onClickListener.onClick(C0048a.this.b, -2);
+                            onClickListener.onClick(C0051a.this.b, -2);
                         }
                     }
                 });
@@ -176,14 +176,14 @@ public class a extends Dialog {
         getWindow().setLayout(-1, -2);
     }
 
-    public C0048a a() {
+    public C0051a a() {
         return this.a;
     }
 
     protected void a(int i) {
     }
 
-    void a(C0048a c0048a) {
-        this.a = c0048a;
+    void a(C0051a c0051a) {
+        this.a = c0051a;
     }
 }

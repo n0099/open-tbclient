@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes3.dex */
 final class e implements Handler.Callback {
-    final /* synthetic */ d jJ;
+    final /* synthetic */ d ko;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.jJ = dVar;
+        this.ko = dVar;
     }
 
     @Override // android.os.Handler.Callback

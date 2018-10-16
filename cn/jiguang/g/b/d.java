@@ -20,7 +20,7 @@ public final class d {
     private final String a;
     private String b;
     private SharedPreferences c;
-    private ContentResolver ma;
+    private ContentResolver mN;
 
     private d(Context context, String str) {
         this.a = str;
@@ -69,7 +69,7 @@ public final class d {
                     this.c = X2.getSharedPreferences(this.a, 0);
                     if (e.booleanValue()) {
                         this.b = "content://" + X2.getPackageName() + ".DataProvider/" + this.a;
-                        this.ma = X2.getContentResolver();
+                        this.mN = X2.getContentResolver();
                     }
                     return true;
                 }
@@ -98,7 +98,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    return c.a(this.ma, this.b, aVar);
+                    return c.a(this.mN, this.b, aVar);
                 } catch (Throwable th) {
                     return b.a(this.c, aVar);
                 }
@@ -126,7 +126,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    return c.b(this.ma, this.b, aVar);
+                    return c.b(this.mN, this.b, aVar);
                 } catch (Throwable th) {
                     return b.b(this.c, aVar);
                 }
@@ -140,7 +140,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    String type = this.ma.getType(Uri.parse(this.b).buildUpon().appendQueryParameter(RimArmor.KEY, str).appendQueryParameter("type", String.valueOf(a.a(t))).build());
+                    String type = this.mN.getType(Uri.parse(this.b).buildUpon().appendQueryParameter(RimArmor.KEY, str).appendQueryParameter("type", String.valueOf(a.a(t))).build());
                     if (type != null) {
                         t = t == null ? type : t instanceof Integer ? Integer.valueOf(type) : t instanceof Boolean ? Boolean.valueOf(type) : t instanceof Long ? Long.valueOf(type) : t instanceof Float ? Float.valueOf(type) : t instanceof String ? type : t instanceof HashSet ? null : null;
                     }
@@ -158,7 +158,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    return c.a(this.ma, this.b, str, t);
+                    return c.a(this.mN, this.b, str, t);
                 } catch (Throwable th) {
                     return b.b(this.c, str, t);
                 }

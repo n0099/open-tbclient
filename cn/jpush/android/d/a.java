@@ -17,6 +17,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import cn.jpush.android.api.JPushInterface;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,7 +34,7 @@ public final class a {
     public static Intent a(Context context, cn.jpush.android.data.b bVar, boolean z) {
         Intent intent = new Intent();
         intent.putExtra("isUpdateVersion", false);
-        intent.putExtra("body", bVar);
+        intent.putExtra(NetworkDef.Http.BODY, bVar);
         intent.setAction("cn.jpush.android.ui.PushActivity");
         intent.addCategory(context.getPackageName());
         intent.addFlags(536870912);
@@ -47,9 +50,9 @@ public final class a {
         String str3 = Build.MODEL;
         String a = i.a(context, "gsm.version.baseband", "baseband");
         String str4 = Build.DEVICE;
-        String bj = cn.jiguang.api.e.bj();
-        if (TextUtils.isEmpty(bj)) {
-            bj = " ";
+        String bA = cn.jiguang.api.e.bA();
+        if (TextUtils.isEmpty(bA)) {
+            bA = " ";
         }
         String e = e(context);
         JSONObject jSONObject = new JSONObject();
@@ -58,7 +61,7 @@ public final class a {
             jSONObject.put("model", str3);
             jSONObject.put("baseband", a);
             jSONObject.put(Config.DEVICE_PART, str4);
-            jSONObject.put("channel", bj);
+            jSONObject.put("channel", bA);
             jSONObject.put("network", e);
             jSONObject.put("url", str);
         } catch (JSONException e2) {
@@ -71,7 +74,7 @@ public final class a {
             return null;
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             if (digest == null) {
@@ -307,7 +310,7 @@ public final class a {
             if (TextUtils.isEmpty(b)) {
                 return true;
             }
-            String[] split = b.split("_");
+            String[] split = b.split(BaseRequestAction.SPLITE);
             String str = split[0];
             String str2 = split[1];
             char[] charArray = str.toCharArray();

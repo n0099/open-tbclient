@@ -9,6 +9,7 @@ import cn.jpush.android.api.TagAliasCallback;
 import cn.jpush.android.service.ServiceInterface;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -297,7 +298,7 @@ public final class n {
             if (longValue < 0) {
                 a.clear();
                 c = 2;
-            } else if (longValue > 10000) {
+            } else if (longValue > ErrDef.Feature.WEIGHT) {
                 while (a.size() >= 10) {
                     a.poll();
                 }
@@ -350,23 +351,23 @@ public final class n {
     }
 
     private static void a(Context context, String str, Set<String> set, cn.jpush.android.api.a aVar) {
-        long bh = cn.jiguang.api.e.bh();
+        long by = cn.jiguang.api.e.by();
         if (aVar != null) {
-            cn.jpush.android.service.f.a().a(context, Long.valueOf(bh), aVar);
+            cn.jpush.android.service.f.a().a(context, Long.valueOf(by), aVar);
         }
         if (ServiceInterface.d(context)) {
-            cn.jpush.android.service.f.a().a(context, cn.jpush.android.api.b.m, bh, aVar);
+            cn.jpush.android.service.f.a().a(context, cn.jpush.android.api.b.m, by, aVar);
             return;
         }
         Context applicationContext = !(context instanceof Application) ? context.getApplicationContext() : context;
         if (!cn.jpush.android.a.a(applicationContext)) {
-            cn.jpush.android.service.f.a().a(applicationContext, cn.jpush.android.api.b.j, bh, aVar);
+            cn.jpush.android.service.f.a().a(applicationContext, cn.jpush.android.api.b.j, by, aVar);
             return;
         }
         if (aVar.e == 0) {
             cn.jpush.android.service.f.a().a(applicationContext);
         }
-        ServiceInterface.a(applicationContext, str, set, bh, aVar);
+        ServiceInterface.a(applicationContext, str, set, by, aVar);
     }
 
     private static boolean a(Context context, int i, String str, long j) {

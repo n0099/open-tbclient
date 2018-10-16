@@ -3,6 +3,7 @@ package com.google.gson.internal;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -15,28 +16,28 @@ import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
 /* loaded from: classes2.dex */
 public final class C$Gson$Types {
-    static final Type[] hNN = new Type[0];
+    static final Type[] ikk = new Type[0];
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
         return new ParameterizedTypeImpl(type, type2, typeArr);
     }
 
-    public static GenericArrayType b(Type type) {
+    public static GenericArrayType c(Type type) {
         return new GenericArrayTypeImpl(type);
     }
 
-    public static WildcardType c(Type type) {
-        return new WildcardTypeImpl(new Type[]{type}, hNN);
+    public static WildcardType d(Type type) {
+        return new WildcardTypeImpl(new Type[]{type}, ikk);
     }
 
-    public static WildcardType d(Type type) {
+    public static WildcardType e(Type type) {
         return new WildcardTypeImpl(new Type[]{Object.class}, new Type[]{type});
     }
 
-    public static Type e(Type type) {
+    public static Type f(Type type) {
         if (type instanceof Class) {
             Class cls = (Class) type;
-            return cls.isArray() ? new GenericArrayTypeImpl(e(cls.getComponentType())) : cls;
+            return cls.isArray() ? new GenericArrayTypeImpl(f(cls.getComponentType())) : cls;
         } else if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
             return new ParameterizedTypeImpl(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
@@ -51,7 +52,7 @@ public final class C$Gson$Types {
         }
     }
 
-    public static Class<?> f(Type type) {
+    public static Class<?> g(Type type) {
         if (type instanceof Class) {
             return (Class) type;
         }
@@ -60,13 +61,13 @@ public final class C$Gson$Types {
             a.checkArgument(rawType instanceof Class);
             return (Class) rawType;
         } else if (type instanceof GenericArrayType) {
-            return Array.newInstance(f(((GenericArrayType) type).getGenericComponentType()), 0).getClass();
+            return Array.newInstance(g(((GenericArrayType) type).getGenericComponentType()), 0).getClass();
         } else {
             if (type instanceof TypeVariable) {
                 return Object.class;
             }
             if (type instanceof WildcardType) {
-                return f(((WildcardType) type).getUpperBounds()[0]);
+                return g(((WildcardType) type).getUpperBounds()[0]);
             }
             throw new IllegalArgumentException("Expected a Class, ParameterizedType, or GenericArrayType, but <" + type + "> is of type " + (type == null ? "null" : type.getClass().getName()));
         }
@@ -121,15 +122,14 @@ public final class C$Gson$Types {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static int am(Object obj) {
+    static int aR(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
         return 0;
     }
 
-    public static String g(Type type) {
+    public static String h(Type type) {
         return type instanceof Class ? ((Class) type).getName() : type.toString();
     }
 
@@ -169,8 +169,11 @@ public final class C$Gson$Types {
         return a(type, cls, a(type, cls, cls2));
     }
 
-    public static Type h(Type type) {
-        return type instanceof GenericArrayType ? ((GenericArrayType) type).getGenericComponentType() : ((Class) type).getComponentType();
+    public static Type i(Type type) {
+        if (type instanceof GenericArrayType) {
+            return ((GenericArrayType) type).getGenericComponentType();
+        }
+        return ((Class) type).getComponentType();
     }
 
     public static Type a(Type type, Class<?> cls) {
@@ -198,12 +201,18 @@ public final class C$Gson$Types {
                     Class cls2 = (Class) type3;
                     Class<?> componentType = cls2.getComponentType();
                     Type a2 = a(type, cls, (Type) componentType);
-                    return componentType != a2 ? b(a2) : cls2;
+                    if (componentType != a2) {
+                        return c(a2);
+                    }
+                    return cls2;
                 } else if (type3 instanceof GenericArrayType) {
                     GenericArrayType genericArrayType = (GenericArrayType) type3;
                     Type genericComponentType = genericArrayType.getGenericComponentType();
                     Type a3 = a(type, cls, genericComponentType);
-                    return genericComponentType != a3 ? b(a3) : genericArrayType;
+                    if (genericComponentType != a3) {
+                        return c(a3);
+                    }
+                    return genericArrayType;
                 } else if (type3 instanceof ParameterizedType) {
                     ParameterizedType parameterizedType = (ParameterizedType) type3;
                     Type ownerType = parameterizedType.getOwnerType();
@@ -223,7 +232,10 @@ public final class C$Gson$Types {
                             typeArr[i] = a5;
                         }
                     }
-                    return z2 ? a(a4, parameterizedType.getRawType(), typeArr) : parameterizedType;
+                    if (z2) {
+                        return a(a4, parameterizedType.getRawType(), typeArr);
+                    }
+                    return parameterizedType;
                 } else if (type3 instanceof WildcardType) {
                     WildcardType wildcardType = (WildcardType) type3;
                     Type[] lowerBounds = wildcardType.getLowerBounds();
@@ -231,11 +243,11 @@ public final class C$Gson$Types {
                     if (lowerBounds.length == 1) {
                         Type a6 = a(type, cls, lowerBounds[0]);
                         if (a6 != lowerBounds[0]) {
-                            return d(a6);
+                            return e(a6);
                         }
                         return wildcardType;
                     } else if (upperBounds.length == 1 && (a = a(type, cls, upperBounds[0])) != upperBounds[0]) {
-                        return c(a);
+                        return d(a);
                     } else {
                         return wildcardType;
                     }
@@ -280,8 +292,7 @@ public final class C$Gson$Types {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void i(Type type) {
+    static void j(Type type) {
         a.checkArgument(((type instanceof Class) && ((Class) type).isPrimitive()) ? false : true);
     }
 
@@ -295,22 +306,17 @@ public final class C$Gson$Types {
         private final Type[] typeArguments;
 
         public ParameterizedTypeImpl(Type type, Type type2, Type... typeArr) {
-            boolean z = true;
             if (type2 instanceof Class) {
                 Class cls = (Class) type2;
-                a.checkArgument(type != null || cls.getEnclosingClass() == null);
-                if (type != null && cls.getEnclosingClass() == null) {
-                    z = false;
-                }
-                a.checkArgument(z);
+                a.checkArgument(type != null || (Modifier.isStatic(cls.getModifiers()) || cls.getEnclosingClass() == null));
             }
-            this.ownerType = type == null ? null : C$Gson$Types.e(type);
-            this.rawType = C$Gson$Types.e(type2);
+            this.ownerType = type == null ? null : C$Gson$Types.f(type);
+            this.rawType = C$Gson$Types.f(type2);
             this.typeArguments = (Type[]) typeArr.clone();
             for (int i = 0; i < this.typeArguments.length; i++) {
                 a.checkNotNull(this.typeArguments[i]);
-                C$Gson$Types.i(this.typeArguments[i]);
-                this.typeArguments[i] = C$Gson$Types.e(this.typeArguments[i]);
+                C$Gson$Types.j(this.typeArguments[i]);
+                this.typeArguments[i] = C$Gson$Types.f(this.typeArguments[i]);
             }
         }
 
@@ -334,18 +340,18 @@ public final class C$Gson$Types {
         }
 
         public int hashCode() {
-            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.am(this.ownerType);
+            return (Arrays.hashCode(this.typeArguments) ^ this.rawType.hashCode()) ^ C$Gson$Types.aR(this.ownerType);
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder((this.typeArguments.length + 1) * 30);
-            sb.append(C$Gson$Types.g(this.rawType));
+            sb.append(C$Gson$Types.h(this.rawType));
             if (this.typeArguments.length == 0) {
                 return sb.toString();
             }
-            sb.append("<").append(C$Gson$Types.g(this.typeArguments[0]));
+            sb.append("<").append(C$Gson$Types.h(this.typeArguments[0]));
             for (int i = 1; i < this.typeArguments.length; i++) {
-                sb.append(", ").append(C$Gson$Types.g(this.typeArguments[i]));
+                sb.append(", ").append(C$Gson$Types.h(this.typeArguments[i]));
             }
             return sb.append(">").toString();
         }
@@ -359,7 +365,7 @@ public final class C$Gson$Types {
         private final Type componentType;
 
         public GenericArrayTypeImpl(Type type) {
-            this.componentType = C$Gson$Types.e(type);
+            this.componentType = C$Gson$Types.f(type);
         }
 
         @Override // java.lang.reflect.GenericArrayType
@@ -376,7 +382,7 @@ public final class C$Gson$Types {
         }
 
         public String toString() {
-            return C$Gson$Types.g(this.componentType) + "[]";
+            return C$Gson$Types.h(this.componentType) + "[]";
         }
     }
 
@@ -393,16 +399,16 @@ public final class C$Gson$Types {
             a.checkArgument(typeArr.length == 1);
             if (typeArr2.length == 1) {
                 a.checkNotNull(typeArr2[0]);
-                C$Gson$Types.i(typeArr2[0]);
+                C$Gson$Types.j(typeArr2[0]);
                 a.checkArgument(typeArr[0] == Object.class);
-                this.lowerBound = C$Gson$Types.e(typeArr2[0]);
+                this.lowerBound = C$Gson$Types.f(typeArr2[0]);
                 this.upperBound = Object.class;
                 return;
             }
             a.checkNotNull(typeArr[0]);
-            C$Gson$Types.i(typeArr[0]);
+            C$Gson$Types.j(typeArr[0]);
             this.lowerBound = null;
-            this.upperBound = C$Gson$Types.e(typeArr[0]);
+            this.upperBound = C$Gson$Types.f(typeArr[0]);
         }
 
         @Override // java.lang.reflect.WildcardType
@@ -412,7 +418,7 @@ public final class C$Gson$Types {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.hNN;
+            return this.lowerBound != null ? new Type[]{this.lowerBound} : C$Gson$Types.ikk;
         }
 
         public boolean equals(Object obj) {
@@ -425,12 +431,12 @@ public final class C$Gson$Types {
 
         public String toString() {
             if (this.lowerBound != null) {
-                return "? super " + C$Gson$Types.g(this.lowerBound);
+                return "? super " + C$Gson$Types.h(this.lowerBound);
             }
             if (this.upperBound == Object.class) {
                 return "?";
             }
-            return "? extends " + C$Gson$Types.g(this.upperBound);
+            return "? extends " + C$Gson$Types.h(this.upperBound);
         }
     }
 }

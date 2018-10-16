@@ -26,7 +26,7 @@ import tbclient.FrsPage.SignUser;
 import tbclient.FrsPage.TagInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tbadk.core.util.ae, Serializable {
     public static BdUniqueId FORUM_FLOOR_TYPE = BdUniqueId.gen();
     private static final long serialVersionUID = -5446966999595522426L;

@@ -149,7 +149,7 @@ public class SlamStateMachine {
                                 a(507);
                                 break;
                             case MODEL_SHOWING:
-                                a(MsgConstants.SLAM_MODEL_SHOWING);
+                                a(506);
                                 break;
                         }
                     }
@@ -184,7 +184,7 @@ public class SlamStateMachine {
                     if (this.f != null && this.f.hasMessages(507)) {
                         this.f.removeMessages(507);
                     }
-                    a(MsgConstants.SLAM_MODEL_SHOWING);
+                    a(506);
                     b(STATE.MODEL_SHOWING);
                     break;
                 case MODEL_DISAPPEAR:

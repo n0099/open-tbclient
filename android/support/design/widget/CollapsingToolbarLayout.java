@@ -33,6 +33,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
@@ -109,7 +110,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             this.mCollapsingTextHelper.setCollapsedTextAppearance(obtainStyledAttributes.getResourceId(R.styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance, 0));
         }
         this.mScrimVisibleHeightTrigger = obtainStyledAttributes.getDimensionPixelSize(R.styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger, -1);
-        this.mScrimAnimationDuration = obtainStyledAttributes.getInt(R.styleable.CollapsingToolbarLayout_scrimAnimationDuration, DEFAULT_SCRIM_ANIMATION_DURATION);
+        this.mScrimAnimationDuration = obtainStyledAttributes.getInt(R.styleable.CollapsingToolbarLayout_scrimAnimationDuration, 600);
         setContentScrim(obtainStyledAttributes.getDrawable(R.styleable.CollapsingToolbarLayout_contentScrim));
         setStatusBarScrim(obtainStyledAttributes.getDrawable(R.styleable.CollapsingToolbarLayout_statusBarScrim));
         this.mToolbarId = obtainStyledAttributes.getResourceId(R.styleable.CollapsingToolbarLayout_toolbarId, -1);
@@ -269,7 +270,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         int mode = View.MeasureSpec.getMode(i2);
         int systemWindowInsetTop = this.mLastInsets != null ? this.mLastInsets.getSystemWindowInsetTop() : 0;
         if (mode == 0 && systemWindowInsetTop > 0) {
-            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(systemWindowInsetTop + getMeasuredHeight(), 1073741824));
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(systemWindowInsetTop + getMeasuredHeight(), AiAppsFileUtils.GB));
         }
     }
 

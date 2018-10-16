@@ -19,6 +19,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,7 +31,7 @@ import java.util.Enumeration;
 import java.util.Random;
 import java.util.UUID;
 import org.apache.http.conn.util.InetAddressUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h {
     public static final String a = "armeabi";
     public static final String b = "armeabi-v7a";
@@ -230,11 +231,11 @@ public class h {
     }
 
     public static String a() {
-        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "-1";
+        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : AiAppsAudioPlayer.ERROR_UNKNOWN;
     }
 
     public static String b() {
-        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "-1";
+        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : AiAppsAudioPlayer.ERROR_UNKNOWN;
     }
 
     public static String c() {

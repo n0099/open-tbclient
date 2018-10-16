@@ -16,16 +16,16 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class f extends a<com.baidu.tieba.e.b> {
-    private TextView cCB;
-    private TextView cCC;
-    private TextView cCD;
-    private TextView cCE;
-    private com.baidu.tieba.e.b cCF;
-    private LinearLayout cCo;
-    private RelativeLayout cCq;
-    private ImageView cCs;
-    private ClickableHeaderImageView cCv;
-    private View cCz;
+    private LinearLayout cKJ;
+    private RelativeLayout cKL;
+    private ImageView cKN;
+    private ClickableHeaderImageView cKQ;
+    private View cKU;
+    private TextView cKW;
+    private TextView cKX;
+    private TextView cKY;
+    private TextView cKZ;
+    private com.baidu.tieba.e.b cLa;
     private TbImageView imgThumbnail;
 
     public f(TbPageContext<?> tbPageContext) {
@@ -34,42 +34,42 @@ public class f extends a<com.baidu.tieba.e.b> {
     }
 
     private void init(View view) {
-        this.cCo = (LinearLayout) view.findViewById(e.g.card_frs_game_thread_layout);
-        this.cCq = (RelativeLayout) view.findViewById(e.g.card_frs_game_thread_content);
+        this.cKJ = (LinearLayout) view.findViewById(e.g.card_frs_game_thread_layout);
+        this.cKL = (RelativeLayout) view.findViewById(e.g.card_frs_game_thread_content);
         this.imgThumbnail = (TbImageView) view.findViewById(e.g.img_thumbnail);
-        this.cCs = (ImageView) view.findViewById(e.g.img_play);
-        this.cCB = (TextView) view.findViewById(e.g.card_frs_game_video_time);
-        this.cCC = (TextView) view.findViewById(e.g.card_frs_game_video_title);
-        this.cCv = (ClickableHeaderImageView) view.findViewById(e.g.card_frs_game_user_icon);
-        this.cCD = (TextView) view.findViewById(e.g.card_frs_game_read_time_or_name);
-        this.cCE = (TextView) view.findViewById(e.g.card_frs_game_publish_time);
-        this.cCz = view.findViewById(e.g.card_frs_game_bottom_divider);
+        this.cKN = (ImageView) view.findViewById(e.g.img_play);
+        this.cKW = (TextView) view.findViewById(e.g.card_frs_game_video_time);
+        this.cKX = (TextView) view.findViewById(e.g.card_frs_game_video_title);
+        this.cKQ = (ClickableHeaderImageView) view.findViewById(e.g.card_frs_game_user_icon);
+        this.cKY = (TextView) view.findViewById(e.g.card_frs_game_read_time_or_name);
+        this.cKZ = (TextView) view.findViewById(e.g.card_frs_game_publish_time);
+        this.cKU = view.findViewById(e.g.card_frs_game_bottom_divider);
         this.imgThumbnail.setDefaultBgResource(e.f.icon_morenpic);
         this.imgThumbnail.setDefaultErrorResource(e.f.icon_morenpic);
-        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(e.C0141e.tbds326);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cCq.getLayoutParams();
+        int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(e.C0175e.tbds326);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cKL.getLayoutParams();
         layoutParams.width = dimensionPixelSize;
         layoutParams.height = (dimensionPixelSize * 9) / 16;
-        this.cCq.setLayoutParams(layoutParams);
-        this.cCv.setDefaultResource(17170445);
-        this.cCv.setDefaultErrorResource(e.f.icon_default_avatar100);
-        this.cCv.setDefaultBgResource(e.d.cp_bg_line_e);
-        this.cCv.setIsRound(true);
-        this.cCv.setDrawBorder(true);
-        this.cCv.setBorderColor(al.getColor(e.d.common_color_10043));
-        this.cCv.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(e.C0141e.tbds1));
+        this.cKL.setLayoutParams(layoutParams);
+        this.cKQ.setDefaultResource(17170445);
+        this.cKQ.setDefaultErrorResource(e.f.icon_default_avatar100);
+        this.cKQ.setDefaultBgResource(e.d.cp_bg_line_e);
+        this.cKQ.setIsRound(true);
+        this.cKQ.setDrawBorder(true);
+        this.cKQ.setBorderColor(al.getColor(e.d.common_color_10043));
+        this.cKQ.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(e.C0175e.tbds1));
         getView().setOnClickListener(this);
     }
 
-    public void jp(int i) {
-        if (this.cCz != null) {
-            this.cCz.setVisibility(i);
+    public void jO(int i) {
+        if (this.cKU != null) {
+            this.cKU.setVisibility(i);
         }
     }
 
     public void n(int i, int i2, int i3, int i4) {
-        if (this.cCo != null) {
-            this.cCo.setPadding(i, i2, i3, i4);
+        if (this.cKJ != null) {
+            this.cKJ.setPadding(i, i2, i3, i4);
         }
     }
 
@@ -77,16 +77,16 @@ public class f extends a<com.baidu.tieba.e.b> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.i(getView(), e.d.cp_bg_line_d);
-            al.i(this.cCz, e.d.cp_bg_line_c);
-            al.c(this.cCB, e.d.cp_cont_i, 1);
+            al.i(this.cKU, e.d.cp_bg_line_c);
+            al.c(this.cKW, e.d.cp_cont_i, 1);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.uJ(this.cCF.UT().getId())) {
-                al.h(this.cCC, e.d.cp_cont_c);
+            if (readThreadHistory != null && readThreadHistory.vl(this.cLa.YA().getId())) {
+                al.h(this.cKX, e.d.cp_cont_c);
             } else {
-                al.h(this.cCC, e.d.cp_cont_b);
+                al.h(this.cKX, e.d.cp_cont_b);
             }
-            al.c(this.cCD, e.d.cp_cont_d, 1);
-            al.c(this.cCE, e.d.cp_cont_d, 1);
+            al.c(this.cKY, e.d.cp_cont_d, 1);
+            al.c(this.cKZ, e.d.cp_cont_d, 1);
         }
         this.mSkinType = i;
     }
@@ -99,64 +99,64 @@ public class f extends a<com.baidu.tieba.e.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.b bVar) {
-        if (bVar != null && bVar.UT() != null) {
-            this.cCF = bVar;
+        if (bVar != null && bVar.YA() != null) {
+            this.cLa = bVar;
             String str = null;
-            if (bVar.UT().xa()) {
-                this.cCs.setVisibility(0);
-                this.cCB.setVisibility(0);
-                if (bVar.UT().wE() != null) {
-                    this.cCB.setText(ao.dj(bVar.UT().wE().video_duration.intValue() * 1000));
-                    str = bVar.UT().wE().thumbnail_url;
+            if (bVar.YA().zj()) {
+                this.cKN.setVisibility(0);
+                this.cKW.setVisibility(0);
+                if (bVar.YA().yN() != null) {
+                    this.cKW.setText(ao.dt(bVar.YA().yN().video_duration.intValue() * 1000));
+                    str = bVar.YA().yN().thumbnail_url;
                 }
             } else {
-                this.cCs.setVisibility(8);
-                this.cCB.setVisibility(8);
-                if (bVar.UT().wx() != null && bVar.UT().wx().size() >= 1) {
-                    str = bVar.UT().wx().get(0).origin_pic;
+                this.cKN.setVisibility(8);
+                this.cKW.setVisibility(8);
+                if (bVar.YA().yG() != null && bVar.YA().yG().size() >= 1) {
+                    str = bVar.YA().yG().get(0).origin_pic;
                 }
             }
             this.imgThumbnail.startLoad(str, 10, false);
-            this.cCC.setText(bVar.UT().getTitle());
+            this.cKX.setText(bVar.YA().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.uJ(bVar.UT().getId())) {
-                al.h(this.cCC, e.d.cp_cont_c);
+            if (readThreadHistory != null && readThreadHistory.vl(bVar.YA().getId())) {
+                al.h(this.cKX, e.d.cp_cont_c);
             } else {
-                al.h(this.cCC, e.d.cp_cont_b);
+                al.h(this.cKX, e.d.cp_cont_b);
             }
-            this.cCv.setData(bVar.UT(), false);
-            this.cCE.setText(ao.C(bVar.UT().vX()));
-            if ("news".equals(bVar.UT().wc())) {
-                this.cCv.setVisibility(8);
-                this.cCD.setText(this.mTbPageContext.getPageActivity().getResources().getString(e.j.person_view_num, ao.E(bVar.UT().we())));
+            this.cKQ.setData(bVar.YA(), false);
+            this.cKZ.setText(ao.E(bVar.YA().yg()));
+            if ("news".equals(bVar.YA().yl())) {
+                this.cKQ.setVisibility(8);
+                this.cKY.setText(this.mTbPageContext.getPageActivity().getResources().getString(e.j.person_view_num, ao.G(bVar.YA().yn())));
                 return;
             }
-            this.cCv.setVisibility(0);
-            p(bVar.UT());
+            this.cKQ.setVisibility(0);
+            p(bVar.YA());
         }
     }
 
     private void p(bb bbVar) {
-        if (this.cCD != null && bbVar != null) {
-            this.cCD.setVisibility(0);
-            if (!StringUtils.isNull(bbVar.wm().getName_show())) {
-                this.cCD.setText(fK(bbVar.wm().getName_show()));
+        if (this.cKY != null && bbVar != null) {
+            this.cKY.setVisibility(0);
+            if (!StringUtils.isNull(bbVar.yv().getName_show())) {
+                this.cKY.setText(fY(bbVar.yv().getName_show()));
             }
         }
     }
 
-    protected String fK(String str) {
+    protected String fY(String str) {
         return ao.d(str, 14, "...");
     }
 
-    public void jq(int i) {
-        this.cCv.setVisibility(i);
+    public void jP(int i) {
+        this.cKQ.setVisibility(i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (akm() != null) {
-            akm().a(getView(), this.cCF);
+        if (anO() != null) {
+            anO().a(getView(), this.cLa);
         }
     }
 }

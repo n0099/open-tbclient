@@ -1,16 +1,17 @@
 package com.baidu.ubs.analytics;
 
 import android.content.Context;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.ubs.analytics.d.j;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class c {
     private long e;
-    private boolean hKA;
-    private long hKB;
-    private long hKC;
-    private boolean hKD;
-    private int hKE;
+    private boolean hTs;
+    private long hTt;
+    private long hTu;
+    private boolean hTv;
+    private int hTw;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -19,20 +20,20 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.hKA = aVar.hKA;
-        this.e = aVar.hKF;
-        this.hKB = aVar.hKB;
-        this.hKD = aVar.hKD;
-        this.hKC = aVar.hKC;
-        this.hKE = aVar.hKE;
+        this.hTs = aVar.hTs;
+        this.e = aVar.hTx;
+        this.hTt = aVar.hTt;
+        this.hTv = aVar.hTv;
+        this.hTu = aVar.hTu;
+        this.hTw = aVar.hTw;
     }
 
-    public final Context bLM() {
+    public final Context bQc() {
         return this.mContext;
     }
 
     public final boolean c() {
-        return this.hKA;
+        return this.hTs;
     }
 
     public final long d() {
@@ -40,70 +41,71 @@ public final class c {
     }
 
     public final long e() {
-        return this.hKB;
+        return this.hTt;
     }
 
     public final long f() {
-        return this.hKC;
+        return this.hTu;
     }
 
     public final boolean g() {
-        return this.hKD;
+        return this.hTv;
     }
 
     public final int h() {
-        return this.hKE;
+        return this.hTw;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private Context mContext;
-        private boolean hKA = true;
-        private long hKF = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long hKB = 60000;
-        private long hKC = 10000;
-        private boolean hKD = false;
-        private int hKE = 1000;
+        private boolean hTs = true;
+        private long hTx = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long hTt = 60000;
+        private long hTu = ErrDef.Feature.WEIGHT;
+        private boolean hTv = false;
+        private int hTw = 1000;
 
-        public a db(Context context) {
+        /* renamed from: do  reason: not valid java name */
+        public a m21do(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a od(boolean z) {
-            this.hKA = z;
+        public a oy(boolean z) {
+            this.hTs = z;
             return this;
         }
 
-        public a de(long j) {
-            this.hKF = 1000 * j;
+        public a dm(long j) {
+            this.hTx = 1000 * j;
             return this;
         }
 
-        public a wm(int i) {
-            this.hKB = i * 60 * 1000;
+        public a wT(int i) {
+            this.hTt = i * 60 * 1000;
             return this;
         }
 
-        public a df(long j) {
-            this.hKC = 1000 * j;
+        public a dn(long j) {
+            this.hTu = 1000 * j;
             return this;
         }
 
-        public a oe(boolean z) {
-            this.hKD = z;
+        public a oz(boolean z) {
+            this.hTv = z;
             return this;
         }
 
-        public a wn(int i) {
+        public a wU(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.hKE = i2 < 1000 ? i2 : 1000;
+            this.hTw = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c bLN() {
+        public c bQd() {
             if (this.mContext == null) {
-                j.wT("Context must be not empty!");
+                j.xT("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

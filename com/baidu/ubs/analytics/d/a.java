@@ -1,34 +1,34 @@
 package com.baidu.ubs.analytics.d;
 
 import android.os.Environment;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static final String hLu = Environment.getExternalStorageDirectory().getPath();
-    static final String hLv = hLu + "/baidu/ab/crash/";
-    static final String hLw = hLu + "/baidu/ab/sdklog/";
-    public static final String Ve = hLu + "/baidu/ab/sdkupdata/" + bMk() + "/";
-    private static int aU = EnumC0271a.aV;
+    private static final String hUm = Environment.getExternalStorageDirectory().getPath();
+    static final String hUn = hUm + "/baidu/ab/crash/";
+    static final String hUo = hUm + "/baidu/ab/sdklog/";
+    public static final String hUp = hUm + "/baidu/ab/sdkupdata/" + bQA() + "/";
+    private static int aU = EnumC0308a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static final class EnumC0271a {
+    /* loaded from: classes6.dex */
+    public static final class EnumC0308a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] hLx = {aV, aW};
+        private static final /* synthetic */ int[] hUq = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean bMj() {
-        return aU == EnumC0271a.aV;
+    public static boolean bQz() {
+        return aU == EnumC0308a.aV;
     }
 
     public static String u() {
         return "0.4.0";
     }
 
-    private static int bMk() {
+    private static int bQA() {
         try {
             String[] split = "0.4.0".split("\\.");
             if (split.length > 2) {

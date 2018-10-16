@@ -8,17 +8,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.e;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class u extends h<v, w> {
-    private final LinkedList<com.baidu.tbadk.k.f> dvv;
-    private final LinkedList<RelativeLayout> dvw;
+    private final LinkedList<com.baidu.tbadk.k.f> dDw;
+    private final LinkedList<RelativeLayout> dDx;
     private int mItemHeight;
 
     public u(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dvv = new LinkedList<>();
-        this.dvw = new LinkedList<>();
-        this.mItemHeight = (com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0141e.ds90);
+        this.dDw = new LinkedList<>();
+        this.dDx = new LinkedList<>();
+        this.mItemHeight = (com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0175e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,12 +32,12 @@ public class u extends h<v, w> {
         generateLayoutParamsByParent.height = this.mItemHeight;
         relativeLayout.setLayoutParams(generateLayoutParamsByParent);
         relativeLayout.setGravity(17);
-        com.baidu.tbadk.k.f fVar = new com.baidu.tbadk.k.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(e.C0141e.ds140));
+        com.baidu.tbadk.k.f fVar = new com.baidu.tbadk.k.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(e.C0175e.ds140));
         fVar.attachView(relativeLayout);
-        this.dvv.add(fVar);
-        this.dvw.add(relativeLayout);
+        this.dDw.add(fVar);
+        this.dDx.add(relativeLayout);
         w wVar = new w(relativeLayout);
-        wVar.dvy = fVar;
+        wVar.dDz = fVar;
         return wVar;
     }
 
@@ -46,8 +46,8 @@ public class u extends h<v, w> {
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, v vVar, w wVar) {
-        if (wVar != null && wVar.dvy != null) {
-            wVar.dvy.onChangeSkinType();
+        if (wVar != null && wVar.dDz != null) {
+            wVar.dDz.onChangeSkinType();
         }
         return view;
     }
@@ -55,18 +55,18 @@ public class u extends h<v, w> {
     @Override // com.baidu.tieba.frs.h
     public void release() {
         super.release();
-        if (this.dvv.size() != 0 && this.dvw.size() == this.dvv.size()) {
+        if (this.dDw.size() != 0 && this.dDx.size() == this.dDw.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.dvv.size()) {
+                if (i2 >= this.dDw.size()) {
                     break;
                 }
-                this.dvv.get(i2).ad(this.dvw.get(i2));
+                this.dDw.get(i2).ad(this.dDx.get(i2));
                 i = i2 + 1;
             }
         }
-        this.dvv.clear();
-        this.dvw.clear();
+        this.dDw.clear();
+        this.dDx.clear();
     }
 }

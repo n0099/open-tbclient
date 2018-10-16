@@ -6,13 +6,13 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float dvG;
-    private float dvH;
-    private float dvI;
-    private float dvJ;
-    private boolean dvK;
+    private float dDH;
+    private float dDI;
+    private float dDJ;
+    private float dDK;
+    private boolean dDL;
     private float x;
     private float y;
 
@@ -30,16 +30,16 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.dvG = motionEvent.getRawX();
-                this.dvH = motionEvent.getRawY();
-                gg(true);
-                if (axR()) {
-                    this.dvK = false;
+                this.dDH = motionEvent.getRawX();
+                this.dDI = motionEvent.getRawY();
+                gy(true);
+                if (aBm()) {
+                    this.dDL = false;
                     break;
                 }
                 break;
             case 1:
-                gg(false);
+                gy(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -51,18 +51,18 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 1:
-                gg(false);
+                gy(false);
                 break;
             case 2:
-                this.dvI = this.x - this.dvG;
-                this.dvJ = this.y - this.dvH;
-                if (this.dvI < 0.0f && Math.abs(this.dvI) > Math.abs(this.dvJ) && axR()) {
-                    bk(false);
-                    if (this.dvK) {
+                this.dDJ = this.x - this.dDH;
+                this.dDK = this.y - this.dDI;
+                if (this.dDJ < 0.0f && Math.abs(this.dDJ) > Math.abs(this.dDK) && aBm()) {
+                    bu(false);
+                    if (this.dDL) {
                         return false;
                     }
-                    gh(true);
-                    this.dvK = true;
+                    gz(true);
+                    this.dDL = true;
                     return false;
                 }
                 break;
@@ -70,44 +70,44 @@ public class FrsTabViewPager extends BdBaseViewPager {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void gg(boolean z) {
+    public void gy(boolean z) {
         a aVar = new a();
-        aVar.gi(axR());
-        aVar.gj(z);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921361, aVar));
+        aVar.gA(aBm());
+        aVar.gB(z);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void axQ() {
-        gg(false);
+    public void aBl() {
+        gy(false);
     }
 
-    public void gh(boolean z) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921362, Boolean.valueOf(z)));
+    public void gz(boolean z) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean axR() {
+    private boolean aBm() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private boolean dvL;
-        private boolean dvM;
+        private boolean dDM;
+        private boolean dDN;
 
-        public boolean axS() {
-            return this.dvL;
+        public boolean aBn() {
+            return this.dDM;
         }
 
-        public void gi(boolean z) {
-            this.dvL = z;
+        public void gA(boolean z) {
+            this.dDM = z;
         }
 
-        public boolean axT() {
-            return this.dvM;
+        public boolean aBo() {
+            return this.dDN;
         }
 
-        public void gj(boolean z) {
-            this.dvM = z;
+        public void gB(boolean z) {
+            this.dDN = z;
         }
     }
 }

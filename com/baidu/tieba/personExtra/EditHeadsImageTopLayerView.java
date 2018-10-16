@@ -3,75 +3,74 @@ package com.baidu.tieba.personExtra;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private int anS;
-    private Paint gdR;
-    private Paint gdS;
-    private int gdT;
-    private int gdU;
-    private float gdV;
-    private float gdW;
+    private Paint glt;
+    private Paint glu;
+    private int glv;
+    private int glw;
+    private float glx;
+    private float gly;
+    private int mLineWidth;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.gdR = null;
-        this.gdS = null;
-        this.gdT = 0;
-        this.gdU = 0;
-        this.gdV = 0.42857143f;
-        this.gdW = 1.0f;
-        this.anS = 1;
+        this.glt = null;
+        this.glu = null;
+        this.glv = 0;
+        this.glw = 0;
+        this.glx = 0.42857143f;
+        this.gly = 1.0f;
+        this.mLineWidth = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gdR = null;
-        this.gdS = null;
-        this.gdT = 0;
-        this.gdU = 0;
-        this.gdV = 0.42857143f;
-        this.gdW = 1.0f;
-        this.anS = 1;
+        this.glt = null;
+        this.glu = null;
+        this.glv = 0;
+        this.glw = 0;
+        this.glx = 0.42857143f;
+        this.gly = 1.0f;
+        this.mLineWidth = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gdR = null;
-        this.gdS = null;
-        this.gdT = 0;
-        this.gdU = 0;
-        this.gdV = 0.42857143f;
-        this.gdW = 1.0f;
-        this.anS = 1;
+        this.glt = null;
+        this.glu = null;
+        this.glv = 0;
+        this.glw = 0;
+        this.glx = 0.42857143f;
+        this.gly = 1.0f;
+        this.mLineWidth = 1;
         init();
     }
 
     private void init() {
-        this.gdR = new Paint();
-        this.gdR.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.gdR.setAlpha(153);
-        this.gdS = new Paint();
-        this.gdS.setStyle(Paint.Style.STROKE);
-        this.gdS.setColor(-1);
+        this.glt = new Paint();
+        this.glt.setColor(-16777216);
+        this.glt.setAlpha(153);
+        this.glu = new Paint();
+        this.glu.setStyle(Paint.Style.STROKE);
+        this.glu.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.gdS != null) {
-            this.gdS.setColor(i);
+        if (this.glu != null) {
+            this.glu.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
-        this.anS = i;
-        if (this.gdS != null) {
-            this.gdS.setStrokeWidth(i);
+        this.mLineWidth = i;
+        if (this.glu != null) {
+            this.glu.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -81,19 +80,19 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.gdT, this.gdR);
-        canvas.drawRect(0.0f, getHeight() - this.gdU, getWidth(), getHeight(), this.gdR);
-        canvas.drawRect(1.0f, this.gdT, getWidth() - 1, getHeight() - this.gdU, this.gdS);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.glv, this.glt);
+        canvas.drawRect(0.0f, getHeight() - this.glw, getWidth(), getHeight(), this.glt);
+        canvas.drawRect(1.0f, this.glv, getWidth() - 1, getHeight() - this.glw, this.glu);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.gdW * getWidth();
+        float width = this.gly * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.gdT = (int) (((i4 - i2) - width) * this.gdV);
-        this.gdU = (int) (((i4 - i2) - width) * (1.0f - this.gdV));
+        this.glv = (int) (((i4 - i2) - width) * this.glx);
+        this.glw = (int) (((i4 - i2) - width) * (1.0f - this.glx));
     }
 }

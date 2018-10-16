@@ -9,17 +9,17 @@ import com.baidu.tieba.card.data.p;
 import java.util.Iterator;
 import tbclient.Personalized.CardGod;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class f extends h implements p {
-    private CardGod egJ;
+    private CardGod eoD;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.egJ = cardGod;
-            this.mGroupTitle = this.egJ.card_title;
-            if (!v.z(this.egJ.gods)) {
+            this.eoD = cardGod;
+            this.mGroupTitle = this.eoD.card_title;
+            if (!v.J(this.eoD.gods)) {
                 int i = 0;
-                Iterator<User> it = this.egJ.gods.iterator();
+                Iterator<User> it = this.eoD.gods.iterator();
                 while (true) {
                     int i2 = i;
                     if (it.hasNext()) {
@@ -31,7 +31,7 @@ public class f extends h implements p {
                                 i = i2;
                             } else {
                                 i iVar = new i();
-                                iVar.akB = metaData;
+                                iVar.apx = metaData;
                                 a(iVar);
                                 i = i2 + 1;
                             }
@@ -46,30 +46,30 @@ public class f extends h implements p {
         }
     }
 
-    public boolean TK() {
-        return v.y(getDataList()) > 2;
+    public boolean VG() {
+        return v.I(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.egJ == null || this.egJ.position == null) {
+        if (this.eoD == null || this.eoD.position == null) {
             return 0;
         }
-        return this.egJ.position.intValue();
+        return this.eoD.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean ald() {
+    public boolean aoF() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eS(boolean z) {
+    public void fk(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void eT(boolean z) {
+    public void fl(boolean z) {
         this.showBottomDivider = z;
     }
 }

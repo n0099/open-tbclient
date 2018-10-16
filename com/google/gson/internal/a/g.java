@@ -1,127 +1,152 @@
 package com.google.gson.internal.a;
 
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.m;
-import com.google.gson.n;
+import com.google.gson.o;
+import com.google.gson.p;
+import com.google.gson.stream.JsonToken;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.Type;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public final class g implements n {
-    private final com.google.gson.internal.b hNA;
-    private final com.google.gson.c hOU;
-    private final com.google.gson.internal.c hOV;
+public final class g implements p {
+    private final com.google.gson.internal.b ijT;
+    final boolean ilE;
 
-    public g(com.google.gson.internal.b bVar, com.google.gson.c cVar, com.google.gson.internal.c cVar2) {
-        this.hNA = bVar;
-        this.hOU = cVar;
-        this.hOV = cVar2;
+    public g(com.google.gson.internal.b bVar, boolean z) {
+        this.ijT = bVar;
+        this.ilE = z;
     }
 
-    public boolean a(Field field, boolean z) {
-        return (this.hOV.b(field.getType(), z) || this.hOV.a(field, z)) ? false : true;
-    }
-
-    private String a(Field field) {
-        com.google.gson.a.b bVar = (com.google.gson.a.b) field.getAnnotation(com.google.gson.a.b.class);
-        return bVar == null ? this.hOU.translateName(field) : bVar.value();
-    }
-
-    @Override // com.google.gson.n
-    public <T> m<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Class<? super T> bNi = aVar.bNi();
-        if (Object.class.isAssignableFrom(bNi)) {
-            return new a(this.hNA.b(aVar), a(dVar, aVar, bNi));
+    @Override // com.google.gson.p
+    public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
+        Type bZr = aVar.bZr();
+        if (!Map.class.isAssignableFrom(aVar.bZq())) {
+            return null;
         }
-        return null;
+        Type[] b = C$Gson$Types.b(bZr, C$Gson$Types.g(bZr));
+        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.ijT.b(aVar));
     }
 
-    private b a(final com.google.gson.d dVar, final Field field, String str, final com.google.gson.b.a<?> aVar, boolean z, boolean z2) {
-        final boolean k = com.google.gson.internal.e.k(aVar.bNi());
-        return new b(str, z, z2) { // from class: com.google.gson.internal.a.g.1
-            final m<?> hOW;
-
-            {
-                this.hOW = dVar.a(aVar);
-            }
-
-            @Override // com.google.gson.internal.a.g.b
-            void a(com.google.gson.stream.a aVar2, Object obj) throws IOException, IllegalAccessException {
-                new j(dVar, this.hOW, aVar.bNj()).a(aVar2, (com.google.gson.stream.a) field.get(obj));
-            }
-        };
-    }
-
-    private Map<String, b> a(com.google.gson.d dVar, com.google.gson.b.a<?> aVar, Class<?> cls) {
-        Field[] declaredFields;
-        b bVar;
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (cls.isInterface()) {
-            return linkedHashMap;
-        }
-        Type bNj = aVar.bNj();
-        while (cls != Object.class) {
-            for (Field field : cls.getDeclaredFields()) {
-                boolean a2 = a(field, true);
-                boolean a3 = a(field, false);
-                if (a2 || a3) {
-                    field.setAccessible(true);
-                    b a4 = a(dVar, field, a(field), com.google.gson.b.a.l(C$Gson$Types.a(aVar.bNj(), cls, field.getGenericType())), a2, a3);
-                    if (((b) linkedHashMap.put(a4.name, a4)) != null) {
-                        throw new IllegalArgumentException(bNj + " declares multiple JSON fields named " + bVar.name);
-                    }
-                }
-            }
-            aVar = com.google.gson.b.a.l(C$Gson$Types.a(aVar.bNj(), cls, cls.getGenericSuperclass()));
-            cls = aVar.bNi();
-        }
-        return linkedHashMap;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static abstract class b {
-        final boolean hPd;
-        final boolean hPe;
-        final String name;
-
-        abstract void a(com.google.gson.stream.a aVar, Object obj) throws IOException, IllegalAccessException;
-
-        protected b(String str, boolean z, boolean z2) {
-            this.name = str;
-            this.hPd = z;
-            this.hPe = z2;
-        }
+    private o<?> a(com.google.gson.d dVar, Type type) {
+        return (type == Boolean.TYPE || type == Boolean.class) ? n.imj : dVar.a(com.google.gson.b.a.l(type));
     }
 
     /* loaded from: classes2.dex */
-    public static final class a<T> extends m<T> {
-        private final com.google.gson.internal.d<T> hOH;
-        private final Map<String, b> hPc;
+    private final class a<K, V> extends o<Map<K, V>> {
+        private final o<K> ilF;
+        private final o<V> ilG;
+        private final com.google.gson.internal.e<? extends Map<K, V>> ilq;
 
-        private a(com.google.gson.internal.d<T> dVar, Map<String, b> map) {
-            this.hOH = dVar;
-            this.hPc = map;
+        @Override // com.google.gson.o
+        public /* bridge */ /* synthetic */ void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
+            a(bVar, (Map) ((Map) obj));
         }
 
-        @Override // com.google.gson.m
-        public void a(com.google.gson.stream.a aVar, T t) throws IOException {
-            if (t == null) {
-                aVar.bNg();
-                return;
+        public a(com.google.gson.d dVar, Type type, o<K> oVar, Type type2, o<V> oVar2, com.google.gson.internal.e<? extends Map<K, V>> eVar) {
+            this.ilF = new m(dVar, oVar, type);
+            this.ilG = new m(dVar, oVar2, type2);
+            this.ilq = eVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.gson.o
+        /* renamed from: k */
+        public Map<K, V> b(com.google.gson.stream.a aVar) throws IOException {
+            JsonToken bZe = aVar.bZe();
+            if (bZe == JsonToken.NULL) {
+                aVar.nextNull();
+                return null;
             }
-            aVar.bNe();
-            try {
-                for (b bVar : this.hPc.values()) {
-                    if (bVar.hPd) {
-                        aVar.xp(bVar.name);
-                        bVar.a(aVar, t);
+            Map<K, V> bYS = this.ilq.bYS();
+            if (bZe == JsonToken.BEGIN_ARRAY) {
+                aVar.beginArray();
+                while (aVar.hasNext()) {
+                    aVar.beginArray();
+                    K b = this.ilF.b(aVar);
+                    if (bYS.put(b, this.ilG.b(aVar)) != null) {
+                        throw new JsonSyntaxException("duplicate key: " + b);
                     }
+                    aVar.endArray();
                 }
-                aVar.bNf();
-            } catch (IllegalAccessException e) {
+                aVar.endArray();
+                return bYS;
+            }
+            aVar.beginObject();
+            while (aVar.hasNext()) {
+                com.google.gson.internal.d.ikF.g(aVar);
+                K b2 = this.ilF.b(aVar);
+                if (bYS.put(b2, this.ilG.b(aVar)) != null) {
+                    throw new JsonSyntaxException("duplicate key: " + b2);
+                }
+            }
+            aVar.endObject();
+            return bYS;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.google.gson.o<V> */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v14, resolved type: com.google.gson.o<V> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public void a(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
+            int i = 0;
+            if (map == null) {
+                bVar.bZp();
+            } else if (!g.this.ilE) {
+                bVar.bZn();
+                for (Map.Entry<K, V> entry : map.entrySet()) {
+                    bVar.yL(String.valueOf(entry.getKey()));
+                    this.ilG.a(bVar, entry.getValue());
+                }
+                bVar.bZo();
+            } else {
+                ArrayList arrayList = new ArrayList(map.size());
+                ArrayList arrayList2 = new ArrayList(map.size());
+                boolean z = false;
+                for (Map.Entry<K, V> entry2 : map.entrySet()) {
+                    com.google.gson.i aQ = this.ilF.aQ(entry2.getKey());
+                    arrayList.add(aQ);
+                    arrayList2.add(entry2.getValue());
+                    z = (aQ.bYB() || aQ.bYC()) | z;
+                }
+                if (z) {
+                    bVar.bZl();
+                    while (i < arrayList.size()) {
+                        bVar.bZl();
+                        com.google.gson.internal.g.b((com.google.gson.i) arrayList.get(i), bVar);
+                        this.ilG.a(bVar, arrayList2.get(i));
+                        bVar.bZm();
+                        i++;
+                    }
+                    bVar.bZm();
+                    return;
+                }
+                bVar.bZn();
+                while (i < arrayList.size()) {
+                    bVar.yL(d((com.google.gson.i) arrayList.get(i)));
+                    this.ilG.a(bVar, arrayList2.get(i));
+                    i++;
+                }
+                bVar.bZo();
+            }
+        }
+
+        private String d(com.google.gson.i iVar) {
+            if (iVar.bYD()) {
+                com.google.gson.l bYH = iVar.bYH();
+                if (bYH.bYK()) {
+                    return String.valueOf(bYH.bYz());
+                }
+                if (bYH.bYJ()) {
+                    return Boolean.toString(bYH.getAsBoolean());
+                }
+                if (bYH.bYL()) {
+                    return bYH.bYA();
+                }
+                throw new AssertionError();
+            } else if (iVar.bYE()) {
+                return "null";
+            } else {
                 throw new AssertionError();
             }
         }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.g;
 
 import android.os.Bundle;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
-    public int daV;
-    public Bundle daW;
+    public int djg;
+    public Bundle djh;
 }

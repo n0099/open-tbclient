@@ -29,9 +29,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class a {
     private Context g;
-    private TelephonyManager jR;
-    private b jS;
-    private f jT;
+    private f kA;
+    private TelephonyManager kx;
+    private b ky;
     private int a = -1;
     private int b = -1;
     private String c = "";
@@ -41,12 +41,12 @@ public final class a {
     private JSONArray k = null;
 
     public a(Context context, f fVar) {
-        this.jR = null;
+        this.kx = null;
         this.g = null;
         this.g = context;
         try {
-            this.jR = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
-            this.jT = fVar;
+            this.kx = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            this.kA = fVar;
         } catch (Exception e) {
         }
     }
@@ -99,7 +99,7 @@ public final class a {
             jSONObject.put("carrier", this.e);
             jSONObject.put("location_area_code", i3);
             jSONObject.put("generation", this.d);
-            jSONObject.put("itime", cn.jiguang.d.a.a.bp());
+            jSONObject.put("itime", cn.jiguang.d.a.a.bG());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,8 +108,8 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.jT != null) {
-            this.jT.a();
+        if (this.kA != null) {
+            this.kA.a();
         }
     }
 
@@ -117,7 +117,7 @@ public final class a {
     public boolean f() {
         CellLocation cellLocation;
         try {
-            cellLocation = this.jR.getCellLocation();
+            cellLocation = this.kx.getCellLocation();
         } catch (Exception e) {
             e.printStackTrace();
             cellLocation = null;
@@ -137,7 +137,7 @@ public final class a {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        List<NeighboringCellInfo> neighboringCellInfo = this.jR.getNeighboringCellInfo();
+        List<NeighboringCellInfo> neighboringCellInfo = this.kx.getNeighboringCellInfo();
         if (neighboringCellInfo != null) {
             for (NeighboringCellInfo neighboringCellInfo2 : neighboringCellInfo) {
                 int rssi = (neighboringCellInfo2.getRssi() * 2) - 113;
@@ -153,7 +153,7 @@ public final class a {
     }
 
     public final void a() {
-        if (this.jT == null) {
+        if (this.kA == null) {
             e();
             return;
         }
@@ -162,12 +162,12 @@ public final class a {
         this.c = "";
         this.d = "";
         this.e = "";
-        this.e = this.jR.getNetworkOperatorName();
-        int networkType = this.jR.getNetworkType();
+        this.e = this.kx.getNetworkOperatorName();
+        int networkType = this.kx.getNetworkType();
         this.c = (networkType == 4 || networkType == 7 || networkType == 5 || networkType == 6 || networkType == 12 || networkType == 14) ? "cdma" : networkType == 13 ? "lte" : "gsm";
-        this.d = k.a(this.g, this.jR.getNetworkType());
+        this.d = k.a(this.g, this.kx.getNetworkType());
         try {
-            String networkOperator = this.jR.getNetworkOperator();
+            String networkOperator = this.kx.getNetworkOperator();
             if (networkOperator.length() > 3) {
                 this.a = Integer.parseInt(networkOperator.substring(0, 3));
                 this.b = a(networkOperator);
@@ -179,7 +179,7 @@ public final class a {
         if (Build.VERSION.SDK_INT > 17) {
             List<CellInfo> list = null;
             try {
-                list = this.jR.getAllCellInfo();
+                list = this.kx.getAllCellInfo();
             } catch (Exception e2) {
             }
             if (list != null && list.size() > 0) {
@@ -238,14 +238,14 @@ public final class a {
             return;
         }
         try {
-            this.jS = new b(this);
-            this.jR.listen(this.jS, 256);
+            this.ky = new b(this);
+            this.kx.listen(this.ky, 256);
         } catch (Exception e3) {
             e();
         }
     }
 
-    public final JSONArray aW() {
+    public final JSONArray bn() {
         return this.k;
     }
 
@@ -255,10 +255,10 @@ public final class a {
 
     public final void d() {
         try {
-            if (this.jR == null || this.jS == null) {
+            if (this.kx == null || this.ky == null) {
                 return;
             }
-            this.jR.listen(this.jS, 0);
+            this.kx.listen(this.ky, 0);
         } catch (Exception e) {
             e.printStackTrace();
         }

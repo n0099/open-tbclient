@@ -1,7 +1,6 @@
 package com.baidu.mobstat;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class be {
@@ -17,7 +16,7 @@ public class be {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-                this.a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
+                this.a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
             } catch (Exception e) {
             }
             this.b = true;

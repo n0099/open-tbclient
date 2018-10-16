@@ -5,11 +5,11 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class l implements SensorEventListener {
-    private static l Zz;
-    private SensorManager Zy;
+    private static l aeg;
     private float[] a;
+    private SensorManager aef;
     private float[] b;
     private float e;
     private boolean f = false;
@@ -19,13 +19,13 @@ public class l implements SensorEventListener {
     private l() {
     }
 
-    public static synchronized l rA() {
+    public static synchronized l tu() {
         l lVar;
         synchronized (l.class) {
-            if (Zz == null) {
-                Zz = new l();
+            if (aeg == null) {
+                aeg = new l();
             }
-            lVar = Zz;
+            lVar = aeg;
         }
         return lVar;
     }
@@ -36,17 +36,17 @@ public class l implements SensorEventListener {
 
     public synchronized void b() {
         if (!this.h && this.f) {
-            if (this.Zy == null) {
-                this.Zy = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.aef == null) {
+                this.aef = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.Zy != null) {
-                Sensor defaultSensor = this.Zy.getDefaultSensor(11);
+            if (this.aef != null) {
+                Sensor defaultSensor = this.aef.getDefaultSensor(11);
                 if (defaultSensor != null && this.f) {
-                    this.Zy.registerListener(this, defaultSensor, 3);
+                    this.aef.registerListener(this, defaultSensor, 3);
                 }
-                Sensor defaultSensor2 = this.Zy.getDefaultSensor(2);
+                Sensor defaultSensor2 = this.aef.getDefaultSensor(2);
                 if (defaultSensor2 != null && this.f) {
-                    this.Zy.registerListener(this, defaultSensor2, 3);
+                    this.aef.registerListener(this, defaultSensor2, 3);
                 }
             }
             this.h = true;
@@ -55,9 +55,9 @@ public class l implements SensorEventListener {
 
     public synchronized void c() {
         if (this.h) {
-            if (this.Zy != null) {
-                this.Zy.unregisterListener(this);
-                this.Zy = null;
+            if (this.aef != null) {
+                this.aef.unregisterListener(this);
+                this.aef = null;
             }
             this.h = false;
         }

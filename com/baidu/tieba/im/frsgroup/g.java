@@ -13,22 +13,22 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.frs.h<h, i> {
-    private View.OnClickListener ayP;
+    private View.OnClickListener aDy;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.ayP = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.aDy = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int aMy = hVar.aMy();
-                        if (aMy == 0 && (hVar.QL() instanceof GroupPermData)) {
-                            g.this.a((GroupPermData) hVar.QL());
-                        } else if (aMy == 1) {
-                            ba.bA(g.this.mPageContext.getPageActivity());
+                        int aPN = hVar.aPN();
+                        if (aPN == 0 && (hVar.SF() instanceof GroupPermData)) {
+                            g.this.a((GroupPermData) hVar.SF());
+                        } else if (aPN == 1) {
+                            ba.bI(g.this.mPageContext.getPageActivity());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bd */
     public i onCreateViewHolder(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(e.h.net_refresh_view_layout, (ViewGroup) null), this.ayP);
+        return new i(LayoutInflater.from(this.mContext).inflate(e.h.net_refresh_view_layout, (ViewGroup) null), this.aDy);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
-            iVar.a(hVar.aMz(), hVar.aMv(), hVar.aMw(), hVar.aMx());
-            iVar.ezQ.setTag(Integer.valueOf(i));
+            iVar.a(hVar.aPO(), hVar.aPK(), hVar.aPL(), hVar.aPM());
+            iVar.eHA.setTag(Integer.valueOf(i));
         }
         return view;
     }

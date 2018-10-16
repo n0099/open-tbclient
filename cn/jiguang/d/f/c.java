@@ -9,11 +9,11 @@ public final class c {
     private String f;
     private int g;
     private long h;
-    final /* synthetic */ a lI;
+    final /* synthetic */ a mn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.lI = aVar;
+        this.mn = aVar;
     }
 
     public final String toString() {

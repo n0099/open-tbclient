@@ -1,6 +1,7 @@
 package com.baidu.tbadk.util;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Message;
@@ -77,7 +78,7 @@ public class ac {
         String name;
         if (wire != null && cls != null) {
             String str = "wire_" + cls.getName();
-            File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
+            File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + BaseRequestAction.SPLITE + TbConfig.getVersion());
             byte[] bArr = null;
             try {
                 if (file.exists() && (bArr = D(file)) != null) {

@@ -12,7 +12,7 @@ import com.baidu.tieba.video.cloudmusic.CloudMusicActivity;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.tieba.video.record.ResponseGetStickersMessage;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Static {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(RecordVideoActivityConfig.class, RecordVideoActivity.class);

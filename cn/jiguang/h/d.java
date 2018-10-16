@@ -9,6 +9,7 @@ import cn.jiguang.d.h.x;
 import cn.jiguang.g.f;
 import com.baidu.ar.msghandler.ComponentMessageType;
 import com.baidu.sapi2.base.network.Apn;
+import com.baidu.webkit.internal.ETAG;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -101,9 +102,9 @@ public class d {
             }
             if (httpURLConnection instanceof HttpsURLConnection) {
                 try {
-                    if (bVar.bX() != null) {
+                    if (bVar.co() != null) {
                         SSLContext sSLContext = SSLContext.getInstance("TLS");
-                        sSLContext.init(null, new TrustManager[]{bVar.bX()}, new SecureRandom());
+                        sSLContext.init(null, new TrustManager[]{bVar.co()}, new SecureRandom());
                         if (sSLContext != null) {
                             ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(sSLContext.getSocketFactory());
                         }
@@ -121,9 +122,9 @@ public class d {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
-                byte[] bY = bVar.bY();
-                if (bY != null) {
-                    httpURLConnection.getOutputStream().write(bY);
+                byte[] cp = bVar.cp();
+                if (cp != null) {
+                    httpURLConnection.getOutputStream().write(cp);
                 }
             }
             int responseCode = httpURLConnection.getResponseCode();
@@ -134,14 +135,14 @@ public class d {
                 inputStream3 = null;
             }
             try {
-                if (!bVar.bZ() || inputStream3 == null) {
+                if (!bVar.cq() || inputStream3 == null) {
                     bArr = null;
                 } else {
                     try {
                         bArr = f(inputStream3);
                         if (bArr != null) {
                             try {
-                                if (bVar.ca()) {
+                                if (bVar.cr()) {
                                     bArr = x.b(bArr);
                                 }
                             } catch (Throwable th5) {
@@ -151,7 +152,7 @@ public class d {
                         bArr = null;
                     }
                 }
-                if (bArr == null && responseCode != 200 && bVar.bW()) {
+                if (bArr == null && responseCode != 200 && bVar.cn()) {
                     inputStream4 = httpURLConnection.getErrorStream();
                     bArr = f(inputStream4);
                 }
@@ -277,9 +278,9 @@ public class d {
             while (it.hasNext()) {
                 try {
                     Map.Entry<String, String> next = it.next();
-                    sb.append(next.getKey()).append("=").append(URLEncoder.encode(next.getValue(), "UTF-8"));
+                    sb.append(next.getKey()).append(ETAG.EQUAL).append(URLEncoder.encode(next.getValue(), "UTF-8"));
                     if (it.hasNext()) {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

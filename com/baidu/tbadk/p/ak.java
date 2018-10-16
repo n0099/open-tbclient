@@ -11,26 +11,26 @@ public class ak extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ir() {
+    protected String[] iH() {
         return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int is() {
+    protected int iI() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int it() {
+    protected int iJ() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iu() {
+    protected int iK() {
         return 10;
     }
 
-    public static boolean jw() {
-        return com.baidu.adp.lib.b.d.iB().aO("android_net_delete") == 1;
+    public static boolean jL() {
+        return com.baidu.adp.lib.b.d.iR().aO("android_net_delete") == 1;
     }
 }

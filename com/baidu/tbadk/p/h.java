@@ -1,7 +1,7 @@
 package com.baidu.tbadk.p;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.lib.b.a {
-    public static final String[] aYV = {"com.baidu.browser"};
+    public static final String[] bdv = {"com.baidu.browser"};
 
     @Override // com.baidu.adp.lib.b.a
     protected void Z(int i) {
@@ -13,22 +13,22 @@ public class h extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ir() {
-        return aYV;
+    protected String[] iH() {
+        return bdv;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int is() {
+    protected int iI() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int it() {
+    protected int iJ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iu() {
+    protected int iK() {
         return 10;
     }
 }

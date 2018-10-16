@@ -8,61 +8,62 @@ import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.g;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e qb;
-    private final m<PointF, PointF> qc;
-    private final g qd;
-    private final b qe;
-    private final d qf;
+    private final e qO;
+    private final m<PointF, PointF> qP;
+    private final g qQ;
+    private final b qR;
+    private final d qS;
     @Nullable
-    private final b qg;
+    private final b qT;
     @Nullable
-    private final b qh;
+    private final b qU;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.qb = eVar;
-        this.qc = mVar;
-        this.qd = gVar;
-        this.qe = bVar;
-        this.qf = dVar;
-        this.qg = bVar2;
-        this.qh = bVar3;
+        this.qO = eVar;
+        this.qP = mVar;
+        this.qQ = gVar;
+        this.qR = bVar;
+        this.qS = dVar;
+        this.qT = bVar2;
+        this.qU = bVar3;
     }
 
-    public e dA() {
-        return this.qb;
+    public e dS() {
+        return this.qO;
     }
 
-    public m<PointF, PointF> dB() {
-        return this.qc;
+    public m<PointF, PointF> dT() {
+        return this.qP;
     }
 
-    public g dC() {
-        return this.qd;
+    public g dU() {
+        return this.qQ;
     }
 
-    public b dD() {
-        return this.qe;
+    public b dV() {
+        return this.qR;
     }
 
-    public d dE() {
-        return this.qf;
-    }
-
-    @Nullable
-    public b dF() {
-        return this.qg;
+    public d dW() {
+        return this.qS;
     }
 
     @Nullable
-    public b dG() {
-        return this.qh;
+    public b dX() {
+        return this.qT;
     }
 
-    public p dH() {
+    @Nullable
+    public b dY() {
+        return this.qU;
+    }
+
+    public p dZ() {
         return new p(this);
     }
 
@@ -74,8 +75,8 @@ public class l implements com.airbnb.lottie.model.content.b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static l dI() {
-            return new l(new e(), new e(), g.a.dx(), b.a.ds(), d.a.du(), b.a.ds(), b.a.ds());
+        public static l ea() {
+            return new l(new e(), new e(), g.a.dP(), b.a.dK(), d.a.dM(), b.a.dK(), b.a.dK());
         }
 
         public static l n(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
@@ -95,7 +96,7 @@ public class l implements com.airbnb.lottie.model.content.b {
             if (optJSONObject2 != null) {
                 mVar = e.h(optJSONObject2, eVar);
             } else {
-                ad("position");
+                ad(AiAppsNaViewModel.KEY_POSITION);
                 mVar = null;
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("s");

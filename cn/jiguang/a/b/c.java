@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 /* loaded from: classes3.dex */
 public class c {
-    private static volatile c kr;
+    private static volatile c kX;
     private SharedPreferences a = null;
 
     private SharedPreferences a(Context context) {
@@ -14,15 +14,15 @@ public class c {
         return this.a;
     }
 
-    public static c bb() {
-        if (kr == null) {
+    public static c bs() {
+        if (kX == null) {
             synchronized (c.class) {
-                if (kr == null) {
-                    kr = new c();
+                if (kX == null) {
+                    kX = new c();
                 }
             }
         }
-        return kr;
+        return kX;
     }
 
     public final String a(Context context, String str, String str2) {

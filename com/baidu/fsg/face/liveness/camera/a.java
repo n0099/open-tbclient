@@ -12,11 +12,12 @@ import com.baidu.fsg.face.base.d.d;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.base.d.g;
 import com.baidu.fsg.face.liveness.beans.c;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.baidu.searchbox.ng.ai.apps.ar.model.ARCameraAttr;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static final int a = 480;
     public static final int b = 640;
@@ -26,10 +27,10 @@ public class a {
     private Camera e;
     private MediaRecorder f;
     private SurfaceHolder g;
-    private C0068a h;
-    private C0068a i;
+    private C0079a h;
+    private C0079a i;
     private int m;
-    private String j = "on";
+    private String j = ARCameraAttr.FlashType.FLASH_ON;
     private boolean k = false;
     private boolean n = true;
     private boolean o = true;
@@ -80,10 +81,10 @@ public class a {
                     i = 90;
                     break;
                 case 2:
-                    i = SubsamplingScaleImageView.ORIENTATION_180;
+                    i = 180;
                     break;
                 case 3:
-                    i = SubsamplingScaleImageView.ORIENTATION_270;
+                    i = 270;
                     break;
             }
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
@@ -100,21 +101,21 @@ public class a {
             }
             if (parameters.getSupportedFlashModes() != null) {
                 if (this.n) {
-                    this.j = "off";
+                    this.j = ARCameraAttr.FlashType.FLASH_OFF;
                     parameters.setFlashMode(this.j);
                 } else {
                     parameters.setFlashMode(this.j);
                 }
             } else {
-                this.j = "off";
+                this.j = ARCameraAttr.FlashType.FLASH_OFF;
             }
             this.e.setParameters(parameters);
         }
     }
 
-    private C0068a a(Activity activity, Camera.Parameters parameters) {
-        C0068a b2 = b(activity, parameters);
-        this.h = new C0068a(b2.a, b2.b);
+    private C0079a a(Activity activity, Camera.Parameters parameters) {
+        C0079a b2 = b(activity, parameters);
+        this.h = new C0079a(b2.a, b2.b);
         if (this.p) {
             this.i = b(this.e.getParameters(), b2);
         }
@@ -122,48 +123,48 @@ public class a {
         return this.h;
     }
 
-    private C0068a b(Activity activity, Camera.Parameters parameters) {
-        List<C0068a> c2 = c(activity, parameters);
-        C0068a c0068a = new C0068a(640, 480);
+    private C0079a b(Activity activity, Camera.Parameters parameters) {
+        List<C0079a> c2 = c(activity, parameters);
+        C0079a c0079a = new C0079a(640, 480);
         if (c2 == null || c2.size() == 0) {
-            return c0068a;
+            return c0079a;
         }
-        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-        C0068a c0068a2 = new C0068a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
-        float f = c0068a2.b / c0068a2.a;
+        Display defaultDisplay = ((WindowManager) activity.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
+        C0079a c0079a2 = new C0079a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+        float f = c0079a2.b / c0079a2.a;
         int i = 0;
-        C0068a c0068a3 = c0068a;
-        float f2 = c0068a.a / c0068a.b;
+        C0079a c0079a3 = c0079a;
+        float f2 = c0079a.a / c0079a.b;
         while (true) {
             int i2 = i;
             if (i2 < c2.size()) {
-                C0068a c0068a4 = c2.get(i2);
-                float abs = Math.abs((c0068a4.a / c0068a4.b) - f);
+                C0079a c0079a4 = c2.get(i2);
+                float abs = Math.abs((c0079a4.a / c0079a4.b) - f);
                 if (abs < f2) {
                     f2 = abs;
-                    c0068a3 = c0068a4;
+                    c0079a3 = c0079a4;
                 }
                 i = i2 + 1;
             } else {
-                return c0068a3;
+                return c0079a3;
             }
         }
     }
 
-    private List<C0068a> c(Activity activity, Camera.Parameters parameters) {
+    private List<C0079a> c(Activity activity, Camera.Parameters parameters) {
         int i;
         int i2;
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
             return null;
         }
-        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-        C0068a c0068a = new C0068a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
-        if ((c0068a.a * c0068a.b) / 4 <= 921600) {
+        Display defaultDisplay = ((WindowManager) activity.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
+        C0079a c0079a = new C0079a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+        if ((c0079a.a * c0079a.b) / 4 <= 921600) {
             i = 153600;
             i2 = 921600;
         } else {
-            i = (c0068a.a * c0068a.b) / 8;
+            i = (c0079a.a * c0079a.b) / 8;
             i2 = 2073600;
         }
         ArrayList arrayList = new ArrayList();
@@ -175,15 +176,15 @@ public class a {
             }
             Camera.Size size = supportedPreviewSizes.get(i4);
             if (size.width * size.height >= i && size.width * size.height <= i2) {
-                arrayList.add(new C0068a(size.width, size.height));
+                arrayList.add(new C0079a(size.width, size.height));
             }
             i3 = i4 + 1;
         }
     }
 
-    public void a(Camera.Parameters parameters, C0068a c0068a) {
+    public void a(Camera.Parameters parameters, C0079a c0079a) {
         Camera.Size size = null;
-        float f = c0068a != null ? c0068a.a / c0068a.b : 0.0f;
+        float f = c0079a != null ? c0079a.a / c0079a.b : 0.0f;
         List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
         if (supportedPictureSizes != null) {
             int size2 = supportedPictureSizes.size();
@@ -311,32 +312,32 @@ public class a {
         }
     }
 
-    private C0068a b(Camera.Parameters parameters, C0068a c0068a) {
+    private C0079a b(Camera.Parameters parameters, C0079a c0079a) {
         List<Camera.Size> supportedVideoSizes = parameters.getSupportedVideoSizes();
         List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
         if (supportedVideoSizes != null && supportedVideoSizes.size() != 0 && supportedPreviewSizes != null && supportedPreviewSizes.size() != 0) {
-            float f = c0068a.b / c0068a.a;
-            C0068a c0068a2 = new C0068a(0, 0);
-            C0068a c0068a3 = new C0068a(0, 0);
-            C0068a c0068a4 = new C0068a(0, 0);
-            C0068a c0068a5 = new C0068a(0, 0);
-            C0068a c0068a6 = new C0068a(0, 0);
-            C0068a c0068a7 = new C0068a(0, 0);
+            float f = c0079a.b / c0079a.a;
+            C0079a c0079a2 = new C0079a(0, 0);
+            C0079a c0079a3 = new C0079a(0, 0);
+            C0079a c0079a4 = new C0079a(0, 0);
+            C0079a c0079a5 = new C0079a(0, 0);
+            C0079a c0079a6 = new C0079a(0, 0);
+            C0079a c0079a7 = new C0079a(0, 0);
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < supportedVideoSizes.size()) {
                     Camera.Size size = supportedVideoSizes.get(i2);
-                    c0068a3.a = size.width;
-                    c0068a3.b = size.height;
-                    if (c0068a3.a == c0068a.a && c0068a3.b == c0068a.b) {
-                        c0068a2.a = c0068a3.a;
-                        c0068a2.b = c0068a3.b;
-                        return c0068a2;
+                    c0079a3.a = size.width;
+                    c0079a3.b = size.height;
+                    if (c0079a3.a == c0079a.a && c0079a3.b == c0079a.b) {
+                        c0079a2.a = c0079a3.a;
+                        c0079a2.b = c0079a3.b;
+                        return c0079a2;
                     }
-                    if (Math.abs((size.height / size.width) - f) < 0.01f && c0068a3.a >= c0068a2.a && c0068a3.b >= c0068a2.b && c0068a3.a * c0068a3.b <= 921600) {
-                        c0068a2.a = c0068a3.a;
-                        c0068a2.b = c0068a3.b;
+                    if (Math.abs((size.height / size.width) - f) < 0.01f && c0079a3.a >= c0079a2.a && c0079a3.b >= c0079a2.b && c0079a3.a * c0079a3.b <= 921600) {
+                        c0079a2.a = c0079a3.a;
+                        c0079a2.b = c0079a3.b;
                     }
                     int i3 = 0;
                     while (true) {
@@ -345,38 +346,38 @@ public class a {
                             break;
                         }
                         Camera.Size size2 = supportedPreviewSizes.get(i4);
-                        c0068a4.a = size2.width;
-                        c0068a4.b = size2.height;
-                        if (((c0068a3.a == c0068a4.a && c0068a3.b == c0068a4.b) || Math.abs((c0068a4.b / c0068a4.a) - (c0068a3.b / c0068a3.a)) < 0.01f) && c0068a3.a * c0068a3.b >= c0068a5.a * c0068a5.b && c0068a3.a * c0068a3.b <= 921600) {
-                            c0068a5.a = c0068a3.a;
-                            c0068a5.b = c0068a3.b;
-                            c0068a6.b = c0068a4.b;
-                            c0068a6.a = c0068a4.a;
+                        c0079a4.a = size2.width;
+                        c0079a4.b = size2.height;
+                        if (((c0079a3.a == c0079a4.a && c0079a3.b == c0079a4.b) || Math.abs((c0079a4.b / c0079a4.a) - (c0079a3.b / c0079a3.a)) < 0.01f) && c0079a3.a * c0079a3.b >= c0079a5.a * c0079a5.b && c0079a3.a * c0079a3.b <= 921600) {
+                            c0079a5.a = c0079a3.a;
+                            c0079a5.b = c0079a3.b;
+                            c0079a6.b = c0079a4.b;
+                            c0079a6.a = c0079a4.a;
                         }
                         i3 = i4 + 1;
                     }
-                    if (c0068a3.a * c0068a3.b >= c0068a7.a * c0068a7.b && c0068a3.a * c0068a3.b <= 921600) {
-                        c0068a7.a = c0068a3.a;
-                        c0068a7.b = c0068a3.b;
+                    if (c0079a3.a * c0079a3.b >= c0079a7.a * c0079a7.b && c0079a3.a * c0079a3.b <= 921600) {
+                        c0079a7.a = c0079a3.a;
+                        c0079a7.b = c0079a3.b;
                     }
                     i = i2 + 1;
-                } else if (c0068a2.a > 0) {
-                    return c0068a2;
+                } else if (c0079a2.a > 0) {
+                    return c0079a2;
                 } else {
-                    if (c0068a5.a > 0) {
-                        this.h.b = c0068a6.b;
-                        this.h.a = c0068a6.a;
-                        return c0068a5;
+                    if (c0079a5.a > 0) {
+                        this.h.b = c0079a6.b;
+                        this.h.a = c0079a6.a;
+                        return c0079a5;
                     }
-                    return c0068a7;
+                    return c0079a7;
                 }
             }
         } else {
-            return c0068a;
+            return c0079a;
         }
     }
 
-    public C0068a f() {
+    public C0079a f() {
         return this.h;
     }
 
@@ -387,12 +388,12 @@ public class a {
     }
 
     /* renamed from: com.baidu.fsg.face.liveness.camera.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0068a {
+    /* loaded from: classes6.dex */
+    public static class C0079a {
         public int a;
         public int b;
 
-        public C0068a(int i, int i2) {
+        public C0079a(int i, int i2) {
             this.a = i;
             this.b = i2;
         }

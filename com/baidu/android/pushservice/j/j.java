@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.ar.statistic.StatisticConstants;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -51,7 +50,7 @@ public class j {
             edit.putString(StatisticConstants.REQUEST_ID, str4);
             edit.putString("user_id", str5);
             edit.putBoolean("bind_status", true);
-            edit.putLong(ARResourceKey.HTTP_VERSION_CODE, m.d(context, context.getPackageName()));
+            edit.putLong("version_code", m.d(context, context.getPackageName()));
             edit.apply();
         } catch (Exception e) {
         }

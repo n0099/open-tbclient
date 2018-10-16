@@ -11,9 +11,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class c {
-    private static BlockPopInfo hiU;
-    private static BlockPopInfo hiV;
-    private CustomMessageListener bDp = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
+    private static BlockPopInfo hqk;
+    private static BlockPopInfo hql;
+    private CustomMessageListener bLU = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,19 +27,19 @@ public class c {
 
     public c(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.mContext.registerListener(this.bDp);
+        this.mContext.registerListener(this.bLU);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null && blockPopInfo.appeal_status != null && blockPopInfo.appeal_status.intValue() == 1) {
-            BdToast.a(this.mContext.getPageActivity(), blockPopInfo.appeal_msg, e.f.icon_toast_game_error, 3000).yt();
+            BdToast.a(this.mContext.getPageActivity(), blockPopInfo.appeal_msg, e.f.icon_toast_game_error, 3000).AC();
             return true;
         } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0 && ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1)) {
             if (blockPopInfo.ahead_type.intValue() == 1) {
                 String str = blockPopInfo.block_info;
                 String str2 = blockPopInfo.ok_info;
                 if (ao.isEmpty(str) || ao.isEmpty(str2)) {
-                    BdToast.a(this.mContext.getPageActivity(), this.mContext.getString(e.j.hanpen_error), e.f.icon_toast_game_error, 3000).yt();
+                    BdToast.a(this.mContext.getPageActivity(), this.mContext.getString(e.j.hanpen_error), e.f.icon_toast_game_error, 3000).AC();
                     return true;
                 }
                 b(blockPopInfo);
@@ -55,18 +55,18 @@ public class c {
         }
     }
 
-    public boolean bCA() {
-        return a(hiU);
+    public boolean bFO() {
+        return a(hqk);
     }
 
-    public boolean bCB() {
-        return a(hiV);
+    public boolean bFP() {
+        return a(hql);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            aVar.dT(blockPopInfo.block_info);
+            aVar.ej(blockPopInfo.block_info);
             aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.c.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -79,22 +79,22 @@ public class c {
                     c.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.mContext).yl();
+            aVar.b(this.mContext).Au();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            AntiHelper.aH(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
+            AntiHelper.aJ(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
         }
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        hiU = blockPopInfo;
+        hqk = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        hiV = blockPopInfo;
+        hql = blockPopInfo;
     }
 }

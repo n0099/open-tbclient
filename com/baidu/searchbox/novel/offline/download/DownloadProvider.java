@@ -7,7 +7,7 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.plugins.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class DownloadProvider extends ContentProvider {
     private boolean isPluginSetted = false;
 
@@ -19,8 +19,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.Ml() != null) {
-            return a.Ml().query(uri, strArr, str, strArr2, str2);
+        if (a.Oj() != null) {
+            return a.Oj().query(uri, strArr, str, strArr2, str2);
         }
         return null;
     }
@@ -28,8 +28,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         setPlugin();
-        if (a.Ml() != null) {
-            return a.Ml().getType(uri);
+        if (a.Oj() != null) {
+            return a.Oj().getType(uri);
         }
         return null;
     }
@@ -37,8 +37,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
         setPlugin();
-        if (a.Ml() != null) {
-            return a.Ml().insert(uri, contentValues);
+        if (a.Oj() != null) {
+            return a.Oj().insert(uri, contentValues);
         }
         return null;
     }
@@ -46,8 +46,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
         setPlugin();
-        if (a.Ml() != null) {
-            return a.Ml().delete(uri, str, strArr);
+        if (a.Oj() != null) {
+            return a.Oj().delete(uri, str, strArr);
         }
         return 0;
     }
@@ -55,8 +55,8 @@ public class DownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.Ml() != null) {
-            return a.Ml().update(uri, contentValues, str, strArr);
+        if (a.Oj() != null) {
+            return a.Oj().update(uri, contentValues, str, strArr);
         }
         return 0;
     }
@@ -64,8 +64,8 @@ public class DownloadProvider extends ContentProvider {
     private void setPlugin() {
         if (!this.isPluginSetted) {
             MessageManager.getInstance().runTask(new CustomMessage<>(2921337, this), (Class) null);
-            if (a.Ml() != null) {
-                a.Ml().onCreate();
+            if (a.Oj() != null) {
+                a.Oj().onCreate();
                 this.isPluginSetted = true;
             }
         }

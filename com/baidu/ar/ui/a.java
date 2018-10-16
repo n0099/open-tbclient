@@ -16,11 +16,11 @@ public class a extends Dialog {
     private TextView c;
     private TextView d;
     private View e;
-    private InterfaceC0047a f;
+    private InterfaceC0050a f;
 
     /* renamed from: com.baidu.ar.ui.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0047a {
+    public interface InterfaceC0050a {
         void a();
 
         void b();
@@ -55,8 +55,8 @@ public class a extends Dialog {
         });
     }
 
-    public void a(InterfaceC0047a interfaceC0047a) {
-        this.f = interfaceC0047a;
+    public void a(InterfaceC0050a interfaceC0050a) {
+        this.f = interfaceC0050a;
     }
 
     public void a(String str) {

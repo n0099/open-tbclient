@@ -1,5 +1,6 @@
 package cn.jiguang.g;
 
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
@@ -27,7 +28,7 @@ public final class i {
             return null;
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             if (digest == null) {

@@ -5,24 +5,24 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class i {
-    public Map<String, List<String>> Cr;
-    public byte[] Cs;
-    public int Ct;
-    public volatile boolean Cp = false;
+    public Map<String, List<String>> Db;
+    public byte[] Dc;
+    public int Dd;
+    public volatile boolean CZ = false;
     public int responseCode = -1;
-    public int Cq = -1;
+    public int Da = -1;
     public String contentEncoding = "";
     public String contentType = "";
     public String contentLength = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void e(HttpURLConnection httpURLConnection) throws Exception {
+    public void g(HttpURLConnection httpURLConnection) throws Exception {
         if (httpURLConnection != null) {
             this.responseCode = httpURLConnection.getResponseCode();
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = httpURLConnection.getContentLength() + "";
-            this.Cr = httpURLConnection.getHeaderFields();
+            this.Db = httpURLConnection.getHeaderFields();
         }
     }
 }

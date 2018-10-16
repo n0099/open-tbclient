@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Base64;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.e;
 import java.util.ArrayList;
@@ -15,14 +16,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public final class a {
     private static a a;
-    private C0092a b;
+    private C0116a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0092a(context);
+        this.b = new C0116a(context);
         this.c = new e(context);
         try {
             this.d = this.b.getWritableDatabase();
@@ -520,7 +521,7 @@ public final class a {
         e eVar = new e(this.e);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            return this.d.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * 86400000))});
+            return this.d.delete("r", "(d <= ? or (d < (" + currentTimeMillis + "-f*3600000) and f!= 0)) and b != '1001001'and i != 5 ", new String[]{String.valueOf(currentTimeMillis - (eVar.e.getInt("re_net_over", 7) * AiAppDateTimeUtil.TIME_DAY_MILLISECOND))});
         } catch (Exception e) {
             com.baidu.sofire.b.e.a(e);
             return -1;
@@ -529,8 +530,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    class C0092a extends SQLiteOpenHelper {
-        public C0092a(Context context) {
+    class C0116a extends SQLiteOpenHelper {
+        public C0116a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

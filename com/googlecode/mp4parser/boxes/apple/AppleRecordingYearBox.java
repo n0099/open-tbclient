@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.TimeZone;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AppleRecordingYearBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
     Date date;
     DateFormat df;
 

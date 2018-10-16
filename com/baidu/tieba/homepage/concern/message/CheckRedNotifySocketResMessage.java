@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.concern.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.RedNotify.RedNotifyResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class CheckRedNotifySocketResMessage extends SocketResponsedMessage {
     private boolean isShowRedNotify;
 

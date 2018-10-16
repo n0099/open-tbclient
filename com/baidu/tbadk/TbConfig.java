@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
+import com.baidu.searchbox.ng.ai.apps.core.container.init.NgWebViewInitHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
@@ -81,6 +82,7 @@ public class TbConfig {
     public static final String CREATE_BOOK_PAY_ORDER = "c/c/encourage/tbread/createPayOrder";
     public static final String DAILYRECOMMEND_ADDRESS = "c/f/forum/threadrecommend";
     public static final int DATABASE_SD_VERSION = 9;
+    public static final String DECRYPT_AI_APP_CODE = "c/s/decryptCode";
     public static final int DEFAULT_SDRAM_PHOTO_NUM = 30;
     public static final String DELETE_EMOTION_PACKAGE = "c/e/meme/delPackage";
     public static final String DELETE_MY_GAME = "c/c/game/delmygame";
@@ -360,7 +362,6 @@ public class TbConfig {
     public static final String REGISTER_ADDRESS = "c/m/register";
     public static final String REMOVE_MULTI_FANS = "c/c/user/multiRemoveFans";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
-    public static final String REPORT_APPLIST = "https://als.baidu.com/device/logForC";
     public static final String REPORT_PLOG = "https://als.baidu.com/elog/plog";
     public static final String SAVE_GAME_STATUS = "c/c/game/saveGameStatus";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
@@ -535,7 +536,7 @@ public class TbConfig {
     private static int FRIEND_PHOTO_MAX_SIZE = 80;
     private static int VERSION_TYPE = 3;
     public static final Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
-    private static String TMPDIRNAME = "tieba";
+    private static String TMPDIRNAME = NgWebViewInitHelper.INIT_BWEBKIT_APPID;
     private static String CURRENT_FROM = null;
     private static int BIG_IMAGE_SIZE = 10240;
     private static int BIG_IMAGE_MAX_USED_MEMORY = 1048576;
@@ -551,18 +552,18 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds56);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds52);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds48);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds42);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds52);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds48);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds38);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds72);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds68);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds64);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0141e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds56);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds52);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds48);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds42);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds52);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds48);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds38);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds72);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds68);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds64);
+    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0175e.tbds56);
     private static int MAX_PHOTO_MEMORY_CACHE = 30;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
@@ -700,7 +701,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Kg().fm(i);
+            c.Me().fv(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

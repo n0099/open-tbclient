@@ -10,7 +10,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class l {
     private static final String a = "LogSender";
     private static final int c = 10000;
@@ -23,7 +23,7 @@ public class l {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         private static l a = new l(null);
 

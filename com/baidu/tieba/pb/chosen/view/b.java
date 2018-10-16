@@ -15,67 +15,67 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class b {
-    private TextView bYF;
-    private View enf;
-    private c.a fyS;
-    private HeadImageView fzj;
-    private TbRichTextView fzk;
-    private ViewStub fzl;
-    private ImageView fzm;
+    private TextView chf;
+    private View euX;
+    private HeadImageView fGL;
+    private TbRichTextView fGM;
+    private ViewStub fGN;
+    private ImageView fGO;
+    private c.a fGu;
     private View rootView;
 
     public b(ViewStub viewStub, c.a aVar) {
-        this.fzl = viewStub;
-        this.fyS = aVar;
+        this.fGN = viewStub;
+        this.fGu = aVar;
     }
 
     private void initView() {
         if (this.rootView == null) {
-            this.rootView = this.fzl.inflate();
-            this.fzj = (HeadImageView) this.rootView.findViewById(e.g.chosen_pb_comment_head);
-            this.bYF = (TextView) this.rootView.findViewById(e.g.chosen_pb_comment_name);
-            this.fzk = (TbRichTextView) this.rootView.findViewById(e.g.chosen_pb_comment_content);
-            this.fzm = (ImageView) this.rootView.findViewById(e.g.chosen_pb_comment_reply);
-            this.enf = this.rootView.findViewById(e.g.chosen_pb_comment_line);
-            this.fzk.setTextSize(TbConfig.getContentSize());
+            this.rootView = this.fGN.inflate();
+            this.fGL = (HeadImageView) this.rootView.findViewById(e.g.chosen_pb_comment_head);
+            this.chf = (TextView) this.rootView.findViewById(e.g.chosen_pb_comment_name);
+            this.fGM = (TbRichTextView) this.rootView.findViewById(e.g.chosen_pb_comment_content);
+            this.fGO = (ImageView) this.rootView.findViewById(e.g.chosen_pb_comment_reply);
+            this.euX = this.rootView.findViewById(e.g.chosen_pb_comment_line);
+            this.fGM.setTextSize(TbConfig.getContentSize());
             onChangeSkinType();
         }
     }
 
-    public void jN(boolean z) {
+    public void ke(boolean z) {
         if (this.rootView != null) {
             this.rootView.setVisibility(z ? 0 : 8);
         }
     }
 
     public void onChangeSkinType() {
-        al.c(this.bYF, e.d.cp_cont_f, 1);
-        al.c(this.fzm, e.f.btn_comment_list);
-        al.j(this.enf, e.d.cp_bg_line_b);
-        if (this.fzk != null) {
-            this.fzk.setTextColor(al.getColor(e.d.cp_cont_b));
+        al.c(this.chf, e.d.cp_cont_f, 1);
+        al.c(this.fGO, e.f.btn_comment_list);
+        al.j(this.euX, e.d.cp_bg_line_b);
+        if (this.fGM != null) {
+            this.fGM.setTextColor(al.getColor(e.d.cp_cont_b));
         }
     }
 
     public boolean a(Context context, final Post post, User user) {
         if (post == null || user == null || post.content == null || post.content.isEmpty()) {
-            jN(false);
+            ke(false);
             return false;
         }
         initView();
-        jN(true);
-        this.bYF.setText(user.name_show);
-        this.fzm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.b.1
+        ke(true);
+        this.chf.setText(user.name_show);
+        this.fGO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (post != null && post.id != null && b.this.fyS != null) {
-                    b.this.fyS.rE(String.valueOf(post.id));
+                if (post != null && post.id != null && b.this.fGu != null) {
+                    b.this.fGu.se(String.valueOf(post.id));
                 }
             }
         });
-        this.fzj.startLoad(user.portrait, 12, false);
-        this.fzk.setVisibility(0);
-        this.fzk.setText(TbRichTextView.a(context, post.content, false));
+        this.fGL.startLoad(user.portrait, 12, false);
+        this.fGM.setVisibility(0);
+        this.fGM.setText(TbRichTextView.a(context, post.content, false));
         return true;
     }
 }

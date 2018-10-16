@@ -2,6 +2,7 @@ package com.baidu.tieba.postsearch;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.al;
 import java.util.ArrayList;
@@ -10,14 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public List<a> gri = new ArrayList();
-    public al dnE = new al();
+    public List<a> gyI = new ArrayList();
+    public al dvH = new al();
 
     /* loaded from: classes3.dex */
     public static class a {
         public String content;
         public String fname;
-        public int grj;
+        public int gyJ;
         public int is_floor;
         public String name;
         public String name_show;
@@ -28,21 +29,21 @@ public class b {
         public String title;
     }
 
-    public boolean aPt() {
-        return (this.gri == null || this.gri.size() == 0) ? false : true;
+    public boolean aSH() {
+        return (this.gyI == null || this.gyI.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.dnE != null && this.dnE.vu() == 1;
+        return this.dvH != null && this.dvH.xD() == 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dnE.parserJson(jSONObject.getJSONObject("page"));
+                this.dvH.parserJson(jSONObject.getJSONObject(SystemScreenshotManager.PAGE));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.gri.clear();
+                    this.gyI.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -67,11 +68,11 @@ public class b {
                                 aVar.fname = optString5;
                                 aVar.tid = optLong3;
                                 aVar.is_floor = optInt;
-                                aVar.grj = optInt2;
+                                aVar.gyJ = optInt2;
                                 aVar.name = optString2;
                                 aVar.name_show = optString;
                                 aVar.thread_type = optInt3;
-                                this.gri.add(aVar);
+                                this.gyI.add(aVar);
                             }
                         }
                     }

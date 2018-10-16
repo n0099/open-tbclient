@@ -1,0 +1,23 @@
+package rx.c;
+/* loaded from: classes2.dex */
+public abstract class b {
+    @Deprecated
+    public void C(Throwable th) {
+    }
+
+    public final String bs(Object obj) {
+        try {
+            return bt(obj);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return obj.getClass().getName() + ".errorRendering";
+        } catch (Throwable th) {
+            rx.exceptions.a.J(th);
+            return obj.getClass().getName() + ".errorRendering";
+        }
+    }
+
+    protected String bt(Object obj) throws InterruptedException {
+        return null;
+    }
+}

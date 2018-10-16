@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -15,7 +14,7 @@ public class BannerData extends com.baidu.tbadk.core.data.i implements Serializa
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.mOpen = jSONObject.optInt(TbConfig.ST_TYPE_OPEN, 0);
+                this.mOpen = jSONObject.optInt("open", 0);
                 this.mUrl = jSONObject.optString("message_url", null);
                 this.mResultUrl = jSONObject.optString("dest_url", null);
             } catch (Exception e) {

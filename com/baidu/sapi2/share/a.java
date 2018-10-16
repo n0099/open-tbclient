@@ -28,6 +28,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.webkit.internal.ABTestConstants;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -339,7 +340,7 @@ public final class a {
                                                 hashMap2.put("uid", session.uid);
                                                 hashMap2.put(ShareCallPacking.StatModel.KEY_ACCOUNT_APP, session.app);
                                             } else {
-                                                hashMap2.put("isLogin", "false");
+                                                hashMap2.put("isLogin", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
                                             }
                                             StatService.onEvent("share_silent_account_success", hashMap2, false);
                                         }

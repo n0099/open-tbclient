@@ -2,6 +2,7 @@ package com.baidu.tieba.recapp.download.http;
 
 import com.baidu.adp.lib.util.k;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.webkit.internal.ETAG;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -13,9 +14,9 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> Cm = new HashMap();
-    protected LinkedList<BasicNameValuePair> Cn = new LinkedList<>();
-    protected HashMap<String, byte[]> Co = new HashMap<>();
+    protected Map<String, String> CW = new HashMap();
+    protected LinkedList<BasicNameValuePair> CX = new LinkedList<>();
+    protected HashMap<String, byte[]> CY = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -29,14 +30,14 @@ public class h {
         }
     }
 
-    public boolean jg() {
-        return this.Co != null && this.Co.size() > 0;
+    public boolean jv() {
+        return this.CY != null && this.CY.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.Cn.size() == 0) {
+        if (this.CX.size() == 0) {
             if (eVar != null) {
-                eVar.BT = this.url.length();
+                eVar.CB = this.url.length();
             }
             return this.url;
         }
@@ -44,32 +45,32 @@ public class h {
         sb.append(this.url);
         if (this.url.indexOf("?") < 0) {
             sb.append("?");
-        } else if (!this.url.endsWith("?") && !this.url.endsWith("&")) {
-            sb.append("&");
+        } else if (!this.url.endsWith("?") && !this.url.endsWith(ETAG.ITEM_SEPARATOR)) {
+            sb.append(ETAG.ITEM_SEPARATOR);
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.Cn.size()) {
+            if (i2 >= this.CX.size()) {
                 break;
             }
             if (i2 != 0) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             }
-            sb.append(this.Cn.get(i2).getName());
-            sb.append("=");
-            sb.append(k.by(this.Cn.get(i2).getValue()));
+            sb.append(this.CX.get(i2).getName());
+            sb.append(ETAG.EQUAL);
+            sb.append(k.bx(this.CX.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.BT = sb.length();
+            eVar.CB = sb.length();
         }
         return sb.toString();
     }
 
-    public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.Cm != null) {
-            for (Map.Entry<String, String> entry : this.Cm.entrySet()) {
+    public void f(HttpURLConnection httpURLConnection) {
+        if (httpURLConnection != null && this.CW != null) {
+            for (Map.Entry<String, String> entry : this.CW.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -77,13 +78,13 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, e eVar) throws Exception {
-        ji();
+        jx();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.Cn != null) {
-                    Iterator<BasicNameValuePair> it = this.Cn.iterator();
+                if (this.CX != null) {
+                    Iterator<BasicNameValuePair> it = this.CX.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -100,8 +101,8 @@ public class h {
                         }
                     }
                 }
-                if (this.Co != null) {
-                    for (Map.Entry<String, byte[]> entry : this.Co.entrySet()) {
+                if (this.CY != null) {
+                    for (Map.Entry<String, byte[]> entry : this.CY.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -121,14 +122,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.BT = i;
+            eVar.CB = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, e eVar) throws Exception {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = jh().toString();
+            String sb = jw().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
@@ -141,14 +142,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.BT = i;
+            eVar.CB = i;
         }
     }
 
-    private StringBuilder jh() {
+    private StringBuilder jw() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.Cn != null) {
-            Iterator<BasicNameValuePair> it = this.Cn.iterator();
+        if (this.CX != null) {
+            Iterator<BasicNameValuePair> it = this.CX.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -156,10 +157,10 @@ public class h {
                     String name = next.getName();
                     String value = next.getValue();
                     if (i != 0) {
-                        sb.append("&");
+                        sb.append(ETAG.ITEM_SEPARATOR);
                     }
-                    sb.append(name + "=");
-                    sb.append(k.by(value));
+                    sb.append(name + ETAG.EQUAL);
+                    sb.append(k.bx(value));
                     i++;
                 }
             }
@@ -167,23 +168,23 @@ public class h {
         return sb;
     }
 
-    protected void ji() {
+    protected void jx() {
     }
 
     public String aQ(String str) {
-        if (this.Cm != null) {
-            return this.Cm.get(str);
+        if (this.CW != null) {
+            return this.CW.get(str);
         }
         return null;
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.Cn.add(basicNameValuePair);
+        this.CX.add(basicNameValuePair);
     }
 
-    public void x(String str, String str2) {
-        if (this.Cm != null) {
-            this.Cm.put(str, str2);
+    public void y(String str, String str2) {
+        if (this.CW != null) {
+            this.CW.put(str, str2);
         }
     }
 }

@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.ng.ai.apps.canvas.model.CanvasToTempFileModel;
 import com.sina.weibo.BuildConfig;
 import com.sina.weibo.sdk.WeiboAppManager;
 import java.io.BufferedInputStream;
@@ -92,7 +93,7 @@ public class ImageUtils {
                 safeDecodeBimtapFile = createBitmap;
             }
             FileOutputStream fileOutputStream = new FileOutputStream(str);
-            if (options != null && options.outMimeType != null && options.outMimeType.contains("png")) {
+            if (options != null && options.outMimeType != null && options.outMimeType.contains(CanvasToTempFileModel.IMAGE_EXT_PNG)) {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i2, fileOutputStream);
             } else {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
@@ -143,7 +144,7 @@ public class ImageUtils {
             deleteDependon(str);
             makesureFileExist(str);
             FileOutputStream fileOutputStream = new FileOutputStream(str);
-            if (options != null && options.outMimeType != null && options.outMimeType.contains("png")) {
+            if (options != null && options.outMimeType != null && options.outMimeType.contains(CanvasToTempFileModel.IMAGE_EXT_PNG)) {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i2, fileOutputStream);
             } else {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);

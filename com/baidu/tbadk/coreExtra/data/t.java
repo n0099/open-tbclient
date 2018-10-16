@@ -1,24 +1,24 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class t {
-    private ArrayList<Object> aFA;
-    private String aFz;
+    private String aKc;
+    private ArrayList<Object> aKd;
 
     public t() {
         q(new ArrayList<>());
     }
 
-    public String DB() {
-        return this.aFz;
+    public String FC() {
+        return this.aKc;
     }
 
-    public ArrayList<Object> DC() {
-        return this.aFA;
+    public ArrayList<Object> FD() {
+        return this.aKd;
     }
 
     public void q(ArrayList<Object> arrayList) {
-        this.aFA = arrayList;
+        this.aKd = arrayList;
     }
 }

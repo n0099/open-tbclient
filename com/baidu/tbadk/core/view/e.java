@@ -9,47 +9,47 @@ import android.text.style.ReplacementSpan;
 import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
 public class e extends ReplacementSpan {
-    private int awJ;
-    private int awK;
-    private int awL;
-    private int awN;
-    private int awO;
-    private int awP;
-    private int awQ;
+    private int aBA;
+    private int aBu;
+    private int aBv;
+    private int aBw;
+    private int aBy;
+    private int aBz;
+    private int mTextColorId;
     private int mTextSize;
-    private RectF awM = new RectF();
-    private Paint awR = new Paint();
+    private RectF aBx = new RectF();
+    private Paint aBB = new Paint();
 
     public e(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.awJ = i;
-        this.awK = i2;
-        this.awL = i3;
+        this.aBu = i;
+        this.aBv = i2;
+        this.aBw = i3;
         this.mTextSize = i4;
-        this.awN = i5;
-        this.awO = i6;
-        this.awQ = i7;
-        this.awR.setAntiAlias(true);
-        this.awR.setStyle(Paint.Style.STROKE);
-        this.awR.setTextSize(this.mTextSize);
+        this.mTextColorId = i5;
+        this.aBy = i6;
+        this.aBA = i7;
+        this.aBB.setAntiAlias(true);
+        this.aBB.setStyle(Paint.Style.STROKE);
+        this.aBB.setTextSize(this.mTextSize);
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.awP = ((int) this.awR.measureText(charSequence, i, i2)) + (this.awO * 2);
-        return this.awP;
+        this.aBz = ((int) this.aBB.measureText(charSequence, i, i2)) + (this.aBy * 2);
+        return this.aBz;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        this.awR.setColor(al.getColor(this.awL));
-        int i6 = ((i5 - this.awQ) / 2) + i3;
-        this.awM.left = f;
-        this.awM.top = i6;
-        this.awM.right = this.awP + f;
-        this.awM.bottom = i6 + this.awQ;
-        canvas.drawRoundRect(this.awM, this.awK, this.awK, this.awR);
-        Paint.FontMetricsInt fontMetricsInt = this.awR.getFontMetricsInt();
-        this.awR.setColor(al.getColor(this.awN));
-        canvas.drawText(charSequence, i, i2, f + this.awO, (int) ((this.awM.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.awR);
+        this.aBB.setColor(al.getColor(this.aBw));
+        int i6 = ((i5 - this.aBA) / 2) + i3;
+        this.aBx.left = f;
+        this.aBx.top = i6;
+        this.aBx.right = this.aBz + f;
+        this.aBx.bottom = i6 + this.aBA;
+        canvas.drawRoundRect(this.aBx, this.aBv, this.aBv, this.aBB);
+        Paint.FontMetricsInt fontMetricsInt = this.aBB.getFontMetricsInt();
+        this.aBB.setColor(al.getColor(this.mTextColorId));
+        canvas.drawText(charSequence, i, i2, f + this.aBy, (int) ((this.aBx.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.aBB);
     }
 }

@@ -6,6 +6,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.dnsproxy.pbdata.ConnectPointData;
 import com.baidu.tieba.dnsproxy.pbdata.DnsIpData;
@@ -14,13 +15,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    HashMap<String, b> cVh = new HashMap<>();
-    HashMap<String, b> cVi = new HashMap<>();
-    long cVj;
-    long cVk;
+    long ddB;
+    long ddC;
     String name;
+    HashMap<String, b> ddz = new HashMap<>();
+    HashMap<String, b> ddA = new HashMap<>();
 
-    public static final String apu() {
+    public static final String asR() {
         String str;
         WifiInfo connectionInfo;
         try {
@@ -33,14 +34,14 @@ public class a {
                 } else {
                     str = (TextUtils.isEmpty(extraInfo) && typeName.equalsIgnoreCase("WIFI") && (connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getContext().getSystemService("wifi")).getConnectionInfo()) != null) ? connectionInfo.getBSSID() : extraInfo;
                     if (!TextUtils.isEmpty(str)) {
-                        return typeName + "_" + str;
+                        return typeName + BaseRequestAction.SPLITE + str;
                     }
                 }
-                com.baidu.tieba.dnsproxy.d.apl().aY("get_connectpoint_null", typeName + "_" + str);
+                com.baidu.tieba.dnsproxy.d.asI().aU("get_connectpoint_null", typeName + BaseRequestAction.SPLITE + str);
             }
         } catch (Throwable th) {
             BdLog.detailException(th);
-            com.baidu.tieba.dnsproxy.d.apl().aY("get_connectpoint_name", th.getMessage());
+            com.baidu.tieba.dnsproxy.d.asI().aU("get_connectpoint_name", th.getMessage());
         }
         return null;
     }
@@ -51,18 +52,18 @@ public class a {
         }
         a aVar = new a();
         aVar.name = connectPointData.name;
-        aVar.cVj = connectPointData.last_connect_rate_update_time.longValue();
-        aVar.cVk = connectPointData.last_speed_data_update_time.longValue();
+        aVar.ddB = connectPointData.last_connect_rate_update_time.longValue();
+        aVar.ddC = connectPointData.last_speed_data_update_time.longValue();
         for (DnsIpData dnsIpData : connectPointData.dns_ip_connect_rate) {
             b a = b.a(dnsIpData);
             if (a != null) {
-                aVar.cVh.put(a.address, a);
+                aVar.ddz.put(a.address, a);
             }
         }
         for (DnsIpData dnsIpData2 : connectPointData.dns_ip_speed_data) {
             b a2 = b.a(dnsIpData2);
             if (a2 != null) {
-                aVar.cVi.put(a2.address, a2);
+                aVar.ddA.put(a2.address, a2);
             }
         }
         return aVar;
@@ -74,17 +75,17 @@ public class a {
         }
         ConnectPointData.Builder builder = new ConnectPointData.Builder();
         builder.name = aVar.name;
-        builder.last_connect_rate_update_time = Long.valueOf(aVar.cVj);
-        builder.last_speed_data_update_time = Long.valueOf(aVar.cVk);
+        builder.last_connect_rate_update_time = Long.valueOf(aVar.ddB);
+        builder.last_speed_data_update_time = Long.valueOf(aVar.ddC);
         builder.dns_ip_connect_rate = new ArrayList();
         builder.dns_ip_speed_data = new ArrayList();
-        for (Map.Entry<String, b> entry : aVar.cVh.entrySet()) {
+        for (Map.Entry<String, b> entry : aVar.ddz.entrySet()) {
             DnsIpData a = b.a(entry.getValue());
             if (a != null) {
                 builder.dns_ip_connect_rate.add(a);
             }
         }
-        for (Map.Entry<String, b> entry2 : aVar.cVi.entrySet()) {
+        for (Map.Entry<String, b> entry2 : aVar.ddA.entrySet()) {
             DnsIpData a2 = b.a(entry2.getValue());
             if (a2 != null) {
                 builder.dns_ip_speed_data.add(a2);

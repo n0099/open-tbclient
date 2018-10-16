@@ -6,10 +6,10 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.base.network.Apn;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -108,7 +108,7 @@ public class d {
                 try {
                     HttpURLConnection b2 = b(context, b(str));
                     b2.setConnectTimeout(10000);
-                    b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                    b2.setReadTimeout(15000);
                     if (str2 == null) {
                         str2 = "GET";
                     }
@@ -243,7 +243,7 @@ public class d {
             HttpURLConnection.setFollowRedirects(true);
             HttpURLConnection b2 = b(context, url2);
             b2.setConnectTimeout(10000);
-            b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+            b2.setReadTimeout(15000);
             if (!TextUtils.isEmpty(str)) {
                 b2.setRequestProperty(HTTP.USER_AGENT, str);
             }
@@ -345,7 +345,7 @@ public class d {
         try {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                httpURLConnection.setReadTimeout(15000);
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
@@ -486,9 +486,9 @@ public class d {
             if (entry.getKey() != null && entry.getValue() != null) {
                 try {
                     stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                    stringBuffer.append("=");
+                    stringBuffer.append(ETAG.EQUAL);
                     stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-                    stringBuffer.append("&");
+                    stringBuffer.append(ETAG.ITEM_SEPARATOR);
                 } catch (UnsupportedEncodingException e) {
                     Log.d("com.xiaomi.common.Network", "Failed to convert from params map to string: " + e.toString());
                     Log.d("com.xiaomi.common.Network", "map: " + map.toString());

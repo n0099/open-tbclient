@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 /* loaded from: classes3.dex */
 public final class TelResultParser extends ResultParser {
@@ -7,8 +8,8 @@ public final class TelResultParser extends ResultParser {
     @Override // com.google.zxing.client.result.ResultParser
     public TelParsedResult parse(Result result) {
         String massagedText = getMassagedText(result);
-        if (massagedText.startsWith("tel:") || massagedText.startsWith("TEL:")) {
-            String str = massagedText.startsWith("TEL:") ? "tel:" + massagedText.substring(4) : massagedText;
+        if (massagedText.startsWith(WebView.SCHEME_TEL) || massagedText.startsWith("TEL:")) {
+            String str = massagedText.startsWith("TEL:") ? WebView.SCHEME_TEL + massagedText.substring(4) : massagedText;
             int indexOf = massagedText.indexOf(63, 4);
             return new TelParsedResult(indexOf < 0 ? massagedText.substring(4) : massagedText.substring(4, indexOf), str, null);
         }

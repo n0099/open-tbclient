@@ -30,7 +30,7 @@ public class c {
         this.b = str;
     }
 
-    public String cb() {
+    public String cs() {
         return this.b;
     }
 

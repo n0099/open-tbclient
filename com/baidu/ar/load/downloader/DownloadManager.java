@@ -10,6 +10,7 @@ import com.baidu.ar.load.util.DownloadConstants;
 import com.baidu.ar.task.ActionResponseListener;
 import com.baidu.ar.util.ARLog;
 import com.baidu.ar.util.MD5Utils;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -45,14 +46,14 @@ public class DownloadManager {
     }
 
     public void cancel(String str, String str2) {
-        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + "_" + str2));
+        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + BaseRequestAction.SPLITE + str2));
         if (downloadController != null) {
             downloadController.e();
         }
     }
 
     public void cancel(String str, String str2, ActionResponseListener<String> actionResponseListener, ActionResponseListener<String> actionResponseListener2, ActionResponseListener<String> actionResponseListener3) {
-        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + "_" + str2));
+        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + BaseRequestAction.SPLITE + str2));
         if (downloadController != null) {
             downloadController.a(actionResponseListener, actionResponseListener2, actionResponseListener3);
         }
@@ -71,7 +72,7 @@ public class DownloadManager {
             ARLog.e("arkey cannot be null!!!");
             return;
         }
-        String md5 = TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + "_" + str2);
+        String md5 = TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + BaseRequestAction.SPLITE + str2);
         DownloadController downloadController = this.mDownloadControllerMap.get(md5);
         if (downloadController != null) {
             if (downloadController.a()) {
@@ -104,7 +105,7 @@ public class DownloadManager {
             ARLog.e("arkey cannot be null!!!");
             return;
         }
-        String md5 = TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + "_" + str2);
+        String md5 = TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + BaseRequestAction.SPLITE + str2);
         DownloadController downloadController = this.mDownloadControllerMap.get(md5);
         if (downloadController != null) {
             if (downloadController.a()) {
@@ -137,7 +138,7 @@ public class DownloadManager {
             ARLog.e("arkey cannot be null!!!");
             return;
         }
-        String md5 = TextUtils.isEmpty(str) ? MD5Utils.md5(str2) : MD5Utils.md5(str + "_" + str2);
+        String md5 = TextUtils.isEmpty(str) ? MD5Utils.md5(str2) : MD5Utils.md5(str + BaseRequestAction.SPLITE + str2);
         DownloadController downloadController = this.mDownloadControllerMap.get(md5);
         if (downloadController != null) {
             if (downloadController.a()) {
@@ -149,7 +150,7 @@ public class DownloadManager {
         DownloadController downloadController2 = new DownloadController();
         downloadController2.a(this.mActivityResumed);
         HashMap hashMap = new HashMap();
-        hashMap.put(DownloadConstants.DOWNLOAD_URL, str2);
+        hashMap.put("download_url", str2);
         hashMap.put(DownloadConstants.DOWNLOAD_SAVE_PATH, str3);
         hashMap.put(DownloadConstants.FILE_STORE_STRATEGY, fileStoreStrategy);
         hashMap.put(DownloadConstants.TARGET_PATH, str4);
@@ -173,7 +174,7 @@ public class DownloadManager {
     }
 
     public void pause(String str, String str2) {
-        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + "_" + str2));
+        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + BaseRequestAction.SPLITE + str2));
         if (downloadController != null) {
             downloadController.c();
         }
@@ -186,7 +187,7 @@ public class DownloadManager {
     }
 
     public void resume(String str, String str2) {
-        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + "_" + str2));
+        DownloadController downloadController = this.mDownloadControllerMap.get(TextUtils.isEmpty(str2) ? MD5Utils.md5(str + "_main") : MD5Utils.md5(str + BaseRequestAction.SPLITE + str2));
         if (downloadController != null) {
             downloadController.b();
         }

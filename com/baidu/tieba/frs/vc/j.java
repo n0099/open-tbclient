@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.vc;
 
 import com.baidu.tieba.tbadkCore.l;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface j {
     void a(l lVar, int i);
 
-    void aCX();
+    void aGp();
 
-    boolean ms(int i);
+    boolean mQ(int i);
 }

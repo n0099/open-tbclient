@@ -156,7 +156,7 @@ public final class StatService {
             try {
                 jSONObject.put("name", this.name);
                 jSONObject.put("time", this.time);
-                jSONObject.put(KEY_MAP, new JSONObject(this.extraMap));
+                jSONObject.put("map", new JSONObject(this.extraMap));
             } catch (JSONException e) {
             }
             return jSONObject;
@@ -166,7 +166,7 @@ public final class StatService {
             String optString = jSONObject.optString("name");
             String optString2 = jSONObject.optString("time");
             HashMap hashMap = new HashMap();
-            JSONObject optJSONObject = jSONObject.optJSONObject(KEY_MAP);
+            JSONObject optJSONObject = jSONObject.optJSONObject("map");
             if (optJSONObject != null) {
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {

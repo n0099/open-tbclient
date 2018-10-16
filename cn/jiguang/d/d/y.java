@@ -14,19 +14,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class y {
     private static final Object c = new Object();
-    private static z lC;
-    private static volatile FutureTask<?> lD;
+    private static z mh;
+    private static volatile FutureTask<?> mi;
 
     public static void a(Context context, boolean z) {
-        if (lC == null) {
-            lC = new z(context, (byte) 0);
+        if (mh == null) {
+            mh = new z(context, (byte) 0);
         }
-        if (lD == null || lD.isCancelled() || lD.isDone()) {
+        if (mi == null || mi.isCancelled() || mi.isDone()) {
             synchronized (c) {
-                if (lD == null || lD.isCancelled() || lD.isDone()) {
+                if (mi == null || mi.isCancelled() || mi.isDone()) {
                     try {
-                        FutureTask<?> futureTask = new FutureTask<>(lC, null);
-                        lD = futureTask;
+                        FutureTask<?> futureTask = new FutureTask<>(mh, null);
+                        mi = futureTask;
                         cn.jiguang.api.e.a(futureTask, new int[0]);
                     } catch (Throwable th) {
                     }
@@ -35,7 +35,7 @@ public final class y {
         }
         if (z) {
             try {
-                lD.get(10L, TimeUnit.SECONDS);
+                mi.get(10L, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
             } catch (ExecutionException e2) {
             } catch (TimeoutException e3) {
@@ -77,7 +77,7 @@ public final class y {
             String b = a.b();
             if (!TextUtils.isEmpty(b)) {
                 try {
-                    f.bE().a(context, new JSONObject(b).getJSONObject(ARResourceKey.HTTP_RET));
+                    f.bV().a(context, new JSONObject(b).getJSONObject(ARResourceKey.HTTP_RET));
                     return true;
                 } catch (Throwable th) {
                 }

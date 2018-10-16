@@ -8,7 +8,7 @@ import cn.jiguang.api.d;
 public final class a {
     public static boolean b = true;
     private static boolean c;
-    public static d jH;
+    public static d km;
 
     public static void a(Context context) {
         if (c) {

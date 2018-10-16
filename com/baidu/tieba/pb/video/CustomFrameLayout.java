@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class CustomFrameLayout extends FrameLayout {
     public CustomFrameLayout(Context context) {
         super(context);

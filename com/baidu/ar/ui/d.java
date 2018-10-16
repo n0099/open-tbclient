@@ -15,6 +15,7 @@ import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.ar.util.ViewUtils;
 import com.baidu.ar.util.sputil.SPUtils;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class d {
@@ -97,7 +98,7 @@ public class d {
                             SPUtils.setCameraSwitchTipShown(activity);
                         }
                     }
-                }, 2000L);
+                }, SystemScreenshotManager.DELAY_TIME);
             }
         });
     }

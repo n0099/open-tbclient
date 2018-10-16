@@ -1,6 +1,7 @@
 package com.google.zxing.client.result;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.webkit.internal.ETAG;
 import com.google.zxing.Result;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
@@ -17,7 +18,7 @@ public final class VCardResultParser extends ResultParser {
     private static final Pattern CR_LF_SPACE_TAB = Pattern.compile("\r\n[ \t]");
     private static final Pattern NEWLINE_ESCAPE = Pattern.compile("\\\\[nN]");
     private static final Pattern VCARD_ESCAPES = Pattern.compile("\\\\([,;\\\\])");
-    private static final Pattern EQUALS = Pattern.compile("=");
+    private static final Pattern EQUALS = Pattern.compile(ETAG.EQUAL);
     private static final Pattern SEMICOLON = Pattern.compile(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
     private static final Pattern UNESCAPED_SEMICOLONS = Pattern.compile("(?<!\\\\);+");
     private static final Pattern COMMA = Pattern.compile(",");

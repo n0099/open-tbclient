@@ -4,24 +4,24 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class ab {
-    private static ab dvF = new ab();
-    private final SparseArray<String> dvE = new SparseArray<>();
+    private static ab dDG = new ab();
+    private final SparseArray<String> dDF = new SparseArray<>();
 
     private ab() {
     }
 
-    public static ab axP() {
-        return dvF;
+    public static ab aBk() {
+        return dDG;
     }
 
-    public void lj(int i) {
-        this.dvE.put(i, "1");
+    public void lH(int i) {
+        this.dDF.put(i, "1");
     }
 
-    public boolean lk(int i) {
+    public boolean lI(int i) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.dvE.get(i));
+        return !TextUtils.isEmpty(this.dDF.get(i));
     }
 }

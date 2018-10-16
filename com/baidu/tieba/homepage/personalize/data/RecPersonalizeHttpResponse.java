@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     private DataRes resultData;
 

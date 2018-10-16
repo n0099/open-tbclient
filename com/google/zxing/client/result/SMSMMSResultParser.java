@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +23,7 @@ public final class SMSMMSResultParser extends ResultParser {
             str = null;
             str2 = null;
         } else {
-            str = parseNameValuePairs.get("body");
+            str = parseNameValuePairs.get(NetworkDef.Http.BODY);
             str2 = parseNameValuePairs.get("subject");
             z = true;
         }

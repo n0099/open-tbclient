@@ -8,10 +8,11 @@ import com.baidu.fsg.base.restnet.a.d;
 import com.baidu.fsg.base.restnet.beans.BeanResponseBase;
 import com.baidu.fsg.base.utils.BussinessUtils;
 import com.baidu.fsg.base.utils.Md5Utils;
+import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class OtherBean extends NetworkBean {
     private static final String TAG = "OtherBaseBean";
 
@@ -50,7 +51,7 @@ public abstract class OtherBean extends NetworkBean {
                 String optString = jSONObject.optString("csign");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("result");
                 new ArrayList();
-                String mds = Md5Utils.toMds(jSONObject2, this.reqId, "&");
+                String mds = Md5Utils.toMds(jSONObject2, this.reqId, ETAG.ITEM_SEPARATOR);
                 if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(mds) || !optString.equals(mds)) {
                     this.mRspCallback.onBeanExecFailure(getBeanId(), -1, BeanConstants.ERROR_MSG_CHECKSIGN);
                     return;

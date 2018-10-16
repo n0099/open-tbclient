@@ -8,36 +8,36 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a dtI;
-    private static FrsLinkHashMap<String, Long> dtJ = new FrsLinkHashMap<>();
+    private static a dBJ;
+    private static FrsLinkHashMap<String, Long> dBK = new FrsLinkHashMap<>();
 
     private a() {
-        awE();
+        aAa();
     }
 
-    public static a awD() {
-        if (dtI == null) {
+    public static a azZ() {
+        if (dBJ == null) {
             synchronized (a.class) {
-                if (dtI == null) {
-                    dtI = new a();
+                if (dBJ == null) {
+                    dBJ = new a();
                 }
             }
         }
-        return dtI;
+        return dBJ;
     }
 
-    private static void awE() {
+    private static void aAa() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 FrsHotTopicListData frsHotTopicListData;
-                l<String> X = com.baidu.tbadk.core.c.a.yh().X("tb.frs_hottopic", "");
-                if (X != null) {
-                    String str = X.get("hot_topic_key");
+                l<String> ak = com.baidu.tbadk.core.c.a.Aq().ak("tb.frs_hottopic", "");
+                if (ak != null) {
+                    String str = ak.get("hot_topic_key");
                     if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        FrsLinkHashMap unused = a.dtJ = frsHotTopicListData.mSceneMap;
+                        FrsLinkHashMap unused = a.dBK = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -47,10 +47,10 @@ public class a {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    public boolean m(String str, long j) {
+    public boolean n(String str, long j) {
         boolean z;
-        if (dtJ != null && str != null) {
-            Iterator<Map.Entry<String, Long>> it = dtJ.entrySet().iterator();
+        if (dBK != null && str != null) {
+            Iterator<Map.Entry<String, Long>> it = dBK.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -62,28 +62,28 @@ public class a {
                     break;
                 }
             }
-            if (!z || (z && dtJ.get(str).longValue() != j)) {
-                dtJ.put(str, Long.valueOf(j));
-                awF();
+            if (!z || (z && dBK.get(str).longValue() != j)) {
+                dBK.put(str, Long.valueOf(j));
+                aAb();
                 return true;
             }
         }
         return false;
     }
 
-    private void awF() {
+    private void aAb() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                l<String> X = com.baidu.tbadk.core.c.a.yh().X("tb.frs_hottopic", "");
-                if (X != null) {
+                l<String> ak = com.baidu.tbadk.core.c.a.Aq().ak("tb.frs_hottopic", "");
+                if (ak != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.dtJ;
+                    frsHotTopicListData.mSceneMap = a.dBK;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
-                        X.e("hot_topic_key", jsonStrWithObject);
+                        ak.e("hot_topic_key", jsonStrWithObject);
                     }
                 }
                 return null;

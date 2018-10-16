@@ -6,13 +6,14 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.util.ay;
+import com.baidu.webkit.internal.ETAG;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     public static void init() {
-        ay.AN().a(new ay.a() { // from class: com.baidu.tieba.wallet.d.1
+        ay.CU().a(new ay.a() { // from class: com.baidu.tieba.wallet.d.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
@@ -20,7 +21,7 @@ public class d {
                 }
                 String str = strArr[0];
                 if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, d.we(str)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, d.wF(str)));
                     if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
                         ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
                     }
@@ -32,7 +33,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String we(String str) {
+    public static String wF(String str) {
         URL url;
         try {
             url = new URL(str);
@@ -45,10 +46,10 @@ public class d {
         }
         String query = url.getQuery();
         HashMap hashMap = new HashMap();
-        String[] split = query.split("&");
+        String[] split = query.split(ETAG.ITEM_SEPARATOR);
         if (split != null) {
             for (String str2 : split) {
-                String[] split2 = str2.split("=");
+                String[] split2 = str2.split(ETAG.EQUAL);
                 if (split2 != null && split2.length == 2) {
                     hashMap.put(split2[0], split2[1]);
                 }

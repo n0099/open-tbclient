@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> {
     /* JADX INFO: Access modifiers changed from: protected */
     public ae(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -28,8 +28,8 @@ public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
         super.onFillViewHolder(i, view, viewGroup, gVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fFd.getLayoutMode().setNightMode(this.mSkinType == 1);
-        this.fFd.getLayoutMode().onModeChanged(view);
+        this.fME.getLayoutMode().setNightMode(this.mSkinType == 1);
+        this.fME.getLayoutMode().onModeChanged(view);
         return view;
     }
 }

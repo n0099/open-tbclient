@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.p;
 import tbclient.DailyPage.DailyPageReqIdl;
 import tbclient.DailyPage.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class DailyPageRequetMessage extends NetMessage {
     public int pn;
     public int rn;

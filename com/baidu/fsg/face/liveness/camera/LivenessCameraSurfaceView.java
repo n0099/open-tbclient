@@ -10,16 +10,17 @@ import android.widget.FrameLayout;
 import com.baidu.fsg.face.base.d.f;
 import com.baidu.fsg.face.liveness.camera.a;
 import com.baidu.fsg.face.liveness.camera.b;
-/* loaded from: classes3.dex */
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+/* loaded from: classes6.dex */
 public class LivenessCameraSurfaceView extends SurfaceView {
     public LivenessCameraSurfaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public void bindSurfaceView(Activity activity, a.C0068a c0068a) {
+    public void bindSurfaceView(Activity activity, a.C0079a c0079a) {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getLayoutParams());
-        b.a a = a(activity, c0068a);
-        if (a == null || (a.a == c0068a.a && a.b == c0068a.b)) {
+        b.a a = a(activity, c0079a);
+        if (a == null || (a.a == c0079a.a && a.b == c0079a.b)) {
             layoutParams.width = -2;
             layoutParams.height = -1;
         } else {
@@ -29,29 +30,29 @@ public class LivenessCameraSurfaceView extends SurfaceView {
         setLayoutParams(layoutParams);
     }
 
-    private b.a a(Activity activity, a.C0068a c0068a) {
-        if (c0068a == null) {
+    private b.a a(Activity activity, a.C0079a c0079a) {
+        if (c0079a == null) {
             return null;
         }
-        a.C0068a a = a(activity);
-        b.a aVar = new b.a(c0068a.a, c0068a.b);
-        float f = c0068a.a / c0068a.b;
+        a.C0079a a = a(activity);
+        b.a aVar = new b.a(c0079a.a, c0079a.b);
+        float f = c0079a.a / c0079a.b;
         float f2 = a.b / a.a;
         if (Math.abs(f - f2) > 0.02d) {
             if (f < f2) {
-                aVar.a = (a.b * c0068a.b) / c0068a.a;
+                aVar.a = (a.b * c0079a.b) / c0079a.a;
                 aVar.b = a.b;
                 return aVar;
             }
             aVar.a = a.a;
-            aVar.b = (a.a * c0068a.a) / c0068a.b;
+            aVar.b = (a.a * c0079a.a) / c0079a.b;
             return aVar;
         }
         return aVar;
     }
 
-    private a.C0068a a(Activity activity) {
-        Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
-        return new a.C0068a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
+    private a.C0079a a(Activity activity) {
+        Display defaultDisplay = ((WindowManager) activity.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
+        return new a.C0079a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
     }
 }

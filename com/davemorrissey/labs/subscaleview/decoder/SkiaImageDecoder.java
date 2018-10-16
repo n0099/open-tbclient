@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class SkiaImageDecoder implements ImageDecoder {
     private static final String ASSET_PREFIX = "file:///android_asset/";
     public static final String FILE_PREFIX = "file://";
@@ -44,8 +44,8 @@ public class SkiaImageDecoder implements ImageDecoder {
             decodeStream = BitmapFactory.decodeResource(context.getResources(), i, options);
         } else if (uri2.startsWith(ASSET_PREFIX)) {
             decodeStream = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(ASSET_PREFIX.length())), null, options);
-        } else if (uri2.startsWith(FILE_PREFIX)) {
-            decodeStream = BitmapFactory.decodeFile(uri2.substring(FILE_PREFIX.length()), options);
+        } else if (uri2.startsWith("file://")) {
+            decodeStream = BitmapFactory.decodeFile(uri2.substring("file://".length()), options);
         } else {
             decodeStream = BitmapFactory.decodeStream(context.getContentResolver().openInputStream(uri), null, options);
         }

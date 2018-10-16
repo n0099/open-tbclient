@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.videoupload;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import java.io.Serializable;
@@ -19,7 +20,7 @@ public class VideoFinishResult implements Serializable {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                JSONObject optJSONObject = jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
                 if (optJSONObject != null) {
                     this.errorNo = optJSONObject.optInt("errno");
                     this.errorMessage = optJSONObject.optString("errmsg");

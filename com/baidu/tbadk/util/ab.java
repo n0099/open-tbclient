@@ -10,12 +10,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class ab {
-    public static String aA(String str, String str2) {
+    public static String aL(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -33,18 +34,18 @@ public class ab {
         return "";
     }
 
-    public static String aB(String str, String str2) {
+    public static String aM(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
             for (int i = 1; i < split.length; i++) {
-                String[] split2 = split[i].split("&");
+                String[] split2 = split[i].split(ETAG.ITEM_SEPARATOR);
                 if (split2 != null && split2.length > 0) {
                     int length = split2.length;
                     int i2 = 0;
                     while (true) {
                         if (i2 < length) {
-                            String[] split3 = split2[i2].split("=");
+                            String[] split3 = split2[i2].split(ETAG.EQUAL);
                             if (split3.length == 2) {
                                 String str4 = split3[0];
                                 String str5 = split3[1];
@@ -66,7 +67,7 @@ public class ab {
         return str3;
     }
 
-    public static Bundle ii(String str) {
+    public static Bundle iv(String str) {
         URL url;
         String query;
         String[] split;
@@ -80,12 +81,12 @@ public class ab {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
+        if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split(ETAG.ITEM_SEPARATOR)) == null) {
             return null;
         }
         bundle.putString("path", url.getPath());
         for (String str2 : split) {
-            String[] split2 = str2.split("=");
+            String[] split2 = str2.split(ETAG.EQUAL);
             if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
                 bundle.putString(split2[0], split2[1]);
             }
@@ -96,17 +97,17 @@ public class ab {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String baf;
+        public String beH;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.baf = "";
+            this.beH = "";
             this.BDUSS = str;
-            this.baf = str2;
+            this.beH = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.baf != null ? this.baf.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.beH != null ? this.beH.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -122,7 +123,7 @@ public class ab {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.baf == null ? aVar.baf == null : this.baf.equals(aVar.baf);
+                return this.beH == null ? aVar.beH == null : this.beH.equals(aVar.beH);
             }
             return false;
         }
@@ -146,16 +147,16 @@ public class ab {
         }
     }
 
-    public static String ij(String str) {
+    public static String iw(String str) {
         if (!ao.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {
-                sb.append("&");
+                sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
             }
             sb.append("page_type");
-            sb.append("=");
+            sb.append(ETAG.EQUAL);
             sb.append(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
             return sb.toString();
         }

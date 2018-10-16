@@ -1,9 +1,9 @@
 package com.faceunity.gles;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Drawable2d {
-    private Prefab hNp;
+    private Prefab ijH;
     private int mCoordsPerVertex;
     private FloatBuffer mTexCoordArray;
     private int mTexCoordStride;
@@ -23,7 +23,7 @@ public class Drawable2d {
     private static final FloatBuffer FULL_RECTANGLE_BUF = d.createFloatBuffer(FULL_RECTANGLE_COORDS);
     private static final FloatBuffer FULL_RECTANGLE_TEX_BUF = d.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,
@@ -57,7 +57,7 @@ public class Drawable2d {
                 throw new RuntimeException("Unknown shape " + prefab);
         }
         this.mTexCoordStride = 8;
-        this.hNp = prefab;
+        this.ijH = prefab;
     }
 
     public FloatBuffer getVertexArray() {
@@ -85,6 +85,6 @@ public class Drawable2d {
     }
 
     public String toString() {
-        return this.hNp != null ? "[Drawable2d: " + this.hNp + "]" : "[Drawable2d: ...]";
+        return this.ijH != null ? "[Drawable2d: " + this.ijH + "]" : "[Drawable2d: ...]";
     }
 }

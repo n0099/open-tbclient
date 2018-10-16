@@ -16,8 +16,8 @@ import tbclient.GetBawuInfo.ManagerApplyInfo;
 public class e {
     private BawuTeam mBawuTeamInfo;
     private ManagerApplyInfo mManagerApplyInfo;
-    private a doh = null;
-    private com.baidu.adp.framework.listener.a cNg = new com.baidu.adp.framework.listener.a(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007) { // from class: com.baidu.tieba.forumMember.bawu.e.1
+    private a dwj = null;
+    private com.baidu.adp.framework.listener.a cVx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007) { // from class: com.baidu.tieba.forumMember.bawu.e.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -33,19 +33,19 @@ public class e {
                     }
                     p pVar = new p();
                     if (e.this.mManagerApplyInfo != null) {
-                        pVar.kG(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                        pVar.mP(e.this.mManagerApplyInfo.manager_apply_url);
-                        pVar.kI(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                        pVar.mQ(e.this.mManagerApplyInfo.assist_apply_url);
+                        pVar.le(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                        pVar.nr(e.this.mManagerApplyInfo.manager_apply_url);
+                        pVar.lg(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                        pVar.ns(e.this.mManagerApplyInfo.assist_apply_url);
                     }
-                    if (e.this.doh != null) {
-                        e.this.doh.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (e.this.dwj != null) {
+                        e.this.dwj.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
                     }
                 }
             }
         }
     };
-    private CustomMessageListener doi = new CustomMessageListener(2003005) { // from class: com.baidu.tieba.forumMember.bawu.e.2
+    private CustomMessageListener dwk = new CustomMessageListener(2003005) { // from class: com.baidu.tieba.forumMember.bawu.e.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,13 +55,13 @@ public class e {
                 e.this.mManagerApplyInfo = bawuTeamReadCacheResponseMessage.getManagerApplyInfo();
                 p pVar = new p();
                 if (e.this.mManagerApplyInfo != null) {
-                    pVar.kG(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                    pVar.mP(e.this.mManagerApplyInfo.manager_apply_url);
-                    pVar.kI(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                    pVar.mQ(e.this.mManagerApplyInfo.assist_apply_url);
+                    pVar.le(e.this.mManagerApplyInfo.manager_left_num.intValue());
+                    pVar.nr(e.this.mManagerApplyInfo.manager_apply_url);
+                    pVar.lg(e.this.mManagerApplyInfo.assist_left_num.intValue());
+                    pVar.ns(e.this.mManagerApplyInfo.assist_apply_url);
                 }
-                if (e.this.doh != null) {
-                    e.this.doh.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
+                if (e.this.dwj != null) {
+                    e.this.dwj.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
                 }
             }
         }
@@ -73,29 +73,29 @@ public class e {
     }
 
     public e() {
-        MessageManager.getInstance().registerListener(this.doi);
-        MessageManager.getInstance().registerListener(this.cNg);
+        MessageManager.getInstance().registerListener(this.dwk);
+        MessageManager.getInstance().registerListener(this.cVx);
     }
 
-    public void bI(long j) {
+    public void bP(long j) {
         BawuTeamInfoReadCacheRequestMessage bawuTeamInfoReadCacheRequestMessage = new BawuTeamInfoReadCacheRequestMessage();
         bawuTeamInfoReadCacheRequestMessage.setCacheKey("" + j);
         MessageManager.getInstance().sendMessage(bawuTeamInfoReadCacheRequestMessage);
     }
 
-    public void bJ(long j) {
+    public void bQ(long j) {
         BawuTeamRequestMessage bawuTeamRequestMessage = new BawuTeamRequestMessage();
         bawuTeamRequestMessage.setForumId(j);
         MessageManager.getInstance().sendMessage(bawuTeamRequestMessage);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.cNg);
-        MessageManager.getInstance().unRegisterListener(this.doi);
+        MessageManager.getInstance().unRegisterListener(this.cVx);
+        MessageManager.getInstance().unRegisterListener(this.dwk);
     }
 
     public void a(a aVar) {
-        this.doh = aVar;
+        this.dwj = aVar;
     }
 
     public ArrayList<i> a(BawuTeam bawuTeam) {
@@ -114,7 +114,7 @@ public class e {
                 int i2 = 0;
                 while (i2 < size2) {
                     b bVar = new b();
-                    bVar.mK(bawuRoleDes.role_name);
+                    bVar.nm(bawuRoleDes.role_name);
                     ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
                     arrayList2.add(bawuRoleDes.role_info.get(i2));
                     if (i2 + 1 < size2) {
@@ -122,9 +122,9 @@ public class e {
                     }
                     i2 += 2;
                     if (i2 >= size2) {
-                        bVar.fH(true);
+                        bVar.fZ(true);
                     } else {
-                        bVar.fH(false);
+                        bVar.fZ(false);
                     }
                     bVar.M(arrayList2);
                     arrayList.add(bVar);

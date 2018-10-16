@@ -12,7 +12,7 @@ import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static l l(Context context, int i) {
+    public static l m(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(e.h.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
@@ -42,7 +42,7 @@ public class c {
         imageView.setClickable(true);
         imageView.setContentDescription(context.getString(e.j.add));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
-        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(e.C0141e.ds30) + dip2px, context.getResources().getDimensionPixelSize(e.C0141e.ds32) + dip2px, dip2px);
+        imageView.setPadding(dip2px, com.baidu.adp.lib.util.l.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(e.C0175e.ds30) + dip2px, context.getResources().getDimensionPixelSize(e.C0175e.ds32) + dip2px, dip2px);
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.imagetool.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {

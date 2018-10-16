@@ -11,19 +11,20 @@ import android.webkit.WebView;
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
-import com.tencent.tauth.AuthActivity;
+import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class i {
     private static long j = 12000;
-    private BDLocation Yl;
-    private LocationClient Zd;
-    public e Ze;
-    private a Zf;
-    private f Zg;
+    private BDLocation acR;
+    private LocationClient adK;
+    public e adL;
+    private a adM;
+    private f adN;
     private Context b;
     private WebView c;
     private List<b> f;
@@ -31,7 +32,7 @@ public class i {
     private long h;
     private boolean l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     private class a extends Handler {
         a(Looper looper) {
             super(looper);
@@ -39,7 +40,7 @@ public class i {
 
         private void a(String str) {
             if (i.this.l) {
-                i.this.Zf.removeCallbacks(i.this.Zg);
+                i.this.adM.removeCallbacks(i.this.adN);
                 i.this.l = false;
             }
             if (i.this.f == null || i.this.f.size() <= 0) {
@@ -106,27 +107,27 @@ public class i {
                     if (i.this.f != null) {
                         i.this.f.add(bVar);
                     }
-                    if (i.this.Zd == null) {
+                    if (i.this.adK == null) {
                         return;
                     }
-                    if (i.this.Zd.requestLocation() != 0) {
+                    if (i.this.adK.requestLocation() != 0) {
                         long currentTimeMillis = System.currentTimeMillis() - i.this.h;
-                        if (i.this.Yl != null && currentTimeMillis <= 10000) {
-                            Message obtainMessage = i.this.Zf.obtainMessage(2);
-                            obtainMessage.obj = i.this.Yl;
+                        if (i.this.acR != null && currentTimeMillis <= ErrDef.Feature.WEIGHT) {
+                            Message obtainMessage = i.this.adM.obtainMessage(2);
+                            obtainMessage.obj = i.this.acR;
                             obtainMessage.sendToTarget();
                             z = false;
                             if (z) {
                                 return;
                             }
                             if (i.this.l) {
-                                i.this.Zf.removeCallbacks(i.this.Zg);
+                                i.this.adM.removeCallbacks(i.this.adN);
                                 i.this.l = false;
                             }
-                            if (i.this.Zg == null) {
-                                i.this.Zg = new f();
+                            if (i.this.adN == null) {
+                                i.this.adN = new f();
                             }
-                            i.this.Zf.postDelayed(i.this.Zg, i.j);
+                            i.this.adM.postDelayed(i.this.adN, i.j);
                             i.this.l = true;
                             return;
                         }
@@ -144,18 +145,18 @@ public class i {
                     } else {
                         i.this.f.clear();
                     }
-                    i.this.Zd.registerLocationListener(i.this.Ze);
+                    i.this.adK.registerLocationListener(i.this.adL);
                     return;
                 case 4:
                     if (i.this.f != null) {
                         i.this.f.clear();
                         i.this.f = null;
                     }
-                    i.this.Zd.unRegisterLocationListener(i.this.Ze);
+                    i.this.adK.unRegisterLocationListener(i.this.adL);
                     i.this.h = 0L;
-                    i.this.Yl = null;
-                    if (i.this.Zg != null && i.this.l) {
-                        i.this.Zf.removeCallbacks(i.this.Zg);
+                    i.this.acR = null;
+                    if (i.this.adN != null && i.this.l) {
+                        i.this.adM.removeCallbacks(i.this.adN);
                     }
                     i.this.l = false;
                     return;
@@ -191,7 +192,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class b {
         private String b;
         private String c;
@@ -203,14 +204,14 @@ public class i {
             this.d = 0L;
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null && jSONObject.has(AuthActivity.ACTION_KEY)) {
-                    this.b = jSONObject.getString(AuthActivity.ACTION_KEY);
+                if (jSONObject != null && jSONObject.has("action")) {
+                    this.b = jSONObject.getString("action");
                 }
                 if (jSONObject != null && jSONObject.has("callback")) {
                     this.c = jSONObject.getString("callback");
                 }
-                if (jSONObject != null && jSONObject.has("timeout")) {
-                    long j = jSONObject.getLong("timeout");
+                if (jSONObject != null && jSONObject.has(AiAppsBluetoothConstants.KEY_TIME_OUT)) {
+                    long j = jSONObject.getLong(AiAppsBluetoothConstants.KEY_TIME_OUT);
                     if (j >= 1000) {
                         long unused = i.j = j;
                     }
@@ -231,13 +232,13 @@ public class i {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     private static final class c {
-        private static final i Zh = new i();
+        private static final i adO = new i();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class d {
         private d() {
         }
@@ -248,10 +249,10 @@ public class i {
                 return;
             }
             b bVar = new b(str);
-            if (bVar.a() == null || !bVar.a().equals("requestLoc") || i.this.Zf == null) {
+            if (bVar.a() == null || !bVar.a().equals("requestLoc") || i.this.adM == null) {
                 return;
             }
-            Message obtainMessage = i.this.Zf.obtainMessage(1);
+            Message obtainMessage = i.this.adM.obtainMessage(1);
             obtainMessage.obj = bVar;
             obtainMessage.sendToTarget();
         }
@@ -261,7 +262,7 @@ public class i {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class e extends BDAbstractLocationListener {
         public e() {
         }
@@ -275,28 +276,28 @@ public class i {
             int locType = bDLocation2.getLocType();
             String coorType = bDLocation2.getCoorType();
             if (locType != 61 && locType != 161 && locType != 66) {
-                i.this.Zf.obtainMessage(5).sendToTarget();
+                i.this.adM.obtainMessage(5).sendToTarget();
                 return;
             }
             if (coorType != null) {
                 if (coorType.equals("gcj02")) {
                     bDLocation2 = LocationClient.getBDLocationInCoorType(bDLocation2, "gcj2wgs");
-                } else if (coorType.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
+                } else if (coorType.equals("bd09")) {
                     bDLocation2 = LocationClient.getBDLocationInCoorType(LocationClient.getBDLocationInCoorType(bDLocation2, BDLocation.BDLOCATION_BD09_TO_GCJ02), "gcj2wgs");
-                } else if (coorType.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL)) {
+                } else if (coorType.equals("bd09ll")) {
                     bDLocation2 = LocationClient.getBDLocationInCoorType(LocationClient.getBDLocationInCoorType(bDLocation2, BDLocation.BDLOCATION_BD09LL_TO_GCJ02), "gcj2wgs");
                 }
             }
             i.this.h = System.currentTimeMillis();
-            i.this.Yl = new BDLocation(bDLocation2);
-            Message obtainMessage = i.this.Zf.obtainMessage(2);
+            i.this.acR = new BDLocation(bDLocation2);
+            Message obtainMessage = i.this.adM.obtainMessage(2);
             obtainMessage.obj = bDLocation2;
             obtainMessage.sendToTarget();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
         private f() {
         }
@@ -304,20 +305,20 @@ public class i {
         @Override // java.lang.Runnable
         public void run() {
             i.this.l = false;
-            i.this.Zf.obtainMessage(6).sendToTarget();
+            i.this.adM.obtainMessage(6).sendToTarget();
         }
     }
 
     private i() {
         this.b = null;
-        this.Zd = null;
-        this.Ze = new e();
-        this.Zf = null;
+        this.adK = null;
+        this.adL = new e();
+        this.adM = null;
         this.f = null;
         this.g = false;
         this.h = 0L;
-        this.Yl = null;
-        this.Zg = null;
+        this.acR = null;
+        this.adN = null;
         this.l = false;
     }
 
@@ -326,17 +327,17 @@ public class i {
         webView.addJavascriptInterface(new d(), "BaiduLocAssistant");
     }
 
-    public static i rw() {
-        return c.Zh;
+    public static i tq() {
+        return c.adO;
     }
 
     public void a(Context context, WebView webView, LocationClient locationClient) {
         if (!this.g && Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 17) {
             this.b = context;
             this.c = webView;
-            this.Zd = locationClient;
-            this.Zf = new a(Looper.getMainLooper());
-            this.Zf.obtainMessage(3).sendToTarget();
+            this.adK = locationClient;
+            this.adM = new a(Looper.getMainLooper());
+            this.adM.obtainMessage(3).sendToTarget();
             webView.getSettings().setJavaScriptEnabled(true);
             a(this.c);
             this.g = true;
@@ -345,7 +346,7 @@ public class i {
 
     public void b() {
         if (this.g) {
-            this.Zf.obtainMessage(4).sendToTarget();
+            this.adM.obtainMessage(4).sendToTarget();
             this.g = false;
         }
     }

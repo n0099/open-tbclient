@@ -1,39 +1,40 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
-    private ArrayList<UserData> ajp = new ArrayList<>();
-    private ArrayList<UserData> ajq = new ArrayList<>();
-    private al ajr = new al();
-    private int ajs = 0;
-    private int ajt = 0;
+    private ArrayList<UserData> aok = new ArrayList<>();
+    private ArrayList<UserData> aol = new ArrayList<>();
+    private al aom = new al();
+    private int aon = 0;
+    private int aoo = 0;
 
     public void a(al alVar) {
-        this.ajr = alVar;
+        this.aom = alVar;
     }
 
-    public al vy() {
-        return this.ajr;
+    public al xH() {
+        return this.aom;
     }
 
-    public ArrayList<UserData> vz() {
-        return this.ajp;
+    public ArrayList<UserData> xI() {
+        return this.aok;
     }
 
-    public ArrayList<UserData> vA() {
-        return this.ajq;
+    public ArrayList<UserData> xJ() {
+        return this.aol;
     }
 
-    public int vB() {
-        return this.ajs;
+    public int xK() {
+        return this.aon;
     }
 
-    public int vC() {
-        return this.ajt;
+    public int xL() {
+        return this.aoo;
     }
 
     public void parserJson(String str) {
@@ -54,7 +55,7 @@ public class ap {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.ajp.add(userData);
+                        this.aok.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +63,12 @@ public class ap {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.ajq.add(userData2);
+                        this.aol.add(userData2);
                     }
                 }
-                this.ajr.parserJson(jSONObject.optJSONObject("page"));
-                this.ajs = jSONObject.optInt("tafriendnum", 0);
-                this.ajt = jSONObject.optInt("commonfriendnum", 0);
+                this.aom.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
+                this.aon = jSONObject.optInt("tafriendnum", 0);
+                this.aoo = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

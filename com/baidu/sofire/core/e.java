@@ -13,6 +13,7 @@ import android.util.Log;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.h;
 import com.baidu.sofire.b.n;
@@ -147,10 +148,10 @@ public final class e {
                         sb.append(str);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(BaseRequestAction.SPLITE);
                 }
             } else {
-                sb.append("_");
+                sb.append(BaseRequestAction.SPLITE);
             }
             int countCategories = intentFilter.countCategories();
             if (countCategories > 0) {
@@ -167,10 +168,10 @@ public final class e {
                         sb.append(str2);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(BaseRequestAction.SPLITE);
                 }
             } else {
-                sb.append("_");
+                sb.append(BaseRequestAction.SPLITE);
             }
             if (intentFilter.countDataTypes() > 0) {
                 ArrayList<String> arrayList3 = new ArrayList();
@@ -186,10 +187,10 @@ public final class e {
                         sb.append(str3);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(BaseRequestAction.SPLITE);
                 }
             } else {
-                sb.append("_");
+                sb.append(BaseRequestAction.SPLITE);
             }
             int countDataSchemes = intentFilter.countDataSchemes();
             if (countDataSchemes > 0) {
@@ -206,10 +207,10 @@ public final class e {
                         sb.append(str4);
                     }
                 } else {
-                    sb.append("_");
+                    sb.append(BaseRequestAction.SPLITE);
                 }
             } else {
-                sb.append("_");
+                sb.append(BaseRequestAction.SPLITE);
             }
             return sb.toString();
         } catch (Throwable th) {

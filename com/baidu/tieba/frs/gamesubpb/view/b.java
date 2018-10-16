@@ -11,26 +11,26 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes3.dex */
 public class b {
-    private a.InterfaceC0155a dGO;
-    private SpannableTextView dHF;
+    private a.InterfaceC0189a dON;
+    private SpannableTextView dPE;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.game_sub_comment_view, (ViewGroup) null);
-        this.dHF = (SpannableTextView) this.mRootView.findViewById(e.g.sub_comment_tv);
-        al.h(this.dHF, e.d.cp_cont_f);
+        this.dPE = (SpannableTextView) this.mRootView.findViewById(e.g.sub_comment_tv);
+        al.h(this.dPE, e.d.cp_cont_f);
     }
 
     public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.dHF.f(dVar);
-            this.dHF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.dPE.f(dVar);
+            this.dPE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.dGO != null) {
-                        b.this.dGO.c(dVar);
+                    if (b.this.dON != null) {
+                        b.this.dON.c(dVar);
                     }
                 }
             });
@@ -41,22 +41,22 @@ public class b {
         return this.mRootView;
     }
 
-    public void setClickListener(a.InterfaceC0155a interfaceC0155a) {
-        this.dGO = interfaceC0155a;
-        this.dHF.setClickListener(interfaceC0155a);
+    public void setClickListener(a.InterfaceC0189a interfaceC0189a) {
+        this.dON = interfaceC0189a;
+        this.dPE.setClickListener(interfaceC0189a);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        private b dHH;
+        private b dPG;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.dHH = bVar;
+            this.dPG = bVar;
         }
 
         public void f(d dVar) {
-            this.dHH.f(dVar);
+            this.dPG.f(dVar);
         }
     }
 }

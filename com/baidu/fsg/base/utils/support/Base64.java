@@ -20,7 +20,7 @@ import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Base64 {
     public static final int DECODE = 0;
     public static final int DONT_GUNZIP = 4;
@@ -141,8 +141,8 @@ public class Base64 {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0050 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:? */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: java.util.zip.GZIPOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v6 */
     public static String encodeObject(Serializable serializable, int i2) throws IOException {
         GZIPOutputStream gZIPOutputStream;
         OutputStream outputStream;
@@ -935,7 +935,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class InputStream extends FilterInputStream {
         private final boolean a;
         private final byte[] b;
@@ -1051,7 +1051,7 @@ public class Base64 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class OutputStream extends FilterOutputStream {
         private final boolean a;
         private final int b;

@@ -17,6 +17,7 @@ import com.baidu.fsg.base.utils.FileCopyUtils;
 import com.baidu.fsg.base.utils.JsonUtils;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.Md5Utils;
+import com.baidu.webkit.internal.ETAG;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -27,7 +28,7 @@ import java.util.List;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class UploadBean extends NetworkBean {
     public static final int COMET_BEAN = 1;
     private static final String TAG = UploadBean.class.getSimpleName();
@@ -39,7 +40,7 @@ public abstract class UploadBean extends NetworkBean {
     private String mTskKey;
     private Class<?> rspClass;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class UploadFileModel {
         public String contentType;
         public String fileName;
@@ -240,7 +241,7 @@ public abstract class UploadBean extends NetworkBean {
             String str = beanResponseBase.csign;
             JSONObject jSONObject = beanResponseBase.result;
             if (jSONObject != null) {
-                String mds = Md5Utils.toMds(jSONObject, this.reqId, "&");
+                String mds = Md5Utils.toMds(jSONObject, this.reqId, ETAG.ITEM_SEPARATOR);
                 if (TextUtils.isEmpty(str) || TextUtils.isEmpty(mds) || !str.equals(mds)) {
                     throw new Exception(BeanConstants.ERROR_MSG_CHECKSIGN);
                 }

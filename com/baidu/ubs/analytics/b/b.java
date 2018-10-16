@@ -1,12 +1,14 @@
 package com.baidu.ubs.analytics.b;
 
-import android.support.v4.app.NotificationCompat;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.UploadFileAction;
 import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.d;
 import com.baidu.ubs.analytics.d.j;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -23,20 +25,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.UUID;
-import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class b {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface a<T> {
         void a(T t);
 
-        void wQ(String str);
+        void xQ(String str);
     }
 
-    public static String e(String str, Map<String, Object> map) {
+    public static String g(String str, Map<String, Object> map) {
         String str2;
         String stringBuffer;
         if (map.size() <= 0) {
@@ -48,9 +49,9 @@ public final class b {
             } else {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     if (stringBuffer2.length() <= 0) {
-                        stringBuffer2.append(entry.getKey()).append("=").append(entry.getValue());
+                        stringBuffer2.append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
                     } else {
-                        stringBuffer2.append("&").append(entry.getKey()).append("=").append(entry.getValue());
+                        stringBuffer2.append(ETAG.ITEM_SEPARATOR).append(entry.getKey()).append(ETAG.EQUAL).append(entry.getValue());
                     }
                 }
                 stringBuffer = stringBuffer2.toString();
@@ -64,7 +65,7 @@ public final class b {
             httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.bLP().k());
+            httpURLConnection.setRequestProperty("token", d.bQf().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), IoUtils.UTF_8));
             printWriter.write(str2);
             printWriter.flush();
@@ -110,8 +111,8 @@ public final class b {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setRequestProperty("Accept-Charset", IoUtils.UTF_8);
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.bLP().k());
+                httpURLConnection.setRequestProperty("Content-Type", UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE + ";boundary=" + uuid);
+                httpURLConnection.setRequestProperty("token", d.bQf().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -138,7 +139,7 @@ public final class b {
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() != 200) {
-                            com.baidu.ubs.analytics.d.b.wT(file.getAbsolutePath() + "     上传文件失败…………");
+                            com.baidu.ubs.analytics.d.b.xT(file.getAbsolutePath() + "     上传文件失败…………");
                             httpURLConnection.disconnect();
                             try {
                                 fileInputStream.close();
@@ -191,7 +192,7 @@ public final class b {
                 }
             } catch (Throwable th) {
                 th = th;
-                inputStream = "multipart/form-data";
+                inputStream = UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE;
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -222,14 +223,14 @@ public final class b {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+            httpURLConnection.setRequestMethod("PUT");
             httpURLConnection.setRequestProperty("Content-Type", "application/json");
             httpURLConnection.setRequestProperty("Accept-Charset", IoUtils.UTF_8);
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
             httpURLConnection.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(str.toString().getBytes("UTF-8").length));
             httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.bLP().k());
+            httpURLConnection.setRequestProperty("token", d.bQf().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes("UTF-8"));
@@ -251,12 +252,12 @@ public final class b {
                     }
                 }
             } else {
-                com.baidu.ubs.analytics.d.b.wT("上传log失败    ");
+                com.baidu.ubs.analytics.d.b.xT("上传log失败    ");
                 httpURLConnection.disconnect();
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.b.wT("上传log失败    " + e.getMessage());
+            com.baidu.ubs.analytics.d.b.xT("上传log失败    " + e.getMessage());
             j.a(e);
             return null;
         }
@@ -269,13 +270,13 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.wQ("-1");
+                aVar.xQ(AiAppsAudioPlayer.ERROR_UNKNOWN);
                 return false;
             }
             return false;
         }
         JSONObject jSONObject = new JSONObject(str);
-        if (jSONObject.getString(NotificationCompat.CATEGORY_STATUS).equals("0")) {
+        if (jSONObject.getString("status").equals("0")) {
             if (aVar != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
@@ -285,20 +286,20 @@ public final class b {
                 }
             }
             return true;
-        } else if (jSONObject.getString(NotificationCompat.CATEGORY_STATUS).equals("1")) {
+        } else if (jSONObject.getString("status").equals("1")) {
             if (aVar != null) {
-                aVar.wQ(jSONObject.optString(NotificationCompat.CATEGORY_STATUS));
+                aVar.xQ(jSONObject.optString("status"));
             }
-            com.baidu.ubs.analytics.d.b.wT("net status  error ");
+            com.baidu.ubs.analytics.d.b.xT("net status  error ");
             return false;
         } else {
-            if (jSONObject.getString(NotificationCompat.CATEGORY_STATUS).equals("2")) {
-                g.d(d.bLP().getContext());
-                com.baidu.ubs.analytics.d.b.wT("net  token error ");
+            if (jSONObject.getString("status").equals("2")) {
+                g.d(d.bQf().getContext());
+                com.baidu.ubs.analytics.d.b.xT("net  token error ");
                 return false;
             }
             if (aVar != null) {
-                aVar.wQ("-1");
+                aVar.xQ(AiAppsAudioPlayer.ERROR_UNKNOWN);
                 return false;
             }
             return false;

@@ -1,46 +1,67 @@
 package com.google.gson.internal.a;
 
 import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.m;
-import com.google.gson.n;
+import com.google.gson.o;
+import com.google.gson.p;
+import com.google.gson.stream.JsonToken;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public final class a<E> extends m<Object> {
-    public static final n hOD = new n() { // from class: com.google.gson.internal.a.a.1
-        @Override // com.google.gson.n
-        public <T> m<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            Type bNj = aVar.bNj();
-            if (!(bNj instanceof GenericArrayType) && (!(bNj instanceof Class) || !((Class) bNj).isArray())) {
+public final class a<E> extends o<Object> {
+    public static final p ilm = new p() { // from class: com.google.gson.internal.a.a.1
+        @Override // com.google.gson.p
+        public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
+            Type bZr = aVar.bZr();
+            if (!(bZr instanceof GenericArrayType) && (!(bZr instanceof Class) || !((Class) bZr).isArray())) {
                 return null;
             }
-            Type h = C$Gson$Types.h(bNj);
-            return new a(dVar, dVar.a(com.google.gson.b.a.l(h)), C$Gson$Types.f(h));
+            Type i = C$Gson$Types.i(bZr);
+            return new a(dVar, dVar.a(com.google.gson.b.a.l(i)), C$Gson$Types.g(i));
         }
     };
-    private final Class<E> hOE;
-    private final m<E> hOF;
+    private final Class<E> iln;
+    private final o<E> ilo;
 
-    public a(com.google.gson.d dVar, m<E> mVar, Class<E> cls) {
-        this.hOF = new j(dVar, mVar, cls);
-        this.hOE = cls;
+    public a(com.google.gson.d dVar, o<E> oVar, Class<E> cls) {
+        this.ilo = new m(dVar, oVar, cls);
+        this.iln = cls;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.google.gson.m<E> */
+    @Override // com.google.gson.o
+    public Object b(com.google.gson.stream.a aVar) throws IOException {
+        if (aVar.bZe() == JsonToken.NULL) {
+            aVar.nextNull();
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        aVar.beginArray();
+        while (aVar.hasNext()) {
+            arrayList.add(this.ilo.b(aVar));
+        }
+        aVar.endArray();
+        Object newInstance = Array.newInstance((Class<?>) this.iln, arrayList.size());
+        for (int i = 0; i < arrayList.size(); i++) {
+            Array.set(newInstance, i, arrayList.get(i));
+        }
+        return newInstance;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.google.gson.o<E> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.gson.m
-    public void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
+    @Override // com.google.gson.o
+    public void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            aVar.bNg();
+            bVar.bZp();
             return;
         }
-        aVar.bNc();
+        bVar.bZl();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.hOF.a(aVar, Array.get(obj, i));
+            this.ilo.a(bVar, Array.get(obj, i));
         }
-        aVar.bNd();
+        bVar.bZm();
     }
 }

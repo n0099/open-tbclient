@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.multiConcern;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.MultiConcern.MultiConcernResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MultiConcernSocketResponseMessage extends SocketResponsedMessage {
     public MultiConcernSocketResponseMessage() {
         super(309470);

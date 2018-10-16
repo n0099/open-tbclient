@@ -7,42 +7,42 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class au {
-    private String ajA;
-    private List<a> ajB = new ArrayList();
+    private String aov;
+    private List<a> aow = new ArrayList();
 
-    public String vE() {
-        return StringUtils.isNull(this.ajA) ? TbadkCoreApplication.getInst().getString(e.j.hot_topic_card_title) : this.ajA;
+    public String xN() {
+        return StringUtils.isNull(this.aov) ? TbadkCoreApplication.getInst().getString(e.j.hot_topic_card_title) : this.aov;
     }
 
-    public com.baidu.tieba.card.data.n vF() {
+    public com.baidu.tieba.card.data.n xO() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.cIn = vE();
-        if (this.ajB != null) {
+        nVar.cQG = xN();
+        if (this.aow != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.ajB) {
+            for (a aVar : this.aow) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.vH());
+                    arrayList2.add(aVar.xQ());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.cIo = arrayList;
+        nVar.cQH = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.ajA = recomTopicInfo.recom_title;
-            if (com.baidu.tbadk.core.util.v.y(recomTopicInfo.topic_list) > 0) {
+            this.aov = recomTopicInfo.recom_title;
+            if (com.baidu.tbadk.core.util.v.I(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.ajB.add(aVar);
+                            this.aow.add(aVar);
                         }
                     }
                 }
@@ -51,45 +51,45 @@ public class au {
     }
 
     private boolean a(a aVar) {
-        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.vG() <= 0;
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.xP() <= 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
-        private long ajC;
-        private String ajD;
-        private long ajE;
-        private String ajF;
-        private String ajG;
+        private String aoA;
+        private String aoB;
+        private long aox;
+        private String aoy;
+        private long aoz;
         private int tag;
         private int type;
 
-        public long vG() {
-            return this.ajC;
+        public long xP() {
+            return this.aox;
         }
 
         public String getTopicName() {
-            return this.ajD;
+            return this.aoy;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
-                this.ajC = recomTopicList.topic_id.longValue();
-                this.ajD = recomTopicList.topic_name;
+                this.aox = recomTopicList.topic_id.longValue();
+                this.aoy = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.ajE = recomTopicList.discuss_num.longValue();
+                this.aoz = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.ajF = recomTopicList.topic_desc;
-                this.ajG = recomTopicList.topic_pic;
+                this.aoA = recomTopicList.topic_desc;
+                this.aoB = recomTopicList.topic_pic;
             }
         }
 
-        public com.baidu.tieba.card.data.m vH() {
+        public com.baidu.tieba.card.data.m xQ() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.ajF;
-            mVar.ajC = this.ajC;
-            mVar.ajD = this.ajD;
+            mVar.desc = this.aoA;
+            mVar.aox = this.aox;
+            mVar.aoy = this.aoy;
             return mVar;
         }
     }

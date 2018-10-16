@@ -60,7 +60,7 @@ public class e extends com.baidu.ar.base.b {
                     eVar.j = true;
                     return;
                 case MsgConstants.IMU_MODEL_SHOWING /* 804 */:
-                    com.baidu.ar.base.d.a((int) MsgField.IMSG_MODE_SHOWING, MsgField.SMSG_MODE_SHOWING);
+                    com.baidu.ar.base.d.a(2101, MsgField.SMSG_MODE_SHOWING);
                     return;
                 case MsgConstants.IMU_IMU_OPEN /* 8010 */:
                     if (message.getData().getInt("type") == 1) {
@@ -82,8 +82,8 @@ public class e extends com.baidu.ar.base.b {
         this.s = null;
         ImuStateMachine.a().b();
         ImuStateMachine.a().a(this.k);
-        this.k.a(new b.InterfaceC0036b() { // from class: com.baidu.ar.imu.e.1
-            @Override // com.baidu.ar.imu.b.InterfaceC0036b
+        this.k.a(new b.InterfaceC0039b() { // from class: com.baidu.ar.imu.e.1
+            @Override // com.baidu.ar.imu.b.InterfaceC0039b
             public void a(float[] fArr) {
                 Bundle bundle = new Bundle();
                 bundle.putFloatArray("RMatrix", fArr);

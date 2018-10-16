@@ -14,8 +14,8 @@ import java.util.HashSet;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes3.dex */
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements BdSwitchView.a, RecommendDetailModel.a {
-    private b eIb;
-    private RecommendDetailModel eIc;
+    private b ePK;
+    private RecommendDetailModel ePL;
     private long mUserId;
     private String mUserName;
 
@@ -23,24 +23,24 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eIb = new b(this);
-        this.eIc = new RecommendDetailModel(getPageContext(), this);
+        this.ePK = new b(this);
+        this.ePL = new RecommendDetailModel(getPageContext(), this);
         initData(bundle);
-        aPq();
-        this.eIc.cp(this.mUserId);
+        aSE();
+        this.ePL.cw(this.mUserId);
     }
 
-    private void aPq() {
+    private void aSE() {
         boolean z = true;
-        if (this.eIb != null) {
-            HashSet<String> EX = com.baidu.tbadk.coreExtra.messageCenter.a.Ey().EX();
-            if (EX != null && EX.size() > 0 && EX.contains(String.valueOf(this.mUserId))) {
+        if (this.ePK != null) {
+            HashSet<String> GY = com.baidu.tbadk.coreExtra.messageCenter.a.Gz().GY();
+            if (GY != null && GY.size() > 0 && GY.contains(String.valueOf(this.mUserId))) {
                 z = false;
             }
             if (z) {
-                this.eIb.aPv();
+                this.ePK.aSJ();
             } else {
-                this.eIb.aPw();
+                this.ePK.aSK();
             }
         }
     }
@@ -69,44 +69,44 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eIb != null) {
-            this.eIb.onChangeSkinType(i);
+        if (this.ePK != null) {
+            this.ePK.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.a
-    public void mF(String str) {
+    public void nh(String str) {
         if (!StringUtils.isNull(str)) {
             showToast(str);
         }
-        if (this.eIb != null && this.eIc != null && this.eIc.aPu() && !this.eIc.aPt()) {
-            if (l.lb()) {
-                this.eIb.iR(e.j.no_data_text);
+        if (this.ePK != null && this.ePL != null && this.ePL.aSI() && !this.ePL.aSH()) {
+            if (l.lo()) {
+                this.ePK.jq(e.j.no_data_text);
             } else {
-                this.eIb.iR(e.j.game_index_no_network_text);
+                this.ePK.jq(e.j.game_index_no_network_text);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.a
     public void a(UserInfoBigVip userInfoBigVip, boolean z) {
-        if (this.eIb != null && userInfoBigVip != null) {
-            this.eIb.hideNoDataView();
-            this.eIb.b(userInfoBigVip, z);
+        if (this.ePK != null && userInfoBigVip != null) {
+            this.ePK.hideNoDataView();
+            this.ePK.b(userInfoBigVip, z);
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.OFF) {
-            this.eIc.iq(false);
+            this.ePL.iI(false);
         } else {
-            this.eIc.iq(true);
+            this.ePL.iI(true);
         }
     }
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.a
-    public void io(boolean z) {
+    public void iG(boolean z) {
         if (z) {
             showToast(e.j.success);
             TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(this.mUserId), true);
@@ -115,13 +115,13 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailActivity.1
             @Override // java.lang.Runnable
             public void run() {
-                RecommendDetailActivity.this.eIb.setSwitch(false);
+                RecommendDetailActivity.this.ePK.setSwitch(false);
             }
         }, 500L);
     }
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.a
-    public void ip(boolean z) {
+    public void iH(boolean z) {
         if (z) {
             TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(this.mUserId), false);
             showToast(e.j.success);
@@ -130,7 +130,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailActivity.2
             @Override // java.lang.Runnable
             public void run() {
-                RecommendDetailActivity.this.eIb.setSwitch(true);
+                RecommendDetailActivity.this.ePK.setSwitch(true);
             }
         }, 500L);
     }
@@ -138,8 +138,8 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.eIc != null) {
-            this.eIc.onDestroy();
+        if (this.ePL != null) {
+            this.ePL.onDestroy();
         }
         super.onDestroy();
     }

@@ -1,39 +1,39 @@
 package com.baidu.tieba.homepage.daily.b;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId ecb = BdUniqueId.gen();
-    private String ecc;
-    private String ecd;
-    private boolean ece;
+    public static final BdUniqueId ejU = BdUniqueId.gen();
+    private String ejV;
+    private String ejW;
+    private boolean ejX;
 
-    public String aFK() {
-        return this.ecc;
+    public String aJc() {
+        return this.ejV;
     }
 
-    public void od(String str) {
-        this.ecc = str;
+    public void oH(String str) {
+        this.ejV = str;
     }
 
-    public String aFL() {
-        return this.ecd;
+    public String aJd() {
+        return this.ejW;
     }
 
-    public void oe(String str) {
-        this.ecd = str;
+    public void oI(String str) {
+        this.ejW = str;
     }
 
-    public boolean aFM() {
-        return this.ece;
+    public boolean aJe() {
+        return this.ejX;
     }
 
-    public void hi(boolean z) {
-        this.ece = z;
+    public void hA(boolean z) {
+        this.ejX = z;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return ecb;
+        return ejU;
     }
 }

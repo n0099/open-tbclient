@@ -31,7 +31,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     public void onDestroy() {
     }
 
-    public void D(Intent intent) {
+    public void H(Intent intent) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -45,20 +45,20 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tS(String str) {
-        aO(str, e.f.icon_toast_game_error);
+    public void uu(String str) {
+        aS(str, e.f.icon_toast_game_error);
     }
 
-    protected void tT(String str) {
-        aO(str, e.f.icon_toast_game_ok);
+    protected void uv(String str) {
+        aS(str, e.f.icon_toast_game_ok);
     }
 
-    protected void aO(String str, int i) {
-        BdToast.b(getAppContext(), str, i).yt();
+    protected void aS(String str, int i) {
+        BdToast.b(getAppContext(), str, i).AC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void tt(int i) {
+    public void tQ(int i) {
         ak(i, null);
     }
 
@@ -68,17 +68,17 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_success, new Object[0]);
             }
-            tT(str);
+            uv(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_cancel, new Object[0]);
             }
-            tS(str);
+            uu(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_failed, new Object[0]);
             }
-            tS(str);
+            uu(str);
         }
     }
 
@@ -93,12 +93,12 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bua() {
+    public Bitmap bxp() {
         return BitmapHelper.getCashBitmap(e.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap tU(String str) {
+    public Bitmap uw(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 

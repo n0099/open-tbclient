@@ -8,11 +8,11 @@ public final class m implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ String b;
     final /* synthetic */ Bundle c;
-    final /* synthetic */ l lx;
+    final /* synthetic */ l mc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, Context context, String str, Bundle bundle) {
-        this.lx = lVar;
+        this.mc = lVar;
         this.a = context;
         this.b = str;
         this.c = bundle;
@@ -24,9 +24,9 @@ public final class m implements Runnable {
             if (cn.jiguang.d.a.d(this.a)) {
                 String a = l.a(this.a, this.b);
                 if (cn.jiguang.d.b.a.c()) {
-                    this.lx.e(this.a, a, this.c);
+                    this.mc.e(this.a, a, this.c);
                 } else {
-                    cn.jiguang.api.e.a("ACTION", new n(this.lx, this.a, a, this.c, 0), new int[0]);
+                    cn.jiguang.api.e.a("ACTION", new n(this.mc, this.a, a, this.c, 0), new int[0]);
                 }
             }
         } catch (Throwable th) {

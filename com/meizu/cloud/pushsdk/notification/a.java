@@ -11,6 +11,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -68,7 +69,7 @@ public abstract class a implements e {
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
         intent.setClassName(this.a.getPackageName(), MzSystemUtils.findReceiver(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
-        return PendingIntent.getBroadcast(this.a, 0, intent, 1073741824);
+        return PendingIntent.getBroadcast(this.a, 0, intent, AiAppsFileUtils.GB);
     }
 
     protected PendingIntent b(MessageV3 messageV3) {
@@ -78,7 +79,7 @@ public abstract class a implements e {
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_DELETE);
         intent.setClassName(this.a.getPackageName(), MzSystemUtils.findReceiver(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
-        return PendingIntent.getBroadcast(this.a, 0, intent, 1073741824);
+        return PendingIntent.getBroadcast(this.a, 0, intent, AiAppsFileUtils.GB);
     }
 
     protected void a(Notification.Builder builder, MessageV3 messageV3, PendingIntent pendingIntent, PendingIntent pendingIntent2) {

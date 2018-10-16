@@ -1,5 +1,7 @@
 package com.meizu.cloud.pushsdk.networking.okio;
 
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -382,8 +384,8 @@ public final class b implements c, d, Cloneable {
         }
         if (j2 >= 100000000) {
             i = j2 < 1000000000000L ? j2 < 10000000000L ? j2 < 1000000000 ? 9 : 10 : j2 < 100000000000L ? 11 : 12 : j2 < 1000000000000000L ? j2 < 10000000000000L ? 13 : j2 < 100000000000000L ? 14 : 15 : j2 < 100000000000000000L ? j2 < 10000000000000000L ? 16 : 17 : j2 < 1000000000000000000L ? 18 : 19;
-        } else if (j2 >= 10000) {
-            i = j2 < 1000000 ? j2 < 100000 ? 5 : 6 : j2 < 10000000 ? 7 : 8;
+        } else if (j2 >= ErrDef.Feature.WEIGHT) {
+            i = j2 < 1000000 ? j2 < 100000 ? 5 : 6 : j2 < ErrDef.Platform.WEIGHT ? 7 : 8;
         } else if (j2 < 100) {
             i = j2 < 10 ? 1 : 2;
         } else {
@@ -585,7 +587,7 @@ public final class b implements c, d, Cloneable {
             return String.format("Buffer[size=%s data=%s]", Long.valueOf(this.b), clone().g().hex());
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.update(this.a.a, this.a.b, this.a.c - this.a.b);
             for (i iVar = this.a.f; iVar != this.a; iVar = iVar.f) {
                 messageDigest.update(iVar.a, iVar.b, iVar.c - iVar.b);

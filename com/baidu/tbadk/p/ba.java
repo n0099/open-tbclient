@@ -6,17 +6,17 @@ public class ba extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] ir() {
+    protected String[] iH() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int is() {
+    protected int iI() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iu() {
+    protected int iK() {
         return 10;
     }
 
@@ -26,7 +26,7 @@ public class ba extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int it() {
+    protected int iJ() {
         return 0;
     }
 }

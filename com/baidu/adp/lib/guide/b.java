@@ -10,7 +10,7 @@ public interface b {
 
     int getYOffset();
 
-    int iC();
+    int iS();
 
-    int iD();
+    int iT();
 }

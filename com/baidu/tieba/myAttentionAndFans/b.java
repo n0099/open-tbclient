@@ -6,22 +6,22 @@ import com.baidu.tbadk.core.data.aq;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public abstract class b extends BaseAdapter {
-    protected ArrayList<UserData> anX = null;
-    boolean fpT = false;
+    protected ArrayList<UserData> mData = null;
+    boolean fxy = false;
     private boolean mHasMore = false;
 
     public abstract void a(aq aqVar);
 
-    public abstract boolean cE(long j);
+    public abstract boolean cL(long j);
 
     public void resetData() {
-        this.anX.clear();
+        this.mData.clear();
     }
 
-    public void aYy() {
-        this.fpT = false;
-        if (this.anX != null && this.anX.size() == 0) {
-            this.fpT = true;
+    public void bbK() {
+        this.fxy = false;
+        if (this.mData != null && this.mData.size() == 0) {
+            this.fxy = true;
         }
     }
 

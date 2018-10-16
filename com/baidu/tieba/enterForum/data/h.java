@@ -1,5 +1,5 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class h implements com.baidu.tbadk.mvc.b.a {
     private int mPosition;
 

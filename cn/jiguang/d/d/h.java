@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 /* loaded from: classes3.dex */
 final class h extends Thread {
     private String a;
-    private InetAddress lu = null;
+    private InetAddress lZ = null;
 
     public h(String str) {
         this.a = null;
@@ -13,14 +13,14 @@ final class h extends Thread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final synchronized InetAddress bF() {
-        return this.lu;
+    public final synchronized InetAddress bW() {
+        return this.lZ;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         try {
-            this.lu = InetAddress.getByName(this.a);
+            this.lZ = InetAddress.getByName(this.a);
         } catch (UnknownHostException e) {
             cn.jiguang.e.c.a("ConnectingHelper", "Unknown host exception!", e);
         } catch (Exception e2) {

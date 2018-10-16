@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -13,7 +14,7 @@ public class CombineDownload implements Serializable {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.appdesc = jSONObject.optString("app_name");
+            this.appdesc = jSONObject.optString(AiAppsApsUtils.APP_NAME);
             this.appUrl = jSONObject.optString("app_url");
             this.appProc = jSONObject.optString("app_proc");
             this.isShow = jSONObject.optInt("is_show");

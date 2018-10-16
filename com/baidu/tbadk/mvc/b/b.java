@@ -3,5 +3,5 @@ package com.baidu.tbadk.mvc.b;
 public interface b extends d {
     boolean G(byte[] bArr);
 
-    byte[] KM();
+    byte[] MK();
 }

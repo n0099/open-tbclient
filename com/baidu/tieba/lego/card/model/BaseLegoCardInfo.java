@@ -2,6 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -48,7 +50,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.cardType = jSONObject.optInt("card_type");
         this.itemId = jSONObject.optString(LegoListActivityConfig.ITEM_ID);
         this.flipId = jSONObject.optString("flip_id");
-        this.scheme = jSONObject.optString("scheme");
+        this.scheme = jSONObject.optString(GetSwanHistoryAction.KEY_SCHEME);
         this.title = jSONObject.optString("title");
         this.statistics = jSONObject.optString("statistics");
         this.sExtras = jSONObject.optString("sExtras");
@@ -58,7 +60,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.statTab = jSONObject.optInt("statTab");
         this.showCover = jSONObject.optInt("showCover") == 1;
         this.showLine = jSONObject.optInt("showLine", -1);
-        this.page = jSONObject.optInt("page", 0);
+        this.page = jSONObject.optInt(SystemScreenshotManager.PAGE, 0);
     }
 
     public int getPage() {

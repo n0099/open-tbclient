@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.List;
 import tbclient.FrsPage.TabSkin;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static void a(NavigationBar navigationBar, Pair<Integer, Integer> pair) {
         if (pair != null && navigationBar != null) {
@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    public static int nM(String str) {
+    public static int oq(String str) {
         try {
             return Color.parseColor(str);
         } catch (Exception e) {
@@ -44,7 +44,7 @@ public class b {
         }
     }
 
-    public static TabSkin j(List<TabSkin> list, int i) {
+    public static TabSkin k(List<TabSkin> list, int i) {
         if (list == null) {
             return null;
         }
@@ -53,10 +53,10 @@ public class b {
                 return tabSkin;
             }
         }
-        return mJ(i);
+        return nh(i);
     }
 
-    public static TabSkin mJ(int i) {
+    public static TabSkin nh(int i) {
         TabSkin.Builder builder = new TabSkin.Builder();
         builder.tab_id = Integer.valueOf(i);
         builder.icon = "";

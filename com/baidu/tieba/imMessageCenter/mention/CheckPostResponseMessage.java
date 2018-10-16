@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.CheckPost.CheckPostResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CheckPostResponseMessage extends SocketResponsedMessage {
     private long forumId;
     private String forumName;

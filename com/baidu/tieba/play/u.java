@@ -1,84 +1,53 @@
 package com.baidu.tieba.play;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import java.util.Iterator;
-import tbclient.VideoDesc;
-import tbclient.VideoInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.io.File;
 /* loaded from: classes.dex */
 public class u {
-    private int duration;
-    private String gos;
-    private String videoMd5;
-    private long videoSize;
-    private String videoUrl;
+    public static final String bvI = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String bvJ = bvI + "/.tieba_video_cache";
+    public static final String yM = bvJ + "/v2";
+    public static final String bvK = yM + "/";
+    public static final String bvL = yM + "/files";
+    public static final String bvM = bvL + "/";
 
-    public void a(VideoInfo videoInfo, boolean z) {
-        String str;
-        if (videoInfo != null) {
-            String str2 = videoInfo.video_url;
-            videoInfo.video_width.toString();
-            videoInfo.video_height.toString();
-            if (z && videoInfo.video_select_flag.intValue() == 1 && !com.baidu.tbadk.core.util.v.z(videoInfo.video_desc)) {
-                VideoDesc videoDesc = null;
-                Iterator<VideoDesc> it = videoInfo.video_desc.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    VideoDesc next = it.next();
-                    if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.kL()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.kM()) {
-                                videoDesc = next;
-                                break;
-                            }
-                        } else {
-                            videoDesc = next;
-                            break;
-                        }
-                    }
-                }
-                if (videoDesc != null) {
-                    str = videoDesc.video_url;
-                    String str3 = videoDesc.video_width;
-                    String str4 = videoDesc.video_height;
-                    this.videoUrl = str;
-                    this.videoSize = videoInfo.video_length.intValue();
-                    this.duration = videoInfo.video_duration.intValue();
-                    this.gos = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
-                    this.videoMd5 = videoInfo.video_md5;
+    private static long jd(String str) {
+        File file;
+        File file2;
+        File[] listFiles;
+        long j = 0;
+        if (str != null && !str.isEmpty() && (file = new File(bvM + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+            for (File file3 : listFiles) {
+                if (file3 != null && file3.exists()) {
+                    j += file3.length();
                 }
             }
-            str = str2;
-            this.videoUrl = str;
-            this.videoSize = videoInfo.video_length.intValue();
-            this.duration = videoInfo.video_duration.intValue();
-            this.gos = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
-            this.videoMd5 = videoInfo.video_md5;
         }
+        return j;
     }
 
-    public void g(VideoInfo videoInfo) {
-        a(videoInfo, false);
-    }
-
-    public void b(AlaInfoData alaInfoData) {
-        if (alaInfoData != null) {
-            this.videoUrl = alaInfoData.hls_url;
+    private static String je(String str) {
+        if (str == null || !str.contains("/")) {
+            return null;
         }
+        String substring = str.substring(str.lastIndexOf("/") + 1);
+        if (substring != null && substring.contains(".mp4")) {
+            return substring.replace(".mp4", "");
+        }
+        return substring;
     }
 
-    public long bnr() {
-        return this.videoSize;
-    }
-
-    public int getDuration() {
-        return this.duration;
-    }
-
-    public String bns() {
-        return this.gos;
+    public static long to(String str) {
+        try {
+            String je = je(str);
+            if (StringUtils.isNULL(je)) {
+                return 0L;
+            }
+            return jd(je);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0L;
+        }
     }
 }

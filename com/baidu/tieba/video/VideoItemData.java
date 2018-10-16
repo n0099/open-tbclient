@@ -3,7 +3,6 @@ package com.baidu.tieba.video;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.bb;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
@@ -14,14 +13,14 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public static final Parcelable.Creator<VideoItemData> CREATOR = new Parcelable.Creator<VideoItemData>() { // from class: com.baidu.tieba.video.VideoItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: x */
+        /* renamed from: y */
         public VideoItemData createFromParcel(Parcel parcel) {
             return new VideoItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: va */
+        /* renamed from: vx */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -83,31 +82,31 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public VideoItemData buildWithThreadData(bb bbVar) {
         if (bbVar != null) {
             this.thread_id = bbVar.getTid();
-            this.post_id = bbVar.vY();
-            if (bbVar.wE() != null) {
-                this.thumbnail_url = bbVar.wE().thumbnail_url;
-                this.video_url = bbVar.wE().video_url;
-                this.video_height = String.valueOf(bbVar.wE().video_height);
-                this.video_width = String.valueOf(bbVar.wE().video_width);
-                this.mMd5 = bbVar.wE().video_md5;
+            this.post_id = bbVar.yh();
+            if (bbVar.yN() != null) {
+                this.thumbnail_url = bbVar.yN().thumbnail_url;
+                this.video_url = bbVar.yN().video_url;
+                this.video_height = String.valueOf(bbVar.yN().video_height);
+                this.video_width = String.valueOf(bbVar.yN().video_width);
+                this.mMd5 = bbVar.yN().video_md5;
             }
-            this.comment_num = String.valueOf(bbVar.wd());
-            this.agree_num = String.valueOf(bbVar.xy());
-            this.share_num = String.valueOf(bbVar.xC());
+            this.comment_num = String.valueOf(bbVar.ym());
+            this.agree_num = String.valueOf(bbVar.zH());
+            this.share_num = String.valueOf(bbVar.zL());
             this.title = bbVar.getTitle();
             this.forum_id = String.valueOf(bbVar.getFid());
-            this.forum_name = bbVar.ws();
-            this.is_agreed = String.valueOf(bbVar.xA());
-            if (bbVar.wm() != null) {
+            this.forum_name = bbVar.yB();
+            this.is_agreed = String.valueOf(bbVar.zJ());
+            if (bbVar.yv() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bbVar.wm().getUserName();
-                userItemData.name_show = bbVar.wm().getName_show();
-                userItemData.portrait = bbVar.wm().getPortrait();
-                userItemData.user_id = bbVar.wm().getUserId();
-                userItemData.is_follow = bbVar.wm().hadConcerned() ? "1" : "0";
+                userItemData.user_name = bbVar.yv().getUserName();
+                userItemData.name_show = bbVar.yv().getName_show();
+                userItemData.portrait = bbVar.yv().getPortrait();
+                userItemData.user_id = bbVar.yv().getUserId();
+                userItemData.is_follow = bbVar.yv().hadConcerned() ? "1" : "0";
                 this.author_info = userItemData;
             }
-            this.act_info = bbVar.wV();
+            this.act_info = bbVar.ze();
             this.mRecomAbTag = bbVar.mRecomAbTag;
             this.mRecomSource = bbVar.mRecomSource;
             this.mRecomWeight = bbVar.mRecomWeight;
@@ -143,7 +142,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
                     userItemData.name_show = optJSONObject2.optString("user_nickname");
                     userItemData.portrait = optJSONObject2.optString(IntentConfig.PORTRAIT);
                     userItemData.user_id = optJSONObject2.optString("user_id");
-                    userItemData.is_follow = optJSONObject2.optString(AddFriendActivityConfig.TYPE_FOCUS);
+                    userItemData.is_follow = optJSONObject2.optString("focus");
                     this.author_info = userItemData;
                 }
                 this.mRecomAbTag = jSONObject.optString("abtest_tag");

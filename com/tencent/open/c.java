@@ -17,6 +17,7 @@ import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.ar.parser.ARResourceKey;
+import com.baidu.searchbox.ng.ai.apps.core.container.NgWebView;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a;
@@ -24,18 +25,17 @@ import com.tencent.open.a.f;
 import com.tencent.open.c.a;
 import com.tencent.open.utils.g;
 import com.tencent.open.utils.j;
-import com.tencent.tauth.AuthActivity;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0289a {
+/* loaded from: classes6.dex */
+public class c extends com.tencent.open.b implements a.InterfaceC0342a {
     static Toast c = null;
     private String d;
     private IUiListener e;
-    private C0290c f;
+    private C0343c f;
     private Handler g;
     private com.tencent.open.c.a h;
     private com.tencent.open.c.b i;
@@ -46,7 +46,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
         super(context, 16973840);
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C0290c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C0343c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(185.0f * context.getResources().getDisplayMetrics().density);
@@ -110,7 +110,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
             settings.setJavaScriptEnabled(true);
             if (this.j != null && this.j.get() != null) {
                 settings.setDatabaseEnabled(true);
-                settings.setDatabasePath(this.j.get().getApplicationContext().getDir("databases", 0).getPath());
+                settings.setDatabasePath(this.j.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
             }
             settings.setDomStorageEnabled(true);
             this.a.a(new b(), "sdk_js_if");
@@ -121,14 +121,14 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class b extends a.b {
         private b() {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class a extends WebViewClient {
         private a() {
         }
@@ -210,7 +210,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
         if (context != null && str != null) {
             try {
                 JSONObject d2 = j.d(str);
-                int i = d2.getInt(AuthActivity.ACTION_KEY);
+                int i = d2.getInt("action");
                 d2.getString("msg");
                 if (i == 1) {
                 }
@@ -220,13 +220,13 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     private class d extends Handler {
-        private C0290c b;
+        private C0343c b;
 
-        public d(C0290c c0290c, Looper looper) {
+        public d(C0343c c0343c, Looper looper) {
             super(looper);
-            this.b = c0290c;
+            this.b = c0343c;
         }
 
         @Override // android.os.Handler
@@ -259,15 +259,15 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
     }
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private static class C0290c implements IUiListener {
+    /* loaded from: classes6.dex */
+    private static class C0343c implements IUiListener {
         String a;
         String b;
         private WeakReference<Context> c;
         private String d;
         private IUiListener e;
 
-        public C0290c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C0343c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
             this.a = str2;
@@ -313,7 +313,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
         }
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC0289a
+    @Override // com.tencent.open.c.a.InterfaceC0342a
     public void a(int i) {
         if (this.j != null && this.j.get() != null) {
             if (i < this.k && 2 == this.j.get().getResources().getConfiguration().orientation) {
@@ -325,7 +325,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0289a {
         f.e("openSDK_LOG.PKDialog", "onKeyboardShown keyboard show");
     }
 
-    @Override // com.tencent.open.c.a.InterfaceC0289a
+    @Override // com.tencent.open.c.a.InterfaceC0342a
     public void a() {
         this.i.getLayoutParams().height = this.k;
         f.e("openSDK_LOG.PKDialog", "onKeyboardHidden keyboard hide");

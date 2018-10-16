@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.model;
 
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static <T> void d(List<T> list, int i, int i2) {
         if (list != null && i != i2 && i >= 0 && i < list.size() && i2 >= 0 && i2 < list.size()) {

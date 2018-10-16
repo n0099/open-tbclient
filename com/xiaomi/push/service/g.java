@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.tencent.tauth.AuthActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
@@ -72,7 +71,7 @@ public class g {
                     bVar.a(a2.getString(a2.getColumnIndex("message_id")));
                     bVar.b(a2.getString(a2.getColumnIndex("geo_id")));
                     bVar.a(a2.getBlob(a2.getColumnIndex("content")));
-                    bVar.a(a2.getInt(a2.getColumnIndex(AuthActivity.ACTION_KEY)));
+                    bVar.a(a2.getInt(a2.getColumnIndex("action")));
                     bVar.a(a2.getLong(a2.getColumnIndex("deadline")));
                     arrayList.add(bVar);
                 }

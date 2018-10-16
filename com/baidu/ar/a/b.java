@@ -28,9 +28,9 @@ public class b {
         }
     }
 
-    public void a(a.InterfaceC0032a interfaceC0032a) {
+    public void a(a.InterfaceC0035a interfaceC0035a) {
         if (this.b != null) {
-            this.b.a(interfaceC0032a);
+            this.b.a(interfaceC0035a);
             this.b.a();
         }
     }

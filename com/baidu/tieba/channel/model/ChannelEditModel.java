@@ -8,7 +8,6 @@ import com.baidu.tieba.channel.activity.ChannelEditActivity;
 import com.baidu.tieba.channel.c.c;
 import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.channel.message.ChannelUpdateInfoHttpResponsedMessage;
-import com.tencent.open.SocialConstants;
 /* loaded from: classes3.dex */
 public class ChannelEditModel extends BdBaseModel<ChannelEditActivity> {
     public ChannelEditModel(ChannelEditActivity channelEditActivity) {
@@ -26,7 +25,7 @@ public class ChannelEditModel extends BdBaseModel<ChannelEditActivity> {
             httpMessage.addParam("channel_id", channelInfo.getChannelId());
             httpMessage.addParam("channel_cover", channelInfo.getChannelCover());
             httpMessage.addParam("channel_avatar", channelInfo.getChannelAvatar());
-            httpMessage.addParam(SocialConstants.PARAM_COMMENT, channelInfo.getDescription());
+            httpMessage.addParam("description", channelInfo.getDescription());
             httpMessage.setExtra(channelInfo);
             sendMessage(httpMessage);
         }

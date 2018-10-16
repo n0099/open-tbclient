@@ -21,6 +21,7 @@ import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -46,7 +47,7 @@ import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class c {
     private static b d;
     private final Context a;
@@ -54,7 +55,7 @@ public final class c {
     private PublicKey c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public ApplicationInfo a;
         public int b;
@@ -69,7 +70,7 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public String a;
         public String b;
@@ -566,7 +567,7 @@ public final class c {
             }
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
-            fileWriter.write(Base64.encode(com.baidu.android.bbalbs.common.security.a.a("30212102dicudiab", "30212102dicudiab", (str + "=" + str2).getBytes()), IoUtils.UTF_8));
+            fileWriter.write(Base64.encode(com.baidu.android.bbalbs.common.security.a.a("30212102dicudiab", "30212102dicudiab", (str + ETAG.EQUAL + str2).getBytes()), IoUtils.UTF_8));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {
@@ -652,7 +653,7 @@ public final class c {
                 sb.append(SystemInfoUtil.LINE_END);
             }
             bufferedReader.close();
-            split = new String(com.baidu.android.bbalbs.common.security.a.b("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes()))).split("=");
+            split = new String(com.baidu.android.bbalbs.common.security.a.b("30212102dicudiab", "30212102dicudiab", Base64.decode(sb.toString().getBytes()))).split(ETAG.EQUAL);
         } catch (FileNotFoundException e) {
             str2 = str;
         } catch (IOException e2) {

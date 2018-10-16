@@ -9,18 +9,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.Thread;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class c implements Thread.UncaughtExceptionHandler {
-    public static boolean VQ = false;
-    private static final String VR = Environment.getExternalStorageDirectory().getPath() + File.separator + o.G() + File.separator + "oom" + File.separator;
-    private static c VS = new c();
-    private Thread.UncaughtExceptionHandler VT = null;
-    private Context VU = null;
+    public static boolean YD = false;
+    private static final String YE = Environment.getExternalStorageDirectory().getPath() + File.separator + o.H() + File.separator + "oom" + File.separator;
+    private static c YF = new c();
+    private Thread.UncaughtExceptionHandler YG = null;
+    private Context YH = null;
 
     private c() {
     }
 
-    private static boolean h(Throwable th) {
+    private static boolean i(Throwable th) {
         while (!"java.lang.OutOfMemoryError".equals(th.getClass().getName())) {
             th = th.getCause();
             if (th == null) {
@@ -30,21 +30,21 @@ public final class c implements Thread.UncaughtExceptionHandler {
         return true;
     }
 
-    public static c qq() {
-        return VS;
+    public static c rz() {
+        return YF;
     }
 
     public final void d(Context context) {
-        if (this.VT == null) {
-            this.VT = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.YG == null) {
+            this.YG = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.VU == null) {
-            this.VU = context.getApplicationContext();
+        if (this.YH == null) {
+            this.YH = context.getApplicationContext();
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:68:0x018f -> B:69:0x0103). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:66:0x018b -> B:69:0x0103). Please submit an issue!!! */
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public final void uncaughtException(Thread thread, Throwable th) {
         if (com.baidu.crabsdk.a.J) {
@@ -74,44 +74,44 @@ public final class c implements Thread.UncaughtExceptionHandler {
             com.baidu.crabsdk.c.a.f("pw", e2);
         }
         if (obj != null && !str.trim().equals("")) {
-            if (com.baidu.crabsdk.a.n && h(th)) {
+            if (com.baidu.crabsdk.a.n && i(th)) {
                 try {
-                    String str2 = VR;
+                    String str2 = YE;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
-                            com.baidu.crabsdk.c.a.cy("app文件创建ok  fileName is " + str2);
+                            com.baidu.crabsdk.c.a.cJ("app文件创建ok  fileName is " + str2);
                         } else {
-                            com.baidu.crabsdk.c.a.cy("app文件创建失败  fileName is " + str2);
+                            com.baidu.crabsdk.c.a.cJ("app文件创建失败  fileName is " + str2);
                         }
                     }
                     String str3 = str2 + System.currentTimeMillis() + ".hprof";
                     Debug.dumpHprofData(str3);
-                    com.baidu.crabsdk.c.a.cx("输出OOM的dump信息 name=" + str3);
+                    com.baidu.crabsdk.c.a.cI("输出OOM的dump信息 name=" + str3);
                 } catch (Throwable th3) {
-                    com.baidu.crabsdk.c.a.cy("oom save fail" + th3.getMessage());
+                    com.baidu.crabsdk.c.a.cJ("oom save fail" + th3.getMessage());
                 }
             }
-            if (e.qs() && e.qu() && e.i(th)) {
-                VQ = false;
-                if (this.VU != null && thread != null && th != null) {
-                    f.c(this.VU, f.k(d.a(this.VU, th, false)));
+            if (e.rB() && e.Y() && e.j(th)) {
+                YD = false;
+                if (this.YH != null && thread != null && th != null) {
+                    f.c(this.YH, f.j(d.a(this.YH, th, false)));
                     e.c(th);
-                    e.j(th);
-                    e.aa();
-                    h.a(false, this.VU);
+                    e.k(th);
+                    e.ab();
+                    h.a(false, this.YH);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!VQ) {
+                        if (!YD) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
-                                com.baidu.crabsdk.c.a.cx("T^T upload timeout!");
+                                com.baidu.crabsdk.c.a.cI("T^T upload timeout!");
                                 break;
                             }
                         } else {
-                            com.baidu.crabsdk.c.a.cx("^^ upload finished()! --> cost : " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                            com.baidu.crabsdk.c.a.cI("^^ upload finished()! --> cost : " + (currentTimeMillis2 - currentTimeMillis) + "ms");
                             break;
                         }
                     }
@@ -119,13 +119,13 @@ public final class c implements Thread.UncaughtExceptionHandler {
                     e3.printStackTrace();
                 }
             }
-            if (com.baidu.crabsdk.a.M != null) {
-                com.baidu.crabsdk.a.M.onCrashStarted(thread, th);
+            if (com.baidu.crabsdk.a.N != null) {
+                com.baidu.crabsdk.a.N.onCrashStarted(thread, th);
             }
         }
-        if (!this.VT.equals(this)) {
-            this.VT.uncaughtException(thread, th);
+        if (this.YG.equals(this)) {
+            return;
         }
-        throw new RuntimeException(th);
+        this.YG.uncaughtException(thread, th);
     }
 }

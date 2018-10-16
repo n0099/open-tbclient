@@ -25,6 +25,7 @@ import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
+import com.baidu.webkit.internal.ETAG;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
@@ -62,7 +63,7 @@ public class SapiBDLocManager {
         } catch (Exception e2) {
             str = null;
         }
-        this.m = "&" + packageName + "&" + str;
+        this.m = ETAG.ITEM_SEPARATOR + packageName + ETAG.ITEM_SEPARATOR + str;
         this.i = (WifiManager) this.b.getSystemService("wifi");
     }
 

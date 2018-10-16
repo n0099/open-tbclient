@@ -23,6 +23,7 @@ import android.util.Log;
 import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -613,7 +614,7 @@ public final class e {
             }
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
-            fileWriter.write(com.baidu.android.pushservice.k.b.a(com.baidu.android.pushservice.k.a.a(a, a, (str + "=" + str2).getBytes()), IoUtils.UTF_8));
+            fileWriter.write(com.baidu.android.pushservice.k.b.a(com.baidu.android.pushservice.k.a.a(a, a, (str + ETAG.EQUAL + str2).getBytes()), IoUtils.UTF_8));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e2) {
@@ -704,7 +705,7 @@ public final class e {
                 sb.append(SystemInfoUtil.LINE_END);
             }
             bufferedReader.close();
-            split = new String(com.baidu.android.pushservice.k.a.b(a, a, com.baidu.android.pushservice.k.b.a(sb.toString().getBytes()))).split("=");
+            split = new String(com.baidu.android.pushservice.k.a.b(a, a, com.baidu.android.pushservice.k.b.a(sb.toString().getBytes()))).split(ETAG.EQUAL);
         } catch (FileNotFoundException e2) {
             str2 = str;
         } catch (IOException e3) {

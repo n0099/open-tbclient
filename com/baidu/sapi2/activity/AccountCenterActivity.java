@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
@@ -269,7 +268,7 @@ public class AccountCenterActivity extends BaseActivity {
         }
         setBtnVisibility(4, 0, 4);
         setTitleDrawable(null, null, null, null);
-        setTitleTextColor(ViewCompat.MEASURED_STATE_MASK);
+        setTitleTextColor(-16777216);
         setLeftBtnDrawable(getResources().getDrawable(a.c.sapi_sdk_btn_back), null, null, null);
         if (SapiAccountManager.getInstance().getSapiConfiguration().showBottomBack) {
             setBtnVisibility(4, 4, 4);

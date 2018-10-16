@@ -12,12 +12,12 @@ import android.util.Base64;
 import android.util.Pair;
 import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsRouteMessage;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.b.h;
 import com.baidu.sofire.rp.Report;
-import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
@@ -218,7 +218,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
     public final void b(Context context) {
         try {
             if (!this.a.a.getBoolean("lpcf", false)) {
-                JSONArray jSONArray = new JSONArray(com.baidu.sofire.b.e.a(context, "sofire_local.cfg", RecentlyVisitedForumModel.LOCAL_ACCOUNT));
+                JSONArray jSONArray = new JSONArray(com.baidu.sofire.b.e.a(context, "sofire_local.cfg", "local"));
                 HashMap hashMap = new HashMap();
                 ArrayList arrayList = new ArrayList();
                 for (int i = 0; i < jSONArray.length(); i++) {
@@ -762,7 +762,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
                                 Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, b);
                                 new StringBuilder("ai=").append(invoke);
                                 com.baidu.sofire.b.e.a(invoke, "setSecurityVerifyInfo", new Class[]{String.class, String.class}, str3, str2);
-                                if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.a.getBoolean("hac", false)))).booleanValue()) {
+                                if (!((Boolean) com.baidu.sofire.b.e.a(invoke, AiAppsRouteMessage.TYPE_INIT, new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.a.getBoolean("hac", false)))).booleanValue()) {
                                     HashMap hashMap5 = new HashMap();
                                     hashMap5.put("0", 6);
                                     hashMap5.put("1", String.valueOf(i));
@@ -875,7 +875,7 @@ public final class c implements SharedPreferences.OnSharedPreferenceChangeListen
             }
             Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, b);
             com.baidu.sofire.b.e.a(invoke, "setSecurityVerifyInfo", new Class[]{String.class, String.class}, str2, str3);
-            if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.a.getBoolean("hac", false)))).booleanValue()) {
+            if (!((Boolean) com.baidu.sofire.b.e.a(invoke, AiAppsRouteMessage.TYPE_INIT, new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.a.getBoolean("hac", false)))).booleanValue()) {
                 com.baidu.sofire.c.a(file);
                 a(c.packageName);
                 file.delete();

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.tab;
 
 import java.util.Collection;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class TabData extends LinkedList<d> {
     public static final int TYPE_CUSTOM = 12;
     public static final int TYPE_H5 = 1;

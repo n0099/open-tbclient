@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
@@ -15,10 +17,19 @@ public class SelectForumActivityConfig extends IntentConfig {
     public static final int FROM_ALA_SHARE = 1;
     public static final int FROM_SHARE_SDK = 3;
     public static final int FROM_TRANSMIT_SHARE = 2;
+    public static final String KEY_APPKEY = "appkey";
+    public static final String KEY_APPLETSKEY = "appletsKey";
     public static final String KEY_INPUT_FORUM_LIST = "KEY_INTPUT_FORUM_LIST";
     public static final String KEY_OUTPUT_FORUM_LIST = "KEY_OUTPUT_FORUM_LIST";
+    public static final String KEY_SHARE_APPLETS_LINK = "linkAppletsUrl";
+    public static final String KEY_SHARE_DESC = "desc";
+    public static final String KEY_SHARE_IMGURL = "image";
+    public static final String KEY_SHARE_LINK = "link";
+    public static final String KEY_SHARE_TITLE = "title";
+    private static final String KEY_TBOPEN_APP_KEY = "81d0b67309e0c2387a031408597139f358f32b4d";
     public static final String SELECT_FORUM_ID = "select_forum_id";
     public static final String SELECT_FORUM_NAME = "select_forum_name";
+    private static final String URL_AIAPPS_SHARE_FORUM = "tieba://baidu.tieba.share:8080/selectForum";
 
     public SelectForumActivityConfig(Context context, int i) {
         super(context);
@@ -54,5 +65,17 @@ public class SelectForumActivityConfig extends IntentConfig {
         if (getIntent() != null) {
             getIntent().putExtra(EXTRA_KEY_PRIVATE_THREAD, i);
         }
+    }
+
+    public void setAiAppsParams(String str, String str2, String str3, String str4, String str5, String str6) {
+        Intent intent = getIntent();
+        intent.setData(Uri.parse(URL_AIAPPS_SHARE_FORUM));
+        intent.putExtra("appkey", KEY_TBOPEN_APP_KEY);
+        intent.putExtra(KEY_APPLETSKEY, str);
+        intent.putExtra("title", str2);
+        intent.putExtra("image", str3);
+        intent.putExtra("desc", str4);
+        intent.putExtra(KEY_SHARE_LINK, str5);
+        intent.putExtra(KEY_SHARE_APPLETS_LINK, str6);
     }
 }

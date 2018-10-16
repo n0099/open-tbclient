@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.util;
 
 import java.util.logging.Level;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class JuliLogger extends Logger {
     java.util.logging.Logger logger;
 

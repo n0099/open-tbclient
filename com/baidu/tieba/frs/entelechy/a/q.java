@@ -5,27 +5,27 @@ import com.baidu.tbadk.core.data.bb;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public interface q {
     void a(com.baidu.tieba.frs.d dVar);
 
-    HashMap<Integer, bb> azm();
+    HashMap<Integer, bb> aCF();
 
-    void azn();
+    void aCG();
 
-    int azo();
+    int aCH();
 
-    int azp();
+    int aCI();
 
-    int azq();
+    int aCJ();
 
-    void azr();
+    void aCK();
 
     void b(ArrayList<com.baidu.adp.widget.ListView.h> arrayList, com.baidu.tieba.tbadkCore.l lVar);
 
-    List<com.baidu.adp.widget.ListView.h> getDatas();
+    void gP(boolean z);
 
-    void gx(boolean z);
+    List<com.baidu.adp.widget.ListView.h> getDatas();
 
     boolean k(BdUniqueId bdUniqueId);
 

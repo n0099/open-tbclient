@@ -17,6 +17,7 @@ import com.baidu.mobstat.BaiduStatJSInterface;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.mobstat.am;
 import com.baidu.mobstat.bc;
+import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -136,7 +137,7 @@ public class StatService {
     public static synchronized void onPause(Activity activity, ExtraInfo extraInfo) {
         synchronized (StatService.class) {
             if (a(activity, "onPause(...)")) {
-                if (!a(Activity.class, "onPause")) {
+                if (!a(Activity.class, AudioStatusCallback.ON_PAUSE)) {
                     bj.c().c("[WARNING] onPause must be called in Activity.onPause");
                 } else {
                     BDStatCore.instance().onPause(activity, false, extraInfo);
@@ -156,7 +157,7 @@ public class StatService {
         synchronized (StatService.class) {
             if (fragment == null) {
                 bj.c().c("[WARNING] onPause parameter invalid");
-            } else if (!a(Fragment.class, "onPause")) {
+            } else if (!a(Fragment.class, AudioStatusCallback.ON_PAUSE)) {
                 bj.c().c("[WARNING] onPause must be called in Fragment.onPause()");
             } else {
                 BDStatCore.instance().onPause(fragment);
@@ -170,7 +171,7 @@ public class StatService {
         synchronized (StatService.class) {
             if (fragment == null) {
                 bj.c().c("[WARNING] onPause parameter invalid");
-            } else if (!a(fragment.getClass(), "onPause")) {
+            } else if (!a(fragment.getClass(), AudioStatusCallback.ON_PAUSE)) {
                 bj.c().c("[WARNING] onPause must be called in android.app.Fragment.onPause()");
             } else {
                 BDStatCore.instance().onPause(fragment);

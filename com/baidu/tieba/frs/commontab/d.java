@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import tbclient.GeneralTabList.DataRes;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class d implements j {
     public boolean hasMore;
     public HashMap<String, MetaData> userMap = new HashMap<>();
@@ -21,7 +21,7 @@ public class d implements j {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.hasMore = dataRes.has_more.intValue() == 1;
-            if (!v.z(dataRes.user_list)) {
+            if (!v.J(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -33,15 +33,15 @@ public class d implements j {
                     }
                 }
             }
-            if (!v.z(dataRes.general_list)) {
+            if (!v.J(dataRes.general_list)) {
                 for (ThreadInfo threadInfo : dataRes.general_list) {
                     if (threadInfo != null) {
                         bb bbVar = new bb();
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
-                        bbVar.cj(3);
-                        bbVar.wW();
-                        if (bbVar.getType() == bb.aka || bbVar.getType() == bb.akf) {
+                        bbVar.setCurrentPage(3);
+                        bbVar.zf();
+                        if (bbVar.getType() == bb.aoV || bbVar.getType() == bb.apa) {
                             this.threadList.add(bbVar);
                         }
                     }
@@ -51,7 +51,7 @@ public class d implements j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void E(JSONObject jSONObject) {
+    public void H(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j

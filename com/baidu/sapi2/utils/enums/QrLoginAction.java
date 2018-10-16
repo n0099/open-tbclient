@@ -1,9 +1,11 @@
 package com.baidu.sapi2.utils.enums;
+
+import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
 /* loaded from: classes.dex */
 public enum QrLoginAction {
     NOTICE("notice"),
     LOGIN("login"),
-    CANCEL("cancel");
+    CANCEL(AiAppsUBCStatistic.VALUE_CANCEL);
     
     private String a;
 

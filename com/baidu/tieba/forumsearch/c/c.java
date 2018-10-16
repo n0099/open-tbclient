@@ -15,7 +15,7 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
     public c(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.mTbPageContext.getPageActivity(), e.C0141e.ds160)), NoDataViewFactory.d.dE(e.j.search_forum_no_result), null);
+        this.mNoDataView = NoDataViewFactory.a(this.mTbPageContext.getPageActivity(), getView(), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.mTbPageContext.getPageActivity(), e.C0175e.ds160)), NoDataViewFactory.d.dO(e.j.search_forum_no_result), null);
         this.mNoDataView.setVisibility(0);
         d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

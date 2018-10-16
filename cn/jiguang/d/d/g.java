@@ -45,7 +45,7 @@ public final class g {
         try {
             hVar.start();
             hVar.join(3000L);
-            return hVar.bF();
+            return hVar.bW();
         } catch (InterruptedException e2) {
             return null;
         } catch (Exception e3) {

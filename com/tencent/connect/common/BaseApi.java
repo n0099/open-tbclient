@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.open.TDialog;
@@ -29,7 +30,7 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseApi {
     protected c a;
     protected QQToken b;
@@ -50,7 +51,7 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString(IjkMediaMeta.IJKM_KEY_FORMAT, "json");
+        bundle.putString(IjkMediaMeta.IJKM_KEY_FORMAT, NetworkDef.DataType.JSON);
         bundle.putString("status_os", Build.VERSION.RELEASE);
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
@@ -185,7 +186,7 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class TempRequestListener implements IRequestListener {
         private final IUiListener b;
         private final Handler c;

@@ -22,7 +22,7 @@ public class g {
         this.tag = str3;
     }
 
-    public String yu() {
+    public String getTip() {
         return this.tip;
     }
 

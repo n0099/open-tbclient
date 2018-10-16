@@ -1,15 +1,15 @@
 package com.baidu.ubs.analytics.a;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class j {
-    private h hKP = new h();
+    private h hTH = new h();
 
-    public final List<i> bLQ() {
-        return this.hKP.bLQ();
+    public final List<i> bQg() {
+        return this.hTH.bQg();
     }
 
     public final void a(int i) {
-        this.hKP.a(i);
+        this.hTH.a(i);
     }
 }

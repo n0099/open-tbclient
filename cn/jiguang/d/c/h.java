@@ -6,11 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class h implements Cloneable {
-    private static m[] li = new m[0];
-    private static l[] lj = new l[0];
+    private static m[] lO = new m[0];
+    private static l[] lP = new l[0];
     private int c;
-    private g lg;
-    private List[] lh;
+    private g lM;
+    private List[] lN;
 
     public h() {
         this(new g());
@@ -20,12 +20,12 @@ public final class h implements Cloneable {
         this(new g(dVar));
         for (int i = 0; i < 4; i++) {
             try {
-                int b = this.lg.b(i);
+                int b = this.lM.b(i);
                 if (b > 0) {
-                    this.lh[i] = new ArrayList(b);
+                    this.lN[i] = new ArrayList(b);
                 }
                 for (int i2 = 0; i2 < b; i2++) {
-                    this.lh[i].add(m.a(dVar, i));
+                    this.lN[i].add(m.a(dVar, i));
                 }
             } catch (t e) {
                 throw e;
@@ -35,8 +35,8 @@ public final class h implements Cloneable {
     }
 
     private h(g gVar) {
-        this.lh = new List[4];
-        this.lg = gVar;
+        this.lN = new List[4];
+        this.lM = gVar;
     }
 
     public h(byte[] bArr) {
@@ -45,11 +45,11 @@ public final class h implements Cloneable {
 
     public static h b(m mVar) {
         h hVar = new h();
-        if (hVar.lh[0] == null) {
-            hVar.lh[0] = new LinkedList();
+        if (hVar.lN[0] == null) {
+            hVar.lN[0] = new LinkedList();
         }
-        hVar.lg.a(0);
-        hVar.lh[0].add(mVar);
+        hVar.lM.a(0);
+        hVar.lN[0].add(mVar);
         return hVar;
     }
 
@@ -58,9 +58,9 @@ public final class h implements Cloneable {
         int i3;
         int i4;
         e eVar = new e();
-        this.lg.a(eVar);
+        this.lM.a(eVar);
         b bVar = new b();
-        this.lg.a();
+        this.lM.a();
         int i5 = 0;
         while (true) {
             int i6 = i5;
@@ -68,8 +68,8 @@ public final class h implements Cloneable {
                 this.c = eVar.a();
                 return eVar.b();
             }
-            if (this.lh[i6] != null) {
-                int size = this.lh[i6].size();
+            if (this.lN[i6] != null) {
+                int size = this.lN[i6].size();
                 int a = eVar.a();
                 int i7 = 0;
                 int i8 = 0;
@@ -77,7 +77,7 @@ public final class h implements Cloneable {
                 int i9 = 0;
                 while (true) {
                     if (i9 < size) {
-                        m mVar2 = (m) this.lh[i6].get(i9);
+                        m mVar2 = (m) this.lN[i6].get(i9);
                         if (i6 == 3) {
                             m mVar3 = mVar;
                             i2 = a;
@@ -113,8 +113,8 @@ public final class h implements Cloneable {
         }
     }
 
-    public final m bA() {
-        List list = this.lh[0];
+    public final m bR() {
+        List list = this.lN[0];
         if (list == null || list.size() == 0) {
             return null;
         }
@@ -123,12 +123,12 @@ public final class h implements Cloneable {
 
     public final Object clone() {
         h hVar = new h();
-        for (int i = 0; i < this.lh.length; i++) {
-            if (this.lh[i] != null) {
-                hVar.lh[i] = new LinkedList(this.lh[i]);
+        for (int i = 0; i < this.lN.length; i++) {
+            if (this.lN[i] != null) {
+                hVar.lN[i] = new LinkedList(this.lN[i]);
             }
         }
-        hVar.lg = (g) this.lg.clone();
+        hVar.lM = (g) this.lM.clone();
         hVar.c = this.c;
         return hVar;
     }
@@ -136,14 +136,14 @@ public final class h implements Cloneable {
     public final l[] m(int i) {
         m[] mVarArr;
         boolean z;
-        if (this.lh[1] == null) {
-            return lj;
+        if (this.lN[1] == null) {
+            return lP;
         }
         LinkedList linkedList = new LinkedList();
-        if (this.lh[1] == null) {
-            mVarArr = li;
+        if (this.lN[1] == null) {
+            mVarArr = lO;
         } else {
-            List list = this.lh[1];
+            List list = this.lN[1];
             mVarArr = (m[]) list.toArray(new m[list.size()]);
         }
         HashSet hashSet = new HashSet();

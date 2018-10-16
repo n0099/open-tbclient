@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.adp.base.i;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
@@ -15,14 +16,14 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class BannerGifView extends RelativeLayout {
-    private View aAH;
-    private GifView aJP;
-    private ImageView aJQ;
-    private boolean aJR;
-    private com.baidu.tbadk.f.a aJS;
-    private com.baidu.tbadk.f.b aJT;
-    private final com.baidu.tbadk.f.b aJU;
-    private String ahG;
+    private GifView aOr;
+    private ImageView aOs;
+    private boolean aOt;
+    private com.baidu.tbadk.f.a aOu;
+    private com.baidu.tbadk.f.b aOv;
+    private final com.baidu.tbadk.f.b aOw;
+    private String amC;
+    private View mMaskView;
     private final View.OnClickListener mOnClickListener;
     private String mPicUrl;
     private float mRatio;
@@ -30,12 +31,12 @@ public class BannerGifView extends RelativeLayout {
     public BannerGifView(Context context) {
         super(context);
         this.mRatio = 5.744f;
-        this.aJR = false;
-        this.aJU = new com.baidu.tbadk.f.b() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
+        this.aOt = false;
+        this.aOw = new com.baidu.tbadk.f.b() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
             @Override // com.baidu.tbadk.f.b
             public boolean F(View view) {
-                if (BannerGifView.this.aJT == null || !BannerGifView.this.aJT.F(view)) {
-                    BannerGifView.this.GU();
+                if (BannerGifView.this.aOv == null || !BannerGifView.this.aOv.F(view)) {
+                    BannerGifView.this.IV();
                 }
                 return true;
             }
@@ -43,7 +44,7 @@ public class BannerGifView extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == BannerGifView.this.aJQ) {
+                if (view == BannerGifView.this.aOs) {
                     BannerGifView.this.setCloseVisibility(false);
                 }
             }
@@ -54,12 +55,12 @@ public class BannerGifView extends RelativeLayout {
     public BannerGifView(Context context, float f) {
         super(context);
         this.mRatio = 5.744f;
-        this.aJR = false;
-        this.aJU = new com.baidu.tbadk.f.b() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
+        this.aOt = false;
+        this.aOw = new com.baidu.tbadk.f.b() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
             @Override // com.baidu.tbadk.f.b
             public boolean F(View view) {
-                if (BannerGifView.this.aJT == null || !BannerGifView.this.aJT.F(view)) {
-                    BannerGifView.this.GU();
+                if (BannerGifView.this.aOv == null || !BannerGifView.this.aOv.F(view)) {
+                    BannerGifView.this.IV();
                 }
                 return true;
             }
@@ -67,7 +68,7 @@ public class BannerGifView extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == BannerGifView.this.aJQ) {
+                if (view == BannerGifView.this.aOs) {
                     BannerGifView.this.setCloseVisibility(false);
                 }
             }
@@ -78,14 +79,14 @@ public class BannerGifView extends RelativeLayout {
 
     private void initUI() {
         View inflate = LayoutInflater.from(getContext()).inflate(e.h.gif_banner_view, this);
-        this.aJQ = (ImageView) inflate.findViewById(e.g.btn_close);
-        this.aAH = inflate.findViewById(e.g.image_mask);
-        this.aJP = (GifView) inflate.findViewById(e.g.image_gif);
-        this.aJP.setShowStaticDrawable(false);
-        this.aJP.setSupportNoImage(false);
-        this.aJP.setAutoPlay(true);
-        this.aJQ.setOnClickListener(this.mOnClickListener);
-        this.aJP.setOnInterceptClickListener(this.aJU);
+        this.aOs = (ImageView) inflate.findViewById(e.g.btn_close);
+        this.mMaskView = inflate.findViewById(e.g.image_mask);
+        this.aOr = (GifView) inflate.findViewById(e.g.image_gif);
+        this.aOr.setShowStaticDrawable(false);
+        this.aOr.setSupportNoImage(false);
+        this.aOr.setAutoPlay(true);
+        this.aOs.setOnClickListener(this.mOnClickListener);
+        this.aOr.setOnInterceptClickListener(this.aOw);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -94,13 +95,13 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public GifView getGifView() {
-        return this.aJP;
+        return this.aOr;
     }
 
-    public void au(String str, String str2) {
+    public void aF(String str, String str2) {
         this.mPicUrl = str;
-        this.ahG = str2;
-        this.aJP.F(str, 38);
+        this.amC = str2;
+        this.aOr.G(str, 38);
     }
 
     public void setRatio(float f) {
@@ -109,45 +110,45 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setErrorResid(int i) {
-        this.aJP.setErrorResid(i);
+        this.aOr.setErrorResid(i);
     }
 
     public void setDefaultResid(int i) {
-        al.c(this.aJP, i);
+        al.c(this.aOr, i);
     }
 
     public void setNeedNightMask(boolean z) {
-        this.aJR = z;
-        eF(TbadkCoreApplication.getInst().getSkinType());
+        this.aOt = z;
+        eO(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setCloseVisibility(boolean z) {
-        this.aJQ.setVisibility(z ? 0 : 8);
+        this.aOs.setVisibility(z ? 0 : 8);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.f.a aVar) {
-        this.aJS = aVar;
+        this.aOu = aVar;
     }
 
     public void setOnClickEventListener(com.baidu.tbadk.f.b bVar) {
-        this.aJT = bVar;
+        this.aOv = bVar;
     }
 
     public void onChangeSkinType(int i) {
-        al.e(this.aAH, e.d.black_alpha30, i);
-        eF(i);
+        al.e(this.mMaskView, e.d.black_alpha30, i);
+        eO(i);
     }
 
-    private void eF(int i) {
+    private void eO(int i) {
         int i2 = 0;
-        this.aAH.setVisibility((this.aJR && (i == 1)) ? 8 : 8);
+        this.mMaskView.setVisibility((this.aOt && (i == 1)) ? 8 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GU() {
+    public void IV() {
         try {
-            if (!TextUtils.isEmpty(this.ahG)) {
-                ay.AN().c((TbPageContext) i.aK(getContext()), new String[]{this.ahG});
+            if (!TextUtils.isEmpty(this.amC)) {
+                ay.CU().c((TbPageContext) i.aK(getContext()), new String[]{this.amC});
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -161,7 +162,7 @@ public class BannerGifView extends RelativeLayout {
         int size = (View.MeasureSpec.getSize(i) - getPaddingLeft()) - getPaddingRight();
         int size2 = (View.MeasureSpec.getSize(i2) - getPaddingBottom()) - getPaddingTop();
         if (this.mRatio > 0.0f) {
-            i2 = View.MeasureSpec.makeMeasureSpec((int) ((size / this.mRatio) + 0.5f), 1073741824);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) ((size / this.mRatio) + 0.5f), AiAppsFileUtils.GB);
         }
         super.onMeasure(i, i2);
     }
@@ -169,8 +170,8 @@ public class BannerGifView extends RelativeLayout {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aJS != null) {
-            this.aJS.a(this, i == 0, this.mPicUrl);
+        if (this.aOu != null) {
+            this.aOu.a(this, i == 0, this.mPicUrl);
         }
     }
 }

@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.d.a.a;
+import com.baidu.e.a.a;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;

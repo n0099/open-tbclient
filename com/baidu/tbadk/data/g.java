@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class g {
-    private int aOu;
+    private int aSW;
     private int activityId;
     private String activityNum;
 
@@ -13,19 +13,19 @@ public class g {
         this.activityId = i;
     }
 
-    public int In() {
-        return this.aOu;
+    public int Km() {
+        return this.aSW;
     }
 
-    public void eQ(int i) {
-        this.aOu = i;
+    public void eZ(int i) {
+        this.aSW = i;
     }
 
-    public String Io() {
+    public String Kn() {
         return this.activityNum;
     }
 
-    public void gM(String str) {
+    public void ha(String str) {
         this.activityNum = str;
     }
 }

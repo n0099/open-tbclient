@@ -1,5 +1,6 @@
 package com.xiaomi.xmpush.thrift;
 
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.BitSet;
@@ -15,7 +16,7 @@ public class ad implements Serializable, Cloneable, org.apache.thrift.a<ad, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> d;
     private static final org.apache.thrift.protocol.j e = new org.apache.thrift.protocol.j("XmPushActionNormalConfig");
     private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("normalConfigs", (byte) 15, 1);
-    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("appId", (byte) 10, 4);
+    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 10, 4);
     private static final org.apache.thrift.protocol.b h = new org.apache.thrift.protocol.b("packageName", (byte) 11, 5);
     public List<n> a;
     public long b;
@@ -25,7 +26,7 @@ public class ad implements Serializable, Cloneable, org.apache.thrift.a<ad, a> {
     /* loaded from: classes3.dex */
     public enum a {
         NORMAL_CONFIGS(1, "normalConfigs"),
-        APP_ID(4, "appId"),
+        APP_ID(4, AiAppsLifecycleMessage.APP_ID_KEY),
         PACKAGE_NAME(5, "packageName");
         
         private static final Map<String, a> d = new HashMap();
@@ -53,7 +54,7 @@ public class ad implements Serializable, Cloneable, org.apache.thrift.a<ad, a> {
     static {
         EnumMap enumMap = new EnumMap(a.class);
         enumMap.put((EnumMap) a.NORMAL_CONFIGS, (a) new org.apache.thrift.meta_data.b("normalConfigs", (byte) 1, new org.apache.thrift.meta_data.d((byte) 15, new org.apache.thrift.meta_data.g((byte) 12, n.class))));
-        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
+        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         d = Collections.unmodifiableMap(enumMap);
         org.apache.thrift.meta_data.b.a(ad.class, d);

@@ -25,8 +25,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.Am = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.zY = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.AX = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.AI = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -62,8 +62,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.Am = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.zY = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.AX = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.AI = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -85,9 +85,9 @@ public class r {
     private static Cursor d(com.baidu.adp.lib.cache.l<?> lVar) {
         if (lVar != null && (lVar instanceof l.c)) {
             l.c cVar = (l.c) lVar;
-            if (cVar.im() instanceof com.baidu.adp.lib.cache.j) {
-                com.baidu.adp.lib.cache.c ii = ((com.baidu.adp.lib.cache.j) cVar.im()).ii();
-                return ii.d(ii.ia().fL(), cVar.il());
+            if (cVar.iC() instanceof com.baidu.adp.lib.cache.j) {
+                com.baidu.adp.lib.cache.c iy = ((com.baidu.adp.lib.cache.j) cVar.iC()).iy();
+                return iy.d(iy.iq().ge(), cVar.iB());
             }
             return null;
         }
@@ -104,10 +104,10 @@ public class r {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(l.b<?> bVar, l.b<?> bVar2) {
-            if (bVar.Am == bVar2.Am) {
+            if (bVar.AX == bVar2.AX) {
                 return 0;
             }
-            return bVar.Am > bVar2.Am ? -1 : 1;
+            return bVar.AX > bVar2.AX ? -1 : 1;
         }
     }
 }

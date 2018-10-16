@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
+import com.baidu.webkit.internal.ETAG;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ public final class e {
     public static HashMap<String, cn.jiguang.api.b> a = new HashMap<>();
     public static HashMap<String, cn.jiguang.api.c> b = new HashMap<>();
     private static final Object d;
-    private static volatile e lr;
+    private static volatile e lX;
 
     static {
         a(cn.jiguang.d.a.a, j.class.getName());
@@ -69,7 +70,7 @@ public final class e {
             cn.jiguang.api.b value = entry.getValue();
             if (value != null && value.isSupportedCMD(cVar.a())) {
                 cVar.b(Long.valueOf(value.dispatchMessage(context, cn.jiguang.d.b.g.a.get(), cVar.a(), cVar, byteBuffer)));
-                cn.jiguang.d.b.d.bx().a(entry.getKey(), cVar);
+                cn.jiguang.d.b.d.bO().a(entry.getKey(), cVar);
                 byteBuffer.clear();
             }
         }
@@ -124,14 +125,14 @@ public final class e {
     public static void b(Context context, String str, Object obj) {
         if (cn.jiguang.g.i.a(str)) {
             for (Map.Entry<String, cn.jiguang.api.b> entry : a.entrySet()) {
-                cn.jiguang.d.b.d.bx();
+                cn.jiguang.d.b.d.bO();
                 entry.getValue().handleMessage(context, cn.jiguang.d.b.d.g(), obj);
             }
             return;
         }
         cn.jiguang.api.b bVar = a.get(str);
         if (bVar != null) {
-            cn.jiguang.d.b.d.bx();
+            cn.jiguang.d.b.d.bO();
             bVar.handleMessage(context, cn.jiguang.d.b.d.g(), obj);
         }
     }
@@ -150,15 +151,15 @@ public final class e {
         }
     }
 
-    public static e bD() {
-        if (lr == null) {
+    public static e bU() {
+        if (lX == null) {
             synchronized (d) {
-                if (lr == null) {
-                    lr = new e();
+                if (lX == null) {
+                    lX = new e();
                 }
             }
         }
-        return lr;
+        return lX;
     }
 
     public static IBinder h(String str, String str2) {
@@ -210,7 +211,7 @@ public final class e {
             return false;
         }
         try {
-            jSONObject.put("sdk_ver", j(SdkType.JPUSH.name(), ""));
+            jSONObject.put(ETAG.KEY_SDK_VER, j(SdkType.JPUSH.name(), ""));
             jSONObject.put("core_sdk_ver", j(SdkType.JCORE.name(), ""));
             jSONObject.put("share_sdk_ver", j(SdkType.JSHARE.name(), ""));
             jSONObject.put("ssp_sdk_ver", j(SdkType.JSSP.name(), ""));

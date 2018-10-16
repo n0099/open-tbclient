@@ -16,26 +16,26 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class VideoPlayModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
-    private String dOX;
-    private a hvA;
-    private VideoItemData hvB;
-    private HttpMessageListener hvC;
-    private VideoPlayActivity hvz;
+    private String dWS;
+    private VideoPlayActivity hCL;
+    private a hCM;
+    private VideoItemData hCN;
+    private HttpMessageListener hCO;
     private String mFrom;
     private String mLocate;
     private int mPn;
     private String mStType;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void p(List<VideoItemData> list, boolean z);
-
         void q(List<VideoItemData> list, boolean z);
+
+        void r(List<VideoItemData> list, boolean z);
     }
 
     static /* synthetic */ int c(VideoPlayModel videoPlayModel) {
@@ -46,8 +46,8 @@ public class VideoPlayModel extends BdBaseModel {
 
     public VideoPlayModel(VideoPlayActivity videoPlayActivity) {
         super(videoPlayActivity.getPageContext());
-        this.dOX = "client_other";
-        this.hvC = new HttpMessageListener(CmdConfigHttp.CMD_GET_NANI_VIDEO) { // from class: com.baidu.tieba.videoplay.VideoPlayModel.1
+        this.dWS = "client_other";
+        this.hCO = new HttpMessageListener(CmdConfigHttp.CMD_GET_NANI_VIDEO) { // from class: com.baidu.tieba.videoplay.VideoPlayModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -55,11 +55,11 @@ public class VideoPlayModel extends BdBaseModel {
                     ResponseGetNaniVideoMessage responseGetNaniVideoMessage = (ResponseGetNaniVideoMessage) httpResponsedMessage;
                     if (responseGetNaniVideoMessage.getError() == 0) {
                         TbSingleton.getInstance().clearVideoRecord();
-                        if (VideoPlayModel.this.hvA != null) {
+                        if (VideoPlayModel.this.hCM != null) {
                             if (VideoPlayModel.this.mPn == 1) {
-                                VideoPlayModel.this.hvA.p(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                                VideoPlayModel.this.hCM.q(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                             } else {
-                                VideoPlayModel.this.hvA.q(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
+                                VideoPlayModel.this.hCM.r(responseGetNaniVideoMessage.getVideoItemDatas(), responseGetNaniVideoMessage.isHasMore());
                             }
                         }
                         VideoPlayModel.c(VideoPlayModel.this);
@@ -67,8 +67,8 @@ public class VideoPlayModel extends BdBaseModel {
                 }
             }
         };
-        this.hvz = videoPlayActivity;
-        registerListener(this.hvC);
+        this.hCL = videoPlayActivity;
+        registerListener(this.hCO);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -86,35 +86,35 @@ public class VideoPlayModel extends BdBaseModel {
         if (videoItemData != null) {
             this.mStType = str;
             this.mLocate = str2;
-            this.hvB = videoItemData;
+            this.hCN = videoItemData;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
             httpMessage.addParam("tid", videoItemData.thread_id);
             httpMessage.addParam("st_type", str);
             httpMessage.addParam("yuelaou_locate", str2);
             httpMessage.addParam("is_vertical", "1");
             httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-            httpMessage.addParam("user_view_data", aDg());
+            httpMessage.addParam("user_view_data", aGy());
             if ("frs".equals(this.mFrom)) {
-                this.dOX = "client_frs";
+                this.dWS = "client_frs";
             } else if ("index".equals(this.mFrom)) {
-                this.dOX = "client_index";
+                this.dWS = "client_index";
             } else {
-                this.dOX = "client_other";
+                this.dWS = "client_other";
             }
-            httpMessage.addParam(IntentConfig.CALL_FROM, this.dOX);
+            httpMessage.addParam(IntentConfig.CALL_FROM, this.dWS);
             sendMessage(httpMessage);
         }
     }
 
-    public void Vd() {
-        if (this.hvB != null) {
+    public void YK() {
+        if (this.hCN != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NANI_VIDEO);
-            httpMessage.addParam("tid", this.hvB.thread_id);
+            httpMessage.addParam("tid", this.hCN.thread_id);
             httpMessage.addParam("st_type", this.mStType);
             httpMessage.addParam("yuelaou_locate", this.mLocate);
             httpMessage.addParam("is_vertical", "1");
             httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
-            httpMessage.addParam("user_view_data", aDg());
+            httpMessage.addParam("user_view_data", aGy());
             sendMessage(httpMessage);
         }
     }
@@ -123,7 +123,7 @@ public class VideoPlayModel extends BdBaseModel {
         this.mFrom = str;
     }
 
-    private String aDg() {
+    private String aGy() {
         JSONArray jSONArray = new JSONArray();
         LinkedList<com.baidu.tbadk.c.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {
@@ -146,6 +146,6 @@ public class VideoPlayModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.hvA = aVar;
+        this.hCM = aVar;
     }
 }

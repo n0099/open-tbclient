@@ -35,11 +35,11 @@ public class a extends com.baidu.ar.base.b {
     protected boolean u;
     private boolean v;
     private String w;
-    private C0044a x;
+    private C0047a x;
 
     /* renamed from: com.baidu.ar.track.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0044a implements com.baidu.ar.algo.b.a.a {
+    public static class C0047a implements com.baidu.ar.algo.b.a.a {
         @Override // com.baidu.ar.algo.b.a.a
         public void a(Bundle bundle) {
             if (bundle == null || bundle.getInt("track2D_method_type") == 0) {
@@ -103,7 +103,7 @@ public class a extends com.baidu.ar.base.b {
                         StatisticHelper.getInstance().statisticInfo(StatisticConstants.START_AR_ANIM);
                         aVar.j = true;
                     }
-                    d.a((int) MsgField.IMSG_MODE_SHOWING, MsgField.SMSG_MODE_SHOWING);
+                    d.a(2101, MsgField.SMSG_MODE_SHOWING);
                     return;
                 case 307:
                     d.a((int) MsgField.IMSG_TRACK_MODEL_NOT_SHOWING, " track model disapper!");
@@ -112,10 +112,10 @@ public class a extends com.baidu.ar.base.b {
                     d.a((int) MsgField.IMSG_TRACK_HIDE_LOST_INFO, " track model disapper!");
                     return;
                 case MsgConstants.TRACK_MSG_ID_TRACK_LOST /* 310 */:
-                    d.a((int) MsgField.MSG_ID_TRACK_MSG_ID_TRACK_LOST, MsgField.SMSG_TRACK_MSG_ID_TRACK_LOST);
+                    d.a(2105, MsgField.SMSG_TRACK_MSG_ID_TRACK_LOST);
                     return;
                 case MsgConstants.TRACK_MODEL_CAN_DISAPPEARING /* 312 */:
-                    d.a((int) MsgField.MSG_ID_TRACK_MODEL_CAN_DISAPPEARING, Boolean.valueOf(message.getData() != null ? message.getData().getInt("show_immediately") == 1 : false));
+                    d.a(2104, Boolean.valueOf(message.getData() != null ? message.getData().getInt("show_immediately") == 1 : false));
                     return;
                 case MsgConstants.TRACK_IMU_OPEN /* 313 */:
                     if (message.getData().getInt("type") == 1) {
@@ -144,12 +144,12 @@ public class a extends com.baidu.ar.base.b {
         this.s = null;
         this.v = false;
         this.u = true;
-        this.x = new C0044a();
+        this.x = new C0047a();
         this.g = new com.baidu.ar.algo.a.c.a();
         TrackStateMachine.getInstance().init();
         TrackStateMachine.getInstance().setIMUController(this.k);
-        this.k.a(new b.InterfaceC0036b() { // from class: com.baidu.ar.track.a.1
-            @Override // com.baidu.ar.imu.b.InterfaceC0036b
+        this.k.a(new b.InterfaceC0039b() { // from class: com.baidu.ar.track.a.1
+            @Override // com.baidu.ar.imu.b.InterfaceC0039b
             public void a(float[] fArr) {
                 Bundle bundle = new Bundle();
                 bundle.putFloatArray("RMatrix", fArr);

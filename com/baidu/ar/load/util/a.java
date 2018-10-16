@@ -18,11 +18,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.load.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class ThreadFactoryC0037a implements ThreadFactory {
+    public static class ThreadFactoryC0040a implements ThreadFactory {
         private final AtomicInteger a = new AtomicInteger(1);
         private int b;
 
-        public ThreadFactoryC0037a(int i) {
+        public ThreadFactoryC0040a(int i) {
             this.b = 5;
             this.b = i;
         }
@@ -47,14 +47,14 @@ public class a {
     public static ThreadPoolExecutor b() {
         if (f == null) {
             synchronized (a.class) {
-                f = new ThreadPoolExecutor(5, 5, 15L, TimeUnit.SECONDS, d, new ThreadFactoryC0037a(5), new ThreadPoolExecutor.DiscardOldestPolicy());
+                f = new ThreadPoolExecutor(5, 5, 15L, TimeUnit.SECONDS, d, new ThreadFactoryC0040a(5), new ThreadPoolExecutor.DiscardOldestPolicy());
             }
         }
         return f;
     }
 
     private static ThreadPoolExecutor c() {
-        e = new ThreadPoolExecutor(b, c, 15L, TimeUnit.SECONDS, d, new ThreadFactoryC0037a(5), new ThreadPoolExecutor.DiscardOldestPolicy());
+        e = new ThreadPoolExecutor(b, c, 15L, TimeUnit.SECONDS, d, new ThreadFactoryC0040a(5), new ThreadPoolExecutor.DiscardOldestPolicy());
         return e;
     }
 }

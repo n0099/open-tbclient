@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class Header implements Iterable<MinimalField> {
     private final List<MinimalField> fields = new LinkedList();
     private final Map<String, List<MinimalField>> fieldMap = new HashMap();

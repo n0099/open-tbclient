@@ -14,22 +14,22 @@ public class e {
             return false;
         }
         List<Field> h = com.baidu.adp.lib.OrmObject.a.a.h(gVar.getClass());
-        Set<String> hJ = cVar.hJ();
+        Set<String> keys = cVar.getKeys();
         for (Field field : h) {
             if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                 String name = field.getName();
                 if (!TextUtils.isEmpty(name)) {
-                    if (hJ.contains(name)) {
+                    if (keys.contains(name)) {
                         Object b2 = cVar.b(name, field.getGenericType());
                         if (b2 != null) {
                             com.baidu.adp.lib.OrmObject.a.a.a(gVar, name, b2);
                         }
-                    } else if (hJ.contains(name.toLowerCase(Locale.getDefault()))) {
+                    } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
                         Object b3 = cVar.b(name.toLowerCase(Locale.getDefault()), field.getGenericType());
                         if (b3 != null) {
                             com.baidu.adp.lib.OrmObject.a.a.a(gVar, name, b3);
                         }
-                    } else if (hJ.contains(name.toUpperCase(Locale.getDefault())) && (b = cVar.b(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
+                    } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (b = cVar.b(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
                         com.baidu.adp.lib.OrmObject.a.a.a(gVar, name, b);
                     }
                 }

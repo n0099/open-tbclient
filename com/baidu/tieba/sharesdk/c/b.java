@@ -30,23 +30,23 @@ public class b {
                 break;
         }
         if (i3 != 0) {
-            amVar.w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i3);
+            amVar.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i3);
         }
         if (shareEntity == null) {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle GP = shareEntity.GP();
-        if (GP != null && (i2 = GP.getInt("obj_param1")) != 0) {
-            amVar.w("obj_param1", i2);
+        Bundle IQ = shareEntity.IQ();
+        if (IQ != null && (i2 = IQ.getInt("obj_param1")) != 0) {
+            amVar.x("obj_param1", i2);
             if (i2 == 2) {
-                amVar.al(ImageViewerConfig.FORUM_ID, GP.getString(ImageViewerConfig.FORUM_ID));
+                amVar.ax(ImageViewerConfig.FORUM_ID, IQ.getString(ImageViewerConfig.FORUM_ID));
             } else if (i2 == 3) {
-                int i4 = GP.getInt("obj_type");
+                int i4 = IQ.getInt("obj_type");
                 if (i4 != 0) {
-                    amVar.w("obj_type", i4);
+                    amVar.x("obj_type", i4);
                 }
-                amVar.al("tid", GP.getString("tid")).al(ImageViewerConfig.FORUM_ID, GP.getString(ImageViewerConfig.FORUM_ID));
+                amVar.ax("tid", IQ.getString("tid")).ax(ImageViewerConfig.FORUM_ID, IQ.getString(ImageViewerConfig.FORUM_ID));
             }
         }
         TiebaStatic.log(amVar);
@@ -73,17 +73,17 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            amVar.w(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
+            amVar.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
         }
         if (shareEntity == null) {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle GP = shareEntity.GP();
-        if (GP != null) {
-            amVar.al("tid", GP.getString("tid"));
-            amVar.al("uid", GP.getString("uid"));
-            amVar.al(ImageViewerConfig.FORUM_ID, GP.getString(ImageViewerConfig.FORUM_ID));
+        Bundle IQ = shareEntity.IQ();
+        if (IQ != null) {
+            amVar.ax("tid", IQ.getString("tid"));
+            amVar.ax("uid", IQ.getString("uid"));
+            amVar.ax(ImageViewerConfig.FORUM_ID, IQ.getString(ImageViewerConfig.FORUM_ID));
         }
         TiebaStatic.log(amVar);
     }

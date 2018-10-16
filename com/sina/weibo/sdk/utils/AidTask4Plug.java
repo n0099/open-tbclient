@@ -17,8 +17,9 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.security.RSAUtil;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.net.HttpManager;
@@ -120,7 +121,7 @@ public class AidTask4Plug {
             AidInfo aidInfo = new AidInfo();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.has("error") || jSONObject.has(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                if (jSONObject.has(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR) || jSONObject.has("error_code")) {
                     LogUtil.d(AidTask4Plug.TAG, "loadAidFromNet has error !!!");
                     throw new WeiboException("loadAidFromNet has error !!!");
                 }
@@ -591,7 +592,7 @@ public class AidTask4Plug {
     private static String getResolution(Context context) {
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getMetrics(displayMetrics);
             return String.valueOf(displayMetrics.widthPixels) + "*" + String.valueOf(displayMetrics.heightPixels);
         } catch (Exception e) {
             return "";

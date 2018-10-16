@@ -3,21 +3,21 @@ package com.baidu.tbadk.album;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private MediaFileInfo acB;
-    private List<MediaFileInfo> acC;
+    public static final String ahy = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+    public static final String ahz = String.valueOf(2147483646);
+    private MediaFileInfo ahA;
+    private List<MediaFileInfo> ahB;
     private String albumId;
     private int count;
     private String name;
-    public static final String acz = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-    public static final String acA = String.valueOf(2147483646);
 
     public String getAlbumId() {
         return this.albumId;
     }
 
-    public void cW(String str) {
+    public void dn(String str) {
         this.albumId = str;
     }
 
@@ -33,34 +33,35 @@ public class a {
         return this.count;
     }
 
-    public void cX(String str) {
+    /* renamed from: do  reason: not valid java name */
+    public void m15do(String str) {
         this.count = com.baidu.adp.lib.g.b.l(str, 0);
     }
 
-    public void sC() {
+    public void uN() {
         this.count++;
     }
 
-    public ImageFileInfo sD() {
-        if (this.acB instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.acB;
+    public ImageFileInfo uO() {
+        if (this.ahA instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.ahA;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.acB = mediaFileInfo;
+        this.ahA = mediaFileInfo;
     }
 
-    public MediaFileInfo sE() {
-        return this.acB;
+    public MediaFileInfo uP() {
+        return this.ahA;
     }
 
-    public List<MediaFileInfo> sF() {
-        return this.acC;
+    public List<MediaFileInfo> uQ() {
+        return this.ahB;
     }
 
-    public void o(List<MediaFileInfo> list) {
-        this.acC = list;
+    public void y(List<MediaFileInfo> list) {
+        this.ahB = list;
     }
 }

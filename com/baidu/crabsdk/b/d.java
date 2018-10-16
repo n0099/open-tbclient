@@ -5,21 +5,23 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> Vh = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float Vi = 0.0f;
-    private static float Vj = 0.0f;
-    private static float Vk = 0.0f;
-    private static float Vl = 0.0f;
-    private static String Vm = "";
-    private static long Vn = 0;
-    private static long Vo = 0;
-    private static Rect Vp = null;
+    private static com.baidu.crabsdk.c.b<List> XT = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float XU = 0.0f;
+    private static float XV = 0.0f;
+    private static float XW = 0.0f;
+    private static float XX = 0.0f;
+    private static String XY = "";
+    private static long XZ = 0;
+    private static long Ya = 0;
+    private static Rect Yb = null;
 
     private static List<View> D(View view) {
         ArrayList arrayList = new ArrayList();
@@ -28,19 +30,19 @@ public final class d {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) Vi;
-                    int i3 = (int) Vj;
-                    if (Vp == null) {
-                        Vp = new Rect();
+                    int i2 = (int) XU;
+                    int i3 = (int) XV;
+                    if (Yb == null) {
+                        Yb = new Rect();
                     }
-                    childAt.getDrawingRect(Vp);
+                    childAt.getDrawingRect(Yb);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    Vp.left = iArr[0];
-                    Vp.top = iArr[1];
-                    Vp.right += iArr[0];
-                    Vp.bottom = iArr[1] + Vp.bottom;
-                    if (Vp.contains(i2, i3)) {
+                    Yb.left = iArr[0];
+                    Yb.top = iArr[1];
+                    Yb.right += iArr[0];
+                    Yb.bottom = iArr[1] + Yb.bottom;
+                    if (Yb.contains(i2, i3)) {
                         arrayList.add(childAt);
                         arrayList.addAll(D(childAt));
                     }
@@ -53,7 +55,7 @@ public final class d {
     private static void a(int i, Activity activity) {
         View decorView;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
+        arrayList.add(new SimpleDateFormat(AiAppDateTimeUtil.TIME_FORMAT).format(new Date(System.currentTimeMillis())));
         StringBuilder sb = new StringBuilder();
         if (activity != null && (decorView = activity.getWindow().getDecorView()) != null) {
             List<View> D = D(decorView);
@@ -66,52 +68,52 @@ public final class d {
         arrayList.add(sb.toString());
         switch (i) {
             case 1:
-                arrayList.add("click");
-                arrayList.add("(" + Vi + ", " + Vj + ")");
+                arrayList.add(AiAppsUBCStatistic.TYPE_CLICK);
+                arrayList.add("(" + XU + ", " + XV + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + Vi + ", " + Vj + ")");
+                arrayList.add("(" + XU + ", " + XV + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + Vi + ", " + Vj + ")");
+                arrayList.add("(" + XU + ", " + XV + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + Vi + ", " + Vj + ") to:(" + Vk + ", " + Vl + ")");
+                arrayList.add("from:(" + XU + ", " + XV + ") to:(" + XW + ", " + XX + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + Vi + ", " + Vj + ") to:(" + Vk + ", " + Vl + ")");
+                arrayList.add("from:(" + XU + ", " + XV + ") to:(" + XW + ", " + XX + ")");
                 break;
         }
-        arrayList.add(Vm);
-        Vh.add(arrayList);
+        arrayList.add(XY);
+        XT.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        Vm = activity.getClass().getName();
+        XY = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                Vi = motionEvent.getX();
-                Vj = motionEvent.getY();
-                Vn = System.currentTimeMillis();
+                XU = motionEvent.getX();
+                XV = motionEvent.getY();
+                XZ = System.currentTimeMillis();
                 return;
             case 1:
-                Vk = motionEvent.getX();
-                Vl = motionEvent.getY();
-                Vo = System.currentTimeMillis();
-                if (Math.abs(Vl - Vj) > 30.0f) {
+                XW = motionEvent.getX();
+                XX = motionEvent.getY();
+                Ya = System.currentTimeMillis();
+                if (Math.abs(XX - XV) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(Vk - Vi) > 30.0f && Math.abs(Vl - Vj) < 30.0f) {
+                } else if (Math.abs(XW - XU) > 30.0f && Math.abs(XX - XV) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (Vo - Vn > 300) {
+                } else if (Ya - XZ > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,15 +128,15 @@ public final class d {
 
     public static String u() {
         StringBuilder sb = new StringBuilder();
-        int size = Vh.size();
+        int size = XT.size();
         for (int i = 0; i < size; i++) {
-            List list = Vh.get(i);
+            List list = XT.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }
             sb.append("STEP" + (i + 1) + "\nTime: " + list.get(0) + "; Activity: " + list.get(4) + "; Component: " + list.get(1) + "; Operation: " + list.get(2) + "; Location: " + list.get(3) + "\n");
         }
-        com.baidu.crabsdk.c.a.cx("Behavior Steps --> " + sb.toString());
+        com.baidu.crabsdk.c.a.cI("Behavior Steps --> " + sb.toString());
         return sb.toString();
     }
 }

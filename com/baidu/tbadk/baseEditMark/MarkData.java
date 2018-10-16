@@ -1,6 +1,5 @@
 package com.baidu.tbadk.baseEditMark;
 
-import android.support.v4.app.NotificationCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.mobstat.Config;
@@ -307,7 +306,7 @@ public class MarkData implements Serializable {
             if (this.mHostMode) {
                 i += 2;
             }
-            jSONObject.put(NotificationCompat.CATEGORY_STATUS, i);
+            jSONObject.put("status", i);
             return jSONObject;
         } catch (Exception e) {
             BdLog.detailException(e);

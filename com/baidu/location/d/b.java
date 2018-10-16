@@ -7,9 +7,9 @@ import com.baidu.location.a.k;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.tencent.connect.common.Constants;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static b aam = null;
+    private static b aeT = null;
     public static String d = null;
     public static String e = null;
     public static String f = null;
@@ -25,11 +25,11 @@ public class b {
         }
     }
 
-    public static b rS() {
-        if (aam == null) {
-            aam = new b();
+    public static b tM() {
+        if (aeT == null) {
+            aeT = new b();
         }
-        return aam;
+        return aeT;
     }
 
     public String a(boolean z) {
@@ -96,7 +96,7 @@ public class b {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float d2 = k.rz().d();
+        float d2 = k.tt().d();
         if (d2 != 0.0f) {
             stringBuffer.append("&altv=");
             stringBuffer.append(String.format(Locale.US, "%.5f", Float.valueOf(d2)));

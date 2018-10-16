@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> LD = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Me = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        LD.put(Boolean.class, Boolean.TYPE);
-        LD.put(Byte.class, Byte.TYPE);
-        LD.put(Character.class, Character.TYPE);
-        LD.put(Short.class, Short.TYPE);
-        LD.put(Integer.class, Integer.TYPE);
-        LD.put(Float.class, Float.TYPE);
-        LD.put(Long.class, Long.TYPE);
-        LD.put(Double.class, Double.TYPE);
-        LD.put(Boolean.TYPE, Boolean.TYPE);
-        LD.put(Byte.TYPE, Byte.TYPE);
-        LD.put(Character.TYPE, Character.TYPE);
-        LD.put(Short.TYPE, Short.TYPE);
-        LD.put(Integer.TYPE, Integer.TYPE);
-        LD.put(Float.TYPE, Float.TYPE);
-        LD.put(Long.TYPE, Long.TYPE);
-        LD.put(Double.TYPE, Double.TYPE);
+        Me.put(Boolean.class, Boolean.TYPE);
+        Me.put(Byte.class, Byte.TYPE);
+        Me.put(Character.class, Character.TYPE);
+        Me.put(Short.class, Short.TYPE);
+        Me.put(Integer.class, Integer.TYPE);
+        Me.put(Float.class, Float.TYPE);
+        Me.put(Long.class, Long.TYPE);
+        Me.put(Double.class, Double.TYPE);
+        Me.put(Boolean.TYPE, Boolean.TYPE);
+        Me.put(Byte.TYPE, Byte.TYPE);
+        Me.put(Character.TYPE, Character.TYPE);
+        Me.put(Short.TYPE, Short.TYPE);
+        Me.put(Integer.TYPE, Integer.TYPE);
+        Me.put(Float.TYPE, Float.TYPE);
+        Me.put(Long.TYPE, Long.TYPE);
+        Me.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (LD.containsKey(clsArr[i]) && LD.get(clsArr[i]).equals(LD.get(clsArr2[i]))) {
+                if (Me.containsKey(clsArr[i]) && Me.get(clsArr[i]).equals(Me.get(clsArr2[i]))) {
                     return true;
                 }
             }
@@ -193,7 +193,7 @@ public class d {
         return null;
     }
 
-    public static Object a(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
+    public static Object getField(Object obj, Class<?> cls, String str) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
         Field declaredField = cls.getDeclaredField(str);
         declaredField.setAccessible(true);
         return declaredField.get(obj);

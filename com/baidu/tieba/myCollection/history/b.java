@@ -13,57 +13,57 @@ import com.baidu.tieba.e;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
-    private TextView aBk;
-    private TextView crz;
-    private TextView fsc;
+    private TextView aFR;
+    private TextView cAc;
+    private TextView fzG;
     private View mLine;
     private View mRootView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.fsc = (TextView) view.findViewById(e.g.title);
-        this.aBk = (TextView) view.findViewById(e.g.content);
-        this.aBk.setSingleLine();
-        this.aBk.setEllipsize(TextUtils.TruncateAt.END);
-        this.crz = (TextView) view.findViewById(e.g.time);
+        this.fzG = (TextView) view.findViewById(e.g.title);
+        this.aFR = (TextView) view.findViewById(e.g.content);
+        this.aFR.setSingleLine();
+        this.aFR.setEllipsize(TextUtils.TruncateAt.END);
+        this.cAc = (TextView) view.findViewById(e.g.time);
         this.mLine = view.findViewById(e.g.line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void H(com.baidu.tieba.myCollection.baseHistory.a aVar) {
-        super.H(aVar);
+    public void L(com.baidu.tieba.myCollection.baseHistory.a aVar) {
+        super.L(aVar);
         if (aVar != null) {
-            if (this.fsc != null) {
+            if (this.fzG != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.fsc.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
+                        this.fzG.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.fsc.setText(aVar.getDescription());
+                        this.fzG.setText(aVar.getDescription());
                     }
-                } else if (aVar.aZl() != null) {
+                } else if (aVar.bcx() != null) {
                     if (aVar.isShareThread()) {
-                        this.fsc.setText(String.format("%s%s", getString(e.j.pb_history_share_prefix), aVar.aZl()));
+                        this.fzG.setText(String.format("%s%s", getString(e.j.pb_history_share_prefix), aVar.bcx()));
                     } else {
-                        this.fsc.setText(aVar.aZl());
+                        this.fzG.setText(aVar.bcx());
                     }
                 }
             }
-            if (this.aBk != null) {
+            if (this.aFR != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.aBk.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
+                    this.aFR.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.aBk.setText(aVar.getForumName());
+                    this.aFR.setText(aVar.getForumName());
                 }
             }
-            if (this.crz != null) {
+            if (this.cAc != null) {
                 String g = ao.g(new Date(aVar.getTime()));
                 if (g == null) {
                     g = "";
                 }
-                this.crz.setText(g);
+                this.cAc.setText(g);
             }
         }
     }
@@ -73,9 +73,9 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         al.i(this.mRootView, e.f.list_item_selector);
         al.i(this.mLine, e.d.cp_bg_line_b);
-        al.c(this.fsc, e.d.cp_cont_b, 1);
-        al.c(this.aBk, e.d.cp_cont_d, 1);
-        al.c(this.crz, e.d.cp_cont_d, 1);
+        al.c(this.fzG, e.d.cp_cont_b, 1);
+        al.c(this.aFR, e.d.cp_cont_d, 1);
+        al.c(this.cAc, e.d.cp_cont_d, 1);
         return true;
     }
 }

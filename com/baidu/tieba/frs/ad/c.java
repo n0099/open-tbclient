@@ -6,69 +6,69 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AdInfo;
 import tbclient.Media;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dwH = BdUniqueId.gen();
-    private String agg;
-    private String agi;
-    public boolean dnR = false;
-    private String dwI;
-    private String dwJ;
-    private List<MediaData> dwK;
-    private int dwL;
+    public static final BdUniqueId dEI = BdUniqueId.gen();
+    private String alc;
+    private String ale;
+    private String dEJ;
+    private String dEK;
+    private List<MediaData> dEL;
+    private int dEM;
+    public boolean dvU = false;
 
     public void a(AdInfo adInfo) {
         if (adInfo != null) {
-            this.dwI = adInfo.portrait;
-            this.agg = adInfo.ad_name;
-            this.dwJ = adInfo.ad_desc;
-            this.agi = adInfo.ad_url;
-            this.dwL = adInfo.show_rule.intValue();
+            this.dEJ = adInfo.portrait;
+            this.alc = adInfo.ad_name;
+            this.dEK = adInfo.ad_desc;
+            this.ale = adInfo.ad_url;
+            this.dEM = adInfo.show_rule.intValue();
             if (adInfo.media != null) {
-                this.dwK = new ArrayList();
+                this.dEL = new ArrayList();
                 for (Media media : adInfo.media) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(media);
-                    this.dwK.add(mediaData);
+                    this.dEL.add(mediaData);
                 }
             }
         }
     }
 
-    public int aye() {
-        return this.dwL;
+    public int aBz() {
+        return this.dEM;
     }
 
-    public String ayf() {
-        return this.dwI;
+    public String aBA() {
+        return this.dEJ;
     }
 
-    public String ayg() {
-        return this.agg;
+    public String aBB() {
+        return this.alc;
     }
 
-    public String ayh() {
-        return this.dwJ;
+    public String aBC() {
+        return this.dEK;
     }
 
-    public String Mx() {
-        return this.agi;
+    public String Ov() {
+        return this.ale;
     }
 
-    public List<MediaData> ayi() {
-        return this.dwK;
+    public List<MediaData> aBD() {
+        return this.dEL;
     }
 
-    public void gn(boolean z) {
-        this.dnR = z;
+    public void gF(boolean z) {
+        this.dvU = z;
     }
 
-    public boolean ayj() {
-        return this.dnR;
+    public boolean aBE() {
+        return this.dvU;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dwH;
+        return dEI;
     }
 }

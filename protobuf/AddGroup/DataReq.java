@@ -2,7 +2,7 @@ package protobuf.AddGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_BUSINESS = "";
     public static final String DEFAULT_INTRO = "";
@@ -112,7 +112,7 @@ public final class DataReq extends Message {
         this.page_from_dim = builder.page_from_dim;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String business;
         public Integer flag;

@@ -3,7 +3,7 @@ package com.coremedia.iso;
 import android.support.v4.internal.view.SupportMenu;
 import java.nio.ByteBuffer;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class IsoTypeWriter {
     static final /* synthetic */ boolean $assertionsDisabled;
 

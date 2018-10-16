@@ -2,7 +2,7 @@ package protobuf.SetLocation;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class SetLocationReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
@@ -16,7 +16,7 @@ public final class SetLocationReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<SetLocationReqIdl> {
         public DataReq data;
 

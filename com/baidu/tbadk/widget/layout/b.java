@@ -6,5 +6,5 @@ import java.util.List;
 public interface b {
     int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
 
-    int fT(int i);
+    int gc(int i);
 }

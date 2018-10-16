@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.boxes.piff;
 
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
-import com.coremedia.iso.boxes.UserBox;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
@@ -10,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class TfrfBox extends AbstractFullBox {
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0304a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0360a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     static {
@@ -29,7 +28,7 @@ public class TfrfBox extends AbstractFullBox {
     }
 
     public TfrfBox() {
-        super(UserBox.TYPE);
+        super("uuid");
         this.entries = new ArrayList();
     }
 
@@ -94,7 +93,7 @@ public class TfrfBox extends AbstractFullBox {
         return sb.toString();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class Entry {
         long fragmentAbsoluteDuration;
         long fragmentAbsoluteTime;

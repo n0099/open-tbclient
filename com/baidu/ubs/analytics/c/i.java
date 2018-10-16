@@ -14,6 +14,7 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,7 +24,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.NetworkInterface;
 import java.util.Collections;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class i {
     private static String A;
     private static String B;
@@ -100,9 +101,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String qo = qo();
-                if (qo != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(qo);
+                String rx2 = rx();
+                if (rx2 != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(rx2);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -118,7 +119,7 @@ public final class i {
         }
     }
 
-    private static String qo() {
+    private static String rx() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -212,28 +213,28 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.bLP().getContext());
+            p(com.baidu.ubs.analytics.d.bQf().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.bLP().getContext());
+            p(com.baidu.ubs.analytics.d.bQf().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.bLP().getContext());
+            p(com.baidu.ubs.analytics.d.bQf().getContext());
         }
         return B;
     }
 
     private static void p(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);
         A = String.valueOf(displayMetrics.heightPixels);
         B = String.valueOf(displayMetrics.density);

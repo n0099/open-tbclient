@@ -157,7 +157,7 @@ public final class e extends a {
             d next = it.next();
             try {
                 JSONObject jSONObject = new JSONObject();
-                String packageName = next.bS().getPackageName();
+                String packageName = next.cj().getPackageName();
                 Object a = a(this.b, packageName);
                 jSONObject.put("target_package", packageName);
                 jSONObject.put("awake_sequence", a);

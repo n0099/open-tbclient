@@ -10,30 +10,30 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean aVq;
+    protected boolean aZP;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.aVq = false;
+        this.aZP = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aVq = false;
+        this.aZP = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aVq = false;
+        this.aZP = false;
     }
 
-    public void dQ(int i) {
+    public void ea(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void cb(boolean z) {
+    public void ck(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +49,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a hH(String str) {
+    public a hV(String str) {
         return null;
     }
 
@@ -86,35 +86,35 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void ax(String str, String str2) {
+    public void aI(String str, String str2) {
     }
 
-    public void KF() {
+    public void MD() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.aVq = z;
+        this.aZP = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int Bs;
-        public int aVs;
-        public TbFragmentTabIndicator aVu;
+        public int Ca;
+        public int aZR;
+        public TbFragmentTabIndicator aZT;
         public View view;
-        public boolean aVr = true;
-        public int aVt = e.d.common_color_10225;
+        public boolean aZQ = true;
+        public int aZS = e.d.common_color_10225;
 
-        public void dQ(int i) {
-            if (this.aVs != 0) {
-                al.i(this.view, this.aVs);
+        public void ea(int i) {
+            if (this.aZR != 0) {
+                al.i(this.view, this.aZR);
             }
             if (this.view instanceof TextView) {
-                if (this.aVt != 0) {
-                    al.c(this.view, this.aVt, 1);
+                if (this.aZS != 0) {
+                    al.c(this.view, this.aZS, 1);
                 }
                 int a = a((TextView) this.view);
                 if (a > 0 && a < 10) {

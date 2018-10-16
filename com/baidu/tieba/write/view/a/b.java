@@ -11,14 +11,14 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView hFY;
-    private TextView hFZ;
-    private TextView hGa;
-    private TextView hGb;
+    private TextView hNk;
+    private TextView hNl;
+    private TextView hNm;
+    private TextView hNn;
 
     public b(e eVar) {
         super(eVar);
-        mPadding = eVar.getResources().getDimensionPixelOffset(e.C0141e.ds8);
+        mPadding = eVar.getResources().getDimensionPixelOffset(e.C0175e.ds8);
     }
 
     public View getRootView() {
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void u(View.OnClickListener onClickListener) {
-        this.hFY.setTag(0);
-        this.hFZ.setTag(1);
-        this.hGa.setTag(2);
-        this.hGb.setTag(3);
-        this.hFY.setOnClickListener(onClickListener);
-        this.hFZ.setOnClickListener(onClickListener);
-        this.hGa.setOnClickListener(onClickListener);
-        this.hGb.setOnClickListener(onClickListener);
+        this.hNk.setTag(0);
+        this.hNl.setTag(1);
+        this.hNm.setTag(2);
+        this.hNn.setTag(3);
+        this.hNk.setOnClickListener(onClickListener);
+        this.hNl.setOnClickListener(onClickListener);
+        this.hNm.setOnClickListener(onClickListener);
+        this.hNn.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(e.h.pic_rorate_view, (ViewGroup) null);
-        this.hFY = (TextView) this.mRootView.findViewById(e.g.rotate_left);
-        this.hFZ = (TextView) this.mRootView.findViewById(e.g.rotate_right);
-        this.hGa = (TextView) this.mRootView.findViewById(e.g.rotate_left_right);
-        this.hGb = (TextView) this.mRootView.findViewById(e.g.rotate_up_down);
+        this.hNk = (TextView) this.mRootView.findViewById(e.g.rotate_left);
+        this.hNl = (TextView) this.mRootView.findViewById(e.g.rotate_right);
+        this.hNm = (TextView) this.mRootView.findViewById(e.g.rotate_left_right);
+        this.hNn = (TextView) this.mRootView.findViewById(e.g.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        al.h(this.hFY, e.d.cp_cont_j);
-        al.h(this.hFZ, e.d.cp_cont_j);
-        al.h(this.hGa, e.d.cp_cont_j);
-        al.h(this.hGb, e.d.cp_cont_j);
-        this.hFY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.hFZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.hGb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.hGa.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.hFY.setCompoundDrawablePadding(mPadding);
-        this.hFZ.setCompoundDrawablePadding(mPadding);
-        this.hGb.setCompoundDrawablePadding(mPadding);
-        this.hGa.setCompoundDrawablePadding(mPadding);
+        al.h(this.hNk, e.d.cp_cont_j);
+        al.h(this.hNl, e.d.cp_cont_j);
+        al.h(this.hNm, e.d.cp_cont_j);
+        al.h(this.hNn, e.d.cp_cont_j);
+        this.hNk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.hNl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.hNn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.hNm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(e.f.filter_flip_left_right), (Drawable) null, (Drawable) null);
+        this.hNk.setCompoundDrawablePadding(mPadding);
+        this.hNl.setCompoundDrawablePadding(mPadding);
+        this.hNn.setCompoundDrawablePadding(mPadding);
+        this.hNm.setCompoundDrawablePadding(mPadding);
     }
 }

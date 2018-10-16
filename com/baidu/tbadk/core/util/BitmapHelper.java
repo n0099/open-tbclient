@@ -19,7 +19,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.e;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -629,19 +628,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream eC = l.eC(str);
-                BitmapFactory.decodeStream(eC, null, options);
+                InputStream eS = l.eS(str);
+                BitmapFactory.decodeStream(eS, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.h(eC);
+                com.baidu.adp.lib.util.n.h(eS);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream eC2 = l.eC(str);
-                        decodeStream = BitmapFactory.decodeStream(eC2, null, options);
-                        com.baidu.adp.lib.util.n.h(eC2);
+                        InputStream eS2 = l.eS(str);
+                        decodeStream = BitmapFactory.decodeStream(eS2, null, options);
+                        com.baidu.adp.lib.util.n.h(eS2);
                     }
                 }
             }
@@ -1124,7 +1123,7 @@ public class BitmapHelper {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
-                    return SubsamplingScaleImageView.ORIENTATION_180;
+                    return 180;
                 case 4:
                 case 5:
                 case 7:
@@ -1133,7 +1132,7 @@ public class BitmapHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return SubsamplingScaleImageView.ORIENTATION_270;
+                    return 270;
             }
         } catch (IOException e) {
             return 0;

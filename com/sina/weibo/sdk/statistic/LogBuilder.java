@@ -101,13 +101,13 @@ public class LogBuilder {
                 case SESSION_END:
                     jSONObject.put("type", 1);
                     jSONObject.put("time", pageLog.getEndTime() / 1000);
-                    jSONObject.put(KEY_DURATION, pageLog.getDuration() / 1000);
+                    jSONObject.put("duration", pageLog.getDuration() / 1000);
                     break;
                 case FRAGMENT:
                     jSONObject.put("type", 2);
                     jSONObject.put("page_id", pageLog.getPage_id());
                     jSONObject.put("time", pageLog.getStartTime() / 1000);
-                    jSONObject.put(KEY_DURATION, pageLog.getDuration() / 1000);
+                    jSONObject.put("duration", pageLog.getDuration() / 1000);
                     break;
                 case EVENT:
                     jSONObject.put("type", 3);
@@ -119,7 +119,7 @@ public class LogBuilder {
                     jSONObject.put("type", 4);
                     jSONObject.put("page_id", pageLog.getPage_id());
                     jSONObject.put("time", pageLog.getStartTime() / 1000);
-                    jSONObject.put(KEY_DURATION, pageLog.getDuration() / 1000);
+                    jSONObject.put("duration", pageLog.getDuration() / 1000);
                     break;
                 case APP_AD_START:
                     AdEventLog adEventLog = (AdEventLog) pageLog;

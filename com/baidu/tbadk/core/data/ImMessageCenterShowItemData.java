@@ -152,7 +152,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m14clone() {
+    public ImMessageCenterShowItemData m16clone() {
         try {
             return (ImMessageCenterShowItemData) super.clone();
         } catch (CloneNotSupportedException e) {

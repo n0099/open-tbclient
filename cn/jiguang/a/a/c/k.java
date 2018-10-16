@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.SystemClock;
 import cn.jiguang.d.d.aa;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.Collections;
 import java.util.HashSet;
@@ -68,7 +69,7 @@ public class k {
                         }
                     }
                     try {
-                        jSONObject.put("app_name", a3);
+                        jSONObject.put(AiAppsApsUtils.APP_NAME, a3);
                         jSONObject.put(PushConstants.PACKAGE_NAME, applicationInfo.packageName);
                         jSONObject.put("service_list", jSONArray2);
                         jSONArray.put(jSONObject);

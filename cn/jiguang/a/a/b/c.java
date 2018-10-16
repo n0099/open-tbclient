@@ -6,20 +6,21 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.http.Headers;
 import android.os.Message;
-import com.baidu.baiduarsdk.ArBridge;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class c {
-    private LocationManager jV;
-    private e jW;
-    private f jX;
+    private LocationManager kC;
+    private e kD;
+    private f kE;
     private String c = "";
-    private final LocationListener jY = new d(this);
+    private final LocationListener kF = new d(this);
 
     public c(Context context, f fVar) {
-        this.jV = (LocationManager) context.getSystemService(Headers.LOCATION);
-        this.jX = fVar;
+        this.kC = (LocationManager) context.getSystemService(Headers.LOCATION);
+        this.kE = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -33,8 +34,8 @@ public final class c {
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
             if (e.b(latitude, longitude)) {
-                this.jW = new e(latitude, longitude, location.getAltitude(), location.getBearing(), location.getAccuracy(), str, cn.jiguang.d.a.a.a(location.getTime()), z);
-                if (this.jW != null && (f = this.jW.f()) != null) {
+                this.kD = new e(latitude, longitude, location.getAltitude(), location.getBearing(), location.getAccuracy(), str, cn.jiguang.d.a.a.a(location.getTime()), z);
+                if (this.kD != null && (f = this.kD.f()) != null) {
                     cn.jiguang.d.a.d.b(f.toString());
                 }
             } else {
@@ -46,14 +47,14 @@ public final class c {
     }
 
     private void a(String str) {
-        this.jW = new e(str);
+        this.kD = new e(str);
     }
 
     private boolean c() {
         try {
-            if (this.jV != null) {
-                if (!this.jV.isProviderEnabled("gps") && !this.jV.isProviderEnabled("network")) {
-                    if (!this.jV.isProviderEnabled("passive")) {
+            if (this.kC != null) {
+                if (!this.kC.isProviderEnabled("gps") && !this.kC.isProviderEnabled("network")) {
+                    if (!this.kC.isProviderEnabled("passive")) {
                         return false;
                     }
                 }
@@ -72,57 +73,57 @@ public final class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         e();
-        if (this.jX == null) {
+        if (this.kE == null) {
             cn.jiguang.e.c.c("GpsInfoManager", "cellLocationManager is null,please check it");
             return;
         }
-        if (this.jX.b != null) {
-            if (this.jX.b.hasMessages(1004)) {
-                this.jX.b.removeMessages(1004);
+        if (this.kE.b != null) {
+            if (this.kE.b.hasMessages(1004)) {
+                this.kE.b.removeMessages(1004);
             }
-            if (this.jX.b.hasMessages(1003)) {
-                this.jX.b.removeMessages(1003);
+            if (this.kE.b.hasMessages(1003)) {
+                this.kE.b.removeMessages(1003);
             }
-            if (this.jX.b.hasMessages(1001)) {
-                this.jX.b.removeMessages(1001);
+            if (this.kE.b.hasMessages(1001)) {
+                this.kE.b.removeMessages(1001);
             }
-            if (this.jX.b.hasMessages(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC)) {
-                this.jX.b.removeMessages(ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC);
+            if (this.kE.b.hasMessages(1005)) {
+                this.kE.b.removeMessages(1005);
             }
         }
-        this.jX.b();
+        this.kE.b();
     }
 
     private void e() {
         try {
-            if (this.jY == null || this.jV == null) {
+            if (this.kF == null || this.kC == null) {
                 return;
             }
-            this.jV.removeUpdates(this.jY);
+            this.kC.removeUpdates(this.kF);
         } catch (Throwable th) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(Context context) {
-        if (this.jX.a) {
+        if (this.kE.a) {
             a("skip gps collect");
-            this.jX.b();
+            this.kE.b();
         } else if (!cn.jiguang.g.a.a(context, "android.permission.ACCESS_FINE_LOCATION")) {
             a("no permission");
-            this.jX.b();
+            this.kE.b();
         } else if (!c()) {
             a("no enabled provider");
-            this.jX.b();
+            this.kE.b();
         } else {
             try {
-                if (this.jV == null) {
+                if (this.kC == null) {
                     d();
                     return;
                 }
-                Location lastKnownLocation = this.jV.getLastKnownLocation("gps");
-                Location lastKnownLocation2 = this.jV.getLastKnownLocation("network");
-                Location lastKnownLocation3 = this.jV.getLastKnownLocation("passive");
+                Location lastKnownLocation = this.kC.getLastKnownLocation("gps");
+                Location lastKnownLocation2 = this.kC.getLastKnownLocation("network");
+                Location lastKnownLocation3 = this.kC.getLastKnownLocation("passive");
                 long time = lastKnownLocation == null ? 0L : lastKnownLocation.getTime();
                 long time2 = lastKnownLocation2 == null ? 0L : lastKnownLocation2.getTime();
                 long time3 = lastKnownLocation3 == null ? 0L : lastKnownLocation3.getTime();
@@ -136,15 +137,15 @@ public final class c {
                 a(lastKnownLocation3, lastKnownLocation3 != null ? lastKnownLocation3.getProvider() : "", true);
                 if (System.currentTimeMillis() - (lastKnownLocation3 != null ? lastKnownLocation3.getTime() : 0L) < StatisticConfig.MIN_UPLOAD_INTERVAL) {
                     d();
-                } else if (this.jV.isProviderEnabled("network")) {
+                } else if (this.kC.isProviderEnabled("network")) {
                     this.c = "network";
-                    this.jX.b.sendEmptyMessage(1003);
-                } else if (this.jV.isProviderEnabled("gps")) {
+                    this.kE.b.sendEmptyMessage(1003);
+                } else if (this.kC.isProviderEnabled("gps")) {
                     this.c = "gps";
-                    this.jX.b.sendEmptyMessage(1003);
+                    this.kE.b.sendEmptyMessage(1003);
                 } else {
                     this.c = "network";
-                    this.jX.b.sendEmptyMessage(1004);
+                    this.kE.b.sendEmptyMessage(1004);
                 }
             } catch (SecurityException e) {
                 d();
@@ -165,8 +166,8 @@ public final class c {
                     } else {
                         this.c = "gps";
                         e();
-                        this.jV.requestLocationUpdates(this.c, 2000L, 0.0f, this.jY);
-                        this.jX.b.sendEmptyMessageDelayed(1001, 10000L);
+                        this.kC.requestLocationUpdates(this.c, SystemScreenshotManager.DELAY_TIME, 0.0f, this.kF);
+                        this.kE.b.sendEmptyMessageDelayed(1001, ErrDef.Feature.WEIGHT);
                     }
                     return;
                 } catch (Throwable th) {
@@ -182,13 +183,13 @@ public final class c {
             case 1004:
                 i = 1005;
                 break;
-            case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
+            case 1005:
                 d();
                 return;
         }
         try {
-            this.jV.requestLocationUpdates(this.c, 2000L, 0.0f, this.jY);
-            this.jX.b.sendEmptyMessageDelayed(i, 20000L);
+            this.kC.requestLocationUpdates(this.c, SystemScreenshotManager.DELAY_TIME, 0.0f, this.kF);
+            this.kE.b.sendEmptyMessageDelayed(i, 20000L);
         } catch (SecurityException e) {
             d();
         } catch (Throwable th2) {
@@ -196,12 +197,12 @@ public final class c {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final e aX() {
-        return this.jW;
+    public final void b() {
+        this.kD = null;
     }
 
-    public final void b() {
-        this.jW = null;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final e bo() {
+        return this.kD;
     }
 }

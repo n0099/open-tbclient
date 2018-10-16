@@ -4,78 +4,77 @@ import android.os.Process;
 import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.baiduarsdk.ArBridge;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String aXI = "tb_perfor_samllflow_time";
-    private static volatile m aXL;
-    private long aXK;
-    private boolean aXG = false;
-    private long aXJ = 86400;
-    private long aXH = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(aXI, 0);
+    private static String bci = "tb_perfor_samllflow_time";
+    private static volatile m bcl;
+    private long bck;
+    private boolean bcg = false;
+    private long bcj = 86400;
+    private long bch = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bci, 0);
 
-    public static m LZ() {
-        if (aXL == null) {
+    public static m NX() {
+        if (bcl == null) {
             synchronized (m.class) {
-                if (aXL == null) {
-                    aXL = new m();
+                if (bcl == null) {
+                    bcl = new m();
                 }
             }
         }
-        return aXL;
+        return bcl;
     }
 
     private m() {
-        this.aXK = 0L;
-        this.aXK = this.aXJ;
+        this.bck = 0L;
+        this.bck = this.bcj;
     }
 
-    public boolean Ma() {
-        if (!this.aXG || (System.currentTimeMillis() - this.aXH) / 1000 <= this.aXK) {
-            return this.aXG;
+    public boolean NY() {
+        if (!this.bcg || (System.currentTimeMillis() - this.bch) / 1000 <= this.bck) {
+            return this.bcg;
         }
         return false;
     }
 
-    public void cl(boolean z) {
+    public void cu(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.aXH || currentTimeMillis - this.aXH >= this.aXK) {
-                this.aXH = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aXI, this.aXH);
+            if (0 == this.bch || currentTimeMillis - this.bch >= this.bck) {
+                this.bch = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bci, this.bch);
             }
         } else {
-            this.aXH = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(aXI, this.aXH);
+            this.bch = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bci, this.bch);
         }
-        this.aXG = z;
+        this.bcg = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.Me().Mf();
+            n.Oc().Od();
         }
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.j.kK()) {
+        if (!com.baidu.adp.lib.util.j.kX()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.j.kL()) {
+        if (com.baidu.adp.lib.util.j.kY()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.j.kN()) {
+        if (com.baidu.adp.lib.util.j.la()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.j.kO()) {
+        if (com.baidu.adp.lib.util.j.lb()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.j.kP()) {
+        if (!com.baidu.adp.lib.util.j.lc()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String fz(int i) {
+    public static String fI(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -88,7 +87,7 @@ public class m {
         return "WIFI";
     }
 
-    public long Mb() {
+    public long NZ() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
@@ -98,8 +97,8 @@ public class m {
         }
     }
 
-    public l fA(int i) {
-        if (Ma()) {
+    public l fJ(int i) {
+        if (NY()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -120,7 +119,7 @@ public class m {
                     o oVar3 = new o();
                     oVar3.subType = "photo_live";
                     return oVar3;
-                case ArBridge.MessageType.MSG_TYPE_RESUME_MUSIC /* 1005 */:
+                case 1005:
                     e eVar = new e();
                     eVar.subType = "home_page";
                     return eVar;
@@ -129,9 +128,9 @@ public class m {
         return null;
     }
 
-    public void ag(long j) {
+    public void ai(long j) {
         if (j > 0) {
-            this.aXK = j;
+            this.bck = j;
         }
     }
 
@@ -144,7 +143,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Mc() {
+    public int Oa() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

@@ -19,23 +19,23 @@ import com.baidu.adp.lib.util.l;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private final LinkedList<d> xh = new LinkedList<>();
-    private final LinkedList<k> xi = new LinkedList<>();
-    private final LinkedList<b> xj = new LinkedList<>();
-    private final LinkedList<c> xk = new LinkedList<>();
-    private final LinkedList<j> xl = new LinkedList<>();
-    private final LinkedList<a> xm = new LinkedList<>();
-    private final LinkedList<e> xn = new LinkedList<>();
+    private final LinkedList<d> xT = new LinkedList<>();
+    private final LinkedList<k> xU = new LinkedList<>();
+    private final LinkedList<b> xV = new LinkedList<>();
+    private final LinkedList<c> xW = new LinkedList<>();
+    private final LinkedList<j> xX = new LinkedList<>();
+    private final LinkedList<a> xY = new LinkedList<>();
+    private final LinkedList<e> xZ = new LinkedList<>();
 
     public void addMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            l.kZ();
+            l.lm();
             if (fVar instanceof d) {
-                FrameHelper.a(this.xh, (d) fVar);
+                FrameHelper.a(this.xT, (d) fVar);
             } else if (fVar instanceof k) {
-                FrameHelper.a(this.xi, (k) fVar);
+                FrameHelper.a(this.xU, (k) fVar);
             } else if (fVar instanceof b) {
-                FrameHelper.a(this.xj, (b) fVar);
+                FrameHelper.a(this.xV, (b) fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -44,13 +44,13 @@ public class i {
 
     public void removeMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            l.kZ();
+            l.lm();
             if (fVar instanceof d) {
-                this.xh.remove(fVar);
+                this.xT.remove(fVar);
             } else if (fVar instanceof k) {
-                this.xi.remove(fVar);
+                this.xU.remove(fVar);
             } else if (fVar instanceof b) {
-                this.xj.remove(fVar);
+                this.xV.remove(fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -59,13 +59,13 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            l.kZ();
+            l.lm();
             if (gVar instanceof c) {
-                FrameHelper.a(this.xk, (c) gVar);
+                FrameHelper.a(this.xW, (c) gVar);
             } else if (gVar instanceof j) {
-                FrameHelper.a(this.xl, (j) gVar);
+                FrameHelper.a(this.xX, (j) gVar);
             } else if (gVar instanceof a) {
-                FrameHelper.a(this.xm, (a) gVar);
+                FrameHelper.a(this.xY, (a) gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -74,13 +74,13 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            l.kZ();
+            l.lm();
             if (gVar instanceof c) {
-                this.xk.remove(gVar);
+                this.xW.remove(gVar);
             } else if (gVar instanceof j) {
-                this.xl.remove(gVar);
+                this.xX.remove(gVar);
             } else if (gVar instanceof a) {
-                this.xm.remove(gVar);
+                this.xY.remove(gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -88,15 +88,15 @@ public class i {
     }
 
     public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        return (HttpMessage) a(this.xh, httpMessage, httpMessageTask);
+        return (HttpMessage) a(this.xT, httpMessage, httpMessageTask);
     }
 
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return (SocketMessage) a(this.xi, socketMessage, socketMessageTask);
+        return (SocketMessage) a(this.xU, socketMessage, socketMessageTask);
     }
 
     public CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return (CustomMessage) a(this.xj, customMessage, customMessageTask);
+        return (CustomMessage) a(this.xV, customMessage, customMessageTask);
     }
 
     private <M extends Message<?>, T extends MessageTask> M a(LinkedList<? extends f<M, T>> linkedList, M m, T t) {
@@ -121,15 +121,15 @@ public class i {
     }
 
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        return (HttpResponsedMessage) a(this.xk, httpResponsedMessage);
+        return (HttpResponsedMessage) a(this.xW, httpResponsedMessage);
     }
 
     public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        return (SocketResponsedMessage) a(this.xl, socketResponsedMessage);
+        return (SocketResponsedMessage) a(this.xX, socketResponsedMessage);
     }
 
     public CustomResponsedMessage<?> b(CustomResponsedMessage<?> customResponsedMessage) {
-        return (CustomResponsedMessage) a(this.xm, customResponsedMessage);
+        return (CustomResponsedMessage) a(this.xY, customResponsedMessage);
     }
 
     private <M extends ResponsedMessage<?>> M a(LinkedList<? extends g<M>> linkedList, M m) {
@@ -154,24 +154,24 @@ public class i {
     }
 
     public void a(e eVar) {
-        this.xn.add(eVar);
+        this.xZ.add(eVar);
     }
 
     public void b(e eVar) {
-        this.xn.remove(eVar);
+        this.xZ.remove(eVar);
     }
 
     public void c(int i, BdUniqueId bdUniqueId) {
-        int size = this.xn.size();
+        int size = this.xZ.size();
         for (int i2 = 0; i2 < size; i2++) {
-            this.xn.get(i2).b(i, bdUniqueId);
+            this.xZ.get(i2).b(i, bdUniqueId);
         }
     }
 
     public void c(BdUniqueId bdUniqueId) {
-        int size = this.xn.size();
+        int size = this.xZ.size();
         for (int i = 0; i < size; i++) {
-            this.xn.get(i).b(bdUniqueId);
+            this.xZ.get(i).b(bdUniqueId);
         }
     }
 }

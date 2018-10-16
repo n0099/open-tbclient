@@ -19,15 +19,15 @@ import com.baidu.tieba.card.data.f;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.card.a<f> {
-    private c cEg;
-    public ClickableHeaderImageView dSy;
-    public CommonUserLikeButton dYF;
-    private TextView dYG;
-    private TextView dYH;
-    private TextView dYI;
-    private Drawable dYJ;
-    private MetaData dYK;
-    private f dYL;
+    private c cMA;
+    public ClickableHeaderImageView eas;
+    private TextView egA;
+    private TextView egB;
+    private Drawable egC;
+    private MetaData egD;
+    private f egE;
+    public CommonUserLikeButton egy;
+    private TextView egz;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -35,17 +35,17 @@ public class a extends com.baidu.tieba.card.a<f> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.dSy = (ClickableHeaderImageView) getView().findViewById(e.g.god_header_view);
-        this.dSy.setGodIconMargin(e.C0141e.ds4);
-        this.dSy.setAfterClickListener(this);
-        this.dYH = (TextView) getView().findViewById(e.g.god_name);
-        this.dYI = (TextView) getView().findViewById(e.g.god_describe);
-        this.dYF = (CommonUserLikeButton) getView().findViewById(e.g.god_like_btn);
-        this.cEg = new c(tbPageContext, this.dYF);
-        this.dYF.setAfterOnClickListener(this);
+        this.eas = (ClickableHeaderImageView) getView().findViewById(e.g.god_header_view);
+        this.eas.setGodIconMargin(e.C0175e.ds4);
+        this.eas.setAfterClickListener(this);
+        this.egA = (TextView) getView().findViewById(e.g.god_name);
+        this.egB = (TextView) getView().findViewById(e.g.god_describe);
+        this.egy = (CommonUserLikeButton) getView().findViewById(e.g.god_like_btn);
+        this.cMA = new c(tbPageContext, this.egy);
+        this.egy.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(e.g.bottom_line);
-        this.dYG = (TextView) getView().findViewById(e.g.god_rank);
-        this.dYJ = this.mPageContext.getResources().getDrawable(e.f.transparent_bg);
+        this.egz = (TextView) getView().findViewById(e.g.god_rank);
+        this.egC = this.mPageContext.getResources().getDrawable(e.f.transparent_bg);
     }
 
     public void h(BdUniqueId bdUniqueId) {
@@ -57,10 +57,10 @@ public class a extends com.baidu.tieba.card.a<f> {
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.i(getView(), e.f.home_thread_card_item_bg);
-            al.h(this.dYH, e.d.cp_cont_b);
-            al.h(this.dYI, e.d.cp_cont_d);
+            al.h(this.egA, e.d.cp_cont_b);
+            al.h(this.egB, e.d.cp_cont_d);
             al.j(this.mBottomLine, e.d.cp_bg_line_b);
-            al.h(this.dYG, e.d.cp_cont_d);
+            al.h(this.egz, e.d.cp_cont_d);
         }
         this.mSkinType = i;
     }
@@ -73,52 +73,52 @@ public class a extends com.baidu.tieba.card.a<f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
-        if (fVar != null && fVar.akB != null && fVar.akB.getGodUserData() != null) {
-            this.dYL = fVar;
-            this.dYK = fVar.akB;
-            na(fVar.rank);
-            this.dSy.setData(fVar.akB);
-            this.dYH.setText(fVar.akB.getName_show());
-            this.dYI.setText(fVar.akB.getGodUserData().getIntro());
-            this.cEg.a(fVar.akB);
+        if (fVar != null && fVar.apx != null && fVar.apx.getGodUserData() != null) {
+            this.egE = fVar;
+            this.egD = fVar.apx;
+            ny(fVar.rank);
+            this.eas.setData(fVar.apx);
+            this.egA.setText(fVar.apx.getName_show());
+            this.egB.setText(fVar.apx.getGodUserData().getIntro());
+            this.cMA.a(fVar.apx);
             d(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void na(int i) {
+    private void ny(int i) {
         String str;
         switch (i) {
             case 1:
-                this.dYG.setText("");
-                al.i(this.dYG, e.f.icon_grade_round_no1);
+                this.egz.setText("");
+                al.i(this.egz, e.f.icon_grade_round_no1);
                 return;
             case 2:
-                this.dYG.setText("");
-                al.i(this.dYG, e.f.icon_grade_round_no2);
+                this.egz.setText("");
+                al.i(this.egz, e.f.icon_grade_round_no2);
                 return;
             case 3:
-                this.dYG.setText("");
-                al.i(this.dYG, e.f.icon_grade_round_no3);
+                this.egz.setText("");
+                al.i(this.egz, e.f.icon_grade_round_no3);
                 return;
             default:
-                this.dYG.setBackgroundDrawable(this.dYJ);
+                this.egz.setBackgroundDrawable(this.egC);
                 if (i < 100) {
                     str = String.format("%02d", Integer.valueOf(i));
                 } else {
                     str = i + "";
                 }
-                this.dYG.setText(str);
+                this.egz.setText(str);
                 return;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (akm() != null) {
-            akm().a(view, this.dYL);
+        if (anO() != null) {
+            anO().a(view, this.egE);
         }
-        if (view == getView() && this.dYK != null && !StringUtils.isNull(this.dYK.getName_show()) && !StringUtils.isNull(this.dYK.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(this.dYK.getUserId(), 0L), false, this.dYK.isBigV())));
+        if (view == getView() && this.egD != null && !StringUtils.isNull(this.egD.getName_show()) && !StringUtils.isNull(this.egD.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(this.egD.getUserId(), 0L), false, this.egD.isBigV())));
         }
     }
 }

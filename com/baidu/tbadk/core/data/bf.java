@@ -1,16 +1,17 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import org.json.JSONObject;
 import tbclient.Topic;
 /* loaded from: classes.dex */
 public class bf {
-    private int amL = 0;
-    private int amM = 0;
+    private int arG = 0;
+    private int arH = 0;
     private String link = "";
 
-    public int xZ() {
-        return this.amL;
+    public int Ai() {
+        return this.arG;
     }
 
     public String getLink() {
@@ -20,9 +21,9 @@ public class bf {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.amL = jSONObject.optInt("is_lpost", 0);
-                this.amM = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
+                this.arG = jSONObject.optInt("is_lpost", 0);
+                this.arH = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -31,8 +32,8 @@ public class bf {
 
     public void a(Topic topic) {
         if (topic != null) {
-            this.amL = topic.is_lpost.intValue();
-            this.amM = topic.topic_type.intValue();
+            this.arG = topic.is_lpost.intValue();
+            this.arH = topic.topic_type.intValue();
             this.link = topic.link;
         }
     }

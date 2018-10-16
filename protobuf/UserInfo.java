@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class UserInfo extends Message {
     public static final String DEFAULT_FANSNICKNAME = "";
     public static final String DEFAULT_NICKNAME = "";
@@ -172,7 +172,7 @@ public final class UserInfo extends Message {
         this.userNameShow = builder.userNameShow;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<UserInfo> {
         public String fansNickname;
         public Integer fansNum;

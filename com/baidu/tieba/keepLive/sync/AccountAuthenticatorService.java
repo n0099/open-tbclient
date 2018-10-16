@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AccountAuthenticatorService extends Service {
     private a accountAuthenticator;
 
@@ -31,7 +31,7 @@ public class AccountAuthenticatorService extends Service {
         return null;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     private static class a extends AbstractAccountAuthenticator {
         final Context context;
 

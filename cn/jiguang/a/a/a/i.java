@@ -3,11 +3,11 @@ package cn.jiguang.a.a.a;
 import android.content.Context;
 /* loaded from: classes3.dex */
 final class i implements cn.jiguang.api.j {
-    final /* synthetic */ h jO;
+    final /* synthetic */ h kt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.jO = hVar;
+        this.kt = hVar;
     }
 
     @Override // cn.jiguang.api.j
@@ -15,10 +15,10 @@ final class i implements cn.jiguang.api.j {
         Context context;
         String str;
         if (i == 0) {
-            a aV = a.aV();
-            context = this.jO.b;
-            str = this.jO.f;
-            aV.a(context, str);
+            a bm = a.bm();
+            context = this.kt.b;
+            str = this.kt.f;
+            bm.a(context, str);
         }
     }
 }

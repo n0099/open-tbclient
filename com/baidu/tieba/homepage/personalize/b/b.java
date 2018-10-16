@@ -12,14 +12,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.card.v;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private n egY;
+    private n eoS;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.egY = new n() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+        this.eoS = new n() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
             @Override // com.baidu.adp.widget.ListView.n
             public void a(View view, h hVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 TiebaStatic.log(new am("c11273"));
@@ -27,7 +27,7 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
             }
         };
         this.mPageContext = tbPageContext;
-        setOnAdapterItemClickListener(this.egY);
+        setOnAdapterItemClickListener(this.eoS);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,18 +43,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        v.akM().a(new am("c11272"));
-        aVar.eha.a(cVar);
+        v.aoo().a(new am("c11272"));
+        aVar.eoU.a(cVar);
         return aVar.getView();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends q.a {
-        public com.baidu.tieba.homepage.personalize.b.a eha;
+        public com.baidu.tieba.homepage.personalize.b.a eoU;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.eha = aVar;
+            this.eoU = aVar;
         }
     }
 }

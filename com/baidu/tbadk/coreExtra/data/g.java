@@ -1,35 +1,21 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
+import com.baidu.webkit.internal.ETAG;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean aEO = false;
+    private boolean aJr = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.appId = jSONObject.optString(HttpConstants.HTTP_APP_ID, "");
-            this.appName = jSONObject.optString("app_name", "");
-            this.packageName = jSONObject.optString("package_name", "");
+            this.appName = jSONObject.optString(AiAppsApsUtils.APP_NAME, "");
+            this.packageName = jSONObject.optString(ETAG.KEY_PACKAGE_NAME, "");
         }
-    }
-
-    public String getAppId() {
-        return this.appId;
-    }
-
-    public String getPackageName() {
-        return this.packageName;
-    }
-
-    public boolean Dk() {
-        return this.aEO;
-    }
-
-    public void bn(boolean z) {
-        this.aEO = z;
     }
 }

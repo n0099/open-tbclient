@@ -3,9 +3,9 @@ package com.baidu.android.pushservice.message;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.m;
+import com.baidu.webkit.internal.ETAG;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import org.apache.http.HttpStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -64,8 +64,8 @@ public class j extends c {
                 eVar2.a(bArr4);
                 try {
                     JSONObject jSONObject = new JSONObject(new String(bArr4));
-                    if (!jSONObject.isNull("package_name")) {
-                        String string = jSONObject.getString("package_name");
+                    if (!jSONObject.isNull(ETAG.KEY_PACKAGE_NAME)) {
+                        String string = jSONObject.getString(ETAG.KEY_PACKAGE_NAME);
                         if (!TextUtils.isEmpty(string)) {
                             kVar.b(string);
                         }
@@ -110,7 +110,7 @@ public class j extends c {
             if (c2 <= 0) {
                 c2 = 0;
             }
-            int i = c2 + HttpStatus.SC_NO_CONTENT;
+            int i = c2 + 204;
             int length = bArr.length - i;
             if (length <= 0) {
                 length = 0;

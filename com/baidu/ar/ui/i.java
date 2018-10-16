@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import com.baidu.ar.util.MsgConstants;
+import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -90,7 +91,7 @@ public class i {
             this.d = new Timer();
             i();
             Log.d("Performance", "time start");
-            this.d.schedule(this.e, 10000L);
+            this.d.schedule(this.e, ErrDef.Feature.WEIGHT);
         }
     }
 

@@ -1,8 +1,9 @@
 package com.baidu.android.bbalbs.common.security;
 
+import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static String a(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
@@ -21,7 +22,7 @@ public final class b {
 
     public static String a(byte[] bArr, boolean z) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
             messageDigest.reset();
             messageDigest.update(bArr);
             return a(messageDigest.digest(), "", z);

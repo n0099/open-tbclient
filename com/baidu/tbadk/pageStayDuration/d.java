@@ -4,32 +4,32 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public String aWA;
-    public String aWB;
-    public boolean aWw = false;
-    private List<String> aWx;
-    private String aWy;
-    private long aWz;
+    public boolean baW = false;
+    private List<String> baX;
+    private String baY;
+    private long baZ;
+    public String bba;
+    public String bbb;
     private long fid;
     public String objParam1;
     private long pid;
     public String task_id;
     private long tid;
 
-    public List<String> LD() {
-        return this.aWx;
+    public List<String> NB() {
+        return this.baX;
     }
 
-    public void M(List<String> list) {
-        this.aWx = list;
+    public void V(List<String> list) {
+        this.baX = list;
     }
 
     public String getCurrentPageKey() {
-        return this.aWy;
+        return this.baY;
     }
 
-    public void hJ(String str) {
-        this.aWy = str;
+    public void hX(String str) {
+        this.baY = str;
     }
 
     public long getFid() {
@@ -52,12 +52,12 @@ public class d {
         return this.pid;
     }
 
-    public long LE() {
-        return this.aWz;
+    public long NC() {
+        return this.baZ;
     }
 
-    public void ae(long j) {
-        this.aWz = j;
+    public void ag(long j) {
+        this.baZ = j;
     }
 
     public void setTaskId(String str) {
@@ -68,7 +68,7 @@ public class d {
         return this.task_id;
     }
 
-    public boolean LF() {
-        return StringUtils.isNull(this.aWy);
+    public boolean ND() {
+        return StringUtils.isNull(this.baY);
     }
 }

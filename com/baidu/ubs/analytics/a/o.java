@@ -4,23 +4,23 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 final class o {
-    private SQLiteDatabase hKJ = f.bLR().getDatabase();
+    private SQLiteDatabase hTB = f.bQh().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(n nVar) {
-        this.hKJ.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        this.hTB.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(n nVar) {
-        this.hKJ.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+        this.hTB.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<n> bLQ() {
-        Cursor rawQuery = this.hKJ.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+    public final List<n> bQg() {
+        Cursor rawQuery = this.hTB.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             n nVar = new n();
@@ -35,13 +35,13 @@ final class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void wN(String str) {
-        this.hKJ.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+    public final void xN(String str) {
+        this.hTB.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean wO(String str) {
-        Cursor rawQuery = this.hKJ.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+    public final boolean xO(String str) {
+        Cursor rawQuery = this.hTB.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
         int count = rawQuery.getCount();
         rawQuery.close();
         return count > 0;

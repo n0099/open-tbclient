@@ -12,30 +12,30 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MessageCardBottomView extends LinearLayout {
-    private String aJo;
-    private TextView azY;
-    private ViewGroup eQv;
-    private ImageView eQw;
-    private TextView eQx;
+    private TextView aEG;
+    private String aNQ;
+    private ViewGroup eYc;
+    private ImageView eYd;
+    private TextView eYe;
 
     public MessageCardBottomView(Context context) {
         super(context);
-        cf(context);
+        cs(context);
     }
 
     public MessageCardBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        cf(context);
+        cs(context);
     }
 
-    private void cf(Context context) {
+    private void cs(Context context) {
         View inflate = LayoutInflater.from(context).inflate(e.h.message_card_bottom_layout, (ViewGroup) this, true);
-        this.azY = (TextView) inflate.findViewById(e.g.message_bottom_bar_name);
-        this.eQv = (ViewGroup) inflate.findViewById(e.g.message_bottom_reply_container);
-        this.eQw = (ImageView) inflate.findViewById(e.g.message_bottom_reply_img);
-        this.eQx = (TextView) inflate.findViewById(e.g.message_bottom_reply);
+        this.aEG = (TextView) inflate.findViewById(e.g.message_bottom_bar_name);
+        this.eYc = (ViewGroup) inflate.findViewById(e.g.message_bottom_reply_container);
+        this.eYd = (ImageView) inflate.findViewById(e.g.message_bottom_reply_img);
+        this.eYe = (TextView) inflate.findViewById(e.g.message_bottom_reply);
     }
 
     public void setData(String str, boolean z) {
@@ -44,23 +44,23 @@ public class MessageCardBottomView extends LinearLayout {
             return;
         }
         setVisibility(0);
-        this.eQv.setVisibility(z ? 0 : 8);
+        this.eYc.setVisibility(z ? 0 : 8);
         if (ao.isEmpty(str)) {
-            this.azY.setVisibility(8);
+            this.aEG.setVisibility(8);
             return;
         }
-        this.aJo = str;
-        this.azY.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-        this.azY.setVisibility(0);
+        this.aNQ = str;
+        this.aEG.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+        this.aEG.setVisibility(0);
     }
 
     public void onChangeSkinType() {
-        al.h(this.azY, e.d.cp_cont_d);
-        al.h(this.eQx, e.f.selector_comment_and_prise_item_text_color);
-        al.c(this.eQw, e.f.icon_home_card_comment);
+        al.h(this.aEG, e.d.cp_cont_d);
+        al.h(this.eYe, e.f.selector_comment_and_prise_item_text_color);
+        al.c(this.eYd, e.f.icon_home_card_comment);
     }
 
     public View getReplyContainer() {
-        return this.eQv;
+        return this.eYc;
     }
 }

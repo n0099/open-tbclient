@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.api.JThirdPlatFormInterface;
 import cn.jpush.android.service.ServiceInterface;
+import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class c implements cn.jiguang.api.b {
@@ -131,7 +132,7 @@ public class c implements cn.jiguang.api.b {
                                 if (TextUtils.isEmpty(stringExtra)) {
                                     cn.jpush.android.d.f.c("PushReceiverCore", "Got an empty notification, don't show it!");
                                 } else {
-                                    cn.jpush.android.data.a a = i.a(context, stringExtra, intent.getStringExtra("appId"), intent.getStringExtra("senderId"), intent.getStringExtra("msg_id"));
+                                    cn.jpush.android.data.a a = i.a(context, stringExtra, intent.getStringExtra(AiAppsLifecycleMessage.APP_ID_KEY), intent.getStringExtra("senderId"), intent.getStringExtra("msg_id"));
                                     if (a != null) {
                                         a.i = true;
                                         i.a(context, a);

@@ -24,7 +24,7 @@ public class a {
     private static volatile a t;
     private d e;
     private MovieRecorderCallback f;
-    private HandlerC0039a g;
+    private HandlerC0042a g;
     private b h;
     private e i;
     private f j;
@@ -42,8 +42,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.ar.recorder.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC0039a extends Handler {
-        public HandlerC0039a(Looper looper) {
+    public class HandlerC0042a extends Handler {
+        public HandlerC0042a(Looper looper) {
             super(looper);
         }
 
@@ -148,7 +148,7 @@ public class a {
         }
         this.o = com.baidu.ar.recorder.f.b.a();
         this.c = 0;
-        this.g = new HandlerC0039a(context.getMainLooper());
+        this.g = new HandlerC0042a(context.getMainLooper());
         this.h = new b(dVar.c());
     }
 

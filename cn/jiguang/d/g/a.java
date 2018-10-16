@@ -7,8 +7,8 @@ import java.nio.channels.SocketChannel;
 /* loaded from: classes3.dex */
 public abstract class a {
     protected int c;
-    protected SocketChannel lJ;
-    protected Selector lK;
+    protected SocketChannel mo;
+    protected Selector mp;
     protected ByteBuffer a = ByteBuffer.allocate(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
     protected boolean e = false;
 
@@ -32,7 +32,7 @@ public abstract class a {
     }
 
     public final boolean b() {
-        return this.e && this.lJ != null && this.lJ.isConnected();
+        return this.e && this.mo != null && this.mo.isConnected();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

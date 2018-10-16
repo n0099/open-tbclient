@@ -1,7 +1,6 @@
 package com.baidu.android.pushservice.c;
 
 import android.text.TextUtils;
-import com.tencent.tauth.AuthActivity;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -30,7 +29,7 @@ public class c {
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    String optString = jSONObject2.optString(AuthActivity.ACTION_KEY);
+                    String optString = jSONObject2.optString("action");
                     if (TextUtils.isEmpty(optString)) {
                         String optString2 = jSONObject2.optString("category");
                         if (TextUtils.isEmpty(optString2)) {

@@ -34,6 +34,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowInsets;
 import android.view.accessibility.AccessibilityEvent;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -633,7 +634,7 @@ public class DrawerLayout extends ViewGroup {
                             }
                         }
                         if (isContentView(childAt)) {
-                            childAt.measure(View.MeasureSpec.makeMeasureSpec((i4 - layoutParams.leftMargin) - layoutParams.rightMargin, 1073741824), View.MeasureSpec.makeMeasureSpec((i3 - layoutParams.topMargin) - layoutParams.bottomMargin, 1073741824));
+                            childAt.measure(View.MeasureSpec.makeMeasureSpec((i4 - layoutParams.leftMargin) - layoutParams.rightMargin, AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec((i3 - layoutParams.topMargin) - layoutParams.bottomMargin, AiAppsFileUtils.GB));
                         } else if (isDrawerView(childAt)) {
                             if (SET_DRAWER_SHADOW_FROM_ELEVATION && ViewCompat.getElevation(childAt) != this.mDrawerElevation) {
                                 ViewCompat.setElevation(childAt, this.mDrawerElevation);
@@ -883,7 +884,7 @@ public class DrawerLayout extends ViewGroup {
         boolean drawChild = super.drawChild(canvas, view, j);
         canvas.restoreToCount(save);
         if (this.mScrimOpacity > 0.0f && isContentView) {
-            this.mScrimPaint.setColor((((int) (((this.mScrimColor & ViewCompat.MEASURED_STATE_MASK) >>> 24) * this.mScrimOpacity)) << 24) | (this.mScrimColor & ViewCompat.MEASURED_SIZE_MASK));
+            this.mScrimPaint.setColor((((int) (((this.mScrimColor & (-16777216)) >>> 24) * this.mScrimOpacity)) << 24) | (this.mScrimColor & 16777215));
             canvas.drawRect(i2, 0.0f, i4, getHeight(), this.mScrimPaint);
         } else if (this.mShadowLeftResolved != null && checkDrawerViewAbsoluteGravity(view, 3)) {
             int intrinsicWidth = this.mShadowLeftResolved.getIntrinsicWidth();

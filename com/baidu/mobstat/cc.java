@@ -28,6 +28,8 @@ import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.mobstat.bt;
 import com.baidu.mobstat.bz;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
+import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -106,7 +108,7 @@ public class cc {
 
     public static DisplayMetrics e(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getApplicationContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) context.getApplicationContext().getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics;
     }
 
@@ -724,7 +726,7 @@ public class cc {
             str = "smartisan";
         }
         if (TextUtils.isEmpty(str)) {
-            String a2 = a("ro.build.display.id");
+            String a2 = a(AiAppRomUtils.PROP_RO_BUILD_DISPLAY_ID);
             if (!TextUtils.isEmpty(a2) && a2.contains("Flyme")) {
                 str = "flyme";
             }

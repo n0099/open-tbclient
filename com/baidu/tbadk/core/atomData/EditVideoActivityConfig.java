@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
@@ -10,7 +11,7 @@ public class EditVideoActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_RECORD_VIDEO_ACTIVITY = "from_record_activity";
     public static String LOCAL_PATH_KEY = "local_path";
     public static String MUSIC_ID_KEY = "music_id";
-    public static String POSITION_KEY = "position";
+    public static String POSITION_KEY = AiAppsNaViewModel.KEY_POSITION;
 
     public EditVideoActivityConfig(Context context, String str, String str2, String str3, String str4, VideoInfo videoInfo) {
         super(context);

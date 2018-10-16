@@ -8,43 +8,43 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private boolean ahh;
-    private int ahi;
-    private int ahj;
-    private int ahk = 25;
-    private int ahl = 25;
-    private int ahm = 10;
+    private boolean amd;
+    private int ame;
+    private int amf;
+    private int amg = 25;
+    private int amh = 25;
+    private int ami = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.ahk;
+        return this.amg;
     }
 
     public int getErrRank() {
-        return this.ahl;
+        return this.amh;
     }
 
     public int getSlowRank() {
-        return this.ahm;
+        return this.ami;
     }
 
     public boolean ismSwitch() {
-        return this.ahh;
+        return this.amd;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.ahh != z) {
-            com.baidu.adp.lib.stats.a jo = com.baidu.tbadk.core.util.s.jo();
-            jo.append(SocialConstants.PARAM_ACT, "fallback");
-            jo.append("result", z ? "1" : "0");
-            jo.append("type", "switch");
-            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, jo);
+        if (this.amd != z) {
+            com.baidu.adp.lib.stats.a jD = com.baidu.tbadk.core.util.s.jD();
+            jD.append(SocialConstants.PARAM_ACT, "fallback");
+            jD.append("result", z ? "1" : "0");
+            jD.append("type", "switch");
+            BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, jD);
         }
-        this.ahh = z;
+        this.amd = z;
     }
 
     public int getSlowNumber() {
-        return this.ahi;
+        return this.ame;
     }
 
     public int getTime() {
@@ -52,7 +52,7 @@ public class k {
     }
 
     public int getErrNumber() {
-        return this.ahj;
+        return this.amf;
     }
 
     public void parseJson(String str) {
@@ -61,7 +61,7 @@ public class k {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.ahh = false;
+            this.amd = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -70,30 +70,30 @@ public class k {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.ahh = true;
+                    this.amd = true;
                 } else {
-                    this.ahh = false;
+                    this.amd = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.ahj = optJSONObject.optInt("num");
+                    this.amf = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.ahi = optJSONObject2.optInt("num");
+                    this.ame = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.ahk = optJSONObject3.optInt("succ");
-                    this.ahl = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.ahm = optJSONObject3.optInt("slow");
+                    this.amg = optJSONObject3.optInt("succ");
+                    this.amh = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.ami = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.ahi <= 0 || this.ahj <= 0) {
-                    this.ahh = false;
+                if (this.time <= 0 || this.ame <= 0 || this.amf <= 0) {
+                    this.amd = false;
                 }
             } catch (Exception e) {
-                this.ahh = false;
+                this.amd = false;
                 BdLog.e(e.getMessage());
             }
         }

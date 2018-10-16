@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONObject;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class a implements b, j {
     protected boolean mHasMore;
     protected List<Object> mThreadList;
@@ -23,7 +23,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void E(JSONObject jSONObject) {
+    public void H(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -48,7 +48,7 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] KM() {
+    public byte[] MK() {
         return null;
     }
 

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class MergePaths implements b {
     private final String name;
-    private final MergePathsMode qD;
+    private final MergePathsMode rq;
 
     /* loaded from: classes2.dex */
     public enum MergePathsMode {
@@ -37,21 +37,21 @@ public class MergePaths implements b {
 
     private MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.qD = mergePathsMode;
+        this.rq = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode dY() {
-        return this.qD;
+    public MergePathsMode eq() {
+        return this.rq;
     }
 
     @Override // com.airbnb.lottie.model.content.b
     @Nullable
     public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
-        if (fVar.cv()) {
+        if (fVar.cN()) {
             return new com.airbnb.lottie.a.a.j(this);
         }
         Log.w("LOTTIE", "Animation contains merge paths but they are disabled.");
@@ -59,7 +59,7 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.qD + '}';
+        return "MergePaths{mode=" + this.rq + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

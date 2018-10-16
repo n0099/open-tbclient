@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
@@ -115,7 +116,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String apS = null;
+        String auJ = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -154,16 +155,16 @@ public class TiebaPrepareImageService extends BdBaseService {
                     }
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
                     if (resizeBitmap == null || l.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.apS = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
+                        this.auJ = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
                     }
                 } else {
-                    this.apS = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
+                    this.auJ = TiebaPrepareImageService.this.getString(e.j.error_sd_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
                 return Boolean.valueOf(z);
             }
-            this.apS = TiebaPrepareImageService.this.getString(e.j.pic_parser_error);
+            this.auJ = TiebaPrepareImageService.this.getString(e.j.pic_parser_error);
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
             return Boolean.valueOf(z);
@@ -182,8 +183,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.apS != null) {
-                intent.putExtra("error", this.apS);
+            if (this.auJ != null) {
+                intent.putExtra(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.auJ);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

@@ -8,48 +8,48 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int gYq = 6144000;
-    private static int gYr = 524288;
-    private h gWF;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b gYs;
+    private static int hfJ = 6144000;
+    private static int hfK = 524288;
+    private h hea;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b hfL;
 
     public a(h hVar) {
-        this.gWF = hVar;
+        this.hea = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (d.iB().aO("is_video_batch") == 1) {
-                this.gYs = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, gYr, this.gWF);
+            if (d.iR().aO("is_video_batch") == 1) {
+                this.hfL = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, hfK, this.hea);
             } else {
-                this.gYs = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, gYq, this.gWF);
+                this.hfL = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, hfJ, this.hea);
             }
-            this.gYs.a(eVar);
-            return this.gYs.aQ(str2, i);
+            this.hfL.a(eVar);
+            return this.hfL.aU(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.gWF != null) {
-                this.gWF.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.m(e));
+            if (this.hea != null) {
+                this.hea.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.o(e));
             }
             return null;
         }
     }
 
-    public void bzR() {
-        if (this.gYs != null) {
-            this.gYs.cancel();
+    public void qJ() {
+        if (this.hfL != null) {
+            this.hfL.cancel();
         }
     }
 
-    public static void ut(int i) {
+    public static void uQ(int i) {
         if (i <= 0) {
-            gYr = 524288;
+            hfK = 524288;
         } else {
-            gYr = i;
+            hfK = i;
         }
     }
 
-    public static void uu(int i) {
+    public static void uR(int i) {
         if (i <= 0) {
             chunkLength = 524288;
         } else {
@@ -57,11 +57,11 @@ public class a {
         }
     }
 
-    public static void uv(int i) {
+    public static void uS(int i) {
         if (i <= 0) {
-            gYq = 6144000;
+            hfJ = 6144000;
         } else {
-            gYq = i;
+            hfJ = i;
         }
     }
 }

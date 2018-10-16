@@ -3,7 +3,7 @@ package com.baidu.fsg.base.widget;
 import android.text.Editable;
 import android.text.Selection;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 class i implements Runnable {
     final /* synthetic */ View a;
     final /* synthetic */ SafeKeyBoardPopupWindow b;

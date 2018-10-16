@@ -9,9 +9,10 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import com.baidu.tbadk.BaseActivity;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LrcView extends FrameLayout {
     private static int A = 12;
     private static int B;
@@ -42,7 +43,7 @@ public class LrcView extends FrameLayout {
     private int y;
     private int z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
     }
@@ -158,7 +159,7 @@ public class LrcView extends FrameLayout {
                         getHandler().postDelayed(this.m, (long) (this.p.get(this.q).length() * 0.25d * 1000.0d));
                         return;
                     } else {
-                        getHandler().postDelayed(this.m, 2000L);
+                        getHandler().postDelayed(this.m, SystemScreenshotManager.DELAY_TIME);
                         return;
                     }
                 }

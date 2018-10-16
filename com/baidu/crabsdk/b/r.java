@@ -1,9 +1,9 @@
 package com.baidu.crabsdk.b;
 
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class r {
-    public static String L() {
+    public static String M() {
         StringBuilder sb = new StringBuilder();
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {

@@ -10,47 +10,47 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.view.a;
 /* loaded from: classes.dex */
 public class InitUserNameDialogActivity extends BaseActivity {
-    a aDY;
+    a aIC;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.aDY = new a(this);
-        this.aDY.b(new a.InterfaceC0107a() { // from class: com.baidu.tbadk.coreExtra.InitUserNameDialogActivity.1
-            @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0107a
+        this.aIC = new a(this);
+        this.aIC.b(new a.InterfaceC0131a() { // from class: com.baidu.tbadk.coreExtra.InitUserNameDialogActivity.1
+            @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0131a
             public void g(AccountData accountData) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
                 InitUserNameDialogActivity.this.finish();
             }
         });
-        this.aDY.a(new a.InterfaceC0107a() { // from class: com.baidu.tbadk.coreExtra.InitUserNameDialogActivity.2
-            @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0107a
+        this.aIC.a(new a.InterfaceC0131a() { // from class: com.baidu.tbadk.coreExtra.InitUserNameDialogActivity.2
+            @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0131a
             public void g(AccountData accountData) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
                 InitUserNameDialogActivity.this.finish();
             }
         });
-        this.aDY.Hd();
+        this.aIC.Je();
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null && getIntent() != null && (getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA) instanceof AccountData)) {
             currentAccountInfo = (AccountData) getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA);
         }
-        this.aDY.setAccountData(currentAccountInfo);
+        this.aIC.setAccountData(currentAccountInfo);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aDY.eG(1);
+        this.aIC.eP(1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.aDY.onDestroy();
+        this.aIC.onDestroy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity

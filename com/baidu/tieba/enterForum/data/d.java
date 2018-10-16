@@ -1,5 +1,5 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class d extends c {
     public String mTitle;
 

@@ -15,6 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteImagesInfo extends OrmObject implements Serializable {
     private LinkedList<ImageFileInfo> chosedFiles;
+    private boolean isEnableChooseOriginalImg;
     private boolean isOriginalImg;
     private String lastAlbumId;
     public boolean mIsFromIm;
@@ -23,6 +24,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public WriteImagesInfo() {
         this.mIsFromIm = false;
         this.isOriginalImg = false;
+        this.isEnableChooseOriginalImg = true;
         this.maxImagesAllowed = 1;
         this.mIsFromIm = false;
     }
@@ -30,6 +32,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
     public WriteImagesInfo(int i) {
         this.mIsFromIm = false;
         this.isOriginalImg = false;
+        this.isEnableChooseOriginalImg = true;
         this.maxImagesAllowed = i;
     }
 
@@ -125,6 +128,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             this.mIsFromIm = writeImagesInfo.mIsFromIm;
             this.chosedFiles = writeImagesInfo.chosedFiles;
             this.isOriginalImg = writeImagesInfo.isOriginalImg;
+            this.isEnableChooseOriginalImg = writeImagesInfo.isEnableChooseOriginalImg;
         }
     }
 
@@ -159,13 +163,14 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             this.mIsFromIm = jSONObject.optBoolean("isIm", false);
             this.maxImagesAllowed = jSONObject.optInt("maxImagesAllowed");
             this.isOriginalImg = jSONObject.optBoolean("isOriginalImg");
+            this.isEnableChooseOriginalImg = jSONObject.optBoolean("isEnableChooseOriginalImg");
             JSONArray optJSONArray = jSONObject.optJSONArray("chosedFiles");
             this.chosedFiles = new LinkedList<>();
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
-                    imageFileInfo.setIsLong(l.ex(imageFileInfo.getFilePath()));
+                    imageFileInfo.setIsLong(l.eN(imageFileInfo.getFilePath()));
                     this.chosedFiles.add(imageFileInfo);
                 }
             }
@@ -177,6 +182,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         try {
             jSONObject.put("maxImagesAllowed", this.maxImagesAllowed);
             jSONObject.put("isOriginalImg", this.isOriginalImg);
+            jSONObject.put("isEnableChooseOriginalImg", this.isEnableChooseOriginalImg);
             if (this.lastAlbumId != null) {
                 jSONObject.put("lastAlbumId", this.lastAlbumId);
             }
@@ -206,7 +212,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(com.baidu.tbadk.img.effect.d.K(aq.Az().AF(), aq.Az().AG()));
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.K(aq.CG().CM(), aq.CG().CN()));
                     next.setHasAddPostQualityAction(true);
                 }
             }
@@ -219,6 +225,14 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public boolean isOriginalImg() {
         return this.isOriginalImg;
+    }
+
+    public boolean isEnableChooseOriginalImg() {
+        return this.isEnableChooseOriginalImg;
+    }
+
+    public void setEnableChooseOriginalImg(boolean z) {
+        this.isEnableChooseOriginalImg = z;
     }
 
     public boolean hasActionsWithoutResize() {

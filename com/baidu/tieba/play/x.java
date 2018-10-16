@@ -1,61 +1,70 @@
 package com.baidu.tieba.play;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import java.util.LinkedHashMap;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.tieba.e;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class x {
-    private static x goR = null;
-    private LinkedHashMap<String, Integer> goS = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
-    private CustomMessageListener bDp = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.x.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                x.this.goS.clear();
-            }
-        }
-    };
+    private ViewGroup gvV;
+    private ImageView gvW;
+    private VideoLoadingProgressView gvX;
+    ObjectAnimator gvY;
+    ObjectAnimator gvZ;
+    ObjectAnimator gwa;
 
-    private x() {
-        MessageManager.getInstance().registerListener(this.bDp);
+    public x(ViewGroup viewGroup) {
+        this.gvV = viewGroup;
+        this.gvW = (ImageView) viewGroup.findViewById(e.g.auto_video_loading_image);
+        this.gvX = (VideoLoadingProgressView) viewGroup.findViewById(e.g.auto_video_loading_progress);
+        init();
     }
 
-    public static x bnz() {
-        if (goR == null) {
-            synchronized (x.class) {
-                if (goR == null) {
-                    goR = new x();
-                }
-            }
-        }
-        return goR;
+    private void init() {
+        this.gvY = ObjectAnimator.ofFloat(this.gvW, "alpha", 1.0f, 0.5f);
+        this.gvZ = ObjectAnimator.ofFloat(this.gvW, "alpha", 0.5f, 0.0f);
+        this.gwa = ObjectAnimator.ofFloat(this.gvX, "alpha", 1.0f, 0.0f);
+        this.gvY.setDuration(50L);
+        this.gvZ.setDuration(50L);
+        this.gwa.setDuration(50L);
     }
 
-    public void aI(String str, int i) {
-        if (i != 0 || !this.goS.containsKey(str)) {
-            this.goS.put(str, Integer.valueOf(i));
-        }
+    public void startLoading() {
+        bqL();
+        this.gvW.setAlpha(1.0f);
+        this.gvX.setAlpha(1.0f);
+        this.gvV.setVisibility(0);
+        this.gvX.startLoading();
+        this.gvY.start();
     }
 
-    public void remove(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.goS.remove(str);
-        }
+    public void bqI() {
+        bqL();
+        this.gvX.bqI();
     }
 
-    public int sP(String str) {
-        Integer num = this.goS.get(str);
-        if (num != null) {
-            return num.intValue();
-        }
-        return 0;
+    public void bqJ() {
+        bqL();
+        this.gvZ.start();
+        this.gwa.start();
     }
 
-    public void clear() {
-        this.goS.clear();
+    public void bqK() {
+        bqL();
+        this.gvV.setVisibility(8);
+        this.gvX.bqK();
+    }
+
+    private void bqL() {
+        this.gvY.cancel();
+        this.gvZ.cancel();
+        this.gwa.cancel();
+    }
+
+    public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
+        if (this.gvX != null) {
+            this.gvX.setLoadingAnimationListener(aVar);
+        }
     }
 }

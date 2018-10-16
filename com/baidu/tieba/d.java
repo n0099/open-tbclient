@@ -24,9 +24,9 @@ public class d {
             final long currentTimeMillis = System.currentTimeMillis();
             final ImageView imageView = new ImageView(tbPageContext.getPageActivity());
             al.i(imageView, e.f.circle_shape);
-            int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(e.C0141e.ds140);
+            int dimensionPixelSize = tbPageContext.getResources().getDimensionPixelSize(e.C0175e.ds140);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
-            layoutParams.topMargin = tbPageContext.getResources().getDimensionPixelSize(e.C0141e.ds374);
+            layoutParams.topMargin = tbPageContext.getResources().getDimensionPixelSize(e.C0175e.ds374);
             layoutParams.addRule(14);
             relativeLayout.addView(imageView, layoutParams);
             final GifView gifView = new GifView(tbPageContext.getPageActivity());
@@ -44,9 +44,9 @@ public class d {
                     }
                 }
             });
-            int dimensionPixelSize2 = tbPageContext.getResources().getDimensionPixelSize(e.C0141e.ds640);
+            int dimensionPixelSize2 = tbPageContext.getResources().getDimensionPixelSize(e.C0175e.ds640);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimensionPixelSize2, dimensionPixelSize2);
-            layoutParams2.topMargin = tbPageContext.getResources().getDimensionPixelSize(e.C0141e.ds100);
+            layoutParams2.topMargin = tbPageContext.getResources().getDimensionPixelSize(e.C0175e.ds100);
             layoutParams2.addRule(14);
             relativeLayout.addView(gifView, layoutParams2);
             ScaleAnimation scaleAnimation = new ScaleAnimation(50.0f, 1.0f, 50.0f, 1.0f, 1, 0.5f, 1, 0.5f);
@@ -64,7 +64,7 @@ public class d {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     GifView.this.setVisibility(0);
-                    GifView.this.Kb();
+                    GifView.this.LZ();
                 }
             });
             imageView.startAnimation(scaleAnimation);

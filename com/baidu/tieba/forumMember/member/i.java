@@ -24,7 +24,7 @@ import com.baidu.tieba.tbadkCore.r;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.tieba.frs.h<j, k> {
-    private LikeModel aCp;
+    private LikeModel aGV;
     private View.OnClickListener mClickListener;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -38,13 +38,13 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                     if (item instanceof j) {
                         j jVar = (j) item;
                         if (view.getId() == e.g.like_btn) {
-                            if (ba.bA(i.this.mPageContext.getPageActivity())) {
-                                if (!com.baidu.adp.lib.util.j.kK()) {
+                            if (ba.bI(i.this.mPageContext.getPageActivity())) {
+                                if (!com.baidu.adp.lib.util.j.kX()) {
                                     i.this.mPageContext.showToast(e.j.neterror);
                                     return;
                                 }
                                 String forumId = jVar.getForumId();
-                                i.this.aCp.cu(jVar.getForumName(), forumId);
+                                i.this.aGV.cF(jVar.getForumName(), forumId);
                             }
                         } else if (view.getId() == e.g.detail_tip_view) {
                             String forumId2 = jVar.getForumId();
@@ -61,8 +61,8 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aj */
     public k onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.aCp == null) {
-            VL();
+        if (this.aGV == null) {
+            Zs();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(e.h.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -73,74 +73,74 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.onFillViewHolder(i, view, viewGroup, jVar, kVar);
-        if (jVar != null && jVar.auP() != null) {
+        if (jVar != null && jVar.ayl() != null) {
             int color = al.getColor(e.d.cp_other_b);
             int color2 = al.getColor(e.d.cp_cont_b);
-            r auP = jVar.auP();
+            r ayl = jVar.ayl();
             boolean isLogin = TbadkCoreApplication.isLogin();
-            if (auP.isLike() == 1 && isLogin) {
-                kVar.doX.setVisibility(8);
-                kVar.doY.setText(e.j.degree);
-                al.c(kVar.dnX, BitmapHelper.getSmallGradeResourceIdNew(auP.bvg()));
-                if (StringUtils.isNull(auP.getLevelName())) {
-                    kVar.dnY.setVisibility(8);
+            if (ayl.isLike() == 1 && isLogin) {
+                kVar.dwZ.setVisibility(8);
+                kVar.dxa.setText(e.j.degree);
+                al.c(kVar.dwa, BitmapHelper.getSmallGradeResourceIdNew(ayl.byv()));
+                if (StringUtils.isNull(ayl.getLevelName())) {
+                    kVar.dwb.setVisibility(8);
                 } else {
-                    kVar.dnY.setText(auP.getLevelName());
-                    kVar.dnY.setVisibility(0);
+                    kVar.dwb.setText(ayl.getLevelName());
+                    kVar.dwb.setVisibility(0);
                 }
             } else {
-                kVar.doX.setVisibility(0);
-                kVar.doY.setText(e.j.tbtille_just_be);
-                al.c(kVar.dnX, BitmapHelper.getSmallGradeResourceIdNew(auP.bvg()));
-                kVar.dnY.setVisibility(8);
+                kVar.dwZ.setVisibility(0);
+                kVar.dxa.setText(e.j.tbtille_just_be);
+                al.c(kVar.dwa, BitmapHelper.getSmallGradeResourceIdNew(ayl.byv()));
+                kVar.dwb.setVisibility(8);
             }
-            kVar.doX.setTag(Integer.valueOf(i));
-            kVar.doZ.setTag(Integer.valueOf(i));
+            kVar.dwZ.setTag(Integer.valueOf(i));
+            kVar.dxb.setTag(Integer.valueOf(i));
             if (!isLogin) {
-                kVar.bNG.setVisibility(8);
-                kVar.dpa.setVisibility(8);
+                kVar.mDivider.setVisibility(8);
+                kVar.dxc.setVisibility(8);
             } else {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                SpannableString spannableString = new SpannableString(auP.getCurScore() + "");
+                SpannableString spannableString = new SpannableString(ayl.getCurScore() + "");
                 spannableString.setSpan(new ForegroundColorSpan(color), 0, spannableString.length(), 17);
-                SpannableString spannableString2 = new SpannableString("/" + auP.getLevelupScore());
+                SpannableString spannableString2 = new SpannableString("/" + ayl.getLevelupScore());
                 spannableString2.setSpan(new ForegroundColorSpan(color2), 0, spannableString2.length(), 17);
                 spannableStringBuilder.append((CharSequence) spannableString);
                 spannableStringBuilder.append((CharSequence) spannableString2);
-                kVar.dpb.setText(spannableStringBuilder);
-                kVar.bNG.setVisibility(0);
-                kVar.dpa.setVisibility(0);
+                kVar.dxd.setText(spannableStringBuilder);
+                kVar.mDivider.setVisibility(0);
+                kVar.dxc.setVisibility(0);
             }
-            al.j(kVar.dpc, e.d.cp_bg_line_d);
-            al.j(kVar.dpd, e.d.cp_bg_line_c);
-            al.j(kVar.dpe, e.d.cp_bg_line_b);
-            al.j(kVar.bNG, e.d.cp_bg_line_b);
-            al.j(kVar.dpf, e.d.cp_bg_line_c);
-            al.i(kVar.doX, e.f.frs_btn_like);
-            al.i(kVar.dnY, e.f.bg_bawu_level_title);
-            al.c(kVar.dpg, e.d.cp_cont_c, 1);
-            al.c(kVar.doZ, e.d.cp_cont_d, 1);
-            kVar.doZ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
-            al.c(kVar.doX, e.d.white_alpha100, 1);
-            al.c(kVar.doY, e.d.cp_cont_b, 1);
-            al.c(kVar.dnY, e.d.cp_cont_c, 1);
-            al.c(kVar.dph, e.d.cp_cont_b, 1);
+            al.j(kVar.dxe, e.d.cp_bg_line_d);
+            al.j(kVar.dxf, e.d.cp_bg_line_c);
+            al.j(kVar.dxg, e.d.cp_bg_line_b);
+            al.j(kVar.mDivider, e.d.cp_bg_line_b);
+            al.j(kVar.dxh, e.d.cp_bg_line_c);
+            al.i(kVar.dwZ, e.f.frs_btn_like);
+            al.i(kVar.dwb, e.f.bg_bawu_level_title);
+            al.c(kVar.dxi, e.d.cp_cont_c, 1);
+            al.c(kVar.dxb, e.d.cp_cont_d, 1);
+            kVar.dxb.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
+            al.c(kVar.dwZ, e.d.white_alpha100, 1);
+            al.c(kVar.dxa, e.d.cp_cont_b, 1);
+            al.c(kVar.dwb, e.d.cp_cont_c, 1);
+            al.c(kVar.dxj, e.d.cp_cont_b, 1);
         }
         return view;
     }
 
-    private void VL() {
+    private void Zs() {
         if (this.mPageContext != null) {
-            this.aCp = new LikeModel(this.mPageContext);
-            this.aCp.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2
+            this.aGV = new LikeModel(this.mPageContext);
+            this.aGV.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2
                 @Override // com.baidu.adp.base.d
-                public void j(Object obj) {
-                    if (!(obj instanceof r) || i.this.aCp.getErrorCode() != 0) {
-                        if (AntiHelper.am(i.this.aCp.getErrorCode(), i.this.aCp.getErrorString())) {
-                            AntiHelper.aG(i.this.mPageContext.getPageActivity(), i.this.aCp.getErrorString());
+                public void m(Object obj) {
+                    if (!(obj instanceof r) || i.this.aGV.getErrorCode() != 0) {
+                        if (AntiHelper.am(i.this.aGV.getErrorCode(), i.this.aGV.getErrorString())) {
+                            AntiHelper.aI(i.this.mPageContext.getPageActivity(), i.this.aGV.getErrorString());
                             return;
                         } else {
-                            i.this.mPageContext.showToast(i.this.aCp.getErrorString());
+                            i.this.mPageContext.showToast(i.this.aGV.getErrorString());
                             return;
                         }
                     }

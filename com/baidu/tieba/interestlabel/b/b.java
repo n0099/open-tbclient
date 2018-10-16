@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private List<a> eTA;
-    private List<Integer> eTB;
-    private List<a> eTE;
+    private List<a> fbi;
+    private List<Integer> fbj;
+    private List<a> fbm;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!v.z(dataRes.sex_taglist)) {
-                this.eTE = new ArrayList();
-                o(this.eTE, dataRes.sex_taglist);
+            if (!v.J(dataRes.sex_taglist)) {
+                this.fbm = new ArrayList();
+                o(this.fbm, dataRes.sex_taglist);
             }
-            if (!v.z(dataRes.taglist)) {
-                this.eTA = new ArrayList();
-                this.eTB = new ArrayList();
-                o(this.eTA, dataRes.taglist);
+            if (!v.J(dataRes.taglist)) {
+                this.fbi = new ArrayList();
+                this.fbj = new ArrayList();
+                o(this.fbi, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.eTB != null && aVar.isFollow) {
-                        this.eTB.add(Integer.valueOf(aVar.labelId));
+                    if (this.fbj != null && aVar.isFollow) {
+                        this.fbj.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> aSy() {
-        return this.eTE;
+    public List<a> aVM() {
+        return this.fbm;
     }
 
-    public List<a> aSz() {
-        return this.eTA;
+    public List<a> aVN() {
+        return this.fbi;
     }
 
-    public List<Integer> aSA() {
-        return this.eTB;
+    public List<Integer> aVO() {
+        return this.fbj;
     }
 }

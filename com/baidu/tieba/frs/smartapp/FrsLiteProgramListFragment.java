@@ -30,47 +30,52 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.e;
 import com.baidu.tieba.frs.smartapp.FrsListProgramListModel;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class FrsLiteProgramListFragment extends BaseFragment {
-    private PbListView bBr;
-    private FrsListProgramListModel dLr;
-    private a dLt;
-    private FrsListProgramListModel.a dLu;
-    private BaseWebView dLx;
+    private PbListView bJY;
+    private FrsListProgramListModel dTn;
+    private a dTp;
+    private FrsListProgramListModel.a dTq;
+    private BaseWebView dTt;
     private String mForumId;
     private boolean mHasMore;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
     private View mRootView;
-    private BdListView dLs = null;
-    private ArrayList<b> dLv = new ArrayList<>();
-    public boolean dLw = false;
+    private BdListView dTo = null;
+    private ArrayList<b> dTr = new ArrayList<>();
+    public boolean dTs = false;
     private int pageNumber = 1;
-    private final BdListView.e dLy = new BdListView.e() { // from class: com.baidu.tieba.frs.smartapp.FrsLiteProgramListFragment.3
+    private final BdListView.e dTu = new BdListView.e() { // from class: com.baidu.tieba.frs.smartapp.FrsLiteProgramListFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (FrsLiteProgramListFragment.this.mHasMore) {
-                if (FrsLiteProgramListFragment.this.bBr != null) {
-                    FrsLiteProgramListFragment.this.bBr.BI();
+                if (FrsLiteProgramListFragment.this.bJY != null) {
+                    FrsLiteProgramListFragment.this.bJY.DO();
                 }
                 FrsLiteProgramListFragment.g(FrsLiteProgramListFragment.this);
                 FrsLiteProgramListFragment.this.r(FrsLiteProgramListFragment.this.mForumId, FrsLiteProgramListFragment.this.pageNumber, 10);
-            } else if (FrsLiteProgramListFragment.this.bBr != null) {
-                FrsLiteProgramListFragment.this.bBr.BK();
+            } else if (FrsLiteProgramListFragment.this.bJY != null) {
+                FrsLiteProgramListFragment.this.bJY.DQ();
             }
         }
     };
     protected AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.smartapp.FrsLiteProgramListFragment.4
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (!v.z(FrsLiteProgramListFragment.this.dLv)) {
-                String str = ((b) FrsLiteProgramListFragment.this.dLv.get(i)).h5_url;
-                String str2 = ((b) FrsLiteProgramListFragment.this.dLv.get(i)).name;
-                String str3 = ((b) FrsLiteProgramListFragment.this.dLv.get(i)).id;
-                if (!StringUtils.isNULL(str)) {
-                    ay.AN().c(FrsLiteProgramListFragment.this.getPageContext(), new String[]{str});
-                    TiebaStatic.log(new am("c13274").al(ImageViewerConfig.FORUM_ID, FrsLiteProgramListFragment.this.mForumId).al("uid", TbadkCoreApplication.getCurrentAccount()).al("obj_name", str2).al(VideoPlayActivityConfig.OBJ_ID, str3).al(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_Bside"));
+            b bVar;
+            if (!v.J(FrsLiteProgramListFragment.this.dTr) && (bVar = (b) FrsLiteProgramListFragment.this.dTr.get(i)) != null) {
+                String str = bVar.h5_url;
+                String str2 = bVar.name;
+                String str3 = bVar.id;
+                if (!com.baidu.tieba.aiapps.a.u(str3, bVar.link, "9101")) {
+                    if (!StringUtils.isNULL(str)) {
+                        ay.CU().c(FrsLiteProgramListFragment.this.getPageContext(), new String[]{str});
+                    } else {
+                        return;
+                    }
                 }
+                TiebaStatic.log(new am("c13274").ax(ImageViewerConfig.FORUM_ID, FrsLiteProgramListFragment.this.mForumId).ax("uid", TbadkCoreApplication.getCurrentAccount()).ax("obj_name", str2).ax(VideoPlayActivityConfig.OBJ_ID, str3).ax(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_Bside"));
             }
         }
     };
@@ -85,33 +90,33 @@ public class FrsLiteProgramListFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = layoutInflater.inflate(e.h.frs_lite_program_list_fragment_layout, viewGroup, false);
         aG(this.mRootView);
-        if (this.dLu == null) {
-            this.dLu = new FrsListProgramListModel.a() { // from class: com.baidu.tieba.frs.smartapp.FrsLiteProgramListFragment.1
+        if (this.dTq == null) {
+            this.dTq = new FrsListProgramListModel.a() { // from class: com.baidu.tieba.frs.smartapp.FrsLiteProgramListFragment.1
                 @Override // com.baidu.tieba.frs.smartapp.FrsListProgramListModel.a
                 public void a(ArrayList<b> arrayList, int i, String str, boolean z) {
                     FrsLiteProgramListFragment.this.hideLoadingView();
-                    if (!v.z(arrayList)) {
-                        FrsLiteProgramListFragment.this.dLv.addAll(arrayList);
+                    if (!v.J(arrayList)) {
+                        FrsLiteProgramListFragment.this.dTr.addAll(arrayList);
                     }
                     FrsLiteProgramListFragment.this.mHasMore = z;
-                    if (v.z(FrsLiteProgramListFragment.this.dLv)) {
-                        FrsLiteProgramListFragment.this.dLs.setVisibility(8);
+                    if (v.J(FrsLiteProgramListFragment.this.dTr)) {
+                        FrsLiteProgramListFragment.this.dTo.setVisibility(8);
                         FrsLiteProgramListFragment.this.showNetRefreshView(FrsLiteProgramListFragment.this.mRootView, FrsLiteProgramListFragment.this.getPageContext().getResources().getString(e.j.net_error_text, FrsLiteProgramListFragment.this.getPageContext().getResources().getString(e.j.error_unkown_try_again), 0), false);
-                    } else if (FrsLiteProgramListFragment.this.dLs != null) {
+                    } else if (FrsLiteProgramListFragment.this.dTo != null) {
                         FrsLiteProgramListFragment.this.hideNetRefreshView(FrsLiteProgramListFragment.this.mRootView);
-                        FrsLiteProgramListFragment.this.dLs.setVisibility(0);
-                        if (FrsLiteProgramListFragment.this.dLt != null) {
-                            FrsLiteProgramListFragment.this.dLt.setData(FrsLiteProgramListFragment.this.dLv);
-                            FrsLiteProgramListFragment.this.dLt.notifyDataSetChanged();
+                        FrsLiteProgramListFragment.this.dTo.setVisibility(0);
+                        if (FrsLiteProgramListFragment.this.dTp != null) {
+                            FrsLiteProgramListFragment.this.dTp.setData(FrsLiteProgramListFragment.this.dTr);
+                            FrsLiteProgramListFragment.this.dTp.notifyDataSetChanged();
                         } else {
-                            FrsLiteProgramListFragment.this.dLt = new a(FrsLiteProgramListFragment.this.getPageContext());
-                            FrsLiteProgramListFragment.this.dLt.setData(FrsLiteProgramListFragment.this.dLv);
-                            FrsLiteProgramListFragment.this.dLs.setAdapter((ListAdapter) FrsLiteProgramListFragment.this.dLt);
+                            FrsLiteProgramListFragment.this.dTp = new a(FrsLiteProgramListFragment.this.getPageContext());
+                            FrsLiteProgramListFragment.this.dTp.setData(FrsLiteProgramListFragment.this.dTr);
+                            FrsLiteProgramListFragment.this.dTo.setAdapter((ListAdapter) FrsLiteProgramListFragment.this.dTp);
                         }
                     }
-                    if (FrsLiteProgramListFragment.this.dLs != null && FrsLiteProgramListFragment.this.bBr != null && !FrsLiteProgramListFragment.this.mHasMore) {
-                        FrsLiteProgramListFragment.this.bBr.BK();
-                        FrsLiteProgramListFragment.this.dLs.setNextPage(FrsLiteProgramListFragment.this.bBr);
+                    if (FrsLiteProgramListFragment.this.dTo != null && FrsLiteProgramListFragment.this.bJY != null && !FrsLiteProgramListFragment.this.mHasMore) {
+                        FrsLiteProgramListFragment.this.bJY.DQ();
+                        FrsLiteProgramListFragment.this.dTo.setNextPage(FrsLiteProgramListFragment.this.bJY);
                     }
                 }
             };
@@ -126,33 +131,33 @@ public class FrsLiteProgramListFragment extends BaseFragment {
 
     public void r(String str, int i, int i2) {
         this.mForumId = str;
-        if (j.kK() && !StringUtils.isNULL(this.mForumId)) {
-            if (this.dLr == null) {
-                this.dLr = new FrsListProgramListModel(this.dLu);
+        if (j.kX() && !StringUtils.isNULL(this.mForumId)) {
+            if (this.dTn == null) {
+                this.dTn = new FrsListProgramListModel(this.dTq);
             }
-            this.dLr.q(this.mForumId, i, i2);
+            this.dTn.q(this.mForumId, i, i2);
         }
     }
 
-    public void nB(String str) {
+    public void od(String str) {
         this.mForumId = str;
-        this.dLs.setVisibility(8);
+        this.dTo.setVisibility(8);
         showNetRefreshView(this.mRootView, getPageContext().getResources().getString(e.j.net_error_text, getPageContext().getResources().getString(e.j.neterror), 0), false);
     }
 
-    public void nC(String str) {
-        this.dLs.setVisibility(8);
-        this.dLx.setVisibility(0);
-        this.dLx.loadUrl(str);
+    public void oe(String str) {
+        this.dTo.setVisibility(8);
+        this.dTt.setVisibility(0);
+        this.dTt.loadUrl(str);
     }
 
     public void showLoadingView() {
-        this.dLs.setVisibility(8);
+        this.dTo.setVisibility(8);
         showLoadingView(this.mRootView);
     }
 
     public void hideLoadingView() {
-        this.dLs.setVisibility(0);
+        this.dTo.setVisibility(0);
         hideLoadingView(this.mRootView);
     }
 
@@ -160,29 +165,29 @@ public class FrsLiteProgramListFragment extends BaseFragment {
         this.mNavigationBar = (NavigationBar) view.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(e.j.smart_app));
         if (this.mNavigationBar != null && this.mNavigationBar.mCenterText != null) {
-            this.mNavigationBar.mCenterText.setTextSize(getResources().getDimensionPixelSize(e.C0141e.tbds18));
+            this.mNavigationBar.mCenterText.setTextSize(getResources().getDimensionPixelSize(e.C0175e.tbds18));
         }
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.frs.smartapp.FrsLiteProgramListFragment.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921366));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921374));
             }
         });
         this.mNavigationBar.showBottomLine();
-        this.dLs = (BdListView) view.findViewById(e.g.list);
-        this.dLx = (BaseWebView) view.findViewById(e.g.app_webView);
-        this.dLs.setOnSrollToBottomListener(this.dLy);
-        this.dLs.setOnItemClickListener(this.mOnItemClickListener);
+        this.dTo = (BdListView) view.findViewById(e.g.list);
+        this.dTt = (BaseWebView) view.findViewById(e.g.app_webView);
+        this.dTo.setOnSrollToBottomListener(this.dTu);
+        this.dTo.setOnItemClickListener(this.mOnItemClickListener);
         this.mNetworkView = (NoNetworkView) view.findViewById(e.g.no_network);
-        this.bBr = new PbListView(getPageContext().getPageActivity());
-        this.bBr.ov();
-        this.bBr.dL(e.d.cp_bg_line_e);
-        this.bBr.setHeight(l.h(getActivity(), e.C0141e.tbds182));
-        this.bBr.BF();
-        this.bBr.setTextSize(e.C0141e.tbfontsize33);
-        this.bBr.setTextColor(al.getColor(e.d.cp_cont_j));
-        this.bBr.dK(e.d.cp_cont_e);
-        this.dLs.setNextPage(this.bBr);
+        this.bJY = new PbListView(getPageContext().getPageActivity());
+        this.bJY.oG();
+        this.bJY.dV(e.d.cp_bg_line_e);
+        this.bJY.setHeight(l.h(getActivity(), e.C0175e.tbds182));
+        this.bJY.DL();
+        this.bJY.setTextSize(e.C0175e.tbfontsize33);
+        this.bJY.setTextColor(al.getColor(e.d.cp_cont_j));
+        this.bJY.dU(e.d.cp_cont_e);
+        this.dTo.setNextPage(this.bJY);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -196,25 +201,25 @@ public class FrsLiteProgramListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        al.e(this.dLs, e.d.cp_bg_line_e, i);
+        al.e(this.dTo, e.d.cp_bg_line_e, i);
         al.e(this.mNavigationBar, e.d.cp_bg_line_d, i);
         al.c(this.mNavigationBar.mCenterText, e.d.cp_cont_b, 1);
         al.a(this.mNavigationBar.getBackImageView(), e.f.icon_return_bg_s, e.f.icon_return_bg);
         if (this.mNetworkView != null) {
             this.mNetworkView.onChangeSkinType(getPageContext(), i);
         }
-        if (this.bBr != null) {
-            this.bBr.setTextColor(al.getColor(e.d.cp_cont_d));
-            this.bBr.dM(i);
+        if (this.bJY != null) {
+            this.bJY.setTextColor(al.getColor(e.d.cp_cont_d));
+            this.bJY.dW(i);
         }
-        if (this.dLt != null) {
-            this.dLt.notifyDataSetChanged();
+        if (this.dTp != null) {
+            this.dTp.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
-        if (j.kK() && !StringUtils.isNULL(this.mForumId)) {
+        if (j.kX() && !StringUtils.isNULL(this.mForumId)) {
             hideNetRefreshView(this.mRootView);
             showLoadingView();
             clear();
@@ -223,16 +228,16 @@ public class FrsLiteProgramListFragment extends BaseFragment {
     }
 
     public void clear() {
-        if (this.dLv != null) {
-            this.dLv.clear();
+        if (this.dTr != null) {
+            this.dTr.clear();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dLr != null) {
-            this.dLr.onDestroy();
+        if (this.dTn != null) {
+            this.dTn.onDestroy();
         }
         clear();
     }

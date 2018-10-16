@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class a {
-    private LinkedHashMap<c, String> ku = new LinkedHashMap<>();
+    private LinkedHashMap<c, String> la = new LinkedHashMap<>();
 
     public static a I(String str) {
         String[] split;
@@ -100,20 +100,20 @@ public final class a {
 
     public final void a(String str, int i, String str2) {
         if (c.a(str, i)) {
-            this.ku.put(new c(str, i), str2);
+            this.la.put(new c(str, i), str2);
         }
     }
 
     public final boolean a() {
-        return this.ku == null || this.ku.isEmpty();
+        return this.la == null || this.la.isEmpty();
     }
 
     public final boolean a(c cVar) {
-        return this.ku.containsKey(cVar);
+        return this.la.containsKey(cVar);
     }
 
     public final Iterator<Map.Entry<c, String>> b() {
-        return this.ku.entrySet().iterator();
+        return this.la.entrySet().iterator();
     }
 
     public final boolean equals(Object obj) {
@@ -124,23 +124,23 @@ public final class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.ku != null ? this.ku.equals(aVar.ku) : aVar.ku == null;
+        return this.la != null ? this.la.equals(aVar.la) : aVar.la == null;
     }
 
     public final int hashCode() {
-        if (this.ku != null) {
-            return this.ku.hashCode();
+        if (this.la != null) {
+            return this.la.hashCode();
         }
         return 0;
     }
 
     public final String toString() {
         StringBuilder sb = new StringBuilder();
-        if (this.ku != null) {
-            for (Map.Entry<c, String> entry : this.ku.entrySet()) {
+        if (this.la != null) {
+            for (Map.Entry<c, String> entry : this.la.entrySet()) {
                 sb.append(entry.getKey().toString()).append(":").append(entry.getValue()).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
             }
-            if (!this.ku.isEmpty()) {
+            if (!this.la.isEmpty()) {
                 sb.deleteCharAt(sb.length() - 1);
             }
         }

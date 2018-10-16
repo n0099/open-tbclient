@@ -6,12 +6,11 @@ import cn.jiguang.service.Protocol;
 import com.baidu.ar.msghandler.ComponentMessageType;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import org.apache.http.HttpStatus;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class k {
-    public static cn.jiguang.h.e lw;
+    public static cn.jiguang.h.e mb;
 
     public static c a(String str, String str2, Context context, boolean z, int i, int i2) {
         try {
@@ -26,20 +25,20 @@ public final class k {
                     bVar.setUseCaches(false);
                     String a2 = cn.jiguang.d.h.a.a.a();
                     byte[] a3 = cn.jiguang.d.h.a.a.a(a, a2, i2 == 2 ? "0102030405060708" : "iop203040506aPk!");
-                    bVar.f(a3);
+                    bVar.i(a3);
                     bVar.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(a3.length));
                     bVar.m(true);
-                    if (lw == null) {
+                    if (mb == null) {
                         try {
                             String cerTificate = Protocol.getCerTificate();
                             if (!TextUtils.isEmpty(cerTificate)) {
-                                lw = new cn.jiguang.h.e(cerTificate);
+                                mb = new cn.jiguang.h.e(cerTificate);
                             }
                         } catch (Throwable th) {
                         }
                     }
-                    if (lw != null) {
-                        bVar.a(lw);
+                    if (mb != null) {
+                        bVar.a(mb);
                     }
                     bVar.setRequestProperty("Accept", "application/jason");
                     bVar.setRequestProperty("Accept-Encoding", "gzip");
@@ -62,19 +61,19 @@ public final class k {
                         cn.jiguang.e.c.a("HttpHelper", "status code:" + responseCode + " retry left:" + i);
                         switch (responseCode) {
                             case 200:
-                                return new c(0, b.cb());
-                            case HttpStatus.SC_UNAUTHORIZED /* 401 */:
-                                return new c(-3, b.cb());
-                            case HttpStatus.SC_NOT_FOUND /* 404 */:
-                            case HttpStatus.SC_GONE /* 410 */:
+                                return new c(0, b.cs());
+                            case 401:
+                                return new c(-3, b.cs());
+                            case 404:
+                            case 410:
                             case 429:
-                                return new c(-1, b.cb());
-                            case HttpStatus.SC_SERVICE_UNAVAILABLE /* 503 */:
-                                return new c(-2, b.cb());
+                                return new c(-1, b.cs());
+                            case 503:
+                                return new c(-2, b.cs());
                             case ComponentMessageType.MSG_TYPE_LOGO_START /* 3005 */:
                                 break;
                             default:
-                                return responseCode >= 500 ? new c(-1, b.cb()) : new c(-2, b.cb());
+                                return responseCode >= 500 ? new c(-1, b.cs()) : new c(-2, b.cs());
                         }
                     }
                     return new c(-2, "Failed - retry enough");

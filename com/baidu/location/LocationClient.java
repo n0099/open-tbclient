@@ -19,13 +19,11 @@ import android.webkit.WebView;
 import com.baidu.location.a.c;
 import com.baidu.location.a.h;
 import com.baidu.location.a.i;
-import com.baidu.sapi2.utils.StatService;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.commons.logging.LogFactory;
-import org.apache.http.HttpStatus;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class LocationClient implements c.a {
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
     public static final int CONNECT_HOT_SPOT_TRUE = 1;
@@ -107,7 +105,7 @@ public final class LocationClient implements c.a {
     private final Messenger i = new Messenger(this.h);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class a extends Handler {
         private final WeakReference<LocationClient> a;
 
@@ -186,7 +184,7 @@ public final class LocationClient implements c.a {
                     } catch (Exception e) {
                         return;
                     }
-                case HttpStatus.SC_NOT_ACCEPTABLE /* 406 */:
+                case 406:
                     try {
                         Bundle data3 = message.getData();
                         byte[] byteArray2 = data3.getByteArray("mac");
@@ -239,7 +237,7 @@ public final class LocationClient implements c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -527,7 +525,7 @@ public final class LocationClient implements c.a {
         bundle.putBoolean("enableSimulateGps", this.c.enableSimulateGps);
         bundle.putInt("timeOut", this.c.timeOut);
         bundle.putInt(LogFactory.PRIORITY_KEY, this.c.priority);
-        bundle.putBoolean(StatService.StatModel.KEY_MAP, this.y.booleanValue());
+        bundle.putBoolean("map", this.y.booleanValue());
         bundle.putBoolean(com.baidu.sapi2.utils.enums.a.a, this.z.booleanValue());
         bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
         bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
@@ -624,7 +622,7 @@ public final class LocationClient implements c.a {
     }
 
     public void disableAssistantLocation() {
-        i.rw().b();
+        i.tq().b();
     }
 
     public void disableLocInForeground(boolean z) {
@@ -636,7 +634,7 @@ public final class LocationClient implements c.a {
     }
 
     public void enableAssistantLocation(WebView webView) {
-        i.rw().a(this.f, webView, this);
+        i.tq().a(this.f, webView, this);
     }
 
     public void enableLocInForeground(int i, Notification notification) {
@@ -712,7 +710,7 @@ public final class LocationClient implements c.a {
             return false;
         }
         try {
-            this.g.send(Message.obtain((Handler) null, (int) HttpStatus.SC_NOT_ACCEPTABLE));
+            this.g.send(Message.obtain((Handler) null, 406));
             return true;
         } catch (Exception e) {
             return false;

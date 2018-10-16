@@ -14,7 +14,7 @@ public final class r {
     public static q a(File file, Set<String> set) {
         q d = d(file);
         if (d != null) {
-            d.b(cn.jiguang.d.h.h.a(d.bK(), set));
+            d.b(cn.jiguang.d.h.h.a(d.cb(), set));
         }
         return d;
     }
@@ -26,15 +26,15 @@ public final class r {
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             File c = qVar.c();
-            if (cn.jiguang.d.h.h.h(qVar.bK())) {
+            if (cn.jiguang.d.h.h.h(qVar.cb())) {
                 cn.jiguang.d.h.f.a(c);
             } else {
                 if (qVar.g()) {
-                    cn.jiguang.d.h.h.a(qVar.bK(), qVar.e());
+                    cn.jiguang.d.h.h.a(qVar.cb(), qVar.e());
                     qVar.b(false);
                 }
                 if (qVar.f()) {
-                    cn.jiguang.d.h.f.b(qVar.c(), qVar.bK().toString());
+                    cn.jiguang.d.h.f.b(qVar.c(), qVar.cb().toString());
                     qVar.b();
                 }
                 if (!file.equals(c.getParentFile())) {
@@ -85,8 +85,8 @@ public final class r {
         boolean z = false;
         if (qVar.a() + qVar2.a() <= i) {
             try {
-                JSONArray jSONArray = qVar.bK().getJSONArray("content");
-                JSONArray jSONArray2 = qVar2.bK().getJSONArray("content");
+                JSONArray jSONArray = qVar.cb().getJSONArray("content");
+                JSONArray jSONArray2 = qVar2.cb().getJSONArray("content");
                 int i2 = 0;
                 while (i2 < jSONArray2.length()) {
                     jSONArray.put(jSONArray2.getJSONObject(i2));

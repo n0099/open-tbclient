@@ -2,8 +2,9 @@ package com.baidu.fsg.base.restnet.beans.business;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import com.baidu.webkit.internal.ETAG;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BeanRequestBase {
     private static final String TAG = "BeanRequestBase";
     protected boolean mBelongPaySdk = false;
@@ -18,8 +19,8 @@ public abstract class BeanRequestBase {
             return "";
         }
         try {
-            for (String str3 : str.split("&")) {
-                String[] split = str3.split("=");
+            for (String str3 : str.split(ETAG.ITEM_SEPARATOR)) {
+                String[] split = str3.split(ETAG.EQUAL);
                 if (split != null && !TextUtils.isEmpty(split[0]) && str2.equals(split[0].toUpperCase()) && split.length > 1) {
                     return URLDecoder.decode(split[1]);
                 }

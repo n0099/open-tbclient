@@ -6,71 +6,71 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v {
-    private static v cGw;
-    private List<am> bxr;
+    private static v cOQ;
+    private List<am> bGa;
 
-    public static v akM() {
-        if (cGw == null) {
+    public static v aoo() {
+        if (cOQ == null) {
             synchronized (v.class) {
-                if (cGw == null) {
-                    cGw = new v();
+                if (cOQ == null) {
+                    cOQ = new v();
                 }
             }
         }
-        return cGw;
+        return cOQ;
     }
 
     public void a(am amVar) {
         if (amVar != null) {
-            if (this.bxr == null) {
-                this.bxr = new ArrayList();
+            if (this.bGa == null) {
+                this.bGa = new ArrayList();
             }
-            if (this.bxr != null) {
-                this.bxr.add(amVar);
+            if (this.bGa != null) {
+                this.bGa.add(amVar);
             }
         }
     }
 
-    public void dc(boolean z) {
-        if (com.baidu.tbadk.core.util.v.y(this.bxr) != 0) {
-            for (am amVar : this.bxr) {
+    public void dy(boolean z) {
+        if (com.baidu.tbadk.core.util.v.I(this.bGa) != 0) {
+            for (am amVar : this.bGa) {
                 if (amVar != null) {
                     int i = 0;
                     if (z) {
                         i = 1;
                     }
-                    amVar.w("obj_param2", i);
+                    amVar.x("obj_param2", i);
                     TiebaStatic.log(amVar);
                 }
             }
-            this.bxr.clear();
+            this.bGa.clear();
         }
     }
 
-    public void eP(boolean z) {
-        if (com.baidu.tbadk.core.util.v.y(this.bxr) != 0) {
-            for (am amVar : this.bxr) {
+    public void fh(boolean z) {
+        if (com.baidu.tbadk.core.util.v.I(this.bGa) != 0) {
+            for (am amVar : this.bGa) {
                 if (amVar != null) {
                     int i = 0;
                     if (z) {
                         i = 1;
                     }
-                    amVar.w("obj_type", i);
+                    amVar.x("obj_type", i);
                     TiebaStatic.log(amVar);
                 }
             }
-            this.bxr.clear();
+            this.bGa.clear();
         }
     }
 
-    public void Up() {
-        if (com.baidu.tbadk.core.util.v.y(this.bxr) != 0) {
-            for (am amVar : this.bxr) {
+    public void XX() {
+        if (com.baidu.tbadk.core.util.v.I(this.bGa) != 0) {
+            for (am amVar : this.bGa) {
                 if (amVar != null) {
                     TiebaStatic.log(amVar);
                 }
             }
-            this.bxr.clear();
+            this.bGa.clear();
         }
     }
 }

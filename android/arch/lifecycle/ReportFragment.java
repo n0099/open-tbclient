@@ -9,7 +9,7 @@ import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ReportFragment extends Fragment {
-    private a jG;
+    private a jE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
@@ -50,21 +50,21 @@ public class ReportFragment extends Fragment {
     @Override // android.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        a(this.jG);
+        a(this.jE);
         c(Lifecycle.Event.ON_CREATE);
     }
 
     @Override // android.app.Fragment
     public void onStart() {
         super.onStart();
-        b(this.jG);
+        b(this.jE);
         c(Lifecycle.Event.ON_START);
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        c(this.jG);
+        c(this.jE);
         c(Lifecycle.Event.ON_RESUME);
     }
 
@@ -84,7 +84,7 @@ public class ReportFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         c(Lifecycle.Event.ON_DESTROY);
-        this.jG = null;
+        this.jE = null;
     }
 
     private void c(Lifecycle.Event event) {

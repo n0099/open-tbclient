@@ -10,7 +10,7 @@ import cn.jiguang.d.i.f;
 import cn.jiguang.g.i;
 import com.baidu.ar.audio.AudioParams;
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
+import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -27,15 +27,15 @@ public final class a {
             } catch (JSONException e) {
             }
             if (jSONObject2 == null) {
-                e.bR().a(context);
-                jSONObject = cn.jiguang.a.a.c.b.a(context, e.bR());
+                e.ci().a(context);
+                jSONObject = cn.jiguang.a.a.c.b.a(context, e.ci());
             } else {
                 jSONObject = jSONObject2;
             }
             try {
-                e.bR();
+                e.ci();
                 byte an = e.an(context);
-                e.bR();
+                e.ci();
                 String d = e.d(context);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("rom_type", (int) an);
@@ -81,7 +81,7 @@ public final class a {
                         break;
                     case 5:
                         Context context = cn.jiguang.d.a.d;
-                        a(cn.jiguang.d.b.d.bx().by());
+                        a(cn.jiguang.d.b.d.bO().bP());
                         break;
                     case 6:
                         break;
@@ -132,7 +132,7 @@ public final class a {
             cn.jiguang.e.c.c("CtrlMessageProcessor", "reportCtrlReceived to report received failed - " + a);
             c = 65535;
         } else {
-            if (cn.jiguang.d.g.c.bP().bQ().j(a4) != 0) {
+            if (cn.jiguang.d.g.c.cg().ch().j(a4) != 0) {
                 cn.jiguang.e.c.c("CtrlMessageProcessor", "Failed to report received - " + a);
             }
             c = 0;
@@ -202,7 +202,7 @@ public final class a {
             if (jSONObject.has("content")) {
                 jSONObject = jSONObject.getJSONObject("content");
             }
-            long j = jSONObject.getLong("interval");
+            long j = jSONObject.getLong(AiAppsBluetoothConstants.KEY_INTERVAL);
             if (j < 0) {
                 cn.jiguang.d.a.d.a(context, "app_running_collect_enable", false);
                 return;
@@ -224,13 +224,13 @@ public final class a {
 
     private static void b(Context context, JSONObject jSONObject) {
         try {
-            int optInt = jSONObject.getJSONObject("content").optInt(WXLoginActivity.KEY_BASE_RESP_STATE, -1);
+            int optInt = jSONObject.getJSONObject("content").optInt("state", -1);
             if (optInt != -1) {
                 if (optInt == 0) {
                     cn.jiguang.d.a.d.b(context, optInt);
                 } else if (optInt == 1) {
                     cn.jiguang.d.a.d.b(context, optInt);
-                    cn.jiguang.d.f.a.bO().a(context, cn.jiguang.api.e.getUid());
+                    cn.jiguang.d.f.a.cf().a(context, cn.jiguang.api.e.getUid());
                     cn.jiguang.d.f.a.a(context, context.getPackageName());
                 }
             }
@@ -240,7 +240,7 @@ public final class a {
 
     private static void c(Context context, JSONObject jSONObject) {
         try {
-            long optLong = jSONObject.getJSONObject("content").optLong("interval", 0L);
+            long optLong = jSONObject.getJSONObject("content").optLong(AiAppsBluetoothConstants.KEY_INTERVAL, 0L);
             if (optLong <= 0 || optLong > cn.jiguang.a.b.a.a(context) / 1000) {
                 return;
             }
@@ -254,7 +254,7 @@ public final class a {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("content");
             int optInt = jSONObject2.optInt("type");
-            cn.jiguang.d.i.h bV = f.bT().bV();
+            cn.jiguang.d.i.h cm = f.ck().cm();
             switch (optInt) {
                 case 1:
                     String optString = jSONObject2.optString("pkgName");
@@ -262,7 +262,7 @@ public final class a {
                     cn.jiguang.d.d.a aVar = new cn.jiguang.d.d.a();
                     aVar.a = optString;
                     aVar.b = optString2;
-                    bV.a(context, aVar);
+                    cm.a(context, aVar);
                     break;
                 case 2:
                     String optString3 = jSONObject2.optString("pkgName");
@@ -270,7 +270,7 @@ public final class a {
                     cn.jiguang.d.d.a aVar2 = new cn.jiguang.d.d.a();
                     aVar2.a = optString3;
                     aVar2.b = optString4;
-                    bV.b(context, aVar2);
+                    cm.b(context, aVar2);
                     break;
             }
         } catch (SecurityException e) {

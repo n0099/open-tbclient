@@ -3,7 +3,7 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class h extends a {
     public static BdUniqueId TYPE = BdUniqueId.gen();
     private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();

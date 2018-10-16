@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.GetHistoryForum.DataReq;
 import tbclient.GetHistoryForum.GetHistoryForumReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RecentlyVisitedForumRequestMessage extends NetMessage {
     private String history_info;
     private LinkedList<VisitedForumData> mForumData;
@@ -46,7 +46,7 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                     VisitedForumData next = it.next();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("forum_id", com.baidu.adp.lib.g.b.d(next.getForumId(), 0L));
-                    jSONObject.put("visit_time", next.Iu());
+                    jSONObject.put("visit_time", next.Kt());
                     jSONArray.put(jSONObject);
                 }
             }

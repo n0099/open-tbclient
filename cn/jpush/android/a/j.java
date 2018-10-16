@@ -30,7 +30,7 @@ public final class j implements Runnable {
             cn.jiguang.h.c a = cn.jpush.android.b.a.a(this.a, 5, 8000L);
             if (a != null && a.getResponseCode() == 200) {
                 z = true;
-                str = a.cb();
+                str = a.cs();
                 break;
             }
         }
